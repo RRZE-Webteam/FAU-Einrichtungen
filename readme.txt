@@ -1,6 +1,6 @@
 FAU-Philfak 
-Wordpress-Theme für die Medizinische Fakultät 
-der Friedrich-Alexander-Universität (FAU)
+Wordpress-Theme für zentrale Einrichtungen der 
+Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)
 ====================================================
  
 
@@ -8,7 +8,7 @@ der Friedrich-Alexander-Universität (FAU)
 DOWNLOADS
 
     GITHub-Repo:
-        https://github.com/RRZE-Webteam/FAU-Medfak
+        https://github.com/RRZE-Webteam/FAU-Einrichtungen
     
     
 
@@ -38,10 +38,8 @@ OPTIONAL PLUGINS
 
 * FAU-Events (https://github.com/RRZE-Webteam/fau-events) 
 * CMS-Workflow (https://github.com/RRZE-Webteam/cms-workflow)
-* RRZE-Sitemap (https://github.com/RRZE-Webteam/rrze-sitemap)
 * RRZE-UnivIS (https://github.com/RRZE-Webteam/rrze-univis)
 * TinyMCE Advanced
-* CMS Tree Page View   
 * CMS-Search (https://github.com/RRZE-Webteam/cms-search)
 * MimeTypes Link Icons
 * WP External Link
@@ -55,7 +53,7 @@ OPTIONAL PLUGINS
 FEEDBACK & BUGS
 
 Please use github for submitting new features or bugs:
- https://github.com/RRZE-Webteam/FAU-Philfak/issues
+ https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues
 
 or send an email to 
  webmaster@rrze.fau.de
