@@ -1,0 +1,536 @@
+body, html {
+	overflow-x: hidden;
+}
+
+body {
+	margin: 0;
+	font-size: 13px;
+	line-height: 18px;
+	color: $colorText;
+	background-color: $colorPrimaryHero;
+}
+
+/* Wrap content in white */
+#wrap {
+	min-height: 100%;
+	margin: 0 auto;
+	background: #fff;
+}
+
+html, body, textarea, input, button, select {
+	font-family: $fontStack;
+}
+
+a {
+	color: $colorPrimary;
+	
+	&:hover, &:focus {
+		color: $colorHover;
+	}
+	
+	p &, li &, table & {
+		text-decoration: underline;
+	}
+	
+	table &:hover, table &:focus {
+		text-decoration: none;
+	}
+	
+	#hero & {
+		text-decoration: none;
+	}
+	
+	#hero &:hover, #hero &:focus {
+		text-decoration: underline;
+	}
+}
+
+p {
+	margin: 0;
+	padding: 0 0 11px 0;
+	font-size: 15px;
+	line-height: 22px;
+	color: $colorText;
+	font-family: $fontStack;
+	
+	#content & {
+		@include hyphens(auto);
+	}
+	
+	#content .textwidget & {
+		font-size: 13px;
+	}
+	
+	&.searchnotice {
+		font-size: 24px;
+		line-height: 28px;
+		padding: 4px 0 22px 0;
+	}
+	&.hinweis {
+	    margin: 0;
+	    padding: 22px 0;
+	    color: $colorPrimary;
+	    font-weight: bold;
+	    &:before {
+			@extend .fa;
+			@extend .fa-2x;
+			@extend .fa-exclamation-circle;
+			padding-right: 8px;
+			font-weight: normal;
+			vertical-align: -4px;
+		}
+	}
+	&.attention {
+		display: block;
+		color: $colorNotice;
+		padding: 10px 0;
+		margin: 20px 0;
+		font-weight: bold;
+		
+		&:before {
+			@extend .fa;
+			@extend .fa-2x;
+			@extend .fa-exclamation-circle;
+			padding-right: 8px;
+			font-weight: normal;
+			vertical-align: -4px;
+		}
+	}
+	&.baustelle {
+		display: block;
+		color: $colorText;
+		padding: 10px 0;
+		margin: 20px 0;
+		font-weight: bold;
+		
+		&:before {
+			@extend .fa;
+			@extend .fa-2x;
+			@extend .fa-cogs;
+			padding-right: 8px;
+			font-weight: normal;
+			vertical-align: -4px;
+		}
+	}
+	&.question {
+		display: block;
+		color: $colorText;
+		padding: 10px 0;
+		margin: 20px 0;
+		
+		&:before {
+			color: orange;
+			@extend .fa;
+			@extend .fa-2x;
+			@extend .fa-question-circle;
+			padding-right: 8px;
+			font-weight: normal;
+			vertical-align: -4px;
+		}
+	}
+	&.minus {
+		display: block;
+		color: $colorText;
+		padding: 10px 0;
+		margin: 20px 0;
+		
+		&:before {
+			color: red;
+			@extend .fa;
+			@extend .fa-2x;
+			@extend .fa-minus-circle;
+			padding-right: 8px;
+			font-weight: normal;
+			vertical-align: -4px;
+		}
+	}
+	&.plus {
+		display: block;
+		color: $colorText;
+		padding: 10px 0;
+		margin: 20px 0;
+		
+		&:before {
+			color: green;
+			@extend .fa;
+			@extend .fa-2x;
+			@extend .fa-plus-circle;
+			padding-right: 8px;
+			font-weight: normal;
+			vertical-align: -4px;
+		}
+	}
+	
+	#content .span4 .widget &,
+	#content .sidebar-inline .widget & {
+		font-size: 13px;
+		line-height: 22px;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $colorPrimary;
+}
+
+h2 {
+	font-size: 24px;
+	line-height: 28px;
+	margin: 0;
+	padding: 22px 0;
+	font-weight: bold;
+	
+	&.small {
+		font-size: 18px;
+		line-height: 22px;
+		
+		.widget & {
+			padding-bottom: 11px;
+		}
+		
+		.sidebar-inline & {
+			padding-top: 0;
+			
+		}
+		
+		.search-sidebar & {
+			padding-top: 8px;
+		}
+	}
+	&.subtitle {
+		font-size: 18px;
+		line-height: 22px;
+		padding: 0 0 22px 0;		
+	}
+	
+	&.menu-header {
+		padding: 11px 15px;
+		margin-top: 10px;
+		border-top: 1px solid $colorLightest;	
+	}
+	
+	.search & {
+		padding-top: 4px;
+	}
+}
+
+h3 {
+	margin: 0;
+	padding: 11px 0;
+	font-size: 18px;
+	line-height: 22px;
+	font-weight: bold;
+	
+	&.abstract {
+		padding: 0 0 22px 0;
+	}
+	
+	.span &, 
+	.span4 &, 
+	.subpages-menu & {
+		font-size: 16px;
+		font-weight: normal;
+	}
+
+	
+}
+
+h4 {
+	margin: 0;
+	padding: 11px 0 11px 0;
+	font-size: 15px;
+	line-height: 22px;
+	font-weight: bold;
+	
+	.span3 &, 
+	.span4 & {
+		font-size: 14px;
+	}
+}
+
+h5 {
+	margin: 0;
+	padding: 11px 0 11px 0;
+	font-size: 15px;
+	line-height: 22px;
+	font-weight: normal;
+}
+
+h1 em, 
+h2 em, 
+h3 em, 
+h4 em, 
+h5 em, 
+h6 em {
+	font-style: normal;
+}
+
+li {
+	padding: 3px 0 4px 4px;
+	font-size: 15px;
+	line-height: 22px;
+	color: $colorText;
+}
+
+.sidebar-inline li {
+    	background: url('../img/list-arrow.png') no-repeat left 4px;
+	padding: 3px 0 4px 20px;
+}
+
+ul {
+	li {
+	    list-style-type: circle;	    
+	    ul li {
+		list-style-type: disc;		
+		ul li {
+		   list-style-type: square;
+		}
+	    }
+	}
+}
+
+ol {
+	li {
+		padding-left: 0;
+		list-style: decimal;
+		ol li {
+		    list-style: lower-latin;
+		    
+		    ol li {
+		     list-style: upper-roman;
+		     
+		      ol li {
+			list-style: lower-greek;
+			}
+		     
+		    }
+		    ul li {
+			list-style-type: circle;
+		    }
+		}
+		ul li {
+		     list-style-type: circle;	    
+		}
+	}
+}
+
+hr {
+	position: relative;
+	z-index: 10;
+	clear: both;
+	display: block;
+	height: 60px;
+	background: #fff;
+	border: none;
+	outline: none;
+	margin: 20px 0 60px 0;
+}
+
+hr:before {
+	content: "";
+	position: absolute;
+	background: #fff;
+	top: 0; 
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 11;
+}
+
+hr:after {
+	content: "";
+	position: absolute; 
+	top: 30px;
+	bottom: 0;
+	left: 50px;
+	right: 50px;
+	z-index: 9;
+	@include box-shadow(0 0 30px $colorStandardHellgrau);
+	@include border-radius(100px / 10px);
+}
+
+blockquote {
+	padding: 0;
+	margin: 0;
+	border: none;
+	font-family: $fontStackSerifs;
+	
+	p {
+		font-family: $fontStackSerifs;
+	}
+}
+
+table {
+	border: 0;
+	background: transparent;
+	border-top: 1px solid $colorContentBorders;
+	border-bottom: 1px solid $colorContentBorders;
+	margin: 5px 0 20px 0;
+	width: 100%;
+	
+	tbody, tr, th, td {
+		border: 0;
+	}
+	
+	th, td {
+		padding: 7px 10px;
+		
+		font-size: 13px;
+		line-height: 18px;
+	}
+	
+	th {
+		color: $colorText;
+		background: $colorContentBorders;
+		font-weight: bold;
+		border-top: 1px solid $colorContentBorders;
+		border-bottom: 1px solid $colorContentBorders;
+		text-align: left;
+		
+		#studienangebot-result & {
+			width: 200px;
+			vertical-align: top;
+		}
+	}
+	
+	td {
+		border-right: 1px solid #fff;
+		color: $colorText;
+	}
+	
+	tr {
+		border-left: 1px solid $colorStandardHellgrau;
+		border-right: 1px solid $colorStandardHellgrau;
+	}
+	
+	tr:nth-child(odd) td {
+		color:  $colorLightestContrast;
+		background: $colorStandardHellgrau;
+		
+		ul {
+		    li {
+			color:  $colorLightestContrast;
+		    }
+		}
+	}
+	
+	ul {
+		li {
+			color: $colorPrimary;
+			font-size: 13px;
+			line-height: 18px;
+			background-position: left 5px;
+		}
+	}
+}
+
+select, 
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="date"], 
+input[type="month"], 
+input[type="time"], 
+input[type="week"], 
+input[type="number"], 
+input[type="email"], 
+input[type="url"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="color"] {
+	width: 290px;
+	padding: 5px 10px;
+}
+
+textarea {
+	height: 100px;
+}
+
+form {
+	border: 1px solid $colorLightest;
+	padding: 20px;
+}
+
+label {
+	display: block;
+	float: left;
+	width: 240px;
+	text-align: left;
+	clear: left;
+	padding-top: 5px;
+	margin-right: 20px;
+}
+
+input[type="submit"] {
+	@include inline-block;
+	border: none;
+	height: 30px;
+	line-height: 30px;
+	padding: 5px 20px;
+	box-sizing: content-box;
+	@include border-radius(20px);
+	background: $colorPrimary;
+	color: #fff;
+	font-weight: bold;
+	
+	&:hover, &:focus {
+		background: $colorHover;
+	}
+	
+	&:active {
+		background: $colorHover;
+	}
+}
+
+.dl-horizontal {
+	dt,
+	dd {
+		border: none;
+		font-size: 14px;
+		line-height: 20px;
+		float: none;
+		width: auto;
+		display: block;
+		padding: 0;
+		margin: 0; 
+		
+		ul, li, p {
+			font-size: 14px;
+			line-height: 20px;
+		}
+		
+		ul, ol {
+			margin-left: 10px;
+		}
+		
+		li {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+		
+		p {
+			padding: 0;
+			margin: 0 !important;
+		}
+	}
+	
+	dt {
+		margin: 5px 0;
+		color: $colorPrimary;
+	}
+	
+	dd {
+		margin: 0 0 10px 25px;
+		color: $colorText;
+	}
+	
+	a {
+		text-decoration: underline;
+	}
+}

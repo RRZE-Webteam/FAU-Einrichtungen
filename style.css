@@ -1,0 +1,16 @@
+/*
+Theme Name: FAU-Einrichtungen
+Theme URI: https://github.com/RRZE-Webteam/FAU-Einrichtungen
+GitHub Theme URI: https://github.com/RRZE-Webteam/FAU-Einrichtungen
+Author: RRZE-Webteam
+Author URI: http://www.rrze.fau.de
+Description: Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU))
+Version: 1.3.5
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: FAU, Website, Corporate Design
+Text Domain: fau
+*/
+
+@import url(css/base.css);
+@import url(css/print.css); 

@@ -1,0 +1,43 @@
+/* Additional CSS Definitons, that may overwrite prior definitions */
+
+.textcol-phil {
+		color: $colorPhilFak !important;
+}
+.textcol-rw {
+		color: $colorRwFak !important;
+}
+.textcol-med {
+		color: $colorMedFak !important;
+}
+.textcol-nat {
+		color: $colorNatFak !important;
+}
+
+.textcol-tech {
+		color: $colorTechFak !important;
+}
+.textcol-fau, 
+.textcol-default {
+		color: $colorDefault !important;
+}
+
+.bgcol-phil {
+		background-color: $colorPhilFak !important;
+}
+.bgcol-rw {
+		background-color: $colorRwFak !important;
+}
+.bgcol-med {
+		background-color: $colorMedFak !important;
+}
+.bgcol-nat {
+		background-color: $colorNatFak !important;
+}
+
+.bgcol-tech {
+		background-color: $colorTechFak !important;
+}
+.bgcol-fau, 
+.bgcol-default {
+		background-color: $colorDefault !important;
+}

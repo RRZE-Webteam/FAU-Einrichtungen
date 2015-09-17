@@ -1,0 +1,151 @@
+
+// Konstante fuer das Design
+ $farbfamilie: 'zuv';
+ 
+// Define breakpoints
+$breakSM: 480px;
+$breakMD: 767px;
+$breakLG: 979px;
+
+// Define fonts
+$fontStack: 'roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$fontStackSerifs: Georgia, serif;
+
+// Define text colors
+$colorText:		#444;
+$colorTextLight:	#797676;
+
+// Define notice colors
+$colorNotice: 		#a71c18;
+
+
+// Define colors of each faculty
+$colorPhilFak:	    #A36B0D;
+$colorRwFak:	    #8d1429;
+$colorMedFak:	    #0381A2;
+$colorNatFak:	    #048767;
+$colorTechFak:	    #6E7881;
+$colorZUV:	    #003366;
+$colorDefault:	    #003366;
+
+$colorStandardHellgrau:	    #e9edf2;  
+    // FAU: colorlightest:
+    // desaturate(lighten($colorZUV, 73%), 75%);
+$colorContentBorders:	    #dfe6ec;  
+    // FAU: colorlight
+    // desaturate(lighten($colorZUV, 69%), 75%);
+$colorContentRegions:	    #f5f7f9;
+    // FAU: lighten($colorZUV, 4%);
+
+// Define defaults and variables
+$colorPrimary: $colorZUV;	
+$colorPrimaryContrast: #fff;
+$PalettonHellste:	desaturate(lighten($colorPrimary, 73%), 75%);
+$PalettonHeller:	desaturate(lighten($colorPrimary, 69%), 75%);
+$PalettonDunkler:	desaturate(lighten($colorPrimary, 10%), 90%);
+$PalettonDunkelste:	desaturate(lighten($colorPrimary, 10%), 40%);
+$siegelurl: '../img/siegel-zuv.png';  
+ 
+$colorPrimaryHero:	    $colorPrimary;
+    
+ @if $farbfamilie == 'med' {
+    $colorPrimary: $colorMedFak;
+    $PalettonHellste:	#eaf3fc; // #35C0DA;
+    $PalettonHeller:	#bfd6f5; // #08C0E7;
+    $PalettonDunkler:	#026480;
+    $PalettonDunkelste:	#014e63;
+    $siegelurl: '../img/siegel-medfak.png';
+
+ } @else if $farbfamilie == 'phil' {
+    $colorPrimary: $colorPhilFak;
+    $PalettonHellste:	#f3eedf;
+    $PalettonHeller:	#d9c689;
+    $PalettonDunkler:	#805000;
+    $PalettonDunkelste:	#553500;
+    $siegelurl: '../img/siegel-philfak.png';   
+ }  @else if $farbfamilie == 'nat' {
+    $colorPrimary: $colorNatFak;
+    $PalettonHellste:	#e5efea;
+    $PalettonHeller:	#aacfbd;
+    $PalettonDunkler:	#006e53;
+    $PalettonDunkelste:	#00533f;
+    $siegelurl: '../img/siegel-natfak.png';     
+ }  @else if $farbfamilie == 'rw' {
+    $colorPrimary: $colorRwFak;    
+    $PalettonHellste:	#ede7de; // #C9A8AF;
+    $PalettonHeller:	#c5ac94; // #bd7d8b;
+    $PalettonDunkler:	#690013;
+    $PalettonDunkelste:	#42000c;
+    $siegelurl: '../img/siegel-rwfak.png';   
+
+ }  @else if $farbfamilie == 'tech' {
+    $colorPrimary: $colorTechFak;    
+    $PalettonHellste:	#ebecee; // #bfc2c5;
+    $PalettonHeller:	#d2d5d7; // #8e949a;
+    $PalettonDunkler:	#53606b;
+    $PalettonDunkelste:	#3b4956;
+    $siegelurl: '../img/siegel-techfak.png';   
+ } @else if $farbfamilie == 'zuv' {
+    $colorPrimary: $colorZUV;
+    $PalettonHellste:	#dde5f0;
+    $PalettonHeller:	#8fb1ef;
+    $PalettonDunkler:	#24598f;
+    $PalettonDunkelste:	#1f4c7a;
+    $siegelurl: '../img/siegel-zuv.png';     
+ }
+    
+     
+
+// $colorHover: 	desaturate(lighten($colorPrimary, 10%), 40%);
+// $colorLight:	desaturate(lighten($colorPrimary, 69%), 75%);
+// $colorLightest:	desaturate(lighten($colorPrimary, 73%), 75%);
+
+
+
+$colorHover:		    $PalettonDunkelste;
+$colorLight:		    $PalettonHeller;
+$colorLightContrast:	    #fff;
+$colorLightest:		    $PalettonHellste;
+$colorLightestContrast:	    $PalettonDunkelste;
+$colorPrimaryHero:	    $colorPrimary;
+$colorPrimaryHeroLight:	    lighten($colorPrimary, 15%); 
+
+
+$colorSubNavCurrent:		#fff;
+$colorSubNavCurrentBackground:  $PalettonDunkler;
+$colorSubNavCurrentHover:	#fff;
+$colorSubNavCurrentHoverBackground: $colorHover;
+$colorSubNav:			$PalettonDunkelste;
+$colorSubNavBackground:		$colorLightest;
+$colorSubNavBackgroundHover:	$PalettonDunkler; // darken($colorSubNavBackground, 5%);
+$colorMainMenu:			#fff;
+
+
+$colorButton:			$PalettonDunkelste;
+$colorButtonBackground:		$colorLightest;
+$colorButtonBackgroundHover:	darken($colorButtonBackground, 5%);
+
+$colorSearchPlaceholder:        #111;
+$colorSearchInput:		#000;
+$colorSearchInputBackground:	$colorLightest;
+$colorSearchInputBackgroundFocus:  #fff;
+
+// Meta Menu
+$colorMeta:			$colorDefault;
+// Define Background-Color for Meta Menu at top
+$colorMetaBackground:		$colorStandardHellgrau;
+$colorMetaFAUHomeBackground:	desaturate(darken($colorStandardHellgrau, 10%), 90%); // #d0d3d8;
+$colorMetaHover:		desaturate(lighten($colorDefault, 10%), 40%);
+$colorMetaLight:		desaturate(lighten($colorDefault, 69%), 75%);
+$colorMetaLightest:		desaturate(lighten($colorDefault, 73%), 75%);
+
+$colorPasspartoutBackground:	$colorStandardHellgrau;
+
+// Social Bar Startseite
+$colorSocial:			$colorDefault;
+$colorSocialBackground:		$colorMetaBackground;
+
+
+// CopyrightInfos auf Slider und Banner
+$colorCopyright:	     #ddd;
+$colorCopyrightBackground:  rgba(0,0,0,0.4);

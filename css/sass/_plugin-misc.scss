@@ -1,0 +1,11 @@
+/*
+Anpassungen der gestaltung an verschiedene Plugins
+*/
+
+
+.shariff {	
+	li {
+		@include no-list;
+		margin-right: 14px;
+	}
+}
