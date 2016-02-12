@@ -114,13 +114,14 @@
 		.nav-flyout {
 		   	a.button-portal {
 				@include inline-block;
-				background: $colorHover !important;;
+				background: $colorHover !important;
 				padding: 13px 20px;
 				font-size: 18px;
 				line-height: 18px;
 
-				&:hover, &:focus {
-					background: lighten($colorHover, 5%);
+				&:hover, 
+				&:focus {
+					background: lighten($colorHover, 5%) !important;;
 				}
 			}
 			a:hover, 
@@ -198,15 +199,20 @@
 	-moz-border-radius-bottomright: 0;
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
-    	color: $colorMainMenu;
+    	color: $colorPrimary; // $colorMainMenu;
+	
 }
 
+#nav li.level1.focus.has-sub a,
 .no-js #nav li.level1:hover a, 
 .no-js #nav li.active a, 
 .no-js #nav li.level1:focus a, 
+#nav li.level1:hover a, 
+#nav li.active a, 
+#nav li.level1:focus a, 
 #nav li.focus a {
 	background-color: $colorPrimary; 
-	color: $colorMainMenu;
+	color: #fff; // $colorMainMenu;
 	
 }
 
@@ -216,11 +222,11 @@
 	color: $colorMainMenu;
 }
 
-.no-js #nav li.has-sub a:hover, 
-.no-js #nav li.has-sub a:focus, 
-.no-js #nav li.has-sub.active, 
-.no-js #nav li.has-sub:hover a, 
-.no-js #nav li.has-sub:focus a, 
+#nav li.has-sub a:hover, 
+#nav li.has-sub a:focus, 
+#nav li.has-sub.active, 
+#nav li.has-sub:hover a, 
+#nav li.has-sub:focus a, 
 #nav li.has-sub.focus a {
 	// background-position: right -28px;
 	color: $colorMainMenu;
