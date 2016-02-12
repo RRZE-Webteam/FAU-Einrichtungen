@@ -1,6 +1,6 @@
 /* Logo */
 #logo {
-	display: block;
+	display: inline;
 	float: left;
 	margin: 20px 0 10px 0;
 	max-height: 85px;
@@ -9,7 +9,7 @@
 	text-align: right;
 	
 	h1 {
-	    @include inline-block;
+	    display: inline;
 	    font-size: 19px;
 	    line-height: 24px;
 	    font-weight: bold;
@@ -27,8 +27,6 @@
 		    @include border-radius(4px);
 		    background-color: lighten($colorHover, 5%);
 		    color: white;
-		    display: block;
-
 		}	
 		
 	    } 		
@@ -57,7 +55,7 @@
 		display: none;
 		position: absolute;
 		z-index: 30;
-		top: 139px;
+		top: 129px;
 		left: 0;
 		right: 0;
 		background: $colorPrimary;
@@ -101,22 +99,22 @@
 					background: transparent url('../img/list-arrow.png') no-repeat left center;
 					display: block;
 					padding: 7px 20px 7px 20px;
-					color: $colorMainMenu;
+					// color: $colorMainMenu;
 					@include border-radius(0);
 					border-bottom: 1px solid $colorHover;
 				}
 
 				a:hover, a:focus {
 					text-decoration: none;
-					background-color: $colorHover;
+					background-color: $colorHover !important;;
 				}
 			}
 		}
 		
 		.nav-flyout {
-			a.button-portal {
+		   	a.button-portal {
 				@include inline-block;
-				background: $colorHover;
+				background: $colorHover !important;;
 				padding: 13px 20px;
 				font-size: 18px;
 				line-height: 18px;
@@ -124,6 +122,11 @@
 				&:hover, &:focus {
 					background: lighten($colorHover, 5%);
 				}
+			}
+			a:hover, 
+			a:focus {
+					text-decoration: none;
+					background-color: $colorHover;
 			}
 		}
 	}
@@ -202,13 +205,14 @@
 .no-js #nav li.active a, 
 .no-js #nav li.level1:focus a, 
 #nav li.focus a {
-	background-color: $colorPrimary;
+	background-color: $colorPrimary; 
 	color: $colorMainMenu;
+	
 }
 
 .no-js #nav li.level1 a:hover, 
 .no-js #nav li.level1 a:focus {
-	background-color: $colorHover; // $colorPrimary;
+	background-color: $colorPrimary; 
 	color: $colorMainMenu;
 }
 
@@ -225,7 +229,7 @@
 
 
 body.admin-bar #nav .nav-flyout {
-	top: 171px;
+	top: 151px;
 }
 
 .no-js #nav li.level1:hover .nav-flyout, 
@@ -234,12 +238,9 @@ body.admin-bar #nav .nav-flyout {
 	display: block;
 }
 
-.nav-fixed {
-	padding-top: 95px;
-	
+.nav-fixed {	
 	#header {
-		position: fixed;
-		top: -10px;
+	 	position: fixed;
 		left: 0;
 		right: 0;
 		background: #fff;
@@ -252,15 +253,6 @@ body.admin-bar #nav .nav-flyout {
 	}
 }
 
-body.admin-bar.nav-fixed {
-	#header {
-		top: 22px;
-	}
-	
-	#nav .nav-flyout {
-		top: 85px;
-	}
-}
 
 /* Mobile Navigation Toggle Button */
 #nav-toggle {
@@ -336,14 +328,15 @@ body.admin-bar.nav-fixed {
 		}
 	}
 }
-
+	
+	
 /* Meta-Navigation */
 #meta-nav {
 	@include no-list;
 	padding: 0;
 	max-width: 650px;
 	overflow: hidden;
-	height: 42px;
+//	height: 42px;
 	
 	li {
 		@include no-list;
@@ -485,7 +478,7 @@ body.admin-bar.nav-fixed {
 	    font-weight: normal;
 	    line-height: 18px;
 	    margin-bottom: -5px;
-	    color: $colorPrimaryHeroLight;
+	    color: #fff;
 	}
 	.infobar {
 	    padding-top: 15px;

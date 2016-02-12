@@ -35,7 +35,14 @@ global $options;
 		<section id="meta">
 			<div class="container">
 				<div class="pull-left">
-					<?php echo fau_get_toplinks(); ?>
+					<?php 
+					/* if ( has_nav_menu( 'meta' ) ) {
+					    wp_nav_menu( array( 'theme_location' => 'meta', 'container' => false, 'items_wrap' => '<ul id="meta-nav" class="%2$s">%3$s</ul>' ) );
+					} else {
+					    echo fau_get_defaultlinks('meta', 'menu', 'meta-nav');
+					} */
+					echo fau_get_toplinks(); 
+					?>
 				</div>
 				<div class="pull-right">
 					<?php if ( is_active_sidebar( 'language-switcher' ) ) : ?>
