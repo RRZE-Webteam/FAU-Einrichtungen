@@ -6,21 +6,20 @@
 	max-height: 85px;
 	max-width: 300px;
 	min-width: 120px;
-	text-align: right;
-	
+	height: 85px;
 	h1 {
-	    display: inline;
+	    display: inline-block;
 	    font-size: 19px;
 	    line-height: 24px;
 	    font-weight: bold;
-	    color: $PalettonDunkler; // $colorPrimary;
+	    color: $colorPrimary;
 	    overflow: hidden;
-	    padding: 0 5px;
+	    padding: 0;
 	    vertical-align: text-bottom;
 	    text-align: left;
-	    
+	    max-height: 85px;
 	    a {
-		color: $PalettonDunkler; // $colorPrimary;
+		color: $colorPrimary;
 		
 		 &:hover,
 		 &:focus {
@@ -32,9 +31,9 @@
 	    } 		
 	}
 	img {
-	//    max-height: 85px;
+	    max-height: 85px;
 	    max-width: 300px;
-	    height: 65px;
+	    // height: 65px;
 	    width: auto;
 	    padding-right: 10px;
 	    

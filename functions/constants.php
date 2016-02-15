@@ -144,7 +144,7 @@ $defaultoptions = array(
     'facultyhome_url'			=> '',
     'facultyhome_title'			=> '',      
     
-    'socialmedia'		    => 1,
+    'socialmedia'		    => 0,
     'active_socialmedia_footer'	    => array(1),  
     'socialmedia_buttons_title'	    => __('FAUSocial','fau'),
     
