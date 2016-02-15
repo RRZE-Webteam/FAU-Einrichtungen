@@ -38,7 +38,7 @@ function fau_setup() {
 	// Switches default core markup for search form, comment form, and comments
 	// to output valid HTML5.
 //	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
-
+	
 	/*
 	 * This theme supports all available post formats by default.
 	 * See http://codex.wordpress.org/Post_Formats
@@ -46,7 +46,9 @@ function fau_setup() {
 //	add_theme_support( 'post-formats', array(
 //		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
 //	) );
-
+	add_theme_support('title-tag');
+	
+	/*
 	if ( ! function_exists( '_wp_render_title_tag' ) ) :
 	    function theme_slug_render_title() {
 	?>
@@ -55,7 +57,9 @@ function fau_setup() {
 	    }
 	    add_action( 'wp_head', 'theme_slug_render_title' );
 	endif;
-	 
+	 */
+	
+	
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menu( 'meta', __( 'Meta-Navigation oben', 'fau' ) );
 	register_nav_menu( 'meta-footer', __( 'Meta-Navigation unten', 'fau' ) );

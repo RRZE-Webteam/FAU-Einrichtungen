@@ -15,7 +15,6 @@ global $options;
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title><?php wp_title( '-', true, 'right' ); ?></title>
     <?php wp_head(); ?>
 </head>
 
@@ -36,11 +35,6 @@ global $options;
 			<div class="container">
 				<div class="pull-left">
 					<?php 
-					/* if ( has_nav_menu( 'meta' ) ) {
-					    wp_nav_menu( array( 'theme_location' => 'meta', 'container' => false, 'items_wrap' => '<ul id="meta-nav" class="%2$s">%3$s</ul>' ) );
-					} else {
-					    echo fau_get_defaultlinks('meta', 'menu', 'meta-nav');
-					} */
 					echo fau_get_toplinks(); 
 					?>
 				</div>
