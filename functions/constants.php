@@ -7,7 +7,7 @@ $defaultoptions = array(
     'js-version'		    => '1.4',
     'optionpage-tab-default'	    => 'website',
     'content-width'		    => 770,
-    'src-fallback-slider-image'	    => get_template_directory_uri().'/img/slider-fallback.jpg',
+    'src-fallback-slider-image'	    => get_fau_template_uri().'/img/slider-fallback.jpg',
     'slider-category'		    => 'header',
     'slider-catid'		    => 1,
     
@@ -21,7 +21,7 @@ $defaultoptions = array(
     'start_link_news_linktitle'	    => __('Mehr Meldungen','fau'),
     'start_link_videoportal_socialmedia'    => true,
     'start_title_videoportal_socialmedia'   => __('Alle Videos','fau'),
-    'default_submenuthumb_src'	    =>  get_template_directory_uri().'/img/default-submenuthumb.png',
+    'default_submenuthumb_src'	    =>  get_fau_template_uri().'/img/default-submenuthumb.png',
     'default_submenu_spalten'	    => 4,
     'default_submenu_entries'	    => 5,
     'menu_fallbackquote_show_excerpt'		=> 1,
@@ -30,10 +30,10 @@ $defaultoptions = array(
     'start_topevents_max'	    => 1,
     'start_topevents_active'	    => true,
     
-    'default_startseite-bannerbild-image_src'	    => get_template_directory_uri().'/img/bannerbild-tafel-1260x182.jpg',
+    'default_startseite-bannerbild-image_src'	    => get_fau_template_uri().'/img/bannerbild-tafel-1260x182.jpg',
     'startseite_banner_usedefault'  => false,
 
-    'default_topevent_thumb_src'    => get_template_directory_uri().'/img/default-topeventthumb.png',
+    'default_topevent_thumb_src'    => get_fau_template_uri().'/img/default-topeventthumb.png',
     'default_topevent_excerpt_length' => 100,
 
     /* Image Sizes */
@@ -134,7 +134,7 @@ $defaultoptions = array(
     
     'default_display_fauhomelink'	=> true,
     'fauhome_url'			=> 'https://www.fau.de',
-    'fauhome_imgsrc'			=> get_template_directory_uri().'/img/logo-fau-37x16.png',
+    'fauhome_imgsrc'			=> get_fau_template_uri().'/img/logo-fau-37x16.png',
     'fauhome_title'			=> __('Friedrich-Alexander-Universität (FAU)','fau'),
     'fauhome_linktext'			=> __('Zur FAU Seite','fau'),
     'fauhome_useimg'			=> true,
@@ -163,7 +163,7 @@ $defaultoptions = array(
     'google-site-verification'	    => '',
     'default_mainmenu_number'	    => 4,
    
-    'default_logo_src'		    => get_template_directory_uri().'/img/logo-fau.png',
+    'default_logo_src'		    => get_fau_template_uri().'/img/logo-fau.png',
     'default_logo_height'	    => 65,
     'default_logo_width'	    => 240,
     
@@ -172,7 +172,7 @@ $defaultoptions = array(
     'default_anleser_excerpt_length'=> 300,
     'default_search_excerpt_length' => 300,
     
-    'default_postthumb_src'	    => get_template_directory_uri().'/img/default-postthumb.png',
+    'default_postthumb_src'	    => get_fau_template_uri().'/img/default-postthumb.png',
 
     'default_postthumb_always'	    => 1,
 
@@ -222,8 +222,8 @@ $defaultoptions = array(
     'search_display_excerpt_morestring'		=> '...',
     
     'plugin_fau_person_headline'	=> true,
-    'plugin_fau_person_malethumb'	=> get_template_directory_uri().'/img/platzhalter-mann.png',
-    'plugin_fau_person_femalethumb'	=> get_template_directory_uri().'/img/platzhalter-frau.png',
+    'plugin_fau_person_malethumb'	=> get_fau_template_uri().'/img/platzhalter-mann.png',
+    'plugin_fau_person_femalethumb'	=> get_fau_template_uri().'/img/platzhalter-frau.png',
     
     'index_synonym_listall'		=> true,
     'index_glossary_listall'		=> true,

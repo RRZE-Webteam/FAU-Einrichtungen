@@ -895,7 +895,7 @@ function fau_get_toplinks() {
 	$thislist .= '<a href="'.$options['fauhome_url'].'">';
 	    			
 	if ($options['fauhome_useimg']) {
-	    $thislist .= '<img src="'.$options['fauhome_imgsrc'].'" alt="'.$options['fauhome_title'].'">'; 
+	    $thislist .= '<img src="'.fau_esc_url($options['fauhome_imgsrc']).'" alt="'.$options['fauhome_title'].'">'; 
 	} else {
 	    $thislist .= $options['fauhome_linktext']; 
 	}	
@@ -923,7 +923,12 @@ function fau_get_toplinks() {
 		foreach ( (array) $menu_items as $key => $menu_item ) {
 		    $title = $menu_item->title;
 		    $url = $menu_item->url;
-		    $thislist .= '<li class="menu-item"><a href="' . $url . '">' . $title . '</a></li>';
+		    $class_names = '';
+		    $classes[] = 'menu-item';
+		    $classes = empty( $menu_item->classes ) ? array() : (array) $menu_item->classes;
+		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ) ) ); 
+		    $class_names = ' class="' . esc_attr( $class_names ) . '"';
+		    $thislist .= '<li'.$class_names.'><a href="' . $url . '">' . $title . '</a></li>';
 		}
 	    } 
 	
