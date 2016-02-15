@@ -144,6 +144,4 @@ class FAUShortcodesRTE
 
 new FAUShortcodesRTE();
 
-
-
 ?>
