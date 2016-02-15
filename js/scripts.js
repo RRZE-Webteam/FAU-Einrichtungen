@@ -169,27 +169,7 @@ jQuery(document).ready(function($) {
 		});
 	}
 	
-	// Fix for very large navigation (text-zoomed)
-	/*
-	if( ! isMobile() ) {
-		$('#nav > li').hover(function() {
-			var top = 0;
-
-			if($('body').hasClass('nav-fixed'))
-			{
-				top = $(this).offset().top + $(this).height() - $(window).scrollTop() + 10;
-			}
-			else
-			{
-				top = $(this).offset().top + $(this).height();
-			}
-
-			var offset = 11;
-			if($('body').hasClass('nav-fixed')) { offset += 0;}
-			$('.nav-flyout').css({'top': top-offset});
-		})
-	}
-	*/
+	
 	// Responsive tables
 	$("#content table").wrap('<div class="table-wrapper" />').wrap('<div class="scrollable" />');
 	
