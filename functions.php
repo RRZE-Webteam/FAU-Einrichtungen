@@ -38,7 +38,7 @@ function fau_setup() {
 	// Switches default core markup for search form, comment form, and comments
 	// to output valid HTML5.
 //	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
-
+	
 	/*
 	 * This theme supports all available post formats by default.
 	 * See http://codex.wordpress.org/Post_Formats
@@ -46,7 +46,9 @@ function fau_setup() {
 //	add_theme_support( 'post-formats', array(
 //		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
 //	) );
-
+	add_theme_support('title-tag');
+	
+	/*
 	if ( ! function_exists( '_wp_render_title_tag' ) ) :
 	    function theme_slug_render_title() {
 	?>
@@ -55,7 +57,9 @@ function fau_setup() {
 	    }
 	    add_action( 'wp_head', 'theme_slug_render_title' );
 	endif;
-	 
+	 */
+	
+	
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menu( 'meta', __( 'Meta-Navigation oben', 'fau' ) );
 	register_nav_menu( 'meta-footer', __( 'Meta-Navigation unten', 'fau' ) );
@@ -895,7 +899,7 @@ function fau_get_toplinks() {
 	$thislist .= '<a href="'.$options['fauhome_url'].'">';
 	    			
 	if ($options['fauhome_useimg']) {
-	    $thislist .= '<img src="'.$options['fauhome_imgsrc'].'" alt="'.$options['fauhome_title'].'">'; 
+	    $thislist .= '<img src="'.fau_esc_url($options['fauhome_imgsrc']).'" alt="'.$options['fauhome_title'].'">'; 
 	} else {
 	    $thislist .= $options['fauhome_linktext']; 
 	}	
@@ -923,7 +927,12 @@ function fau_get_toplinks() {
 		foreach ( (array) $menu_items as $key => $menu_item ) {
 		    $title = $menu_item->title;
 		    $url = $menu_item->url;
-		    $thislist .= '<li><a href="' . $url . '">' . $title . '</a></li>';
+		    $class_names = '';
+		    $classes[] = 'menu-item';
+		    $classes = empty( $menu_item->classes ) ? array() : (array) $menu_item->classes;
+		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ) ) ); 
+		    $class_names = ' class="' . esc_attr( $class_names ) . '"';
+		    $thislist .= '<li'.$class_names.'><a href="' . $url . '">' . $title . '</a></li>';
 		}
 	    } 
 	
@@ -948,7 +957,7 @@ function fau_get_toplinks() {
        }   
     }
     if (isset($thislist)) {	
-	$result .= '<ul id="meta-nav">';
+	$result .= '<ul id="meta-nav" class="menu">';
 	$result .= $thislist;
 	$result .= '</ul>';	
 	$result .= "\n";	
@@ -1697,4 +1706,11 @@ function fau_array2table($array, $table = true) {
     } else {
         return $out;
     }
+}
+
+
+add_filter('the_content', 'remove_empty_p', 20, 1);
+function remove_empty_p($content){
+    $content = force_balance_tags($content);
+    return preg_replace('#<p>\s*+(<br\s*/*>)?\s*</p>#i', '', $content);
 }

@@ -112,11 +112,13 @@ img.aligncenter {
   overflow: auto;
 }
 
-.screen-reader-text,
-.hide-desktop {
+.screen-reader-text {
     @extend .unsichtbar;
 }
 
+.hide-desktop {
+	display: none;
+}
 .hidden {
 	display: none;
 }
