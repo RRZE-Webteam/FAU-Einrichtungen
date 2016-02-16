@@ -24,6 +24,9 @@ $show =false;
     if (($key==1) && (is_page_template( 'page-templates/page-start.php' ))) {
 	$show = true;
 	break;
+    } elseif (($key==1) && (is_page_template( 'page-templates/page-start-sub.php' ))) {
+	$show = true;
+	break;
     } elseif (($key==2) && (is_page_template( 'page-templates/page-portal.php')))  {
 	$show = true;
 	break;
