@@ -188,7 +188,7 @@ $defaultoptions = array(
     
     'advanced_beitragsoptionen'		=> true,
     'advanced_topevent'			=> true,
-    'advanced_activateads'		=> true,
+    'advanced_activateads'		=> false,
     'galery_link_original'		=> true,
     'advanced_page_start_herojumplink'	=> false,
 
@@ -749,7 +749,7 @@ $setoptions = array(
 	       
 	       'start_max_newscontent'=> array(
                   'type'    => 'select',
-                  'title'   => __( 'Zahl der News (Gesamt)', 'fau' ),
+                  'title'   => __( 'Zahl der Artikel (Gesamt)', 'fau' ),
                   'label'   => __( 'Anzahl der News auf der Startseite unterhalb des Sliders', 'fau' ),
 		   'liste'   => array(2 => 2,3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7),
                   'default' => $defaultoptions['start_max_newscontent'],
@@ -757,8 +757,8 @@ $setoptions = array(
               ),  
 	        'start_prefix_tag_newscontent' => array(
                   'type'    => 'text',
-                  'title'   => __( 'Sortierungs-Tag', 'fau' ),
-                  'label'   => __( 'Angabe des Tag-Prefixes, mit dem News auf der Startseite gezeigt werden. Im Artikel wird dann dieser Tag plus eine Nummer vergeben um die Sortierung festzusetzen. Beispiel bei einem gewählten Tag-Prefix "Startseite": Erster Artikel mit Tag "Startseite1", Zweiter Artikel mit Tag "Startseite2"', 'fau' ),               
+                  'title'   => __( 'Positionierungs-Tag', 'fau' ),
+                  'label'   => __( 'Angabe des Tag-Prefixes, mit der die Position von definierten Artikel auf der Startseite gesteuert werden kann. Im Artikel wird dann dieser Tag plus eine Nummer von 1 bis 3 vergeben um die Position festzusetzen. <br>Beispiel bei einem gewählten Tag-Prefix "Startseite": Erster Artikel mit Tag "Startseite1", Zweiter Artikel mit Tag "Startseite2". Wenn mehrere Artikel den Tag "Startseite1" haben und nur eines davon gezeigt werden soll, wird der jüngste Artikel mit dem Tag angezeigt.', 'fau' ),               
                   'default' => $defaultoptions['start_prefix_tag_newscontent'],
 		     'parent'  => 'newsbereich'
               ),  
@@ -766,23 +766,23 @@ $setoptions = array(
 	       
 	       'start_max_newspertag'=> array(
                   'type'    => 'select',
-                  'title'   => __( 'News pro gleichem Sortierungs-Tag', 'fau' ),
-                  'label'   => __( 'Anzahl der Artikel mit dem vorgegebene Prefix-Tag (Reihenfolge).', 'fau' ),
+                  'title'   => __( 'Artikel mit gleichem Positionierungs-Tag', 'fau' ),
+                  'label'   => __( 'Anzahl der Artikel mit dem gleichen Prefix-Tag (Positionierung), die angezeigt werden sollen. Normalerweise sollte hier nur 1 Artikel auf der ersten Position sein.', 'fau' ),
 		   'liste'   => array(1 => 1, 2 => 2,3 => 3, 4 => 4, 5 => 5),
                   'default' => $defaultoptions['start_max_newspertag'],
 		    'parent'  => 'newsbereich'
               ),  
 	       'start_link_news_show' => array(
                   'type'    => 'bool',
-                  'title'   => __( 'News verlinken', 'fau' ),
+                  'title'   => __( 'Artikel verlinken', 'fau' ),
                   'label'   => __( 'Weitere Meldungen verlinken.', 'fau' ),               
                   'default' => $defaultoptions['start_link_news_show'],
 		     'parent'  => 'newsbereich'
               ),  
 		'start_link_news_cat' => array(
                   'type'    => 'select',
-                  'title'   => __( 'News-Kategorie', 'fau' ),
-                  'label'   => __( 'Unter den News erscheint ein Link auf eine Übersicht der News. Hier wird die Kategorie dafür ausgewählt. Für den Fall, dass keine Artikel mit einem Prefix-Tag ausgestattet sind, wird diese Kategorie auch bei der Anzeige der ersten News verwendet.', 'fau' ),
+                  'title'   => __( 'Artikel-Kategorie', 'fau' ),
+                  'label'   => __( 'Unter den News erscheint ein Link auf eine Übersicht der Artikel. Hier wird die Kategorie dafür ausgewählt. Für den Fall, dass keine Artikel mit einem Prefix-Tag ausgestattet sind, wird diese Kategorie auch bei der Anzeige der ersten News verwendet.', 'fau' ),
                   'liste'   => $currentcatliste,
                   'default' => $defaultoptions['start_link_news_cat'],
 		     'parent'  => 'newsbereich'
