@@ -377,8 +377,7 @@ table {
 	}
 	
 	th, td {
-		padding: 7px 10px;
-		
+		padding: 7px 10px;		
 		font-size: 13px;
 		line-height: 18px;
 	}
@@ -400,6 +399,11 @@ table {
 	td {
 		border-right: 1px solid #fff;
 		color: $colorText;
+		
+		p {
+		    font-size: 13px;
+		    line-height: 18px;
+		}
 	}
 	
 	tr {
