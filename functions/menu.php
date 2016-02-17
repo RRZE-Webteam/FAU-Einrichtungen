@@ -68,34 +68,51 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		$output .= '</a>';
 		$output .= '</div>';
 				
-		$output .= '<div class="span4 hide-mobile">';
-		 
-		$quote  = get_post_meta( $this->currentID, 'zitat_text', true );
-		$author =  get_post_meta( $this->currentID, 'zitat_autor', true );
-
-		if($quote) {
-			$output .= '<blockquote>';
-			$output .= '<p class="quote">'.$quote.'</p>';
-			if($author) $output .= '<p class="author"> &mdash; '.$author.'</p>';
-			$output .= '</blockquote>';
-		} else {
-		    if ($options['menu_fallbackquote_show_excerpt']) {
-			$excerpt = fau_custom_excerpt($this->currentID,$options['menu_fallbackquote_excerpt_length'],true,'nav-excerpt');
-			if (isset($excerpt)) {
-			    $output .= $excerpt;
+		
+		$thumbregion = get_the_post_thumbnail($this->currentID,'portalmenu-thumb');
+	        $quote  = get_post_meta( $this->currentID, 'zitat_text', true );
+	        $author =  get_post_meta( $this->currentID, 'zitat_autor', true );
+		if (!empty($thumbregion)) {
+		    $output .= '<div class="span4 hide-mobile introtext">';
+		    if($quote) {
+			    $output .= '<blockquote>';
+			    $output .= '<p class="quote">'.$quote.'</p>';
+			    
+			    $output .= '</blockquote>';
+			    if($author) $output .= '<p class="author"> &mdash; '.$author.'</p>';
+		    } else {
+			if ($options['menu_fallbackquote_show_excerpt']) {
+			    $excerpt = fau_custom_excerpt($this->currentID,$options['menu_fallbackquote_excerpt_length'],true,'nav-excerpt');
+			    if (isset($excerpt)) {
+				$output .= $excerpt;
+			    }
 			}
 		    }
+		    $output .= '</div>';
+		    $output .= '<div class="span4 hide-mobile">';		
+		    $output .= $thumbregion;
+		    $output .= '</div>';	
+		} else {
+		    $output .= '<div class="span8 hide-mobile introtext">';
+		     
+		    if($quote) {
+			    $output .= '<blockquote>';
+			    $output .= '<p class="quote">'.$quote.'</p>';
+			 
+			    $output .= '</blockquote>';
+			     if($author) $output .= '<p class="author"> &mdash; '.$author.'</p>';
+			    
+		    } else {
+			if ($options['menu_fallbackquote_show_excerpt']) {
+			    $excerpt = fau_custom_excerpt($this->currentID,$options['menu_fallbackquote_excerpt_length'],true,'nav-excerpt');
+			    if (isset($excerpt)) {
+				$output .= $excerpt;
+			    }
+			}
+		    }
+		    $output .= '</div>';	
+	
 		}
-
-		$output .= '</div>';
-		
-		$output .= '<div class="span4 hide-mobile">';		
-	//	$output .= get_the_post_thumbnail($this->currentID, array($options['default_mainmenuthumb_width'],$options['default_mainmenuthumb_height']));
-	//	$output .= get_the_post_thumbnail($this->currentID);
-		$output .= get_the_post_thumbnail($this->currentID,'portalmenu-thumb');
-		    //default?
-		$output .= '</div>';	
-		
 		$output .= '</div></div></div>';
 	}
 	

@@ -4,13 +4,15 @@ Media Queries for Theme FAU-Einrichtungen
 
 
 @media (min-width: $breakLG) {
-	#logo {
-		float: left;
-	}
-	#nav {
-		margin: 50px 0 10px -10px;
-	}
-	.js-enabled {
+    #logo {
+	    float: left;
+    }
+    #nav {
+	    margin: 50px 0 10px -10px;
+    }
+	
+
+    .js-enabled {
 	    
 	    &.nav-fixed #nav .nav-flyout,
 	    #nav .nav-flyout  {
@@ -32,7 +34,6 @@ Media Queries for Theme FAU-Einrichtungen
 	#header {
 	    position: fixed;
 	    top: 42px;
-	    // height: 97px;
 	    left: 0;
 	    right: 0;
 	    background: #fff;
@@ -51,9 +52,9 @@ Media Queries for Theme FAU-Einrichtungen
 	#hero-slides {
 	    top: -20px;
 	}
-
     }	
-}
+  
+}	
 
 
 @media (max-width: $breakLG) {
@@ -120,9 +121,7 @@ Media Queries for Theme FAU-Einrichtungen
 		margin-top: 171px;
 		transition: none;
 	    }
-	     #nav .nav-flyout  {
-	//	top: 85px;
-	    }
+
 	}
 	
 	#meta .searchform input[type="text"] {

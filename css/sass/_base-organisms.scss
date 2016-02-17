@@ -151,26 +151,21 @@
 		}
 	}
 	
-	blockquote {
-		padding: 20px;
-		opacity: 0.7;
-		min-height: 40px;
-
-		p {
+	
+	.introtext {
+	    p {
 			color: #fff;
 			font-size: 18px;
 			line-height: 24px;
 			font-style: italic;
 			padding: 0;
 			margin: 0;
-		}
-
-		p.author {
-			font-style: normal;
-			font-size: 15px;
-			font-weight: bold;
-			padding: 10px 0;
-		}
+			opacity: 0.7;
+	    }
+	    blockquote {
+		padding: 20px; 
+		// opacity: 0.7; 
+		min-height: 40px;
 
 		p.quote:before {
 			content: '';
@@ -181,8 +176,15 @@
 			float: left;
 			margin-right: 20px;
 		}
+	    }
+	    p.author {
+			font-style: normal;
+			font-size: 15px;
+			font-weight: bold;
+			padding: 10px 0;
+			text-align: right;
+	    }
 	}
-	
 	p.nav-excerpt {
 		color: $colorLightest;
 		font-size: 15px;
