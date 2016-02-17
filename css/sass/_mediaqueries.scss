@@ -48,7 +48,9 @@ Media Queries for Theme FAU-Einrichtungen
 	    margin-top: 159px;
 	    transition: none;
 	}
-	
+	#hero-slides {
+	    top: -20px;
+	}
 
     }	
 }
@@ -65,14 +67,13 @@ Media Queries for Theme FAU-Einrichtungen
 	    }
 	    
 	    #nav .nav-flyout {
-		    top: 112px;
+		    top: 129px;
 	    }
 	   
 
 	    #header {
 		position: fixed;
 		top: 42px;
-		// height: 97px;
 		left: 0;
 		right: 0;
 		background: #fff;
@@ -85,11 +86,11 @@ Media Queries for Theme FAU-Einrichtungen
 		    top: 74px;
 	    }
 	    #hero {
-		margin-top: 171px;
+		margin-top: 191px; // 171px;
 		transition: none;
 	    }
 	    &.admin-bar #hero {
-		margin-top: 171px;
+		margin-top:  191px; // 171px;
 	    }
 	}
 	
@@ -120,7 +121,7 @@ Media Queries for Theme FAU-Einrichtungen
 		transition: none;
 	    }
 	     #nav .nav-flyout  {
-		top: 85px;
+	//	top: 85px;
 	    }
 	}
 	
@@ -135,8 +136,11 @@ Media Queries for Theme FAU-Einrichtungen
 
 	#hero .hero-meta-portal {
 		right: 15px;
+		
 	}
-
+	#hero-slides {
+	    top: -20px;
+	}
 	#logos-menu-prev {
 		height: 80px;
 	}
@@ -168,8 +172,7 @@ Media Queries for Theme FAU-Einrichtungen
 	     text-align: left;
 	}
 	#logo h1 {
-	    margin: 0;
-	    padding: 0;
+	    padding: 0 60px 0 0;
 	}
 	
 
@@ -209,14 +212,14 @@ Media Queries for Theme FAU-Einrichtungen
 	#content {
 	    margin-left: 15px;
 	    margin-right: 15px;
-	
+	    padding-bottom: 0px;
 	    
 	   .image-gallery-grid ul li img {
 		   margin: 0;
 	   }
 	  
 	   
-	   ul.page-print-actions {
+	    ul.page-print-actions {
 		display: none;
 	    }
 
@@ -261,6 +264,10 @@ Media Queries for Theme FAU-Einrichtungen
 		padding: 0;
 	    }
 	}
+	#social {
+	    margin: 0 -15px;
+	    padding: 20px 15px;
+	}
 	.post-image {
 		margin: 0 !important;
 		float: none !important;
@@ -288,8 +295,7 @@ Media Queries for Theme FAU-Einrichtungen
 	}
 
 
-	.hero-meta-portal,
-	.flex-direction-nav, .flex-pauseplay {
+	.hero-meta-portal {
 		display: none;
 	}
 
@@ -339,10 +345,11 @@ Media Queries for Theme FAU-Einrichtungen
 	    }
 	   
 	    #hero-slides {
-		    max-width: 100%;
-		    height: auto;
-		    min-height: 200px;
-
+		max-width: 100%;
+		height: auto;
+		min-height: 200px;
+		top: 0;
+		
 		.hero-slide img {
 		    height: 220px;
 		    width: 780px;
@@ -352,6 +359,7 @@ Media Queries for Theme FAU-Einrichtungen
 		.hero-slide-text {
 		    width: 100%;
 		    bottom: 15px;
+		    margin-left: 15px;
 		}
 		.hero-slide {	
 		    p {
@@ -376,7 +384,6 @@ Media Queries for Theme FAU-Einrichtungen
 	    #logo {
 		margin: 15px 15px 0 15px;
 		max-height: 50px;
-	    //	width: 210px;
 		img {
 		    max-width: 100%;
 		    max-height: 50px;
@@ -572,6 +579,9 @@ Media Queries for Theme FAU-Einrichtungen
 
 
 @media (max-width: $breakSM) {
+    #hero .infobar p.description {
+	display: none;
+    }
     .js-enabled {
     	body #header {
 	    position: fixed;
@@ -586,6 +596,11 @@ Media Queries for Theme FAU-Einrichtungen
 	    position: fixed;
 	    top: 46px;
 	}
+	&.admin-bar #hero .banner-text {
+	    top: 0;
+	}
+
+	
     }
     .no-js {
 	#hero, .hide-mobile  {
@@ -632,175 +647,197 @@ Media Queries for Theme FAU-Einrichtungen
 	}
 
     }
+    #content {
+	padding-bottom: 0;
+    }
+    .image-gallery-slider .flex-viewport {
+	    max-height: 200px;
+	    overflow: hidden;
+    }
+    .page-template-page-start-sub  {
+	&.js-enabled #hero {
+	    .banner {
+		top: 0;
+		bottom: 0;
+	    }
+	}
+    }
     
-	.image-gallery-slider .flex-viewport {
-		max-height: 200px;
-		overflow: hidden;
-	}
-	.page-template-page-subnav {
-		#hero.hero-small h1 {
-			padding-left: 15px;
+    
+    .page-template-page-subnav {
+	    #hero.hero-small h1 {
+		    padding-left: 15px;
+	       }
+	    #content {
+		margin-left: 15px;
+		margin-right: 15px;
+
+		.span4 {
+		    padding-bottom: 10px;
+		    border-bottom: 2px solid $colorStandardHellgrau;
+		}
+		.container {
+		    h1, h2, h3, h4, h5, h6, p {
+			margin-left: 0px;
+			margin-right: 0px;
+		    }
+
+		    .sidebar-inline { 
+		       width: 100%;   
+		       border-left: none;
+		       padding-left: 15px;
+		       padding-right: 15px;
 		   }
-		#content {
-		    margin-left: 15px;
-		    margin-right: 15px;
-		   
-		    .span4 {
-			padding-bottom: 10px;
-			border-bottom: 2px solid $colorStandardHellgrau;
-		    }
-		    .container {
-			h1, h2, h3, h4, h5, h6, p {
-			    margin-left: 0px;
-			    margin-right: 0px;
-			}
-		  
-			.sidebar-inline { 
-			   width: 100%;   
-			   border-left: none;
-			   padding-left: 15px;
-			   padding-right: 15px;
-		       }
 
-		       aside.widget:first-child {
-			   border-top: 2px solid $colorStandardHellgrau;
-		       }
-		    }
+		   aside.widget:first-child {
+		       border-top: 2px solid $colorStandardHellgrau;
+		   }
 		}
-	}
-	
-	
+	    }
+    }
 
-	.page-template-page-start {
-	    .span3 {
-		width: #{($breakSM/2) - 20}px; 
-		float: left;
-		margin-left: 20px;
-	    }
-	    .span6 {
-		width: #{$breakSM - 10}px;
-		padding: 10px;
-	    }
-	    #hero {
-		#hero-slides {
-		    max-height: 130px;
-		    min-height: auto;
-		    height: inherit;
+
+
+    .page-template-page-start {
+	.span3 {
+	    width: 240px;  
+	    float: left;
+	    margin-left: 0px;
+	}
+	.span6 {
+	    width: #{$breakSM - 10}px;
+	    padding: 10px;
+	}
+	#hero {
+	    #hero-slides {
+		max-height: 130px;
+		min-height: auto;
+		height: inherit;
+		margin: 0;
+		top: 0;
+
+		.hero-slide {
 		    margin: 0;
-		    top: 0;
-		    
-		    .hero-slide {
-			margin: 0;
-			padding: 0;
-			height: 130px;
+		    padding: 0;
+		    height: 130px;
+		}
+		.hero-slide img {
+		   height: auto;
+		   width: $breakSM;
+		   max-height: 130px;
+		   overflow: hidden;
+		   left: 0;
+		   margin: 0;
+		   max-width: $breakSM;
+		}
+		.hero-slide-text {
+		    bottom: 50px;
+		    h2 {
+			padding: 5px 10px;
 		    }
-		    .hero-slide img {
-		       height: auto;
-		       width: $breakSM;
-		       max-height: 130px;
-		       overflow: hidden;
-		       left: 0;
-		       margin: 0;
-		       max-width: $breakSM;
-		    }
-		    .hero-slide-text {
-			bottom: 50px;
-			h2 {
-			    padding: 5px 10px;
-			}
-			p {
-			 display: none;
-			}
+		    p {
+		     display: none;
 		    }
 		}
 	    }
-	} 
-	
-	hr {
-	    height: 40px;
-	    margin: 10px 0 30px;
 	}
-	#content .subpages-menu {
-	    .menu-item {
-		margin: 0;
-	    }
-	    ul {
-		display: block;
-	    }
-	    li {
-		
-		width: #{$breakSM - 10}px;
-		margin-left: 10px;
-		list-style: inside none circle;
-		float: none;
-		
-		a {
-		    h3 {
-			padding: 0 15px 0 0;
-			text-decoration: underline;
-			font-weight: normal;
-			
-			&.ext-link {
-			    background: url("../img/ext-icon-19-white.png") no-repeat scroll 110% 0 $colorStandardHellgrau;
-		      }
-		    }
-		   
-		    img {
-			display: none;
-		    }
-		    .ext-icon {
-			display: none;
-			
-		    }
-		}
-		.span3 {
-		    float: none;
-		}
-	    }
-	}    
-	.alignleft, 
-	.alignright,
-	img.alignleft, 
-	div.alignleft,
-	img.alignright, 
-	div.alignright {
-	    float: none;
-	    padding: 0;
-	    display: block;
-	    margin: 5px auto;
-	    max-width: $breakSM;
-	}
-	
+    } 
 
-	.wp-caption-text {
-	    padding: 0;
+    hr {
+	height: 40px;
+	margin: 10px 0 30px;
+    }
+    #content .subpages-menu {
+	.menu-item {
+	    margin: 0;
 	}
-	
-	#footer {
-	    li {
-		line-height: 15px;
+	ul {
+	    display: block;
+	}
+	li {
+
+	    width: #{$breakSM - 10}px;
+	    margin-left: 10px;
+	    list-style: inside none circle;
+	    float: none;
+
+	    a {
+		h3 {
+		    padding: 0 15px 0 0;
+		    text-decoration: underline;
+		    font-weight: normal;
+
+		    &.ext-link {
+			background: url("../img/ext-icon-19-white.png") no-repeat scroll 110% 0 $colorStandardHellgrau;
+		  }
+		}
+
+		img {
+		    display: none;
+		}
+		.ext-icon {
+		    display: none;
+
+		}
 	    }
 	    .span3 {
-		width: 48%;
-		width: calc(50% - 10px);
-		float: left;
-		margin: 2px;
-		
-	    }
-	    .span6 {
-		width: 100%;
-		margin: 0;
 		float: none;
 	    }
-	    
 	}
-	#footer-nav {
-	    
-	    text-align: left;
-	    li {
-		display: inline;
-	    }
+    }    
+    .alignleft, 
+    .alignright,
+    img.alignleft, 
+    div.alignleft,
+    img.alignright, 
+    div.alignright {
+	float: none;
+	padding: 0;
+	display: block;
+	margin: 5px auto;
+	max-width: $breakSM;
+    }
+
+
+    .wp-caption-text {
+	padding: 0;
+    }
+
+    #footer {
+	li {
+	    line-height: 15px;
 	}
+	.span3 {
+	    width: 48%;
+	    width: calc(50% - 10px);
+	    float: left;
+	    margin: 2px;
+
+	}
+	.span6 {
+	    width: 100%;
+	    margin: 0;
+	    float: none;
+	}
+
+    }
+    #footer-nav {
+
+	text-align: left;
+	li {
+	    display: inline;
+	}
+    }
+    #social {
+	margin: 0 -15px;
+	padding: 20px 15px;
+    }
+    /*
+    .hero-meta-portal,
+    .flex-direction-nav, .flex-pauseplay {
+	    display: none;
+    }
+    */
 
 }
 

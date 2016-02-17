@@ -2,11 +2,13 @@
 #logo {
 	display: inline;
 	float: left;
-	margin: 20px 0 10px 0;
+	
 	max-height: 85px;
 	max-width: 300px;
 	min-width: 120px;
 	height: 85px;
+	margin: 0;
+	padding: 0;
 	h1 {
 	    display: inline-block;
 	    font-size: 19px;
@@ -18,6 +20,7 @@
 	    vertical-align: text-bottom;
 	    text-align: left;
 	    max-height: 85px;
+	    margin: 10px 0;
 	    a {
 		color: $colorPrimary;
 		
@@ -255,7 +258,7 @@ body.admin-bar #nav .nav-flyout {
 	}
 	
 	#nav .nav-flyout {
-		top: 85px;
+		top: 139px //85px;
 	}
 }
 .nav-scrolled {
@@ -492,7 +495,7 @@ body.admin-bar #nav .nav-flyout {
 	    color: #fff;
 	}
 	.infobar {
-	    padding-top: 35px;
+	    padding-top: 5px;
 	}
 	p.description {
 	    font-weight: normal;
@@ -715,7 +718,7 @@ body.admin-bar #nav .nav-flyout {
 /* Hero Slider */
 #hero-slides {
 	position: relative;
-	top: -20px;
+	
 	margin: 0 auto -15px auto;
 	height: 350px;
 	background: $colorPrimary;
