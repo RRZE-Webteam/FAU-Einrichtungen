@@ -1721,3 +1721,11 @@ function remove_accordion_bad_br($content){
     return preg_replace('#<br\s*/*>\s*<div class="accordion#i', '<div class="accordion', $content);
 }
 
+add_filter('the_content', 'remove_accordion_bad_p', 20, 1);
+function remove_accordion_bad_p($content){
+   // $content = force_balance_tags($content);
+    $content = preg_replace('#<p><div class="accordion-group#i', '<div class="accordion-group', $content);
+    return preg_replace('#<div class="accordion-inner clearfix"></div></div></div></p>#i', '<div class="accordion-inner clearfix"></div></div></div>', $content);
+}
+
+
