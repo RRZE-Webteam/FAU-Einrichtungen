@@ -448,8 +448,12 @@ class BoostrapShortcodes {
     
     if (!empty($state)) 
       $state = 'in';
+
+
+    $color = $color ? ' ' . esc_attr( $color ) : '';
     
-    $output = '<div class="accordion-group '.$color.'">';
+    
+    $output = '<div class="accordion-group'.$color.'">';
     $output .= '<div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-' . $GLOBALS['collapsibles_count'] . '" href="#collapse_' . $GLOBALS['current_collapse'] .'">' . $title . '</a></div>';
     $output .= '<div id="collapse_' . $GLOBALS['current_collapse'] . '" class="accordion-body ' . $state . '">';
     $output .= '<div class="accordion-inner clearfix">';
