@@ -1714,3 +1714,10 @@ function remove_empty_p($content){
     $content = force_balance_tags($content);
     return preg_replace('#<p>\s*+(<br\s*/*>)?\s*</p>#i', '', $content);
 }
+
+add_filter('the_content', 'remove_accordion_bad_br', 20, 1);
+function remove_accordion_bad_br($content){
+   // $content = force_balance_tags($content);
+    return preg_replace('#<br\s*/*>\s*<div class="accordion#i', '<div class="accordion', $content);
+}
+
