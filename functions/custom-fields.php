@@ -625,13 +625,19 @@ function fau_do_metabox_page_portalmenu( $object, $box ) {
 	}
 	
 	$quote  = get_post_meta( $object->ID, 'zitat_text', true );	
+	$val  = get_post_meta( $object->ID, 'menuquote_texttype', true );	
+	$texttype = ( isset( $val ) ? intval( $val ) : 0 );		 
 	$author =  get_post_meta( $object->ID, 'zitat_autor', true );
 		
 	echo '<div id="portalseitenquote">';
 	    
-	fau_form_textarea('fau_metabox_menuquote_quote', $quote, __( "Zitat", 'fau' ),40,3, __('Das Zitat und der Autor erscheint bei Portalseiten oder Menüpunkten der ersten Ebene des Hauptmenüs neben der Auflistung der Untermenüpunkte.','fau')); 	    
+	fau_form_textarea('fau_metabox_menuquote_quote', $quote, __( "Zitat (Text)", 'fau' ),40,3, __('Das Zitat und der Autor erscheint bei Portalseiten oder Menüpunkten der ersten Ebene des Hauptmenüs neben der Auflistung der Untermenüpunkte.','fau')); 	    
 	fau_form_text('fau_metabox_menuquote_autor', $author, __( "Autor", 'fau' ), __('Dieser freie Text kann einen Namen enthalten auf den das Zitat zurückzuführen ist oder andere Informationen hierzu.','fau'), '', 20);
 	
+	fau_form_select('fau_metabox_menuquote_texttype', $liste = array(0 => "Zitat", 1=> "Normaler Text", 2=> "Nichts anzeigen"), $texttype, __('Textdarstellung im Hauptmenu','fau'),  
+		__('Anstelle eines Zitates kann auch ein normaler Text angegeben werden. Diese wird dann nicht wie ein Zitat optisch hervorgehoben. Der Autor-Text wird dann weg gelassen.','fau'), 0 );
+	
+
 	echo '</div>';
 	
 	$currentmenu  = get_post_meta( $object->ID, 'portalmenu-slug', true );	
@@ -767,6 +773,9 @@ function fau_save_metabox_page_portalmenu( $post_id, $post ) {
 	} elseif ($oldval) {
 	    delete_post_meta( $post_id, 'zitat_autor', $oldval );	
 	} 
+	
+	$newval = intval($_POST['fau_metabox_menuquote_texttype']);
+	fau_save_standard('menuquote_texttype', $newval, $post_id, '', 'int');
 }
 
 /* 
