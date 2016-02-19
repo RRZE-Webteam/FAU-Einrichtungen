@@ -124,6 +124,30 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+
+	function openAnchorAccordion() {
+	    if (window.location.hash) {
+		var identifier = window.location.hash.split('_')[0];
+		var keynum = window.location.hash.split('_')[1];
+		if (identifier == '#collapse') {
+		    if ($.isNumeric(keynum)) {
+			var $findid = 'collapse_'+ keynum;
+			var $target = $('body').find('#'+ $findid);  
+			$target.find('.accordion-toggle').addClass('active');
+			$target.find('.accordion-body').slideUp();
+			$target.toggleClass('active');
+			$target.slideToggle();
+			var $scrolloffset = $target.offset().top - 220;	
+			 $('html,body').animate({scrollTop: $scrolloffset},'slow');
+		    }
+		   
+		 }
+	    }
+	}
+	openAnchorAccordion();
+
+
+
 	// AJAX for studienangebot-database
 	$('#studienangebot *').change(function() {
 		// Show loading spinner
