@@ -63,28 +63,28 @@ if ($show) {
 
 							echo '<nav id="socialmedia" aria-label="'.__('Social Media','fau').'">';
 							echo '<ul class="social">';       
-							    foreach ( $default_socialmedia_liste as $entry => $listdata ) {        
+							foreach ( $default_socialmedia_liste as $entry => $listdata ) {        
 
-								$value = '';
-								$active = 0;
-								if (isset($options['sm-list'][$entry]['content'])) {
-									$value = $options['sm-list'][$entry]['content'];
-									if (isset($options['sm-list'][$entry]['active'])) {
-									    $active = $options['sm-list'][$entry]['active'];
-									} 
-								} else {
-									$value = $default_socialmedia_liste[$entry]['content'];
-									$active = $default_socialmedia_liste[$entry]['active'];
-								 }
+							    $value = '';
+							    $active = 0;
+							    if (isset($options['sm-list'][$entry]['content'])) {
+								    $value = $options['sm-list'][$entry]['content'];
+								    if (isset($options['sm-list'][$entry]['active'])) {
+									$active = $options['sm-list'][$entry]['active'];
+								    } 
+							    } else {
+								    $value = $default_socialmedia_liste[$entry]['content'];
+								    $active = $default_socialmedia_liste[$entry]['active'];
+							     }
 
-								if (($active ==1) && ($value)) {
-								    echo '<li class="social-'.$entry.'"><a href="'.$value.'">';
-								    echo $listdata['name'].'</a></li>';
-								}
+							    if (($active ==1) && ($value)) {
+								echo '<li class="social-'.$entry.'"><a href="'.$value.'">';
+								echo $listdata['name'].'</a></li>';
 							    }
-							    echo '</ul>';
-							    echo '</nav>';
-							?>
+							}
+							echo '</ul>';
+							echo '</nav>';
+						?>
 
 						</div>
 					<?php endif; ?>
@@ -97,7 +97,7 @@ if ($show) {
 						</div>
 						<?php if ($options['start_link_videoportal_socialmedia']) { ?>
 						<div class="pull-right link-all-videos">
-						    <a href="http://video.fau.de/"><?php echo $options['start_title_videoportal_socialmedia']; ?></a>
+						    <a href="<?php echo $options['start_title_videoportal_url']; ?>"><?php echo $options['start_title_videoportal_socialmedia']; ?></a>
 						</div>
 						<?php } ?>
 					</div>						

@@ -40,7 +40,7 @@ function event_single_view(&$event) {
         <div class="event-info event-id-<?php echo $event->post_id ?> <?php if( $event->allday ) echo 'event-allday'; ?>">
             <?php if( $event->allday && !$event->multiday ) : ?>
             <div class="event-allday" style="text-transform: uppercase;">
-                <?php _e( 'Ganztägig', EVENT_TEXTDOMAIN ); ?>
+                <?php _e( 'Ganztägig', 'fau' ); ?>
             </div>
             <?php elseif( $event->allday && $event->multiday ) : ?>
             <div class="event-time">

@@ -21,6 +21,8 @@ $defaultoptions = array(
     'start_link_news_linktitle'	    => __('Mehr Meldungen','fau'),
     'start_link_videoportal_socialmedia'    => true,
     'start_title_videoportal_socialmedia'   => __('Alle Videos','fau'),
+    'start_title_videoportal_url'	    => 'http://video.fau.de',
+
     'default_submenuthumb_src'	    =>  get_fau_template_uri().'/img/default-submenuthumb.png',
     'default_submenu_spalten'	    => 4,
     'default_submenu_entries'	    => 5,
@@ -175,7 +177,6 @@ $defaultoptions = array(
     'default_postthumb_src'	    => get_fau_template_uri().'/img/default-postthumb.png',
 
     'default_postthumb_always'	    => 1,
-
 
     'custom_excerpt_allowtags'	    => 'br',
     'url_banner-ad-notice'	    => 'https://www.fau.de/patente-gruendung-wissenstransfer/service-fuer-unternehmen/werben/',
@@ -604,7 +605,18 @@ $setoptions = array(
                   'title'   => __( 'Verlinkungstext Videoportal', 'fau' ),
                   'label'   => __( 'Text mit der auf das Videoportal im Social Media Fußteil verlinkt wird.', 'fau' ),               
                   'default' => $defaultoptions['start_title_videoportal_socialmedia'],
-              ),       
+              ), 
+	       
+	       'start_title_videoportal_url' => array(
+                  'type'    => 'url',
+                  'title'   => __( 'URL Videoportal', 'fau' ),
+                  'label'   => __( 'URL zum Videoportal. Diese sollte normalerweise auf <code>video.fau.de</code> bleiben. Manchmal nutzt man aber vielleicht ein anderes Portal, so dass man hier die URL ändern kann.', 'fau' ),               
+                  'default' => $defaultoptions['start_title_videoportal_url'],
+              ), 
+	       
+	       
+	       
+	       
           )
        ),
        'allgemeines'   => array(
@@ -959,9 +971,7 @@ $setoptions = array(
 	          'advanced_images_info_credits' => array(
 		    'type'    => 'select',
 		    'title'   => __( 'Copyright-Info ermitteln', 'fau' ),
-		    'label'   => __( 'Definiert, ob die Copyright-Info eines Bildes sich aus dessen IPTC-Infos ermittelt oder durch die Texteingabe Beschreibung überschrieben werden kann.<br>'
-			    . 'Reihenfolge via IPTC: 1. IPTC-Copyright, 2. IPTC-Credit, 3. IPTC-Author, 4. Beschreibung, 5. IPTC-Caption, 6. Bildunterschrift. '
-			    . '<br>Durch diese Auswahl kann die Beschreibung priorisiert werden.', 'fau' ),      
+		    'label'   => __( 'Definiert, ob die Copyright-Info eines Bildes sich aus dessen IPTC-Infos ermittelt oder durch die Texteingabe Beschreibung überschrieben werden kann.<br>Reihenfolge via IPTC: 1. IPTC-Copyright, 2. IPTC-Credit, 3. IPTC-Author, 4. Beschreibung, 5. IPTC-Caption, 6. Bildunterschrift. <br>Durch diese Auswahl kann die Beschreibung priorisiert werden.', 'fau' ),      
 		    'liste'   => array('0' => __('IPTC-Feld Copyright hat Priorität', 'fau'), 
 					'1' => __('Eingabefeld Beschreibung überschreibt IPTC und andere vorangige Felder.', 'fau')),
 		    'default' => $defaultoptions['advanced_images_info_credits'],
