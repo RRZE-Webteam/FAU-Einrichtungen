@@ -568,6 +568,22 @@ Media Queries for Theme FAU-Einrichtungen
 	.span12 {
 		margin-left: 20px;
 	}    
+	.content-person {
+	    
+	    .span1 {
+		margin-left: 20px;
+	    }
+	    
+	    .compactindex {
+		.span1 {
+		    width: 90px;
+		    float: left;
+		}
+		.span3 {
+		    width: calc(100% - 130px);
+		}
+	    }	
+	}
 }
 
 @media (min-width: 768px) and (min-height: 700px) and (max-height: 900px) {
@@ -801,7 +817,8 @@ Media Queries for Theme FAU-Einrichtungen
     .wp-caption-text {
 	padding: 0;
     }
-
+    
+    
     #footer {
 	li {
 	    line-height: 15px;
