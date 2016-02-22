@@ -1008,15 +1008,15 @@ $setoptions = array(
 	       
 	        'advanced_page_sidebar_useeditor_textabove'		  => array(
                   'type'    => 'bool',
-                  'title'   => __( 'WYSIWYG-Editor Text unten', 'fau' ),
-                  'label'   => __( 'Erlaubt die Nutzung des WYSWYG-Editors für die Eingabe von Text in der Sitebar. Dies schließt auch HTML-Tags mit Bildern und Links ein. Andernfalls ist nur ein Text mit Absätzen möglich.', 'fau' ),                
+                  'title'   => __( 'WYSIWYG-Editor Text oben', 'fau' ),
+                  'label'   => __( 'Erlaubt die Nutzung des WYSWYG-Editors für die Eingabe von Text in der Sidebar. Dies schließt auch HTML-Tags mit Bildern und Links ein. Andernfalls ist nur ein Text mit Absätzen möglich.', 'fau' ),                
                   'default' => $defaultoptions['advanced_page_sidebar_useeditor_textabove'],
 		  'parent'  => 'sidebaropt'
               ), 
 	    'advanced_page_sidebar_useeditor_textbelow'		  => array(
                   'type'    => 'bool',
                   'title'   => __( 'WYSIWYG-Editor Text unten', 'fau' ),
-                  'label'   => __('Erlaubt die Nutzung des WYSWYG-Editors für die Eingabe von Text in der Sitebar. Dies schließt auch HTML-Tags mit Bildern und Links ein. Andernfalls ist nur ein Text mit Absätzen möglich.', 'fau' ),                
+                  'label'   => __('Erlaubt die Nutzung des WYSWYG-Editors für die Eingabe von Text in der Sidebar. Dies schließt auch HTML-Tags mit Bildern und Links ein. Andernfalls ist nur ein Text mit Absätzen möglich.', 'fau' ),                
                   'default' => $defaultoptions['advanced_page_sidebar_useeditor_textbelow'],
 		  'parent'  => 'sidebaropt'
               ), 
