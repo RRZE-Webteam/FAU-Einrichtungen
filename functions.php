@@ -1105,20 +1105,20 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	$output .= "</h2>\n";  
 	
 	
-	 $categories = get_the_category();
-	    $separator = ', ';
-	    $thiscatstr = '';
-	    $typestr = '';
-	    if($categories){
-		$typestr .= '<span class="news-meta-categories"> ';
-		$typestr .= __('Kategorie', 'fau');
-		$typestr .= ': ';
-		foreach($categories as $category) {
-		    $thiscatstr .= '<a href="'.get_category_link( $category->term_id ).'">'.$category->cat_name.'</a>'.$separator;
-		}
-		$typestr .= trim($thiscatstr, $separator);
-		$typestr .= '</span> ';
+	$categories = get_the_category();
+	$separator = ', ';
+	$thiscatstr = '';
+	$typestr = '';
+	if($categories){
+	    $typestr .= '<span class="news-meta-categories"> ';
+	    $typestr .= __('Kategorie', 'fau');
+	    $typestr .= ': ';
+	    foreach($categories as $category) {
+		$thiscatstr .= '<a href="'.get_category_link( $category->term_id ).'">'.$category->cat_name.'</a>'.$separator;
 	    }
+	    $typestr .= trim($thiscatstr, $separator);
+	    $typestr .= '</span> ';
+	}
 	    
 	
 	if ($withdate) {

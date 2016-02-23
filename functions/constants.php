@@ -217,6 +217,7 @@ $defaultoptions = array(
   
 
     'post_display_category_below'	=> true,
+    'post_display_tags_below'		=> true,
     'search_display_post_thumbnails'	=> true,
     'search_display_post_cats'		=> true,
     'search_display_continue_arrow'		=> true,
