@@ -31,11 +31,12 @@
 	background: #fff;
 	@include border-radius(20px);
 	background: #fff;
+	z-index: 400;
 	
 	ul {
 		@include no-list;
 		position: absolute;
-		z-index: 10;
+		z-index: 201;
 		top: 0;
 		right: 0;
 		
