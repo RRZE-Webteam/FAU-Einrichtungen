@@ -67,9 +67,16 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		}
 		$output .= '</a>';
 		$output .= '</div>';
-				
-		
-		$thumbregion = get_the_post_thumbnail($this->currentID,'portalmenu-thumb');
+			
+		$nothumbnail  = get_post_meta( $this->currentID, 'menuquote_nothumbnail', true );	
+
+		if ($nothumbnail==1) {
+		       $thumbregion = '';
+		} else {
+	//	    $thumbregion = get_the_post_thumbnail($this->currentID,'portalmenu-thumb');
+		    $thumbregion = get_the_post_thumbnail($this->currentID,'post');
+	//	    $thumbregion = get_the_post_thumbnail($this->currentID);
+		}
 	        $quote  = get_post_meta( $this->currentID, 'zitat_text', true );
 	        $author =  get_post_meta( $this->currentID, 'zitat_autor', true );
 		$val  = get_post_meta( $this->currentID, 'menuquote_texttype', true );	

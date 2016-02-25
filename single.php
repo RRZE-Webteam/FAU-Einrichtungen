@@ -132,7 +132,8 @@ get_header(); ?>
 					    
 					    comments_template(); ?>
 					 </div>
-				    <?php } ?>
+				    <?php }
+				    ?>
 				</div>
 				
 				<?php get_template_part('sidebar', 'news'); ?>
@@ -142,7 +143,6 @@ get_header(); ?>
 	    	<?php get_template_part('footer', 'social'); ?>	
 	</div>
 	
-<?php endwhile; ?>
+<?php endwhile; 
 
-<?php 
 get_footer();
