@@ -270,7 +270,8 @@ var wpLink;
 
 			return {
 				href: $.trim( inputs.url.val() ),
-				target: inputs.openInNewTab.prop( 'checked' ) ? '_blank' : ''
+				target: inputs.openInNewTab.prop( 'checked' ) ? '_blank' : '',
+				title: $.trim( inputs.text.val() ),
 			};
 		},
 

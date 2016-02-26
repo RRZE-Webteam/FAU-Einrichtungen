@@ -15,7 +15,6 @@ global $options;
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title><?php wp_title( '-', true, 'right' ); ?></title>
     <?php wp_head(); ?>
 </head>
 
@@ -35,7 +34,9 @@ global $options;
 		<section id="meta">
 			<div class="container">
 				<div class="pull-left">
-					<?php echo fau_get_toplinks(); ?>
+					<?php 
+					echo fau_get_toplinks(); 
+					?>
 				</div>
 				<div class="pull-right">
 					<?php if ( is_active_sidebar( 'language-switcher' ) ) : ?>

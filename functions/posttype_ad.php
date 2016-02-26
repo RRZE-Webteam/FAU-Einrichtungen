@@ -355,7 +355,7 @@ function fau_get_ad($type, $withhr = true) {
 		$aditionid = get_post_meta( $id, 'fauval_ad_aditionid', true );
 		if ($aditionid >0) { 
 		    
-		    $out .= "aditionid > 0: $aditionid<br>";
+		//    $out .= "aditionid > 0: $aditionid<br>";
 		    $prot = 'https';
 		    $out .= "<!-- BEGIN ADITIONSSLTAG -->";
 		    $out .= "<script type=\"text/javascript\" src=\"".$prot."://imagesrv.adition.com/js/adition.js\"></script>";

@@ -8,9 +8,9 @@
 class FAUShortcodes {
 
 	function __construct() {
-		remove_filter( 'the_content', 'wpautop' );
-		add_filter( 'the_content', 'wpautop' , 12);
-		add_action( 'init', array( $this, 'add_shortcodes' ) ); 
+	    remove_filter( 'the_content', 'wpautop' );
+	    add_filter( 'the_content', 'wpautop' , 12);
+	    add_action( 'init', array( $this, 'add_shortcodes' ) ); 
 	}
 
 	function add_shortcodes() {
@@ -48,61 +48,55 @@ class FAUShortcodes {
 
 		$pages = get_pages(array('sort_order' => 'ASC', 'sort_column' => 'menu_order', 'parent' => $id, 'hierarchical' => 0));
 		$i = 0;
-		foreach($pages as $page)
-		{
-			$return .= '<div class="accordion-group">';
-				$return .= '<div class="accordion-heading">';
-					$return .= '<a class="accordion-toggle" data-toggle="collapse" data-parent="accordion-" href="#collapse-'.$page->ID.'-'.$i.'">'.$page->post_title.'</a>';
-				$return .= '</div>';
-				$return .= '<div id="collapse-'.$page->ID.'-'.$i.'" class="accordion-body">';
-					$return .= '<div class="accordion-inner clearfix">';
-						
-						$subpages = get_pages(array('sort_order' => 'ASC', 'sort_column' => 'menu_order', 'parent' => $page->ID, 'hierarchical' => 0));
-						
-						if(count($subpages) > 0)
-						{
-							$return .= '<div class="assistant-tabs">';
-
-								$return .= '<ul class="assistant-tabs-nav">';
-
-								$j = 0;
-								foreach($subpages as $subpage)
-								{
-									if($j == 0) $class = 'active';
-									else $class = '';
-
-									$return .= '<li><a href="#accordion-'.$page->ID.'-'.$i.'-tab-'.$j.'" class="accordion-tabs-nav-toggle '.$class.'">'.$subpage->post_title.'</a></li>';
-									$j++;
-								}
-
-								$return .= '</ul>';
-
-								$j = 0;
-								foreach($subpages as $subpage)
-								{
-									if($j == 0) $class = 'assistant-tab-pane-active';
-									else $class = '';
-
-									$return .= '<div class="assistant-tab-pane '.$class.'" id="accordion-'.$page->ID.'-'.$i.'-tab-'.$j.'">';
-										$return .= '<p>'.do_shortcode($subpage->post_content).'</p>';
-									$return .= '</div>';
-
-									$j++;
-								}
-
-							$return .= '</div>';
-						}
-						else
-						{
-							$return .= '<p>'.do_shortcode($page->post_content).'</p>';
-						}
-						
-						
-					$return .= '</div>';
-				$return .= '</div>';
+		foreach($pages as $page) {
+		    $return .= '<div class="accordion-group">';
+			$return .= '<div class="accordion-heading">';
+			    $return .= '<a class="accordion-toggle" data-toggle="collapse" data-parent="accordion-" href="#collapse-'.$page->ID.'-'.$i.'">'.$page->post_title.'</a>';
 			$return .= '</div>';
-			
-			$i++;
+			$return .= '<div id="collapse-'.$page->ID.'-'.$i.'" class="accordion-body">';
+    			    $return .= '<div class="accordion-inner clearfix">';
+
+					$subpages = get_pages(array('sort_order' => 'ASC', 'sort_column' => 'menu_order', 'parent' => $page->ID, 'hierarchical' => 0));
+
+					if(count($subpages) > 0)  {
+					    $return .= '<div class="assistant-tabs">';
+
+						$return .= '<ul class="assistant-tabs-nav">';
+
+						$j = 0;
+						foreach($subpages as $subpage) {
+							if($j == 0) $class = 'active';
+							else $class = '';
+
+							$return .= '<li><a href="#accordion-'.$page->ID.'-'.$i.'-tab-'.$j.'" class="accordion-tabs-nav-toggle '.$class.'">'.$subpage->post_title.'</a></li>';
+							$j++;
+						}
+
+						$return .= '</ul>';
+
+						$j = 0;
+						foreach($subpages as $subpage) {
+							if($j == 0) $class = 'assistant-tab-pane-active';
+							else $class = '';
+
+							$return .= '<div class="assistant-tab-pane '.$class.'" id="accordion-'.$page->ID.'-'.$i.'-tab-'.$j.'">';
+								$return .= '<p>'.do_shortcode($subpage->post_content).'</p>';
+							$return .= '</div>';
+
+							$j++;
+						}
+
+					    $return .= '</div>';
+					}  else {
+						$return .= '<p>'.do_shortcode($page->post_content).'</p>';
+					}
+
+
+				    $return .= '</div>';
+			    $return .= '</div>';
+		    $return .= '</div>';
+
+		    $i++;
 		}
 		
 		
@@ -143,7 +137,5 @@ class FAUShortcodesRTE
 }
 
 new FAUShortcodesRTE();
-
-
 
 ?>

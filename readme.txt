@@ -1,4 +1,4 @@
-FAU-Philfak 
+FAU-Einrichtungen
 Wordpress-Theme für zentrale Einrichtungen der 
 Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)
 ====================================================
@@ -15,6 +15,7 @@ DOWNLOADS
 AUTHOR 
 
    RRZE-Webteam , http://www.rrze.fau.de
+   vanbittern – Philipp Schmieder Medien, https://vanbittern.com
 
 
 CREDITS & COPYRIGHT

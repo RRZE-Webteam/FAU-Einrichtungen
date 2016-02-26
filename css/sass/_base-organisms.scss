@@ -1,42 +1,42 @@
 /* Logo */
 #logo {
-	display: block;
+	display: inline;
 	float: left;
-	margin: 20px 0 10px 0;
+	
 	max-height: 85px;
 	max-width: 300px;
 	min-width: 120px;
-	text-align: right;
-	
+	height: 85px;
+	margin: 0;
+	padding: 0;
 	h1 {
-	    @include inline-block;
+	    display: inline-block;
 	    font-size: 19px;
 	    line-height: 24px;
 	    font-weight: bold;
-	    color: $PalettonDunkler; // $colorPrimary;
+	    color: $colorPrimary;
 	    overflow: hidden;
-	    padding: 0 5px;
+	    padding: 0;
 	    vertical-align: text-bottom;
 	    text-align: left;
-	    
+	    max-height: 85px;
+	    margin: 10px 0;
 	    a {
-		color: $PalettonDunkler; // $colorPrimary;
+		color: $colorPrimary;
 		
 		 &:hover,
 		 &:focus {
 		    @include border-radius(4px);
 		    background-color: lighten($colorHover, 5%);
 		    color: white;
-		    display: block;
-
 		}	
 		
 	    } 		
 	}
 	img {
-	//    max-height: 85px;
+	    max-height: 85px;
 	    max-width: 300px;
-	    height: 65px;
+	    // height: 65px;
 	    width: auto;
 	    padding-right: 10px;
 	    
@@ -57,7 +57,7 @@
 		display: none;
 		position: absolute;
 		z-index: 30;
-		top: 139px;
+		top: 85px; // 129px;
 		left: 0;
 		right: 0;
 		background: $colorPrimary;
@@ -101,29 +101,35 @@
 					background: transparent url('../img/list-arrow.png') no-repeat left center;
 					display: block;
 					padding: 7px 20px 7px 20px;
-					color: $colorMainMenu;
+					// color: $colorMainMenu;
 					@include border-radius(0);
 					border-bottom: 1px solid $colorHover;
 				}
 
 				a:hover, a:focus {
 					text-decoration: none;
-					background-color: $colorHover;
+					background-color: $colorHover !important;;
 				}
 			}
 		}
 		
 		.nav-flyout {
-			a.button-portal {
+		   	a.button-portal {
 				@include inline-block;
-				background: $colorHover;
+				background: $colorHover !important;
 				padding: 13px 20px;
 				font-size: 18px;
 				line-height: 18px;
 
-				&:hover, &:focus {
-					background: lighten($colorHover, 5%);
+				&:hover, 
+				&:focus {
+					background: lighten($colorHover, 5%) !important;;
 				}
+			}
+			a:hover, 
+			a:focus {
+					text-decoration: none;
+					background-color: $colorHover;
 			}
 		}
 	}
@@ -145,27 +151,24 @@
 		}
 	}
 	
-	blockquote {
-		padding: 20px;
-		opacity: 0.7;
-		min-height: 40px;
-
-		p {
+	
+	.introtext {
+	    p {
 			color: #fff;
-			font-size: 18px;
-			line-height: 24px;
-			font-style: italic;
+			line-height: 24px;	
 			padding: 0;
 			margin: 0;
-		}
-
-		p.author {
+			opacity: 0.7;
+			
 			font-style: normal;
 			font-size: 15px;
 			font-weight: bold;
-			padding: 10px 0;
-		}
-
+	    }
+	    blockquote {
+		padding: 20px; 
+		// opacity: 0.7; 
+		min-height: 40px;
+		font-style: italic;
 		p.quote:before {
 			content: '';
 			width: 42px;
@@ -175,8 +178,12 @@
 			float: left;
 			margin-right: 20px;
 		}
+	    }
+	    p.author {
+			padding: 10px 0;
+			text-align: right;
+	    }
 	}
-	
 	p.nav-excerpt {
 		color: $colorLightest;
 		font-size: 15px;
@@ -195,38 +202,45 @@
 	-moz-border-radius-bottomright: 0;
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
-    	color: $colorMainMenu;
+    	color: $colorPrimary; // $colorMainMenu;
+	
 }
 
+#nav li.level1.focus.has-sub a,
 .no-js #nav li.level1:hover a, 
 .no-js #nav li.active a, 
 .no-js #nav li.level1:focus a, 
+#nav li.level1:hover a, 
+#nav li.active a, 
+#nav li.level1:focus a, 
 #nav li.focus a {
-	background-color: $colorPrimary;
-	color: $colorMainMenu;
+	background-color: $colorPrimary; 
+	color: #fff; // $colorMainMenu;
+	
 }
 
 .no-js #nav li.level1 a:hover, 
 .no-js #nav li.level1 a:focus {
-	background-color: $colorHover; // $colorPrimary;
+	background-color: $colorPrimary; 
 	color: $colorMainMenu;
 }
 
-.no-js #nav li.has-sub a:hover, 
-.no-js #nav li.has-sub a:focus, 
-.no-js #nav li.has-sub.active, 
-.no-js #nav li.has-sub:hover a, 
-.no-js #nav li.has-sub:focus a, 
+#nav li.has-sub a:hover, 
+#nav li.has-sub a:focus, 
+#nav li.has-sub.active, 
+#nav li.has-sub:hover a, 
+#nav li.has-sub:focus a, 
 #nav li.has-sub.focus a {
 	// background-position: right -28px;
 	color: $colorMainMenu;
 
 }
 
-
+/*
 body.admin-bar #nav .nav-flyout {
-	top: 171px;
+	top: 151px;
 }
+*/
 
 .no-js #nav li.level1:hover .nav-flyout, 
 .no-js #nav li.level1:focus .nav-flyout, 
@@ -234,33 +248,26 @@ body.admin-bar #nav .nav-flyout {
 	display: block;
 }
 
-.nav-fixed {
-	padding-top: 95px;
-	
+.nav-fixed {	
 	#header {
-		position: fixed;
-		top: -10px;
+	 	position: fixed;
 		left: 0;
 		right: 0;
 		background: #fff;
-		z-index: 200;
-		@include box-shadow(0 1px 3px rgba(0,0,0,0.3));
+		z-index: 100;
+		
 	}
 	
 	#nav .nav-flyout {
-		top: 85px;
+		top: 139px //85px;
 	}
+}
+.nav-scrolled {
+    #header {
+	@include box-shadow(0 1px 3px rgba(0,0,0,0.3));
+    }
 }
 
-body.admin-bar.nav-fixed {
-	#header {
-		top: 22px;
-	}
-	
-	#nav .nav-flyout {
-		top: 85px;
-	}
-}
 
 /* Mobile Navigation Toggle Button */
 #nav-toggle {
@@ -336,14 +343,15 @@ body.admin-bar.nav-fixed {
 		}
 	}
 }
-
+	
+	
 /* Meta-Navigation */
 #meta-nav {
 	@include no-list;
 	padding: 0;
 	max-width: 650px;
 	overflow: hidden;
-	height: 42px;
+//	height: 42px;
 	
 	li {
 		@include no-list;
@@ -485,10 +493,10 @@ body.admin-bar.nav-fixed {
 	    font-weight: normal;
 	    line-height: 18px;
 	    margin-bottom: -5px;
-	    color: $colorPrimaryHeroLight;
+	    color: #fff;
 	}
 	.infobar {
-	    padding-top: 15px;
+	    padding-top: 5px;
 	}
 	p.description {
 	    font-weight: normal;
@@ -711,7 +719,7 @@ body.admin-bar.nav-fixed {
 /* Hero Slider */
 #hero-slides {
 	position: relative;
-	top: -20px;
+	
 	margin: 0 auto -15px auto;
 	height: 350px;
 	background: $colorPrimary;

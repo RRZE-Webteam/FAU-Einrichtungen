@@ -625,12 +625,24 @@ function fau_do_metabox_page_portalmenu( $object, $box ) {
 	}
 	
 	$quote  = get_post_meta( $object->ID, 'zitat_text', true );	
+	$val  = get_post_meta( $object->ID, 'menuquote_texttype', true );	
+	$texttype = ( isset( $val ) ? intval( $val ) : 0 );		 
 	$author =  get_post_meta( $object->ID, 'zitat_autor', true );
-		
+	$nothumbnail =  get_post_meta( $object->ID, 'menuquote_nothumbnail', true );
+
+	
 	echo '<div id="portalseitenquote">';
 	    
-	fau_form_textarea('fau_metabox_menuquote_quote', $quote, __( "Zitat", 'fau' ),40,3, __('Das Zitat und der Autor erscheint bei Portalseiten oder Menüpunkten der ersten Ebene des Hauptmenüs neben der Auflistung der Untermenüpunkte.','fau')); 	    
+	fau_form_textarea('fau_metabox_menuquote_quote', $quote, __( "Zitat (Text)", 'fau' ),40,3, __('Das Zitat und der Autor erscheint bei Portalseiten oder Menüpunkten der ersten Ebene des Hauptmenüs neben der Auflistung der Untermenüpunkte.','fau')); 	    
 	fau_form_text('fau_metabox_menuquote_autor', $author, __( "Autor", 'fau' ), __('Dieser freie Text kann einen Namen enthalten auf den das Zitat zurückzuführen ist oder andere Informationen hierzu.','fau'), '', 20);
+	
+	fau_form_select('fau_metabox_menuquote_texttype', $liste = array(0 => "Zitat", 1=> "Normaler Text", 2=> "Nichts anzeigen"), $texttype, __('Textdarstellung im Hauptmenu','fau'),  
+		__('Anstelle eines Zitates kann auch ein normaler Text angegeben werden. Diese wird dann nicht wie ein Zitat optisch hervorgehoben. Der Autor-Text wird dann weg gelassen.','fau'), 0 );
+	
+	fau_form_onoff('fau_metabox_menuquote_nothumbnail',$nothumbnail,__('Artikelbild verbergen','fau'), __('Neben dem Text bzw. dem Zitat im Hauptmenü wird eine verkleinerte version des Artikelbildes angezeigt.','fau'));
+
+	
+	
 	
 	echo '</div>';
 	
@@ -767,6 +779,16 @@ function fau_save_metabox_page_portalmenu( $post_id, $post ) {
 	} elseif ($oldval) {
 	    delete_post_meta( $post_id, 'zitat_autor', $oldval );	
 	} 
+	
+	$newval = intval($_POST['fau_metabox_menuquote_texttype']);
+	fau_save_standard('menuquote_texttype', $newval, $post_id, '', 'int');
+	
+	
+	$newval = intval($_POST['fau_metabox_menuquote_nothumbnail']);
+	fau_save_standard('menuquote_nothumbnail', $newval, $post_id, '', 'int');
+	
+	
+	
 }
 
 /* 
@@ -987,7 +1009,7 @@ function fau_do_metabox_page_sidebar( $object, $box ) {
 	    if (!isset($fauval_sidebar_order_personlinks)) {
 		$fauval_sidebar_order_personlinks = $options['advanced_page_sidebar_order_personlinks'];
 	    }
-	    fau_form_select('fauval_sidebar_order_personlinks', array(0 => __('Zuerst Kontake, dann Linklisten','fau'), 1 => __('Zuerst Linklisten, dann Kontakte', 'fau')), $fauval_sidebar_order_personlinks, __('Reihenfolge Kontakte und Linklisten'),  __('Hier kann die Reihenfolge von Kontakte und Linklisten geändert werden, wie sie auf der Seite präsentiert werden.','fau'), 0 );
+	    fau_form_select('fauval_sidebar_order_personlinks', array(0 => __('Zuerst Kontake, dann Linklisten','fau'), 1 => __('Zuerst Linklisten, dann Kontakte', 'fau')), $fauval_sidebar_order_personlinks, __('Reihenfolge Kontakte und Linklisten','fau'),  __('Hier kann die Reihenfolge von Kontakte und Linklisten geändert werden, wie sie auf der Seite präsentiert werden.','fau'), 0 );
 	}	
 	
 	$personen = get_posts(array('post_type' => 'person', 'post_status' => 'publish', 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC', 'suppress_filters' => false));
@@ -1254,7 +1276,7 @@ function fau_save_metabox_page_sidebar( $post_id, $post ) {
  */
 add_action('admin_enqueue_scripts', function () {
     $suffix = defined('WP_DEBUG') && WP_DEBUG ? '' : '.min';
-
+ 
     // Erst deaktivieren wir das Standard-Wordpress-Skript
     wp_deregister_script('wplink');
 

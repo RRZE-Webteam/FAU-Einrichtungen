@@ -1,0 +1,162 @@
+/*
+Responsive Menue for FAU Theme
+*/
+
+#off-canvas, #off-canvas-overlay {
+	display: none;
+}
+
+@media (max-width: $breakMD) {
+
+	body.js-enabled {
+	//	padding-top: 80px;
+
+		&.nav-fixed {
+	//		padding-top: 80px;
+		}
+
+		&.menu-toggled {
+			#off-canvas {
+				-webkit-transform: translate3d(0, 0, 0);
+				        transform: translate3d(0, 0, 0);
+			}
+
+			#wrap, #footer, .main-content-container {
+				-webkit-transform: translate3d(-250px, 0, 0);
+				        transform: translate3d(-250px, 0, 0);
+			}
+
+			#off-canvas-overlay {
+				-webkit-transform: translate3d(0, 0, 0);
+				        transform: translate3d(0, 0, 0);
+				background-color: rgba(0,0,0,0.75);
+			}
+		}
+
+		#off-canvas, #off-canvas-overlay {
+			display: block;
+		}
+		
+		#off-canvas {
+			position: fixed;
+			width: 250px;
+			height: 100%;
+			top: 0px;
+			right: 0px;
+			z-index: 999;
+			background: #eee;
+
+			-webkit-transform: translate3d(100%, 0, 0);
+			        transform: translate3d(100%, 0, 0);
+			-webkit-transition: -webkit-transform 240ms;
+			        transition: transform 240ms;
+
+			overflow-y: auto;
+
+			#nav {
+				display: block;
+			}
+		}
+
+		#off-canvas-overlay {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			background-color: rgba(0,0,0,0.0);
+			-webkit-transform: translate3d(100%, 0, 0);
+			        transform: translate3d(100%, 0, 0);
+			-webkit-transition: background-color 500ms ease-out;
+			        transition: background-color 500ms ease-out;
+			z-index: 998;
+		}
+		&.admin-bar #off-canvas {
+		    top: 46px;
+		}
+		#wrap, #footer, .main-content-container {
+			-webkit-transform: translate3d(0, 0, 0);
+			        transform: translate3d(0, 0, 0);
+			-webkit-transition: -webkit-transform 240ms;
+			        transition: transform 240ms;
+		}
+
+
+		#nav .nav-flyout {
+			display: block;
+			overflow: hidden;
+			box-sizing: border-box;
+			max-height: 0;
+			padding: 0;
+			-webkit-transition: all 500ms;
+			        transition: all 500ms;
+
+			a {
+				color: #E9EDF2;
+			}
+
+			.container {
+				padding: 10px;
+			}
+		}
+
+		#nav .focus {
+			.nav-flyout {
+				max-height: 1000px;
+			}
+		}
+
+		#off-canvas-close {
+			display: block;
+			font-size: 14px;
+			padding: 16px 10px;
+			text-align: right;
+
+			&:hover {
+				text-decoration: underline;
+			};
+		}
+
+		ul#meta-nav {
+			display: block;
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+			background: $colorLightest;
+
+			li {
+				display: block;
+
+				a {
+					display: block;
+					padding: 10px 20px;
+				}
+				:focus, :hover {
+				    background: $colorMetaFAUHomeBackground;
+				    @include transition(background, 0.1s);
+				}
+			}
+			li.fauhome::before {
+			    content: '';
+			    margin: 0;
+			}
+			
+			
+			
+		}
+
+		#footer .hero-navigation {
+			&>*, h1, h2, h3 {
+				color: #fff;
+			}
+		}
+
+		#footer .hero-navigation {
+			margin-bottom: 50px;
+		}
+
+		.caroufredsel_wrapper, #logos-menu-playpause {
+			display: none!important;
+		}
+	}
+}
+

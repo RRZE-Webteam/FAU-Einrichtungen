@@ -107,6 +107,17 @@ get_header(); ?>
 						if ($options['post_display_category_below']) {
 						    $output = '<div class="meta-footer">'."\n";
 						    $output .= $typestr;
+						     
+						    if ($options['post_display_tags_below']) {
+							if(get_the_tag_list()) {
+							    $output .= '<span class="post-meta-tags"> ';
+							    $output .= __('Schlagworte', 'fau');
+							    $output .= ': ';
+							    $output .= get_the_tag_list('<ul><li>','</li><li>','</li></ul>');
+							    $output .= '</span> ';
+							}   
+						    }
+						    
 						    $output .= '</div>'."\n";
 						    echo $output;   
 						}
@@ -121,7 +132,8 @@ get_header(); ?>
 					    
 					    comments_template(); ?>
 					 </div>
-				    <?php } ?>
+				    <?php }
+				    ?>
 				</div>
 				
 				<?php get_template_part('sidebar', 'news'); ?>
@@ -131,7 +143,6 @@ get_header(); ?>
 	    	<?php get_template_part('footer', 'social'); ?>	
 	</div>
 	
-<?php endwhile; ?>
+<?php endwhile; 
 
-<?php 
 get_footer();
