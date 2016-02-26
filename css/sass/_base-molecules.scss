@@ -90,6 +90,9 @@
 			}
 		}
 	}
+	h2 {
+	    @include hideout;
+	}
 }
 
 /* Faculties Menu */
