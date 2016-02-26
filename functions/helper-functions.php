@@ -399,17 +399,17 @@ if ( ! function_exists( 'fau_form_link' ) ) :
 	   
 ?>
 	  <script>
+	   
 	      var link_btn_<?php echo $name ?> = (function ($) {
-		  var link_val_container = $('#url_<?php echo $rand ?>_<?php echo $name ?>');
-		  var title_val_container = $('#title_<?php echo $rand ?>_<?php echo $name ?>');
+		  var link_val_container<?php echo $rand ?> = $('#url_<?php echo $rand ?>_<?php echo $name ?>');
+		  var title_val_container<?php echo $rand ?> = $('#title_<?php echo $rand ?>_<?php echo $name ?>');
 
 		  function _init() {
 		      $('.link_button_<?php echo $name ?>').on('click', function (event) {
+			  activedialog = '<?php echo $name ?>';
 			  wpActiveEditor = true;
 			  wpLink.open();
-
-			  wpLink.textarea = $(link_val_container);
-
+			  wpLink.textarea = $(link_val_container<?php echo $rand ?>);	  
 			  _addLinkListeners();
 			  return false;
 		      });
@@ -417,13 +417,19 @@ if ( ! function_exists( 'fau_form_link' ) ) :
 
 		  function _addLinkListeners() {
 		      $('body').on('click', '#wp-link-submit', function (event) {
-			  var linkAtts = wpLink.getAttrs();
-
-			  $(link_val_container).val(linkAtts.href);
-			  $(title_val_container).val(linkAtts.title);
-
-			  _removeLinkListeners(event);
-			  return false;
+			  if (activedialog=='<?php echo $name ?>') {
+				var linkAtts = wpLink.getAttrs();
+				$(link_val_container<?php echo $rand ?>).val(linkAtts.href);
+				var title = linkAtts.title;
+				if (title) {
+				    $(title_val_container<?php echo $rand ?>).val(title);
+				}  
+				_removeLinkListeners(event);
+				activedialog = '';
+				return false;
+			    } else {
+				return false;
+			    }
 		      });
 
 		      $('body').on('click', '#wp-link-cancel, #wp-link-close', function (event) {
@@ -434,7 +440,7 @@ if ( ! function_exists( 'fau_form_link' ) ) :
 		  }
 
 		  function _removeLinkListeners(event) {
-		      wpLink.textarea = $(link_val_container);
+		      wpLink.textarea = $(link_val_container<?php echo $rand ?>);
 		      wpLink.close();
 
 		      event.preventDefault ? event.preventDefault() : event.returnValue = false;
@@ -448,7 +454,7 @@ if ( ! function_exists( 'fau_form_link' ) ) :
 	      })(jQuery);
 
 	      jQuery(document).ready(function ($) {
-
+		  var activedialog = '';
 		  link_btn_<?php echo $name ?>.init();
 
 	      });

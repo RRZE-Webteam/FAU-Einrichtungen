@@ -1276,7 +1276,7 @@ function fau_save_metabox_page_sidebar( $post_id, $post ) {
  */
 add_action('admin_enqueue_scripts', function () {
     $suffix = defined('WP_DEBUG') && WP_DEBUG ? '' : '.min';
-
+ 
     // Erst deaktivieren wir das Standard-Wordpress-Skript
     wp_deregister_script('wplink');
 
