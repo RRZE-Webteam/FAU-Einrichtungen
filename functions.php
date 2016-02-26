@@ -1728,4 +1728,9 @@ function remove_accordion_bad_p($content){
     return preg_replace('#</div></div></p>#i', '</div></div>', $content);
 }
 
-
+add_filter('wp_list_categories','categories_postcount_filter');
+function categories_postcount_filter ($variable) {
+   $variable = str_replace('(', '<span class="post_count">(', $variable);
+   $variable = str_replace(')', ')</span>', $variable);
+   return $variable;
+}

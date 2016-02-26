@@ -370,21 +370,38 @@
 
 		li {
 			@include no-list;
-			
+			display: block;
+			background-color: $colorLightest;
+			border-bottom: 1px solid #fff;
+			line-height: 18px;
+			padding: 6px 0 6px 0px;
 			a {
 				text-decoration: none;
-				display: block;
 				line-height: 18px;
 				padding: 6px 0;
-				background-color: $colorLightest;
-				border-bottom: 1px solid #fff;
 				padding-left: 15px;
-				padding-right: 15px;
 				
-				&:hover, &:focus {
-					background-color: darken($colorLightest, 3%);
+				&:hover, 
+				&:focus {
+				    text-decoration: underline;
 				}
 			}
+			&:hover, 
+			&:focus {
+			    background-color: darken($colorLightest, 3%);
+			    li {
+				background-color: darken($colorLightest, 3%);
+			    }
+			}
+			ul {
+			    margin-top: 5px;
+			}
+			li {
+			    border-bottom: none;
+			    padding: 6px 0 6px 15px;
+			}
+			
+			&.tf a,
 			&.techfak a {
 			    background-color: $colorTechFak;
 			    color: #fff;
