@@ -42,17 +42,13 @@ class BoostrapShortcodes {
     add_shortcode('code', array( $this, 'bs_code' ));
     add_shortcode('span', array( $this, 'bs_span' ));
     add_shortcode('row', array( $this, 'bs_row' ));
-    add_shortcode('label', array( $this, 'bs_label' ));
-    add_shortcode('badge', array( $this, 'bs_badge' ));
-    add_shortcode('icon', array( $this, 'bs_icon' ));
-    add_shortcode('icon_white', array( $this, 'bs_icon_white' ));
+
     add_shortcode('table', array( $this, 'bs_table' ));
     add_shortcode('collapsibles', array( $this, 'bs_collapsibles' ));
     add_shortcode('collapse', array( $this, 'bs_collapse' ));
-    add_shortcode('well', array( $this, 'bs_well' ));
+
     add_shortcode('tabs', array( $this, 'bs_tabs' ));
     add_shortcode('tab', array( $this, 'bs_tab' ));
-    add_shortcode('tooltip', array( $this, 'bs_tooltip' ));
 
   }
 
@@ -158,91 +154,7 @@ class BoostrapShortcodes {
 
   }
   
-
-
-
-  /*--------------------------------------------------------------------------------------
-    *
-    * bs_label
-    *
-    * @author Filip Stefansson
-    * @since 1.0
-    * 
-    *-------------------------------------------------------------------------------------*/
-  function bs_label( $atts, $content = null ) {
-    extract(shortcode_atts(array(
-      "type" => 'type'
-    ), $atts));
-
-    return '<span class="label label-' . $type . '">' . do_shortcode( $content ) . '</span>';
-
-  }
   
-
-
-
-  /*--------------------------------------------------------------------------------------
-    *
-    * bs_badge
-    *
-    * @author Filip Stefansson
-    * @since 1.0
-    * 
-    *-------------------------------------------------------------------------------------*/
-  function bs_badge( $atts, $content = null ) {
-    extract(shortcode_atts(array(
-      "type" => 'type'
-    ), $atts));
-
-    return '<span class="badge badge-' . $type . '">' . do_shortcode( $content ) . '</span>';
-
-  }
-  
-
-
-
-  /*--------------------------------------------------------------------------------------
-    *
-    * bs_icon
-    *
-    * @author Filip Stefansson
-    * @since 1.0
-    *  //DW Mod to add icon sizing
-    *-------------------------------------------------------------------------------------*/
-  function bs_icon( $atts, $content = null ) {
-    extract(shortcode_atts(array(
-      "type" => 'type',
-      "size" => 'normal',
-    ), $atts));
-
-    return '<i class="icon icon-' . $type . ' icon-' . $size .'"></i>'; 
-
-  }
-  
-
-
-
-  /*--------------------------------------------------------------------------------------
-    *
-    * bs_icon_white
-    *
-    * @author Filip Stefansson
-    * @since 1.0
-    * 
-    *-------------------------------------------------------------------------------------*/
-  function bs_icon_white( $atts, $content = null ) {
-    extract(shortcode_atts(array(
-      "type" => 'type'
-    ), $atts));
-
-    return '<i class="icon icon-' . $type . ' icon-white"></i>';
-
-  }
-  
-
-
-
-
   /*--------------------------------------------------------------------------------------
     *
     * simple_table
@@ -281,22 +193,6 @@ class BoostrapShortcodes {
 
 
 
-  /*--------------------------------------------------------------------------------------
-    *
-    * bs_well
-    *
-    * @author Filip Stefansson
-    * @since 1.0
-    * 
-    *-------------------------------------------------------------------------------------*/
-    function bs_well( $atts, $content = null ) {
-      extract(shortcode_atts(array(
-        "size" => 'size'
-      ), $atts));
-
-      return '<div class="well well-' . $size . '">' . do_shortcode( $content ) . '</div>';
-    }
-  
 
 
   /*--------------------------------------------------------------------------------------
@@ -457,8 +353,6 @@ class BoostrapShortcodes {
     $output .= '<div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-' . $GLOBALS['collapsibles_count'] . '" href="#collapse_' . $GLOBALS['current_collapse'] .'">' . $title . '</a></div>'."\n";
     $output .= '<div id="collapse_' . $GLOBALS['current_collapse'] . '" class="accordion-body ' . $state . '">';
     $output .= '<div class="accordion-inner clearfix">'."\n";
-    
-   //  $output .= $content;
     $output .= do_shortcode($content);
     $output .= '</div>';
     $output .= '</div></div>';
@@ -467,7 +361,6 @@ class BoostrapShortcodes {
     
     return $output;
   }
-
 
 }
 

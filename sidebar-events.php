@@ -47,7 +47,7 @@ foreach($topevent_posts as $topevent): ?>
 		<?php } 
 			$topevent_date  = get_post_meta( $topevent->ID, 'topevent_date', true );
 			if (!empty($topevent_date)) {
-			    echo '<div class="topevent_date dtstart dt-start" title="'.$topevent_date.'">';
+			    echo '<div class="topevent-date dtstart dt-start" title="'.$topevent_date.'">';
 			    echo date_i18n( get_option( 'date_format' ), strtotime( $topevent_date ) );
 			    echo "</div>\n";
 			}
