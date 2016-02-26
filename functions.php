@@ -1721,11 +1721,11 @@ function remove_accordion_bad_br($content){
     return preg_replace('#<br\s*/*>\s*<div class="accordion#i', '<div class="accordion', $content);
 }
 
-add_filter('the_content', 'remove_accordion_bad_p', 20, 1);
-function remove_accordion_bad_p($content){
+add_filter('the_content', 'remove_bad_p', 20, 1);
+function remove_bad_p($content){
    // $content = force_balance_tags($content);
-    $content = preg_replace('#<p><div class="accordion-group#i', '<div class="accordion-group', $content);
-    return preg_replace('#</div></div></p>#i', '</div></div>', $content);
+    $content = preg_replace('#<p><div #i', '<div ', $content);
+    return preg_replace('#</div></p>#i', '</div>', $content);
 }
 
 add_filter('wp_list_categories','categories_postcount_filter');
