@@ -101,6 +101,11 @@ get_header(); ?>
 						$output .= '<span class="post-meta-date"> '.get_the_date('',$post->ID)."</span>\n";
 						$output .= '</div>'."\n";
 	
+						
+					$headline = get_post_meta( $post->ID, 'fauval_untertitel', true );				
+					if ( $headline) {
+					     echo '<h2 class="subtitle">'.$headline."</h2>\n";
+					}
 						echo $output;    
 						the_content();
 						

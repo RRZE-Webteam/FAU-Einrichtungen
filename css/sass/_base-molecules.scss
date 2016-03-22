@@ -600,10 +600,9 @@ ul.person-info {
 /* Posts / News */
 .post-image {
     float: right;
-    margin-bottom: 10px;
-    margin-left: 20px;
+    margin: 20px 0 10px 20px;
     text-align: center;
-
+    
     .post-image-caption {
 	    line-height: 18px;
 	    font-size: 13px;
@@ -616,7 +615,12 @@ ul.person-info {
 .news-details {
 	margin-top: 20px;
 	
-	
+	.post-image {
+	    margin-top: 0px;
+	}
+	.subtitle {
+	    padding-top: 0;
+	}
 	.post-meta-categories:before {
 		    @extend .fa;
 		    @extend .fa-archive;
