@@ -170,7 +170,7 @@ $defaultoptions = array(
     'default_logo_width'	    => 240,
     
     'default_excerpt_morestring'    => '...',
-    'default_excerpt_length'	    => 300,
+    'default_excerpt_length'	    => 50,
     'default_anleser_excerpt_length'=> 300,
     'default_search_excerpt_length' => 300,
     

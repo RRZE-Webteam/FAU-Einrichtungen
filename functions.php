@@ -333,9 +333,9 @@ add_filter('excerpt_more', 'fau_excerpt_more');
  */
 function fau_excerpt_length( $length ) {
     global $options;
-    return $options['default_excerpt_length'];
+    return 50; //  $options['default_excerpt_length'];
 }
-add_filter( 'excerpt_length', 'fau_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'fau_excerpt_length' );
 
 
 
@@ -997,7 +997,7 @@ function fau_custom_excerpt($id = 0, $length = 0, $withp = true, $class = '', $w
 	$morestr = $options['default_excerpt_morestring'];
     }
     
-    $excerpt = get_post_field('post_excerpt',$id);
+    $excerpt = get_the_excerpt(); // get_post_field('post_excerpt',$id);
  
     if (mb_strlen(trim($excerpt))<5) {
 	$excerpt = get_post_field('post_content',$id);
@@ -1006,7 +1006,6 @@ function fau_custom_excerpt($id = 0, $length = 0, $withp = true, $class = '', $w
     $excerpt = preg_replace('/\s+(https?:\/\/www\.youtube[\/a-z0-9\.\-\?&;=_]+)/i','',$excerpt);
     $excerpt = strip_shortcodes($excerpt);
     $excerpt = strip_tags($excerpt, $options['custom_excerpt_allowtags']); 
-
   
   if (mb_strlen($excerpt)<5) {
       $excerpt = '<!-- '.__( 'Kein Inhalt', 'fau' ).' -->';
@@ -1190,7 +1189,20 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 
 /* 
  * Suchergebnisse 
- */
+*/
+add_filter('posts_orderby','fau_sort_custom',10,2);
+function fau_sort_custom( $orderby, $query ){
+    global $wpdb;
+
+    if(!is_admin() && is_search())
+    //    $orderby =  $wpdb->prefix."posts.post_type ASC, {$wpdb->prefix}posts.post_date DESC";
+	 $orderby =  $wpdb->prefix."posts.post_modified DESC";
+
+    return  $orderby;
+}
+
+
+
 function fau_display_search_resultitem($withsidebar = 1) {
     global $post;
     global $options;
@@ -1211,14 +1223,15 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	    $link = fau_make_link_relative(get_permalink($post->ID));
 	}
 	
-	
-	$output .= '<article class="search-result">'."\n";
+	$type = get_post_type();
+	$typeclass = "res-".$type;
+	$output .= '<article class="search-result '.$typeclass.'">'."\n";
 	$output .= "\t<h3><a ";
 	if ($external==1) {
 	    $output .= 'class="ext-link" ';
 	}
 	$output .= "href=\"".$link."\">".get_the_title()."</a></h3>\n";
-	$type = get_post_type();
+	
 	$typeinfo = get_post_type_object( $type );
 	
 	
@@ -1277,10 +1290,19 @@ function fau_display_search_resultitem($withsidebar = 1) {
 		$typestr .= $typeinfo->labels->singular_name; 
 		$typestr .= '</span>';		
 	    }
-	    $typestr .= ' <span class="post-meta-date"> ';
-	    $typestr .= get_the_modified_date();
-	    $typestr .= ' ('.__('Letzte Änderung', 'fau').')';
+	    
+	/*    $typestr .= ' <span class="post-meta-date"> ';
+	    $typestr .= get_the_date();	   
+	    $typestr .= ' ('.__('Erstellungsdatum', 'fau').')';
 	    $typestr .= '</span>';
+	    if (get_the_date() !=get_the_modified_date()) { */
+		$typestr .= ' <span class="post-meta-date"> ';
+		$typestr .= get_the_modified_date();	   
+		$typestr .= ' ('.__('Letzte Änderung', 'fau').')';
+		$typestr .= '</span>';
+	/*    } */
+	    
+	    
 	    $typestr .= '</div>'."\n";
 	} else  {
 	    $typestr = '';

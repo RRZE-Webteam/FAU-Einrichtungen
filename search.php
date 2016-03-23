@@ -33,7 +33,10 @@ $showhelplinks = 0;
 				<main>
 				 <?php 
 				if(strlen(get_search_query()) > 0) {
-				    if(have_posts()) { ?>							
+				    if(have_posts()) { 
+					global $wp_query, $wp_rewrite;
+					
+					?>							
 						<h2><?php _e('Suchergebnisse','fau'); ?></h2>
 						<p class="meta-resultinfo"><?php 
 						    echo __("Es wurden",'fau')." ".$wp_query->found_posts.' '.__("Treffer gefunden",'fau').":"; ?>
@@ -42,9 +45,8 @@ $showhelplinks = 0;
 						while ( have_posts() ) { 
 						    the_post(); 
 						    echo fau_display_search_resultitem($active_sidebar);
-
 						} 
-					    global $wp_query, $wp_rewrite;
+					    
 
 					    if ( $wp_query->max_num_pages > 1 ) {
 						if (absint( get_query_var( 'paged' ))>0) {
