@@ -222,6 +222,7 @@ $defaultoptions = array(
     'search_display_post_cats'		=> true,
     'search_display_continue_arrow'		=> true,
     'search_display_excerpt_morestring'		=> '...',
+    'search_display_typenote'		=> true,
     
     'plugin_fau_person_headline'	=> true,
     'plugin_fau_person_malethumb'	=> get_fau_template_uri().'/img/platzhalter-mann.png',
@@ -234,6 +235,8 @@ $defaultoptions = array(
     'advanced_images_info_credits'	=> 0,
     'advanced_display_hero_credits'	=> true,   
     'advanced_display_postthumb_credits'    => true,
+    
+    
 
     
 ); 
@@ -710,45 +713,56 @@ $setoptions = array(
 	
 	       
 	       
-	      'suchergebnisse'  => array(
+		'suchergebnisse'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Suchergebnisse', 'fau' ),                      
-              ),
+		),
 	       
-	       'search_display_post_thumbnails' => array(
+		'search_display_post_thumbnails' => array(
                   'type'    => 'bool',
                   'title'   => __( 'Zeige Thumbs', 'fau' ),
                   'label'   => __( 'Bei den Suchergebnisse Thumbnails anzeigen, wenn diese vorhanden sind', 'fau' ),                
                   'default' => $defaultoptions['search_display_post_thumbnails'],
 		  'parent'  => 'suchergebnisse'
-              ),   
-	      'search_display_post_cats'  => array(
+		),   
+		'search_display_post_cats'  => array(
                   'type'    => 'bool',
                   'title'   => __( 'Zeige Kategorien', 'fau' ),
                   'label'   => __( 'Bei den Suchergebnisse Kategorien der Beiträge anzeigen', 'fau' ),                
                   'default' => $defaultoptions['search_display_post_cats'],
 		  'parent'  => 'suchergebnisse'
-              ),   
-	       'search_display_continue_arrow' => array(
+		),   
+		'search_display_continue_arrow' => array(
                   'type'    => 'bool',
                   'title'   => __( 'Weiterlesen-Pfeil', 'fau' ),
-                  'label'   => __( 'Zeige verlinkten Pfeil zum Weiterelesen.', 'fau' ),                
+                  'label'   => __( 'Zeige verlinkten Pfeil zum Weiterlesen.', 'fau' ),                
                   'default' => $defaultoptions['search_display_continue_arrow'],
 		  'parent'  => 'suchergebnisse'
-              ),   
-	       'default_search_excerpt_length' => array(
+		),   
+		'default_search_excerpt_length' => array(
                   'type'    => 'number',
                   'title'   => __( 'Länge Textauszug', 'fau' ),
                   'label'   => __( 'Anzahl der maximalen Zeichen für den Textauszug bei der Ergebnissliste.', 'fau' ),                
                   'default' => $defaultoptions['default_search_excerpt_length'],
 		  'parent'  => 'suchergebnisse'
-              ),   
-	     'search_display_excerpt_morestring'=> array(
+		),   
+		'search_display_excerpt_morestring'=> array(
 		    'type'    => 'text',
 		    'title'   => __( 'Textabbruch', 'fau' ),
 		    'label'   => __( 'Falls der Textauszug nach der vorgegebenen Länger abgeschnitten werden muss, können hier Trennzeichen angegeben werden.', 'fau' ),               
 		    'default' => $defaultoptions['search_display_excerpt_morestring'],
 		), 
+		'search_display_typenote' => array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Typ anzeigen', 'fau' ),
+                  'label'   => __( 'Zeige Inhaltstyp des Treffers an.', 'fau' ),                
+                  'default' => $defaultoptions['search_display_typenote'],
+		  'parent'  => 'suchergebnisse'
+		),    
+	       
+	           
+
+	       
           )
        ),
         'templates'   => array(

@@ -1191,13 +1191,16 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 /* 
  * Suchergebnisse 
  */
-function fau_display_search_resultitem() {
+function fau_display_search_resultitem($withsidebar = 1) {
     global $post;
     global $options;
     
     $output = '';
     $withthumb = $options['search_display_post_thumbnails'];
     $withcats =  $options['search_display_post_cats'];
+    $withtypenote = $options['search_display_typenote'];
+    
+    
     if (isset($post) && isset($post->ID)) {
 	
 	$link = get_post_meta( $post->ID, 'external_link', true );
@@ -1214,11 +1217,18 @@ function fau_display_search_resultitem() {
 	if ($external==1) {
 	    $output .= 'class="ext-link" ';
 	}
-	 $output .= "href=\"".$link."\">".get_the_title()."</a></h3>\n";
+	$output .= "href=\"".$link."\">".get_the_title()."</a></h3>\n";
 	$type = get_post_type();
+	$typeinfo = get_post_type_object( $type );
+	
+	
 	if ( $type == 'post') {
-	     $typestr = '<div class="search-meta">';
-
+	    $typestr = '<div class="search-meta">';
+	    if ($withtypenote == true) { 
+		$typestr .= '<span class="post-meta-news"> ';
+		$typestr .= __('Beitrag', 'fau'); 
+		$typestr .= '</span>';
+	    }
 	    $categories = get_the_category();
 	    $separator = ', ';
 	    $thiscatstr = '';
@@ -1254,55 +1264,85 @@ function fau_display_search_resultitem() {
 	    $typestr .= __('Veranstaltungshinweis', 'fau');
 	    $typestr .= '</span>';
 	    $typestr .= '</div>'."\n";
+	    
+	
+	} elseif ($withtypenote == true) { 
+	    $typestr = '<div class="search-meta">';
+	    if (($type == 'kontakt') || ($type == 'person') ) {		
+		$typestr .= '<span class="post-meta-kontakt"> ';
+		$typestr .= $typeinfo->labels->singular_name; 
+		$typestr .= '</span>';
+	    } else {
+		$typestr .= '<span class="post-meta-defaulttype"> ';
+		$typestr .= $typeinfo->labels->singular_name; 
+		$typestr .= '</span>';		
+	    }
+	    $typestr .= ' <span class="post-meta-date"> ';
+	    $typestr .= get_the_modified_date();
+	    $typestr .= ' ('.__('Letzte Änderung', 'fau').')';
+	    $typestr .= '</span>';
+	    $typestr .= '</div>'."\n";
 	} else  {
-	     $typestr = '';
+	    $typestr = '';
 	}
 
 	if (!empty($typestr)) { 
 	     $output .= "\t".$typestr."\n"; 
 	}
-	$output .= "\t".'<div class="row">'."\n";  
+	$output .= "\t";
 	
 	
-	if (($withthumb==true) && (has_post_thumbnail( $post->ID )) )  {
-	    $output .= "\t\t".'<div class="span3">'."\n"; 
-	    $output .= '<a href="'.$link.'" class="news-image';
-	    if ($external==1) {
-		$output .= ' ext-link';
-	    }
-	    $output .= '">';
-
-	    $post_thumbnail_id = get_post_thumbnail_id( $post->ID, 'post-thumb' ); 
-	    $imagehtml = '';
-	    if ($post_thumbnail_id) {
-		$sliderimage = wp_get_attachment_image_src( $post_thumbnail_id,  'post-thumb');
-		$imageurl = $sliderimage[0]; 	
-	    }
-	    if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
-		$imageurl = $options['default_postthumb_src'];
-	    }
-	    $output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_postthumb_width'].'" height="'.$options['default_postthumb_height'].'" alt="">';
-	    $output .= '</a>';
-	    
-	    $output .= "\t\t".'</div>'."\n"; 
-	    $output .= "\t\t".'<div class="span5">'."\n"; 
+	if (($type == 'person') && (function_exists('fau_person'))) {
+		 $output .= fau_person(array("id"=> $post->ID, 'format' => 'kompakt' ));
+	  
 	} else {
-	    $output .= "\t\t".'<div class="span8">'."\n"; 
-	}
-	
-	
-	
-	$output .= "\t\t".'<p>'."\n"; 
-	$output .= fau_custom_excerpt($post->ID,$options['default_search_excerpt_length'],false,'',true,$options['search_display_excerpt_morestring']);	
-	if ($options['search_display_continue_arrow']) {
-	    $output .= '<a class="read-more-arrow';
-	    if ($external==1) {
-		$output .= ' ext-link';
+
+	    if (($withthumb==true) && (has_post_thumbnail( $post->ID )) )  {
+		$output .= '<div class="row">'."\n";  
+		$output .= "\t\t".'<div class="span3">'."\n"; 
+		$output .= '<a href="'.$link.'" class="news-image';
+		if ($external==1) {
+		    $output .= ' ext-link';
+		}
+		$output .= '">';
+
+		$post_thumbnail_id = get_post_thumbnail_id( $post->ID, 'post-thumb' ); 
+		$imagehtml = '';
+		if ($post_thumbnail_id) {
+		    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id,  'post-thumb');
+		    $imageurl = $sliderimage[0]; 	
+		}
+		if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
+		    $imageurl = $options['default_postthumb_src'];
+		}
+		$output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_postthumb_width'].'" height="'.$options['default_postthumb_height'].'" alt="">';
+		$output .= '</a>';
+
+		$output .= "\t\t".'</div>'."\n"; 
+		if ($withsidebar) {
+		    $output .= "\t\t".'<div class="span5">'."\n"; 
+		} else {
+		    $output .= "\t\t".'<div class="span9">'."\n"; 
+		}
 	    }
-	    $output .= '" href="'.$link.'">›</a>'; 
+
+	    $output .= "\t\t".'<p>'."\n"; 
+	    $output .= fau_custom_excerpt($post->ID,$options['default_search_excerpt_length'],false,'',true,$options['search_display_excerpt_morestring']);	
+	    if ($options['search_display_continue_arrow']) {
+		$output .= '<a class="read-more-arrow';
+		if ($external==1) {
+		    $output .= ' ext-link';
+		}
+		$output .= '" href="'.$link.'">›</a>'; 
+	    }
+	    $output .= "\t\t\t".'</p>'."\n"; 
+	    if (($withthumb==true) && (has_post_thumbnail( $post->ID )) )  {
+		$output .= "\t</div> <!-- /row -->\n";
+	    }	
+	
 	}
-	$output .= "\t\t\t".'</p>'."\n"; 
-	$output .= "\t</div> <!-- /row -->\n";	
+	
+	
 	$output .= "</article>\n";
     } else {
 	$output .= "<!-- empty result -->\n";
