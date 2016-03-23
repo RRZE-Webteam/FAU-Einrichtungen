@@ -39,7 +39,12 @@ $showhelplinks = 0;
 					?>							
 						<h2><?php _e('Suchergebnisse','fau'); ?></h2>
 						<p class="meta-resultinfo"><?php 
-						    echo __("Es wurden",'fau')." ".$wp_query->found_posts.' '.__("Treffer gefunden",'fau').":"; ?>
+						    if ($wp_query->found_posts>1) {
+							echo __("Es wurden",'fau');
+						    } else {
+							echo __("Es wurde ",'fau');
+						    }
+						    echo " ".$wp_query->found_posts.' '.__("Treffer gefunden",'fau').":"; ?>
 						</p>
 						<?php 
 						while ( have_posts() ) { 
