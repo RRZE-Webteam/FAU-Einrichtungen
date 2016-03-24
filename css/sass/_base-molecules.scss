@@ -795,7 +795,18 @@ ul.person-info {
 		    @extend .fa;
 		    @extend .fa-comment;
 		}
+		.post-meta-attachment:before {
+		    @extend .fa;
+		    @extend .fa-file;
+		}
 		
+		.download:before {
+		    @extend .fa;
+		    @extend .fa-download;
+		}
+		.dateityp {
+		    text-transform: uppercase;
+		}
 	}
 	h3 .ext-link,  
 	h2 .ext-link {
@@ -807,6 +818,9 @@ ul.person-info {
 			text-decoration: underline;
 		}
 	}
+	.download,
+	.post-meta-date,
+	.post-meta-attachment,
 	.post-meta-news,
 	.post-meta-category,
 	.post-meta-defaulttype, 

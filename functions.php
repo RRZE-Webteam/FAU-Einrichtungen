@@ -1190,6 +1190,49 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 /* 
  * Suchergebnisse 
 */
+
+/* 
+ * Optionaler Suchfilter
+ */
+function fau_searchfilter($query) {
+    global $options;
+    if ($query->is_search && !is_admin() ) {
+	if(isset($_GET['post_type'])) {
+	    $types = (array) $_GET['post_type'];
+	} else {
+	    $types = $options['search_post_types'];
+	  //  $types = array("person", "post", "page", "attachment");
+	  //  $types = array("attachment","person");
+	}
+	$allowed_types = get_post_types(array('public' => true, 'exclude_from_search' => false));
+	foreach($types as $type) {
+	    if( in_array( $type, $allowed_types ) ) { $filter_type[] = $type; }
+	}
+	if(count($filter_type)) {
+	    $query->set('post_type',$filter_type);
+	}	
+        $query->set('post_status', array('publish','inherit'));
+
+    }
+}
+add_filter("pre_get_posts","fau_searchfilter");
+
+/* 
+ * Keine Bilder bei der Suche ausgeben. Attachments und Posts/Pages sonst aber ja
+ */
+function fau_search_remove_images($where) {
+    global $wpdb;
+    if (!is_admin() ) {
+	$where.=' AND '.$wpdb->posts.'.post_mime_type NOT LIKE \'image/%\'';
+    }
+    return $where;
+}
+add_filter( 'posts_where' , 'fau_search_remove_images' );
+
+
+/*
+ * Sortierung
+ */
 add_filter('posts_orderby','fau_sort_custom',10,2);
 function fau_sort_custom( $orderby, $query ){
     global $wpdb;
@@ -1202,7 +1245,9 @@ function fau_sort_custom( $orderby, $query ){
 }
 
 
-
+/*
+ * Anzeige Einzelergebnisse
+ */
 function fau_display_search_resultitem($withsidebar = 1) {
     global $post;
     global $options;
@@ -1211,7 +1256,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
     $withthumb = $options['search_display_post_thumbnails'];
     $withcats =  $options['search_display_post_cats'];
     $withtypenote = $options['search_display_typenote'];
-    
+    $attachment = array();
     
     if (isset($post) && isset($post->ID)) {
 	
@@ -1277,8 +1322,43 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	    $typestr .= __('Veranstaltungshinweis', 'fau');
 	    $typestr .= '</span>';
 	    $typestr .= '</div>'."\n";
+	} elseif ($type == 'attachment') {    
 	    
-	
+	    $attachment = wp_prepare_attachment_for_js($post->ID);
+	    $filesize = isset($attachment['filesizeHumanReadable']) ? $attachment['filesizeHumanReadable'] : '';
+	    $filesize = (isset($attachment['filesize']) && (!isset($filesize))) ? $attachment['filesize'] : $filesize;
+	    $filesize = (isset($attachment['filesizeInBytes']) && (!isset($filesize))) ? $attachment['filesizeInBytes']." Bytes" : $filesize;
+
+	    $filetype = wp_check_filetype( $attachment['url'] );
+	     
+	    $typestr = '<div class="search-meta">';
+	    $typestr .= '<span class="post-meta-attachment">';	    
+	    $typestr .= ' <span class="dateityp">'.$filetype['ext'].'</span> ';
+	    $typestr .= __('Datei', 'fau');	  
+	    $typestr .= '</span>';
+	    
+	    $typestr .= ' <span class="post-meta-date"> ';
+	    $typestr .= get_the_date();	   
+	    
+	    if (get_the_date() !=get_the_modified_date()) { 
+		$typestr .= ' ('.__('Erstellungsdatum', 'fau').')';
+		$typestr .= '</span>';	
+		$typestr .= ' <span class="post-meta-date"> ';
+		$typestr .= get_the_modified_date();	   
+		$typestr .= ' ('.__('Letzte Änderung', 'fau').')';		
+	    }
+	    $typestr .= '</span>';		
+
+	   
+	    $typestr .= ' <span class="download">';
+	    $typestr .= ' <a href="'.fau_esc_url($attachment['url']).'">'.__('Download','fau').'</a>'; 
+	    
+	    $typestr .= ' <span class="filesize">(<span class="unsichtbar">';
+	    $typestr .= __('Größe:', 'fau'). ' </span>'.$filesize; 
+	    $typestr .= ')</span>';	
+	    $typestr .= '</span>';
+	    
+	    $typestr .= '</div>'."\n";	    
 	} elseif ($withtypenote == true) { 
 	    $typestr = '<div class="search-meta">';
 	    if (($type == 'kontakt') || ($type == 'person') ) {		
@@ -1290,17 +1370,11 @@ function fau_display_search_resultitem($withsidebar = 1) {
 		$typestr .= $typeinfo->labels->singular_name; 
 		$typestr .= '</span>';		
 	    }
-	    
-	/*    $typestr .= ' <span class="post-meta-date"> ';
-	    $typestr .= get_the_date();	   
-	    $typestr .= ' ('.__('Erstellungsdatum', 'fau').')';
-	    $typestr .= '</span>';
-	    if (get_the_date() !=get_the_modified_date()) { */
+
 		$typestr .= ' <span class="post-meta-date"> ';
 		$typestr .= get_the_modified_date();	   
 		$typestr .= ' ('.__('Letzte Änderung', 'fau').')';
 		$typestr .= '</span>';
-	/*    } */
 	    
 	    
 	    $typestr .= '</div>'."\n";
@@ -1316,7 +1390,37 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	
 	if (($type == 'person') && (function_exists('fau_person'))) {
 		 $output .= fau_person(array("id"=> $post->ID, 'format' => 'kompakt' ));
-	  
+	 
+/*	}elseif (($type == 'standort') && (function_exists('fau_standort'))) {
+		 $output .= fau_standort(array("id"=> $post->ID));	 
+		 
+	*/	
+		 
+	} elseif ($type == 'attachment') {
+	     if ($withthumb==true)   {
+		$output .= '<div class="row">'."\n";  
+		$output .= "\t\t".'<div class="span1 span-small">'."\n"; 
+		$output .= '<img src="'.fau_esc_url($attachment['icon']).'" width="48" height="64" alt="">';
+		$output .= "\t\t".'</div>'."\n"; 
+		if ($withsidebar) {
+		    $output .= "\t\t".'<div class="span7">'."\n"; 
+		} else {
+		    $output .= "\t\t".'<div class="span11">'."\n"; 
+		}
+	    }
+	    $output .= "\t\t".'<p><em>'."\n"; 
+	    $output .= "\t\t\t".$attachment['caption'];
+	    $output .= "\t\t".'</em></p>'."\n"; 
+	    $output .= "\t\t".'<p>'."\n"; 
+	    $output .= "\t\t\t".$attachment['description'];
+	    $output .= "\t\t".'</p>'."\n"; 
+
+	    
+	    if ($withthumb==true)   {
+		$output .= "\t</div> <!-- /row -->\n";
+	    }	
+		
+
 	} else {
 
 	    if (($withthumb==true) && (has_post_thumbnail( $post->ID )) )  {
@@ -1342,7 +1446,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 
 		$output .= "\t\t".'</div>'."\n"; 
 		if ($withsidebar) {
-		    $output .= "\t\t".'<div class="span5">'."\n"; 
+		    $output .= "\t\t".'<div class="span6">'."\n"; 
 		} else {
 		    $output .= "\t\t".'<div class="span9">'."\n"; 
 		}

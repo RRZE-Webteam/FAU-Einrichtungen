@@ -26,6 +26,23 @@ global $options;
 				<form role="search" method="get" class="searchform" action="<?php echo home_url( '/' )?>">
 					<input id="suchmaske-hero" type="text" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>">
 					<input type="submit" value="<?php _e('Finden','fau'); ?>">
+					<?php
+					if ($options['search_allowfilter']) {
+					    echo '<div class="filter">';
+					    $query_types = get_query_var('post_type');
+					    $listtypes = $options['search_post_types'];
+					    foreach ($listtypes as $type) {
+						$typeinfo = get_post_type_object( $type );
+						$typestr = $typeinfo->labels->name; 	    
+						echo '<input type="checkbox" name="post_type[]" id="label-'.$type.'" value="'.$type.'"';
+						if (in_array($type, $query_types)) { echo ' checked="checked"'; }
+						echo ">";			
+						echo '<label for="label-'.$type.'">'.$typestr.'</label>';
+					    }
+					    echo "</div>\n";
+					}
+					?>
+					
 				</form>
 				
 			</div>

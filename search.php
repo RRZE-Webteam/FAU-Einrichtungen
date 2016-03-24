@@ -32,6 +32,7 @@ $showhelplinks = 0;
 			    <?php } ?>
 				<main>
 				 <?php 
+								 
 				if(strlen(get_search_query()) > 0) {
 				    if(have_posts()) { 
 					global $wp_query, $wp_rewrite;
@@ -47,6 +48,7 @@ $showhelplinks = 0;
 						    echo " ".$wp_query->found_posts.' '.__("Treffer gefunden",'fau').":"; ?>
 						</p>
 						<?php 
+	
 						while ( have_posts() ) { 
 						    the_post(); 
 						    echo fau_display_search_resultitem($active_sidebar);
@@ -95,12 +97,13 @@ $showhelplinks = 0;
 					    } 
 
 				    } else { ?>
-					    <p class="hinweis">
-						<strong><?php _e('Nichts gefunden.','fau'); ?></strong><br>
-						<?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?>
+					    <p class="attention">
+						<strong><?php _e('Nichts gefunden.','fau'); ?></strong>
 					    </p>
+					    
 					    <div class="row">
-						<div class="span9 offset2"><img src="<?php echo fau_get_template_uri(); ?>/img/friedrich-alexander.gif" alt="" class="error-404-persons"></div>
+						<div class="span4"><p><?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?></p></div>
+						<div class="span4"><img src="<?php echo fau_get_template_uri(); ?>/img/friedrich-alexander.gif" alt="" class="error-404-persons"></div>
 					    </div>
 
 					    <?php 

@@ -592,7 +592,7 @@ body.admin-bar #nav .nav-flyout {
 			display: block;
 			box-sizing: padding-box;
 			height: 40px;
-			color: #444;
+			color: $colorSearchInput;
 		}
 
 		.search-radio-label {
@@ -604,6 +604,26 @@ body.admin-bar #nav .nav-flyout {
 				margin-right: 3px;
 			}
 		}
+		.filter {
+		    @include inline-block();
+		    margin: 0px 20px;
+		    label {
+			@include inline-block();
+			width: auto;
+			float: none;
+			margin: 0 10px 0 5px;
+			padding: 0;
+			color: $colorSearchInputBackground;
+		    }
+		    input[type="checkbox"] {
+		        margin: 0;
+			width: 17px;
+		        height:17px;
+			border: 1px solid #bbb;
+			box-shadow: inset 0 1px 1px 0 rgba(0,0,0,.1);
+		    }
+		}
+		
 	}
 	
 	.hero-jumplink-content {

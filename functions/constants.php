@@ -223,7 +223,9 @@ $defaultoptions = array(
     'search_display_continue_arrow'		=> true,
     'search_display_excerpt_morestring'		=> '...',
     'search_display_typenote'		=> true,
-    
+    'search_post_types'			=> array("page", "post",  "person", "attachment"),
+    'search_allowfilter'		=> true,
+   
     'plugin_fau_person_headline'	=> true,
     'plugin_fau_person_malethumb'	=> get_fau_template_uri().'/img/platzhalter-mann.png',
     'plugin_fau_person_femalethumb'	=> get_fau_template_uri().'/img/platzhalter-frau.png',
@@ -759,8 +761,15 @@ $setoptions = array(
                   'default' => $defaultoptions['search_display_typenote'],
 		  'parent'  => 'suchergebnisse'
 		),    
+	       'search_allowfilter' => array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Sucher filterbar', 'fau' ),
+                  'label'   => __( 'Erlaubt es, Suchergebnisse nach der Art des Dokumenttypes (Seiten, Artikel, etc.) zu filtern.', 'fau' ),                
+                  'default' => $defaultoptions['search_allowfilter'],
+		  'parent'  => 'suchergebnisse'
+		),    
 	       
-	           
+	          
 
 	       
           )
