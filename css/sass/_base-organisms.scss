@@ -584,12 +584,12 @@ body.admin-bar #nav .nav-flyout {
 		input[type="submit"] {
 			@include border-radius(20px);
 			border: none;
-			background: #fff;
+			background: $colorSearchInputBackground;
 			color: #444;
 			font-size: 15px;
 			line-height: 15px;
 			padding: 0 15px;
-			display: block;
+			display: inline-block;
 			box-sizing: padding-box;
 			height: 40px;
 			color: $colorSearchInput;

@@ -512,7 +512,23 @@ Media Queries for Theme FAU-Einrichtungen
 		margin-top: 171px;
 	    }
 	}
+	#hero {
+	.searchform {
+	    margin: 0 auto;
+	    padding: 10px;
+	    
+	    input[type="text"] {
+		width: 150px;
+		margin: 0 10px;
+		float: none;
+		display: inline-block;
+	    }
+	    .filter {
+		margin-top: 5px;
+	    }
+	}
 	
+    }
 	#subnav {
 		ul {
 			margin-left: 0;
@@ -584,6 +600,7 @@ Media Queries for Theme FAU-Einrichtungen
 		}
 	    }	
 	}
+	
 }
 
 @media (min-width: 768px) and (min-height: 700px) and (max-height: 900px) {
