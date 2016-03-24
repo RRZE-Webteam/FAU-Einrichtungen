@@ -764,7 +764,7 @@ $setoptions = array(
 	       'search_allowfilter' => array(
                   'type'    => 'bool',
                   'title'   => __( 'Sucher filterbar', 'fau' ),
-                  'label'   => __( 'Erlaubt es, Suchergebnisse nach der Art des Dokumenttypes (Seiten, Artikel, etc.) zu filtern.', 'fau' ),                
+                  'label'   => __( 'Erlaubt es, Suchergebnisse nach der Art des Dokumenttypes (Seiten, Beiträge, etc.) zu filtern.', 'fau' ),                
                   'default' => $defaultoptions['search_allowfilter'],
 		  'parent'  => 'suchergebnisse'
 		),    
