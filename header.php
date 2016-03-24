@@ -42,7 +42,8 @@ global $options;
 					<?php if ( is_active_sidebar( 'language-switcher' ) ) : ?>
 						<?php dynamic_sidebar( 'language-switcher' ); ?>
 					<?php endif; ?>
-					<?php get_search_form();?>
+				    
+				    <?php get_template_part('header', 'searchform'); ?>
 				</div>
 			</div>
 		</section>

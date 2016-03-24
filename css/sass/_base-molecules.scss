@@ -354,10 +354,18 @@
 
 /* Widget: Search */
 .widget_search {
+	.searchform  {
+	    padding: 20px 10px;
+	}
 	input[type="text"] {
 		width: 80%;
+		max-width: 160px;
+		margin: 0 10px 0 0;
+		font-size: 14px;
 	}
-	
+	input[type="submit"] {
+	    padding: 2px 15px;
+	}
 	.searchform label {
 		@extend .unsichtbar;
 	}
