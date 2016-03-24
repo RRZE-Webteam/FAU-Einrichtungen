@@ -284,7 +284,7 @@
 	margin-bottom: 7px;
 	
 	li {
-		padding: 0 0 0 20px;
+		padding: 0 0 0 5px;
 	}
 	
 }
@@ -354,10 +354,18 @@
 
 /* Widget: Search */
 .widget_search {
+	.searchform  {
+	    padding: 20px 10px;
+	}
 	input[type="text"] {
 		width: 80%;
+		max-width: 160px;
+		margin: 0 10px 0 0;
+		font-size: 14px;
 	}
-	
+	input[type="submit"] {
+	    padding: 2px 15px;
+	}
 	.searchform label {
 		@extend .unsichtbar;
 	}
@@ -600,10 +608,9 @@ ul.person-info {
 /* Posts / News */
 .post-image {
     float: right;
-    margin-bottom: 10px;
-    margin-left: 20px;
+    margin: 20px 0 10px 20px;
     text-align: center;
-
+    
     .post-image-caption {
 	    line-height: 18px;
 	    font-size: 13px;
@@ -616,7 +623,12 @@ ul.person-info {
 .news-details {
 	margin-top: 20px;
 	
-	
+	.post-image {
+	    margin-top: 0px;
+	}
+	.subtitle {
+	    padding-top: 0;
+	}
 	.post-meta-categories:before {
 		    @extend .fa;
 		    @extend .fa-archive;
@@ -779,7 +791,30 @@ ul.person-info {
 		    @extend .fa;
 		    @extend .fa-calendar-o;
 		}
+		.post-meta-kontakt:before {
+		    @extend .fa;
+		    @extend .fa-user;
+		}
+		.post-meta-defaulttype:before {
+		    @extend .fa;
+		    @extend .fa-bookmark;
+		}
+		.post-meta-news:before {
+		    @extend .fa;
+		    @extend .fa-comment;
+		}
+		.post-meta-attachment:before {
+		    @extend .fa;
+		    @extend .fa-file;
+		}
 		
+		.download:before {
+		    @extend .fa;
+		    @extend .fa-download;
+		}
+		.dateityp {
+		    text-transform: uppercase;
+		}
 	}
 	h3 .ext-link,  
 	h2 .ext-link {
@@ -791,10 +826,18 @@ ul.person-info {
 			text-decoration: underline;
 		}
 	}
-	.post-meta-category {
+	.download,
+	.post-meta-date,
+	.post-meta-attachment,
+	.post-meta-news,
+	.post-meta-category,
+	.post-meta-defaulttype, 
+	.post-meta-kontakt {
 	    margin-right: 10px;
 	}
-	
+	.content-person {
+	    border: none;
+	}
 	
 }
 
@@ -877,7 +920,7 @@ ul.person-info {
 		li {
 			@include no-list;
 			padding: 10px 0 0 0;
-			min-height: 40px;
+			min-height: 42px;
 			font-size: 12px;
 			line-height: 18px;
 			background-image: none;

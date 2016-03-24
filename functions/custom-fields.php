@@ -16,7 +16,7 @@ function fau_metabox_cf_setup() {
 	/* Display Metabox */
 	add_action( 'add_meta_boxes_page', 'fau_add_metabox_page' );
 	add_action( 'add_meta_boxes_post', 'fau_add_metabox_post' );
-
+	
 
 	/* Save sidecontent */
 	add_action( 'save_post', 'fau_save_metabox_page_untertitel', 10, 2 );

@@ -24,7 +24,7 @@ get_header(); ?>
 					<?php 
 					$headline = get_post_meta( $post->ID, 'headline', true );				
 					if ( $headline) {
-					     echo "<h2>".$headline."</h2>\n";
+					      echo '<h2 class="subtitle">'.$headline."</h2>\n";
 					}
 					
 					

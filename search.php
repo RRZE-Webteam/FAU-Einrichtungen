@@ -9,7 +9,7 @@
 
 get_header(); 
 get_template_part('hero', 'search'); 
-
+$active_sidebar = 0;
 $showhelplinks = 0;
 ?>
 	
@@ -18,108 +18,111 @@ $showhelplinks = 0;
 
 			<div class="row">
 			    
-			    <?php if ( is_active_sidebar( 'search-sidebar' ) ) { ?>				
+			    <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	
+				$active_sidebar = 1; ?>
 				<div class="span3">
 					<div class="search-sidebar">
-						<?php if ( is_active_sidebar( 'search-sidebar' ) ) : ?>
-							<?php dynamic_sidebar( 'search-sidebar' ); ?>
-						<?php endif; ?>
+					    <?php dynamic_sidebar( 'search-sidebar' ); ?>
 					</div>
 				</div>
 				<div class="span9">
 			    <?php } else { ?>
-				<div class="span6">
+				<div class="span12">
 				
 			    <?php } ?>
 				<main>
 				 <?php 
-				if(strlen(get_search_query()) > 0):
-				    if(have_posts()): ?>							
-							<h2><?php _e('Suchergebnisse','fau'); ?></h2>
-							<?php 
-							while ( have_posts() ) { 
-							    the_post(); 
-							    echo fau_display_search_resultitem();
-							
-							} 
-						    global $wp_query, $wp_rewrite;
-
-						    if ( $wp_query->max_num_pages > 1 ) {
-							if (absint( get_query_var( 'paged' ))>0) {
-							    $paged = absint( get_query_var( 'paged' ));
-							} else {
-							    $paged =1;
-							}
-							$pagenum_link = html_entity_decode( get_pagenum_link() );
-							$query_args   = array();
-							$url_parts    = explode( '?', $pagenum_link );
-
-							if ( isset( $url_parts[1] ) ) {
-							    wp_parse_str( $url_parts[1], $query_args );
-							}
-
-							$pagenum_link = remove_query_arg( array_keys( $query_args ), $pagenum_link );
-							$pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
-
-							$format  = $wp_rewrite->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
-							$format .= $wp_rewrite->using_permalinks() ? user_trailingslashit( $wp_rewrite->pagination_base . '/%#%', 'paged' ) : '?paged=%#%';
-
-							$links = paginate_links( array(
-							    'base'     => $pagenum_link,
-							    'format'   => $format,
-							    'total'    => $wp_query->max_num_pages,
-							    'current'  => $paged,
-							    'mid_size' => 1,
-							    'add_args' => array_map( 'urlencode', $query_args ),
-							    'prev_text' => __( '<span class="meta-nav">&larr;</span> Zurück', 'fau' ),
-							    'next_text' => __( 'Weiter <span class="meta-nav">&rarr;</span>', 'fau' ),
-							) );
-							?>
-							<?php if ( $links ) : ?>
-							    <nav id="nav-pages" class="navigation paging-navigation" role="navigation">
-								<h3 class="screen-reader-text"><?php _e( 'Weitere Suchergebnisse', 'fau' ); ?></h1>
-								<div class="nav-links">
-								    <?php echo $links; ?>
-								</div>
-							    </nav>
-							<?php endif;
-						    } ?>
-                            
-						<?php else: ?>
-							<p class="hinweis">
-							    <strong><?php _e('Nichts gefunden.','fau'); ?></strong><br>
-							    <?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?>
-							</p>
-							<div class="row">
-							    <div class="span9 offset2"><img src="<?php echo fau_get_template_uri(); ?>/img/friedrich-alexander.gif" alt="" class="error-404-persons"></div>
-							</div>
-							
-							
-							<?php
-							$showhelplinks = 1;
-							 ?>
-
-							
-						<?php endif; ?>
-						
-					<?php else: ?>
-						<p class="attention"><?php _e('Bitte geben Sie einen Suchbegriff in das Suchfeld ein.','fau'); ?></p>
-						
-						
+								 
+				if(strlen(get_search_query()) > 0) {
+				    if(have_posts()) { 
+					global $wp_query, $wp_rewrite;
+					
+					?>							
+						<h2><?php _e('Suchergebnisse','fau'); ?></h2>
+						<p class="meta-resultinfo"><?php 
+						    if ($wp_query->found_posts>1) {
+							echo __("Es wurden",'fau');
+						    } else {
+							echo __("Es wurde ",'fau');
+						    }
+						    echo " ".$wp_query->found_posts.' '.__("Treffer gefunden",'fau').":"; ?>
+						</p>
 						<?php 
-						$showhelplinks = 1;
-						?>
+	
+						while ( have_posts() ) { 
+						    the_post(); 
+						    echo fau_display_search_resultitem($active_sidebar);
+						} 
+					    
 
-					<?php endif; ?>
+					    if ( $wp_query->max_num_pages > 1 ) {
+						if (absint( get_query_var( 'paged' ))>0) {
+						    $paged = absint( get_query_var( 'paged' ));
+						} else {
+						    $paged =1;
+						}
+						$pagenum_link = html_entity_decode( get_pagenum_link() );
+						$query_args   = array();
+						$url_parts    = explode( '?', $pagenum_link );
+
+						if ( isset( $url_parts[1] ) ) {
+						    wp_parse_str( $url_parts[1], $query_args );
+						}
+
+						$pagenum_link = remove_query_arg( array_keys( $query_args ), $pagenum_link );
+						$pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
+
+						$format  = $wp_rewrite->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
+						$format .= $wp_rewrite->using_permalinks() ? user_trailingslashit( $wp_rewrite->pagination_base . '/%#%', 'paged' ) : '?paged=%#%';
+
+						$links = paginate_links( array(
+						    'base'     => $pagenum_link,
+						    'format'   => $format,
+						    'total'    => $wp_query->max_num_pages,
+						    'current'  => $paged,
+						    'mid_size' => 1,
+						    'add_args' => array_map( 'urlencode', $query_args ),
+						    'prev_text' => __( '<span class="meta-nav">&larr;</span> Zurück', 'fau' ),
+						    'next_text' => __( 'Weiter <span class="meta-nav">&rarr;</span>', 'fau' ),
+						) );
+						?>
+						<?php if ( $links ) { ?>
+						    <nav id="nav-pages" class="navigation paging-navigation" role="navigation">
+							<h3 class="screen-reader-text"><?php _e( 'Weitere Suchergebnisse', 'fau' ); ?></h1>
+							<div class="nav-links">
+							    <?php echo $links; ?>
+							</div>
+						    </nav>
+						<?php } 
+					    } 
+
+				    } else { ?>
+					    <p class="attention">
+						<strong><?php _e('Nichts gefunden.','fau'); ?></strong>
+					    </p>
+					    
+					    <div class="row">
+						<div class="span4"><p><?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?></p></div>
+						<div class="span4"><img src="<?php echo fau_get_template_uri(); ?>/img/friedrich-alexander.gif" alt="" class="error-404-persons"></div>
+					    </div>
+
+					    <?php 
+					    $showhelplinks = 1;
+				    } 
+				} else { ?>
+				    <p class="attention"><?php _e('Bitte geben Sie einen Suchbegriff in das Suchfeld ein.','fau'); ?></p>
+					<?php
+					$showhelplinks = 1;
+				} ?>
 				</main>
 				</div>
 			</div>
 		    
-			    <?php
-			    if ($showhelplinks==1) {
-				    get_template_part('search', 'helper'); 
-			    }
-			    ?>
+			<?php
+			if ($showhelplinks==1) {
+				get_template_part('search', 'helper'); 
+			}
+			?>
 
 		</div>
 	</div>
