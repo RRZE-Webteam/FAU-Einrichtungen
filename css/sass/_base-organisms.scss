@@ -605,7 +605,7 @@ body.admin-bar #nav .nav-flyout {
 			}
 		}
 		.filter {
-		    @include inline-block();
+		   display: block;
 		    margin: 0px 20px;
 		    label {
 			@include inline-block();
