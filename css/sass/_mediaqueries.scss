@@ -817,7 +817,21 @@ Media Queries for Theme FAU-Einrichtungen
     .wp-caption-text {
 	padding: 0;
     }
-    
+    #hero {
+	.searchform {
+	    margin: 0 auto;
+	    padding: 10px;
+	    
+	    input[type="text"] {
+		width: 50%;
+		margin: 0 10px;
+	    }
+	    .filter {
+		margin-top: 5px;
+	    }
+	}
+	
+    }
     
     #footer {
 	li {
@@ -854,7 +868,7 @@ Media Queries for Theme FAU-Einrichtungen
 	    display: none;
     }
     */
-
+    
 }
 
 @media (min-height: 900px) {
