@@ -747,14 +747,14 @@ $setoptions = array(
 		'default_search_excerpt_length' => array(
                   'type'    => 'number',
                   'title'   => __( 'Länge Textauszug', 'fau' ),
-                  'label'   => __( 'Anzahl der maximalen Zeichen für den Textauszug bei der Ergebnissliste.', 'fau' ),                
+                  'label'   => __( 'Anzahl der maximalen Zeichen für den Textauszug bei der Ergebnisliste.', 'fau' ),                
                   'default' => $defaultoptions['default_search_excerpt_length'],
 		  'parent'  => 'suchergebnisse'
 		),   
 		'search_display_excerpt_morestring'=> array(
 		    'type'    => 'text',
 		    'title'   => __( 'Textabbruch', 'fau' ),
-		    'label'   => __( 'Falls der Textauszug nach der vorgegebenen Länger abgeschnitten werden muss, können hier Trennzeichen angegeben werden.', 'fau' ),               
+		    'label'   => __( 'Falls der Textauszug nach der vorgegebenen Länge abgeschnitten werden muss, können hier Trennzeichen angegeben werden.', 'fau' ),               
 		    'default' => $defaultoptions['search_display_excerpt_morestring'],
 		), 
 		'search_display_typenote' => array(
@@ -766,7 +766,7 @@ $setoptions = array(
 		),    
 	       'search_allowfilter' => array(
                   'type'    => 'bool',
-                  'title'   => __( 'Sucher filterbar', 'fau' ),
+                  'title'   => __( 'Suche filterbar', 'fau' ),
                   'label'   => __( 'Erlaubt es, Suchergebnisse nach der Art des Dokumenttypes (Seiten, Beiträge, etc.) zu filtern.', 'fau' ),                
                   'default' => $defaultoptions['search_allowfilter'],
 		  'parent'  => 'suchergebnisse'
