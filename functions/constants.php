@@ -55,10 +55,10 @@ $defaultoptions = array(
     'default_startseite-bannerbild-image_height'    => 182,
     'default_startseite-bannerbild-image_crop'	    => true,
     
-    /* Thumb for Main menu - Name: portalmenu-thumb */
+    /* Thumb for Main menu - Name: portalmenu-thumb 
     'default_mainmenuthumb_width'    => 370,
     'default_mainmenuthumb_height'   => 185,
-    'default_mainmenuthumb_crop'    => false,
+    'default_mainmenuthumb_crop'    => false, */
     
     /* Thumb for Image Menus in Content - Name: page-thumb */
     'default_submenuthumb_width'    => 220,
@@ -68,6 +68,12 @@ $defaultoptions = array(
     'default_topevent_thumb_width'  => 140,
     'default_topevent_thumb_height' => 90,
     'default_topevent_thumb_crop'   => true,  
+
+    /* Thumb for Logos (used in carousel) - Name: logo-thumb */
+    'default_logo_carousel_width'	=> 140,
+    'default_logo_carousel_height'	=> 110,
+    'default_logo_carousel_crop'	=> true,   
+
     
     /* Thumb for Posts in Lists - Name: post-thumb */
     'default_postthumb_width'	    => 220,
@@ -94,10 +100,7 @@ $defaultoptions = array(
     'default_person_thumb_page_height'   => 300,
     'default_person_thumb_page_crop'	 => true,         
     
-    /* Thumb for Logos (used in carousel) - Name: logo-thumb */
-    'default_logo_carousel_width'	=> 140,
-    'default_logo_carousel_height'	=> 110,
-    'default_logo_carousel_crop'	=> true,      
+   
   
     /* Images for gallerys - Name: gallery-full */
     'default_gallery_full_width'	=> 940,
