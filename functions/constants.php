@@ -55,10 +55,10 @@ $defaultoptions = array(
     'default_startseite-bannerbild-image_height'    => 182,
     'default_startseite-bannerbild-image_crop'	    => true,
     
-    /* Thumb for Main menu - Name: portalmenu-thumb */
+    /* Thumb for Main menu - Name: portalmenu-thumb 
     'default_mainmenuthumb_width'    => 370,
     'default_mainmenuthumb_height'   => 185,
-    'default_mainmenuthumb_crop'    => false,
+    'default_mainmenuthumb_crop'    => false, */
     
     /* Thumb for Image Menus in Content - Name: page-thumb */
     'default_submenuthumb_width'    => 220,
@@ -68,6 +68,12 @@ $defaultoptions = array(
     'default_topevent_thumb_width'  => 140,
     'default_topevent_thumb_height' => 90,
     'default_topevent_thumb_crop'   => true,  
+
+    /* Thumb for Logos (used in carousel) - Name: logo-thumb */
+    'default_logo_carousel_width'	=> 140,
+    'default_logo_carousel_height'	=> 110,
+    'default_logo_carousel_crop'	=> true,   
+
     
     /* Thumb for Posts in Lists - Name: post-thumb */
     'default_postthumb_width'	    => 220,
@@ -94,10 +100,7 @@ $defaultoptions = array(
     'default_person_thumb_page_height'   => 300,
     'default_person_thumb_page_crop'	 => true,         
     
-    /* Thumb for Logos (used in carousel) - Name: logo-thumb */
-    'default_logo_carousel_width'	=> 140,
-    'default_logo_carousel_height'	=> 110,
-    'default_logo_carousel_crop'	=> true,      
+   
   
     /* Images for gallerys - Name: gallery-full */
     'default_gallery_full_width'	=> 940,
@@ -744,14 +747,14 @@ $setoptions = array(
 		'default_search_excerpt_length' => array(
                   'type'    => 'number',
                   'title'   => __( 'Länge Textauszug', 'fau' ),
-                  'label'   => __( 'Anzahl der maximalen Zeichen für den Textauszug bei der Ergebnissliste.', 'fau' ),                
+                  'label'   => __( 'Anzahl der maximalen Zeichen für den Textauszug bei der Ergebnisliste.', 'fau' ),                
                   'default' => $defaultoptions['default_search_excerpt_length'],
 		  'parent'  => 'suchergebnisse'
 		),   
 		'search_display_excerpt_morestring'=> array(
 		    'type'    => 'text',
 		    'title'   => __( 'Textabbruch', 'fau' ),
-		    'label'   => __( 'Falls der Textauszug nach der vorgegebenen Länger abgeschnitten werden muss, können hier Trennzeichen angegeben werden.', 'fau' ),               
+		    'label'   => __( 'Falls der Textauszug nach der vorgegebenen Länge abgeschnitten werden muss, können hier Trennzeichen angegeben werden.', 'fau' ),               
 		    'default' => $defaultoptions['search_display_excerpt_morestring'],
 		), 
 		'search_display_typenote' => array(
@@ -763,8 +766,8 @@ $setoptions = array(
 		),    
 	       'search_allowfilter' => array(
                   'type'    => 'bool',
-                  'title'   => __( 'Sucher filterbar', 'fau' ),
-                  'label'   => __( 'Erlaubt es, Suchergebnisse nach der Art des Dokumenttypes (Seiten, Artikel, etc.) zu filtern.', 'fau' ),                
+                  'title'   => __( 'Suche filterbar', 'fau' ),
+                  'label'   => __( 'Erlaubt es, Suchergebnisse nach der Art des Dokumenttypes (Seiten, Beiträge, etc.) zu filtern.', 'fau' ),                
                   'default' => $defaultoptions['search_allowfilter'],
 		  'parent'  => 'suchergebnisse'
 		),    

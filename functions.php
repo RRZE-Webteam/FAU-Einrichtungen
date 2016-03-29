@@ -10,7 +10,6 @@ require_once( get_template_directory() . '/functions/constants.php' );
 $options = fau_initoptions();
 require_once( get_template_directory() . '/functions/helper-functions.php' );
 require_once( get_template_directory() . '/functions/theme-options.php' );     
-require_once( get_template_directory() . '/functions/bootstrap.php');
 require_once( get_template_directory() . '/functions/shortcodes.php');
 require_once( get_template_directory() . '/functions/plugin-support.php' );
 require_once( get_template_directory() . '/functions/menu.php');
@@ -32,12 +31,12 @@ function fau_setup() {
 	 */
 	add_editor_style( array( 'css/editor-style.css' ) );
 
-	// Adds RSS feed links to <head> for posts and comments.
-	add_theme_support( 'automatic-feed-links' );
+
+	
 
 	// Switches default core markup for search form, comment form, and comments
 	// to output valid HTML5.
-//	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
+	add_theme_support( 'html5');
 	
 	/*
 	 * This theme supports all available post formats by default.
@@ -48,17 +47,7 @@ function fau_setup() {
 //	) );
 	add_theme_support('title-tag');
 	
-	/*
-	if ( ! function_exists( '_wp_render_title_tag' ) ) :
-	    function theme_slug_render_title() {
-	?>
-	<title><?php wp_title( '|', true, 'right' ); ?></title>
-	<?php
-	    }
-	    add_action( 'wp_head', 'theme_slug_render_title' );
-	endif;
-	 */
-	
+
 	
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menu( 'meta', __( 'Meta-Navigation oben', 'fau' ) );
@@ -89,20 +78,24 @@ function fau_setup() {
     
 	
 	/* Thumb for Main menu - Name: portalmenu-thumb */
-	add_image_size( 'portalmenu-thumb', $options['default_mainmenuthumb_width'], $options['default_mainmenuthumb_height'], $options['default_mainmenuthumb_crop']);	// 370, 185, false
- 
+	// add_image_size( 'portalmenu-thumb', $options['default_mainmenuthumb_width'], $options['default_mainmenuthumb_height'], $options['default_mainmenuthumb_crop']);	// 370, 185, false
+	/*
+	 * Brauchen wir mit 1.4 nicht mehr. Auf den Portalindexseitemn im Content wird page-thumb verwendet. 
+	 * Im Flyout-Menu wird post verwendet.
+	 * 
+	 */
 	
 	/* Thumb for Posts in Lists - Name: post-thumb */
-	add_image_size( 'post-thumb', $options['default_postthumb_width'], $options['default_postthumb_height'], $options['default_postthumb_crop']); // 3:2
+	add_image_size( 'post-thumb', $options['default_postthumb_width'], $options['default_postthumb_height'], $options['default_postthumb_crop']); // 3:2  220:147, false
 	
 	/* Thumb of Topevent in Sidebar - Name: topevent-thumb */
-	add_image_size( 'topevent-thumb', $options['default_topevent_thumb_width'], $options['default_topevent_thumb_height'], $options['default_topevent_thumb_crop']); 
+	add_image_size( 'topevent-thumb', $options['default_topevent_thumb_width'], $options['default_topevent_thumb_height'], $options['default_topevent_thumb_crop']); // 140:90, true
 	
 	/* Thumb for Image Menus in Content - Name: page-thumb */
 	add_image_size( 'page-thumb', $options['default_submenuthumb_width'], $options['default_submenuthumb_height'], true); // 220:110
 	
 	/* Thumb for Posts, displayed in post/page single display - Name: post */
-	add_image_size( 'post', $options['default_post_width'], $options['default_post_height'], $options['default_post_crop']);
+	add_image_size( 'post', $options['default_post_width'], $options['default_post_height'], $options['default_post_crop']);  // 300:200  false
 	
 	/* Thumb for person-type; small for sidebar - Name: person-thumb */
 	add_image_size( 'person-thumb', $options['default_person_thumb_width' ], $options['default_person_thumb_height'], $options['default_person_thumb_crop'	]); // 60, 80, true
@@ -115,7 +108,7 @@ function fau_setup() {
 
 	
 	/* Thumb for Logos (used in carousel) - Name: logo-thumb */
-	add_image_size( 'logo-thumb', $options['default_logo_carousel_width'], $options['default_logo_carousel_height'], $options['default_logo_carousel_crop']);
+	add_image_size( 'logo-thumb', $options['default_logo_carousel_width'], $options['default_logo_carousel_height'], $options['default_logo_carousel_crop']);   // 140:110, true
 
 	/* 
 	 * Größen für Bildergalerien: 
@@ -183,8 +176,7 @@ function fau_register_scripts() {
     wp_register_script( 'fau-libs-jquery-flexslider', get_fau_template_uri() . '/js/libs/jquery.flexslider.js', array('jquery'), $options['js-version'], true );
 	// Flexslider für Startseite und für Galerien.  
     wp_register_script( 'fau-libs-jquery-hoverintent', get_fau_template_uri() . '/js/libs/jquery.hoverintent.js', array(), $options['js-version'], true );
-//	wp_register_script( 'fau-libs-jquery-fluidbox', get_fau_template_uri() . '/js/libs/jquery.fluidbox.js', array(), $options['js-version'], true );
-	// wird nirgends verwendet
+
     wp_register_script( 'fau-libs-jquery-fancybox', get_fau_template_uri() . '/js/libs/jquery.fancybox.js', array('jquery'), $options['js-version'], true );  
 	// Fuer bessere Lightboxen
     wp_register_script( 'fau-libs-jquery-caroufredsel', get_fau_template_uri() . '/js/libs/jquery.caroufredsel.js', array('jquery'), $options['js-version'], true );
@@ -210,10 +202,6 @@ function fau_basescripts_styles() {
 
     wp_enqueue_script('fau-libs-jquery-hoverintent');
 	// wird für die Navigationen mit <nav> verwendet
-
-     // wp_enqueue_script('fau-libs-jquery-fluidbox');
-	// macht eine ALternative zu lightbox. http://terrymun.github.io/Fluidbox/ 
-	// Wird nicht verwendet?
 
     wp_enqueue_script('fau-libs-jquery-fancybox');
 	// wird für Bilder verwendet, die mit Lightbox vergrößert werden,
@@ -264,24 +252,29 @@ function fau_addmetatags() {
     global $options;
 
     $output = "";
-    $output .= '<meta http-equiv="Content-Type" content="text/html; charset='.get_bloginfo('charset').'" />'."\n";
-  //  $output .= '<!--[if IE]> <meta http-equiv="X-UA-Compatible" content="IE=9"> <![endif]-->'."\n";
+    $output .= '<meta http-equiv="Content-Type" content="text/html; charset='.get_bloginfo('charset').'">'."\n";
     $output .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">'."\n";    
-    
-    // $output .= '<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">'."\n";    
 
     $output .= fau_get_rel_alternate();
             
     if ((isset( $options['google-site-verification'] )) && ( strlen(trim($options['google-site-verification']))>1 )) {
         $output .= '<meta name="google-site-verification" content="'.$options['google-site-verification'].'">'."\n";
     }
-	
-    if ((isset($options['favicon-file'])) && ($options['favicon-file_id']>0 )) {	 
-        $output .=  '<link rel="shortcut icon" href="'.$options['favicon-file'].'">'."\n";
-    } else {
-        $output .=  '<link rel="apple-touch-icon" href="'.get_fau_template_uri().'/img/apple-touch-icon.png">'."\n";
-        $output .=  '<link rel="shortcut icon" href="'.get_fau_template_uri().'/img/favicon.ico">'."\n";
+
+    if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {
+	    $output .=  '<link rel="apple-touch-icon" href="'.get_fau_template_uri().'/img/apple-touch-icon.png">'."\n";
+	    $output .=  '<link rel="shortcut icon" href="'.get_fau_template_uri().'/img/favicon.ico">'."\n";	
     }
+    
+    
+    	// Adds RSS feed links to <head> for posts and comments.
+	// add_theme_support( 'automatic-feed-links' );
+	// Will post both: feed and comment feed; To use only main rss feed, i have to add it manually in head
+    
+    $title .= sanitize_text_field(get_bloginfo( 'name' ));
+    $output .= '<link rel="alternate" type="application/rss+xml" title="'.$title.' - RSS 2.0 Feed" href="'.get_bloginfo( 'rss2_url').'">'."\n";
+    
+    
     echo $output;
 }
 
