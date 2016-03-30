@@ -150,7 +150,7 @@ $defaultoptions = array(
     'facultyhome_title'			=> '',      
     
     'socialmedia'		    => 0,
-    'active_socialmedia_footer'	    => array(1),  
+    'active_socialmedia_footer'	    => array(0),  
     'socialmedia_buttons_title'	    => __('FAUSocial','fau'),
     
     'menu_pretitle_portal'	    => __('Portal', 'fau'),
