@@ -19,8 +19,8 @@ $defaultoptions = array(
     'start_link_news_cat'	    => 0,    
     'start_link_news_show'	    => 1,
     'start_link_news_linktitle'	    => __('Mehr Meldungen','fau'),
-    'start_link_videoportal_socialmedia'    => true,
-    'start_title_videoportal_socialmedia'   => __('Alle Videos','fau'),
+    'start_link_videoportal_socialmedia'    => false,
+    'start_title_videoportal_socialmedia'   => __('Videoportal','fau'),
     'start_title_videoportal_url'	    => 'http://video.fau.de',
 
     'default_submenuthumb_src'	    =>  get_fau_template_uri().'/img/default-submenuthumb.png',

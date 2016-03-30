@@ -252,7 +252,7 @@ add_action( 'save_post', 'fau_imagelink_metabox_content_save' );
 
 
 
-function fau_get_imagelinks ( $catid ) {
+function fau_get_imagelinks ( $catid, $echo = true ) {
     global $options;
     global $usejslibs;
     
@@ -273,8 +273,8 @@ function fau_get_imagelinks ( $catid ) {
                             )
                     )
         );
-
-    $imagelist = get_posts($args); 
+	$output = '';
+	$imagelist = get_posts($args); 
 	$item_output = '';
 	$number =0;
         foreach($imagelist as $item) {
@@ -293,22 +293,29 @@ function fau_get_imagelinks ( $catid ) {
     
 	}
 	if ($number>0) {
-	    echo '<div class="container">';
-	    echo '<div class="logos-menu-nav">';
-	    echo '<a id="logos-menu-prev" href="#">'. __('Zurück', 'fau') . '</a>';
-	    echo '<a id="logos-menu-next" href="#">'. __('Weiter', 'fau') . '</a>';
-	    echo '</div>';
-	    echo "</div>\n";
 	    
-	    echo '<div class="row logos-menu">';
-	    echo $item_output;    
-	    echo "</div>\n";
-	    echo '<div class="container"><a id="logos-menu-playpause" href="#"><span class="play">'. __('Abspielen', 'fau') . '</span><span class="pause">'. __('Pause', 'fau') . '</span></a></div>';
-	    echo "\n";
+	    $output .= '<div class="container">';
+	    $output .= '<div class="logos-menu-nav">';
+	    $output .= '<a id="logos-menu-prev" href="#">'. __('Zurück', 'fau') . '</a>';
+	    $output .= '<a id="logos-menu-next" href="#">'. __('Weiter', 'fau') . '</a>';
+	    $output .= '</div>';
+	    $output .= "</div>\n";
+	    
+	    $output .= '<div class="row logos-menu">';
+	    $output .= $item_output;    
+	    $output .= "</div>\n";
+	    $output .= '<div class="container"><a id="logos-menu-playpause" href="#"><span class="play">'. __('Abspielen', 'fau') . '</span><span class="pause">'. __('Pause', 'fau') . '</span></a></div>';
+	    $output .= "\n";
 	    $usejslibs['caroufredsel'] = true;
 	} 
-		
-	return;
+	if ($echo==true) {
+	    echo $output;
+	    return;
+	} else {
+	    return $output;
+	}
+	
+	
 	
 	
     } else {

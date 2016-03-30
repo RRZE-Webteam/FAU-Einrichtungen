@@ -57,13 +57,14 @@ get_header(); ?>
 		fau_get_contentmenu($menuslug,$displaysub,0,0,$nothumbnails,$nofallbackthumbs);
 	      }
 	      
-	       $logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );
-			 if ($logoliste) { ?>	
-			    <hr>
-			    <?php 
-			    fau_get_imagelinks($logoliste);
-			     
-			 }
+		$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
+		if ($logoliste) { 
+		    $logos = fau_get_imagelinks($logoliste, false);
+		    if ((isset($logos) && (!empty($logos)))) {
+			echo "<hr>\n";
+			echo $logos;
+		    }
+		}
 	      
 	    ?>
 	    </main>
