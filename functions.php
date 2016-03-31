@@ -342,7 +342,11 @@ function fau_init_header_logos() {
 	    } else {
 		foreach($value as $sub=>$sval) {
 		    $header_logos[$sub]['url'] = $default_fau_orga_data[$name][$sub]['url'];
-		    $header_logos[$sub]['thumbnail_url'] = $default_fau_orga_data[$name][$sub]['url'];
+		    if (isset($default_fau_orga_data[$name][$sub]['thumbnail'])) {
+			$header_logos[$sub]['thumbnail_url'] = $default_fau_orga_data[$name][$sub]['thumbnail'];
+		    } else {
+			$header_logos[$sub]['thumbnail_url'] = $default_fau_orga_data[$name][$sub]['url'];
+		    }
 		    $header_logos[$sub]['description'] = $default_fau_orga_data[$name][$sub]['title']; 
 		}
 	    }

@@ -5,6 +5,14 @@
  */
 $defaultoptions = array(
     'js-version'		    => '1.4',
+    'website_type'			=> 1,
+	// website_type: 
+	//  0 = Fakultaetsportal; 1 = Lehrstuehle, Departents 
+	//  2 = Zentrale Einrichtungen, 4 = Kooperationen 
+    'website_usefaculty'		=> '',
+	// phil, med, nat, rw, tf
+	// Setzt fest die Fakultät bei Wahl des Website-Types    
+    
     'optionpage-tab-default'	    => 'website',
     'content-width'		    => 770,
     'src-fallback-slider-image'	    => get_fau_template_uri().'/img/slider-fallback.jpg',
@@ -131,12 +139,8 @@ $defaultoptions = array(
     'breadcrumb_uselastcat'		=> true,
     'breadcrumb_withtitle'		=> false,
     
-    'website_type'			=> 1,
-	// website_type: 0 = Fakultaetsportal; 1 = Lehrstuehle, Einrichtungen, etc unter Fakultaet; 2 = Sonstige 
-    'website_usefaculty'		=> '',
-	// phil, med, nat, rw, tf
-	// Setzt fest die Fakultät bei Wahl des Website-Types
-    'default_logo_src'		    => get_fau_template_uri().'/img/logos/logo-fau.png',
+
+    'default_logo_src'		    => get_fau_template_uri().'/img/logos/logo-default.png',
     'default_logo_height'	    => 65,
     'default_logo_width'	    => 240,
     'default_home_orga'			=> 'fau',

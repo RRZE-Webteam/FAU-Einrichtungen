@@ -244,7 +244,9 @@ $default_fau_orga_data = array(
 		'shorttitle'    => __('RRZE', 'fau'),
 		'homeurl'	    => 'https://rrze.fau.de',
 		'url'           => '%s/img/logos/logo-rrze.png',
+		'thumbnail'	=> '%s/img/logos/logo-rrze-thumb.png',
 	),
+
     )
     
 );
