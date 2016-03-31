@@ -34,10 +34,10 @@ global $options;
 					    foreach ($listtypes as $type) {
 						$typeinfo = get_post_type_object( $type );
 						$typestr = $typeinfo->labels->name; 	    
-						echo '<input type="checkbox" name="post_type[]" id="label-'.$type.'" value="'.$type.'"';
+						echo '<div class="nowrap"><input type="checkbox" name="post_type[]" id="label-'.$type.'" value="'.$type.'"';
 						if (in_array($type, $query_types)) { echo ' checked="checked"'; }
 						echo ">";			
-						echo '<label for="label-'.$type.'">'.$typestr.'</label>';
+						echo '<label for="label-'.$type.'">'.$typestr.'</label></div>';
 					    }
 					    echo "</div>\n";
 					}
