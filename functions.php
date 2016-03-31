@@ -6,6 +6,7 @@
  */
 
 load_theme_textdomain( 'fau', get_template_directory() . '/languages' );
+require_once( get_template_directory() . '/functions/defaults.php' );
 require_once( get_template_directory() . '/functions/constants.php' );
 $options = fau_initoptions();
 require_once( get_template_directory() . '/functions/helper-functions.php' );
@@ -25,28 +26,9 @@ function fau_setup() {
 	
 
 	if ( ! isset( $content_width ) ) $content_width = $options['content-width'];
-	/*
-	 * This theme styles the visual editor to resemble the theme style,
-	 * specifically font, colors, icons, and column width.
-	 */
 	add_editor_style( array( 'css/editor-style.css' ) );
-
-
-	
-
-	// Switches default core markup for search form, comment form, and comments
-	// to output valid HTML5.
 	add_theme_support( 'html5');
-	
-	/*
-	 * This theme supports all available post formats by default.
-	 * See http://codex.wordpress.org/Post_Formats
-	 */
-//	add_theme_support( 'post-formats', array(
-//		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
-//	) );
 	add_theme_support('title-tag');
-	
 
 	
 	// This theme uses wp_nav_menu() in one location.
@@ -150,7 +132,9 @@ add_action( 'after_setup_theme', 'fau_setup' );
 
 
 
-
+/*
+ * Get Options
+ */
 function fau_initoptions() {
    global $defaultoptions;
     
@@ -159,10 +143,9 @@ function fau_initoptions() {
         $newoptions = array_merge($defaultoptions,$oldoptions);	  
     } else {
         $newoptions = $defaultoptions;
-    }    
+    }       
     return $newoptions;
 }
-
 
 
 /**
@@ -192,7 +175,9 @@ function fau_custom_init() {
 }
 add_action( 'init', 'fau_custom_init' );
 	
-
+/*  
+ * Activates base scripts
+ */
 function fau_basescripts_styles() {
     global $options;
     global $usejslibs;
@@ -277,7 +262,6 @@ function fau_addmetatags() {
     
     echo $output;
 }
-
 add_action('wp_head', 'fau_addmetatags',1);
 
 
@@ -330,15 +314,52 @@ add_filter('excerpt_more', 'fau_excerpt_more');
  */
 function fau_excerpt_length( $length ) {
     global $options;
-    return 50; //  $options['default_excerpt_length'];
+    return $options['default_excerpt_length'];
 }
 add_filter( 'excerpt_length', 'fau_excerpt_length' );
 
 
 
+/*
+ * Update Settings by options and defaults
+ */
+function fau_init_header_logos() {
+    global $options;
+    global $default_fau_orga_data;
+
+    $header_logos = array();
+    foreach($default_fau_orga_data as $name=>$value) {
+
+	if (strpos($name, '_') === 0) {
+	    if ((strpos($name, '_faculty') === 0) && (!empty($options['website_usefaculty'])) ) {	    
+		    $sub = $options['website_usefaculty'];
+		    if (isset($default_fau_orga_data[$name][$sub])) {
+			$header_logos[$sub]['url'] = $default_fau_orga_data[$name][$sub]['url'];
+			$header_logos[$sub]['thumbnail_url'] = $default_fau_orga_data[$name][$sub]['url'];
+			$header_logos[$sub]['description'] = $default_fau_orga_data[$name][$sub]['title']; 
+		    }
+	    
+	    } else {
+		foreach($value as $sub=>$sval) {
+		    $header_logos[$sub]['url'] = $default_fau_orga_data[$name][$sub]['url'];
+		    $header_logos[$sub]['thumbnail_url'] = $default_fau_orga_data[$name][$sub]['url'];
+		    $header_logos[$sub]['description'] = $default_fau_orga_data[$name][$sub]['title']; 
+		}
+	    }
+	} elseif ($name == 'fau')    {
+	    // Default
+	} else {
+	    $header_logos[$name]['url'] = $default_fau_orga_data[$name]['url'];
+	    $header_logos[$name]['thumbnail_url'] = $default_fau_orga_data[$name]['url'];
+	    $header_logos[$name]['description'] = $default_fau_orga_data[$name]['title']; 
+	}
+     }
+     return $header_logos;
+} 
+
+
 /* Header Setup */
-function fau_custom_header_setup() {
-    global $default_header_logos;
+function fau_custom_header_setup() { 
     global $options;
 	$args = array(
 	    'default-image'          => $options['default_logo_src'],
@@ -350,7 +371,7 @@ function fau_custom_header_setup() {
 	//    'flex-height'	    => true,
 	);
 	add_theme_support( 'custom-header', $args );
-
+	$default_header_logos = fau_init_header_logos();
 	register_default_headers( $default_header_logos );
 }
 add_action( 'after_setup_theme', 'fau_custom_header_setup' );
@@ -410,14 +431,16 @@ function fau_sidebars_init() {
 }
 add_action( 'widgets_init', 'fau_sidebars_init' );
 
-
-
-
+/*
+ * Format Widgets
+ */
 add_filter( 'widget_text', array( $wp_embed, 'run_shortcode' ), 8 );
 add_filter( 'widget_text', array( $wp_embed, 'autoembed'), 8 );
 
 
-
+/*
+ * Sorround embeddings with div class
+ */
 function add_video_embed_note($html, $url, $attr) {
 	return '<div class="oembed">'.$html.'</div>';
 }
@@ -435,8 +458,7 @@ function fau_protected_attribute ($classes, $item) {
 add_filter('page_css_class', 'fau_protected_attribute', 10, 3);
 
 
-function custom_error_pages()
-{
+function custom_error_pages() {
     global $wp_query;
  
     if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
@@ -472,8 +494,7 @@ function custom_error_pages()
     }
 }
  
-function custom_error_title($title='',$sep='')
-{
+function custom_error_title($title='',$sep='') {
     if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
         return "Forbidden ".$sep." ".get_bloginfo('name');
  
@@ -865,8 +886,11 @@ function fau_get_defaultlinks ($list = 'faculty', $ulclass = '', $ulid = '') {
 
 function fau_get_toplinks() {
     global $options;
+    global $defaultoptions;
     global $default_link_liste;
-    
+    global $default_fau_orga_data;
+    global $default_fau_orga_faculty;
+	    
     $uselist =  $default_link_liste['meta'];
     $result = '';
     
@@ -876,40 +900,116 @@ function fau_get_toplinks() {
 	$result .= "\n";
     }
     
-	// website_type: 0 = Fakultaetsportal; 1 = Lehrstuehle, Einrichtungen, etc unter Fakultaet; 2 = Sonstige
-	    
-    if ($options['website_type']==0) {
-	$options['default_display_fauhomelink'] = true;
-	$options['default_display_facultyhomelink'] = false;
-	$options['fauhome_useimg'] = false;
-  /*  } elseif ($options['website_type']==1) {
-	$options['default_display_fauhomelink'] = true;
-	$options['default_display_facultyhomelink'] = true;	
-	$options['fauhome_useimg'] = true; */
-    } else {
-	$options['default_display_fauhomelink'] = true;
-	$options['default_display_facultyhomelink'] = false;
-	$options['fauhome_useimg'] = true;
+
+	/* 
+	 * website_type: 
+	 *  0 = Fakultaetsportal oder zentrale Einrichtung
+	 *	=> Nur Link zur FAU, kein Link zur Fakultät
+	 *	   Link zur FAU als Text, da FAU-Logo bereits Teil des
+	 *         Fakultätslogos
+	 *  1 = Lehrstuhl oder eine andere Einrichtung die einer Fakultät zugeordnet ist 
+	 *	=> Link zur FAU und Link zur Fakultät, 
+	 *         Link zur FAU als Grafik, Link zur Fakultät als Text (lang oder kurz nach Wahl)
+	 *  2 = Sonstige Einrichtung, die nicht einer Fakultät zugeordnet sein muss
+	 *	=> Nur Link zur FAU, kein Link zur Fakultät
+	 *	   Link zur FAU als Grafik (das ist der Unterschied zur Option 0)
+	 *  3 = Koopertation mit Externen (neu ab 1.4)
+	 *	=> Kein Link zur FAU
+	 *  4 = FAU-Portal (neu ab 1.4, nur für zukunftigen Bedarf)
+	 *	=> Kein Link zur FAU, aktiviert 4 Spalten unter HERO
+	 * 
+	 * 'website_usefaculty' = ( nat | phil | med | tf | rw )
+	 *  Wenn gesetzt, wird davon ausgegangen, dass die Seite
+	 *  zu einer Fakultät gehört; Daher werden website_type-optionen auf
+	 *  0 und 2 reduziert. D.h.: Immer LInk zur FAU, keine Kooperationen.
+	 *  
+	 */
+    
+    $options['website_usefaculty'] = $defaultoptions['website_usefaculty'];
+    $isfaculty = false;
+    if ( (isset($options['website_usefaculty'])) && (in_array($options['website_usefaculty'],$default_fau_orga_faculty))) {
+	$isfaculty = true;
     }
+    
+    $linkhome = true;
+    $linkhomeimg = false;
+    $linkfaculty = false;
+
+    // Using if-then-else structure, due to better performance as switch 
+    if ($isfaculty) {
+	if ($options['website_type']==0) {
+	    $linkhomeimg = false;
+	    $linkfaculty = false;
+	} else {
+	    $linkhomeimg = true;
+	    $linkfaculty = true;
+	}
+    } else {
+	if ($options['website_type']==1) {
+	    // Option sollte eigentlich nicht moeglich sein. Aber zur
+	    // moglichen zukünftigen Nutzung eingebaut.
+	     $linkhomeimg = true;
+	} elseif ($options['website_type']==2) {
+	     $linkhomeimg = true;
+	} elseif ($options['website_type']==3) {
+	    $linkhome = false;
+        } elseif ($options['website_type']==4) {
+	    $linkhome = false;
+	}
+    }
+
+    if (isset($options['default_home_orga'])) {
+	$orga = $options['default_home_orga'];
+    } else {
+	$orga = 'fau';
+    }
+    $hometitle = $shorttitle = $homeurl = $linkimg = '';
+    if ((isset($default_fau_orga_data[$orga])) && is_array($default_fau_orga_data[$orga])) {
+	$hometitle = $default_fau_orga_data[$orga]['title'];
+	$shorttitle = $default_fau_orga_data[$orga]['shorttitle'];
+	$homeurl = $default_fau_orga_data[$orga]['homeurl'];
+	$linkimg = $default_fau_orga_data[$orga]['home_imgsrc'];
+    } else {
+	$linkhome = false;
+    }
+   
+    $facultytitle = $facultyshorttitle = $facultyurl = '';
+    if (($linkfaculty) && isset($default_fau_orga_data['_faculty'][$options['website_usefaculty']])) {
+	$orga =  $options['website_usefaculty'];
+	$facultytitle = $default_fau_orga_data['_faculty'][$orga]['title'];
+	$facultyshorttitle = $default_fau_orga_data['_faculty'][$orga]['shorttitle'];
+	$facultyurl = $default_fau_orga_data['_faculty'][$orga]['homeurl'];
+    } else {
+	$linkfaculty = false;
+    }
+
     
     
     $thislist = '';
-    if (($options['default_display_fauhomelink']==true) && isset($options['fauhome_url'])) {
+    
+    
+    if (($linkhome) && isset($homeurl)) {
 	$thislist .= '<li class="fauhome">';
-	$thislist .= '<a href="'.$options['fauhome_url'].'">';
+	$thislist .= '<a href="'.$homeurl.'">';
 	    			
-	if ($options['fauhome_useimg']) {
-	    $thislist .= '<img src="'.fau_esc_url($options['fauhome_imgsrc']).'" alt="'.$options['fauhome_title'].'">'; 
+	if ($linkhomeimg) {
+	    $thislist .= '<img src="'.fau_esc_url($linkimg).'" alt="'.esc_attr($hometitle).'">'; 
 	} else {
-	    $thislist .= $options['fauhome_linktext']; 
+	    $thislist .= __('Zur','fau').' '.$shorttitle; 
 	}	
 	$thislist .= '</a>';
 	$thislist .= '</li>'."\n";	
     }
-    if (($options['default_display_facultyhomelink']==true) && isset($options['facultyhome_url'])) {
+    
+
+    if (($linkfaculty) && isset($facultyurl)) {
 	$thislist .= '<li class="facultyhome">';
-	$thislist .= '<a href="'.$options['facultyhome_url'].'">';
-	$thislist .= $options['facultyhome_title']; 
+	$thislist .= '<a href="'.$facultyurl.'">';
+	if ($options['default_faculty_useshorttitle']) {
+	    $thislist .= $facultyshorttitle; 
+	} else {
+	    $thislist .= $facultytitle; 
+	}
 	$thislist .= '</a>';
 	$thislist .= '</li>'."\n";	
     }

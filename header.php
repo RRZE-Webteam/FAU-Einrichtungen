@@ -72,8 +72,9 @@ global $options;
 
 
 			    if ( ! empty( $header_image ) ) {	
-				// echo '<img src="'.fau_esc_url( $header_image ).'" width="'.get_custom_header()->width.'" height="'.get_custom_header()->height.'" alt="'.get_bloginfo( 'title' ).'">';	
-				echo '<img src="'.fau_esc_url( $header_image ).'" width="'.$options['default_logo_width'].'" height="'.$options['default_logo_height'].'" alt="'.get_bloginfo( 'title' ).'">';	
+				echo '<img src="'.fau_esc_url( $header_image ).'" width="'.get_custom_header()->width.'" height="'.get_custom_header()->height.'" alt="'.esc_attr(get_bloginfo( 'title' )).'">';	
+				// echo '<img src="'.fau_esc_url( $header_image ).'" width="'.$options['default_logo_width'].'" height="'.$options['default_logo_height'].'" alt="'.esc_attr(get_bloginfo( 'title' )).'">';
+				
 			    } else {				 
 				echo get_bloginfo( 'title' );   
 			    } 

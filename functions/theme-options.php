@@ -34,7 +34,25 @@ function theme_options_do_page($tab = '') {
         
 	if ( ! isset( $_REQUEST['settings-updated'] ) )
 		$_REQUEST['settings-updated'] = false;
-       ?>
+
+    /*
+     *  Reset Options for Theme Option Selector by website type
+     */
+    global $default_fau_orga_faculty;
+    global $defaultoptions;
+    
+    $options['website_usefaculty'] = $defaultoptions['website_usefaculty'];
+    if ( (isset($options['website_usefaculty'])) && (in_array($options['website_usefaculty'],$default_fau_orga_faculty))) {
+	
+	    $setoptions['fau_theme_options']['website']['fields']['website_type']['liste'] = array(
+		0 => __('Fakultätsportal','fau'), 
+		1 => __('Department, Lehrstuhl, Einrichtung','fau'));
+    } else {
+	    $setoptions['fau_theme_options']['website']['fields']['website_type']['liste'] = array(
+		2 => __('Zentrale Einrichtung','fau') ,
+		3 => __('Website für uniübergreifende Kooperationen mit Externen','fau') );
+    }
+ ?>
 
 	<div class="wrap">            
             <div class="fau-optionen">  <!-- begin: .fau-optionen -->    
