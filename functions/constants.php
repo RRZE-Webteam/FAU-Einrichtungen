@@ -13,7 +13,9 @@ $defaultoptions = array(
     'website_usefaculty'		=> '',
 	// phil, med, nat, rw, tf
 	// Setzt fest die Fakultät bei Wahl des Website-Types    
-    
+    'default_home_orga'			=> 'fau',
+	// Muss in $default_fau_orga_data auf erster Ebene vorhanden sein.	
+    'default_faculty_useshorttitle'	=> false,   
     'optionpage-tab-default'	    => 'website',
     'content-width'		    => 770,
     'src-fallback-slider-image'	    => get_fau_template_uri().'/img/slider-fallback.jpg',
@@ -144,9 +146,7 @@ $defaultoptions = array(
     'default_logo_src'		    => get_fau_template_uri().'/img/logos/logo-default.png',
     'default_logo_height'	    => 65,
     'default_logo_width'	    => 240,
-    'default_home_orga'			=> 'fau',
-	// Muss in $default_fau_orga_data auf erster Ebene vorhanden sein.	
-    'default_faculty_useshorttitle'	=> true,
+
     
     
     'socialmedia'		    => 0,
