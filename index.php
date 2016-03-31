@@ -18,13 +18,28 @@ $posttype = get_post_type();
 		get_template_part('hero', 'category'); 
 	} else {
 	    get_template_part('hero', 'index'); 
-	} ?>
+	}
+	$active_sidebar = false;
+	?>
 
 	<div id="content">
 		<div class="container">
 		
 			<div class="row">
-				<div class="span8">
+			     <?php 
+				if(get_post_type() != 'post') {
+				    if ( is_active_sidebar( 'search-sidebar' ) ) { 	
+					$active_sidebar = true; ?>
+				<div class="span3">
+					<div class="search-sidebar">
+					    <?php dynamic_sidebar( 'search-sidebar' ); ?>
+					</div>
+				</div>
+							
+			     <?php } 					 
+				} ?>
+				    
+				<div class="span9">
 				    <main>
 					<?php 
 					if (($posttype == 'synonym') && ($options['index_synonym_listall'])) {					    
@@ -44,11 +59,13 @@ $posttype = get_post_type();
 						    echo fau_get_synonym($post->ID);
 						} elseif($posttype == 'glossary') { 	
 						    echo fau_get_glossar($post->ID);
-						} elseif($posttype == 'person') { 	
-						    if ($line>1) {
-							echo "<hr>\n";
-						    }
-						    echo fau_get_person_index($post->ID);
+						} elseif (($posttype == 'person') && (function_exists('fau_person'))) { 	
+						//    if ($line>1) {
+						//	echo "<hr>\n";
+						//  }
+						    
+						    echo fau_person(array("id"=> $post->ID, 'format' => 'kompakt', 'showlink' => 1 )); // 
+
 						    
 						} elseif($posttype == 'post') { 
 						      echo fau_display_news_teaser($post->ID,true);
@@ -97,7 +114,10 @@ $posttype = get_post_type();
 				   
 				</div>
 				 </main>
-				<?php get_template_part('sidebar', 'news'); ?>
+				    <?php if(get_post_type() == 'post') {
+					 get_template_part('sidebar', 'news');
+				    } ?>
+				    
 			</div>
 
 		</div>

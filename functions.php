@@ -256,7 +256,7 @@ function fau_addmetatags() {
 	// add_theme_support( 'automatic-feed-links' );
 	// Will post both: feed and comment feed; To use only main rss feed, i have to add it manually in head
     
-    $title .= sanitize_text_field(get_bloginfo( 'name' ));
+    $title = sanitize_text_field(get_bloginfo( 'name' ));
     $output .= '<link rel="alternate" type="application/rss+xml" title="'.$title.' - RSS 2.0 Feed" href="'.get_bloginfo( 'rss2_url').'">'."\n";
     
     
@@ -1702,78 +1702,6 @@ function fau_wp_link_query_args( $query ) {
 }
 add_filter( 'wp_link_query_args', 'fau_wp_link_query_args' ); 
 
-
-
- if ( ! function_exists( 'fau_get_person_index' ) ) :  
-    function fau_get_person_index($id=0) {
-     global $options;
-	$honorificPrefix = get_post_meta($id, 'fau_person_honorificPrefix', true);
-	$givenName = get_post_meta($id, 'fau_person_givenName', true);
-	$familyName = get_post_meta($id, 'fau_person_familyName', true);
-	$honorificSuffix = get_post_meta($id, 'fau_person_honorificSuffix', true);
-	$jobTitle = get_post_meta($id, 'fau_person_jobTitle', true);
-	$telephone = get_post_meta($id, 'fau_person_telephone', true);
-	$email = get_post_meta($id, 'fau_person_email', true);
-	$worksFor = get_post_meta($id, 'fau_person_worksFor', true);
-        $faxNumber = get_post_meta($id, 'fau_person_faxNumber', true);
-        $type = get_post_meta($id, 'fau_person_typ', true);
-
-	
-	$fullname = '';
-	if($honorificPrefix) 	$fullname .= '<span itemprop="honorificPrefix">'.$honorificPrefix.'</span> ';
-	if($givenName) 	$fullname .= '<span itemprop="givenName">'.$givenName.'</span> ';
-	if($familyName) 		$fullname .= '<span itemprop="familyName">'.$familyName.'</span>';
-	if($honorificSuffix) 	$fullname .= ' '.$honorificSuffix;
-	
-	if (empty($fullname)) {
-	    $fullname = get_the_title($id);
-	}
-     ?>
-     
-    <div class="person content-person" itemscope="" itemtype="http://schema.org/Person">
-	<div class="row">
-	    <div class="span1 span-small">		
-		<?php 
-		if (has_post_thumbnail()) {
-		    echo get_the_post_thumbnail($id, 'person-thumb-bigger'); 
-		} else {
-		    if ($type == 'realmale') {
-			$url = $options['plugin_fau_person_malethumb'];     
-		    } elseif ($type == 'realfemale') {
-			$url = $options['plugin_fau_person_femalethumb']; 
-		    } else {
-			$url = '';     
-		    }
-		    if ($url) {
-			echo '<img src="'.$url.'" width="90" height="120" alt="">';
-		    }
-		}
-		
-		?>
-	    </div>
-	    <div class="span3">
-		<h3><?php echo $fullname; ?></h3>
-		<ul class="person-info">
-		    <?php if ($jobTitle) { ?>
-		    <li class="person-info-position"><span class="screen-reader-text">Tätigkeit: </span><span itemprop="jobTitle"><?php echo $jobTitle; ?></span></li>
-		    <?php } ?>
-		     <?php if ($telephone) { ?>
-		    <li class="person-info-phone"><span class="screen-reader-text">Telefonnummer: </span><span itemprop="telephone"><?php echo $telephone; ?></span></li>
-		    <?php } ?>
-		
-		    <?php if ($email) { ?>
-		    <li class="person-info-email"><span class="screen-reader-text">E-Mail: </span><a itemprop="email" href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></li>
-		    <?php } ?>
-		</ul>
-	    </div>
-	    <div class="span3">
-		<div class="person-info-more"><a title="Weitere Informationen zu <?php echo $givenName; echo " ".$familyName;?> aufrufen" class="person-read-more" href="<?php the_permalink($id); ?>">Mehr ›</a></div>
-	    </div>
-	</div>
-    </div>
-    <?php 
-}
-endif;
 
 
 if ( ! function_exists( 'fau_comment' ) ) :
