@@ -334,8 +334,12 @@ function fau_init_header_logos() {
 	    if ((strpos($name, '_faculty') === 0) && (!empty($options['website_usefaculty'])) ) {	    
 		    $sub = $options['website_usefaculty'];
 		    if (isset($default_fau_orga_data[$name][$sub])) {
-			$header_logos[$sub]['url'] = $default_fau_orga_data[$name][$sub]['url'];
-			$header_logos[$sub]['thumbnail_url'] = $default_fau_orga_data[$name][$sub]['url'];
+			$header_logos[$sub]['url'] = $default_fau_orga_data[$name][$sub]['thumbnail'];
+			if (isset($default_fau_orga_data[$name][$sub]['url'])) {
+			    $header_logos[$sub]['thumbnail_url'] = $default_fau_orga_data[$name][$sub]['thumbnail'];
+			} else {
+			    $header_logos[$sub]['thumbnail_url'] = $default_fau_orga_data[$name][$sub]['url'];
+			}
 			$header_logos[$sub]['description'] = $default_fau_orga_data[$name][$sub]['title']; 
 		    }
 	    
@@ -354,7 +358,11 @@ function fau_init_header_logos() {
 	    // Default
 	} else {
 	    $header_logos[$name]['url'] = $default_fau_orga_data[$name]['url'];
-	    $header_logos[$name]['thumbnail_url'] = $default_fau_orga_data[$name]['url'];
+	    if (isset($default_fau_orga_data[$name]['thumbnail'])) {
+		$header_logos[$name]['thumbnail_url'] = $default_fau_orga_data[$name]['thumbnail'];
+	    } else {
+		$header_logos[$name]['thumbnail_url'] = $default_fau_orga_data[$name]['url'];
+	    }
 	    $header_logos[$name]['description'] = $default_fau_orga_data[$name]['title']; 
 	}
      }

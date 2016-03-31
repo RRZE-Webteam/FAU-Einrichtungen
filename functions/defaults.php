@@ -204,6 +204,7 @@ $default_fau_orga_data = array(
 	    'homeurl'	    => 'https://www.fau.de',
 	    'url'           => '%s/img/logo-fau.png',
 	    'home_imgsrc'   => get_fau_template_uri().'/img/logo-fau-37x16.png',
+	    'thumbnail'	=> '%s/img/logos/logo-fau-thumb.png',
     ),
   
     '_faculty'	=> array(
@@ -212,30 +213,35 @@ $default_fau_orga_data = array(
 		'shorttitle'    => __('Med', 'fau'),
 		'homeurl'	    => 'https://med.fau.de',
 		'url'           => '%s/img/logos/logo-med.png',
+		'thumbnail'	=> '%s/img/logos/logo-med-thumb.png',
 	),
 	'nat' => array(
 		'title'	    => __('Naturwissenschaftliche Fakultät', 'fau'),
 		'shorttitle'    => __('Nat', 'fau'),
 		'homeurl'	    => 'https://nat.fau.de',	
 		'url'           => '%s/img/logos/logo-nat.png',
+		'thumbnail'	=> '%s/img/logos/logo-nat-thumb.png',
 	),
 	'phil' => array(
 		'title'	    => __('Philosophische Fakultät', 'fau'),
 		'shorttitle'    => __('Phil', 'fau'),
 		'homeurl'	    => 'https://phil.fau.de',
 		'url'           => '%s/img/logos/logo-phil.png',
+		'thumbnail'	=> '%s/img/logos/logo-phil-thumb.png',
 	),
 	'rw' => array(
 		'title'	    => __('Rechts- und Wirtschaftswissenschaftliche Fakultät', 'fau'),
 		'shorttitle'    => __('RW', 'fau'),
 		'homeurl'	    => 'https://rw.fau.de',
 		'url'           => '%s/img/logos/logo-rw.png',
+		 'thumbnail'	=> '%s/img/logos/logo-rw-thumb.png',
 	),
 	'tf' => array(
 		'title'	    => __('Technische Fakultät', 'fau'),
 		'shorttitle'    => __('TF', 'fau'),
 		'homeurl'	    => 'https://tf.fau.de',
 		'url'           => '%s/img/logos/logo-tf.png',
+		'thumbnail'	=> '%s/img/logos/logo-tf-thumb.png',
 	)
     ),
     '_center'	=> array(

@@ -9,7 +9,7 @@ $defaultoptions = array(
     'website_type'			=> 2,
 	// website_type: 
 	//  0 = Fakultaetsportal; 1 = Lehrstuehle, Departents 
-	//  2 = Zentrale Einrichtungen, 4 = Kooperationen 
+	//  2 = Zentrale Einrichtungen, 3 = Kooperationen 
     'website_usefaculty'		=> '',
 	// phil, med, nat, rw, tf
 	// Setzt fest die Fakultät bei Wahl des Website-Types    
