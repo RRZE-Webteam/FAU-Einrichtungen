@@ -1,14 +1,16 @@
 /* Logo */
 #logo {
-	display: inline;
+	display: block;
 	float: left;
 	
 	max-height: 85px;
 	max-width: 300px;
 	min-width: 120px;
-	height: 85px;
-	margin: 0;
+	height: 65px;
+	margin: 20px 0 10px;
 	padding: 0;
+	text-align: right;
+	
 	h1 {
 	    display: inline-block;
 	    font-size: 19px;
@@ -16,11 +18,12 @@
 	    font-weight: bold;
 	    color: $colorPrimary;
 	    overflow: hidden;
-	    padding: 0;
+	    padding: 20px 5px;
 	    vertical-align: text-bottom;
 	    text-align: left;
 	    max-height: 85px;
-	    margin: 15px 0 5px 0;
+	    min-width: 100px;
+	    margin: 0;
 	    a {
 		color: $colorPrimary;
 		
@@ -39,7 +42,7 @@
 	    height: 65px;
 	    width: auto;
 	    padding-right: 10px;
-	    
+	    margin-top: -20px;
 	     &:hover,
 		 &:focus {
 		 background-color: white;
