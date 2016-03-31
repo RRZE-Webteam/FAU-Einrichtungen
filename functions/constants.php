@@ -6,11 +6,11 @@
 $defaultoptions = array(
     'js-version'		    => '1.4',
 	// Theme-Versionslinie
-    'website_type'			=> 1,
+    'website_type'			=> 2,
 	// website_type: 
 	//  0 = Fakultaetsportal; 1 = Lehrstuehle, Departents 
 	//  2 = Zentrale Einrichtungen, 4 = Kooperationen 
-    'website_usefaculty'		=> 'rw',
+    'website_usefaculty'		=> '',
 	// phil, med, nat, rw, tf
 	// Setzt fest die Fakultät bei Wahl des Website-Types    
     
