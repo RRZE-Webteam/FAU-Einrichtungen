@@ -39,7 +39,7 @@ $posttype = get_post_type();
 			     <?php } 					 
 				} ?>
 				    
-				<div class="span9">
+				<div class="span8">
 				    <main>
 					<?php 
 					if (($posttype == 'synonym') && ($options['index_synonym_listall'])) {					    
