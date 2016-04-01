@@ -181,3 +181,13 @@ table.wp-list-table {
     margin: 0 3px;
     padding: 3px;
 }
+
+// zeige Vorschlagbilder unter Anpassen in der Größe, die das Bild auch annehmen kann und
+// mach es nicht größer
+
+#customize-controls img {
+    height: 65px;
+    max-height: 65px;
+    max-width: 240px;
+    width: auto;
+}

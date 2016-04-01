@@ -354,8 +354,6 @@ function fau_init_header_logos() {
 		    $header_logos[$sub]['description'] = $default_fau_orga_data[$name][$sub]['title']; 
 		}
 	    }
-	} elseif ($name == 'fau')    {
-	    // Default
 	} else {
 	    $header_logos[$name]['url'] = $default_fau_orga_data[$name]['url'];
 	    if (isset($default_fau_orga_data[$name]['thumbnail'])) {
@@ -374,13 +372,13 @@ function fau_init_header_logos() {
 function fau_custom_header_setup() { 
     global $options;
 	$args = array(
-	    'default-image'          => $options['default_logo_src'],
+//	    'default-image'          => $options['default_logo_src'],
 	    'height'                 => $options['default_logo_height'],
 	    'width'                  => $options['default_logo_width'],
 	    'admin-head-callback'    => 'fau_admin_header_style',
 	    'header-text'			=> false,
-	//    'flex-width'	    => true,
-	//    'flex-height'	    => true,
+	    'flex-width'	    => true,
+	    'flex-height'	    => true,
 	);
 	add_theme_support( 'custom-header', $args );
 	$default_header_logos = fau_init_header_logos();
