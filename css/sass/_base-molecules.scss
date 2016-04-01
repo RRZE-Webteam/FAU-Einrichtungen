@@ -285,6 +285,8 @@
 	
 	li {
 		padding: 0 0 0 5px;
+		font-size: 13px;
+		line-height: 20px;
 	}
 	
 }
@@ -537,9 +539,9 @@
 			color: $colorLight;
 		}
 	}
-	.compactindex .span3 {
-	    width: 70%;	    
-	}
+	// .compactindex .span3 {
+	//    width: 70%;	    
+	//  }
 }
 
 ul.person-info {

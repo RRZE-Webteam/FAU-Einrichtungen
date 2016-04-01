@@ -78,7 +78,7 @@ $colorPrimaryHero:	    $colorPrimary;
     $PalettonDunkelste:	#42000c;
     $siegelurl: '../img/siegel-rwfak.png';   
 
- }  @else if $farbfamilie == 'tech' {
+ }  @else if $farbfamilie == 'tf' {
     $colorPrimary: $colorTechFak;    
     $PalettonHellste:	#ebecee; // #bfc2c5;
     $PalettonHeller:	#d2d5d7; // #8e949a;

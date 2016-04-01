@@ -1,10 +1,21 @@
 <?php
 
 /* 
- * Default Constants and values for FAU THeme
+ * Default Constants and values 
  */
 $defaultoptions = array(
     'js-version'		    => '1.4',
+	// Theme-Versionslinie
+    'website_type'			=> 2,
+	// website_type: 
+	//  0 = Fakultaetsportal; 1 = Lehrstuehle, Departents 
+	//  2 = Zentrale Einrichtungen, 3 = Kooperationen 
+    'website_usefaculty'		=> '',
+	// phil, med, nat, rw, tf
+	// Setzt fest die Fakultät bei Wahl des Website-Types    
+    'default_home_orga'			=> 'fau',
+	// Muss in $default_fau_orga_data auf erster Ebene vorhanden sein.	
+    'default_faculty_useshorttitle'	=> false,   
     'optionpage-tab-default'	    => 'website',
     'content-width'		    => 770,
     'src-fallback-slider-image'	    => get_fau_template_uri().'/img/slider-fallback.jpg',
@@ -19,8 +30,8 @@ $defaultoptions = array(
     'start_link_news_cat'	    => 0,    
     'start_link_news_show'	    => 1,
     'start_link_news_linktitle'	    => __('Mehr Meldungen','fau'),
-    'start_link_videoportal_socialmedia'    => true,
-    'start_title_videoportal_socialmedia'   => __('Alle Videos','fau'),
+    'start_link_videoportal_socialmedia'    => false,
+    'start_title_videoportal_socialmedia'   => __('Videoportal','fau'),
     'start_title_videoportal_url'	    => 'http://video.fau.de',
 
     'default_submenuthumb_src'	    =>  get_fau_template_uri().'/img/default-submenuthumb.png',
@@ -55,11 +66,7 @@ $defaultoptions = array(
     'default_startseite-bannerbild-image_height'    => 182,
     'default_startseite-bannerbild-image_crop'	    => true,
     
-    /* Thumb for Main menu - Name: portalmenu-thumb 
-    'default_mainmenuthumb_width'    => 370,
-    'default_mainmenuthumb_height'   => 185,
-    'default_mainmenuthumb_crop'    => false, */
-    
+   
     /* Thumb for Image Menus in Content - Name: page-thumb */
     'default_submenuthumb_width'    => 220,
     'default_submenuthumb_height'   => 110,    
@@ -127,9 +134,7 @@ $defaultoptions = array(
     'default_gallery_grid4col_height'	=> 70,
     'default_gallery_grid4col_crop'		=> true,   
     
-    
-    'website_type'			=> 1,
-	// website_type: 0 = Fakultaetsportal; 1 = Lehrstuehle, Einrichtungen, etc unter Fakultaet; 2 = Sonstige
+   
     'breadcrumb_root'			=> __('Startseite', 'fau'),
     'breadcrumb_delimiter'		=> ' <span>/</span>',
     'breadcrumb_beforehtml'		=> '<span class="active">', // '<span class="current">'; // tag before the current crumb
@@ -137,20 +142,15 @@ $defaultoptions = array(
     'breadcrumb_uselastcat'		=> true,
     'breadcrumb_withtitle'		=> false,
     
-    'default_display_fauhomelink'	=> true,
-    'fauhome_url'			=> 'https://www.fau.de',
-    'fauhome_imgsrc'			=> get_fau_template_uri().'/img/logo-fau-37x16.png',
-    'fauhome_title'			=> __('Friedrich-Alexander-Universität (FAU)','fau'),
-    'fauhome_linktext'			=> __('Zur FAU Seite','fau'),
-    'fauhome_useimg'			=> true,
+
+    'default_logo_src'		    => get_fau_template_uri().'/img/logos/logo-default.png',
+    'default_logo_height'	    => 65,
+    'default_logo_width'	    => 240,
+
     
-    
-    'default_display_facultyhomelink'   => false,
-    'facultyhome_url'			=> '',
-    'facultyhome_title'			=> '',      
     
     'socialmedia'		    => 0,
-    'active_socialmedia_footer'	    => array(1),  
+    'active_socialmedia_footer'	    => array(0),  
     'socialmedia_buttons_title'	    => __('FAUSocial','fau'),
     
     'menu_pretitle_portal'	    => __('Portal', 'fau'),
@@ -168,10 +168,7 @@ $defaultoptions = array(
     'google-site-verification'	    => '',
     'default_mainmenu_number'	    => 4,
    
-    'default_logo_src'		    => get_fau_template_uri().'/img/logo-fau.png',
-    'default_logo_height'	    => 65,
-    'default_logo_width'	    => 240,
-    
+
     'default_excerpt_morestring'    => '...',
     'default_excerpt_length'	    => 50,
     'default_anleser_excerpt_length'=> 300,
@@ -247,231 +244,6 @@ $defaultoptions = array(
 ); 
 
 
-/*
- * Social Media 
- */
-$default_socialmedia_liste = array(
-    'delicious' => array(
-	'name' => 'Delicious',
-	'content'  => '',
-	'active' => 0,
-    ),
-    'diaspora' => array(
-	'name' => 'Diaspora',
-	'content'  => '',
-	'active' => 0,
-    ),
-    'facebook' => array(
-	'name' => 'Facebook',
-	'content'  => 'https://de-de.facebook.com/Uni.Erlangen.Nuernberg',
-	'active' => 1,
-    ),
-    'twitter' => array(
-	'name' => 'Twitter',
-	'content'  => 'https://twitter.com/UniFAU',
-	'active' => 1,
-    ),
-    'gplus' => array(
-	'name' => 'Google Plus',
-	'content'  => '',
-	'active' => 0,
-    ),
-    'flattr' => array(
-	'name' => 'Flattr',
-	'content'  => '',
-	'active' => 0,
-    ),
-    'flickr' => array(
-	'name' => 'Flickr',
-	'content'  => '',
-	'active' => 0,
-    ),
-  
-    'identica' => array(
-	'name' => 'Identica',
-	'content'  => '',
-	'active' => 0,
-    ),
-    'itunes' => array(
-	'name' => 'iTunes',
-	'content'  => '',
-	'active' => 0,
-    ),
-    'skype' => array(
-	'name' => 'Skype',
-	'content'  => '',
-	'active' => 0,
-    ),
-    
-    'youtube' => array(
-	'name' => 'YouTube',
-	'content'  => '',
-	'active' => 0,
-    ),
-    'xing' => array(
-	'name' => 'Xing',
-	'content'  => 'https://www.xing.com/net/alumnifau',
-	'active' => 1,
-    ),
-    'tumblr' => array(
-	'name' => 'Tumblr',
-	'content'  => '',
-	'active' => 0,
-    ),
-    'github' => array(
-	'name' => 'GitHub',
-	'content'  => '',
-	'active' => 0,
-    ),
-    'appnet' => array(
-	'name' => 'App.Net',
-	'content'  => '',
-	'active' => 0,
-    ),
-    'feed' => array(
-	'name' => 'RSS Feed',
-	'content'  => get_bloginfo( 'rss2_url' ),
-	'active' => 1,
-    ),
-    'friendica' => array(
-	'name' => 'Friendica',
-	'content'  => '',
-	'active' => 0,
-    ),
-    'pinterest' => array(
-	'name' => 'Pinterest',
-	'content'  => 'http://www.pinterest.com/unifau/',
-	'active' => 0,
-    ),
-    'instagram' => array(
-	'name' => 'Instagram',
-	'content'  => 'https://instagram.com/uni_fau/',
-	'active' => 0,
-    ),
-); 
-
-
-/* 
- * Default Link List for Submenus , can be overwritten bei Menu  
- */
-$default_link_liste = array( 
-	
-	'centers' => array(    
-	    '_title'	=> __('Einrichtungen','fau'),
-	    'link1'  => array(
-		'name'	    => __('Universitätsbibliothek', 'fau' ),
-		'content'  => 'http://www.ub.fau.de/',
-	    ),
-	    'link2'  => array(
-		'name'	    => __('Rechenzentrum', 'fau' ),
-		'content'  => 'https://www.rrze.fau.de/',
-		'class'	    => 'rwfak',
-	    ),
-	    'link3'  => array(
-		'name'	    => __('Sprachenzentrum', 'fau' ),
-		'content'  => 'http://www.sz.uni-erlangen.de/',
-		'class'	    => 'medfak',
-	    ),
-	    'link4'  => array(
-		'name'	    => __('Graduiertenschule', 'fau' ),
-		'content'  => 'http://www.promotion.fau.de/',
-		'class'	    => 'natfak',
-	    ),
-	  
-	),
-	
-	'infos' => array(    
-	    '_title'	=> __('Informationen für','fau'),
-	  
-	    'link1'  => array(
-		'name'	    => __('Studierende', 'fau' ),
-		'content'  => 'https://www.fau.de/studium/',
-	    ),
-	  
-	    'link2'  => array(
-		'name'	    => __('Schülerinnen und Schüler', 'fau' ),
-		'content'  => 'https://www.fau.de/schulportal-der-fau/',
-	    ),	
-	    'link3'  => array(
-		'name'	    => __('Alumni', 'fau' ),
-		'content'  => 'https://www.fau.de/alumni/',
-	    ),	
-	    'link4'  => array(
-		'name'	    => __('Unternehmen', 'fau' ),
-		'content'  => 'https://www.fau.de/patente-gruendung-wissenstransfer/service-fuer-unternehmen/',
-	    ),	
-	    	
-	 
-	),
-	'meta' => array(
-	    'link1'  => array(
-		'name'	    => __('Mein Campus', 'fau' ),
-		'content'  => 'https://campus.fau.de/',
-	    ),
-	    'link2'  => array(
-		'name'	    => __('UnivIS', 'fau' ),
-		'content'  => 'http://univis.fau.de/',
-	    ),
-	    'link3'  => array(
-		'name'	    => __('Anfahrt und Lageplan', 'fau' ),
-		'content'  => 'http://karte.fau.de/',
-	    ),
-	   
-	),
-	'techmenu' => array(    
-	    'link1'  => array(
-		'name'	    => __('Stellenangebote', 'fau' ),
-		'content'  => 'https://www.fau.de/universitaet/stellen-praktika-und-jobs/',
-	    ),
-	    'link2'  => array(
-		'name'	    => __('Presse', 'fau' ),
-		'content'  => 'https://www.fau.de/presseportal-der-fau/',
-	    ),
-	    'link3'  => array(
-		'name'	    => __('Intranet', 'fau' ),
-		'content'  => 'https://www.fau.de/intranet/',
-	    ),	
-	    'link4'  => array(
-		'name'	    => __('Impressum', 'fau' ),
-		'content'  => 'https://www.fau.de/impressum/',
-	    ),	
-	),
-);
-
-
-$default_header_logos = array(
-    'fau' => array(
-	    'url'           => '%s/img/logo-fau.png',
-	    'thumbnail_url' => '%s/img/logo-fau.png',
-	    'description'   => _x( 'FAU', 'Offizielles FAU-Logo', 'fau' )
-    ),
-  /*    'fak-med' => array(
-	    'url'           => '%s/img/logo-fak-med.png',
-	    'thumbnail_url' => '%s/img/logo-fak-med.png',
-	    'description'   => _x( 'FAKMED', 'Offizielles Logo der Medizin', 'fau' )
-    ),
-  'fak-nat' => array(
-	    'url'           => '%s/img/logo-fak-nat.png',
-	    'thumbnail_url' => '%s/img/logo-fak-nat.png',
-	    'description'   => _x( 'FAKNAT', 'Offizielles Logo der Naturwissenschaft', 'fau' )
-    ),
-    'fak-phil' => array(
-	    'url'           => '%s/img/logo-fak-phil.png',
-	    'thumbnail_url' => '%s/img/logo-fak-phil.png',
-	    'description'   => _x( 'FAKPHIL', 'Offizielles Logo der Philosophischen Fakultät', 'fau' )
-    ),
-    'fak-rechtswiwi' => array(
-	    'url'           => '%s/img/logo-fak-rechtswiwi.png',
-	    'thumbnail_url' => '%s/img/logo-fak-rechtswiwi.png',
-	    'description'   => _x( 'FAKRECHTSWIWI', 'Offizielles Logo der Rechts- und Wirtschaftswissenschaftlichen Fakultät', 'fau' )
-    ),
-    'fak-tech' => array(
-	    'url'           => '%s/img/logo-fak-tech.png',
-	    'thumbnail_url' => '%s/img/logo-fak-tech.png',
-	    'description'   => _x( 'FAKTECH', 'Offizielles Logo der Technischen Fakultät', 'fau' )
-    ) */
-);
-
  $categories=get_categories(array('orderby' => 'name','order' => 'ASC'));
  foreach($categories as $category) {
      if (!is_wp_error( $category )) {
@@ -497,11 +269,20 @@ $setoptions = array(
 		    'label'   => __( 'Bitte wählen Sie hier aus, um welcherart Webauftritt es sich handelt.', 'fau' ),
 		    'liste'   => array(
 				    0 => __('Fakultätsportal','fau'), 
-			//	    1 => __('Department, Lehrstuhl, Einrichtung','fau'),  //
-				    2 => __('Zentrale Einrichtung','fau') ),
+				    1 => __('Department, Lehrstuhl, Einrichtung','fau'),  
+				    2 => __('Zentrale Einrichtung','fau') ,
+				    3 => __('Website für uniübergreifende Kooperationen mit Externen','fau') ),
 		    'default' => $defaultoptions['website_type'],
 		    'parent'  => 'webgroup'
 		),  
+	    'default_faculty_useshorttitle' => array(
+		    'type'    => 'bool',
+		    'title'   => __( 'Fakultätslink', 'fau' ),
+		    'label'   => __( 'Textlink zur Fakultät verkürzen auf Abkürzung. <br>Diese Option ist nur bei Nutzung eines Fakultätsthemes aktiv.', 'fau' ), 
+		    'default' => $defaultoptions['default_faculty_useshorttitle'],
+		    'parent'  => 'webgroup'
+		),      
+	       
 	       
 		'startseite_banner_image' => array(
 		    'type'    => 'image',
