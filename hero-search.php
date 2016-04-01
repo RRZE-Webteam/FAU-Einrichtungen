@@ -31,13 +31,17 @@ global $options;
 					    echo '<div class="filter">';
 					    $query_types = get_query_var('post_type');
 					    $listtypes = $options['search_post_types'];
-					    foreach ($listtypes as $type) {
-						$typeinfo = get_post_type_object( $type );
-						$typestr = $typeinfo->labels->name; 	    
-						echo '<div class="nowrap"><input type="checkbox" name="post_type[]" id="label-'.$type.'" value="'.$type.'"';
-						if (in_array($type, $query_types)) { echo ' checked="checked"'; }
-						echo ">";			
-						echo '<label for="label-'.$type.'">'.$typestr.'</label></div>';
+					     $allowed_types = get_post_types(array('public' => true, 'exclude_from_search' => false));
+                                       
+					    foreach ($listtypes as $type) {                                                
+                                                if( in_array( $type, $allowed_types ) ) {
+                                                    $typeinfo = get_post_type_object( $type );
+                                                    $typestr = $typeinfo->labels->name; 	    
+                                                    echo '<div class="nowrap"><input type="checkbox" name="post_type[]" id="label-'.$type.'" value="'.$type.'"';
+                                                    if (in_array($type, $query_types)) { echo ' checked="checked"'; }
+                                                    echo ">";			
+                                                    echo '<label for="label-'.$type.'">'.$typestr.'</label></div>';
+                                                }
 					    }
 					    echo "</div>\n";
 					}
