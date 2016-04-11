@@ -171,7 +171,7 @@ $default_link_liste = array(
 		'content'  => 'http://univis.fau.de/',
 	    ),
 	    'link3'  => array(
-		'name'	    => __('Anfahrt und Lageplan', 'fau' ),
+		'name'	    => __('Lageplan', 'fau' ),
 		'content'  => 'http://karte.fau.de/',
 	    ),
 	   
