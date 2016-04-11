@@ -153,8 +153,10 @@ function fau_initoptions() {
  */
 function fau_register_scripts() {
     global $options;
-    wp_register_script( 'fau-scripts', get_fau_template_uri() . '/js/scripts.min.js', array('jquery'), $options['js-version'], true );
-    wp_register_script( 'fau-libs-plugins', get_fau_template_uri() . '/js/libs/plugins.min.js', array('jquery'), $options['js-version'], true );	
+    
+
+    wp_register_script( 'fau-scripts', $options['src-scriptjs'], array('jquery'), $options['js-version'], true );
+    wp_register_script( 'fau-libs-plugins', $options['src-pluginsjs'], array('jquery'), $options['js-version'], true );	
 
     wp_register_script( 'fau-libs-jquery-flexslider', get_fau_template_uri() . '/js/libs/jquery.flexslider.js', array('jquery'), $options['js-version'], true );
 	// Flexslider für Startseite und für Galerien.  

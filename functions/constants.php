@@ -4,7 +4,7 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'js-version'		    => '1.4',
+    'js-version'		    => '1.5',
 	// Theme-Versionslinie
     'website_type'			=> 2,
 	// website_type: 
@@ -21,6 +21,9 @@ $defaultoptions = array(
     'src-fallback-slider-image'	    => get_fau_template_uri().'/img/slider-fallback.jpg',
     'slider-category'		    => 'header',
     'slider-catid'		    => 1,
+    
+    'src-scriptjs'		    => get_fau_template_uri() . '/js/scripts.min.js',
+    'src-pluginsjs'		    => get_fau_template_uri() . '/js/libs/plugins.min.js',
     
     'default_slider_excerpt_length' => 240,
     'start_header_count'	    => 5,
