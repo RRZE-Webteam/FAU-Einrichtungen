@@ -152,22 +152,20 @@ function fau_initoptions() {
  * Enqueues scripts and styles for front end.
  */
 function fau_register_scripts() {
-    global $options;
+    global $defaultoptions;
     
-
-    wp_register_script( 'fau-scripts', $options['src-scriptjs'], array('jquery'), $options['js-version'], true );
-    wp_register_script( 'fau-libs-plugins', $options['src-pluginsjs'], array('jquery'), $options['js-version'], true );	
-
-    wp_register_script( 'fau-libs-jquery-flexslider', get_fau_template_uri() . '/js/libs/jquery.flexslider.js', array('jquery'), $options['js-version'], true );
+    wp_register_script( 'fau-scripts', $defaultoptions['src-scriptjs'], array('jquery'), $defaultoptions['js-version'], true );
+    wp_register_script( 'fau-libs-plugins', $defaultoptions['src-pluginsjs'], array('jquery'), $defaultoptions['js-version'], true );	
+	// Anpassungen für Plugins
+    wp_register_script( 'fau-libs-jquery-flexslider', get_fau_template_uri() . '/js/libs/jquery.flexslider.js', array('jquery'), $defaultoptions['js-version'], true );
 	// Flexslider für Startseite und für Galerien.  
-    wp_register_script( 'fau-libs-jquery-hoverintent', get_fau_template_uri() . '/js/libs/jquery.hoverintent.js', array(), $options['js-version'], true );
-
-    wp_register_script( 'fau-libs-jquery-fancybox', get_fau_template_uri() . '/js/libs/jquery.fancybox.js', array('jquery'), $options['js-version'], true );  
+    wp_register_script( 'fau-libs-jquery-hoverintent', get_fau_template_uri() . '/js/libs/jquery.hoverintent.js', array(), $defaultoptions['js-version'], true );
+	// Fancybox
+    wp_register_script( 'fau-libs-jquery-fancybox', get_fau_template_uri() . '/js/libs/jquery.fancybox.js', array('jquery'), $defaultoptions['js-version'], true );  
 	// Fuer bessere Lightboxen
-    wp_register_script( 'fau-libs-jquery-caroufredsel', get_fau_template_uri() . '/js/libs/jquery.caroufredsel.js', array('jquery'), $options['js-version'], true );
-    wp_register_script( 'fau-js-caroufredsel', get_fau_template_uri() . '/js/usecaroufredsel.min.js', array('jquery','fau-libs-jquery-caroufredsel'), $options['js-version'], true );
-	// Slidende Logos
-    
+    wp_register_script( 'fau-libs-jquery-caroufredsel', get_fau_template_uri() . '/js/libs/jquery.caroufredsel.js', array('jquery'), $defaultoptions['js-version'], true );
+    wp_register_script( 'fau-js-caroufredsel', get_fau_template_uri() . '/js/usecaroufredsel.min.js', array('jquery','fau-libs-jquery-caroufredsel'), $defaultoptions['js-version'], true );
+	// Slidende Logos 
 }
 add_action('init', 'fau_register_scripts');
 
@@ -181,9 +179,9 @@ add_action( 'init', 'fau_custom_init' );
  * Activates base scripts
  */
 function fau_basescripts_styles() {
-    global $options;
+    global $defaultoptions;
     global $usejslibs;
-    wp_enqueue_style( 'fau-style', get_stylesheet_uri(), array(), $options['js-version'] );	
+    wp_enqueue_style( 'fau-style', get_stylesheet_uri(), array(), $defaultoptions['js-version'] );	
     wp_enqueue_script( 'fau-scripts');
     wp_enqueue_script( 'fau-libs-plugins' );	
 

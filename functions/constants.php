@@ -20,11 +20,9 @@ $defaultoptions = array(
     'content-width'		    => 770,
     'src-fallback-slider-image'	    => get_fau_template_uri().'/img/slider-fallback.jpg',
     'slider-category'		    => 'header',
-    'slider-catid'		    => 1,
-    
+    'slider-catid'		    => 1,    
     'src-scriptjs'		    => get_fau_template_uri() . '/js/scripts.min.js',
     'src-pluginsjs'		    => get_fau_template_uri() . '/js/libs/plugins.min.js',
-    
     'default_slider_excerpt_length' => 240,
     'start_header_count'	    => 5,
     'start_max_newscontent'	    => 5,

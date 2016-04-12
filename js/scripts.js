@@ -302,12 +302,14 @@ jQuery(document).ready(function($) {
 	$('<div id="off-canvas-overlay">').appendTo('body');
 
 	nav.on('click', '.menu-item.level1', function(e) {
-		if ($(e.target).parent().hasClass('level1')) {
+		if ($(e.target).parent().hasClass('level1'))  {
+		    if ($(e.target).parent().hasClass('menu-item-has-children')) {			
 			e.preventDefault();
 			if (!$(this).hasClass('focus')) {
 				$('#off-canvas .menu-item.level1').removeClass('focus');
 			}
 			$(this).toggleClass('focus');
+		    }
 		}
 	});
 
