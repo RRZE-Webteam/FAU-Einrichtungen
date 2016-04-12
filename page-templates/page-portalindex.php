@@ -52,8 +52,7 @@ get_header(); ?>
 			    fau_get_contentmenu($menuslug,$displaysub,0,0,$nothumbnails,$nofallbackthumbs);
 			    $displayedicons = 1;
 			}
-
-
+			   
 			$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
 			if ($logoliste) { 
 			    $logos = fau_get_imagelinks($logoliste, false);
@@ -68,6 +67,7 @@ get_header(); ?>
 			
 			?>
 		    </main>
+		     <?php echo fau_get_ad('werbebanner_unten',false); ?>
 		</div>
 	    </div>
 		
