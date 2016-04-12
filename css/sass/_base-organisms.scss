@@ -857,6 +857,11 @@ body.admin-bar #nav .nav-flyout {
 	    line-height: 22px;
 	    color: $colorText;
 	    font-family: $fontStack;
+	    
+	    .sidebar-inline {
+		font-size: 13px;
+		line-height: 18px;
+	    }
 	}
 }
 
