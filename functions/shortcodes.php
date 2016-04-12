@@ -17,6 +17,15 @@ class FAUShortcodes {
 		add_shortcode('assistant', array( $this, 'fau_assistant' ));
 		add_shortcode('organigram', array( $this, 'fau_organigram'));
 		add_shortcode('hr', array( $this, 'fau_hr'));
+		
+		add_shortcode('alert', array( $this, 'absatzklasse_attention' ));
+		add_shortcode('attention', array( $this, 'absatzklasse_attention' ));
+		add_shortcode('hinweis', array( $this, 'absatzklasse_hinweis' ));
+		add_shortcode('baustelle', array( $this, 'absatzklasse_baustelle' ));
+		add_shortcode('plus', array( $this, 'absatzklasse_plus' ));
+		add_shortcode('minus', array( $this, 'absatzklasse_minus' ));
+		add_shortcode('question', array( $this, 'absatzklasse_question' ));	
+		
 	}
 	
 	function fau_hr ( $atts, $content = null) {
@@ -51,9 +60,9 @@ class FAUShortcodes {
 		foreach($pages as $page) {
 		    $return .= '<div class="accordion-group">';
 			$return .= '<div class="accordion-heading">';
-			    $return .= '<a class="accordion-toggle" data-toggle="collapse" data-parent="accordion-" href="#collapse-'.$page->ID.'-'.$i.'">'.$page->post_title.'</a>';
+			    $return .= '<a class="accordion-toggle" data-toggle="collapse" data-parent="accordion-" href="#collapse_'.$page->ID.'000'.$i.'">'.$page->post_title.'</a>';
 			$return .= '</div>';
-			$return .= '<div id="collapse-'.$page->ID.'-'.$i.'" class="accordion-body">';
+			$return .= '<div id="collapse_'.$page->ID.'000'.$i.'" class="accordion-body">';
     			    $return .= '<div class="accordion-inner clearfix">';
 
 					$subpages = get_pages(array('sort_order' => 'ASC', 'sort_column' => 'menu_order', 'parent' => $page->ID, 'hierarchical' => 0));
@@ -104,6 +113,56 @@ class FAUShortcodes {
 		
 		return $return;
 	}
+	
+	
+    /*
+     * Absatzklasse attention
+     */
+      function absatzklasse_attention($atts, $content = null) {
+	 extract(shortcode_atts(array(), $atts));
+	 return '<p class="attention">' . do_shortcode( $content ) . '</p>';
+      }
+
+      /*
+       * Absatzklasse hinweis
+       */
+      function absatzklasse_hinweis($atts, $content = null) {
+	 extract(shortcode_atts(array(), $atts));
+	 return '<p class="hinweis">' . do_shortcode( $content ) . '</p>';
+      }
+
+      /*
+       * Absatzklasse baustelle
+       */
+      function absatzklasse_baustelle($atts, $content = null) {
+	 extract(shortcode_atts(array(), $atts));
+	 return '<p class="baustelle">' . do_shortcode( $content ) . '</p>';
+      }  
+
+      /*
+       * Absatzklasse question
+       */
+      function absatzklasse_question($atts, $content = null) {
+	 extract(shortcode_atts(array(), $atts));
+	 return '<p class="question">' . do_shortcode( $content ) . '</p>';
+      }  
+
+      /*
+       * Absatzklasse plus
+       */
+      function absatzklasse_plus($atts, $content = null) {
+	 extract(shortcode_atts(array(), $atts));
+	 return '<p class="plus">' . do_shortcode( $content ) . '</p>';
+      }  
+      /*
+       * Absatzklasse minus
+       */
+      function absatzklasse_minus($atts, $content = null) {
+	 extract(shortcode_atts(array(), $atts));
+	 return '<p class="minus">' . do_shortcode( $content ) . '</p>';
+      }    
+
+	
 	
 }
 new FAUShortcodes();
@@ -158,7 +217,6 @@ class BoostrapShortcodes {
   function add_shortcodes() {
 
     add_shortcode('button', array( $this, 'bs_button' ));    
-    add_shortcode('alert', array( $this, 'bs_alert' ));
     add_shortcode('code', array( $this, 'bs_code' ));
     add_shortcode('span', array( $this, 'bs_span' ));
     add_shortcode('row', array( $this, 'bs_row' ));
@@ -170,6 +228,9 @@ class BoostrapShortcodes {
     add_shortcode('tabs', array( $this, 'bs_tabs' ));
     add_shortcode('tab', array( $this, 'bs_tab' ));
 
+    
+
+    
   }
 
 
@@ -199,25 +260,6 @@ class BoostrapShortcodes {
      return $return;
   }
   
-
-
-  /*--------------------------------------------------------------------------------------
-    *
-    * bs_alert
-    *
-    * @author Filip Stefansson
-    * @since 1.0
-    * 
-    *-------------------------------------------------------------------------------------*/
-  function bs_alert($atts, $content = null) {
-     extract(shortcode_atts(array(
-        "type" => '',
-        "close" => true
-     ), $atts));
-     return '<div class="alert alert-' . $type . '"><button type="button" class="close" data-dismiss="alert">&times;</button>' . do_shortcode( $content ) . '</div>';
-  }
-  
-
 
 
   /*--------------------------------------------------------------------------------------
