@@ -128,16 +128,17 @@ jQuery(document).ready(function($) {
 	function openAnchorAccordion() {
 	    if (window.location.hash) {
 		var identifier = window.location.hash.split('_')[0];
-		var keynum = window.location.hash.split('_')[1];
+		var inpagenum = window.location.hash.split('_')[1];
 		if (identifier == '#collapse') {
-		    if ($.isNumeric(keynum)) {
-			var $findid = 'collapse_'+ keynum;
+		    if ($.isNumeric(inpagenum)) {
+			var $findid = 'collapse_'+ inpagenum;
 			var $target = $('body').find('#'+ $findid);  
 			$target.find('.accordion-toggle').addClass('active');
 			$target.find('.accordion-body').slideUp();
 			$target.toggleClass('active');
 			$target.slideToggle();
-			var $scrolloffset = $target.offset().top - 220;	
+			var offset = $target.offset(); 
+			var $scrolloffset = offset.top - 220;	
 			 $('html,body').animate({scrollTop: $scrolloffset},'slow');
 		    }
 		   
@@ -218,11 +219,7 @@ jQuery(document).ready(function($) {
 		if ($('body').hasClass('admin-bar')) {
 		    topoffset = wpAdminBarHeight;
 		}
-	    } else {
-		
-		
-		
-		
+	    } else {	
 		if ($('body').hasClass('admin-bar')) {		    
 		    topoffset = metaBar +wpAdminBarHeightMD;
 		} else {
@@ -242,7 +239,6 @@ jQuery(document).ready(function($) {
 	    }
 
 	};
-	
 	fixedHeader();
 	
 	$(window).scroll(function () {
@@ -307,12 +303,14 @@ jQuery(document).ready(function($) {
 	$('<div id="off-canvas-overlay">').appendTo('body');
 
 	nav.on('click', '.menu-item.level1', function(e) {
-		if ($(e.target).parent().hasClass('level1')) {
+		if ($(e.target).parent().hasClass('level1'))  {
+		    if ($(e.target).parent().hasClass('menu-item-has-children')) {			
 			e.preventDefault();
 			if (!$(this).hasClass('focus')) {
 				$('#off-canvas .menu-item.level1').removeClass('focus');
 			}
 			$(this).toggleClass('focus');
+		    }
 		}
 	});
 

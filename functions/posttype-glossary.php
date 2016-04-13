@@ -8,13 +8,13 @@ if  ( (isset($options['advanced_activate_glossary'])) && ($options['advanced_act
 		    'glossary_category',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces).
 		    'glossary',   		 //post type name
 		    array(
-			    'hierarchical' 		=> true,
-			    'label' 			=> __('Glossar-Kategorien', 'fau'),  //Display name
-			    'query_var' 		=> true,
-			    'rewrite'			=> array(
-					    'slug' 			=> 'glossaries', // This controls the base slug that will display before each term
-					    'with_front' 	=> false // Don't display the category base before
-					    )
+			    'hierarchical'	=> true,
+			    'label' 		=> __('Glossar-Kategorien', 'fau'),  //Display name
+			    'query_var' 	=> true,
+			    'rewrite'		=> array(
+				   'slug'	    => 'glossaries', // This controls the base slug that will display before each term
+				   'with_front'	    => false // Don't display the category base before
+			        )
 			    )
 		    );
     }
@@ -245,9 +245,9 @@ if  ( (isset($options['advanced_activate_glossary'])) && ($options['advanced_act
 
 			$accordion .= '<div class="accordion-group white">'."\n";
 			$accordion .= '  <div class="accordion-heading">'."\n";
-			$accordion .= '     <a name="'.$post->post_name.'" class="accordion-toggle" data-toggle="collapse" data-parent="accordion-" href="#collapse-'.$post->ID.'-'.$i.'">'.get_the_title($post->ID).'</a>'."\n";
+			$accordion .= '     <a name="'.$post->post_name.'" class="accordion-toggle" data-toggle="collapse" data-parent="accordion-" href="#collapse_'.$post->ID.'000'.$i.'">'.get_the_title($post->ID).'</a>'."\n";
 			$accordion .= '  </div>'."\n";
-			$accordion .= '  <div id="collapse-'.$post->ID.'-'.$i.'" class="accordion-body">'."\n";
+			$accordion .= '  <div id="collapse_'.$post->ID.'000'.$i.'" class="accordion-body">'."\n";
 			$accordion .= '    <div class="accordion-inner">'."\n";
 
 		//	$content = apply_filters( 'the_content',  get_post_field('post_content',$post->ID) );
@@ -363,9 +363,9 @@ if  ( (isset($options['advanced_activate_glossary'])) && ($options['advanced_act
 
 			$accordion .= '<div class="accordion-group white">'."\n";
 			$accordion .= '  <div class="accordion-heading">'."\n";
-			$accordion .= '     <a name="'.$post->post_name.'" class="accordion-toggle" data-toggle="collapse" data-parent="accordion-" href="#collapse-'.$post->ID.'-'.$i.'">'.get_the_title($post->ID).'</a>'."\n";
+			$accordion .= '     <a name="'.$post->post_name.'" class="accordion-toggle" data-toggle="collapse" data-parent="accordion-" href="#collapse_'.$post->ID.'000'.$i.'">'.get_the_title($post->ID).'</a>'."\n";
 			$accordion .= '  </div>'."\n";
-			$accordion .= '  <div id="collapse-'.$post->ID.'-'.$i.'" class="accordion-body">'."\n";
+			$accordion .= '  <div id="collapse_'.$post->ID.'000'.$i.'" class="accordion-body">'."\n";
 			$accordion .= '    <div class="accordion-inner">'."\n";
 
 			$content = apply_filters( 'the_content',  get_post_field('post_content',$post->ID) );
@@ -398,7 +398,6 @@ if  ( (isset($options['advanced_activate_glossary'])) && ($options['advanced_act
 		}
 
 		$return .= '</ul>'."\n";
-
 		$return .= $accordion;
 
 		return $return;

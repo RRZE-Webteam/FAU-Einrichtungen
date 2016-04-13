@@ -1,54 +1,80 @@
 (function() {
+    tinymce.PluginManager.add('faurteshortcodes', function( editor )  {	
+	    
+	var menuItems = [];
+	menuItems.push({
+	    type: 'menuitem',
+	    text: 'Accordion einfügen',
+	    onclick: function() {
+	    	editor.insertContent('[collapsibles]<br>[collapse title="Name" color=""]<br>Hier der Text<br>[/collapse]<br>[collapse title="Name" color=""]<br>Hier der Text<br>[/collapse]<br>[/collapsibles]');
+	    }
+	});
+	menuItems.push({
+	    type: 'menuitem',
+	    text: 'Warnhinweis einfügen',
+	    onclick: function() {
+	    	editor.insertContent('[attention]Hier der Text[/attention]');
+	}
+	});
+	menuItems.push({
+	    type: 'menuitem',
+	    text: 'Hinweis einfügen',
+	    onclick: function() {
+	    	editor.insertContent('[hinweis]Hier der Text[/hinweis]');
+	    }
+	});
+	menuItems.push({
+	    type: 'menuitem',
+	    text: 'Baustellenhinweis einfügen',
+	    onclick: function() {
+		editor.insertContent('[baustelle]Hier der Text[/baustelle]');
+	    }
+	});
+	menuItems.push({
+	    type: 'menuitem',
+	    text: 'Fragezeichen einfügen',
+	    onclick: function() {
+		editor.insertContent('[question]Hier der Text[/question]');
+	    }
+	});
+	menuItems.push({
+	    type: 'menuitem',
+	    text: 'Minus-Absatz einfügen',
+	    onclick: function() {
+		editor.insertContent('[minus]Hier der Text[/minus]');
+	    }
+	});
 
-    tinymce.PluginManager.add('faurteshortcodes', function( editor )
-    {	
-		editor.addMenuItem('shortcode_organigram', {
-			text: 'Organigramm einfügen',
-			context: 'tools',
-			onclick: function() {
-				editor.insertContent('[organigram menu=""]');
-			}
-		});
-		
-		editor.addMenuItem('shortcode_assistant', {
-			text: 'Assistenten einfügen',
-			context: 'tools',
-			onclick: function() {
-				editor.insertContent('[assistant id=""]');
-			}
-		});
-		
-		editor.addMenuItem('shortcode_accordion', {
-			text: 'Accordion einfügen',
-			context: 'tools',
-			onclick: function() {
-				editor.insertContent('[collapsibles]<br>[collapse title="Name" color=""]<br>Hier der Text<br>[/collapse]<br>[collapse title="Name" color=""]<br>Hier der Text<br>[/collapse]<br>[/collapsibles]');
-			}
-		});
-                
-                
-               
-	/*	
-		editor.addMenuItem('shortcode_person', {
-			text: 'Person einfügen',
-			context: 'tools',
-			onclick: function() {
-				editor.insertContent('[person id="" showlink="0" extended="0"]');
-			}
-		});
-		
-		editor.addMenuItem('shortcode_persons', {
-			text: 'Personengalerie einfügen',
-			context: 'tools',
-			onclick: function() {
-				editor.insertContent('[persons category="" showlink="0" extended="0"]');
-			}
-		});
-*/		
-		
-		
-		
-		
+	menuItems.push({
+	    type: 'menuitem',
+	    text: 'Plus-Absatz einfügen',
+	    onclick: function() {
+		editor.insertContent('[plus]Hier der Text[/plus]');
+	    }
+	});
+	menuItems.push({
+	    type: 'menuitem',
+	    text: 'Organigramm (Menu) einfügen',
+	    onclick: function() {
+		editor.insertContent('[organigram menu=""]');
+	    }
+	});
+	menuItems.push({
+	    type: 'menuitem',
+	    text: 'Assistenten einfügen',
+	    onclick: function() {
+		editor.insertContent('[assistant id=""]');
+	    }
+	});
+
+
+	editor.addMenuItem('InsertShortcodes', {
+	    icon: 'code',
+	    text: 'Shortcodes',
+	    menu: menuItems,
+	    context: 'insert',
+	});
+
 
     });
 })();
