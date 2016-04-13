@@ -581,11 +581,13 @@ ul.person-info {
 	    width: 20px; 
 	    @extend .fa-envelope; 
 	}
+	/*
 	li.person-info-institution:before { 
 	    @extend .fa;
 	    width: 20px; 
 	    @extend .fa-building; 
 	}
+	*/
 	li.person-info-www:before { 
 	    @extend .fa;
 	    width: 20px; 
@@ -604,6 +606,20 @@ ul.person-info {
 	    padding-left: 20px;
 	}
 
+}
+
+.sidebar-inline {
+    ul.person-info li {
+	    color: $colorText;
+    }
+    li.person-info-address {
+		white-space: pre;
+    }
+}
+
+span[itemprop="honorificPrefix"], 
+span[itemprop="honorificSuffix"] {
+    white-space: nowrap;
 }
 
 
@@ -1355,14 +1371,9 @@ ul.tagcloud {
 	.content-portal & {
 		margin-top: 22px;
 	}
-	ul.person-info li {
-	    color: $colorText;
-
-	}
 	
-	li.person-info-address {
-		white-space: pre;
-	}
+	
+	
 	.quicklinks {  
 	    h2 {
 		font-size: 18px;
