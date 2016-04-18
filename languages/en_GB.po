@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: FAU v1.2.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-05 15:05+0100\n"
-"PO-Revision-Date: Wed Apr 13 2016 14:47:27 GMT+0200 (CEST)\n"
+"PO-Revision-Date: Thu Apr 14 2016 14:15:47 GMT+0200 (CEST)\n"
 "Last-Translator: astridsemm <Astrid.Semm@fau.de>\n"
 "Language-Team: RRZE-Webteam\n"
 "Language: English (UK)\n"
@@ -21,6 +21,271 @@ msgstr ""
 "esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 "X-Loco-Target-Locale: en_GB"
+
+#: ../functions/constants.php:281
+msgid "Fakultätslink"
+msgstr "Link to faculty"
+
+#: ../functions/constants.php:816
+msgid ""
+"Fragt ein eigenes Titelfeld über den Texteditor zum Text oben ab (Titel "
+"können allerdings auch im Editorfeld eingegeben werden)"
+msgstr ""
+"Retrieves a particular title field above the text editor for the upper text "
+"(however, titles can be entered in the editor field)"
+
+#: ../functions/constants.php:822
+msgid "Feld Titel unten"
+msgstr "Field title below"
+
+#: ../functions/constants.php:823
+msgid ""
+"Fragt ein eigenes Titelfeld über den Texteditor zum Text unten ab (Titel "
+"können allerdings auch im Editorfeld eingegeben werden)"
+msgstr ""
+"Retrieves a particular title field above the text editor for the lower text "
+"(however, titles can be entered in the editor field)"
+
+#: ../functions/constants.php:830
+msgid "WYSIWYG-Editor Text oben"
+msgstr "WYSIWYG editor upper text"
+
+#: ../functions/constants.php:831 ../functions/constants.php:838
+msgid ""
+"Erlaubt die Nutzung des WYSWYG-Editors für die Eingabe von Text in der "
+"Sidebar. Dies schließt auch HTML-Tags mit Bildern und Links ein. Andernfalls "
+"ist nur ein Text mit Absätzen möglich."
+msgstr ""
+"Allows the use of the WYSIWYG editor for text in the sidebar. This includes "
+"HTML tags with images and links; else, only text paragraphs can be entered."
+
+#: ../functions/constants.php:837
+msgid "WYSIWYG-Editor Text unten"
+msgstr "WYSIWYG editor lower text"
+
+#: ../functions/constants.php:847
+msgid "Default Titel über Kontakte"
+msgstr "Default title above contacts"
+
+#: ../functions/constants.php:848
+msgid "Optionaler Titel über einem ausgewählten Kontakt."
+msgstr "Optional title above a selected contact"
+
+#: ../functions/constants.php:854
+msgid "Default Titel erster Linkblock"
+msgstr "Default title first link block"
+
+#: ../functions/constants.php:855
+msgid "Optionaler Titel über den ersten Linkblock, wenn dieser belegt ist."
+msgstr "Optional title above first link block, if completed."
+
+#: ../functions/constants.php:862
+msgid "Default Titel zweiter Linkblock"
+msgstr "Default title second link block"
+
+#: ../functions/constants.php:863
+msgid "Optionaler Titel über den zweiten Linkblock, wenn dieser belegt ist."
+msgstr "Optional title above second link block, if completed."
+
+#: ../functions/constants.php:869
+msgid "Links im ersten Linkblock"
+msgstr "Links in first link block"
+
+#: ../functions/constants.php:870
+msgid "Wieviele Links können maximal im ersten Linkblock angegeben werden."
+msgstr "Number of links that can be entered in the first link block"
+
+#: ../functions/constants.php:876
+msgid "Links im zweiten Linkblock"
+msgstr "Links in second link block"
+
+#: ../functions/constants.php:877
+msgid "Wieviele Links können maximal im zweiten Linkblock angegeben werden."
+msgstr "Number of links that can be entered in the second link block."
+
+#: ../functions/constants.php:889
+msgid "Kommentarfunktion aktivieren"
+msgstr "Activate comments"
+
+#: ../functions/constants.php:890
+msgid "Schaltet die Kommentarfunktion für Beiträge ein."
+msgstr "Turns on the comment function for articles"
+
+#: ../functions/constants.php:896
+msgid "Hinweistext Eingabeformular"
+msgstr "Note input form"
+
+#: ../functions/constants.php:897
+msgid "Informationen über den Eingabefeldern für neue Kommentare."
+msgstr "Information above input form for new comments"
+
+#: ../functions/constants.php:903
+msgid "Kommentar-Disclaimer"
+msgstr "Disclaimer for comments"
+
+#: ../functions/constants.php:904
+msgid "Hinweistext zur Abgrenzung zum Inhalt der Kommentare."
+msgstr "Disclaimer note regarding content of comments"
+
+#: ../functions/constants.php:910
+msgid "Image Dimensions"
+msgstr "Image dimensions"
+
+#: ../functions/constants.php:915
+msgid "Galleriebilder (Groß) - Breite"
+msgstr "Width of gallery images (big)"
+
+#: ../functions/constants.php:916
+msgid "Breite in Pixel für große Galleriebilder."
+msgstr "Width in pixels for big gallery images"
+
+#: ../functions/constants.php:922
+msgid "Galleriebilder (Groß) - Höhe"
+msgstr "Height of gallery images (big)"
+
+#: ../functions/constants.php:923
+msgid "Höhe in Pixel für große Galleriebilder."
+msgstr "Height in pixels for big gallery images"
+
+#: ../functions/constants.php:929 ../functions/constants.php:951 ..
+#: functions/constants.php:973 ../functions/constants.php:995 ..
+#: functions/constants.php:1018
+msgid "Bilder zuschneiden"
+msgstr "Crop images"
+
+#: ../functions/constants.php:930
+msgid ""
+"Sollen die großen Galleriebilder zugeschnitten werden um in die Dimensionen "
+"zu passen?"
+msgstr "Would you like to crop the gallery images to fit into the dimensions?"
+
+#: ../functions/constants.php:937
+msgid "Galleriebilder  - Breite"
+msgstr "Width of gallery images"
+
+#: ../functions/constants.php:938
+msgid "Breite in Pixel für Galleriebilder."
+msgstr "Width in pixels for gallery images"
+
+#: ../functions/constants.php:944
+msgid "Galleriebilder - Höhe"
+msgstr "Height of gallery images"
+
+#: ../functions/constants.php:945
+msgid "Höhe in Pixel für Galleriebilder."
+msgstr "Height of gallery images in pixels"
+
+#: ../functions/constants.php:952
+msgid ""
+"Sollen die Galleriebilder zugeschnitten werden um in die Dimensionen zu "
+"passen?"
+msgstr "Would you like to crop the gallery images to fit into the dimensions?"
+
+#: ../functions/constants.php:959
+msgid "Galleriebilder (Grid)  - Breite"
+msgstr "Width of gallery images (grid)"
+
+#: ../functions/constants.php:960
+msgid "Breite in Pixel für Galleriebilder (Grid)."
+msgstr "Width of gallery images (grid) in pixels"
+
+#: ../functions/constants.php:966
+msgid "Galleriebilder (Grid) - Höhe"
+msgstr "Height of gallery images (grid)"
+
+#: ../functions/constants.php:967
+msgid "Höhe in Pixel für Galleriebilder (Grid)."
+msgstr "Height of gallery images (grid) in pixels"
+
+#: ../functions/constants.php:974
+msgid ""
+"Sollen die Galleriebilder (Grid) zugeschnitten werden um in die Dimensionen "
+"zu passen?"
+msgstr "Would you like to crop the gallery images (grid) to fit into the dimensions?"
+
+#: ../functions/constants.php:981
+msgid "Galleriebilder (2 Spalten)  - Breite"
+msgstr "Width of gallery images (2 colums)"
+
+#: ../functions/constants.php:982
+msgid "Breite in Pixel für Galleriebilder (2 Spalten)."
+msgstr "Width for gallery images (2 columns) in pixels"
+
+#: ../functions/constants.php:988
+msgid "Galleriebilder (2 Spalten) - Höhe"
+msgstr "Height of gallery images (2 columns)"
+
+#: ../functions/constants.php:989
+msgid "Höhe in Pixel für Galleriebilder (2 Spalten)."
+msgstr "Height of gallery images (2 columns) in pixels"
+
+#: ../functions/constants.php:996
+msgid ""
+"Sollen die Galleriebilder (2 Spalten) zugeschnitten werden um in die "
+"Dimensionen zu passen?"
+msgstr ""
+"Would you like to crop the gallery images (2 columns) to fit into the "
+"dimensions?"
+
+#: ../functions/constants.php:1004
+msgid "Galleriebilder (4 Spalten)  - Breite"
+msgstr "Width of gallery images (4 columns)"
+
+#: ../functions/constants.php:1005
+msgid "Breite in Pixel für Galleriebilder (4 Spalten)."
+msgstr "Width of gallery images (4 colums) in pixels"
+
+#: ../functions/constants.php:1011
+msgid "Galleriebilder (4 Spalten) - Höhe"
+msgstr "Height of gallery images (4 columns)"
+
+#: ../functions/constants.php:1012
+msgid "Höhe in Pixel für Galleriebilder (4 Spalten)."
+msgstr "Height of gallery images (4 colums) in pixels"
+
+#: ../functions/constants.php:1019
+msgid ""
+"Sollen die Galleriebilder (4 Spalten) zugeschnitten werden um in die "
+"Dimensionen zu passen?"
+msgstr ""
+"Would you like to crop the gallery images (4 columns) to fit into the "
+"dimensions?"
+
+#: ../functions/constants.php:1026
+msgid "Reset"
+msgstr "Reset"
+
+#: ../functions/constants.php:1027
+msgid ""
+"Setze alle Einstellungen und Konfigurationen zurück. Achtung: Dies setzt "
+"alle Voreinstellungen unwiederbringlich zurück!"
+msgstr ""
+"Reset all settings and configurations. Note: This restores all default "
+"settings and configurations!"
+
+#. Name of the theme
+msgid "FAU-Einrichtungen"
+msgstr "FAU institutions"
+
+#. Theme URI of the theme
+msgid "https://github.com/RRZE-Webteam/FAU-Einrichtungen"
+msgstr "https://github.com/RRZE-Webteam/FAU-Einrichtungen"
+
+#. Description of the theme
+msgid ""
+"Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-"
+"Universität Erlangen-Nürnberg (FAU)"
+msgstr ""
+"WordPress theme for central institutions of the Friedrich-Alexander-"
+"Universität Erlangen-Nürnberg (FAU)"
+
+#. Author of the theme
+msgid "RRZE-Webteam"
+msgstr "RRZE Webteam"
+
+#. Author URI of the theme
+msgid "http://www.rrze.fau.de"
+msgstr "http://www.rrze.fau.de"
 
 #: ../404.php:44
 msgid ""
@@ -124,7 +389,7 @@ msgstr "URL"
 
 #: ../functions/helper-functions.php:397
 msgid "Wähle Link"
-msgstr "Choose link"
+msgstr "Select link"
 
 #: ../functions/helper-functions.php:467
 msgid "Ungültiger Aufruf von fau_form_link() - Name oder Label fehlt."
@@ -149,7 +414,7 @@ msgid ""
 "dann weg gelassen."
 msgstr ""
 "Instead of a quote, you can also enter normal text. This will not be "
-"visually featured like a quote. The author need not be entered in this case."
+"visually featured like a quote. The author will be omitted in this case."
 
 #: ../functions/custom-fields.php:642
 msgid "Artikelbild verbergen"
@@ -167,7 +432,7 @@ msgstr ""
 msgid ""
 "Es wurden noch keine Bilder als Logos definiert. Daher kann hier noch nichts "
 "ausgewählt werden."
-msgstr "No images have been defined as logos. Therefore, you cannot choose any yet."
+msgstr "No images have been defined as logos. Therefore, you cannot select any yet."
 
 #: ../functions/custom-fields.php:996
 msgid "Titel oben"
@@ -216,8 +481,8 @@ msgid ""
 "Wählen Sie die Personen oder Ansprechpartner, die in der Sidebar erscheinen "
 "sollen. Es kann mehr als ein Eintrag gewählt werden."
 msgstr ""
-"Choose the persons or contact persons that are to be displayed in the "
-"sidebar. You can select more than one item."
+"Select the persons or contact persons to be displayed in the sidebar. You "
+"can select more than one item."
 
 #: ../functions/custom-fields.php:1031
 msgid ""
@@ -429,9 +694,7 @@ msgstr "Mein Campus"
 
 #: ../functions/defaults.php:202
 msgid "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
-msgstr ""
-"Quelltext:\n"
-"Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+msgstr "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
 
 #: ../functions/defaults.php:203
 msgid "FAU"
@@ -532,7 +795,7 @@ msgstr "Events with these categories"
 
 #: ../functions/plugin-events.php:286 ../functions/plugin-events.php:577
 msgid "Keine Kategorien vorhanden."
-msgstr "No category available"
+msgstr "No categories available"
 
 #: ../functions/plugin-events.php:293 ../functions/plugin-events.php:584
 msgid "oder Termine mit diesen Schlagworte"
@@ -583,7 +846,7 @@ msgid ""
 "unterstrichenen Stelle hinter der Zeichenfolge <code>wp_id=</code> auftaucht."
 msgstr ""
 "In the example, you find an underlined part after the string "
-"<code>wp_id=</code>. Take the number you find in your code at that point."
+"<code>wp_id=</code>. Take the number you find there in your code."
 
 #: ../functions/posttype_ad.php:164
 msgid "Werbe-ID"
@@ -631,8 +894,8 @@ msgid ""
 "Ihre E-Mail-Adresse wird nicht angezeigt. Verpflichtende Felder werden mit "
 "dem folgenden Zeichen markiert: <span class=\"required\">*</span>"
 msgstr ""
-"Your E-Mail address will not be displayed. Required fields will be marked "
-"with the following character: <span class=\"required\">*</span>"
+"Your E-Mail address will not be displayed. Required fields are marked with "
+"the following character: <span class=\"required\">*</span>"
 
 #: ../functions/constants.php:214
 msgid ""
@@ -640,8 +903,9 @@ msgid ""
 "persönliche Meinung wieder. Sie müssen nicht die Meinung der Universität "
 "oder der Fakultät repräsentieren."
 msgstr ""
-"Note: Comments are written by readers and reflect there personal opinions. "
-"They need not represent the opinions of the university or the faculty."
+"Note: Comments are written by readers and reflect their personal opinions. "
+"They do not necessarily represent the opinions of the university or the "
+"faculty."
 
 #: ../functions/constants.php:259
 msgid "Webauftritt"
@@ -657,11 +921,7 @@ msgstr "Type"
 
 #: ../functions/constants.php:270
 msgid "Bitte wählen Sie hier aus, um welcherart Webauftritt es sich handelt."
-msgstr "Please select the kind of web presence."
-
-#: ../functions/constants.php:281
-msgid "Fakultätslink"
-msgstr ""
+msgstr "Please select the kind of web presence here."
 
 #: ../functions/constants.php:282
 msgid ""
@@ -762,7 +1022,7 @@ msgid ""
 "Falls der Textauszug nach der vorgegebenen Länge abgeschnitten werden muss, "
 "können hier Trennzeichen angegeben werden."
 msgstr ""
-"Should it be necessary to cut off the text excermt after the defined length, "
+"Should it be necessary to cut off the text excerpt after the defined length, "
 "you can define delimiter symbols here."
 
 #: ../functions/constants.php:544
@@ -811,10 +1071,17 @@ msgid ""
 "den Tag \"Startseite1\" haben und nur eines davon gezeigt werden soll, wird "
 "der jüngste Artikel mit dem Tag angezeigt."
 msgstr ""
+"Declaration of the tag prefix that handles the position of certain articles "
+"on the home page. In the article, you put this tag together with a number (1,"
+" 2 or 3) to define the position. <br>\n"
+"E. g.: If you choose \"homepage\" as a tag prefix, then you tag the article "
+"you want to display first with \"homepage1\", the second with \"homepage2\" etc.;"
+" if there is more than one article with the tag \"homepage1\" and just one is "
+"to be displayed, the newest article will be shown."
 
 #: ../functions/constants.php:590
 msgid "Artikel mit gleichem Positionierungs-Tag"
-msgstr ""
+msgstr "Article with identical positioning tag"
 
 #: ../functions/constants.php:591
 msgid ""
@@ -822,14 +1089,16 @@ msgid ""
 "angezeigt werden sollen. Normalerweise sollte hier nur 1 Artikel auf der "
 "ersten Position sein."
 msgstr ""
+"Number of articles with the same prefix tag (positioning) that can be "
+"displayed. Normally, just one article should be on the first position."
 
 #: ../functions/constants.php:598
 msgid "Artikel verlinken"
-msgstr ""
+msgstr "Link to article"
 
 #: ../functions/constants.php:605
 msgid "Artikel-Kategorie"
-msgstr ""
+msgstr "Category of articles"
 
 #: ../functions/constants.php:606
 msgid ""
@@ -838,88 +1107,95 @@ msgid ""
 "Prefix-Tag ausgestattet sind, wird diese Kategorie auch bei der Anzeige der "
 "ersten News verwendet."
 msgstr ""
+"Below the news, there appears a link to an overview over the articles. Here, "
+"the category is selected. In case that there should be no article with a "
+"prefix tag, this category will be used for displaying the first news."
 
 #: ../functions/constants.php:613
 msgid "Linktitel"
-msgstr ""
+msgstr "link title"
 
 #: ../functions/constants.php:614
 msgid "Verlinkungstitel für weitere Meldungen."
-msgstr ""
+msgstr "Link title for more news"
 
 #: ../functions/constants.php:634
 msgid "Startseite Top Events"
-msgstr ""
+msgstr "Home page top events"
 
 #: ../functions/constants.php:638
 msgid "Aktivieren"
-msgstr ""
+msgstr "activate"
 
 #: ../functions/constants.php:639
 msgid "Anzeige der Top-Events auf der Startseite aktivieren"
-msgstr ""
+msgstr "Activate top events on the home page"
 
 #: ../functions/constants.php:660
 msgid "Startseite Fakultät Slider"
-msgstr ""
+msgstr "Home page faculty slider"
 
 #: ../functions/constants.php:715
 msgid "Aktiviert die Verwaltung von Synonymen."
-msgstr ""
+msgstr "Activates the administration of synonyms"
 
 #: ../functions/constants.php:722
 msgid "Aktiviert die Verwaltung von Glossareinträgen."
-msgstr ""
+msgstr "Activates the administration of glossary items"
 
 #: ../functions/constants.php:729
 msgid "Untertitel (Beiträge)"
-msgstr ""
+msgstr "Subtitles (articles)"
 
 #: ../functions/constants.php:730
 msgid "Erlaube die Eingabe von Untertitel bei Beiträgen."
-msgstr ""
+msgstr "Enable the entry of subtitles in articles."
 
 #: ../functions/constants.php:737
 msgid "Zeige Seiten-Ids"
-msgstr ""
+msgstr "Show page IDs"
 
 #: ../functions/constants.php:738
 msgid "In der Übersicht der Seiten werden die Ids angezeigt."
-msgstr ""
+msgstr "In the overview over the pages, the IDs are displayed."
 
 #: ../functions/constants.php:753
 msgid "Sprunglink unter der Bühne"
-msgstr ""
+msgstr "Anchor link below the stage"
 
 #: ../functions/constants.php:754
 msgid ""
 "Aktiviert die Schaltung eines Sprunglinks unterhalb der Bühne der Startseite,"
 " wenn das Browserfenster eine Größe zwischen 700px und 900px Höhe hat."
 msgstr ""
+"Activates an anchor link below the stage of the home page when the browser "
+"window has a height between 700px and 900px."
 
 #: ../functions/constants.php:768
 msgid "Copyright-Hinweis Startseite"
-msgstr ""
+msgstr "Copyright note on home page"
 
 #: ../functions/constants.php:769
 msgid ""
 "Auf der Startseite wird im Slider bzw. im Banner der Copyright-Hinweis des "
 "Bildes angezeigt, wenn vorhanden"
 msgstr ""
+"The copyright note will be displayed in the slider on the home page, if "
+"available."
 
 #: ../functions/constants.php:775
 msgid "Copyright-Hinweis Beiträge"
-msgstr ""
+msgstr "Copyright note articles"
 
 #: ../functions/constants.php:776
 msgid ""
 "In Beiträgen wird das Artikelbild mit einem Copyright-Hinweis des Bildes "
 "versehen, wenn vorhanden"
-msgstr ""
+msgstr "In articles, the image will have a copyright note, if available"
 
 #: ../functions/constants.php:782
 msgid "Copyright-Info ermitteln"
-msgstr ""
+msgstr "Determine copyright information"
 
 #: ../functions/constants.php:783
 msgid ""
@@ -929,22 +1205,27 @@ msgid ""
 "4. Beschreibung, 5. IPTC-Caption, 6. Bildunterschrift. <br>Durch diese "
 "Auswahl kann die Beschreibung priorisiert werden."
 msgstr ""
+"Defines if the copyright information of an image is taken from its IPTC "
+"information or if it can be overwritten by the description text. <br>Order "
+"via IPTC: 1. IPTC copyright, 2. IPTC credit, 3. IPTC author, 4. description, "
+"5. IPTC caption, 6. image subtitle. <br>By this selection, the description "
+"can be prioritised."
 
 #: ../functions/constants.php:784
 msgid "IPTC-Feld Copyright hat Priorität"
-msgstr ""
+msgstr "IPTC field copyright has priority"
 
 #: ../functions/constants.php:785
 msgid "Eingabefeld Beschreibung überschreibt IPTC und andere vorangige Felder."
-msgstr ""
+msgstr "Text area description overwrites IPTC and other preferential fields."
 
 #: ../functions/constants.php:792
 msgid "Breadcrumb"
-msgstr ""
+msgstr "Breadcrumb"
 
 #: ../functions/constants.php:796
 msgid "Titel Startseite in Breadcrumb"
-msgstr ""
+msgstr "Title home page in breadcrumb"
 
 #: ../functions/constants.php:797
 msgid ""
@@ -952,269 +1233,24 @@ msgid ""
 "Default sollte hier die offizielle URL stehen; bspw. <code>phil.fau."
 "de</code>."
 msgstr ""
+"Defines how the link to the homepage is named. As a default, the official "
+"URL should be here, e. g. <code>phil.fau.de</code>."
 
 #: ../functions/constants.php:803
 msgid "Website-Titel"
-msgstr ""
+msgstr "Title of the website"
 
 #: ../functions/constants.php:804
 msgid "Zeige den Website-Titel oberhalb der Breadcrumb"
-msgstr ""
+msgstr "Show title of the website above breadcrumb"
 
 #: ../functions/constants.php:811
 msgid "Erweiterte Einstellunge für Sidebars (von Seiten)"
-msgstr ""
+msgstr "Advanced options for sidebars (of pages)"
 
 #: ../functions/constants.php:815
 msgid "Feld Titel oben"
-msgstr ""
-
-#: ../functions/constants.php:816
-msgid ""
-"Fragt ein eigenes Titelfeld über den Texteditor zum Text oben ab (Titel "
-"können allerdings auch im Editorfeld eingegeben werden)"
-msgstr ""
-
-#: ../functions/constants.php:822
-msgid "Feld Titel unten"
-msgstr ""
-
-#: ../functions/constants.php:823
-msgid ""
-"Fragt ein eigenes Titelfeld über den Texteditor zum Text unten ab (Titel "
-"können allerdings auch im Editorfeld eingegeben werden)"
-msgstr ""
-
-#: ../functions/constants.php:830
-msgid "WYSIWYG-Editor Text oben"
-msgstr ""
-
-#: ../functions/constants.php:831 ../functions/constants.php:838
-msgid ""
-"Erlaubt die Nutzung des WYSWYG-Editors für die Eingabe von Text in der "
-"Sidebar. Dies schließt auch HTML-Tags mit Bildern und Links ein. Andernfalls "
-"ist nur ein Text mit Absätzen möglich."
-msgstr ""
-
-#: ../functions/constants.php:837
-msgid "WYSIWYG-Editor Text unten"
-msgstr ""
-
-#: ../functions/constants.php:847
-msgid "Default Titel über Kontakte"
-msgstr ""
-
-#: ../functions/constants.php:848
-msgid "Optionaler Titel über einem ausgewählten Kontakt."
-msgstr ""
-
-#: ../functions/constants.php:854
-msgid "Default Titel erster Linkblock"
-msgstr ""
-
-#: ../functions/constants.php:855
-msgid "Optionaler Titel über den ersten Linkblock, wenn dieser belegt ist."
-msgstr ""
-
-#: ../functions/constants.php:862
-msgid "Default Titel zweiter Linkblock"
-msgstr ""
-
-#: ../functions/constants.php:863
-msgid "Optionaler Titel über den zweiten Linkblock, wenn dieser belegt ist."
-msgstr ""
-
-#: ../functions/constants.php:869
-msgid "Links im ersten Linkblock"
-msgstr ""
-
-#: ../functions/constants.php:870
-msgid "Wieviele Links können maximal im ersten Linkblock angegeben werden."
-msgstr ""
-
-#: ../functions/constants.php:876
-msgid "Links im zweiten Linkblock"
-msgstr ""
-
-#: ../functions/constants.php:877
-msgid "Wieviele Links können maximal im zweiten Linkblock angegeben werden."
-msgstr ""
-
-#: ../functions/constants.php:889
-msgid "Kommentarfunktion aktivieren"
-msgstr ""
-
-#: ../functions/constants.php:890
-msgid "Schaltet die Kommentarfunktion für Beiträge ein."
-msgstr ""
-
-#: ../functions/constants.php:896
-msgid "Hinweistext Eingabeformular"
-msgstr ""
-
-#: ../functions/constants.php:897
-msgid "Informationen über den Eingabefeldern für neue Kommentare."
-msgstr ""
-
-#: ../functions/constants.php:903
-msgid "Kommentar-Disclaimer"
-msgstr ""
-
-#: ../functions/constants.php:904
-msgid "Hinweistext zur Abgrenzung zum Inhalt der Kommentare."
-msgstr ""
-
-#: ../functions/constants.php:910
-msgid "Image Dimensions"
-msgstr ""
-
-#: ../functions/constants.php:915
-msgid "Galleriebilder (Groß) - Breite"
-msgstr ""
-
-#: ../functions/constants.php:916
-msgid "Breite in Pixel für große Galleriebilder."
-msgstr ""
-
-#: ../functions/constants.php:922
-msgid "Galleriebilder (Groß) - Höhe"
-msgstr ""
-
-#: ../functions/constants.php:923
-msgid "Höhe in Pixel für große Galleriebilder."
-msgstr ""
-
-#: ../functions/constants.php:929 ../functions/constants.php:951 ..
-#: functions/constants.php:973 ../functions/constants.php:995 ..
-#: functions/constants.php:1018
-msgid "Bilder zuschneiden"
-msgstr ""
-
-#: ../functions/constants.php:930
-msgid ""
-"Sollen die großen Galleriebilder zugeschnitten werden um in die Dimensionen "
-"zu passen?"
-msgstr ""
-
-#: ../functions/constants.php:937
-msgid "Galleriebilder  - Breite"
-msgstr ""
-
-#: ../functions/constants.php:938
-msgid "Breite in Pixel für Galleriebilder."
-msgstr ""
-
-#: ../functions/constants.php:944
-msgid "Galleriebilder - Höhe"
-msgstr ""
-
-#: ../functions/constants.php:945
-msgid "Höhe in Pixel für Galleriebilder."
-msgstr ""
-
-#: ../functions/constants.php:952
-msgid ""
-"Sollen die Galleriebilder zugeschnitten werden um in die Dimensionen zu "
-"passen?"
-msgstr ""
-
-#: ../functions/constants.php:959
-msgid "Galleriebilder (Grid)  - Breite"
-msgstr ""
-
-#: ../functions/constants.php:960
-msgid "Breite in Pixel für Galleriebilder (Grid)."
-msgstr ""
-
-#: ../functions/constants.php:966
-msgid "Galleriebilder (Grid) - Höhe"
-msgstr ""
-
-#: ../functions/constants.php:967
-msgid "Höhe in Pixel für Galleriebilder (Grid)."
-msgstr ""
-
-#: ../functions/constants.php:974
-msgid ""
-"Sollen die Galleriebilder (Grid) zugeschnitten werden um in die Dimensionen "
-"zu passen?"
-msgstr ""
-
-#: ../functions/constants.php:981
-msgid "Galleriebilder (2 Spalten)  - Breite"
-msgstr ""
-
-#: ../functions/constants.php:982
-msgid "Breite in Pixel für Galleriebilder (2 Spalten)."
-msgstr ""
-
-#: ../functions/constants.php:988
-msgid "Galleriebilder (2 Spalten) - Höhe"
-msgstr ""
-
-#: ../functions/constants.php:989
-msgid "Höhe in Pixel für Galleriebilder (2 Spalten)."
-msgstr ""
-
-#: ../functions/constants.php:996
-msgid ""
-"Sollen die Galleriebilder (2 Spalten) zugeschnitten werden um in die "
-"Dimensionen zu passen?"
-msgstr ""
-
-#: ../functions/constants.php:1004
-msgid "Galleriebilder (4 Spalten)  - Breite"
-msgstr ""
-
-#: ../functions/constants.php:1005
-msgid "Breite in Pixel für Galleriebilder (4 Spalten)."
-msgstr ""
-
-#: ../functions/constants.php:1011
-msgid "Galleriebilder (4 Spalten) - Höhe"
-msgstr ""
-
-#: ../functions/constants.php:1012
-msgid "Höhe in Pixel für Galleriebilder (4 Spalten)."
-msgstr ""
-
-#: ../functions/constants.php:1019
-msgid ""
-"Sollen die Galleriebilder (4 Spalten) zugeschnitten werden um in die "
-"Dimensionen zu passen?"
-msgstr ""
-
-#: ../functions/constants.php:1026
-msgid "Reset"
-msgstr ""
-
-#: ../functions/constants.php:1027
-msgid ""
-"Setze alle Einstellungen und Konfigurationen zurück. Achtung: Dies setzt "
-"alle Voreinstellungen unwiederbringlich zurück!"
-msgstr ""
-
-#. Name of the theme
-msgid "FAU-Einrichtungen"
-msgstr ""
-
-#. Theme URI of the theme
-msgid "https://github.com/RRZE-Webteam/FAU-Einrichtungen"
-msgstr ""
-
-#. Description of the theme
-msgid ""
-"Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-"
-"Universität Erlangen-Nürnberg (FAU)"
-msgstr ""
-
-#. Author of the theme
-msgid "RRZE-Webteam"
-msgstr ""
-
-#. Author URI of the theme
-msgid "http://www.rrze.fau.de"
-msgstr ""
+msgstr "Field upper title"
 
 #: ../hero-index.php:22
 msgid "Index"
@@ -1226,11 +1262,11 @@ msgstr "You might find these pages useful:"
 
 #: ../403.php:30
 msgid "Zugriff nicht gestattet"
-msgstr "Unauthorised"
+msgstr "Access not authorized"
 
 #: ../403.php:43 ../single-person.php:32 ../404.php:43 ../401.php:42
 msgid "Es tut uns leid."
-msgstr "Sorry"
+msgstr "We are sorry"
 
 #: ../403.php:44
 msgid "Leider dürfen Sie auf diese Seite nicht zugreifen."
@@ -1244,7 +1280,7 @@ msgstr "Synonym"
 #: ../index.php:49 ../functions/posttype-glossary.php:34 ../functions/constants.
 #: php:721
 msgid "Glossar"
-msgstr "Glossar"
+msgstr "Glossary"
 
 #: ../index.php:102
 msgid "<span class=\"meta-nav\">&laquo;</span> Vorherige Einträge"
@@ -1268,19 +1304,19 @@ msgstr "Cannot retrieve data for this contact"
 
 #: ../header.php:27
 msgid "Zum Inhalt springen"
-msgstr "Skip to content"
+msgstr "Jump to content"
 
 #: ../header.php:28
 msgid "Zur Suche springen"
-msgstr "Skip to search"
+msgstr "Jump to search"
 
 #: ../header.php:29
 msgid "Zum Hauptmenü springen"
-msgstr "Skip to main menu"
+msgstr "Jump to main menu"
 
 #: ../header.php:31
 msgid "Zum Seitenmenü springen"
-msgstr "Skip to page menu"
+msgstr "Jump to page menu"
 
 #: ../header.php:96 ../functions.php:1092
 msgid "Navigation"
@@ -1288,7 +1324,7 @@ msgstr "Navigation"
 
 #: ../single-event.php:43
 msgid "Ganztägig"
-msgstr "Full day"
+msgstr "All day"
 
 #: ../single-event.php:47 ../single-event.php:51
 #, php-format
@@ -1298,11 +1334,11 @@ msgstr "%1$s to %2$s"
 #: ../single-event.php:55
 #, php-format
 msgid "%1$s Uhr bis %2$s Uhr"
-msgstr "%1$s  to %2$s "
+msgstr "%1$s o'clock  to %2$s o'clock"
 
 #: ../hero-search.php:25 ../404.php:59
 msgid "Geben Sie hier den Suchbegriff ein"
-msgstr "Search"
+msgstr "Enter your search term here"
 
 #: ../hero-search.php:27 ../searchform.php:13 ../searchform.php:14 ../header-
 #: searchform.php:13 ../header-searchform.php:14 ../404.php:60
@@ -1357,7 +1393,7 @@ msgstr "Page %s"
 
 #: ../functions.php:400
 msgid "News Sidebar"
-msgstr "News Sidebar"
+msgstr "News sidebar"
 
 #: ../functions.php:402
 msgid "Sidebar auf der News-Kategorieseite"
@@ -1365,11 +1401,11 @@ msgstr "Sidebar on the news category page"
 
 #: ../functions.php:410
 msgid "Suche Sidebar"
-msgstr "Search Sidebar"
+msgstr "Search sidebar"
 
 #: ../functions.php:412
 msgid "Sidebar auf der Such-Ergebnisseite links"
-msgstr "Sidebar on left of search results page"
+msgstr "Sidebar on the left of the search results page"
 
 #: ../functions.php:419
 msgid "Social Media Infobereich (Footer)"
@@ -1383,11 +1419,11 @@ msgstr ""
 
 #: ../functions.php:431
 msgid "Sprachwechsler"
-msgstr "Language switcher"
+msgstr "Language switch"
 
 #: ../functions.php:433
 msgid "Sprachwechsler im Header der Seite"
-msgstr "Language switcher in header"
+msgstr "Language switch in header"
 
 #: ../functions.php:725
 msgid "Vergrößern"
@@ -1459,7 +1495,7 @@ msgstr "%s <span class=\"says\">wrote on</span>"
 #: ../functions.php:1744
 #, php-format
 msgid "%1$s um %2$s Uhr"
-msgstr "%1$s at %2$s o#clock"
+msgstr "%1$s at %2$s o'clock"
 
 #: ../functions.php:1744
 msgid "folgendes"
@@ -1500,11 +1536,11 @@ msgstr[1] "%1$s Comments on <em>\"%2$s\"</em>"
 
 #: ../comments.php:20 ../comments.php:29
 msgid "Ältere Kommentare"
-msgstr "Earlier comments"
+msgstr "Older comments"
 
 #: ../comments.php:21
 msgid "Neuere Kommentare;"
-msgstr "Latest comments"
+msgstr "Latest comments;"
 
 #: ../comments.php:30
 msgid "Neuere Kommentare"
@@ -1528,7 +1564,7 @@ msgstr "Login failed"
 
 #: ../401.php:43
 msgid "Leider ist Ihre Anmeldung fehlgeschlagen."
-msgstr "Unfortunately your login was unsuccessful."
+msgstr "Unfortunately, your login was unsuccessful."
 
 #: ../search.php:41 ../functions/constants.php:505
 msgid "Suchergebnisse"
@@ -1566,7 +1602,7 @@ msgstr "No Entries"
 
 #: ../functions/helper-functions.php:335 ../functions/custom-fields.php:355
 msgid "Bild auswählen"
-msgstr "Chose image"
+msgstr "Select image"
 
 #: ../functions/helper-functions.php:336 ../functions/custom-fields.php:356
 msgid "Entfernen"
@@ -1574,7 +1610,7 @@ msgstr "Remove"
 
 #: ../functions/helper-functions.php:354 ../functions/custom-fields.php:374
 msgid "Kein Bild ausgewählt."
-msgstr "No image chosen."
+msgstr "No image selected."
 
 #: ../functions/helper-functions.php:388 ../functions/custom-fields.php:283 ..
 #: functions/widgets.php:116 ../functions/plugin-events.php:266 ..
@@ -1605,7 +1641,7 @@ msgstr "Sidebar"
 
 #: ../functions/custom-fields.php:100
 msgid "Beitragsoptionen"
-msgstr "Entry options"
+msgstr "Article options"
 
 #: ../functions/custom-fields.php:115
 msgid "Top-Event"
@@ -1638,8 +1674,8 @@ msgid ""
 "Zeichen gebildet. "
 msgstr ""
 "Short description for the stage and the news index (home page and index "
-"pages). If this is empty, the short description will be created "
-"automatically from the content using the allowed number of characters."
+"pages). If this is empty, the short description will automatically be taken "
+"from the content using the allowed number of characters."
 
 #: ../functions/custom-fields.php:159 ../functions/custom-fields.php:297
 msgid "Erlaubte Anzahl an Zeichen:"
@@ -1676,7 +1712,7 @@ msgstr ""
 
 #: ../functions/custom-fields.php:173
 msgid "Bühnenbild"
-msgstr "stage"
+msgstr "Stage image"
 
 #: ../functions/custom-fields.php:173
 msgid ""
@@ -1692,8 +1728,8 @@ msgid ""
 "Bitte beachten: Damit ein Artikel als Top-Event angezeigt wird, muss er das "
 "folgende Schlagwort erhalten: "
 msgstr ""
-"Attention: For an article to be displayed as top event, it needs to contain "
-"the following keyword:"
+"Attention: For an article to be displayed as a top event, it needs to "
+"contain the following keyword:"
 
 #: ../functions/custom-fields.php:283
 msgid ""
@@ -1717,7 +1753,7 @@ msgstr "Date"
 
 #: ../functions/custom-fields.php:311
 msgid "Geben Sie hier das Datum des Events ein."
-msgstr "Enter the date of the event."
+msgstr "Enter the date of the event here."
 
 #: ../functions/custom-fields.php:325
 msgid "Symbolbild"
@@ -1725,16 +1761,15 @@ msgstr "Symbol image"
 
 #: ../functions/custom-fields.php:348
 msgid "Kein Bild ausgewählt. Ersatzbild wird gezeigt."
-msgstr "No image chose. Using default image."
+msgstr "No image selected. Using default image."
 
-# "substitute" ist an sich die korrekte Übersetzung. Eventuell ist "default" aber besser.
 #: ../functions/custom-fields.php:357
 msgid ""
 "Hier können Sie ein Thumbnail auswählen für den Event. Wenn kein Bild "
 "gewählt wird, wird ein Ersatzbild angezeigt."
 msgstr ""
-"You can choose a thumbnail for the event here. If no image is chosen, a "
-"substitute will be displayed."
+"You can select a thumbnail for the event here. If no image is selected, the "
+"default image will be displayed."
 
 #: ../functions/custom-fields.php:474
 msgid "Menüebene"
@@ -1746,9 +1781,9 @@ msgid ""
 "linken Seite gezeigt wird. Dies gilt nur für Seiten, die das folgende "
 "Template ausgewählt haben:"
 msgstr ""
-"The menu level defines for pages, up to which level the menu is displayed on "
+"For pages, the menu level defines up to which level the menu is displayed on "
 "the left. This applies only to pages for which the following template has "
-"been chosen:"
+"been selected:"
 
 #: ../functions/custom-fields.php:533 ../functions/custom-fields.php:580
 msgid "Untertitel (Inhaltsüberschrift)"
@@ -1767,8 +1802,8 @@ msgid ""
 "Das Zitat und der Autor erscheint bei Portalseiten oder Menüpunkten der "
 "ersten Ebene des Hauptmenüs neben der Auflistung der Untermenüpunkte."
 msgstr ""
-"Display quotation and its author off portal pages or menu items of the first "
-"level on the flyout next to the menu elements."
+"The quote and its author are displayed on portal pages or in the first level "
+"of the main menu alongside the list of submenu items in the flyout menu."
 
 #: ../functions/custom-fields.php:637
 msgid "Autor"
@@ -1792,7 +1827,7 @@ msgid ""
 "wählen Sie hier das Menü aus der Liste. Sollte das Menü noch nicht "
 "existieren, kann ein Administrator es anlegen."
 msgstr ""
-"On a portal page, a menu is displayed below the content. Please choose the "
+"On a portal page, a menu is displayed below the content. Please select the "
 "menu from this list. Should the menu not exist yet, an administrator can "
 "create it."
 
@@ -1810,7 +1845,7 @@ msgstr "Do not display default images."
 
 #: ../functions/custom-fields.php:682
 msgid "Unterpunkte verbergen."
-msgstr "Do not display sub-elements"
+msgstr "Hide sub-elements"
 
 #: ../functions/custom-fields.php:817
 msgid "Bilder"
@@ -1825,8 +1860,8 @@ msgid ""
 "Wählen Sie hier die Kategorie aus aus der Logos (Bildlinks) verwendet werden "
 "sollen. Die Bilder aus der gewählten Kategorie werden dann angezeigt."
 msgstr ""
-"Choose here the category from which logos (image links) should be used. The "
-"images from the chosen category will be displayed."
+"Select here the category from which logos (image links) should be used. The "
+"images from the selected category will be displayed."
 
 #: ../functions/custom-fields.php:830
 msgid "Keine Logos zeigen"
@@ -1839,15 +1874,15 @@ msgstr "None (deactivate)"
 
 #: ../functions/custom-fields.php:901
 msgid "Wählen Sie die Werbung, die in der Sidebar erscheinen soll."
-msgstr "Choose the advertisement that should be displayed in the sidebar."
+msgstr "Select the advertisement that should be displayed in the sidebar."
 
 #: ../functions/custom-fields.php:902
 msgid "Inhaltsbereich"
-msgstr "Content "
+msgstr "Content area"
 
 #: ../functions/custom-fields.php:902
 msgid "Wählen Sie die Werbung, die unterhalb des Inhalts erscheinen soll."
-msgstr "Choose the advertisement that should be displayed below the content."
+msgstr "Select the advertisement that should be displayed below the content."
 
 #: ../functions/custom-fields.php:906
 msgid "Es wurde noch keine Werbung definiert, die angezeigt werden kann."
@@ -1924,7 +1959,7 @@ msgstr "No image links found"
 
 #: ../functions/posttype_imagelink.php:40
 msgid "Keine Bildlinks im Papierkorb gefunden"
-msgstr "No image links found in trash"
+msgstr "No image links found in recycle bin"
 
 #: ../functions/posttype_imagelink.php:43
 msgid "imagelink"
@@ -2090,7 +2125,7 @@ msgstr "Update"
 #: functions/plugin-events.php:660
 #, php-format
 msgid "%s Uhr bis %s Uhr"
-msgstr "%s till %s "
+msgstr "%s till %s o'clock"
 
 #: ../functions/posttype_ad.php:13 ../functions/posttype_ad.php:14 ..
 #: functions/posttype_ad.php:15 ../functions/constants.php:184
@@ -2103,7 +2138,7 @@ msgstr "Overview"
 
 #: ../functions/posttype_ad.php:26
 msgid "Werbebanner und Skyscraper erstellen und bearbeiten."
-msgstr "Creating and editing advertising banners and skyscrapers."
+msgstr "Creating and editing advertising banners and skyscrapers"
 
 #: ../functions/posttype_ad.php:168
 msgid "HTML-Code zur Einbindung"
@@ -2127,14 +2162,13 @@ msgid ""
 "URL des Zieles eingegeben werden. Als Bild wird das gewählte Beitragsbild "
 "verwendet."
 msgstr ""
-"Should you want to avoid the possibility of entering HTML code, you can also "
-"choose a destination address and an image from the media. This way, you can "
-"enter the URL of destination. The image used is the chosen featured image of "
-"the article."
+"Should you want to forbid HTML code, you can also choose a destination "
+"address and an image from the media. This way, you can enter the URL of "
+"destination. The image used is the selected image."
 
 #: ../functions/posttype_ad.php:173
 msgid "Unterhalb des Inhaltsbereich"
-msgstr "Below of content"
+msgstr "Below the content"
 
 #: ../functions/posttype_ad.php:173
 msgid "Position"
@@ -2142,21 +2176,21 @@ msgstr "Position"
 
 #: ../functions/posttype_ad.php:173
 msgid "Angabe an welchen Positionen der Seite diese Werbung angezeigt werden kann."
-msgstr "Chose where to locate advertisement on the website"
+msgstr "Select where to locate advertisement on the website"
 
 #: ../functions/posttype_ad.php:173
 msgid "Sidebar und unterhalb des Inhaltsbereich"
-msgstr "Sidebar below of content region"
+msgstr "Sidebar below content area"
 
 #: ../functions/posttype_ad.php:175
 msgid "Redaktionelle Notizen"
-msgstr "Editor's notes"
+msgstr "Editorial notes"
 
 #: ../functions/posttype_ad.php:175
 msgid ""
 "Hier können redaktionelle Notizen hinterlassen werden. Diese werden nur hier "
 "angezeigt."
-msgstr "You can leave editor's notes here. They are displayed only here."
+msgstr "You can leave editorial notes here. They are displayed only here."
 
 #: ../functions/constants.php:33
 msgid "Mehr Meldungen"
@@ -2206,7 +2240,7 @@ msgstr "Search"
 
 #: ../functions/constants.php:189
 msgid "Veranstaltungskalender"
-msgstr "Events"
+msgstr "Calendar of events"
 
 #: ../functions/constants.php:251
 msgid "Einträge"
@@ -2222,7 +2256,7 @@ msgstr "Address line 1"
 
 #: ../functions/constants.php:312
 msgid "Adressat (Zusatz)"
-msgstr "Recipient line 2"
+msgstr "Recipient (additional information)"
 
 #: ../functions/constants.php:313
 msgid "Zweite Zeile der Adresse"
@@ -2298,13 +2332,13 @@ msgstr "Term after the title of the selected menu"
 
 #: ../functions/constants.php:432
 msgid "Zitatersatz"
-msgstr "Default Quotation"
+msgstr "Default quote"
 
 #: ../functions/constants.php:433
 msgid ""
 "Wenn bei einem Menupunkt auf oberster Ebene kein Zitat vorgegeben ist, zeige "
 "stattdessen einen Auszug der Seite."
-msgstr "Display excerpt of page if no quoation is given "
+msgstr "Display excerpt of page if no quote is given "
 
 #: ../functions/constants.php:440
 msgid "Google Site Verification"
@@ -2315,9 +2349,8 @@ msgid ""
 "Meta-Tag zur Identifikation der Inhaberschaft gegenüber Google. geben Sie "
 "hier den Content-Bestand an für die Identifikation mittels Meta-Tag."
 msgstr ""
-"To identify yourself for Google Webmaster Tools you are able to use a HTML "
-"Meta-Tag. Use this option in Webmaster Tools and enter here the given "
-"content part of the value-attribute you get by Google."
+"Meta tag for the identification of possessorship towards Google. Enter the "
+"content for idenfication via meta tag here."
 
 #: ../functions/constants.php:446
 msgid "Werbebanner Infolink"
@@ -2327,9 +2360,7 @@ msgstr "Information link for advertising"
 msgid ""
 "URL zu einer Seite, die bei einem Klick auf den Hinweis zur Werbung "
 "aufgerufen wird."
-msgstr ""
-"URL of a page that is displayed on a click on the reference to the "
-"advertisement."
+msgstr "URL of a page that is opened clicking on the advertising reference."
 
 #: ../functions/constants.php:452
 msgid "Hinweistitel für Werbebanner"
@@ -2400,7 +2431,7 @@ msgstr "Show categories"
 
 #: ../functions/constants.php:495
 msgid "Liste der Kategorien unter dem Beitrag anzeigen"
-msgstr "Show a list of categories below the article."
+msgstr "Show a list of categories below the article"
 
 #: ../functions/constants.php:510
 msgid "Zeige Thumbs"
@@ -2434,19 +2465,17 @@ msgstr "Number of news articles on start page beneath slider"
 
 #: ../functions/constants.php:599
 msgid "Weitere Meldungen verlinken."
-msgstr "Make a link for further entries."
+msgstr "Link to more articles."
 
 #: ../functions/constants.php:621
 msgid "Immer ein Artikelbild anzeigen"
-msgstr "Always display an entry image"
+msgstr "Always display an article image"
 
 #: ../functions/constants.php:622
 msgid ""
 "Immer ein Artikelbild zu einer Nachricht zeigen. Wenn kein Artikelbild "
 "definiert wurde, nehme stattdessen ein Ersatzbild."
-msgstr ""
-"Always display an entry image. If no entry image was set, use a default "
-"image."
+msgstr "Always display an article image. If none is set, use the default image."
 
 #: ../functions/constants.php:623
 msgid "Ja"
@@ -2460,7 +2489,7 @@ msgstr "No"
 msgid ""
 "Schlagwort mit dem Beiträge als ausgestattet sein müssen, damit sie als Top-"
 "Event angezeigt werden."
-msgstr "This keyword must be used to display articles as top event."
+msgstr "This keyword must be used to display articles as top events."
 
 #: ../functions/constants.php:652
 msgid "Zahl der Top-Events"
@@ -2468,7 +2497,7 @@ msgstr "Number of top events"
 
 #: ../functions/constants.php:653
 msgid "Wieviele Top-Events sollen maximal auf der Startseite angezeigt werden"
-msgstr "How many top events are to be displayed on the home page as a maximum"
+msgstr "How many top events are to be displayed on the home page as a maximum?"
 
 #: ../functions/constants.php:665
 msgid "Zahl der Slides"
@@ -2482,7 +2511,7 @@ msgstr "Number of slides from linked top articles"
 msgid ""
 "Bitte wählen Sie die Kategorie der Artikel aus die im Slider erscheinen "
 "sollen."
-msgstr "Please choose the article category to display in the slider"
+msgstr "Please select the article category to display in the slider"
 
 #: ../functions/constants.php:685
 msgid "Erweitert"
@@ -2515,7 +2544,7 @@ msgstr ""
 
 #: ../functions/constants.php:707
 msgid "Werbebanner"
-msgstr "Advertising"
+msgstr "Advertising banner"
 
 #: ../functions/constants.php:708
 msgid "Aktiviert die Möglichkeit, Werbebanner zu verwalten."
