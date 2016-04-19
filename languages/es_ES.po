@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: FAU v1.2.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-05 15:05+0100\n"
-"PO-Revision-Date: Mon Apr 11 2016 16:41:32 GMT+0200 (CEST)\n"
-"Last-Translator: xwolf <xwolf@xwolf.de>\n"
+"PO-Revision-Date: Fri Apr 15 2016 13:29:23 GMT+0200 (CEST)\n"
+"Last-Translator: astridsemm <Astrid.Semm@fau.de>\n"
 "Language-Team: RRZE-Webteam\n"
 "Language: Spanish (Spain)\n"
 "Plural-Forms: nplurals=2; plural=n != 1\n"
@@ -22,436 +22,143 @@ msgstr ""
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 "X-Loco-Target-Locale: es_ES"
 
-#: ../hero-index.php:22
-msgid "Index"
-msgstr ""
-
-#: ../index.php:46 ../functions/posttype-synonym.php:13 ../functions/constants.
-#: php:713
-msgid "Synonyme"
-msgstr ""
-
-#: ../index.php:49 ../functions/posttype-glossary.php:34 ../functions/constants.
-#: php:720
-msgid "Glossar"
-msgstr ""
-
-#: ../index.php:102
-msgid "<span class=\"meta-nav\">&laquo;</span> Vorherige Einträge"
-msgstr ""
-
-#: ../index.php:103
-msgid "Weitere Einträge <span class=\"meta-nav\">&raquo;</span>"
-msgstr ""
-
-#: ../single-person.php:33
-msgid "Für den angegebenen Kontakt können keine Informationen abgerufen werden."
-msgstr ""
-
-#: ../single-event.php:47 ../single-event.php:51
-#, php-format
-msgid "%1$s bis %2$s"
-msgstr ""
-
-#: ../single-event.php:55
-#, php-format
-msgid "%1$s Uhr bis %2$s Uhr"
-msgstr ""
-
-#: ../hero-search.php:25 ../404.php:59
-msgid "Geben Sie hier den Suchbegriff ein"
-msgstr ""
-
-#: ../functions.php:40
-msgid "Startseite Fakultät: Bühne Spalte 1"
-msgstr ""
-
-#: ../functions.php:41
-msgid "Startseite Fakultät: Bühne Spalte 2"
-msgstr ""
-
-#: ../functions.php:43
-msgid "Fehler- und Suchseite: Vorschlagmenu Spalte 1"
-msgstr ""
-
-#: ../functions.php:44
-msgid "Fehler- und Suchseite: Vorschlagmenu Spalte 2"
-msgstr ""
-
-#: ../functions.php:45
-msgid "Fehler- und Suchseite: Vorschlagmenu Spalte 3"
-msgstr ""
-
-#: ../functions.php:46
-msgid "Fehler- und Suchseite: Vorschlagmenu Spalte 4"
-msgstr ""
-
-#: ../functions.php:419
-msgid "Social Media Infobereich (Footer)"
-msgstr ""
-
-#: ../functions.php:421
-msgid "Widgetbereich neben den Social Media Icons im Footer der Startseite."
-msgstr ""
-
 #: ../functions.php:1008
 msgid "Zur"
-msgstr ""
-
-#: ../functions.php:1397
-msgid "Beitrag"
-msgstr ""
-
-#: ../functions.php:1447
-msgid "Datei"
-msgstr ""
-
-#: ../functions.php:1454
-msgid "Erstellungsdatum"
-msgstr ""
-
-#: ../functions.php:1458 ../functions.php:1486
-msgid "Letzte Änderung"
-msgstr ""
-
-#: ../functions.php:1464
-msgid "Download"
-msgstr ""
-
-#: ../functions.php:1467
-msgid "Größe:"
-msgstr ""
-
-#: ../functions.php:1605
-msgid "Sie befinden sich hier:"
-msgstr ""
-
-#: ../functions.php:1678
-msgid "Suche nach"
-msgstr ""
-
-#: ../functions.php:1685
-msgid "Beiträge von"
-msgstr ""
-
-#: ../functions.php:1736
-#, php-format
-msgid "%s <span class=\"says\">schrieb am</span>"
-msgstr ""
-
-#. translators: 1: date, 2: time
-#: ../functions.php:1744
-#, php-format
-msgid "%1$s um %2$s Uhr"
-msgstr ""
-
-#: ../functions.php:1744
-msgid "folgendes"
-msgstr ""
-
-#: ../functions.php:1750
-msgid "Kommentar wartet auf Freischaltung."
-msgstr ""
-
-#: ../functions.php:1754
-msgid "(Bearbeiten)"
-msgstr ""
-
-#: ../functions.php:1764
-msgid "Pingback:"
-msgstr ""
-
-#: ../functions.php:1764
-msgid "Bearbeiten"
-msgstr ""
-
-#: ../comments.php:5
-msgid ""
-"Dieser Eintrag ist mit einem Passwort geschützt. Bitte geben Sie das "
-"Passwort ein, um ihn freizuschalten."
-msgstr ""
-
-#: ../comments.php:9 ../functions/constants.php:884
-msgid "Kommentare"
-msgstr ""
-
-#: ../comments.php:16
-#, php-format
-msgid "Ein Kommentar zu <em>\"%2$s\"</em>"
-msgid_plural "%1$s Kommentare zu <em>\"%2$s\"</em>"
-msgstr[0] ""
-msgstr[1] ""
+msgstr "A"
 
 #: ../comments.php:20 ../comments.php:29
 msgid "Ältere Kommentare"
-msgstr ""
-
-#: ../comments.php:21
-msgid "Neuere Kommentare;"
-msgstr ""
-
-#: ../comments.php:30
-msgid "Neuere Kommentare"
-msgstr ""
-
-#: ../comments.php:33
-msgid "Eine Kommentierung ist nicht mehr möglich."
-msgstr ""
-
-#: ../404.php:44
-msgid ""
-"Die von Ihnen aufgerufene Seite existiert nicht oder ihre Adresse hat sich "
-"durch Änderungen der Seiten geändert."
-msgstr ""
-
-#: ../image.php:44
-msgid ""
-"Die folgenden Informationen werden nur für angemeldete Benutzer des CMS "
-"angezeigt:"
-msgstr ""
-
-#: ../image.php:65
-msgid "Die folgenden Informationen werden öffentlich angezeigt:"
-msgstr ""
-
-#: ../search.php:44
-msgid "Es wurden"
-msgstr ""
-
-#: ../search.php:46
-msgid "Es wurde "
-msgstr ""
-
-#: ../search.php:48
-msgid "Treffer gefunden"
-msgstr ""
-
-#: ../search.php:101
-msgid "Nichts gefunden."
-msgstr ""
-
-#: ../search.php:105
-msgid "Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden."
-msgstr ""
-
-#: ../single.php:119
-msgid "Schlagworte"
-msgstr ""
-
-#. Name of the template
-msgid "Startseite Fakultät"
-msgstr ""
-
-#. Name of the template
-msgid "Portalindex"
-msgstr ""
-
-#. Name of the template
-msgid "Portalseite"
-msgstr ""
-
-#: ../functions/helper-functions.php:27
-msgid "Ungültiger Aufruf von fau_form_textarea() - Name oder Label fehlt."
-msgstr ""
-
-#: ../functions/helper-functions.php:51
-msgid "Ungültiger Aufruf von fau_form_wpeditor() - Name oder Label fehlt."
-msgstr ""
-
-#: ../functions/helper-functions.php:84
-msgid "Ungültiger Aufruf von fau_form_text() - Name oder Label fehlt."
-msgstr ""
-
-#: ../functions/helper-functions.php:117
-msgid "Ungültiger Aufruf von fau_form_email() - Name oder Label fehlt."
-msgstr ""
-
-#: ../functions/helper-functions.php:152
-msgid "Ungültiger Aufruf von fau_form_number() - Name oder Label fehlt."
-msgstr ""
-
-#: ../functions/helper-functions.php:181
-msgid "Ungültiger Aufruf von fau_form_url() - Name oder Label fehlt."
-msgstr ""
-
-#: ../functions/helper-functions.php:207
-msgid "Ungültiger Aufruf von fau_form_onoff() - Name oder Label fehlt."
-msgstr ""
-
-#: ../functions/helper-functions.php:248
-msgid "Ungültiger Aufruf von fau_form_select() - Array, Name oder Label fehlt."
-msgstr ""
-
-#: ../functions/helper-functions.php:299
-msgid "Ungültiger Aufruf von fau_form_multiselect() - Array, Name oder Label fehlt."
-msgstr ""
-
-#: ../functions/helper-functions.php:363
-msgid "Ungültiger Aufruf von fau_form_image() - Name oder Label fehlt."
-msgstr ""
-
-#: ../functions/helper-functions.php:393
-msgid "URL"
-msgstr ""
-
-#: ../functions/helper-functions.php:397
-msgid "Wähle Link"
-msgstr ""
-
-#: ../functions/helper-functions.php:467
-msgid "Ungültiger Aufruf von fau_form_link() - Name oder Label fehlt."
-msgstr ""
-
-#: ../functions/custom-fields.php:60
-msgid "Optionen für Portalseiten"
-msgstr ""
-
-#: ../functions/custom-fields.php:636
-msgid "Zitat (Text)"
-msgstr ""
-
-#: ../functions/custom-fields.php:639
-msgid "Textdarstellung im Hauptmenu"
-msgstr ""
-
-#: ../functions/custom-fields.php:640
-msgid ""
-"Anstelle eines Zitates kann auch ein normaler Text angegeben werden. Diese "
-"wird dann nicht wie ein Zitat optisch hervorgehoben. Der Autor-Text wird "
-"dann weg gelassen."
-msgstr ""
-
-#: ../functions/custom-fields.php:642
-msgid "Artikelbild verbergen"
-msgstr ""
-
-#: ../functions/custom-fields.php:642
-msgid ""
-"Neben dem Text bzw. dem Zitat im Hauptmenü wird eine verkleinerte version "
-"des Artikelbildes angezeigt."
-msgstr ""
+msgstr "Comentarios anteriores"
 
 #: ../functions/custom-fields.php:825
 msgid ""
 "Es wurden noch keine Bilder als Logos definiert. Daher kann hier noch nichts "
 "ausgewählt werden."
 msgstr ""
+"No se definieron imágenes como logos. Por eso, no se puede seleccionar nada "
+"por aquí."
 
 #: ../functions/custom-fields.php:996
 msgid "Titel oben"
-msgstr ""
+msgstr "Título de arriba"
 
 #: ../functions/custom-fields.php:996
 msgid "Titel am Anfang der Sidebar"
-msgstr ""
+msgstr "Título encima de la barra lateral"
 
 #: ../functions/custom-fields.php:1001 ../functions/custom-fields.php:1003
 msgid "Textbereich oben"
-msgstr ""
+msgstr "Area de texto de arriba"
 
 #: ../functions/custom-fields.php:1001 ../functions/custom-fields.php:1003
 msgid "Text am Anfang der Sidebar"
-msgstr ""
+msgstr "Texto al principio de la barra lateral"
 
 #: ../functions/custom-fields.php:1012
 msgid "Zuerst Kontake, dann Linklisten"
-msgstr ""
+msgstr "Primero contactos, listas de enlaces desupés"
 
 #: ../functions/custom-fields.php:1012
 msgid "Zuerst Linklisten, dann Kontakte"
-msgstr ""
+msgstr "Primero listas de enlaces, contactos después"
 
 #: ../functions/custom-fields.php:1012
 msgid "Reihenfolge Kontakte und Linklisten"
-msgstr ""
+msgstr "Orden de contactos y listas de enlaces"
 
 #: ../functions/custom-fields.php:1012
 msgid ""
 "Hier kann die Reihenfolge von Kontakte und Linklisten geändert werden, wie "
 "sie auf der Seite präsentiert werden."
 msgstr ""
+"Aquí se puede cambiar el orden de contactos y listas de enlaces como serán "
+"presentados en la página."
 
 #: ../functions/custom-fields.php:1028
 msgid "Titel über Ansprechpartner"
-msgstr ""
+msgstr "Título encima de la persona de contacto"
 
 #: ../functions/custom-fields.php:1029
 msgid "Auswahl Ansprechpartner"
-msgstr ""
+msgstr "Selección persona(s) de contacto"
 
 #: ../functions/custom-fields.php:1029
 msgid ""
 "Wählen Sie die Personen oder Ansprechpartner, die in der Sidebar erscheinen "
 "sollen. Es kann mehr als ein Eintrag gewählt werden."
 msgstr ""
+"Seleccione las personas o contactos que Ud. quiere publicar en la barra "
+"lateral. Se puede seleccionar más que una entrada."
 
 #: ../functions/custom-fields.php:1031
 msgid ""
 "Derzeit sind noch Persoen oder Kontakte eingetragen, die man verlinken "
 "könnte."
-msgstr ""
+msgstr "Por el momento, hay todavía personas o contactos que se podrían enlazar."
 
 #: ../functions/custom-fields.php:1041
 msgid "Titel erster Linkblock"
-msgstr ""
+msgstr "Título primer bloque de enlaces"
 
 #: ../functions/custom-fields.php:1041
 msgid "Titel über die erste Liste von Links, sogenannte Quicklinks"
-msgstr ""
+msgstr "Título encima de la primera lista de enlaces, denominada enlaces rápidos"
 
 #: ../functions/custom-fields.php:1044 ../functions/custom-fields.php:1068
 msgid "Link Nr. "
-msgstr ""
+msgstr "Enlace no."
 
 #: ../functions/custom-fields.php:1063
 msgid "Titel zweiter Linkblock"
-msgstr ""
+msgstr "Título segundo bloque de enlaces"
 
 #: ../functions/custom-fields.php:1063
 msgid ""
 "Titel über die zweite Liste von Links. Weitere Links oder bspw. externe "
 "Links."
 msgstr ""
+"Título encima de la segunda lista de enlaces. Más enlaces o p. ej. enlaces "
+"externos."
 
 #: ../functions/custom-fields.php:1084
 msgid "Titel unten"
-msgstr ""
+msgstr "Título inferior"
 
 #: ../functions/custom-fields.php:1084
 msgid "Titel am Ende der Sidebar"
-msgstr ""
+msgstr "Título al final de la barra lateral"
 
 #: ../functions/custom-fields.php:1089 ../functions/custom-fields.php:1091
 msgid "Textbereich unten"
-msgstr ""
+msgstr "Area de texto inferior"
 
 #: ../functions/custom-fields.php:1089 ../functions/custom-fields.php:1091
 msgid "Text am Ende der Sidebar"
-msgstr ""
+msgstr "Texto al final de la barra lateral"
 
 #: ../functions/custom-fields.php:1288
 msgid "Link einfügen/ändern"
-msgstr ""
+msgstr "Insertar/cambiar enlace"
 
 #: ../functions/custom-fields.php:1289
 msgid "Aktualisieren"
-msgstr ""
+msgstr "Actualizar"
 
 #: ../functions/custom-fields.php:1290
 msgid "Link hinzufügen"
-msgstr ""
+msgstr "Añadir enlace"
 
 #: ../functions/custom-fields.php:1291
 msgid "(kein Titel)"
-msgstr ""
+msgstr "(sín título)"
 
 #: ../functions/custom-fields.php:1292
 msgid "Keine Ergebnisse gefunden."
-msgstr ""
+msgstr "No hay resultados."
 
 #: ../functions/posttype-glossary.php:12
 msgid "Glossar-Kategorien"
-msgstr ""
+msgstr "Categorías de glossario"
 
 #: ../functions/posttype-glossary.php:32
 msgctxt "Post Type General Name"
@@ -1353,6 +1060,319 @@ msgstr ""
 #. Author URI of the theme
 msgid "http://www.rrze.fau.de"
 msgstr ""
+
+#: ../single-event.php:47 ../single-event.php:51
+#, php-format
+msgid "%1$s bis %2$s"
+msgstr "de %1$s hasta %2$s"
+
+#: ../single-event.php:55
+#, php-format
+msgid "%1$s Uhr bis %2$s Uhr"
+msgstr "de %1$s hasta %2$s horas"
+
+#: ../hero-search.php:25 ../404.php:59
+msgid "Geben Sie hier den Suchbegriff ein"
+msgstr "Inserte el término de búsqueda aquí"
+
+#: ../functions.php:40
+msgid "Startseite Fakultät: Bühne Spalte 1"
+msgstr "Página principal facultad: escenario columna 1"
+
+#: ../functions.php:41
+msgid "Startseite Fakultät: Bühne Spalte 2"
+msgstr "Página principal facultad: escenario columna 2"
+
+#: ../functions.php:43
+msgid "Fehler- und Suchseite: Vorschlagmenu Spalte 1"
+msgstr "Página de errores y búsqueda: menú de sugerencias columna 1"
+
+#: ../functions.php:44
+msgid "Fehler- und Suchseite: Vorschlagmenu Spalte 2"
+msgstr "Página de errores y búsqueda: menú de sugerencias columna 2"
+
+#: ../functions.php:45
+msgid "Fehler- und Suchseite: Vorschlagmenu Spalte 3"
+msgstr "Página de errores y búsqueda: menú de sugerencias columna 3"
+
+#: ../functions.php:46
+msgid "Fehler- und Suchseite: Vorschlagmenu Spalte 4"
+msgstr "Página de errores y búsqueda: menú de sugerencias columna 4"
+
+#: ../functions.php:419
+msgid "Social Media Infobereich (Footer)"
+msgstr "Area de de información de medios sociales (pie de página)"
+
+#: ../functions.php:421
+msgid "Widgetbereich neben den Social Media Icons im Footer der Startseite."
+msgstr ""
+"Area de widget al lado de los íconos de medios sociales en el pie de la "
+"página principal."
+
+#: ../functions.php:1397
+msgid "Beitrag"
+msgstr "Artículo"
+
+#: ../functions.php:1447
+msgid "Datei"
+msgstr "Archivo"
+
+#: ../functions.php:1454
+msgid "Erstellungsdatum"
+msgstr "Fecha de creación"
+
+#: ../functions.php:1458 ../functions.php:1486
+msgid "Letzte Änderung"
+msgstr "Ultima modificación"
+
+#: ../functions.php:1464
+msgid "Download"
+msgstr "Descarga"
+
+#: ../functions.php:1467
+msgid "Größe:"
+msgstr "Tamaño"
+
+#: ../functions.php:1605
+msgid "Sie befinden sich hier:"
+msgstr "Ud. se encuentra aquí:"
+
+#: ../functions.php:1678
+msgid "Suche nach"
+msgstr "Búsqueda por"
+
+#: ../functions.php:1685
+msgid "Beiträge von"
+msgstr "Artículos de"
+
+#: ../functions.php:1736
+#, php-format
+msgid "%s <span class=\"says\">schrieb am</span>"
+msgstr "%s <span class=\"says\">escribió el</span>"
+
+#. translators: 1: date, 2: time
+#: ../functions.php:1744
+#, php-format
+msgid "%1$s um %2$s Uhr"
+msgstr "%1$s a las %2$s horas"
+
+#: ../functions.php:1744
+msgid "folgendes"
+msgstr "lo siguiente"
+
+#: ../functions.php:1750
+msgid "Kommentar wartet auf Freischaltung."
+msgstr "Comentario esperando aprobación"
+
+#: ../functions.php:1754
+msgid "(Bearbeiten)"
+msgstr "(Editar)"
+
+#: ../functions.php:1764
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: ../functions.php:1764
+msgid "Bearbeiten"
+msgstr "Editar"
+
+#: ../comments.php:5
+msgid ""
+"Dieser Eintrag ist mit einem Passwort geschützt. Bitte geben Sie das "
+"Passwort ein, um ihn freizuschalten."
+msgstr ""
+"Este artículo está protegido con una contraseña. Por favor, ingrese la "
+"contraseña para verlo."
+
+#: ../comments.php:9 ../functions/constants.php:884
+msgid "Kommentare"
+msgstr "Comentarios"
+
+#: ../comments.php:16
+#, php-format
+msgid "Ein Kommentar zu <em>\"%2$s\"</em>"
+msgid_plural "%1$s Kommentare zu <em>\"%2$s\"</em>"
+msgstr[0] "Un comentario a <em>\"%2$s\"</em>"
+msgstr[1] "Comentarios a <em>\"%2$s\"</em>"
+
+#: ../comments.php:21
+msgid "Neuere Kommentare;"
+msgstr "Comentarios nuevos;"
+
+#: ../comments.php:30
+msgid "Neuere Kommentare"
+msgstr "Comentarios nuevos"
+
+#: ../comments.php:33
+msgid "Eine Kommentierung ist nicht mehr möglich."
+msgstr "Ya no se puede comentar."
+
+#: ../404.php:44
+msgid ""
+"Die von Ihnen aufgerufene Seite existiert nicht oder ihre Adresse hat sich "
+"durch Änderungen der Seiten geändert."
+msgstr ""
+"La página Ud. está buscando ya no existe mas o la dirección se cambió por "
+"cambios en la estructura de las páginas."
+
+#: ../image.php:44
+msgid ""
+"Die folgenden Informationen werden nur für angemeldete Benutzer des CMS "
+"angezeigt:"
+msgstr ""
+"Las informaciones siguientes serán visibles sólo para usuarios registrados "
+"del CMS:"
+
+#: ../image.php:65
+msgid "Die folgenden Informationen werden öffentlich angezeigt:"
+msgstr "Las informaciones siguientes son públicas:"
+
+#: ../search.php:44
+msgid "Es wurden"
+msgstr "fueron"
+
+#: ../search.php:46
+msgid "Es wurde "
+msgstr "fue"
+
+#: ../search.php:48
+msgid "Treffer gefunden"
+msgstr "resultados econtrados"
+
+#: ../search.php:101
+msgid "Nichts gefunden."
+msgstr "No hay resultados"
+
+#: ../search.php:105
+msgid "Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden."
+msgstr "Lamentablemente no se encontró resultado correspondiente a su búsqueda."
+
+#: ../single.php:119
+msgid "Schlagworte"
+msgstr "Palabras clave"
+
+#. Name of the template
+msgid "Startseite Fakultät"
+msgstr "Página principal facultad"
+
+#. Name of the template
+msgid "Portalindex"
+msgstr "Indice de portal"
+
+#. Name of the template
+msgid "Portalseite"
+msgstr "Página de portal"
+
+#: ../functions/helper-functions.php:27
+msgid "Ungültiger Aufruf von fau_form_textarea() - Name oder Label fehlt."
+msgstr "Solicitud inválida de fau_form_textarea() - no hay nombre o etiqueta"
+
+#: ../functions/helper-functions.php:51
+msgid "Ungültiger Aufruf von fau_form_wpeditor() - Name oder Label fehlt."
+msgstr "Solicitud inválida de fau_form_wpeditor() - no hay nombre o etiqueta"
+
+#: ../functions/helper-functions.php:84
+msgid "Ungültiger Aufruf von fau_form_text() - Name oder Label fehlt."
+msgstr "Solicitud inválida de fau_form_text() - no hay nombre o etiqueta"
+
+#: ../functions/helper-functions.php:117
+msgid "Ungültiger Aufruf von fau_form_email() - Name oder Label fehlt."
+msgstr "Solicitud inválida de fau_form_email() - no hay nombre o etiqueta"
+
+#: ../functions/helper-functions.php:152
+msgid "Ungültiger Aufruf von fau_form_number() - Name oder Label fehlt."
+msgstr "Solicitud inválida de fau_form_number() - no hay nombre o etiqueta"
+
+#: ../functions/helper-functions.php:181
+msgid "Ungültiger Aufruf von fau_form_url() - Name oder Label fehlt."
+msgstr "Solicitud inválida de fau_form_url() - no hay nombre o etiqueta"
+
+#: ../functions/helper-functions.php:207
+msgid "Ungültiger Aufruf von fau_form_onoff() - Name oder Label fehlt."
+msgstr "Solicitud inválida de fau_form_onoff() - no hay nombre o etiqueta"
+
+#: ../functions/helper-functions.php:248
+msgid "Ungültiger Aufruf von fau_form_select() - Array, Name oder Label fehlt."
+msgstr "Solicitud inválida de fau_form_select() - no hay matriz, nombre o etiqueta"
+
+#: ../functions/helper-functions.php:299
+msgid "Ungültiger Aufruf von fau_form_multiselect() - Array, Name oder Label fehlt."
+msgstr "Solicitud inválida de fau_form_multiselect() - no hay nombre o etiqueta"
+
+#: ../functions/helper-functions.php:363
+msgid "Ungültiger Aufruf von fau_form_image() - Name oder Label fehlt."
+msgstr "Solicitud inválida de fau_form_image() - no hay nombre o etiqueta"
+
+#: ../functions/helper-functions.php:393
+msgid "URL"
+msgstr "URL"
+
+#: ../functions/helper-functions.php:397
+msgid "Wähle Link"
+msgstr "Elige enlace"
+
+#: ../functions/helper-functions.php:467
+msgid "Ungültiger Aufruf von fau_form_link() - Name oder Label fehlt."
+msgstr "Solicitud inválida de fau_form_link() - no hay nombre o etiqueta"
+
+#: ../functions/custom-fields.php:60
+msgid "Optionen für Portalseiten"
+msgstr "Opciones para páginas de portal"
+
+#: ../functions/custom-fields.php:636
+msgid "Zitat (Text)"
+msgstr "Cita (texto)"
+
+#: ../functions/custom-fields.php:639
+msgid "Textdarstellung im Hauptmenu"
+msgstr "Arreglo del texto en el menú principal"
+
+#: ../functions/custom-fields.php:640
+msgid ""
+"Anstelle eines Zitates kann auch ein normaler Text angegeben werden. Diese "
+"wird dann nicht wie ein Zitat optisch hervorgehoben. Der Autor-Text wird "
+"dann weg gelassen."
+msgstr ""
+"En vez de una cita, se puede ingresar texto normal también. Este no será "
+"destacado opticamente. El nombre del autor será omitido."
+
+#: ../functions/custom-fields.php:642
+msgid "Artikelbild verbergen"
+msgstr "Ocultar imagen de artículo"
+
+#: ../functions/custom-fields.php:642
+msgid ""
+"Neben dem Text bzw. dem Zitat im Hauptmenü wird eine verkleinerte version "
+"des Artikelbildes angezeigt."
+msgstr ""
+"Se visualizará una versión disminuida de la imagen del artículo al lado de "
+"la cita en el menú principal."
+
+#: ../hero-index.php:22
+msgid "Index"
+msgstr "Indice"
+
+#: ../index.php:46 ../functions/posttype-synonym.php:13 ../functions/constants.
+#: php:713
+msgid "Synonyme"
+msgstr "Sinónimos"
+
+#: ../index.php:49 ../functions/posttype-glossary.php:34 ../functions/constants.
+#: php:720
+msgid "Glossar"
+msgstr "Glosario"
+
+#: ../index.php:102
+msgid "<span class=\"meta-nav\">&laquo;</span> Vorherige Einträge"
+msgstr "<span class=\"meta-nav\">&laquo;</span>  Entradas anteriores "
+
+#: ../index.php:103
+msgid "Weitere Einträge <span class=\"meta-nav\">&raquo;</span>"
+msgstr "Más entradas <span class=\"meta-nav\">&raquo;</span>"
+
+#: ../single-person.php:33
+msgid "Für den angegebenen Kontakt können keine Informationen abgerufen werden."
+msgstr "Para el contacto indicado no se pueden obtener datos."
 
 #: ../search-helper.php:51
 msgid "Folgende Inhalte könnten Ihnen auch helfen:"
