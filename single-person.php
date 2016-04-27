@@ -25,7 +25,7 @@ get_header(); ?>
 				    <?php 
 				    $id = $post->ID;
 				    if ($id) {
-					echo fau_person_page($id);
+					echo FAU_Person_Shortcodes::fau_person_page($id);
 					the_content();
 				    } else { ?>
 					<p class="hinweis">
