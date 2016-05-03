@@ -615,6 +615,11 @@ ul.person-info {
     li.person-info-address {
 		white-space: pre;
     }
+    .content-person {
+	border: none;
+	margin: 0;
+	padding: 0;
+    }
 }
 
 span[itemprop="honorificPrefix"], 
