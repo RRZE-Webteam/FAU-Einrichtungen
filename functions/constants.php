@@ -239,7 +239,8 @@ $defaultoptions = array(
     'advanced_display_hero_credits'	=> true,   
     'advanced_display_postthumb_credits'    => true,
     
-    
+    'advanced_forceclean_mainmenu'	=> true,
+	// Links auf externe Seiten und der Startseite werden aus dem Hauptmenu entfernt
 
     
 ); 

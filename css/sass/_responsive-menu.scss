@@ -5,7 +5,12 @@ Responsive Menue for FAU Theme
 #off-canvas, #off-canvas-overlay {
 	display: none;
 }
-
+@media (min-width: $breakMD +1) {
+    #nav {
+	overflow: hidden;
+	max-height: 37px;
+    }
+}
 @media (max-width: $breakMD) {
 
 	body.js-enabled {
