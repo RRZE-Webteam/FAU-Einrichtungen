@@ -1961,3 +1961,29 @@ function fau_disable_emojis() {
     add_filter( 'tiny_mce_plugins', 'fau_disable_emojis_tinymce' );
 }
 add_action( 'init', 'fau_disable_emojis' );
+
+
+/* 
+ * Get category links for front page
+ */
+
+function fau_get_category_links($cateid = 0) {
+    global $options;
+    
+    if ($cateid==0) {
+	$cateid = $options['start_link_news_cat'];
+    }
+    $link = get_category_link($cateid);
+    if (empty($link)){
+	 $cat = get_categories(); 
+	 $cateid = $cat[0]->cat_ID;
+     }
+    $res = '';
+    if ($cateid) {
+	$res .= '<div class="news-more-links">'."\n";
+	$res .= "\t".'<a class="news-more" href="'.get_category_link($cateid).'">'.$options['start_link_news_linktitle'].'</a>';
+	$res .= '<a class="news-rss" href="'.get_category_feed_link($cateid).'">'.__('RSS','fau').'</a>';
+	$res .= "</div>\n";	
+    }
+    return $res;
+}
