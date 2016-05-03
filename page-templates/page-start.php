@@ -217,7 +217,7 @@ global $options;
 					?>			    
 				    </main>	
 				</div>
-				<div class="span4">
+				<div class="span4 sidebar-outline">
 					<?php
 					if ($options['start_topevents_active']) {
 					    get_template_part('sidebar', 'events'); 	
