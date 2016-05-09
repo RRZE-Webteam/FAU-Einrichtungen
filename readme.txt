@@ -25,7 +25,7 @@ CREDITS & COPYRIGHT
 
 LIBRARIES & SOURCES
 
-* Font Awesome 4.3 by Dave Gandy - http://fontawesome.io. 
+* Font Awesome 4.6 by Dave Gandy - http://fontawesome.io. 
   License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
 * Font JustVector
 * Font OpenSans
