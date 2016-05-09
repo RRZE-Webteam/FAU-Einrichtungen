@@ -1064,7 +1064,7 @@ body.admin-bar #nav .nav-flyout {
 		
 		li {
 			@include no-list;
-			background: none !important;
+			background: none;
 			
 			a {
 				@include inline-block;
@@ -1077,6 +1077,7 @@ body.admin-bar #nav .nav-flyout {
 
 				&:hover, &:focus {
 					color: $colorPrimary;
+					text-decoration: underline;
 					
 					&:before {
 						background: $colorPrimary;
@@ -1121,7 +1122,7 @@ body.admin-bar #nav .nav-flyout {
 		li.social-skype a:before { @extend .jv-skype; }
 		li.social-itunes a:before { @extend .jv-itunes; }
 		li.social-twitter a:before { @extend .jv-twitter; }
-		li.social-gplus a:before { @extend .jv-google; }
+		li.social-gplus a:before {  @extend .fa;  @extend .fa-fw; line-height: 1.0em; @extend .fa-google;}
 		li.social-youtube a:before { @extend .jv-youtube; }
 		li.social-vimeo a:before { @extend .jv-vimeo; }
 		li.social-flickr a:before { @extend .jv-flickr; }

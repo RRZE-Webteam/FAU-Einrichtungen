@@ -114,23 +114,23 @@
 			line-height: 16px;
 			vertical-align: center;
 		}
-		
+		&.phil,
 		&.philfak {
 			border-color: $colorPhilFak;
 		}
-		
+		&.rwf,
 		&.rwfak {
 			border-color: $colorRwFak;
 		}
-		
+		&.med,
 		&.medfak {
 			border-color: $colorMedFak;
 		}
-		
+		&.nat,
 		&.natfak  {
 			border-color: $colorNatFak;
 		}
-		
+		&.tf,
 		&.techfak {
 			border-color: $colorTechFak;
 		}
@@ -416,18 +416,22 @@
 			    background-color: $colorTechFak;
 			    color: #fff;
 			}
+			&.rw a,
 			&.rwfak a {
 			    background-color:  $colorRwFak;
 			    color: #fff;
 			}
+			&.med a,
 			&.medfak a {
 			    background-color:  $colorMedFak;
 			    color: #fff;
 			}
+			&.nat a,
 			&.natfak a {
 			    background-color:  $colorNatFak;
 			    color: #fff;
 			}
+			&.phil a,
 			&.philfak a {
 			    background-color:  $colorPhilFak;
 			    color: #fff;
@@ -608,14 +612,7 @@ ul.person-info {
 
 }
 
-.sidebar-inline {
-    ul.person-info li {
-	    color: $colorText;
-    }
-    li.person-info-address {
-		white-space: pre;
-    }
-}
+
 
 span[itemprop="honorificPrefix"], 
 span[itemprop="honorificSuffix"] {
@@ -1387,9 +1384,41 @@ ul.tagcloud {
 		} 
 	    }
 	}
-	
-	
+    ul.person-info li {
+	    color: $colorText;
+    }
+    li.person-info-address {
+		white-space: pre;
+    }
+    .content-person {
+	border: none;
+	margin: 0;
+	padding: 0;
+    }
 }
+
+.sidebar-outline {
+    ul.person-info li {
+	    color: $colorText;
+    }
+    li.person-info-address {
+		white-space: pre;
+    }
+    .content-person {
+	border: none;
+	margin: 0;
+	padding: 0;
+	
+	.span-small {
+	    width: 60px;
+	}
+	.span6 {
+	    width: 220px;
+	}
+    }
+}
+
+
 
 /* Accordion */
 .accordion {

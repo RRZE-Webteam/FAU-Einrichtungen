@@ -20,9 +20,10 @@ get_header(); ?>
 	       echo fau_get_ad('werbebanner_seitlich',false);
 	     ?>
 		
-	    <main>
+	   
 	    <div class="row">
 		<div class="span8">
+		     <main>
 		    <?php 
 			$headline = get_post_meta( $post->ID, 'headline', true );				
 			if ( $headline) {
@@ -32,8 +33,9 @@ get_header(); ?>
 			}
 			the_content(); 
 			?>
+		    </main> 
 		</div>
-		<div class="span4">
+		<div class="span4 sidebar-outline">
 		    <?php get_template_part('sidebar'); ?>
 		</div>
 	    </div>
@@ -67,7 +69,7 @@ get_header(); ?>
 		}
 	      
 	    ?>
-	    </main>
+	    
 	    <?php echo fau_get_ad('werbebanner_unten',false); ?>
 	</div>
 	

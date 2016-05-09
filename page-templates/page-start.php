@@ -211,17 +211,13 @@ global $options;
 					    }
 					}
 
-					$category = get_the_category_by_ID($options['start_link_news_cat']);
-					if (($category) && ($options['start_link_news_show']==1)) { ?>
-					
-					<div class="news-more-links">
-						<a class="news-more" href="<?php echo get_category_link($options['start_link_news_cat']); ?>"><?php echo $options['start_link_news_linktitle']; ?></a>
-						<a class="news-rss" href="<?php echo get_category_feed_link($options['start_link_news_cat']); ?>">RSS</a>
-					</div>
-					<?php } ?>			    
+					if ($options['start_link_news_show']) {
+					    echo fau_get_category_links();
+					}
+					?>			    
 				    </main>	
 				</div>
-				<div class="span4">
+				<div class="span4 sidebar-outline">
 					<?php
 					if ($options['start_topevents_active']) {
 					    get_template_part('sidebar', 'events'); 	

@@ -7,6 +7,9 @@ Main CSS File for Wordpress Theme FAU
 
 // Import Grid System, Mixins, Webfonts and Helper Classes
 @import "includes/bootstrap";
+@import "includes/bootstrap_colgrids";
+
+
 @import "includes/mixins";
 @import "includes/fonts";
 @import "includes/font-awesome";

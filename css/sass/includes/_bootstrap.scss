@@ -864,7 +864,7 @@ table th[class*="span"] {
 }
 
 
-@media (min-width: 768px) and (max-width: 979px) {
+@media (min-width: $breakMD) and (max-width: $breakLG) {
 	.row {
 		margin-left: -20px;
 		*zoom: 1;
@@ -971,7 +971,7 @@ table th[class*="span"] {
 
 }
 
-@media (max-width: 767px) {
+@media (max-width: $breakMD) {
 	body {
 		padding-right: 20px;
 		padding-left: 20px;
@@ -993,7 +993,7 @@ table th[class*="span"] {
 	
 }
 
-@media (max-width: 480px) {
+@media (max-width: $breakMD) {
 	input[type="checkbox"],
 	input[type="radio"] {
 		border: 1px solid #ccc;
@@ -1001,7 +1001,7 @@ table th[class*="span"] {
 
 }
 
-@media (max-width: 979px) {
+@media (max-width: $breakLG) {
 	body {
 		padding-top: 0;
 	}
