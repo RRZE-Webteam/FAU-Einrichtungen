@@ -4,14 +4,6 @@ Media Queries for Theme FAU-Einrichtungen
 
 
 @media (min-width: $breakLG) {
-    #logo {
-	    float: left;
-    }
-    #nav {
-	    margin: 50px 0 10px -10px;
-    }
-	
-
     .js-enabled {
 	    
 	    &.nav-fixed #nav .nav-flyout,
@@ -59,19 +51,12 @@ Media Queries for Theme FAU-Einrichtungen
 
 @media (max-width: $breakLG) {
         .js-enabled {
-
-	    #logo {
-		    float: none;
-	    }
-	    #nav {
-		    margin: 10px 0 10px -10px;
-	    }
 	    
 	    #nav .nav-flyout {
-		    top: 129px;
+		    top: 110px;
 	    }
 	   
-
+	    
 	    #header {
 		position: fixed;
 		top: 42px;
@@ -87,13 +72,34 @@ Media Queries for Theme FAU-Einrichtungen
 		    top: 74px;
 	    }
 	    #hero {
-		margin-top: 191px; // 171px;
+		margin-top: 171px; // 171px;
 		transition: none;
 	    }
 	    &.admin-bar #hero {
-		margin-top:  191px; // 171px;
+		margin-top:  171px; // 171px;
 	    }
 	}
+	
+	
+	#logo, 
+	.header-menu {
+	    float: none;
+	    width: 100%;
+	    display: block;
+	    margin: 0;
+	}
+	#logo {
+	    margin-left: 10px;
+	}
+	.header-menu {   
+	   margin-top: 8px;
+	    #nav {
+		
+		overflow: visible;
+		margin: 0;
+	    }
+	}
+	
 	
 	#meta {
 		position: fixed;
@@ -111,14 +117,13 @@ Media Queries for Theme FAU-Einrichtungen
 	     #header {
 		position: fixed;
 		top: 42px;
-		// height: 97px;
 		left: 0;
 		right: 0;
 		background: #fff;
 		z-index: 100;
 	    }
 	    #hero {
-		margin-top: 171px;
+		margin-top: 152px;
 		transition: none;
 	    }
 
@@ -139,6 +144,34 @@ Media Queries for Theme FAU-Einrichtungen
 	}
 	#hero-slides {
 	    top: -20px;
+	    height: 250px;
+	    .hero-slide {
+		img {
+		    min-height: 250px;
+		    min-width: $breakLG;
+		    width: auto;
+		    height: auto;
+		    left: inherit;
+		    margin-left: 0;
+		    left: 0;
+		    vertical-align: middle;
+		}
+		
+		p {
+		    font-size: 16px;
+		}
+		p.credits {
+		    top: 10px;
+		    bottom: inherit;
+		}
+	    }
+	    .hero-slide-text {
+		bottom: inherit;
+		top: 100px;
+		height: 150px;
+		
+	    }
+	    
 	}
 	#logos-menu-prev {
 		height: 80px;
@@ -166,14 +199,6 @@ Media Queries for Theme FAU-Einrichtungen
 	body {
 		padding: 0;
 	}
-
-	#logo {
-	     text-align: left;
-	}
-	#logo h1 {
-	    padding: 0 60px 0 0;
-	}
-	
 
 	
 	h1, h2, h3, h4, h5, h6, p {
@@ -204,7 +229,6 @@ Media Queries for Theme FAU-Einrichtungen
 		
 	}
 	div.table-wrapper div.scrollable {
-	//	overflow: scroll;
 		overflow-x: auto;
 		overflow-y: hidden;
 	}
@@ -343,31 +367,47 @@ Media Queries for Theme FAU-Einrichtungen
 		       }
 	    }
 	   
+	    
 	    #hero-slides {
-		max-width: 100%;
-		height: auto;
-		min-height: 200px;
 		top: 0;
-		
-		.hero-slide img {
-		    height: 220px;
-		    width: 780px;
-		    left: 50%;
-		    margin-left: -390px;
+		height: 200px;
+		.hero-slide {
+		    img {
+			min-height: 200px;
+			min-width: $breakMD;
+			width: auto;
+			height: auto;
+			left: inherit;
+			margin-left: 0;
+			left: 0;
+			vertical-align: middle;
+		    }
+		    p.credits {
+			top: 2px;
+			bottom: inherit;
+			display: inline;
+		    }
 		}
 		.hero-slide-text {
-		    width: 100%;
-		    bottom: 15px;
+		    bottom: inherit;
+		    top: 50px;
 		    margin-left: 15px;
-		}
-		.hero-slide {	
+		   
+		    padding: 0 10px;
+		    max-height: 100px;
+		    line-height: 18px;
+		    h2 {
+			@include inline-block();
+			 max-width: 330px;
+			 padding: 10px;
+			 background-color: rgba($colorPrimary,0.7);
+			 
+		    }
 		    p {
 			display: none;
 		    }
-		    h2 {
-			display: inline-block; *display:inline; *zoom: 1;
-		    }
-		}	
+
+		}
 	    }
 
 	    
@@ -379,17 +419,6 @@ Media Queries for Theme FAU-Einrichtungen
 		display: block;
 		}
 
-	   
-	    #logo {
-		margin: 0 15px;
-		max-height: 50px;
-		img {
-		    max-width: 100%;
-		    max-height: 50px;
-		    margin-top: 10px;
-		}
-	    }
-	
 		
 	    #header {
 		    padding: 0;
@@ -499,8 +528,6 @@ Media Queries for Theme FAU-Einrichtungen
 		right: 0;
 		background: #fff;
 		z-index: 100;
-		
-		// @include box-shadow(0 1px 3px rgba(0,0,0,0.3));	
 	    }
 	    &.admin-bar #header {
 		    top: 42px;
@@ -742,39 +769,48 @@ Media Queries for Theme FAU-Einrichtungen
 	    width: #{$breakSM - 10}px;
 	    padding: 10px;
 	}
-	#hero {
-	    #hero-slides {
-		max-height: 130px;
-		min-height: auto;
-		height: inherit;
-		margin: 0;
+	#hero-slides {
 		top: 0;
-
+		height: 150px;
 		.hero-slide {
-		    margin: 0;
-		    padding: 0;
-		    height: 130px;
-		}
-		.hero-slide img {
-		   height: auto;
-		   width: $breakSM;
-		   max-height: 130px;
-		   overflow: hidden;
-		   left: 0;
-		   margin: 0;
-		   max-width: $breakSM;
+		    img {
+			min-height: 150px;
+			min-width: $breakMD;
+			width: auto;
+			height: auto;
+			left: inherit;
+			margin-left: 0;
+			left: 0;
+			vertical-align: middle;
+		    }
+		    p.credits {
+			top: 2px;
+			bottom: inherit;
+			display: inline;
+		    }
 		}
 		.hero-slide-text {
-		    bottom: 50px;
+		    bottom: inherit;
+		    top: 20px;
+		    margin-left: 15px;
+		   
+		    padding: 0 10px;
+		    max-height: 100px;
+		    line-height: 18px;
 		    h2 {
-			padding: 5px 10px;
+			@include inline-block();
+			 max-width: 250px;
+			 padding: 10px;
+			 font-size: 20px;
+			 background-color: rgba($colorPrimary,0.7);
+			 
 		    }
 		    p {
-		     display: none;
+			display: none;
 		    }
+
 		}
 	    }
-	}
     } 
 
     hr {

@@ -78,27 +78,30 @@ global $options;
 				// echo '<img src="'.fau_esc_url( $header_image ).'" width="'.$options['default_logo_width'].'" height="'.$options['default_logo_height'].'" alt="'.esc_attr(get_bloginfo( 'title' )).'">';
 				
 			    } else {				 
-				echo get_bloginfo( 'title' );   
+				echo "<span>".get_bloginfo( 'title' )."</span>";   
 			    } 
 			    if ( ! is_front_page() ) {  
 				echo "</a>"; 			    
-			    }
+			    } 
 			    echo '</h1>';
-			    echo "</div>\n";
 			    ?>
+			    </div>
+			    <div class="header-menu">
+			    
 			    <a href="#" id="nav-toggle" class="hide-desktop">
 				    <div></div>
 				    <div></div>
 				    <div></div>
 			    </a>			
 			    <?php
-			    if(has_nav_menu( 'main-menu' ) && class_exists('Walker_Main_Menu', false)) {
-				wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'items_wrap' => '<ul role="navigation" aria-label="'.__("Navigation", "fau").'" id="nav">%3$s</ul>', 'depth' => 2, 'walker' => new Walker_Main_Menu) ); 
-			    } elseif(!has_nav_menu( 'main-menu' )) {
-				echo fau_main_menu_fallback(); 
-			    } else {
-				// the class Walker_Main_Menu doesn't exist!
-			    }
-	            ?>
+				if(has_nav_menu( 'main-menu' ) && class_exists('Walker_Main_Menu', false)) {
+				    wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'items_wrap' => '<ul role="navigation" aria-label="'.__("Navigation", "fau").'" id="nav">%3$s</ul>', 'depth' => 2, 'walker' => new Walker_Main_Menu) ); 
+				} elseif(!has_nav_menu( 'main-menu' )) {
+				    echo fau_main_menu_fallback(); 
+				} else {
+				    // the class Walker_Main_Menu doesn't exist!
+				}
+			    ?>
+			</div>
 			</div>
 		</header>

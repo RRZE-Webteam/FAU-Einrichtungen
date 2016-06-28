@@ -36,10 +36,15 @@ function fau_setup() {
 	register_nav_menu( 'meta-footer', __( 'Meta-Navigation unten', 'fau' ) );
 	register_nav_menu( 'main-menu', __( 'Haupt-Navigation', 'fau' ) );
 	
-
-	register_nav_menu( 'quicklinks-3', __( 'Startseite Fakultät: Bühne Spalte 1', 'fau' ) );
-	register_nav_menu( 'quicklinks-4', __( 'Startseite Fakultät: Bühne Spalte 2', 'fau' ) );
-	
+	if ($options['website_type']==-1) {
+	    register_nav_menu( 'quicklinks-1', __( 'Startseite FAU Portal: Bühne Spalte 1', 'fau' ) );
+	    register_nav_menu( 'quicklinks-2', __( 'Startseite FAU Portal: Bühne Spalte 2', 'fau' ) );
+	    register_nav_menu( 'quicklinks-3', __( 'Startseite FAU Portal: Bühne Spalte 3', 'fau' ) );
+	    register_nav_menu( 'quicklinks-4', __( 'Startseite FAU Portal: Bühne Spalte 4', 'fau' ) );
+	} else {
+	    register_nav_menu( 'quicklinks-3', __( 'Startseite Fakultät: Bühne Spalte 1', 'fau' ) );
+	    register_nav_menu( 'quicklinks-4', __( 'Startseite Fakultät: Bühne Spalte 2', 'fau' ) );
+	}
 	register_nav_menu( 'error-1', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 1', 'fau' ) );
 	register_nav_menu( 'error-2', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 2', 'fau' ) );
 	register_nav_menu( 'error-3', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 3', 'fau' ) );
@@ -870,7 +875,7 @@ function fau_get_defaultlinks ($list = 'faculty', $ulclass = '', $ulid = '') {
 	}
 	$thislist .= '>';
 	if (isset($entry['content'])) {
-	    $thislist .= '<a href="'.$entry['content'].'">';
+	    $thislist .= '<a data-wpel-link="internal" href="'.$entry['content'].'">';
 	}
 	$thislist .= $entry['name'];
 	if (isset($entry['content'])) {
@@ -925,7 +930,7 @@ function fau_get_toplinks() {
 	 *	   Link zur FAU als Grafik (das ist der Unterschied zur Option 0)
 	 *  3 = Koopertation mit Externen (neu ab 1.4)
 	 *	=> Kein Link zur FAU
-	 *  4 = FAU-Portal (neu ab 1.4, nur für zukunftigen Bedarf)
+	 *  -1 = FAU-Portal (neu ab 1.4, nur für zukunftigen Bedarf)
 	 *	=> Kein Link zur FAU, aktiviert 4 Spalten unter HERO
 	 * 
 	 * 'website_usefaculty' = ( nat | phil | med | tf | rw )
@@ -946,7 +951,11 @@ function fau_get_toplinks() {
     $linkfaculty = false;
 
     // Using if-then-else structure, due to better performance as switch 
-    if ($isfaculty) {
+    if ($options['website_type']==-1) {
+	$linkhome = false;
+	$linkfaculty = false;
+	$linkhomeimg = false;
+    } elseif ($isfaculty) {
 	if ($options['website_type']==0) {
 	    $linkhomeimg = false;
 	    $linkfaculty = false;
@@ -963,8 +972,7 @@ function fau_get_toplinks() {
 	     $linkhomeimg = true;
 	} elseif ($options['website_type']==3) {
 	    $linkhome = false;
-        } elseif ($options['website_type']==4) {
-	    $linkhome = false;
+       
 	}
     }
 

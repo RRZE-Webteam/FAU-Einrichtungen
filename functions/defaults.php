@@ -113,7 +113,57 @@ $default_socialmedia_liste = array(
  * Default Link List for Submenus , can be overwritten bei Menu  
  */
 $default_link_liste = array( 
-	
+	'faculty' => array(    
+	    '_title'	=> __('Fakultäten','fau'),
+	    'link1'  => array(
+		'name'	    => __('Philosophische Fakultät und Fachbereich Theologie', 'fau' ),
+		'content'  => 'http://www.phil.fau.de/',
+		'class'	    => 'phil',
+	    ),
+	    'link2'  => array(
+		'name'	    => __('Rechts- und Wirtschaftswissenschaftliche Fakultät', 'fau' ),
+		'content'  => 'https://www.rw.fau.de/',
+		'class'	    => 'rw',
+	    ),
+	    'link3'  => array(
+		'name'	    => __('Medizinische Fakultät', 'fau' ),
+		'content'  => 'http://www.dekanat.med.uni-erlangen.de/',
+		'class'	    => 'med',
+	    ),
+	    'link4'  => array(
+		'name'	    => __('Naturwissenschaftliche Fakultät', 'fau' ),
+		'content'  => 'https://www.nat.fau.de/',
+		'class'	    => 'nat',
+	    ),
+	    'link5'  => array(
+		'name'	    => __('Technische Fakultät', 'fau' ),
+		'content'  => 'https://www.tf.fau.de/',
+		'class'	    => 'tf',
+	    ),
+	),
+	'diefau' => array(    
+	    '_title'	=> __('Die FAU','fau'),
+	    'link1'  => array(
+		'name'	    => __('Alle Studiengänge', 'fau' ),
+		'content'  => 'https://www.fau.de.de/studium/vor-dem-studium/studiengaenge/alle-studiengaenge/',
+	    ),
+	    'link2'  => array(
+		'name'	    => __('Studium A-Z', 'fau' ),
+		'content'  => 'https://www.fau.de/studium/im-studium/studium-a-z/',
+	    ),
+	    'link3'  => array(
+		'name'	    => __('Zahlen, Daten, Fakten', 'fau' ),
+		'content'  => 'https://www.fau.de/universitaet/kennzahlen-und-rankings/',
+	    ),	
+	    'link4'  => array(
+		'name'	    => __('Wissenschaftsschwerpunkte', 'fau' ),
+		'content'  => 'https://www.fau.de/forschung/forschungsprofil/forschungsprofil-und-wissenschaftsschwerpunkte-der-fau/',
+	    ),	
+	    'link5'  => array(
+		'name'	    => __('Stiften und Fördern', 'fau' ),
+		'content'  => 'https://www.fau.de/universitaet/stiften-und-foerdern/',
+	    ),	
+	),
 	'centers' => array(    
 	    '_title'	=> __('Einrichtungen','fau'),
 	    'link1'  => array(

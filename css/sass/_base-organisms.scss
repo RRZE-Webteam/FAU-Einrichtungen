@@ -1,28 +1,26 @@
 /* Logo */
 #logo {
-	display: block;
+	@include inline-block();
 	float: left;
-	
+	width: 240px;
 	max-height: 85px;
-	max-width: 300px;
-	min-width: 120px;
 	height: 65px;
-	margin: 20px 0 10px;
+	
+	
+	margin: 20px 0 0 0;
 	padding: 0;
-	text-align: right;
 	
 	h1 {
-	    display: inline-block;
+	    @include inline-block();
 	    font-size: 19px;
 	    line-height: 24px;
 	    font-weight: bold;
 	    color: $colorPrimary;
 	    overflow: hidden;
-	    padding: 20px 5px;
+	   
 	    vertical-align: text-bottom;
-	    text-align: left;
 	    max-height: 85px;
-	    min-width: 100px;
+	    padding: 0;
 	    margin: 0;
 	    a {
 		color: $colorPrimary;
@@ -41,14 +39,20 @@
 	    max-width: 300px;
 	    height: 65px;
 	    width: auto;
-	    padding-right: 10px;
-	    margin-top: -20px;
-	     &:hover,
-		 &:focus {
+	    padding: 0;
+
+	    &:hover,
+	    &:focus {
 		 background-color: white;
 		 }
 		
 	}
+}
+
+.header-menu {
+    width: 700px;
+    float: left;
+    margin-left: 0;
 }
 
 /* Primary Navigation */
@@ -476,7 +480,7 @@ body.admin-bar #nav .nav-flyout {
 	margin-top: 20px;
 	padding-bottom: 10px;
 	position: relative; 
-	@include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% 155%);
+	@include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% 280px);
 	@include transition(1.0s, all);
 	
 	h1, h2, h3, h4, p {
@@ -771,6 +775,7 @@ body.admin-bar #nav .nav-flyout {
 		h2 {
 			color: #fff;
 			background: $colorPrimary;
+		//	background-color: rgba($colorPrimary,0.7);
 			display: inline;
 			padding: 0 3px;
 			margin: 0;
@@ -780,6 +785,7 @@ body.admin-bar #nav .nav-flyout {
 			@include inline-block;
 			color: #fff;
 			background: $colorPrimary;
+		//	background-color: rgba($colorPrimary,0.7);
 			padding: 0 3px;
 			margin: 4px 0;
 			font-size: 18px;

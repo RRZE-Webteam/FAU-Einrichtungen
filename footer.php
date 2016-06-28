@@ -20,7 +20,7 @@ global $options;
 				<div class="span3">
 					<p><img src="<?php echo get_fau_template_uri(); ?>/img/logo-fau-inverse.png" alt="Friedrich-Alexander-Universität Erlangen-Nürnberg"></p>
 				</div>
-				<div class="span3">
+				<div class="span4">
 					
 				<p itemscope itemtype="http://schema.org/PostalAddress">
 				    <span itemprop="name"><?php echo $options['contact_address_name']; 
@@ -33,7 +33,7 @@ global $options;
 			       </p>
 	
 				</div>
-				<div class="span6">
+				<div class="span5">
 					<?php 
 					if ( has_nav_menu( 'meta-footer' ) ) {
 					    wp_nav_menu( array( 'theme_location' => 'meta-footer', 'container' => false, 'items_wrap' => '<ul id="footer-nav" class="%2$s">%3$s</ul>' ) ); 

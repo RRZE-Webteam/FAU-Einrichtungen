@@ -4,25 +4,34 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'js-version'		    => '1.5',
+    'js-version'			=> '1.5',
 	// Theme-Versionslinie
     'website_type'			=> 2,
 	// website_type: 
-	//  0 = Fakultaetsportal; 1 = Lehrstuehle, Departents 
-	//  2 = Zentrale Einrichtungen, 3 = Kooperationen 
+	//  0 = Fakultaetsportal; 
+	//  1 = Lehrstuehle, Departents 
+	//  2 = Zentrale Einrichtungen, 
+	//  3 = Kooperationen 
+	// -1 = fau.de Portal (4 Spalter in Bühne, kein Link zur FAU. 
+	//                       Nur wählbar für definierte Domains)
     'website_usefaculty'		=> '',
 	// phil, med, nat, rw, tf
 	// Setzt fest die Fakultät bei Wahl des Website-Types    
+    'website_allow_fauportal'		=> array('www.fau.de',
+						'www.fau.eu',
+						'test8.tindu.rrze.uni-erlangen.de',
+						'test4.tindu.rrze.uni-erlangen.de'),
+	// welche Websites können bei website_type die Option -1 wählen 
     'default_home_orga'			=> 'fau',
 	// Muss in $default_fau_orga_data auf erster Ebene vorhanden sein.	
     'default_faculty_useshorttitle'	=> false,   
-    'optionpage-tab-default'	    => 'website',
-    'content-width'		    => 770,
-    'src-fallback-slider-image'	    => get_fau_template_uri().'/img/slider-fallback.jpg',
-    'slider-category'		    => 'header',
-    'slider-catid'		    => 1,    
-    'src-scriptjs'		    => get_fau_template_uri() . '/js/scripts.min.js',
-    'src-pluginsjs'		    => get_fau_template_uri() . '/js/libs/plugins.min.js',
+    'optionpage-tab-default'		=> 'website',
+    'content-width'			=> 770,
+    'src-fallback-slider-image'		=> get_fau_template_uri().'/img/slider-fallback.jpg',
+    'slider-category'			=> 'header',
+    'slider-catid'			=> 1,    
+    'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.min.js',
+    'src-pluginsjs'			=> get_fau_template_uri() . '/js/libs/plugins.min.js',
     'default_slider_excerpt_length' => 240,
     'start_header_count'	    => 5,
     'start_max_newscontent'	    => 5,

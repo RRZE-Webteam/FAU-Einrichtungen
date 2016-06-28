@@ -114,6 +114,25 @@ global $options;
 	
 		<div class="container">
 			<div class="row">
+				<?php 
+				if ($options['website_type']==-1) { ?>
+				 <div class="span3">
+					<?php if(has_nav_menu('quicklinks-1')) { ?>
+						<h3><?php echo fau_get_menu_name('quicklinks-1'); ?></h3>
+						<?php wp_nav_menu( array( 'theme_location' => 'quicklinks-1', 'container' => false, 'items_wrap' => '<ul class="%2$s">%3$s</ul>' ) ); 
+					} else {
+					    echo fau_get_defaultlinks('faculty','menu-faculties');
+					} ?>
+				</div>
+				<div class="span3">
+					<?php if(has_nav_menu('quicklinks-2')) { ?>
+						<h3><?php echo fau_get_menu_name('quicklinks-2'); ?></h3>
+						<?php wp_nav_menu( array( 'theme_location' => 'quicklinks-2', 'container' => false, 'items_wrap' => '<ul class="%2$s">%3$s</ul>' ) );  
+					} else {
+					    echo fau_get_defaultlinks('diefau');
+					} ?>
+				</div>
+				<?php } else { ?>
 				<div role="presentation" class="span6 infobar">				    
 				    <?php 
 				   $header_image = get_header_image();
@@ -125,6 +144,8 @@ global $options;
 				    }
 				    ?>
 				</div>
+				<?php } ?>
+				
 				<div class="span3">
 					<?php if(has_nav_menu('quicklinks-3')) { ?>
 						<h3><?php echo fau_get_menu_name('quicklinks-3'); ?></h3>

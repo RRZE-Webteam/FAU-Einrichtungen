@@ -52,6 +52,14 @@ function theme_options_do_page($tab = '') {
 		2 => __('Zentrale Einrichtung','fau') ,
 		3 => __('Website für uniübergreifende Kooperationen mit Externen','fau') );
     }
+    
+    if (isset($defaultoptions['website_allow_fauportal'])) {
+	$siteurl = get_site_url();
+	$siteurl = preg_replace("(^https?://)", "", $siteurl );
+	if (in_array($siteurl,$defaultoptions['website_allow_fauportal'])) {
+	    $setoptions['fau_theme_options']['website']['fields']['website_type']['liste']['-1'] =  __('Zentrales FAU-Portal','fau');
+	}
+    }
  ?>
 
 	<div class="wrap">            
