@@ -19,7 +19,15 @@ $defaultoptions = array(
 	// Setzt fest die Fakultät bei Wahl des Website-Types    
     'website_allow_fauportal'		=> array('www.fau.de',
 						'www.fau.eu',
-						'test8.tindu.rrze.uni-erlangen.de',
+						'zuv.cms.rrze.uni-erlangen.de',
+						'megli.zuv.cms.rrze.uni-erlangen.de',
+						'heledir.zuv.cms.rrze.uni-erlangen.de',
+						'annabon.zuv.cms.rrze.uni-erlangen.de',
+						'tuilinn.zuv.cms.rrze.uni-erlangen.de',
+						'cugu.zuv.cms.rrze.uni-erlangen.de',
+						'alfirin.test.rrze.fau.de',
+						'ithron.rrze.uni-erlangen.de',
+						'test8.tindu.rrze.uni-erlangen.de',		
 						'test4.tindu.rrze.uni-erlangen.de'),
 	// welche Websites können bei website_type die Option -1 wählen 
     'default_home_orga'			=> 'fau',
