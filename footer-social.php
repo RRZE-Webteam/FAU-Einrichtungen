@@ -62,6 +62,8 @@ if ($show) {
 							global $default_socialmedia_liste;
 
 							echo '<nav id="socialmedia" aria-label="'.__('Social Media','fau').'">';
+							echo '<div itemscope itemtype="http://schema.org/Organization">';
+							echo fau_create_schema_publisher(false);							
 							echo '<ul class="social">';       
 							foreach ( $default_socialmedia_liste as $entry => $listdata ) {        
 
@@ -78,11 +80,12 @@ if ($show) {
 							     }
 
 							    if (($active ==1) && ($value)) {
-								echo '<li class="social-'.$entry.'"><a href="'.$value.'">';
+								echo '<li class="social-'.$entry.'"><a itemprop="sameAs" href="'.$value.'">';
 								echo $listdata['name'].'</a></li>';
 							    }
 							}
 							echo '</ul>';
+							echo '</div>';
 							echo '</nav>';
 						?>
 

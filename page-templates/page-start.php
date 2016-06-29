@@ -51,24 +51,38 @@ global $options;
 			    $copyright = '';
 			   // $imageid = get_post_meta( $hero->ID, 'fauval_sliderid', true );
 			    $imageid = get_post_meta( $hero->ID, 'fauval_slider_image', true );
+			    $slidersrc = '';
+			    $slidersrcset = '';
+				
 			    if (isset($imageid) && ($imageid>0)) {
 				$sliderimage = wp_get_attachment_image_src($imageid, 'hero'); 
 				$imgdata = fau_get_image_attributs($imageid);
 				$copyright = trim(strip_tags( $imgdata['credits'] ));
+				$slidersrcset =  wp_get_attachment_image_srcset($imageid,'hero');
+
 			    } else {
 				$post_thumbnail_id = get_post_thumbnail_id( $hero->ID ); 
 				if ($post_thumbnail_id) {
 				    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id, 'hero' );
 				    $imgdata = fau_get_image_attributs($post_thumbnail_id);
 				    $copyright = trim(strip_tags( $imgdata['credits'] ));
+				 //   $slidersrc = wp_get_attachment_image($post_thumbnail_id,'hero',false,array( 'alt' => false ));
+				 //   $slidersrc .= "<!-- use post thumbnail: $post_thumbnail_id  -->";
+				    $slidersrcset =  wp_get_attachment_image_srcset($post_thumbnail_id,'hero');
 				}
 			    }
 
 			    if (!$sliderimage || empty($sliderimage[0])) {  
 				$slidersrc = '<img src="'.fau_esc_url($options['src-fallback-slider-image']).'" width="'.$options['slider-image-width'].'" height="'.$options['slider-image-height'].'" alt="">';			    
 			    } else {
-				$slidersrc = '<img src="'.fau_esc_url($sliderimage[0]).'" width="'.$options['slider-image-width'].'" height="'.$options['slider-image-height'].'" alt="">';	
+				$slidersrc = '<img src="'.fau_esc_url($sliderimage[0]).'" width="'.$options['slider-image-width'].'" height="'.$options['slider-image-height'].'" alt=""';
+				if ($slidersrcset) {
+				    $slidersrc .= ' srcset="'.$slidersrcset.'"';
+				}
+				$slidersrc .= '>';
 			    }
+
+			
 			    echo $slidersrc."\n"; 
 			    if (($options['advanced_display_hero_credits']==true) && (!empty($copyright))) {
 				echo '<p class="credits">'.$copyright."</p>";
@@ -84,7 +98,7 @@ global $options;
 						if (isset($link) && (filter_var($link, FILTER_VALIDATE_URL))) {
 						    $external = 1;
 						} else {
-						    $link = get_permalink($hero->ID);
+						    $link = fau_esc_url(get_permalink($hero->ID));
 						}
 						echo $link;
 						echo '">'.get_the_title($hero->ID).'</a></h2>'."\n";					

@@ -266,13 +266,21 @@ Media Queries for Theme FAU-Einrichtungen
 			    margin-right: 0px;
 			}
 	    }
+	    
+	    .news-item {	    
+		.span3 {
+		    width: 200px;  
+		}
+	    }
 	    .news-image {
+		text-align: center;
+		float: none;
 		background: none;
-		text-align: left;
 		@include box-shadow(none);
-		float: left;
 		margin-right: 10px;
 	    }
+	    
+	    
 	    
 	    .subpages-menu {
 		margin: 0;
@@ -399,9 +407,7 @@ Media Queries for Theme FAU-Einrichtungen
 		    h2 {
 			@include inline-block();
 			 max-width: 330px;
-			 padding: 10px;
-			 background-color: rgba($colorPrimary,0.7);
-			 
+			 padding: 10px;			 
 		    }
 		    p {
 			display: none;
@@ -611,13 +617,13 @@ Media Queries for Theme FAU-Einrichtungen
 	    }
 	.span12 {
 		margin-left: 20px;
-	}    
-	.content-person {
-	    
+	}  
+	.widget_faupersonwidget,
+	.content-person {	    
 	    .span1 {
 		margin-left: 20px;
 	    }
-	    
+	    .person,
 	    .compactindex {
 		.span1 {
 		    width: 90px;
@@ -629,6 +635,7 @@ Media Queries for Theme FAU-Einrichtungen
 		}
 	    }	
 	}
+	
 	
 }
 
@@ -764,6 +771,15 @@ Media Queries for Theme FAU-Einrichtungen
 	    width: 240px;  
 	    float: left;
 	    margin-left: 0px;
+	}
+	.news-item {	    
+	    .span3 {
+		width: 200px;  
+	    }
+	}
+	#content .news-image {
+	    text-align: center;
+	    float: none;
 	}
 	.span6 {
 	    width: #{$breakSM - 10}px;
@@ -917,14 +933,42 @@ Media Queries for Theme FAU-Einrichtungen
 	margin: 0 -15px;
 	padding: 20px 15px;
     }
-    /*
-    .hero-meta-portal,
-    .flex-direction-nav, .flex-pauseplay {
-	    display: none;
-    }
-    */
+
     
 }
+
+@media (max-width: $breakXS) {
+    #hero {
+	display: none;
+    }
+    .page-template-page-start .span3 {
+	float: none;
+    }
+    #content {
+	padding-top: 100px;
+	.news-item {	    
+		.span3,
+		.span5 {
+		    width: 100%;
+		    float: none;
+		}
+
+	    .news-image {
+		text-align: center;
+		float: none;
+		margin: 3px auto;
+
+		img {
+		    width: 100%;
+		    height: auto;
+		    margin: 0;
+		}
+	    }
+	}	
+    }
+}
+
+
 
 @media (min-height: 900px) {
 	#wrap { min-height: 670px;}

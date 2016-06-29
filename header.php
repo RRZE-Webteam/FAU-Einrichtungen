@@ -86,22 +86,19 @@ global $options;
 			    echo '</h1>';
 			    ?>
 			    </div>
-			    <div class="header-menu">
-			    
-			    <a href="#" id="nav-toggle" class="hide-desktop">
-				    <div></div>
-				    <div></div>
-				    <div></div>
-			    </a>			
-			    <?php
-				if(has_nav_menu( 'main-menu' ) && class_exists('Walker_Main_Menu', false)) {
-				    wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'items_wrap' => '<ul role="navigation" aria-label="'.__("Navigation", "fau").'" id="nav">%3$s</ul>', 'depth' => 2, 'walker' => new Walker_Main_Menu) ); 
-				} elseif(!has_nav_menu( 'main-menu' )) {
-				    echo fau_main_menu_fallback(); 
-				} else {
-				    // the class Walker_Main_Menu doesn't exist!
-				}
-			    ?>
-			</div>
+			    <div class="header-menu">			    
+				<a href="#" id="nav-toggle" class="hide-desktop">
+					<div></div>
+					<div></div>
+					<div></div>
+				</a>			
+				<?php
+				    if(has_nav_menu( 'main-menu' ) && class_exists('Walker_Main_Menu', false)) {
+					wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'items_wrap' => '<ul role="navigation" aria-label="'.__("Navigation", "fau").'" id="nav">%3$s</ul>', 'depth' => 2, 'walker' => new Walker_Main_Menu) ); 
+				    } elseif(!has_nav_menu( 'main-menu' )) {
+					echo fau_main_menu_fallback(); 
+				    }
+				?>
+			    </div>
 			</div>
 		</header>
