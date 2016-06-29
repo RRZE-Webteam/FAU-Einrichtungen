@@ -11,17 +11,21 @@
 	padding: 0;
 	
 	h1 {
-	    @include inline-block();
+	    display: table;
 	    font-size: 19px;
 	    line-height: 24px;
 	    font-weight: bold;
 	    color: $colorPrimary;
 	    overflow: hidden;
-	   
-	    vertical-align: text-bottom;
+	    height: 65px;
 	    max-height: 85px;
 	    padding: 0;
 	    margin: 0;
+	    
+	    span {
+		display: table-cell;
+		vertical-align: bottom;
+	    }
 	    a {
 		color: $colorPrimary;
 		
@@ -40,7 +44,9 @@
 	    height: 65px;
 	    width: auto;
 	    padding: 0;
-
+	    display: table-cell;
+	    vertical-align: bottom;
+		
 	    &:hover,
 	    &:focus {
 		 background-color: white;

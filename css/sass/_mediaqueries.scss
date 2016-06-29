@@ -4,12 +4,11 @@ Media Queries for Theme FAU-Einrichtungen
 
 
 @media (min-width: $breakLG) {
-    .js-enabled {
-	    
-	    &.nav-fixed #nav .nav-flyout,
-	    #nav .nav-flyout  {
+ 
+	.js-enabled.nav-fixed #nav .nav-flyout,
+	#nav .nav-flyout  {
 		top: 85px;
-	    }
+	}
 
 	 
 	#meta {
@@ -20,7 +19,7 @@ Media Queries for Theme FAU-Einrichtungen
 	    right: 0;
 	    z-index: 200;
 	}
-	&.admin-bar #meta {
+	.admin-bar #meta {
 	    top: 32px;
 	}
 	#header {
@@ -31,10 +30,10 @@ Media Queries for Theme FAU-Einrichtungen
 	    background: #fff;
 	    z-index: 100;
 	}
-	&.nav-scrolled #header {
+	.nav-scrolled #header {
 		 @include box-shadow(0 1px 3px rgba(0,0,0,0.3));	
 	}
-	&.admin-bar #header {
+	.admin-bar #header {
 		top: 74px;
 	}
 	#hero {
@@ -44,13 +43,13 @@ Media Queries for Theme FAU-Einrichtungen
 	#hero-slides {
 	    top: -20px;
 	}
-    }	
+   	
   
 }	
 
 
 @media (max-width: $breakLG) {
-        .js-enabled {
+
 	    
 	    #nav .nav-flyout {
 		    top: 110px;
@@ -65,23 +64,23 @@ Media Queries for Theme FAU-Einrichtungen
 		background: #fff;
 		z-index: 100;
 	    }
-	    &.nav-scrolled #header {
+	    .nav-scrolled #header {
 		 @include box-shadow(0 1px 3px rgba(0,0,0,0.3));	
 	    }
-	    &.admin-bar #header {
+	    .admin-bar #header {
 		    top: 74px;
 	    }
 	    #hero {
 		margin-top: 171px; // 171px;
 		transition: none;
 	    }
-	    &.admin-bar #hero {
+	    .admin-bar #hero {
 		margin-top:  171px; // 171px;
 	    }
-	}
+
 	
 	
-	#logo, 
+	#logo,
 	.header-menu {
 	    float: none;
 	    width: 100%;
@@ -90,6 +89,16 @@ Media Queries for Theme FAU-Einrichtungen
 	}
 	#logo {
 	    margin-left: 10px;
+	    padding-right: 100px;
+	    h1 {
+		height: 65px;
+		span {
+		    display: table-cell;
+		    vertical-align: middle;
+		}
+	    }
+	   
+	    
 	}
 	.header-menu {   
 	   margin-top: 8px;
@@ -113,21 +122,6 @@ Media Queries for Theme FAU-Einrichtungen
 		top: 32px;
 	}
 	
-	.no-js {
-	     #header {
-		position: fixed;
-		top: 42px;
-		left: 0;
-		right: 0;
-		background: #fff;
-		z-index: 100;
-	    }
-	    #hero {
-		margin-top: 152px;
-		transition: none;
-	    }
-
-	}
 	
 	#meta .searchform input[type="text"] {
 		width: 100px;
@@ -200,7 +194,11 @@ Media Queries for Theme FAU-Einrichtungen
 		padding: 0;
 	}
 
-	
+	#logo {
+	    h1 {
+		padding-right: 80px;
+	    }  
+	}
 	h1, h2, h3, h4, h5, h6, p {
 		margin-left: 15px;
 		margin-right: 15px;
@@ -354,7 +352,7 @@ Media Queries for Theme FAU-Einrichtungen
 		margin: 0;
 	}
 
-	.js-enabled {
+	
 	    
 	    .logos-menu-nav, 
 	    #logos-menu-playpause {
@@ -375,7 +373,7 @@ Media Queries for Theme FAU-Einrichtungen
 		       }
 	    }
 	   
-	    
+   
 	    #hero-slides {
 		top: 0;
 		height: 200px;
@@ -425,10 +423,9 @@ Media Queries for Theme FAU-Einrichtungen
 		display: block;
 		}
 
-		
+	 .js {	
 	    #header {
 		    padding: 0;
-		    // position: relative;
 		    z-index: 100;
 		    background: #fff;
 		    top: 0;
@@ -437,7 +434,7 @@ Media Queries for Theme FAU-Einrichtungen
 		    height: 70px;
 	    }
 	  
-	    &.admin-bar #hero {
+	    .admin-bar #hero {
 		margin-top: 0px;
 		
 		.banner-text {
@@ -449,15 +446,13 @@ Media Queries for Theme FAU-Einrichtungen
 		position: fixed;
 		top: 0;
 	    }
-	     #nav-toggle {
-		 top: 30px;
-	    }
-	    &.admin-bar #wpadminbar {
+	   
+	    .admin-bar #wpadminbar {
 		position: fixed;
 		top: 0;
 	    }
-	    &.admin-bar.nav-fixed #header,
-	    &.admin-bar #header {
+	    .admin-bar.nav-fixed #header,
+	    .admin-bar #header {
 		position: fixed;
 		top: 46px;
 	    }
@@ -471,13 +466,19 @@ Media Queries for Theme FAU-Einrichtungen
 		    width: 100px;
 		}
 	    }
-	    &.admin-bar #meta {
-		padding-top: 40px;
-		
+	    .admin-bar #meta {
+		padding-top: 40px;		
+	    }
+	    
+	    
+	
+	    #nav-toggle {
+		 top: 30px;
 	    }
 	    #meta-nav {
 		display: none;
 	    }
+	    
 	    #nav {
 		    margin: 10px 0 0 0;
 		    display: none;
@@ -513,56 +514,70 @@ Media Queries for Theme FAU-Einrichtungen
 	    body.admin-bar #nav .nav-flyout {
 		    top: 0;
 	    }
-	}
+	 }
+	
 	.no-js {
+	     #nav-toggle,
 	    .hide-mobile {
 		display: none;
 	    }
 	    #header #nav {
-		    margin: 50px 0 10px -10px;
-
+		//    margin: 50px 0 10px -10px;
 	    }
-	    &.admin-bar #nav .nav-flyout {
-		    margin-top: -3px;
-	    }
-	   
-	    
+	    #meta {
+		position: relative;
+		top: 0;
+	    }   
 	    #header {
-		position: fixed;
-		top: 42px;
+		position: relative;
+		top: 0;
 		left: 0;
 		right: 0;
 		background: #fff;
 		z-index: 100;
 	    }
-	    &.admin-bar #header {
-		    top: 42px;
-	    }
+   
 	    #hero {
-		margin-top: 139px;
+		margin-top: 0;
 		transition: none;
+		padding-top: 10px;
+		position: relative;
+		.container {
+		    display: table;
+		}
+		.span6 {
+		    display: table-cell;
+		    width: 90%;
+		}
+		.span3 {
+		    display: table-cell;
+		    width: 45%;
+		}
+	    }
+	    #hero-slides {
+		display: none;
 	    }
 	    &.admin-bar #hero {
 		margin-top: 171px;
 	    }
 	}
 	#hero {
-	.searchform {
-	    margin: 0 auto;
-	    padding: 10px;
-	    
-	    input[type="text"] {
-		width: 150px;
-		margin: 0 10px;
-		float: none;
-		display: inline-block;
+	    .searchform {
+		margin: 0 auto;
+		padding: 10px;
+
+		input[type="text"] {
+		    width: 150px;
+		    margin: 0 10px;
+		    float: none;
+		    display: inline-block;
+		}
+		.filter {
+		    margin-top: 5px;
+		}
 	    }
-	    .filter {
-		margin-top: 5px;
-	    }
-	}
 	
-    }
+	}
 	#subnav {
 		ul {
 			margin-left: 0;
