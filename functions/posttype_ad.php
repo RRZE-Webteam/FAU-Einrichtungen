@@ -370,7 +370,7 @@ function fau_get_ad($type, $withhr = true) {
 			$link =    get_post_meta( $id, 'fauval_ad_url', true ); 
 			
 			if($link) {
-			    $out .=  '<a href="'.$link.'">';
+			    $out .=  '<a rel="nofollow" href="'.$link.'">';
 			}
 			$out .=  get_the_post_thumbnail($id, 'full');
 			if($link) {
