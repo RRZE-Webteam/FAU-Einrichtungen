@@ -293,6 +293,7 @@ $setoptions = array(
 				    3 => __('Website für uniübergreifende Kooperationen mit Externen','fau') ),
 		    'default' => $defaultoptions['website_type'],
 		    'parent'  => 'webgroup'
+		    
 		),  
 	    'default_faculty_useshorttitle' => array(
 		    'type'    => 'bool',
@@ -309,7 +310,6 @@ $setoptions = array(
 		    'maxheight'	=> 182,
 		    'title'   => __( 'Banner Startseite', 'fau' ),
 		    'label'   => __( 'Festes Banner für die Startseite (Template für Lehrstühle und Einrichtungen) im Format 1260x182 Pixel', 'fau' ),               
-		//    'default' => $defaultoptions['default_startseite-bannerbild-image_src'],
 		    'parent'  => 'webgroup'
               ),  
 	       
@@ -430,6 +430,7 @@ $setoptions = array(
        ),
        'allgemeines'   => array(
            'tabtitle'   => __('Allgemeine Einstellungen', 'fau'),
+	   'user_level'	=> 1,
            'fields' => array(
               
               'menu_pretitle_portal' => array(
@@ -579,9 +580,10 @@ $setoptions = array(
        ),
         'templates'   => array(
            'tabtitle'   => __('Templates', 'fau'),
+	   'user_level'	=> 1,
            'fields' => array(
                             
-	       'newsbereich'  => array(
+	      'newsbereich'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Startseite Nachrichtenbereich', 'fau' ),                      
               ),
@@ -701,6 +703,7 @@ $setoptions = array(
        ), 
        'advanced'   => array(
            'tabtitle'   => __('Erweitert', 'fau'),
+	   'user_level'	=> 1,
            'fields' => array(
                'bedienung'  => array(
                   'type'    => 'section',
@@ -764,7 +767,8 @@ $setoptions = array(
 	       
 	      'design'  => array(
                   'type'    => 'section',
-                  'title'   => __( 'Design', 'fau' ),                      
+                  'title'   => __( 'Design', 'fau' ),       
+		  'user_level'	=> 2,
               ),
 	        'advanced_page_start_herojumplink' => array(
                   'type'    => 'bool',
@@ -826,7 +830,8 @@ $setoptions = array(
 	       
 	       'sidebaropt'  => array(
                   'type'    => 'section',
-                  'title'   => __( 'Erweiterte Einstellunge für Sidebars (von Seiten)', 'fau' ),                      
+                  'title'   => __( 'Erweiterte Einstellunge für Sidebars (von Seiten)', 'fau' ),     
+		  'user_level'	=> 2,
               ),
 	       'advanced_page_sidebar_titleabove'	  => array(
                   'type'    => 'bool',
@@ -926,6 +931,7 @@ $setoptions = array(
 	       	'dimensions'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Image Dimensions', 'fau' ),
+		   'user_level'	=> 3,
 		),   
 	       
                'default_gallery_full_width' => array(
@@ -1051,7 +1057,28 @@ $setoptions = array(
    
           )
        ),
-       
+       'switchusrlvl'    => array(
+	   'tabtitle'   => __('Anzeige der Optionen', 'fau'),
+	   'fields' => array(
+	       
+
+		'admin_user_level' => array(
+		    'type' => 'select',
+		    'title'   => __( 'Anzeigemodus', 'fau' ),
+		    'label'   => __( 'Mit dieser Einstellung können Sie den erweiterten Anzeigemodus oder den Expertenmodus für die Theme Einstellungen ändern.<br>'
+			    . 'Durch den Wechsel von der Normal-Ansicht auf die erweiterte Anzeige oder den Expertenmodus erhalten Sie mehr Optionen angezeigt. '
+			    . 'Viele der Optionen, insbesondere die des Expertenmodus, sollten nur dann geändert werden, wenn man genau weiß man dabei tut. '
+			    . 'Für den Alltagseinsatz eines Theme ist es nicht notwendig auf den erweiterten Anzeigemodus oder den Expertenmodus zu wechseln. '
+			    . '<br><b>Bitte verwenden Sie diese Optionen daher nur mit großer Vorsicht und Bedacht!</b> <br>', 'fau' ),
+		    'liste'   => array(
+				    0 => __('Normal','fau'), 
+				    1 => __('Erweitert','fau'),  
+				    2 => __('Expertenmodus','fau') ),
+		    'default' => 0,
+		    
+		    ),
+	    ),
+       ),
        
     )
 );
