@@ -256,9 +256,10 @@ $defaultoptions = array(
     'advanced_display_hero_credits'	=> true,   
     'advanced_display_postthumb_credits'    => true,
     
-    'advanced_forceclean_mainmenu'	=> true,
-	// Links auf externe Seiten und der Startseite werden aus dem Hauptmenu entfernt
-
+    'advanced_forceclean_homelink'	=> true,
+	// Links auf die Startseite werden aus dem Hauptmenu entfernt
+    'advanced_forceclean_externlink'	=> true,
+	// Links auf externe Seiten werden aus dem Hauptmenu entfernt
     
 ); 
 
@@ -827,6 +828,27 @@ $setoptions = array(
 		    'default' => $defaultoptions['breadcrumb_withtitle'],
 		    'parent'  => 'breadcrumb'
 		),   
+	       
+	        'topmenulinks'  => array(
+		    'type'    => 'section',
+		    'title'   => __( 'Hauptmenü', 'fau' ),                      
+		),
+	       'advanced_forceclean_homelink'	  => array(
+		    'type'    => 'bool',
+		    'title'   => __( 'Links auf Startseite', 'fau' ),
+		    'label'   => __( 'Links auf die Startseite werden aus dem Hauptmenu entfernt, da diese unnötig sind (das Logo der Website verlinkt bereits zur Startseite)', 'fau' ),                
+		    'default' => $defaultoptions['advanced_forceclean_homelink'],
+		    'parent'  => 'topmenulinks'
+		),  
+	       'advanced_forceclean_externlink'	  => array(
+		    'type'    => 'bool',
+		    'title'   => __( 'Externe Links', 'fau' ),
+		    'label'   => __( 'Links auf externe Seiten werden aus dem Hauptmenu entfernt. Im Hauptmenü sollen aus Gründen der Usability nur Links auf Seiten des eigenen Angebots stehen. Externe Links gehören in andere Menüs (z.B. Metanavigation, Footer oder Quicklinks) oder in den Text der Seiten.', 'fau' ),                
+		    'default' => $defaultoptions['advanced_forceclean_externlink'],
+		    'parent'  => 'topmenulinks'
+		),  
+	    
+	       
 	       
 	       'sidebaropt'  => array(
                   'type'    => 'section',

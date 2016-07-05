@@ -117,7 +117,22 @@ jQuery(document).ready(function($){
     
    
 
-    
-
-    
+   // Limit Main Menu
+   if ($('body').hasClass('nav-menus-php')) {
+	currenteditimenu = $('#nav-menu-meta-object-id').val();
+	titlemain = $("label[for='locations-main-menu']").text();
+	// console.log("title: "+ titlemain);
+	// console.log("current menu: "+currenteditimenu); 
+       
+	mainmenunum = $('#select-menu-to-edit option:contains('+titlemain+')').val();
+	// console.log("mainmenu: "+mainmenunum); 
+       
+       if (currenteditimenu == mainmenunum) {
+	  console.log("Working on main menu");
+	   $('#add-custom-links').css("display", "none");
+	   $('.menu-item-custom .menu-item-bar .menu-item-handle').css("background","red");
+	   $('.menu-item-custom .menu-item-bar .menu-item-handle').append("<p><em>Bitte verwenden Sie keine externen Links im Hauptmenü, da dies zu Problemen in der Bedienbarkeit der Website führt.<br> Abhängig von der Konfiguration der Website in den Theme-Options werden externe Links ausgeblendet.</em></p>");
+       }   	   
+   }
+   
 });
