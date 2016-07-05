@@ -49,10 +49,9 @@ Media Queries for Theme FAU-Einrichtungen
 
 
 @media (max-width: $breakLG) {
-
-	    
+    
 	    #nav .nav-flyout {
-		    top: 110px;
+		    top: 112px;
 	    }
 	   
 	    
@@ -88,8 +87,10 @@ Media Queries for Theme FAU-Einrichtungen
 	    margin: 0;
 	}
 	#logo {
+	    margin-top: 5px;
 	    margin-left: 10px;
 	    padding-right: 100px;
+	    
 	    h1 {
 		height: 65px;
 		span {
@@ -197,6 +198,7 @@ Media Queries for Theme FAU-Einrichtungen
 	#logo {
 	    h1 {
 		padding-right: 80px;
+		margin-top: 5px;
 	    }  
 	}
 	h1, h2, h3, h4, h5, h6, p {
