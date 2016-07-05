@@ -378,12 +378,12 @@ function fau_custom_header_setup() {
     global $options;
 	$args = array(
 //	    'default-image'          => $options['default_logo_src'],
-	    'height'                 => $options['default_logo_height'],
-	    'width'                  => $options['default_logo_width'],
-	    'admin-head-callback'    => 'fau_admin_header_style',
-	    'header-text'			=> false,
-	    'flex-width'	    => true,
-	    'flex-height'	    => true,
+	    'height'			=> $options['default_logo_height'],
+	    'width'			=> $options['default_logo_width'],
+	    'admin-head-callback'	=> 'fau_admin_header_style',
+	    'header-text'		=> false,
+	    'flex-width'		=> true,
+	    'flex-height'		=> true,
 	);
 	add_theme_support( 'custom-header', $args );
 	$default_header_logos = fau_init_header_logos();

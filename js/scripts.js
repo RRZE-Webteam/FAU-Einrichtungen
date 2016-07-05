@@ -28,14 +28,14 @@ jQuery(document).ready(function($) {
 	$('a.lightbox').fancybox({ helpers: { title: { type: 'outside'}}});
 	
 	// Hover-Intent for navigation
-	$('#nav').hoverIntent({
+/*	$('#nav').hoverIntent({
 		over: function() {$(this).addClass('focus')},
 		out: function() {$(this).removeClass('focus')},
 		selector: 'li',
 		timeout: 150,
 		interval: 20
 	});
-	
+	*/
 	// Keyboard-navigation, remove and set focus class on focus-change
 	$('a').not($('#nav > li div a')).focus(function() {
 		$('#nav > li').removeClass('focus');
@@ -177,22 +177,26 @@ jQuery(document).ready(function($) {
 		$('#content .container').append(sidebar);
 	}
 	
-	// Touch navigation
-	if(isTouch) {
-		$('#nav > li > a').click(function() {		
-			if($(this).hasClass('clicked-once'))
-			{
-				return true;
+	// Handling touch devices and laptops with touch window:
+	
+		$('#nav > li > a').on('touchstart click ontouchstart',function(e) {	
+			if ($(this).parent().hasClass("has-sub")) {
+			    if($(this).hasClass('clicked-once')) {			    
+				    return true;
+			    } else {
+				    $('#nav > li > a').removeClass('clicked-once');
+				    $('#nav > li').removeClass('focus');
+				    $(this).addClass('clicked-once');
+				    $(this).parent('li').addClass('focus');
+				    e.preventDefault();
+				    return false;
+			    }
+			} else {
+			    return true;
 			}
-			else
-			{
-				$('#nav > li > a').removeClass('clicked-once');
-				$(this).addClass('clicked-once');
-				return false;
-			}
-
 		});
-	}
+		
+
 	
 	
 	// Responsive tables

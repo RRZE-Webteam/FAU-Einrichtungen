@@ -119,7 +119,8 @@
 					border-bottom: 1px solid $colorHover;
 				}
 
-				a:hover, a:focus {
+				a:hover, 
+				a:focus {
 					text-decoration: none;
 					background-color: $colorHover !important;;
 				}
@@ -218,7 +219,7 @@
     	color: $colorPrimary; // $colorMainMenu;
 	
 }
-
+#nav li.level1 a.clicked-once,
 #nav li.level1.focus.has-sub a,
 .no-js #nav li.level1:hover a, 
 .no-js #nav li.active a, 
@@ -232,12 +233,14 @@
 	
 }
 
+.no-js #nav li.level1 a.clicked-once,
 .no-js #nav li.level1 a:hover, 
 .no-js #nav li.level1 a:focus {
 	background-color: $colorPrimary; 
 	color: $colorMainMenu;
 }
 
+#nav li.has-sub a.clicked-once, 
 #nav li.has-sub a:hover, 
 #nav li.has-sub a:focus, 
 #nav li.has-sub.active, 
@@ -249,14 +252,8 @@
 
 }
 
-/*
-body.admin-bar #nav .nav-flyout {
-	top: 151px;
-}
-*/
-
-.no-js #nav li.level1:hover .nav-flyout, 
-.no-js #nav li.level1:focus .nav-flyout, 
+#nav li.level1:hover .nav-flyout, 
+#nav li.level1:focus .nav-flyout, 
 #nav li.focus .nav-flyout {
 	display: block;
 }
