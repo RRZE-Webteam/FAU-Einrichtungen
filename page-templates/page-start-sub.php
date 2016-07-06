@@ -20,8 +20,16 @@ global $options;
 			    $copyright = '';
 			    if (isset($options['startseite_banner_image_id']) && ($options['startseite_banner_image_id']>0)) {
 				$imagedata = wp_get_attachment_image_src( $options['startseite_banner_image_id'], 'herobanner' );
+				
+				$slidersrcset =  wp_get_attachment_image_srcset($options['startseite_banner_image_id'],'herobanner');
+				
 				if ($imagedata) {
-				    $image = '<img src="'.$imagedata[0].'" width="'.$imagedata[1].'" height="'.$imagedata[2].'" alt="">';
+				    $image = '<img src="'.fau_esc_url($imagedata[0]).'" width="'.$imagedata[1].'" height="'.$imagedata[2].'" alt=""';
+				    if ($slidersrcset) {
+					$image .= 'srcset="'.$slidersrcset.'"';
+				    }
+				    $image .= '>';
+				    
 				}
 				$imgdata = fau_get_image_attributs($options['startseite_banner_image_id']);
 				$copyright = trim(strip_tags( $imgdata['credits'] ));
