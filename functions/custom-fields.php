@@ -20,8 +20,10 @@ function fau_metabox_cf_setup() {
 
 	/* Save sidecontent */
 	add_action( 'save_post', 'fau_save_metabox_page_untertitel', 10, 2 );
-	add_action( 'save_post', 'fau_save_metabox_page_subnavmenu', 10, 2 );
 	
+	if ($options['website_type']==-1) {
+	    add_action( 'save_post', 'fau_save_metabox_page_subnavmenu', 10, 2 );
+	}
 	
 	
 	add_action( 'save_post', 'fau_save_metabox_page_portalmenu', 10, 2 );
