@@ -29,7 +29,15 @@ class FAUShortcodes {
 	}
 	
 	function fau_hr ( $atts, $content = null) {
-		return '<hr>';
+	    extract(shortcode_atts(array(
+			"size" => ''
+			), $atts));
+	    
+	    $return = '<hr';
+	    $return .= ($size) ? ' class="' . $size. '"' : '';
+	    $return .= '>';
+	    
+	    return $return;
 	}
 	
 	function fau_organigram( $atts, $content = null) {
