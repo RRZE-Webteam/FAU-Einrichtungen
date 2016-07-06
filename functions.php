@@ -1270,7 +1270,7 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	
 	if ((has_post_thumbnail( $post->ID )) ||($options['default_postthumb_always']))  {
 	    $output .= "\t\t".'<div class="span3" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">'."\n"; 
-	    $output .= '<a href="'.$link.'" class="news-image';
+	    $output .= '<a href="'.$link.'" class="news-image"';
 	    if ($external) {
 		$output .= ' ext-link';
 	    }
@@ -1576,7 +1576,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	    if (($withthumb==true) && (has_post_thumbnail( $post->ID )) )  {
 		$output .= '<div class="row">'."\n";  
 		$output .= "\t\t".'<div class="span3">'."\n"; 
-		$output .= '<a href="'.$link.'" class="news-image';
+		$output .= '<a href="'.$link.'" class="news-image"';
 		if ($external==1) {
 		    $output .= ' ext-link';
 		}

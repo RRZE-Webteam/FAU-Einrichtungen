@@ -34,22 +34,13 @@ $default_socialmedia_liste = array(
 	'content'  => '',
 	'active' => 0,
     ),
-    'flattr' => array(
-	'name' => 'Flattr',
-	'content'  => '',
-	'active' => 0,
-    ),
+    
     'flickr' => array(
 	'name' => 'Flickr',
 	'content'  => '',
 	'active' => 0,
     ),
   
-    'identica' => array(
-	'name' => 'Identica',
-	'content'  => '',
-	'active' => 0,
-    ),
     'itunes' => array(
 	'name' => 'iTunes',
 	'content'  => '',
@@ -81,21 +72,13 @@ $default_socialmedia_liste = array(
 	'content'  => '',
 	'active' => 0,
     ),
-    'appnet' => array(
-	'name' => 'App.Net',
-	'content'  => '',
-	'active' => 0,
-    ),
+   
     'feed' => array(
 	'name' => 'RSS Feed',
 	'content'  => get_bloginfo( 'rss2_url' ),
 	'active' => 1,
     ),
-    'friendica' => array(
-	'name' => 'Friendica',
-	'content'  => '',
-	'active' => 0,
-    ),
+   
     'pinterest' => array(
 	'name' => 'Pinterest',
 	'content'  => 'http://www.pinterest.com/unifau/',
@@ -104,6 +87,11 @@ $default_socialmedia_liste = array(
     'instagram' => array(
 	'name' => 'Instagram',
 	'content'  => 'https://instagram.com/uni_fau/',
+	'active' => 0,
+    ),
+     'wikipedia' => array(
+	'name' => 'Wikipedia',
+	'content'  => 'https://de.wikipedia.org/wiki/Friedrich-Alexander-Universit%C3%A4t_Erlangen-N%C3%BCrnberg',
 	'active' => 0,
     ),
 ); 
