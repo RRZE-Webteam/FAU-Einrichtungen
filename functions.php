@@ -232,7 +232,7 @@ function fau_admin_header_style() {
     wp_enqueue_style( 'dashicons' );
     wp_enqueue_media();
     wp_enqueue_script('jquery-ui-datepicker');
-    wp_register_script('themeadminscripts', get_fau_template_uri().'/js/admin.js', array('jquery'));    
+    wp_register_script('themeadminscripts', get_fau_template_uri().'/js/admin.min.js', array('jquery'));    
     wp_enqueue_script('themeadminscripts');	   
 }
 add_action( 'admin_enqueue_scripts', 'fau_admin_header_style' );
