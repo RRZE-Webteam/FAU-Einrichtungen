@@ -1468,7 +1468,7 @@ ul.tagcloud {
 		}
 		
 		.accordion-body {
-			display: none;
+			display: block; // none;
 			overflow: hidden;
 			    
 			.accordion-inner {

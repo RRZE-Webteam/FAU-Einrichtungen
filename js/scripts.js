@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
 	var wpAdminBarHeight = 46;
 	var wpAdminBarHeightMD = 32;
 	var metaBar = 42;
-	
+	var $openflyover = false;
 	
 	// Smooth scrolling for anchor-links (excluding accordion-toggles)
 	$('a[href*="#"]:not([href="#"]):not(.accordion-toggle):not(.accordion-tabs-nav-toggle)').click(function() {
@@ -74,6 +74,10 @@ jQuery(document).ready(function($) {
 	});
 	
 	// Accordions
+	
+	// Close Accordions on start, except first
+	$('.accordion-body').not(":first").hide();
+	
 	$('.accordion-toggle').bind('click', function(event) {
 		event.preventDefault();
 		var accordion = $(this).attr('href');
@@ -175,23 +179,25 @@ jQuery(document).ready(function($) {
 	});
 	// Handling touch devices and laptops with touch window:
 	
-	$('#nav > li > a').on('touchstart click ontouchstart',function(e) {	
+	$('#nav > li > a').on('touchstart ontouchstart',function(e) {	
 		if ($(this).parent().hasClass("has-sub")) {
-		    if($(this).hasClass('clicked-once')) {			    
-			    return true;
+		    if($(this).hasClass('clicked-once')) {	
+			$openflyover = false;
+			return true;
 		    } else {
 			    $('#nav > li > a').removeClass('clicked-once');
 			    $('#nav > li').removeClass('focus');
 			    $(this).addClass('clicked-once');
 			    $(this).parent('li').addClass('focus');
 			    e.preventDefault();
+			    $openflyover = true;
 			    return false;
 		    }
 		} else {
 		    return true;
 		}
 	});
-
+	
 
 	
 	
