@@ -85,6 +85,8 @@ function theme_options_do_page($tab = '') {
 	if (!$myuserlvl) {
 	    $myuserlvl = 0;
 	}
+	$askfieldlist = '';
+	
         echo "<p class=\"nav-tab-wrapper\">\n";
         foreach($setoptions['fau_theme_options'] as $i => $value) {        
 	    
@@ -147,7 +149,9 @@ function theme_options_do_page($tab = '') {
 			    
                             } elseif (   (isset($setsection) && ($setsection != "") && ($myuserlvl >= $setsectionusrlvl))
 				    ||   ((!$setsection) && ($myuserlvl >= $userlvl)) ) {
-
+				  
+				$askfieldlist .= $name.",";
+				
                                echo "\t<tr valign=\"top\" class=\"option-".$name;
 			       if ($mark_option==1) {
 				   echo " mark-option";
@@ -584,6 +588,10 @@ function theme_options_do_page($tab = '') {
         </div>                                        
                     
         <p class="submit">
+	    <?php if (!empty($askfieldlist)) {
+		$askfieldlist = rtrim($askfieldlist,',');
+		echo '<input type="hidden" id="fau_theme_options[askfieldlist]" name="fau_theme_options[askfieldlist]" value="'.$askfieldlist.'">'; 
+	    } ?>
                 <input type="submit" class="button-primary" value="<?php _e( 'Update', 'fau' ); ?>" />
         </p>
 </form>               
@@ -616,82 +624,89 @@ function theme_options_validate( $input ) {
             return $output;          
         }
 
+	
+	
        if (isset($setoptions['fau_theme_options'][$tab]['fields'])) {
+	    $paralist = array();
+	    $paralist = explode(",",wp_filter_nohtml_kses($input['askfieldlist']));	    
+	    
+	   
             foreach($setoptions['fau_theme_options'][$tab]['fields'] as $i => $value) {   
                 $name = $i;
+		if (in_array($name,$paralist)) {
+		    $type = $value['type'];  
+		    $default = '';
+		    if (isset($value['default'])) {
+			$default = $value['default'];
+		    }
+		    if ($type != "section") {
+			if (isset($input[$name])) {
+			    if ($type=='bool') {
+				$output[$name]  = ( $input[$name] == 1 ? 1 : 0 );    
+			    } elseif ($type=='text') {
+				 $output[$name]  =  wp_filter_nohtml_kses( $input[$name] );
+			    } elseif ($type=='email') {
+				 $output[$name]  =  sanitize_email( $input[$name] );	     
+			    } elseif ($type=='textarea') {
+				 $output[$name]  =  $input[$name] ;     
+			    } elseif ($type=='html') {;    
+				$output[$name] = $input[$name];
+			    } elseif (($type=='imageurl') || ($type=='image')) {
+				 $output[$name]  =  esc_url( $input[$name] );
+				 if (isset($input[$name."_id"])) {
+				    $output[$name."_id"]  =  sanitize_key( $input[$name."_id"] );
+				 }
+			    } elseif (($type=='url') || ($type=='imgurl')) {
+				 $output[$name]  =  esc_url( $input[$name] ); 
+			    } elseif ($type=='file') {
+				$output[$name."_url"]  = wp_filter_nohtml_kses( $input[$name] ); 
+				if (isset($input[$name."_id"])) {
+				    $output[$name]  =   sanitize_key( $input[$name."_id"] );
+				}
+			    } elseif ($type=='number') {
+				$output[$name]  =  wp_filter_nohtml_kses( $input[$name] ); 
+			    } elseif (($type=='select') || ($type=='fontselect')) {                        
+				$output[$name]  =  wp_filter_nohtml_kses( $input[$name] ); 
+			    } elseif (($type=='bildchecklist') || ($type=='bilddirchecklist')) {                            
+				$output[$name]  = $input[$name];
+			    } elseif ($type=='multiselectlist') {   	    			   
+				$output[$name]  = $input[$name];    
+			    } elseif ($type=='urlchecklist') {   	    			   
+				$output[$name]  = $input[$name];
+			    } else {
+				$output[$name]  =  wp_filter_nohtml_kses( $input[$name] );
+			    }
+			} else {                        
+			    if ($type=='bool') {
+				$output[$name] =0;
+			    } elseif ($type=='text') {
+				$output[$name] = "";
+			    } elseif ($type=='textarea') {
+				$output[$name] = "";     
+			    } elseif ($type=='html') {
+				$output[$name] = "";    
+			    } elseif (($type=='imageurl') || ($type=='image')) {
+				$output[$name] = "";    
+				$output[$name."_id"] = 0;    
+			    } elseif (($type=='url') || ($type=='imgurl')) {
+				$output[$name] = "";
+			    } elseif ($type=='number') {
+				$output[$name] = 0;
+			    } elseif ($type=='file') {
+				$output[$name] = '';    
+				$output[$name."_url"] = '';    
+			    } elseif (($type=='select') || ($type=='fontselect')) {                        
+				$output[$name] = "";
+			    } elseif (($type=='bildchecklist') || ($type=='bilddirchecklist')) {   
+				 $output[$name] = '';   
+			    } elseif ($type=='multiselectlist') {
+				 $output[$name] = array();
+			    }
+			}
+		    }
 
-                $type = $value['type'];  
-                $default = '';
-                if (isset($value['default'])) {
-                    $default = $value['default'];
-                }
-                if ($type != "section") {
-                    if (isset($input[$name])) {
-                        if ($type=='bool') {
-                            $output[$name]  = ( $input[$name] == 1 ? 1 : 0 );    
-                        } elseif ($type=='text') {
-                             $output[$name]  =  wp_filter_nohtml_kses( $input[$name] );
-			} elseif ($type=='email') {
-                             $output[$name]  =  sanitize_email( $input[$name] );	     
-                        } elseif ($type=='textarea') {
-                             $output[$name]  =  $input[$name] ;     
-                        } elseif ($type=='html') {;    
-                            $output[$name] = $input[$name];
-			} elseif (($type=='imageurl') || ($type=='image')) {
-                             $output[$name]  =  esc_url( $input[$name] );
-                             if (isset($input[$name."_id"])) {
-                                $output[$name."_id"]  =  sanitize_key( $input[$name."_id"] );
-                             }
-                        } elseif (($type=='url') || ($type=='imgurl')) {
-                             $output[$name]  =  esc_url( $input[$name] ); 
-                        } elseif ($type=='file') {
-			    $output[$name."_url"]  = wp_filter_nohtml_kses( $input[$name] ); 
-                            if (isset($input[$name."_id"])) {
-                                $output[$name]  =   sanitize_key( $input[$name."_id"] );
-                            }
-                        } elseif ($type=='number') {
-                            $output[$name]  =  wp_filter_nohtml_kses( $input[$name] ); 
-                        } elseif (($type=='select') || ($type=='fontselect')) {                        
-                            $output[$name]  =  wp_filter_nohtml_kses( $input[$name] ); 
-                        } elseif (($type=='bildchecklist') || ($type=='bilddirchecklist')) {                            
-                            $output[$name]  = $input[$name];
-                        } elseif ($type=='multiselectlist') {   	    			   
-			    $output[$name]  = $input[$name];    
-			} elseif ($type=='urlchecklist') {   	    			   
-			    $output[$name]  = $input[$name];
-                        } else {
-                            $output[$name]  =  wp_filter_nohtml_kses( $input[$name] );
-                        }
-                    } else {                        
-                        if ($type=='bool') {
-                            $output[$name] =0;
-                        } elseif ($type=='text') {
-                            $output[$name] = "";
-                        } elseif ($type=='textarea') {
-                            $output[$name] = "";     
-                        } elseif ($type=='html') {
-                            $output[$name] = "";    
-			} elseif (($type=='imageurl') || ($type=='image')) {
-                            $output[$name] = "";    
-			    $output[$name."_id"] = 0;    
-                        } elseif (($type=='url') || ($type=='imgurl')) {
-                            $output[$name] = "";
-                        } elseif ($type=='number') {
-                            $output[$name] = 0;
-                        } elseif ($type=='file') {
-                            $output[$name] = '';    
-			    $output[$name."_url"] = '';    
-			} elseif (($type=='select') || ($type=='fontselect')) {                        
-                            $output[$name] = "";
-                        } elseif (($type=='bildchecklist') || ($type=='bilddirchecklist')) {   
-                             $output[$name] = '';   
-                        } elseif ($type=='multiselectlist') {
-                             $output[$name] = array();
-                        }
-                    }
-                }
-
-            }
+		}
+	    }
        }               
 
       
