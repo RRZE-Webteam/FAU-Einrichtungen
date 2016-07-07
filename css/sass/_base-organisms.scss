@@ -1069,6 +1069,10 @@
 		
 		li {
 			@include no-list;
+			@include inline-block;
+			max-width: 220px;
+			width: 100%;
+			
 			background: none;
 			
 			a {
