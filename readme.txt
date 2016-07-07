@@ -27,7 +27,6 @@ LIBRARIES & SOURCES
 
 * Font Awesome 4.6 by Dave Gandy - http://fontawesome.io. 
   License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
-* Font JustVector
 * Font OpenSans
 * Font Roboto
 * fancyBox v2.1.5 fancyapps.com 

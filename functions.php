@@ -36,10 +36,15 @@ function fau_setup() {
 	register_nav_menu( 'meta-footer', __( 'Meta-Navigation unten', 'fau' ) );
 	register_nav_menu( 'main-menu', __( 'Haupt-Navigation', 'fau' ) );
 	
-
-	register_nav_menu( 'quicklinks-3', __( 'Startseite Fakultät: Bühne Spalte 1', 'fau' ) );
-	register_nav_menu( 'quicklinks-4', __( 'Startseite Fakultät: Bühne Spalte 2', 'fau' ) );
-	
+	if ($options['website_type']==-1) {
+	    register_nav_menu( 'quicklinks-1', __( 'Startseite FAU Portal: Bühne Spalte 1', 'fau' ) );
+	    register_nav_menu( 'quicklinks-2', __( 'Startseite FAU Portal: Bühne Spalte 2', 'fau' ) );
+	    register_nav_menu( 'quicklinks-3', __( 'Startseite FAU Portal: Bühne Spalte 3', 'fau' ) );
+	    register_nav_menu( 'quicklinks-4', __( 'Startseite FAU Portal: Bühne Spalte 4', 'fau' ) );
+	} else {
+	    register_nav_menu( 'quicklinks-3', __( 'Startseite Fakultät: Bühne Spalte 1', 'fau' ) );
+	    register_nav_menu( 'quicklinks-4', __( 'Startseite Fakultät: Bühne Spalte 2', 'fau' ) );
+	}
 	register_nav_menu( 'error-1', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 1', 'fau' ) );
 	register_nav_menu( 'error-2', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 2', 'fau' ) );
 	register_nav_menu( 'error-3', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 3', 'fau' ) );
@@ -227,7 +232,7 @@ function fau_admin_header_style() {
     wp_enqueue_style( 'dashicons' );
     wp_enqueue_media();
     wp_enqueue_script('jquery-ui-datepicker');
-    wp_register_script('themeadminscripts', get_fau_template_uri().'/js/admin.js', array('jquery'));    
+    wp_register_script('themeadminscripts', get_fau_template_uri().'/js/admin.min.js', array('jquery'));    
     wp_enqueue_script('themeadminscripts');	   
 }
 add_action( 'admin_enqueue_scripts', 'fau_admin_header_style' );
@@ -373,12 +378,12 @@ function fau_custom_header_setup() {
     global $options;
 	$args = array(
 //	    'default-image'          => $options['default_logo_src'],
-	    'height'                 => $options['default_logo_height'],
-	    'width'                  => $options['default_logo_width'],
-	    'admin-head-callback'    => 'fau_admin_header_style',
-	    'header-text'			=> false,
-	    'flex-width'	    => true,
-	    'flex-height'	    => true,
+	    'height'			=> $options['default_logo_height'],
+	    'width'			=> $options['default_logo_width'],
+	    'admin-head-callback'	=> 'fau_admin_header_style',
+	    'header-text'		=> false,
+	    'flex-width'		=> true,
+	    'flex-height'		=> true,
 	);
 	add_theme_support( 'custom-header', $args );
 	$default_header_logos = fau_init_header_logos();
@@ -870,7 +875,7 @@ function fau_get_defaultlinks ($list = 'faculty', $ulclass = '', $ulid = '') {
 	}
 	$thislist .= '>';
 	if (isset($entry['content'])) {
-	    $thislist .= '<a href="'.$entry['content'].'">';
+	    $thislist .= '<a data-wpel-link="internal" href="'.$entry['content'].'">';
 	}
 	$thislist .= $entry['name'];
 	if (isset($entry['content'])) {
@@ -925,7 +930,7 @@ function fau_get_toplinks() {
 	 *	   Link zur FAU als Grafik (das ist der Unterschied zur Option 0)
 	 *  3 = Koopertation mit Externen (neu ab 1.4)
 	 *	=> Kein Link zur FAU
-	 *  4 = FAU-Portal (neu ab 1.4, nur für zukunftigen Bedarf)
+	 *  -1 = FAU-Portal (neu ab 1.4, nur für zukunftigen Bedarf)
 	 *	=> Kein Link zur FAU, aktiviert 4 Spalten unter HERO
 	 * 
 	 * 'website_usefaculty' = ( nat | phil | med | tf | rw )
@@ -946,7 +951,11 @@ function fau_get_toplinks() {
     $linkfaculty = false;
 
     // Using if-then-else structure, due to better performance as switch 
-    if ($isfaculty) {
+    if ($options['website_type']==-1) {
+	$linkhome = false;
+	$linkfaculty = false;
+	$linkhomeimg = false;
+    } elseif ($isfaculty) {
 	if ($options['website_type']==0) {
 	    $linkhomeimg = false;
 	    $linkfaculty = false;
@@ -963,8 +972,7 @@ function fau_get_toplinks() {
 	     $linkhomeimg = true;
 	} elseif ($options['website_type']==3) {
 	    $linkhome = false;
-        } elseif ($options['website_type']==4) {
-	    $linkhome = false;
+       
 	}
     }
 
@@ -1183,9 +1191,30 @@ function filter_media_comment_status( $open, $post_id ) {
 }
 add_filter( 'comments_open', 'filter_media_comment_status', 10 , 2 );
 
+/* 
+ * Create String for Publisher Info, used by Scema.org Microformat Data
+ */
 
-
-
+function fau_create_schema_publisher($withrahmen = true) {
+    $out = '';
+    if ($withrahmen) {
+	$out .= '	<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">'."\n";  
+    }
+    $header_image = get_header_image();
+    if ($header_image) {
+	$out .= '	    <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">'."\n";
+	$out .= '		<meta itemprop="url" content="'.fau_esc_url( $header_image ).'">';
+	$out .= '<meta itemprop="width" content="'.get_custom_header()->width.'">';
+	$out .= '<meta itemprop="height" content="'.get_custom_header()->height.'">'."\n";
+	$out .= '	    </div>'."\n";
+    }
+    $out .= '	    <meta itemprop="name" content="'.get_bloginfo( 'title' ).'">'."\n";
+    $out .= '	    <meta itemprop="url" content="'.fau_esc_url(home_url( '/' ) ).'">'."\n";
+    if ($withrahmen) {
+	$out .= '	</div>'."\n";
+    }
+    return $out;
+}
 
 /* Newsseiten */
 function fau_display_news_teaser($id = 0, $withdate = false) {
@@ -1195,20 +1224,19 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
     $post = get_post($id);
     $output = '';
     if ($post) {
-	$output .= '<article class="news-item">';
-	
+	$output .= '<article class="news-item" itemscope itemtype="http://schema.org/NewsArticle">';
 	$link = get_post_meta( $post->ID, 'external_link', true );
-	$external = 0;
+	$external = false;
 	if (isset($link) && (filter_var($link, FILTER_VALIDATE_URL))) {
-	    $external = 1;
+	    $external = true;
 	} else {
-	    $link = get_permalink($post->ID);
+	    $link = fau_esc_url(get_permalink($post->ID));
 	}
-	
-	$output .= "\t<h2>";  
+	$output .= '<meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="'.$link.'"/>'."\n";
+	$output .= "\t<h2 itemprop=\"headline\">";  
 	$output .= '<a ';
-	if ($external==1) {
-	    $output .= 'class="ext-link" ';
+	if ($external) {
+	    $output .= 'class="ext-link" rel="canonical" ';
 	}
 	$output .= 'href="'.$link.'">'.get_the_title($post->ID).'</a>';
 	$output .= "</h2>\n";  
@@ -1233,7 +1261,7 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	if ($withdate) {
 	    $output .= '<div class="news-meta">'."\n";
 	    $output .= $typestr;
-	    $output .= '<span class="news-meta-date"> '.get_the_date('',$post->ID)."</span>\n";
+	    $output .= '<span class="news-meta-date" itemprop="datePublished" content="'. esc_attr( get_post_time('c') ).'"> '.get_the_date('',$post->ID)."</span>\n";
 	    $output .= '</div>'."\n";
 	}
 
@@ -1241,35 +1269,44 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	$output .= "\t".'<div class="row">'."\n";  
 	
 	if ((has_post_thumbnail( $post->ID )) ||($options['default_postthumb_always']))  {
-	    $output .= "\t\t".'<div class="span3">'."\n"; 
-	    $output .= '<a href="'.$link.'" class="news-image';
-	    if ($external==1) {
+	    $output .= "\t\t".'<div class="span3" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">'."\n"; 
+	    $output .= '<a href="'.$link.'" class="news-image"';
+	    if ($external) {
 		$output .= ' ext-link';
 	    }
-	    $output .= '">';
+	    $output .= '>';
 
 	    $post_thumbnail_id = get_post_thumbnail_id( $post->ID, 'post-thumb' ); 
 	    $imagehtml = '';
 	    $imgwidth = $options['default_postthumb_width'];
 	    $imgheight = $options['default_postthumb_height'];
+	    $imgsrcset = '';
 	    if ($post_thumbnail_id) {
 		$sliderimage = wp_get_attachment_image_src( $post_thumbnail_id,  'post-thumb');
 		$imageurl = $sliderimage[0]; 	
 		$imgwidth = $sliderimage[1];
 		$imgheight = $sliderimage[2];
+		$imgsrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'post-thumb');
+		  
 	    }
 	    if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
 		$imageurl = $options['default_postthumb_src'];
 	    }
-	    $output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$imgwidth.'" height="'.$imgheight.'" alt="">';
+	    $output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$imgwidth.'" height="'.$imgheight.'" alt=""';
+	    if ($imgsrcset) {
+		$output .= ' srcset="'.$imgsrcset.'"';
+	    }
+	    $output .= '>';    
 	    $output .= '</a>';
-	    
+	    $output .= "\t\t\t".'<meta itemprop="url" content="'.$imageurl.'">';
+	    $output .= "\t\t\t".'<meta itemprop="width" content="'.$imgwidth.'">';
+	    $output .= "\t\t\t".'<meta itemprop="height" content="'.$imgheight.'">';		    
 	    $output .= "\t\t".'</div>'."\n"; 
 	    $output .= "\t\t".'<div class="span5">'."\n"; 
 	} else {
 	    $output .= "\t\t".'<div class="span8">'."\n"; 
 	}
-	$output .= "\t\t\t".'<p>'."\n"; 
+	$output .= "\t\t\t".'<p itemprop="description">'."\n"; 
 	
 	
 	
@@ -1281,7 +1318,7 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 
 	
 	$output .= '<a class="read-more-arrow';
-	if ($external==1) {
+	if ($external) {
 	    $output .= ' ext-link';
 	}
 	$output .= '" href="'.$link.'">›</a>'; 
@@ -1289,7 +1326,10 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	
 	
 	$output .= "\t\t".'</div>'."\n"; 
-	$output .= "\t</div> <!-- /row -->\n";	
+	$output .= "\t</div> <!-- /row -->\n";
+	if (!$external) {
+	    $output .= fau_create_schema_publisher();
+	}	
 	$output .= "</article> <!-- /news-item -->\n";	
     }
     return $output;
@@ -1536,7 +1576,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	    if (($withthumb==true) && (has_post_thumbnail( $post->ID )) )  {
 		$output .= '<div class="row">'."\n";  
 		$output .= "\t\t".'<div class="span3">'."\n"; 
-		$output .= '<a href="'.$link.'" class="news-image';
+		$output .= '<a href="'.$link.'" class="news-image"';
 		if ($external==1) {
 		    $output .= ' ext-link';
 		}
@@ -1544,14 +1584,21 @@ function fau_display_search_resultitem($withsidebar = 1) {
 
 		$post_thumbnail_id = get_post_thumbnail_id( $post->ID, 'post-thumb' ); 
 		$imagehtml = '';
+		$imgsrcset = '';
 		if ($post_thumbnail_id) {
 		    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id,  'post-thumb');
+        	    $imgsrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'post-thumb');
+
 		    $imageurl = $sliderimage[0]; 	
 		}
 		if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
 		    $imageurl = $options['default_postthumb_src'];
 		}
-		$output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_postthumb_width'].'" height="'.$options['default_postthumb_height'].'" alt="">';
+		$output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_postthumb_width'].'" height="'.$options['default_postthumb_height'].'" alt=""';
+		if ($imgsrcset) {
+		    $output .= ' srcset="'.$imgsrcset.'"';
+		}
+		$output .= '>';
 		$output .= '</a>';
 
 		$output .= "\t\t".'</div>'."\n"; 
@@ -1987,3 +2034,23 @@ function fau_get_category_links($cateid = 0) {
     }
     return $res;
 }
+
+
+
+/**
+ * Force srcset urls to be relative
+ */
+add_filter( 'wp_calculate_image_srcset', function( $sources )
+{
+    if(	! is_array( $sources ) )
+       	return $sources;
+
+    foreach( $sources as &$source )
+    {
+        if( isset( $source['url'] ) )
+            $source['url'] = fau_esc_url( $source['url']);
+    }
+    return $sources;
+
+}, PHP_INT_MAX );
+

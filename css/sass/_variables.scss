@@ -3,6 +3,7 @@
  $farbfamilie: 'zuv';
  
 // Define breakpoints
+$breakXS: 320px;
 $breakSM: 480px;
 $breakMD: 767px;
 $breakLG: 979px;
@@ -38,8 +39,8 @@ $colorContentRegions:	    #f5f7f9;
     // FAU: lighten($colorZUV, 4%);
 
 // Define defaults and variables
-$colorPrimary: $colorZUV;	
-$colorPrimaryContrast: #fff;
+$colorPrimary:		$colorZUV;	
+$colorPrimaryContrast:	#fff;
 $PalettonHellste:	desaturate(lighten($colorPrimary, 73%), 75%);
 $PalettonHeller:	desaturate(lighten($colorPrimary, 69%), 75%);
 $PalettonDunkler:	desaturate(lighten($colorPrimary, 10%), 90%);

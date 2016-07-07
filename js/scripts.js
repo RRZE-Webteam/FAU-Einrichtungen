@@ -1,6 +1,8 @@
 jQuery(document).ready(function($) {	
 	// This browser supports JS
 	$('html').removeClass('no-js').addClass('js');
+	//Add JS-enabled class to body
+	$('body').addClass('js-enabled');
 
 	var breakMD = 767;
 	var breakSM = 480;
@@ -8,7 +10,7 @@ jQuery(document).ready(function($) {
 	var wpAdminBarHeight = 46;
 	var wpAdminBarHeightMD = 32;
 	var metaBar = 42;
-	
+	var $openflyover = false;
 	
 	// Smooth scrolling for anchor-links (excluding accordion-toggles)
 	$('a[href*="#"]:not([href="#"]):not(.accordion-toggle):not(.accordion-tabs-nav-toggle)').click(function() {
@@ -27,39 +29,8 @@ jQuery(document).ready(function($) {
 	// Fancybox for lightboxes
 	$('a.lightbox').fancybox({ helpers: { title: { type: 'outside'}}});
 	
-	// Hover-Intent for navigation
-	$('#nav').hoverIntent({
-		over: function() {$(this).addClass('focus')},
-		out: function() {$(this).removeClass('focus')},
-		selector: 'li',
-		timeout: 150,
-		interval: 20
-	});
+
 	
-	// Keyboard-navigation, remove and set focus class on focus-change
-	$('a').not($('#nav > li div a')).focus(function() {
-		$('#nav > li').removeClass('focus');
-	});
-	
-	$('#nav > li > a').focus(function() {
-		$('#nav > li').removeClass('focus');
-		$(this).parents('li').addClass('focus');
-	});
-	
-	$('#meta-nav > li > a').focus(function() {
-		$('#meta-nav > li').removeClass('focus');
-		$(this).parents('li').addClass('focus');
-	});
-	
-	$('.mlp_language_box ul li a').focus(function() {
-		$(this).parents('ul').addClass('focus');
-	});
-	
-	// Mobile navigation toggle
-	$('#nav-toggle').bind('click', function(event) {
-		event.preventDefault();
-		$('body').toggleClass('menu-toggled');
-	});
 	
 	// Set jumplinks
 	$('.jumplinks a').bind('click', function(event) {
@@ -103,6 +74,10 @@ jQuery(document).ready(function($) {
 	});
 	
 	// Accordions
+	
+	// Close Accordions on start, except first
+	$('.accordion-body').not(":first").hide();
+	
 	$('.accordion-toggle').bind('click', function(event) {
 		event.preventDefault();
 		var accordion = $(this).attr('href');
@@ -114,8 +89,7 @@ jQuery(document).ready(function($) {
 	
 	// Keyboard navigation for accordions
 	$('.accordion-toggle').keydown(function(event) {
-		if(event.keyCode == 32)
-		{
+		if(event.keyCode == 32) {
 			var accordion = $(this).attr('href');
 			$(this).closest('.accordion').find('.accordion-toggle').not($(this)).removeClass('active');
 			$(this).closest('.accordion').find('.accordion-body').not(accordion).slideUp();
@@ -133,10 +107,20 @@ jQuery(document).ready(function($) {
 		    if ($.isNumeric(inpagenum)) {
 			var $findid = 'collapse_'+ inpagenum;
 			var $target = $('body').find('#'+ $findid);  
+						 
+			if ($target.closest('.accordion').parent().closest('.accordion-group')) {
+			    $upper = $target.closest('.accordion').parent().closest('.accordion-group');
+			   
+			    $upper.find('.accordion-toggle').addClass('active');
+			    $upper.find('.accordion-body').show();
+			    
+			    $upper.find('.accordion-toggle').children().find('.accordion-toggle').removeClass('active');
+			    $upper.find('.accordion-body').children().find('.accordion-body').hide();
+			    
+			}
 			$target.find('.accordion-toggle').addClass('active');
-			$target.find('.accordion-body').slideUp();
-			$target.toggleClass('active');
-			$target.slideToggle();
+			$target.show();
+
 			var offset = $target.offset(); 
 			var $scrolloffset = offset.top - 220;	
 			 $('html,body').animate({scrollTop: $scrolloffset},'slow');
@@ -149,17 +133,7 @@ jQuery(document).ready(function($) {
 
 
 
-	// AJAX for studienangebot-database
-	$('#studienangebot *').change(function() {
-		// Show loading spinner
-		$('#loading').fadeIn(300);
-		
-		// Get results and replace content
-		$.get($(this).parents('form').attr('action'), $(this).parents('form').serialize(), function(data) {
-			$('#studienangebot-result').replaceWith($(data).find('#studienangebot-result'));
-			$('#loading').fadeOut(300);
-		});
-	});
+	
 	
 	// Set environmental parameters
 	var windowWidth = window.screen.width < window.outerWidth ? window.screen.width : window.outerWidth;
@@ -177,22 +151,54 @@ jQuery(document).ready(function($) {
 		$('#content .container').append(sidebar);
 	}
 	
-	// Touch navigation
-	if(isTouch) {
-		$('#nav > li > a').click(function() {		
-			if($(this).hasClass('clicked-once'))
-			{
-				return true;
-			}
-			else
-			{
-				$('#nav > li > a').removeClass('clicked-once');
-				$(this).addClass('clicked-once');
-				return false;
-			}
+	
+	// Main Menu
+	// Keyboard-navigation, remove and set focus class on focus-change
+	$('a').not($('#nav > li div a')).focus(function() {
+		$('#nav > li').removeClass('focus');
+	});
+	
+	$('#nav > li > a').focus(function() {
+		$('#nav > li').removeClass('focus');
+		$(this).parents('li').addClass('focus');
+	});
+	
+	$('#meta-nav > li > a').focus(function() {
+		$('#meta-nav > li').removeClass('focus');
+		$(this).parents('li').addClass('focus');
+	});
+	
+	$('.mlp_language_box ul li a').focus(function() {
+		$(this).parents('ul').addClass('focus');
+	});
+	
+	// Mobile navigation toggle
+	$('#nav-toggle').bind('click', function(event) {
+		event.preventDefault();
+		$('body').toggleClass('menu-toggled');
+	});
+	// Handling touch devices and laptops with touch window:
+	
+	$('#nav > li > a').on('touchstart ontouchstart',function(e) {	
+		if ($(this).parent().hasClass("has-sub")) {
+		    if($(this).hasClass('clicked-once')) {	
+			$openflyover = false;
+			return true;
+		    } else {
+			    $('#nav > li > a').removeClass('clicked-once');
+			    $('#nav > li').removeClass('focus');
+			    $(this).addClass('clicked-once');
+			    $(this).parent('li').addClass('focus');
+			    e.preventDefault();
+			    $openflyover = true;
+			    return false;
+		    }
+		} else {
+		    return true;
+		}
+	});
+	
 
-		});
-	}
 	
 	
 	// Responsive tables
@@ -284,8 +290,6 @@ jQuery(document).ready(function($) {
 		$(this).closest('.has-sub').children('ul').slideToggle();
 	});
 
-	//Add JS-enabled class to body
-	$('body').addClass('js-enabled');
 
 
 	// Off-canvas navigation
@@ -360,6 +364,19 @@ jQuery(document).ready(function($) {
 	$(window).on('resize', function() {
 		updateResponsivePositioning();
 	});
+
+// AJAX for studienangebot-database
+	$('#studienangebot *').change(function() {
+		// Show loading spinner
+		$('#loading').fadeIn(300);
+		
+		// Get results and replace content
+		$.get($(this).parents('form').attr('action'), $(this).parents('form').serialize(), function(data) {
+			$('#studienangebot-result').replaceWith($(data).find('#studienangebot-result'));
+			$('#loading').fadeOut(300);
+		});
+	});
+
 
 }
 );

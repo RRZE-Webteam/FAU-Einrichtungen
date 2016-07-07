@@ -29,7 +29,15 @@ class FAUShortcodes {
 	}
 	
 	function fau_hr ( $atts, $content = null) {
-		return '<hr>';
+	    extract(shortcode_atts(array(
+			"size" => ''
+			), $atts));
+	    
+	    $return = '<hr';
+	    $return .= ($size) ? ' class="' . $size. '"' : '';
+	    $return .= '>';
+	    
+	    return $return;
 	}
 	
 	function fau_organigram( $atts, $content = null) {
@@ -222,11 +230,18 @@ class BoostrapShortcodes {
     add_shortcode('row', array( $this, 'bs_row' ));
 
     add_shortcode('table', array( $this, 'bs_table' ));
+    
+    
+    // Accordion
     add_shortcode('collapsibles', array( $this, 'bs_collapsibles' ));
+    add_shortcode('accordion', array( $this, 'bs_collapsibles' ));
+    add_shortcode('accordionsub', array( $this, 'bs_collapsibles' ));
+	// Define more as one shortcode name to allow nestet accordions
+    
     add_shortcode('collapse', array( $this, 'bs_collapse' ));
-
-    add_shortcode('tabs', array( $this, 'bs_tabs' ));
-    add_shortcode('tab', array( $this, 'bs_tab' ));
+    add_shortcode('accordion-item', array( $this, 'bs_collapse' ));
+	// Define more as one shortcode name to allow nestet accordions
+    
 
     
 
@@ -359,94 +374,6 @@ class BoostrapShortcodes {
 
   /*--------------------------------------------------------------------------------------
     *
-    * bs_tabs
-    *
-    * @author Filip Stefansson
-    * @since 1.0
-    * Modified by TwItCh twitch@designweapon.com
-    *Now acts a whole nav/tab/pill shortcode solution!
-    *-------------------------------------------------------------------------------------*/
-  function bs_tabs( $atts, $content = null ) {
-    
-    if( isset($GLOBALS['tabs_count']) )
-      $GLOBALS['tabs_count']++;
-    else
-      $GLOBALS['tabs_count'] = 0;
-
-    $defaults = array('class' => 'nav-tabs');
-    extract( shortcode_atts( $defaults, $atts ) );
-
-    
-    // Extract the tab titles for use in the tab widget.
-    preg_match_all( '/tab title="([^\"]+)"/i', $content, $matches, PREG_OFFSET_CAPTURE );
-    
-    $tab_titles = array();
-    if( isset($matches[1]) ){ $tab_titles = $matches[1]; }
-    
-    $output = '';
-    
-    if( count($tab_titles) ){
-      $output .= '<ul class="nav ' . $class . '" id="custom-tabs-'. rand(1, 100) .'">';
-      
-      $i = 0;
-      foreach( $tab_titles as $tab ){
-        if($i == 0)
-          $output .= '<li class="active">';
-        else
-          $output .= '<li>';
-
-        $output .= '<a href="#custom-tab-' . $GLOBALS['tabs_count'] . '-' . sanitize_title( $tab[0] ) . '"  data-toggle="tab">' . $tab[0] . '</a></li>';
-        $i++;
-      }
-        
-        $output .= '</ul>';
-        $output .= '<div class="tab-content">';
-        $output .= do_shortcode( $content );
-        $output .= '</div></div>';
-    } else {
-      $output .= do_shortcode( $content );
-    }
-    
-    return $output;
-  }
-  
-
-
-
-  /*--------------------------------------------------------------------------------------
-    *
-    * bs_tab
-    *
-    * @author Filip Stefansson
-    * @since 1.0
-    * 
-    *-------------------------------------------------------------------------------------*/
-  function bs_tab( $atts, $content = null ) {
-
-    if( !isset($GLOBALS['current_tabs']) ) {
-      $GLOBALS['current_tabs'] = $GLOBALS['tabs_count'];
-      $state = 'active';
-    } else {
-
-      if( $GLOBALS['current_tabs'] == $GLOBALS['tabs_count'] ) {
-        $state = ''; 
-      } else {
-        $GLOBALS['current_tabs'] = $GLOBALS['tabs_count'];
-        $state = 'active';
-      }
-    }
-
-    $defaults = array( 'title' => 'Tab');
-    extract( shortcode_atts( $defaults, $atts ) );
-    
-    return '<div id="custom-tab-' . $GLOBALS['tabs_count'] . '-'. sanitize_title( $title ) .'" class="tab-pane ' . $state . '">'. do_shortcode( $content ) .'</div>';
-  }
-  
-
-
-
-  /*--------------------------------------------------------------------------------------
-    *
     * bs_collapsibles
     *
     * @author Filip Stefansson
@@ -464,20 +391,20 @@ class BoostrapShortcodes {
     extract( shortcode_atts( $defaults, $atts ) );
     
     // Extract the tab titles for use in the tab widget.
-    preg_match_all( '/collapse title="([^\"]+)"/i', $content, $matches, PREG_OFFSET_CAPTURE );
+ //   preg_match_all( '/collapse title="([^\"]+)"/i', $content, $matches, PREG_OFFSET_CAPTURE );
     
-    $tab_titles = array();
-    if( isset($matches[1]) ){ $tab_titles = $matches[1]; }
+//    $tab_titles = array();
+//    if( isset($matches[1]) ){ $tab_titles = $matches[1]; }
     
     $output = '';
     
-    if( count($tab_titles) ){
+   // if( count($tab_titles) ){
       $output .= '<div class="accordion" id="accordion-' . $GLOBALS['collapsibles_count'] . '">';
       $output .= do_shortcode( $content );
       $output .= '</div>';
-    } else {
-      $output .= do_shortcode( $content );
-    }
+   // } else {
+   //   $output .= do_shortcode( $content );
+  //  }
     
     return $output;
   }
@@ -501,7 +428,7 @@ class BoostrapShortcodes {
       $GLOBALS['current_collapse']++;
 
 
-    $defaults = array( 'title' => 'Tab', 'state' => '', 'color' => '');
+    $defaults = array( 'title' => 'Tab', 'state' => '', 'color' => '', 'id' => '');
     extract( shortcode_atts( $defaults, $atts ) );
     
     if (!empty($state)) 
@@ -509,11 +436,14 @@ class BoostrapShortcodes {
 
 
     $color = $color ? ' ' . esc_attr( $color ) : '';
-    
+    $id = intval($id) ? intval($id) : 0;
+    if ($id<1) {
+	$id = $GLOBALS['current_collapse'];
+    }
     
     $output = '<div class="accordion-group'.$color.'">';
-    $output .= '<div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-' . $GLOBALS['collapsibles_count'] . '" href="#collapse_' . $GLOBALS['current_collapse'] .'">' . $title . '</a></div>'."\n";
-    $output .= '<div id="collapse_' . $GLOBALS['current_collapse'] . '" class="accordion-body ' . $state . '">';
+    $output .= '<div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-' . $GLOBALS['collapsibles_count'] . '" href="#collapse_' . $id .'">' . $title . '</a></div>'."\n";
+    $output .= '<div id="collapse_' . $id . '" class="accordion-body ' . $state . '">';
     $output .= '<div class="accordion-inner clearfix">'."\n";
     $output .= do_shortcode($content);
     $output .= '</div>';

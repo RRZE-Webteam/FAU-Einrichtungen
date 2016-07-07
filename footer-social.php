@@ -47,48 +47,78 @@ $show =false;
     }
  }
 
+ $showicons = false;
+ $showsocialsidebar = false;
+ if ((isset($options['socialmedia'])) && ($options['socialmedia']==true)) {
+     $showicons = true;
+ }
+ if ( is_active_sidebar( 'startpage-socialmediainfo' ) ) { 
+     $showsocialsidebar = true;
+ }
+ 
+ if (($showicons==false) && ($showsocialsidebar==false)) {
+     $show = false;
+ }
+ 
 if ($show) {
 ?>
 		<div id="social">
 			<div class="container">
 				<div class="row">
-					<?php if (isset($options['socialmedia'])): ?>
-						<div class="span3">
-							<?php 
-							if (!empty($options['socialmedia_buttons_title'])) {
-							    echo '<h2 class="small">'.$options['socialmedia_buttons_title'].'</h2>';
-							}
-						
-							global $default_socialmedia_liste;
+					<?php 
+					if ((($showicons==true) && ($showsocialsidebar==false)) 
+					    || (($showicons==false) && ($showsocialsidebar==true)) )  { ?>
+					    <div class="span12">
+					<?php     
+					} else { 
+					?>
+					    <div class="span3">					
+					<?php 
+					}
+					if ($showicons==true) {
+					    if (!empty($options['socialmedia_buttons_title'])) {
+						echo '<h2 class="small">'.$options['socialmedia_buttons_title'].'</h2>';
+					    }
 
-							echo '<nav id="socialmedia" aria-label="'.__('Social Media','fau').'">';
-							echo '<ul class="social">';       
-							foreach ( $default_socialmedia_liste as $entry => $listdata ) {        
+					    global $default_socialmedia_liste;
 
-							    $value = '';
-							    $active = 0;
-							    if (isset($options['sm-list'][$entry]['content'])) {
-								    $value = $options['sm-list'][$entry]['content'];
-								    if (isset($options['sm-list'][$entry]['active'])) {
-									$active = $options['sm-list'][$entry]['active'];
-								    } 
-							    } else {
-								    $value = $default_socialmedia_liste[$entry]['content'];
-								    $active = $default_socialmedia_liste[$entry]['active'];
-							     }
+					    echo '<nav id="socialmedia" aria-label="'.__('Social Media','fau').'">';
+					    echo '<div itemscope itemtype="http://schema.org/Organization">';
+					    echo fau_create_schema_publisher(false);							
+					    echo '<ul class="social">';       
+					   
+					    ksort($default_socialmedia_liste);
+					    
+					    foreach ( $default_socialmedia_liste as $entry => $listdata ) {        
 
-							    if (($active ==1) && ($value)) {
-								echo '<li class="social-'.$entry.'"><a href="'.$value.'">';
-								echo $listdata['name'].'</a></li>';
-							    }
-							}
-							echo '</ul>';
-							echo '</nav>';
-						?>
+						$value = '';
+						$active = 0;
+						if (isset($options['sm-list'][$entry]['content'])) {
+							$value = $options['sm-list'][$entry]['content'];
+							if (isset($options['sm-list'][$entry]['active'])) {
+							    $active = $options['sm-list'][$entry]['active'];
+							} 
+						} else {
+							$value = $default_socialmedia_liste[$entry]['content'];
+							$active = $default_socialmedia_liste[$entry]['active'];
+						 }
 
-						</div>
-					<?php endif; ?>
-					<div class="span9">
+						if (($active ==1) && ($value)) {
+						    echo '<li class="social-'.$entry.'"><a itemprop="sameAs" href="'.$value.'">';
+						    echo $listdata['name'].'</a></li>';
+						}
+					    }
+					    echo '</ul>';
+					    echo '</div>';
+					    echo '</nav>';
+					    
+					  
+					    if ($showsocialsidebar==true) {
+						 echo '</div>'; // span3, da beide activ bereiche activ
+						 echo '<div class="span9">';
+					    }
+					}
+					if ($showsocialsidebar==true) { ?>
 						<div class="row">
 						<?php 
 						    if ( is_active_sidebar( 'startpage-socialmediainfo' ) ) { 
@@ -100,6 +130,8 @@ if ($show) {
 						    <a href="<?php echo $options['start_title_videoportal_url']; ?>"><?php echo $options['start_title_videoportal_socialmedia']; ?></a>
 						</div>
 						<?php } ?>
+					<?php } ?>
+
 					</div>						
 				</div>
 			</div>

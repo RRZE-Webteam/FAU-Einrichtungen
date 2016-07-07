@@ -1,29 +1,31 @@
 /* Logo */
 #logo {
-	display: block;
+	@include inline-block();
 	float: left;
-	
+	width: 240px;
 	max-height: 85px;
-	max-width: 300px;
-	min-width: 120px;
 	height: 65px;
-	margin: 20px 0 10px;
+	
+	
+	margin: 20px 0 0 0;
 	padding: 0;
-	text-align: right;
 	
 	h1 {
-	    display: inline-block;
+	    display: table;
 	    font-size: 19px;
 	    line-height: 24px;
 	    font-weight: bold;
 	    color: $colorPrimary;
 	    overflow: hidden;
-	    padding: 20px 5px;
-	    vertical-align: text-bottom;
-	    text-align: left;
+	    height: 65px;
 	    max-height: 85px;
-	    min-width: 100px;
+	    padding: 0;
 	    margin: 0;
+	    
+	    span {
+		display: table-cell;
+		vertical-align: bottom;
+	    }
 	    a {
 		color: $colorPrimary;
 		
@@ -41,14 +43,22 @@
 	    max-width: 300px;
 	    height: 65px;
 	    width: auto;
-	    padding-right: 10px;
-	    margin-top: -20px;
-	     &:hover,
-		 &:focus {
+	    padding: 0;
+	    display: table-cell;
+	    vertical-align: bottom;
+		
+	    &:hover,
+	    &:focus {
 		 background-color: white;
 		 }
 		
 	}
+}
+
+.header-menu {
+    width: 700px;
+    float: left;
+    margin-left: 0;
 }
 
 /* Primary Navigation */
@@ -109,7 +119,8 @@
 					border-bottom: 1px solid $colorHover;
 				}
 
-				a:hover, a:focus {
+				a:hover, 
+				a:focus {
 					text-decoration: none;
 					background-color: $colorHover !important;;
 				}
@@ -208,7 +219,7 @@
     	color: $colorPrimary; // $colorMainMenu;
 	
 }
-
+#nav li.level1 a.clicked-once,
 #nav li.level1.focus.has-sub a,
 .no-js #nav li.level1:hover a, 
 .no-js #nav li.active a, 
@@ -222,12 +233,14 @@
 	
 }
 
+.no-js #nav li.level1 a.clicked-once,
 .no-js #nav li.level1 a:hover, 
 .no-js #nav li.level1 a:focus {
 	background-color: $colorPrimary; 
 	color: $colorMainMenu;
 }
 
+#nav li.has-sub a.clicked-once, 
 #nav li.has-sub a:hover, 
 #nav li.has-sub a:focus, 
 #nav li.has-sub.active, 
@@ -239,14 +252,8 @@
 
 }
 
-/*
-body.admin-bar #nav .nav-flyout {
-	top: 151px;
-}
-*/
-
-.no-js #nav li.level1:hover .nav-flyout, 
-.no-js #nav li.level1:focus .nav-flyout, 
+#nav li.level1:hover .nav-flyout, 
+#nav li.level1:focus .nav-flyout, 
 #nav li.focus .nav-flyout {
 	display: block;
 }
@@ -260,10 +267,7 @@ body.admin-bar #nav .nav-flyout {
 		z-index: 100;
 		
 	}
-	
-	#nav .nav-flyout {
-		top: 139px //85px;
-	}
+
 }
 .nav-scrolled {
     #header {
@@ -476,7 +480,7 @@ body.admin-bar #nav .nav-flyout {
 	margin-top: 20px;
 	padding-bottom: 10px;
 	position: relative; 
-	@include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% 155%);
+	@include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% 280px);
 	@include transition(1.0s, all);
 	
 	h1, h2, h3, h4, p {
@@ -535,7 +539,6 @@ body.admin-bar #nav .nav-flyout {
 	    @include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% 20%);
 	    height: 142px;
 	    margin-bottom: 30px;
-	    margin-top: 20px;
 	    padding: 0;
 	    
 	    
@@ -771,6 +774,7 @@ body.admin-bar #nav .nav-flyout {
 		h2 {
 			color: #fff;
 			background: $colorPrimary;
+		//	background-color: rgba($colorPrimary,0.7);
 			display: inline;
 			padding: 0 3px;
 			margin: 0;
@@ -780,6 +784,7 @@ body.admin-bar #nav .nav-flyout {
 			@include inline-block;
 			color: #fff;
 			background: $colorPrimary;
+		//	background-color: rgba($colorPrimary,0.7);
 			padding: 0 3px;
 			margin: 4px 0;
 			font-size: 18px;
@@ -964,12 +969,12 @@ body.admin-bar #nav .nav-flyout {
 	.current_page_ancestor {
 		a {
 			color: $colorSubNavCurrent;
-			background-color: $colorSubNavCurrentBackground; // #d0d8e6;
+			background-color: $colorSubNavCurrentBackground; 
 			border: none;
 			
 			&:hover, &:focus {        
-				background-color: $colorSubNavCurrentHoverBackground; // #b9c4d6;
-				color: $colorSubNavCurrentHover; // #003366;
+				background-color: $colorSubNavCurrentHoverBackground; 
+				color: $colorSubNavCurrentHover; 
 			}
 		}
 		
@@ -995,36 +1000,36 @@ body.admin-bar #nav .nav-flyout {
 		padding-left: 45px;
 		
 		&:hover, &:focus {
-			background: $colorSubNavBackgroundHover; // #7a8ba7 !important;
-			color: $colorSubNav; // #fff !important;
+			background: $colorSubNavBackgroundHover; 
+			color: $colorSubNav; 
 		}
 	}
 	
 	li .current_page_item,
 	li .current_page_ancestor {
 		a {
-			background: $colorSubNavCurrentBackground; // #b9c4d6;
+			background: $colorSubNavCurrentBackground; 
 		}
 		
 		li {
 			a:hover, a:focus {
-				background: $colorSubNavCurrentHoverBackground; // #98a5bc;
+				background: $colorSubNavCurrentHoverBackground; 
 			}
 		}
 	}
 	
 	li .current_page_ancestor .current_page_item a {
-		background: $colorSubNavCurrentHoverBackground; // #98a5bc;
+		background: $colorSubNavCurrentHoverBackground;
 	}
 	
 	li li .current_page_ancestor a {
-		background: $colorSubNavCurrentHoverBackground; // #98a5bc;
+		background: $colorSubNavCurrentHoverBackground;
 	}
 	
 	li li li li a,
 	li li li li.current_page_item a {
-		background: $colorSubNavBackgroundHover; // #7a8ba7 !important;
-		color: $colorSubNavCurrent; // #fff !important;
+		background: $colorSubNavBackgroundHover; 
+		color: $colorSubNavCurrent;
 	}
 	
 	li.protected-page a {
@@ -1064,6 +1069,10 @@ body.admin-bar #nav .nav-flyout {
 		
 		li {
 			@include no-list;
+			@include inline-block;
+			max-width: 220px;
+			width: 100%;
+			
 			background: none;
 			
 			a {
@@ -1092,7 +1101,7 @@ body.admin-bar #nav .nav-flyout {
 				color: $colorSocialBackground;
 				height: 21px;
 				width: 24px;
-				padding-top: 3px;
+				padding-top: 5px;
 				line-height: 24px;
 				text-align: center;
 				@include border-radius(12px);
@@ -1101,40 +1110,27 @@ body.admin-bar #nav .nav-flyout {
 			}
 		}
 		
-		/*
-		li.social-facebook a:before { @extend .fa-facebook-square; }
-		li.social-twitter a:before { @extend .fa-twitter-square; }
-		li.social-gplus a:before { @extend .fa-google-plus-square; }
-		li.social-youtube a:before { @extend .fa-youtube-square; }
-		li.social-vimeo a:before { @extend .fa-vimeo-square; }
-		li.social-flickr a:before { @extend .fa-flickr; }
-		li.social-xing a:before { @extend .fa-xing-square; }
-		li.social-pinterest a:before { @extend .fa-pinterest-square; }
-		li.social-feed a:before { @extend .fa-rss-square; }
-		li.social-delicious a:before { @extend .fa-delicious; }
-		li.social-skype a:before { @extend .fa-skype; }
-		li.social-tumblr a:before { @extend .fa-tumblr-square; }
-		li.social-github a:before { @extend .fa-github-square; }
-		*/
-		li.social-facebook a:before { @extend .jv-facebook; }
-	 	li.social-diaspora a:before { @extend .fa; @extend .fa-3x; content: '*'; vertical-align: -5px; line-height: 37px; }
-		li.social-identica a:before { @extend .jv-identi-ca; }
-		li.social-skype a:before { @extend .jv-skype; }
-		li.social-itunes a:before { @extend .jv-itunes; }
-		li.social-twitter a:before { @extend .jv-twitter; }
-		li.social-gplus a:before {  @extend .fa;  @extend .fa-fw; line-height: 1.0em; @extend .fa-google;}
-		li.social-youtube a:before { @extend .jv-youtube; }
-		li.social-vimeo a:before { @extend .jv-vimeo; }
-		li.social-flickr a:before { @extend .jv-flickr; }
-		li.social-xing a:before { @extend .jv-xing; }
-		li.social-pinterest a:before { @extend .fa-pinterest-p; @extend .fa; @extend .fa-lg; line-height: 1.0em;}
+	
+		
+		li.social-gplus a:before {  @extend .fa;  @extend .fa-google-plus;}
+		li.social-diaspora a:before { @extend .fa; content: '*'; font-size: 20px; font-weight: bold;}
+		li.social-pinterest a:before { @extend .fa; @extend .fa-pinterest-p; @extend .fa-lg; line-height: 1.0em;}
 		li.social-instagram a:before { @extend .fa; @extend .fa-instagram; line-height: 1.0em;}
-
-		li.social-feed a:before { @extend .jv-rss; }
-		li.social-delicious a:before { @extend .jv-delicious; }
-		li.social-skype a:before { @extend .jv-skype; }
-		li.social-tumblr a:before { @extend .jv-tumblr; }
-		li.social-github a:before { @extend .jv-github; }
+		li.social-facebook a:before {  @extend .fa; @extend .fa-facebook; }
+		li.social-twitter a:before {  @extend .fa; @extend .fa-twitter; }
+		li.social-xing a:before {  @extend .fa; @extend .fa-xing; }
+		li.social-github a:before {  @extend .fa; @extend .fa-github; }	
+		li.social-skype a:before {  @extend .fa; @extend .fa-skype; }
+		li.social-tumblr a:before {  @extend .fa; @extend .fa-tumblr; }
+		li.social-delicious a:before {  @extend .fa; @extend .fa-delicious; }
+		li.social-flickr a:before {  @extend .fa; @extend .fa-flickr; }
+		li.social-feed a:before { @extend .fa;  @extend .fa-rss-square; }
+		li.social-vimeo a:before { @extend .fa; @extend .fa-vimeo-square; }
+		li.social-youtube a:before { @extend .fa; @extend .fa-youtube-square; }
+		li.social-itunes a:before { @extend .fa; @extend .fa-apple; }
+		li.social-wikipedia a:before { @extend .fa; @extend .fa-wikipedia-w; }
+		
+		
 	}
 	
 	iframe {

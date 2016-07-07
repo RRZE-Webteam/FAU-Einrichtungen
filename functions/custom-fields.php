@@ -20,8 +20,10 @@ function fau_metabox_cf_setup() {
 
 	/* Save sidecontent */
 	add_action( 'save_post', 'fau_save_metabox_page_untertitel', 10, 2 );
-	add_action( 'save_post', 'fau_save_metabox_page_subnavmenu', 10, 2 );
 	
+	if ($options['website_type']==-1) {
+	    add_action( 'save_post', 'fau_save_metabox_page_subnavmenu', 10, 2 );
+	}
 	
 	
 	add_action( 'save_post', 'fau_save_metabox_page_portalmenu', 10, 2 );
@@ -61,13 +63,14 @@ function fau_add_metabox_page() {
 		'fau_do_metabox_page_portalmenu',		
 		 'page','side','core'
 	);
-
-	add_meta_box(
-		'fau_metabox_page_subnavmenu',			
-		esc_html__( 'Menüoptionen', 'fau' ),		
-		'fau_do_metabox_page_subnavmenu',		
-		 'page','side','core'
-	);
+	if ($options['website_type']==-1) {
+	    add_meta_box(
+		    'fau_metabox_page_subnavmenu',			
+		    esc_html__( 'Menüoptionen', 'fau' ),		
+		    'fau_do_metabox_page_subnavmenu',		
+		     'page','side','core'
+	    );
+	}
 	add_meta_box(
 		'fau_metabox_page_imagelinks',			
 		esc_html__( 'Logos (Bildlinks) anzeigen', 'fau' ),		

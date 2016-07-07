@@ -118,7 +118,7 @@
 		&.philfak {
 			border-color: $colorPhilFak;
 		}
-		&.rwf,
+		&.rw,
 		&.rwfak {
 			border-color: $colorRwFak;
 		}
@@ -556,8 +556,8 @@ ul.person-info {
 		background-image: none;
 		padding-left: 0px;
 		min-height: 20px;
-		font-size: 13px;
-		line-height: 20px;
+		// font-size: 13px;
+		// line-height: 20px;
 		background-repeat: no-repeat;
 		background-position: left center;
 		
@@ -1468,7 +1468,7 @@ ul.tagcloud {
 		}
 		
 		.accordion-body {
-			display: none;
+			display: block; // none;
 			overflow: hidden;
 			    
 			.accordion-inner {
@@ -1479,22 +1479,27 @@ ul.tagcloud {
 			}
 		}
 	}
+	.phil .accordion-heading .accordion-toggle,
 	.philfak .accordion-heading .accordion-toggle,
 	.gold .accordion-heading .accordion-toggle {
 		border-color: $colorPhilFak;
 	}
+	.rw .accordion-heading .accordion-toggle,
 	.rwfak .accordion-heading .accordion-toggle,
 	.red .accordion-heading .accordion-toggle {
 		border-color: $colorRwFak;
 	}
+	.med .accordion-heading .accordion-toggle,
 	.medfak .accordion-heading .accordion-toggle,
 	.blue .accordion-heading .accordion-toggle {
 		border-color: $colorMedFak;
 	}
+	.nat .accordion-heading .accordion-toggle,
 	.natfak .accordion-heading .accordion-toggle,
 	.green .accordion-heading .accordion-toggle {
 		border-color: $colorNatFak;
 	}
+	.tf .accordion-heading .accordion-toggle,
 	.techfak .accordion-heading .accordion-toggle,
 	.grey .accordion-heading .accordion-toggle {
 		border-color: $colorTechFak;
@@ -1510,26 +1515,16 @@ ul.tagcloud {
 	h1, h2, h3, h4, h5, h6 {
 	    color: $colorText;
 	}
+	
+    & > .accordion {
+	.accordion-heading .accordion-toggle {
+	    border-left: 0;
+	}
+    }
 }
 
 
-.accordion .accordion .accordion-inner,
-.accordion .accordion .accordion .accordion .accordion-inner,
-.accordion .accordion .accordion .accordion .accordion .accordion .accordion-inner,
-.accordion .accordion .accordion .accordion .accordion .accordion .accordion .accordion .accordion-inner {
-	background: $colorContentRegions;
-}
 
-.accordion .accordion .accordion .accordion-inner,
-.accordion .accordion .accordion .accordion .accordion .accordion-inner,
-.accordion .accordion .accordion .accordion .accordion .accordion .accordion .accordion-inner,
-.accordion .accordion .accordion .accordion .accordion .accordion .accordion .accordion .accordion .accordion-inner {
-	background: $colorContentRegions;
-}
-
-.accordion .accordion .accordion-heading .accordion-toggle {
-	border-left: 0;
-}
 
 /* Boxes like accordions for single glossar entries and other article-inserts/shortcodes */
 
@@ -1550,26 +1545,27 @@ ul.tagcloud {
 	    color: $colorDefault; // $colorPrimary;
 	    padding: 0px;
 	}
+	&.phil,
 	&.philfak {
 		border-color: $colorPhilFak;
 	}
-
+	&.rw,
 	&.rwfak {
 		border-color: $colorRwFak;
 	}
-
+	&.med,
 	&.medfak {
 		border-color: $colorMedFak;
 	}
-
+	&.nat,
 	&.natfak {
 		border-color: $colorNatFak;
 	}
-
+	&.tf,
 	&.techfak {
 		border-color: $colorTechFak;
 	}
-	
+	   
 	&.fau, &.default {
 		border-color: $colorDefault;
 	}
@@ -1586,13 +1582,6 @@ ul.tagcloud {
     } 
 }
 
-
-/* Social Media Buttons */
-.likebutton-dynamic, .tweetbutton-dynamic {
-	float: left;
-	margin-right: 20px;
-	margin-top: 10px;
-}
 
 
 

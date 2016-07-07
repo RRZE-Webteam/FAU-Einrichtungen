@@ -153,11 +153,13 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		} elseif ($rellink == '/') {
 		    // Link auf Startseite
 		    $classes[] = 'homelink';
-		    $force_cleanmenu = 1;
+		    $force_cleanmenu = 2;
 		}
 
-		if (($options['advanced_forceclean_mainmenu']) && ($force_cleanmenu)) {
-		    // Ignore this menu item  
+		if (($options['advanced_forceclean_homelink']) && ($force_cleanmenu==1)) {
+		    // Ignore homelink
+		} elseif (($options['advanced_forceclean_externlink']) && ($force_cleanmenu==1)) {    
+		    // Ignore external link in Main menu
 		} else {
 		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 		    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';

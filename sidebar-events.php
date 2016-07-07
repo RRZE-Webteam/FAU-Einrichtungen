@@ -11,7 +11,9 @@ $topevent_posts = get_posts(array('tag' => $options['start_topevents_tag'], 'num
 foreach($topevent_posts as $topevent) { 
     $topevent_date  = get_post_meta( $topevent->ID, 'topevent_date', true );
     $todaysDate = time();
-    $postDate = strtotime($topevent_date);
+    $postDate = strtotime($topevent_date) + 43200;
+	// 12 Stunden offset, damit die Veranstaltung auch noch angezeigt wird, wenn
+	// sie am selben Tag gestartet ist.
     if ($postDate >= $todaysDate) {
     ?>
     <div class="widget h-event vevent">

@@ -4,25 +4,42 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'js-version'		    => '1.5',
+    'js-version'			=> '1.5',
 	// Theme-Versionslinie
     'website_type'			=> 2,
 	// website_type: 
-	//  0 = Fakultaetsportal; 1 = Lehrstuehle, Departents 
-	//  2 = Zentrale Einrichtungen, 3 = Kooperationen 
+	//  0 = Fakultaetsportal; 
+	//  1 = Lehrstuehle, Departents 
+	//  2 = Zentrale Einrichtungen, 
+	//  3 = Kooperationen 
+	// -1 = fau.de Portal (4 Spalter in Bühne, kein Link zur FAU. 
+	//                       Nur wählbar für definierte Domains)
     'website_usefaculty'		=> '',
 	// phil, med, nat, rw, tf
 	// Setzt fest die Fakultät bei Wahl des Website-Types    
+    'website_allow_fauportal'		=> array('www.fau.de',
+						'www.fau.eu',
+						'zuv.cms.rrze.uni-erlangen.de',
+						'megli.zuv.cms.rrze.uni-erlangen.de',
+						'heledir.zuv.cms.rrze.uni-erlangen.de',
+						'annabon.zuv.cms.rrze.uni-erlangen.de',
+						'tuilinn.zuv.cms.rrze.uni-erlangen.de',
+						'cugu.zuv.cms.rrze.uni-erlangen.de',
+						'alfirin.test.rrze.fau.de',
+						'ithron.rrze.uni-erlangen.de',
+						'test8.tindu.rrze.uni-erlangen.de',		
+						'test4.tindu.rrze.uni-erlangen.de'),
+	// welche Websites können bei website_type die Option -1 wählen 
     'default_home_orga'			=> 'fau',
 	// Muss in $default_fau_orga_data auf erster Ebene vorhanden sein.	
     'default_faculty_useshorttitle'	=> false,   
-    'optionpage-tab-default'	    => 'website',
-    'content-width'		    => 770,
-    'src-fallback-slider-image'	    => get_fau_template_uri().'/img/slider-fallback.jpg',
-    'slider-category'		    => 'header',
-    'slider-catid'		    => 1,    
-    'src-scriptjs'		    => get_fau_template_uri() . '/js/scripts.min.js',
-    'src-pluginsjs'		    => get_fau_template_uri() . '/js/libs/plugins.min.js',
+    'optionpage-tab-default'		=> 'website',
+    'content-width'			=> 770,
+    'src-fallback-slider-image'		=> get_fau_template_uri().'/img/slider-fallback.jpg',
+    'slider-category'			=> 'header',
+    'slider-catid'			=> 1,    
+    'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.min.js',
+    'src-pluginsjs'			=> get_fau_template_uri() . '/js/libs/plugins.min.js',
     'default_slider_excerpt_length' => 240,
     'start_header_count'	    => 5,
     'start_max_newscontent'	    => 5,
@@ -239,9 +256,10 @@ $defaultoptions = array(
     'advanced_display_hero_credits'	=> true,   
     'advanced_display_postthumb_credits'    => true,
     
-    'advanced_forceclean_mainmenu'	=> true,
-	// Links auf externe Seiten und der Startseite werden aus dem Hauptmenu entfernt
-
+    'advanced_forceclean_homelink'	=> true,
+	// Links auf die Startseite werden aus dem Hauptmenu entfernt
+    'advanced_forceclean_externlink'	=> true,
+	// Links auf externe Seiten werden aus dem Hauptmenu entfernt
     
 ); 
 
@@ -276,6 +294,7 @@ $setoptions = array(
 				    3 => __('Website für uniübergreifende Kooperationen mit Externen','fau') ),
 		    'default' => $defaultoptions['website_type'],
 		    'parent'  => 'webgroup'
+		    
 		),  
 	    'default_faculty_useshorttitle' => array(
 		    'type'    => 'bool',
@@ -292,7 +311,6 @@ $setoptions = array(
 		    'maxheight'	=> 182,
 		    'title'   => __( 'Banner Startseite', 'fau' ),
 		    'label'   => __( 'Festes Banner für die Startseite (Template für Lehrstühle und Einrichtungen) im Format 1260x182 Pixel', 'fau' ),               
-		//    'default' => $defaultoptions['default_startseite-bannerbild-image_src'],
 		    'parent'  => 'webgroup'
               ),  
 	       
@@ -413,6 +431,7 @@ $setoptions = array(
        ),
        'allgemeines'   => array(
            'tabtitle'   => __('Allgemeine Einstellungen', 'fau'),
+	   'user_level'	=> 1,
            'fields' => array(
               
               'menu_pretitle_portal' => array(
@@ -562,9 +581,10 @@ $setoptions = array(
        ),
         'templates'   => array(
            'tabtitle'   => __('Templates', 'fau'),
+	   'user_level'	=> 1,
            'fields' => array(
                             
-	       'newsbereich'  => array(
+	      'newsbereich'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Startseite Nachrichtenbereich', 'fau' ),                      
               ),
@@ -684,6 +704,7 @@ $setoptions = array(
        ), 
        'advanced'   => array(
            'tabtitle'   => __('Erweitert', 'fau'),
+	   'user_level'	=> 1,
            'fields' => array(
                'bedienung'  => array(
                   'type'    => 'section',
@@ -747,7 +768,8 @@ $setoptions = array(
 	       
 	      'design'  => array(
                   'type'    => 'section',
-                  'title'   => __( 'Design', 'fau' ),                      
+                  'title'   => __( 'Design', 'fau' ),       
+		  'user_level'	=> 2,
               ),
 	        'advanced_page_start_herojumplink' => array(
                   'type'    => 'bool',
@@ -807,9 +829,31 @@ $setoptions = array(
 		    'parent'  => 'breadcrumb'
 		),   
 	       
+	        'topmenulinks'  => array(
+		    'type'    => 'section',
+		    'title'   => __( 'Hauptmenü', 'fau' ),                      
+		),
+	       'advanced_forceclean_homelink'	  => array(
+		    'type'    => 'bool',
+		    'title'   => __( 'Links auf Startseite', 'fau' ),
+		    'label'   => __( 'Links auf die Startseite werden aus dem Hauptmenu entfernt, da diese unnötig sind (das Logo der Website verlinkt bereits zur Startseite)', 'fau' ),                
+		    'default' => $defaultoptions['advanced_forceclean_homelink'],
+		    'parent'  => 'topmenulinks'
+		),  
+	       'advanced_forceclean_externlink'	  => array(
+		    'type'    => 'bool',
+		    'title'   => __( 'Externe Links', 'fau' ),
+		    'label'   => __( 'Links auf externe Seiten werden aus dem Hauptmenu entfernt. Im Hauptmenü sollen aus Gründen der Usability nur Links auf Seiten des eigenen Angebots stehen. Externe Links gehören in andere Menüs (z.B. Metanavigation, Footer oder Quicklinks) oder in den Text der Seiten.', 'fau' ),                
+		    'default' => $defaultoptions['advanced_forceclean_externlink'],
+		    'parent'  => 'topmenulinks'
+		),  
+	    
+	       
+	       
 	       'sidebaropt'  => array(
                   'type'    => 'section',
-                  'title'   => __( 'Erweiterte Einstellunge für Sidebars (von Seiten)', 'fau' ),                      
+                  'title'   => __( 'Erweiterte Einstellunge für Sidebars (von Seiten)', 'fau' ),     
+		  'user_level'	=> 2,
               ),
 	       'advanced_page_sidebar_titleabove'	  => array(
                   'type'    => 'bool',
@@ -909,6 +953,7 @@ $setoptions = array(
 	       	'dimensions'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Image Dimensions', 'fau' ),
+		   'user_level'	=> 3,
 		),   
 	       
                'default_gallery_full_width' => array(
@@ -1034,7 +1079,28 @@ $setoptions = array(
    
           )
        ),
-       
+       'switchusrlvl'    => array(
+	   'tabtitle'   => __('Anzeige der Optionen', 'fau'),
+	   'fields' => array(
+	       
+
+		'admin_user_level' => array(
+		    'type' => 'select',
+		    'title'   => __( 'Anzeigemodus', 'fau' ),
+		    'label'   => __( 'Mit dieser Einstellung können Sie den erweiterten Anzeigemodus oder den Expertenmodus für die Theme Einstellungen ändern.<br>'
+			    . 'Durch den Wechsel von der Normal-Ansicht auf die erweiterte Anzeige oder den Expertenmodus erhalten Sie mehr Optionen angezeigt. '
+			    . 'Viele der Optionen, insbesondere die des Expertenmodus, sollten nur dann geändert werden, wenn man genau weiß man dabei tut. '
+			    . 'Für den Alltagseinsatz eines Theme ist es nicht notwendig auf den erweiterten Anzeigemodus oder den Expertenmodus zu wechseln. '
+			    . '<br><b>Bitte verwenden Sie diese Optionen daher nur mit großer Vorsicht und Bedacht!</b> <br>', 'fau' ),
+		    'liste'   => array(
+				    0 => __('Normal','fau'), 
+				    1 => __('Erweitert','fau'),  
+				    2 => __('Expertenmodus','fau') ),
+		    'default' => 0,
+		    
+		    ),
+	    ),
+       ),
        
     )
 );
