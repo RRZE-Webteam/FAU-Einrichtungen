@@ -1,12 +1,14 @@
 
 // Konstante fuer das Design
  $farbfamilie: 'zuv';
- 
+    // med, phil, nat, rw, tf, zuv 
+
+    
 // Define breakpoints
-$breakXS: 320px;
-$breakSM: 480px;
-$breakMD: 767px;
-$breakLG: 979px;
+$breakXS:   320px;
+$breakSM:   480px;
+$breakMD:   767px;
+$breakLG:   979px;
 
 // Define fonts
 $fontStack: 'roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -95,13 +97,6 @@ $colorPrimaryHero:	    $colorPrimary;
     $siegelurl: '../img/siegel-zuv.png';     
  }
     
-     
-
-// $colorHover: 	desaturate(lighten($colorPrimary, 10%), 40%);
-// $colorLight:	desaturate(lighten($colorPrimary, 69%), 75%);
-// $colorLightest:	desaturate(lighten($colorPrimary, 73%), 75%);
-
-
 
 $colorHover:		    $PalettonDunkelste;
 $colorLight:		    $PalettonHeller;
