@@ -358,7 +358,6 @@
 	padding: 0;
 	max-width: 650px;
 	overflow: hidden;
-//	height: 42px;
 	
 	li {
 		@include no-list;
@@ -432,10 +431,6 @@
 	    background: $colorMetaFAUHomeBackground;
 	    @include transition(background, 0.1s);
 	}
-//	li.facultyhome:hover, li.facultyhome:focus {
-//	    background: $colorMedFak;
-//	    a { color: white; }
-//	}
 	   
 	
 	
@@ -677,7 +672,6 @@
 		height: 182px;
 		
 		img {
-			// height: 182px;
 			height: auto;
 			min-height: 182px;
 			max-width: 1260px;
@@ -774,7 +768,6 @@
 		h2 {
 			color: #fff;
 			background: $colorPrimary;
-		//	background-color: rgba($colorPrimary,0.7);
 			display: inline;
 			padding: 0 3px;
 			margin: 0;
@@ -784,7 +777,6 @@
 			@include inline-block;
 			color: #fff;
 			background: $colorPrimary;
-		//	background-color: rgba($colorPrimary,0.7);
 			padding: 0 3px;
 			margin: 4px 0;
 			font-size: 18px;
@@ -1095,8 +1087,6 @@
 			}
 			
 			a:before {
-			//	@extend .fa;
-			//	@extend .fa-lg;
 				background: $colorSocial;
 				color: $colorSocialBackground;
 				height: 21px;

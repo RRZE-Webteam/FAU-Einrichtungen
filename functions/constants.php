@@ -593,7 +593,7 @@ $setoptions = array(
                   'type'    => 'select',
                   'title'   => __( 'Zahl der Artikel (Gesamt)', 'fau' ),
                   'label'   => __( 'Anzahl der News auf der Startseite unterhalb des Sliders', 'fau' ),
-		   'liste'   => array(2 => 2,3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7),
+		  'liste'   => array(0=> 0, 1=> 1, 2 => 2,3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7),
                   'default' => $defaultoptions['start_max_newscontent'],
 		   'parent'  => 'newsbereich'
               ),  

@@ -87,19 +87,20 @@ global $options;
 				   
 				    
 		    <?php 
-			
-
 			wp_reset_postdata();
 			wp_reset_query();
 			
-		
 			echo "<main>\n";
 			
 			the_content();
-					
-			    $number = 0;
-			    $max = $options['start_max_newspertag'];
-			    $maxall = $options['start_max_newscontent'];
+			
+			
+			$number = 0;
+			$max = $options['start_max_newspertag'];
+			$maxall = $options['start_max_newscontent'];
+			    
+			if ($maxall > 0) {    
+			    
 			    $displayedposts = array();
 			    for($j = 1; $j <= 3; $j++) {
 				    $i = 0;
@@ -151,8 +152,8 @@ global $options;
 			    if ($options['start_link_news_show']) {
 				echo fau_get_category_links();
 			    }
-			    
-			    ?>
+			}    
+			?>
 			</main>	
 				</div>
 				<div class="span4 sidebar-outline">
