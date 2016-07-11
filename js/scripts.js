@@ -76,7 +76,7 @@ jQuery(document).ready(function($) {
 	// Accordions
 	
 	// Close Accordions on start, except first
-	$('.accordion-body').not(":first").hide();
+	$('.accordion-body').not(".accordion-body:first").hide();
 	
 	$('.accordion-toggle').bind('click', function(event) {
 		event.preventDefault();
