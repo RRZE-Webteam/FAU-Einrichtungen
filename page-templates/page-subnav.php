@@ -23,14 +23,16 @@ get_header(); ?>
 			<div class="row">		
 				<div class="span4 span-sm-4">
 					<?php 
-					
+					if ($options['website_type']==-1) {
 						$menulevel = get_post_meta( $post->ID, 'menu-level', true );
 						if ($menulevel) {
 							$offset = $menulevel;
 						} else	{
 							$offset = 2;
 						}
-					
+					} else {
+					    $offset = 2;
+					}
 						$parent_page = get_top_parent_page_id($post->ID, $offset);
 						$parent = get_page($parent_page);
 					?>
