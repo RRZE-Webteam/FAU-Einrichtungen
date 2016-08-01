@@ -76,13 +76,13 @@ jQuery(document).ready(function($) {
 	// Accordions
 	
 	// Close Accordions on start, except first
-	$('.accordion-body').not(".accordion-body:first").hide();
+	$('.accordion-body').not(".accordion-body.open").not('.accordion-body.stayopen').hide();
 	
 	$('.accordion-toggle').bind('click', function(event) {
 		event.preventDefault();
 		var accordion = $(this).attr('href');
 		$(this).closest('.accordion').find('.accordion-toggle').not($(this)).removeClass('active');
-		$(this).closest('.accordion').find('.accordion-body').not(accordion).slideUp();
+		$(this).closest('.accordion').find('.accordion-body').not(accordion).not('.accordion-body.stayopen').slideUp();
 		$(this).toggleClass('active');
 		$(accordion).slideToggle();
 	});
@@ -92,7 +92,7 @@ jQuery(document).ready(function($) {
 		if(event.keyCode == 32) {
 			var accordion = $(this).attr('href');
 			$(this).closest('.accordion').find('.accordion-toggle').not($(this)).removeClass('active');
-			$(this).closest('.accordion').find('.accordion-body').not(accordion).slideUp();
+			$(this).closest('.accordion').find('.accordion-body').not(accordion).not('.accordion-body.stayopen').slideUp();
 			$(this).toggleClass('active');
 			$(accordion).slideToggle();
 		}

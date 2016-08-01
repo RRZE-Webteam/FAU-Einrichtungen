@@ -428,14 +428,19 @@ class BoostrapShortcodes {
       $GLOBALS['current_collapse']++;
 
 
-    $defaults = array( 'title' => 'Tab', 'state' => '', 'color' => '', 'id' => '');
+    $defaults = array( 'title' => 'Tab', 'color' => '', 'id' => '', 'load' => '');
     extract( shortcode_atts( $defaults, $atts ) );
     
-    if (!empty($state)) 
-      $state = 'in';
-
-
+    $addclass = '';
+    
+    $title = esc_attr($title);
     $color = $color ? ' ' . esc_attr( $color ) : '';
+    $load = $load ? ' ' . esc_attr( $load ) : '';
+    
+    if (!empty($load)) {
+	$addclass .= " ".$load;
+    }
+    
     $id = intval($id) ? intval($id) : 0;
     if ($id<1) {
 	$id = $GLOBALS['current_collapse'];
@@ -443,7 +448,7 @@ class BoostrapShortcodes {
     
     $output = '<div class="accordion-group'.$color.'">';
     $output .= '<div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-' . $GLOBALS['collapsibles_count'] . '" href="#collapse_' . $id .'">' . $title . '</a></div>'."\n";
-    $output .= '<div id="collapse_' . $id . '" class="accordion-body ' . $state . '">';
+    $output .= '<div id="collapse_' . $id . '" class="accordion-body'. $addclass .'">';
     $output .= '<div class="accordion-inner clearfix">'."\n";
     $output .= do_shortcode($content);
     $output .= '</div>';
