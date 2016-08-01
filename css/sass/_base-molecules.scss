@@ -561,6 +561,24 @@ ul.person-info {
 		background-repeat: no-repeat;
 		background-position: left center;
 		
+		
+		ul  {
+		    li {
+			list-style-type: disc; 	   
+			li {
+			    list-style-type: circle;
+			}
+		    }
+		}
+		ol  {
+		    li {
+			list-style-type:  decimal; 	
+			li {
+			    list-style-type: circle;
+			}
+		    }
+		}
+		
 	}
 	
 	

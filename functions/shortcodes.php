@@ -57,7 +57,7 @@ class FAUShortcodes {
 		add_shortcode('notice-download', array( $this, 'absatzklasse_download' ));	
 		add_shortcode('notice-faubox', array( $this, 'absatzklasse_faubox' ));	
 
-		
+		add_shortcode('notice', array( $this, 'fau_notice' ));	
 		
 		
 		// Ported and adapted by old bootstrap code
@@ -317,6 +317,26 @@ class FAUShortcodes {
 	return $output;
       }
 
+      
+      /* 
+       * Not for productive use yet
+       */
+    function fau_notice($atts, $content = null) {
+	 extract(shortcode_atts(array(
+	    "type" => 'hinweis',
+	    "block" => ''
+	 ), $atts));
+
+	 
+	$block = $block ? esc_attr( $block ) : 'p';
+	$type = $type ? 'notice-'.$type  : 'notice-hinweis';
+	 
+	$return  =  '<p ';
+	$return .= 'class="'.$type.'"';
+	$return .= '>' . do_shortcode( $content ) . '</p>';
+
+	return $return;
+      }   
 
     /*
      * Absatzklasse attention
