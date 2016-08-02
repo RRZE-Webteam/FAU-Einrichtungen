@@ -982,13 +982,16 @@ Media Queries for Theme FAU-Einrichtungen
 }
 
 
+@media (min-height: 480px) {
+	#wrap { min-height: 480px;}
+}
 
 @media (min-height: 900px) {
-	#wrap { min-height: 670px;}
+	#wrap { min-height: 700px;}
 }
 
 @media (min-height: 1000px) {
-	#wrap { min-height: 770px;}
+	#wrap { min-height: 800px;}
 }
 
 @media (min-height: 1100px) {

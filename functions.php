@@ -163,10 +163,7 @@ function fau_register_scripts() {
 
     wp_register_script( 'fau-libs-jquery-flexslider', get_fau_template_uri() . '/js/libs/jquery.flexslider.js', array('jquery'), $defaultoptions['js-version'], true );
 	// Flexslider für Startseite und für Galerien.  
-    wp_register_script( 'fau-libs-jquery-hoverintent', get_fau_template_uri() . '/js/libs/jquery.hoverintent.js', array(), $defaultoptions['js-version'], true );
-	// Fancybox
-    wp_register_script( 'fau-libs-jquery-fancybox', get_fau_template_uri() . '/js/libs/jquery.fancybox.js', array('jquery'), $defaultoptions['js-version'], true );  
-	// Fuer bessere Lightboxen
+   
     wp_register_script( 'fau-libs-jquery-caroufredsel', get_fau_template_uri() . '/js/libs/jquery.caroufredsel.js', array('jquery'), $defaultoptions['js-version'], true );
     wp_register_script( 'fau-js-caroufredsel', get_fau_template_uri() . '/js/usecaroufredsel.min.js', array('jquery','fau-libs-jquery-caroufredsel'), $defaultoptions['js-version'], true );
 	// Slidende Logos 
@@ -188,13 +185,6 @@ function fau_basescripts_styles() {
     wp_enqueue_style( 'fau-style', get_stylesheet_uri(), array(), $defaultoptions['js-version'] );	
     wp_enqueue_script( 'fau-scripts');
 
-    wp_enqueue_script('fau-libs-jquery-hoverintent');
-	// wird für die Navigationen mit <nav> verwendet
-
-    wp_enqueue_script('fau-libs-jquery-fancybox');
-	// wird für Bilder verwendet, die mit Lightbox vergrößert werden,
-	//  dazu muss bei dem Bild eine Klasse .lightbox im Link gesetzt
-	//   werden: <a class="lightbox" ..>
 }
 add_action( 'wp_enqueue_scripts', 'fau_basescripts_styles' );
 
