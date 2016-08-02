@@ -180,6 +180,7 @@ p {
 		color: $colorText;
 		padding: 10px 0;
 		margin: 20px 0;
+		font-weight: bold;
 		
 		&:before {
 			color: orange;
@@ -199,7 +200,7 @@ p {
 		margin: 20px 0;
 		
 		&:before {
-			color: $colorText;
+			color: $PalettonDunkler;
 			@extend .fa;
 			@extend .fa-2x;
 			@extend .fa-cloud-download;
@@ -216,7 +217,7 @@ p {
 		margin: 20px 0;
 		
 		&:before {
-			color: $colorText;
+			color: $PalettonDunkler;
 			@extend .fa;
 			@extend .fa-2x;
 			@extend .fa-youtube-play;
@@ -233,7 +234,7 @@ p {
 		margin: 20px 0;
 		
 		&:before {
-			color: $colorText;
+			color: $PalettonDunkler;
 			@extend .fa;
 			@extend .fa-2x;
 			@extend .fa-music;
@@ -250,7 +251,7 @@ p {
 		margin: 20px 0;
 		
 		&:before {
-			color: $colorText;
+			color: $PalettonDunkler;
 			@extend .fa;
 			@extend .fa-2x;
 			@extend .fa-download;

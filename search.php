@@ -103,7 +103,7 @@ $showhelplinks = 0;
 					    
 					    <div class="row">
 						<div class="span4"><p><?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?></p></div>
-						<div class="span4"><img src="<?php echo fau_get_template_uri(); ?>/img/friedrich-alexander.gif" alt="" class="error-404-persons"></div>
+						<div class="span4"><img src="<?php echo fau_get_template_uri(); ?>/img/friedrich-alexander.gif" width="227" height="169"  alt="" class="error-404-persons"></div>
 					    </div>
 
 					    <?php 

@@ -44,7 +44,7 @@ get_header();
 						<?php _e('Leider dürfen Sie auf diese Seite nicht zugreifen.','fau'); ?>
 					</p>
 					<div class="row">
-						<div class="span4 offset2"><img src="<?php echo fau_get_template_uri(); ?>/img/friedrich-alexander.gif" alt="" class="error-404-persons"></div>
+						<div class="span4 offset2"><img src="<?php echo fau_get_template_uri(); ?>/img/friedrich-alexander.gif" width="227" height="169" alt="" class="error-404-persons"></div>
 					</div>
 				</div>
 			</div>
