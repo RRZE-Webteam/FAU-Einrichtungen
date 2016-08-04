@@ -68,6 +68,7 @@ p {
 		line-height: 28px;
 		padding: 4px 0 22px 0;
 	}
+	&.notice-hinweis,
 	&.hinweis {
 	    margin: 0;
 	    padding: 22px 0;
@@ -80,8 +81,11 @@ p {
 			padding-right: 8px;
 			font-weight: normal;
 			vertical-align: -4px;
+			min-width: 24px;
 		}
 	}
+
+	&.notice-attention,
 	&.attention {
 		display: block;
 		color: $colorNotice;
@@ -96,8 +100,10 @@ p {
 			padding-right: 8px;
 			font-weight: normal;
 			vertical-align: -4px;
+			min-width: 24px;
 		}
 	}
+	&.notice-baustelle,
 	&.baustelle {
 		display: block;
 		color: $colorText;
@@ -108,12 +114,14 @@ p {
 		&:before {
 			@extend .fa;
 			@extend .fa-2x;
-			@extend .fa-cogs;
+			@extend .fa-wrench;
 			padding-right: 8px;
 			font-weight: normal;
 			vertical-align: -4px;
+			min-width: 24px;
 		}
 	}
+	&.notice-question,
 	&.question {
 		display: block;
 		color: $colorText;
@@ -128,8 +136,10 @@ p {
 			padding-right: 8px;
 			font-weight: normal;
 			vertical-align: -4px;
+			min-width: 24px;
 		}
 	}
+	&.notice-minus,
 	&.minus {
 		display: block;
 		color: $colorText;
@@ -144,8 +154,10 @@ p {
 			padding-right: 8px;
 			font-weight: normal;
 			vertical-align: -4px;
+			min-width: 24px;
 		}
 	}
+	&.notice-plus,
 	&.plus {
 		display: block;
 		color: $colorText;
@@ -160,8 +172,98 @@ p {
 			padding-right: 8px;
 			font-weight: normal;
 			vertical-align: -4px;
+			min-width: 24px;
 		}
 	}
+	&.notice-tipp {
+		display: block;
+		color: $colorText;
+		padding: 10px 0;
+		margin: 20px 0;
+		font-weight: bold;
+		
+		&:before {
+			color: orange;
+			@extend .fa;
+			@extend .fa-2x;
+			@extend .fa-lightbulb-o;
+			padding-right: 8px;
+			font-weight: normal;
+			vertical-align: -4px;
+			min-width: 24px;
+		}
+	}
+	&.notice-faubox {
+		display: block;
+		color: $colorText;
+		padding: 10px 0;
+		margin: 20px 0;
+		
+		&:before {
+			color: $PalettonDunkler;
+			@extend .fa;
+			@extend .fa-2x;
+			@extend .fa-cloud-download;
+			padding-right: 8px;
+			font-weight: normal;
+			vertical-align: -4px;
+			min-width: 24px;
+		}
+	}
+	&.notice-video {
+		display: block;
+		color: $colorText;
+		padding: 10px 0;
+		margin: 20px 0;
+		
+		&:before {
+			color: $PalettonDunkler;
+			@extend .fa;
+			@extend .fa-2x;
+			@extend .fa-youtube-play;
+			padding-right: 8px;
+			font-weight: normal;
+			vertical-align: -4px;
+			min-width: 24px;
+		}
+	}
+	&.notice-audio {
+		display: block;
+		color: $colorText;
+		padding: 10px 0;
+		margin: 20px 0;
+		
+		&:before {
+			color: $PalettonDunkler;
+			@extend .fa;
+			@extend .fa-2x;
+			@extend .fa-music;
+			padding-right: 8px;
+			font-weight: normal;
+			vertical-align: -4px;
+			min-width: 24px;
+		}
+	}
+	&.notice-download {
+		display: block;
+		color: $colorText;
+		padding: 10px 0;
+		margin: 20px 0;
+		
+		&:before {
+			color: $PalettonDunkler;
+			@extend .fa;
+			@extend .fa-2x;
+			@extend .fa-download;
+			padding-right: 8px;
+			font-weight: normal;
+			vertical-align: -4px;
+			min-width: 24px;
+		}
+	}
+	
+	
+	
 	
 	#content .span4 .widget &,
 	#content .sidebar-inline .widget & {
@@ -375,6 +477,7 @@ hr {
     top: 30px;
     @include box-shadow(0 0 30px $colorStandardHellgrau);
 }
+
 
 
 

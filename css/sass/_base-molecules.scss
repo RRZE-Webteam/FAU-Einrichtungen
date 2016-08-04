@@ -561,6 +561,24 @@ ul.person-info {
 		background-repeat: no-repeat;
 		background-position: left center;
 		
+		
+		ul  {
+		    li {
+			list-style-type: disc; 	   
+			li {
+			    list-style-type: circle;
+			}
+		    }
+		}
+		ol  {
+		    li {
+			list-style-type:  decimal; 	
+			li {
+			    list-style-type: circle;
+			}
+		    }
+		}
+		
 	}
 	
 	
@@ -1515,6 +1533,21 @@ ul.tagcloud {
 	h1, h2, h3, h4, h5, h6 {
 	    color: $colorText;
 	}
+	hr {
+	    &::after,
+	    &::before {
+		bottom: inherit;
+		background: inherit;
+		left: inherit;
+		position: relative;
+		right: inherit;
+		top: inherit;
+	    }
+	    border: 1px solid $PalettonHellste;
+	    margin: 30px 20px;
+	    height: inherit;
+	}
+	
 	
     & > .accordion {
 	.accordion-heading .accordion-toggle {

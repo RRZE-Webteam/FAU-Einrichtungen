@@ -50,7 +50,8 @@
 	    &:hover,
 	    &:focus {
 		 background-color: white;
-		 }
+		 color:  $colorPrimary;
+	    }
 		
 	}
 }
@@ -834,7 +835,7 @@
 	
 	img.error-404-persons {
 		@include box-shadow(none);
-		margin: 0 auto -22px auto;
+		margin: 0 auto;
 		display: block;
 	}
 	

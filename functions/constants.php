@@ -4,7 +4,7 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'js-version'			=> '1.5',
+    'js-version'			=> '1.6',
 	// Theme-Versionslinie
     'website_type'			=> 2,
 	// website_type: 
