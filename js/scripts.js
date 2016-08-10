@@ -365,17 +365,7 @@ jQuery(document).ready(function($) {
 		updateResponsivePositioning();
 	});
 
-// AJAX for studienangebot-database
-	$('#studienangebot *').change(function() {
-		// Show loading spinner
-		$('#loading').fadeIn(300);
-		
-		// Get results and replace content
-		$.get($(this).parents('form').attr('action'), $(this).parents('form').serialize(), function(data) {
-			$('#studienangebot-result').replaceWith($(data).find('#studienangebot-result'));
-			$('#loading').fadeOut(300);
-		});
-	});
+
 
 
 }
