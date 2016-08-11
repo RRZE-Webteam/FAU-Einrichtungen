@@ -23,7 +23,7 @@ get_header(); ?>
 			<div class="row">		
 				<div class="span4 span-sm-4">
 					<?php 
-					$offset = 2;
+					$offset = 0;
 					if ($options['website_type']==-1) {
 						$menulevel = get_post_meta( $post->ID, 'menu-level', true );
 						if ($menulevel) {

@@ -34,7 +34,8 @@ function fau_get_menu_name($location){
 function get_top_parent_page_id($id, $offset = FALSE) {
 
 	$parents = get_post_ancestors( $id );
-	if( ! $offset) $offset = 2;
+	if( ! $offset) $offset = 1;
+	
 	$index = count($parents)-$offset;
 	if ($index <0) {
 	    $index = count($parents)-1;
@@ -202,7 +203,6 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 
 /* 
  * Darstellung eines Submenus im Inhaltsbereich
- * (Ersetzt bisherigen Murks mit fau-menu-widget.php aus FAU-Plugin)
  */
 function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $spalte = 0, $nothumbs = 0, $nodefthumbs = 0) {
     global $options;
