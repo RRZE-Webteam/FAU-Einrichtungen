@@ -382,65 +382,86 @@
 			@include no-list;
 			display: block;
 			background-color: $colorLightest;
+			color: $colorDefault;
+			
 			border-bottom: 1px solid #fff;
 			line-height: 18px;
-			padding: 6px 0 6px 0px;
+			padding: 6px 0px 6px 15px;
+			
+			
 			a {
 				text-decoration: none;
 				line-height: 18px;
 				padding: 6px 0;
-				padding-left: 15px;
-				
+				        
 				&:hover, 
 				&:focus {
 				    text-decoration: underline;
 				}
 			}
-			&:hover, 
-			&:focus {
-			    background-color: darken($colorLightest, 3%);
-			    li {
-				background-color: darken($colorLightest, 3%);
-			    }
-			}
-			ul {
-			    margin-top: 5px;
-			}
+			
+	
 			li {
 			    border-bottom: none;
-			    padding: 6px 0 6px 15px;
+			    background-color: darken($colorLightest, 3%);
+			    padding: 10px 0 10px 10px;
+			    li {
+				background-color: darken($colorLightest, 6%);
+			    }
 			}
 			
-			&.tf a,
-			&.techfak a {
+			&.tf,
+			&.techfak {
 			    background-color: $colorTechFak;
-			    color: #fff;
+			    a {
+				color: #fff;
+			    }
 			}
-			&.rw a,
-			&.rwfak a {
+			&.rw,
+			&.rwfak {
 			    background-color:  $colorRwFak;
-			    color: #fff;
+			     a {
+				color: #fff;
+			    }
 			}
-			&.med a,
-			&.medfak a {
+			&.med,
+			&.medfak {
 			    background-color:  $colorMedFak;
-			    color: #fff;
+			     a {
+				color: #fff;
+			    }
 			}
-			&.nat a,
-			&.natfak a {
+			&.nat,
+			&.natfak {
 			    background-color:  $colorNatFak;
-			    color: #fff;
+			     a {
+				color: #fff;
+			    }
 			}
-			&.phil a,
-			&.philfak a {
+			&.phil,
+			&.philfak {
 			    background-color:  $colorPhilFak;
-			    color: #fff;
+			     a {
+				color: #fff;
+			    }
 			}
-			&.fau a, &.default a {
+			&.fau, 
+			&.default {
 			    background-color:  $colorDefault;
-			    color: #fff;
+			     a {
+				color: #fff;
+			    }
 			}
 			
+		}
+		li:hover, 
+		li:focus {
+		    background-color: $colorLightest; // darken($colorLightest, 3%);
+		    
+		    color: $colorLightestContrast;
+		    a {
+			  color: $colorLightestContrast;
+		    }
 		}
 	}
 }
