@@ -593,6 +593,11 @@ ul.person-info {
 	    width: 20px; 
 	    @extend .fa-phone; 
 	}
+	li.person-info-mobile:before { 
+	    @extend .fa;
+	    width: 20px; 
+	    @extend .fa-mobile; 
+	}	
 	li.person-info-fax:before {
 	    @extend .fa;
 	    width: 20px; 
