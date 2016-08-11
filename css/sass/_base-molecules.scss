@@ -534,6 +534,11 @@
 		
 		a {
 		    color: $colorText;
+		 //   text-decoration: underline;
+		 // Auf vielfachen Wunsch deaktiviert
+		    
+		}
+		&:hover, &:focus {
 		    text-decoration: underline;
 		}
 	}
