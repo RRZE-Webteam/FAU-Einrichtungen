@@ -283,10 +283,41 @@
 .widget {
 	margin-bottom: 7px;
 	
+	ul {
+	    margin: 0;
+	    padding: 0;
+	    
+	    ul {
+		margin: 0 0 10px 25px;
+	    }
+	}
+	
+	
 	li {
 		padding: 0 0 0 5px;
 		font-size: 13px;
 		line-height: 20px;
+		
+		list-style-type: none;
+	//	padding-left: 20px;
+		padding-bottom: 3px;
+	//	background: url('../img/list-arrow-blue.png') no-repeat left 4px;
+		
+		
+		a {
+			text-decoration: none;
+		}
+		
+		a:hover, a:focus {
+			text-decoration: underline;
+		}
+	}
+	li:before {
+	    @extend .fa;
+	    @extend .fa-angle-right;	
+	    font-weight: bold;
+	    color: $colorDefault; 
+	    width: 15px;
 	}
 	
 }
@@ -1266,6 +1297,7 @@ span[itemprop="honorificSuffix"] {
 }
 
 /* Tagcloud */
+/*
 ul.tagcloud {
 	@include no-list;
 	
@@ -1286,7 +1318,7 @@ ul.tagcloud {
 		}
 	}
 }
-
+*/
 /* Logo Slider */
 .logos-menu-nav {
 	position: relative;
