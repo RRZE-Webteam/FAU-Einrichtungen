@@ -828,7 +828,11 @@
 		    @include border-radius(2px);
 		}
 	}
-	
+	a.image {
+	    img {
+	//	box-shadow: none;
+	    }
+	}
 	.logos-menu .logo-item img {
 		@include box-shadow(none);
 	}

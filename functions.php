@@ -79,7 +79,7 @@ function fau_setup() {
 	add_image_size( 'topevent-thumb', $options['default_topevent_thumb_width'], $options['default_topevent_thumb_height'], $options['default_topevent_thumb_crop']); // 140:90, true
 	
 	/* Thumb for Image Menus in Content - Name: page-thumb */
-	add_image_size( 'page-thumb', $options['default_submenuthumb_width'], $options['default_submenuthumb_height'], true); // 220:110
+	add_image_size( 'page-thumb', $options['default_submenuthumb_width'], $options['default_submenuthumb_height'],  $options['default_submenuthumb_crop']); // 220:110, true
 	
 	/* Thumb for Posts, displayed in post/page single display - Name: post */
 	add_image_size( 'post', $options['default_post_width'], $options['default_post_height'], $options['default_post_crop']);  // 300:200  false
