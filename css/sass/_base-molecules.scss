@@ -169,14 +169,24 @@
 		li {
 			@include no-list;
 			background: none;
+			display: table;
+			border-bottom: 1px solid $colorLightest;
+			width: 100%;
+			
+		}
+		li:before {
+		    @extend .fa;
+		    @extend .fa-angle-right;	
+		    font-weight: bold;
+		    display: table-cell;
+		    vertical-align: middle;
+		    color: $colorDefault;
 		}
 		
 		a {
 			text-decoration: none;
-			background: url('../img/list-arrow-blue.png') no-repeat left center;
-			display: block;
-			padding: 7px 20px;
-			border-bottom: 1px solid $colorLightest;
+			 display: table-cell;
+			padding: 5px 12px;
 			font-size: 13px;
 			line-height: 16px;
 		}
@@ -289,6 +299,10 @@
 	    
 	    ul {
 		margin: 0 0 10px 25px;
+		
+		li {
+		    display: inherit;
+		}
 	    }
 	}
 	
@@ -299,9 +313,7 @@
 		line-height: 20px;
 		
 		list-style-type: none;
-	//	padding-left: 20px;
 		padding-bottom: 3px;
-	//	background: url('../img/list-arrow-blue.png') no-repeat left 4px;
 		display: table-row;
 		
 		a {
@@ -601,9 +613,7 @@
 			color: $colorLight;
 		}
 	}
-	// .compactindex .span3 {
-	//    width: 70%;	    
-	//  }
+
 }
 
 ul.person-info {
@@ -614,15 +624,18 @@ ul.person-info {
 		background-image: none;
 		padding-left: 0px;
 		min-height: 20px;
-		// font-size: 13px;
-		// line-height: 20px;
 		background-repeat: no-repeat;
 		background-position: left center;
 		
-		
+		li {
+		    list-style: inherit;
+		    display: list-item;
+		}
 		ul  {
+		   
 		    li {
 			list-style-type: disc; 	   
+			
 			li {
 			    list-style-type: circle;
 			}
@@ -630,6 +643,7 @@ ul.person-info {
 		}
 		ol  {
 		    li {
+			
 			list-style-type:  decimal; 	
 			li {
 			    list-style-type: circle;
