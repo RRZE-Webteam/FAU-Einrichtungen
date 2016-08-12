@@ -95,47 +95,6 @@
 	}
 }
 
-/* Faculties Menu */
-#hero .menu-faculties {
-	@include no-list;
-	
-	li {
-		@include no-list;
-		font-size: 13px;
-		min-height: 34px;
-		line-height: 34px;
-		border-left: 8px solid #fff;
-		vertical-align: center;
-		@include hyphens(auto);
-		
-		a {
-			@include inline-block;
-			padding: 2px 0 2px 10px;
-			line-height: 16px;
-			vertical-align: center;
-		}
-		&.phil,
-		&.philfak {
-			border-color: $colorPhilFak;
-		}
-		&.rw,
-		&.rwfak {
-			border-color: $colorRwFak;
-		}
-		&.med,
-		&.medfak {
-			border-color: $colorMedFak;
-		}
-		&.nat,
-		&.natfak  {
-			border-color: $colorNatFak;
-		}
-		&.tf,
-		&.techfak {
-			border-color: $colorTechFak;
-		}
-	}
-}
 
 /* Subpages / Portal Menu */
 .subpages-menu {
