@@ -186,6 +186,13 @@ Media Queries for Theme FAU-Einrichtungen
 		max-height: 400px;
 		overflow: hidden;
 	}
+	.subpages-menu {
+		li.span3 {
+		    width: 230px;
+		}    
+
+		
+	    }
 
 }
 
@@ -247,19 +254,14 @@ Media Queries for Theme FAU-Einrichtungen
 	    }
 
 	    .subpages-menu {
-		.menu-item {
-		    margin-bottom: 15px;
-		}
-		.ext-link h3 {
-			display: block;
-		}
-		.subpage-item img {
-			margin-bottom: 0;
-			margin-right: 0;
-		}
-		 a.subpage-item {
-			position: relative;
-			display: inline-block;
+		li.span3 {
+		    width: 230px;
+		}    
+
+		 a.image {
+		    &.ext-link:after {
+			display: none;
+		    }
 		}
 	    }
 	    .container {
@@ -287,14 +289,7 @@ Media Queries for Theme FAU-Einrichtungen
 	    
 	    
 	    
-	    .subpages-menu {
-		margin: 0;
-		li {
-		    width: 260px; 
-		    padding-left: 10px;
-		    float: left;
-		}
-	    }
+	    
 	    form {
 		border: none;
 		padding: 0;
@@ -848,40 +843,42 @@ Media Queries for Theme FAU-Einrichtungen
     }
     #content .subpages-menu {
 	.menu-item {
-	    margin: 0;
+	    margin: 0 0 10px 0;
 	}
 	ul {
 	    display: block;
 	}
 	li {
-
-	    width: #{$breakSM - 10}px;
-	    margin-left: 10px;
+	    width: 100%;
+	    margin: 0 0 10px 10px;
 	    list-style: inside none circle;
 	    float: none;
-
-	    a {
-		h3 {
-		    padding: 0 15px 0 0;
-		    text-decoration: underline;
-		    font-weight: normal;
-
-		    &.ext-link {
-			background: url("../img/ext-icon-19-white.png") no-repeat scroll 110% 0 $colorStandardHellgrau;
-		  }
-		}
-
-		img {
-		    display: none;
-		}
-		.ext-icon {
-		    display: none;
-
-		}
+	    a.image {
+		    width: 100%;
+		    height: auto;
+		    max-height: 110px;
+		    text-align: center;
+		    
+		    &.ext-link:after {
+			display: none;
+		    }
+	    }
+	    h3 {
+		padding-bottom: 0px; 
 	    }
 	    .span3 {
 		float: none;
 	    }
+	    ul {
+		margin-bottom: 10px;
+		li {
+		    display: inline-block;
+		    width: 40%;
+		    border: none;
+		    float: left;
+		}
+	    }
+	    
 	}
     }    
     .alignleft, 
