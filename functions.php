@@ -1297,7 +1297,7 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	$output .= "\t\t\t".'<p itemprop="description">'."\n"; 
 	
 	
-	
+	$cuttet = false;
 	$abstract = get_post_meta( $post->ID, 'abstract', true );
 	if (strlen(trim($abstract))<3) {
 	   $abstract =  fau_custom_excerpt($post->ID,$options['default_anleser_excerpt_length'],false,'',true);
@@ -1309,7 +1309,9 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	if ($external) {
 	    $output .= ' ext-link';
 	}
-	$output .= '" href="'.$link.'">›</a>'; 
+	$output .= '" href="'.$link.'" title="'.get_the_title($post->ID).'">';
+	$output .= ' <span class="screen-reader-text">'.__('Weiterlesen','fau').'</span>'; 
+	$output .= '</a>'; 
 	$output .= "\t\t\t".'</p>'."\n"; 
 	
 	
