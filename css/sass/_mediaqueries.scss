@@ -485,16 +485,21 @@ Media Queries for Theme FAU-Einrichtungen
 		    float: none;
 		    margin: 0;
 		    border-bottom: 1px solid #ccc;
+		    
+		    
+		    a {
+			display: block;
+			float: none;
+			@include border-radius(0);
+			margin-bottom: 0;
+		    }
 	    }
-	    #nav li.level1 a {
-		    display: block;
-		    float: none;
-		    @include border-radius(0);
-		    padding: 10px 15px !important;
-		    margin-bottom: 0;
-	    }
+
 	    #nav li.level2 {
 		    background-position: left 6px;
+		    a {
+			display: table;
+		    }    
 	    }
 
 	    #nav .nav-flyout {
