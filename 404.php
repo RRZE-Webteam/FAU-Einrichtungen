@@ -44,7 +44,7 @@ get_header();
 						<?php _e('Die von Ihnen aufgerufene Seite existiert nicht oder ihre Adresse hat sich durch Änderungen an der Seitenstruktur geändert.','fau'); ?>
 					</p>
 					<div class="row">
-						<div class="span4 offset2"><img src="<?php echo fau_get_template_uri(); ?>/img/friedrich-alexander.gif" width="227" height="169" alt="" class="error-404-persons"></div>
+						<div class="span4 offset2"><img src="<?php echo fau_get_template_uri(); ?>/img/friedrich-alexander.gif" width="227" height="169" alt="" class="error-siegel"></div>
 					</div>
 				</div>
 				<div class="span6">
