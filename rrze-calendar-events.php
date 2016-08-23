@@ -1,16 +1,10 @@
 <?php
-global $options;
+
+global $options, $rrze_calendar_data, $rrze_calendar_endpoint_name;
 
 if (!class_exists('RRZE_Calendar')) {
     wp_die();
 }
-
-$timestamp = RRZE_Calendar_Functions::gmt_to_local(time());
-$events_result = RRZE_Calendar::get_events_relative_to($timestamp);
-$dates = RRZE_Calendar_Functions::get_calendar_dates($events_result['events']);
-
-$endpoint_name = RRZE_Calendar::endpoint_name();
-$endpoint_name = mb_strtoupper(mb_substr($endpoint_name, 0, 1)) . mb_substr($endpoint_name, 1);
 
 $breadcrumb = '';
 if (isset($options['breadcrumb_root'])) {
@@ -21,7 +15,7 @@ if (isset($options['breadcrumb_root'])) {
     $breadcrumb .= '<nav aria-labelledby="bc-title" class="breadcrumbs">'; 
     $breadcrumb .= '<h4 class="screen-reader-text" id="bc-title">'.__('Sie befinden sich hier:','fau').'</h4>';
     $breadcrumb .= '<a data-wpel-link="internal" href="' . site_url('/') . '">' . $options['breadcrumb_root'] . '</a>' . $options['breadcrumb_delimiter'];
-    $breadcrumb .= $options['breadcrumb_beforehtml'] . $endpoint_name . $options['breadcrumb_afterhtml'];
+    $breadcrumb .= $options['breadcrumb_beforehtml'] . $rrze_calendar_endpoint_name . $options['breadcrumb_afterhtml'];
 }
 get_header(); ?>
 
@@ -38,7 +32,7 @@ get_header(); ?>
             <div class="row">
                 <div class="span6">
 
-                    <h1><?php echo $endpoint_name; ?></h1>
+                    <h1><?php echo $rrze_calendar_endpoint_name; ?></h1>
 
                 </div>
             </div>
@@ -53,11 +47,11 @@ get_header(); ?>
                     <main>                        
 
                         <div class="events-list">
-                            <?php if (empty($dates)): ?>
+                            <?php if (empty($rrze_calendar_data)): ?>
                             <p><?php _e('Keine bevorstehenden Termine', 'fau'); ?></p>
                             <?php else: ?>
                             <ul>
-                                <?php foreach ($dates as $date): ?>
+                                <?php foreach ($rrze_calendar_data as $date): ?>
                                     <?php foreach ($date as $event): ?>
                                         <li>                                           
                                             <div class="event-detail-item">
@@ -88,7 +82,7 @@ get_header(); ?>
                                                         </div>            
                                                     <?php endif; ?>
                                                     <div class="event-title">
-                                                        <a href="<?php echo esc_attr(RRZE_Calendar::endpoint_url($event->slug)); ?>"><?php echo esc_html($event->summary); ?></a>
+                                                        <a href="<?php echo $event->endpoint_url; ?>"><?php echo esc_html($event->summary); ?></a>
                                                     </div>                                                    
                                                     <div class="event-location">
                                                         <?php echo $event->location ? nl2br($event->location) : '&nbsp;'; ?>
