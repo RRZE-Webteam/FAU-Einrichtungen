@@ -1,17 +1,11 @@
 <?php
-global $options, $rrze_calendar_event;
 
-if (!class_exists('RRZE_Calendar') || empty($rrze_calendar_event)) {
+global $options, $rrze_calendar_data, $rrze_calendar_endpoint_url, $rrze_calendar_endpoint_name;
+
+if (!class_exists('RRZE_Calendar') || empty($rrze_calendar_data)) {
     wp_die();
 }
-
-$event = &$rrze_calendar_event; // Event object
-
-$subscribe_url = RRZE_Calendar::webcal_url(array('event-ids' => $event->id));
-
-$endpoint_url = RRZE_Calendar::endpoint_url();
-$endpoint_name = RRZE_Calendar::endpoint_name();
-$endpoint_name = mb_strtoupper(mb_substr($endpoint_name, 0, 1)) . mb_substr($endpoint_name, 1);
+$event = &$rrze_calendar_data;
 
 $breadcrumb = '';
 if (isset($options['breadcrumb_root'])) {
@@ -22,7 +16,7 @@ if (isset($options['breadcrumb_root'])) {
     $breadcrumb .= '<nav aria-labelledby="bc-title" class="breadcrumbs">'; 
     $breadcrumb .= '<h4 class="screen-reader-text" id="bc-title">'.__('Sie befinden sich hier:','fau').'</h4>';
     $breadcrumb .= '<a data-wpel-link="internal" href="' . site_url('/') . '">' . $options['breadcrumb_root'] . '</a>' . $options['breadcrumb_delimiter'];
-    $breadcrumb .= '<a data-wpel-link="internal" href="' . $endpoint_url . '">' . $endpoint_name . '</a>' . $options['breadcrumb_delimiter'];
+    $breadcrumb .= '<a data-wpel-link="internal" href="' . $rrze_calendar_endpoint_url . '">' . $rrze_calendar_endpoint_name . '</a>' . $options['breadcrumb_delimiter'];
     $breadcrumb .= $options['breadcrumb_beforehtml'] . $event->summary . $options['breadcrumb_afterhtml'];
 }
 get_header(); ?>
@@ -93,7 +87,7 @@ get_header(); ?>
                         </div>
                         
                         <div class="events-more-links">
-                            <a class="events-more" href="<?php echo $subscribe_url; ?>"><?php _e('Abonnement', 'fau'); ?></a>
+                            <a class="events-more" href="<?php echo $event->subscribe_url; ?>"><?php _e('Abonnement', 'fau'); ?></a>
                         </div>                          
                     </main>
                 </div>
