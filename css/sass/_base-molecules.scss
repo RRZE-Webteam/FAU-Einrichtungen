@@ -288,10 +288,10 @@
 	    padding: 0;
 	    
 	    ul {
-		margin: 0 0 10px 25px;
+		margin: 0 0 10px 5px;
 		
 		li {
-		    display: inherit;
+		  //  display: inherit;
 		}
 	    }
 	}
@@ -506,206 +506,6 @@
 }
 
 
-/* Persons */
-.person-info-more {
-	margin: 10px 0 0 0;
-	padding-left: 0 !important;
-}
-
-.person-read-more {
-	@include inline-block;
-	height: 20px;
-	line-height: 20px;
-	background: $colorLightest;
-	padding: 6px 10px;
-	text-decoration: none;
-	@include border-radius(3px);
-	font-size: 14px;
-	
-	&:hover, &:focus {
-		background: darken($colorLightest, 3%);
-		text-decoration: none;
-	}
-}
-
-.person {
-	h3 {
-		padding-bottom: 0;
-		padding-top: 5px;
-		font-weight: bold;
-		font-size: 15px;
-		
-		a {
-		    color: $colorText;
-		 //   text-decoration: underline;
-		 // Auf vielfachen Wunsch deaktiviert
-		    
-		}
-		&:hover, &:focus {
-		    text-decoration: underline;
-		}
-	}
-	
-	h4 {
-		padding-top: 0;
-		font-weight: normal;
-		a {
-		    color: $colorText;
-		    text-decoration: underline;
-		}
-	}
-}
-
-.content-person {
-	border: 1px solid $colorStandardHellgrau;
-	margin: 10px 0;
-	padding: 10px;
-	overflow: hidden;
-	
-	@media(max-width: $breakMD) {
-		margin: 10px 10px;
-		padding: 10px 0;
-	}
-	
-	li {
-		font-size: 13px;
-		line-height: 20px;
-		background-position: left 5px;
-	}
-	
-	.person-info-description {
-		padding-top: 8px;
-		
-		@media(max-width: $breakMD) {
-			margin-left: 0 !important;
-		}
-	}
-	
-	.person-info-description,
-	.person-info-description p {
-		font-size: 13px;
-		line-height: 20px;
-	}
-	
-	.image-placeholder {
-		width: 90px;
-		height: 120px;
-		background: $colorLightest;
-		position: relative;
-		text-align: center;
-	
-		
-		&:before {
-			@extend .fa;
-			@extend .fa-4x;
-			@extend .fa-user;
-			line-height: 120px;	
-			color: $colorLight;
-		}
-	}
-
-}
-
-ul.person-info {
-	@include no-list;
-	
-	li {
-		@include no-list;
-		background-image: none;
-		padding-left: 0px;
-		min-height: 20px;
-		background-repeat: no-repeat;
-		background-position: left center;
-		
-		font-size: 13px;
-		line-height: 20px;
-		
-		li {
-		    list-style: inherit;
-		    display: list-item;
-		}
-		ul  {
-		   
-		    li {
-			list-style-type: disc; 	   
-			
-			li {
-			    list-style-type: circle;
-			}
-		    }
-		}
-		ol  {
-		    li {
-			
-			list-style-type:  decimal; 	
-			li {
-			    list-style-type: circle;
-			}
-		    }
-		}
-		
-	}
-	
-	
-	/*
-	li.person-info:before {
-		@extend .fa;
-		width: 20px;
-	} */
-	
-	li.person-info-phone:before { 
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-phone; 
-	}
-	li.person-info-mobile:before { 
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-mobile; 
-	}	
-	li.person-info-fax:before {
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-print; 
-	}
-	li.person-info-email:before {
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-envelope; 
-	}
-	/*
-	li.person-info-institution:before { 
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-building; 
-	}
-	*/
-	li.person-info-www:before { 
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-info-circle; 
-	}
-	li.person-info-position {
-	    font-weight: bold;
-	}
-	li.person-info-address {
-	    margin-top: 10px;
-	    padding-left: 0px;
-	}
-	
-	li.person-info-description {
-	    margin-top: 10px;
-	    padding-left: 20px;
-	}
-
-}
-
-
-
-span[itemprop="honorificPrefix"], 
-span[itemprop="honorificSuffix"] {
-    white-space: nowrap;
-}
 
 
 /* Posts / News */
@@ -1474,38 +1274,7 @@ ul.tagcloud {
 		} 
 	    }
 	}
-    ul.person-info li {
-	    color: $colorText;
-    }
-    li.person-info-address {
-		white-space: pre;
-    }
-    .content-person {
-	border: none;
-	margin: 0;
-	padding: 0;
-    }
-}
-
-.sidebar-outline {
-    ul.person-info li {
-	    color: $colorText;
-    }
-    li.person-info-address {
-		white-space: pre;
-    }
-    .content-person {
-	border: none;
-	margin: 0;
-	padding: 0;
-	
-	.span-small {
-	    width: 60px;
-	}
-	.span6 {
-	    width: 220px;
-	}
-    }
+   
 }
 
 
@@ -1546,7 +1315,6 @@ ul.tagcloud {
 
 				&.active, &.active:hover, &.active:focus {
 					background-color: darken($colorLightest, 3%);
-				//	background-position: right -41px;
 					color: $colorLightestContrast; // $colorPrimary;
 					
 					&:before {

@@ -68,9 +68,9 @@
 		$order = get_post_meta($post->ID, 'fauval_sidebar_order_personlinks', true );
 		if ($order==1) {
 		    get_template_part('sidebar', 'quicklinks');
-		    get_template_part('sidebar', 'personen');
+		    get_template_part('sidebar', 'personen-inline');
 		} else {
-		    get_template_part('sidebar', 'personen');
+		    get_template_part('sidebar', 'personen-inline');
 		    get_template_part('sidebar', 'quicklinks');
 		}
 
