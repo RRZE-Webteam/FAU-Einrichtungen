@@ -15,7 +15,7 @@ if (!class_exists('RRZE_Calendar')) {
         <?php foreach ($rrze_calendar_data as $date): ?>
             <?php foreach ($date as $event): ?>
                 <li>                                           
-                    <div class="event-detail-item">
+                    <div class="event-item">
                         <div class="event-date" style="background-color: <?php echo $event->category->color; ?>">
                             <div class="event-date-month">
                                 <?php echo $event->start_month_html ?>
