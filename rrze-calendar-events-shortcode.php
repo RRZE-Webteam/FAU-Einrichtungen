@@ -16,13 +16,9 @@ if (!class_exists('RRZE_Calendar')) {
         <?php foreach ($date as $event): ?>
         <li>                                           
             <div class="event-item">
-                <div class="event-date" style="background-color: <?php echo $event->category->color; ?>">
-                    <div class="event-date-month">
-                        <?php echo $event->start_month_html ?>
-                    </div>
-                    <div class="event-date-day">
-                        <?php echo $event->start_day_html ?>
-                    </div>
+                <div class="event-date <?php echo $event->category->bgcol; ?>" <?php echo (!$event->category->bgcol && $event->category->color) ? 'style="background-color:' . $event->category->color . '"' : ''; ?>>
+                    <span class="event-date-month"><?php echo $event->start_month_html ?></span>
+                    <span class="event-date-day"><?php echo $event->start_day_html ?></span>
                 </div>
                 <div class="event-info event-id-<?php echo $event->id ?> <?php if ($event->allday) echo 'event-allday'; ?>">
                     <?php if ($event->allday && !$event->multiday) : ?>
