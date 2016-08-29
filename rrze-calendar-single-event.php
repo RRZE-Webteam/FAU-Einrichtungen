@@ -25,19 +25,13 @@ get_header(); ?>
         <div class="container">
             <div class="row">
                 <div class="span12">
-
                     <?php echo $breadcrumb; ?>
-
-                    <div class="hero-meta-portal">
-
-                    </div>
+                    <div class="hero-meta-portal"></div>
                 </div>
             </div>
             <div class="row">
                 <div class="span6">
-
                     <h1><?php echo $event->summary; ?></h1>
-
                 </div>
             </div>
         </div>
@@ -45,55 +39,44 @@ get_header(); ?>
 
     <div id="content">
         <div class="container">
-
             <div class="row">
                 <div class="span8">
                     <main>
-
                         <div class="event-detail-item">
-                            <div class="event-date" style="background-color: <?php echo $event->category->color; ?>">
-                                <div class="event-date-month">
-                                    <?php echo $event->start_month_html ?>
-                                </div>
-                                <div class="event-date-day">
-                                    <?php echo $event->start_day_html ?>
-                                </div>
+                            <div class="event-date <?php echo $event->category->bgcol; ?>" <?php echo (!$event->category->bgcol && $event->category->color) ? 'style="background-color:' . $event->category->color . '"' : ''; ?>>
+                                <span class="event-date-month"><?php echo $event->start_month_html ?></span>
+                                <span class="event-date-day"><?php echo $event->start_day_html ?></span>
                             </div>
-
                             <div class="event-info event-id-<?php echo $event->id ?> <?php if ($event->allday) echo 'event-allday'; ?>">
                                 <?php if ($event->allday && !$event->multiday) : ?>
-                                    <div class="event-allday" style="text-transform: uppercase;">
-                                        <?php _e('Ganztägig', 'fau'); ?>
-                                    </div>
+                                <div class="event-allday" style="text-transform: uppercase;">
+                                    <?php _e('Ganztägig', 'fau'); ?>
+                                </div>
                                 <?php elseif ($event->allday && $event->multiday) : ?>
-                                    <div class="event-time">
-                                        <?php echo esc_html(sprintf(__('%1$s bis %2$s', 'fau'), $event->long_start_date, $event->long_end_date)) ?>
-                                    </div>            
+                                <div class="event-time">
+                                    <?php echo esc_html(sprintf(__('%1$s bis %2$s', 'fau'), $event->long_start_date, $event->long_end_date)) ?>
+                                </div>            
                                 <?php elseif (!$event->allday && $event->multiday) : ?>
-                                    <div class="event-time">
-                                        <?php echo esc_html(sprintf(__('%1$s bis %2$s', 'fau'), $event->long_start_time, $event->long_end_time)) ?>
-                                    </div>
+                                <div class="event-time">
+                                    <?php echo esc_html(sprintf(__('%1$s bis %2$s', 'fau'), $event->long_start_time, $event->long_end_time)) ?>
+                                </div>
                                 <?php else: ?>
-                                    <div class="event-time">
-                                        <?php echo esc_html(sprintf(__('%1$s Uhr bis %2$s Uhr', 'fau'), $event->short_start_time, $event->short_end_time)) ?>
-                                    </div>            
+                                <div class="event-time">
+                                    <?php echo esc_html(sprintf(__('%1$s Uhr bis %2$s Uhr', 'fau'), $event->short_start_time, $event->short_end_time)) ?>
+                                </div>            
                                 <?php endif; ?>
                                 <div class="event-location"><?php echo $event->location ? $event->location : '&nbsp;'; ?></div>
                             </div>
                         </div>
-
                         <div>
                             <?php echo make_clickable(nl2br($event->description));; ?>
-                        </div>
-                        
+                        </div>                        
                         <div class="events-more-links">
                             <a class="events-more" href="<?php echo $event->subscribe_url; ?>"><?php _e('Abonnement', 'fau'); ?></a>
                         </div>                          
                     </main>
                 </div>
-
             </div>
-
         </div>
     </div>
 
