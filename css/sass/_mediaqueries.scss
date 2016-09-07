@@ -186,6 +186,13 @@ Media Queries for Theme FAU-Einrichtungen
 		max-height: 400px;
 		overflow: hidden;
 	}
+	.subpages-menu {
+		li.span3 {
+		    width: 230px;
+		}    
+
+		
+	    }
 
 }
 
@@ -247,19 +254,14 @@ Media Queries for Theme FAU-Einrichtungen
 	    }
 
 	    .subpages-menu {
-		.menu-item {
-		    margin-bottom: 15px;
-		}
-		.ext-link h3 {
-			display: block;
-		}
-		.subpage-item img {
-			margin-bottom: 0;
-			margin-right: 0;
-		}
-		 a.subpage-item {
-			position: relative;
-			display: inline-block;
+		li.span3 {
+		    width: 230px;
+		}    
+
+		 a.image {
+		    &.ext-link:after {
+			display: none;
+		    }
 		}
 	    }
 	    .container {
@@ -287,14 +289,7 @@ Media Queries for Theme FAU-Einrichtungen
 	    
 	    
 	    
-	    .subpages-menu {
-		margin: 0;
-		li {
-		    width: 260px; 
-		    padding-left: 10px;
-		    float: left;
-		}
-	    }
+	    
 	    form {
 		border: none;
 		padding: 0;
@@ -318,7 +313,7 @@ Media Queries for Theme FAU-Einrichtungen
 	}
 
 
-	.person-info,
+
 	.textwidget,
 	.topevent-date,
 	.topevent-description {
@@ -490,16 +485,21 @@ Media Queries for Theme FAU-Einrichtungen
 		    float: none;
 		    margin: 0;
 		    border-bottom: 1px solid #ccc;
+		    
+		    
+		    a {
+			display: block;
+			float: none;
+			@include border-radius(0);
+			margin-bottom: 0;
+		    }
 	    }
-	    #nav li.level1 a {
-		    display: block;
-		    float: none;
-		    @include border-radius(0);
-		    padding: 10px 15px !important;
-		    margin-bottom: 0;
-	    }
+
 	    #nav li.level2 {
 		    background-position: left 6px;
+		    a {
+			display: table;
+		    }    
 	    }
 
 	    #nav .nav-flyout {
@@ -632,7 +632,8 @@ Media Queries for Theme FAU-Einrichtungen
 		margin-left: 20px;
 	}  
 	.widget_faupersonwidget,
-	.content-person {	    
+	.content-person {
+	    border: none;
 	    .span1 {
 		margin-left: 20px;
 	    }
@@ -645,6 +646,9 @@ Media Queries for Theme FAU-Einrichtungen
 		}
 		.span3 {
 		    width: calc(100% - 130px);
+		}
+		.span6 {
+		    padding: 0;
 		}
 	    }	
 	}
@@ -755,7 +759,7 @@ Media Queries for Theme FAU-Einrichtungen
 
 		.span4 {
 		    padding-bottom: 10px;
-		    border-bottom: 2px solid $colorStandardHellgrau;
+//		    border-bottom: 2px solid $colorStandardHellgrau;
 		}
 		.container {
 		    h1, h2, h3, h4, h5, h6, p {
@@ -848,40 +852,42 @@ Media Queries for Theme FAU-Einrichtungen
     }
     #content .subpages-menu {
 	.menu-item {
-	    margin: 0;
+	    margin: 0 0 10px 0;
 	}
 	ul {
 	    display: block;
 	}
 	li {
-
-	    width: #{$breakSM - 10}px;
-	    margin-left: 10px;
+	    width: 100%;
+	    margin: 0 0 10px 10px;
 	    list-style: inside none circle;
 	    float: none;
-
-	    a {
-		h3 {
-		    padding: 0 15px 0 0;
-		    text-decoration: underline;
-		    font-weight: normal;
-
-		    &.ext-link {
-			background: url("../img/ext-icon-19-white.png") no-repeat scroll 110% 0 $colorStandardHellgrau;
-		  }
-		}
-
-		img {
-		    display: none;
-		}
-		.ext-icon {
-		    display: none;
-
-		}
+	    a.image {
+		    width: 100%;
+		    height: auto;
+		    max-height: 110px;
+		    text-align: center;
+		    
+		    &.ext-link:after {
+			display: none;
+		    }
+	    }
+	    h3 {
+		padding-bottom: 0px; 
 	    }
 	    .span3 {
 		float: none;
 	    }
+	    ul {
+		margin-bottom: 10px;
+		li {
+		    display: inline-block;
+		    width: 40%;
+		    border: none;
+		    float: left;
+		}
+	    }
+	    
 	}
     }    
     .alignleft, 
@@ -952,13 +958,13 @@ Media Queries for Theme FAU-Einrichtungen
 
 @media (max-width: $breakXS) {
     #hero {
-	display: none;
+	// display: none;
     }
     .page-template-page-start .span3 {
 	float: none;
     }
     #content {
-	padding-top: 100px;
+	padding-top: 0px;
 	.news-item {	    
 		.span3,
 		.span5 {

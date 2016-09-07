@@ -34,7 +34,8 @@ function fau_get_menu_name($location){
 function get_top_parent_page_id($id, $offset = FALSE) {
 
 	$parents = get_post_ancestors( $id );
-	if( ! $offset) $offset = 2;
+	if( ! $offset) $offset = 1;
+	
 	$index = count($parents)-$offset;
 	if ($index <0) {
 	    $index = count($parents)-1;
@@ -202,7 +203,6 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 
 /* 
  * Darstellung eines Submenus im Inhaltsbereich
- * (Ersetzt bisherigen Murks mit fau-menu-widget.php aus FAU-Plugin)
  */
 function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $spalte = 0, $nothumbs = 0, $nodefthumbs = 0) {
     global $options;
@@ -289,7 +289,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 		// Only show elements on the first level and only five on the second level, but only if showdescription == FALSE
 		if($this->level == 1 || ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1)) {
 			$class_names = $value = '';
-
+			$externlink = false;
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 			$classes[] = 'menu-item-' . $item->ID;
 			if($this->level == 1 && (isset($this->count[$this->level])) && (($this->count[$this->level]-1) % $this->maxspalten==0) ) {
@@ -346,41 +346,53 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 				 if (empty($targeturl) && isset($protocol) && isset($link)) {
 				    $targeturl = $protocol.$link;
 				}
-				
-				$item_output .= '<a class="subpage-item ext-link" href="'.$targeturl.'">';
+				$externlink = true; 	
+				$link = '<a class="ext-link" href="'.$targeturl.'">';
 			} else {
-				$item_output .= '<a'. $attributes .'>';
+				$link = '<a'. $attributes .'>';
 			}
 
 			if($this->level == 1) {
-				if (!$this->nothumbnail) {			    
+				if (!$this->nothumbnail) {
+				    
+				    $item_output .= '<a class="image';
+				    if ($externlink) {
+					 $item_output .= ' ext-link';
+				    }
+				    $item_output .= '" href="'.$targeturl.'">';
+				
+				
 				    $post_thumbnail_id = get_post_thumbnail_id( $item->object_id, 'page-thumb' ); 
 				    $imagehtml = '';
 				    $imageurl = '';
 				    if ($post_thumbnail_id) {
 					$thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  'page-thumb');
 					$imageurl = $thisimage[0]; 	
+					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$thisimage[1].'" height="'.$thisimage[2].'" alt="'.apply_filters( 'the_title', $item->title, $item->ID ).'">';
 				    }
 				    if ((!isset($imageurl) || (strlen(trim($imageurl)) <4 )) && (!$this->nothumbnailfallback))  {
 					$imageurl = $options['default_submenuthumb_src'];
+					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" alt="'.apply_filters( 'the_title', $item->title, $item->ID ).'">';
 				    }
-				    if (!empty($imageurl)) {
-					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" alt="">';
-				    }
+				//    if($post && $post->post_type == 'imagelink') {
+				//	$item_output .= '<div class="ext-icon"></div>';
+				//    }
+				    $item_output .= '</a>';
+				}
+				
 
-				}
-				
-				
-				
-				if($post && $post->post_type == 'imagelink') {
-					$item_output .= '<div class="ext-icon"></div>';
-				}
-				$item_output .= $args->link_before.'<h3>'.apply_filters( 'the_title', $item->title, $item->ID ) .'</h3>'. $args->link_after;
+				$item_output .= $args->link_before.'<h3>';
+				$item_output .= $link;
+				$item_output .=  apply_filters( 'the_title', $item->title, $item->ID );
+				$item_output .= '</a>';
+				$item_output .= '</h3>'. $args->link_after;
 			} else {
+				$item_output .= $link;
 				$item_output .= $args->link_before.apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+				$item_output .= '</a>';
 			}
 
-			$item_output .= '</a>';
+			
 			$item_output .= $args->after;
 			
 			

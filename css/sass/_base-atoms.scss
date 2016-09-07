@@ -13,7 +13,7 @@ body {
 /* Wrap content in white */
 #wrap {
 	min-height: 100%;
-	margin: 0 auto;
+	margin: 0 auto;	
 	background: #fff;
 }
 
@@ -390,7 +390,8 @@ li {
 }
 
 .sidebar-inline li {
-    	background: url('../img/list-arrow.png') no-repeat left 4px;
+   //	background: url('../img/list-arrow.png') no-repeat left 4px;
+    //    background: url('../img/list-arrow-blue.png') no-repeat left 4px;
 	padding: 3px 0 4px 20px;
 }
 
@@ -612,52 +613,5 @@ input[type="submit"] {
 	
 	&:active {
 		background: $colorHover;
-	}
-}
-
-.dl-horizontal {
-	dt,
-	dd {
-		border: none;
-		font-size: 14px;
-		line-height: 20px;
-		float: none;
-		width: auto;
-		display: block;
-		padding: 0;
-		margin: 0; 
-		
-		ul, li, p {
-			font-size: 14px;
-			line-height: 20px;
-		}
-		
-		ul, ol {
-			margin-left: 10px;
-		}
-		
-		li {
-			margin-bottom: 0;
-			padding-bottom: 0;
-		}
-		
-		p {
-			padding: 0;
-			margin: 0 !important;
-		}
-	}
-	
-	dt {
-		margin: 5px 0;
-		color: $colorPrimary;
-	}
-	
-	dd {
-		margin: 0 0 10px 25px;
-		color: $colorText;
-	}
-	
-	a {
-		text-decoration: underline;
 	}
 }

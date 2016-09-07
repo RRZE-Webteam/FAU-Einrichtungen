@@ -291,7 +291,21 @@ $default_fau_orga_data = array(
 		'thumbnail'	=> '%s/img/logos/logo-rrze.png',
 	),
 
-    )
+    ),
+    'fb-wiso' => array(
+	    'title'	    => __('Fachbereich Wirtschaftswissenschaften', 'fau'),
+	    'shorttitle'    => __('FB WiSo', 'fau'),
+	    'homeurl'	    => 'https://wiso.rw.fau.de',
+	    'url'           => '%s/img/logos/logo-fb-wiso.jpg',
+	    'thumbnail'	    => '%s/img/logos/logo-fb-wiso.jpg',
+    ),
+     'fb-jura' => array(
+	    'title'	    => __('Fachbereich Rechtswissenschaften', 'fau'),
+	    'shorttitle'    => __('FB WiSo', 'fau'),
+	    'homeurl'	    => 'https://jura.rw.fau.de',
+	    'url'           => '%s/img/logos/logo-fb-jura.jpg',
+	    'thumbnail'	    => '%s/img/logos/logo-fb-jura.jpg',
+    ),
     
 );
 

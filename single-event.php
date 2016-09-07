@@ -72,7 +72,7 @@ get_header(); ?>
         <div class="container">
 
             <div class="row">
-                <div class="span8">
+                <div class="span12">
 		    <main>
                     <?php 
 		    $content = '';
@@ -82,8 +82,8 @@ get_header(); ?>
 			$event = $event_events_helper->get_event(get_the_ID());
 			$content = event_get_view($event, $content);
 		    }
-
-		    
+ 
+		     
 		    echo $content; ?>
                     <div>
                     <?php the_content(); ?>

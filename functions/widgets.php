@@ -9,6 +9,66 @@
 /* Tagcloud Menu Widget */
 global $options;
 
+
+/**
+ * Registers our main widget area and the front page widget areas.
+ *
+ * @since FAU 1.0
+ */
+function fau_sidebars_init() {
+
+	register_sidebar( array(
+		'name' => __( 'News Sidebar', 'fau' ),
+		'id' => 'news-sidebar',
+		'description' => __( 'Sidebar auf der News-Kategorieseite', 'fau' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h2 class="small">',
+		'after_title' => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name' => __( 'Suche Sidebar', 'fau' ),
+		'id' => 'search-sidebar',
+		'description' => __( 'Sidebar auf der Such-Ergebnisseite links', 'fau' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h2 class="small">',
+		'after_title' => '</h2>',
+	) );
+	register_sidebar( array(
+		'name' => __( 'Social Media Infobereich (Footer)', 'fau' ),
+		'id' => 'startpage-socialmediainfo',
+		'description' => __( 'Widgetbereich neben den Social Media Icons im Footer der Startseite.', 'fau' ),
+		'before_widget' => '<div class="span3">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="small">',
+		'after_title' => '</h2>',
+	) );
+	
+    // Wenn CMS-Workflow vorhanden und aktiviert ist
+	if (is_workflow_translation_active()) {
+	    register_sidebar( array(
+		    'name' => __( 'Sprachwechsler', 'fau' ),
+		    'id' => 'language-switcher',
+		    'description' => __( 'Sprachwechsler im Header der Seite', 'fau' ),
+		    'before_widget' => '',
+		    'after_widget' => '',
+		    'before_title' => '',
+		    'after_title' => '',
+	    ) );
+	}
+	
+}
+add_action( 'widgets_init', 'fau_sidebars_init' );
+
+/*
+ * Format Widgets
+ */
+add_filter( 'widget_text', array( $wp_embed, 'run_shortcode' ), 8 );
+add_filter( 'widget_text', array( $wp_embed, 'autoembed'), 8 );
+add_filter('widget_text','do_shortcode');
+
 add_action('widgets_init', function() {
 if (function_exists('get_field'))
         return register_widget( 'FAUMenuTagcloudWidget' );

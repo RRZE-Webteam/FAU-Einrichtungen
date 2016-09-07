@@ -105,21 +105,25 @@
 				@include no-list;
 				float: none;
 				background: none; 
-
 				a {
 					float: none;
-					margin: 0 !important;
-					padding: 0;
+					margin: 0;
 					font-weight: normal;
 					font-size: 15px;
-					background: transparent url('../img/list-arrow.png') no-repeat left center;
-					display: block;
-					padding: 7px 20px 7px 20px;
-					// color: $colorMainMenu;
+					display: table;
+					padding: 7px 20px 7px 0px;
 					@include border-radius(0);
 					border-bottom: 1px solid $colorHover;
+					width: calc(100% - 20px);
 				}
-
+				a:before {
+				    @extend .fa;
+				    @extend .fa-angle-right;	
+				    font-weight: bold;
+				    display: table-cell;
+				    color: #fff;
+				    width: 20px;
+				}
 				a:hover, 
 				a:focus {
 					text-decoration: none;
@@ -520,9 +524,9 @@
     		@include no-list;
 		font-size: 13px;
 		padding-left: 20px;
-		padding-bottom: 5px;
-		background: url("../img/list-arrow.png") no-repeat left 4px;
+		padding-bottom: 5px;		
 	}
+	
 	
 	&.hero-small {
 		@include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% 20%);
@@ -738,6 +742,61 @@
 	    
 	}
 	
+	.hero-navigation {
+	    li {
+		display: table;
+		padding-left: 0;
+	    }
+	    li:before {
+		    @extend .fa;
+		    @extend .fa-angle-right;	
+		    font-weight: bold;
+		    display: table-cell;
+		    color: #fff;
+		    width: 20px;
+		}
+	}
+    /* Faculties Menu */
+    .menu-faculties {
+	@include no-list;
+	
+	li {
+		@include no-list;
+		font-size: 13px;
+		min-height: 34px;
+		line-height: 34px;
+		border-left: 8px solid #fff;
+		vertical-align: center;
+		@include hyphens(auto);
+		
+		a {
+			@include inline-block;
+			padding: 2px 0 2px 10px;
+			line-height: 16px;
+			vertical-align: center;
+		}
+		&.phil,
+		&.philfak {
+			border-color: $colorPhilFak;
+		}
+		&.rw,
+		&.rwfak {
+			border-color: $colorRwFak;
+		}
+		&.med,
+		&.medfak {
+			border-color: $colorMedFak;
+		}
+		&.nat,
+		&.natfak  {
+			border-color: $colorNatFak;
+		}
+		&.tf,
+		&.techfak {
+			border-color: $colorTechFak;
+		}
+	}
+    }
 }
 
 
@@ -810,7 +869,7 @@
 
 /* Content Area */
 #content {
-	padding: 20px 0 20px 0;
+	padding: 20px 0 30px 0;
 	
 	.wp-caption {
 		max-width: 100%;
@@ -828,12 +887,16 @@
 		    @include border-radius(2px);
 		}
 	}
-	
+	a.image {
+	    img {
+	//	box-shadow: none;
+	    }
+	}
 	.logos-menu .logo-item img {
 		@include box-shadow(none);
 	}
 	
-	img.error-404-persons {
+	img.error-siegel {
 		@include box-shadow(none);
 		margin: 0 auto;
 		display: block;
@@ -861,6 +924,7 @@
 		line-height: 18px;
 	    }
 	}
+	
 }
 
 #comments {

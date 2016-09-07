@@ -8,6 +8,7 @@
 load_theme_textdomain( 'fau', get_template_directory() . '/languages' );
 require_once( get_template_directory() . '/functions/defaults.php' );
 require_once( get_template_directory() . '/functions/constants.php' );
+require_once( get_template_directory() . '/functions/rrze-calendar-events-shortcode.php' );
 $options = fau_initoptions();
 require_once( get_template_directory() . '/functions/helper-functions.php' );
 require_once( get_template_directory() . '/functions/theme-options.php' );     
@@ -79,7 +80,7 @@ function fau_setup() {
 	add_image_size( 'topevent-thumb', $options['default_topevent_thumb_width'], $options['default_topevent_thumb_height'], $options['default_topevent_thumb_crop']); // 140:90, true
 	
 	/* Thumb for Image Menus in Content - Name: page-thumb */
-	add_image_size( 'page-thumb', $options['default_submenuthumb_width'], $options['default_submenuthumb_height'], true); // 220:110
+	add_image_size( 'page-thumb', $options['default_submenuthumb_width'], $options['default_submenuthumb_height'],  $options['default_submenuthumb_crop']); // 220:110, true
 	
 	/* Thumb for Posts, displayed in post/page single display - Name: post */
 	add_image_size( 'post', $options['default_post_width'], $options['default_post_height'], $options['default_post_crop']);  // 300:200  false
@@ -380,65 +381,6 @@ function fau_custom_header_setup() {
 add_action( 'after_setup_theme', 'fau_custom_header_setup' );
 
 
-
-
-/**
- * Registers our main widget area and the front page widget areas.
- *
- * @since FAU 1.0
- */
-function fau_sidebars_init() {
-
-	register_sidebar( array(
-		'name' => __( 'News Sidebar', 'fau' ),
-		'id' => 'news-sidebar',
-		'description' => __( 'Sidebar auf der News-Kategorieseite', 'fau' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => '</aside>',
-		'before_title' => '<h2 class="small">',
-		'after_title' => '</h2>',
-	) );
-
-	register_sidebar( array(
-		'name' => __( 'Suche Sidebar', 'fau' ),
-		'id' => 'search-sidebar',
-		'description' => __( 'Sidebar auf der Such-Ergebnisseite links', 'fau' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => '</aside>',
-		'before_title' => '<h2 class="small">',
-		'after_title' => '</h2>',
-	) );
-	register_sidebar( array(
-		'name' => __( 'Social Media Infobereich (Footer)', 'fau' ),
-		'id' => 'startpage-socialmediainfo',
-		'description' => __( 'Widgetbereich neben den Social Media Icons im Footer der Startseite.', 'fau' ),
-		'before_widget' => '<div class="span3">',
-		'after_widget' => '</div>',
-		'before_title' => '<h2 class="small">',
-		'after_title' => '</h2>',
-	) );
-	
-    // Wenn CMS-Workflow vorhanden und aktiviert ist
-	if (is_workflow_translation_active()) {
-	    register_sidebar( array(
-		    'name' => __( 'Sprachwechsler', 'fau' ),
-		    'id' => 'language-switcher',
-		    'description' => __( 'Sprachwechsler im Header der Seite', 'fau' ),
-		    'before_widget' => '',
-		    'after_widget' => '',
-		    'before_title' => '',
-		    'after_title' => '',
-	    ) );
-	}
-	
-}
-add_action( 'widgets_init', 'fau_sidebars_init' );
-
-/*
- * Format Widgets
- */
-add_filter( 'widget_text', array( $wp_embed, 'run_shortcode' ), 8 );
-add_filter( 'widget_text', array( $wp_embed, 'autoembed'), 8 );
 
 
 /*
@@ -1297,7 +1239,7 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	$output .= "\t\t\t".'<p itemprop="description">'."\n"; 
 	
 	
-	
+	$cuttet = false;
 	$abstract = get_post_meta( $post->ID, 'abstract', true );
 	if (strlen(trim($abstract))<3) {
 	   $abstract =  fau_custom_excerpt($post->ID,$options['default_anleser_excerpt_length'],false,'',true);
@@ -1309,7 +1251,9 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	if ($external) {
 	    $output .= ' ext-link';
 	}
-	$output .= '" href="'.$link.'">›</a>'; 
+	$output .= '" href="'.$link.'" title="'.get_the_title($post->ID).'">';
+	$output .= ' <span class="screen-reader-text">'.__('Weiterlesen','fau').'</span>'; 
+	$output .= '</a>'; 
 	$output .= "\t\t\t".'</p>'."\n"; 
 	
 	

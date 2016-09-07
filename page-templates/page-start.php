@@ -66,8 +66,6 @@ global $options;
 				    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id, 'hero' );
 				    $imgdata = fau_get_image_attributs($post_thumbnail_id);
 				    $copyright = trim(strip_tags( $imgdata['credits'] ));
-				 //   $slidersrc = wp_get_attachment_image($post_thumbnail_id,'hero',false,array( 'alt' => false ));
-				 //   $slidersrc .= "<!-- use post thumbnail: $post_thumbnail_id  -->";
 				    $slidersrcset =  wp_get_attachment_image_srcset($post_thumbnail_id,'hero');
 				}
 			    }

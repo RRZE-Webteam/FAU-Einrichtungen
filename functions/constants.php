@@ -88,6 +88,7 @@ $defaultoptions = array(
     /* Thumb for Image Menus in Content - Name: page-thumb */
     'default_submenuthumb_width'    => 220,
     'default_submenuthumb_height'   => 110,    
+    'default_submenuthumb_crop'	    => false,
     
     /* Thumb of Topevent in Sidebar - Name: topevent-thumb */
     'default_topevent_thumb_width'  => 140,

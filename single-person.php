@@ -26,7 +26,6 @@ get_header(); ?>
 				    $id = $post->ID;
 				    if ($id) {
 					echo FAU_Person_Shortcodes::fau_person_page($id);
-					the_content();
 				    } else { ?>
 					<p class="hinweis">
 					    <strong><?php _e('Es tut uns leid.','fau'); ?></strong><br>

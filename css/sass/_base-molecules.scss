@@ -95,47 +95,6 @@
 	}
 }
 
-/* Faculties Menu */
-#hero .menu-faculties {
-	@include no-list;
-	
-	li {
-		@include no-list;
-		font-size: 13px;
-		min-height: 34px;
-		line-height: 34px;
-		border-left: 8px solid #fff;
-		vertical-align: center;
-		@include hyphens(auto);
-		
-		a {
-			@include inline-block;
-			padding: 2px 0 2px 10px;
-			line-height: 16px;
-			vertical-align: center;
-		}
-		&.phil,
-		&.philfak {
-			border-color: $colorPhilFak;
-		}
-		&.rw,
-		&.rwfak {
-			border-color: $colorRwFak;
-		}
-		&.med,
-		&.medfak {
-			border-color: $colorMedFak;
-		}
-		&.nat,
-		&.natfak  {
-			border-color: $colorNatFak;
-		}
-		&.tf,
-		&.techfak {
-			border-color: $colorTechFak;
-		}
-	}
-}
 
 /* Subpages / Portal Menu */
 .subpages-menu {
@@ -148,17 +107,63 @@
 		margin-bottom: 20px;
 		padding-left: 20px;
 		
-		a.subpage-item {
+		a.image {
 			text-decoration: none;
-
-			h3 {
-				padding: 10px 15px 10px 0;
-				font-weight: bold;
-				text-decoration: none;
+			width: 220px;
+			height: 110px;
+			// @include box-shadow(0 1px 2px rgba(0,0,0,0.3));
+			display: inline-block;			
+			img {
+			    position: relative;
+			    bottom: 0;
+			}
+			
+			&.ext-link:after {
+				@extend .fa;
+				content: "\f08e"; 
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 10;
+				height: 20px;
+				width: 20px;
+				background: $colorPrimary;
+				line-height: 20px;
+				font-size: 13px;
+				color: #fff; 
+				font-weight: bolder;
+				text-align: right;
+				padding: 0 2px 0 0;
+				
 			}
 		}
 	}
-	
+	h3 {
+		    padding: 10px 15px 10px 0;
+		    font-weight: bold;
+		   
+		    a {
+			 text-decoration: none;
+			 &:hover, &:focus {
+			    text-decoration: underline;
+			}
+			
+			&.ext-link:after {
+				@extend .fa;
+				content: "\f08e"; 
+				margin-left: 5px;
+				margin-top: 3px;
+				font-size: 10px;
+				color: $colorText; // $colorDefault;
+				vertical-align: top;
+			    
+			}
+		    }	    
+	}
+
+
+		
+		
 	.menu-item {
 		position: relative;
 	}
@@ -169,14 +174,25 @@
 		li {
 			@include no-list;
 			background: none;
+			display: table;
+			border-bottom: 1px solid $colorLightest;
+			width: 100%;
+			
+		}
+		li:before {
+		    @extend .fa;
+		    @extend .fa-angle-right;	
+		    font-weight: bold;
+		    display: table-cell;
+		    vertical-align: middle;
+		    color: $colorDefault;
+		    width: 5px;
 		}
 		
 		a {
 			text-decoration: none;
-			background: url('../img/list-arrow-blue.png') no-repeat left center;
-			display: block;
-			padding: 7px 20px;
-			border-bottom: 1px solid $colorLightest;
+			display: table-cell;
+			padding: 5px 12px;
 			font-size: 13px;
 			line-height: 16px;
 		}
@@ -191,25 +207,9 @@
 		background-color: $colorLightest;
 	}
 	
-	.ext-link h3 {
-		@include inline-block;
-		background: url('../img/ext-icon-19.png') no-repeat 100% 50%;
-		padding-right: 15px;
-		
-		&:hover, &:focus {
-			text-decoration: underline;
-		}
-	}
+
 	
-	.ext-icon {
-		position: absolute;
-		top: 0;
-		right: 0;
-		z-index: 10;
-		height: 20px;
-		width: 20px;
-		background: $colorPrimary url('../img/ext-icon-19-white.png') no-repeat 50% 50%;
-	}
+	
 }
 
 .page-template-page-subnav {
@@ -283,10 +283,44 @@
 .widget {
 	margin-bottom: 7px;
 	
+	ul {
+	    margin: 0;
+	    padding: 0;
+	    
+	    ul {
+		margin: 0 0 10px 5px;
+		
+		li {
+		  //  display: inherit;
+		}
+	    }
+	}
+	
+	
 	li {
 		padding: 0 0 0 5px;
 		font-size: 13px;
 		line-height: 20px;
+		
+		list-style-type: none;
+		padding-bottom: 3px;
+		display: table-row;
+		
+		a {
+			text-decoration: none;
+		}
+		
+		a:hover, a:focus {
+			text-decoration: underline;
+		}
+	}
+	li:before {
+	    @extend .fa;
+	    @extend .fa-angle-right;	
+	    font-weight: bold;
+	    color: $colorDefault; 
+	    width: 15px;
+	    display: table-cell;
 	}
 	
 }
@@ -382,65 +416,86 @@
 			@include no-list;
 			display: block;
 			background-color: $colorLightest;
+			color: $colorDefault;
+			
 			border-bottom: 1px solid #fff;
 			line-height: 18px;
-			padding: 6px 0 6px 0px;
+			padding: 6px 0px 6px 15px;
+			
+			
 			a {
 				text-decoration: none;
 				line-height: 18px;
 				padding: 6px 0;
-				padding-left: 15px;
-				
+				        
 				&:hover, 
 				&:focus {
 				    text-decoration: underline;
 				}
 			}
-			&:hover, 
-			&:focus {
-			    background-color: darken($colorLightest, 3%);
-			    li {
-				background-color: darken($colorLightest, 3%);
-			    }
-			}
-			ul {
-			    margin-top: 5px;
-			}
+			
+	
 			li {
 			    border-bottom: none;
-			    padding: 6px 0 6px 15px;
+			    background-color: darken($colorLightest, 3%);
+			    padding: 10px 0 10px 10px;
+			    li {
+				background-color: darken($colorLightest, 6%);
+			    }
 			}
 			
-			&.tf a,
-			&.techfak a {
+			&.tf,
+			&.techfak {
 			    background-color: $colorTechFak;
-			    color: #fff;
+			    a {
+				color: #fff;
+			    }
 			}
-			&.rw a,
-			&.rwfak a {
+			&.rw,
+			&.rwfak {
 			    background-color:  $colorRwFak;
-			    color: #fff;
+			     a {
+				color: #fff;
+			    }
 			}
-			&.med a,
-			&.medfak a {
+			&.med,
+			&.medfak {
 			    background-color:  $colorMedFak;
-			    color: #fff;
+			     a {
+				color: #fff;
+			    }
 			}
-			&.nat a,
-			&.natfak a {
+			&.nat,
+			&.natfak {
 			    background-color:  $colorNatFak;
-			    color: #fff;
+			     a {
+				color: #fff;
+			    }
 			}
-			&.phil a,
-			&.philfak a {
+			&.phil,
+			&.philfak {
 			    background-color:  $colorPhilFak;
-			    color: #fff;
+			     a {
+				color: #fff;
+			    }
 			}
-			&.fau a, &.default a {
+			&.fau, 
+			&.default {
 			    background-color:  $colorDefault;
-			    color: #fff;
+			     a {
+				color: #fff;
+			    }
 			}
 			
+		}
+		li:hover, 
+		li:focus {
+		    background-color: $colorLightest; // darken($colorLightest, 3%);
+		    
+		    color: $colorLightestContrast;
+		    a {
+			  color: $colorLightestContrast;
+		    }
 		}
 	}
 }
@@ -451,191 +506,6 @@
 }
 
 
-/* Persons */
-.person-info-more {
-	margin: 10px 0 0 0;
-	padding-left: 0 !important;
-}
-
-.person-read-more {
-	@include inline-block;
-	height: 20px;
-	line-height: 20px;
-	background: $colorLightest;
-	padding: 6px 10px;
-	text-decoration: none;
-	@include border-radius(3px);
-	font-size: 14px;
-	
-	&:hover, &:focus {
-		background: darken($colorLightest, 3%);
-		text-decoration: none;
-	}
-}
-
-.person {
-	h3 {
-		padding-bottom: 0;
-		padding-top: 5px;
-		font-weight: bold;
-		font-size: 15px;
-		
-		a {
-		    color: $colorText;
-		    text-decoration: underline;
-		}
-	}
-	
-	h4 {
-		padding-top: 0;
-		font-weight: normal;
-		a {
-		    color: $colorText;
-		    text-decoration: underline;
-		}
-	}
-}
-
-.content-person {
-	border: 1px solid $colorStandardHellgrau;
-	margin: 10px 0;
-	padding: 10px;
-	overflow: hidden;
-	
-	@media(max-width: $breakMD) {
-		margin: 10px 15px;
-		padding: 10px 0;
-	}
-	
-	li {
-		font-size: 13px;
-		line-height: 20px;
-		background-position: left 5px;
-	}
-	
-	.person-info-description {
-		padding-top: 8px;
-		
-		@media(max-width: $breakMD) {
-			margin-left: 0 !important;
-		}
-	}
-	
-	.person-info-description,
-	.person-info-description p {
-		font-size: 13px;
-		line-height: 20px;
-	}
-	
-	.image-placeholder {
-		width: 90px;
-		height: 120px;
-		background: $colorLightest;
-		position: relative;
-		text-align: center;
-	
-		
-		&:before {
-			@extend .fa;
-			@extend .fa-4x;
-			@extend .fa-user;
-			line-height: 120px;	
-			color: $colorLight;
-		}
-	}
-	// .compactindex .span3 {
-	//    width: 70%;	    
-	//  }
-}
-
-ul.person-info {
-	@include no-list;
-	
-	li {
-		@include no-list;
-		background-image: none;
-		padding-left: 0px;
-		min-height: 20px;
-		// font-size: 13px;
-		// line-height: 20px;
-		background-repeat: no-repeat;
-		background-position: left center;
-		
-		
-		ul  {
-		    li {
-			list-style-type: disc; 	   
-			li {
-			    list-style-type: circle;
-			}
-		    }
-		}
-		ol  {
-		    li {
-			list-style-type:  decimal; 	
-			li {
-			    list-style-type: circle;
-			}
-		    }
-		}
-		
-	}
-	
-	
-	/*
-	li.person-info:before {
-		@extend .fa;
-		width: 20px;
-	} */
-	
-	li.person-info-phone:before { 
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-phone; 
-	}
-	li.person-info-fax:before {
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-print; 
-	}
-	li.person-info-email:before {
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-envelope; 
-	}
-	/*
-	li.person-info-institution:before { 
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-building; 
-	}
-	*/
-	li.person-info-www:before { 
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-info-circle; 
-	}
-	li.person-info-position {
-	    font-weight: bold;
-	}
-	li.person-info-address {
-	    margin-top: 10px;
-	    padding-left: 0px;
-	}
-	
-	li.person-info-description {
-	    margin-top: 10px;
-	    padding-left: 20px;
-	}
-
-}
-
-
-
-span[itemprop="honorificPrefix"], 
-span[itemprop="honorificSuffix"] {
-    white-space: nowrap;
-}
 
 
 /* Posts / News */
@@ -882,14 +752,15 @@ span[itemprop="honorificSuffix"] {
 .read-more-arrow {
 	text-decoration: none;
 	padding-right: 3px;
-	padding-left: 2px;
-	font-size: 22px;
-	line-height: 16px;
+	padding-left: 5px;
 	
+	@extend .fa;
+	@extend .fa-angle-right;
+		
 	&:hover, &:focus {
 		text-decoration: none;
-		padding-left: 5px;
-		padding-right: 0;
+		
+		@extend .fa-angle-double-right;
 	}
 }
 
@@ -1054,6 +925,7 @@ span[itemprop="honorificSuffix"] {
 	}
 }
 
+
 .event-detail-item {
 	margin-bottom: 20px;
 	min-height: 50px;
@@ -1080,6 +952,7 @@ span[itemprop="honorificSuffix"] {
 		line-height: 28px;
 	}
 }
+
 
 .events-more-links {
 	padding: 0;
@@ -1240,6 +1113,7 @@ span[itemprop="honorificSuffix"] {
 }
 
 /* Tagcloud */
+/*
 ul.tagcloud {
 	@include no-list;
 	
@@ -1260,7 +1134,7 @@ ul.tagcloud {
 		}
 	}
 }
-
+*/
 /* Logo Slider */
 .logos-menu-nav {
 	position: relative;
@@ -1402,38 +1276,7 @@ ul.tagcloud {
 		} 
 	    }
 	}
-    ul.person-info li {
-	    color: $colorText;
-    }
-    li.person-info-address {
-		white-space: pre;
-    }
-    .content-person {
-	border: none;
-	margin: 0;
-	padding: 0;
-    }
-}
-
-.sidebar-outline {
-    ul.person-info li {
-	    color: $colorText;
-    }
-    li.person-info-address {
-		white-space: pre;
-    }
-    .content-person {
-	border: none;
-	margin: 0;
-	padding: 0;
-	
-	.span-small {
-	    width: 60px;
-	}
-	.span6 {
-	    width: 220px;
-	}
-    }
+   
 }
 
 
@@ -1474,7 +1317,6 @@ ul.tagcloud {
 
 				&.active, &.active:hover, &.active:focus {
 					background-color: darken($colorLightest, 3%);
-				//	background-position: right -41px;
 					color: $colorLightestContrast; // $colorPrimary;
 					
 					&:before {
