@@ -30,7 +30,7 @@ get_header(); ?>
                 </div>
             </div>
             <div class="row">
-                <div class="span6">
+                <div class="span12">
                     <h1><?php echo $event->summary; ?></h1>
                 </div>
             </div>
@@ -40,7 +40,7 @@ get_header(); ?>
     <div id="content">
         <div class="container">
             <div class="row">
-                <div class="span8">
+                <div class="span12">
                     <main>
                         <div class="event-detail-item">
                             <div class="event-date <?php echo $event->category->bgcol; ?>" <?php echo (!$event->category->bgcol && $event->category->color) ? 'style="background-color:' . $event->category->color . '"' : ''; ?>>

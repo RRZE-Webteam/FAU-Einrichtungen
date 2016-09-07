@@ -30,7 +30,7 @@ get_header(); ?>
                 </div>
             </div>
             <div class="row">
-                <div class="span6">
+                <div class="span12">
 
                     <h1><?php echo $rrze_calendar_endpoint_name; ?></h1>
 
@@ -43,7 +43,7 @@ get_header(); ?>
         <div class="container">
 
             <div class="row">
-                <div class="span8">
+                <div class="span12">
                     <main>                        
 
                         <div class="events-list">
