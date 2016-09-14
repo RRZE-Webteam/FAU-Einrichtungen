@@ -324,7 +324,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 			}
 
 			if($this->level == 1) $atts['class'] = 'subpage-item';
-
+			$targeturl = $atts['href'];
 			
 
 			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
@@ -374,9 +374,6 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 					$imageurl = $options['default_submenuthumb_src'];
 					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" alt="'.apply_filters( 'the_title', $item->title, $item->ID ).'">';
 				    }
-				//    if($post && $post->post_type == 'imagelink') {
-				//	$item_output .= '<div class="ext-icon"></div>';
-				//    }
 				    $item_output .= '</a>';
 				}
 				
