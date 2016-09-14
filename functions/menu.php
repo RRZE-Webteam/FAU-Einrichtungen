@@ -347,15 +347,20 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 				    $targeturl = $protocol.$link;
 				}
 				$externlink = true; 	
-				$link = '<a class="ext-link" href="'.$targeturl.'">';
+				$link = '<a class="ext-link" data-wpel-link="internal"  href="'.$targeturl.'">';
 			} else {
-				$link = '<a'. $attributes .'>';
+				$link = '<a'. $attributes .' >';
 			}
 
 			if($this->level == 1) {
 				if (!$this->nothumbnail) {
 				    
-				    $item_output .= '<a class="image';
+				    $item_output .= '<a ';
+				    
+				    if ($externlink) {
+					 $item_output .= 'data-wpel-link="internal" ';
+				    }
+				    $item_output .= 'class="image';
 				    if ($externlink) {
 					 $item_output .= ' ext-link';
 				    }
