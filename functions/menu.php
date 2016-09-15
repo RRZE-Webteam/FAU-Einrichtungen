@@ -72,11 +72,9 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		$nothumbnail  = get_post_meta( $this->currentID, 'menuquote_nothumbnail', true );	
 
 		if ($nothumbnail==1) {
-		       $thumbregion = '';
+		    $thumbregion = '';
 		} else {
-	//	    $thumbregion = get_the_post_thumbnail($this->currentID,'portalmenu-thumb');
 		    $thumbregion = get_the_post_thumbnail($this->currentID,'post');
-	//	    $thumbregion = get_the_post_thumbnail($this->currentID);
 		}
 	        $quote  = get_post_meta( $this->currentID, 'zitat_text', true );
 	        $author =  get_post_meta( $this->currentID, 'zitat_autor', true );
@@ -96,13 +94,7 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 			} elseif ($texttype==1) {
 			     $output .= '<p>'.$quote.'</p>';
 			}
-		//    } else {
-		//	if ($options['menu_fallbackquote_show_excerpt']) {
-		//	    $excerpt = fau_custom_excerpt($this->currentID,$options['menu_fallbackquote_excerpt_length'],true,'nav-excerpt');
-		//	    if (isset($excerpt)) {
-		//		$output .= $excerpt;
-		//	    }
-		//	}
+		
 		    }
 		    $output .= '</div>';
 		    $output .= '<div class="span4 hide-mobile">';		
@@ -121,12 +113,7 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 			} elseif ($texttype==1) {
 			     $output .= '<p>'.$quote.'</p>';
 			}
-			// if ($options['menu_fallbackquote_show_excerpt']) {
-			   // $excerpt = fau_custom_excerpt($this->currentID,$options['menu_fallbackquote_excerpt_length'],true,'nav-excerpt');
-			    // if (isset($excerpt)) {
-			//	$output .= $excerpt;
-			 //   }
-		// 	}
+
 		    }
 		    $output .= '</div>';	
 	
@@ -143,9 +130,10 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		$force_cleanmenu = 0;
 
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-		$classes[] = 'menu-item-' . $item->ID;
-		$classes[] = 'level' . $level;
-			
+		if ($level<2) {
+		    $classes[] = 'menu-item-' . $item->ID;
+		    $classes[] = 'level' . $level;
+		}	
 		$rellink = fau_make_link_relative($item->url);
 		if (substr($rellink,0,4) == 'http') {
 		    // absoluter Link auf externe Seite
@@ -162,16 +150,15 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		} elseif (($options['advanced_forceclean_externlink']) && ($force_cleanmenu==1)) {    
 		    // Ignore external link in Main menu
 		} else {
-		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
-		    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+		   
 
 		    $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
 		    $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
-
-
-
+	    
+		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+		    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 		    $output .= $indent . '<li' . $id . $value . $class_names .'>';
-
+		    
 		    $atts = array();
 		    $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
 		    $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
