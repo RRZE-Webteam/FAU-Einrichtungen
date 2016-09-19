@@ -157,6 +157,10 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 	    
 		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 		    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+		    
+		    if ($level>1) {
+			 $class_names = str_replace("has-sub","",$class_names);   
+		    }
 		    $output .= $indent . '<li' . $id . $value . $class_names .'>';
 		    
 		    $atts = array();
