@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: FAU v1.2.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-05 15:05+0100\n"
-"PO-Revision-Date: Wed Oct 19 2016 13:35:51 GMT+0200 (CEST)\n"
+"PO-Revision-Date: Wed Oct 19 2016 14:07:51 GMT+0200 (CEST)\n"
 "Last-Translator: xwolf <xwolf@xwolf.de>\n"
 "Language-Team: RRZE-Webteam\n"
 "Language: English (UK)\n"
@@ -24,19 +24,19 @@ msgstr ""
 
 #: ../functions.php:40
 msgid "Startseite FAU Portal: Bühne Spalte 1"
-msgstr ""
+msgstr "Home page FAU portal: stage column 1"
 
 #: ../functions.php:41
 msgid "Startseite FAU Portal: Bühne Spalte 2"
-msgstr ""
+msgstr "Home page FAU portal: stage column 2"
 
 #: ../functions.php:42
 msgid "Startseite FAU Portal: Bühne Spalte 3"
-msgstr ""
+msgstr "Home page FAU portal: stage column 3"
 
 #: ../functions.php:43
 msgid "Startseite FAU Portal: Bühne Spalte 4"
-msgstr ""
+msgstr "Home page FAU portal: stage column 4"
 
 #: ../functions.php:1254
 msgid "Weiterlesen"
@@ -44,7 +44,7 @@ msgstr "Continue"
 
 #: ../functions.php:1963
 msgid "RSS"
-msgstr ""
+msgstr "RSS"
 
 #: ../functions/defaults.php:105
 msgid "Fakultäten"
@@ -72,7 +72,7 @@ msgstr ""
 
 #: ../functions/defaults.php:147
 msgid "Wissenschaftsschwerpunkte"
-msgstr ""
+msgstr "Research profile"
 
 #: ../functions/defaults.php:151
 msgid "Stiften und Fördern"
@@ -80,23 +80,23 @@ msgstr ""
 
 #: ../functions/defaults.php:296
 msgid "Fachbereich Wirtschaftswissenschaften"
-msgstr ""
+msgstr "School of Business and Economics"
 
 #: ../functions/defaults.php:297 ../functions/defaults.php:304
 msgid "FB WiSo"
-msgstr ""
+msgstr "School of Business and Economics"
 
 #: ../functions/defaults.php:303
 msgid "Fachbereich Rechtswissenschaften"
-msgstr ""
+msgstr "School of Law"
 
 #: ../functions/theme-options.php:60
 msgid "Zentrales FAU-Portal"
-msgstr ""
+msgstr "FAU Portal"
 
 #: ../functions/constants.php:835
 msgid "Hauptmenü"
-msgstr ""
+msgstr "Main menu"
 
 #: ../functions/constants.php:839
 msgid "Links auf Startseite"
