@@ -39,7 +39,6 @@ LIBRARIES & SOURCES
 
 OPTIONAL PLUGINS 
 
-* FAU-Events (https://github.com/RRZE-Webteam/fau-events) 
 * CMS-Workflow (https://github.com/RRZE-Webteam/cms-workflow)
 * RRZE-UnivIS (https://github.com/RRZE-Webteam/rrze-univis)
 * TinyMCE Advanced
