@@ -34,6 +34,7 @@ global $options;
 		<section id="meta">
 			<div class="container">
 				<div class="pull-left">
+					<h3 class="screen-reader-text"><?php _e('Links zu weiteren Portalen','fau'); ?></h3>
 					<?php 
 					echo fau_get_toplinks(); 
 					?>
@@ -42,7 +43,7 @@ global $options;
 					<?php if ( is_active_sidebar( 'language-switcher' ) ) : ?>
 						<?php dynamic_sidebar( 'language-switcher' ); ?>
 					<?php endif; ?>
-				    
+				    <h3 class="screen-reader-text"><?php _e('Seiteninterne Suche','fau'); ?></h3>
 				    <?php get_template_part('header', 'searchform'); ?>
 				</div>
 			</div>
