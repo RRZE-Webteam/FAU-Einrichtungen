@@ -221,7 +221,7 @@ function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $spalte = 0, $
 	$spalte = $options['default_submenu_spalten'];
     }
    
-    echo '<div class="contentmenu">';   
+    echo '<div class="contentmenu" role="navigation">';   
     wp_nav_menu( array( 'menu' => $slug, 'container' => false, 'items_wrap' => '%3$s', 'link_before' => '', 'link_after' => '', 'walker' => new Walker_Content_Menu($submenu,$subentries,$spalte,$nothumbs,$nodefthumbs)));
     echo "</div>\n";
 
@@ -364,13 +364,15 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 				    if ($post_thumbnail_id) {
 					$thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  'page-thumb');
 					$imageurl = $thisimage[0]; 	
-					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$thisimage[1].'" height="'.$thisimage[2].'" alt="'.apply_filters( 'the_title', $item->title, $item->ID ).'">';
+					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$thisimage[1].'" height="'.$thisimage[2].'" alt="">';
 				    }
 				    if ((!isset($imageurl) || (strlen(trim($imageurl)) <4 )) && (!$this->nothumbnailfallback))  {
 					$imageurl = $options['default_submenuthumb_src'];
-					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" alt="'.apply_filters( 'the_title', $item->title, $item->ID ).'">';
+					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" alt="">';
 				    }
 				    $item_output .= '</a>';
+				    
+				    // Anmerkdung: Leeres alt="", da dieses ansonsten redundant wäre zum darunter stehenden Titel.
 				}
 				
 
