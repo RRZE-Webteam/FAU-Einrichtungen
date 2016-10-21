@@ -4,6 +4,11 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
+    'optiontable-version'		=> 10,
+	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
+	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
+	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
+	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
     'js-version'			=> '1.6',
 	// Theme-Versionslinie
     'website_type'			=> 2,
@@ -98,7 +103,7 @@ $defaultoptions = array(
     /* Thumb for Logos (used in carousel) - Name: logo-thumb */
     'default_logo_carousel_width'	=> 140,
     'default_logo_carousel_height'	=> 110,
-    'default_logo_carousel_crop'	=> true,   
+    'default_logo_carousel_crop'	=> false,   
 
     
     /* Thumb for Posts in Lists - Name: post-thumb */
@@ -165,8 +170,6 @@ $defaultoptions = array(
     'default_logo_src'		    => get_fau_template_uri().'/img/logos/logo-default.png',
     'default_logo_height'	    => 65,
     'default_logo_width'	    => 240,
-
-    
     
     'socialmedia'		    => 0,
     'active_socialmedia_footer'	    => array(0),  
@@ -264,6 +267,40 @@ $defaultoptions = array(
     
 ); 
 
+
+/*
+ * Get Options
+ */
+function fau_initoptions() {
+   global $defaultoptions;
+    $oldoptions = get_option('fau_theme_options');
+    if (isset($oldoptions) && (is_array($oldoptions))) {
+        $newoptions = array_merge($defaultoptions,$oldoptions);	  
+	
+	if ((!isset($oldoptions['optiontable-version'])) || ($oldoptions['optiontable-version'] < $defaultoptions['optiontable-version'])) {
+	    // Neue Optionen: Ueberschreibe Default-Optionen, die nicht manuell
+	    // gesetzt werden konnten
+	    $ignoreoptions = array();
+	    global $setoptions;
+	    foreach($setoptions['fau_theme_options'] as $tab => $f) {       
+		foreach($setoptions['fau_theme_options'][$tab]['fields'] as $i => $value) {  
+		    $ignoreoptions[$i] = $value;
+		}
+	    }
+	    $defaultlist = '';
+	    foreach($defaultoptions as $i => $value) {       
+		if (!isset($ignoreoptions[$i])) {
+		    $newoptions[$i] = $defaultoptions[$i];		    
+		}
+	    }
+	    update_option( 'fau_theme_options', $newoptions );
+	}
+	
+    } else {
+        $newoptions = $defaultoptions;
+    }       
+    return $newoptions;
+}
 
  $categories=get_categories(array('orderby' => 'name','order' => 'ASC'));
  foreach($categories as $category) {

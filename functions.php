@@ -137,20 +137,7 @@ add_action( 'after_setup_theme', 'fau_setup' );
 
 
 
-/*
- * Get Options
- */
-function fau_initoptions() {
-   global $defaultoptions;
-    
-    $oldoptions = get_option('fau_theme_options');
-    if (isset($oldoptions) && (is_array($oldoptions))) {
-        $newoptions = array_merge($defaultoptions,$oldoptions);	  
-    } else {
-        $newoptions = $defaultoptions;
-    }       
-    return $newoptions;
-}
+
 
 
 /**
@@ -160,10 +147,8 @@ function fau_register_scripts() {
     global $defaultoptions;
     
     wp_register_script( 'fau-scripts', $defaultoptions['src-scriptjs'], array('jquery'), $defaultoptions['js-version'], true );
-
     wp_register_script( 'fau-libs-jquery-flexslider', get_fau_template_uri() . '/js/libs/jquery.flexslider.js', array('jquery'), $defaultoptions['js-version'], true );
-	// Flexslider für Startseite und für Galerien.  
-   
+	// Flexslider für Startseite und für Galerien.     
     wp_register_script( 'fau-libs-jquery-caroufredsel', get_fau_template_uri() . '/js/libs/jquery.caroufredsel.js', array('jquery'), $defaultoptions['js-version'], true );
     wp_register_script( 'fau-js-caroufredsel', get_fau_template_uri() . '/js/usecaroufredsel.min.js', array('jquery','fau-libs-jquery-caroufredsel'), $defaultoptions['js-version'], true );
 	// Slidende Logos 
