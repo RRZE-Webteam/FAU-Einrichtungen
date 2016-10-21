@@ -150,7 +150,7 @@ function fau_register_scripts() {
     wp_register_script( 'fau-libs-jquery-flexslider', get_fau_template_uri() . '/js/libs/jquery.flexslider.js', array('jquery'), $defaultoptions['js-version'], true );
 	// Flexslider für Startseite und für Galerien.     
     wp_register_script( 'fau-libs-jquery-caroufredsel', get_fau_template_uri() . '/js/libs/jquery.caroufredsel.js', array('jquery'), $defaultoptions['js-version'], true );
-    wp_register_script( 'fau-js-caroufredsel', get_fau_template_uri() . '/js/usecaroufredsel.min.js', array('jquery','fau-libs-jquery-caroufredsel'), $defaultoptions['js-version'], true );
+    wp_register_script( 'fau-js-caroufredsel', get_fau_template_uri() . '/js/usecaroufredsel.js', array('jquery','fau-libs-jquery-caroufredsel'), $defaultoptions['js-version'], true );
 	// Slidende Logos 
 }
 add_action('init', 'fau_register_scripts');

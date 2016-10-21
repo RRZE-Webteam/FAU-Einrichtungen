@@ -1135,71 +1135,7 @@ ul.tagcloud {
 	}
 }
 */
-/* Logo Slider */
-.logos-menu-nav {
-	position: relative;
-}
 
-.logos-menu .logo-item {
-	display: block;
-	text-align: center;
-	
-	&:focus {
-		outline: 1px solid $colorPrimary;
-	}
-	
-	img {
-		@include box-shadow(none);
-	}
-}
-
-#logos-menu-prev {
-	position: absolute;
-	z-index: 10;
-	top: 0;
-	left: -40px;
-	display: block;
-	width: 40px;
-	height: 110px;
-	background: #fff url('../img/prev-next.png') no-repeat -32px center;
-	text-indent: -9999em;
-}
-
-#logos-menu-next {
-	position: absolute;
-	z-index: 10;
-	top: 0;
-	right: -20px;
-	display: block;
-	width: 30px;
-	height: 110px;
-	background: #fff url('../img/prev-next.png') no-repeat left center;
-	text-indent: -9999em;
-}
-
-#logos-menu-playpause {
-	@include inline-block;
-	background: url('../img/play-pause.png') no-repeat left -64px;
-	height: 32px;
-	line-height: 32px;
-	padding-left: 32px;
-}
-
-#logos-menu-playpause.paused {
-	background-position: left -96px;
-}
-
-#logos-menu-playpause .play {
-	display: none;
-}
-
-#logos-menu-playpause.paused .pause {
-	display: none;
-}
-
-#logos-menu-playpause.paused .play {
-	display: inline;
-}
 
 /* Banner Ads */
 .fau-werbung {

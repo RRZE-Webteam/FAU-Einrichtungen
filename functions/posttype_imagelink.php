@@ -285,8 +285,8 @@ function fau_get_imagelinks ( $catid, $echo = true ) {
 		    $link  = get_post_meta( $item->ID, 'link', true );
 		    $currenturl = $protocol.$link;
 	    }
-	    $item_output .= '<span class="span2">';
-	    $item_output .= '<a class="logo-item" rel="nofollow" href="'.$currenturl.'">';
+	    $item_output .= '<li>';
+	    $item_output .= '<a rel="nofollow" href="'.$currenturl.'">';
 	    
 	    
 	    $item_output .= get_the_post_thumbnail($item->ID, 'logo-thumb');
@@ -306,25 +306,28 @@ function fau_get_imagelinks ( $catid, $echo = true ) {
 	    */
 	    
 	    $item_output .= '</a>';
-	    $item_output .= '</span>';
+	    $item_output .= '</li>';
    
 	    
 	    
 	}
 	if ($number>0) {
-	    
-	    $output .= '<div class="container">';
-	    $output .= '<div class="logos-menu-nav">';
-	    $output .= '<a id="logos-menu-prev" href="#">'. __('Zurück', 'fau') . '</a>';
-	    $output .= '<a id="logos-menu-next" href="#">'. __('Weiter', 'fau') . '</a>';
-	    $output .= '</div>';
+	    $output .= '<div class="imagelink_carousel">';
+		$output .= '<div class="container">';
+		    $output .= '<div class="logos-menu-nav">';
+			$output .= '<a id="logos-menu-prev" href="#">'. __('Zurück', 'fau') . '</a>';
+			$output .= '<a id="logos-menu-next" href="#">'. __('Weiter', 'fau') . '</a>';
+		    $output .= '</div>';
+		$output .= "</div>\n";
+		$output .= '<ul class="logos-menu">';
+		    $output .= $item_output;    
+		$output .= "</ul>\n";
+
+		$output .= '<div class="container">';
+		    $output .= '<a id="logos-menu-playpause" href="#"><span class="play">'. __('Abspielen', 'fau') . '</span><span class="pause">'. __('Pause', 'fau') . '</span></a>';
+		$output .= '</div>';
 	    $output .= "</div>\n";
-	    
-	    $output .= '<div class="row logos-menu">';
-	    $output .= $item_output;    
-	    $output .= "</div>\n";
-	    $output .= '<div class="container"><a id="logos-menu-playpause" href="#"><span class="play">'. __('Abspielen', 'fau') . '</span><span class="pause">'. __('Pause', 'fau') . '</span></a></div>';
-	    $output .= "\n";
+
 	    $usejslibs['caroufredsel'] = true;
 	} 
 	if ($echo==true) {
