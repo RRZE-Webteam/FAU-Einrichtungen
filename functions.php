@@ -1146,9 +1146,8 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	} else {
 	    $link = fau_esc_url(get_permalink($post->ID));
 	}
-	$output .= '<meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="'.$link.'"/>'."\n";
 	$output .= "\t<h2 itemprop=\"headline\">";  
-	$output .= '<a ';
+	$output .= '<a itemprop="url" ';
 	if ($external) {
 	    $output .= 'class="ext-link" rel="canonical" ';
 	}
@@ -1206,7 +1205,7 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	    if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
 		$imageurl = $options['default_postthumb_src'];
 	    }
-	    $output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$imgwidth.'" height="'.$imgheight.'" alt=""';
+	    $output .= '<img itemprop="thumbnailUrl" src="'.fau_esc_url($imageurl).'" width="'.$imgwidth.'" height="'.$imgheight.'" alt=""';
 	    if ($imgsrcset) {
 		$output .= ' srcset="'.$imgsrcset.'"';
 	    }
