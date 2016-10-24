@@ -28,7 +28,7 @@ a {
 		color: $colorHover;
 	}
 	
-	p &, li &, table & {
+	p &, li &, table &, .accordion-inner & {
 		text-decoration: underline;
 	}
 	
