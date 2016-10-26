@@ -985,7 +985,7 @@ function fau_get_toplinks() {
     
 
     if (($linkfaculty) && isset($facultyurl)) {
-	$thislist .= '<li class="facultyhome">';
+	$thislist .= '<li data-wpel-link="internal" class="facultyhome">';
 	$thislist .= '<a href="'.$facultyurl.'">';
 	if ($options['default_faculty_useshorttitle']) {
 	    $thislist .= $facultyshorttitle; 
@@ -1014,7 +1014,7 @@ function fau_get_toplinks() {
 		    $classes = empty( $menu_item->classes ) ? array() : (array) $menu_item->classes;
 		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ) ) ); 
 		    $class_names = ' class="' . esc_attr( $class_names ) . '"';
-		    $thislist .= '<li'.$class_names.'><a href="' . $url . '">' . $title . '</a></li>';
+		    $thislist .= '<li'.$class_names.'><a data-wpel-link="internal" href="' . $url . '">' . $title . '</a></li>';
 		}
 	    } 
 	
@@ -1029,7 +1029,7 @@ function fau_get_toplinks() {
 	   }
 	   $thislist .= '>';
 	   if (isset($entry['content'])) {
-	       $thislist .= '<a href="'.$entry['content'].'">';
+	       $thislist .= '<a data-wpel-link="internal" href="'.$entry['content'].'">';
 	   }
 	   $thislist .= $entry['name'];
 	   if (isset($entry['content'])) {
