@@ -755,6 +755,7 @@
 	padding-left: 5px;
 	
 	@extend .fa;
+	@extend .fa-lg;
 	@extend .fa-angle-right;
 		
 	&:hover, &:focus {

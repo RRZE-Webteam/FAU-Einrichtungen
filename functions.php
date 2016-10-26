@@ -1565,11 +1565,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	    $output .= "\t\t".'<p>'."\n"; 
 	    $output .= fau_custom_excerpt($post->ID,$options['default_search_excerpt_length'],false,'',true,$options['search_display_excerpt_morestring']);	
 	    if ($options['search_display_continue_arrow']) {
-		$output .= '<a class="read-more-arrow';
-		if ($external==1) {
-		    $output .= ' ext-link';
-		}
-		$output .= '" href="'.$link.'">›</a>'; 
+		$output .= fau_create_readmore($link,'',$external,true);	
 	    }
 	    $output .= "\t\t\t".'</p>'."\n"; 
 	    if (($withthumb==true) && (has_post_thumbnail( $post->ID )) )  {
