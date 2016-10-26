@@ -715,6 +715,23 @@ function fau_relativeimgurl_callback($matches) {
      return wp_make_link_relative(get_template_directory_uri());
  } 
 
+ /*
+  * Makes absolute URL from relative URL
+  */
+ function fau_make_absolute_url( $url) {
+    if (!isset($url)) {
+	$url = home_url("/");
+    } else {
+	if (substr($url,0,1)=='/') {
+	    $base = home_url();
+	    return $base.$url;
+	} else {
+	    return $url;
+	}
+    }
+ }
+ 
+ 
 add_action('template_redirect', 'rw_relative_urls');
 function rw_relative_urls() {
     // Don't do anything if:
@@ -1112,20 +1129,20 @@ add_filter( 'comments_open', 'filter_media_comment_status', 10 , 2 );
 function fau_create_schema_publisher($withrahmen = true) {
     $out = '';
     if ($withrahmen) {
-	$out .= '	<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">'."\n";  
+	$out .= '<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">'."\n";  
     }
     $header_image = get_header_image();
     if ($header_image) {
-	$out .= '	    <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">'."\n";
-	$out .= '		<meta itemprop="url" content="'.fau_esc_url( $header_image ).'">';
-	$out .= '<meta itemprop="width" content="'.get_custom_header()->width.'">';
-	$out .= '<meta itemprop="height" content="'.get_custom_header()->height.'">'."\n";
-	$out .= '	    </div>'."\n";
+	$out .= "\t".'<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">'."\n";
+	$out .= "\t\t".'<meta itemprop="url" content="'.fau_make_absolute_url( $header_image ).'">'."\n";
+	$out .= "\t\t".'<meta itemprop="width" content="'.get_custom_header()->width.'">'."\n";
+	$out .= "\t\t".'<meta itemprop="height" content="'.get_custom_header()->height.'">'."\n";
+	$out .= "\t".'</div>'."\n";
     }
-    $out .= '	    <meta itemprop="name" content="'.get_bloginfo( 'title' ).'">'."\n";
-    $out .= '	    <meta itemprop="url" content="'.fau_esc_url(home_url( '/' ) ).'">'."\n";
+    $out .= "\t".'<meta itemprop="name" content="'.get_bloginfo( 'title' ).'">'."\n";
+    $out .= "\t".'<meta itemprop="url" content="'.home_url( '/' ).'">'."\n";
     if ($withrahmen) {
-	$out .= '	</div>'."\n";
+	$out .= '</div>'."\n";
     }
     return $out;
 }
@@ -1182,7 +1199,7 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	$output .= "\t".'<div class="row">'."\n";  
 	
 	if ((has_post_thumbnail( $post->ID )) ||($options['default_postthumb_always']))  {
-	    $output .= "\t\t".'<div class="span3" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">'."\n"; 
+	    $output .= "\t\t".'<div aria-hidden="true" class="span3" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">'."\n"; 
 	    $output .= '<a href="'.$link.'" class="news-image"';
 	    if ($external) {
 		$output .= ' ext-link';
@@ -1211,7 +1228,7 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	    }
 	    $output .= '>';    
 	    $output .= '</a>';
-	    $output .= "\t\t\t".'<meta itemprop="url" content="'.$imageurl.'">';
+	    $output .= "\t\t\t".'<meta itemprop="url" content="'.fau_make_absolute_url($imageurl).'">';
 	    $output .= "\t\t\t".'<meta itemprop="width" content="'.$imgwidth.'">';
 	    $output .= "\t\t\t".'<meta itemprop="height" content="'.$imgheight.'">';		    
 	    $output .= "\t\t".'</div>'."\n"; 
@@ -1228,15 +1245,8 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	   $abstract =  fau_custom_excerpt($post->ID,$options['default_anleser_excerpt_length'],false,'',true);
 	}
 	$output .= $abstract;
-
 	
-	$output .= '<a class="read-more-arrow';
-	if ($external) {
-	    $output .= ' ext-link';
-	}
-	$output .= '" href="'.$link.'" title="'.get_the_title($post->ID).'">';
-	$output .= ' <span class="screen-reader-text">'.__('Weiterlesen','fau').'</span>'; 
-	$output .= '</a>'; 
+	$output .= fau_create_readmore($link,get_the_title($post->ID),$external,true);	
 	$output .= "\t\t\t".'</p>'."\n"; 
 	
 	
@@ -1251,6 +1261,34 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 }
 
 
+/* 
+ * Weiterlesen-Link einheitlich gestalten fuer verschiedene Ausgaben
+ */
+function fau_create_readmore($url,$linktitle = '',$external = false, $ariahide = true) {
+    $output = '';
+    if (isset($url)) {
+	$link = fau_esc_url($url);	
+	$output .= '<a';
+	
+	if ($ariahide) {
+	    $output .= ' aria-hidden="true" tabindex="-1"';
+	}
+	if ($external) {
+	    $output .= ' class="ext-link"';
+	}
+	$output .= ' href="'.$link.'"';
+	if (!empty($linktitle)) {
+	    $output .= ' title="'.$linktitle.'"';
+	}
+	$output .= '>';
+	$output .= '<i class="read-more-arrow">&nbsp;</i>';
+	if ($ariahide===false) {
+	    $output .= '<span class="screen-reader-text">'.__('Weiterlesen','fau').'</span>'; 
+	}
+	$output .= '</a>'; 
+    }
+    return $output;
+}
 
 /* 
  * Suchergebnisse 
