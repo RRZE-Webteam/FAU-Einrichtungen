@@ -242,6 +242,39 @@ function fau_addmetatags() {
 }
 add_action('wp_head', 'fau_addmetatags',1);
 
+/*
+ * Change DNS Prefetch
+ */
+function fau_remove_default_dns_prefetch( $hints, $relation_type ) {
+    if ( 'dns-prefetch' === $relation_type ) {
+        return array_diff( wp_dependencies_unique_hosts(), $hints );
+    }
+
+    return $hints;
+}
+add_filter( 'wp_resource_hints', 'fau_remove_default_dns_prefetch', 10, 2 );
+
+function fau_dns_prefetch() {
+    // List of domains to set prefetching for
+    $prefetchDomains = [
+        '//www.fau.de',
+        '//www.fau.eu',
+    ];
+ 
+    $prefetchDomains = array_unique($prefetchDomains);
+    $result = '';
+ 
+    foreach ($prefetchDomains as $domain) {
+        $domain = esc_url($domain);
+        $result .= '<link rel="dns-prefetch" href="' . $domain . '" crossorigin />';
+        $result .= '<link rel="preconnect" href="' . $domain . '" crossorigin />';
+    }
+ 
+    echo $result;
+}
+add_action('wp_head', 'fau_dns_prefetch', 0);
+
+
 
 
 /**
@@ -1957,6 +1990,7 @@ function fau_disable_emojis() {
     add_filter( 'tiny_mce_plugins', 'fau_disable_emojis_tinymce' );
 }
 add_action( 'init', 'fau_disable_emojis' );
+
 
 
 /* 
