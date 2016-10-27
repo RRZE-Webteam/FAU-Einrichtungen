@@ -251,9 +251,6 @@ if  ( (isset($options['advanced_activate_glossary'])) && ($options['advanced_act
 			$accordion .= '  <div id="collapse_'.$post->ID.'000'.$i.'" class="accordion-body">'."\n";
 			$accordion .= '    <div class="accordion-inner">'."\n";
 
-		//	$content = apply_filters( 'the_content',  get_post_field('post_content',$post->ID) );
-		//	$content = str_replace( ']]>', ']]&gt;', $content );
-			
 			
 			$content = get_post_field('post_content',$post->ID);			
 			if ( isset($content) && (mb_strlen($content) > 1)) {
@@ -291,6 +288,7 @@ if  ( (isset($options['advanced_activate_glossary'])) && ($options['advanced_act
 	    }
     }
     add_shortcode('glossary', 'fau_glossary' );
+    add_shortcode('fau_glossar', 'fau_glossary' );
 
 endif;  
 
@@ -311,7 +309,7 @@ if  ( (isset($options['advanced_activate_glossary'])) && ($options['advanced_act
 		    $desc = get_post_meta( $id, 'description', true );
 		}
 		
-		$result = '<article class="accordionbox glossary" id="letter-'.$letter.'">'."\n";
+		$result = '<article class="accordionbox fau-glossar" id="letter-'.$letter.'">'."\n";
 		
 		if (isset($color) && strlen(fau_san($color))>0) {
 		    $addclass= fau_san($color);
@@ -342,7 +340,7 @@ if  ( (isset($options['advanced_activate_glossary'])) && ($options['advanced_act
 		} else {
 		    $posts = get_posts(array('post_type' => 'glossary', 'post_status' => 'publish', 'numberposts' => -1, 'orderby' => 'title', 'order' => 'ASC', 'suppress_filters' => false));
 		}
-		$return = '';
+		$return = '<div class="fau-glossar">';
 
 		$current = "A";
 		$letters = array();
@@ -387,12 +385,12 @@ if  ( (isset($options['advanced_activate_glossary'])) && ($options['advanced_act
 
 		$accordion .= '</div>'."\n";
 
-		$return .= '<ul class="letters">'."\n";
+		$return .= '<ul class="letters" aria-hidden="true">'."\n";
 
 		$alphabet = range('A', 'Z');
 		foreach($alphabet as $a)  {
 			if(in_array($a, $letters)) {
-				$return .= '<li><a href="#letter-'.$a.'">'.$a.'</a></li>';
+				$return .= '<li class="filled"><a href="#letter-'.$a.'">'.$a.'</a></li>';
 			}  else {
 				$return .= '<li>'.$a.'</li>';
 			}
@@ -400,7 +398,7 @@ if  ( (isset($options['advanced_activate_glossary'])) && ($options['advanced_act
 
 		$return .= '</ul>'."\n";
 		$return .= $accordion;
-
+		$return .= '</div>'."\n";
 		return $return;
 	    }
     
