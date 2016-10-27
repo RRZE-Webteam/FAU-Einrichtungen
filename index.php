@@ -35,9 +35,12 @@ $posttype = get_post_type();
 					</div>
 				</div>
 				<div class="span9">			
-			     <?php } else { ?>					 
-				 <div class="span12">	
-				 
+			     <?php } else { 
+				 if (get_post_type() != 'post') { ?>
+				     <div class="span12">	
+				  <?php  } else { ?>
+				     <div class="span8">	
+				  <?php  } ?>	 
 			     <?php }  ?>
 				    <main>
 					<?php 
@@ -49,7 +52,7 @@ $posttype = get_post_type();
 					    echo fau_get_glossar();					    					    
 					} else {	
 					    $line=0;
-					    while ( have_posts() ) : 
+					    while ( have_posts() ) { 
 						the_post();  
 
 						$line++;
@@ -70,25 +73,21 @@ $posttype = get_post_type();
 							    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 						    </h2>
 
-						    <div class="row">
-							    <?php if(has_post_thumbnail( $post->ID )): ?>
-							    <div class="span3">
+							    <?php if(has_post_thumbnail( $post->ID )) { ?>
+							     <div class="row">
+								<div class="span3">
 								    <?php the_post_thumbnail('post-thumb'); ?>
+								</div>
+								 <div class="span5">
+							    <?php }  
+							    the_content(); 
+							    if(has_post_thumbnail( $post->ID )) { ?>
+								</div>
 							    </div>
-							    <div class="span5">
-							    <?php else: ?>
-							    <div class="span8">
-							    <?php endif; ?>
-								    <?php the_content(); ?>
-							    </div>
-						    </div>
-						    <?php 
-
-
-
-
+							    <?php } 
+							     
 						 }
-					    endwhile; 
+					    } 
 
 
 					    if (($posttype=='glossary') || ($posttype=='person')) { ?>
@@ -105,9 +104,9 @@ $posttype = get_post_type();
 					    <?php }
 					} ?>
 					
-				   
+				    </main>
 				</div>
-				 </main>
+				
 				    <?php if(get_post_type() == 'post') {
 					 get_template_part('sidebar', 'news');
 				    } ?>
