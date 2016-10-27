@@ -152,7 +152,8 @@ if  ( (isset($options['advanced_activate_glossary'])) && ($options['advanced_act
 
 	    $helpuse .= '<ul><li>Einzelbeiträge:';
 	    $helpuse .= '<pre> [glossary id="'.$post->ID.'"] </pre>';
-	    $helpuse .= 'Inklusive der optionalen Parameter: color="<i>Fakultät</i>", wobei <i>Fakultät</i> folgende Werte haben kann: techfak, natfak, rwfak, medfak, philfak.';
+	    $helpuse .= 'Inklusive der optionalen Parameter: color="<i>Fakultät</i>", wobei <i>Fakultät</i> folgende Werte haben kann: tf, nat, rw, med, phil.';
+	    $helpuse .= '<br>Bei der Einzeleinzeige eines Glossareintrags, ist dieser nicht in einem Accordion, sondern wird so wie er ist angezeigt.';
 	    $helpuse .= '</li>';
 	    $helpuse .= '<li>Accordion mit Kategory:';
 	    $helpuse .= '<pre> [glossary category="<i>Kategoryname</i>"] </pre>';
