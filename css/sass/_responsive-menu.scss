@@ -60,6 +60,19 @@ Responsive Menue for FAU Theme
 
 			#nav {
 				display: block;
+				
+				
+				.level2 {
+				    li {
+					a {
+					  display: table;
+					    padding: 7px 20px 7px 0px;
+					    @include border-radius(0);
+					    border-bottom: 1px solid $colorHover;
+					    width: calc(100% - 20px);
+					}
+				    }
+				}
 			}
 		}
 
