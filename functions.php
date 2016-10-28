@@ -1529,8 +1529,47 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	
 	
 	if (($type == 'person') && (class_exists('FAU_Person_Shortcodes'))) {
-		 $output .= FAU_Person_Shortcodes::fau_person(array("id"=> $post->ID, 'format' => 'kompakt', 'showlink' => 0, 'showlist' => 0, 'hide' => 'ansprechpartner' )); 	
+	    
+	    if (($withthumb==true) && (has_post_thumbnail( $post->ID )) )  {
+		$output .= '<div class="row">'."\n";  
+		$output .= "\t\t".'<div class="span3">'."\n"; 
+		$output .= '<a href="'.$link.'" class="news-image"';
+		if ($external==1) {
+		    $output .= ' ext-link';
+		}
+		$output .= '">';
 
+		$post_thumbnail_id = get_post_thumbnail_id( $post->ID, 'post-thumb' ); 
+		$imagehtml = '';
+		$imgsrcset = '';
+		if ($post_thumbnail_id) {
+		    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id,  'post-thumb');
+        	    $imgsrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'post-thumb');
+
+		    $imageurl = $sliderimage[0]; 	
+		}
+		if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
+		    $imageurl = $options['default_postthumb_src'];
+		}
+		$output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_postthumb_width'].'" height="'.$options['default_postthumb_height'].'" alt=""';
+		if ($imgsrcset) {
+		    $output .= ' srcset="'.$imgsrcset.'"';
+		}
+		$output .= '>';
+		$output .= '</a>';
+
+		$output .= "\t\t".'</div>'."\n"; 
+		if ($withsidebar) {
+		    $output .= "\t\t".'<div class="span6">'."\n"; 
+		} else {
+		    $output .= "\t\t".'<div class="span9">'."\n"; 
+		}
+	    }
+
+	    $output .= FAU_Person_Shortcodes::fau_person(array("id"=> $post->ID, 'format' => 'kompakt', 'showlink' => 0, 'showlist' => 0, 'hide' => 'bild' )); 	
+	    if (($withthumb==true) && (has_post_thumbnail( $post->ID )) )  {
+		$output .= "\t</div> <!-- /row -->\n";
+	    }	
 /*	}elseif (($type == 'standort') && (function_exists('fau_standort'))) {
 		 $output .= fau_standort(array("id"=> $post->ID));	 
 		 
