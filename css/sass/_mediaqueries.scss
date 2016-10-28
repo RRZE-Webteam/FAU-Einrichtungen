@@ -962,6 +962,10 @@ Media Queries for Theme FAU-Einrichtungen
     #hero {
 	// display: none;
     }
+    hr,
+    .imagelink_carousel {
+	display: none;
+    }
     .page-template-page-start .span3 {
 	float: none;
     }
@@ -987,6 +991,7 @@ Media Queries for Theme FAU-Einrichtungen
 	    }
 	}	
     }
+ 
 }
 
 

@@ -15,9 +15,10 @@
 // Logo-Slider
 jQuery(document).ready(function($) {	
     	var windowWidth = window.screen.width < window.outerWidth ? window.screen.width : window.outerWidth;
-    	var isMobile = windowWidth < 767;
+    	var isMobile = windowWidth < 321;
 	var itemsvisible = 5;
 	var barwidth;
+	var varresponsive = true;
 	
 	if($('.logos-menu').length > 0) {
 		if( ! isMobile) {
@@ -27,11 +28,17 @@ jQuery(document).ready(function($) {
 		    } else if (windowWidth > 767) {
 			itemsvisible = 5;
 			barwidth = 740;
+		    } else if (windowWidth > 480) {
+			itemsvisible = 3;
+			barwidth = '100%';
+		    } else if (windowWidth > 320) {
+			itemsvisible = 2;
+			barwidth = '100%';
 		    }
 		    
 		    
 			$('.logos-menu').carouFredSel({
-				responsive: true,
+				responsive: varresponsive,
 				width: barwidth,
 				height: 110,
 				scroll: 1,
@@ -55,20 +62,6 @@ jQuery(document).ready(function($) {
 				}
 			});
 		}
-		else
-		{
-			$('.logos-menu').carouFredSel({
-				responsive: true,
-				width: '100%',
-				height: 110,
-				scroll: 1,
-				padding: 20,
-				items: {
-					width: 140,
-					height: 110,
-					visible: 2
-				}
-			});
-		}
+		
 	}
 });
