@@ -63,15 +63,6 @@ function fau_setup() {
 	/* Banner fuer Startseiten */
 	add_image_size( 'herobanner', $options['default_startseite-bannerbild-image_width'], $options['default_startseite-bannerbild-image_height'], $options['default_startseite-bannerbild-image_crop']);	// 1260:182
     
-	
-	/* Thumb for Main menu - Name: portalmenu-thumb */
-	// add_image_size( 'portalmenu-thumb', $options['default_mainmenuthumb_width'], $options['default_mainmenuthumb_height'], $options['default_mainmenuthumb_crop']);	// 370, 185, false
-	/*
-	 * Brauchen wir mit 1.4 nicht mehr. Auf den Portalindexseitemn im Content wird page-thumb verwendet. 
-	 * Im Flyout-Menu wird post verwendet.
-	 * 
-	 */
-	
 	/* Thumb for Posts in Lists - Name: post-thumb */
 	add_image_size( 'post-thumb', $options['default_postthumb_width'], $options['default_postthumb_height'], $options['default_postthumb_crop']); // 3:2  220:147, false
 	
@@ -940,6 +931,8 @@ function fau_get_toplinks() {
 	}
     }
 
+    $charset = split('-',get_bloginfo('language'))[0];
+    
     if (isset($options['default_home_orga'])) {
 	$orga = $options['default_home_orga'];
     } else {
@@ -949,7 +942,11 @@ function fau_get_toplinks() {
     if ((isset($default_fau_orga_data[$orga])) && is_array($default_fau_orga_data[$orga])) {
 	$hometitle = $default_fau_orga_data[$orga]['title'];
 	$shorttitle = $default_fau_orga_data[$orga]['shorttitle'];
-	$homeurl = $default_fau_orga_data[$orga]['homeurl'];
+	if (isset($default_fau_orga_data[$orga]['homeurl_'.$charset])) {
+	    $homeurl = $default_fau_orga_data[$orga]['homeurl_'.$charset];
+	} else {
+	    $homeurl = $default_fau_orga_data[$orga]['homeurl'];
+	}
 	$linkimg = $default_fau_orga_data[$orga]['home_imgsrc'];
     } else {
 	$linkhome = false;
@@ -960,7 +957,14 @@ function fau_get_toplinks() {
 	$orga =  $options['website_usefaculty'];
 	$facultytitle = $default_fau_orga_data['_faculty'][$orga]['title'];
 	$facultyshorttitle = $default_fau_orga_data['_faculty'][$orga]['shorttitle'];
-	$facultyurl = $default_fau_orga_data['_faculty'][$orga]['homeurl'];
+
+	if (isset($default_fau_orga_data['_faculty'][$orga]['homeurl_'.$charset])) {
+	    $facultyurl = $default_fau_orga_data['_faculty'][$orga]['homeurl_'.$charset];
+	} else {
+	    $facultyurl = $default_fau_orga_data['_faculty'][$orga]['homeurl'];
+	}
+	
+	
     } else {
 	$linkfaculty = false;
     }
