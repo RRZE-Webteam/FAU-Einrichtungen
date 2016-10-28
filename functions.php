@@ -1455,6 +1455,12 @@ function fau_display_search_resultitem($withsidebar = 1) {
 		$typestr .= '</span>';
 	     }
 	    $typestr .= '</div>'."\n";
+	} elseif ($type == 'person') {
+	    $typestr = '<div class="search-meta">';
+	    $typestr .= '<span class="post-meta-kontakt"> ';
+	    $typestr .= $typeinfo->labels->singular_name; 
+	    $typestr .= '</span>';
+	    $typestr .= '</div>'."\n";
 	    
 	} elseif ($type == 'event') {
 	    $typestr = '<div class="search-meta">';
@@ -1501,15 +1507,9 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	    $typestr .= '</div>'."\n";	    
 	} elseif ($withtypenote == true) { 
 	    $typestr = '<div class="search-meta">';
-	    if (($type == 'kontakt') || ($type == 'person') ) {		
-		$typestr .= '<span class="post-meta-kontakt"> ';
-		$typestr .= $typeinfo->labels->singular_name; 
-		$typestr .= '</span>';
-	    } else {
 		$typestr .= '<span class="post-meta-defaulttype"> ';
 		$typestr .= $typeinfo->labels->singular_name; 
 		$typestr .= '</span>';		
-	    }
 
 		$typestr .= ' <span class="post-meta-date"> ';
 		$typestr .= get_the_modified_date();	   
@@ -1528,9 +1528,9 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	$output .= "\t";
 	
 	
-	if (($type == 'person') && (function_exists('fau_person'))) {
-		 $output .= fau_person(array("id"=> $post->ID, 'format' => 'kompakt' ));
-	 
+	if (($type == 'person') && (class_exists('FAU_Person_Shortcodes'))) {
+		 $output .= FAU_Person_Shortcodes::fau_person(array("id"=> $post->ID, 'format' => 'kompakt', 'showlink' => 0, 'showlist' => 0, 'hide' => 'ansprechpartner' )); 	
+
 /*	}elseif (($type == 'standort') && (function_exists('fau_standort'))) {
 		 $output .= fau_standort(array("id"=> $post->ID));	 
 		 
