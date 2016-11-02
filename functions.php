@@ -854,6 +854,17 @@ function fau_get_defaultlinks ($list = 'faculty', $ulclass = '', $ulid = '') {
     return $result;
 }
 
+/* 
+ * Returns language code, without subcode
+ */
+function fau_get_language_main () {
+    $charset = split('-',get_bloginfo('language'))[0];
+    return $charset;
+}
+
+/* 
+ * Erstellt Toplinkliste
+ */
 function fau_get_toplinks() {
     global $options;
     global $defaultoptions;
@@ -931,7 +942,7 @@ function fau_get_toplinks() {
 	}
     }
 
-    $charset = split('-',get_bloginfo('language'))[0];
+    $charset = fau_get_language_main();
     
     if (isset($options['default_home_orga'])) {
 	$orga = $options['default_home_orga'];
