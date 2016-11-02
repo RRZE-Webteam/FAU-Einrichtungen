@@ -311,13 +311,21 @@ function fau_do_metabox_post_topevent( $object, $box ) {
 	    <br>
 	    
 	    
-	    <div class="howto"><?php echo __('Geben Sie hier das Datum des Events ein.','fau'); ?></div>
+	    <div class="howto"><?php echo __('Geben Sie hier das Datum des Events ein.','fau');
+	    echo __('<br>Nutzen Sie das Format: "Tag-Monat-Jahr", wobei Sie Tage und Monate mit führenden Nullen schreiben und das Jahr vierstellig. Beispiel: 01-12-2016 für den ersten Dezember 2016.','fau');?></div>
 	    
 	    <script type="text/javascript">
-jQuery(document).ready(function() {
-    jQuery('#fauval_topevent_date').datepicker();
-});
-</script>
+	    jQuery(document).ready(function() {
+		jQuery("#fauval_topevent_date" ).each(function(){
+		    this.type="text";
+		 });
+		jQuery("#fauval_topevent_date" ).datepicker();
+		jQuery("#fauval_topevent_date" ).datepicker( "option", "dateFormat", 'dd-mm-yy' );
+		<?php if (isset($topevent_date)) { ?>
+		     jQuery("#fauval_topevent_date" ).datepicker( "setDate", '<?php echo $topevent_date ?>' );
+		<?php } ?>	
+		});
+	    </script>
 	    
 	    
 	</div>
@@ -429,7 +437,7 @@ function fau_save_post_topevent( $post_id, $post ) {
 	} 
 
 	
-	$newval = ( isset( $_POST['fauval_topevent_date'] ) ?  sanitize_option( 'date_format', $_POST['fauval_topevent_date'] ) : 0 );
+	$newval = ( isset( $_POST['fauval_topevent_date'] ) ?   wp_filter_nohtml_kses( $_POST['fauval_topevent_date'] ) : 0 ); 
 	$oldval = get_post_meta( $post_id, 'topevent_date', true );
 	
 	if (!empty(trim($newval))) {

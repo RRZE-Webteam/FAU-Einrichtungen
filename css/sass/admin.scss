@@ -1,6 +1,10 @@
 /* 
-    Backend CSS
-*/
+ *  Backend CSS
+ */
+
+// jQuery UI fuer das Backend
+@import "includes/jquery-ui";
+
 
 
  #headimg {
@@ -174,13 +178,15 @@ table.wp-list-table {
 	text-align: right;
     }
 }
-
+/*
 #ui-datepicker-div {
     background: #efefef none repeat scroll 0 0;
     border: 1px solid #ccc;
     margin: 0 3px;
     padding: 3px;
 }
+
+*/
 
 // zeige Vorschlagbilder unter Anpassen in der Größe, die das Bild auch annehmen kann und
 // mach es nicht größer
@@ -191,3 +197,4 @@ table.wp-list-table {
     max-width: 240px;
     width: auto;
 }
+
