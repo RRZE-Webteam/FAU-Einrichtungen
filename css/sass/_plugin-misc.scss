@@ -13,7 +13,13 @@ Anpassungen der Gestaltung an verschiedene Plugins
 	margin-top: 10px;
 }
 
-
+/* 
+* Verhindere, dass  MimeTypes Link Icons im Shariff Wrapper 
+* unerwünschte sichtbare Icons einbaut
+*/
+.shariff .wpel-icon {
+    display: none;
+}
 
 /* Language switcher */
 .mlp_language_box {
