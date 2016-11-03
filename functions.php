@@ -863,6 +863,33 @@ function fau_get_language_main () {
 }
 
 /* 
+ * Change WordPress default language attributes function to 
+ * strip of region code parts
+ */
+function fau_get_language_attributes ($doctype = 'html' ) {
+    $attributes = array();
+	
+    if ( function_exists( 'is_rtl' ) && is_rtl() )
+	    $attributes[] = 'dir="rtl"';
+    
+    if ( $langcode = fau_get_language_main() ) {
+	    if ( get_option('html_type') == 'text/html' || $doctype == 'html' )
+		    $attributes[] = "lang=\"$langcode\"";
+
+	    if ( get_option('html_type') != 'text/html' || $doctype == 'xhtml' )
+		    $attributes[] = "xml:lang=\"$langcode\"";
+    }	
+    $output = implode(' ', $attributes);
+    return apply_filters( 'fau_language_attributes', $output, $doctype );
+}
+
+function fau_language_attributes( $doctype = 'html' ) {
+    echo fau_get_language_attributes( $doctype );
+}
+add_filter( 'language_attributes', 'fau_language_attributes' );
+
+
+/* 
  * Erstellt Toplinkliste
  */
 function fau_get_toplinks() {

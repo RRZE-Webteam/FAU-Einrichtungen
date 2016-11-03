@@ -10,11 +10,9 @@
  */
 
 global $options;
-
-$lang = fau_get_language_main();
-
-?><!DOCTYPE html>
-<html class="no-js" lang="<?php echo $lang; ?>">
+?>
+<!DOCTYPE html>
+<html class="no-js" <?php language_attributes(); ?>>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <?php wp_head(); ?>
