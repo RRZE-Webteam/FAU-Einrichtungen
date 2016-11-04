@@ -880,13 +880,13 @@ function fau_get_language_attributes ($doctype = 'html' ) {
 		    $attributes[] = "xml:lang=\"$langcode\"";
     }	
     $output = implode(' ', $attributes);
-    return apply_filters( 'fau_language_attributes', $output, $doctype );
+    return $output;
 }
 
 function fau_language_attributes( $doctype = 'html' ) {
     echo fau_get_language_attributes( $doctype );
 }
-add_filter( 'language_attributes', 'fau_language_attributes' );
+add_filter( 'language_attributes', 'fau_language_attributes',10,2 );
 
 
 /* 

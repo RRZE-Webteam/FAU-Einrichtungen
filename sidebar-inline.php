@@ -62,6 +62,7 @@
 	if ($sidebarfilled>0) { ?>
 	    <div class="sidebar-inline">
 		<?php 		
+		get_template_part('sidebar', 'events'); 	
 		get_template_part('sidebar', 'textabove');  
 	    
 			

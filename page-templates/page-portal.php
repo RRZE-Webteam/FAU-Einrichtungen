@@ -36,7 +36,9 @@ get_header(); ?>
 		    </main> 
 		</div>
 		<div class="span4 sidebar-outline">
-		    <?php get_template_part('sidebar'); ?>
+		    <?php
+		    get_template_part('sidebar', 'events'); 	
+		    get_template_part('sidebar'); ?>
 		</div>
 	    </div>
 		

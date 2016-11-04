@@ -4,7 +4,7 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'optiontable-version'		=> 10,
+    'optiontable-version'		=> 11,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -45,44 +45,45 @@ $defaultoptions = array(
     'slider-catid'			=> 1,    
     'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.min.js',
     'src-pluginsjs'			=> get_fau_template_uri() . '/js/libs/plugins.min.js',
-    'default_slider_excerpt_length' => 240,
-    'start_header_count'	    => 5,
-    'start_max_newscontent'	    => 5,
-    'start_max_newspertag'	    => 1,    
-    'start_prefix_tag_newscontent'  => 'startseite',
-    'start_link_news_cat'	    => 0,    
-    'start_link_news_show'	    => 1,
-    'start_link_news_linktitle'	    => __('Mehr Meldungen','fau'),
+    'default_slider_excerpt_length'	=> 240,
+    'start_header_count'		=> 5,
+    'start_max_newscontent'		=> 5,
+    'start_max_newspertag'		=> 1,    
+    'start_prefix_tag_newscontent'	=> 'startseite',
+    'start_link_news_cat'		=> 0,    
+    'start_link_news_show'		=> 1,
+    'start_link_news_linktitle'		=> __('Mehr Meldungen','fau'),
     'start_link_videoportal_socialmedia'    => false,
     'start_title_videoportal_socialmedia'   => __('Videoportal','fau'),
     'start_title_videoportal_url'	    => 'http://video.fau.de',
 
-    'default_submenuthumb_src'	    =>  get_fau_template_uri().'/img/default-submenuthumb.png',
-    'default_submenu_spalten'	    => 4,
-    'default_submenu_entries'	    => 5,
-    'menu_fallbackquote_show_excerpt'		=> 1,
+    'default_submenuthumb_src'		=>  get_fau_template_uri().'/img/default-submenuthumb.png',
+    'default_submenu_spalten'		=> 4,
+    'default_submenu_entries'		=> 5,
+    'menu_fallbackquote_show_excerpt'	=> 1,
     'menu_fallbackquote_excerpt_length'	=> 240,  
-    'start_topevents_tag'	    => 'top',
-    'start_topevents_max'	    => 1,
-    'start_topevents_active'	    => true,
+    'start_topevents_max'		=> 1,
+    'start_topevents_active'		=> true,
+    'topevent_hideimage'		=> false,
+    'topevents_templates'		=> array(1), 
+    'default_topevent_thumb_src'	=> get_fau_template_uri().'/img/default-topeventthumb.png',
+    'default_topevent_excerpt_length'	=> 100,
     
     'default_startseite-bannerbild-image_src'	    => get_fau_template_uri().'/img/bannerbild-tafel-1260x182.jpg',
-    'startseite_banner_usedefault'  => false,
+    'startseite_banner_usedefault'	=> false,
 
-    'default_topevent_thumb_src'    => get_fau_template_uri().'/img/default-topeventthumb.png',
-    'default_topevent_excerpt_length' => 100,
 
     /* Image Sizes */
     
     /* Default Thumb Size */
-    'default_thumb_width'	    => 300,
-    'default_thumb_height'	    => 150,
-    'default_thumb_crop'	    => false,
+    'default_thumb_width'		=> 300,
+    'default_thumb_height'		=> 150,
+    'default_thumb_crop'		=> false,
     
     /* Image Sizes for Slider, Name: hero */
-    'slider-image-width'	    => 1260,
-    'slider-image-height'	    => 350,    
-    'slider-image-crop'		    => true,
+    'slider-image-width'		=> 1260,
+    'slider-image-height'		=> 350,    
+    'slider-image-crop'			=> true,
     
     /* Hero Banner - Name: herobanner */
     'default_startseite-bannerbild-image_width'	    => 1260,
@@ -91,14 +92,14 @@ $defaultoptions = array(
     
    
     /* Thumb for Image Menus in Content - Name: page-thumb */
-    'default_submenuthumb_width'    => 220,
-    'default_submenuthumb_height'   => 110,    
-    'default_submenuthumb_crop'	    => false,
+    'default_submenuthumb_width'	=> 220,
+    'default_submenuthumb_height'	=> 110,    
+    'default_submenuthumb_crop'		=> false,
     
     /* Thumb of Topevent in Sidebar - Name: topevent-thumb */
-    'default_topevent_thumb_width'  => 140,
-    'default_topevent_thumb_height' => 90,
-    'default_topevent_thumb_crop'   => true,  
+    'default_topevent_thumb_width'	=> 140,
+    'default_topevent_thumb_height'	=> 90,
+    'default_topevent_thumb_crop'	=> true,  
 
     /* Thumb for Logos (used in carousel) - Name: logo-thumb */
     'default_logo_carousel_width'	=> 140,
@@ -107,24 +108,24 @@ $defaultoptions = array(
 
     
     /* Thumb for Posts in Lists - Name: post-thumb */
-    'default_postthumb_width'	    => 220,
-    'default_postthumb_height'	    => 147,
-    'default_postthumb_crop'	    => false,
+    'default_postthumb_width'		=> 220,
+    'default_postthumb_height'		=> 147,
+    'default_postthumb_crop'		=> false,
    
      /* Thumb for Posts, displayed in post/page single display - Name: post */
-    'default_post_width'	    => 300,
-    'default_post_height'	    => 200,
-    'default_post_crop'		    => false, 
+    'default_post_width'		=> 300,
+    'default_post_height'		=> 200,
+    'default_post_crop'			=> false, 
     
      /* Thumb for person-type; small for sidebar - Name: person-thumb */
-    'default_person_thumb_width'    => 60,
-    'default_person_thumb_height'   => 80,
-    'default_person_thumb_crop'	    => true, 
+    'default_person_thumb_width'	=> 60,
+    'default_person_thumb_height'	=> 80,
+    'default_person_thumb_crop'		=> true, 
      
      /* Thumb for person-type; small for content - Name: person-thumb-bigger */
-    'default_person_thumb_bigger_width'    => 90,
-    'default_person_thumb_bigger_height'   => 120,
-    'default_person_thumb_bigger_crop'	    => true,     
+    'default_person_thumb_bigger_width' => 90,
+    'default_person_thumb_bigger_height'=> 120,
+    'default_person_thumb_bigger_crop'	=> true,     
 
      /* Thumb for person-type; small for content - Name: person-thumb-page */
     'default_person_thumb_page_width'    => 200,
@@ -204,10 +205,10 @@ $defaultoptions = array(
     'url_banner-ad-notice'	    => 'https://www.fau.de/patente-gruendung-wissenstransfer/service-fuer-unternehmen/werben/',
     'title_banner-ad-notice'	    => __( 'Werbung', 'fau' ),
     
-    'title_hero_post_categories'    =>  __( 'FAU aktuell', 'fau' ),
-    'title_hero_post_archive'	    =>  __( 'FAU aktuell', 'fau' ),
-    'title_hero_search'		    =>  __( 'Suche', 'fau' ),
-    'title_hero_events'		    =>  __( 'Veranstaltungskalender','fau'),
+    'title_hero_post_categories'    => __( 'FAU aktuell', 'fau' ),
+    'title_hero_post_archive'	    => __( 'FAU aktuell', 'fau' ),
+    'title_hero_search'		    => __( 'Suche', 'fau' ),
+    'title_hero_events'		    => __( 'Veranstaltungskalender','fau'),
     
     'advanced_beitragsoptionen'		=> true,
     'advanced_topevent'			=> true,
@@ -555,8 +556,40 @@ $setoptions = array(
 		  'parent'  => 'postoptions'
               ),  
 	       
-	
-	       
+	    'topevents'  => array(
+                  'type'    => 'section',
+                  'title'   => __( 'Startseite Top Events', 'fau' ),                      
+            ), 
+	      
+	    'start_topevents_active' => array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Aktivieren', 'fau' ),
+                  'label'   => __( 'Anzeige der Top-Events auf der Startseite aktivieren', 'fau' ),               
+                  'default' => $defaultoptions['start_topevents_active'],
+		  'parent'  => 'topevents'
+            ),  
+	     
+	    'topevents_templates' => array(
+                  'type'    => 'multiselectlist',
+                  'title'   => __( 'Seitentypen', 'fau' ),
+                  'label'   => __( 'Auf welchen Seiten sollen Top Events in der Sidebar angezeigt werden.', 'fau' ),
+		  'liste'   => array(
+				1 => __('Startseite','fau'),
+      				2 => __('Portalseiten','fau'),
+      				3 => __('Suche und Fehlerseiten','fau'),
+		      ),
+                  'default' => $defaultoptions['topevents_templates'],
+            ),     
+           'start_topevents_max'=> array(
+                  'type'    => 'select',
+                  'title'   => __( 'Zahl der Top-Events', 'fau' ),
+                  'label'   => __( 'Wieviele Top-Events sollen maximal angezeigt werden', 'fau' ),
+		  'liste'   => array(1 => 1,2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6),
+                  'default' => $defaultoptions['start_topevents_max'],
+                  'parent'  => 'topevents'
+            ),   
+	    
+	         
 	       
 		'suchergebnisse'  => array(
                   'type'    => 'section',
@@ -688,32 +721,7 @@ $setoptions = array(
 	       
 	       
            
-             'topevents'  => array(
-                  'type'    => 'section',
-                  'title'   => __( 'Startseite Top Events', 'fau' ),                      
-              ), 
-	       'start_topevents_active' => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Aktivieren', 'fau' ),
-                  'label'   => __( 'Anzeige der Top-Events auf der Startseite aktivieren', 'fau' ),               
-                  'default' => $defaultoptions['start_topevents_active'],
-		  'parent'  => 'topevents'
-              ),  
-	    'start_topevents_tag' => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Schlagwort', 'fau' ),
-                  'label'   => __( 'Schlagwort mit dem Beiträge als ausgestattet sein müssen, damit sie als Top-Event angezeigt werden.', 'fau' ),               
-                  'default' => $defaultoptions['start_topevents_tag'],
-		  'parent'  => 'topevents'
-              ),  
-	       'start_topevents_max'=> array(
-                  'type'    => 'select',
-                  'title'   => __( 'Zahl der Top-Events', 'fau' ),
-                  'label'   => __( 'Wieviele Top-Events sollen maximal auf der Startseite angezeigt werden', 'fau' ),
-		  'liste'   => array(1 => 1,2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6),
-                  'default' => $defaultoptions['start_topevents_max'],
-                  'parent'  => 'topevents'
-              ),  
+             
 	       'sliderpars'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Startseite Fakultät Slider', 'fau' ),                      
@@ -996,88 +1004,88 @@ $setoptions = array(
 	       
                'default_gallery_full_width' => array(
                   'type'    => 'number',
-                  'title'   => __( 'Galleriebilder (Groß) - Breite', 'fau' ),
-                  'label'   => __( 'Breite in Pixel für große Galleriebilder.', 'fau' ),
+                  'title'   => __( 'Galeriebilder (Groß) - Breite', 'fau' ),
+                  'label'   => __( 'Breite in Pixel für große Galeriebilder.', 'fau' ),
                   'default' => $defaultoptions['default_gallery_full_width'],
                    'parent'  => 'dimensions',
                 ), 
                 'default_gallery_full_height' => array(
                   'type'    => 'number',
-                  'title'   => __( 'Galleriebilder (Groß) - Höhe', 'fau' ),
-                  'label'   => __( 'Höhe in Pixel für große Galleriebilder.', 'fau' ),
+                  'title'   => __( 'Galeriebilder (Groß) - Höhe', 'fau' ),
+                  'label'   => __( 'Höhe in Pixel für große Galeriebilder.', 'fau' ),
                   'default' => $defaultoptions['default_gallery_full_height'],
                    'parent'  => 'dimensions',
                 ),              
                 'default_gallery_full_crop'  => array(
                   'type'    => 'bool',
                   'title'   => __( 'Bilder zuschneiden', 'fau' ),
-                  'label'   => __( 'Sollen die großen Galleriebilder zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
+                  'label'   => __( 'Sollen die großen Galeriebilder zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
                   'default' => $defaultoptions['default_gallery_full_crop'],
 		  'parent' => 'dimensions',
                 ),
 
 		'default_gallery_thumb_width' => array(
                   'type'    => 'number',
-                  'title'   => __( 'Galleriebilder  - Breite', 'fau' ),
-                  'label'   => __( 'Breite in Pixel für Galleriebilder.', 'fau' ),
+                  'title'   => __( 'Galeriebilder  - Breite', 'fau' ),
+                  'label'   => __( 'Breite in Pixel für Galeriebilder.', 'fau' ),
                   'default' => $defaultoptions['default_gallery_thumb_width'],
                    'parent'  => 'dimensions',
                 ), 
                 'default_gallery_thumb_height' => array(
                   'type'    => 'number',
-                  'title'   => __( 'Galleriebilder - Höhe', 'fau' ),
-                  'label'   => __( 'Höhe in Pixel für Galleriebilder.', 'fau' ),
+                  'title'   => __( 'Galeriebilder - Höhe', 'fau' ),
+                  'label'   => __( 'Höhe in Pixel für Galeriebilder.', 'fau' ),
                   'default' => $defaultoptions['default_gallery_thumb_height'],
                    'parent'  => 'dimensions',
                 ),              
                 'default_gallery_thumb_crop'  => array(
                   'type'    => 'bool',
                   'title'   => __( 'Bilder zuschneiden', 'fau' ),
-                  'label'   => __( 'Sollen die Galleriebilder zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
+                  'label'   => __( 'Sollen die Galeriebilder zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
                   'default' => $defaultoptions['default_gallery_thumb_crop'],
 		  'parent' => 'dimensions',
                 ),
 	       
 		'default_gallery_grid_width' => array(
                   'type'    => 'number',
-                  'title'   => __( 'Galleriebilder (Grid)  - Breite', 'fau' ),
-                  'label'   => __( 'Breite in Pixel für Galleriebilder (Grid).', 'fau' ),
+                  'title'   => __( 'Galeriebilder (Grid)  - Breite', 'fau' ),
+                  'label'   => __( 'Breite in Pixel für Galeriebilder (Grid).', 'fau' ),
                   'default' => $defaultoptions['default_gallery_grid_width'],
                    'parent'  => 'dimensions',
                 ), 
                 'default_gallery_grid_height' => array(
                   'type'    => 'number',
-                  'title'   => __( 'Galleriebilder (Grid) - Höhe', 'fau' ),
-                  'label'   => __( 'Höhe in Pixel für Galleriebilder (Grid).', 'fau' ),
+                  'title'   => __( 'Galeriebilder (Grid) - Höhe', 'fau' ),
+                  'label'   => __( 'Höhe in Pixel für Galeriebilder (Grid).', 'fau' ),
                   'default' => $defaultoptions['default_gallery_grid_height'],
                    'parent'  => 'dimensions',
                 ),              
                 'default_gallery_grid_crop'  => array(
                   'type'    => 'bool',
                   'title'   => __( 'Bilder zuschneiden', 'fau' ),
-                  'label'   => __( 'Sollen die Galleriebilder (Grid) zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
+                  'label'   => __( 'Sollen die Galeriebilder (Grid) zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
                   'default' => $defaultoptions['default_gallery_grid_crop'],
 		  'parent' => 'dimensions',
                 ),
 	       
 		'default_gallery_grid2col_width' => array(
                   'type'    => 'number',
-                  'title'   => __( 'Galleriebilder (2 Spalten)  - Breite', 'fau' ),
+                  'title'   => __( 'Galeriebilder (2 Spalten)  - Breite', 'fau' ),
                   'label'   => __( 'Breite in Pixel für Galleriebilder (2 Spalten).', 'fau' ),
                   'default' => $defaultoptions['default_gallery_grid2col_width'],
                    'parent'  => 'dimensions',
                 ), 
                 'default_gallery_grid2col_height' => array(
                   'type'    => 'number',
-                  'title'   => __( 'Galleriebilder (2 Spalten) - Höhe', 'fau' ),
-                  'label'   => __( 'Höhe in Pixel für Galleriebilder (2 Spalten).', 'fau' ),
+                  'title'   => __( 'Galeriebilder (2 Spalten) - Höhe', 'fau' ),
+                  'label'   => __( 'Höhe in Pixel für Galeriebilder (2 Spalten).', 'fau' ),
                   'default' => $defaultoptions['default_gallery_grid2col_height'],
                    'parent'  => 'dimensions',
                 ),              
                 'default_gallery_grid2col_crop'  => array(
                   'type'    => 'bool',
                   'title'   => __( 'Bilder zuschneiden', 'fau' ),
-                  'label'   => __( 'Sollen die Galleriebilder (2 Spalten) zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
+                  'label'   => __( 'Sollen die Galeriebilder (2 Spalten) zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
                   'default' => $defaultoptions['default_gallery_grid2col_crop'],
 		  'parent' => 'dimensions',
                 ),
@@ -1085,22 +1093,22 @@ $setoptions = array(
 	       
 		'default_gallery_grid4col_width' => array(
                   'type'    => 'number',
-                  'title'   => __( 'Galleriebilder (4 Spalten)  - Breite', 'fau' ),
-                  'label'   => __( 'Breite in Pixel für Galleriebilder (4 Spalten).', 'fau' ),
+                  'title'   => __( 'Galeriebilder (4 Spalten)  - Breite', 'fau' ),
+                  'label'   => __( 'Breite in Pixel für Galeriebilder (4 Spalten).', 'fau' ),
                   'default' => $defaultoptions['default_gallery_grid4col_width'],
                    'parent'  => 'dimensions',
                 ), 
                 'default_gallery_grid4col_height' => array(
                   'type'    => 'number',
-                  'title'   => __( 'Galleriebilder (4 Spalten) - Höhe', 'fau' ),
-                  'label'   => __( 'Höhe in Pixel für Galleriebilder (4 Spalten).', 'fau' ),
+                  'title'   => __( 'Galeriebilder (4 Spalten) - Höhe', 'fau' ),
+                  'label'   => __( 'Höhe in Pixel für Galeriebilder (4 Spalten).', 'fau' ),
                   'default' => $defaultoptions['default_gallery_grid4col_height'],
                    'parent'  => 'dimensions',
                 ),              
                 'default_gallery_grid4col_crop'  => array(
                   'type'    => 'bool',
                   'title'   => __( 'Bilder zuschneiden', 'fau' ),
-                  'label'   => __( 'Sollen die Galleriebilder (4 Spalten) zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
+                  'label'   => __( 'Sollen die Galeriebilder (4 Spalten) zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
                   'default' => $defaultoptions['default_gallery_grid4col_crop'],
 		  'parent' => 'dimensions',
                 ),	       
