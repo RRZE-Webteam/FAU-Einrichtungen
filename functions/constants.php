@@ -558,7 +558,7 @@ $setoptions = array(
 	       
 	    'topevents'  => array(
                   'type'    => 'section',
-                  'title'   => __( 'Startseite Top Events', 'fau' ),                      
+                  'title'   => __( 'Top Events', 'fau' ),                      
             ), 
 	      
 	    'start_topevents_active' => array(
