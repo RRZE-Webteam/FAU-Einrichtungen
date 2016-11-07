@@ -175,10 +175,6 @@ function fau_ad_metabox_content( $object, $box ) {
     fau_form_textarea('fauval_ad_notes', $notiz, __('Redaktionelle Notizen','fau'),80,3,__('Hier können redaktionelle Notizen hinterlassen werden. Diese werden nur hier angezeigt.','fau'));
 
     
-    
-    // function fau_form_select($name= '', $liste = array(), $prevalue, $labeltext = '',  $howtotext = '', $showempty=1, $emptytext = '' ) {
-
-    
     return;
 
 }
@@ -344,7 +340,7 @@ function fau_get_ad($type, $withhr = true) {
 
 		$out .= '<h3>';	    
 		if (isset($options['url_banner-ad-notice'])) {
-		    $out .= '<a class="banner-ad-notice" href="'.$options['url_banner-ad-notice'].'">';
+		    $out .= '<a data-wpel-link="internal" class="banner-ad-notice" href="'.$options['url_banner-ad-notice'].'">';
 		}
 		$out .= $options['title_banner-ad-notice'];
 		if (isset($options['url_banner-ad-notice'])) {
