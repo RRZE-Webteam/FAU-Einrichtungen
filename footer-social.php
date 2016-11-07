@@ -104,7 +104,7 @@ if ($show) {
 						 }
 
 						if (($active ==1) && ($value)) {
-						    echo '<li class="social-'.$entry.'"><a itemprop="sameAs" href="'.$value.'">';
+						    echo '<li class="social-'.$entry.'"><a data-wpel-link="internal" itemprop="sameAs" href="'.$value.'">';
 						    echo $listdata['name'].'</a></li>';
 						}
 					    }

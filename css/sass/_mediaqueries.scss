@@ -624,6 +624,7 @@ Media Queries for Theme FAU-Einrichtungen
 		float: left;
 		margin-left: 20px;
 	    }
+	         
 	.span6 {
 		width: #{$breakMD - 10}px;
 		padding: 10px;
@@ -651,6 +652,13 @@ Media Queries for Theme FAU-Einrichtungen
 		    padding: 0;
 		}
 	    }	
+	}
+	.archive .person .span6 {
+	   width: calc(100% - 10px);
+	   
+	   .person-info-description {
+	       padding-top: 15px;
+	   }
 	}
 	
 	
@@ -927,6 +935,7 @@ Media Queries for Theme FAU-Einrichtungen
 	li {
 	    line-height: 15px;
 	}
+	.span4,
 	.span3 {
 	    width: 48%;
 	    width: calc(50% - 10px);
@@ -934,6 +943,7 @@ Media Queries for Theme FAU-Einrichtungen
 	    margin: 2px;
 
 	}
+	.span5,
 	.span6 {
 	    width: 100%;
 	    margin: 0;
@@ -960,6 +970,10 @@ Media Queries for Theme FAU-Einrichtungen
     #hero {
 	// display: none;
     }
+    hr,
+    .imagelink_carousel {
+	display: none;
+    }
     .page-template-page-start .span3 {
 	float: none;
     }
@@ -985,6 +999,7 @@ Media Queries for Theme FAU-Einrichtungen
 	    }
 	}	
     }
+ 
 }
 
 

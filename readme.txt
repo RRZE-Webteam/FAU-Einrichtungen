@@ -32,14 +32,13 @@ LIBRARIES & SOURCES
 * Font Roboto, https://www.fontsquirrel.com/license/roboto
   Apache License, Version 2.0, January 2004
 * fancyBox v2.1.5 fancyapps.com 
-* jQuery carouFredSel 6.2.1
+* jQuery carouFredSel 6.2.1, https://dev7studios.com/
 * jQuery FlexSlider v2.3.0
 * hoverIntent v1.8.0
 
 
 OPTIONAL PLUGINS 
 
-* FAU-Events (https://github.com/RRZE-Webteam/fau-events) 
 * CMS-Workflow (https://github.com/RRZE-Webteam/cms-workflow)
 * RRZE-UnivIS (https://github.com/RRZE-Webteam/rrze-univis)
 * TinyMCE Advanced

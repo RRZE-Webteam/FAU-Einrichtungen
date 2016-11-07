@@ -5,6 +5,21 @@ Responsive Menue for FAU Theme
 #off-canvas, #off-canvas-overlay {
 	display: none;
 }
+
+/* Mobile Navigation Toggle Button */
+#nav-toggle {
+	position: absolute;
+	top: 45px;
+	right: 15px;
+	width: 25px;
+	
+	div {
+		height: 3px;
+		background: $colorMeta;
+		margin-bottom: 3px;
+	}
+}
+
 @media (min-width: $breakMD +1) {
     #nav {
 	overflow: hidden;
@@ -14,11 +29,6 @@ Responsive Menue for FAU Theme
 @media (max-width: $breakMD) {
 
 	body.js-enabled {
-	//	padding-top: 80px;
-
-		&.nav-fixed {
-	//		padding-top: 80px;
-		}
 
 		&.menu-toggled {
 			#off-canvas {
@@ -60,6 +70,19 @@ Responsive Menue for FAU Theme
 
 			#nav {
 				display: block;
+				
+				
+				.level2 {
+				    li {
+					a {
+					  display: table;
+					    padding: 7px 20px 7px 0px;
+					    @include border-radius(0);
+					    border-bottom: 1px solid $colorHover;
+					    width: calc(100% - 20px);
+					}
+				    }
+				}
 			}
 		}
 
@@ -159,9 +182,6 @@ Responsive Menue for FAU Theme
 			margin-bottom: 50px;
 		}
 
-		.caroufredsel_wrapper, #logos-menu-playpause {
-			display: none!important;
-		}
 	}
 }
 

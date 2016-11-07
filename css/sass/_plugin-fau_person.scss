@@ -66,6 +66,22 @@ https://github.com/RRZE-Webteam/fau-person/
 		padding: 0;
 	    }
 	}
+	
+	
+	.archive & {
+	    .span6 {
+		width: calc(100% - 130px);	
+		
+		.person-info-description {
+		    padding-right: 10px;
+		}
+		.person-info-more {
+		    margin-right: 20px;
+		    text-align: right;
+		}
+	    }
+	    
+	} 
 }
 
 .content-person {
@@ -276,4 +292,10 @@ span[itemprop="honorificSuffix"] {
 	    width: 220px;
 	}
     }
+}
+
+
+.search .search-result .content-person {
+    margin-top: 0;
+    padding-top: 0;
 }

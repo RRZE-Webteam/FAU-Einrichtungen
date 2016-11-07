@@ -110,20 +110,16 @@ get_header(); ?>
 						the_content();
 						
 						if ($options['post_display_category_below']) {
-						    $output = '<div class="meta-footer">'."\n";
+						    $output = '<p class="meta-footer">'."\n";
 						    $output .= $typestr;
 						     
 						    if ($options['post_display_tags_below']) {
 							if(get_the_tag_list()) {
-							    $output .= '<span class="post-meta-tags"> ';
-							    $output .= __('Schlagworte', 'fau');
-							    $output .= ': ';
-							    $output .= get_the_tag_list('<ul><li>','</li><li>','</li></ul>');
-							    $output .= '</span> ';
+							    $output .= get_the_tag_list('<span class="post-meta-tags"> '.__('Schlagworte', 'fau').': ',', ','</span>');
 							}   
 						    }
 						    
-						    $output .= '</div>'."\n";
+						    $output .= '</p>'."\n";
 						    echo $output;   
 						}
 						?>

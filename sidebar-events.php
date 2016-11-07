@@ -1,73 +1,145 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 global $options;
-$topevent_posts = get_posts(array('tag' => $options['start_topevents_tag'], 'numberposts' => $options['start_topevents_max']));
-foreach($topevent_posts as $topevent) { 
-    $topevent_date  = get_post_meta( $topevent->ID, 'topevent_date', true );
-    $todaysDate = time();
-    $postDate = strtotime($topevent_date) + 43200;
-	// 12 Stunden offset, damit die Veranstaltung auch noch angezeigt wird, wenn
-	// sie am selben Tag gestartet ist.
-    if ($postDate >= $todaysDate) {
-    ?>
-    <div class="widget h-event vevent">
-	    <?php 
+
+$show =false;
+/*
+	1 => __('Startseite','fau'),
+	2 => __('Portalseiten','fau'),
+	3 => __('Suche und Fehlerseiten','fau'),
+	4 => __('Inhaltsseite mit Navi','fau'),
+	5 => __('Standard Seiten','fau'),
+	6 => __('Beiträge','fau'),       
+*/
+ if ((isset($options['start_topevents_active'])) && ($options['start_topevents_active']==true)) {
+    $displayon = $options['topevents_templates'];
+    $template = get_page_template();
+
+     foreach ($displayon as $key) {
+	if (($key==1) && (is_page_template( 'page-templates/page-start.php' ))) {
+	    $show = true;
+	    break;
+	} elseif (($key==1) && (is_page_template( 'page-templates/page-start-sub.php' ))) {
+	    $show = true;
+	    break;
+	} elseif (($key==2) && (is_page_template( 'page-templates/page-portal.php')))  {
+	    $show = true;
+	    break;
+	} elseif (($key==3) && (is_search() || is_404() ))  {
+	    $show = true;
+	    break;
+	} elseif (($key==4) && (is_page_template( 'page-templates/page-subnav.php')))  {
+	    $show = true;
+	    break;
+	} elseif (($key==5) && (is_page()))  {
+	    $show = true;
+	    break;
+	} elseif (($key==6) && (is_single()))  {	 
+	    $show = true;
+	    break;
+	} else {
+    //	echo "<!-- PAGE TEMPLATE: $template -->";
+	}
+     }
+ }
+ if ($show) {
+    $args =  array(
+	'post_type'	    => 'post',
+	'post_status'       => 'publish',
+    	'meta_query'	    => array(
+	    'relation'	=> 'OR',
+	    array(
+		'relation'	=> 'AND',
+		array(
+		    'key'	    => 'topevent_active',
+		    'value'	    => 1,
+		    'compare'   => '=',
+		    'type'	    => 'NUMERIC'
+		),
+		array(
+		    'relation'	=> 'OR',
+		    array(
+		        'key'	    => 'topevent_date',
+			'value'	    => date("d-m-Y"),
+			'compare'   => '>=',
+		    ),
+		    array(
+		        'key'	    => 'topevent_date',
+			'value'	    =>  date("d-m-Y"),
+			'compare'   => 'NOT EXISTS',
+		    ),
+		),
+		
+		
+	    ),
+	    array(
+		'key'	    => 'topevent_date',
+		'value'	    => date("d-m-Y"),
+		'compare'   => '>=',
+	    ),
+	),
+	'numberposts' => $options['start_topevents_max'],
+    );
+    $topevent_posts = get_posts($args);
+     
+
+         // $topevent_posts = get_posts(array('tag' => $options['start_topevents_tag'], 'numberposts' => $options['start_topevents_max']));
+    foreach($topevent_posts as $topevent) {  
+	    $topevent_date  = get_post_meta( $topevent->ID, 'topevent_date', true );
 	    $titel = get_post_meta( $topevent->ID, 'topevent_title', true );
-	    if (strlen(trim($titel))<3) {
-		$titel =  get_the_title($topevent->ID);
-	    } 
-	    $link = fau_esc_url(get_permalink($topevent->ID));
-
-	    ?>
-	    <h2 class="small p-name"><a class="url u-url" href="<?php echo $link; ?>"><?php echo $titel; ?></a></h2>
-	    <div class="row">
-		<?php 
-		    
-		    $imageid = get_post_meta( $topevent->ID, 'topevent_image', true );
-		    $imagehtml = '';
-		    if (isset($imageid) && ($imageid>0)) {
-			$image = wp_get_attachment_image_src($imageid, 'topevent-thumb'); 					
-			if (($image) && ($image[0])) {  
-			    $imagehtml = '<img src="'.fau_esc_url($image[0]).'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="">';	
-			}								    
-		    } 
-		    if (empty($imagehtml)) {
-		       $imagehtml = '<img src="'.fau_esc_url($options['default_topevent_thumb_src']).'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="">';			    
-		    }
-
-
-
-
-		if (isset($imagehtml)) { ?>
-		    <div class="span2">
-			    <?php echo '<a href="'.$link.'">'.$imagehtml.'</a>'; ?>
-		    </div>
-		    <div class="span2">
-		<?php } else { ?>
-		    <div class="span4">
-		<?php } 
-			if (!empty($topevent_date)) {
-			    echo '<div class="topevent-date dtstart dt-start" title="'.$topevent_date.'">';
-			    echo date_i18n( get_option( 'date_format' ), strtotime( $topevent_date ) );
-			    echo "</div>\n";
-			}
+		if (strlen(trim($titel))<3) {
+		    $titel =  get_the_title($topevent->ID);
+		} 
+		$link = fau_esc_url(get_permalink($topevent->ID));
+	?>
+	<div class="widget h-event vevent">
+		<h2 class="small p-name"><a class="url u-url" href="<?php echo $link; ?>"><?php echo $titel; ?></a></h2>
+		<div class="row">
+		    <?php 
+			$hideimage  = get_post_meta( $topevent->ID, 'topevent_hideimage', true ); 
 			
-			$desc = get_post_meta( $topevent->ID, 'topevent_description', true );
-			if (strlen(trim($desc))<3) {
-			    $desc =  fau_custom_excerpt($topevent->ID,$options['default_topevent_excerpt_length']);
-			}  ?>   
-			<div class="topevent-description summary p-summary"><?php echo $desc; ?></div>
+			
+			    $imageid = get_post_meta( $topevent->ID, 'topevent_image', true );
+			    $imagehtml = '';
+			    if (isset($imageid) && ($imageid>0)) {
+				$image = wp_get_attachment_image_src($imageid, 'topevent-thumb'); 					
+				if (($image) && ($image[0])) {  
+				    $imagehtml = '<img src="'.fau_esc_url($image[0]).'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="">';	
+				}								    
+			    } 
+			    if (empty($imagehtml)) {
+			       $imagehtml = '<img src="'.fau_esc_url($options['default_topevent_thumb_src']).'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="">';			    
+			    }
+			
 
-		    </div>			
-	    </div>
-    </div>
-<?php 
-    }
-} 
+
+
+		   if (($hideimage < 1) && (isset($imagehtml))) { ?>
+			<div class="span2">
+				<?php echo '<a href="'.$link.'">'.$imagehtml.'</a>'; ?>
+			</div>
+			<div class="span2">
+		    <?php } else { ?>
+			<div class="span4">
+		    <?php } 
+			    if (!empty($topevent_date)) {
+				echo '<div class="topevent-date dtstart dt-start" title="'.$topevent_date.'">';
+				echo date_i18n( get_option( 'date_format' ), strtotime( $topevent_date ) );
+				echo "</div>\n";
+			    }
+
+			    $desc = get_post_meta( $topevent->ID, 'topevent_description', true );
+			    if (strlen(trim($desc))<3) {
+				$desc =  fau_custom_excerpt($topevent->ID,$options['default_topevent_excerpt_length']);
+			    }  ?>   
+			    <div class="topevent-description summary p-summary"><?php echo $desc; ?></div>
+
+			</div>			
+		</div>
+	</div>
+    <?php 
+	}
+   
+ }
 

@@ -185,7 +185,6 @@
 	    }
 	    blockquote {
 		padding: 20px; 
-		// opacity: 0.7; 
 		min-height: 40px;
 		font-style: italic;
 		p.quote:before {
@@ -234,7 +233,7 @@
 #nav li.level1:focus a, 
 #nav li.focus a {
 	background-color: $colorPrimary; 
-	color: #fff; // $colorMainMenu;
+	color: #fff; 
 	
 }
 
@@ -252,7 +251,6 @@
 #nav li.has-sub:hover a, 
 #nav li.has-sub:focus a, 
 #nav li.has-sub.focus a {
-	// background-position: right -28px;
 	color: $colorMainMenu;
 
 }
@@ -281,19 +279,6 @@
 }
 
 
-/* Mobile Navigation Toggle Button */
-#nav-toggle {
-	position: absolute;
-	top: 45px;
-	right: 15px;
-	width: 25px;
-	
-	div {
-		height: 3px;
-		background: $colorPrimary;
-		margin-bottom: 3px;
-	}
-}
 
 
 /* Meta */
@@ -923,6 +908,8 @@
 		font-size: 13px;
 		line-height: 18px;
 	    }
+	    
+	    
 	}
 	
 }

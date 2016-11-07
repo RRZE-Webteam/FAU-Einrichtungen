@@ -27,19 +27,21 @@ $posttype = get_post_type();
 		
 			<div class="row">
 			     <?php 
-				if(get_post_type() != 'post') {
-				    if ( is_active_sidebar( 'search-sidebar' ) ) { 	
+				if( (get_post_type() != 'post') &&  (is_active_sidebar( 'search-sidebar' ) )) { 	
 					$active_sidebar = true; ?>
 				<div class="span3">
 					<div class="search-sidebar">
 					    <?php dynamic_sidebar( 'search-sidebar' ); ?>
 					</div>
 				</div>
-							
-			     <?php } 					 
-				} ?>
-				    
-				<div class="span8">
+				<div class="span9">			
+			     <?php } else { 
+				 if (get_post_type() != 'post') { ?>
+				     <div class="span12">	
+				  <?php  } else { ?>
+				     <div class="span8">	
+				  <?php  } ?>	 
+			     <?php }  ?>
 				    <main>
 					<?php 
 					if (($posttype == 'synonym') && ($options['index_synonym_listall'])) {					    
@@ -50,8 +52,9 @@ $posttype = get_post_type();
 					    echo fau_get_glossar();					    					    
 					} else {	
 					    $line=0;
-					    while ( have_posts() ) : 
+					    while ( have_posts() ) { 
 						the_post();  
+
 						$line++;
 						if( $posttype == 'event') {
 						    get_template_part( 'post', 'event' ); 
@@ -59,14 +62,8 @@ $posttype = get_post_type();
 						    echo fau_get_synonym($post->ID);
 						} elseif($posttype == 'glossary') { 	
 						    echo fau_get_glossar($post->ID);
-						} elseif (($posttype == 'person') && (function_exists('fau_person'))) { 	
-						//    if ($line>1) {
-						//	echo "<hr>\n";
-						//  }
-						    
-						    echo fau_person(array("id"=> $post->ID, 'format' => 'kompakt', 'showlink' => 1 )); // 
-
-						    
+						} elseif ($posttype == 'person')  { 	
+						    echo FAU_Person_Shortcodes::fau_person(array("id"=> $post->ID, 'format' => 'kompakt', 'showlink' => 0, 'showlist' => 1 )); // 					    
 						} elseif($posttype == 'post') { 
 						      echo fau_display_news_teaser($post->ID,true);
 						 } else { ?>
@@ -76,25 +73,21 @@ $posttype = get_post_type();
 							    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 						    </h2>
 
-						    <div class="row">
-							    <?php if(has_post_thumbnail( $post->ID )): ?>
-							    <div class="span3">
+							    <?php if(has_post_thumbnail( $post->ID )) { ?>
+							     <div class="row">
+								<div class="span3">
 								    <?php the_post_thumbnail('post-thumb'); ?>
+								</div>
+								 <div class="span5">
+							    <?php }  
+							    the_content(); 
+							    if(has_post_thumbnail( $post->ID )) { ?>
+								</div>
 							    </div>
-							    <div class="span5">
-							    <?php else: ?>
-							    <div class="span8">
-							    <?php endif; ?>
-								    <?php the_content(); ?>
-							    </div>
-						    </div>
-						    <?php 
-
-
-
-
+							    <?php } 
+							     
 						 }
-					    endwhile; 
+					    } 
 
 
 					    if (($posttype=='glossary') || ($posttype=='person')) { ?>
@@ -111,9 +104,9 @@ $posttype = get_post_type();
 					    <?php }
 					} ?>
 					
-				   
+				    </main>
 				</div>
-				 </main>
+				
 				    <?php if(get_post_type() == 'post') {
 					 get_template_part('sidebar', 'news');
 				    } ?>

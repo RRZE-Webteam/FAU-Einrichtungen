@@ -33,7 +33,6 @@ get_header(); ?>
 			}
 			
 			
-			
 			get_template_part('sidebar', 'inline'); 
 			the_content(); 
 			$displayedicons = 0;

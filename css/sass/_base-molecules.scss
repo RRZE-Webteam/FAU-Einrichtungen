@@ -21,79 +21,6 @@
 	}
 }
 
-/* Language switcher */
-.mlp_language_box {
-	float: right;
-	height: 30px;
-	margin-top: 5px;
-	background: #fff;
-	@include border-radius(20px);
-	background: #fff;
-	z-index: 200;
-	
-	ul {
-		@include no-list;
-		z-index: 201;
-
-		
-		li {
-			@include no-list;
-			background: none;
-			display: none;
-
-			a {
-				display: block;
-				text-align: left;
-				text-decoration: none;
-				font-size: 13px;
-				line-height: 20px;
-				height: 20px;
-				padding: 5px 30px 5px 10px;
-				text-transform: uppercase;
-				font-weight: bold;
-				
-				img {
-					margin-top: -4px;
-				}
-			}
-			
-			a:hover, a:focus {
-				background-color: $colorLightest;
-			}
-			
-			a.ext-link {
-				background-image: none;
-			}
-		}
-		
-		li.current {
-			display: block;
-			
-			a {
-				background-image: url('../img/icon-globe.png');
-				background-repeat: no-repeat;
-				background-position: right;
-				margin-right: 5px;
-				
-			}
-		}
-		
-		&:hover, &:focus, &.focus {
-			@include box-shadow(0 0 5px rgba(0,0,0,0.2));
-			
-			li {
-				display: block;
-				
-				a {
-					background-color: #fff;
-				}
-			}
-		}
-	}
-	h2 {
-	    @include hideout;
-	}
-}
 
 
 /* Subpages / Portal Menu */
@@ -755,11 +682,11 @@
 	padding-left: 5px;
 	
 	@extend .fa;
+	@extend .fa-lg;
 	@extend .fa-angle-right;
 		
 	&:hover, &:focus {
 		text-decoration: none;
-		
 		@extend .fa-angle-double-right;
 	}
 }
@@ -1135,71 +1062,7 @@ ul.tagcloud {
 	}
 }
 */
-/* Logo Slider */
-.logos-menu-nav {
-	position: relative;
-}
 
-.logos-menu .logo-item {
-	display: block;
-	text-align: center;
-	
-	&:focus {
-		outline: 1px solid $colorPrimary;
-	}
-	
-	img {
-		@include box-shadow(none);
-	}
-}
-
-#logos-menu-prev {
-	position: absolute;
-	z-index: 10;
-	top: 0;
-	left: -40px;
-	display: block;
-	width: 40px;
-	height: 110px;
-	background: #fff url('../img/prev-next.png') no-repeat -32px center;
-	text-indent: -9999em;
-}
-
-#logos-menu-next {
-	position: absolute;
-	z-index: 10;
-	top: 0;
-	right: -20px;
-	display: block;
-	width: 30px;
-	height: 110px;
-	background: #fff url('../img/prev-next.png') no-repeat left center;
-	text-indent: -9999em;
-}
-
-#logos-menu-playpause {
-	@include inline-block;
-	background: url('../img/play-pause.png') no-repeat left -64px;
-	height: 32px;
-	line-height: 32px;
-	padding-left: 32px;
-}
-
-#logos-menu-playpause.paused {
-	background-position: left -96px;
-}
-
-#logos-menu-playpause .play {
-	display: none;
-}
-
-#logos-menu-playpause.paused .pause {
-	display: none;
-}
-
-#logos-menu-playpause.paused .play {
-	display: inline;
-}
 
 /* Banner Ads */
 .fau-werbung {

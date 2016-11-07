@@ -266,41 +266,30 @@ function fau_do_metabox_post_topevent( $object, $box ) {
 	    return;
 	}
 	
-	
-	$topevent_desc  = get_post_meta( $object->ID, 'topevent_description', true );
-	$topevent_date  = get_post_meta( $object->ID, 'topevent_date', true );
-	$topevent_image  = get_post_meta( $object->ID, 'topevent_image', true );
-		
-	?>
 
+	$istopevent  = get_post_meta( $object->ID, 'topevent_active', true ); 
+	fau_form_onoff('fauval_topevent_active',$istopevent,__('Diesen Artikel als Top-Event anzeigen.','fau'));	
 	
 	
-	<p>
-	   <?php echo __('Bitte beachten: Damit ein Artikel als Top-Event angezeigt wird, muss er das folgende Schlagwort erhalten: ','fau');
-	   echo '<b>'.$options['start_topevents_tag'].'</b>'; ?>
-	</p>
-	
-	
-	<?php 
+	if (!empty($options['start_topevents_tag'])) {	
+	   echo '<p>'.__('Bitte beachten: Damit ein Artikel als Top-Event angezeigt wird, muss entweder obige Option gesetzt sein oder der Artikel muss ein gültiges Datum für einen Top-Event angegeben haben, welches noch nicht abgelaufen ist.','fau').'</p>';
+	 }
+
 	    $topevent_title  = get_post_meta( $object->ID, 'topevent_title', true );
 	    fau_form_text('fauval_topevent_title', $topevent_title, __('Titel','fau'), __('Titel wie er in der Sidebar erscheinen soll. Wenn leer, wird der normale Titel des Beitrags verwendet.','fau'));
-	?>
+	    
+	    $topevent_desc  = get_post_meta( $object->ID, 'topevent_description', true );
+	    $help  = __('Kurztext für die Sidebar. Wenn leer, wird der Anleser verwendet.','fau');
+	    $help  .= ' '. __('Erlaubte Anzahl an Zeichen:','fau');
+	    $help  .=  ' <span class="fauval_topevent_desc_signs">'.$options['default_topevent_excerpt_length'].'</span>';    
+	    fau_form_textarea('fauval_topevent_desc', $topevent_desc, __( "Kurzbeschreibung", 'fau' ),40,5, $help); 	    	
+	    
 
 	
-	
-	<div class="optionseingabe">
-	    <p>
-		    <label for="fauval_topevent_desc">
-			<?php _e( "Kurzbeschreibung", 'fau' ); ?>:
-		    </label>
-	    </p>
-	    <textarea name="fauval_topevent_desc" id="fauval_topevent_desc" class="large-text" rows="3" ><?php echo $topevent_desc; ?></textarea>	
-	    <br>
-	    <div class="howto"><?php echo __('Kurztext für die Sidebar. Wenn leer, wird der Anleser verwendet.','fau');
-	    echo ' '. __('Erlaubte Anzahl an Zeichen:','fau');
-	    echo ' <span class="fauval_topevent_desc_signs">'.$options['default_topevent_excerpt_length'].'</span>';
-	    ?></div>
-	</div>
+	    $topevent_date  = get_post_meta( $object->ID, 'topevent_date', true );
+	    $topevent_image  = get_post_meta( $object->ID, 'topevent_image', true );	    
+	?>
+
 	<div class="optionseingabe">
 	    <p>
 		    <label for="fauval_topevent_date">
@@ -311,13 +300,21 @@ function fau_do_metabox_post_topevent( $object, $box ) {
 	    <br>
 	    
 	    
-	    <div class="howto"><?php echo __('Geben Sie hier das Datum des Events ein.','fau'); ?></div>
+	    <div class="howto"><?php echo __('Geben Sie hier das Datum des Events ein.','fau');
+	    echo __('<br>Nutzen Sie das Format: "Tag-Monat-Jahr", wobei Sie Tage und Monate mit führenden Nullen schreiben und das Jahr vierstellig. Beispiel: 01-12-2016 für den ersten Dezember 2016.','fau');?></div>
 	    
 	    <script type="text/javascript">
-jQuery(document).ready(function() {
-    jQuery('#fauval_topevent_date').datepicker();
-});
-</script>
+	    jQuery(document).ready(function() {
+		jQuery("#fauval_topevent_date" ).each(function(){
+		    this.type="text";
+		 });
+		jQuery("#fauval_topevent_date" ).datepicker();
+		jQuery("#fauval_topevent_date" ).datepicker( "option", "dateFormat", 'dd-mm-yy' );
+		<?php if (isset($topevent_date)) { ?>
+		     jQuery("#fauval_topevent_date" ).datepicker( "setDate", '<?php echo $topevent_date ?>' );
+		<?php } ?>	
+		});
+	    </script>
 	    
 	    
 	</div>
@@ -330,6 +327,13 @@ jQuery(document).ready(function() {
 	    </p>
 
 	    <?php 
+	    
+	    $hideimage  = get_post_meta( $object->ID, 'topevent_hideimage', true ); 
+	    if (!isset($hideimage)) {
+		$hideimage = $options['topevent_hideimage'];
+	    }
+	    fau_form_onoff('fauval_topevent_hideimage',$hideimage,__('Kein Symbolbild anzeigen.','fau'));	
+	    
 	    echo '<div class="uploader">';
 	    
 	    $image = '';
@@ -383,8 +387,8 @@ jQuery(document).ready(function() {
 	   </div>
 	</div>
 	
-	
 	<?php 
+	
 
  }
 
@@ -402,62 +406,13 @@ function fau_save_post_topevent( $post_id, $post ) {
 		return;
 	}
 
-	$newval = ( isset( $_POST['fauval_topevent_title'] ) ? sanitize_text_field( $_POST['fauval_topevent_title'] ) : 0 );
-	$oldval = get_post_meta( $post_id, 'topevent_title', true );
-	
-	if (!empty(trim($newval))) {
-	    if (isset($oldval)  && ($oldval != $newval)) {
-		update_post_meta( $post_id, 'topevent_title', $newval );
-	    } else {
-		add_post_meta( $post_id, 'topevent_title', $newval, true );
-	    }
-	} elseif ($oldval) {
-	    delete_post_meta( $post_id, 'topevent_title', $oldval );	
-	} 
-	
-	$newval = ( isset( $_POST['fauval_topevent_desc'] ) ?  wp_filter_nohtml_kses( $_POST['fauval_topevent_desc'] ) : 0 );
-	$oldval = get_post_meta( $post_id, 'topevent_description', true );
-	
-	if (!empty(trim($newval))) {
-	    if (isset($oldval)  && ($oldval != $newval)) {
-		update_post_meta( $post_id, 'topevent_description', $newval );
-	    } else {
-		add_post_meta( $post_id, 'topevent_description', $newval, true );
-	    }
-	} elseif ($oldval) {
-	    delete_post_meta( $post_id, 'topevent_description', $oldval );	
-	} 
+	fau_save_standard('topevent_active', $_POST['fauval_topevent_active'], $post_id, 'post', 'int');	
+	fau_save_standard('topevent_hideimage', $_POST['fauval_topevent_hideimage'], $post_id, 'post', 'int');	
+	fau_save_standard('topevent_title', $_POST['fauval_topevent_title'], $post_id, 'post', 'text');	
+	fau_save_standard('topevent_description', $_POST['fauval_topevent_desc'], $post_id, 'post', 'text');	
+	fau_save_standard('topevent_date', $_POST['fauval_topevent_date'], $post_id, 'post', 'text');	
+	fau_save_standard('topevent_image', $_POST['fauval_topevent_image'], $post_id, 'post', 'int');	
 
-	
-	$newval = ( isset( $_POST['fauval_topevent_date'] ) ?  sanitize_option( 'date_format', $_POST['fauval_topevent_date'] ) : 0 );
-	$oldval = get_post_meta( $post_id, 'topevent_date', true );
-	
-	if (!empty(trim($newval))) {
-	    if (isset($oldval)  && ($oldval != $newval)) {
-		update_post_meta( $post_id, 'topevent_date', $newval );
-	    } else {
-		add_post_meta( $post_id, 'topevent_date', $newval, true );
-	    }
-	} elseif ($oldval) {
-	    delete_post_meta( $post_id, 'topevent_date', $oldval );	
-	} 
-	
-	$newval = ( isset( $_POST['fauval_topevent_image'] ) ?  intval( $_POST['fauval_topevent_image'] ) : 0 );
-	$oldval = get_post_meta( $post_id, 'topevent_image', true );
-	
-	if (!empty(trim($newval))) {
-	    if (isset($oldval)  && ($oldval != $newval)) {
-		update_post_meta( $post_id, 'topevent_image', $newval );
-	    } else {
-		add_post_meta( $post_id, 'topevent_image', $newval, true );
-	    }
-	} elseif ($oldval) {
-	    delete_post_meta( $post_id, 'topevent_image', $oldval );	
-	} 
-		
-
-
-	
 }
 
  

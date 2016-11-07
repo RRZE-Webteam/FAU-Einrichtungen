@@ -22,14 +22,25 @@ Main CSS File for Wordpress Theme FAU
 @import "base-molecules";
 @import "base-overwrites";
 
-// Plugin FAU_Person
+// FAU_Person
 @import "plugin-fau_person";
 
-// Import Plugin Stylings
+// Flexslider
 @import "plugin-flexslider";
-// @import "plugin-fluidbox"; 
+
+// Caroufredsel
+@import "plugin-caroufredsel";
+
+// Fancyboxes
 @import "plugin-fancybox";
+
+// Contact Form 7
 @import "plugin-wpc7";
+
+// FAU Glossar
+@import "plugin-fau_glossar";
+
+// Everything else, coming from Plugins
 @import "plugin-misc";
 
 // Import Media Queries

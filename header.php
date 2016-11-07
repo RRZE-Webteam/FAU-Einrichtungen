@@ -10,8 +10,8 @@
  */
 
 global $options;
-
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -34,6 +34,7 @@ global $options;
 		<section id="meta">
 			<div class="container">
 				<div class="pull-left">
+					<h3 class="screen-reader-text"><?php _e('Links zu weiteren Portalen','fau'); ?></h3>
 					<?php 
 					echo fau_get_toplinks(); 
 					?>
@@ -42,7 +43,7 @@ global $options;
 					<?php if ( is_active_sidebar( 'language-switcher' ) ) : ?>
 						<?php dynamic_sidebar( 'language-switcher' ); ?>
 					<?php endif; ?>
-				    
+				    <h3 class="screen-reader-text"><?php _e('Seiteninterne Suche','fau'); ?></h3>
 				    <?php get_template_part('header', 'searchform'); ?>
 				</div>
 			</div>
@@ -73,7 +74,7 @@ global $options;
 
 			    if ( ! empty( $header_image ) ) {	
 				$srcset=  esc_attr(wp_get_attachment_image_srcset( get_custom_header()->attachment_id, 'full'));  
-				echo '<img src="'.fau_esc_url( $header_image ).'" width="'.get_custom_header()->width.'" height="'.get_custom_header()->height.'" alt="'.esc_attr(get_bloginfo( 'title' )).'"';
+				echo '<img src="'.$header_image.'" width="'.get_custom_header()->width.'" height="'.get_custom_header()->height.'" alt="'.esc_attr(get_bloginfo( 'title' )).'"';
 				if ($srcset) {
 				    echo ' srcset="'.$srcset.'"';
 				}

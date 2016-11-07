@@ -252,9 +252,7 @@ global $options;
 				</div>
 				<div class="span4 sidebar-outline">
 					<?php
-					if ($options['start_topevents_active']) {
-					    get_template_part('sidebar', 'events'); 	
-					}				
+					get_template_part('sidebar', 'events'); 	
 					get_template_part('sidebar');
 					?>
 				</div>
@@ -280,14 +278,15 @@ global $options;
 			 
 			echo fau_get_ad('werbebanner_unten',true);
 			
-			 $logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
-			 if ($logoliste) { 
+			
+			$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
+			if ($logoliste) { 
 			    $logos = fau_get_imagelinks($logoliste, false);
 			    if ((isset($logos) && (!empty($logos)))) {
 				echo "<hr>\n";
 				echo $logos;
 			    }
-			 }
+			}
 			
 			 ?>
 			
