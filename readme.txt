@@ -25,10 +25,8 @@ CREDITS & COPYRIGHT
 
 LIBRARIES & SOURCES
 
-* Font Awesome 4.6 by Dave Gandy - http://fontawesome.io. 
+* Font Awesome 4.7 by Dave Gandy - http://fontawesome.io. 
   License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
-* Font OpenSans, https://www.fontsquirrel.com/license/open-sans
-  Apache License, Version 2.0, January 2004
 * Font Roboto, https://www.fontsquirrel.com/license/roboto
   Apache License, Version 2.0, January 2004
 * fancyBox v2.1.5 fancyapps.com 
@@ -37,19 +35,6 @@ LIBRARIES & SOURCES
 * hoverIntent v1.8.0
 
 
-OPTIONAL PLUGINS 
-
-* CMS-Workflow (https://github.com/RRZE-Webteam/cms-workflow)
-* RRZE-UnivIS (https://github.com/RRZE-Webteam/rrze-univis)
-* TinyMCE Advanced
-* CMS-Search (https://github.com/RRZE-Webteam/cms-search)
-* MimeTypes Link Icons
-* WP External Link
-   with Options: 
-    - General Settings: Open external link in same window
-    - SEO-Settings: Add "external" rel-attribute, please no "nofollow" !
-                    Dont use title-Attribut, it messes with accessibility
-    - Style Stettings: Icon 19, No icon for external links with images
 
 
 FEEDBACK & BUGS
