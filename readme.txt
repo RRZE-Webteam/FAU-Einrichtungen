@@ -13,9 +13,7 @@ DOWNLOADS
     
 
 AUTHOR 
-
    RRZE-Webteam , http://www.rrze.fau.de
-   vanbittern – Philipp Schmieder Medien, https://vanbittern.com
 
 
 CREDITS & COPYRIGHT
