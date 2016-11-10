@@ -4,7 +4,7 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'optiontable-version'		=> 11,
+    'optiontable-version'		=> 12,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -202,7 +202,7 @@ $defaultoptions = array(
     'default_postthumb_always'	    => 1,
 
     'custom_excerpt_allowtags'	    => 'br',
-    'url_banner-ad-notice'	    => 'https://www.fau.de/patente-gruendung-wissenstransfer/service-fuer-unternehmen/werben/',
+    'url_banner-ad-notice'	    => 'http://www.fau.info/werbungfaude',
     'title_banner-ad-notice'	    => __( 'Werbung', 'fau' ),
     
     'title_hero_post_categories'    => __( 'FAU aktuell', 'fau' ),
