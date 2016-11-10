@@ -87,19 +87,40 @@ $show =false;
          // $topevent_posts = get_posts(array('tag' => $options['start_topevents_tag'], 'numberposts' => $options['start_topevents_max']));
     foreach($topevent_posts as $topevent) {  
 	    $topevent_date  = get_post_meta( $topevent->ID, 'topevent_date', true );
+	    $istopevent  = get_post_meta( $topevent->ID, 'topevent_active', true ); 
 	    $titel = get_post_meta( $topevent->ID, 'topevent_title', true );
-		if (strlen(trim($titel))<3) {
-		    $titel =  get_the_title($topevent->ID);
-		} 
-		$link = fau_esc_url(get_permalink($topevent->ID));
+	    if (strlen(trim($titel))<3) {
+		$titel =  get_the_title($topevent->ID);
+	    } 
+	    $link = fau_esc_url(get_permalink($topevent->ID));
+	    if (!empty($topevent_date)) {
+		 // Workaround fuer alte Eintraege, deren Syntax falsch sein kann
+		if (preg_match("/^\d+\-\d+\-\d+$/i", $topevent_date)) {
+		    // Ok
+		} elseif (preg_match("/^\d+\.\d+\.\d+$/i", $topevent_date)) {    
+		    $topevent_date = preg_replace('/\./', '-', $topevent_date);		 
+		} else {
+		    $topevent_date = '';
+		}
+		
+		$todaysDate = time();
+		$postDate = strtotime($topevent_date) + 43200;
+		// 12 Stunden offset, damit die Veranstaltung auch noch angezeigt wird, wenn
+		// sie am selben Tag gestartet ist.
+		if ($postDate < $todaysDate) {
+		    $topevent_date = '';
+		}
+	    }	
+	    if ((!empty($topevent_date)) || ($istopevent==1)) {
+
+	    
 	?>
 	<div class="widget h-event vevent">
 		<h2 class="small p-name"><a class="url u-url" href="<?php echo $link; ?>"><?php echo $titel; ?></a></h2>
 		<div class="row">
-		    <?php 
+		 <?php 
+		    
 			$hideimage  = get_post_meta( $topevent->ID, 'topevent_hideimage', true ); 
-			
-			
 			    $imageid = get_post_meta( $topevent->ID, 'topevent_image', true );
 			    $imagehtml = '';
 			    if (isset($imageid) && ($imageid>0)) {
@@ -111,10 +132,6 @@ $show =false;
 			    if (empty($imagehtml)) {
 			       $imagehtml = '<img src="'.fau_esc_url($options['default_topevent_thumb_src']).'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="">';			    
 			    }
-			
-
-
-
 		   if (($hideimage < 1) && (isset($imagehtml))) { ?>
 			<div class="span2">
 				<?php echo '<a href="'.$link.'">'.$imagehtml.'</a>'; ?>
@@ -138,7 +155,7 @@ $show =false;
 			</div>			
 		</div>
 	</div>
-    <?php 
+	    <?php }
 	}
    
  }
