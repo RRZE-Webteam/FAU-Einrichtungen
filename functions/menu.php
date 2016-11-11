@@ -311,13 +311,15 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 		
 			$post = get_post($item->object_id);
 			if ($post && $post->post_type != 'imagelink') {
-				$atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+			    $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+			    $targeturl = $atts['href'];
+			} else {
+			    $targeturl = '';
 			}
 
 			if($this->level == 1) $atts['class'] = 'subpage-item';
-			$targeturl = $atts['href'];
 			
-
+		
 			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
 
 			$attributes = '';

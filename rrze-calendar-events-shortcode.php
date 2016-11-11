@@ -13,10 +13,20 @@ if (!class_exists('RRZE_Calendar')) {
     <?php else: ?>
     <ul>
     <?php foreach ($rrze_calendar_data as $date): ?>
-        <?php foreach ($date as $event): ?>
+        <?php foreach ($date as $event): 
+	    $bgcolorclass = '';
+	    $inline = '';
+	    if (isset($event->category)) {
+		if (isset($event->category->bgcol)) {
+		    $bgcolorclass = $event->category->bgcol;
+		} elseif (isset($event->category->color)) {
+		    $inline = 'style="background-color:' . $event->category->color.'"';
+		}
+	    }
+	    ?>
         <li>                                           
             <div class="event-item">
-                <div class="event-date <?php echo $event->category->bgcol; ?>" <?php echo (!$event->category->bgcol && $event->category->color) ? 'style="background-color:' . $event->category->color . '"' : ''; ?>>
+                <div class="event-date <?php echo $bgcolorclass; ?>" <?php echo $inline; ?>>
                     <span class="event-date-month"><?php echo $event->start_month_html ?></span>
                     <span class="event-date-day"><?php echo $event->start_day_html ?></span>
                 </div>

@@ -6,7 +6,16 @@ if (!class_exists('RRZE_Calendar') || empty($rrze_calendar_data)) {
     wp_die();
 }
 $event = &$rrze_calendar_data;
-
+$bgcolorclass = '';
+$inline = '';
+if (isset($event->category)) {
+    if (isset($event->category->bgcol)) {
+	$bgcolorclass = $event->category->bgcol;
+    } elseif (isset($event->category->color)) {
+	$inline = 'style="background-color:' . $event->category->color.'"';
+    }
+}
+					
 $breadcrumb = '';
 if (isset($options['breadcrumb_root'])) {
     if ($options['breadcrumb_withtitle']) {
@@ -43,7 +52,7 @@ get_header(); ?>
                 <div class="span12">
                     <main>
                         <div class="event-detail-item">
-                            <div class="event-date <?php echo $event->category->bgcol; ?>" <?php echo (!$event->category->bgcol && $event->category->color) ? 'style="background-color:' . $event->category->color . '"' : ''; ?>>
+                            <div class="event-date <?php echo $bgcolorclass; ?>" <?php echo $inline; ?>>
                                 <span class="event-date-month"><?php echo $event->start_month_html ?></span>
                                 <span class="event-date-day"><?php echo $event->start_day_html ?></span>
                             </div>
@@ -69,7 +78,13 @@ get_header(); ?>
                             </div>
                         </div>
                         <div>
-                            <?php echo make_clickable(nl2br($event->description));; ?>
+                            <?php
+			    
+			    $content =  make_clickable(nl2br($event->description));; 
+			    $content = apply_filters( 'the_content', $content );
+			    echo $content;
+			    
+			    ?>
                         </div>                        
                         <div class="events-more-links">
                             <a class="events-more" href="<?php echo $event->subscribe_url; ?>"><?php _e('Abonnement', 'fau'); ?></a>

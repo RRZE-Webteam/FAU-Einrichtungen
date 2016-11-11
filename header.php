@@ -73,7 +73,14 @@ global $options;
 
 
 			    if ( ! empty( $header_image ) ) {	
-				$srcset=  esc_attr(wp_get_attachment_image_srcset( get_custom_header()->attachment_id, 'full'));  
+				$customheader =  get_custom_header();
+				$attachment_id = 0;
+				if (isset($customheader->attachment_id)) {
+				    $attachment_id = $customheader->attachment_id; 
+				    $srcset=  esc_attr(wp_get_attachment_image_srcset( $attachment_id, 'full'));
+				} else {
+				    $srcset ='';
+				}  
 				echo '<img src="'.$header_image.'" width="'.get_custom_header()->width.'" height="'.get_custom_header()->height.'" alt="'.esc_attr(get_bloginfo( 'title' )).'"';
 				if ($srcset) {
 				    echo ' srcset="'.$srcset.'"';

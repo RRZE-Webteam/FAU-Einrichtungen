@@ -733,10 +733,10 @@ function fau_relativeimgurl_callback($matches) {
  }
  
  function get_fau_template_uri () {
-     return wp_make_link_relative(get_template_directory_uri());
+     return get_template_directory_uri();
  }
  function fau_get_template_uri () {
-     return wp_make_link_relative(get_template_directory_uri());
+     return get_template_directory_uri();
  } 
 
  /*
@@ -858,7 +858,7 @@ function fau_get_defaultlinks ($list = 'faculty', $ulclass = '', $ulid = '') {
  * Returns language code, without subcode
  */
 function fau_get_language_main () {
-    $charset = split('-',get_bloginfo('language'))[0];
+    $charset = explode('-',get_bloginfo('language'))[0];
     return $charset;
 }
 

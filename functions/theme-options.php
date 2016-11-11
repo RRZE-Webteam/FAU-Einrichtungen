@@ -80,10 +80,10 @@ function theme_options_do_page($tab = '') {
            // echo "Invalid Tab-Option or undefined Option-Field $tab";            
 	    $tab = array_keys($setoptions['fau_theme_options'])[0];
         }        
-
-        $myuserlvl = $options['admin_user_level'];
-	if (!$myuserlvl) {
-	    $myuserlvl = 0;
+	
+        $myuserlvl = 0;
+	if (isset($options['admin_user_level'])) {
+	    $myuserlvl = $options['admin_user_level'];
 	}
 	$askfieldlist = '';
 	
