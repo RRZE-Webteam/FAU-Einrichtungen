@@ -9,9 +9,9 @@ $event = &$rrze_calendar_data;
 $bgcolorclass = '';
 $inline = '';
 if (isset($event->category)) {
-    if (isset($event->category->bgcol)) {
+    if (!empty($event->category->bgcol)) {
 	$bgcolorclass = $event->category->bgcol;
-    } elseif (isset($event->category->color)) {
+    } elseif (!empty($event->category->color)) {
 	$inline = 'style="background-color:' . $event->category->color.'"';
     }
 }
