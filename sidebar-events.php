@@ -61,28 +61,27 @@ $show =false;
 		    'relation'	=> 'OR',
 		    array(
 		        'key'	    => 'topevent_date',
-			'value'	    => date("d-m-Y"),
-			'compare'   => '>=',
+			'value'	    => date("Y-m-d"),
+			'compare'   => '>=', 
 		    ),
 		    array(
 		        'key'	    => 'topevent_date',
-			'value'	    =>  date("d-m-Y"),
+			'value'	    =>  date("Y-m-d"),
 			'compare'   => 'NOT EXISTS',
 		    ),
 		),
 		
-		
 	    ),
 	    array(
 		'key'	    => 'topevent_date',
-		'value'	    => date("d-m-Y"),
-		'compare'   => '>=',
+		'value'	    => date("Y-m-d"),
+		'compare'   => '>=', 
 	    ),
 	),
 	'numberposts' => $options['start_topevents_max'],
     );
     $topevent_posts = get_posts($args);
-     
+
 
          // $topevent_posts = get_posts(array('tag' => $options['start_topevents_tag'], 'numberposts' => $options['start_topevents_max']));
     foreach($topevent_posts as $topevent) {  

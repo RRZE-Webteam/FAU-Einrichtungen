@@ -288,6 +288,7 @@ function fau_do_metabox_post_topevent( $object, $box ) {
 	
 	    $topevent_date  = get_post_meta( $object->ID, 'topevent_date', true );
 	    $topevent_image  = get_post_meta( $object->ID, 'topevent_image', true );	    
+	    $formateddate = date_i18n( "d-m-Y", strtotime( $topevent_date ) );
 	?>
 
 	<div class="optionseingabe">
@@ -296,7 +297,7 @@ function fau_do_metabox_post_topevent( $object, $box ) {
 			<?php _e( "Datum", 'fau' ); ?>:
 		    </label>
 	    </p>
-	    <input type="date" name="fauval_topevent_date" id="fauval_topevent_date" class="text" value="<?php echo $topevent_date; ?>">		
+	    <input type="date" name="fauval_topevent_date" id="fauval_topevent_date" class="text" value="<?php echo $formateddate; ?>">		
 	    <br>
 	    
 	    
@@ -311,7 +312,7 @@ function fau_do_metabox_post_topevent( $object, $box ) {
 		jQuery("#fauval_topevent_date" ).datepicker();
 		jQuery("#fauval_topevent_date" ).datepicker( "option", "dateFormat", 'dd-mm-yy' );
 		<?php if (isset($topevent_date)) { ?>
-		     jQuery("#fauval_topevent_date" ).datepicker( "setDate", '<?php echo $topevent_date ?>' );
+		     jQuery("#fauval_topevent_date" ).datepicker( "setDate", '<?php echo $formateddate ?>' );
 		<?php } ?>	
 		});
 	    </script>
@@ -410,7 +411,7 @@ function fau_save_post_topevent( $post_id, $post ) {
 	fau_save_standard('topevent_hideimage', $_POST['fauval_topevent_hideimage'], $post_id, 'post', 'int');	
 	fau_save_standard('topevent_title', $_POST['fauval_topevent_title'], $post_id, 'post', 'text');	
 	fau_save_standard('topevent_description', $_POST['fauval_topevent_desc'], $post_id, 'post', 'text');	
-	fau_save_standard('topevent_date', $_POST['fauval_topevent_date'], $post_id, 'post', 'text');	
+	fau_save_standard('topevent_date', $_POST['fauval_topevent_date'], $post_id, 'post', 'date');	
 	fau_save_standard('topevent_image', $_POST['fauval_topevent_image'], $post_id, 'post', 'int');	
 
 }
