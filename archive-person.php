@@ -31,12 +31,16 @@ get_header();
 				<div class="span12">	
 			     <?php }  ?>
 				    <main>
+					
 					<?php 
-
+					    
 					    while ( have_posts() ) { 
 						the_post();  
-						 echo FAU_Person_Shortcodes::fau_person(array("id"=> $post->ID, 'format' => 'kompakt', 'showlink' => 1, 'showlist' => 1 )); 				    
+				//		echo "<li>";
+						echo FAU_Person_Shortcodes::fau_person(array("id"=> $post->ID, 'format' => 'kompakt', 'showlink' => 1)); 
+				//		echo "</li>";						 
 					    } ?>
+				
 					    <nav class="navigation">
 						<div class="nav-previous"><?php previous_posts_link(__('<span class="meta-nav">&laquo;</span> Vorherige Einträge', 'fau')); ?></div>
 						<div class="nav-next"><?php next_posts_link(__('Weitere Einträge <span class="meta-nav">&raquo;</span>', 'fau'), '' ); ?></div>
