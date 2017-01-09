@@ -470,14 +470,14 @@ if ( ! function_exists( 'fau_form_link' ) ) :
  endif;
 
 if ( ! function_exists( 'fau_save_standard' ) ) :  
-    function fau_save_standard($name, $val, $post_id, $post_type, $type='text') {
+    function fau_save_standard($name, $val, $post_id, $post_type, $type='text', $format='d-m-Y') {
 	if (isset($name) && isset($post_id) && isset($post_type)) {
 	    
 	    if ($type == 'url') {
 		 $newval = ( isset( $val ) ? esc_url( $val ) : 0 );		
 	    } elseif ($type == 'email') {
 		 $newval = ( isset( $val ) ? sanitize_email( $val ) : 0 );
-	   } elseif ($type == 'int') {
+	    } elseif ($type == 'int') {
 		 $newval = ( isset( $val ) ? intval( $val ) : 0 );		 
 	    } elseif ($type == 'text') {
 		 $newval = ( isset( $val ) ? sanitize_text_field( $val ) : 0 );	
@@ -485,8 +485,10 @@ if ( ! function_exists( 'fau_save_standard' ) ) :
 	        $newval = ( isset( $val ) ? wp_strip_all_tags( $val ) : 0 );	 
 	    } elseif ($type == 'textarea') {
 		 $newval =  ( isset( $val ) ? esc_textarea( $val ) : 0 );				 
-	     } elseif ($type == 'wpeditor') {
-		 $newval =  $val;			 
+	    } elseif ($type == 'wpeditor') {
+		 $newval =  $val;	
+	    } elseif ($type == 'date') {
+		$newval = date( "Y-m-d", strtotime( $val));		
 	    } else {
 		 $newval = ( isset( $val ) ? sanitize_text_field( $val ) : 0 );
 	    }
