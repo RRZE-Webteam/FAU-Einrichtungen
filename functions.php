@@ -884,7 +884,7 @@ function fau_get_language_attributes ($doctype = 'html' ) {
 }
 
 function fau_language_attributes( $doctype = 'html' ) {
-    echo fau_get_language_attributes( $doctype );
+    return fau_get_language_attributes( $doctype );
 }
 add_filter( 'language_attributes', 'fau_language_attributes',10,2 );
 
