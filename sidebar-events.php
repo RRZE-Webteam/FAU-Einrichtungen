@@ -48,34 +48,25 @@ $show =false;
 	'post_type'	    => 'post',
 	'post_status'       => 'publish',
     	'meta_query'	    => array(
-	    'relation'	=> 'OR',
+	    'relation'	=> 'AND',
 	    array(
-		'relation'	=> 'AND',
-		array(
-		    'key'	    => 'topevent_active',
-		    'value'	    => 1,
-		    'compare'   => '=',
-		    'type'	    => 'NUMERIC'
-		),
-		array(
-		    'relation'	=> 'OR',
-		    array(
-		        'key'	    => 'topevent_date',
-			'value'	    => date("Y-m-d"),
-			'compare'   => '>=', 
-		    ),
-		    array(
-		        'key'	    => 'topevent_date',
-			'value'	    =>  date("Y-m-d"),
-			'compare'   => 'NOT EXISTS',
-		    ),
-		),
-		
+		'key'	    => 'topevent_active',
+		'value'	    => 1,
+		'compare'   => '=',
+		'type'	    => 'NUMERIC'
 	    ),
 	    array(
-		'key'	    => 'topevent_date',
-		'value'	    => date("Y-m-d"),
-		'compare'   => '>=', 
+		'relation'	=> 'OR',
+		array(
+		    'key'	    => 'topevent_date',
+		    'value'	    => date("Y-m-d"),
+		    'compare'   => '>=', 
+		),
+		array(
+		    'key'	    => 'topevent_date',
+		    'value'	    =>  date("Y-m-d"),
+		    'compare'   => 'NOT EXISTS',
+		),
 	    ),
 	),
 	'numberposts' => $options['start_topevents_max'],
