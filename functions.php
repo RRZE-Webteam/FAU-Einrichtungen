@@ -1478,8 +1478,13 @@ function fau_display_search_resultitem($withsidebar = 1) {
 		$typestr .= trim($thiscatstr, $separator);
 		$typestr .= '</span> ';
 	    }
+	    $istopevent  = get_post_meta( $post->ID, 'topevent_active', true ); 
 	    $topevent_date = get_post_meta( $post->ID, 'topevent_date', true );
+	    $topevent_date_time =0;
 	    if ($topevent_date) {
+		$topevent_date_time = strtotime( $topevent_date );
+	    }
+	    if (($topevent_date_time>0) && ($istopevent == true)) {
 		    $typestr .= '<span class="post-meta-date"> ';
 		    $typestr .= date_i18n( get_option( 'date_format' ), strtotime( $topevent_date ) ); 
 		    $typestr .= ' (';
