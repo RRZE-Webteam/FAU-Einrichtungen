@@ -1,0 +1,109 @@
+/*-----------------------------------------------------------------------------------*/
+/* Search page
+/*-----------------------------------------------------------------------------------*/
+
+/* Search Forms in Content */
+.searchform-content {
+	border: none;
+	padding-top: 40px;
+	@include placeholder($colorSearchPlaceholder);
+
+	h3 {
+		font-weight: normal;
+	}
+
+	input[type="text"] {
+		@include border-radius(20px);
+		padding: 10px 10px 10px 40px;
+		width: 200px;
+		font-size: 15px;
+		line-height: 15px;
+		float: left;
+		margin-right: 10px;
+		background: $colorSearchInputBackground url('../img/icon-search.png') no-repeat 15px center;
+		border: none;
+		outline: none;
+		color: $colorSearchInput;
+		
+	
+
+		&:focus {
+			background-color: $colorSearchInputBackgroundFocus;
+		}
+	}
+}
+
+
+
+.search-result {
+	margin-bottom: 11px;
+
+	.search-meta {
+		padding: 5px 0;
+		margin-top: 0px;
+		margin-bottom: 10px;
+		color: $colorText;
+		display: block;
+		font-family: $fontStack;
+		
+		.post-meta-category:before {
+		    @extend .fa;
+		    @extend .fa-tag;
+		}
+		.post-meta-date:before {
+		    @extend .fa;
+		    @extend .fa-calendar;
+		}
+		.post-meta-event:before {
+		    @extend .fa;
+		    @extend .fa-calendar-o;
+		}
+		.post-meta-kontakt:before {
+		    @extend .fa;
+		    @extend .fa-user;
+		}
+		.post-meta-defaulttype:before {
+		    @extend .fa;
+		    @extend .fa-bookmark;
+		}
+		.post-meta-news:before {
+		    @extend .fa;
+		    @extend .fa-comment;
+		}
+		.post-meta-attachment:before {
+		    @extend .fa;
+		    @extend .fa-file;
+		}
+		
+		.download:before {
+		    @extend .fa;
+		    @extend .fa-download;
+		}
+		.dateityp {
+		    text-transform: uppercase;
+		}
+	}
+	h3 .ext-link,  
+	h2 .ext-link {
+		@include inline-block;
+		background: url('../img/ext-icon-19.png') no-repeat 100% 50%;
+		padding-right: 15px;
+		
+		&:hover, &:focus {
+			text-decoration: underline;
+		}
+	}
+	.download,
+	.post-meta-date,
+	.post-meta-attachment,
+	.post-meta-news,
+	.post-meta-category,
+	.post-meta-defaulttype, 
+	.post-meta-kontakt {
+	    margin-right: 10px;
+	}
+	.content-person {
+	    border: none;
+	}
+	
+}

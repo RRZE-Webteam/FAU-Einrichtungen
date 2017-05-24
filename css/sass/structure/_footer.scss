@@ -1,0 +1,42 @@
+/*-----------------------------------------------------------------------------------*/
+/* Footer
+/*-----------------------------------------------------------------------------------*/
+
+
+#footer {
+	background: $colorPrimaryHero;
+	color: #fff;
+	padding: 20px 0;
+	
+	p {
+		color: #fff;
+		font-size: 13px;
+		line-height: 18px;
+	}
+	
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+	
+	li {
+		font-size: 13px;
+	}
+	
+	a:hover, a:focus {
+		text-decoration: underline;
+	}
+}
+
+/* Footer Navigation */
+#footer-nav {
+	@include no-list;
+	text-align: right;
+	
+	li {
+		@include no-list;
+		display: inline;
+		margin-left: 8px;
+		background: none;
+	}
+}

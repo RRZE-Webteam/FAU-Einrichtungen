@@ -1,0 +1,30 @@
+/*-----------------------------------------------------------------------------------*/
+/* Blockquotes, Cites
+/*-----------------------------------------------------------------------------------*/
+
+
+blockquote {
+	padding: 0;
+	margin: 0;
+	border: none;
+	font-family: $fontStackSerifs;
+	
+	p {
+		font-family: $fontStackSerifs;
+	}
+	
+	
+	#content & {
+		font-style: italic;
+		background: url('../img/quote-blue.png') no-repeat left top;
+		margin: 10px 50px;
+		padding-left: 60px;
+		min-height: 50px;
+
+		p {
+			color: $colorPrimary;
+		}
+	}
+}
+
+

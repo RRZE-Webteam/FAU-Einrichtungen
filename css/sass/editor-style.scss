@@ -1,14 +1,14 @@
 /*
 Theme Name: FAU
 Theme URI: www.fau.de
-Author: medienreaktor GmbH
-Author URI: http://www.medienreaktor.de
+Author: RRZE Webteam
+Author URI: http://www.rrze.fau.de
 Description: Friedrich-Alexander-Universität Erlangen-Nürnberg
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blue
-Text Domain: 
+Text Domain: FAU
 */
 
 // Import FAU variables
@@ -23,7 +23,11 @@ Text Domain:
 @import "includes/helpers";
 
 // Import Main Stylings relevant for RTE
-@import "base-atoms";
-@import "base-overwrites";
+
+
+// Element Styles
+@import "elements/elements";
+
+
 
 body { background-color: #fff;}

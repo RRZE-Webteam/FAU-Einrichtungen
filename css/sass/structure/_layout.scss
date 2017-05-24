@@ -1,0 +1,51 @@
+/*-----------------------------------------------------------------------------------*/
+/* Layout: Base Structure
+/*-----------------------------------------------------------------------------------*/
+
+
+body, html {
+	overflow-x: hidden;
+}
+
+body {
+	margin: 0;
+	font-size: 13px;
+	line-height: 18px;
+	color: $colorText;
+	// background-color: $colorPrimaryHero;
+}
+
+/* Wrap content in white */
+#wrap {
+	min-height: 100%;
+	margin: 0 auto;	
+	background: #fff;
+}
+
+html, body, button {
+	font-family: $fontStack;
+}
+
+
+
+
+
+@media (min-height: 480px) {
+	#wrap { min-height: 480px;}
+}
+
+@media (min-height: 900px) {
+	#wrap { min-height: 700px;}
+}
+
+@media (min-height: 1000px) {
+	#wrap { min-height: 800px;}
+}
+
+@media (min-height: 1100px) {
+	#wrap { min-height: 870px;}
+}
+
+@media (min-height: 1200px) {
+	#wrap { min-height: 970px;}
+}

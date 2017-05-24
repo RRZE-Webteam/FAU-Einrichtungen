@@ -1,0 +1,28 @@
+/*-----------------------------------------------------------------------------------*/
+/* Links
+/*-----------------------------------------------------------------------------------*/
+
+a {
+	color: $colorPrimary;
+	
+	&:hover, &:focus {
+		color: $colorHover;
+	}
+	
+	p &, li &, table &, .accordion-inner & {
+		text-decoration: underline;
+	}
+	
+	table &:hover, table &:focus {
+		text-decoration: none;
+	}
+	
+	#hero & {
+		text-decoration: none;
+	}
+	
+	#hero &:hover, #hero &:focus {
+		text-decoration: underline;
+	}
+}
+
