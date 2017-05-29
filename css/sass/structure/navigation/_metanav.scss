@@ -127,4 +127,26 @@
 	}
 }
 
+@media (max-width: $breakLG) {
+	
+	.header-menu {
+	    float: none;
+	    width: 100%;
+	    display: block;
+	    margin: 8px 0 0 0;
+	   margin-top: 8px;
+	    #nav {
+		margin: 0;
+	    }
+	}
+}
 
+@media (max-width: $breakMD) {
+    	.js {	
+
+	    #meta-nav {
+		display: none;
+	    }
+	}
+	    
+}

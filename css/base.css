@@ -2071,6 +2071,20 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 @media (min-height: 1100px) { #wrap { min-height: 870px; } }
 @media (min-height: 1200px) { #wrap { min-height: 970px; } }
 /*-----------------------------------------------------------------------------------*/
+/* Header
+/*-----------------------------------------------------------------------------------*/
+@media (max-width: 480px) { #header { position: fixed; top: 0; }
+  .admin-bar #header { position: fixed; top: 46px; }
+  .no-js #header { display: block; position: relative; float: none; width: 100%; top: inherit; margin: 5px 0px; padding: 3px; } }
+@media (max-width: 767px) { #header { top: 0; left: 0; right: 0; background: #fff; z-index: 100; padding: 0; height: 70px; position: fixed; }
+  .no-js #header { position: relative; } }
+@media (max-width: 979px) { #header { position: fixed; top: 42px; left: 0; right: 0; background: #fff; z-index: 100; }
+  .admin-bar #header { top: 74px; }
+  .nav-scrolled #header { -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); } }
+@media (min-width: 979px) { #header { position: fixed; top: 42px; left: 0; right: 0; background: #fff; z-index: 100; }
+  .admin-bar #header { top: 74px; }
+  .nav-scrolled #header { -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); } }
+/*-----------------------------------------------------------------------------------*/
 /* Meta region in top
 /*-----------------------------------------------------------------------------------*/
 #meta { background: #e9edf2; }
@@ -2107,6 +2121,11 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 #logo img { max-height: 85px; max-width: 300px; height: 65px; width: auto; padding: 0; display: table-cell; vertical-align: bottom; }
 #logo img:hover, #logo img:focus { background-color: white; color: #003366; }
 
+@media (max-width: 480px) { .no-js #logo { display: block; position: relative; float: none; width: 100%; top: inherit; margin: 5px 0px; padding: 3px; } }
+@media (max-width: 767px) { #logo h1 { padding-right: 80px; margin-top: 5px; } }
+@media (max-width: 979px) { #logo { float: none; width: 100%; display: block; margin: 5px 0 0 10px; padding-right: 100px; }
+  #logo h1 { height: 65px; }
+  #logo h1 span { display: table-cell; vertical-align: middle; } }
 /*-----------------------------------------------------------------------------------*/
 /* Navigation: Including nav Elements in all regions: Main, Skiplinks, Overlays, Widgets,..
 /*             But not: Breadcrumb, Social media icons, hero, gallerys and styling elements 
@@ -2159,7 +2178,13 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 #nav-toggle { position: absolute; top: 45px; right: 15px; width: 25px; }
 #nav-toggle div { height: 3px; background: #003366; margin-bottom: 3px; }
 
-@media (min-width: 768px) { #nav { overflow: hidden; max-height: 37px; } }
+@media (max-width: 480px) { .no-js .hide-mobile { display: none; top: 0; position: relative; }
+  .no-js #nav, .no-js #nav .nav-flyout { display: block; position: relative; float: none; width: 100%; top: inherit; margin: 5px 0px; padding: 3px; }
+  .no-js #nav li.level1:hover, .no-js #nav .nav-flyout, .no-js #nav .nav-flyout:hover { background: none !important; box-shadow: none; margin: 0; }
+  .no-js #nav li { float: none; display: block; margin: 0; padding: 0; }
+  .no-js #nav li a { float: none; padding: 0; }
+  .no-js #nav li a :hover { text-decoration: underline; background: none; }
+  .no-js #nav li .nav-flyout a.button-portal { color: #fff; text-align: center; margin: 0 10px; } }
 @media (max-width: 767px) { body.js-enabled.menu-toggled #off-canvas { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
   body.js-enabled.menu-toggled #wrap, body.js-enabled.menu-toggled #footer, body.js-enabled.menu-toggled .main-content-container { -webkit-transform: translate3d(-250px, 0, 0); transform: translate3d(-250px, 0, 0); }
   body.js-enabled.menu-toggled #off-canvas-overlay { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); background-color: rgba(0, 0, 0, 0.75); }
@@ -2182,7 +2207,20 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
   body.js-enabled ul#meta-nav li :focus, body.js-enabled ul#meta-nav li :hover { background: #d4d4d4; -webkit-transition: background 0.1s; -moz-transition: background 0.1s; -ms-transition: background 0.1s; transition: background 0.1s; }
   body.js-enabled ul#meta-nav li.fauhome::before { content: ''; margin: 0; }
   body.js-enabled #footer .hero-navigation > *, body.js-enabled #footer .hero-navigation h1, body.js-enabled #footer .hero-navigation h2, body.js-enabled #footer .hero-navigation h3 { color: #fff; }
-  body.js-enabled #footer .hero-navigation { margin-bottom: 50px; } }
+  body.js-enabled #footer .hero-navigation { margin-bottom: 50px; }
+  .js #nav-toggle { top: 30px; }
+  .js #nav { margin: 10px 0 0 0; display: none; }
+  .js #nav.toggled { display: block; }
+  .js #nav li.level1 { display: block; float: none; margin: 0; border-bottom: 1px solid #ccc; }
+  .js #nav li.level1 a { display: block; float: none; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; margin-bottom: 0; }
+  .js #nav li.level2 { background-position: left 6px; }
+  .js #nav li.level2 a { display: table; }
+  .js #nav .nav-flyout { position: relative; top: 0; left: 0; right: 0; padding: 10px 0; }
+  .js body.admin-bar #nav .nav-flyout { top: 0; }
+  .no-js #nav-toggle, .no-js .hide-mobile { display: none; } }
+@media (min-width: 768px) { #nav { overflow: hidden; max-height: 37px; } }
+@media (max-width: 979px) { #nav .nav-flyout { top: 112px; } }
+@media (min-width: 979px) { .js-enabled.nav-fixed #nav .nav-flyout, #nav .nav-flyout   { top: 85px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Meta-Nav
 /*-----------------------------------------------------------------------------------*/
@@ -2213,6 +2251,9 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 #meta-nav ul.sub-menu li a:hover, #meta-nav ul.sub-menu li a:focus { background: #fff; text-decoration: none; }
 #meta-nav li:hover ul.sub-menu, #meta-nav li.focus ul.sub-menu { display: block; }
 
+@media (max-width: 979px) { .header-menu { float: none; width: 100%; display: block; margin: 8px 0 0 0; margin-top: 8px; }
+  .header-menu #nav { margin: 0; } }
+@media (max-width: 767px) { .js #meta-nav { display: none; } }
 /*-----------------------------------------------------------------------------------*/
 /* Skiplinks (jumplinks)
 /*-----------------------------------------------------------------------------------*/
@@ -2357,6 +2398,50 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 #hero-slides .hero-slide p.credits { background: rgba(0, 0, 0, 0.4); color: #ddd; font-size: 14px; line-height: 18px; position: absolute; bottom: 0; right: 0; z-index: 6; margin: 0; padding: 1px 4px; }
 #hero-slides .hero-slide-text { position: absolute; bottom: 30px; left: 0; right: 0; z-index: 10; width: 100%; }
 
+@media (max-width: 480px) { #hero .infobar p.description { display: none; }
+  .admin-bar #hero .banner-text { top: 0; }
+  .no-js #hero { display: none; top: 0; position: relative; }
+  #hero .searchform { margin: 0 auto; padding: 10px; }
+  #hero .searchform input[type="text"] { width: 50%; margin: 0 10px; }
+  #hero .searchform .filter { margin-top: 5px; }
+  .page-template-page-start #hero-slides { top: 0; height: 150px; }
+  .page-template-page-start #hero-slides .hero-slide img { min-height: 150px; min-width: 767px; width: auto; height: auto; left: inherit; margin-left: 0; left: 0; vertical-align: middle; }
+  .page-template-page-start #hero-slides .hero-slide p.credits { top: 2px; bottom: inherit; display: inline; }
+  .page-template-page-start #hero-slides .hero-slide-text { bottom: inherit; top: 20px; margin-left: 15px; padding: 0 10px; max-height: 100px; line-height: 18px; }
+  .page-template-page-start #hero-slides .hero-slide-text h2 { display: inline-block; *display: inline; *zoom: 1; max-width: 250px; padding: 10px; font-size: 20px; background-color: rgba(0, 51, 102, 0.7); }
+  .page-template-page-start #hero-slides .hero-slide-text p { display: none; } }
+@media (max-width: 979px) { #hero { margin-top: 171px; transition: none; }
+  #hero .hero-meta-portal { right: 15px; }
+  #hero-slides { top: -20px; height: 250px; }
+  #hero-slides .hero-slide img { min-height: 250px; min-width: 979px; width: auto; height: auto; left: inherit; margin-left: 0; left: 0; vertical-align: middle; }
+  #hero-slides .hero-slide p { font-size: 16px; }
+  #hero-slides .hero-slide p .credits { top: 10px; bottom: inherit; }
+  #hero-slides .hero-slide-text { bottom: inherit; top: 100px; height: 150px; } }
+@media (min-width: 979px) { #hero { margin-top: 159px; transition: none; }
+  #hero-slides { top: -20px; } }
+@media (max-width: 767px) { .hero-meta-portal { display: none; }
+  #hero { margin-top: 0; padding-top: 0px; transition: none; }
+  #hero.hero-small { margin-top: 0; }
+  #hero.hero-small h1 { padding: 0 0 0 15px; }
+  .admin-bar #hero { margin-top: 32px; }
+  .admin-bar #hero .banner-text { top: 40px; }
+  #hero .searchform { margin: 0 auto; padding: 10px; }
+  #hero .searchform input[type="text"] { width: 150px; margin: 0 10px; float: none; display: inline-block; }
+  #hero .searchform .filter { margin-top: 5px; }
+  .no-js #hero { margin-top: 0; transition: none; padding-top: 10px; position: relative; }
+  .no-js #hero .container { display: table; }
+  .no-js #hero .span6 { display: table-cell; width: 90%; }
+  .no-js #hero .span3 { display: table-cell; width: 45%; }
+  .no-js.admin-bar #hero { margin-top: 171px; }
+  .hero-meta-portal { display: none; }
+  #hero-slides { top: 0; height: 200px; }
+  #hero-slides .hero-slide img { min-height: 200px; min-width: 767px; width: auto; height: auto; left: inherit; margin-left: 0; left: 0; vertical-align: middle; }
+  #hero-slides .hero-slide p.credits { top: 2px; bottom: inherit; display: inline; }
+  #hero-slides .hero-slide-text { bottom: inherit; top: 50px; margin-left: 15px; padding: 0 10px; max-height: 100px; line-height: 18px; }
+  #hero-slides .hero-slide-text h2 { display: inline-block; *display: inline; *zoom: 1; max-width: 330px; padding: 10px; }
+  #hero-slides .hero-slide-text p { display: none; }
+  .no-js #hero-slides { display: none; } }
+@media (min-width: 768px) and (min-height: 700px) and (max-height: 900px) { #hero .hero-jumplink-content { display: block; } }
 /*-----------------------------------------------------------------------------------*/
 /* Breadcrumb
 /*-----------------------------------------------------------------------------------*/
@@ -3249,31 +3334,7 @@ Anpassungen der Gestaltung an verschiedene Plugins
 /*
 Media Queries for Theme FAU-Einrichtungen
 */
-@media (min-width: 979px) { .js-enabled.nav-fixed #nav .nav-flyout, #nav .nav-flyout   { top: 85px; }
-  #header { position: fixed; top: 42px; left: 0; right: 0; background: #fff; z-index: 100; }
-  .nav-scrolled #header { -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
-  .admin-bar #header { top: 74px; }
-  #hero { margin-top: 159px; transition: none; }
-  #hero-slides { top: -20px; } }
-@media (max-width: 979px) { #nav .nav-flyout { top: 112px; }
-  #header { position: fixed; top: 42px; left: 0; right: 0; background: #fff; z-index: 100; }
-  .nav-scrolled #header { -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
-  .admin-bar #header { top: 74px; }
-  #hero { margin-top: 171px; transition: none; }
-  .admin-bar #hero { margin-top: 171px; }
-  #logo, .header-menu { float: none; width: 100%; display: block; margin: 0; }
-  #logo { margin-top: 5px; margin-left: 10px; padding-right: 100px; }
-  #logo h1 { height: 65px; }
-  #logo h1 span { display: table-cell; vertical-align: middle; }
-  .header-menu { margin-top: 8px; }
-  .header-menu #nav { margin: 0; }
-  #social iframe { width: 165px !important; height: 120px !important; }
-  #hero .hero-meta-portal { right: 15px; }
-  #hero-slides { top: -20px; height: 250px; }
-  #hero-slides .hero-slide img { min-height: 250px; min-width: 979px; width: auto; height: auto; left: inherit; margin-left: 0; left: 0; vertical-align: middle; }
-  #hero-slides .hero-slide p { font-size: 16px; }
-  #hero-slides .hero-slide p.credits { top: 10px; bottom: inherit; }
-  #hero-slides .hero-slide-text { bottom: inherit; top: 100px; height: 150px; }
+@media (max-width: 979px) { #social iframe { width: 165px !important; height: 120px !important; }
   #logos-menu-prev { height: 80px; }
   #logos-menu-next { height: 80px; }
   .sidebar-inline { width: 240px; }
@@ -3281,7 +3342,6 @@ Media Queries for Theme FAU-Einrichtungen
   .image-gallery-slider .flex-viewport { max-height: 400px; overflow: hidden; }
   .subpages-menu li.span3 { width: 230px; } }
 @media (max-width: 767px) { body { padding: 0; }
-  #logo h1 { padding-right: 80px; margin-top: 5px; }
   h1, h2, h3, h4, h5, h6, p { margin-left: 15px; margin-right: 15px; }
   ul, ol { margin-left: 15px; margin-right: 15px; }
   ul.menu { margin-bottom: 10px; }
@@ -3304,49 +3364,12 @@ Media Queries for Theme FAU-Einrichtungen
   table td, table th { padding-left: 15px; padding-right: 15px; }
   .textwidget, .topevent-date, .topevent-description { margin-left: 15px; margin-right: 15px; }
   #content .widget_event_widget .event-info { margin-left: 60px; }
-  .hero-meta-portal { display: none; }
   .image-gallery-carousel .slides, .image-gallery-slider .slides { margin: 0 !important; padding: 0 !important; }
   .image-gallery-carousel .slides li, .image-gallery-slider .slides li { margin: 0; padding: 0; }
   .image-gallery-carousel .slides li img, .image-gallery-slider .slides li img { margin: 0 !important; }
   .logos-menu-nav, #logos-menu-playpause { display: none; }
-  #hero { margin-top: 0; padding-top: 0px; transition: none; }
-  #hero.hero-small { margin-top: 0; }
-  #hero.hero-small h1 { padding: 0 0 0 15px; }
-  .hero-meta-portal { display: none; }
-  #hero-slides { top: 0; height: 200px; }
-  #hero-slides .hero-slide img { min-height: 200px; min-width: 767px; width: auto; height: auto; left: inherit; margin-left: 0; left: 0; vertical-align: middle; }
-  #hero-slides .hero-slide p.credits { top: 2px; bottom: inherit; display: inline; }
-  #hero-slides .hero-slide-text { bottom: inherit; top: 50px; margin-left: 15px; padding: 0 10px; max-height: 100px; line-height: 18px; }
-  #hero-slides .hero-slide-text h2 { display: inline-block; *display: inline; *zoom: 1; max-width: 330px; padding: 10px; }
-  #hero-slides .hero-slide-text p { display: none; }
   .hide-mobile { display: none; }
   .hide-desktop { display: block; }
-  .js #header { padding: 0; z-index: 100; background: #fff; top: 0; left: 0; right: 0; height: 70px; position: fixed; }
-  .js .admin-bar #hero { margin-top: 32px; }
-  .js .admin-bar #hero .banner-text { top: 40px; }
-  .js .admin-bar #wpadminbar { position: fixed; top: 0; }
-  .js .admin-bar #header { top: 46px; }
-  .js #nav-toggle { top: 30px; }
-  .js #meta-nav { display: none; }
-  .js #nav { margin: 10px 0 0 0; display: none; }
-  .js #nav.toggled { display: block; }
-  .js #nav li.level1 { display: block; float: none; margin: 0; border-bottom: 1px solid #ccc; }
-  .js #nav li.level1 a { display: block; float: none; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; margin-bottom: 0; }
-  .js #nav li.level2 { background-position: left 6px; }
-  .js #nav li.level2 a { display: table; }
-  .js #nav .nav-flyout { position: relative; top: 0; left: 0; right: 0; padding: 10px 0; }
-  .js body.admin-bar #nav .nav-flyout { top: 0; }
-  .no-js #nav-toggle, .no-js .hide-mobile { display: none; }
-  .no-js #header { position: relative; top: 0; left: 0; right: 0; background: #fff; z-index: 100; }
-  .no-js #hero { margin-top: 0; transition: none; padding-top: 10px; position: relative; }
-  .no-js #hero .container { display: table; }
-  .no-js #hero .span6 { display: table-cell; width: 90%; }
-  .no-js #hero .span3 { display: table-cell; width: 45%; }
-  .no-js #hero-slides { display: none; }
-  .no-js.admin-bar #hero { margin-top: 171px; }
-  #hero .searchform { margin: 0 auto; padding: 10px; }
-  #hero .searchform input[type="text"] { width: 150px; margin: 0 10px; float: none; display: inline-block; }
-  #hero .searchform .filter { margin-top: 5px; }
   #subnav ul { margin-left: 0; margin-right: 0; }
   .accordion-group { margin-left: 15px; margin-right: 15px; }
   #footer .span3 { width: 48%; width: calc(50% - 10px); float: left; margin: 2px; }
@@ -3365,19 +3388,7 @@ Media Queries for Theme FAU-Einrichtungen
   .widget_faupersonwidget .person .span6, .widget_faupersonwidget .compactindex .span6, .content-person .person .span6, .content-person .compactindex .span6 { padding: 0; }
   .archive .person .span6 { width: calc(100% - 10px); }
   .archive .person .span6 .person-info-description { padding-top: 15px; } }
-@media (min-width: 768px) and (min-height: 700px) and (max-height: 900px) { #hero .hero-jumplink-content { display: block; } }
-@media (max-width: 480px) { #hero .infobar p.description { display: none; }
-  .js-enabled body #header { position: fixed; top: 0; }
-  .js-enabled body.admin-bar #wpadminbar { position: fixed; top: 0; }
-  .js-enabled body.admin-bar.nav-fixed #header, .js-enabled body.admin-bar #header { position: fixed; top: 46px; }
-  .js-enabled.admin-bar #hero .banner-text { top: 0; }
-  .no-js #hero, .no-js .hide-mobile { display: none; top: 0; position: relative; }
-  .no-js #header, .no-js #logo, .no-js #nav, .no-js #nav .nav-flyout { display: block; position: relative; float: none; width: 100%; top: inherit; margin: 5px 0px; padding: 3px; }
-  .no-js #nav li.level1:hover, .no-js #nav .nav-flyout, .no-js #nav .nav-flyout:hover { background: none !important; box-shadow: none; margin: 0; }
-  .no-js #nav li { float: none; display: block; margin: 0; padding: 0; }
-  .no-js #nav li a { float: none; padding: 0; }
-  .no-js #nav li a :hover { text-decoration: underline; background: none; }
-  .no-js #nav li .nav-flyout a.button-portal { color: #fff; text-align: center; margin: 0 10px; }
+@media (max-width: 480px) { .js-enabled body.admin-bar #wpadminbar { position: fixed; top: 0; }
   #content { padding-bottom: 0; }
   .image-gallery-slider .flex-viewport { max-height: 200px; overflow: hidden; }
   .page-template-page-start-sub.js-enabled #hero .banner { top: 0; bottom: 0; }
@@ -3391,12 +3402,6 @@ Media Queries for Theme FAU-Einrichtungen
   .page-template-page-start .news-item .span3 { width: 200px; }
   .page-template-page-start #content .news-image { text-align: center; float: none; }
   .page-template-page-start .span6 { width: 470pxpx; padding: 10px; }
-  .page-template-page-start #hero-slides { top: 0; height: 150px; }
-  .page-template-page-start #hero-slides .hero-slide img { min-height: 150px; min-width: 767px; width: auto; height: auto; left: inherit; margin-left: 0; left: 0; vertical-align: middle; }
-  .page-template-page-start #hero-slides .hero-slide p.credits { top: 2px; bottom: inherit; display: inline; }
-  .page-template-page-start #hero-slides .hero-slide-text { bottom: inherit; top: 20px; margin-left: 15px; padding: 0 10px; max-height: 100px; line-height: 18px; }
-  .page-template-page-start #hero-slides .hero-slide-text h2 { display: inline-block; *display: inline; *zoom: 1; max-width: 250px; padding: 10px; font-size: 20px; background-color: rgba(0, 51, 102, 0.7); }
-  .page-template-page-start #hero-slides .hero-slide-text p { display: none; }
   hr { height: 40px; margin: 10px 0 30px; }
   #content .subpages-menu .menu-item { margin: 0 0 10px 0; }
   #content .subpages-menu ul { display: block; }
@@ -3409,9 +3414,6 @@ Media Queries for Theme FAU-Einrichtungen
   #content .subpages-menu li ul li { display: inline-block; width: 40%; border: none; float: left; }
   .alignleft, .alignright, img.alignleft, div.alignleft, img.alignright, div.alignright { float: none; padding: 0; display: block; margin: 5px auto; max-width: 480px; }
   .wp-caption-text { padding: 0; }
-  #hero .searchform { margin: 0 auto; padding: 10px; }
-  #hero .searchform input[type="text"] { width: 50%; margin: 0 10px; }
-  #hero .searchform .filter { margin-top: 5px; }
   #footer li { line-height: 15px; }
   #footer .span4, #footer .span3 { width: 48%; width: calc(50% - 10px); float: left; margin: 2px; }
   #footer .span5, #footer .span6 { width: 100%; margin: 0; float: none; }

@@ -239,12 +239,58 @@
 	}
 }
 
-@media (min-width: $breakMD +1) {
-    #nav {
-	overflow: hidden;
-	max-height: 37px;
+@media (max-width: $breakSM) {
+    
+    .no-js {
+	.hide-mobile  {
+	    display: none;
+	    top: 0;
+	    position: relative;
+	}
+
+	#nav, 
+	#nav .nav-flyout {
+	    display: block;
+	    position: relative;
+	    float: none;
+	    width: 100%;
+	    top: inherit;
+	    margin: 5px 0px;
+	    padding: 3px;
+	}
+	#nav li.level1:hover,
+	#nav .nav-flyout, 
+	#nav .nav-flyout:hover {
+	    background: none !important;
+	    box-shadow: none;
+	    margin: 0;
+	    
+	}
+	  
+	#nav li {
+	    float: none;
+	    display: block;
+	    margin: 0;
+	    padding: 0;
+	    a {
+		float: none;
+		padding: 0;
+		:hover {
+		    text-decoration: underline;
+		    background: none;
+		}
+	    }
+	    .nav-flyout a.button-portal {
+		color: #fff;
+		text-align: center;
+		margin: 0 10px;
+	    }
+	}
+
     }
+    
 }
+
 @media (max-width: $breakMD) {
 
 	body.js-enabled {
@@ -255,7 +301,9 @@
 				        transform: translate3d(0, 0, 0);
 			}
 
-			#wrap, #footer, .main-content-container {
+			#wrap, 
+			#footer, 
+			.main-content-container {
 				-webkit-transform: translate3d(-250px, 0, 0);
 				        transform: translate3d(-250px, 0, 0);
 			}
@@ -267,7 +315,8 @@
 			}
 		}
 
-		#off-canvas, #off-canvas-overlay {
+		#off-canvas, 
+		#off-canvas-overlay {
 			display: block;
 		}
 		
@@ -328,8 +377,8 @@
 			        transition: transform 240ms;
 		}
 
-
-		#nav .nav-flyout {
+		#nav {
+		    .nav-flyout {
 			display: block;
 			overflow: hidden;
 			box-sizing: border-box;
@@ -345,13 +394,14 @@
 			.container {
 				padding: 10px;
 			}
-		}
-
-		#nav .focus {
+		    }
+		    .focus {
 			.nav-flyout {
 				max-height: 1000px;
 			}
+		    }
 		}
+
 
 		#off-canvas-close {
 			display: block;
@@ -403,5 +453,84 @@
 		}
 
 	}
+	.js {	
+	
+	    #nav-toggle {
+		 top: 30px;
+	    }
+	    
+	    #nav {
+		margin: 10px 0 0 0;
+		display: none;
+		    
+		&.toggled {
+			display: block;
+		}
+		    
+		li.level1 {
+			display: block;
+			float: none;
+			margin: 0;
+			border-bottom: 1px solid #ccc;
+
+
+			a {
+			    display: block;
+			    float: none;
+			    @include border-radius(0);
+			    margin-bottom: 0;
+			}
+		}
+		li.level2 {
+		    background-position: left 6px;
+		    a {
+			display: table;
+		    }    
+		}
+		.nav-flyout {
+		    position: relative;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    padding: 10px 0;
+		}
+	    }
+	   
+
+	    body.admin-bar #nav .nav-flyout {
+		    top: 0;
+	    }
+	 }
+
+	
+	.no-js {
+	     #nav-toggle,
+	    .hide-mobile {
+		display: none;
+	    }
+	
+	}
+	
+}
+@media (min-width: $breakMD +1) {
+    #nav {
+	overflow: hidden;
+	max-height: 37px;
+    }
 }
 
+
+@media (max-width: $breakLG) {
+    
+	#nav .nav-flyout {
+		top: 112px;
+	}
+}
+
+@media (min-width: $breakLG) {
+ 
+	.js-enabled.nav-fixed #nav .nav-flyout,
+	#nav .nav-flyout  {
+		top: 85px;
+	}
+}	

@@ -57,3 +57,45 @@
 		
 	}
 }
+
+
+@media (max-width: $breakSM) {
+    .no-js {
+	#logo {
+	    display: block;
+	    position: relative;
+	    float: none;
+	    width: 100%;
+	    top: inherit;
+	    margin: 5px 0px;
+	    padding: 3px;
+	}
+    }
+}
+
+@media (max-width: $breakMD) {
+    #logo {
+	h1 {
+	    padding-right: 80px;
+	    margin-top: 5px;
+	}  
+    }
+}
+
+@media (max-width: $breakLG) {
+    #logo  {
+	float: none;
+	width: 100%;
+	display: block;
+	margin: 5px 0 0 10px;
+	padding-right: 100px;
+
+	h1 {
+	    height: 65px;
+	    span {
+		display: table-cell;
+		vertical-align: middle;
+	    }
+	} 
+    }
+}
