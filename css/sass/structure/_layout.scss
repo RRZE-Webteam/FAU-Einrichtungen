@@ -49,3 +49,22 @@ html, body, button {
 @media (min-height: 1200px) {
 	#wrap { min-height: 970px;}
 }
+
+
+@media (max-width: $breakSM) {
+  
+    .js-enabled {
+	body.admin-bar #wpadminbar {
+	    position: fixed;
+	    top: 0;
+	}
+
+    }
+}
+
+
+@media (max-width: $breakMD) {
+	body {
+		padding: 0;
+	}
+}

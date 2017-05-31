@@ -50,3 +50,18 @@ hr {
 }
 
 
+
+@media (max-width: $breakXS) {
+
+    hr {
+	display: none;
+    }
+}
+
+
+@media (max-width: $breakMD) {
+    	hr {
+	    height: 40px;
+	    margin: 10px 0 30px;
+	}
+}

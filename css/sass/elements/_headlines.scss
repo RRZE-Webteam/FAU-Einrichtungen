@@ -122,3 +122,43 @@ h5 {
 	font-weight: normal;
 }
 
+
+
+@media (max-width: $breakSM) {
+    .page-template-page-subnav {
+	#hero.hero-small h1 {
+		    padding-left: 15px;
+	}
+	#content {
+	    .container {
+		h1, h2, h3, h4, h5, h6, p {
+		    margin-left: 0px;
+		    margin-right: 0px;
+		}
+
+	    }
+	}
+    }
+    #content .subpages-menu {
+	li {
+	    h3 {
+		padding-bottom: 0px; 
+	    }
+	}
+    }
+}
+
+@media (max-width: $breakMD) {
+    h1, h2, h3, h4, h5, h6, p {
+		margin-left: 15px;
+		margin-right: 15px;
+		
+		
+		#content .container & {
+		    margin-left: 0px;
+		    margin-right: 0px;
+		}
+	
+   }
+
+}

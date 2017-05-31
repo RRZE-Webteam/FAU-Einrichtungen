@@ -148,3 +148,48 @@
 		}
 	}
 }
+
+
+@media (max-width: $breakXS) {
+    #content {
+	padding-top: 0px;
+	.news-item {	    
+		.span3,
+		.span5 {
+		    width: 100%;
+		    float: none;
+		}
+
+	    .news-image {
+		text-align: center;
+		float: none;
+		margin: 3px auto;
+
+		img {
+		    width: 100%;
+		    height: auto;
+		    margin: 0;
+		}
+	    }
+	}	
+    }
+}
+
+@media (max-width: $breakMD) {
+    #content {
+   
+	    .news-item {	    
+		.span3 {
+		    width: 200px;  
+		}
+	    }
+	    .news-image {
+		text-align: center;
+		float: none;
+		background: none;
+		@include box-shadow(none);
+		margin-right: 10px;
+	    }
+
+    }
+}

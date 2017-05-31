@@ -20,3 +20,9 @@
 	width: auto !important;
 	max-width: auto !important;
 }
+
+@media (max-width: $breakSM) {
+  .wp-caption-text {
+	padding: 0;
+    }
+}

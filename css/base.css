@@ -2070,6 +2070,8 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 @media (min-height: 1000px) { #wrap { min-height: 800px; } }
 @media (min-height: 1100px) { #wrap { min-height: 870px; } }
 @media (min-height: 1200px) { #wrap { min-height: 970px; } }
+@media (max-width: 480px) { .js-enabled body.admin-bar #wpadminbar { position: fixed; top: 0; } }
+@media (max-width: 767px) { body { padding: 0; } }
 /*-----------------------------------------------------------------------------------*/
 /* Header
 /*-----------------------------------------------------------------------------------*/
@@ -2614,6 +2616,12 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 .news-more-links .news-more { color: #1f4c7a; background: #dde5f0; padding: 6px 10px; text-decoration: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; font-size: 14px; }
 .news-more-links .news-more:hover, .news-more-links .news-more:focus { background: #cbd7e8; }
 
+@media (max-width: 320px) { #content { padding-top: 0px; }
+  #content .news-item .span3, #content .news-item .span5 { width: 100%; float: none; }
+  #content .news-item .news-image { text-align: center; float: none; margin: 3px auto; }
+  #content .news-item .news-image img { width: 100%; height: auto; margin: 0; } }
+@media (max-width: 767px) { #content .news-item .span3 { width: 200px; }
+  #content .news-image { text-align: center; float: none; background: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; margin-right: 10px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Accordion
 /*-----------------------------------------------------------------------------------*/
@@ -2822,6 +2830,15 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 #footer-nav li { list-style: none; margin: 0; padding: 0; background: none; display: inline; margin-left: 8px; background: none; }
 #footer-nav li:before { display: none; }
 
+@media (max-width: 480px) { #footer li { line-height: 15px; }
+  #footer .span4, #footer .span3 { width: 48%; width: calc(50% - 10px); float: left; margin: 2px; }
+  #footer .span5, #footer .span6 { width: 100%; margin: 0; float: none; }
+  #footer-nav { text-align: left; }
+  #footer-nav li { display: inline; } }
+@media (max-width: 767px) { #footer .span3 { width: 48%; width: calc(50% - 10px); float: left; margin: 2px; }
+  #footer .span6 { width: 100%; margin: 0; float: none; }
+  #footer-nav { text-align: left; }
+  #footer-nav li { display: inline; } }
 /*-----------------------------------------------------------------------------------*/
 /* Elements
 /*-----------------------------------------------------------------------------------*/
@@ -2855,6 +2872,11 @@ h4 { margin: 0; padding: 11px 0 11px 0; font-size: 15px; line-height: 22px; font
 
 h5 { margin: 0; padding: 11px 0 11px 0; font-size: 15px; line-height: 22px; font-weight: normal; }
 
+@media (max-width: 480px) { .page-template-page-subnav #hero.hero-small h1 { padding-left: 15px; }
+  .page-template-page-subnav #content .container h1, .page-template-page-subnav #content .container h2, .page-template-page-subnav #content .container h3, .page-template-page-subnav #content .container h4, .page-template-page-subnav #content .container h5, .page-template-page-subnav #content .container h6, .page-template-page-subnav #content .container p { margin-left: 0px; margin-right: 0px; }
+  #content .subpages-menu li h3 { padding-bottom: 0px; } }
+@media (max-width: 767px) { h1, h2, h3, h4, h5, h6, p { margin-left: 15px; margin-right: 15px; }
+  #content .container h1, #content .container h2, #content .container h3, #content .container h4, #content .container h5, #content .container h6, #content .container p { margin-left: 0px; margin-right: 0px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Paragraphs
 /*-----------------------------------------------------------------------------------*/
@@ -2977,6 +2999,8 @@ hr::before { content: ""; position: absolute; background: #fff; top: 0; left: 0;
 
 .page-template-page-start hr::after, .home hr::after { top: 30px; -webkit-box-shadow: 0 0 30px #e9edf2; -moz-box-shadow: 0 0 30px #e9edf2; box-shadow: 0 0 30px #e9edf2; }
 
+@media (max-width: 320px) { hr { display: none; } }
+@media (max-width: 767px) { hr { height: 40px; margin: 10px 0 30px; } }
 /*-----------------------------------------------------------------------------------*/
 /* CSS Classes for use in several purposes
 /*-----------------------------------------------------------------------------------*/
@@ -3038,6 +3062,7 @@ img.aligncenter { display: block; margin: 0 auto 10px auto; }
 
 .wp-video { width: auto !important; max-width: auto !important; }
 
+@media (max-width: 480px) { .wp-caption-text { padding: 0; } }
 /*-----------------------------------------------------------------------------------*/
 /* CSS for plugin adjustments 
 /*-----------------------------------------------------------------------------------*/
@@ -3341,9 +3366,7 @@ Media Queries for Theme FAU-Einrichtungen
   #content ul.page-print-actions { top: 440px; }
   .image-gallery-slider .flex-viewport { max-height: 400px; overflow: hidden; }
   .subpages-menu li.span3 { width: 230px; } }
-@media (max-width: 767px) { body { padding: 0; }
-  h1, h2, h3, h4, h5, h6, p { margin-left: 15px; margin-right: 15px; }
-  ul, ol { margin-left: 15px; margin-right: 15px; }
+@media (max-width: 767px) { ul, ol { margin-left: 15px; margin-right: 15px; }
   ul.menu { margin-bottom: 10px; }
   div.table-wrapper { position: relative; margin-bottom: 20px; margin-left: 15px; margin-right: 15px; overflow: hidden; border-right: 1px solid #ccc; }
   div.table-wrapper div.scrollable { overflow-x: auto; overflow-y: hidden; }
@@ -3353,10 +3376,7 @@ Media Queries for Theme FAU-Einrichtungen
   #content ul.page-print-actions { display: none; }
   #content .subpages-menu li.span3 { width: 230px; }
   #content .subpages-menu a.image.ext-link:after { display: none; }
-  #content .container h1, #content .container h2, #content .container h3, #content .container h4, #content .container h5, #content .container h6, #content .container p { margin-left: 0px; margin-right: 0px; }
   #content .container .span12 { margin-left: 0; }
-  #content .news-item .span3 { width: 200px; }
-  #content .news-image { text-align: center; float: none; background: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; margin-right: 10px; }
   #content form { border: none; padding: 0; }
   #social { margin: 0 -15px; padding: 20px 15px; }
   .post-image { margin: 0 !important; float: none !important; }
@@ -3372,11 +3392,6 @@ Media Queries for Theme FAU-Einrichtungen
   .hide-desktop { display: block; }
   #subnav ul { margin-left: 0; margin-right: 0; }
   .accordion-group { margin-left: 15px; margin-right: 15px; }
-  #footer .span3 { width: 48%; width: calc(50% - 10px); float: left; margin: 2px; }
-  #footer .span6 { width: 100%; margin: 0; float: none; }
-  #footer-nav { text-align: left; }
-  #footer-nav li { display: inline; }
-  hr { height: 40px; margin: 10px 0 30px; }
   .logos-menu .span2 { float: left; }
   .span3 { width: 260px; float: left; margin-left: 20px; }
   .span6 { width: 757pxpx; padding: 10px; }
@@ -3388,41 +3403,26 @@ Media Queries for Theme FAU-Einrichtungen
   .widget_faupersonwidget .person .span6, .widget_faupersonwidget .compactindex .span6, .content-person .person .span6, .content-person .compactindex .span6 { padding: 0; }
   .archive .person .span6 { width: calc(100% - 10px); }
   .archive .person .span6 .person-info-description { padding-top: 15px; } }
-@media (max-width: 480px) { .js-enabled body.admin-bar #wpadminbar { position: fixed; top: 0; }
-  #content { padding-bottom: 0; }
+@media (max-width: 480px) { #content { padding-bottom: 0; }
   .image-gallery-slider .flex-viewport { max-height: 200px; overflow: hidden; }
   .page-template-page-start-sub.js-enabled #hero .banner { top: 0; bottom: 0; }
-  .page-template-page-subnav #hero.hero-small h1 { padding-left: 15px; }
   .page-template-page-subnav #content { margin-left: 15px; margin-right: 15px; }
   .page-template-page-subnav #content .span4 { padding-bottom: 10px; }
-  .page-template-page-subnav #content .container h1, .page-template-page-subnav #content .container h2, .page-template-page-subnav #content .container h3, .page-template-page-subnav #content .container h4, .page-template-page-subnav #content .container h5, .page-template-page-subnav #content .container h6, .page-template-page-subnav #content .container p { margin-left: 0px; margin-right: 0px; }
   .page-template-page-subnav #content .container .sidebar-inline { width: 100%; border-left: none; padding-left: 15px; padding-right: 15px; }
   .page-template-page-subnav #content .container aside.widget:first-child { border-top: 2px solid #e9edf2; }
   .page-template-page-start .span3 { width: 240px; float: left; margin-left: 0px; }
   .page-template-page-start .news-item .span3 { width: 200px; }
   .page-template-page-start #content .news-image { text-align: center; float: none; }
   .page-template-page-start .span6 { width: 470pxpx; padding: 10px; }
-  hr { height: 40px; margin: 10px 0 30px; }
   #content .subpages-menu .menu-item { margin: 0 0 10px 0; }
   #content .subpages-menu ul { display: block; }
   #content .subpages-menu li { width: 100%; margin: 0 0 10px 10px; list-style: inside none circle; float: none; }
   #content .subpages-menu li a.image { width: 100%; height: auto; max-height: 110px; text-align: center; }
   #content .subpages-menu li a.image.ext-link:after { display: none; }
-  #content .subpages-menu li h3 { padding-bottom: 0px; }
   #content .subpages-menu li .span3 { float: none; }
   #content .subpages-menu li ul { margin-bottom: 10px; }
   #content .subpages-menu li ul li { display: inline-block; width: 40%; border: none; float: left; }
   .alignleft, .alignright, img.alignleft, div.alignleft, img.alignright, div.alignright { float: none; padding: 0; display: block; margin: 5px auto; max-width: 480px; }
-  .wp-caption-text { padding: 0; }
-  #footer li { line-height: 15px; }
-  #footer .span4, #footer .span3 { width: 48%; width: calc(50% - 10px); float: left; margin: 2px; }
-  #footer .span5, #footer .span6 { width: 100%; margin: 0; float: none; }
-  #footer-nav { text-align: left; }
-  #footer-nav li { display: inline; }
   #social { margin: 0 -15px; padding: 20px 15px; } }
-@media (max-width: 320px) { hr, .imagelink_carousel { display: none; }
-  .page-template-page-start .span3 { float: none; }
-  #content { padding-top: 0px; }
-  #content .news-item .span3, #content .news-item .span5 { width: 100%; float: none; }
-  #content .news-item .news-image { text-align: center; float: none; margin: 3px auto; }
-  #content .news-item .news-image img { width: 100%; height: auto; margin: 0; } }
+@media (max-width: 320px) { .imagelink_carousel { display: none; }
+  .page-template-page-start .span3 { float: none; } }
