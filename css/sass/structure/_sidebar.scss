@@ -15,8 +15,7 @@
 	.widget {
 		margin-bottom: 22px;
 		margin-top: 22px;
-		
-		
+
 		li {
 		    font-size: 13px;
 		    line-height: 22px;		   
@@ -35,21 +34,13 @@
 	.content-portal & {
 		margin-top: 22px;
 	}
-	
-	
-	
-	.quicklinks {  
-	    h2 {
-		font-size: 18px;
-		line-height: 22px;
-		font-weight: bold;
-		padding-bottom: 11px;
-		padding-top: 0;
-		 
-		 &.second {
-		    padding-top: 22px;
-		} 
-	    }
-	}
+
    
+}
+
+@media (max-width: $breakLG) {
+    	.sidebar-inline {
+		width: 240px;
+	}
+
 }

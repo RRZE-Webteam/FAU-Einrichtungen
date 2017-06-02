@@ -85,3 +85,11 @@ ol {
 		}
 	}
 }
+
+
+@media (max-width: $breakMD) {
+    	ul, ol {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+}

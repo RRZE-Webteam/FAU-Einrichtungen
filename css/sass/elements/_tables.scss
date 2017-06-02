@@ -66,3 +66,28 @@ table {
 	}
 }
 
+
+@media (max-width: $breakMD) {
+	
+	div.table-wrapper {
+		position: relative;
+		margin-bottom: 20px;
+		margin-left: 15px;
+		margin-right: 15px;
+		overflow: hidden;
+		border-right: 1px solid #ccc;
+		
+		.scrollable {
+		    overflow-x: auto;
+		    overflow-y: hidden;
+		}
+		
+	}
+	table {
+	    margin: 0;
+	    td,  th {
+		padding-left: 15px;
+		padding-right: 15px;
+	    }
+	}
+}

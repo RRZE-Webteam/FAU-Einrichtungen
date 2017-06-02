@@ -2318,6 +2318,24 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 .page-template-page-subnav #content .span8 img.size-full { clear: both; }
 .page-template-page-subnav #content .span8 div.alignleft, .page-template-page-subnav #content .span8 img.alignleft { clear: none; }
 
+@media (max-width: 767px) { ul.menu { margin-bottom: 10px; }
+  #subnav ul { margin-left: 0; margin-right: 0; }
+  #content ul.menu, #content ul.menu ul { margin-left: 0; margin-right: 0; }
+  #content .subpages-menu li.span3 { width: 230px; }
+  #content .subpages-menu a.image.ext-link:after { display: none; } }
+@media (max-width: 480px) { .page-template-page-subnav #content { margin-left: 15px; margin-right: 15px; }
+  .page-template-page-subnav #content .span4 { padding-bottom: 10px; }
+  .page-template-page-subnav #content .container .sidebar-inline { width: 100%; border-left: none; padding-left: 15px; padding-right: 15px; }
+  .page-template-page-subnav #content .container aside.widget:first-child { border-top: 2px solid #e9edf2; }
+  #content .subpages-menu .menu-item { margin: 0 0 10px 0; }
+  #content .subpages-menu ul { display: block; }
+  #content .subpages-menu li { width: 100%; margin: 0 0 10px 10px; list-style: inside none circle; float: none; }
+  #content .subpages-menu li a.image { width: 100%; height: auto; max-height: 110px; text-align: center; }
+  #content .subpages-menu li a.image.ext-link:after { display: none; }
+  #content .subpages-menu li .span3 { float: none; }
+  #content .subpages-menu li ul { margin-bottom: 10px; }
+  #content .subpages-menu li ul li { display: inline-block; width: 40%; border: none; float: left; } }
+@media (max-width: 979px) { .subpages-menu li.span3 { width: 230px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Special Links (top/nav)
 /*-----------------------------------------------------------------------------------*/
@@ -2330,6 +2348,16 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 .nav-links .prev, .nav-links .next { padding-left: 10px; padding-right: 10px; }
 .nav-links a:hover, .nav-links a:focus { background: #8fb1ef; }
 
+/*-----------------------------------------------------------------------------------*/
+/* Logo Menu / Logo Slider
+/*-----------------------------------------------------------------------------------*/
+#content .logos-menu .logo-item img { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
+
+@media (max-width: 320px) { .imagelink_carousel { display: none; } }
+@media (max-width: 767px) { .logos-menu-nav, #logos-menu-playpause { display: none; }
+  .logos-menu .span2 { float: left; } }
+@media (max-width: 979px) { #logos-menu-prev { height: 80px; }
+  #logos-menu-next { height: 80px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Hero: Design header for slider  
 /*-----------------------------------------------------------------------------------*/
@@ -2457,15 +2485,21 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 /* Global content definitions
 /*-----------------------------------------------------------------------------------*/
 #content { padding: 20px 0 30px 0; }
-#content .wp-caption { max-width: 100%; }
-#content img { -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); max-width: 100%; }
-#content img.shadow { -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); -moz-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); }
-#content img.thickborder { border: 1px solid black; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
-#content .logos-menu .logo-item img { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
-#content img.error-siegel { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; margin: 0 auto; display: block; }
 #content main { font-size: 15px; line-height: 22px; color: #444; font-family: "roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 #content main .sidebar-inline { font-size: 13px; line-height: 18px; }
 
+@media (max-width: 320px) { .page-template-page-start .span3 { float: none; } }
+@media (max-width: 480px) { #content { padding-bottom: 0; }
+  .page-template-page-start-sub.js-enabled #hero .banner { top: 0; bottom: 0; }
+  .page-template-page-start .span3 { width: 240px; float: left; margin-left: 0px; }
+  .page-template-page-start .span6 { width: 470pxpx; padding: 10px; } }
+@media (max-width: 767px) { #content { margin-left: 15px; margin-right: 15px; padding-bottom: 0px; }
+  #content ul.page-print-actions { display: none; }
+  #content .container .span12 { margin-left: 0; }
+  .span3 { width: 260px; float: left; margin-left: 20px; }
+  .span6 { width: 757pxpx; padding: 10px; }
+  .span12 { margin-left: 20px; } }
+@media (max-width: 979px) { #content ul.page-print-actions { top: 440px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Assistant
 /*-----------------------------------------------------------------------------------*/
@@ -2517,6 +2551,7 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 .read-more-arrow { text-decoration: none; padding-right: 3px; padding-left: 5px; }
 .read-more-arrow:hover, .read-more-arrow:focus { text-decoration: none; }
 
+@media (max-width: 767px) { .post-image { margin: 0 !important; float: none !important; } }
 /*-----------------------------------------------------------------------------------*/
 /* Top events and event entries
 /*-----------------------------------------------------------------------------------*/
@@ -2582,6 +2617,8 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 .events-more-links .events-more { color: #1f4c7a; background: #dde5f0; padding: 8px 10px; text-decoration: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; font-size: 14px; }
 .events-more-links .events-more:hover, .events-more-links .events-more:focus { background: #cbd7e8; text-decoration: none; }
 
+@media (max-width: 767px) { #content .widget_event_widget .event-info { margin-left: 60px; }
+  .topevent-date, .topevent-description { margin-left: 15px; margin-right: 15px; } }
 /*-----------------------------------------------------------------------------------*/
 /* News items
 /*-----------------------------------------------------------------------------------*/
@@ -2622,6 +2659,8 @@ ul.assistant-tabs-nav li:last-child { border: none; }
   #content .news-item .news-image img { width: 100%; height: auto; margin: 0; } }
 @media (max-width: 767px) { #content .news-item .span3 { width: 200px; }
   #content .news-image { text-align: center; float: none; background: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; margin-right: 10px; } }
+@media (max-width: 480px) { .page-template-page-start .news-item .span3 { width: 200px; }
+  .page-template-page-start #content .news-image { text-align: center; float: none; } }
 /*-----------------------------------------------------------------------------------*/
 /* Accordion
 /*-----------------------------------------------------------------------------------*/
@@ -2659,6 +2698,7 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 .accordionbox header.fau, .accordionbox header.default { border-color: #003366; }
 .accordionbox .body { border: none; background: #f5f7f9; padding: 15px 20px; }
 
+@media (max-width: 767px) { .accordion-group { margin-left: 15px; margin-right: 15px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Gallery in content 
 /*-----------------------------------------------------------------------------------*/
@@ -2698,6 +2738,12 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 .image-gallery-grid ul li .gallery-image-caption { line-height: 20px; }
 .image-gallery-grid ul li .caption { line-height: 18px; font-size: 13px; padding: 5px; }
 
+@media (max-width: 480px) { .image-gallery-slider .flex-viewport { max-height: 200px; overflow: hidden; } }
+@media (max-width: 767px) { .image-gallery-grid ul li img { margin: 0; }
+  .image-gallery-carousel .slides, .image-gallery-slider .slides { margin: 0 !important; padding: 0 !important; }
+  .image-gallery-carousel .slides li, .image-gallery-slider .slides li { margin: 0; padding: 0; }
+  .image-gallery-carousel .slides li img, .image-gallery-slider .slides li img { margin: 0 !important; } }
+@media (max-width: 979px) { .image-gallery-slider .flex-viewport { max-height: 400px; overflow: hidden; } }
 /*-----------------------------------------------------------------------------------*/
 /* Comments, if used
 /*-----------------------------------------------------------------------------------*/
@@ -2737,9 +2783,8 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 .sidebar-inline .widget:last-child { margin-bottom: 0 !important; }
 .sidebar-inline .widget:first-child { margin-top: 0 !important; }
 .content-portal .sidebar-inline { margin-top: 22px; }
-.sidebar-inline .quicklinks h2 { font-size: 18px; line-height: 22px; font-weight: bold; padding-bottom: 11px; padding-top: 0; }
-.sidebar-inline .quicklinks h2.second { padding-top: 22px; }
 
+@media (max-width: 979px) { .sidebar-inline { width: 240px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Widgets
 /*-----------------------------------------------------------------------------------*/
@@ -2795,6 +2840,7 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 .widget_categories ul li:hover a, .widget_nav_menu ul li:hover a, .widget_categories ul li:focus a, .widget_nav_menu ul li:focus a { color: #1f4c7a; }
 
 /* Widget: Nav Menu */
+@media (max-width: 767px) { .textwidget { margin-left: 15px; margin-right: 15px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Social Media Display
 /*-----------------------------------------------------------------------------------*/
@@ -2815,6 +2861,8 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 #social ul.social li.social-instagram a:before { line-height: 1.0em; }
 #social iframe { width: 220px !important; height: 160px !important; }
 
+@media (max-width: 767px) { #social { margin: 0 -15px; padding: 20px 15px; } }
+@media (max-width: 979px) { #social iframe { width: 165px !important; height: 120px !important; } }
 /*-----------------------------------------------------------------------------------*/
 /* Footer
 /*-----------------------------------------------------------------------------------*/
@@ -2856,6 +2904,8 @@ h2 { font-size: 24px; line-height: 28px; margin: 0; padding: 22px 0; font-weight
 .search-sidebar h2 { padding-top: 8px; }
 .sidebar-inline + h2 { padding-top: 0; }
 h2.small, .sidebar-inline h2, .search-sidebar h2, .sidebar-outline h2, .widget h2 { font-size: 18px; line-height: 22px; }
+.sidebar-inline .quicklinks h2 { font-size: 18px; line-height: 22px; font-weight: bold; padding-bottom: 11px; padding-top: 0; }
+.sidebar-inline .quicklinks h2.second { padding-top: 22px; }
 h2.subtitle { font-size: 18px; line-height: 22px; padding: 20px 0 22px 0; }
 h2.menu-header { padding: 11px 15px; margin-top: 10px; border-top: 1px solid #dde5f0; }
 .search h2 { padding-top: 4px; }
@@ -2946,6 +2996,7 @@ ol li ol li ol li ol li { list-style: lower-greek; }
 ol li ol li ul li { list-style-type: circle; }
 ol li ul li { list-style-type: circle; }
 
+@media (max-width: 767px) { ul, ol { margin-left: 15px; margin-right: 15px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Forms
 /*-----------------------------------------------------------------------------------*/
@@ -2967,6 +3018,7 @@ input[type="submit"]:active { background: #1f4c7a; }
 .post-password-form label { float: none; color: #003366; }
 .post-password-form input[type="password"] { width: 220px; margin-top: 5px; }
 
+@media (max-width: 767px) { #content form { border: none; padding: 0; } }
 /*-----------------------------------------------------------------------------------*/
 /* Tables
 /*-----------------------------------------------------------------------------------*/
@@ -2981,6 +3033,10 @@ table tr:nth-child(odd) td { color: #1f4c7a; background: #e9edf2; }
 table tr:nth-child(odd) td ul li { color: #1f4c7a; }
 table ul li { color: #003366; font-size: 13px; line-height: 18px; background-position: left 5px; }
 
+@media (max-width: 767px) { div.table-wrapper { position: relative; margin-bottom: 20px; margin-left: 15px; margin-right: 15px; overflow: hidden; border-right: 1px solid #ccc; }
+  div.table-wrapper .scrollable { overflow-x: auto; overflow-y: hidden; }
+  table { margin: 0; }
+  table td, table th { padding-left: 15px; padding-right: 15px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Blockquotes, Cites
 /*-----------------------------------------------------------------------------------*/
@@ -3002,6 +3058,19 @@ hr::before { content: ""; position: absolute; background: #fff; top: 0; left: 0;
 @media (max-width: 320px) { hr { display: none; } }
 @media (max-width: 767px) { hr { height: 40px; margin: 10px 0 30px; } }
 /*-----------------------------------------------------------------------------------*/
+/* Images
+/*-----------------------------------------------------------------------------------*/
+img.alignleft { float: left; clear: both; margin-right: 20px; margin-bottom: 20px; }
+img.alignright { float: right; clear: both; margin-left: 20px; margin-bottom: 20px; }
+img.aligncenter { display: block; margin: 0 auto 10px auto; }
+
+#content img { -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); max-width: 100%; }
+#content img.shadow { -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); -moz-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); }
+#content img.thickborder { border: 1px solid black; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
+#content img.error-siegel { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; margin: 0 auto; display: block; }
+
+@media (max-width: 480px) { img.alignleft, img.alignright { float: none; padding: 0; display: block; margin: 5px auto; max-width: 480px; } }
+/*-----------------------------------------------------------------------------------*/
 /* CSS Classes for use in several purposes
 /*-----------------------------------------------------------------------------------*/
 .pagination { text-align: center; padding: 20px 0 10px 0; }
@@ -3012,14 +3081,13 @@ hr::before { content: ""; position: absolute; background: #fff; top: 0; left: 0;
 
 .alignleft { text-align: left; }
 
-img.alignleft, div.alignleft { float: left; clear: both; margin-right: 20px; margin-bottom: 20px; }
+div.alignleft { float: left; clear: both; margin-right: 20px; margin-bottom: 20px; }
 
-img.alignright, div.alignright { float: right; clear: both; margin-left: 20px; margin-bottom: 20px; }
+div.alignright { float: right; clear: both; margin-left: 20px; margin-bottom: 20px; }
 
-img.aligncenter, div.aligncenter { margin-bottom: 10px; }
+div.aligncenter { margin-bottom: 10px; }
 
-img.aligncenter { display: block; margin: 0 auto 10px auto; }
-
+@media (max-width: 480px) { .alignleft, .alignright, div.alignleft, div.alignright { float: none; padding: 0; display: block; margin: 5px auto; max-width: 480px; } }
 .unsichtbar, #meta .searchform label, .widget_search .searchform label, .screen-reader-text { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 
 .unsichtbar:focus, #meta .searchform label:focus, .widget_search .searchform label:focus, .screen-reader-text:focus { position: relative; left: 0; width: auto; height: auto; overflow: auto; }
@@ -3028,6 +3096,8 @@ img.aligncenter { display: block; margin: 0 auto 10px auto; }
 
 .hidden { display: none; }
 
+@media (max-width: 767px) { .hide-mobile { display: none; }
+  .hide-desktop { display: block; } }
 /* Additional CSS Definitons, that may overwrite prior definitions */
 .textcol-phil { color: #A36B0D !important; }
 
@@ -3062,17 +3132,16 @@ img.aligncenter { display: block; margin: 0 auto 10px auto; }
 
 .wp-video { width: auto !important; max-width: auto !important; }
 
+#content .wp-caption { max-width: 100%; }
+
 @media (max-width: 480px) { .wp-caption-text { padding: 0; } }
 /*-----------------------------------------------------------------------------------*/
 /* CSS for plugin adjustments 
 /*-----------------------------------------------------------------------------------*/
-/*
-CSS Definitionen für das Plugin FAU_Person
-https://github.com/RRZE-Webteam/fau-person/
-*/
-/*  Created on : 25.08.2016, 09:18:52 Author     : unrz59
-*/
-/* Persons */
+/*-----------------------------------------------------------------------------------*/
+/* CSS Definitionen für das Plugin FAU_Person
+/* https://github.com/RRZE-Webteam/fau-person/
+/*-----------------------------------------------------------------------------------*/
 .person-info-more { margin: 10px 0 0 0; padding-left: 0 !important; }
 
 .person-read-more { display: inline-block; *display: inline; *zoom: 1; height: 20px; line-height: 20px; background: #dde5f0; padding: 6px 10px; text-decoration: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; font-size: 14px; }
@@ -3146,6 +3215,13 @@ span[itemprop="honorificPrefix"], span[itemprop="honorificSuffix"] { white-space
 
 .search .search-result .content-person { margin-top: 0; padding-top: 0; }
 
+@media (max-width: 767px) { .widget_faupersonwidget, .content-person { border: none; }
+  .widget_faupersonwidget .span1, .content-person .span1 { margin-left: 20px; }
+  .widget_faupersonwidget .person .span1, .widget_faupersonwidget .compactindex .span1, .content-person .person .span1, .content-person .compactindex .span1 { width: 90px; float: left; margin-right: 10px; }
+  .widget_faupersonwidget .person .span3, .widget_faupersonwidget .compactindex .span3, .content-person .person .span3, .content-person .compactindex .span3 { width: calc(100% - 130px); }
+  .widget_faupersonwidget .person .span6, .widget_faupersonwidget .compactindex .span6, .content-person .person .span6, .content-person .compactindex .span6 { padding: 0; }
+  .archive .person .span6 { width: calc(100% - 10px); }
+  .archive .person .span6 .person-info-description { padding-top: 15px; } }
 .flex-direction-nav { list-style: none; margin: 0; padding: 0; background: none; position: absolute; z-index: 20; bottom: 62px; right: 30px; *bottom: 30px; }
 .flex-direction-nav:before { display: none; }
 .flex-direction-nav li { list-style: none; margin: 0; padding: 0; background: none; background: none; }
@@ -3355,74 +3431,3 @@ Anpassungen der Gestaltung an verschiedene Plugins
 .mlp_language_box ul:hover li, .mlp_language_box ul:focus li, .mlp_language_box ul.focus li { display: block; }
 .mlp_language_box ul:hover li a, .mlp_language_box ul:focus li a, .mlp_language_box ul.focus li a { background-color: #fff; }
 .mlp_language_box h2 { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-
-/*
-Media Queries for Theme FAU-Einrichtungen
-*/
-@media (max-width: 979px) { #social iframe { width: 165px !important; height: 120px !important; }
-  #logos-menu-prev { height: 80px; }
-  #logos-menu-next { height: 80px; }
-  .sidebar-inline { width: 240px; }
-  #content ul.page-print-actions { top: 440px; }
-  .image-gallery-slider .flex-viewport { max-height: 400px; overflow: hidden; }
-  .subpages-menu li.span3 { width: 230px; } }
-@media (max-width: 767px) { ul, ol { margin-left: 15px; margin-right: 15px; }
-  ul.menu { margin-bottom: 10px; }
-  div.table-wrapper { position: relative; margin-bottom: 20px; margin-left: 15px; margin-right: 15px; overflow: hidden; border-right: 1px solid #ccc; }
-  div.table-wrapper div.scrollable { overflow-x: auto; overflow-y: hidden; }
-  #content { margin-left: 15px; margin-right: 15px; padding-bottom: 0px; }
-  #content ul.menu, #content ul.menu ul { margin-left: 0; margin-right: 0; }
-  #content .image-gallery-grid ul li img { margin: 0; }
-  #content ul.page-print-actions { display: none; }
-  #content .subpages-menu li.span3 { width: 230px; }
-  #content .subpages-menu a.image.ext-link:after { display: none; }
-  #content .container .span12 { margin-left: 0; }
-  #content form { border: none; padding: 0; }
-  #social { margin: 0 -15px; padding: 20px 15px; }
-  .post-image { margin: 0 !important; float: none !important; }
-  table { margin: 0; }
-  table td, table th { padding-left: 15px; padding-right: 15px; }
-  .textwidget, .topevent-date, .topevent-description { margin-left: 15px; margin-right: 15px; }
-  #content .widget_event_widget .event-info { margin-left: 60px; }
-  .image-gallery-carousel .slides, .image-gallery-slider .slides { margin: 0 !important; padding: 0 !important; }
-  .image-gallery-carousel .slides li, .image-gallery-slider .slides li { margin: 0; padding: 0; }
-  .image-gallery-carousel .slides li img, .image-gallery-slider .slides li img { margin: 0 !important; }
-  .logos-menu-nav, #logos-menu-playpause { display: none; }
-  .hide-mobile { display: none; }
-  .hide-desktop { display: block; }
-  #subnav ul { margin-left: 0; margin-right: 0; }
-  .accordion-group { margin-left: 15px; margin-right: 15px; }
-  .logos-menu .span2 { float: left; }
-  .span3 { width: 260px; float: left; margin-left: 20px; }
-  .span6 { width: 757pxpx; padding: 10px; }
-  .span12 { margin-left: 20px; }
-  .widget_faupersonwidget, .content-person { border: none; }
-  .widget_faupersonwidget .span1, .content-person .span1 { margin-left: 20px; }
-  .widget_faupersonwidget .person .span1, .widget_faupersonwidget .compactindex .span1, .content-person .person .span1, .content-person .compactindex .span1 { width: 90px; float: left; margin-right: 10px; }
-  .widget_faupersonwidget .person .span3, .widget_faupersonwidget .compactindex .span3, .content-person .person .span3, .content-person .compactindex .span3 { width: calc(100% - 130px); }
-  .widget_faupersonwidget .person .span6, .widget_faupersonwidget .compactindex .span6, .content-person .person .span6, .content-person .compactindex .span6 { padding: 0; }
-  .archive .person .span6 { width: calc(100% - 10px); }
-  .archive .person .span6 .person-info-description { padding-top: 15px; } }
-@media (max-width: 480px) { #content { padding-bottom: 0; }
-  .image-gallery-slider .flex-viewport { max-height: 200px; overflow: hidden; }
-  .page-template-page-start-sub.js-enabled #hero .banner { top: 0; bottom: 0; }
-  .page-template-page-subnav #content { margin-left: 15px; margin-right: 15px; }
-  .page-template-page-subnav #content .span4 { padding-bottom: 10px; }
-  .page-template-page-subnav #content .container .sidebar-inline { width: 100%; border-left: none; padding-left: 15px; padding-right: 15px; }
-  .page-template-page-subnav #content .container aside.widget:first-child { border-top: 2px solid #e9edf2; }
-  .page-template-page-start .span3 { width: 240px; float: left; margin-left: 0px; }
-  .page-template-page-start .news-item .span3 { width: 200px; }
-  .page-template-page-start #content .news-image { text-align: center; float: none; }
-  .page-template-page-start .span6 { width: 470pxpx; padding: 10px; }
-  #content .subpages-menu .menu-item { margin: 0 0 10px 0; }
-  #content .subpages-menu ul { display: block; }
-  #content .subpages-menu li { width: 100%; margin: 0 0 10px 10px; list-style: inside none circle; float: none; }
-  #content .subpages-menu li a.image { width: 100%; height: auto; max-height: 110px; text-align: center; }
-  #content .subpages-menu li a.image.ext-link:after { display: none; }
-  #content .subpages-menu li .span3 { float: none; }
-  #content .subpages-menu li ul { margin-bottom: 10px; }
-  #content .subpages-menu li ul li { display: inline-block; width: 40%; border: none; float: left; }
-  .alignleft, .alignright, img.alignleft, div.alignleft, img.alignright, div.alignright { float: none; padding: 0; display: block; margin: 5px auto; max-width: 480px; }
-  #social { margin: 0 -15px; padding: 20px 15px; } }
-@media (max-width: 320px) { .imagelink_carousel { display: none; }
-  .page-template-page-start .span3 { float: none; } }

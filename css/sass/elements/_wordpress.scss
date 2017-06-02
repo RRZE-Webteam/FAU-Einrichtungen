@@ -20,6 +20,13 @@
 	width: auto !important;
 	max-width: auto !important;
 }
+#content {
+	.wp-caption {
+		max-width: 100%;
+	}
+}
+
+
 
 @media (max-width: $breakSM) {
   .wp-caption-text {

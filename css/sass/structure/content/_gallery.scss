@@ -130,3 +130,36 @@
 
 	}
 }
+
+@media (max-width: $breakSM) {
+     .image-gallery-slider .flex-viewport {
+	    max-height: 200px;
+	    overflow: hidden;
+    }
+}
+
+@media (max-width: $breakMD) {
+    .image-gallery-grid ul li img {
+	   margin: 0;
+    }
+    .image-gallery-carousel .slides,
+    .image-gallery-slider .slides {
+        margin: 0 !important;
+        padding: 0 !important;
+        li {
+		    margin: 0;
+		    padding: 0;
+		    img {
+			margin: 0 !important;
+		    }
+	    }
+    }
+
+}
+@media (max-width: $breakLG) {
+    
+	.image-gallery-slider .flex-viewport {
+		max-height: 400px;
+		overflow: hidden;
+	}
+}

@@ -193,3 +193,19 @@
 
     }
 }
+@media (max-width: $breakSM) {
+    .page-template-page-start {
+	
+	.news-item {	    
+	    .span3 {
+		width: 200px;  
+	    }
+	}
+	#content .news-image {
+	    text-align: center;
+	    float: none;
+	}
+
+	
+    } 
+}

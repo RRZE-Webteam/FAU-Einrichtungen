@@ -52,6 +52,20 @@ h2 {
 	    line-height: 22px;
 	}
 	 
+	.sidebar-inline .quicklinks & {  
+	
+		font-size: 18px;
+		line-height: 22px;
+		font-weight: bold;
+		padding-bottom: 11px;
+		padding-top: 0;
+		 
+		&.second {
+		    padding-top: 22px;
+		} 
+	  
+	}
+	
 	&.subtitle {
 		font-size: 18px;
 		line-height: 22px;

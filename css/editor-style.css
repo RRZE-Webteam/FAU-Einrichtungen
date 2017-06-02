@@ -2076,6 +2076,8 @@ h2 { font-size: 24px; line-height: 28px; margin: 0; padding: 22px 0; font-weight
 .search-sidebar h2 { padding-top: 8px; }
 .sidebar-inline + h2 { padding-top: 0; }
 h2.small, .sidebar-inline h2, .search-sidebar h2, .sidebar-outline h2, .widget h2 { font-size: 18px; line-height: 22px; }
+.sidebar-inline .quicklinks h2 { font-size: 18px; line-height: 22px; font-weight: bold; padding-bottom: 11px; padding-top: 0; }
+.sidebar-inline .quicklinks h2.second { padding-top: 22px; }
 h2.subtitle { font-size: 18px; line-height: 22px; padding: 20px 0 22px 0; }
 h2.menu-header { padding: 11px 15px; margin-top: 10px; border-top: 1px solid #dde5f0; }
 .search h2 { padding-top: 4px; }
@@ -2166,6 +2168,7 @@ ol li ol li ol li ol li { list-style: lower-greek; }
 ol li ol li ul li { list-style-type: circle; }
 ol li ul li { list-style-type: circle; }
 
+@media (max-width: 767px) { ul, ol { margin-left: 15px; margin-right: 15px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Forms
 /*-----------------------------------------------------------------------------------*/
@@ -2187,6 +2190,7 @@ input[type="submit"]:active { background: #1f4c7a; }
 .post-password-form label { float: none; color: #003366; }
 .post-password-form input[type="password"] { width: 220px; margin-top: 5px; }
 
+@media (max-width: 767px) { #content form { border: none; padding: 0; } }
 /*-----------------------------------------------------------------------------------*/
 /* Tables
 /*-----------------------------------------------------------------------------------*/
@@ -2201,6 +2205,10 @@ table tr:nth-child(odd) td { color: #1f4c7a; background: #e9edf2; }
 table tr:nth-child(odd) td ul li { color: #1f4c7a; }
 table ul li { color: #003366; font-size: 13px; line-height: 18px; background-position: left 5px; }
 
+@media (max-width: 767px) { div.table-wrapper { position: relative; margin-bottom: 20px; margin-left: 15px; margin-right: 15px; overflow: hidden; border-right: 1px solid #ccc; }
+  div.table-wrapper .scrollable { overflow-x: auto; overflow-y: hidden; }
+  table { margin: 0; }
+  table td, table th { padding-left: 15px; padding-right: 15px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Blockquotes, Cites
 /*-----------------------------------------------------------------------------------*/
@@ -2222,6 +2230,19 @@ hr::before { content: ""; position: absolute; background: #fff; top: 0; left: 0;
 @media (max-width: 320px) { hr { display: none; } }
 @media (max-width: 767px) { hr { height: 40px; margin: 10px 0 30px; } }
 /*-----------------------------------------------------------------------------------*/
+/* Images
+/*-----------------------------------------------------------------------------------*/
+img.alignleft { float: left; clear: both; margin-right: 20px; margin-bottom: 20px; }
+img.alignright { float: right; clear: both; margin-left: 20px; margin-bottom: 20px; }
+img.aligncenter { display: block; margin: 0 auto 10px auto; }
+
+#content img { -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); max-width: 100%; }
+#content img.shadow { -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); -moz-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); }
+#content img.thickborder { border: 1px solid black; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
+#content img.error-siegel { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; margin: 0 auto; display: block; }
+
+@media (max-width: 480px) { img.alignleft, img.alignright { float: none; padding: 0; display: block; margin: 5px auto; max-width: 480px; } }
+/*-----------------------------------------------------------------------------------*/
 /* CSS Classes for use in several purposes
 /*-----------------------------------------------------------------------------------*/
 .pagination { text-align: center; padding: 20px 0 10px 0; }
@@ -2232,14 +2253,13 @@ hr::before { content: ""; position: absolute; background: #fff; top: 0; left: 0;
 
 .alignleft { text-align: left; }
 
-img.alignleft, div.alignleft { float: left; clear: both; margin-right: 20px; margin-bottom: 20px; }
+div.alignleft { float: left; clear: both; margin-right: 20px; margin-bottom: 20px; }
 
-img.alignright, div.alignright { float: right; clear: both; margin-left: 20px; margin-bottom: 20px; }
+div.alignright { float: right; clear: both; margin-left: 20px; margin-bottom: 20px; }
 
-img.aligncenter, div.aligncenter { margin-bottom: 10px; }
+div.aligncenter { margin-bottom: 10px; }
 
-img.aligncenter { display: block; margin: 0 auto 10px auto; }
-
+@media (max-width: 480px) { .alignleft, .alignright, div.alignleft, div.alignright { float: none; padding: 0; display: block; margin: 5px auto; max-width: 480px; } }
 .unsichtbar, .screen-reader-text { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 
 .unsichtbar:focus, .screen-reader-text:focus { position: relative; left: 0; width: auto; height: auto; overflow: auto; }
@@ -2248,6 +2268,8 @@ img.aligncenter { display: block; margin: 0 auto 10px auto; }
 
 .hidden { display: none; }
 
+@media (max-width: 767px) { .hide-mobile { display: none; }
+  .hide-desktop { display: block; } }
 /* Additional CSS Definitons, that may overwrite prior definitions */
 .textcol-phil { color: #A36B0D !important; }
 
@@ -2281,6 +2303,8 @@ img.aligncenter { display: block; margin: 0 auto 10px auto; }
 .wp-caption-text { font-size: 13px; padding: 5px 0 5px 0; }
 
 .wp-video { width: auto !important; max-width: auto !important; }
+
+#content .wp-caption { max-width: 100%; }
 
 @media (max-width: 480px) { .wp-caption-text { padding: 0; } }
 body { background-color: #fff; }

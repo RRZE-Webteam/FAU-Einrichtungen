@@ -1,13 +1,8 @@
-/*
-CSS Definitionen für das Plugin FAU_Person
-https://github.com/RRZE-Webteam/fau-person/
-*/
-/* 
-    Created on : 25.08.2016, 09:18:52
-    Author     : unrz59
-*/
+/*-----------------------------------------------------------------------------------*/
+/* CSS Definitionen für das Plugin FAU_Person
+/* https://github.com/RRZE-Webteam/fau-person/
+/*-----------------------------------------------------------------------------------*/
 
-/* Persons */
 .person-info-more {
 	margin: 10px 0 0 0;
 	padding-left: 0 !important;
@@ -298,4 +293,36 @@ span[itemprop="honorificSuffix"] {
 .search .search-result .content-person {
     margin-top: 0;
     padding-top: 0;
+}
+
+
+@media (max-width: $breakMD) {
+    .widget_faupersonwidget,
+	.content-person {
+	    border: none;
+	    .span1 {
+		margin-left: 20px;
+	    }
+	    .person,
+	    .compactindex {
+		.span1 {
+		    width: 90px;
+		    float: left;
+		    margin-right: 10px;
+		}
+		.span3 {
+		    width: calc(100% - 130px);
+		}
+		.span6 {
+		    padding: 0;
+		}
+	    }	
+	}
+	.archive .person .span6 {
+	   width: calc(100% - 10px);
+	   
+	   .person-info-description {
+	       padding-top: 15px;
+	   }
+	}
 }

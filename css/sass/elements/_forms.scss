@@ -82,3 +82,12 @@ input[type="submit"] {
 	}
 }
 
+
+@media (max-width: $breakMD) {
+    #content {
+	 form {
+		border: none;
+		padding: 0;
+	    }
+    }
+}

@@ -68,3 +68,11 @@
 		@extend .fa-angle-double-right;
 	}
 }
+
+@media (max-width: $breakMD) {
+    .post-image {
+		margin: 0 !important;
+		float: none !important;
+	}
+
+}

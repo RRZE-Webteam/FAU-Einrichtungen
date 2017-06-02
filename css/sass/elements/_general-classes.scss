@@ -21,7 +21,6 @@
 	text-align: left;
 }
 
-img.alignleft, 
 div.alignleft {
 	float: left;
 	clear: both;
@@ -29,7 +28,6 @@ div.alignleft {
 	margin-bottom: 20px;
 }
 
-img.alignright, 
 div.alignright {
 	float: right;
 	clear: both;
@@ -37,16 +35,24 @@ div.alignright {
 	margin-bottom: 20px;
 }
 
-img.aligncenter, 
 div.aligncenter {
 	margin-bottom: 10px;
 }
 
-img.aligncenter {
-	display: block;
-	margin: 0 auto 10px auto;
-}
 
+
+@media (max-width: $breakSM) {
+    .alignleft, 
+    .alignright,
+    div.alignleft,
+    div.alignright {
+	float: none;
+	padding: 0;
+	display: block;
+	margin: 5px auto;
+	max-width: $breakSM;
+    }
+}
 
 .unsichtbar {
   position:absolute;
@@ -75,6 +81,14 @@ img.aligncenter {
 	display: none;
 }
 
+@media (max-width: $breakMD) {
+    .hide-mobile {
+	    display: none;
+    }
+    .hide-desktop {
+        display: block;
+    }
+}
 
 /* Additional CSS Definitons, that may overwrite prior definitions */
 
