@@ -81,6 +81,41 @@ div.aligncenter {
 	display: none;
 }
 
+.span-small {
+	width: 90px;
+}
+
+
+.oembed {
+	margin: 10px 0 20px 0;
+	
+	#social & {
+		margin: 0;
+	}
+}
+
+
+.content-image-cols {
+	margin-bottom: 20px;
+}
+
+.mejs-container {
+	width: auto !important;
+	background: transparent !important;
+}
+
+.mtli_attachment {
+	background-position: left center !important;
+	display: inline !important;
+}
+
+.link-all-videos {
+	padding-top: 10px;
+}
+
+
+
+
 @media (max-width: $breakMD) {
     .hide-mobile {
 	    display: none;

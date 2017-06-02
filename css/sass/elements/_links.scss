@@ -26,3 +26,9 @@ a {
 	}
 }
 
+#footer .ext-link, 
+#hero .ext-link, 
+#nav .ext-link {
+	padding-right: 0 !important;
+	background-image: none !important;
+}

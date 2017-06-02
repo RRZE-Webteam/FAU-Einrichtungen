@@ -84,6 +84,11 @@ input[type="submit"] {
 
 
 @media (max-width: $breakMD) {
+    	input[type="checkbox"],
+	input[type="radio"] {
+		border: 1px solid #ccc;
+	}
+
     #content {
 	 form {
 		border: none;
@@ -91,3 +96,5 @@ input[type="submit"] {
 	    }
     }
 }
+
+

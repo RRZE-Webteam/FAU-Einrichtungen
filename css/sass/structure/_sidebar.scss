@@ -44,3 +44,14 @@
 	}
 
 }
+
+@media (min-width: $break-1360) {
+    .sidebar-inline {
+		width: 260px;
+	}
+}
+@media (min-width: $break-1700) {
+    .sidebar-inline {
+		width: 300px;
+	}
+}

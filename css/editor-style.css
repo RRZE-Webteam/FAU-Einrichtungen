@@ -1,16 +1,9 @@
-@charset "UTF-8";
-/*
-Theme Name: FAU
-Theme URI: www.fau.de
-Author: RRZE Webteam
-Author URI: http://www.rrze.fau.de
-Description: Friedrich-Alexander-Universität Erlangen-Nürnberg
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: blue
-Text Domain: FAU
-*/
+/*-----------------------------------------------------------------------------------*/
+/* Editor Style CSS
+/*-----------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
+/* Resets styles to base
+/*-----------------------------------------------------------------------------------*/
 .clear { clear: both; }
 
 .clearfix { *zoom: 1; }
@@ -41,10 +34,6 @@ sup { top: -0.5em; }
 
 sub { bottom: -0.25em; }
 
-img { width: auto\9; height: auto; max-width: 100%; vertical-align: middle; border: 0; -ms-interpolation-mode: bicubic; }
-
-#map_canvas img, .google-maps img { max-width: none; }
-
 button, input, select, textarea { margin: 0; font-size: 100%; vertical-align: middle; }
 
 button, input { *overflow: visible; line-height: normal; }
@@ -66,76 +55,6 @@ body { margin: 0; font-size: 13px; line-height: 18px; color: #333333; background
 a { color: #0088cc; text-decoration: none; }
 
 align, a:focus { color: #005580; text-decoration: underline; }
-
-.img-rounded { -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; }
-
-.img-polaroid { padding: 4px; background-color: #fff; border: 1px solid #ccc; border: 1px solid rgba(0, 0, 0, 0.2); -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
-
-.img-circle { -webkit-border-radius: 500px; -moz-border-radius: 500px; border-radius: 500px; }
-
-.row { margin-left: -20px; *zoom: 1; }
-
-.row:before, .row:after { display: table; line-height: 0; content: ""; }
-
-.row:after { clear: both; }
-
-[class*="span"] { float: left; min-height: 1px; margin-left: 20px; }
-
-.container { width: 940px; }
-
-.span12 { width: 940px; }
-
-.span11 { width: 860px; }
-
-.span10 { width: 780px; }
-
-.span9 { width: 700px; }
-
-.span8 { width: 620px; }
-
-.span7 { width: 540px; }
-
-.span6 { width: 460px; }
-
-.span5 { width: 380px; }
-
-.span4 { width: 300px; }
-
-.span3 { width: 220px; }
-
-.span2 { width: 140px; }
-
-.span1 { width: 60px; }
-
-.offset12 { margin-left: 980px; }
-
-.offset11 { margin-left: 900px; }
-
-.offset10 { margin-left: 820px; }
-
-.offset9 { margin-left: 740px; }
-
-.offset8 { margin-left: 660px; }
-
-.offset7 { margin-left: 580px; }
-
-.offset6 { margin-left: 500px; }
-
-.offset5 { margin-left: 420px; }
-
-.offset4 { margin-left: 340px; }
-
-.offset3 { margin-left: 260px; }
-
-.offset2 { margin-left: 180px; }
-
-.offset1 { margin-left: 100px; }
-
-.container { margin-right: auto; margin-left: auto; *zoom: 1; }
-
-.container:before, .container:after { display: table; line-height: 0; content: ""; }
-
-.container:after { clear: both; }
 
 p { margin: 10px 0 5px 0; color: #444; font-size: 14px; line-height: 22px; }
 
@@ -273,18 +192,6 @@ table { max-width: 100%; background-color: transparent; border-collapse: collaps
 
 table td[class*="span"], table th[class*="span"] { display: table-cell; float: none; margin-left: 0; }
 
-.accordion { margin-bottom: 20px; }
-
-.accordion-group { margin-bottom: 2px; border: 1px solid #e5e5e5; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; }
-
-.accordion-heading { border-bottom: 0; }
-
-.accordion-heading .accordion-toggle { display: block; padding: 8px 15px; }
-
-.accordion-toggle { cursor: pointer; }
-
-.accordion-inner { padding: 9px 15px; border-top: 1px solid #e5e5e5; }
-
 .pull-right { float: right; }
 
 .pull-left { float: left; }
@@ -295,44 +202,9 @@ table td[class*="span"], table th[class*="span"] { display: table-cell; float: n
 
 .invisible { visibility: hidden; }
 
-@media (min-width: 767px) and (max-width: 979px) { .row { margin-left: -20px; *zoom: 1; }
-  .row:before, .row:after { display: table; line-height: 0; content: ""; }
-  .row:after { clear: both; }
-  [class*="span"] { float: left; min-height: 1px; margin-left: 20px; }
-  .container { width: 724px; }
-  .span12 { width: 724px; }
-  .span11 { width: 662px; }
-  .span10 { width: 600px; }
-  .span9 { width: 538px; }
-  .span8 { width: 476px; }
-  .span7 { width: 414px; }
-  .span6 { width: 352px; }
-  .span5 { width: 290px; }
-  .span4 { width: 228px; }
-  .span3 { width: 166px; }
-  .span2 { width: 104px; }
-  .span1 { width: 42px; }
-  .span-sm-4 { width: 220px; }
-  .span-sm-8, .span-sm-8 .span9 { width: 484px; }
-  .offset12 { margin-left: 764px; }
-  .offset11 { margin-left: 702px; }
-  .offset10 { margin-left: 640px; }
-  .offset9 { margin-left: 578px; }
-  .offset8 { margin-left: 516px; }
-  .offset7 { margin-left: 454px; }
-  .offset6 { margin-left: 392px; }
-  .offset5 { margin-left: 330px; }
-  .offset4 { margin-left: 268px; }
-  .offset3 { margin-left: 206px; }
-  .offset2 { margin-left: 144px; }
-  .offset1 { margin-left: 82px; }
-  input, textarea { margin-left: 0; } }
-@media (max-width: 767px) { body { padding-right: 20px; padding-left: 20px; }
-  .container { width: auto; }
-  .row { margin-left: 0; }
-  [class*="span"], .span-sm-4, .span-sm-8, .span-sm-8 .span9 { margin-left: 0; float: none; width: auto; } }
-@media (max-width: 767px) { input[type="checkbox"], input[type="radio"] { border: 1px solid #ccc; } }
-@media (max-width: 979px) { body { padding-top: 0; } }
+/*-----------------------------------------------------------------------------------*/
+/* Frameworks
+/*-----------------------------------------------------------------------------------*/
 /*
 * optional grid-Framework, compiled from bootstrap sass 
 */
@@ -601,14 +473,9 @@ table td[class*="span"], table th[class*="span"] { display: table-cell; float: n
 /*
 Mixins File for Wordpress Theme FAU
 */
-/*
-CSS Font File for Wordpress Theme FAU
-*/
-@font-face { font-family: 'roboto'; src: url("../fonts/roboto/Roboto-Bold-webfont.eot"); src: url("../fonts/roboto/Roboto-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Bold-webfont.woff") format("woff"), url("../fonts/roboto/Roboto-Bold-webfont.ttf") format("truetype"), url("../fonts/roboto/Roboto-Bold-webfont.svg#robotobold") format("svg"); font-weight: bold; font-style: normal; }
-@font-face { font-family: 'roboto'; src: url("../fonts/roboto/Roboto-BoldItalic-webfont.eot"); src: url("../fonts/roboto/Roboto-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-BoldItalic-webfont.woff") format("woff"), url("../fonts/roboto/Roboto-BoldItalic-webfont.ttf") format("truetype"), url("../fonts/roboto/Roboto-BoldItalic-webfont.svg#robotobold_italic") format("svg"); font-weight: bold; font-style: italic; }
-@font-face { font-family: 'roboto'; src: url("../fonts/roboto/Roboto-Italic-webfont.eot"); src: url("../fonts/roboto/Roboto-Italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Italic-webfont.woff") format("woff"), url("../fonts/roboto/Roboto-Italic-webfont.ttf") format("truetype"), url("../fonts/roboto/Roboto-Italic-webfont.svg#robotoitalic") format("svg"); font-weight: normal; font-style: italic; }
-@font-face { font-family: 'roboto'; src: url("../fonts/roboto/Roboto-Regular-webfont.eot"); src: url("../fonts/roboto/Roboto-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Regular-webfont.woff") format("woff"), url("../fonts/roboto/Roboto-Regular-webfont.ttf") format("truetype"), url("../fonts/roboto/Roboto-Regular-webfont.svg#robotoregular") format("svg"); font-weight: normal; font-style: normal; }
-@font-face { font-family: 'roboto-light'; src: url("../fonts/roboto/Roboto-Light-webfont.eot"); src: url("../fonts/roboto/Roboto-Light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Light-webfont.woff") format("woff"), url("../fonts/roboto/Roboto-Light-webfont.ttf") format("truetype"), url("../fonts/roboto/Roboto-Light-webfont.svg#robotolight") format("svg"); font-weight: normal; font-style: normal; }
+/*-----------------------------------------------------------------------------------*/
+/* Fonts
+/*-----------------------------------------------------------------------------------*/
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -2042,23 +1909,14 @@ CSS Font File for Wordpress Theme FAU
 
 .sr-only-focusable:active, .sr-only-focusable:focus { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; }
 
-.span-small { width: 90px; }
-
-#content .container { position: relative; }
-
-.oembed { margin: 10px 0 20px 0; }
-#social .oembed { margin: 0; }
-
-#footer .ext-link, #hero .ext-link, #nav .ext-link { padding-right: 0 !important; background-image: none !important; }
-
-.content-image-cols { margin-bottom: 20px; }
-
-.mejs-container { width: auto !important; background: transparent !important; }
-
-.mtli_attachment { background-position: left center !important; display: inline !important; }
-
-.link-all-videos { padding-top: 10px; }
-
+/*
+CSS Font File for Wordpress Theme FAU
+*/
+@font-face { font-family: 'roboto'; src: url("../fonts/roboto/Roboto-Bold-webfont.eot"); src: url("../fonts/roboto/Roboto-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Bold-webfont.woff") format("woff"), url("../fonts/roboto/Roboto-Bold-webfont.ttf") format("truetype"), url("../fonts/roboto/Roboto-Bold-webfont.svg#robotobold") format("svg"); font-weight: bold; font-style: normal; }
+@font-face { font-family: 'roboto'; src: url("../fonts/roboto/Roboto-BoldItalic-webfont.eot"); src: url("../fonts/roboto/Roboto-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-BoldItalic-webfont.woff") format("woff"), url("../fonts/roboto/Roboto-BoldItalic-webfont.ttf") format("truetype"), url("../fonts/roboto/Roboto-BoldItalic-webfont.svg#robotobold_italic") format("svg"); font-weight: bold; font-style: italic; }
+@font-face { font-family: 'roboto'; src: url("../fonts/roboto/Roboto-Italic-webfont.eot"); src: url("../fonts/roboto/Roboto-Italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Italic-webfont.woff") format("woff"), url("../fonts/roboto/Roboto-Italic-webfont.ttf") format("truetype"), url("../fonts/roboto/Roboto-Italic-webfont.svg#robotoitalic") format("svg"); font-weight: normal; font-style: italic; }
+@font-face { font-family: 'roboto'; src: url("../fonts/roboto/Roboto-Regular-webfont.eot"); src: url("../fonts/roboto/Roboto-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Regular-webfont.woff") format("woff"), url("../fonts/roboto/Roboto-Regular-webfont.ttf") format("truetype"), url("../fonts/roboto/Roboto-Regular-webfont.svg#robotoregular") format("svg"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'roboto-light'; src: url("../fonts/roboto/Roboto-Light-webfont.eot"); src: url("../fonts/roboto/Roboto-Light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Light-webfont.woff") format("woff"), url("../fonts/roboto/Roboto-Light-webfont.ttf") format("truetype"), url("../fonts/roboto/Roboto-Light-webfont.svg#robotolight") format("svg"); font-weight: normal; font-style: normal; }
 /*-----------------------------------------------------------------------------------*/
 /* Elements
 /*-----------------------------------------------------------------------------------*/
@@ -2140,6 +1998,8 @@ table a:hover, table a:focus { text-decoration: none; }
 #hero a { text-decoration: none; }
 #hero a:hover, #hero a:focus { text-decoration: underline; }
 
+#footer .ext-link, #hero .ext-link, #nav .ext-link { padding-right: 0 !important; background-image: none !important; }
+
 /*-----------------------------------------------------------------------------------*/
 /* Lists
 /*-----------------------------------------------------------------------------------*/
@@ -2190,7 +2050,8 @@ input[type="submit"]:active { background: #1f4c7a; }
 .post-password-form label { float: none; color: #003366; }
 .post-password-form input[type="password"] { width: 220px; margin-top: 5px; }
 
-@media (max-width: 767px) { #content form { border: none; padding: 0; } }
+@media (max-width: 767px) { input[type="checkbox"], input[type="radio"] { border: 1px solid #ccc; }
+  #content form { border: none; padding: 0; } }
 /*-----------------------------------------------------------------------------------*/
 /* Tables
 /*-----------------------------------------------------------------------------------*/
@@ -2232,6 +2093,14 @@ hr::before { content: ""; position: absolute; background: #fff; top: 0; left: 0;
 /*-----------------------------------------------------------------------------------*/
 /* Images
 /*-----------------------------------------------------------------------------------*/
+.img-rounded { -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; }
+
+.img-polaroid { padding: 4px; background-color: #fff; border: 1px solid #ccc; border: 1px solid rgba(0, 0, 0, 0.2); -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
+
+.img-circle { -webkit-border-radius: 500px; -moz-border-radius: 500px; border-radius: 500px; }
+
+img { width: auto\9; height: auto; max-width: 100%; vertical-align: middle; border: 0; -ms-interpolation-mode: bicubic; }
+#map_canvas img, .google-maps img { max-width: none; }
 img.alignleft { float: left; clear: both; margin-right: 20px; margin-bottom: 20px; }
 img.alignright { float: right; clear: both; margin-left: 20px; margin-bottom: 20px; }
 img.aligncenter { display: block; margin: 0 auto 10px auto; }
@@ -2267,6 +2136,19 @@ div.aligncenter { margin-bottom: 10px; }
 .hide-desktop { display: none; }
 
 .hidden { display: none; }
+
+.span-small { width: 90px; }
+
+.oembed { margin: 10px 0 20px 0; }
+#social .oembed { margin: 0; }
+
+.content-image-cols { margin-bottom: 20px; }
+
+.mejs-container { width: auto !important; background: transparent !important; }
+
+.mtli_attachment { background-position: left center !important; display: inline !important; }
+
+.link-all-videos { padding-top: 10px; }
 
 @media (max-width: 767px) { .hide-mobile { display: none; }
   .hide-desktop { display: block; } }

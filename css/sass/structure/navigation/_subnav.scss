@@ -225,10 +225,6 @@
 	.subpage-item:focus h3 {
 		background-color: $colorLightest;
 	}
-	
-
-	
-	
 }
 
 .page-template-page-subnav {
@@ -253,6 +249,9 @@
 	}
     }
 }
+
+
+
 
 
 @media (max-width: $breakMD) {
@@ -359,4 +358,10 @@
 		width: 230px;
 	    }    
 	}
+}
+
+@media (min-width: $break-1360)  {
+    .sidebar-subnav {
+	max-width: 300px;
+    }
 }
