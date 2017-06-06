@@ -256,7 +256,7 @@ $defaultoptions = array(
     'index_synonym_listall'		=> true,
     'index_glossary_listall'		=> true,
     
-    'advanced_reveal_pages_id'		=> true,
+    'advanced_reveal_pages_id'		=> false,
     'advanced_images_info_credits'	=> 0,
     'advanced_display_hero_credits'	=> true,   
     'advanced_display_postthumb_credits'    => true,

@@ -855,41 +855,6 @@ function fau_get_defaultlinks ($list = 'faculty', $ulclass = '', $ulid = '') {
 }
 
 /* 
- * Returns language code, without subcode
- */
-function fau_get_language_main () {
-    $charset = explode('-',get_bloginfo('language'))[0];
-    return $charset;
-}
-
-/* 
- * Change WordPress default language attributes function to 
- * strip of region code parts
- */
-function fau_get_language_attributes ($doctype = 'html' ) {
-    $attributes = array();
-	
-    if ( function_exists( 'is_rtl' ) && is_rtl() )
-	    $attributes[] = 'dir="rtl"';
-    
-    if ( $langcode = fau_get_language_main() ) {
-	    if ( get_option('html_type') == 'text/html' || $doctype == 'html' )
-		    $attributes[] = "lang=\"$langcode\"";
-
-	    if ( get_option('html_type') != 'text/html' || $doctype == 'xhtml' )
-		    $attributes[] = "xml:lang=\"$langcode\"";
-    }	
-    $output = implode(' ', $attributes);
-    return $output;
-}
-
-function fau_language_attributes( $doctype = 'html' ) {
-    return fau_get_language_attributes( $doctype );
-}
-add_filter( 'language_attributes', 'fau_language_attributes',10,2 );
-
-
-/* 
  * Erstellt Toplinkliste
  */
 function fau_get_toplinks() {
