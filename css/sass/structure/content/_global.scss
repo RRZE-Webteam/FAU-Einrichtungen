@@ -9,17 +9,17 @@
     .container {
 	position: relative;
     }
-	main {
-	    font-size: 15px;
-	    line-height: 22px;
-	    color: $colorText;
-	    font-family: $fontStack;
-	    
-	    .sidebar-inline {
-		font-size: 13px;
-		line-height: 18px;
-	    }
+    main {
+	font-size: 15px;
+	line-height: 22px;
+	color: $colorText;
+	font-family: $fontStack;
+
+	.sidebar-inline {
+	    font-size: 13px;
+	    line-height: 18px;
 	}
+    }
 }
 
 
