@@ -1,0 +1,152 @@
+/*-----------------------------------------------------------------------------------*/
+/* Meta-Nav
+/*-----------------------------------------------------------------------------------*/
+
+.header-menu {
+    width: 700px;
+    float: left;
+    margin-left: 0;
+}
+
+
+	
+/* Meta-Navigation */
+#meta-nav {
+	@include no-list;
+	padding: 0;
+	max-width: 650px;
+	overflow: hidden;
+	
+	li {
+		@include no-list;
+		@include inline-block;
+		margin-right: 8px;
+		background: none;
+		position: relative;
+		
+		img {
+		    vertical-align: sub;		  
+		    padding: 0;
+		    margin: 0 2px;
+		}    
+		a {
+			@include inline-block;
+			padding: 10px 0;
+			color: $colorMeta;
+			font-size: 13px;
+			text-decoration: none;
+		}
+		
+		a:hover {
+		    text-decoration: underline;
+		}
+		&:hover a, &:focus a {
+			text-decoration: underline;
+		} 
+	}
+	
+	li.has-sub {
+		margin-right: 0;
+		
+		> a {
+			padding-right: 25px;
+			position: relative;
+		}
+		
+		> a:before {
+			@extend .fa;
+			@extend .fa-caret-down;
+			position: absolute;
+			top: 15px; 
+			right: 11px;
+		}
+	}
+	li.fauhome {
+	    padding-right: 5px;
+	    margin-right: 10px;	    
+	}
+	li.fauhome:before {
+	    @extend .fa;
+	    @extend .fa-long-arrow-up;
+	    margin-left: 5px;
+	    margin-right: 5px;
+	}
+	li.facultyhome {
+	    padding-right: 5px;
+	    padding-left: 5px;
+	    margin-right: 10px;
+	    margin-left: -15px;
+	   
+	}
+
+	
+	
+	li.fauhome, li.facultyhome {
+	    @include transition(background, 0.2s ease-out);
+	}
+	li.fauhome:hover, li.fauhome:focus, 
+	li.facultyhome:hover, li.facultyhome:focus {
+	    background: $colorMetaFAUHomeBackground;
+	    @include transition(background, 0.1s);
+	}
+	   
+	
+	
+	ul.sub-menu {
+		@include no-list;
+		display: none;
+		position: absolute;
+		top: 35px;
+		left: -10px;
+		background: $colorMetaLightest;
+		width: 180px;
+		@include box-shadow(0 3px 3px rgba(0,0,0,0.2));
+		
+		li {
+			@include no-list;
+			display: block;
+			
+			a {
+				padding: 4px 10px;
+				margin: 0;
+				display: block;
+				text-decoration: none;
+				background: none;
+				
+				&:hover, &:focus {
+					background: #fff;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	
+	li:hover ul.sub-menu, 
+	li.focus ul.sub-menu {
+		display: block;
+	}
+}
+
+@media (max-width: $breakLG) {
+	
+	.header-menu {
+	    float: none;
+	    width: 100%;
+	    display: block;
+	    margin: 8px 0 0 0;
+	   margin-top: 8px;
+	    #nav {
+		margin: 0;
+	    }
+	}
+}
+
+@media (max-width: $breakMD) {
+    	.js {	
+
+	    #meta-nav {
+		display: none;
+	    }
+	}
+	    
+}

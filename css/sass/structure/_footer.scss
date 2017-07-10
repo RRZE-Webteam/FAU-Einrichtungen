@@ -1,0 +1,95 @@
+/*-----------------------------------------------------------------------------------*/
+/* Footer
+/*-----------------------------------------------------------------------------------*/
+
+
+#footer {
+	background: $colorPrimaryHero;
+	color: #fff;
+	padding: 20px 0;
+	
+	p {
+		color: #fff;
+		font-size: 13px;
+		line-height: 18px;
+	}
+	
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+	
+	li {
+		font-size: 13px;
+	}
+	
+	a:hover, a:focus {
+		text-decoration: underline;
+	}
+}
+
+/* Footer Navigation */
+#footer-nav {
+	@include no-list;
+	text-align: right;
+	
+	li {
+		@include no-list;
+		display: inline;
+		margin-left: 8px;
+		background: none;
+	}
+}
+@media (max-width: $breakSM) {
+ #footer {
+	li {
+	    line-height: 15px;
+	}
+	.span4,
+	.span3 {
+	    width: 48%;
+	    width: calc(50% - 10px);
+	    float: left;
+	    margin: 2px;
+
+	}
+	.span5,
+	.span6 {
+	    width: 100%;
+	    margin: 0;
+	    float: none;
+	}
+
+    }
+    #footer-nav {
+
+	text-align: left;
+	li {
+	    display: inline;
+	}
+    }
+}
+@media (max-width: $breakMD) {
+    #footer {
+	    .span3 {
+		width: 48%;
+		width: calc(50% - 10px);
+		float: left;
+		margin: 2px;
+		
+	    }
+	    .span6 {
+		width: 100%;
+		margin: 0;
+		float: none;
+	    }
+	    
+	}
+
+	#footer-nav {	    
+	    text-align: left;
+	    li {
+		display: inline;
+	    }
+	}
+}

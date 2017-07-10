@@ -1,0 +1,165 @@
+/*-----------------------------------------------------------------------------------*/
+/* Gallery in content 
+/*-----------------------------------------------------------------------------------*/
+
+
+/* Image Gallery: Slider */
+.image-gallery-slider {
+	clear: both;
+	margin: 22px 0;
+	padding: 10px 0;
+	
+	ul.slides {
+		@include no-list;
+		background: none;
+		
+		li {
+			@include no-list;
+			text-align: center;
+			background: none;
+		}
+		
+		img {
+			@include box-shadow(none !important);
+		}
+	}
+	
+	.gallery-image-caption {
+	    line-height: 20px;
+	    padding: 5px;
+	    .linkorigin {
+		font-size: 13px;
+		line-height: 18px;
+		color: $colorTextLight;
+	     }
+	}
+}
+
+/* Image Gallery: Carousel */
+.image-gallery-carousel {
+	position: relative;
+	margin-bottom: 44px;
+	
+	ul.slides {
+		@include no-list;
+		background: none;
+		padding-left: 40px;
+		padding-right: 40px;
+		li {
+			@include no-list;
+			cursor: pointer;
+			opacity: 0.3;
+			background: none;
+			
+			&:hover, &:focus, &.flex-active-slide {
+				opacity: 1.0;
+			}
+		}
+	}
+	
+	ul.flex-direction-nav {
+		@include no-list;
+		top: -32px;
+		left: 0;
+		right: 0;
+		bottom: auto;
+		
+		li {
+			@include no-list;
+			background: none;
+		}
+		
+	}
+	
+	.flex-prev {
+		top: 60px;
+		left: 0px;
+		opacity: 0.1;
+	}
+	
+	.flex-next {
+		top: 60px;
+		right: 0px;
+		opacity: 0.1;
+	}
+	&:hover {
+	    .flex-prev {
+		opacity: 1;
+	    }
+	    .flex-next {
+		opacity: 1;
+	    }
+	}
+}
+
+/* Image Gallery: Grid */
+.image-gallery-grid {
+	margin: 10px 0 20px 0;
+	clear: both;
+	
+	ul {
+		@include no-list;
+		
+		li {
+			@include no-list;
+			background: none;
+			display: block;
+			float: left;
+			min-height: 130px;
+			width: 150px;
+			line-height: 125px;
+			vertical-align: middle;
+			text-align: center;
+			border: 1px solid $colorStandardHellgrau;
+			margin: 0 15px 15px 0;
+			
+			img {
+				vertical-align: middle;
+			}
+
+			.gallery-image-caption {
+				line-height: 20px;
+			}
+			
+			.caption {
+				line-height: 18px;
+				font-size: 13px;
+				padding: 5px;
+			}
+		}
+
+	}
+}
+
+@media (max-width: $breakSM) {
+     .image-gallery-slider .flex-viewport {
+	    max-height: 200px;
+	    overflow: hidden;
+    }
+}
+
+@media (max-width: $breakMD) {
+    .image-gallery-grid ul li img {
+	   margin: 0;
+    }
+    .image-gallery-carousel .slides,
+    .image-gallery-slider .slides {
+        margin: 0 !important;
+        padding: 0 !important;
+        li {
+		    margin: 0;
+		    padding: 0;
+		    img {
+			margin: 0 !important;
+		    }
+	    }
+    }
+
+}
+@media (max-width: $breakLG) {
+    
+	.image-gallery-slider .flex-viewport {
+		max-height: 400px;
+		overflow: hidden;
+	}
+}

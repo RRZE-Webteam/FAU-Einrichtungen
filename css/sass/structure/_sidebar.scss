@@ -1,0 +1,57 @@
+/*-----------------------------------------------------------------------------------*/
+/* Sidebar 
+/*-----------------------------------------------------------------------------------*/
+
+
+/* Sidebar: Inline */
+.sidebar-inline {
+	float: right;
+	width: 220px;
+	margin-left: 30px;
+	padding-left: 18px;
+	margin-bottom: 11px;
+	border-left: 2px solid $colorLightest;
+	
+	.widget {
+		margin-bottom: 22px;
+		margin-top: 22px;
+
+		li {
+		    font-size: 13px;
+		    line-height: 22px;		   
+		}
+		
+	}
+	
+	.widget:last-child {
+		margin-bottom: 0 !important;
+	}
+	
+	.widget:first-child {
+		margin-top: 0 !important;
+	}
+	
+	.content-portal & {
+		margin-top: 22px;
+	}
+
+   
+}
+
+@media (max-width: $breakLG) {
+    	.sidebar-inline {
+		width: 240px;
+	}
+
+}
+
+@media (min-width: $break-1360) {
+    .sidebar-inline {
+		width: 260px;
+	}
+}
+@media (min-width: $break-1700) {
+    .sidebar-inline {
+		width: 300px;
+	}
+}

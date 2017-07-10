@@ -1,51 +1,31 @@
-/*
-Main CSS File for Wordpress Theme FAU
-*/
+/*-----------------------------------------------------------------------------------*/
+/* Main CSS File for Wordpress Theme FAU
+/*-----------------------------------------------------------------------------------*/
 
 // Import FAU variables
 @import "variables";
 
-// Import Grid System, Mixins, Webfonts and Helper Classes
-@import "includes/bootstrap";
-@import "includes/bootstrap_colgrids";
+// Reset Base styles
+@import "reset";
+
+// Framework
+@import "frameworks/frameworks";
 
 
-@import "includes/mixins";
-@import "includes/fonts";
-@import "includes/font-awesome";
-// @import "includes/font-justvector";
-@import "includes/helpers";
+// Mixins
+@import "mixins/mixins";
 
-// Import Main Stylings
-@import "base-atoms";
-@import "base-organisms";
-@import "base-molecules";
-@import "base-overwrites";
+// Fonts
+@import "fonts/fonts";
 
-// FAU_Person
-@import "plugin-fau_person";
 
-// Flexslider
-@import "plugin-flexslider";
+// Structure
+@import "structure/structure";
 
-// Caroufredsel
-@import "plugin-caroufredsel";
+// Element Styles
+@import "elements/elements"; 
 
-// Fancyboxes
-@import "plugin-fancybox";
+// Plugin-Support
+@import "plugins/plugins";
 
-// Contact Form 7
-@import "plugin-wpc7";
-
-// FAU Glossar
-@import "plugin-fau_glossar";
-
-// Everything else, coming from Plugins
-@import "plugin-misc";
-
-// Import Media Queries
-@import "mediaqueries";
-
-// Import Styles for responsive menu
-@import "responsive-menu";
 

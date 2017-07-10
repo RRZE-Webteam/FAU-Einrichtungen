@@ -21,7 +21,7 @@ get_header(); ?>
 		?>
 
 			<div class="row">		
-				<div class="span4 span-sm-4">
+				<div class="span4 span-sm-4 sidebar-subnav">
 					<?php 
 					$offset = 0;
 					if ($options['website_type']==-1) {

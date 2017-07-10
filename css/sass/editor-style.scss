@@ -1,29 +1,21 @@
-/*
-Theme Name: FAU
-Theme URI: www.fau.de
-Author: medienreaktor GmbH
-Author URI: http://www.medienreaktor.de
-Description: Friedrich-Alexander-Universität Erlangen-Nürnberg
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: blue
-Text Domain: 
-*/
+/*-----------------------------------------------------------------------------------*/
+/* Editor Style CSS
+/*-----------------------------------------------------------------------------------*/
+
 
 // Import FAU variables
 @import "variables";
+// Reset Base styles
+@import "reset";
+// Framework
+@import "frameworks/frameworks";
+// Mixins
+@import "mixins/mixins";
+// Fonts
+@import "fonts/fonts";
+// Element Styles
+@import "elements/elements";
 
-// Import Grid System, Mixins, Webfonts and Helper Classes
-@import "includes/bootstrap";
-@import "includes/bootstrap_colgrids";
-@import "includes/mixins";
-@import "includes/fonts";
-@import "includes/font-awesome";
-@import "includes/helpers";
 
-// Import Main Stylings relevant for RTE
-@import "base-atoms";
-@import "base-overwrites";
 
 body { background-color: #fff;}

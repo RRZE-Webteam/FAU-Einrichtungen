@@ -267,6 +267,7 @@ $default_fau_orga_data = array(
 		'title'	    => __('Philosophische Fakultät', 'fau'),
 		'shorttitle'    => __('Phil', 'fau'),
 		'homeurl'	    => 'https://phil.fau.de',
+		'homeurl_en'	    => 'https://phil.fau.eu',
 		'url'           => '%s/img/logos/logo-phil.png',
 		'thumbnail'	=> '%s/img/logos/logo-phil.png',
 	),

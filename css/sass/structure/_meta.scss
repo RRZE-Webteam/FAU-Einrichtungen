@@ -1,0 +1,135 @@
+/*-----------------------------------------------------------------------------------*/
+/* Meta region in top
+/*-----------------------------------------------------------------------------------*/
+
+
+#meta {
+	@include placeholder(#fff);
+	background: $colorMetaBackground;
+	
+	.searchform {
+		border: none;
+		margin: 0;
+		padding: 5px 0;
+		float: right;
+		
+		
+		input[type="text"] {
+			@include border-radius(20px);
+			padding: 5px 35px 5px 35px;
+			width: 150px;
+			font-size: 13px;
+			line-height: 15px;
+			float: left;
+			background: $colorMeta url('../img/icon-search.png') no-repeat 10px center;
+			border: none;
+			outline: none;
+			color: #fff;
+			height: 20px;
+			display: inline-block;
+			margin-right: -25px;
+			margin-bottom: 0px;
+			&:focus {
+				background-color: $colorMetaHover;
+			}
+		}
+		
+		input[type="submit"] {
+			@include border-radius(20px);
+			position: relative;
+			z-index: 100;
+			margin-right: 20px;
+			height: 30px;
+			padding: 0 12px;
+			font-weight: bold;
+			border: none;
+			outline: none;
+			color: $colorMeta;
+			background: #fff;
+			font-size: 13px;
+			line-height: 15px;
+			display: inline-block;
+			
+			&:hover, &:focus {
+				background: $colorMetaLightest;
+				@include box-shadow(0 0 5px rgba(0,0,0,0.2));
+			}
+		}
+		
+		label {
+			@extend .unsichtbar;
+		}
+	}
+	
+	.pull-left .ext-link  {
+	    padding-right: 0 !important;
+	    background-image: none !important;
+	}
+
+	
+	
+	@media (min-width: $breakLG) {	    
+	    position: fixed;
+	    top: 0;
+	    height: 42px;
+	    left: 0;
+	    right: 0;
+	    z-index: 200;
+	     
+	    .admin-bar & {
+		top: 32px;
+	    }
+	}
+	@media (max-width: $breakLG) {
+	    position: fixed;
+	    top: 0;
+	    height: 42px;
+	    left: 0;
+	    right: 0;
+	    z-index: 200;
+		
+	    .searchform input[type="text"] {
+		width: 100px;
+	    }
+	    
+	    .admin-bar & {
+		top: 32px;
+	    }
+	    
+	}
+}
+@media (max-width: $breakMD) {
+     #meta {
+	position: relative;
+	top: 0;
+    } 
+    .js {
+	#meta {
+	    padding-top: 70px;	    
+	    ul {
+		margin: 0;
+	    }
+	    .searchform input[type="text"] {
+		width: 100px;
+	    }
+	}
+	.admin-bar #meta {
+	    padding-top: 40px;		
+	}
+    }
+
+}
+
+@media (max-width: $breakSM) {
+     .no-js {
+	 #meta {
+	    display: block;
+	    position: relative;
+	    float: none;
+	    width: 100%;
+	    top: inherit;
+	    margin: 5px 0px;
+	    padding: 3px;
+	 }
+     }
+}

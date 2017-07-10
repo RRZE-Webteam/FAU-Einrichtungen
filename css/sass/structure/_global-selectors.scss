@@ -1,0 +1,54 @@
+/*-----------------------------------------------------------------------------------*/
+/* Globale Selectoren
+/*-----------------------------------------------------------------------------------*/
+
+
+
+#loading {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 1000;
+}
+
+#loading-background {
+	background: #000;
+	opacity: 0.5;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 1010;
+}
+
+#loading-spinner {
+	background: transparent url('../img/ajax-loader.gif') no-repeat center center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 1020;
+}
+
+/* No Script Notice */
+#no-script {
+	background: $colorNotice;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	
+	.notice {
+		text-align: center;
+		color: #fff;
+		padding: 10px 20px;
+	}
+}
+
+

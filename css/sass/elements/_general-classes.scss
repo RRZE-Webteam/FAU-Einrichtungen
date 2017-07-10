@@ -1,0 +1,173 @@
+/*-----------------------------------------------------------------------------------*/
+/* CSS Classes for use in several purposes
+/*-----------------------------------------------------------------------------------*/
+
+
+
+.pagination {
+	text-align: center;
+	padding: 20px 0 10px 0;
+}
+
+.alignright {
+	text-align: right;
+}
+
+.aligncenter {
+	text-align: center;
+}
+
+.alignleft {
+	text-align: left;
+}
+
+div.alignleft {
+	float: left;
+	clear: both;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+div.alignright {
+	float: right;
+	clear: both;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
+div.aligncenter {
+	margin-bottom: 10px;
+}
+
+
+
+
+
+@media (max-width: $breakSM) {
+    .alignleft, 
+    .alignright,
+    div.alignleft,
+    div.alignright {
+	float: none;
+	padding: 0;
+	display: block;
+	margin: 5px auto;
+	max-width: $breakSM;
+    }
+}
+
+.unsichtbar {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+.unsichtbar:focus {
+  position: relative;
+  left: 0;
+  width: auto;
+  height: auto;
+  overflow: auto;
+}
+
+.screen-reader-text {
+    @extend .unsichtbar;
+}
+
+.hide-desktop {
+	display: none;
+}
+.hidden {
+	display: none;
+}
+
+.span-small {
+	width: 90px;
+}
+
+
+.oembed {
+	margin: 10px 0 20px 0;
+	
+	#social & {
+		margin: 0;
+	}
+}
+
+
+.content-image-cols {
+	margin-bottom: 20px;
+}
+
+.mejs-container {
+	width: auto !important;
+	background: transparent !important;
+}
+
+.mtli_attachment {
+	background-position: left center !important;
+	display: inline !important;
+}
+
+.link-all-videos {
+	padding-top: 10px;
+}
+
+
+
+
+@media (max-width: $breakMD) {
+    .hide-mobile {
+	    display: none;
+    }
+    .hide-desktop {
+        display: block;
+    }
+}
+
+/* Additional CSS Definitons, that may overwrite prior definitions */
+
+.textcol-phil {
+		color: $colorPhilFak !important;
+}
+.textcol-rw {
+		color: $colorRwFak !important;
+}
+.textcol-med {
+		color: $colorMedFak !important;
+}
+.textcol-nat {
+		color: $colorNatFak !important;
+}
+.textcol-tf,
+.textcol-tech {
+		color: $colorTechFak !important;
+}
+.textcol-fau, 
+.textcol-default {
+		color: $colorDefault !important;
+}
+
+.bgcol-phil {
+		background-color: $colorPhilFak !important;
+}
+.bgcol-rw {
+		background-color: $colorRwFak !important;
+}
+.bgcol-med {
+		background-color: $colorMedFak !important;
+}
+.bgcol-nat {
+		background-color: $colorNatFak !important;
+}
+.bgcol-tf,
+.bgcol-tech {
+		background-color: $colorTechFak !important;
+}
+.bgcol-fau, 
+.bgcol-default {
+		background-color: $colorDefault !important;
+}
+

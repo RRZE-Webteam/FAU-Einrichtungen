@@ -1,0 +1,36 @@
+/*-----------------------------------------------------------------------------------*/
+/* Paragraphs
+/*-----------------------------------------------------------------------------------*/
+
+
+p {
+	margin: 0;
+	padding: 0 0 11px 0;
+	font-size: 15px;
+	line-height: 22px;
+	color: $colorText;
+	font-family: $fontStack;
+	
+	#content & {
+		@include hyphens(auto);
+	}
+	
+	#content .textwidget & {
+		font-size: 13px;
+	}
+	
+	&.searchnotice {
+		font-size: 24px;
+		line-height: 28px;
+		padding: 4px 0 22px 0;
+	}
+
+	
+	
+	#content .span4 .widget &,
+	#content .sidebar-inline .widget & {
+		font-size: 13px;
+		line-height: 22px;
+	}
+}
+

@@ -1,0 +1,58 @@
+/*-----------------------------------------------------------------------------------*/
+/* Organigramm shortcode content
+/*-----------------------------------------------------------------------------------*/
+
+.organigram {
+	@include no-list;
+	margin: 20px 0;
+	
+	ul, li {
+		@include no-list;
+	}
+	
+	ul {
+		margin-bottom: 20px;
+		border-left: 2px solid $colorLightest;
+		margin-left: 10px;
+	}
+	
+	li {
+		background: none;
+		font-size: 19px;
+		margin-bottom: 20px;
+		margin-top: 5px;
+		
+		li {
+			font-size: 15px;
+			padding-left: 10px;
+			margin-bottom: 0;
+			
+			li {
+				font-size: 13px;
+			}
+		}
+	}
+	
+	a {
+		text-decoration: none;
+	}
+	
+	a:hover, a:focus {
+		text-decoration: underline;
+	}
+	
+
+	
+	.toggle-icon {
+		@extend .fa;
+		@extend .fa-plus-square;
+		color: $colorPrimary;
+		margin-right: 5px;
+		cursor: pointer;
+	}
+	
+	.active > .toggle-icon {
+		@extend .fa-minus-square;
+	}
+	
+}

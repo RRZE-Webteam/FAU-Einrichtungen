@@ -1,0 +1,101 @@
+/* Contact Form Plugin wpcf7 */
+.wpcf7 {
+	margin: 0;
+	padding: 0;
+}
+.wpcf7-undostyle {
+    border: none !important;;
+    background: inherit;
+    color: $colorPrimary !important;
+    display: block;
+
+}
+
+div.wpcf7-response-output {
+    margin: 2em 0;	
+    padding: 0.2em 0;
+}
+
+.wpcf7-mail-sent-ok {
+    @extend .wpcf7-undostyle;
+     @extend .notice-hinweis;
+    color: $colorText  !important;;
+}
+
+.wpcf7-mail-sent-ng {
+    @extend .wpcf7-undostyle;
+    @extend .alert;
+    @extend .alert-success;
+    color: $alert-success-text  !important;
+}
+
+.wpcf7-spam-blocked {
+    @extend .wpcf7-undostyle;
+    @extend .alert;
+    @extend .alert-warning;
+    color: $colorNotice  !important;;
+
+}
+
+.wpcf7-validation-errors {
+    @extend .wpcf7-undostyle;
+    @extend .notice-attention;
+    color: $colorNotice  !important;;
+}
+
+.wpcf7-form-control-wrap {
+    position: relative;
+}
+
+.wpcf7-not-valid-tip {
+    z-index: 100;
+    padding: 2px;
+    @extend .wpcf7-undostyle;
+    @extend .notice-attention;
+    color: $colorNotice  !important;
+    margin-top: 0px;
+
+		
+}
+
+.wpcf7-not-valid-tip-no-ajax {
+        @extend .wpcf7-undostyle;
+	@extend .alert;
+	@extend .alert-warning;
+	color: $colorNotice  !important;;
+}
+
+.wpcf7-list-item {
+	margin: 5px 20px 0 0;
+	display: inline-block;
+	
+	label {
+		float: none;
+		display: inline;
+		width: auto;
+		margin: 0;
+	}
+	
+	input[type="radio"] {
+		margin-top: 2px;
+		vertical-align: top;
+	}
+}
+
+.wpcf7-display-none {
+	display: none;
+}
+
+.wpcf7 img.ajax-loader {
+	border: none;
+	vertical-align: middle;
+	margin-left: 4px;
+}
+
+.wpcf7 .ajax-error {
+	display: none;
+}
+
+.wpcf7 .placeheld {
+	color: #888;
+}

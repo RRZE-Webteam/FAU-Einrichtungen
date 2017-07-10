@@ -31,7 +31,7 @@ LIBRARIES & SOURCES
 * jQuery carouFredSel 6.2.1, https://dev7studios.com/
 * jQuery FlexSlider v2.3.0
 * hoverIntent v1.8.0
-
+* Bootstrap 3.3.7, http://getbootstrap.com/
 
 
 

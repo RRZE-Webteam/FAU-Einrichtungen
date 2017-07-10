@@ -1,0 +1,228 @@
+/*-----------------------------------------------------------------------------------*/
+/* Widgets
+/*-----------------------------------------------------------------------------------*/
+
+
+/* All Widgets */
+.widget {
+	margin-bottom: 7px;
+	
+	ul {
+	    margin: 0;
+	    padding: 0;
+	    
+	    ul {
+		margin: 0 0 10px 5px;
+	    }
+	}
+	
+	
+	li {
+		padding: 0 0 0 5px;
+		font-size: 13px;
+		line-height: 20px;
+		
+		list-style-type: none;
+		padding-bottom: 3px;
+		display: table-row;
+		
+		a {
+			text-decoration: none;
+		}
+		
+		a:hover, a:focus {
+			text-decoration: underline;
+		}
+	}
+	li:before {
+	    @extend .fa;
+	    @extend .fa-angle-right;	
+	    font-weight: bold;
+	    color: $colorDefault; 
+	    width: 15px;
+	    display: table-cell;
+	}
+	
+}
+
+/* Widget: RSS */
+.widget_rss,
+.rss-shortcode {
+	ul {
+		@include no-list;
+
+		li {
+			@include no-list;
+			padding: 5px 0;
+			background: none;
+			line-height: 18px;
+			
+			a {
+				font-weight: normal;
+				text-decoration: none;
+				font-size: 13px;
+			}
+			
+			> a {
+				font-weight: bold;
+				font-size: 15px;
+			}
+			
+			a:hover, a:focus {
+				text-decoration: underline;
+			}
+		}
+	}
+	
+	.rss-date {
+		display: block;
+		font-size: 13px;
+		padding: 5px 0;
+	}
+	
+	.rssSummary,
+	.rss-description {
+		padding: 5px 0;
+		font-size: 13px;
+		line-height: 18px;
+		color: $colorText;
+	}
+	
+	h4 {
+		font-size: 20px;
+		line-height: 24px;
+		margin: 0;
+		padding: 20px 0 20px 0;
+	}
+	
+	cite {
+		color: #888;
+	}
+}
+
+
+/* Widget: Search */
+.widget_search {
+	.searchform  {
+	    padding: 20px 10px;
+	}
+	input[type="text"] {
+		width: 80%;
+		max-width: 160px;
+		margin: 0 10px 0 0;
+		font-size: 14px;
+	}
+	input[type="submit"] {
+	    padding: 2px 15px;
+	}
+	.searchform label {
+		@extend .unsichtbar;
+	}
+}
+
+/* Widget: Categories */
+.widget_categories {
+	ul {
+		@include no-list;
+
+		li {
+			@include no-list;
+			display: block;
+			background-color: $colorLightest;
+			color: $colorDefault;
+			
+			border-bottom: 1px solid #fff;
+			line-height: 18px;
+			padding: 6px 0px 6px 15px;
+			
+			
+			a {
+				text-decoration: none;
+				line-height: 18px;
+				padding: 6px 0;
+				        
+				&:hover, 
+				&:focus {
+				    text-decoration: underline;
+				}
+			}
+			
+	
+			li {
+			    border-bottom: none;
+			    background-color: darken($colorLightest, 3%);
+			    padding: 10px 0 10px 10px;
+			    li {
+				background-color: darken($colorLightest, 6%);
+			    }
+			}
+			
+			&.tf,
+			&.techfak {
+			    background-color: $colorTechFak;
+			    a {
+				color: #fff;
+			    }
+			}
+			&.rw,
+			&.rwfak {
+			    background-color:  $colorRwFak;
+			     a {
+				color: #fff;
+			    }
+			}
+			&.med,
+			&.medfak {
+			    background-color:  $colorMedFak;
+			     a {
+				color: #fff;
+			    }
+			}
+			&.nat,
+			&.natfak {
+			    background-color:  $colorNatFak;
+			     a {
+				color: #fff;
+			    }
+			}
+			&.phil,
+			&.philfak {
+			    background-color:  $colorPhilFak;
+			     a {
+				color: #fff;
+			    }
+			}
+			&.fau, 
+			&.default {
+			    background-color:  $colorDefault;
+			     a {
+				color: #fff;
+			    }
+			}
+			
+		}
+		li:hover, 
+		li:focus {
+		    background-color: $colorLightest; // darken($colorLightest, 3%);
+		    
+		    color: $colorLightestContrast;
+		    a {
+			  color: $colorLightestContrast;
+		    }
+		}
+	}
+}
+
+/* Widget: Nav Menu */
+.widget_nav_menu {
+	@extend .widget_categories;
+}
+
+
+@media (max-width: $breakMD) {
+    .textwidget {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+
+}

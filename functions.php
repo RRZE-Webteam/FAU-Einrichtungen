@@ -83,7 +83,7 @@ function fau_setup() {
 
 	 /* Thumb for person-type; big for content - Name: person-thumb-page */
 	add_image_size( 'person-thumb-page', $options['default_person_thumb_page_width'], $options[ 'default_person_thumb_page_height'], $options['default_person_thumb_page_crop']); // 200,300,true
-
+	    
 	
 	/* Thumb for Logos (used in carousel) - Name: logo-thumb */
 	add_image_size( 'logo-thumb', $options['default_logo_carousel_width'], $options['default_logo_carousel_height'], $options['default_logo_carousel_crop']);   // 140:110, true
@@ -883,10 +883,7 @@ function fau_get_language_attributes ($doctype = 'html' ) {
     return $output;
 }
 
-function fau_language_attributes( $doctype = 'html' ) {
-    return fau_get_language_attributes( $doctype );
-}
-add_filter( 'language_attributes', 'fau_language_attributes',10,2 );
+
 
 
 /* 

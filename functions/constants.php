@@ -9,7 +9,7 @@ $defaultoptions = array(
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-    'js-version'			=> '1.6',
+    'js-version'			=> '1.7',
 	// Theme-Versionslinie
     'website_type'			=> 2,
 	// website_type: 
@@ -256,7 +256,7 @@ $defaultoptions = array(
     'index_synonym_listall'		=> true,
     'index_glossary_listall'		=> true,
     
-    'advanced_reveal_pages_id'		=> true,
+    'advanced_reveal_pages_id'		=> false,
     'advanced_images_info_credits'	=> 0,
     'advanced_display_hero_credits'	=> true,   
     'advanced_display_postthumb_credits'    => true,

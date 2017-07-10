@@ -1,0 +1,95 @@
+/*-----------------------------------------------------------------------------------*/
+/* Lists
+/*-----------------------------------------------------------------------------------*/
+
+
+li {
+	padding: 3px 0 4px 4px;
+	font-size: 15px;
+	line-height: 22px;
+	color: $colorText;
+	
+    .sidebar-inline & {
+	padding: 3px 0 4px 20px;
+    }
+}
+
+
+ul {
+	li {
+	    list-style-type: circle;	    
+	    ul li {
+		list-style-type: disc;		
+		ul li {
+		   list-style-type: square;
+		}
+	    }
+	}
+	
+	/* Lettered Pagination */
+	&.letters {
+	    @include no-list;
+	    margin: 20px 0 10px 0;
+
+	    li {
+		    @include no-list;
+		    @include inline-block;
+		    background: none;
+		    margin-right: 2px;
+		    color: #ccc;
+
+		    a {
+			    @include inline-block;
+		    }
+
+		    a:hover, a:focus {
+			    text-decoration: underline;
+		    }
+	    }
+	}
+	/* File Lists */
+
+	&.files {
+		@include no-list;
+
+		li {
+			@include no-list;
+			background: none;
+			font-size: 13px;
+			line-height: 18px;
+		}
+	}
+}
+
+ol {
+	li {
+		padding-left: 0;
+		list-style: decimal;
+		ol li {
+		    list-style: lower-latin;
+		    
+		    ol li {
+		     list-style: upper-roman;
+		     
+		      ol li {
+			list-style: lower-greek;
+			}
+		     
+		    }
+		    ul li {
+			list-style-type: circle;
+		    }
+		}
+		ul li {
+		     list-style-type: circle;	    
+		}
+	}
+}
+
+
+@media (max-width: $breakMD) {
+    	ul, ol {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+}
