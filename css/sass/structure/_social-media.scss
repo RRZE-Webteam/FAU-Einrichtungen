@@ -89,10 +89,6 @@
 		
 	}
 	
-	iframe {
-		width: 220px !important;
-		height: 160px !important;
-	} 
  
 }
 
@@ -101,11 +97,4 @@
 	    margin: 0 -15px;
 	    padding: 20px 15px;
     }
-}
-@media (max-width: $breakLG) {
-
-	#social iframe {
-		width: 165px !important;
-		height: 120px !important;
-	}
 }
