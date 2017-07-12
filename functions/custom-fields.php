@@ -517,7 +517,7 @@ function fau_do_metabox_page_portalmenu($object, $box) {
     $val = get_post_meta($object->ID, 'menuquote_texttype', true);
     $texttype = ( isset($val) ? intval($val) : 0 );
     $author = get_post_meta($object->ID, 'zitat_autor', true);
-    $nothumbnail = get_post_meta($object->ID, 'menuquote_nothumbnail', true);
+    $nothumbnail = get_post_meta($object->ID, 'menuquote_nothumbnail', true) ? 1 : 0;
 
     echo '<div id="portalseitenquote">';
     fau_form_textarea('fau_metabox_menuquote_quote', $quote, __("Zitat (Text)", 'fau'), 40, 3, __('Das Zitat und der Autor erscheint bei Portalseiten oder Menüpunkten der ersten Ebene des Hauptmenüs neben der Auflistung der Untermenüpunkte.', 'fau'));
@@ -550,13 +550,13 @@ function fau_do_metabox_page_portalmenu($object, $box) {
     
     fau_form_select('fau_metabox_page_portalmenu_id', $thislist, $currentmenuid, __('Portalmenü', 'fau'), __('Bei einer Portalseite wird unter dem Inhalt ein Menu ausgegeben. Bitte wählen Sie hier das Menü aus der Liste. Sollte das Menü noch nicht existieren, kann ein Administrator es anlegen.', 'fau'), 1, __('Kein Portalmenu zeigen', 'fau'));
 
-    $nothumbnails = get_post_meta($object->ID, 'fauval_portalmenu_thumbnailson', true);
+    $nothumbnails = get_post_meta($object->ID, 'fauval_portalmenu_thumbnailson', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_nothumbnails', $nothumbnails, __('Artikelbilder verstecken; Nur Überschriften zeigen.', 'fau'));
 
-    $nofallbackthumbs = get_post_meta($object->ID, 'fauval_portalmenu_nofallbackthumb', true);
+    $nofallbackthumbs = get_post_meta($object->ID, 'fauval_portalmenu_nofallbackthumb', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_nofallbackthumb', $nofallbackthumbs, __('Keine Ersatzbilder zeigen, wenn Artikelbilder nicht gesetzt sind.', 'fau'));
 
-    $nosub = get_post_meta($object->ID, 'fauval_portalmenu_nosub', true);
+    $nosub = get_post_meta($object->ID, 'fauval_portalmenu_nosub', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_nosub', $nosub, __('Unterpunkte verbergen.', 'fau'));
 }
 
@@ -582,8 +582,8 @@ function fau_save_metabox_page_portalmenu($post_id, $post) {
         delete_post_meta($post_id, 'portalmenu-slug');
     }
 
-    $newval = isset($_POST['fau_metabox_page_portalmenu_nothumbnails']) ? 1 : 0;
-    $oldval = get_post_meta($post_id, 'fauval_portalmenu_thumbnailson', true);
+    $newval = !empty($_POST['fau_metabox_page_portalmenu_nothumbnails']) ? 1 : 0;
+    $oldval = get_post_meta($post_id, 'fauval_portalmenu_thumbnailson', true) ? 1 : 0;
 
     if ($newval && !empty($oldval)) {
         update_post_meta($post_id, 'fauval_portalmenu_thumbnailson', $newval);
@@ -593,8 +593,8 @@ function fau_save_metabox_page_portalmenu($post_id, $post) {
         delete_post_meta($post_id, 'fauval_portalmenu_thumbnailson');
     }
 
-    $newval = isset($_POST['fau_metabox_page_portalmenu_nofallbackthumb']) ? 1 : 0;
-    $oldval = get_post_meta($post_id, 'fauval_portalmenu_nofallbackthumb', true);
+    $newval = !empty($_POST['fau_metabox_page_portalmenu_nofallbackthumb']) ? 1 : 0;
+    $oldval = get_post_meta($post_id, 'fauval_portalmenu_nofallbackthumb', true) ? 1 : 0;
 
     if ($newval && !empty($oldval)) {
         update_post_meta($post_id, 'fauval_portalmenu_nofallbackthumb', $newval);
@@ -604,8 +604,8 @@ function fau_save_metabox_page_portalmenu($post_id, $post) {
         delete_post_meta($post_id, 'fauval_portalmenu_nofallbackthumb');
     }
 
-    $newval = isset($_POST['fau_metabox_page_portalmenu_nosub']) ? absint($_POST['fau_metabox_page_portalmenu_nosub']) : 0;
-    $oldval = get_post_meta($post_id, 'fauval_portalmenu_nosub', true);
+    $newval = !empty($_POST['fau_metabox_page_portalmenu_nosub']) ? 1 : 0;
+    $oldval = get_post_meta($post_id, 'fauval_portalmenu_nosub', true) ? 1 : 0;
 
     if ($newval && !empty($oldval)) {
         update_post_meta($post_id, 'fauval_portalmenu_nosub', $newval);
@@ -641,7 +641,7 @@ function fau_save_metabox_page_portalmenu($post_id, $post) {
     fau_save_standard('menuquote_texttype', $newval, $post_id, '', 'int');
 
 
-    $newval = isset($_POST['fau_metabox_menuquote_nothumbnail']) ? absint($_POST['fau_metabox_menuquote_nothumbnail']) : 0;
+    $newval = !empty($_POST['fau_metabox_menuquote_nothumbnail']) ? 1 : 0;
     fau_save_standard('menuquote_nothumbnail', $newval, $post_id, '', 'int');
 }
 
