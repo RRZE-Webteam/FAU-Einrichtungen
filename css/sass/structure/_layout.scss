@@ -30,7 +30,7 @@ html, body, button {
 
 
 
-
+/*
 .row {
 	margin-left: -20px;
 	*zoom: 1;
@@ -46,6 +46,7 @@ html, body, button {
 .row:after {
 	clear: both;
 }
+*/
 
 [class*="span"] {
 	float: left;
@@ -53,9 +54,9 @@ html, body, button {
 	margin-left: 20px;
 }
 
-.container {
-	width: 940px;
-}
+// .container {
+// 	width: 940px;
+// }
 
 .span12 {
 	width: 940px;
@@ -153,6 +154,7 @@ html, body, button {
 	margin-left: 100px;
 }
 
+/*
 .container {
 	margin-right: auto;
 	margin-left: auto;
@@ -169,11 +171,11 @@ html, body, button {
 .container:after {
 	clear: both;
 }
-
+*/
 
 
 @media (min-width: $breakMD) and (max-width: $breakLG) {
-	.row {
+/*	.row {
 		margin-left: -20px;
 		*zoom: 1;
 	}
@@ -186,14 +188,18 @@ html, body, button {
 	.row:after {
 		clear: both;
 	}
+	
+	*/
 	[class*="span"] {
 		float: left;
 		min-height: 1px;
 		margin-left: 20px;
 	}
+	/*
 	.container {
 		width: 724px;
 	}
+*/
 	.span12 {
 		width: 724px;
 	}
@@ -285,12 +291,15 @@ html, body, button {
 		padding-right: 20px;
 		padding-left: 20px;
 	}
+	
+	/*
 	.container {
 		width: auto;
 	}
 	.row {
 		margin-left: 0;
 	}
+	*/
 	[class*="span"],
 	.span-sm-4,
 	.span-sm-8, 
