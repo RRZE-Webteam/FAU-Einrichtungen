@@ -62,20 +62,20 @@
 	if ($sidebarfilled>0) { ?>
 	    <div class="sidebar-inline">
 		<?php 		
-		get_template_part('sidebar', 'events'); 	
-		get_template_part('sidebar', 'textabove');  
+		get_template_part('template-parts/sidebar', 'events'); 	
+		get_template_part('template-parts/sidebar', 'textabove');  
 	    
 			
 		$order = get_post_meta($post->ID, 'fauval_sidebar_order_personlinks', true );
 		if ($order==1) {
-		    get_template_part('sidebar', 'quicklinks');
-		    get_template_part('sidebar', 'personen-inline');
+		    get_template_part('template-parts/sidebar', 'quicklinks');
+		    get_template_part('template-parts/sidebar', 'personen-inline');
 		} else {
-		    get_template_part('sidebar', 'personen-inline');
-		    get_template_part('sidebar', 'quicklinks');
+		    get_template_part('template-parts/sidebar', 'personen-inline');
+		    get_template_part('template-parts/sidebar', 'quicklinks');
 		}
 
-	     get_template_part('sidebar', 'textbelow'); ?>
+	     get_template_part('template-parts/sidebar', 'textbelow'); ?>
 	</div>
 
 	<?php }	?>

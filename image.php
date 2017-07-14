@@ -13,7 +13,7 @@ get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-	<?php get_template_part('hero', 'small'); ?>
+	<?php get_template_part('template-parts/hero', 'small'); ?>
 
 	<section id="content">
 		<div class="container">
@@ -107,7 +107,7 @@ get_header(); ?>
 					  
 				</div>
 				
-				<?php get_template_part('sidebar', 'news'); ?>
+				<?php get_template_part('template-parts/sidebar', 'news'); ?>
 			</div>
 
 		</div>

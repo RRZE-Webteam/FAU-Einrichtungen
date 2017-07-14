@@ -8,14 +8,13 @@
  */
 
 get_header(); 
-get_template_part('hero', 'search'); 
+get_template_part('template-parts/hero', 'search'); 
 $active_sidebar = 0;
 $showhelplinks = 0;
 ?>
 	
 	<div id="content">
 		<div class="container">
-
 			<div class="row">
 			    
 			    <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	
@@ -81,7 +80,7 @@ $showhelplinks = 0;
 						    'total'    => $wp_query->max_num_pages,
 						    'current'  => $paged,
 						    'mid_size' => 1,
-						    'add_args' => array_map( 'urlencode', $query_args ),
+					//	    'add_args' => array_map( 'urlencode', $query_args ),
 						    'prev_text' => __( '<span class="meta-nav">&larr;</span> Zurück', 'fau' ),
 						    'next_text' => __( 'Weiter <span class="meta-nav">&rarr;</span>', 'fau' ),
 						) );
@@ -120,7 +119,7 @@ $showhelplinks = 0;
 		    
 			<?php
 			if ($showhelplinks==1) {
-				get_template_part('search', 'helper'); 
+				get_template_part('template-parts/search', 'helper'); 
 			}
 			?>
 

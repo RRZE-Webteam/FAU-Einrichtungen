@@ -11,7 +11,7 @@ get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-    <?php get_template_part('hero', 'small'); ?>
+    <?php get_template_part('template-parts/hero', 'small'); ?>
 
     <div id="content" class="content-portal">
 	<div class="container">
@@ -37,8 +37,8 @@ get_header(); ?>
 		</div>
 		<div class="span4 sidebar-outline">
 		    <?php
-		    get_template_part('sidebar', 'events'); 	
-		    get_template_part('sidebar'); ?>
+		    get_template_part('template-parts/sidebar', 'events'); 	
+		    get_template_part('template-parts/sidebar'); ?>
 		</div>
 	    </div>
 		
@@ -75,7 +75,7 @@ get_header(); ?>
 	    <?php echo fau_get_ad('werbebanner_unten',false); ?>
 	</div>
 	
-	<?php get_template_part('footer', 'social'); ?>	
+	<?php get_template_part('template-parts/footer', 'social'); ?>	
     </div>
 <?php endwhile; ?>
 

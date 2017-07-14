@@ -7,31 +7,11 @@
  * @since FAU 1.0
  */
 
-global $options;
-get_header(); ?>
+get_header();
+get_template_part('template-parts/hero', 'error');  
 
+?>
 
-	<section id="hero" class="hero-small">
-		<div class="container">
-			<div class="row">
-				<div class="span12">
-					<div class="breadcrumbs">
-						<a href="<?php echo fau_esc_url( home_url( '/' ) ); ?>"><?php echo $options['breadcrumb_root']; ?></a>
-					</div>
-
-					<div class="hero-meta-portal">
-						401
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="span6">
-					<h1><?php _e('Anmeldung fehlgeschlagen','fau'); ?></h1>
-				</div>
-			</div>
-		</div>
-	</section>
-	
 
 	<section id="content">
 		<div class="container">
@@ -48,10 +28,10 @@ get_header(); ?>
 				</div>
 			</div>
 
-			<?php get_template_part('search', 'helper');  ?>
+			<?php get_template_part('template-parts/search', 'helper');  ?>
 
 		</div>
-			<?php get_template_part('footer', 'social'); ?>	
+			<?php get_template_part('template-parts/footer', 'social'); ?>	
 	</section>
 
 <?php 

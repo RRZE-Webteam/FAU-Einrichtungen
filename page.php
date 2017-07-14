@@ -10,17 +10,16 @@ get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-	<?php get_template_part('hero', 'small'); ?>
+	<?php get_template_part('template-parts/hero', 'small'); ?>
 
 	<div id="content">
 		<div class="container">
-		    	 <?php 
-			    echo fau_get_ad('werbebanner_seitlich',false);
-			?>
-			<div class="row">
-				
-				<div class="span12">
-				    <main>
+		    <?php 
+		        echo fau_get_ad('werbebanner_seitlich',false);
+		    ?>
+		    <div class="row">
+			<div class="span12">
+			    <main>
 					<?php 
 					$headline = get_post_meta( $post->ID, 'headline', true );				
 					if ( $headline) {
@@ -29,14 +28,13 @@ get_header(); ?>
 					
 					
 					 
-					get_template_part('sidebar', 'inline'); 
+					get_template_part('template-parts/sidebar', 'inline'); 
 					the_content(); ?>
-				    </main>
-				</div>
-				
-			</div>
+			    </main>
+			</div>		
+		    </div>
 		</div>
-	    	<?php get_template_part('footer', 'social'); ?>	
+	    	<?php get_template_part('template-parts/footer', 'social'); ?>	
 
 	</div>
 	

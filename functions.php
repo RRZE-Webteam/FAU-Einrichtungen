@@ -402,8 +402,7 @@ add_filter('embed_oembed_html', 'add_video_embed_note', 10, 3);
 
 
 function fau_protected_attribute ($classes, $item) {
-	if($item->post_password != '')
-	{
+	if($item->post_password != '')	{
 		$classes[] = 'protected-page';
 	}
 	return $classes;
@@ -414,8 +413,7 @@ add_filter('page_css_class', 'fau_protected_attribute', 10, 3);
 function custom_error_pages() {
     global $wp_query;
  
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
-    {
+    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)  {
         $wp_query->is_404 = FALSE;
         $wp_query->is_page = TRUE;
         $wp_query->is_singular = TRUE;
@@ -430,8 +428,7 @@ function custom_error_pages() {
         exit;
     }
  
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 401)
-    {
+    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 401)  {
         $wp_query->is_404 = FALSE;
         $wp_query->is_page = TRUE;
         $wp_query->is_singular = TRUE;
@@ -455,16 +452,13 @@ function custom_error_title($title='',$sep='') {
         return "Unauthorized ".$sep." ".get_bloginfo('name');
 }
  
-function custom_error_class($classes)
-{
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
-    {
+function custom_error_class($classes) {
+    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)  {
         $classes[]="error403";
         return $classes;
     }
  
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 401)
-    {
+    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 401)  {
         $classes[]="error401";
         return $classes;
     }

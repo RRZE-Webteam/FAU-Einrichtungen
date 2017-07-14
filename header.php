@@ -44,7 +44,7 @@ global $options;
 						<?php dynamic_sidebar( 'language-switcher' ); ?>
 					<?php endif; ?>
 				    <h3 class="screen-reader-text"><?php _e('Seiteninterne Suche','fau'); ?></h3>
-				    <?php get_template_part('header', 'searchform'); ?>
+				    <?php get_template_part('template-parts/search', 'header'); ?>
 				</div>
 			</div>
 		</section>

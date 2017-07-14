@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage FAU
- * @since FAU 1.0
+ * @since FAU 1.7
  */
 
 global $options;

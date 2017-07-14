@@ -10,7 +10,7 @@
 get_header(); 
 
 	$posttype = get_post_type();
-	get_template_part('hero', 'personindex'); 
+	get_template_part('template-parts/hero', 'index'); 
 	$active_sidebar = false;
 	?>
 
@@ -36,9 +36,7 @@ get_header();
 					    
 					    while ( have_posts() ) { 
 						the_post();  
-				//		echo "<li>";
 						echo FAU_Person_Shortcodes::fau_person(array("id"=> $post->ID, 'format' => 'kompakt', 'showlink' => 1)); 
-				//		echo "</li>";						 
 					    } ?>
 				
 					    <nav class="navigation">
@@ -46,20 +44,17 @@ get_header();
 						<div class="nav-next"><?php next_posts_link(__('Weitere Einträge <span class="meta-nav">&raquo;</span>', 'fau'), '' ); ?></div>
 					    </nav>
 
-	
-					
-					
 				    </main>
 				</div>
 				
 				    <?php if(get_post_type() == 'post') {
-					 get_template_part('sidebar', 'news');
+					 get_template_part('template-parts/sidebar', 'news');
 				    } ?>
 				    
 			</div>
 
 		</div>
-		<?php get_template_part('footer', 'social'); ?>	
+		<?php get_template_part('template-parts/footer', 'social'); ?>	
 	</div>
 
 

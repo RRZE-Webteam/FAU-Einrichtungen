@@ -13,11 +13,11 @@ $posttype = get_post_type();
 ?>
 
 	<?php if($posttype == 'event') {
-		get_template_part('hero', 'events');
+		get_template_part('template-parts/hero', 'events');
 	} elseif ($posttype == 'post') {
-		get_template_part('hero', 'category'); 
+		get_template_part('template-parts/hero', 'category'); 
 	} else {
-	    get_template_part('hero', 'index'); 
+	    get_template_part('template-parts/hero', 'index'); 
 	}
 	$active_sidebar = false;
 	?>
@@ -108,13 +108,13 @@ $posttype = get_post_type();
 				</div>
 				
 				    <?php if(get_post_type() == 'post') {
-					 get_template_part('sidebar', 'news');
+					 get_template_part('template-parts/sidebar', 'news');
 				    } ?>
 				    
 			</div>
 
 		</div>
-		<?php get_template_part('footer', 'social'); ?>	
+		<?php get_template_part('template-parts/footer', 'social'); ?>	
 	</div>
 
 
