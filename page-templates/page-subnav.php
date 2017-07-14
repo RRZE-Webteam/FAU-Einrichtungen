@@ -21,7 +21,7 @@ get_header(); ?>
 		?>
 
 			<div class="row">		
-				<div class="span4 span-sm-4 sidebar-subnav">
+				<div class="sidebar-subnav">
 					<?php 
 					$offset = 0;
 					if ($options['website_type']==-1) {
@@ -41,7 +41,7 @@ get_header(); ?>
 					</ul>
 				</div>
 				
-				<div class="span8 span-sm-8">
+				<div class="entry-content">
 				    <main>
 					<?php 
 					$headline = get_post_meta( $post->ID, 'headline', true );									

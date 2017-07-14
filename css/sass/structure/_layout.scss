@@ -28,35 +28,27 @@ html, body, button {
 }
 
 
+.sidebar-subnav {
+    // @extend .span4;
+    @extend .col-xs-12;
+    @extend .col-sm-4;
+    
+}
+.entry-content {
+    // @extend .span8;
+    @extend .col-xs-12;
+    @extend .col-sm-8;
 
-
-/*
-.row {
-	margin-left: -20px;
-	*zoom: 1;
 }
 
-.row:before,
-.row:after {
-	display: table;
-	line-height: 0;
-	content: "";
-}
 
-.row:after {
-	clear: both;
-}
-*/
+
 
 [class*="span"] {
 	float: left;
 	min-height: 1px;
 	margin-left: 20px;
 }
-
-// .container {
-// 	width: 940px;
-// }
 
 .span12 {
 	width: 940px;
@@ -154,24 +146,6 @@ html, body, button {
 	margin-left: 100px;
 }
 
-/*
-.container {
-	margin-right: auto;
-	margin-left: auto;
-	*zoom: 1;
-}
-
-.container:before,
-.container:after {
-	display: table;
-	line-height: 0;
-	content: "";
-}
-
-.container:after {
-	clear: both;
-}
-*/
 
 @media (max-width: $breakLG) {
     	.sidebar-inline {
@@ -179,45 +153,16 @@ html, body, button {
 	}
 
 }
-/*
-@media (min-width: $break-1360) {
-    .sidebar-inline {
-		width: 260px;
-	}
-}
-@media (min-width: $break-1700) {
-    .sidebar-inline {
-		width: 300px;
-	}
-}
-*/
+
 
 @media (min-width: $breakMD) and (max-width: $breakLG) {
-/*	.row {
-		margin-left: -20px;
-		*zoom: 1;
-	}
-	.row:before,
-	.row:after {
-		display: table;
-		line-height: 0;
-		content: "";
-	}
-	.row:after {
-		clear: both;
-	}
-	
-	*/
+
 	[class*="span"] {
 		float: left;
 		min-height: 1px;
 		margin-left: 20px;
 	}
-	/*
-	.container {
-		width: 724px;
-	}
-*/
+
 	.span12 {
 		width: 724px;
 	}
@@ -310,14 +255,7 @@ html, body, button {
 		padding-left: 20px;
 	}
 	
-	/*
-	.container {
-		width: auto;
-	}
-	.row {
-		margin-left: 0;
-	}
-	*/
+
 	[class*="span"],
 	.span-sm-4,
 	.span-sm-8, 

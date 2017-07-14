@@ -3,42 +3,6 @@
 /*-----------------------------------------------------------------------------------*/
 
 
-.clear {
-	clear: both;
-}
-
-.clearfix {
-	*zoom: 1;
-}
-
-.clearfix:before,
-.clearfix:after {
-	display: table;
-	line-height: 0;
-	content: "";
-}
-
-.clearfix:after {
-	clear: both;
-}
-
-.hide-text {
-	font: 0/0 a;
-	color: transparent;
-	text-shadow: none;
-	background-color: transparent;
-	border: 0;
-}
-
-.input-block-level {
-	display: block;
-	width: 100%;
-	min-height: 30px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
 article,
 aside,
 details,
@@ -646,24 +610,3 @@ table th[class*="span"] {
 	margin-left: 0;
 }
 
-
-
-.pull-right {
-	float: right;
-}
-
-.pull-left {
-	float: left;
-}
-
-.hide {
-	display: none;
-}
-
-.show {
-	display: block;
-}
-
-.invisible {
-	visibility: hidden;
-}
