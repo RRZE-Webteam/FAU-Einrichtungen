@@ -7,9 +7,7 @@
 	width: 240px;
 	max-height: 85px;
 	height: 65px;
-	
-	
-	margin: 20px 0 0 0;
+	margin: 0;
 	padding: 0;
 	
 	h1 {
@@ -72,8 +70,7 @@
 	}
     }
 }
-
-@media (max-width: $breakMD) {
+@media (min-width: $breakSM) and (max-width: $breakMD) {
     #logo {
 	h1 {
 	    padding-right: 80px;
@@ -82,7 +79,7 @@
     }
 }
 
-@media (max-width: $breakLG) {
+@media (min-width: $breakMD) and (max-width: $breakLG) {
     #logo  {
 	float: none;
 	width: 100%;

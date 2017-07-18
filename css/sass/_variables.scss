@@ -5,7 +5,11 @@
  $farbfamilie: 'zuv';
     // med, phil, nat, rw, tf, zuv 
 
+ // DEBUGMODE
+ // (Sets border around container and main regions)
     
+$debugmode: 'true';
+
 // Define breakpoints
 
 // iPhone 3G
@@ -161,3 +165,10 @@ $colorSocialBackground:		$colorMetaBackground;
 // CopyrightInfos auf Slider und Banner
 $colorCopyright:	     #ddd;
 $colorCopyrightBackground:  rgba(0,0,0,0.4);
+
+
+// Bootstrap Adjustments
+
+$fau-gutter-width:	30px;
+
+$grid-gutter-width:	$fau-gutter-width;

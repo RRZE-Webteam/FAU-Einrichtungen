@@ -27,6 +27,21 @@ html, body, button {
 	font-kerning:  none;
 }
 
+ @if $debugmode == 'true' {
+    .container {
+	border: 1px solid #ff8800;
+    }
+    .entry-content {
+       border: 1px solid red;
+    }
+    #logo {
+	border: 1px solid greenyellow;
+    }
+    
+    .meta-links, .meta-search, .meta-widget {
+	border: 1px solid #c7254e ;
+    }
+ }
 
 .sidebar-subnav {
     // @extend .span4;

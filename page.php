@@ -6,6 +6,7 @@
  * @since FAU 1.0
  */
 
+
 get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
@@ -22,7 +23,7 @@ get_header(); ?>
 			    <main>
 					<?php 
 					$headline = get_post_meta( $post->ID, 'headline', true );				
-					if ( $headline) {
+					if (!fau_empty($headline)) {
 					      echo '<h2 class="subtitle">'.$headline."</h2>\n";
 					}
 					

@@ -10,6 +10,7 @@ require_once( get_template_directory() . '/functions/defaults.php' );
 require_once( get_template_directory() . '/functions/constants.php' );
 $options = fau_initoptions();
 require_once( get_template_directory() . '/functions/helper-functions.php' );
+require_once( get_template_directory() . '/functions/template-functions.php' );
 require_once( get_template_directory() . '/functions/theme-options.php' );     
 require_once( get_template_directory() . '/functions/shortcodes.php');
 require_once( get_template_directory() . '/functions/plugin-support.php' );
@@ -127,47 +128,64 @@ function fau_setup() {
 add_action( 'after_setup_theme', 'fau_setup' );
 
 
+/*-----------------------------------------------------------------------------------*/
+/* Set extra init values
+/*-----------------------------------------------------------------------------------*/
+function fau_custom_init() {
+    /* Keine verwirrende Abfrage nach Kommentaren im Page-Editor */
+    remove_post_type_support( 'page', 'comments' );
 
-
-
-
-/**
- * Enqueues scripts and styles for front end.
- */
+    /* Disable Emojis */
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    remove_action( 'admin_print_styles', 'print_emoji_styles' );
+    remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+    remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+    remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+    add_filter( 'tiny_mce_plugins', 'fau_disable_emojis_tinymce' );
+}
+add_action( 'init', 'fau_custom_init' );
+/*-----------------------------------------------------------------------------------*/
+/* Disable Emojis also in tinyMCE plugin
+/*-----------------------------------------------------------------------------------*/
+function fau_disable_emojis_tinymce( $plugins ) {
+    return array_diff( $plugins, array( 'wpemoji' ) );
+}
+/*-----------------------------------------------------------------------------------*/
+/* Enqueues scripts and styles for front end.
+/*-----------------------------------------------------------------------------------*/
 function fau_register_scripts() {
     global $defaultoptions;
+    global $options;
     
-    wp_register_script( 'fau-scripts', $defaultoptions['src-scriptjs'], array('jquery'), $defaultoptions['js-version'], true );
-    wp_register_script( 'fau-libs-jquery-flexslider', get_fau_template_uri() . '/js/libs/jquery.flexslider.js', array('jquery'), $defaultoptions['js-version'], true );
+    wp_register_script( 'fau-scripts', $defaultoptions['src-scriptjs'], array('jquery'), $options['version'], true );
+    wp_register_script( 'fau-libs-jquery-flexslider', get_fau_template_uri() . '/js/libs/jquery.flexslider.js', array('jquery'), $options['version'], true );
 	// Flexslider für Startseite und für Galerien.     
-    wp_register_script( 'fau-libs-jquery-caroufredsel', get_fau_template_uri() . '/js/libs/jquery.caroufredsel.js', array('jquery'), $defaultoptions['js-version'], true );
-    wp_register_script( 'fau-js-caroufredsel', get_fau_template_uri() . '/js/usecaroufredsel.min.js', array('jquery','fau-libs-jquery-caroufredsel'), $defaultoptions['js-version'], true );
+    wp_register_script( 'fau-libs-jquery-caroufredsel', get_fau_template_uri() . '/js/libs/jquery.caroufredsel.js', array('jquery'), $options['version'], true );
+    wp_register_script( 'fau-js-caroufredsel', get_fau_template_uri() . '/js/usecaroufredsel.min.js', array('jquery','fau-libs-jquery-caroufredsel'), $options['version'], true );
 	// Slidende Logos 
 }
 add_action('init', 'fau_register_scripts');
 
-function fau_custom_init() {
-	/* Keine verwirrende Abfrage nach Kommentaren im Page-Editor */
-	remove_post_type_support( 'page', 'comments' );
-}
-add_action( 'init', 'fau_custom_init' );
-	
-/*  
- * Activates base scripts
- */
+
+/*-----------------------------------------------------------------------------------*/
+/* Activate base scripts
+/*-----------------------------------------------------------------------------------*/
 function fau_basescripts_styles() {
     global $defaultoptions;
     global $usejslibs;
-    wp_enqueue_style( 'fau-style', get_stylesheet_uri(), array(), $defaultoptions['js-version'] );	
+    global $options;
+    
+    wp_enqueue_style( 'fau-style', get_stylesheet_uri(), array(), $options['version'] );	
     wp_enqueue_script( 'fau-scripts');
 
 }
 add_action( 'wp_enqueue_scripts', 'fau_basescripts_styles' );
 
-
-/*
- * Scripts, die nur abhaengig von Funktionen, die auf den content wirken, im Footer aktiviert werden.
- */
+/*-----------------------------------------------------------------------------------*/
+/* Activate scripts depending on use
+/*-----------------------------------------------------------------------------------*/
 function fau_enqueuefootercripts() {
     global $options;
     global $usejslibs;
@@ -187,9 +205,9 @@ function fau_enqueuefootercripts() {
 
 add_action( 'wp_footer', 'fau_enqueuefootercripts' );
 
-/* 
- * Scripts und CSS fuer Adminbereich 
- */
+/*-----------------------------------------------------------------------------------*/
+/* Activate scripts and style for backend use
+/*-----------------------------------------------------------------------------------*/
 function fau_admin_header_style() {
     wp_register_style( 'themeadminstyle', get_fau_template_uri().'/css/admin.css' );	   
     wp_enqueue_style( 'themeadminstyle' );	
@@ -201,7 +219,9 @@ function fau_admin_header_style() {
 }
 add_action( 'admin_enqueue_scripts', 'fau_admin_header_style' );
 
-
+/*-----------------------------------------------------------------------------------*/
+/* Change default header
+/*-----------------------------------------------------------------------------------*/
 function fau_addmetatags() {
     global $options;
 
@@ -220,7 +240,6 @@ function fau_addmetatags() {
 	    $output .=  '<link rel="shortcut icon" href="'.get_fau_template_uri().'/img/favicon.ico">'."\n";	
     }
     
-    
     	// Adds RSS feed links to <head> for posts and comments.
 	// add_theme_support( 'automatic-feed-links' );
 	// Will post both: feed and comment feed; To use only main rss feed, i have to add it manually in head
@@ -228,14 +247,14 @@ function fau_addmetatags() {
     $title = sanitize_text_field(get_bloginfo( 'name' ));
     $output .= '<link rel="alternate" type="application/rss+xml" title="'.$title.' - RSS 2.0 Feed" href="'.get_bloginfo( 'rss2_url').'">'."\n";
     
-    
     echo $output;
 }
 add_action('wp_head', 'fau_addmetatags',1);
 
-/*
- * Change DNS Prefetch
- */
+
+/*-----------------------------------------------------------------------------------*/
+/* Change default DNS prefetch
+/*-----------------------------------------------------------------------------------*/
 function fau_remove_default_dns_prefetch( $hints, $relation_type ) {
     if ( 'dns-prefetch' === $relation_type ) {
         return array_diff( wp_dependencies_unique_hosts(), $hints );
@@ -266,18 +285,9 @@ function fau_dns_prefetch() {
 add_action('wp_head', 'fau_dns_prefetch', 0);
 
 
-
-
-/**
- * Creates a nicely formatted and more specific title element text for output
- * in head of document, based on current view.
- *
- * @since FAU 1.0
- *
- * @param string $title Default title text for current view.
- * @param string $sep Optional separator.
- * @return string The filtered title.
- */
+/*-----------------------------------------------------------------------------------*/
+/* Change default title
+/*-----------------------------------------------------------------------------------*/
 function fau_wp_title( $title, $sep ) {
 	global $paged, $page;
 
@@ -300,20 +310,19 @@ function fau_wp_title( $title, $sep ) {
 }
 add_filter( 'wp_title', 'fau_wp_title', 10, 2 );
 
-
-/**
- * Resets the Excerpt More
- */
-
+/*-----------------------------------------------------------------------------------*/
+/* Resets the Excerpt More
+/*-----------------------------------------------------------------------------------*/
 function fau_excerpt_more( $more ) {
     global $options;
     return $options['default_excerpt_morestring'];
 }
 add_filter('excerpt_more', 'fau_excerpt_more');
 
-/**
- * Resets the Excerpt More
- */
+
+/*-----------------------------------------------------------------------------------*/
+/* Changes default length for excerpt
+/*-----------------------------------------------------------------------------------*/
 function fau_excerpt_length( $length ) {
     global $options;
     return $options['default_excerpt_length'];
@@ -321,10 +330,9 @@ function fau_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'fau_excerpt_length' );
 
 
-
-/*
- * Update Settings by options and defaults
- */
+/*-----------------------------------------------------------------------------------*/
+/* create array with organisation logos
+/*-----------------------------------------------------------------------------------*/
 function fau_init_header_logos() {
     global $options;
     global $default_fau_orga_data;
@@ -369,8 +377,9 @@ function fau_init_header_logos() {
      return $header_logos;
 } 
 
-
-/* Header Setup */
+/*-----------------------------------------------------------------------------------*/
+/* Header setup
+/*-----------------------------------------------------------------------------------*/
 function fau_custom_header_setup() { 
     global $options;
 	$args = array(
@@ -389,84 +398,9 @@ function fau_custom_header_setup() {
 add_action( 'after_setup_theme', 'fau_custom_header_setup' );
 
 
-
-
-/*
- * Sorround embeddings with div class
- */
-function add_video_embed_note($html, $url, $attr) {
-	return '<div class="oembed">'.$html.'</div>';
-}
-add_filter('embed_oembed_html', 'add_video_embed_note', 10, 3);
-
-
-
-function fau_protected_attribute ($classes, $item) {
-	if($item->post_password != '')	{
-		$classes[] = 'protected-page';
-	}
-	return $classes;
-}
-add_filter('page_css_class', 'fau_protected_attribute', 10, 3);
-
-
-function custom_error_pages() {
-    global $wp_query;
- 
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)  {
-        $wp_query->is_404 = FALSE;
-        $wp_query->is_page = TRUE;
-        $wp_query->is_singular = TRUE;
-        $wp_query->is_single = FALSE;
-        $wp_query->is_home = FALSE;
-        $wp_query->is_archive = FALSE;
-        $wp_query->is_category = FALSE;
-        add_filter('wp_title','custom_error_title',65000,2);
-        add_filter('body_class','custom_error_class');
-        status_header(403);
-        get_template_part('403');
-        exit;
-    }
- 
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 401)  {
-        $wp_query->is_404 = FALSE;
-        $wp_query->is_page = TRUE;
-        $wp_query->is_singular = TRUE;
-        $wp_query->is_single = FALSE;
-        $wp_query->is_home = FALSE;
-        $wp_query->is_archive = FALSE;
-        $wp_query->is_category = FALSE;
-        add_filter('wp_title','custom_error_title',65000,2);
-        add_filter('body_class','custom_error_class');
-        status_header(401);
-        get_template_part('401');
-        exit;
-    }
-}
- 
-function custom_error_title($title='',$sep='') {
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)
-        return "Forbidden ".$sep." ".get_bloginfo('name');
- 
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 401)
-        return "Unauthorized ".$sep." ".get_bloginfo('name');
-}
- 
-function custom_error_class($classes) {
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 403)  {
-        $classes[]="error403";
-        return $classes;
-    }
- 
-    if(isset($_REQUEST['status']) && $_REQUEST['status'] == 401)  {
-        $classes[]="error401";
-        return $classes;
-    }
-}
- 
-add_action('wp','custom_error_pages');
-
-
+/*-----------------------------------------------------------------------------------*/
+/* Change output for gallery
+/*-----------------------------------------------------------------------------------*/
 
 add_filter('post_gallery', 'fau_post_gallery', 10, 2);
 function fau_post_gallery($output, $attr) {
@@ -1693,117 +1627,6 @@ function fau_display_search_resultitem($withsidebar = 1) {
 							
 }
 
-function fau_breadcrumb($lasttitle = '') {
-  global $options;
-  
-  $delimiter	= $options['breadcrumb_delimiter']; // = ' / ';
-  $home		= $options['breadcrumb_root']; // __( 'Startseite', 'fau' ); // text for the 'Home' link
-  $before	= $options['breadcrumb_beforehtml']; // '<span class="current">'; // tag before the current crumb
-  $after	= $options['breadcrumb_afterhtml']; // '</span>'; // tag after the current crumb
-  $pretitletextstart   = '<span>';
-  $pretitletextend     = '</span>';
-  
-  if ($options['breadcrumb_withtitle']) {
-	echo '<h3 class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo( 'title' ).'</h3>';
-	echo "\n";
-    }
-  echo '<nav aria-labelledby="bc-title" class="breadcrumbs">'; 
-  echo '<h4 class="screen-reader-text" id="bc-title">'.__('Sie befinden sich hier:','fau').'</h4>';
-  if ( !is_home() && !is_front_page() || is_paged() ) { 
-    
-    global $post;
-    
-    $homeLink = home_url('/');
-    echo '<a href="' . $homeLink . '">' . $home . '</a>' . $delimiter;
- 
-    if ( is_category() ) {
-	global $wp_query;
-	$cat_obj = $wp_query->get_queried_object();
-	$thisCat = $cat_obj->term_id;
-	$thisCat = get_category($thisCat);
-	$parentCat = get_category($thisCat->parent);
-	if ($thisCat->parent != 0) 
-	    echo(get_category_parents($parentCat, TRUE, $delimiter ));
-	echo $before . single_cat_title('', false) .  $after;
- 
-    } elseif ( is_day() ) {
-	echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>' .$delimiter;
-	echo '<a href="' . get_month_link(get_the_time('Y'),get_the_time('m')) . '">' . get_the_time('F') . '</a>' .$delimiter;
-	echo $before . get_the_time('d') . $after; 
-    } elseif ( is_month() ) {
-	echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>' . $delimiter;
-	echo $before . get_the_time('F') . $after;
-    } elseif ( is_year() ) {
-	echo $before . get_the_time('Y') . $after; 
-    } elseif ( is_single() && !is_attachment() ) {
-	 
-	if ( get_post_type() != 'post' ) {
-	    $post_type = get_post_type_object(get_post_type());
-	    $slug = $post_type->rewrite;
-	    echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>' .$delimiter;
-	    echo $before . get_the_title() . $after; 
-	} else {
-	    
-	$cat = get_the_category(); 
-	if ($options['breadcrumb_uselastcat']) {
-	    $last = array_pop($cat);
-	} else {
-	    $last = $cat[0];
-	}
-	$catid = $last->cat_ID;
-
-	echo get_category_parents($catid, TRUE,  $delimiter );
-	echo $before . get_the_title() . $after;
-
-	} 
-    } elseif ( !is_single() && !is_page() && !is_search() && get_post_type() != 'post' && !is_404() ) {
-	$post_type = get_post_type_object(get_post_type());
-	echo $before . $post_type->labels->singular_name . $after;
-    } elseif ( is_attachment() ) {
-	$parent = get_post($post->post_parent);
-	echo '<a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a>'. $delimiter;
-	echo $before . get_the_title() . $after;
-    } elseif ( is_page() && !$post->post_parent ) {
-	echo $before . get_the_title() . $after;
- 
-    } elseif ( is_page() && $post->post_parent ) {
-	$parent_id  = $post->post_parent;
-	$breadcrumbs = array();
-	while ($parent_id) {
-	    $page = get_page($parent_id);
-	    $breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
-	    $parent_id  = $page->post_parent;
-	}
-	$breadcrumbs = array_reverse($breadcrumbs);
-	foreach ($breadcrumbs as $crumb) echo $crumb . $delimiter;
-	echo $before . get_the_title() . $after; 
-    } elseif ( is_search() ) {
-	if (isset($lasttitle) && (strlen(trim($lasttitle))>1)) {
-	    echo $before . $lasttitle. $after; 
-	} else {
-	    echo $before .$pretitletextstart. __( 'Suche nach', 'fau' ).$pretitletextend.' "' . get_search_query() . '"' . $after; 
-	}
-    } elseif ( is_tag() ) {
-	echo $before .$pretitletextstart. __( 'Schlagwort', 'fau' ).$pretitletextend. ' "' . single_tag_title('', false) . '"' . $after; 
-    } elseif ( is_author() ) {
-	global $author;
-	$userdata = get_userdata($author);
-	echo $before .$pretitletextstart. __( 'Beiträge von', 'fau' ).$pretitletextend.' '.$userdata->display_name . $after;
-    } elseif ( is_404() ) {
-	echo $before . '404' . $after;
-    }
-
-  } elseif (is_front_page())  {
-	echo $before . $home . $after;
-  } elseif (is_home()) {
-	echo $before . get_the_title(get_option('page_for_posts')) . $after;
-  }
-   echo '</nav>'; 
-   
-  
-   
-}
-
 
 function fau_wp_link_query_args( $query ) {
      // check to make sure we are not in the admin
@@ -2047,26 +1870,6 @@ function categories_postcount_filter ($variable) {
 
 
 
-/*
- *  Filter to remove the Tinymce Emoji Plugin. 
- */
-function fau_disable_emojis_tinymce( $plugins ) {
-    return array_diff( $plugins, array( 'wpemoji' ) );
-}
-/*
- *  Disable Emoji 
- */
-function fau_disable_emojis() {
-    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-    remove_action( 'wp_print_styles', 'print_emoji_styles' );
-    remove_action( 'admin_print_styles', 'print_emoji_styles' );
-    remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-    remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
-    remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-    add_filter( 'tiny_mce_plugins', 'fau_disable_emojis_tinymce' );
-}
-add_action( 'init', 'fau_disable_emojis' );
 
 
 

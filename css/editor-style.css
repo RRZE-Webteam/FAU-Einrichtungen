@@ -2403,9 +2403,9 @@ div.alignright { float: right; clear: both; margin-left: 20px; margin-bottom: 20
 div.aligncenter { margin-bottom: 10px; }
 
 @media (max-width: 480px) { .alignleft, .alignright, div.alignleft, div.alignright { float: none; padding: 0; display: block; margin: 5px auto; max-width: 480px; } }
-.unsichtbar, .screen-reader-text { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.unsichtbar, .screen-reader-text, #meta h3 { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 
-.unsichtbar:focus, .screen-reader-text:focus { position: relative; left: 0; width: auto; height: auto; overflow: auto; }
+.unsichtbar:focus, .screen-reader-text:focus, #meta h3:focus { position: relative; left: 0; width: auto; height: auto; overflow: auto; }
 
 .hide-desktop { display: none; }
 

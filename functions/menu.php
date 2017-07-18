@@ -8,12 +8,14 @@
  */
 
 
+/*-----------------------------------------------------------------------------------*/
+/* returns child items by parent
+/*-----------------------------------------------------------------------------------*/
 function add_has_children_to_nav_items( $items ) {
     $parents = wp_list_pluck( $items, 'menu_item_parent');
     $out     = array ();
 
-    foreach ( $items as $item )
-    {
+    foreach ( $items as $item ) {
         in_array( $item->ID, $parents ) && $item->classes[] = 'has-sub';
         $out[] = $item;
     }
@@ -21,7 +23,9 @@ function add_has_children_to_nav_items( $items ) {
 }
 add_filter( 'wp_nav_menu_objects', 'add_has_children_to_nav_items' );
 
-
+/*-----------------------------------------------------------------------------------*/
+/* get menu title
+/*-----------------------------------------------------------------------------------*/
 function fau_get_menu_name($location){
 	if(!has_nav_menu($location)) return false;
 	$menus = get_nav_menu_locations();
@@ -30,7 +34,9 @@ function fau_get_menu_name($location){
 }
 
 
-
+/*-----------------------------------------------------------------------------------*/
+/* returns top parent id
+/*-----------------------------------------------------------------------------------*/
 function get_top_parent_page_id($id, $offset = FALSE) {
 
 	$parents = get_post_ancestors( $id );
@@ -44,6 +50,9 @@ function get_top_parent_page_id($id, $offset = FALSE) {
 
 }
 
+/*-----------------------------------------------------------------------------------*/
+/* Walker for main menu
+/*-----------------------------------------------------------------------------------*/
 class Walker_Main_Menu extends Walker_Nav_Menu {
 	private $currentID;
 
@@ -192,9 +201,9 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 	}
 }
 
-/* 
- * Darstellung eines Submenus im Inhaltsbereich
- */
+/*-----------------------------------------------------------------------------------*/
+/* Create submenu icon/grid in content
+/*-----------------------------------------------------------------------------------*/
 function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $spalte = 0, $nothumbs = 0, $nodefthumbs = 0) {
     global $options;
     
@@ -228,9 +237,9 @@ function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $spalte = 0, $
     return;
 }
 
-
-
-
+/*-----------------------------------------------------------------------------------*/
+/* Walker for subnav
+/*-----------------------------------------------------------------------------------*/
 class Walker_Content_Menu extends Walker_Nav_Menu {
 	private $level = 1;
 	private $count = array();
@@ -411,6 +420,119 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 		} elseif(($this->level == 2) && ($this->count[$this->level] == ($this->maxsecondlevel+1)) && ($this->showsub == 1)) {
 			$output .= '<li class="more"><a href="'.$this->element->url.'">'. __('Mehr', 'fau').' ...</a></li>';
 		}	
-	}  
+	}     
+}
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Create breadcrumb
+/*-----------------------------------------------------------------------------------*/
+function fau_breadcrumb($lasttitle = '') {
+  global $options;
+  
+  $delimiter	= $options['breadcrumb_delimiter']; // = ' / ';
+  $home		= $options['breadcrumb_root']; // __( 'Startseite', 'fau' ); // text for the 'Home' link
+  $before	= $options['breadcrumb_beforehtml']; // '<span class="current">'; // tag before the current crumb
+  $after	= $options['breadcrumb_afterhtml']; // '</span>'; // tag after the current crumb
+  $pretitletextstart   = '<span>';
+  $pretitletextend     = '</span>';
+  
+  if ($options['breadcrumb_withtitle']) {
+	echo '<h3 class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo( 'title' ).'</h3>';
+	echo "\n";
+    }
+  echo '<nav aria-labelledby="bc-title" class="breadcrumbs">'; 
+  echo '<h4 class="screen-reader-text" id="bc-title">'.__('Sie befinden sich hier:','fau').'</h4>';
+  if ( !is_home() && !is_front_page() || is_paged() ) { 
     
+    global $post;
+    
+    $homeLink = home_url('/');
+    echo '<a href="' . $homeLink . '">' . $home . '</a>' . $delimiter;
+ 
+    if ( is_category() ) {
+	global $wp_query;
+	$cat_obj = $wp_query->get_queried_object();
+	$thisCat = $cat_obj->term_id;
+	$thisCat = get_category($thisCat);
+	$parentCat = get_category($thisCat->parent);
+	if ($thisCat->parent != 0) 
+	    echo(get_category_parents($parentCat, TRUE, $delimiter ));
+	echo $before . single_cat_title('', false) .  $after;
+ 
+    } elseif ( is_day() ) {
+	echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>' .$delimiter;
+	echo '<a href="' . get_month_link(get_the_time('Y'),get_the_time('m')) . '">' . get_the_time('F') . '</a>' .$delimiter;
+	echo $before . get_the_time('d') . $after; 
+    } elseif ( is_month() ) {
+	echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>' . $delimiter;
+	echo $before . get_the_time('F') . $after;
+    } elseif ( is_year() ) {
+	echo $before . get_the_time('Y') . $after; 
+    } elseif ( is_single() && !is_attachment() ) {
+	 
+	if ( get_post_type() != 'post' ) {
+	    $post_type = get_post_type_object(get_post_type());
+	    $slug = $post_type->rewrite;
+	    echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>' .$delimiter;
+	    echo $before . get_the_title() . $after; 
+	} else {
+	    
+	$cat = get_the_category(); 
+	if ($options['breadcrumb_uselastcat']) {
+	    $last = array_pop($cat);
+	} else {
+	    $last = $cat[0];
+	}
+	$catid = $last->cat_ID;
+
+	echo get_category_parents($catid, TRUE,  $delimiter );
+	echo $before . get_the_title() . $after;
+
+	} 
+    } elseif ( !is_single() && !is_page() && !is_search() && get_post_type() != 'post' && !is_404() ) {
+	$post_type = get_post_type_object(get_post_type());
+	echo $before . $post_type->labels->singular_name . $after;
+    } elseif ( is_attachment() ) {
+	$parent = get_post($post->post_parent);
+	echo '<a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a>'. $delimiter;
+	echo $before . get_the_title() . $after;
+    } elseif ( is_page() && !$post->post_parent ) {
+	echo $before . get_the_title() . $after;
+ 
+    } elseif ( is_page() && $post->post_parent ) {
+	$parent_id  = $post->post_parent;
+	$breadcrumbs = array();
+	while ($parent_id) {
+	    $page = get_page($parent_id);
+	    $breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
+	    $parent_id  = $page->post_parent;
+	}
+	$breadcrumbs = array_reverse($breadcrumbs);
+	foreach ($breadcrumbs as $crumb) echo $crumb . $delimiter;
+	echo $before . get_the_title() . $after; 
+    } elseif ( is_search() ) {
+	if (isset($lasttitle) && (strlen(trim($lasttitle))>1)) {
+	    echo $before . $lasttitle. $after; 
+	} else {
+	    echo $before .$pretitletextstart. __( 'Suche nach', 'fau' ).$pretitletextend.' "' . get_search_query() . '"' . $after; 
+	}
+    } elseif ( is_tag() ) {
+	echo $before .$pretitletextstart. __( 'Schlagwort', 'fau' ).$pretitletextend. ' "' . single_tag_title('', false) . '"' . $after; 
+    } elseif ( is_author() ) {
+	global $author;
+	$userdata = get_userdata($author);
+	echo $before .$pretitletextstart. __( 'Beiträge von', 'fau' ).$pretitletextend.' '.$userdata->display_name . $after;
+    } elseif ( is_404() ) {
+	echo $before . '404' . $after;
+    }
+
+  } elseif (is_front_page())  {
+	echo $before . $home . $after;
+  } elseif (is_home()) {
+	echo $before . get_the_title(get_option('page_for_posts')) . $after;
+  }
+   echo '</nav>'; 
+
 }

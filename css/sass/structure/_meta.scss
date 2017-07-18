@@ -7,7 +7,78 @@
 	@include placeholder(#fff);
 	background: $colorMetaBackground;
 	
-	.searchform {
+	
+	
+	
+
+	
+	
+	@media (min-width: $breakLG) {	    
+	    position: fixed;
+	    top: 0;
+	    height: 42px;
+	    left: 0;
+	    right: 0;
+	    z-index: 200;
+	     
+	    .admin-bar & {
+		top: 32px;
+	    }
+	}
+	@media (max-width: $breakLG) {
+	    position: fixed;
+	    top: 0;
+	    height: 42px;
+	    left: 0;
+	    right: 0;
+	    z-index: 200;
+		
+	    .searchform input[type="text"] {
+		width: 100px;
+	    }
+	    
+	    .admin-bar & {
+		top: 32px;
+	    }
+	    
+	}
+}
+
+
+.meta-links {
+  
+    @extend .col-sm-8;
+    @extend .col-md-9;
+    
+    
+    .active-meta-widget & {
+	 @extend .col-sm-7;
+    }
+} 
+.meta-search {
+   
+    @extend .col-sm-4;
+    @extend .col-md-3;
+    
+    .active-meta-widget & {
+	 @extend .col-sm-3;
+    }
+    float: right;
+} 
+.meta-widget {
+    @extend .col-sm-2;
+    float: right;
+    
+}
+
+
+.meta-links .ext-link  {
+	    padding-right: 0 !important;
+	    background-image: none !important;
+}
+
+.meta-search {
+    .searchform {
 		border: none;
 		margin: 0;
 		padding: 5px 0;
@@ -60,44 +131,9 @@
 			@extend .unsichtbar;
 		}
 	}
-	
-	.pull-left .ext-link  {
-	    padding-right: 0 !important;
-	    background-image: none !important;
-	}
-
-	
-	
-	@media (min-width: $breakLG) {	    
-	    position: fixed;
-	    top: 0;
-	    height: 42px;
-	    left: 0;
-	    right: 0;
-	    z-index: 200;
-	     
-	    .admin-bar & {
-		top: 32px;
-	    }
-	}
-	@media (max-width: $breakLG) {
-	    position: fixed;
-	    top: 0;
-	    height: 42px;
-	    left: 0;
-	    right: 0;
-	    z-index: 200;
-		
-	    .searchform input[type="text"] {
-		width: 100px;
-	    }
-	    
-	    .admin-bar & {
-		top: 32px;
-	    }
-	    
-	}
 }
+
+
 @media (max-width: $breakMD) {
      #meta {
 	position: relative;

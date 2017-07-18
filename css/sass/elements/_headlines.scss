@@ -110,6 +110,11 @@ h3 {
 	.sidebar-inline+& {
 	    padding-top: 0;
 	}
+	
+	#meta & {
+	    @extend .screen-reader-text;
+	}
+	
 }
 
 h4 {

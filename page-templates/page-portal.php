@@ -26,10 +26,10 @@ get_header(); ?>
 		     <main>
 		    <?php 
 			$headline = get_post_meta( $post->ID, 'headline', true );				
-			if ( $headline) {
+			if (!fau_empty($headline)) {
 			     echo '<h2 class="subtitle">'.$headline."</h2>\n";  
 			} else {
-			    echo '<div class="page-nosubtitle">&nbsp;</div>';
+		//	    echo '<div class="page-nosubtitle">&nbsp;</div>';
 			}
 			the_content(); 
 			?>

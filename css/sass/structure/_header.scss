@@ -40,7 +40,7 @@
 }
 
 
-@media (max-width: $breakLG) {
+@media (min-width: $breakMD) and (max-width: $breakLG) {
     #header {
 	position: fixed;
 	top: 42px;

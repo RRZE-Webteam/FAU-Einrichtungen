@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
 	//Add JS-enabled class to body
 	$('body').addClass('js-enabled');
 
-	var breakMD = 767;
+	var breakMD = 768;
 	var breakSM = 480;
 	var breakLG = 979;
 	var wpAdminBarHeight = 46;
@@ -147,7 +147,6 @@ jQuery(document).ready(function($) {
 	// Move sidebar on mobile devices to the bottom
 	if(isMobile()) {
 		var sidebar = $('.sidebar-inline').html();
-		$('.sidebar-inline').remove();
 		$('#content .container').append(sidebar);
 	}
 	
@@ -333,41 +332,35 @@ jQuery(document).ready(function($) {
 	}
 
 	var updateResponsivePositioning = function() {
-		var width = $(window).width();
 		var body = $('body');
 		var heroNavigation = $('.hero-navigation');
 		var header = $('#header');
 		var metaNav = $('#meta-nav');
 		var subNav = $('#subnav').parent();
 		var logos = $('.logos-menu-logo');
-		if (width > breakMD && !body.hasClass('responsive-large')) {
+		
+		if (!isMobile() && !body.hasClass('responsive-large')) {
 			body.addClass('responsive-large');
 			heroNavigation.appendTo('#hero');
 			header.insertAfter('#meta');
-			metaNav.appendTo('#meta .container .pull-left');
+			metaNav.appendTo('#meta .meta-links');
 			subNav.prependTo('#content .row:first');
 			logos.appendTo('.logos-menu');
-		} else if (width <= breakMD && body.hasClass('responsive-large')) {
+		} else if (isMobile() && body.hasClass('responsive-large')) {
 			body.removeClass('responsive-large');
 			heroNavigation.prependTo('#footer');
 			header.prependTo('body');
 			metaNav.appendTo('#off-canvas');
-		//	subNav.appendTo('#content .row');
-		subNav.appendTo(navContainer);
+			subNav.appendTo(navContainer);
 			logos.appendTo('.responsive-logos-container');
 			
 		}
 	};
 
-	updateResponsivePositioning();
-
+	// updateResponsivePositioning();
 	$(window).on('resize', function() {
 		updateResponsivePositioning();
 	});
-
-
-
-
 }
 );
 

@@ -20,8 +20,7 @@ global $options;
 
 <body <?php body_class(); ?>>
 	
-	<div id="wrap">
-		
+	<div id="wrap">		
 		<nav id="skiplinks" aria-label="Skiplinks">
 			<ul class="jumplinks">
 			    <li><a href="#content" data-target="#content" data-firstchild="0" class="jumplink-content"><?php _e('Zum Inhalt springen','fau'); ?></a></li>
@@ -33,19 +32,21 @@ global $options;
 		</nav>    
 		<section id="meta">
 			<div class="container">
-				<div class="pull-left">
-					<h3 class="screen-reader-text"><?php _e('Links zu weiteren Portalen','fau'); ?></h3>
+			    <div class="row">
+				<div class="meta-links">
+					<h3><?php _e('Links zu weiteren Portalen','fau'); ?></h3>
 					<?php 
 					echo fau_get_toplinks(); 
 					?>
 				</div>
-				<div class="pull-right">
-					<?php if ( is_active_sidebar( 'language-switcher' ) ) : ?>
-						<?php dynamic_sidebar( 'language-switcher' ); ?>
-					<?php endif; ?>
-				    <h3 class="screen-reader-text"><?php _e('Seiteninterne Suche','fau'); ?></h3>
+				<div class="meta-search">
+				    <h3><?php _e('Seiteninterne Suche','fau'); ?></h3>
 				    <?php get_template_part('template-parts/search', 'header'); ?>
 				</div>
+				<?php if ( is_active_sidebar( 'language-switcher' ) ) : ?>
+				    <?php dynamic_sidebar( 'language-switcher' ); ?>						   
+				<?php endif; ?>			
+			    </div>
 			</div>
 		</section>
 		<?php if (isset($options['display_nojs_notice']) && $options['display_nojs_notice']==1) { ?> 
