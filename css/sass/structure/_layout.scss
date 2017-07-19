@@ -9,10 +9,15 @@ body, html {
 
 body {
 	margin: 0;
-	font-size: 13px;
-	line-height: 18px;
+	// font-size: 13px;
+	// line-height: 18px;
 	color: $colorText;
 	// background-color: $colorPrimaryHero;
+	
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.35;
+	
 }
 
 /* Wrap content in white */
@@ -37,20 +42,18 @@ html, body, button {
     #logo {
 	border: 1px solid greenyellow;
     }
-    
-    .meta-links, .meta-search, .meta-widget {
-	border: 1px solid #c7254e ;
+    .meta-links, .meta-tools {
+	border: 1px solid red;
     }
+
  }
 
 .sidebar-subnav {
-    // @extend .span4;
     @extend .col-xs-12;
     @extend .col-sm-4;
     
 }
 .entry-content {
-    // @extend .span8;
     @extend .col-xs-12;
     @extend .col-sm-8;
 

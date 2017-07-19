@@ -28,11 +28,7 @@ audio:not([controls]) {
 	display: none;
 }
 
-html {
-	font-size: 100%;
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
-}
+
 
 a:focus {
 	outline: thin dotted #333;
@@ -121,9 +117,6 @@ textarea {
 }
 
 body {
-	margin: 0;
-	font-size: 13px;
-	line-height: 18px;
 	color: #333333;
 	background-color: #ffffff;
 }

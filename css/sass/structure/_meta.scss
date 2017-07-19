@@ -6,75 +6,44 @@
 #meta {
 	@include placeholder(#fff);
 	background: $colorMetaBackground;
-	
-	
-	
-	
+	height: 42px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 200;
 
-	
-	
-	@media (min-width: $breakLG) {	    
-	    position: fixed;
-	    top: 0;
-	    height: 42px;
-	    left: 0;
-	    right: 0;
-	    z-index: 200;
-	     
-	    .admin-bar & {
-		top: 32px;
-	    }
+	.admin-bar & {
+	    top: 32px;
 	}
-	@media (max-width: $breakLG) {
-	    position: fixed;
-	    top: 0;
-	    height: 42px;
-	    left: 0;
-	    right: 0;
-	    z-index: 200;
-		
-	    .searchform input[type="text"] {
-		width: 100px;
-	    }
-	    
-	    .admin-bar & {
-		top: 32px;
-	    }
-	    
+	input,
+	li {
+	    @include px2rem($font-size-meta);
 	}
 }
 
 
 .meta-links {
-  
     @extend .col-sm-8;
-    @extend .col-md-9;
-    
-    
-    .active-meta-widget & {
-	 @extend .col-sm-7;
-    }
+
 } 
-.meta-search {
-   
-    @extend .col-sm-4;
-    @extend .col-md-3;
-    
-    .active-meta-widget & {
-	 @extend .col-sm-3;
-    }
-    float: right;
-} 
-.meta-widget {
-    @extend .col-sm-2;
-    float: right;
-    
+.meta-tools {
+    @extend .col-sm-4;    
 }
 
+.meta-tools {
+    text-align: right;
+} 
 
-.meta-links .ext-link  {
+
+
+
+.meta-links {
+    padding: 1px 0;
+    .ext-link  {
 	    padding-right: 0 !important;
 	    background-image: none !important;
+    }   
 }
 
 .meta-search {
@@ -82,21 +51,16 @@
 		border: none;
 		margin: 0;
 		padding: 5px 0;
-		float: right;
-		
 		
 		input[type="text"] {
 			@include border-radius(20px);
 			padding: 5px 35px 5px 35px;
-			width: 150px;
-			font-size: 13px;
-			line-height: 15px;
-			float: left;
+			width: 160px;
 			background: $colorMeta url('../img/icon-search.png') no-repeat 10px center;
 			border: none;
 			outline: none;
 			color: #fff;
-			height: 20px;
+			height: 30px;
 			display: inline-block;
 			margin-right: -25px;
 			margin-bottom: 0px;
@@ -109,7 +73,6 @@
 			@include border-radius(20px);
 			position: relative;
 			z-index: 100;
-			margin-right: 20px;
 			height: 30px;
 			padding: 0 12px;
 			font-weight: bold;
@@ -117,8 +80,6 @@
 			outline: none;
 			color: $colorMeta;
 			background: #fff;
-			font-size: 13px;
-			line-height: 15px;
 			display: inline-block;
 			
 			&:hover, &:focus {

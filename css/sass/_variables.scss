@@ -33,6 +33,7 @@ $break-2200:	2200px;
 // Define fonts
 $fontStack: 'roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
 $fontStackSerifs: Georgia, serif;
+$font-family-base:    $fontStack;
 
 // Define text colors
 $colorText:		#444;
@@ -165,6 +166,16 @@ $colorSocialBackground:		$colorMetaBackground;
 // CopyrightInfos auf Slider und Banner
 $colorCopyright:	     #ddd;
 $colorCopyrightBackground:  rgba(0,0,0,0.4);
+
+
+
+// Font sizes
+$font-size-base:	    16;
+$font-size-meta:	    13;
+$font-size-breadcrumb:	    13;
+
+
+
 
 
 // Bootstrap Adjustments

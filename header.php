@@ -39,13 +39,15 @@ global $options;
 					echo fau_get_toplinks(); 
 					?>
 				</div>
-				<div class="meta-search">
-				    <h3><?php _e('Seiteninterne Suche','fau'); ?></h3>
-				    <?php get_template_part('template-parts/search', 'header'); ?>
-				</div>
+				<div class="meta-tools">
+				    <div class="meta-search">
+					<h3><?php _e('Seiteninterne Suche','fau'); ?></h3>
+					<?php get_template_part('template-parts/search', 'header'); ?>
+				    </div>
 				<?php if ( is_active_sidebar( 'language-switcher' ) ) : ?>
 				    <?php dynamic_sidebar( 'language-switcher' ); ?>						   
-				<?php endif; ?>			
+				<?php endif; ?>
+				</div>
 			    </div>
 			</div>
 		</section>

@@ -14,7 +14,6 @@
 #meta-nav {
 	@include no-list;
 	padding: 0;
-	max-width: 650px;
 	overflow: hidden;
 	
 	li {
@@ -33,14 +32,14 @@
 			@include inline-block;
 			padding: 10px 0;
 			color: $colorMeta;
-			font-size: 13px;
 			text-decoration: none;
 		}
 		
 		a:hover {
 		    text-decoration: underline;
 		}
-		&:hover a, &:focus a {
+		&:hover a, 
+		&:focus a {
 			text-decoration: underline;
 		} 
 	}

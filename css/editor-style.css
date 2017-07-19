@@ -10,8 +10,6 @@ audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
 
 audio:not([controls]) { display: none; }
 
-html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-
 a:focus { outline: thin dotted #333; outline: 5px auto -webkit-focus-ring-color; outline-offset: -2px; }
 
 a:hover, a:active { outline: 0; }
@@ -38,7 +36,7 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
 
 textarea { overflow: auto; vertical-align: top; }
 
-body { margin: 0; font-size: 13px; line-height: 18px; color: #333333; background-color: #ffffff; }
+body { color: #333333; background-color: #ffffff; }
 
 a { color: #0088cc; text-decoration: none; }
 
@@ -275,7 +273,7 @@ td, th { padding: 0; }
 
 html { font-size: 10px; -webkit-tap-highlight-color: transparent; }
 
-body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.42857; color: #333333; background-color: #fff; }
+body { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 16; line-height: 1.42857; color: #333333; background-color: #fff; }
 
 input, button, select, textarea { font-family: inherit; font-size: inherit; line-height: inherit; }
 
@@ -295,7 +293,7 @@ img { vertical-align: middle; }
 
 .img-circle { border-radius: 50%; }
 
-hr { margin-top: 20px; margin-bottom: 20px; border: 0; border-top: 1px solid #eeeeee; }
+hr { margin-top: 22; margin-bottom: 22; border: 0; border-top: 1px solid #eeeeee; }
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
@@ -306,30 +304,30 @@ hr { margin-top: 20px; margin-bottom: 20px; border: 0; border-top: 1px solid #ee
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: inherit; font-weight: 500; line-height: 1.1; color: inherit; }
 h1 small, h1 .small, h2 small, h2 .small, h3 small, h3 .small, h4 small, h4 .small, h5 small, h5 .small, h6 small, h6 .small, .h1 small, .h1 .small, .h2 small, .h2 .small, .h3 small, .h3 .small, .h4 small, .h4 .small, .h5 small, .h5 .small, .h6 small, .h6 .small { font-weight: normal; line-height: 1; color: #777777; }
 
-h1, .h1, h2, .h2, h3, .h3 { margin-top: 20px; margin-bottom: 10px; }
+h1, .h1, h2, .h2, h3, .h3 { margin-top: 22; margin-bottom: 11; }
 h1 small, h1 .small, .h1 small, .h1 .small, h2 small, h2 .small, .h2 small, .h2 .small, h3 small, h3 .small, .h3 small, .h3 .small { font-size: 65%; }
 
-h4, .h4, h5, .h5, h6, .h6 { margin-top: 10px; margin-bottom: 10px; }
+h4, .h4, h5, .h5, h6, .h6 { margin-top: 11; margin-bottom: 11; }
 h4 small, h4 .small, .h4 small, .h4 .small, h5 small, h5 .small, .h5 small, .h5 .small, h6 small, h6 .small, .h6 small, .h6 .small { font-size: 75%; }
 
-h1, .h1 { font-size: 36px; }
+h1, .h1 { font-size: 41; }
 
-h2, .h2 { font-size: 30px; }
+h2, .h2 { font-size: 34; }
 
-h3, .h3 { font-size: 24px; }
+h3, .h3 { font-size: 28; }
 
-h4, .h4 { font-size: 18px; }
+h4, .h4 { font-size: 20; }
 
-h5, .h5 { font-size: 14px; }
+h5, .h5 { font-size: 16; }
 
-h6, .h6 { font-size: 12px; }
+h6, .h6 { font-size: 14; }
 
-p { margin: 0 0 10px; }
+p { margin: 0 0 11; }
 
-.lead { margin-bottom: 20px; font-size: 16px; font-weight: 300; line-height: 1.4; }
-@media (min-width: 768px) { .lead { font-size: 21px; } }
+.lead { margin-bottom: 22; font-size: 18; font-weight: 300; line-height: 1.4; }
+@media (min-width: 768px) { .lead { font-size: 24; } }
 
-small, .small { font-size: 85%; }
+small, .small { font-size: 87%; }
 
 mark, .mark { background-color: #fcf8e3; padding: .2em; }
 
@@ -393,9 +391,9 @@ a.bg-warning:hover, a.bg-warning:focus { background-color: #f7ecb5; }
 
 a.bg-danger:hover, a.bg-danger:focus { background-color: #e4b9b9; }
 
-.page-header { padding-bottom: 9px; margin: 40px 0 20px; border-bottom: 1px solid #eeeeee; }
+.page-header { padding-bottom: 10; margin: 44 0 22; border-bottom: 1px solid #eeeeee; }
 
-ul, ol { margin-top: 0; margin-bottom: 10px; }
+ul, ol { margin-top: 0; margin-bottom: 11; }
 ul ul, ul ol, ol ul, ol ol { margin-bottom: 0; }
 
 .list-unstyled { padding-left: 0; list-style: none; }
@@ -403,7 +401,7 @@ ul ul, ul ol, ol ul, ol ol { margin-bottom: 0; }
 .list-inline { padding-left: 0; list-style: none; margin-left: -5px; }
 .list-inline > li { display: inline-block; padding-left: 5px; padding-right: 5px; }
 
-dl { margin-top: 0; margin-bottom: 20px; }
+dl { margin-top: 0; margin-bottom: 22; }
 
 dt, dd { line-height: 1.42857; }
 
@@ -420,7 +418,7 @@ abbr[title], abbr[data-original-title] { cursor: help; border-bottom: 1px dotted
 
 .initialism { font-size: 90%; }
 
-blockquote { padding: 10px 20px; margin: 0 0 20px; font-size: 17.5px; border-left: 5px solid #eeeeee; }
+blockquote { padding: 11 22; margin: 0 0 22; font-size: 20; border-left: 5px solid #eeeeee; }
 blockquote p:last-child, blockquote ul:last-child, blockquote ol:last-child { margin-bottom: 0; }
 blockquote footer, blockquote small, blockquote .small { display: block; font-size: 80%; line-height: 1.42857; color: #777777; }
 blockquote footer:before, blockquote small:before, blockquote .small:before { content: '\2014 \00A0'; }
@@ -429,7 +427,7 @@ blockquote footer:before, blockquote small:before, blockquote .small:before { co
 .blockquote-reverse footer:before, .blockquote-reverse small:before, .blockquote-reverse .small:before, blockquote.pull-right footer:before, blockquote.pull-right small:before, blockquote.pull-right .small:before { content: ''; }
 .blockquote-reverse footer:after, .blockquote-reverse small:after, .blockquote-reverse .small:after, blockquote.pull-right footer:after, blockquote.pull-right small:after, blockquote.pull-right .small:after { content: '\00A0 \2014'; }
 
-address { margin-bottom: 20px; font-style: normal; line-height: 1.42857; }
+address { margin-bottom: 22; font-style: normal; line-height: 1.42857; }
 
 code, kbd, pre, samp { font-family: Menlo, Monaco, Consolas, "Courier New", monospace; }
 
@@ -438,7 +436,7 @@ code { padding: 2px 4px; font-size: 90%; color: #c7254e; background-color: #f9f2
 kbd { padding: 2px 4px; font-size: 90%; color: #fff; background-color: #333; border-radius: 3px; box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25); }
 kbd kbd { padding: 0; font-size: 100%; font-weight: bold; box-shadow: none; }
 
-pre { display: block; padding: 9.5px; margin: 0 0 10px; font-size: 13px; line-height: 1.42857; word-break: break-all; word-wrap: break-word; color: #333333; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px; }
+pre { display: block; padding: 10.5; margin: 0 0 11; font-size: 15; line-height: 1.42857; word-break: break-all; word-wrap: break-word; color: #333333; background-color: #f5f5f5; border: 1px solid #ccc; border-radius: 4px; }
 pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap; background-color: transparent; border-radius: 0; }
 
 .pre-scrollable { max-height: 340px; overflow-y: scroll; }
@@ -720,7 +718,7 @@ pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap
   .col-lg-offset-10 { margin-left: 83.33333%; }
   .col-lg-offset-11 { margin-left: 91.66667%; }
   .col-lg-offset-12 { margin-left: 100%; } }
-.alert { padding: 15px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 4px; }
+.alert { padding: 15px; margin-bottom: 22; border: 1px solid transparent; border-radius: 4px; }
 .alert h4 { margin-top: 0; color: inherit; }
 .alert .alert-link { font-weight: bold; }
 .alert > p, .alert > ul { margin-bottom: 0; }
@@ -751,6 +749,11 @@ Mixins File for Wordpress Theme FAU
 /*-----------------------------------------------------------------------------------*/
 /* Fonts
 /*-----------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
+/* Define font base
+/*-----------------------------------------------------------------------------------*/
+html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-size: 16px; line-height: 22.4px; }
+
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
