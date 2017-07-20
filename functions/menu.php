@@ -167,6 +167,10 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 		    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 		    
+		    $iscurrent =0;
+		    if (in_array("current_page_item",$item->classes)) {
+			$iscurrent = 1;
+		    }
 		    if ($level>1) {
 			 $class_names = str_replace("has-sub","",$class_names);   
 		    }
@@ -177,7 +181,9 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		    $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
 		    $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
 		    $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
-
+		    if ($iscurrent==1) {
+			$atts['aria-current'] = "page";
+		    }
 		    $atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
 
 		    if($level == 1) $this->currentID = $item->object_id;		
@@ -189,6 +195,7 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 				    $attributes .= ' ' . $attr . '="' . $value . '"';
 			    }
 		    }
+		    
 
 		    $item_output = $args->before;
 		    $item_output .= '<a'. $attributes .'>';
