@@ -4,7 +4,7 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'optiontable-version'		=> 12,
+    'optiontable-version'		=> 13,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -162,7 +162,7 @@ $defaultoptions = array(
    
     'breadcrumb_root'			=> __('Startseite', 'fau'),
     'breadcrumb_delimiter'		=> ' <span>/</span>',
-    'breadcrumb_beforehtml'		=> '<span class="active">', // '<span class="current">'; // tag before the current crumb
+    'breadcrumb_beforehtml'		=> '<span class="active" aria-current="location">', // '<span class="current">'; // tag before the current crumb
     'breadcrumb_afterhtml'		=> '</span>',
     'breadcrumb_uselastcat'		=> true,
     'breadcrumb_withtitle'		=> false,
