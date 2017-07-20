@@ -305,11 +305,13 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 			if($this->level == 1) {
 			    $classes[] = 'span3';
 			}
-		//	$classes[] = 'level'.$this->level;
-		//	$classes[] = 'count'.$this->count[$this->level];
+
 			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-
+			$iscurrent =0;
+			if (in_array("current_page_item",$item->classes)) {
+			    $iscurrent = 1;
+			}
 			$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
 			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
@@ -323,7 +325,9 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 			$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
 			$atts['target'] = ! empty( $item->target )     ? $item->target     : '';
 			$atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
-			
+			if ($iscurrent==1) {
+			    $atts['aria-current'] = "page";
+			}
 		
 			$post = get_post($item->object_id);
 			if ($post && $post->post_type != 'imagelink') {
