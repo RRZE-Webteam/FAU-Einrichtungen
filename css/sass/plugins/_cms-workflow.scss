@@ -6,73 +6,71 @@
 
 /* Language switcher */
 .mlp_language_box {
-	float: right;
-	height: 30px;
-	margin-top: 5px;
-	margin-right: 15px;
-	background: #fff;
-	@include border-radius(20px);
-	background: #fff;
-	z-index: 200;
-	
+    padding: 5px;
+    margin: 0;   
+    @include inline-block();
+    z-index: 200;
+    overflow: hidden;
+   height: 30px;
+    
+    &:before {
+	@extend .fa;
+	@extend .fa-language;
+    }
+    
+    &:hover, &:focus {	
+	height: auto;
 	ul {
-		@include no-list;
-		z-index: 201;
+	    height: auto;
+	    background: white;
+	}
+    }
+    
+    ul {
+	@include no-list;
+	z-index: 201;
+	display: inline-table;
+	margin: 0 5px;
+	
+	
+	li {
+	    @include no-list;
 
-		
-		li {
-			@include no-list;
-			background: none;
-			display: none;
+	    a {
+		text-align: left;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-weight: bold;
+		color: $colorMeta;
+	    }
+			
+	    a:hover, a:focus {
+		background-color: $colorLightest;
+	    }
+	
+			
+	    a.ext-link {
+		background-image: none;
+	    }
+	    
+	    &.current  {
+	        display: none;
+	    }
+	    &:hover, 
+	    &:focus, 
+	    &.focus {
+		@include box-shadow(0 0 5px rgba(0,0,0,0.2));
 
-			a {
-				display: block;
-				text-align: left;
-				text-decoration: none;
-				font-size: 13px;
-				height: 20px;
-				padding: 5px 30px 5px 10px;
-				text-transform: uppercase;
-				font-weight: bold;
-				color: $colorMeta;
-				
-				img {
-					margin-top: -4px;
-				}
-			}
-			
-			a:hover, a:focus {
-				background-color: $colorLightest;
-			}
-			
-			a.ext-link {
-				background-image: none;
-			}
-		}
+		a {
+		    background-color: #fff;
+		 }
+
+	    }
+	}
 		
-		li.current {
-			display: block;
-			
-			a {
-				background-image: url('../img/icon-globe.png');
-				background-repeat: no-repeat;
-				background-position: right;
-				margin-right: 5px;
-				color: $colorMeta;
-			}
-		}
 		
-		&:hover, &:focus, &.focus {
-			@include box-shadow(0 0 5px rgba(0,0,0,0.2));
-			
-			li {
-				display: block;
-				
-				a {
-					background-color: #fff;
-				}
-			}
-		}
+		
+		
 	}
 	h2 {
 	    @include hideout;

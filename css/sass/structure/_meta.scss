@@ -40,6 +40,9 @@
 
 .meta-links {
     padding: 1px 0;
+    height: 40px;
+    overflow: hidden;
+    
     .ext-link  {
 	    padding-right: 0 !important;
 	    background-image: none !important;
@@ -47,6 +50,8 @@
 }
 
 .meta-search {
+    display: inline-block;
+    
     .searchform {
 		border: none;
 		margin: 0;
@@ -93,7 +98,14 @@
 		}
 	}
 }
-
+.meta-widget {
+    display: inline-block;
+    float: right;
+    @include border-radius(20px);
+    background: #fff;
+    margin: 5px 0 5px 15px;
+    height: 30px;
+}
 
 @media (max-width: $breakMD) {
      #meta {
