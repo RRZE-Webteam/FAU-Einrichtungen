@@ -48,18 +48,19 @@ if(has_nav_menu('error-4')) {
 if ($count>0) { 
     
     echo "<hr>\n";
-    echo "<h2>".__('Folgende Inhalte könnten Ihnen auch helfen:','fau')."</h2>\n";
-
+   
+echo "<p>".__('Folgende Inhalte könnten Ihnen auch helfen:','fau')."</p>\n";
     echo '<div class="row subpages-menu">'."\n";
     
+    
     if ($count ==1) {
-	$usespan = 'span6';
+	$usespan = 'col-sm-6';
     } elseif ($count ==2) {
-	$usespan = 'span4';
+	$usespan = 'col-sm-6';
     } elseif ($count ==3) {
-	$usespan = 'span4';
+	$usespan = 'col-sm-4';
     } else {
-	$usespan = 'span3';
+	$usespan = 'col-sm-3';
     }
     if ($spalte1) {
 	    echo '<div class="'.$usespan.'">'."\n";

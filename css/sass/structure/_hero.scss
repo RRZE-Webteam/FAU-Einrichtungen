@@ -88,46 +88,60 @@
 		opacity: 0.3;
 	}
 	
-	.searchform {
-		padding: 35px 0 0 0;
-		border: none;
-		@include placeholder($colorSearchPlaceholder);
-		label {
-			color: #fff;
-		}
-		
-		input[type="text"] {
-			@include border-radius(20px);
-			padding: 10px 10px 10px 40px;
-			width: 300px;
-			font-size: 15px;
-			line-height: 15px;
-			float: left;
-			margin-right: 10px;
-			background: $colorSearchInputBackground url('../img/icon-search.png') no-repeat 15px center;
-			border: none;
-			outline: none;
-			color: $colorSearchInput;
-			
-			&:focus {
-				background-color: $colorSearchInputBackgroundFocus;
-			}
-		}
-		
-		input[type="submit"] {
-			@include border-radius(20px);
-			border: none;
-			background: $colorSearchInputBackground;
-			color: #444;
-			font-size: 15px;
-			line-height: 15px;
-			padding: 0 15px;
-			display: inline-block;
-			box-sizing: padding-box;
-			height: 40px;
-			color: $colorSearchInput;
-		}
 
+	.search-input {
+		@include px2rem($font-size-herosearch);
+		
+		form {
+		    border: none;
+		}
+		.search-text {
+		     margin: 0 20px;
+		     @include placeholder(#fff);
+		     
+		    label {
+			@extend .screen-reader-text;
+		    }
+		    input {
+			@include border-radius(20px);
+			padding: 0 15px;
+		    }
+		    input[type="text"] {
+			@include px2rem($font-size-herosearch);
+			border: 1px solid $colorMeta;
+			width: 50%;
+			padding: 5px 10px 5px 30px;
+			height: inherit;
+			margin: 0;
+			background: $colorMeta; // $colorSearchInputBackground;
+			color: #fff; // $colorSearchInput;
+			
+			&:focus, &:hover {
+				background-color: $colorMetaHover; // $colorSearchInputBackgroundFocus;
+				border: 1px solid $colorMetaHover;
+			}
+		    }
+
+		    input[type="submit"] {
+			@include px2rem($font-size-herosearch);
+			    background: $colorSearchInputBackgroundFocus;
+			    color: $colorSearchInput;
+			    padding: 5px 10px;
+			    height: inherit;
+			    margin-left: -30px;
+			    &:focus, &:hover {
+				    background-color: $colorSearchInputBackground;
+			    }
+		    }
+		    .searchicon {
+			@extend .fa;
+			@extend .fa-search;
+			position: relative;
+			margin-right: -30px;
+			color: #fff;
+		    }
+		}
+		
 		.search-radio-label {
 			float: left;
 			margin-right: 20px;
@@ -411,22 +425,7 @@
 	    top: 0;
 	    position: relative;
 	}
-	
-	
-	.searchform {
-	    margin: 0 auto;
-	    padding: 10px;
-	    
-	    input[type="text"] {
-		width: 50%;
-		margin: 0 10px;
-	    }
-	    .filter {
-		margin-top: 5px;
-	    }
-	}
-	
-    
+
     }
 
     #hero-slides {

@@ -457,7 +457,7 @@ pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap
 .row:before, .row:after { content: " "; display: table; }
 .row:after { clear: both; }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .sidebar-subnav, .meta-tools, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .entry-content, .meta-links, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .sidebar-subnav, .entry-content, .col-sm-12, .col-md-12, .col-lg-12 { position: relative; min-height: 1px; padding-left: 15px; padding-right: 15px; }
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, #hero .search-title, .error-notice, .error-image, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .sidebar-subnav, .meta-tools, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .error-search, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .entry-content, .meta-links, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, #hero .search-input, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .sidebar-subnav, .entry-content, .col-sm-12, .col-md-12, .col-lg-12 { position: relative; min-height: 1px; padding-left: 15px; padding-right: 15px; }
 
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .sidebar-subnav, .entry-content { float: left; }
 
@@ -563,16 +563,16 @@ pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap
 
 .col-xs-offset-12 { margin-left: 100%; }
 
-@media (min-width: 768px) { .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .sidebar-subnav, .meta-tools, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .entry-content, .meta-links, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 { float: left; }
+@media (min-width: 768px) { .col-sm-1, .col-sm-2, .col-sm-3, #hero .search-title, .error-notice, .error-image, .col-sm-4, .sidebar-subnav, .meta-tools, .col-sm-5, .error-search, .col-sm-6, .col-sm-7, .col-sm-8, .entry-content, .meta-links, .col-sm-9, #hero .search-input, .col-sm-10, .col-sm-11, .col-sm-12 { float: left; }
   .col-sm-1 { width: 8.33333%; }
   .col-sm-2 { width: 16.66667%; }
-  .col-sm-3 { width: 25%; }
+  .col-sm-3, #hero .search-title, .error-notice, .error-image { width: 25%; }
   .col-sm-4, .sidebar-subnav, .meta-tools { width: 33.33333%; }
-  .col-sm-5 { width: 41.66667%; }
+  .col-sm-5, .error-search { width: 41.66667%; }
   .col-sm-6 { width: 50%; }
   .col-sm-7 { width: 58.33333%; }
   .col-sm-8, .entry-content, .meta-links { width: 66.66667%; }
-  .col-sm-9 { width: 75%; }
+  .col-sm-9, #hero .search-input { width: 75%; }
   .col-sm-10 { width: 83.33333%; }
   .col-sm-11 { width: 91.66667%; }
   .col-sm-12 { width: 100%; }
@@ -603,7 +603,7 @@ pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap
   .col-sm-push-11 { left: 91.66667%; }
   .col-sm-push-12 { left: 100%; }
   .col-sm-offset-0 { margin-left: 0%; }
-  .col-sm-offset-1 { margin-left: 8.33333%; }
+  .col-sm-offset-1, .error-notice { margin-left: 8.33333%; }
   .col-sm-offset-2 { margin-left: 16.66667%; }
   .col-sm-offset-3 { margin-left: 25%; }
   .col-sm-offset-4 { margin-left: 33.33333%; }
@@ -719,6 +719,86 @@ pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap
   .col-lg-offset-10 { margin-left: 83.33333%; }
   .col-lg-offset-11 { margin-left: 91.66667%; }
   .col-lg-offset-12 { margin-left: 100%; } }
+.btn { display: inline-block; margin-bottom: 0; font-weight: normal; text-align: center; vertical-align: middle; touch-action: manipulation; cursor: pointer; background-image: none; border: 1px solid transparent; white-space: nowrap; padding: 6px 12px; font-size: 16; line-height: 1.42857; border-radius: 4px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+.btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus { outline: 5px auto -webkit-focus-ring-color; outline-offset: -2px; }
+.btn:hover, .btn:focus, .btn.focus { color: #333; text-decoration: none; }
+.btn:active, .btn.active { outline: 0; background-image: none; -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn { cursor: not-allowed; opacity: 0.65; filter: alpha(opacity=65); -webkit-box-shadow: none; box-shadow: none; }
+
+a.btn.disabled, fieldset[disabled] a.btn { pointer-events: none; }
+
+.btn-default { color: #333; background-color: #fff; border-color: #ccc; }
+.btn-default:focus, .btn-default.focus { color: #333; background-color: #e6e6e6; border-color: #8c8c8c; }
+.btn-default:hover { color: #333; background-color: #e6e6e6; border-color: #adadad; }
+.btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle { color: #333; background-color: #e6e6e6; border-color: #adadad; }
+.btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus, .open > .btn-default.dropdown-toggle:hover, .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus { color: #333; background-color: #d4d4d4; border-color: #8c8c8c; }
+.btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle { background-image: none; }
+.btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled.focus, .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled].focus, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default.focus { background-color: #fff; border-color: #ccc; }
+.btn-default .badge { color: #fff; background-color: #333; }
+
+.btn-primary { color: #fff; background-color: #337ab7; border-color: #2e6da4; }
+.btn-primary:focus, .btn-primary.focus { color: #fff; background-color: #286090; border-color: #122b40; }
+.btn-primary:hover { color: #fff; background-color: #286090; border-color: #204d74; }
+.btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle { color: #fff; background-color: #286090; border-color: #204d74; }
+.btn-primary:active:hover, .btn-primary:active:focus, .btn-primary:active.focus, .btn-primary.active:hover, .btn-primary.active:focus, .btn-primary.active.focus, .open > .btn-primary.dropdown-toggle:hover, .open > .btn-primary.dropdown-toggle:focus, .open > .btn-primary.dropdown-toggle.focus { color: #fff; background-color: #204d74; border-color: #122b40; }
+.btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle { background-image: none; }
+.btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary.focus { background-color: #337ab7; border-color: #2e6da4; }
+.btn-primary .badge { color: #337ab7; background-color: #fff; }
+
+.btn-success { color: #fff; background-color: #5cb85c; border-color: #4cae4c; }
+.btn-success:focus, .btn-success.focus { color: #fff; background-color: #449d44; border-color: #255625; }
+.btn-success:hover { color: #fff; background-color: #449d44; border-color: #398439; }
+.btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle { color: #fff; background-color: #449d44; border-color: #398439; }
+.btn-success:active:hover, .btn-success:active:focus, .btn-success:active.focus, .btn-success.active:hover, .btn-success.active:focus, .btn-success.active.focus, .open > .btn-success.dropdown-toggle:hover, .open > .btn-success.dropdown-toggle:focus, .open > .btn-success.dropdown-toggle.focus { color: #fff; background-color: #398439; border-color: #255625; }
+.btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle { background-image: none; }
+.btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled.focus, .btn-success[disabled]:hover, .btn-success[disabled]:focus, .btn-success[disabled].focus, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success.focus { background-color: #5cb85c; border-color: #4cae4c; }
+.btn-success .badge { color: #5cb85c; background-color: #fff; }
+
+.btn-info { color: #fff; background-color: #5bc0de; border-color: #46b8da; }
+.btn-info:focus, .btn-info.focus { color: #fff; background-color: #31b0d5; border-color: #1b6d85; }
+.btn-info:hover { color: #fff; background-color: #31b0d5; border-color: #269abc; }
+.btn-info:active, .btn-info.active, .open > .btn-info.dropdown-toggle { color: #fff; background-color: #31b0d5; border-color: #269abc; }
+.btn-info:active:hover, .btn-info:active:focus, .btn-info:active.focus, .btn-info.active:hover, .btn-info.active:focus, .btn-info.active.focus, .open > .btn-info.dropdown-toggle:hover, .open > .btn-info.dropdown-toggle:focus, .open > .btn-info.dropdown-toggle.focus { color: #fff; background-color: #269abc; border-color: #1b6d85; }
+.btn-info:active, .btn-info.active, .open > .btn-info.dropdown-toggle { background-image: none; }
+.btn-info.disabled:hover, .btn-info.disabled:focus, .btn-info.disabled.focus, .btn-info[disabled]:hover, .btn-info[disabled]:focus, .btn-info[disabled].focus, fieldset[disabled] .btn-info:hover, fieldset[disabled] .btn-info:focus, fieldset[disabled] .btn-info.focus { background-color: #5bc0de; border-color: #46b8da; }
+.btn-info .badge { color: #5bc0de; background-color: #fff; }
+
+.btn-warning { color: #fff; background-color: #f0ad4e; border-color: #eea236; }
+.btn-warning:focus, .btn-warning.focus { color: #fff; background-color: #ec971f; border-color: #985f0d; }
+.btn-warning:hover { color: #fff; background-color: #ec971f; border-color: #d58512; }
+.btn-warning:active, .btn-warning.active, .open > .btn-warning.dropdown-toggle { color: #fff; background-color: #ec971f; border-color: #d58512; }
+.btn-warning:active:hover, .btn-warning:active:focus, .btn-warning:active.focus, .btn-warning.active:hover, .btn-warning.active:focus, .btn-warning.active.focus, .open > .btn-warning.dropdown-toggle:hover, .open > .btn-warning.dropdown-toggle:focus, .open > .btn-warning.dropdown-toggle.focus { color: #fff; background-color: #d58512; border-color: #985f0d; }
+.btn-warning:active, .btn-warning.active, .open > .btn-warning.dropdown-toggle { background-image: none; }
+.btn-warning.disabled:hover, .btn-warning.disabled:focus, .btn-warning.disabled.focus, .btn-warning[disabled]:hover, .btn-warning[disabled]:focus, .btn-warning[disabled].focus, fieldset[disabled] .btn-warning:hover, fieldset[disabled] .btn-warning:focus, fieldset[disabled] .btn-warning.focus { background-color: #f0ad4e; border-color: #eea236; }
+.btn-warning .badge { color: #f0ad4e; background-color: #fff; }
+
+.btn-danger { color: #fff; background-color: #d9534f; border-color: #d43f3a; }
+.btn-danger:focus, .btn-danger.focus { color: #fff; background-color: #c9302c; border-color: #761c19; }
+.btn-danger:hover { color: #fff; background-color: #c9302c; border-color: #ac2925; }
+.btn-danger:active, .btn-danger.active, .open > .btn-danger.dropdown-toggle { color: #fff; background-color: #c9302c; border-color: #ac2925; }
+.btn-danger:active:hover, .btn-danger:active:focus, .btn-danger:active.focus, .btn-danger.active:hover, .btn-danger.active:focus, .btn-danger.active.focus, .open > .btn-danger.dropdown-toggle:hover, .open > .btn-danger.dropdown-toggle:focus, .open > .btn-danger.dropdown-toggle.focus { color: #fff; background-color: #ac2925; border-color: #761c19; }
+.btn-danger:active, .btn-danger.active, .open > .btn-danger.dropdown-toggle { background-image: none; }
+.btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled.focus, .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled].focus, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger.focus { background-color: #d9534f; border-color: #d43f3a; }
+.btn-danger .badge { color: #d9534f; background-color: #fff; }
+
+.btn-link { color: #337ab7; font-weight: normal; border-radius: 0; }
+.btn-link, .btn-link:active, .btn-link.active, .btn-link[disabled], fieldset[disabled] .btn-link { background-color: transparent; -webkit-box-shadow: none; box-shadow: none; }
+.btn-link, .btn-link:hover, .btn-link:focus, .btn-link:active { border-color: transparent; }
+.btn-link:hover, .btn-link:focus { color: #23527c; text-decoration: underline; background-color: transparent; }
+.btn-link[disabled]:hover, .btn-link[disabled]:focus, fieldset[disabled] .btn-link:hover, fieldset[disabled] .btn-link:focus { color: #777777; text-decoration: none; }
+
+.btn-lg { padding: 10px 16px; font-size: 20; line-height: 1.33333; border-radius: 6px; }
+
+.btn-sm { padding: 5px 10px; font-size: 14; line-height: 1.5; border-radius: 3px; }
+
+.btn-xs { padding: 1px 5px; font-size: 14; line-height: 1.5; border-radius: 3px; }
+
+.btn-block { display: block; width: 100%; }
+
+.btn-block + .btn-block { margin-top: 5px; }
+
+input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="button"].btn-block { width: 100%; }
+
 .alert, .wpcf7-mail-sent-ng, .wpcf7-spam-blocked, .wpcf7-not-valid-tip-no-ajax { padding: 15px; margin-bottom: 22; border: 1px solid transparent; border-radius: 4px; }
 .alert h4, .wpcf7-mail-sent-ng h4, .wpcf7-spam-blocked h4, .wpcf7-not-valid-tip-no-ajax h4 { margin-top: 0; color: inherit; }
 .alert .alert-link, .wpcf7-mail-sent-ng .alert-link, .wpcf7-spam-blocked .alert-link, .wpcf7-not-valid-tip-no-ajax .alert-link { font-weight: bold; }
@@ -761,7 +841,7 @@ html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-size: 16
  */
 /* FONT PATH -------------------------- */
 @font-face { font-family: 'FontAwesome'; src: url("../fonts/fontawesome/fontawesome-webfont.eot?v=4.7.0"); src: url("../fonts/fontawesome/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("../fonts/fontawesome/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../fonts/fontawesome/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../fonts/fontawesome/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("../fonts/fontawesome/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg"); font-weight: normal; font-style: normal; }
-.fa, .meta-search .searchform .searchicon, #nav li ul li a:before, #nav li.has-sub > a:before, #meta-nav li.has-sub > a:before, #meta-nav li.fauhome:before, .subpages-menu li a.image.ext-link:after, .subpages-menu h3 a.ext-link:after, .subpages-menu ul li:before, .top-link, #hero .hero-jumplink-content, #hero .hero-navigation li:before, .organigram .toggle-icon, .read-more-arrow, .news-details .post-meta-categories:before, .news-details .post-meta-date:before, .news-details .post-meta-tags:before, .news-item .news-meta .news-meta-categories:before, .news-item .news-meta .news-meta-date:before, .news-more-links .news-rss:before, .accordion .accordion-group .accordion-heading .accordion-toggle:before, .widget li:before, #social ul.social li.social-gplus a:before, #social ul.social li.social-diaspora a:before, #social ul.social li.social-pinterest a:before, #social ul.social li.social-instagram a:before, #social ul.social li.social-facebook a:before, #social ul.social li.social-twitter a:before, #social ul.social li.social-xing a:before, #social ul.social li.social-github a:before, #social ul.social li.social-skype a:before, #social ul.social li.social-tumblr a:before, #social ul.social li.social-delicious a:before, #social ul.social li.social-flickr a:before, #social ul.social li.social-feed a:before, #social ul.social li.social-vimeo a:before, #social ul.social li.social-youtube a:before, #social ul.social li.social-itunes a:before, #social ul.social li.social-wikipedia a:before, .notice-hinweis:before, .wpcf7-mail-sent-ok:before, .hinweis:before, .notice-attention:before, .wpcf7-validation-errors:before, .wpcf7-not-valid-tip:before, .attention:before, .notice-baustelle:before, .baustelle:before, .notice-question:before, .question:before, .notice-minus:before, .minus:before, .notice-plus:before, .plus:before, .notice-tipp:before, .notice-faubox:before, .notice-video:before, .notice-audio:before, .notice-download:before, .content-person .image-placeholder:before, ul.person-info li.person-info-phone:before, ul.person-info li.person-info-mobile:before, ul.person-info li.person-info-fax:before, ul.person-info li.person-info-email:before, ul.person-info li.person-info-www:before, .mlp_language_box:before { display: inline-block; font: normal normal normal 14px/1 FontAwesome; font-size: inherit; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.fa, .meta-search .searchform .searchicon, #nav li ul li a:before, #nav li.has-sub > a:before, #meta-nav li.has-sub > a:before, #meta-nav li.fauhome:before, .subpages-menu li a.image.ext-link:after, .subpages-menu h3 a.ext-link:after, .subpages-menu ul li:before, .top-link, #hero .search-input .search-text .searchicon, #hero .hero-jumplink-content, #hero .hero-navigation li:before, .organigram .toggle-icon, .read-more-arrow, .news-details .post-meta-categories:before, .news-details .post-meta-date:before, .news-details .post-meta-tags:before, .news-item .news-meta .news-meta-categories:before, .news-item .news-meta .news-meta-date:before, .news-more-links .news-rss:before, .search-contenttry .search-text .searchicon, .search-result .search-meta .post-meta-category:before, .search-result .search-meta .post-meta-date:before, .search-result .search-meta .post-meta-event:before, .search-result .search-meta .post-meta-kontakt:before, .search-result .search-meta .post-meta-defaulttype:before, .search-result .search-meta .post-meta-news:before, .search-result .search-meta .post-meta-attachment:before, .search-result .search-meta .download:before, .accordion .accordion-group .accordion-heading .accordion-toggle:before, .widget li:before, #social ul.social li.social-gplus a:before, #social ul.social li.social-diaspora a:before, #social ul.social li.social-pinterest a:before, #social ul.social li.social-instagram a:before, #social ul.social li.social-facebook a:before, #social ul.social li.social-twitter a:before, #social ul.social li.social-xing a:before, #social ul.social li.social-github a:before, #social ul.social li.social-skype a:before, #social ul.social li.social-tumblr a:before, #social ul.social li.social-delicious a:before, #social ul.social li.social-flickr a:before, #social ul.social li.social-feed a:before, #social ul.social li.social-vimeo a:before, #social ul.social li.social-youtube a:before, #social ul.social li.social-itunes a:before, #social ul.social li.social-wikipedia a:before, .notice-hinweis:before, .wpcf7-mail-sent-ok:before, .hinweis:before, .notice-attention:before, .wpcf7-validation-errors:before, .wpcf7-not-valid-tip:before, .attention:before, .notice-baustelle:before, .baustelle:before, .notice-question:before, .question:before, .notice-minus:before, .minus:before, .notice-plus:before, .plus:before, .notice-tipp:before, .notice-faubox:before, .notice-video:before, .notice-audio:before, .notice-download:before, .content-person .image-placeholder:before, ul.person-info li.person-info-phone:before, ul.person-info li.person-info-mobile:before, ul.person-info li.person-info-fax:before, ul.person-info li.person-info-email:before, ul.person-info li.person-info-www:before, .mlp_language_box:before { display: inline-block; font: normal normal normal 14px/1 FontAwesome; font-size: inherit; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 /* makes the font 33% larger relative to the icon container */
 .fa-lg, .read-more-arrow, .news-more-links .news-rss:before, #social ul.social li.social-pinterest a:before { font-size: 1.33333em; line-height: 0.75em; vertical-align: -15%; }
@@ -790,18 +870,18 @@ html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-size: 16
 
 .fa-pull-right { float: right; }
 
-.fa.fa-pull-left, .meta-search .searchform .fa-pull-left.searchicon, #nav li ul li a.fa-pull-left:before, #nav li.has-sub > a.fa-pull-left:before, #meta-nav li.has-sub > a.fa-pull-left:before, #meta-nav li.fa-pull-left.fauhome:before, .subpages-menu li a.fa-pull-left.image.ext-link:after, .subpages-menu h3 a.fa-pull-left.ext-link:after, .subpages-menu ul li.fa-pull-left:before, .fa-pull-left.top-link, #hero .fa-pull-left.hero-jumplink-content, #hero .hero-navigation li.fa-pull-left:before, .organigram .fa-pull-left.toggle-icon, .fa-pull-left.read-more-arrow, .news-details .fa-pull-left.post-meta-categories:before, .news-details .fa-pull-left.post-meta-date:before, .news-details .fa-pull-left.post-meta-tags:before, .news-item .news-meta .fa-pull-left.news-meta-categories:before, .news-item .news-meta .fa-pull-left.news-meta-date:before, .news-more-links .fa-pull-left.news-rss:before, .accordion .accordion-group .accordion-heading .fa-pull-left.accordion-toggle:before, .widget li.fa-pull-left:before, #social ul.social li.social-gplus a.fa-pull-left:before, #social ul.social li.social-diaspora a.fa-pull-left:before, #social ul.social li.social-pinterest a.fa-pull-left:before, #social ul.social li.social-instagram a.fa-pull-left:before, #social ul.social li.social-facebook a.fa-pull-left:before, #social ul.social li.social-twitter a.fa-pull-left:before, #social ul.social li.social-xing a.fa-pull-left:before, #social ul.social li.social-github a.fa-pull-left:before, #social ul.social li.social-skype a.fa-pull-left:before, #social ul.social li.social-tumblr a.fa-pull-left:before, #social ul.social li.social-delicious a.fa-pull-left:before, #social ul.social li.social-flickr a.fa-pull-left:before, #social ul.social li.social-feed a.fa-pull-left:before, #social ul.social li.social-vimeo a.fa-pull-left:before, #social ul.social li.social-youtube a.fa-pull-left:before, #social ul.social li.social-itunes a.fa-pull-left:before, #social ul.social li.social-wikipedia a.fa-pull-left:before, .fa-pull-left.notice-hinweis:before, .fa-pull-left.wpcf7-mail-sent-ok:before, .fa-pull-left.hinweis:before, .fa-pull-left.notice-attention:before, .fa-pull-left.wpcf7-validation-errors:before, .fa-pull-left.wpcf7-not-valid-tip:before, .fa-pull-left.attention:before, .fa-pull-left.notice-baustelle:before, .fa-pull-left.baustelle:before, .fa-pull-left.notice-question:before, .fa-pull-left.question:before, .fa-pull-left.notice-minus:before, .fa-pull-left.minus:before, .fa-pull-left.notice-plus:before, .fa-pull-left.plus:before, .fa-pull-left.notice-tipp:before, .fa-pull-left.notice-faubox:before, .fa-pull-left.notice-video:before, .fa-pull-left.notice-audio:before, .fa-pull-left.notice-download:before, .content-person .fa-pull-left.image-placeholder:before, ul.person-info li.fa-pull-left.person-info-phone:before, ul.person-info li.fa-pull-left.person-info-mobile:before, ul.person-info li.fa-pull-left.person-info-fax:before, ul.person-info li.fa-pull-left.person-info-email:before, ul.person-info li.fa-pull-left.person-info-www:before, .fa-pull-left.mlp_language_box:before { margin-right: .3em; }
+.fa.fa-pull-left, .meta-search .searchform .fa-pull-left.searchicon, #nav li ul li a.fa-pull-left:before, #nav li.has-sub > a.fa-pull-left:before, #meta-nav li.has-sub > a.fa-pull-left:before, #meta-nav li.fa-pull-left.fauhome:before, .subpages-menu li a.fa-pull-left.image.ext-link:after, .subpages-menu h3 a.fa-pull-left.ext-link:after, .subpages-menu ul li.fa-pull-left:before, .fa-pull-left.top-link, #hero .search-input .search-text .fa-pull-left.searchicon, #hero .fa-pull-left.hero-jumplink-content, #hero .hero-navigation li.fa-pull-left:before, .organigram .fa-pull-left.toggle-icon, .fa-pull-left.read-more-arrow, .news-details .fa-pull-left.post-meta-categories:before, .news-details .fa-pull-left.post-meta-date:before, .news-details .fa-pull-left.post-meta-tags:before, .news-item .news-meta .fa-pull-left.news-meta-categories:before, .news-item .news-meta .fa-pull-left.news-meta-date:before, .news-more-links .fa-pull-left.news-rss:before, .search-contenttry .search-text .fa-pull-left.searchicon, .search-result .search-meta .fa-pull-left.post-meta-category:before, .search-result .search-meta .fa-pull-left.post-meta-date:before, .search-result .search-meta .fa-pull-left.post-meta-event:before, .search-result .search-meta .fa-pull-left.post-meta-kontakt:before, .search-result .search-meta .fa-pull-left.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-left.post-meta-news:before, .search-result .search-meta .fa-pull-left.post-meta-attachment:before, .search-result .search-meta .fa-pull-left.download:before, .accordion .accordion-group .accordion-heading .fa-pull-left.accordion-toggle:before, .widget li.fa-pull-left:before, #social ul.social li.social-gplus a.fa-pull-left:before, #social ul.social li.social-diaspora a.fa-pull-left:before, #social ul.social li.social-pinterest a.fa-pull-left:before, #social ul.social li.social-instagram a.fa-pull-left:before, #social ul.social li.social-facebook a.fa-pull-left:before, #social ul.social li.social-twitter a.fa-pull-left:before, #social ul.social li.social-xing a.fa-pull-left:before, #social ul.social li.social-github a.fa-pull-left:before, #social ul.social li.social-skype a.fa-pull-left:before, #social ul.social li.social-tumblr a.fa-pull-left:before, #social ul.social li.social-delicious a.fa-pull-left:before, #social ul.social li.social-flickr a.fa-pull-left:before, #social ul.social li.social-feed a.fa-pull-left:before, #social ul.social li.social-vimeo a.fa-pull-left:before, #social ul.social li.social-youtube a.fa-pull-left:before, #social ul.social li.social-itunes a.fa-pull-left:before, #social ul.social li.social-wikipedia a.fa-pull-left:before, .fa-pull-left.notice-hinweis:before, .fa-pull-left.wpcf7-mail-sent-ok:before, .fa-pull-left.hinweis:before, .fa-pull-left.notice-attention:before, .fa-pull-left.wpcf7-validation-errors:before, .fa-pull-left.wpcf7-not-valid-tip:before, .fa-pull-left.attention:before, .fa-pull-left.notice-baustelle:before, .fa-pull-left.baustelle:before, .fa-pull-left.notice-question:before, .fa-pull-left.question:before, .fa-pull-left.notice-minus:before, .fa-pull-left.minus:before, .fa-pull-left.notice-plus:before, .fa-pull-left.plus:before, .fa-pull-left.notice-tipp:before, .fa-pull-left.notice-faubox:before, .fa-pull-left.notice-video:before, .fa-pull-left.notice-audio:before, .fa-pull-left.notice-download:before, .content-person .fa-pull-left.image-placeholder:before, ul.person-info li.fa-pull-left.person-info-phone:before, ul.person-info li.fa-pull-left.person-info-mobile:before, ul.person-info li.fa-pull-left.person-info-fax:before, ul.person-info li.fa-pull-left.person-info-email:before, ul.person-info li.fa-pull-left.person-info-www:before, .fa-pull-left.mlp_language_box:before { margin-right: .3em; }
 
-.fa.fa-pull-right, .meta-search .searchform .fa-pull-right.searchicon, #nav li ul li a.fa-pull-right:before, #nav li.has-sub > a.fa-pull-right:before, #meta-nav li.has-sub > a.fa-pull-right:before, #meta-nav li.fa-pull-right.fauhome:before, .subpages-menu li a.fa-pull-right.image.ext-link:after, .subpages-menu h3 a.fa-pull-right.ext-link:after, .subpages-menu ul li.fa-pull-right:before, .fa-pull-right.top-link, #hero .fa-pull-right.hero-jumplink-content, #hero .hero-navigation li.fa-pull-right:before, .organigram .fa-pull-right.toggle-icon, .fa-pull-right.read-more-arrow, .news-details .fa-pull-right.post-meta-categories:before, .news-details .fa-pull-right.post-meta-date:before, .news-details .fa-pull-right.post-meta-tags:before, .news-item .news-meta .fa-pull-right.news-meta-categories:before, .news-item .news-meta .fa-pull-right.news-meta-date:before, .news-more-links .fa-pull-right.news-rss:before, .accordion .accordion-group .accordion-heading .fa-pull-right.accordion-toggle:before, .widget li.fa-pull-right:before, #social ul.social li.social-gplus a.fa-pull-right:before, #social ul.social li.social-diaspora a.fa-pull-right:before, #social ul.social li.social-pinterest a.fa-pull-right:before, #social ul.social li.social-instagram a.fa-pull-right:before, #social ul.social li.social-facebook a.fa-pull-right:before, #social ul.social li.social-twitter a.fa-pull-right:before, #social ul.social li.social-xing a.fa-pull-right:before, #social ul.social li.social-github a.fa-pull-right:before, #social ul.social li.social-skype a.fa-pull-right:before, #social ul.social li.social-tumblr a.fa-pull-right:before, #social ul.social li.social-delicious a.fa-pull-right:before, #social ul.social li.social-flickr a.fa-pull-right:before, #social ul.social li.social-feed a.fa-pull-right:before, #social ul.social li.social-vimeo a.fa-pull-right:before, #social ul.social li.social-youtube a.fa-pull-right:before, #social ul.social li.social-itunes a.fa-pull-right:before, #social ul.social li.social-wikipedia a.fa-pull-right:before, .fa-pull-right.notice-hinweis:before, .fa-pull-right.wpcf7-mail-sent-ok:before, .fa-pull-right.hinweis:before, .fa-pull-right.notice-attention:before, .fa-pull-right.wpcf7-validation-errors:before, .fa-pull-right.wpcf7-not-valid-tip:before, .fa-pull-right.attention:before, .fa-pull-right.notice-baustelle:before, .fa-pull-right.baustelle:before, .fa-pull-right.notice-question:before, .fa-pull-right.question:before, .fa-pull-right.notice-minus:before, .fa-pull-right.minus:before, .fa-pull-right.notice-plus:before, .fa-pull-right.plus:before, .fa-pull-right.notice-tipp:before, .fa-pull-right.notice-faubox:before, .fa-pull-right.notice-video:before, .fa-pull-right.notice-audio:before, .fa-pull-right.notice-download:before, .content-person .fa-pull-right.image-placeholder:before, ul.person-info li.fa-pull-right.person-info-phone:before, ul.person-info li.fa-pull-right.person-info-mobile:before, ul.person-info li.fa-pull-right.person-info-fax:before, ul.person-info li.fa-pull-right.person-info-email:before, ul.person-info li.fa-pull-right.person-info-www:before, .fa-pull-right.mlp_language_box:before { margin-left: .3em; }
+.fa.fa-pull-right, .meta-search .searchform .fa-pull-right.searchicon, #nav li ul li a.fa-pull-right:before, #nav li.has-sub > a.fa-pull-right:before, #meta-nav li.has-sub > a.fa-pull-right:before, #meta-nav li.fa-pull-right.fauhome:before, .subpages-menu li a.fa-pull-right.image.ext-link:after, .subpages-menu h3 a.fa-pull-right.ext-link:after, .subpages-menu ul li.fa-pull-right:before, .fa-pull-right.top-link, #hero .search-input .search-text .fa-pull-right.searchicon, #hero .fa-pull-right.hero-jumplink-content, #hero .hero-navigation li.fa-pull-right:before, .organigram .fa-pull-right.toggle-icon, .fa-pull-right.read-more-arrow, .news-details .fa-pull-right.post-meta-categories:before, .news-details .fa-pull-right.post-meta-date:before, .news-details .fa-pull-right.post-meta-tags:before, .news-item .news-meta .fa-pull-right.news-meta-categories:before, .news-item .news-meta .fa-pull-right.news-meta-date:before, .news-more-links .fa-pull-right.news-rss:before, .search-contenttry .search-text .fa-pull-right.searchicon, .search-result .search-meta .fa-pull-right.post-meta-category:before, .search-result .search-meta .fa-pull-right.post-meta-date:before, .search-result .search-meta .fa-pull-right.post-meta-event:before, .search-result .search-meta .fa-pull-right.post-meta-kontakt:before, .search-result .search-meta .fa-pull-right.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-right.post-meta-news:before, .search-result .search-meta .fa-pull-right.post-meta-attachment:before, .search-result .search-meta .fa-pull-right.download:before, .accordion .accordion-group .accordion-heading .fa-pull-right.accordion-toggle:before, .widget li.fa-pull-right:before, #social ul.social li.social-gplus a.fa-pull-right:before, #social ul.social li.social-diaspora a.fa-pull-right:before, #social ul.social li.social-pinterest a.fa-pull-right:before, #social ul.social li.social-instagram a.fa-pull-right:before, #social ul.social li.social-facebook a.fa-pull-right:before, #social ul.social li.social-twitter a.fa-pull-right:before, #social ul.social li.social-xing a.fa-pull-right:before, #social ul.social li.social-github a.fa-pull-right:before, #social ul.social li.social-skype a.fa-pull-right:before, #social ul.social li.social-tumblr a.fa-pull-right:before, #social ul.social li.social-delicious a.fa-pull-right:before, #social ul.social li.social-flickr a.fa-pull-right:before, #social ul.social li.social-feed a.fa-pull-right:before, #social ul.social li.social-vimeo a.fa-pull-right:before, #social ul.social li.social-youtube a.fa-pull-right:before, #social ul.social li.social-itunes a.fa-pull-right:before, #social ul.social li.social-wikipedia a.fa-pull-right:before, .fa-pull-right.notice-hinweis:before, .fa-pull-right.wpcf7-mail-sent-ok:before, .fa-pull-right.hinweis:before, .fa-pull-right.notice-attention:before, .fa-pull-right.wpcf7-validation-errors:before, .fa-pull-right.wpcf7-not-valid-tip:before, .fa-pull-right.attention:before, .fa-pull-right.notice-baustelle:before, .fa-pull-right.baustelle:before, .fa-pull-right.notice-question:before, .fa-pull-right.question:before, .fa-pull-right.notice-minus:before, .fa-pull-right.minus:before, .fa-pull-right.notice-plus:before, .fa-pull-right.plus:before, .fa-pull-right.notice-tipp:before, .fa-pull-right.notice-faubox:before, .fa-pull-right.notice-video:before, .fa-pull-right.notice-audio:before, .fa-pull-right.notice-download:before, .content-person .fa-pull-right.image-placeholder:before, ul.person-info li.fa-pull-right.person-info-phone:before, ul.person-info li.fa-pull-right.person-info-mobile:before, ul.person-info li.fa-pull-right.person-info-fax:before, ul.person-info li.fa-pull-right.person-info-email:before, ul.person-info li.fa-pull-right.person-info-www:before, .fa-pull-right.mlp_language_box:before { margin-left: .3em; }
 
 /* Deprecated as of 4.4.0 */
 .pull-right { float: right; }
 
 .pull-left { float: left; }
 
-.fa.pull-left, .meta-search .searchform .pull-left.searchicon, #nav li ul li a.pull-left:before, #nav li.has-sub > a.pull-left:before, #meta-nav li.has-sub > a.pull-left:before, #meta-nav li.pull-left.fauhome:before, .subpages-menu li a.pull-left.image.ext-link:after, .subpages-menu h3 a.pull-left.ext-link:after, .subpages-menu ul li.pull-left:before, .pull-left.top-link, #hero .pull-left.hero-jumplink-content, #hero .hero-navigation li.pull-left:before, .organigram .pull-left.toggle-icon, .pull-left.read-more-arrow, .news-details .pull-left.post-meta-categories:before, .news-details .pull-left.post-meta-date:before, .news-details .pull-left.post-meta-tags:before, .news-item .news-meta .pull-left.news-meta-categories:before, .news-item .news-meta .pull-left.news-meta-date:before, .news-more-links .pull-left.news-rss:before, .accordion .accordion-group .accordion-heading .pull-left.accordion-toggle:before, .widget li.pull-left:before, #social ul.social li.social-gplus a.pull-left:before, #social ul.social li.social-diaspora a.pull-left:before, #social ul.social li.social-pinterest a.pull-left:before, #social ul.social li.social-instagram a.pull-left:before, #social ul.social li.social-facebook a.pull-left:before, #social ul.social li.social-twitter a.pull-left:before, #social ul.social li.social-xing a.pull-left:before, #social ul.social li.social-github a.pull-left:before, #social ul.social li.social-skype a.pull-left:before, #social ul.social li.social-tumblr a.pull-left:before, #social ul.social li.social-delicious a.pull-left:before, #social ul.social li.social-flickr a.pull-left:before, #social ul.social li.social-feed a.pull-left:before, #social ul.social li.social-vimeo a.pull-left:before, #social ul.social li.social-youtube a.pull-left:before, #social ul.social li.social-itunes a.pull-left:before, #social ul.social li.social-wikipedia a.pull-left:before, .pull-left.notice-hinweis:before, .pull-left.wpcf7-mail-sent-ok:before, .pull-left.hinweis:before, .pull-left.notice-attention:before, .pull-left.wpcf7-validation-errors:before, .pull-left.wpcf7-not-valid-tip:before, .pull-left.attention:before, .pull-left.notice-baustelle:before, .pull-left.baustelle:before, .pull-left.notice-question:before, .pull-left.question:before, .pull-left.notice-minus:before, .pull-left.minus:before, .pull-left.notice-plus:before, .pull-left.plus:before, .pull-left.notice-tipp:before, .pull-left.notice-faubox:before, .pull-left.notice-video:before, .pull-left.notice-audio:before, .pull-left.notice-download:before, .content-person .pull-left.image-placeholder:before, ul.person-info li.pull-left.person-info-phone:before, ul.person-info li.pull-left.person-info-mobile:before, ul.person-info li.pull-left.person-info-fax:before, ul.person-info li.pull-left.person-info-email:before, ul.person-info li.pull-left.person-info-www:before, .pull-left.mlp_language_box:before { margin-right: .3em; }
+.fa.pull-left, .meta-search .searchform .pull-left.searchicon, #nav li ul li a.pull-left:before, #nav li.has-sub > a.pull-left:before, #meta-nav li.has-sub > a.pull-left:before, #meta-nav li.pull-left.fauhome:before, .subpages-menu li a.pull-left.image.ext-link:after, .subpages-menu h3 a.pull-left.ext-link:after, .subpages-menu ul li.pull-left:before, .pull-left.top-link, #hero .search-input .search-text .pull-left.searchicon, #hero .pull-left.hero-jumplink-content, #hero .hero-navigation li.pull-left:before, .organigram .pull-left.toggle-icon, .pull-left.read-more-arrow, .news-details .pull-left.post-meta-categories:before, .news-details .pull-left.post-meta-date:before, .news-details .pull-left.post-meta-tags:before, .news-item .news-meta .pull-left.news-meta-categories:before, .news-item .news-meta .pull-left.news-meta-date:before, .news-more-links .pull-left.news-rss:before, .search-contenttry .search-text .pull-left.searchicon, .search-result .search-meta .pull-left.post-meta-category:before, .search-result .search-meta .pull-left.post-meta-date:before, .search-result .search-meta .pull-left.post-meta-event:before, .search-result .search-meta .pull-left.post-meta-kontakt:before, .search-result .search-meta .pull-left.post-meta-defaulttype:before, .search-result .search-meta .pull-left.post-meta-news:before, .search-result .search-meta .pull-left.post-meta-attachment:before, .search-result .search-meta .pull-left.download:before, .accordion .accordion-group .accordion-heading .pull-left.accordion-toggle:before, .widget li.pull-left:before, #social ul.social li.social-gplus a.pull-left:before, #social ul.social li.social-diaspora a.pull-left:before, #social ul.social li.social-pinterest a.pull-left:before, #social ul.social li.social-instagram a.pull-left:before, #social ul.social li.social-facebook a.pull-left:before, #social ul.social li.social-twitter a.pull-left:before, #social ul.social li.social-xing a.pull-left:before, #social ul.social li.social-github a.pull-left:before, #social ul.social li.social-skype a.pull-left:before, #social ul.social li.social-tumblr a.pull-left:before, #social ul.social li.social-delicious a.pull-left:before, #social ul.social li.social-flickr a.pull-left:before, #social ul.social li.social-feed a.pull-left:before, #social ul.social li.social-vimeo a.pull-left:before, #social ul.social li.social-youtube a.pull-left:before, #social ul.social li.social-itunes a.pull-left:before, #social ul.social li.social-wikipedia a.pull-left:before, .pull-left.notice-hinweis:before, .pull-left.wpcf7-mail-sent-ok:before, .pull-left.hinweis:before, .pull-left.notice-attention:before, .pull-left.wpcf7-validation-errors:before, .pull-left.wpcf7-not-valid-tip:before, .pull-left.attention:before, .pull-left.notice-baustelle:before, .pull-left.baustelle:before, .pull-left.notice-question:before, .pull-left.question:before, .pull-left.notice-minus:before, .pull-left.minus:before, .pull-left.notice-plus:before, .pull-left.plus:before, .pull-left.notice-tipp:before, .pull-left.notice-faubox:before, .pull-left.notice-video:before, .pull-left.notice-audio:before, .pull-left.notice-download:before, .content-person .pull-left.image-placeholder:before, ul.person-info li.pull-left.person-info-phone:before, ul.person-info li.pull-left.person-info-mobile:before, ul.person-info li.pull-left.person-info-fax:before, ul.person-info li.pull-left.person-info-email:before, ul.person-info li.pull-left.person-info-www:before, .pull-left.mlp_language_box:before { margin-right: .3em; }
 
-.fa.pull-right, .meta-search .searchform .pull-right.searchicon, #nav li ul li a.pull-right:before, #nav li.has-sub > a.pull-right:before, #meta-nav li.has-sub > a.pull-right:before, #meta-nav li.pull-right.fauhome:before, .subpages-menu li a.pull-right.image.ext-link:after, .subpages-menu h3 a.pull-right.ext-link:after, .subpages-menu ul li.pull-right:before, .pull-right.top-link, #hero .pull-right.hero-jumplink-content, #hero .hero-navigation li.pull-right:before, .organigram .pull-right.toggle-icon, .pull-right.read-more-arrow, .news-details .pull-right.post-meta-categories:before, .news-details .pull-right.post-meta-date:before, .news-details .pull-right.post-meta-tags:before, .news-item .news-meta .pull-right.news-meta-categories:before, .news-item .news-meta .pull-right.news-meta-date:before, .news-more-links .pull-right.news-rss:before, .accordion .accordion-group .accordion-heading .pull-right.accordion-toggle:before, .widget li.pull-right:before, #social ul.social li.social-gplus a.pull-right:before, #social ul.social li.social-diaspora a.pull-right:before, #social ul.social li.social-pinterest a.pull-right:before, #social ul.social li.social-instagram a.pull-right:before, #social ul.social li.social-facebook a.pull-right:before, #social ul.social li.social-twitter a.pull-right:before, #social ul.social li.social-xing a.pull-right:before, #social ul.social li.social-github a.pull-right:before, #social ul.social li.social-skype a.pull-right:before, #social ul.social li.social-tumblr a.pull-right:before, #social ul.social li.social-delicious a.pull-right:before, #social ul.social li.social-flickr a.pull-right:before, #social ul.social li.social-feed a.pull-right:before, #social ul.social li.social-vimeo a.pull-right:before, #social ul.social li.social-youtube a.pull-right:before, #social ul.social li.social-itunes a.pull-right:before, #social ul.social li.social-wikipedia a.pull-right:before, .pull-right.notice-hinweis:before, .pull-right.wpcf7-mail-sent-ok:before, .pull-right.hinweis:before, .pull-right.notice-attention:before, .pull-right.wpcf7-validation-errors:before, .pull-right.wpcf7-not-valid-tip:before, .pull-right.attention:before, .pull-right.notice-baustelle:before, .pull-right.baustelle:before, .pull-right.notice-question:before, .pull-right.question:before, .pull-right.notice-minus:before, .pull-right.minus:before, .pull-right.notice-plus:before, .pull-right.plus:before, .pull-right.notice-tipp:before, .pull-right.notice-faubox:before, .pull-right.notice-video:before, .pull-right.notice-audio:before, .pull-right.notice-download:before, .content-person .pull-right.image-placeholder:before, ul.person-info li.pull-right.person-info-phone:before, ul.person-info li.pull-right.person-info-mobile:before, ul.person-info li.pull-right.person-info-fax:before, ul.person-info li.pull-right.person-info-email:before, ul.person-info li.pull-right.person-info-www:before, .pull-right.mlp_language_box:before { margin-left: .3em; }
+.fa.pull-right, .meta-search .searchform .pull-right.searchicon, #nav li ul li a.pull-right:before, #nav li.has-sub > a.pull-right:before, #meta-nav li.has-sub > a.pull-right:before, #meta-nav li.pull-right.fauhome:before, .subpages-menu li a.pull-right.image.ext-link:after, .subpages-menu h3 a.pull-right.ext-link:after, .subpages-menu ul li.pull-right:before, .pull-right.top-link, #hero .search-input .search-text .pull-right.searchicon, #hero .pull-right.hero-jumplink-content, #hero .hero-navigation li.pull-right:before, .organigram .pull-right.toggle-icon, .pull-right.read-more-arrow, .news-details .pull-right.post-meta-categories:before, .news-details .pull-right.post-meta-date:before, .news-details .pull-right.post-meta-tags:before, .news-item .news-meta .pull-right.news-meta-categories:before, .news-item .news-meta .pull-right.news-meta-date:before, .news-more-links .pull-right.news-rss:before, .search-contenttry .search-text .pull-right.searchicon, .search-result .search-meta .pull-right.post-meta-category:before, .search-result .search-meta .pull-right.post-meta-date:before, .search-result .search-meta .pull-right.post-meta-event:before, .search-result .search-meta .pull-right.post-meta-kontakt:before, .search-result .search-meta .pull-right.post-meta-defaulttype:before, .search-result .search-meta .pull-right.post-meta-news:before, .search-result .search-meta .pull-right.post-meta-attachment:before, .search-result .search-meta .pull-right.download:before, .accordion .accordion-group .accordion-heading .pull-right.accordion-toggle:before, .widget li.pull-right:before, #social ul.social li.social-gplus a.pull-right:before, #social ul.social li.social-diaspora a.pull-right:before, #social ul.social li.social-pinterest a.pull-right:before, #social ul.social li.social-instagram a.pull-right:before, #social ul.social li.social-facebook a.pull-right:before, #social ul.social li.social-twitter a.pull-right:before, #social ul.social li.social-xing a.pull-right:before, #social ul.social li.social-github a.pull-right:before, #social ul.social li.social-skype a.pull-right:before, #social ul.social li.social-tumblr a.pull-right:before, #social ul.social li.social-delicious a.pull-right:before, #social ul.social li.social-flickr a.pull-right:before, #social ul.social li.social-feed a.pull-right:before, #social ul.social li.social-vimeo a.pull-right:before, #social ul.social li.social-youtube a.pull-right:before, #social ul.social li.social-itunes a.pull-right:before, #social ul.social li.social-wikipedia a.pull-right:before, .pull-right.notice-hinweis:before, .pull-right.wpcf7-mail-sent-ok:before, .pull-right.hinweis:before, .pull-right.notice-attention:before, .pull-right.wpcf7-validation-errors:before, .pull-right.wpcf7-not-valid-tip:before, .pull-right.attention:before, .pull-right.notice-baustelle:before, .pull-right.baustelle:before, .pull-right.notice-question:before, .pull-right.question:before, .pull-right.notice-minus:before, .pull-right.minus:before, .pull-right.notice-plus:before, .pull-right.plus:before, .pull-right.notice-tipp:before, .pull-right.notice-faubox:before, .pull-right.notice-video:before, .pull-right.notice-audio:before, .pull-right.notice-download:before, .content-person .pull-right.image-placeholder:before, ul.person-info li.pull-right.person-info-phone:before, ul.person-info li.pull-right.person-info-mobile:before, ul.person-info li.pull-right.person-info-fax:before, ul.person-info li.pull-right.person-info-email:before, ul.person-info li.pull-right.person-info-www:before, .pull-right.mlp_language_box:before { margin-left: .3em; }
 
 .fa-spin { -webkit-animation: fa-spin 2s infinite linear; animation: fa-spin 2s infinite linear; }
 
@@ -838,7 +918,7 @@ html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-size: 16
 
 .fa-music:before, .notice-audio:before { content: "\f001"; }
 
-.fa-search:before, .meta-search .searchform .searchicon:before { content: "\f002"; }
+.fa-search:before, .meta-search .searchform .searchicon:before, #hero .search-input .search-text .searchicon:before, .search-contenttry .search-text .searchicon:before { content: "\f002"; }
 
 .fa-envelope-o:before { content: "\f003"; }
 
@@ -848,7 +928,7 @@ html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-size: 16
 
 .fa-star-o:before { content: "\f006"; }
 
-.fa-user:before, .content-person .image-placeholder:before { content: "\f007"; }
+.fa-user:before, .search-result .search-meta .post-meta-kontakt:before, .content-person .image-placeholder:before { content: "\f007"; }
 
 .fa-film:before { content: "\f008"; }
 
@@ -882,7 +962,7 @@ html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-size: 16
 
 .fa-road:before { content: "\f018"; }
 
-.fa-download:before, .notice-download:before { content: "\f019"; }
+.fa-download:before, .search-result .search-meta .download:before, .notice-download:before { content: "\f019"; }
 
 .fa-arrow-circle-o-down:before { content: "\f01a"; }
 
@@ -914,13 +994,13 @@ html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-size: 16
 
 .fa-barcode:before { content: "\f02a"; }
 
-.fa-tag:before, .news-item .news-meta .news-meta-categories:before { content: "\f02b"; }
+.fa-tag:before, .news-item .news-meta .news-meta-categories:before, .search-result .search-meta .post-meta-category:before { content: "\f02b"; }
 
 .fa-tags:before, .news-details .post-meta-tags:before { content: "\f02c"; }
 
 .fa-book:before { content: "\f02d"; }
 
-.fa-bookmark:before { content: "\f02e"; }
+.fa-bookmark:before, .search-result .search-meta .post-meta-defaulttype:before { content: "\f02e"; }
 
 .fa-print:before, ul.person-info li.person-info-fax:before { content: "\f02f"; }
 
@@ -1050,11 +1130,11 @@ html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-size: 16
 
 .fa-plane:before { content: "\f072"; }
 
-.fa-calendar:before, .news-details .post-meta-date:before, .news-item .news-meta .news-meta-date:before { content: "\f073"; }
+.fa-calendar:before, .news-details .post-meta-date:before, .news-item .news-meta .news-meta-date:before, .search-result .search-meta .post-meta-date:before { content: "\f073"; }
 
 .fa-random:before { content: "\f074"; }
 
-.fa-comment:before { content: "\f075"; }
+.fa-comment:before, .search-result .search-meta .post-meta-news:before { content: "\f075"; }
 
 .fa-magnet:before { content: "\f076"; }
 
@@ -1382,7 +1462,7 @@ html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-size: 16
 
 .fa-shield:before { content: "\f132"; }
 
-.fa-calendar-o:before { content: "\f133"; }
+.fa-calendar-o:before, .search-result .search-meta .post-meta-event:before { content: "\f133"; }
 
 .fa-fire-extinguisher:before { content: "\f134"; }
 
@@ -1458,7 +1538,7 @@ html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-size: 16
 
 .fa-bitcoin:before, .fa-btc:before { content: "\f15a"; }
 
-.fa-file:before { content: "\f15b"; }
+.fa-file:before, .search-result .search-meta .post-meta-attachment:before { content: "\f15b"; }
 
 .fa-file-text:before { content: "\f15c"; }
 
@@ -2623,21 +2703,25 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 #hero .container { position: relative; }
 #hero .hero-meta-portal { position: absolute; bottom: 23px; right: 100px; text-align: right; color: #0059b3; font-size: 60px; line-height: 50px; }
 .flyout-toggled #hero { opacity: 0.3; }
-#hero .searchform { padding: 35px 0 0 0; border: none; }
-#hero .searchform ::-webkit-input-placeholder { color: #111; }
-#hero .searchform :-moz-placeholder { color: #111; }
-#hero .searchform ::-moz-placeholder { color: #111; }
-#hero .searchform :-ms-input-placeholder { color: #111; }
-#hero .searchform label { color: #fff; }
-#hero .searchform input[type="text"] { -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; padding: 10px 10px 10px 40px; width: 300px; font-size: 15px; line-height: 15px; float: left; margin-right: 10px; background: #dde5f0 url("../img/icon-search.png") no-repeat 15px center; border: none; outline: none; color: #000; }
-#hero .searchform input[type="text"]:focus { background-color: #fff; }
-#hero .searchform input[type="submit"] { -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; border: none; background: #dde5f0; color: #444; font-size: 15px; line-height: 15px; padding: 0 15px; display: inline-block; box-sizing: padding-box; height: 40px; color: #000; }
-#hero .searchform .search-radio-label { float: left; margin-right: 20px; }
-#hero .searchform .search-radio-label input { margin-top: -4px; margin-right: 3px; }
-#hero .searchform .filter { display: block; margin: 10px 20px; }
-#hero .searchform .filter label { display: inline-block; *display: inline; *zoom: 1; width: auto; float: none; margin: 0 10px 0 5px; padding: 0; color: #dde5f0; }
-#hero .searchform .filter input[type="checkbox"] { margin: 0; width: 17px; height: 17px; border: 1px solid #bbb; box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.1); }
-#hero .searchform .filter .nowrap { display: inline-block; *display: inline; *zoom: 1; white-space: nowrap; }
+#hero .search-input { font-size: 16px; line-height: 22.4px; font-size: 1rem; line-height: 1.4rem; }
+#hero .search-input form { border: none; }
+#hero .search-input .search-text { margin: 0 20px; }
+#hero .search-input .search-text ::-webkit-input-placeholder { color: #fff; }
+#hero .search-input .search-text :-moz-placeholder { color: #fff; }
+#hero .search-input .search-text ::-moz-placeholder { color: #fff; }
+#hero .search-input .search-text :-ms-input-placeholder { color: #fff; }
+#hero .search-input .search-text input { -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; padding: 0 15px; }
+#hero .search-input .search-text input[type="text"] { font-size: 16px; line-height: 22.4px; font-size: 1rem; line-height: 1.4rem; border: 1px solid #003366; width: 50%; padding: 5px 10px 5px 30px; height: inherit; margin: 0; background: #003366; color: #fff; }
+#hero .search-input .search-text input[type="text"]:focus, #hero .search-input .search-text input[type="text"]:hover { background-color: #1f4d7a; border: 1px solid #1f4d7a; }
+#hero .search-input .search-text input[type="submit"] { font-size: 16px; line-height: 22.4px; font-size: 1rem; line-height: 1.4rem; background: #fff; color: #000; padding: 5px 10px; height: inherit; margin-left: -30px; }
+#hero .search-input .search-text input[type="submit"]:focus, #hero .search-input .search-text input[type="submit"]:hover { background-color: #dde5f0; }
+#hero .search-input .search-text .searchicon { position: relative; margin-right: -30px; color: #fff; }
+#hero .search-input .search-radio-label { float: left; margin-right: 20px; }
+#hero .search-input .search-radio-label input { margin-top: -4px; margin-right: 3px; }
+#hero .search-input .filter { display: block; margin: 10px 20px; }
+#hero .search-input .filter label { display: inline-block; *display: inline; *zoom: 1; width: auto; float: none; margin: 0 10px 0 5px; padding: 0; color: #dde5f0; }
+#hero .search-input .filter input[type="checkbox"] { margin: 0; width: 17px; height: 17px; border: 1px solid #bbb; box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.1); }
+#hero .search-input .filter .nowrap { display: inline-block; *display: inline; *zoom: 1; white-space: nowrap; }
 #hero .hero-jumplink-content { position: absolute; left: 300px; right: 300px; bottom: -30; display: none; height: 30px; text-align: center; text-decoration: none; background: #003366; color: #fff; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; }
 #hero .hero-jumplink-content:hover, #hero .hero-jumplink-content:focus { text-decoration: none; color: #fff; background: #1f4c7a; }
 #hero .banner { position: relative; top: -20px; bottom: -20px; margin: 0 auto; height: 182px; background: #003366; max-width: 1260px; overflow: hidden; -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); }
@@ -2672,9 +2756,6 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 @media (max-width: 480px) { #hero .infobar p.description { display: none; }
   .admin-bar #hero .banner-text { top: 0; }
   .no-js #hero { display: none; top: 0; position: relative; }
-  #hero .searchform { margin: 0 auto; padding: 10px; }
-  #hero .searchform input[type="text"] { width: 50%; margin: 0 10px; }
-  #hero .searchform .filter { margin-top: 5px; }
   .page-template-page-start #hero-slides { top: 0; height: 150px; }
   .page-template-page-start #hero-slides .hero-slide img { min-height: 150px; min-width: 767px; width: auto; height: auto; left: inherit; margin-left: 0; left: 0; vertical-align: middle; }
   .page-template-page-start #hero-slides .hero-slide p.credits { top: 2px; bottom: inherit; display: inline; }
@@ -2909,6 +2990,42 @@ ul.assistant-tabs-nav li:last-child { border: none; }
   #content .news-image { text-align: center; float: none; background: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; margin-right: 10px; } }
 @media (max-width: 480px) { .page-template-page-start .news-item .span3 { width: 200px; }
   .page-template-page-start #content .news-image { text-align: center; float: none; } }
+/*-----------------------------------------------------------------------------------*/
+/* Error notices
+/*-----------------------------------------------------------------------------------*/
+.error-image { background-image: url("../img/friedrich-alexander.gif"); background-position: bottom center; background-repeat: no-repeat; margin-top: 30px; height: 170px; }
+
+.search-contenttry { font-size: 16px; line-height: 22.4px; font-size: 1rem; line-height: 1.4rem; margin-left: 30px; margin-bottom: 11px; margin-right: -15px; padding-left: 15px; border-left: 2px solid #dde5f0; }
+.search-contenttry form { border: none; }
+.search-contenttry .search-text { margin: 0 20px; }
+.search-contenttry .search-text ::-webkit-input-placeholder { color: #fff; }
+.search-contenttry .search-text :-moz-placeholder { color: #fff; }
+.search-contenttry .search-text ::-moz-placeholder { color: #fff; }
+.search-contenttry .search-text :-ms-input-placeholder { color: #fff; }
+.search-contenttry .search-text input { -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; padding: 0 15px; }
+.search-contenttry .search-text input[type="text"] { font-size: 16px; line-height: 22.4px; font-size: 1rem; line-height: 1.4rem; border: 1px solid #003366; width: 80%; padding: 5px 10px 5px 30px; height: inherit; margin: 0; background: #003366; color: #fff; }
+.search-contenttry .search-text input[type="text"]:focus, .search-contenttry .search-text input[type="text"]:hover { background-color: #1f4d7a; border: 1px solid #1f4d7a; }
+.search-contenttry .search-text input[type="submit"] { font-size: 16px; line-height: 22.4px; font-size: 1rem; line-height: 1.4rem; border: 1px solid #dde5f0; background: #fff; color: #000; padding: 5px 10px; height: inherit; margin-left: -30px; }
+.search-contenttry .search-text input[type="submit"]:focus, .search-contenttry .search-text input[type="submit"]:hover { background-color: #dde5f0; }
+.search-contenttry .search-text .searchicon { position: relative; margin-right: -30px; color: #fff; }
+.search-contenttry .search-radio-label { float: left; margin-right: 20px; }
+.search-contenttry .search-radio-label input { margin-top: -4px; margin-right: 3px; }
+.search-contenttry .filter { display: block; margin: 20px; }
+.search-contenttry .filter label { display: inline-block; *display: inline; *zoom: 1; width: auto; float: none; margin: 0 10px 0 5px; padding: 0; }
+.search-contenttry .filter input[type="checkbox"] { margin: 0; width: 17px; height: 17px; border: 1px solid #bbb; box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.1); }
+.search-contenttry .filter .nowrap { display: inline-block; *display: inline; *zoom: 1; white-space: nowrap; }
+
+/*-----------------------------------------------------------------------------------*/
+/* Search page
+/*-----------------------------------------------------------------------------------*/
+.search-result { margin-bottom: 11px; }
+.search-result .search-meta { padding: 5px 0; margin-top: 0px; margin-bottom: 10px; color: #444; display: block; font-family: "roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+.search-result .search-meta .dateityp { text-transform: uppercase; }
+.search-result h3 .ext-link, .search-result h2 .ext-link { display: inline-block; *display: inline; *zoom: 1; background: url("../img/ext-icon-19.png") no-repeat 100% 50%; padding-right: 15px; }
+.search-result h3 .ext-link:hover, .search-result h3 .ext-link:focus, .search-result h2 .ext-link:hover, .search-result h2 .ext-link:focus { text-decoration: underline; }
+.search-result .download, .search-result .post-meta-date, .search-result .post-meta-attachment, .search-result .post-meta-news, .search-result .post-meta-category, .search-result .post-meta-defaulttype, .search-result .post-meta-kontakt { margin-right: 10px; }
+.search-result .content-person { border: none; }
+
 /*-----------------------------------------------------------------------------------*/
 /* Accordion
 /*-----------------------------------------------------------------------------------*/
@@ -3354,9 +3471,9 @@ div.alignright { float: right; clear: both; margin-left: 20px; margin-bottom: 20
 div.aligncenter { margin-bottom: 10px; }
 
 @media (max-width: 480px) { .alignleft, .alignright, div.alignleft, div.alignright { float: none; padding: 0; display: block; margin: 5px auto; max-width: 480px; } }
-.unsichtbar, .widget_search .searchform label, .screen-reader-text, .meta-search .searchform label, #meta h3 { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.unsichtbar, .widget_search .searchform label, .screen-reader-text, .meta-search .searchform label, #hero .search-input .search-text label, .search-contenttry .search-text label, #meta h3 { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 
-.unsichtbar:focus, .widget_search .searchform label:focus, .screen-reader-text:focus, .meta-search .searchform label:focus, #meta h3:focus { position: relative; left: 0; width: auto; height: auto; overflow: auto; }
+.unsichtbar:focus, .widget_search .searchform label:focus, .screen-reader-text:focus, .meta-search .searchform label:focus, #hero .search-input .search-text label:focus, .search-contenttry .search-text label:focus, #meta h3:focus { position: relative; left: 0; width: auto; height: auto; overflow: auto; }
 
 .hide-desktop { display: none; }
 
@@ -3725,7 +3842,8 @@ div.wpcf7-response-output { margin: 2em 0; padding: 0.2em 0; }
 /* https://github.com/RRZE-Webteam/cms-workflow
 /*-----------------------------------------------------------------------------------*/
 /* Language switcher */
-.mlp_language_box { padding: 5px; margin: 0; display: inline-block; *display: inline; *zoom: 1; z-index: 200; overflow: hidden; height: 30px; }
+.mlp_language_box { padding: 0 5px; margin: 0; display: inline-block; *display: inline; *zoom: 1; z-index: 200; overflow: hidden; height: 30px; }
+.mlp_language_box:before { font-size: 21px; line-height: 29.4px; font-size: 1.3125rem; line-height: 1.8375rem; }
 .mlp_language_box:hover, .mlp_language_box:focus { height: auto; }
 .mlp_language_box:hover ul, .mlp_language_box:focus ul { height: auto; background: white; }
 .mlp_language_box ul { list-style: none; margin: 0; padding: 0; background: none; z-index: 201; display: inline-table; margin: 0 5px; }

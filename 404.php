@@ -16,35 +16,24 @@ get_template_part('template-parts/hero', 'error');
 
 	<section id="content">
 		<div class="container">
-		
 			<div class="row">
-				<div class="span6">
+				<div class="error-notice">
 					<p class="hinweis">
-						<strong><?php _e('Es tut uns leid.','fau'); ?></strong><br>
+						<strong><?php _e('Es tut uns leid.','fau'); ?></strong>
+					</p>
+					<p>
 						<?php _e('Die von Ihnen aufgerufene Seite existiert nicht oder ihre Adresse hat sich durch Änderungen an der Seitenstruktur geändert.','fau'); ?>
 					</p>
-					<div class="row">
-						<div class="span4 offset2"><img src="<?php echo fau_get_template_uri(); ?>/img/friedrich-alexander.gif" width="227" height="169" alt="" class="error-siegel"></div>
-					</div>
+						
 				</div>
-				<div class="span6">
-					<form role="search" method="get" class="searchform searchform-content" action="<?php echo home_url( '/' )?>">
-						<h3><?php _e('Vielleicht hilft Ihnen die Suche:','fau'); ?></h3>
-						<?php
-							
-							$uri = esc_url($_SERVER['REQUEST_URI']);
-							$uri = str_replace('/', ' ', $uri);
-
-						?>
-						<label class="unsichtbar" for="suchmaske-error"><?php _e('Geben Sie hier den Suchbegriff ein','fau'); ?></label>
-						<input type="text" value="<?php echo $uri ?>" name="s" id="suchmaske-error" placeholder="<?php _e('Suchen nach...','fau'); ?>">
-						<input type="submit" id="searchsubmit" value="<?php _e('Finden','fau'); ?>">
-					</form>
+				<div class="error-image">
+				    
+				</div>
+				<div class="error-search">
+					<?php get_template_part('template-parts/search', 'try');  ?>
 				</div>
 			</div>
 
-		    
-		    
 			<?php get_template_part('template-parts/search', 'helper');  ?>
 			
 			

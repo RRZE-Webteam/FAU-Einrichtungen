@@ -6,16 +6,17 @@
 
 /* Language switcher */
 .mlp_language_box {
-    padding: 5px;
+    padding: 0 5px;
     margin: 0;   
     @include inline-block();
     z-index: 200;
     overflow: hidden;
-   height: 30px;
+    height: 30px;
     
     &:before {
 	@extend .fa;
 	@extend .fa-language;
+	@include px2rem(21);
     }
     
     &:hover, &:focus {	

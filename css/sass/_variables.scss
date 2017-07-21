@@ -69,7 +69,8 @@ $PalettonHeller:	desaturate(lighten($colorPrimary, 69%), 75%);
 $PalettonDunkler:	desaturate(lighten($colorPrimary, 10%), 90%);
 $PalettonDunkelste:	desaturate(lighten($colorPrimary, 10%), 40%);
 $siegelurl: '../img/siegel-zuv.png';  
- 
+$errorimage:  '../img/friedrich-alexander.gif';  
+
 $colorPrimaryHero:	    $colorPrimary;
     
  @if $farbfamilie == 'med' {
@@ -173,7 +174,7 @@ $colorCopyrightBackground:  rgba(0,0,0,0.4);
 $font-size-base:	    16;
 $font-size-meta:	    13;
 $font-size-breadcrumb:	    13;
-
+$font-size-herosearch:	    16;
 
 
 
