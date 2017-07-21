@@ -14,9 +14,12 @@ Anpassungen der Gestaltung an verschiedene Plugins
 }
 
 /* 
-* Verhindere, dass  MimeTypes Link Icons im Shariff Wrapper 
+* Verhindere, dass  MimeTypes Link Icons 
 * unerwünschte sichtbare Icons einbaut
 */
-.shariff .wpel-icon {
-    display: none;
+.meta-links, .meta-tools, .shariff {
+   
+    .wpel-icon {
+	display: none;
+    }
 }

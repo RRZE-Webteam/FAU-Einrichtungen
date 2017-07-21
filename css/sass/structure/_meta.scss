@@ -49,6 +49,7 @@
     }   
 }
 
+
 .meta-search {
     display: inline-block;
     
@@ -61,7 +62,7 @@
 			@include border-radius(20px);
 			padding: 5px 35px 5px 35px;
 			width: 160px;
-			background: $colorMeta url('../img/icon-search.png') no-repeat 10px center;
+			background: $colorMeta;
 			border: none;
 			outline: none;
 			color: #fff;
@@ -72,6 +73,7 @@
 			&:focus {
 				background-color: $colorMetaHover;
 			}
+
 		}
 		
 		input[type="submit"] {
@@ -94,7 +96,14 @@
 		}
 		
 		label {
-			@extend .unsichtbar;
+			@extend .screen-reader-text;		
+		}
+		.searchicon {
+		    @extend .fa;
+		    @extend .fa-search;
+		    position: relative;
+		    margin-right: -30px;
+		    color: #fff;
 		}
 	}
 }
