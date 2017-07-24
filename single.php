@@ -19,7 +19,7 @@ get_header(); ?>
 		<div class="container">
 
 			<div class="row">
-				<div class="span8">
+				<div class="entry-content">
 				    <main>
 					<article class="news-details">
 						<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
@@ -42,12 +42,18 @@ get_header(); ?>
 									echo '<div class="post-image-caption">'.$bildunterschrift.'</div>';
 								    } else {
 									$imgdata = fau_get_image_attributs($post_thumbnail_id);
-									$info = trim(strip_tags( $imgdata['excerpt'] ));		
+									$info = "";
 									$credits = '';
-									if ($options['advanced_display_postthumb_credits']==true) {
-									    $credits = trim(strip_tags(  $imgdata['credits']));    
+									if ($imgdata) {
+									    if ($imgdata['excerpt'] &&  !fau_empty($imgdata['excerpt'])) {
+										$info = trim(strip_tags( $imgdata['excerpt'] ));	
+									    }
+
+
+									    if ($options['advanced_display_postthumb_credits']==true) {
+										$credits = trim(strip_tags(  $imgdata['credits']));    
+									    }
 									}
-									
 									
 									if (  (!empty($info)) || (!empty($credits)) ) {
 									    echo '<div class="post-image-caption">';

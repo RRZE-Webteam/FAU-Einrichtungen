@@ -68,11 +68,11 @@ if ($show) {
 					<?php 
 					if ((($showicons==true) && ($showsocialsidebar==false)) 
 					    || (($showicons==false) && ($showsocialsidebar==true)) )  { ?>
-					    <div class="span12">
+					    <div class="col-xs-12">
 					<?php     
 					} else { 
 					?>
-					    <div class="span3">					
+					    <div class="col-xs-3">					
 					<?php 
 					}
 					if ($showicons==true) {
@@ -115,7 +115,7 @@ if ($show) {
 					  
 					    if ($showsocialsidebar==true) {
 						 echo '</div>'; // span3, da beide activ bereiche activ
-						 echo '<div class="span9">';
+						 echo '<div class="col-xs-9">';
 					    }
 					}
 					if ($showsocialsidebar==true) { ?>

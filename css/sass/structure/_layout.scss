@@ -9,15 +9,10 @@ body, html {
 
 body {
 	margin: 0;
-	// font-size: 13px;
-	// line-height: 18px;
-	color: $colorText;
-	// background-color: $colorPrimaryHero;
-	
+	color: $colorText;	
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.35;
-	
 }
 
 /* Wrap content in white */
@@ -46,8 +41,10 @@ html, body, button {
 	border: 1px solid red;
     }
 
+
  }
 
+.sidebar-single,
 .sidebar-subnav {
     @extend .col-xs-12;
     @extend .col-sm-4;
@@ -60,10 +57,10 @@ html, body, button {
 }
 #hero {
     .search-title {
-	@extend .col-sm-3;
+	@extend .col-sm-4;
     }
     .search-input {
-	@extend .col-sm-9;
+	@extend .col-sm-8;
     }
 }
 
@@ -77,6 +74,63 @@ html, body, button {
 .error-search {
     @extend .col-sm-5;
 }
+
+.search-sidebar {
+    @extend .col-sm-4;
+}
+.search-resultnested {
+     @extend .col-sm-8;
+} 
+.search-error-notice {
+    @extend .col-sm-6;
+    @extend .col-sm-offset-1;
+}
+.search-error-image {
+    @extend .col-sm-5;
+}
+.search-results {
+    article {
+	@extend .col-sm-12;
+    }
+    .searchresult-image {
+	@extend .col-xs-4;
+	@extend .col-sm-3;
+	text-align: right;
+    } 
+    .searchresult-imagetext {
+	@extend .col-xs-8;
+	@extend .col-sm-9
+    }
+}
+
+.startpage-blogroll {
+    @extend .col-xs-12;
+    @extend .col-sm-8;
+}
+.startpage-sidebar {
+    @extend .col-xs-12;
+    @extend .col-sm-4;
+}
+
+
+.footer-logo {
+    @extend .col-xs-6;
+    @extend .col-sm-3;
+
+}
+.footer-address {
+    @extend .col-xs-6;
+    @extend .col-sm-4;
+    @extend .col-md-3;
+}
+.footer-meta {
+    @extend .col-xs-12;
+    @extend .col-sm-5;
+    @extend .col-md-6;
+    text-align: right;
+}
+
+
 
 
 [class*="span"] {

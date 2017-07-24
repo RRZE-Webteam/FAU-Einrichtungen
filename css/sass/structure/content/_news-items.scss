@@ -76,11 +76,20 @@
 	}
 	h2 .ext-link {
 		@include inline-block;
-		background: url('../img/ext-icon-19.png') no-repeat 100% 50%;
 		padding-right: 15px;
 		
-		&:hover, &:focus {
+		&:hover, 
+		&:focus {
 			text-decoration: underline;
+		}
+		&::after {
+		    @include px2rem(16);
+		    @extend .fa;
+		    content: "\f08e";
+		    
+		    .wp-external-links & {
+			display: none;
+		    }
 		}
 	}
 	

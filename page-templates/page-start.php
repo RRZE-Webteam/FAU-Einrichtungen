@@ -20,7 +20,7 @@ global $options;
 			 ?>
 			
 			<div class="row">
-				<div class="span8">
+				<div class="startpage-blogroll">
 				    <main>
 					
 					<?php
@@ -82,7 +82,7 @@ global $options;
 					?>			    
 				    </main>	
 				</div>
-				<div class="span4 sidebar-outline">
+				<div class="startpage-sidebar">
 					<?php
 					get_template_part('template-parts/sidebar', 'events'); 	
 					get_template_part('template-parts/sidebar');

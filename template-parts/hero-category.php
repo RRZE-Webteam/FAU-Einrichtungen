@@ -13,7 +13,7 @@ global $options;
 <section id="hero" class="hero-small">
 	<div class="container">
 		<div class="row">
-			<div class="span8">
+			<div class="col-xs-12">
 				
 			    <?php
 				fau_breadcrumb(); ?>

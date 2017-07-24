@@ -18,17 +18,16 @@ $showhelplinks = 0;
 			<div class="row">
 			    
 			    <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	
+				// add sidebar and nest content in sub-row
 				$active_sidebar = 1; ?>
-				<div class="span3">
-					<div class="search-sidebar">
+				<div class="search-sidebar">
 					    <?php dynamic_sidebar( 'search-sidebar' ); ?>
-					</div>
-				</div>
-				<div class="span9">
-			    <?php } else { ?>
-				<div class="span12">
-				
+				</div>	
+				<div class="search-resultnested">   
+				    <div class="row">
 			    <?php } ?>
+			    
+				    
 				<main>
 				 <?php 
 								 
@@ -96,25 +95,46 @@ $showhelplinks = 0;
 					    } 
 
 				    } else { ?>
-					    <p class="attention">
-						<strong><?php _e('Nichts gefunden.','fau'); ?></strong>
-					    </p>
-					    
-					    <div class="row">
-						<div class="span4"><p><?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?></p></div>
-						<div class="span4"><img src="<?php echo fau_get_template_uri(); ?>/img/friedrich-alexander.gif" width="227" height="169"  alt="" class="error-siegel"></div>
-					    </div>
+						
+						
+					<div class="search-error-notice">
+						<p class="attention">
+							<strong><?php _e('Nichts gefunden.','fau'); ?></strong>
+						</p>
+						<p>
+							<?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?>
+						</p>
 
-					    <?php 
+					</div>
+					<div class="search-error-image">
+
+					</div>
+					<?php 
 					    $showhelplinks = 1;
 				    } 
 				} else { ?>
-				    <p class="attention"><?php _e('Bitte geben Sie einen Suchbegriff in das Suchfeld ein.','fau'); ?></p>
+					
+					<div class="search-error-notice">
+					    <p class="attention">
+						    <strong><?php _e('Bitte geben Sie einen Suchbegriff in das Suchfeld ein.','fau'); ?></strong>
+					    </p>
+					</div>
+					<div class="search-error-image">
+
+					</div>
+					
+					
 					<?php
 					$showhelplinks = 1;
 				} ?>
 				</main>
-				</div>
+					
+				 <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	?>
+				    </div>
+				 </div>
+				 <?php  } ?>
+					
+				
 			</div>
 		    
 			<?php

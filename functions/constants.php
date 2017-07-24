@@ -117,20 +117,6 @@ $defaultoptions = array(
     'default_post_height'		=> 200,
     'default_post_crop'			=> false, 
     
-     /* Thumb for person-type; small for sidebar - Name: person-thumb */
-    'default_person_thumb_width'	=> 60,
-    'default_person_thumb_height'	=> 80,
-    'default_person_thumb_crop'		=> true, 
-     
-     /* Thumb for person-type; small for content - Name: person-thumb-bigger */
-    'default_person_thumb_bigger_width' => 90,
-    'default_person_thumb_bigger_height'=> 120,
-    'default_person_thumb_bigger_crop'	=> true,     
-
-     /* Thumb for person-type; small for content - Name: person-thumb-page */
-    'default_person_thumb_page_width'    => 200,
-    'default_person_thumb_page_height'   => 300,
-    'default_person_thumb_page_crop'	 => true,         
     
    
   

@@ -21,7 +21,7 @@
 			 ?>
 			
 			<div class="row">
-				<div class="span8">
+				<div class="startpage-blogroll">
 				   
 				    
 		    <?php 
@@ -94,7 +94,7 @@
 			?>
 			</main>	
 				</div>
-				<div class="span4 sidebar-outline">
+				<div class="startpage-sidebar">
 					<?php
 					get_template_part('template-parts/sidebar', 'events'); 					
 					get_template_part('template-parts/sidebar');
