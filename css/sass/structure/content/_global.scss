@@ -23,13 +23,6 @@
 }
 
 
-@media (max-width: $breakXS) {
-
-    .page-template-page-start .span3 {
-	float: none;
-    }
-
-}
 
 @media (max-width: $breakSM) {
   
@@ -45,21 +38,6 @@
 	    }
 	}
     }
-    
-
-    .page-template-page-start {
-	.span3 {
-	    width: 240px;  
-	    float: left;
-	    margin-left: 0px;
-	}
-	
-	.span6 {
-	    width: #{$breakSM - 10}px;
-	    padding: 10px;
-	}
-	
-    } 
 
 }
 
@@ -76,26 +54,8 @@
 		display: none;
 	    }
 	   
-	    .container {
-			.span12 {
-			    margin-left: 0;
-			}
-	    }
 
 	}
-	.span3 {
-		width: 260px; 
-		float: left;
-		margin-left: 20px;
-	}
-	         
-	.span6 {
-		width: #{$breakMD - 10}px;
-		padding: 10px;
-	}
-	.span12 {
-		margin-left: 20px;
-	}  
 
 }
 

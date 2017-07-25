@@ -63,18 +63,16 @@ global $options;
 		</noscript>
 		<?php } ?>
 		<header id="header">
-			<div class="container">
-		    
+		    <div class="container">
+			<div class="row">
+			    <div class="branding" id="logo" role="banner" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
 			    <?php 
-
-			    $header_image = get_header_image();
-			    echo '<div class="branding" id="logo" role="banner" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">';
+			    
 			    echo '<h1>';
 			    if ( ! is_front_page() ) { 
 				echo '<a itemprop="url" rel="home" href="'.fau_esc_url(home_url( '/' ) ).'">';	
 			    } 
-
-
+			    $header_image = get_header_image();
 			    if ( ! empty( $header_image ) ) {	
 				$customheader =  get_custom_header();
 				$attachment_id = 0;
@@ -114,4 +112,5 @@ global $options;
 				?>
 			    </div>
 			</div>
+		    </div>
 		</header>

@@ -19,7 +19,7 @@ get_header(); ?>
 		        echo fau_get_ad('werbebanner_seitlich',false);
 		    ?>
 		    <div class="row">
-			<div class="span12">
+			<div class="col-xs-12">
 			    <main>
 					<?php 
 					$headline = get_post_meta( $post->ID, 'headline', true );				

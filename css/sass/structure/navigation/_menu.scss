@@ -4,13 +4,12 @@
 /* Primary Navigation */
 #nav {
 	@include no-list;
-	margin: 50px 0 0 0;
 	
 	.nav-flyout {
 		display: none;
 		position: absolute;
 		z-index: 30;
-		top: 85px; // 129px;
+		top: 75px; // 129px;
 		left: 0;
 		right: 0;
 		background: $colorPrimary;
@@ -150,16 +149,14 @@
 		margin: 0;
 	}
 }
-
+#nav li.level1.has-sub > a:hover,
 #nav li.level1.focus.has-sub > a,
 .no-js #nav li.has-sub > a {
-	-webkit-border-bottom-left-radius: 0;
-	-webkit-border-bottom-right-radius: 0;
-	-moz-border-radius-bottomleft: 0;
-	-moz-border-radius-bottomright: 0;
-	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 0;
-    	color: $colorPrimary; // $colorMainMenu;
+
+	@include border-bottom-radius(0px);
+	background-color: $colorPrimary; 
+	color: #fff; 
+	
 	
 }
 #nav li.level1 a.clicked-once,
@@ -248,7 +245,6 @@
 	    position: relative;
 	}
 
-	#nav, 
 	#nav .nav-flyout {
 	    display: block;
 	    position: relative;
@@ -526,11 +522,3 @@
 		top: 112px;
 	}
 }
-
-@media (min-width: $breakLG) {
- 
-	.js-enabled.nav-fixed #nav .nav-flyout,
-	#nav .nav-flyout  {
-		top: 85px;
-	}
-}	

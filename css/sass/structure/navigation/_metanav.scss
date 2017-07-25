@@ -2,13 +2,6 @@
 /* Meta-Nav
 /*-----------------------------------------------------------------------------------*/
 
-.header-menu {
-    width: 700px;
-    float: left;
-    margin-left: 0;
-}
-
-
 	
 /* Meta-Navigation */
 #meta-nav {
@@ -19,7 +12,7 @@
 	li {
 		@include no-list;
 		@include inline-block;
-		margin-right: 8px;
+		margin: 0 4px;
 		background: none;
 		position: relative;
 		
@@ -126,19 +119,6 @@
 	}
 }
 
-@media (max-width: $breakLG) {
-	
-	.header-menu {
-	    float: none;
-	    width: 100%;
-	    display: block;
-	    margin: 8px 0 0 0;
-	   margin-top: 8px;
-	    #nav {
-		margin: 0;
-	    }
-	}
-}
 
 @media (max-width: $breakMD) {
     	.js {	

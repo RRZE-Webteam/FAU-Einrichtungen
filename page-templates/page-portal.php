@@ -22,7 +22,7 @@ get_header(); ?>
 		
 	   
 	    <div class="row">
-		<div class="startpage-blogroll">
+		<div class="portalpage-content">
 		     <main>
 		    <?php 
 			$headline = get_post_meta( $post->ID, 'headline', true );				
@@ -35,7 +35,7 @@ get_header(); ?>
 			?>
 		    </main> 
 		</div>
-		<div class="startpage-sidebar">
+		<div class="portalpage-sidebar">
 		    <?php
 		    get_template_part('template-parts/sidebar', 'events'); 	
 		    get_template_part('template-parts/sidebar'); ?>

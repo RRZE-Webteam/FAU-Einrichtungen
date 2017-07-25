@@ -6,7 +6,6 @@
 #meta {
 	@include placeholder(#fff);
 	background: $colorMetaBackground;
-	height: 42px;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -25,10 +24,15 @@
 
 .meta-links {
     @extend .col-sm-8;
-
+    .active-meta-widget & {
+	@extend .col-sm-7;
+    }
 } 
 .meta-tools {
     @extend .col-sm-4;    
+    .active-meta-widget & {
+	@extend .col-sm-5;
+    }
 }
 
 .meta-tools {
@@ -47,6 +51,11 @@
 	    padding-right: 0 !important;
 	    background-image: none !important;
     }   
+    
+    &:hover {
+	overflow: visible;
+	height: auto;
+    }
 }
 
 
@@ -60,8 +69,8 @@
 		
 		input[type="text"] {
 			@include border-radius(20px);
-			padding: 5px 35px 5px 35px;
-			width: 160px;
+			padding: 5px 35px 5px 10px;
+			width: 100px;
 			background: $colorMeta;
 			border: none;
 			outline: none;
@@ -72,6 +81,14 @@
 			margin-bottom: 0px;
 			&:focus {
 				background-color: $colorMetaHover;
+			}
+			
+			@media (min-width: $screen-md +1) {
+			    width: 120px;
+			    padding: 5px 35px 5px 35px;
+			}
+			@media (min-width: $screen-lg) {
+			    width: 160px;
 			}
 
 		}
@@ -104,6 +121,10 @@
 		    position: relative;
 		    margin-right: -30px;
 		    color: #fff;
+		    
+		    @media (max-width: $screen-md) {
+			  display: none;
+		    }
 		}
 	}
 }

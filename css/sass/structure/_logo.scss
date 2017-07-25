@@ -1,25 +1,13 @@
 /*-----------------------------------------------------------------------------------*/
 /* Site Logo
 /*-----------------------------------------------------------------------------------*/
-#logo {
-	@include inline-block();
-	float: left;
-	width: 240px;
-	max-height: 85px;
-	height: 65px;
-	margin: 0;
-	padding: 0;
+#logo {	
 	
 	h1 {
-	    display: table;
-	    font-size: 19px;
-	    line-height: 24px;
+	    @include px2rem($font-size-header-branding);
 	    font-weight: bold;
 	    color: $colorPrimary;
 	    overflow: hidden;
-	    height: 65px;
-	    max-height: 85px;
-	    padding: 0;
 	    margin: 0;
 	    
 	    a, span {
@@ -39,13 +27,8 @@
 	    } 		
 	}
 	img {
-	    max-height: 85px;
-	    max-width: 300px;
-	    height: 65px;
-	    width: auto;
-	    padding: 0;
-	    display: table-cell;
-	    vertical-align: bottom;
+	   max-height: 85px;
+	   width: 240px;
 		
 	    &:hover,
 	    &:focus {
@@ -56,6 +39,8 @@
 	}
 }
 
+
+/*
 
 @media (max-width: $breakSM) {
     .no-js {
@@ -96,3 +81,4 @@
 	} 
     }
 }
+*/

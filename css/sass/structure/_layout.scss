@@ -34,16 +34,14 @@ html, body, button {
     .entry-content {
        border: 1px solid red;
     }
-    #logo {
-	border: 1px solid greenyellow;
-    }
-    .meta-links, .meta-tools {
-	border: 1px solid red;
-    }
 
 
  }
+ 
 
+
+ 
+ 
 .sidebar-single,
 .sidebar-subnav {
     @extend .col-xs-12;
@@ -103,10 +101,12 @@ html, body, button {
     }
 }
 
+.portalpage-content,
 .startpage-blogroll {
     @extend .col-xs-12;
     @extend .col-sm-8;
 }
+.portalpage-sidebar,
 .startpage-sidebar {
     @extend .col-xs-12;
     @extend .col-sm-4;
@@ -236,12 +236,6 @@ html, body, button {
 }
 
 
-@media (max-width: $breakLG) {
-    	.sidebar-inline {
-		width: 240px;
-	}
-
-}
 
 
 @media (min-width: $breakMD) and (max-width: $breakLG) {

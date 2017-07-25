@@ -1,6 +1,63 @@
 /*-----------------------------------------------------------------------------------*/
 /* Header
 /*-----------------------------------------------------------------------------------*/
+ 
+ #header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .row {    
+	height: 65px;
+	 .branding {
+	     text-align: right;
+	     display: table-cell;
+	     float: none;
+	 }
+	 .header-menu {
+	    float: none;
+	    display: table-cell;
+	    vertical-align: bottom;
+	}
+     }
+ }
+#logo {	
+	h1 {
+	    @include px2rem($font-size-header-branding);
+	    font-weight: bold;
+	    color: $colorPrimary;
+	    overflow: hidden;
+	    margin: 0;
+	    
+	    a, span {
+		display: table-cell;
+		vertical-align: bottom;
+	    }
+	    a {
+		color: $colorPrimary;
+		
+		 &:hover,
+		 &:focus {
+		    @include border-radius(4px);
+		    background-color: lighten($colorHover, 5%);
+		    color: white;
+		}	
+		
+	    } 		
+	}
+	img {
+	   max-height: 85px;
+	   width: 240px;
+		
+	    &:hover,
+	    &:focus {
+		 background-color: white;
+		 color:  $colorPrimary;
+	    }
+		
+	}
+}
+
+
+
 @media (max-width: $breakSM) {
     #header {
 	position: fixed;
