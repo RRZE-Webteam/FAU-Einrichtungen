@@ -119,6 +119,18 @@
 .subpages-menu {
 	@include no-list;
 	margin: 20px 0 20px -20px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+
+	@media (min-width: $screen-sm) {
+	    grid-template-columns: 1fr 1fr 1fr;
+	}
+	@media (min-width: $screen-md) {
+	    grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+	@media (min-width: $screen-xxl) {
+	    grid-template-columns: 1fr 1fr 1fr 1fr  1fr;;
+	}
 	
 	li {
 		@include no-list;
@@ -225,7 +237,13 @@
 	.subpage-item:focus h3 {
 		background-color: $colorLightest;
 	}
+	
+	
+	
 }
+
+
+
 
 .page-template-page-subnav {
     #content {
@@ -273,10 +291,6 @@
 		margin-right: 0;
 	}
 	.subpages-menu {
-		li.span3 {
-		    width: 230px;
-		}    
-
 		 a.image {
 		    &.ext-link:after {
 			display: none;
@@ -351,12 +365,3 @@
 	}
     }
 }
-
-@media (max-width: $breakLG) {
-    	.subpages-menu {
-	    li.span3 {
-		width: 230px;
-	    }    
-	}
-}
-

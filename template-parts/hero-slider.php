@@ -85,6 +85,8 @@
 		    ?>
 		    <div class="hero-slide-text">
 			<div class="container">
+			    <div class="row">
+				<div class="slider-titel">
 				    <?php
 					echo '<h2><a href="';
 
@@ -97,12 +99,19 @@
 					}
 					echo $link;
 					echo '">'.get_the_title($hero->ID).'</a></h2>'."\n";					
-
+					?>
+				    </div>
+				</div>
+				<div class="row">
+				    <div class="slider-text">	    
+			    <?php 
 					$abstract = get_post_meta( $hero->ID, 'abstract', true );
 					if (strlen(trim($abstract))<3) {
 					   $abstract =  fau_custom_excerpt($hero->ID,$options['default_slider_excerpt_length'],false);
 					} ?>
-					<br><p><?php echo $abstract; ?></p>
+					<p><?php echo $abstract; ?></p>
+				    </div>
+				</div>	
 			</div>
 		    </div>
 

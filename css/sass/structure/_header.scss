@@ -46,7 +46,8 @@
 	img {
 	   max-height: 85px;
 	   width: 240px;
-		
+	   max-width: inherit;
+	   
 	    &:hover,
 	    &:focus {
 		 background-color: white;
@@ -97,7 +98,7 @@
 }
 
 
-@media (min-width: $breakMD) and (max-width: $breakLG) {
+@media (min-width: $breakMD +1) {
     #header {
 	position: fixed;
 	top: 42px;
@@ -115,21 +116,3 @@
 
     }
 }
-@media (min-width: $breakLG) {
-    #header {
-	position: fixed;
-	top: 42px;
-	left: 0;
-	right: 0;
-	background: #fff;
-	z-index: 100;
-
-	.admin-bar & {
-	    top: 74px;
-	}     
-	.nav-scrolled & {
-	     @include box-shadow(0 1px 3px rgba(0,0,0,0.3));	
-	}
-    }
-}	
-

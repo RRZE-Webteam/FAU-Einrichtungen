@@ -29,6 +29,17 @@ $break-1700:	1760px;
 // for 4k screens (2200px and more)
 $break-2200:	2200px;
 
+$screen-xl:	1400px;
+$screen-xxl:	1700px;
+
+$screen-xl-min:  $screen-xl;
+$screen-xl-max:	 ($screen-xxl - 1);   
+$screen-xxl-min:    $screen-xxl;
+
+
+$container-xl:	    1200px;
+$container-xxl:	    1400px;	 
+
 
 // Define fonts
 $fontStack: 'roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -171,13 +182,14 @@ $colorCopyrightBackground:  rgba(0,0,0,0.4);
 
 
 // Font sizes
-$font-size-base:	    16;
-$font-size-meta:	    13;
-$font-size-breadcrumb:	    13;
-$font-size-herosearch:	    16;
-$font-size-header-branding:   19;
-
-
+$font-size-base:		16;
+$font-size-meta:		13;
+$font-size-breadcrumb:		13;
+$font-size-herosearch:		16;
+$font-size-header-branding:	19;
+$font-size-hero-slider-title:   24;
+$font-size-hero-slider-text:	18;
+$font-size-hero-slider-copyright: 14;
 
 // Bootstrap Adjustments
 

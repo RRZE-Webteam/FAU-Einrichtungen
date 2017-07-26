@@ -255,7 +255,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 	
 	
 	function __construct($showsub=1,$maxsecondlevel=5,$spalten=4,$noshowthumb=0,$nothumbnailfallback=0) {
-	    echo '<ul class="row subpages-menu">';
+	    echo '<ul class="subpages-menu">';
 	    $this->showsub = $showsub;
 	    $this->maxsecondlevel = $maxsecondlevel;
 	    $this->maxspalten = $spalten;
@@ -299,11 +299,11 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 			$externlink = false;
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 			$classes[] = 'menu-item-' . $item->ID;
-			if($this->level == 1 && (isset($this->count[$this->level])) && (($this->count[$this->level]-1) % $this->maxspalten==0) ) {
-			    $classes[] = 'clear';
-			}    
+	//		if($this->level == 1 && (isset($this->count[$this->level])) && (($this->count[$this->level]-1) % $this->maxspalten==0) ) {
+	//		    $classes[] = 'clear';
+	//		}    
 			if($this->level == 1) {
-			    $classes[] = 'span3';
+			    $classes[] = 'menubox';
 			}
 
 			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
