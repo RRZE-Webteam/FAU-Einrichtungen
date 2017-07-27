@@ -229,6 +229,9 @@ function fau_addmetatags() {
 
     if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {
 	    $output .=  '<link rel="apple-touch-icon" href="'.get_fau_template_uri().'/img/apple-touch-icon.png">'."\n";
+	    $output .=  '<link rel="icon" href="'.get_fau_template_uri().'/img/apple-touch-icon.png">'."\n";
+	    $output .=  '<link rel="icon" href="'.get_fau_template_uri().'/img/apple-touch-icon-120x120.png" sizes="120x120">'."\n";
+	    $output .=  '<link rel="icon" href="'.get_fau_template_uri().'/img/apple-touch-icon-152x152.png" sizes="152x152">'."\n";
 	    $output .=  '<link rel="shortcut icon" href="'.get_fau_template_uri().'/img/favicon.ico">'."\n";	
     }
     

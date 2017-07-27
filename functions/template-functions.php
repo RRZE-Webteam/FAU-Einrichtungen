@@ -22,7 +22,6 @@
     return $classes;
  }
  add_filter( 'body_class', 'fau_body_class' );
-
 /*-----------------------------------------------------------------------------------*/
 /* Add Class for protected pages
 /*-----------------------------------------------------------------------------------*/
@@ -34,6 +33,23 @@
 }
 add_filter('page_css_class', 'fau_protected_attribute', 10, 3);
 
+/*-----------------------------------------------------------------------------------*/
+/* Define errorpages 401 and 403
+/*-----------------------------------------------------------------------------------*/
+function fau_prefix_custom_site_icon_size( $sizes ) {
+   $sizes[] = 64;
+   $sizes[] = 120;
+   return $sizes;
+}
+add_filter( 'site_icon_image_sizes', 'fau_prefix_custom_site_icon_size' );
+ 
+function fau_prefix_custom_site_icon_tag( $meta_tags ) {
+   $meta_tags[] = sprintf( '<link rel="icon" href="%s" sizes="64x64" />', esc_url( get_site_icon_url( null, 64 ) ) );
+   $meta_tags[] = sprintf( '<link rel="icon" href="%s" sizes="120x120" />', esc_url( get_site_icon_url( null, 120 ) ) );
+ 
+   return $meta_tags;
+}
+add_filter( 'site_icon_meta_tags', 'fau_prefix_custom_site_icon_tag' );
 /*-----------------------------------------------------------------------------------*/
 /* Define errorpages 401 and 403
 /*-----------------------------------------------------------------------------------*/

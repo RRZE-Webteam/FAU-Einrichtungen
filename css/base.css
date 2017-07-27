@@ -447,7 +447,7 @@ pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap
 .container:after { clear: both; }
 @media (min-width: 768px) { .container { width: 750px; } }
 @media (min-width: 992px) { .container { width: 970px; } }
-@media (min-width: 1200px) { .container { width: 1170px; } }
+@media (min-width: 1200px) { .container { width: 970px; } }
 
 .container-fluid { margin-right: auto; margin-left: auto; padding-left: 15px; padding-right: 15px; }
 .container-fluid:before, .container-fluid:after { content: " "; display: table; }
@@ -2333,16 +2333,16 @@ CSS Font File for Wordpress Theme FAU
   .col-xl-offset-10 { margin-left: 83.33333%; }
   .col-xl-offset-11 { margin-left: 91.66667%; }
   .col-xl-offset-12 { margin-left: 100%; } }
-@media (min-width: 1700px) { .col-xxl-1, .col-xxl-2, .col-xxl-3, .col-xxl-4, .col-xxl-5, .col-xxl-6, .col-xxl-7, .col-xxl-8, .col-xxl-9, .col-xxl-10, .col-xxl-11, .col-xxl-12 { float: left; }
+@media (min-width: 1700px) { .col-xxl-1, .col-xxl-2, .col-xxl-3, .sidebar-single, .sidebar-subnav, .portalpage-sidebar, .startpage-sidebar, .col-xxl-4, .col-xxl-5, .col-xxl-6, .col-xxl-7, .col-xxl-8, .col-xxl-9, .entry-content, .portalpage-content, .startpage-blogroll, .col-xxl-10, .col-xxl-11, .col-xxl-12 { float: left; }
   .col-xxl-1 { width: 8.33333%; }
   .col-xxl-2 { width: 16.66667%; }
-  .col-xxl-3 { width: 25%; }
+  .col-xxl-3, .sidebar-single, .sidebar-subnav, .portalpage-sidebar, .startpage-sidebar { width: 25%; }
   .col-xxl-4 { width: 33.33333%; }
   .col-xxl-5 { width: 41.66667%; }
   .col-xxl-6 { width: 50%; }
   .col-xxl-7 { width: 58.33333%; }
   .col-xxl-8 { width: 66.66667%; }
-  .col-xxl-9 { width: 75%; }
+  .col-xxl-9, .entry-content, .portalpage-content, .startpage-blogroll { width: 75%; }
   .col-xxl-10 { width: 83.33333%; }
   .col-xxl-11 { width: 91.66667%; }
   .col-xxl-12 { width: 100%; }
@@ -2385,7 +2385,7 @@ CSS Font File for Wordpress Theme FAU
   .col-xxl-offset-10 { margin-left: 83.33333%; }
   .col-xxl-offset-11 { margin-left: 91.66667%; }
   .col-xxl-offset-12 { margin-left: 100%; } }
-@media (min-width: 1400px) { .container { width: 1200px; } }
+@media (min-width: 1400px) { .container { width: 1100px; } }
 @media (min-width: 1700px) { .container { width: 1400px; } }
 
 /*-----------------------------------------------------------------------------------*/

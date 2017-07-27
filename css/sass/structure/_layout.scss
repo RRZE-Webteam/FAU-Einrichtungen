@@ -46,11 +46,13 @@ html, body, button {
 .sidebar-subnav {
     @extend .col-xs-12;
     @extend .col-sm-4;
+    @extend .col-xxl-3;
     
 }
 .entry-content {
     @extend .col-xs-12;
     @extend .col-sm-8;
+    @extend .col-xxl-9;
 
 }
 #hero {
@@ -105,11 +107,13 @@ html, body, button {
 .startpage-blogroll {
     @extend .col-xs-12;
     @extend .col-sm-8;
+    @extend .col-xxl-9;
 }
 .portalpage-sidebar,
 .startpage-sidebar {
     @extend .col-xs-12;
     @extend .col-sm-4;
+    @extend .col-xxl-3;
 }
 
 
