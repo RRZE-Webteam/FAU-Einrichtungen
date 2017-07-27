@@ -2311,7 +2311,7 @@ table a:hover, table a:focus { text-decoration: none; }
 /*-----------------------------------------------------------------------------------*/
 /* Lists
 /*-----------------------------------------------------------------------------------*/
-li { padding: 3px 0 4px 4px; font-size: 15px; line-height: 22px; color: #444; }
+li { padding: 3px 0 4px 4px; font-size: 15px; line-height: 21px; font-size: 0.9375rem; line-height: 1.3125rem; color: #444; }
 .sidebar-inline li { padding: 3px 0 4px 20px; }
 
 ul { /* Lettered Pagination */ /* File Lists */ }
@@ -2508,7 +2508,7 @@ div.aligncenter { margin-bottom: 10px; }
 .bgcol-fau, .bgcol-default { background-color: #003366 !important; }
 
 /*-----------------------------------------------------------------------------------*/
-/* HInweise /  Notices
+/* Hinweise /  Notices
 /*-----------------------------------------------------------------------------------*/
 .notice-hinweis, .hinweis { margin: 0; padding: 22px 0; color: #003366; font-weight: bold; }
 .notice-hinweis:before, .hinweis:before { padding-right: 8px; font-weight: normal; vertical-align: -4px; min-width: 24px; }

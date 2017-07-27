@@ -48,9 +48,9 @@ if(has_nav_menu('error-4')) {
 if ($count>0) { 
     
     echo "<hr>\n";
-   
-echo "<p>".__('Folgende Inhalte könnten Ihnen auch helfen:','fau')."</p>\n";
-    echo '<div class="row subpages-menu">'."\n";
+    echo '<div class="helpermenus">'."\n";
+    echo "<p>".__('Folgende Inhalte könnten Ihnen auch helfen:','fau')."</p>\n";
+    echo '<div class="row">'."\n";
     
     
     if ($count ==1) {
@@ -82,6 +82,7 @@ echo "<p>".__('Folgende Inhalte könnten Ihnen auch helfen:','fau')."</p>\n";
 	    echo $spalte4;
 	    echo "</div>\n";
     }
+    echo "</div>\n";
     echo "</div>\n";
     
 }

@@ -113,12 +113,10 @@
 }
 
 
-
-
 /* Subpages / Portal Menu */
 .subpages-menu {
 	@include no-list;
-	margin: 20px 0 20px -20px;
+	margin: 20px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 
@@ -135,14 +133,13 @@
 	li {
 		@include no-list;
 		background-image: none;
-		margin-bottom: 20px;
-		padding-left: 20px;
-		
+		margin: 10px;
+		padding: 0;
+		width: 220px;
 		a.image {
 			text-decoration: none;
 			width: 220px;
 			height: 110px;
-			// @include box-shadow(0 1px 2px rgba(0,0,0,0.3));
 			display: inline-block;			
 			img {
 			    position: relative;
@@ -154,13 +151,14 @@
 				content: "\f08e"; 
 				position: absolute;
 				top: 0;
-				right: 0;
+				right: 0px;
 				z-index: 10;
 				height: 20px;
 				width: 20px;
 				background: $colorPrimary;
-				line-height: 20px;
-				font-size: 13px;
+				
+				
+				@include px2rem($font-size-linkicon);  
 				color: #fff; 
 				font-weight: bolder;
 				text-align: right;
@@ -169,82 +167,59 @@
 			}
 		}
 	}
-	h3 {
-		    padding: 10px 15px 10px 0;
-		    font-weight: bold;
-		   
-		    a {
-			 text-decoration: none;
-			 &:hover, &:focus {
-			    text-decoration: underline;
-			}
-			
-			&.ext-link:after {
-				@extend .fa;
-				content: "\f08e"; 
-				margin-left: 5px;
-				margin-top: 3px;
-				font-size: 10px;
-				color: $colorText; // $colorDefault;
-				vertical-align: top;
-			    
-			}
-		    }	    
-	}
-
-
-		
-		
+	
 	.menu-item {
 		position: relative;
 	}
 	
 	ul {
-		@include no-list;
-		
-		li {
-			@include no-list;
-			background: none;
-			display: table;
-			border-bottom: 1px solid $colorLightest;
-			width: 100%;
-			
-		}
-		li:before {
-		    @extend .fa;
-		    @extend .fa-angle-right;	
-		    font-weight: bold;
-		    display: table-cell;
-		    vertical-align: middle;
-		    color: $colorDefault;
-		    width: 5px;
-		}
-		
-		a {
-			text-decoration: none;
-			display: table-cell;
-			padding: 5px 12px;
-			font-size: 13px;
-			line-height: 16px;
-		}
-		
-		a:hover, a:focus {
-			text-decoration: none;
-			background-color: $colorLightest;
-		}
+	    @include no-list;
+	    li {
+		    @include anglelist();	
+	    }
 	}
 	
 	.subpage-item:focus h3 {
 		background-color: $colorLightest;
 	}
+}
+
+.subpages-menu, 
+.helpermenus {
+    h3 {
+	@include px2rem($font-size-h3-contentmenu);  
+	font-weight: normal;
 	
-	
-	
+	a {
+	     text-decoration: none;
+	     &:hover, &:focus {
+		text-decoration: underline;
+	    }
+
+	    &.ext-link:after {
+		    @extend .fa;
+		    content: "\f08e"; 
+		    margin-left: 5px;
+		    margin-top: 0;
+		    @include px2rem($font-size-content-linkicon);  
+		    color: $colorText; 
+		    vertical-align: top;
+
+	    }
+	}	    
+    }
+}
+.helpermenus {
+    ul {
+	@include no-list();
+    }
+    li {
+	@include anglelist();
+    }
 }
 
 
-
-
+/*
 .page-template-page-subnav {
     #content {
 	.span8 {
@@ -268,6 +243,7 @@
     }
 }
 
+*/
 
 
 
