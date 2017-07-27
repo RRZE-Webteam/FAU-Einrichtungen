@@ -6,6 +6,16 @@
 
 @import "frameworks/jquery-ui";
 
+// Import FAU variables
+@import "variables";
+// Mixins
+@import "mixins/mixins";
+
+// Fonts
+@import "fonts/fonts";
+
+// Element Styles
+@import "elements/elements"; 
 
 
  #headimg {
