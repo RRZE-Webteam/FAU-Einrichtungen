@@ -1461,13 +1461,16 @@ function fau_get_category_links($cateid = 0) {
     }
     $link = get_category_link($cateid);
     if (empty($link)){
-	 $cat = get_categories(); 
-	 $cateid = $cat[0]->cat_ID;
-     }
+	$cat = get_categories(); 
+	if (is_array($cat)) {
+	    $cateid = $cat[0]->cat_ID;
+	    $link = get_category_link($cateid);
+	}
+    }
     $res = '';
-    if ($cateid) {
+    if (!fau_empty($link)) {
 	$res .= '<div class="news-more-links">'."\n";
-	$res .= "\t".'<a class="news-more" href="'.get_category_link($cateid).'">'.$options['start_link_news_linktitle'].'</a>';
+	$res .= "\t".'<a class="news-more" href="'.$link.'">'.$options['start_link_news_linktitle'].'</a>';
 	$res .= '<a class="news-rss" href="'.get_category_feed_link($cateid).'">'.__('RSS','fau').'</a>';
 	$res .= "</div>\n";	
     }

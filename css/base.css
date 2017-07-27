@@ -3029,8 +3029,8 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 .event-detail-item .event-date-day { font-size: 28px; line-height: 28px; }
 
 .events-more-links { padding: 0; text-align: left; margin-bottom: 5px; }
-.events-more-links a { display: inline-block; *display: inline; *zoom: 1; line-height: 15px; margin-left: 60px; }
-.events-more-links .events-more { color: #1f4c7a; background: #dde5f0; padding: 8px 10px; text-decoration: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background-clip: padding-box; font-size: 14px; }
+.events-more-links a { display: inline-block; *display: inline; *zoom: 1; margin-left: 60px; }
+.events-more-links .events-more { color: #1f4c7a; background: #dde5f0; padding: 8px 10px; text-decoration: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background-clip: padding-box; font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
 .events-more-links .events-more:hover, .events-more-links .events-more:focus { background: #cbd7e8; text-decoration: none; }
 
 @media (max-width: 767px) { #content .widget_event_widget .event-info { margin-left: 60px; }
@@ -3066,9 +3066,9 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 .news-meta-categories ul li a:hover, .news-meta-categories ul li a:focus { color: #fff; background: #003366; }
 
 .news-more-links { padding: 20px 0; text-align: left; }
-.news-more-links a { display: inline-block; *display: inline; *zoom: 1; height: 20px; line-height: 20px; margin-right: 15px; }
+.news-more-links a { display: inline-block; *display: inline; *zoom: 1; margin-right: 15px; }
 .news-more-links .news-rss:before { padding-right: 5px; }
-.news-more-links .news-more { color: #1f4c7a; background: #dde5f0; padding: 6px 10px; text-decoration: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background-clip: padding-box; font-size: 14px; }
+.news-more-links .news-more { color: #1f4c7a; background: #dde5f0; padding: 6px 10px; text-decoration: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background-clip: padding-box; font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
 .news-more-links .news-more:hover, .news-more-links .news-more:focus { background: #cbd7e8; }
 
 @media (max-width: 320px) { #content { padding-top: 0px; }

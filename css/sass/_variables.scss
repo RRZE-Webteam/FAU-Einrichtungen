@@ -10,36 +10,6 @@
     
 $debugmode: 'true';
 
-// Define breakpoints
-
-// iPhone 3G
-$breakXS:   320px;
-// M8, Google, small others
-$breakSM:   480px;
-// iPad
-$breakMD:   767px;
-// iPad
-$breakLG:   992px; // 979px;
-// for small desktop up to 1200 pc or 1280 macbook air
-$break-1060:   1060px;
-// for larger desktop up to 1400 or macbook pro 1440
-$break-1360:	1360px;
-// for larger screen up to 1800px
-$break-1700:	1760px;
-// for 4k screens (2200px and more)
-$break-2200:	2200px;
-
-$screen-xl:	1400px;
-$screen-xxl:	1700px;
-
-$screen-xl-min:  $screen-xl;
-$screen-xl-max:	 ($screen-xxl - 1);   
-$screen-xxl-min:    $screen-xxl;
-
-$container-lg:	    970px;
-$container-xl:	    1100px;
-$container-xxl:	    1400px;	 
-
 
 // Define fonts
 $fontStack: 'roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -190,9 +160,42 @@ $font-size-header-branding:	19;
 $font-size-hero-slider-title:   24;
 $font-size-hero-slider-text:	18;
 $font-size-hero-slider-copyright: 14;
+$font-size-textbuttons:		14;
+
+
+
+
+// Define breakpoints
+
+// iPhone 3G
+$breakXS:   320px;
+// M8, Google, small others
+$breakSM:   480px;
+// iPad
+$breakMD:   767px;
+// iPad
+$breakLG:   992px; // 979px;
+// for small desktop up to 1200 pc or 1280 macbook air
+$break-1060:   1060px;
+// for larger desktop up to 1400 or macbook pro 1440
+$break-1360:	1360px;
+// for larger screen up to 1800px
+$break-1700:	1760px;
+// for 4k screens (2200px and more)
+$break-2200:	2200px;
+
+$screen-xl:	1400px;
+$screen-xxl:	1700px;
+
+$screen-xl-min:  $screen-xl;
+$screen-xl-max:	 ($screen-xxl - 1);   
+$screen-xxl-min:    $screen-xxl;
+
+$container-lg:	    970px;
+$container-xl:	    1100px;
+$container-xxl:	    1400px;	 
 
 // Bootstrap Adjustments
-
 $fau-gutter-width:	30px;
 
 $grid-gutter-width:	$fau-gutter-width;

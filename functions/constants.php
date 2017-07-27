@@ -293,6 +293,7 @@ function fau_initoptions() {
 }
 
  $categories=get_categories(array('orderby' => 'name','order' => 'ASC'));
+ $currentcatliste = array();
  foreach($categories as $category) {
      if (!is_wp_error( $category )) {
 	$currentcatliste[$category->cat_ID] = $category->name.' ('.$category->count.' '.__('Einträge','fau').')';

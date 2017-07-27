@@ -132,8 +132,6 @@
 	
 	a {
 		@include inline-block;
-		height: 20px;
-		line-height: 20px;
 		margin-right: 15px;
 	}
 
@@ -150,7 +148,8 @@
 		padding: 6px 10px;
 		text-decoration: none;
 		@include border-radius(3px);
-		font-size: 14px;
+		@include px2rem($font-size-textbuttons);
+		
 		
 		&:hover, &:focus {
 			background: $colorButtonBackgroundHover;
