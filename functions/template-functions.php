@@ -352,7 +352,12 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	    if ($withthumb==true)   {
 		$output .= "\t</div> <!-- /row -->\n";
 	    }	
-		
+	} elseif ($type == 'studienangebot') {
+	    $output .= "\t\t".'<p>'."\n"; 
+	    $output .= fau_custom_excerpt($post->ID,$options['default_search_excerpt_length'],false,'',true,$options['search_display_excerpt_morestring']);	
+	  
+	    $output .= "\t\t\t".'</p>'."\n"; 
+
 
 	} else {
 
