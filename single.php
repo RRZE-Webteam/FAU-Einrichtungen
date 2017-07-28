@@ -9,6 +9,7 @@
  */
 
 global $options;
+global $pagebreakargs;
 get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
@@ -114,6 +115,9 @@ get_header(); ?>
 					}
 						echo $output;    
 						the_content();
+						
+						echo wp_link_pages($pagebreakargs);
+						
 						
 						if ($options['post_display_category_below']) {
 						    $output = '<p class="meta-footer">'."\n";

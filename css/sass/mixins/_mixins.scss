@@ -119,7 +119,6 @@ Mixins File for Wordpress Theme FAU
 }
 
 @mixin anglelist() {
-
     @include no-list;
     background: none;
     display: table;
@@ -149,7 +148,6 @@ Mixins File for Wordpress Theme FAU
 	    text-decoration: none;
 	    background-color: $colorLightest;
     }
-    
 }
 
 @mixin inline-block() {
@@ -176,4 +174,33 @@ Mixins File for Wordpress Theme FAU
   font-size: px2rem($font-size, $base-font-size);
   line-height: ($line / $base-font-size) + rem;
 }
+
+
+@mixin morelink() {
+    margin: 10px 0 0 0;
+    color: $colorButton;
+    padding: 8px 10px;
+    text-decoration: none;
+    @include border-radius(3px);
+    @include px2rem($font-size-textbuttons);
+
+    a {
+	@include inline-block;
+	@include border-radius(3px);
+	@include px2rem($font-size-textbuttons);
+	
+	background: $colorButtonBackground;
+	padding: 6px 10px;
+	text-decoration: none;
+
+	
+	&:hover, &:focus {
+		background: $colorButtonBackgroundHover;
+		text-decoration: none;
+	}
+    }
+
+}
+
+
 

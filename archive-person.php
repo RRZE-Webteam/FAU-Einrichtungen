@@ -18,18 +18,16 @@ get_header();
 		<div class="container">
 		
 			<div class="row">
-			     <?php 
-				if (is_active_sidebar( 'search-sidebar' ) ) { 	
-					$active_sidebar = true; ?>
-				<div class="span3">
-					<div class="search-sidebar">
+			    <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	
+				// add sidebar and nest content in sub-row
+				$active_sidebar = 1; ?>
+				<div class="search-sidebar">
 					    <?php dynamic_sidebar( 'search-sidebar' ); ?>
-					</div>
-				</div>
-				<div class="span9">			
-			     <?php } else { ?>
-				<div class="span12">	
-			     <?php }  ?>
+				</div>	
+				<div class="search-resultnested">   
+				    <div class="row">
+			    <?php } ?>
+			    
 				    <main>
 					
 					<?php 
@@ -45,6 +43,12 @@ get_header();
 					    </nav>
 
 				    </main>
+				    
+				     <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	?>
+				    </div>
+				 </div>
+				 <?php  } ?>
+				    
 				</div>
 				
 				    <?php if(get_post_type() == 'post') {

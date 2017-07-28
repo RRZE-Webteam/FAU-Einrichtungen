@@ -159,31 +159,6 @@
 }
 
 
-.events-more-links {
-	padding: 0;
-	text-align: left;
-	margin-bottom: 5px;
-	
-	a {
-		@include inline-block;
-		margin-left: 60px;
-	}
-	
-	.events-more {
-		color: $colorButton;
-		background: $colorButtonBackground;
-		padding: 8px 10px;
-		text-decoration: none;
-		@include border-radius(3px);
-		@include px2rem($font-size-textbuttons);
-		
-		&:hover, &:focus {
-			background: $colorButtonBackgroundHover;
-			text-decoration: none;
-		}
-	}
-}
-
 
 
 @media (max-width: $breakMD) {

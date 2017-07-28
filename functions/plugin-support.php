@@ -1,15 +1,11 @@
 <?php
+/*-----------------------------------------------------------------------------------*/
+/* Code to support or modify optional plugins
+/*-----------------------------------------------------------------------------------*/
 
-/* 
- * Code to support or modify optional plugins
- */
-
-
-
-
-/*
- * wpSEO Metaboxen nur für Pages und Posts
- */
+/*-----------------------------------------------------------------------------------*/
+/* Plugin wpSEO: Metaboxen nur für Pages und Posts
+/*-----------------------------------------------------------------------------------*/
 add_filter( 'wpseo_add_meta_boxes', 'prefix_wpseo_add_meta_boxes' );
  
 function prefix_wpseo_add_meta_boxes() {
@@ -18,10 +14,9 @@ function prefix_wpseo_add_meta_boxes() {
     return !in_array( get_post_type($post), $post_types_without_seo);
 } 
 
-
-/* 
- * Plugin Statify für Redakteuere erlauben
- */
+/*-----------------------------------------------------------------------------------*/
+/*Plugin Statify: für Redakteuere erlauben
+/*-----------------------------------------------------------------------------------*/
 function statify_init() {
     $role = get_role('editor');
     $role->add_cap('edit_dashboard');
@@ -30,4 +25,14 @@ function statify_init() {
 }
 add_action('admin_init', 'statify_init'); 
 
+/*-----------------------------------------------------------------------------------*/
+/* Plugin TinyMCE: Button für Seitenumbruch ergänzen
+/*-----------------------------------------------------------------------------------*/
+add_filter( 'mce_buttons', 'kb_add_next_page_button', 1, 2 );
+function kb_add_next_page_button( $buttons, $id ) {
+  if ( 'content' === $id ) {
+    array_splice( $buttons, 13, 0, 'wp_page' );
+  }
+  return $buttons;
+}
 

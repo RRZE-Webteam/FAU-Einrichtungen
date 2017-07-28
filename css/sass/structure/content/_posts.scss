@@ -8,8 +8,7 @@
     text-align: center;
     
     .post-image-caption {
-	    line-height: 18px;
-	    font-size: 13px;
+	    @include px2rem($font-size-content-meta);
 	    padding: 10px 0;
 	    width: 300px;
 	    text-align: left;
@@ -21,8 +20,12 @@
 	    margin: -14px 0 14px 0;
 	    color: $colorPrimary;
 	    font-family: $fontStack;
+	    @include px2rem($font-size-content-meta);
 }
 
+.meta-footer {
+     @include px2rem($font-size-content-meta);
+}
 
 .post-meta-tags {
 	@include inline-block;
@@ -35,7 +38,8 @@
 			@include no-list;
 			@include inline-block;
 			margin: 0;
-			font-size: 13px;
+			
+			
 			a {
 				@include inline-block;
 				text-decoration: none;

@@ -26,22 +26,17 @@ $posttype = get_post_type();
 		<div class="container">
 		
 			<div class="row">
-			     <?php 
-				if( (get_post_type() != 'post') &&  (is_active_sidebar( 'search-sidebar' ) )) { 	
-					$active_sidebar = true; ?>
-				<div class="span3">
-					<div class="search-sidebar">
+			    
+			    <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	
+				// add sidebar and nest content in sub-row
+				$active_sidebar = 1; ?>
+				<div class="search-sidebar">
 					    <?php dynamic_sidebar( 'search-sidebar' ); ?>
-					</div>
-				</div>
-				<div class="span9">			
-			     <?php } else { 
-				 if (get_post_type() != 'post') { ?>
-				     <div class="span12">	
-				  <?php  } else { ?>
-				     <div class="span8">	
-				  <?php  } ?>	 
-			     <?php }  ?>
+				</div>	
+				<div class="search-resultnested">   
+				    <div class="row">
+			    <?php } ?>
+			    
 				    <main>
 					<?php 
 					if (($posttype == 'synonym') && ($options['index_synonym_listall'])) {					    
@@ -105,8 +100,12 @@ $posttype = get_post_type();
 					} ?>
 					
 				    </main>
-				</div>
 				
+				     <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	?>
+				    </div>
+				 </div>
+				 <?php  } ?>
+				</div>
 				    <?php if(get_post_type() == 'post') {
 					 get_template_part('template-parts/sidebar', 'news');
 				    } ?>

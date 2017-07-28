@@ -30,7 +30,12 @@ get_header(); ?>
 					
 					 
 					get_template_part('template-parts/sidebar', 'inline'); 
-					the_content(); ?>
+					the_content(); 
+					
+					echo wp_link_pages($pagebreakargs);
+
+					
+					?>
 			    </main>
 			</div>		
 		    </div>

@@ -4,24 +4,7 @@
 /*-----------------------------------------------------------------------------------*/
 
 .person-info-more {
-	margin: 10px 0 0 0;
-	padding-left: 0 !important;
-}
-
-.person-read-more {
-	@include inline-block;
-	height: 20px;
-	line-height: 20px;
-	background: $colorLightest;
-	padding: 6px 10px;
-	text-decoration: none;
-	@include border-radius(3px);
-	font-size: 14px;
-	
-	&:hover, &:focus {
-		background: darken($colorLightest, 3%);
-		text-decoration: none;
-	}
+	@include morelink();
 }
 
 .person {

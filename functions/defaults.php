@@ -321,3 +321,16 @@ $default_fau_orga_faculty = array(
     'med', 'nat', 'phil', 'rw', 'tf'
 );
 
+
+$pagebreakargs = array(
+    
+    'before'   => '<nav class="pagination pagebreaks" role="navigation"><h3>' . __( 'Seite:', 'fau' ).'</h3><span class="subpages">',
+		'after'            => '</span></nav>',
+		'link_before'      => '<span class="number">',
+		'link_after'       => '</span>',
+		'next_or_number'   => 'number',
+		'separator'        => ' ',
+		'nextpagelink'     => __( 'Nächste Seite', 'fau' ),
+		'previouspagelink' => __( 'Vorherige Seite', 'fau' ),
+		'pagelink'         => '%',
+    'echo' => 0);

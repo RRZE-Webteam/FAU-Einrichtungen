@@ -82,11 +82,12 @@ $showhelplinks = 0;
 					//	    'add_args' => array_map( 'urlencode', $query_args ),
 						    'prev_text' => __( '<span class="meta-nav">&larr;</span> Zurück', 'fau' ),
 						    'next_text' => __( 'Weiter <span class="meta-nav">&rarr;</span>', 'fau' ),
+						    'before_page_number' => '<span class="screen-reader-text">'.__( 'Seite', 'fau' ).' </span>'
 						) );
 						?>
 						<?php if ( $links ) { ?>
 						    <nav id="nav-pages" class="navigation paging-navigation" role="navigation">
-							<h3 class="screen-reader-text"><?php _e( 'Weitere Suchergebnisse', 'fau' ); ?></h1>
+							<h3 class="screen-reader-text"><?php _e( 'Weitere Suchergebnisse', 'fau' ); ?></h3>
 							<div class="nav-links">
 							    <?php echo $links; ?>
 							</div>
