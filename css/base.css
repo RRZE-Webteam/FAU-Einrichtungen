@@ -2400,10 +2400,6 @@ body { margin: 0; color: #444; font-size: 16px; font-size: 1rem; line-height: 1.
 
 html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-kerning: none; }
 
-.container { border: 1px solid #ff8800; }
-
-.entry-content { border: 1px solid red; }
-
 .search-results .searchresult-image { text-align: right; }
 
 .footer-meta { text-align: right; }

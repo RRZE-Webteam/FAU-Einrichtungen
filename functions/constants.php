@@ -289,6 +289,12 @@ function fau_initoptions() {
     
     $theme_data = wp_get_theme();
     $newoptions['version'] =  $theme_data->Version;
+    
+    if (class_exists('FAU_Studienangebot')) {
+	$newoptions['search_post_types'][] ='studienangebot';
+    }
+     
+    
     return $newoptions;
 }
 

@@ -35,4 +35,3 @@ function kb_add_next_page_button( $buttons, $id ) {
   }
   return $buttons;
 }
-
