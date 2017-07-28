@@ -18,7 +18,50 @@
 	    vertical-align: bottom;
 	}
      }
+     
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    
+    @media (min-width: $screen-sm +1) {
+	top: 40px;
+	
+	.nav-scrolled & {
+	     @include box-shadow(0 1px 3px rgba(0,0,0,0.3));	
+	}
+    }
+    
+    .admin-bar  & {
+	    position: fixed;
+	    top: 46px;
+	    
+	    @media (min-width: $screen-sm +1) {
+		top: 72px;
+	    }    
+    }
+    
+    
+    
+   .no-js & {
+	    display: block;
+	    position: relative;
+	    float: none;
+	    width: 100%;
+	    top: inherit;
+	    margin: 5px 0px;
+	    padding: 3px;
+	}
  }
+ 
+ 
+ .nav-fixed #wpadminbar {
+     position: fixed;
+     
+ } 
+ 
+ 
 #logo {	
 	h1 {
 	    @include px2rem($font-size-header-branding);
@@ -58,61 +101,3 @@
 }
 
 
-
-@media (max-width: $breakSM) {
-    #header {
-	position: fixed;
-	top: 0;
-
-	.admin-bar  & {
-	    position: fixed;
-	    top: 46px;
-	}
-
-	.no-js & {
-	    display: block;
-	    position: relative;
-	    float: none;
-	    width: 100%;
-	    top: inherit;
-	    margin: 5px 0px;
-	    padding: 3px;
-	}
-    }
-}
-@media (max-width: $breakMD) {
-    #header {
-	top: 0;
-	left: 0;
-	right: 0;
-	background: #fff;
-	z-index: 100;
-        padding: 0;
-        height: 70px;
-        position: fixed;
-
-	.no-js & {
-	    position: relative;
-	}
-    }
-}
-
-
-@media (min-width: $breakMD +1) {
-    #header {
-	position: fixed;
-	top: 42px;
-	left: 0;
-	right: 0;
-	background: #fff;
-	z-index: 100;
-	
-	.admin-bar & {
-		top: 74px;
-	}
-	.nav-scrolled & {
-	     @include box-shadow(0 1px 3px rgba(0,0,0,0.3));	
-	}
-
-    }
-}

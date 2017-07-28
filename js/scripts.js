@@ -236,11 +236,11 @@ jQuery(document).ready(function($) {
 	    if (windowWidth > breakLG) {
 		 $('body').addClass('nav-fixed');
 	    } else {
-		if ($(window).scrollTop() > topoffset) {
+	//	if ($(window).scrollTop() > topoffset) {
 		    $('body').addClass('nav-fixed');
-		} else {
-		    $('body').removeClass('nav-fixed');
-		}
+	//	} else {
+	//	    $('body').removeClass('nav-fixed');
+	//	}
 	    }
 
 	};
@@ -361,6 +361,9 @@ jQuery(document).ready(function($) {
 	$(window).on('resize', function() {
 		updateResponsivePositioning();
 	});
+	
+	updateResponsivePositioning();
+	
 }
 );
 

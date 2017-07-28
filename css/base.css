@@ -2495,10 +2495,17 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 /*-----------------------------------------------------------------------------------*/
 /* Header
 /*-----------------------------------------------------------------------------------*/
-#header { padding-top: 10px; padding-bottom: 10px; }
+#header { padding-top: 10px; padding-bottom: 10px; position: fixed; top: 0; left: 0; right: 0; background: #fff; }
 #header .row { height: 65px; }
 #header .row .branding { text-align: right; display: table-cell; float: none; }
 #header .row .header-menu { float: none; display: table-cell; vertical-align: bottom; }
+@media (min-width: 769px) { #header { top: 40px; }
+  .nav-scrolled #header { -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); } }
+.admin-bar #header { position: fixed; top: 46px; }
+@media (min-width: 769px) { .admin-bar #header { top: 72px; } }
+.no-js #header { display: block; position: relative; float: none; width: 100%; top: inherit; margin: 5px 0px; padding: 3px; }
+
+.nav-fixed #wpadminbar { position: fixed; }
 
 #logo h1 { font-size: 19px; line-height: 26.6px; font-size: 1.1875rem; line-height: 1.6625rem; font-weight: bold; color: #003366; overflow: hidden; margin: 0; }
 #logo h1 a, #logo h1 span { display: table-cell; vertical-align: bottom; }
@@ -2507,14 +2514,6 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 #logo img { max-height: 85px; width: 240px; max-width: inherit; }
 #logo img:hover, #logo img:focus { background-color: white; color: #003366; }
 
-@media (max-width: 480px) { #header { position: fixed; top: 0; }
-  .admin-bar #header { position: fixed; top: 46px; }
-  .no-js #header { display: block; position: relative; float: none; width: 100%; top: inherit; margin: 5px 0px; padding: 3px; } }
-@media (max-width: 767px) { #header { top: 0; left: 0; right: 0; background: #fff; z-index: 100; padding: 0; height: 70px; position: fixed; }
-  .no-js #header { position: relative; } }
-@media (min-width: 768px) { #header { position: fixed; top: 42px; left: 0; right: 0; background: #fff; z-index: 100; }
-  .admin-bar #header { top: 74px; }
-  .nav-scrolled #header { -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); } }
 /*-----------------------------------------------------------------------------------*/
 /* Meta region in top
 /*-----------------------------------------------------------------------------------*/
@@ -2528,28 +2527,30 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 
 .meta-tools { text-align: right; }
 
-.meta-links { padding: 1px 0; height: 40px; overflow: hidden; }
+.meta-links { padding: 1px 0; }
 .meta-links .ext-link { padding-right: 0 !important; background-image: none !important; }
 .meta-links:hover { overflow: visible; height: auto; }
+@media (min-width: 769px) { .meta-links { height: 40px; overflow: hidden; } }
 
 .meta-search { display: inline-block; }
 .meta-search .searchform { border: none; margin: 0; padding: 5px 0; }
-.meta-search .searchform input[type="text"] { -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; background-clip: padding-box; padding: 5px 35px 5px 10px; width: 100px; background: #003366; border: none; outline: none; color: #fff; height: 30px; display: inline-block; margin-right: -25px; margin-bottom: 0px; }
+.meta-search .searchform input[type="text"] { -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; background-clip: padding-box; padding: 5px 35px 5px 10px; width: 160px; background: #003366; border: none; outline: none; color: #fff; height: 30px; display: inline-block; margin-right: -25px; margin-bottom: 0px; }
 .meta-search .searchform input[type="text"]:focus { background-color: #1f4d7a; }
-@media (min-width: 993px) { .meta-search .searchform input[type="text"] { width: 120px; padding: 5px 35px 5px 35px; } }
+@media (min-width: 993px) { .meta-search .searchform input[type="text"] { padding: 5px 35px 5px 35px; } }
 @media (min-width: 1200px) { .meta-search .searchform input[type="text"] { width: 160px; } }
 .meta-search .searchform input[type="submit"] { -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; background-clip: padding-box; position: relative; z-index: 100; height: 30px; padding: 0 12px; font-weight: bold; border: none; outline: none; color: #003366; background: #fff; display: inline-block; }
 .meta-search .searchform input[type="submit"]:hover, .meta-search .searchform input[type="submit"]:focus { background: #e9edf2; -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); }
 .meta-search .searchform .searchicon { position: relative; margin-right: -30px; color: #fff; }
 @media (max-width: 992px) { .meta-search .searchform .searchicon { display: none; } }
+@media (max-width: 768px) { .meta-search { position: absolute; top: 10px; right: 15px; z-index: 101; }
+  .admin-bar .meta-search { top: 56px; } }
 
 .meta-widget { display: inline-block; float: right; -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; background-clip: padding-box; background: #fff; margin: 5px 0 5px 15px; height: 30px; }
 
 @media (max-width: 767px) { #meta { position: relative; top: 0; }
-  .js #meta { padding-top: 70px; }
+  .js #meta { padding: 0; }
   .js #meta ul { margin: 0; }
-  .js #meta .searchform input[type="text"] { width: 100px; }
-  .js .admin-bar #meta { padding-top: 40px; } }
+  .js #meta .searchform input[type="text"] { width: 100px; } }
 @media (max-width: 480px) { .no-js #meta { display: block; position: relative; float: none; width: 100%; top: inherit; margin: 5px 0px; padding: 3px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Navigation: Including nav Elements in all regions: Main, Skiplinks, Overlays, Widgets,..
