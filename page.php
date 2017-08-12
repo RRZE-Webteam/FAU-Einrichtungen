@@ -6,6 +6,7 @@
  * @since FAU 1.0
  */
 
+global $pagebreakargs;
 
 get_header(); ?>
 
