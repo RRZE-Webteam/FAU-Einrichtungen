@@ -11,6 +11,8 @@
 global $options;
 get_header(); ?>
 
+
+
 <?php while ( have_posts() ) : the_post(); ?>
 
 	<?php get_template_part('template-parts/hero', 'small'); ?>
@@ -19,47 +21,36 @@ get_header(); ?>
 		<div class="container">
 
 			<div class="row">
-				<div class="span12">
 					
 					<article>
 				    
 						<?php 
-						
-					
-					
-						$output = '';
-					
-						
-						echo $output;    
-						
-						
-						echo wp_get_attachment_image( $post->ID, 'large' );
+											
+						echo wp_get_attachment_image( $post->ID, 'full' );
 						echo '<p class="auszug">';
 						the_excerpt();
 						echo "<p>\n";
 						the_content();
 						
-						 $imgdata = fau_get_image_attributs($post->ID);
+						$imgdata = fau_get_image_attributs($post->ID);
+						$meta = get_post_meta( $post->ID );
+						
+						
 						if ( is_user_logged_in() ) {
 						    echo '<p class="attention">'.__('Die folgenden Informationen werden nur für angemeldete Benutzer des CMS angezeigt:','fau').'</p>';
 						    echo "<h3>Attribute</h3>";
 						   
 						    echo fau_array2table($imgdata);
 
-						    echo "<h3>Metadaten des Bildes</h3>";
-						    $meta = get_post_meta( $post->ID );
-
+						   
 						    if (isset($meta) && isset($meta['_wp_attachment_metadata']) && is_array($meta['_wp_attachment_metadata'])) { 
 							$data = unserialize($meta['_wp_attachment_metadata'][0]);
-
-							echo fau_array2table($data['image_meta']);
-
+							if (isset($data['image_meta'])) {    
+							    echo "<h3>Metadaten</h3>";
+							    echo fau_array2table($data['image_meta']);
+							}
 							echo "<h3>Verfügbare Auflösungen</h3>\n";
 							echo fau_array2table($data['sizes']);
-
-
-						    } else { 
-							 echo "<p>Keine Metadaten abrufbar.</p>";
 						    }
 						  
 						 echo '<p class="hinweis">'.__('Die folgenden Informationen werden öffentlich angezeigt:','fau').'</p>';
@@ -96,7 +87,24 @@ get_header(); ?>
 							    <th>Information zu Urheberrecht / Lizenz</th>
 							    <td><?php echo $imgdata['copyright']; ?></td>
 							</tr>
-							<?php } ?>
+							<?php } 
+							
+							    $downloadurl = "";
+						
+							    $parsed = parse_url( wp_get_attachment_url( $post->ID ) );
+							    $downloadurl    = dirname( $parsed [ 'path' ] ) . '/' . rawurlencode( basename( $parsed[ 'path' ] ) );
+
+
+							    if (!fau_empty($downloadurl)) { ?>
+
+								    <tr>
+									<th><?php _e('Download','fau');?></th>
+									<td><a href="<?php echo $downloadurl; ?>"><?php echo $imgdata['title']; ?></a></td>
+								    </tr>
+								<?php 
+							    }
+							?>
+							
 						    </table>
 						    
 						    
@@ -105,9 +113,7 @@ get_header(); ?>
 						
 					</article>
 					  
-				</div>
-				
-				<?php get_template_part('template-parts/sidebar', 'news'); ?>
+
 			</div>
 
 		</div>

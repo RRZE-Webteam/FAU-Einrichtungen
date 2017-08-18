@@ -47,8 +47,6 @@ get_header(); ?>
 					$headline = get_post_meta( $post->ID, 'headline', true );									
 					if (!fau_empty($headline)) {
 					    echo '<h2>'.$headline.'</h2>'; 					    
-					} else {
-				//	    echo '<div class="page-nosubtitle">&nbsp;</div>';
 					}
 
 

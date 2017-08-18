@@ -4,7 +4,7 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'optiontable-version'		=> 13,
+    'optiontable-version'		=> 16,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -233,6 +233,8 @@ $defaultoptions = array(
     'search_display_excerpt_morestring'		=> '...',
     'search_display_typenote'		=> true,
     'search_post_types'			=> array("page", "post",  "person", "attachment"),
+    'search_post_types_checked'			=> array("page", "post"),
+    
     'search_allowfilter'		=> true,
    
     'plugin_fau_person_headline'	=> true,

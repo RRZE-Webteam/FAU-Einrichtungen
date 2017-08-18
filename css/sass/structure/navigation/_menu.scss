@@ -150,8 +150,7 @@
 	}
 }
 #nav li.level1.has-sub > a:hover,
-#nav li.level1.focus.has-sub > a,
-.no-js #nav li.has-sub > a {
+#nav li.level1.focus.has-sub > a  {
 
 	@include border-bottom-radius(0px);
 	background-color: $colorPrimary; 
@@ -161,9 +160,6 @@
 }
 #nav li.level1 a.clicked-once,
 #nav li.level1.focus.has-sub a,
-.no-js #nav li.level1:hover a, 
-.no-js #nav li.active a, 
-.no-js #nav li.level1:focus a, 
 #nav li.level1:hover a, 
 #nav li.active a, 
 #nav li.level1:focus a, 
@@ -171,13 +167,6 @@
 	background-color: $colorPrimary; 
 	color: #fff; 
 	
-}
-
-.no-js #nav li.level1 a.clicked-once,
-.no-js #nav li.level1 a:hover, 
-.no-js #nav li.level1 a:focus {
-	background-color: $colorPrimary; 
-	color: $colorMainMenu;
 }
 
 #nav li.has-sub a.clicked-once, 

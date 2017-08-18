@@ -15,11 +15,18 @@ global $options;
 	<input type="text" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>">
 	<?php 
 	if ($options['search_allowfilter']) {
+	    $autosearch_types =  $options['search_post_types_checked'];
+
 	    $listtypes = $options['search_post_types'];
 	    foreach ($listtypes as $type) {
-		echo '<input type="hidden" name="post_type[]" value="'.$type.'">'."\n";				    
+		if (in_array($type, $autosearch_types)) { 
+		    echo '<input type="hidden" name="post_type[]" value="'.$type.'">'."\n";		
+		}
 	    }
 	}
 	?>
 	<input type="submit" id="searchsubmit" value="<?php _e('Finden','fau'); ?>">
 </form>
+
+
+	

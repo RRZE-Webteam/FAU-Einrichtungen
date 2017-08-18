@@ -3,6 +3,26 @@
 /* Code to support or modify optional plugins
 /*-----------------------------------------------------------------------------------*/
 
+
+/*-----------------------------------------------------------------------------------*/
+/* Plugin CMS-Workflow 
+/*-----------------------------------------------------------------------------------*/
+function is_workflow_translation_active() {
+    global $cms_workflow;
+    if ((class_exists('Workflow_Translation')) && (isset($cms_workflow->translation) && $cms_workflow->translation->module->options->activated)) {
+        return true;
+    }
+    return false;
+}
+
+function fau_get_rel_alternate() {
+    if ((class_exists('Workflow_Translation')) && (function_exists('get_rel_alternate')) && (is_workflow_translation_active())) {
+        return Workflow_Translation::get_rel_alternate();
+    } else {
+        return '';
+    }
+}
+
 /*-----------------------------------------------------------------------------------*/
 /* Plugin wpSEO: Metaboxen nur für Pages und Posts
 /*-----------------------------------------------------------------------------------*/
@@ -34,4 +54,11 @@ function kb_add_next_page_button( $buttons, $id ) {
     array_splice( $buttons, 13, 0, 'wp_page' );
   }
   return $buttons;
+}
+/*-----------------------------------------------------------------------------------*/
+/* Plugin TinyMCE: Disable Emojis 
+/*-----------------------------------------------------------------------------------*/
+add_filter( 'tiny_mce_plugins', 'fau_disable_emojis_tinymce' );
+function fau_disable_emojis_tinymce( $plugins ) {
+    return array_diff( $plugins, array( 'wpemoji' ) );
 }
