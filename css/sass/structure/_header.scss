@@ -5,6 +5,7 @@
  #header {
     padding-top: 10px;
     padding-bottom: 10px;
+    
     .row {    
 	height: 65px;
 	 .branding {
@@ -27,6 +28,7 @@
     
     @media (min-width: $screen-sm +1) {
 	top: 40px;
+	padding-top: 20px;
 	
 	.nav-scrolled & {
 	     @include box-shadow(0 1px 3px rgba(0,0,0,0.3));	

@@ -2400,6 +2400,10 @@ body { margin: 0; color: #444; font-size: 16px; font-size: 1rem; line-height: 1.
 
 html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; font-kerning: none; }
 
+.container { border: 1px solid #ff8800; }
+
+.entry-content { border: 1px solid red; }
+
 .search-results .searchresult-image { text-align: right; }
 
 .footer-meta { text-align: right; }
@@ -2499,7 +2503,7 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 #header .row { height: 65px; }
 #header .row .branding { text-align: right; display: table-cell; float: none; }
 #header .row .header-menu { float: none; display: table-cell; vertical-align: bottom; }
-@media (min-width: 769px) { #header { top: 40px; }
+@media (min-width: 769px) { #header { top: 40px; padding-top: 20px; }
   .nav-scrolled #header { -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); } }
 .admin-bar #header { position: fixed; top: 46px; }
 @media (min-width: 769px) { .admin-bar #header { top: 72px; } }
@@ -2562,7 +2566,7 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 /* Primary Navigation */
 #nav { list-style: none; margin: 0; padding: 0; background: none; }
 #nav:before { display: none; }
-#nav .nav-flyout { display: none; position: absolute; z-index: 30; top: 75px; left: 0; right: 0; background: #003366; padding: 20px 0; -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3); box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3); }
+#nav .nav-flyout { display: none; position: absolute; z-index: 30; top: 85px; left: 0; right: 0; background: #003366; padding: 20px 0; -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3); box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3); }
 #nav li { list-style: none; margin: 0; padding: 0; background: none; display: block; float: left; }
 #nav li:before { display: none; }
 #nav li a { display: block; float: left; font-weight: bold; color: #003366; text-decoration: none; padding: 10px; font-size: 17px; line-height: 17px; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; background-clip: padding-box; margin: 0 0 10px 0; }
@@ -2576,7 +2580,7 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 #nav li .nav-flyout a.button-portal { display: inline-block; *display: inline; *zoom: 1; background: #1f4c7a !important; padding: 13px 20px; font-size: 18px; line-height: 18px; }
 #nav li .nav-flyout a.button-portal:hover, #nav li .nav-flyout a.button-portal:focus { background: #24598e !important; }
 #nav li .nav-flyout a:hover, #nav li .nav-flyout a:focus { text-decoration: none; background-color: #1f4c7a; }
-#nav li.has-sub > a { padding-bottom: 10px; padding-right: 30px; margin-bottom: 10px; position: relative; }
+#nav li.has-sub > a { padding-bottom: 10px; padding-right: 30px; margin-bottom: 0px; position: relative; }
 #nav li.has-sub > a:before { position: absolute; top: 11px; right: 11px; }
 #nav .introtext p { color: #fff; line-height: 24px; padding: 0; margin: 0; opacity: 0.7; font-style: normal; font-size: 15px; font-weight: bold; }
 #nav .introtext blockquote { padding: 20px; min-height: 40px; font-style: italic; }
