@@ -48,8 +48,9 @@ global $options;
 					<div role="presentation" class="span9 infobar">				    
 					    <?php 
 					   $header_image = get_header_image();
-					    if (!empty( $header_image ) ){	
-						echo "<h1>". get_bloginfo( 'title' ). "</h1>\n";
+					   $title = get_bloginfo( 'title' );
+					    if ((!empty( $header_image ) && (!fau_empty($title)) )){	
+						echo "<h1>". $title. "</h1>\n";
 					    }
 					    $desc = trim(strip_tags(get_bloginfo( 'description' )));
 					    if (!empty($desc)) {
