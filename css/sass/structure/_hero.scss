@@ -353,21 +353,16 @@
 		height: inherit;
 		
 		img {
-		//	height: 350px;
-		//	max-width: 1260px;
-		//	width: 1260px;
-		//	left: 50%;
-		//	margin-left: -630px;
-		height: auto;
-		width: 100%;
-			position: relative;
-			z-index: 5;
-			top: 0;
+		    height: 100%;
+		    width: auto;
+		    max-width: inherit;
+		    vertical-align: middle;
+		    z-index: 5;
 		}
 		
 		h2 {
 			color: #fff;
-			background: $colorPrimary;
+			background: rgba($colorPrimary,0.8);
 			display: inline;
 			padding: 0 3px;
 			margin: 10px 0 5px 0;
@@ -378,7 +373,7 @@
 		p {
 			@include px2rem($font-size-hero-slider-text);
 			color: #fff;
-			background: $colorPrimary;
+			background: rgba($colorPrimary,0.8);
 			padding: 0 3px;
 			margin: 0;
 		}

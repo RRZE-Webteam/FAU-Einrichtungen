@@ -20,6 +20,14 @@ h6 {
 	    margin-top: 0;
 }
 
+
+h1, h2 {
+    @include hyphens(none);
+}
+h3, h4, h5, h6 {
+    @include hyphens(auto);
+}
+
 h2 {
 	font-size: 24px;
 	line-height: 28px;

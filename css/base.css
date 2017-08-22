@@ -2852,9 +2852,9 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 /* Hero Slider */
 #hero-slides { position: relative; margin: 0 auto -15px auto; height: 350px; background: #003366; max-width: 1260px; overflow: hidden; -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); }
 #hero-slides .hero-slide { position: relative; height: inherit; }
-#hero-slides .hero-slide img { height: auto; width: 100%; position: relative; z-index: 5; top: 0; }
-#hero-slides .hero-slide h2 { color: #fff; background: #003366; display: inline; padding: 0 3px; margin: 10px 0 5px 0; display: inline-block; *display: inline; *zoom: 1; font-size: 24px; line-height: 33.6px; font-size: 1.5rem; line-height: 2.1rem; }
-#hero-slides .hero-slide p { font-size: 18px; line-height: 25.2px; font-size: 1.125rem; line-height: 1.575rem; color: #fff; background: #003366; padding: 0 3px; margin: 0; }
+#hero-slides .hero-slide img { height: 100%; width: auto; max-width: inherit; vertical-align: middle; z-index: 5; }
+#hero-slides .hero-slide h2 { color: #fff; background: rgba(0, 51, 102, 0.8); display: inline; padding: 0 3px; margin: 10px 0 5px 0; display: inline-block; *display: inline; *zoom: 1; font-size: 24px; line-height: 33.6px; font-size: 1.5rem; line-height: 2.1rem; }
+#hero-slides .hero-slide p { font-size: 18px; line-height: 25.2px; font-size: 1.125rem; line-height: 1.575rem; color: #fff; background: rgba(0, 51, 102, 0.8); padding: 0 3px; margin: 0; }
 #hero-slides .hero-slide p.credits { background: rgba(0, 0, 0, 0.4); color: #ddd; font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; position: absolute; bottom: 0; right: 0; z-index: 6; margin: 0; padding: 1px 4px; }
 #hero-slides .hero-slide-text { z-index: 10; position: absolute; bottom: 30px; top: inherit; margin: 0; padding: 0; width: 100%; }
 #hero-slides .hero-slide-text p { display: none; }
@@ -3347,6 +3347,10 @@ h1, h2, h3, h4, h5, h6 { color: #003366; }
 h1 em, h2 em, h3 em, h4 em, h5 em, h6 em { font-style: normal; }
 
 .sidebar-inline + h1 { margin-top: 0; }
+
+h1, h2 { -moz-hyphens: none; -o-hyphens: none; -webkit-hyphens: none; -ms-hyphens: none; hyphens: none; }
+
+h3, h4, h5, h6 { -moz-hyphens: auto; -o-hyphens: auto; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto; }
 
 h2 { font-size: 24px; line-height: 28px; margin: 0; padding: 22px 0; font-weight: bold; }
 .sidebar-outline h2, .widget h2 { padding-bottom: 11px; }
