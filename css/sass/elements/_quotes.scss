@@ -8,9 +8,20 @@ blockquote {
 	margin: 0;
 	border: none;
 	font-family: $fontStackSerifs;
+	font-style: italic;
+	
+	@include px2rem($font-size-quotes,$font-size-quotes,26);
+	
 	
 	p {
 		font-family: $fontStackSerifs;
+		@include px2rem($font-size-quotes,$font-size-quotes,26);
+		font-weight: 400;
+		font-style: italic;
+		
+		strong {
+		    font-weight: bolder; 
+		}
 	}
 	
 	
@@ -24,7 +35,34 @@ blockquote {
 		p {
 			color: $colorPrimary;
 		}
+		
+		
+	}
+	#content .sidebar-inline &,
+	#content  &.noquote {
+		    background: inherit;
+		    padding-left: 0;
+		}
+	#content .sidebar-inline & {
+	    margin: 10px;
+	}
+	cite { 
+	    display: block; 
+	    
+	    @include px2rem($font-size-quotes-cites);
+	    color: $colorTextLight;
+	    &:before { content: '\2014 \00A0'; }
+
+	}
+
+	&.pull-right {
+	    border-right: none;
 	}
 }
 
+
+cite {
+    color: $colorPrimaryHeroLight; 
+    font-weight: normal;
+}
 

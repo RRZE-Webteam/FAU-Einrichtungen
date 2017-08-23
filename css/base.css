@@ -3517,10 +3517,18 @@ table ul li { color: #003366; font-size: 13px; line-height: 18px; background-pos
 /*-----------------------------------------------------------------------------------*/
 /* Blockquotes, Cites
 /*-----------------------------------------------------------------------------------*/
-blockquote { padding: 0; margin: 0; border: none; font-family: Georgia, serif; }
-blockquote p { font-family: Georgia, serif; }
+blockquote { padding: 0; margin: 0; border: none; font-family: Georgia, serif; font-style: italic; font-size: 16px; line-height: 26px; font-size: 1rem; line-height: 1.625rem; }
+blockquote p { font-family: Georgia, serif; font-size: 16px; line-height: 26px; font-size: 1rem; line-height: 1.625rem; font-weight: 400; font-style: italic; }
+blockquote p strong { font-weight: bolder; }
 #content blockquote { font-style: italic; background: url("../img/quote-blue.png") no-repeat left top; margin: 10px 50px; padding-left: 60px; min-height: 50px; }
 #content blockquote p { color: #003366; }
+#content .sidebar-inline blockquote, #content blockquote.noquote { background: inherit; padding-left: 0; }
+#content .sidebar-inline blockquote { margin: 10px; }
+blockquote cite { display: block; font-size: 15px; line-height: 21px; font-size: 0.9375rem; line-height: 1.3125rem; color: #797676; }
+blockquote cite:before { content: '\2014 \00A0'; }
+blockquote.pull-right { border-right: none; }
+
+cite { color: #0059b3; font-weight: normal; }
 
 /*-----------------------------------------------------------------------------------*/
 /* Devider
