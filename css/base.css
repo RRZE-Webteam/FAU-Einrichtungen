@@ -3138,7 +3138,6 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 .accordion .nat .accordion-heading .accordion-toggle, .accordion .natfak .accordion-heading .accordion-toggle, .accordion .green .accordion-heading .accordion-toggle { border-color: #048767; }
 .accordion .tf .accordion-heading .accordion-toggle, .accordion .techfak .accordion-heading .accordion-toggle, .accordion .grey .accordion-heading .accordion-toggle { border-color: #6E7881; }
 .accordion .fau .accordion-heading .accordion-toggle, .accordion .default .accordion-heading .accordion-toggle { border-color: #003366; }
-.accordion .content-person { padding: 5px 0 10px 0; border: none; }
 .accordion h1, .accordion h2, .accordion h3, .accordion h4, .accordion h5, .accordion h6 { color: #444; }
 .accordion hr { border: 1px solid #dde5f0; margin: 30px 20px; height: inherit; }
 .accordion hr::after, .accordion hr::before { bottom: inherit; background: inherit; left: inherit; position: relative; right: inherit; top: inherit; }
@@ -3721,6 +3720,7 @@ div.aligncenter { margin-bottom: 10px; }
 .content-person .person-info-description, .content-person .person-info-description p { font-size: 13px; line-height: 20px; }
 .content-person .image-placeholder { width: 90px; height: 120px; background: #dde5f0; position: relative; text-align: center; }
 .content-person .image-placeholder:before { line-height: 120px; color: #8fb1ef; }
+.accordion .content-person { padding: 0; border: none; margin: 0 0 15px 0; }
 
 ul.person-info { list-style: none; margin: 0; padding: 0; background: none; /*
 li.person-info:before {

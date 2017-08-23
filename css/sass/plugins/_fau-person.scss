@@ -109,6 +109,12 @@
 			color: $colorLight;
 		}
 	}
+	
+	.accordion & {
+	    padding: 0;
+	    border: none;
+	    margin: 0 0 15px 0;
+	}
 
 }
 
