@@ -7,7 +7,7 @@
 	if(isset($sidebar_personen) && !empty($sidebar_personen))  { 
 	   $persons = $sidebar_personen;
 	   if (!empty($sidebar_title_personen)) {
-		echo '<h2>'.$sidebar_title_personen.'</h2>';
+		echo '<h2 class="widget-title>'.$sidebar_title_personen.'</h2>';
 	   } else {
 	       echo '<br>';
 	   }

@@ -6,26 +6,17 @@
 /* Sidebar: Inline */
 .sidebar-inline {
 	float: right;
-	min-width: 220px;
-	
+	min-width: 220px;	
 	margin-left: $fau-gutter-width;
 	margin-bottom: 11px;
 	margin-right: - ceil(($fau-gutter-width / 2));
-	
-	padding-left: ceil(($fau-gutter-width / 2));
-	
+	padding-left: ceil(($fau-gutter-width / 2));	
 	border-left: 2px solid $colorLightest;
 	
 	
 	.widget {
 		margin-bottom: 22px;
 		margin-top: 22px;
-
-		li {
-		    font-size: 13px;
-		    line-height: 22px;		   
-		}
-		
 	}
 	
 	.widget:last-child {
@@ -38,6 +29,23 @@
 	
 	.content-portal & {
 		margin-top: 22px;
+	}
+	
+	
+	@media (max-width: $screen-lg) {
+	    width: 220px;
+	}
+	@media (min-width: $screen-lg +1) {
+	    width: 300px;
+	}
+	@media (min-width: $screen-xxl ) {
+	    width: 300px;
+	}
+	
+	.page-template-page-subnav & {
+	    @media (max-width: $screen-xl) {
+		width: 220px;
+	    }
 	}
 
 }

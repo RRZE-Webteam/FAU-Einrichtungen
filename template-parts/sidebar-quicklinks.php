@@ -20,7 +20,7 @@ if ($options['advanced_page_sidebar_linkblock1_number'] > 0) {
 		}
 	    }
 	    if (strlen(trim($block_title))>1) {
-		$titleblock1 .= '<h2>'.$block_title.'</h2>'."\n";
+		$titleblock1 .= '<h2 class="widget-title">'.$block_title.'</h2>'."\n";
 	    }
 	    for ($i = 1; $i <= $options['advanced_page_sidebar_linkblock1_number']; $i++) {
 		$name = 'fauval_linkblock1_link'.$i;
@@ -61,9 +61,9 @@ if ($options['advanced_page_sidebar_linkblock2_number'] > 0) {
 	    $block_title = get_post_meta( $post->ID, 'fauval_sidebar_title_linkblock2', true );
 	     if (strlen(trim($block_title))>1) {
 		if ($titleblock1) {
-		    $titleblock2 = '<h2 class="second">'.$block_title.'</h2>'."\n"; 
+		    $titleblock2 = '<h2 class="widget-title second">'.$block_title.'</h2>'."\n"; 
 		} else {
-		    $titleblock2 = '<h2>'.$block_title.'</h2>'."\n"; 
+		    $titleblock2 = '<h2 class="widget-title">'.$block_title.'</h2>'."\n"; 
 		}
 	    }
 	   for ($i = 1; $i <= $options['advanced_page_sidebar_linkblock2_number']; $i++) {
