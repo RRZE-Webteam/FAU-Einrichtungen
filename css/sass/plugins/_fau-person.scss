@@ -11,8 +11,7 @@
 	h3 {
 		padding-bottom: 0;
 		padding-top: 5px;
-		font-weight: bold;
-		font-size: 15px;
+
 		
 		a {
 		    color: $colorText;
@@ -27,7 +26,7 @@
 	
 	h4 {
 		padding-top: 0;
-		font-weight: normal;
+		// font-weight: normal;
 		a {
 		    color: $colorText;
 		    text-decoration: underline;
@@ -39,8 +38,8 @@
 		margin-top: 5px;
 	    }
 	    li {
-		font-size: 13px;
-		line-height: 20px;
+	//	font-size: 13px;
+	//	line-height: 20px;
 		padding: 0;
 	    }
 	}
@@ -74,8 +73,8 @@
 	}
 	
 	li {
-		font-size: 13px;
-		line-height: 20px;
+		// font-size: 13px;
+		// line-height: 20px;
 		background-position: left 5px;
 	}
 	
@@ -89,8 +88,8 @@
 	
 	.person-info-description,
 	.person-info-description p {
-		font-size: 13px;
-		line-height: 20px;
+	//	font-size: 13px;
+	//	line-height: 20px;
 	}
 	
 	.image-placeholder {
@@ -120,6 +119,7 @@
 
 ul.person-info {
 	@include no-list;
+	margin-bottom: 10px;
 	
 	li {
 		@include no-list;
@@ -129,8 +129,6 @@ ul.person-info {
 		background-repeat: no-repeat;
 		background-position: left center;
 		
-		font-size: 13px;
-		line-height: 20px;
 		
 		li {
 		    list-style: inherit;
@@ -246,13 +244,17 @@ span[itemprop="honorificSuffix"] {
 	margin-top: 0;
 	.row {
 	    display: inline-block;
+	    margin: 0;
 	    
-	    .span1 {
-		float: left;
-	    }
-	     .span3 {
+	    .span1, .span3, {
 		display: inline-block;
+		float: none;
+		width: auto;
+		margin: 0;
 	    }
+	}
+	.person-info-description {
+	    
 	}
     }
 }

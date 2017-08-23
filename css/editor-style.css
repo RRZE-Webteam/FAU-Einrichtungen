@@ -2127,11 +2127,11 @@ h2.menu-header { padding: 11px 15px; margin-top: 0px; border-top: 1px solid #dde
 
 h3 { margin: 0; padding: 11px 0; font-size: 20px; line-height: 28px; font-size: 1.25rem; line-height: 1.75rem; }
 h3.abstract { padding: 0 0 22px 0; }
-.sidebar-inline h3, .search-sidebar h3, .sidebar-outline h3, .widget h3, .span h3, .span4 h3, .subpages-menu h3 { font-size: 19px; line-height: 26.6px; font-size: 1.1875rem; line-height: 1.6625rem; }
-.span h3, .span4 h3, .subpages-menu h3 { font-weight: normal; }
+.sidebar-inline h3, .search-sidebar h3, .sidebar-outline h3, .widget h3, .person h3, .subpages-menu h3 { font-size: 19px; line-height: 26.6px; font-size: 1.1875rem; line-height: 1.6625rem; }
+.subpages-menu h3 { font-weight: normal; }
 
 h4 { margin: 0; padding: 11px 0 11px 0; font-size: 18px; line-height: 25.2px; font-size: 1.125rem; line-height: 1.575rem; }
-.span3 h4, .span4 h4 { font-size: 17px; line-height: 23.8px; font-size: 1.0625rem; line-height: 1.4875rem; }
+.person h4, .span3 h4, .span4 h4 { font-size: 17px; line-height: 23.8px; font-size: 1.0625rem; line-height: 1.4875rem; }
 
 h5 { margin: 0; padding: 11px 0 11px 0; font-size: 16px; line-height: 22.4px; font-size: 1rem; line-height: 1.4rem; }
 
@@ -2144,11 +2144,11 @@ h6 { font-size: 16px; line-height: 22.4px; font-size: 1rem; line-height: 1.4rem;
 /*-----------------------------------------------------------------------------------*/
 /* Paragraphs
 /*-----------------------------------------------------------------------------------*/
-p { margin: 0; padding: 0 0 11px 0; font-size: 15px; line-height: 22px; color: #444; font-family: "roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+p { margin: 0; padding: 0 0 11px 0; font-size: 16px; line-height: 22.4px; font-size: 1rem; line-height: 1.4rem; color: #444; font-family: "roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 #content p { -moz-hyphens: auto; -o-hyphens: auto; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto; }
 #content .textwidget p { font-size: 13px; }
 p.searchnotice { font-size: 24px; line-height: 28px; padding: 4px 0 22px 0; }
-#content .span4 .widget p, #content .sidebar-inline .widget p { font-size: 13px; line-height: 22px; }
+#content .span4 .widget p, #content .sidebar-inline .widget p { font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
 
 /*-----------------------------------------------------------------------------------*/
 /* Links
@@ -2187,7 +2187,7 @@ table a:hover, table a:focus { text-decoration: none; }
 /* Lists
 /*-----------------------------------------------------------------------------------*/
 li { padding: 3px 0 4px 4px; font-size: 15px; line-height: 21px; font-size: 0.9375rem; line-height: 1.3125rem; color: #444; }
-.sidebar-inline li { padding: 3px 0 4px 20px; font-size: 15px; line-height: 21px; font-size: 0.9375rem; line-height: 1.3125rem; }
+.sidebar-inline li { padding: 3px 0 4px 20px; font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
 
 ul { /* Lettered Pagination */ /* File Lists */ }
 ul li { list-style-type: circle; }

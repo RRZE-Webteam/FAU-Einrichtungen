@@ -103,14 +103,11 @@ h3 {
 	.search-sidebar &,
 	.sidebar-outline &, 
 	.widget &,
-	.span &, 
-	.span4 &, 
+	.person &,
 	.subpages-menu & {
 	    @include px2rem($font-size-h3-small);
 	}
 	
-	.span &, 
-	.span4 &, 
 	.subpages-menu & {
 		font-weight: normal;
 	}
@@ -127,6 +124,7 @@ h4 {
 	padding: 11px 0 11px 0;
 	@include px2rem($font-size-h4);
 	
+	.person &,
 	.span3 &, 
 	.span4 & {
 		@include px2rem($font-size-h4-small);

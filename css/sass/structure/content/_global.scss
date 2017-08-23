@@ -10,14 +10,13 @@
 	position: relative;
     }
     main {
-	font-size: 15px;
-	line-height: 22px;
+	@include px2rem($font-size-base);
 	color: $colorText;
 	font-family: $fontStack;
-
+	padding-top: 10px;
+	
 	.sidebar-inline {
-	    font-size: 13px;
-	    line-height: 18px;
+	    @include px2rem($font-size-sidebar);
 	}
     }
 }
