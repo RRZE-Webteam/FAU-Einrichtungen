@@ -2581,10 +2581,11 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 #nav li .nav-flyout a:hover, #nav li .nav-flyout a:focus { text-decoration: none; background-color: #1f4c7a; }
 #nav li.has-sub > a { padding-bottom: 10px; padding-right: 30px; margin-bottom: 0px; position: relative; }
 #nav li.has-sub > a:before { position: absolute; top: 11px; right: 11px; }
-#nav .introtext p { color: #fff; line-height: 24px; padding: 0; margin: 0; opacity: 0.7; font-style: normal; font-size: 15px; font-weight: bold; }
-#nav .introtext blockquote { padding: 20px; min-height: 40px; font-style: italic; }
-#nav .introtext blockquote p.quote:before { content: ''; width: 42px; height: 37px; background: url("../img/quote.png") no-repeat center center; display: block; float: left; margin-right: 20px; }
-#nav .introtext p.author { padding: 10px 0; text-align: right; }
+#nav .introtext p { color: #fff; font-size: 15px; line-height: 24px; font-size: 1rem; line-height: 1.6rem; padding: 20px; margin: 0; opacity: 0.7; font-style: normal; font-weight: normal; }
+#nav .introtext blockquote { padding: 20px 20px 20px 70px; min-height: 40px; }
+#nav .introtext blockquote p { font-size: 16px; line-height: 24px; font-size: 1rem; line-height: 1.5rem; padding: 0; font-style: italic; }
+#nav .introtext blockquote cite { padding: 10px 0; text-align: right; color: #fff; opacity: 0.7; font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
+#nav .introtext blockquote:before { color: #1f4c7a; top: 40px; font-style: normal; font-size: 90px; }
 #nav p.nav-excerpt { color: #dde5f0; font-size: 15px; line-height: 24px; font-style: normal; padding: 0; margin: 0; }
 
 #nav li.level1.has-sub > a:hover, #nav li.level1.focus.has-sub > a { -webkit-border-bottom-right-radius: 0px; -webkit-border-bottom-left-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; background-clip: padding-box; background-color: #003366; color: #fff; }

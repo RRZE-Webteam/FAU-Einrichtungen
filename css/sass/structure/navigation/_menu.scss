@@ -108,37 +108,42 @@
 		}
 	}
 	
-	
+
 	.introtext {
 	    p {
 			color: #fff;
-			line-height: 24px;	
-			padding: 0;
+			@include px2rem($font-size-nav-introtext, $font-size-nav-introtext, 24);
+			padding: 20px;
 			margin: 0;
 			opacity: 0.7;
 			
 			font-style: normal;
-			font-size: 15px;
-			font-weight: bold;
+			font-weight: normal;
 	    }
 	    blockquote {
-		padding: 20px; 
+		padding: 20px 20px 20px 70px; 
 		min-height: 40px;
-		font-style: italic;
-		p.quote:before {
-			content: '';
-			width: 42px;
-			height: 37px;
-			background: url('../img/quote.png') no-repeat center center;
-			display: block;
-			float: left;
-			margin-right: 20px;
+		
+		p {
+		    @include px2rem($font-size-nav-blockquote, $font-size-nav-blockquote, 24);
+		    padding: 0;
+		    font-style: italic;
+		}
+		cite {
+		    padding: 10px 0;
+		    text-align: right;
+		    color: #fff;
+		    opacity: 0.7;
+		    @include px2rem($font-size-nav-blockquote-cite);
+		}
+		&:before {
+		    color: $colorHover;
+		    top: 40px;
+		    font-style: normal;
+		    font-size: 90px;
 		}
 	    }
-	    p.author {
-			padding: 10px 0;
-			text-align: right;
-	    }
+	  
 	}
 	p.nav-excerpt {
 		color: $colorLightest;

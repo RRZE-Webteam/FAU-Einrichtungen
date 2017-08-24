@@ -96,17 +96,17 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		    if($quote) {
 			if ($texttype==0) {
 			    $output .= '<blockquote>';
-			    $output .= '<p class="quote">'.$quote.'</p>';
-			    
+			    $output .= '<p>'.$quote.'</p>';
+			    if($author) $output .= '<cite>'.$author.'</cite>'; 
 			    $output .= '</blockquote>';
-			    if($author) $output .= '<p class="author"> &mdash; '.$author.'</p>';
+			   
 			} elseif ($texttype==1) {
 			     $output .= '<p>'.$quote.'</p>';
 			}
 		
 		    }
 		    $output .= '</div>';
-		    $output .= '<div class="span4 hide-mobile">';		
+		    $output .= '<div class="span4 hide-mobile introthumb">';		
 		    $output .= $thumbregion;
 		    $output .= '</div>';	
 		} else {
@@ -115,10 +115,10 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		     if($quote) {
 			if ($texttype==0) {
 			    $output .= '<blockquote>';
-			    $output .= '<p class="quote">'.$quote.'</p>';
-			    
+			    $output .= '<p>'.$quote.'</p>';
+			     if($author) $output .= '<cite>'.$author.'</cite>';
 			    $output .= '</blockquote>';
-			    if($author) $output .= '<p class="author"> &mdash; '.$author.'</p>';
+			   
 			} elseif ($texttype==1) {
 			     $output .= '<p>'.$quote.'</p>';
 			}
