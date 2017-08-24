@@ -59,7 +59,23 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat("\t", $depth);
 		$level = $depth + 2;		
-		$output .= $indent.'<div class="nav-flyout"><div class="container"><div class="row"><div class="span4"><ul class="sub-menu level'.$level.'">';
+		
+		$nothumbnail  = get_post_meta( $this->currentID, 'menuquote_nothumbnail', true );
+		if ($nothumbnail==1) {
+		    $thumbregion = '';
+		} else {
+		    $thumbregion = get_the_post_thumbnail($this->currentID,'post');
+		}
+		$quote  = get_post_meta( $this->currentID, 'zitat_text', true );
+	        $author =  get_post_meta( $this->currentID, 'zitat_autor', true );
+		
+		if (empty($thumbregion) && fau_empty($quote)) {
+		    $output .= $indent.'<div class="nav-flyout"><div class="container"><div class="row"><div class="flyout-entries-full"><ul class="sub-menu level'.$level.'">';
+		}  else {
+		    $output .= $indent.'<div class="nav-flyout"><div class="container"><div class="row"><div class="flyout-entries"><ul class="sub-menu level'.$level.'">';
+		}
+		
+		
 	}
 	
 	function end_lvl( &$output, $depth = 0, $args = array() ) {
@@ -90,42 +106,45 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		$val  = get_post_meta( $this->currentID, 'menuquote_texttype', true );	
 		$texttype = ( isset( $val ) ? intval( $val ) : 0 );
 		
-		
-		if (!empty($thumbregion)) {
-		    $output .= '<div class="span4 hide-mobile introtext">';
-		    if($quote) {
-			if ($texttype==0) {
-			    $output .= '<blockquote>';
-			    $output .= '<p>'.$quote.'</p>';
-			    if($author) $output .= '<cite>'.$author.'</cite>'; 
-			    $output .= '</blockquote>';
-			   
-			} elseif ($texttype==1) {
-			     $output .= '<p>'.$quote.'</p>';
-			}
-		
-		    }
-		    $output .= '</div>';
-		    $output .= '<div class="span4 hide-mobile introthumb">';		
-		    $output .= $thumbregion;
-		    $output .= '</div>';	
+		if (empty($thumbregion) && fau_empty($quote)) {
+		    // keine spalten 
 		} else {
-		    $output .= '<div class="span8 hide-mobile introtext">';
-		     
-		     if($quote) {
-			if ($texttype==0) {
-			    $output .= '<blockquote>';
-			    $output .= '<p>'.$quote.'</p>';
-			     if($author) $output .= '<cite>'.$author.'</cite>';
-			    $output .= '</blockquote>';
-			   
-			} elseif ($texttype==1) {
-			     $output .= '<p>'.$quote.'</p>';
+		    if (!empty($thumbregion)) {
+			$output .= '<div class="hide-mobile introtext">';
+			if($quote) {
+			    if ($texttype==0) {
+				$output .= '<blockquote>';
+				$output .= '<p>'.$quote.'</p>';
+				if($author) $output .= '<cite>'.$author.'</cite>'; 
+				$output .= '</blockquote>';
+
+			    } elseif ($texttype==1) {
+				 $output .= '<p>'.$quote.'</p>';
+			    }
+
 			}
+			$output .= '</div>';
+			$output .= '<div class="hide-mobile introthumb">';		
+			$output .= $thumbregion;
+			$output .= '</div>';	
+		    } else {
+			$output .= '<div class="hide-mobile introtext-full ">';
+
+			 if($quote) {
+			    if ($texttype==0) {
+				$output .= '<blockquote>';
+				$output .= '<p>'.$quote.'</p>';
+				 if($author) $output .= '<cite>'.$author.'</cite>';
+				$output .= '</blockquote>';
+
+			    } elseif ($texttype==1) {
+				 $output .= '<p>'.$quote.'</p>';
+			    }
+
+			}
+			$output .= '</div>';	
 
 		    }
-		    $output .= '</div>';	
-	
 		}
 		$output .= '</div></div></div>';
 	}

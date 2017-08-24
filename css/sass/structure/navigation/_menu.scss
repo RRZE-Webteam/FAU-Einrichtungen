@@ -15,6 +15,25 @@
 		background: $colorPrimary;
 		padding: 20px 0;
 		@include box-shadow(0 10px 10px rgba(0,0,0,0.3));
+		
+		a.button-portal {
+			@include inline-block;
+			background: $colorHover !important;
+			padding: 13px 20px;
+			font-size: 18px;
+			line-height: 18px;
+
+			&:hover, 
+			&:focus {
+				background: lighten($colorHover, 5%) !important;;
+			}
+		}
+		a:hover, 
+		a:focus {
+				text-decoration: none;
+				background-color: $colorHover;
+		}
+		
 	}
 	
 	li {
@@ -43,51 +62,49 @@
 				@include no-list;
 				float: none;
 				background: none; 
+				
 				a {
 					float: none;
 					margin: 0;
 					font-weight: normal;
-					font-size: 15px;
+					@include px2rem($font-size-nav-flyout-items);
 					display: table;
 					padding: 7px 20px 7px 0px;
 					@include border-radius(0);
 					border-bottom: 1px solid $colorHover;
 					width: calc(100% - 20px);
+					
+					
+					&:before {
+					    @extend .fa;
+					    @extend .fa-angle-right;	
+					    font-weight: bold;
+					    display: table-cell;
+					    color: #fff;
+					    width: 15px;
+					    padding-left: 2px;
+					}
+					&:hover, 
+					&:focus {
+						text-decoration: none;
+						background-color: $colorHover;
+					}
+					
 				}
-				a:before {
-				    @extend .fa;
-				    @extend .fa-angle-right;	
-				    font-weight: bold;
-				    display: table-cell;
-				    color: #fff;
-				    width: 20px;
-				}
-				a:hover, 
-				a:focus {
-					text-decoration: none;
-					background-color: $colorHover !important;;
-				}
+				
 			}
 		}
-		
-		.nav-flyout {
-		   	a.button-portal {
-				@include inline-block;
-				background: $colorHover !important;
-				padding: 13px 20px;
-				font-size: 18px;
-				line-height: 18px;
-
-				&:hover, 
-				&:focus {
-					background: lighten($colorHover, 5%) !important;;
-				}
-			}
-			a:hover, 
-			a:focus {
-					text-decoration: none;
-					background-color: $colorHover;
-			}
+		.flyout-entries-full ul.sub-menu {
+		    display: flex;
+		    flex-wrap: wrap;
+		    flex-direction: column;
+		    justify-content: flex-start;
+		    height: 120px;
+		    align-items: flex-start;
+		    
+		    li {
+			width: 30%;
+		    }
 		}
 	}
 		
@@ -108,7 +125,7 @@
 		}
 	}
 	
-
+	.introtext-full,
 	.introtext {
 	    p {
 			color: #fff;
