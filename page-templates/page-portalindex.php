@@ -28,8 +28,6 @@ get_header(); ?>
 			$headline = get_post_meta( $post->ID, 'headline', true );				
 			if (!fau_empty($headline)) {
 			      echo '<h2 class="subtitle">'.$headline."</h2>\n";  
-			} else {
-		//	    echo '<div class="page-nosubtitle">&nbsp;</div>';
 			}
 			
 			
@@ -69,11 +67,6 @@ get_header(); ?>
 		     <?php echo fau_get_ad('werbebanner_unten',false); ?>
 		</div>
 	    </div>
-		
-	    <?php  
-
-	 
-	    ?>
 
 	</div>
 	<?php get_template_part('template-parts/footer', 'social'); ?>	

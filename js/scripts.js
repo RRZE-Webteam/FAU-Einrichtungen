@@ -144,11 +144,6 @@ jQuery(document).ready(function($) {
 	var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 
 
-	// Move sidebar on mobile devices to the bottom
-	if(isMobile()) {
-		var sidebar = $('.sidebar-inline').html();
-		$('#content .container').append(sidebar);
-	}
 	
 	
 	// Main Menu

@@ -28,12 +28,17 @@ blockquote {
 	
 	#content & {
 		font-style: italic;
-		margin: 10px 50px;
-		padding-left: 60px;
+		margin: 10px;
+		padding-left: 50px;
 		min-height: 50px;
 
+		@media (min-width: $screen-sm) {
+		    margin: 10px 50px;
+		    padding-left: 60px;
+		}
+		
 		p {
-			color: $colorPrimary;
+		    color: $colorPrimary;
 		}
 		
 		
@@ -74,7 +79,7 @@ blockquote {
 	}
 	
 	
-	 &::before {
+	&::before {
             content: "\201C"; // Unicode for Left Double Quote
             font-family: Georgia, serif;
             font-size: 70px;
@@ -84,7 +89,18 @@ blockquote {
             position: absolute;
             left: 10px;
             top: 10px;
+	    
+	    
         }
+	#content &::before {
+	    color: $colorPrimary;
+	    left: 0px;
+	    
+	    @media (min-width: $screen-sm) {
+		left: 10px;
+	    }
+	}
+	
         &::after{
             // Reset to make sure
             content: "";

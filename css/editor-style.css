@@ -2258,9 +2258,15 @@ input[type="submit"]:active { background: #1f4c7a; }
 /*-----------------------------------------------------------------------------------*/
 /* Tables
 /*-----------------------------------------------------------------------------------*/
-table { border: 0; background: transparent; border-top: 1px solid #dfe6ec; border-bottom: 1px solid #dfe6ec; margin: 5px 0 20px 0; width: 100%; }
+.table-wrapper { position: relative; overflow: hidden; margin: 0; border-right: 1px solid #dfe6ec; }
+@media (min-width: 768px) { .table-wrapper { border-right: none; } }
+.table-wrapper .scrollable { overflow-x: auto; overflow-y: hidden; }
+
+table { border: 0; background: transparent; border-top: 1px solid #dfe6ec; border-bottom: 1px solid #dfe6ec; margin: 0; width: 100%; }
+@media (min-width: 768px) { table { margin: 5px 0 20px 0; }
+  table th, table td { padding: 7px 10px; } }
 table tbody, table tr, table th, table td { border: 0; }
-table th, table td { padding: 7px 10px; font-size: 13px; line-height: 18px; }
+table th, table td { padding-left: 15px; padding-right: 15px; font-size: 13px; line-height: 18px; }
 table th { color: #444; background: #dfe6ec; font-weight: bold; border-top: 1px solid #dfe6ec; border-bottom: 1px solid #dfe6ec; text-align: left; }
 table td { border-right: 1px solid #fff; color: #444; }
 table td p { font-size: 13px; line-height: 18px; }
@@ -2269,17 +2275,14 @@ table tr:nth-child(odd) td { color: #1f4c7a; background: #e9edf2; }
 table tr:nth-child(odd) td ul li { color: #1f4c7a; }
 table ul li { color: #003366; font-size: 13px; line-height: 18px; background-position: left 5px; }
 
-@media (max-width: 767px) { div.table-wrapper { position: relative; margin-bottom: 20px; margin-left: 15px; margin-right: 15px; overflow: hidden; border-right: 1px solid #ccc; }
-  div.table-wrapper .scrollable { overflow-x: auto; overflow-y: hidden; }
-  table { margin: 0; }
-  table td, table th { padding-left: 15px; padding-right: 15px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Blockquotes, Cites
 /*-----------------------------------------------------------------------------------*/
 blockquote { padding: 0; margin: 0; border: none; font-family: Georgia, serif; font-style: italic; position: relative; font-size: 16px; line-height: 26px; font-size: 1rem; line-height: 1.625rem; }
 blockquote p { font-family: Georgia, serif; font-size: 16px; line-height: 26px; font-size: 1rem; line-height: 1.625rem; font-weight: 400; font-style: italic; }
 blockquote p strong { font-weight: bolder; }
-#content blockquote { font-style: italic; margin: 10px 50px; padding-left: 60px; min-height: 50px; }
+#content blockquote { font-style: italic; margin: 10px; padding-left: 50px; min-height: 50px; }
+@media (min-width: 768px) { #content blockquote { margin: 10px 50px; padding-left: 60px; } }
 #content blockquote p { color: #003366; }
 #content .sidebar-inline blockquote { margin: 10px; }
 blockquote small, blockquote cite { display: block; text-align: right; font-size: 15px; line-height: 21px; font-size: 0.9375rem; line-height: 1.3125rem; color: #797676; }
@@ -2288,6 +2291,8 @@ blockquote.pull-right { border-right: none; padding-right: 50px; }
 blockquote.pull-right::before { content: ""; }
 blockquote.pull-right::after { content: "\201C"; font-family: Georgia, serif; font-size: 70px; font-weight: bold; color: #797676; position: absolute; right: 10px; top: 10px; }
 blockquote::before { content: "\201C"; font-family: Georgia, serif; font-size: 70px; font-weight: bold; color: #797676; position: absolute; left: 10px; top: 10px; }
+#content blockquote::before { color: #003366; left: 0px; }
+@media (min-width: 768px) { #content blockquote::before { left: 10px; } }
 blockquote::after { content: ""; }
 #content .sidebar-inline blockquote, #content blockquote.noquote { background: inherit; padding-left: 0; padding-right: 0; }
 #content .sidebar-inline blockquote::after, #content .sidebar-inline blockquote::before, #content blockquote.noquote::after, #content blockquote.noquote::before { content: ""; }

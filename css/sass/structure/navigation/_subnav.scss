@@ -219,33 +219,6 @@
 }
 
 
-/*
-.page-template-page-subnav {
-    #content {
-	.span8 {
-	    img {		
-		&.alignleft, 
-		&.alignright, 
-		&.size-full {
-		    vertical-align: top;
-		    overflow: hide;
-	        }
-		&.size-full {
-		    clear: both;
-		}
-	    }
-	    div.alignleft, 
-	    img.alignleft {
-		clear: none;
-		
-	    }
-	}
-    }
-}
-
-*/
-
-
 
 
 @media (max-width: $breakMD) {
@@ -277,31 +250,6 @@
 }
 
 @media (max-width: $breakSM) {
-     .page-template-page-subnav {
-	
-	    #content {
-		margin-left: 15px;
-		margin-right: 15px;
-
-		.span4 {
-		    padding-bottom: 10px;
-		}
-		.container {
-		   
-
-		    .sidebar-inline { 
-		       width: 100%;   
-		       border-left: none;
-		       padding-left: 15px;
-		       padding-right: 15px;
-		   }
-
-		   aside.widget:first-child {
-		       border-top: 2px solid $colorStandardHellgrau;
-		   }
-		}
-	    }
-    }
      #content .subpages-menu {
 	.menu-item {
 	    margin: 0 0 10px 0;

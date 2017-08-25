@@ -49,9 +49,14 @@ get_header(); ?>
 					    echo '<h2>'.$headline.'</h2>'; 					    
 					}
 
-
-					get_template_part('template-parts/sidebar', 'inline'); 
-					the_content(); ?>
+					?>
+					<div class="inline-box">					   	
+					    <?php get_template_part('template-parts/sidebar', 'inline'); ?> 
+					    <div class="content-inline">
+					    <?php the_content(); ?>
+					    </div>
+					</div>
+					<?php echo wp_link_pages($pagebreakargs); ?>
 				    </main>    
 				  <?php  echo fau_get_ad('werbebanner_unten',true); ?>				  
 				</div>
