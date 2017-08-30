@@ -1146,7 +1146,7 @@ function fau_get_toplinks() {
 	if ($linkhomeimg) {
 	    $thislist .= '<img src="'.fau_esc_url($linkimg).'" alt="'.esc_attr($hometitle).'">'; 
 	} else {
-	    $thislist .= __('Zur','fau').' '.$shorttitle; 
+	    $thislist .= $shorttitle; 
 	}	
 	$thislist .= '</a>';
 	$thislist .= '</li>'."\n";	
