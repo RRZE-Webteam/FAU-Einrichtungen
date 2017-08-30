@@ -501,12 +501,12 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	    $output .= "\t\t\t".'<meta itemprop="url" content="'.fau_make_absolute_url($imageurl).'">';
 	    $output .= "\t\t\t".'<meta itemprop="width" content="'.$imgwidth.'">';
 	    $output .= "\t\t\t".'<meta itemprop="height" content="'.$imgheight.'">';		    
-	    $output .= "\t\t".'</div>'."\n"; 
-	    $output .= "\t\t".'<div class="col-xs-7 col-sm-8">'."\n"; 
+	    $output .= "\t\t".'</div>'; 
+	    $output .= "\t\t".'<div class="col-xs-7 col-sm-8">'; 
 	} else {
-	    $output .= "\t\t".'<div class="col-xs-12">'."\n"; 
+	    $output .= "\t\t".'<div class="col-xs-12">'; 
 	}
-	$output .= "\t\t\t".'<p itemprop="description">'."\n"; 
+	$output .= "\t\t\t".'<p itemprop="description">'; 
 	
 	
 	$cuttet = false;
@@ -1214,8 +1214,161 @@ function fau_get_toplinks() {
 	$result .= "\n";	
     }
     return $result;
-	     
-    
-  
+
 }
 
+/*-----------------------------------------------------------------------------------*/
+/* Get cat id by name or slug
+/*-----------------------------------------------------------------------------------*/
+function fau_get_cat_ID($string) {
+    if (empty($string)) {
+        return 0;
+    }
+    $string= esc_attr( $string );
+    if (is_string($string)) {
+	$thisid = get_cat_ID($string);
+        if ($thisid==0) {
+            $idObj = get_category_by_slug( $string );
+            if (false==$idObj) {
+                return 0;
+            }
+            $thisid = $idObj->term_id;
+        }
+        return $thisid;
+    } elseif(is_numeric($string)) {
+        return $string;
+    }
+    
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Get tag id
+/*-----------------------------------------------------------------------------------*/
+function fau_get_tag_ID($tag_name) {
+    $tag = get_term_by('name', $tag_name, 'post_tag');
+    if ($tag) {
+	return $tag->term_id;
+    } else {
+	return 0;
+    }
+}
+ /*-----------------------------------------------------------------------------------*/
+ /* Display blog entries as blogroll
+ /*-----------------------------------------------------------------------------------*/
+ if ( ! function_exists( 'fau_blogroll' ) ) :
+ function fau_blogroll($posttag = '', $postcat = '', $num = 4, $divclass= '') {
+    $posttag = $posttag ? esc_attr( $posttag ) : '';
+    
+    if (is_string($posttag)) {
+	$posttag = fau_get_tag_ID($posttag);
+    }
+    
+    $postcat = fau_get_cat_ID($postcat);
+
+    
+    if (!isset($postcat) && !isset($posttag)) {
+        return;
+    }
+    
+    if (!is_int($num)) {
+	$num = 4;
+    }
+    $divclass = $divclass ? esc_attr( $divclass ) : '';
+   
+    $tag_link = get_tag_link( $posttag );
+    $category_link = get_category_link($postcat);
+
+    $blogroll_query = new WP_Query( array(
+        'posts_per_page'	=> $num,
+        'tag_id' 		=> $posttag,
+        'cat' 			=> $postcat,
+        'post_status'		=> 'publish',
+        'ignore_sticky_posts'	=> 1,
+    ) );
+
+
+    $out = '<section class="blogroll '.$divclass.'">';
+    if($blogroll_query->have_posts()) :
+	while($blogroll_query->have_posts()) : 
+	    $blogroll_query->the_post();
+	    $id = get_the_ID();
+            $out .= fau_display_news_teaser($id,true); // fau_load_template_part('template-parts/content-blogroll' ); 
+	endwhile; 
+    endif; // have_posts()                  
+     
+    wp_reset_postdata();
+    $out .= '</section>'."\n";
+    return $out;
+ }
+ endif;
+  /*-----------------------------------------------------------------------------------*/
+ /* Display blog entries as list
+ /*-----------------------------------------------------------------------------------*/
+ if ( ! function_exists( 'fau_articlelist' ) ) :
+ function fau_articlelist($posttag = '', $postcat = '', $num = 5, $divclass= '', $title = '') {
+    $posttag = $posttag ? esc_attr( $posttag ) : '';
+    
+    if (is_string($posttag)) {
+	$posttag = fau_get_tag_ID($posttag);
+    }
+    
+    $postcat = fau_get_cat_ID($postcat);
+
+    
+    if (!isset($postcat) && !isset($posttag)) {
+        return;
+    }
+    
+    if (!is_int($num)) {
+	$num = 5;
+    }
+    $divclass = $divclass ? esc_attr( $divclass ) : '';
+    $title =  esc_attr( $title );
+   
+    $tag_link = get_tag_link( $posttag );
+    $category_link = get_category_link($postcat);
+
+    $blogroll_query = new WP_Query( array(
+        'posts_per_page'	=> $num,
+        'tag_id' 		=> $posttag,
+        'cat' 			=> $postcat,
+        'post_status'		=> 'publish',
+        'ignore_sticky_posts'	=> 1,
+    ) );
+
+    $out ='';
+    if (!empty($title)) {
+        $out .= '<section class="section_articlelist"><h2>'.$title.'</h2>';
+    }
+    $out .= '<ul class="articlelist '.$divclass.'">';
+    if($blogroll_query->have_posts()) :
+	while($blogroll_query->have_posts()) : 
+	    $blogroll_query->the_post();
+    
+            $out .= '<li>';
+            $out .= '<a href="'.esc_url( get_permalink() ).'">';
+            $out .= get_the_title();
+            $out .= '</a>';
+            $out .= '</li>';
+	endwhile; 
+    endif; // have_posts()                  
+     
+    wp_reset_postdata();
+    $out .= '</ul>'."\n";
+    if (!empty($title)) {
+        $out .= '</section>';
+    }  
+    return $out;
+ }
+ endif;
+ 
+ /*-----------------------------------------------------------------------------------*/
+ /* Custom Pirate Rogue template tags: Functions for templates and output
+ /*-----------------------------------------------------------------------------------*/
+function fau_load_template_part($template_name, $part_name=null) {
+    ob_start();
+    get_template_part($template_name, $part_name);
+    $var = ob_get_contents();
+    ob_end_clean();
+    return $var;
+}

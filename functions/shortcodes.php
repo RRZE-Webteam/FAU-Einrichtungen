@@ -67,6 +67,9 @@ class FAUShortcodes {
 		add_shortcode('row', array( $this, 'bs_row' ));
 		add_shortcode('table', array( $this, 'bs_table' ));
 
+		add_shortcode('blogroll', array( $this, 'fau_shortcode_blogroll'));
+		add_shortcode('articlelist', array( $this, 'fau_shortcode_articlelist'));
+
 		
 
     
@@ -421,6 +424,54 @@ class FAUShortcodes {
 	 return '<p class="notice-download">' . do_shortcode( $content ) . '</p>';
       }  
        
+      
+      
+  /*-----------------------------------------------------------------------------------*/
+/* Shortcodes to display default blogroll
+/*-----------------------------------------------------------------------------------*/
+function fau_shortcode_blogroll( $atts, $content = null ) {
+    extract(shortcode_atts(array(
+    'cat'	=> '',
+    'tag'	=> '',
+    'num'	=> '',
+    ), $atts));
+
+    $cat = ($cat) ? $cat : '';
+    $tag = ($tag) ? $tag : '';
+    $num = ($num) ? intval($num) : 4;
+    
+    $out = fau_blogroll($tag, $cat, $num);
+	
+    if (empty($out)) {
+	echo '<p class="box red-box">'.__("Es konnten keine Artikel mit der Kategorie \"$cat\", und dem Tag \"$tag\" gefunden werden",'fau').'</p>';	
+    }
+    return $out;
+}
+/*-----------------------------------------------------------------------------------*/
+/* Shortcodes to display articlelist
+/*-----------------------------------------------------------------------------------*/
+function fau_shortcode_articlelist( $atts, $content = null ) {
+    extract(shortcode_atts(array(
+    'cat'	=> '',
+    'tag'	=> '',
+        
+    'num'	=> '',
+    'class'     => '',
+    'title'	=> '',
+    ), $atts));
+    $title =  esc_attr($title);
+    $cat = ($cat) ? $cat : '';
+    $tag = ($tag) ? $tag : '';
+    $num = ($num) ? intval($num) : 5;
+    $class = ($class) ? $class : '';
+    $out = fau_articlelist($tag, $cat, $num,$class, $title);
+	
+    if (empty($out)) {
+	echo '<p class="box red-box">'.__("Es konnten keine Artikel mit der Kategorie \"$cat\", und dem Tag \"$tag\" gefunden werden",'fau').'</p>';	
+    }
+    return $out;
+}
+    
       
 	
 	

@@ -2409,7 +2409,7 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 .inline-box { display: flex; flex-wrap: wrap; }
 .inline-box .sidebar-inline { order: 2; }
 .inline-box .content-inline { order: 1; width: 100%; }
-@media (min-width: 768px) { .inline-box { display: inline-block; }
+@media (min-width: 768px) { .inline-box { display: block; }
   .inline-box .sidebar-inline, .inline-box .content-inline { display: inline; } }
 
 .footer-meta { text-align: right; }

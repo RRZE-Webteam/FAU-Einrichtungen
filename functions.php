@@ -137,6 +137,10 @@ function fau_custom_init() {
     remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
     remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+    
+    
+    remove_filter('the_content', 'wpautop');
+    add_filter('the_content', 'wpautop', 12);
 }
 add_action( 'init', 'fau_custom_init' );
 

@@ -144,7 +144,7 @@ html, body, button {
 	width: 100%;
     }
      @media (min-width: $screen-sm) {
-	 display: inline-block; 
+	 display: block; 
 	 .sidebar-inline,
 	 .content-inline {
 	     display: inline;
