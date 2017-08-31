@@ -3503,9 +3503,9 @@ table ul li { color: #003366; font-size: 13px; line-height: 18px; background-pos
 blockquote { padding: 0; margin: 0; border: none; font-family: Georgia, serif; font-style: italic; position: relative; font-size: 16px; line-height: 26px; font-size: 1rem; line-height: 1.625rem; }
 blockquote p { font-family: Georgia, serif; font-size: 16px; line-height: 26px; font-size: 1rem; line-height: 1.625rem; font-weight: 400; font-style: italic; }
 blockquote p strong { font-weight: bolder; }
-#content blockquote { font-style: italic; margin: 10px; padding-left: 50px; min-height: 50px; }
-@media (min-width: 768px) { #content blockquote { margin: 10px 50px; padding-left: 60px; } }
-#content blockquote p { color: #003366; }
+#tinymce blockquote, #content blockquote { font-style: italic; margin: 10px; padding-left: 50px; min-height: 50px; }
+@media (min-width: 768px) { #tinymce blockquote, #content blockquote { margin: 10px 50px; padding-left: 60px; } }
+#tinymce blockquote p, #content blockquote p { color: #003366; }
 #content .sidebar-inline blockquote { margin: 10px; }
 blockquote small, blockquote cite { display: block; text-align: right; font-size: 15px; line-height: 21px; font-size: 0.9375rem; line-height: 1.3125rem; color: #797676; }
 blockquote small:before, blockquote cite:before { content: '\2014 \00A0'; }
