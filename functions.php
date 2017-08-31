@@ -139,8 +139,8 @@ function fau_custom_init() {
     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
     
     
-    remove_filter('the_content', 'wpautop');
-    add_filter('the_content', 'wpautop', 12);
+   // remove_filter('the_content', 'wpautop');
+   // add_filter('the_content', 'wpautop', 12);
 }
 add_action( 'init', 'fau_custom_init' );
 
@@ -508,31 +508,6 @@ function filter_media_comment_status( $open, $post_id ) {
 	return $open;
 }
 add_filter( 'comments_open', 'filter_media_comment_status', 10 , 2 );
-
-/* 
- * Create String for Publisher Info, used by Scema.org Microformat Data
- */
-
-function fau_create_schema_publisher($withrahmen = true) {
-    $out = '';
-    if ($withrahmen) {
-	$out .= '<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">'."\n";  
-    }
-    $header_image = get_header_image();
-    if ($header_image) {
-	$out .= "\t".'<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">'."\n";
-	$out .= "\t\t".'<meta itemprop="url" content="'.fau_make_absolute_url( $header_image ).'">'."\n";
-	$out .= "\t\t".'<meta itemprop="width" content="'.get_custom_header()->width.'">'."\n";
-	$out .= "\t\t".'<meta itemprop="height" content="'.get_custom_header()->height.'">'."\n";
-	$out .= "\t".'</div>'."\n";
-    }
-    $out .= "\t".'<meta itemprop="name" content="'.get_bloginfo( 'title' ).'">'."\n";
-    $out .= "\t".'<meta itemprop="url" content="'.home_url( '/' ).'">'."\n";
-    if ($withrahmen) {
-	$out .= '</div>'."\n";
-    }
-    return $out;
-}
 
 
 /* 

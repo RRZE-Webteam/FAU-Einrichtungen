@@ -443,7 +443,7 @@ function fau_shortcode_blogroll( $atts, $content = null ) {
     $out = fau_blogroll($tag, $cat, $num);
 	
     if (empty($out)) {
-	echo '<p class="box red-box">'.__("Es konnten keine Artikel mit der Kategorie \"$cat\", und dem Tag \"$tag\" gefunden werden",'fau').'</p>';	
+	$out =  '<p class="box red-box">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';	
     }
     return $out;
 }
@@ -467,7 +467,7 @@ function fau_shortcode_articlelist( $atts, $content = null ) {
     $out = fau_articlelist($tag, $cat, $num,$class, $title);
 	
     if (empty($out)) {
-	echo '<p class="box red-box">'.__("Es konnten keine Artikel mit der Kategorie \"$cat\", und dem Tag \"$tag\" gefunden werden",'fau').'</p>';	
+	$out = '<p class="box red-box">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';	
     }
     return $out;
 }

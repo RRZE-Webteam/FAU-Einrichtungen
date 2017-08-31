@@ -433,13 +433,13 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	} else {
 	    $link = fau_esc_url(get_permalink($post->ID));
 	}
-	$output .= "\t<h2 itemprop=\"headline\">";  
+	$output .= "<h2 itemprop=\"headline\">";  
 	$output .= '<a itemprop="url" ';
 	if ($external) {
 	    $output .= 'class="ext-link" rel="canonical" ';
 	}
 	$output .= 'href="'.$link.'">'.get_the_title($post->ID).'</a>';
-	$output .= "</h2>\n";  
+	$output .= "</h2>";  
 	
 	
 	$categories = get_the_category();
@@ -459,17 +459,16 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	    
 	
 	if ($withdate) {
-	    $output .= '<div class="news-meta">'."\n";
+	    $output .= '<div class="news-meta">';
 	    $output .= $typestr;
-	    $output .= '<span class="news-meta-date" itemprop="datePublished" content="'. esc_attr( get_post_time('c') ).'"> '.get_the_date('',$post->ID)."</span>\n";
-	    $output .= '</div>'."\n";
+	    $output .= '<span class="news-meta-date" itemprop="datePublished" content="'. esc_attr( get_post_time('c') ).'"> '.get_the_date('',$post->ID)."</span>";
+	    $output .= '</div>';
 	}
 
 	
-	$output .= "\t".'<div class="row">'."\n";  
-	
+	$output .= '<div class="row">';  	
 	if ((has_post_thumbnail( $post->ID )) ||($options['default_postthumb_always']))  {
-	    $output .= "\t\t".'<div aria-hidden="true" class="col-xs-5 col-sm-4" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">'."\n"; 
+	    $output .= "\t\t".'<div aria-hidden="true" role="presentation" tabindex="-1" class="col-xs-5 col-sm-4" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">'; 
 	    $output .= '<a href="'.$link.'" class="news-image"';
 	    if ($external) {
 		$output .= ' ext-link';
@@ -496,19 +495,16 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	    if ($imgsrcset) {
 		$output .= ' srcset="'.$imgsrcset.'"';
 	    }
-	    $output .= '>';    
-	    $output .= '</a>';
-	    $output .= "\t\t\t".'<meta itemprop="url" content="'.fau_make_absolute_url($imageurl).'">';
-	    $output .= "\t\t\t".'<meta itemprop="width" content="'.$imgwidth.'">';
-	    $output .= "\t\t\t".'<meta itemprop="height" content="'.$imgheight.'">';		    
-	    $output .= "\t\t".'</div>'; 
-	    $output .= "\t\t".'<div class="col-xs-7 col-sm-8">'; 
+	    $output .= '></a>';
+	    $output .= '<meta itemprop="url" content="'.fau_make_absolute_url($imageurl).'">';
+	    $output .= '<meta itemprop="width" content="'.$imgwidth.'">';
+	    $output .= '<meta itemprop="height" content="'.$imgheight.'">';		    
+	    $output .= '</div>'; 
+	    $output .= '<div class="col-xs-7 col-sm-8">'; 
 	} else {
-	    $output .= "\t\t".'<div class="col-xs-12">'; 
+	    $output .= '<div class="col-xs-12">'; 
 	}
-	$output .= "\t\t\t".'<p itemprop="description">'; 
-	
-	
+	$output .= '<p itemprop="description">'; 
 	$cuttet = false;
 	$abstract = get_post_meta( $post->ID, 'abstract', true );
 	if (strlen(trim($abstract))<3) {
@@ -517,18 +513,41 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	$output .= $abstract;
 	$output .= $link;
 	$output .= fau_create_readmore($link,get_the_title($post->ID),$external,true);	
-	$output .= "\t\t\t".'</p>'."\n"; 
-	
-	
-	$output .= "\t\t".'</div>'."\n"; 
-	$output .= "\t</div> <!-- /row -->\n";
+	$output .= '</p>'; 
+	$output .= '</div>'; 
+	$output .= "</div>";
 	if (!$external) {
 	    $output .= fau_create_schema_publisher();
 	}	
-	$output .= "</article> <!-- /news-item -->\n";	
+	$output .= "</article>";	
     }
     return $output;
 }
+
+/*-----------------------------------------------------------------------------------*/
+/*  Create String for Publisher Info, used by Scema.org Microformat Data
+/*-----------------------------------------------------------------------------------*/
+function fau_create_schema_publisher($withrahmen = true) {
+    $out = '';
+    if ($withrahmen) {
+	$out .= '<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">';  
+    }
+    $header_image = get_header_image();
+    if ($header_image) {
+	$out .= '<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">';
+	$out .= '<meta itemprop="url" content="'.fau_make_absolute_url( $header_image ).'">';
+	$out .= '<meta itemprop="width" content="'.get_custom_header()->width.'">';
+	$out .= '<meta itemprop="height" content="'.get_custom_header()->height.'">';
+	$out .= '</div>';
+    }
+    $out .= '<meta itemprop="name" content="'.get_bloginfo( 'title' ).'">';
+    $out .= '<meta itemprop="url" content="'.home_url( '/' ).'">';
+    if ($withrahmen) {
+	$out .= '</div>';
+    }
+    return $out;
+}
+
 
 /*-----------------------------------------------------------------------------------*/
 /*  Weiterlesen-Link einheitlich gestalten fuer verschiedene Ausgaben
@@ -1230,7 +1249,7 @@ function fau_get_cat_ID($string) {
         if ($thisid==0) {
             $idObj = get_category_by_slug( $string );
             if (false==$idObj) {
-                return 0;
+                return -1;
             }
             $thisid = $idObj->term_id;
         }
@@ -1249,7 +1268,7 @@ function fau_get_tag_ID($tag_name) {
     if ($tag) {
 	return $tag->term_id;
     } else {
-	return 0;
+	return -1;
     }
 }
  /*-----------------------------------------------------------------------------------*/
@@ -1258,41 +1277,47 @@ function fau_get_tag_ID($tag_name) {
  if ( ! function_exists( 'fau_blogroll' ) ) :
  function fau_blogroll($posttag = '', $postcat = '', $num = 4, $divclass= '') {
     $posttag = $posttag ? esc_attr( $posttag ) : '';
-    
-    if (is_string($posttag)) {
-	$posttag = fau_get_tag_ID($posttag);
-    }
-    
-    $postcat = fau_get_cat_ID($postcat);
-
-    
-    if (!isset($postcat) && !isset($posttag)) {
-        return;
+        
+    if ((!isset($posttag)) && (!isset($postcat))) {
+	// kein wert gesetzt, also nehm ich die letzten Artikel
+	$postcat =0;
+    } else {
+	if (is_string($posttag)) {
+	    $posttag = fau_get_tag_ID($posttag);
+	}
+	$postcat = fau_get_cat_ID($postcat);
     }
     
     if (!is_int($num)) {
 	$num = 4;
     }
     $divclass = $divclass ? esc_attr( $divclass ) : '';
-   
-    $tag_link = get_tag_link( $posttag );
-    $category_link = get_category_link($postcat);
 
-    $blogroll_query = new WP_Query( array(
+    
+    $parameter =  array(
         'posts_per_page'	=> $num,
-        'tag_id' 		=> $posttag,
-        'cat' 			=> $postcat,
         'post_status'		=> 'publish',
         'ignore_sticky_posts'	=> 1,
-    ) );
-
-
+    );
+    $found = 0;
+    if ((isset($posttag)) && ($posttag >= 0)) {
+	$parameter['tag_id'] = $posttag;
+	$found =1;
+    }
+    if ((isset($postcat)) && ($postcat >= 0)) {
+	$parameter['cat'] = $postcat;
+	$found =2;
+    }
+    if ($found==0) {
+	return;
+    }
+    $blogroll_query = new WP_Query($parameter );
     $out = '<section class="blogroll '.$divclass.'">';
     if($blogroll_query->have_posts()) :
 	while($blogroll_query->have_posts()) : 
 	    $blogroll_query->the_post();
 	    $id = get_the_ID();
-            $out .= fau_display_news_teaser($id,true); // fau_load_template_part('template-parts/content-blogroll' ); 
+            $out .= fau_load_template_part('template-parts/content-blogroll' );  // fau_display_news_teaser($id,true); // 
 	endwhile; 
     endif; // have_posts()                  
      
@@ -1308,33 +1333,45 @@ function fau_get_tag_ID($tag_name) {
  function fau_articlelist($posttag = '', $postcat = '', $num = 5, $divclass= '', $title = '') {
     $posttag = $posttag ? esc_attr( $posttag ) : '';
     
-    if (is_string($posttag)) {
-	$posttag = fau_get_tag_ID($posttag);
-    }
-    
-    $postcat = fau_get_cat_ID($postcat);
-
-    
-    if (!isset($postcat) && !isset($posttag)) {
-        return;
+if ((!isset($posttag)) && (!isset($postcat))) {
+	// kein wert gesetzt, also nehm ich die letzten Artikel
+	$postcat =0;
+    } else {
+	if (is_string($posttag)) {
+	    $posttag = fau_get_tag_ID($posttag);
+	}
+	$postcat = fau_get_cat_ID($postcat);
     }
     
     if (!is_int($num)) {
 	$num = 5;
     }
     $divclass = $divclass ? esc_attr( $divclass ) : '';
-    $title =  esc_attr( $title );
-   
-    $tag_link = get_tag_link( $posttag );
-    $category_link = get_category_link($postcat);
 
-    $blogroll_query = new WP_Query( array(
+ 
+    $parameter =  array(
         'posts_per_page'	=> $num,
-        'tag_id' 		=> $posttag,
-        'cat' 			=> $postcat,
         'post_status'		=> 'publish',
         'ignore_sticky_posts'	=> 1,
-    ) );
+    );
+    $found = 0;
+    if ((isset($posttag)) && ($posttag >= 0)) {
+	$parameter['tag_id'] = $posttag;
+	$found =1;
+    }
+    if ((isset($postcat)) && ($postcat >= 0)) {
+	$parameter['cat'] = $postcat;
+	$found =2;
+    }
+    if ($found==0) {
+	return;
+    }
+    $blogroll_query = new WP_Query($parameter );
+    
+
+    $divclass = $divclass ? esc_attr( $divclass ) : '';
+    $title =  esc_attr( $title );
+   
 
     $out ='';
     if (!empty($title)) {
