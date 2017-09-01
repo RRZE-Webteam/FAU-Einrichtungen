@@ -288,15 +288,27 @@ jQuery(document).ready(function($) {
 
 	// Off-canvas navigation
 	var navContainer = $('<div id="off-canvas">');
+	var offcanvaslogo = $('#logo').clone();
 	var nav = $('#nav').clone();
-	var navCloseLabel = $('<a id="off-canvas-close" href="#"><span>Menü schließen</span> <i class="fa fa-times"></i></a>')
+	var titleportallinks = $('.meta-links h3').clone();
+	var portallinks = $('#meta-nav').clone();
+	var navCloseLabel = $('<a id="off-canvas-close" href="#"><span>Menü schließen</span> <i class="fa fa-times"></i></a>');
 
 	if ($('html').attr('lang') !== 'de-DE') {
 		$('span', navCloseLabel).text('Close menu');
 	}
 
 	navCloseLabel.appendTo(navContainer);
+	offcanvaslogo.appendTo(navContainer);
+    
 	nav.appendTo(navContainer);
+	
+	 if (portallinks.length > 0) {
+	    titleportallinks.appendTo(navContainer);
+	    portallinks.appendTo(navContainer);
+
+	 }
+	
 	navContainer.appendTo('body');
 	$('<div id="off-canvas-overlay">').appendTo('body');
 
@@ -314,7 +326,7 @@ jQuery(document).ready(function($) {
 
 	$('#off-canvas-overlay, #off-canvas-close').on('click', function(e) {
 		e.preventDefault();
-		$('body').removeClass('menu-toggled')
+		$('body').removeClass('menu-toggled');
 	});
 
 
@@ -329,23 +341,23 @@ jQuery(document).ready(function($) {
 	var updateResponsivePositioning = function() {
 		var body = $('body');
 		var heroNavigation = $('.hero-navigation');
-		var header = $('#header');
-		var metaNav = $('#meta-nav');
+	//	var header = $('#header');
+	//	var metaNav = $('#meta-nav');
 		var subNav = $('#subnav').parent();
 		var logos = $('.logos-menu-logo');
 		
 		if (!isMobile() && !body.hasClass('responsive-large')) {
 			body.addClass('responsive-large');
 			heroNavigation.appendTo('#hero');
-			header.insertAfter('#meta');
-			metaNav.appendTo('#meta .meta-links');
+	//		header.insertAfter('#meta');
+	//		metaNav.appendTo('#meta .meta-links');
 			subNav.prependTo('#content .row:first');
 			logos.appendTo('.logos-menu');
 		} else if (isMobile() && body.hasClass('responsive-large')) {
 			body.removeClass('responsive-large');
 			heroNavigation.prependTo('#footer');
-			header.prependTo('body');
-			metaNav.appendTo('#off-canvas');
+	//		header.prependTo('body');
+	//		metaNav.appendTo('#off-canvas');
 			subNav.appendTo(navContainer);
 			logos.appendTo('.responsive-logos-container');
 			

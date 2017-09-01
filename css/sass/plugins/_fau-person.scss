@@ -15,8 +15,6 @@
 		
 		a {
 		    color: $colorText;
-		 //   text-decoration: underline;
-		 // Auf vielfachen Wunsch deaktiviert
 		    
 		}
 		&:hover, &:focus {
@@ -26,7 +24,6 @@
 	
 	h4 {
 		padding-top: 0;
-		// font-weight: normal;
 		a {
 		    color: $colorText;
 		    text-decoration: underline;
@@ -38,8 +35,6 @@
 		margin-top: 5px;
 	    }
 	    li {
-	//	font-size: 13px;
-	//	line-height: 20px;
 		padding: 0;
 	    }
 	}
@@ -73,8 +68,7 @@
 	}
 	
 	li {
-		// font-size: 13px;
-		// line-height: 20px;
+
 		background-position: left 5px;
 	}
 	
@@ -86,11 +80,6 @@
 		}
 	}
 	
-	.person-info-description,
-	.person-info-description p {
-	//	font-size: 13px;
-	//	line-height: 20px;
-	}
 	
 	.image-placeholder {
 		width: 90px;
@@ -302,7 +291,7 @@ span[itemprop="honorificSuffix"] {
 		    margin-right: 10px;
 		}
 		.span3 {
-		    width: calc(100% - 130px);
+		    width: 100%;
 		}
 		.span6 {
 		    padding: 0;
@@ -310,7 +299,7 @@ span[itemprop="honorificSuffix"] {
 	    }	
 	}
 	.archive .person .span6 {
-	   width: calc(100% - 10px);
+	   width: 100%;
 	   
 	   .person-info-description {
 	       padding-top: 15px;

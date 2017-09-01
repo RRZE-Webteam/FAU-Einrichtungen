@@ -2129,6 +2129,7 @@ h3 { margin: 0; padding: 11px 0; font-size: 20px; line-height: 28px; font-size: 
 h3.abstract { padding: 0 0 22px 0; }
 .sidebar-inline h3, .search-sidebar h3, .sidebar-outline h3, .widget h3, .person h3, .subpages-menu h3 { font-size: 19px; line-height: 26.6px; font-size: 1.1875rem; line-height: 1.6625rem; }
 .subpages-menu h3 { font-weight: normal; }
+#off-canvas h3 { font-size: 19px; line-height: 26.6px; font-size: 1.1875rem; line-height: 1.6625rem; border-bottom: 1px solid #ccc; margin: 20px 0 0 0; padding: 0 10px; }
 
 h4 { margin: 0; padding: 11px 0 11px 0; font-size: 18px; line-height: 25.2px; font-size: 1.125rem; line-height: 1.575rem; }
 .person h4, .span3 h4, .span4 h4 { font-size: 17px; line-height: 23.8px; font-size: 1.0625rem; line-height: 1.4875rem; }
@@ -2140,7 +2141,7 @@ h6 { font-size: 16px; line-height: 22.4px; font-size: 1rem; line-height: 1.4rem;
 @media (max-width: 480px) { .page-template-page-subnav #hero.hero-small h1 { padding-left: 15px; }
   #content .subpages-menu li h3 { padding-bottom: 0px; } }
 @media (max-width: 767px) { h1, h2, h3, h4, h5, h6, p { margin-left: 15px; margin-right: 15px; }
-  #wp-content-wrap h1, #content .container h1, #wp-content-wrap h2, #content .container h2, #wp-content-wrap h3, #content .container h3, #wp-content-wrap h4, #content .container h4, #wp-content-wrap h5, #content .container h5, #wp-content-wrap h6, #content .container h6, #wp-content-wrap p, #content .container p { margin-left: 0px; margin-right: 0px; } }
+  #footer h1, #wp-content-wrap h1, #content .container h1, #footer h2, #wp-content-wrap h2, #content .container h2, #footer h3, #wp-content-wrap h3, #content .container h3, #footer h4, #wp-content-wrap h4, #content .container h4, #footer h5, #wp-content-wrap h5, #content .container h5, #footer h6, #wp-content-wrap h6, #content .container h6, #footer p, #wp-content-wrap p, #content .container p { margin-left: 0px; margin-right: 0px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Paragraphs
 /*-----------------------------------------------------------------------------------*/

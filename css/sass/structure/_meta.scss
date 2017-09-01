@@ -152,38 +152,3 @@
     height: 30px;
 }
 
-@media (max-width: $breakMD) {
-     #meta {
-	position: relative;
-	top: 0;
-    } 
-    .js {
-	#meta {
-	    padding: 0;	    
-	    ul {
-		margin: 0;
-	    }
-	    .searchform input[type="text"] {
-		width: 100px;
-	    }
-	}
-	
-    }
-    
-    
-    
-}
-
-@media (max-width: $breakSM) {
-     .no-js {
-	 #meta {
-	    display: block;
-	    position: relative;
-	    float: none;
-	    width: 100%;
-	    top: inherit;
-	    margin: 5px 0px;
-	    padding: 3px;
-	 }
-     }
-}

@@ -3,22 +3,75 @@
  * Additional features to allow styling of the templates
  */
 
+
+   
+	/* 
+	 * website_type: 
+	 *  0 = Fakultaetsportal oder zentrale Einrichtung
+	 *	=> Nur Link zur FAU, kein Link zur Fakultät
+	 *	   Link zur FAU als Text, da FAU-Logo bereits Teil des
+	 *         Fakultätslogos
+	 *  1 = Lehrstuhl oder eine andere Einrichtung die einer Fakultät zugeordnet ist 
+	 *	=> Link zur FAU und Link zur Fakultät, 
+	 *         Link zur FAU als Grafik, Link zur Fakultät als Text (lang oder kurz nach Wahl)
+	 *  2 = Sonstige Einrichtung, die nicht einer Fakultät zugeordnet sein muss
+	 *	=> Nur Link zur FAU, kein Link zur Fakultät
+	 *	   Link zur FAU als Grafik (das ist der Unterschied zur Option 0)
+	 *  3 = Koopertation mit Externen (neu ab 1.4)
+	 *	=> Kein Link zur FAU
+	 *  -1 = FAU-Portal (neu ab 1.4, nur für zukunftigen Bedarf)
+	 *	=> Kein Link zur FAU, aktiviert 4 Spalten unter HERO
+	 * 
+	 * 'website_usefaculty' = ( nat | phil | med | tf | rw )
+	 *  Wenn gesetzt, wird davon ausgegangen, dass die Seite
+	 *  zu einer Fakultät gehört; Daher werden website_type-optionen auf
+	 *  0 und 2 reduziert. D.h.: Immer LInk zur FAU, keine Kooperationen.
+	 *  
+	 */
+
+
  /*-----------------------------------------------------------------------------------*/
  /* Extends the default WordPress body classes
  /*-----------------------------------------------------------------------------------*/
  function fau_body_class( $classes ) {
- 
+    global $options;
+    global $defaultoptions;
+    global $default_fau_orga_data;
+    global $default_fau_orga_faculty;
 	 // Additional body classes for Meta WIdget (once only language switcher)
-     if (is_workflow_translation_active()) {
+    if (is_workflow_translation_active()) {
 	 if ( is_active_sidebar( 'language-switcher'  )) {
 		 $classes[] = 'active-meta-widget';
 	 }
-     }
+    }
 
-     if (function_exists( 'wpel_init' )) {
+    if (function_exists( 'wpel_init' )) {
 	 $classes[] = 'wp-external-links';
-     }
-     
+    }
+    
+    
+    $options['website_usefaculty'] = $defaultoptions['website_usefaculty'];
+    if ( (isset($options['website_usefaculty'])) && (in_array($options['website_usefaculty'],$default_fau_orga_faculty))) {
+	 $classes[] = 'faculty-'.$options['website_usefaculty'];
+    }
+    if ($options['website_type']==-1) {
+	$classes[] = 'fauorg-home';
+    } elseif ($options['website_type']==0) {
+	$classes[] = 'fauorg-fakultaet';
+	$classes[] = 'fauorg-unterorg';
+    } elseif ($options['website_type']==1) {
+	$classes[] = 'fauorg-fakultaet';
+    } elseif ($options['website_type']==2) {	
+	$classes[] = 'fauorg-sonst';
+    } elseif ($options['website_type']==3) {	
+	$classes[] = 'fauorg-kooperation';	
+    } else {
+	$classes[] = 'fauorg-fakultaet';
+	$classes[] = 'fauorg-unterorg';
+    }
+
+    
+    
     return $classes;
  }
  add_filter( 'body_class', 'fau_body_class' );
@@ -1091,27 +1144,22 @@ function fau_get_toplinks() {
 
     // Using if-then-else structure, due to better performance as switch 
     if ($options['website_type']==-1) {
-	$linkhome = false;
+	$linkhome = true; // wird uber CSS unsichtbar gemacht fuer desktop und bei kleinen aufloesungen gezeigt
 	$linkfaculty = false;
-	$linkhomeimg = false;
+	$linkhomeimg = true;
     } elseif ($isfaculty) {
+	$linkhomeimg = true;
+	
 	if ($options['website_type']==0) {
-	    $linkhomeimg = false;
+	    //  0 = Fakultaetsportal oder zentrale Einrichtung
 	    $linkfaculty = false;
 	} else {
-	    $linkhomeimg = true;
 	    $linkfaculty = true;
 	}
     } else {
-	if ($options['website_type']==1) {
-	    // Option sollte eigentlich nicht moeglich sein. Aber zur
-	    // moglichen zukünftigen Nutzung eingebaut.
-	     $linkhomeimg = true;
-	} elseif ($options['website_type']==2) {
-	     $linkhomeimg = true;
-	} elseif ($options['website_type']==3) {
+	$linkhomeimg = true;
+	if ($options['website_type']==3) {
 	    $linkhome = false;
-       
 	}
     }
 
@@ -1122,7 +1170,8 @@ function fau_get_toplinks() {
     } else {
 	$orga = 'fau';
     }
-    $hometitle = $shorttitle = $homeurl = $linkimg = '';
+    $hometitle = $shorttitle = $homeurl = $linkimg = $linkdataset ='';
+    
     if ((isset($default_fau_orga_data[$orga])) && is_array($default_fau_orga_data[$orga])) {
 	$hometitle = $default_fau_orga_data[$orga]['title'];
 	$shorttitle = $default_fau_orga_data[$orga]['shorttitle'];
@@ -1132,6 +1181,10 @@ function fau_get_toplinks() {
 	    $homeurl = $default_fau_orga_data[$orga]['homeurl'];
 	}
 	$linkimg = $default_fau_orga_data[$orga]['home_imgsrc'];
+	if (isset($default_fau_orga_data[$orga]['data-imgmobile'])) {
+	    $linkdataset = $default_fau_orga_data[$orga]['data-imgmobile'];
+	}
+
     } else {
 	$linkhome = false;
     }
@@ -1155,33 +1208,37 @@ function fau_get_toplinks() {
 
     
     
-    $thislist = '';
+    $thislist= $orgalist = '';
     
     
     if (($linkhome) && isset($homeurl)) {
-	$thislist .= '<li class="fauhome">';
-	$thislist .= '<a href="'.$homeurl.'">';
+	$orgalist .= '<li class="fauhome">';
+	$orgalist .= '<a href="'.$homeurl.'">';
 	    			
 	if ($linkhomeimg) {
-	    $thislist .= '<img src="'.fau_esc_url($linkimg).'" alt="'.esc_attr($hometitle).'">'; 
+	    $orgalist .= '<img src="'.fau_esc_url($linkimg).'" alt="'.esc_attr($hometitle).'"'; 
+	    if ($linkdataset) {
+		 $orgalist .= ' data-imgmobile="'.fau_esc_url($linkdataset).'"'; 
+	    }
+	    $orgalist .= '>'; 
 	} else {
-	    $thislist .= $shorttitle; 
+	    $orgalist .= $shorttitle; 
 	}	
-	$thislist .= '</a>';
-	$thislist .= '</li>'."\n";	
+	$orgalist .= '</a>';
+	$orgalist .= '</li>'."\n";	
     }
     
 
     if (($linkfaculty) && isset($facultyurl)) {
-	$thislist .= '<li data-wpel-link="internal" class="facultyhome">';
-	$thislist .= '<a href="'.$facultyurl.'">';
+	$orgalist .= '<li data-wpel-link="internal" class="facultyhome">';
+	$orgalist .= '<a href="'.$facultyurl.'">';
 	if ($options['default_faculty_useshorttitle']) {
-	    $thislist .= $facultyshorttitle; 
+	    $orgalist .= $facultyshorttitle; 
 	} else {
-	    $thislist .= $facultytitle; 
+	    $orgalist .= $facultytitle; 
 	}
-	$thislist .= '</a>';
-	$thislist .= '</li>'."\n";	
+	$orgalist .= '</a>';
+	$orgalist .= '</li>'."\n";	
     }
 
     
@@ -1225,6 +1282,13 @@ function fau_get_toplinks() {
 	   }
 	   $thislist .= "</li>\n";
        }   
+    }
+    
+    
+    if (isset($orgalist)) {	
+	$result .= '<ul class="orgalist">';
+	$result .= $orgalist;
+	$result .= '</ul>';	
     }
     if (isset($thislist)) {	
 	$result .= '<ul id="meta-nav" class="menu">';

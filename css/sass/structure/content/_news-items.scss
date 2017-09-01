@@ -39,13 +39,22 @@
 .news-image {
 	display: block;
 	text-align: center;
-	background: $colorStandardHellgrau;
-	padding: 4px;
+	background: none;
+	float: none;
+	margin: 10px auto;
+	
 	@include box-shadow(0 1px 2px rgba(0,0,0,0.3));
 	
 	img {
-		@include box-shadow(none);
+	    @include box-shadow(none);
 	}
+
+	@media (min-width: $screen-sm + 1) {
+	    padding: 4px;
+	    background: $colorStandardHellgrau;
+	    margin: 5px auto;
+	}
+
 }
 
 .news-item {
@@ -127,38 +136,4 @@
 
 
 
-@media (max-width: $breakXS) {
-    #content {
-	padding-top: 0px;
-	.news-item {	    
-	
 
-	    .news-image {
-		text-align: center;
-		float: none;
-		margin: 3px auto;
-
-		img {
-		    width: 100%;
-		    height: auto;
-		    margin: 0;
-		}
-	    }
-	}	
-    }
-}
-
-@media (max-width: $breakMD) {
-    #content {
-   
-	    
-	    .news-image {
-		text-align: center;
-		float: none;
-		background: none;
-		@include box-shadow(none);
-		margin-right: 10px;
-	    }
-
-    }
-}

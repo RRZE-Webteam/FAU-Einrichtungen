@@ -94,6 +94,7 @@
 				
 			}
 		}
+		
 		.flyout-entries-full ul.sub-menu {
 		    display: flex;
 		    flex-wrap: wrap;
@@ -104,6 +105,14 @@
 		    
 		    li {
 			width: 30%;
+		    }
+		    
+		    #off-canvas & {
+			display: block;
+			height: auto;
+			li {
+			    width: inherit;
+			}
 		    }
 		}
 	}
@@ -421,33 +430,7 @@
 			};
 		}
 
-		ul#meta-nav {
-			display: block;
-			margin-left: 0 !important;
-			margin-right: 0 !important;
-			background: $colorLightest;
-
-			li {
-				display: block;
-
-				a {
-					display: block;
-					padding: 10px 20px;
-				}
-				:focus, 
-				:hover {
-				    background: $colorMetaFAUHomeBackground;
-				    @include transition(background, 0.1s);
-				}
-			}
-			li.fauhome::before {
-			    content: '';
-			    margin: 0;
-			}
-			
-			
-			
-		}
+		
 
 		#footer .hero-navigation {
 			&>*, h1, h2, h3 {

@@ -237,13 +237,14 @@ $default_link_liste = array(
 
 $default_fau_orga_data = array(
    'fau' => array(
-	    'title'	    => __('Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)', 'fau'),
-	    'shorttitle'    => __('FAU', 'fau'),
-	    'homeurl'	    => 'https://www.fau.de',
-	    'homeurl_en'    => 'https://www.fau.eu',
-	    'url'           => '%s/img/logos/logo-fau-240x65.gif',
-	    'home_imgsrc'   => get_fau_template_uri().'/img/logos/fau-37x16.gif',
-	    'thumbnail'	=> '%s/img/logos/logo-fau.png',
+	    'title'		=> __('Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)', 'fau'),
+	    'shorttitle'	=> __('FAU', 'fau'),
+	    'homeurl'		=> 'https://www.fau.de',
+	    'homeurl_en'	=> 'https://www.fau.eu',
+	    'url'		=> '%s/img/logos/logo-fau-240x65.gif',
+	    'home_imgsrc'	=> get_fau_template_uri().'/img/logos/fau-37x16.gif',
+	    'data-imgmobile'	=> get_fau_template_uri().'/img/logos/fau-220x100.gif',
+	    'thumbnail'		=> '%s/img/logos/logo-fau.png',
     ),
   
     '_faculty'	=> array(

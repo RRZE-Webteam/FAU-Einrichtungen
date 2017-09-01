@@ -17,7 +17,6 @@ global $options;
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?>>
 	
 	<div id="wrap">		
@@ -34,10 +33,8 @@ global $options;
 			<div class="container">
 			    <div class="row">
 				<div class="meta-links">
-					<h3><?php _e('Links zu weiteren Portalen','fau'); ?></h3>
-					<?php 
-					echo fau_get_toplinks(); 
-					?>
+					<h3><?php _e('Weitere Webauftritte','fau'); ?></h3>
+					<?php echo fau_get_toplinks(); ?>
 				</div>
 				<div class="meta-tools">
 				    <div class="meta-search">
