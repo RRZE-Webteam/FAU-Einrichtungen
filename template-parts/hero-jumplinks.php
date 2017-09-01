@@ -31,7 +31,7 @@ global $options;
 				} ?>
 			</div>
 			<?php } else { ?>
-			<div role="presentation" class="col-xs-12 infobar">				    
+			<div role="presentation" class="col-xs-12  col-sm-6 infobar">				    
 			    <?php 
 			   $header_image = get_header_image();
 			    if (!empty( $header_image ) ){	
