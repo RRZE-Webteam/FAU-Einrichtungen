@@ -94,12 +94,8 @@ global $options;
 			    echo '</h1>';
 			    ?>
 			    </div>
-			    <div class="header-menu">			    
-				<a href="#" id="nav-toggle" class="hide-desktop">
-					<div></div>
-					<div></div>
-					<div></div>
-				</a>			
+			    <nav class="header-menu">		
+				<button id="mainnav-toggle" aria-expanded="false" aria-controls="menu"><span><?php _e("Menu","fau"); ?></span></button>						
 				<?php
 				    if(has_nav_menu( 'main-menu' ) && class_exists('Walker_Main_Menu', false)) {
 					wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'items_wrap' => '<ul role="navigation" aria-label="'.__("Navigation", "fau").'" id="nav">%3$s</ul>', 'depth' => 2, 'walker' => new Walker_Main_Menu) ); 
@@ -107,7 +103,7 @@ global $options;
 					echo fau_main_menu_fallback(); 
 				    }
 				?>
-			    </div>
+			    </nav>
 			</div>
 		    </div>
 		</header>

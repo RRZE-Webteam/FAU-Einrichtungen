@@ -143,58 +143,6 @@ jQuery(document).ready(function($) {
 	    };
 	var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 
-
-	
-	
-	// Main Menu
-	// Keyboard-navigation, remove and set focus class on focus-change
-	$('a').not($('#nav > li div a')).focus(function() {
-		$('#nav > li').removeClass('focus');
-	});
-	
-	$('#nav > li > a').focus(function() {
-		$('#nav > li').removeClass('focus');
-		$(this).parents('li').addClass('focus');
-	});
-	
-	$('#meta-nav > li > a').focus(function() {
-		$('#meta-nav > li').removeClass('focus');
-		$(this).parents('li').addClass('focus');
-	});
-	
-	$('.mlp_language_box ul li a').focus(function() {
-		$(this).parents('ul').addClass('focus');
-	});
-	
-	// Mobile navigation toggle
-	$('#nav-toggle').bind('click', function(event) {
-		event.preventDefault();
-		$('body').toggleClass('menu-toggled');
-	});
-	// Handling touch devices and laptops with touch window:
-	
-	$('#nav > li > a').on('touchstart ontouchstart',function(e) {	
-		if ($(this).parent().hasClass("has-sub")) {
-		    if($(this).hasClass('clicked-once')) {	
-			$openflyover = false;
-			return true;
-		    } else {
-			    $('#nav > li > a').removeClass('clicked-once');
-			    $('#nav > li').removeClass('focus');
-			    $(this).addClass('clicked-once');
-			    $(this).parent('li').addClass('focus');
-			    e.preventDefault();
-			    $openflyover = true;
-			    return false;
-		    }
-		} else {
-		    return true;
-		}
-	});
-	
-
-	
-	
 	// Responsive tables
 	$("#content table").wrap('<div class="table-wrapper" />').wrap('<div class="scrollable" />');
 	
@@ -284,16 +232,57 @@ jQuery(document).ready(function($) {
 		$(this).closest('.has-sub').children('ul').slideToggle();
 	});
 
+	
+	
+	// Main Menu
+	// Keyboard-navigation, remove and set focus class on focus-change
+	$('a').not($('#nav > li div a')).focus(function() {
+		$('#nav > li').removeClass('focus');
+	});
+	
+	$('#nav > li > a').focus(function() {
+		$('#nav > li').removeClass('focus');
+		$(this).parents('li').addClass('focus');
+	});
+	
+	$('#meta-nav > li > a').focus(function() {
+		$('#meta-nav > li').removeClass('focus');
+		$(this).parents('li').addClass('focus');
+	});
+	
+	$('.mlp_language_box ul li a').focus(function() {
+		$(this).parents('ul').addClass('focus');
+	});
+	
+	
+	// Handling touch devices and laptops with touch window:
+	
+	$('#nav > li > a').on('touchstart ontouchstart',function(e) {	
+		if ($(this).parent().hasClass("has-sub")) {
+		    if($(this).hasClass('clicked-once')) {	
+			$openflyover = false;
+			return true;
+		    } else {
+			    $('#nav > li > a').removeClass('clicked-once');
+			    $('#nav > li').removeClass('focus');
+			    $(this).addClass('clicked-once');
+			    $(this).parent('li').addClass('focus');
+			    e.preventDefault();
+			    $openflyover = true;
+			    return false;
+		    }
+		} else {
+		    return true;
+		}
+	});
+	
 
 
 	// Off-canvas navigation
 	var navContainer = $('<div id="off-canvas">');
 	var offcanvaslogo = $('#logo').clone();
 	var nav = $('#nav').clone();
-	var titleportallinks = $('.meta-links h3').clone();
-	var portallinks = $('#meta-nav').clone();
 	var navCloseLabel = $('<a id="off-canvas-close" href="#"><span>Menü schließen</span> <i class="fa fa-times"></i></a>');
-
 	if ($('html').attr('lang') !== 'de-DE') {
 		$('span', navCloseLabel).text('Close menu');
 	}
@@ -303,11 +292,7 @@ jQuery(document).ready(function($) {
     
 	nav.appendTo(navContainer);
 	
-	 if (portallinks.length > 0) {
-	    titleportallinks.appendTo(navContainer);
-	    portallinks.appendTo(navContainer);
-
-	 }
+	 
 	
 	navContainer.appendTo('body');
 	$('<div id="off-canvas-overlay">').appendTo('body');
@@ -324,48 +309,76 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+	// Mobile navigation toggle
+	$('#mainnav-toggle').bind('click', function(event) {
+		event.preventDefault();
+		$('body').toggleClass('menu-toggled');	
+		$('#mainnav-toggle').attr('aria-expanded', 'true');
+	});
+
+
 	$('#off-canvas-overlay, #off-canvas-close').on('click', function(e) {
 		e.preventDefault();
 		$('body').removeClass('menu-toggled');
+		$('#mainnav-toggle').attr('aria-expanded', 'false');
 	});
 
 
 	//Update responsive positioning of some elements
 	$('body').addClass('responsive-large');
 	if ($('body').hasClass('page-template-page-start')) {
-		$('#hero > .container').addClass('hero-navigation');
 		$('.logos-menu span').addClass('logos-menu-logo');
 		$('#content > .container').eq(0).append('<div class="responsive-logos-container" />');
 	}
 
 	var updateResponsivePositioning = function() {
 		var body = $('body');
-		var heroNavigation = $('.hero-navigation');
-	//	var header = $('#header');
-	//	var metaNav = $('#meta-nav');
+		var heroNavigation = $('.hero-navigation').clone();
 		var subNav = $('#subnav').parent();
 		var logos = $('.logos-menu-logo');
 		
-		if (!isMobile() && !body.hasClass('responsive-large')) {
+		var titleportallinks = $('.meta-links h3').clone();
+		var portallinks = $('.meta-links #meta-nav').clone();
+		var footermetalinks = $('<div class="cloned-meta-links"></div>'); 
+		var footerheronav = $('<div class="cloned-hero-nav"></div>'); 
+		
+		var isthiismobile = isMobile();
+		
+		if ((!isthiismobile) && !body.hasClass('responsive-large')) {
 			body.addClass('responsive-large');
-			heroNavigation.appendTo('#hero');
-	//		header.insertAfter('#meta');
-	//		metaNav.appendTo('#meta .meta-links');
+
 			subNav.prependTo('#content .row:first');
 			logos.appendTo('.logos-menu');
-		} else if (isMobile() && body.hasClass('responsive-large')) {
+			
+			if (body.hasClass('ismobile')) {
+			    body.removeClass('ismobile');
+			    $("#footer .cloned-meta-links").empty();
+			    $("#footer .cloned-hero-nav").empty();
+			    footermetalinks.empty();
+			    footerheronav.empty();
+			}
+			
+		} else if ((isthiismobile) && body.hasClass('responsive-large')) {
 			body.removeClass('responsive-large');
-			heroNavigation.prependTo('#footer');
-	//		header.prependTo('body');
-	//		metaNav.appendTo('#off-canvas');
+			body.addClass('ismobile');
+
 			subNav.appendTo(navContainer);
 			logos.appendTo('.responsive-logos-container');
 			
+			footerheronav.append(heroNavigation);
+			footerheronav.prependTo('#footer');
+			
+			if (portallinks.length > 0) {			       
+			    footermetalinks.append(titleportallinks);
+			    footermetalinks.append(portallinks);
+			    footermetalinks.prependTo('#footer');
+			}	
 		}
 	};
 
 	// updateResponsivePositioning();
 	$(window).on('resize', function() {
+		isMobile();
 		updateResponsivePositioning();
 	});
 	

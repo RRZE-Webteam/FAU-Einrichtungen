@@ -88,30 +88,15 @@
 		display: block;
 	}
 }
+
+
 #meta-nav {
     display: none;
     @media (min-width: $screen-sm) {
 	display: inline;   
     }
-    
-    #off-canvas & {
-	display: block;
-	margin: 10px;    
-	li {
-		display: block;
-		float: none;
-		margin: 0;
-	//	border-bottom: 1px solid #ccc;
-		a {
-		    display: block;
-		    float: none;
-		    @include border-radius(0);
-		    margin-bottom: 0;
-		    padding: 2px 0;
-		}
-	}
 
-    }
+    
 }
 .orgalist {
     display: block;   
@@ -159,6 +144,51 @@
     
     
 }
+
+
+
+#footer {
+    #meta-nav {
+	display: block;
+	margin: 10px;    
+
+	
+	li {
+		display: table;
+		padding-left: 0;
+		
+		a {
+		    display: block;
+		    float: none;
+		    @include border-radius(0);
+		    margin-bottom: 0;
+		    padding: 2px 0;
+		    color: #fff;
+		}
+	    }
+	li:before {
+		    @extend .fa;
+		    @extend .fa-angle-right;	
+		    font-weight: bold;
+		    display: table-cell;
+		    color: #fff;
+		    width: 20px;
+	    }
+	
+	
+    }
+    .cloned-meta-links {
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-bottom: 30px;
+
+	>*, h1, h2, h3 {
+			color: #fff;
+	}
+
+    }
+}
+	
 
 
 

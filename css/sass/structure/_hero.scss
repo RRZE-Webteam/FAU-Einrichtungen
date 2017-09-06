@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------------*/
-/* Hero: Design header for slider  
+/* Hero: Design header for website header
 /*-----------------------------------------------------------------------------------*/
 
 #hero {
@@ -279,61 +279,8 @@
 	    
 	}
 	
-	.hero-navigation {
-	    li {
-		display: table;
-		padding-left: 0;
-	    }
-	    li:before {
-		    @extend .fa;
-		    @extend .fa-angle-right;	
-		    font-weight: bold;
-		    display: table-cell;
-		    color: #fff;
-		    width: 20px;
-		}
-	}
-    /* Faculties Menu */
-    .menu-faculties {
-	@include no-list;
 	
-	li {
-		@include no-list;
-		font-size: 13px;
-		min-height: 34px;
-		line-height: 34px;
-		border-left: 8px solid #fff;
-		vertical-align: center;
-		@include hyphens(auto);
-		
-		a {
-			@include inline-block;
-			padding: 2px 0 2px 10px;
-			line-height: 16px;
-			vertical-align: center;
-		}
-		&.phil,
-		&.philfak {
-			border-color: $colorPhilFak;
-		}
-		&.rw,
-		&.rwfak {
-			border-color: $colorRwFak;
-		}
-		&.med,
-		&.medfak {
-			border-color: $colorMedFak;
-		}
-		&.nat,
-		&.natfak  {
-			border-color: $colorNatFak;
-		}
-		&.tf,
-		&.techfak {
-			border-color: $colorTechFak;
-		}
-	}
-    }
+   
 }
 
 
@@ -409,6 +356,9 @@
 		    }
 		}	
 	}
+	
+	
+	
 	display: none;
 	
 	
@@ -427,7 +377,81 @@
     @extend .col-xs-9;
 }
 
+.hero-navigation {
+	li {
+	    display: table;
+	    padding-left: 0;
+	}
+	li:before {
+		@extend .fa;
+		@extend .fa-angle-right;	
+		font-weight: bold;
+		display: table-cell;
+		color: #fff;
+		width: 20px;
+	}
+	.ismobile & {
+	    display: none;
+	}
+	#footer & {
+	    display: block;
+	    padding-left: 30px;
+	    padding-right: 30px;
+	    margin-bottom: 50px;
+	    border-bottom: 1px solid #ccc;
 
+	    .infobar {
+		display: none;
+	    }
+
+	    >*, h1, h2, h3 {
+			    color: #fff;
+	    }
+
+	}
+}
+
+ /* Faculties Menu */
+    .menu-faculties {
+	@include no-list;
+	
+	li {
+		@include no-list;
+		font-size: 13px;
+		min-height: 34px;
+		line-height: 34px;
+		border-left: 8px solid #fff;
+		vertical-align: center;
+		@include hyphens(auto);
+		
+		a {
+			@include inline-block;
+			padding: 2px 0 2px 10px;
+			line-height: 16px;
+			vertical-align: center;
+		}
+		&.phil,
+		&.philfak {
+			border-color: $colorPhilFak;
+		}
+		&.rw,
+		&.rwfak {
+			border-color: $colorRwFak;
+		}
+		&.med,
+		&.medfak {
+			border-color: $colorMedFak;
+		}
+		&.nat,
+		&.natfak  {
+			border-color: $colorNatFak;
+		}
+		&.tf,
+		&.techfak {
+			border-color: $colorTechFak;
+		}
+	}
+    }
 
 @media (max-width: $breakSM) {
     #hero {

@@ -1034,7 +1034,6 @@ function fau_post_gallery($output, $attr) {
 /*-----------------------------------------------------------------------------------*/
 /* Default Linklisten
 /*-----------------------------------------------------------------------------------*/
-
 function fau_get_defaultlinks ($list = 'faculty', $ulclass = '', $ulid = '') {
     global $default_link_liste;
     global $options;
@@ -1088,27 +1087,15 @@ function fau_get_defaultlinks ($list = 'faculty', $ulclass = '', $ulid = '') {
 
 
 /*-----------------------------------------------------------------------------------*/
-/* Erstellt Toplinkliste
+/* Erstellt Link zur Home-ORGA in der Meta-Nav
 /*-----------------------------------------------------------------------------------*/
-
-function fau_get_toplinks() {
+function fau_get_orgahomelink() {
     global $options;
     global $defaultoptions;
-    global $default_link_liste;
     global $default_fau_orga_data;
     global $default_fau_orga_faculty;
-	    
-    $uselist =  $default_link_liste['meta'];
-    $result = '';
-    
-
-    if (isset($uselist['_title'])) {
-	$result .= '<h3>'.$uselist['_title'].'</h3>';	
-	$result .= "\n";
-    }
-    
-
-	/* 
+	
+/* 
 	 * website_type: 
 	 *  0 = Fakultaetsportal oder zentrale Einrichtung
 	 *	=> Nur Link zur FAU, kein Link zur Fakultät
@@ -1130,8 +1117,9 @@ function fau_get_toplinks() {
 	 *  zu einer Fakultät gehört; Daher werden website_type-optionen auf
 	 *  0 und 2 reduziert. D.h.: Immer LInk zur FAU, keine Kooperationen.
 	 *  
-	 */
-    
+	 */    
+    $result = '';
+ 
     $options['website_usefaculty'] = $defaultoptions['website_usefaculty'];
     $isfaculty = false;
     if ( (isset($options['website_usefaculty'])) && (in_array($options['website_usefaculty'],$default_fau_orga_faculty))) {
@@ -1206,9 +1194,7 @@ function fau_get_toplinks() {
 	$linkfaculty = false;
     }
 
-    
-    
-    $thislist= $orgalist = '';
+    $orgalist = '';
     
     
     if (($linkhome) && isset($homeurl)) {
@@ -1240,8 +1226,34 @@ function fau_get_toplinks() {
 	$orgalist .= '</a>';
 	$orgalist .= '</li>'."\n";	
     }
-
     
+    if (isset($orgalist)) {	
+	$result .= '<ul class="orgalist">';
+	$result .= $orgalist;
+	$result .= '</ul>';	
+    }
+    
+    return $result;
+
+}
+/*-----------------------------------------------------------------------------------*/
+/* Erstellt Links in der Metanav oben
+/*-----------------------------------------------------------------------------------*/
+function fau_get_toplinks() {
+    global $default_link_liste;
+	    
+    $uselist =  $default_link_liste['meta'];
+    $result = '';
+
+    if (isset($uselist['_title'])) {
+	$result .= '<h3>'.$uselist['_title'].'</h3>';	
+	$result .= "\n";
+    }
+    
+    $orgalist = fau_get_orgahomelink();
+    $thislist = "";
+    
+
     
     if ( has_nav_menu( 'meta' ) ) {
 	// wp_nav_menu( array( 'theme_location' => 'meta', 'container' => false, 'items_wrap' => '<ul id="meta-nav" class="%2$s">%3$s</ul>' ) );
@@ -1255,10 +1267,10 @@ function fau_get_toplinks() {
 		    $title = $menu_item->title;
 		    $url = $menu_item->url;
 		    $class_names = '';
-		    $classes[] = 'menu-item';
-		    $classes = empty( $menu_item->classes ) ? array() : (array) $menu_item->classes;
-		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ) ) ); 
-		    $class_names = ' class="' . esc_attr( $class_names ) . '"';
+		 //   $classes[] = 'menu-item';
+		 //   $classes = empty( $menu_item->classes ) ? array() : (array) $menu_item->classes;
+		 //   $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ) ) ); 
+		 //    $class_names = ' class="' . esc_attr( $class_names ) . '"';
 		    $thislist .= '<li'.$class_names.'><a data-wpel-link="internal" href="' . $url . '">' . $title . '</a></li>';
 		}
 	    } 
@@ -1286,9 +1298,7 @@ function fau_get_toplinks() {
     
     
     if (isset($orgalist)) {	
-	$result .= '<ul class="orgalist">';
 	$result .= $orgalist;
-	$result .= '</ul>';	
     }
     if (isset($thislist)) {	
 	$result .= '<ul id="meta-nav" class="menu">';

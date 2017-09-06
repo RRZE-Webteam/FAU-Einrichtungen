@@ -242,7 +242,7 @@
 	display: none;
 }
 
-/* Mobile Navigation Toggle Button */
+/* OLD Mobile Navigation Toggle Button */
 #nav-toggle {
 	position: absolute;
 	top: 45px;
@@ -255,6 +255,46 @@
 		margin-bottom: 3px;
 	}
 }
+
+
+/* New Toogle Button */
+#wrap #mainnav-toggle {
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 8px;
+  font-size: 1em;
+  background: transparent;
+  border: none;
+  display: none;
+  z-index: 100;
+
+
+  
+  @media (max-width: $screen-sm) { 
+    .js & {
+	display: block;  
+    }
+  }
+  
+   span {
+       @include hideout();
+   }
+}
+#mainnav-toggle:before {
+    @extend .fa;
+    @extend .fa-bars;   
+    
+    &:focus, 
+    &:hover {
+	@extend .fa-close;   
+    }
+}
+
+
+    
+
+
 
 @media (max-width: $breakSM) {
     
@@ -432,15 +472,7 @@
 
 		
 
-		#footer .hero-navigation {
-			&>*, h1, h2, h3 {
-				color: #fff;
-			}
-		}
-
-		#footer .hero-navigation {
-			margin-bottom: 50px;
-		}
+		
 
 	}
 	.js {	
