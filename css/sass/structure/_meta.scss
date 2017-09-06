@@ -6,7 +6,7 @@
 #meta {
 	@include placeholder(#fff);
 	background: $colorMetaBackground;
-	position: fixed;
+	position: relative;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -19,6 +19,10 @@
 	li {
 	    @include px2rem($font-size-meta);
 	}
+	
+     @media (min-width: $screen-sm + 1) {
+	position: fixed;
+    }
 }
 
 
@@ -63,10 +67,8 @@
 
 
 .meta-search {
-   display: none;
-    
-    
     .searchform {
+	display: none;
 	    border: none;
 	    margin: 0;
 	    padding: 5px 0;
@@ -134,18 +136,60 @@
     }
     @media (max-width: $screen-sm) {
 	width: 100%;
-
 	.searchform {
 	    text-align: center;
-
-	   
+	}
+	
+	.search-toggled & .searchform {
+	    display: block;
+	    
+	    .searchicon {
+		display: none;
+	    }
 	}
     }
     @media (min-width: $screen-sm + 1) {
-	display: inline-block;
+	.searchform {
+	    display: inline-block;
+	}
     }
-    
 }
+
+
+/* New Toogle Button */
+#wrap #search-toggle {
+  position: fixed;
+  left: 0;
+  top: 0;
+  @include px2rem($font-size-mobile-meta);
+  background: transparent;
+  border: none;
+  display: none;
+  z-index: 100;
+  color: $colorMeta;
+   
+  @media (max-width: $screen-sm) { 
+    .js & {
+	display: block;  
+    }
+  }
+  
+   span {
+       @include hideout();
+   }
+}
+#search-toggle:before {
+    @extend .fa;
+    @extend .fa-search;   
+    
+    &:focus, 
+    &:hover {
+	@extend .fa-search-minus;  
+    }
+}
+
+
+
 .meta-widget {
     display: inline-block;
     float: right;

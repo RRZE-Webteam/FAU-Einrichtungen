@@ -4,8 +4,7 @@
 
 #hero {
 	@include placeholder(#fff);
-	margin-top: 20px;
-	padding-bottom: 10px;
+	
 	position: relative; 
 	@include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% 280px);
 	@include transition(1.0s, all);
@@ -279,8 +278,10 @@
 	    
 	}
 	
-	
-   
+    @media (min-width: $screen-sm) {
+	margin-top: 20px;
+	padding-bottom: 10px;
+    }
 }
 
 
@@ -395,17 +396,18 @@
 	}
 	#footer & {
 	    display: block;
-	    padding-left: 30px;
-	    padding-right: 30px;
-	    margin-bottom: 50px;
-	    border-bottom: 1px solid #ccc;
+	    padding-left: 15px;
+	    padding-right: 15px;
 
 	    .infobar {
 		display: none;
 	    }
+	    li {
+		padding: 3px 0 4px 4px;
+	    }
 
 	    >*, h1, h2, h3 {
-			    color: #fff;
+			    color: $colorMeta;
 	    }
 
 	}

@@ -159,32 +159,13 @@ jQuery(document).ready(function($) {
 	    } else {
 		$('.top-link').fadeOut();
 	    }
-	    
-	    
-	    var topoffset = 0;
-	    
-	    if (isMobile()) {
-		if ($('body').hasClass('admin-bar')) {
-		    topoffset = wpAdminBarHeight;
-		}
-	    } else {	
-		if ($('body').hasClass('admin-bar')) {		    
-		    topoffset = metaBar +wpAdminBarHeightMD;
-		} else {
-		    topoffset = metaBar;
-		}	
-	    }
-	
-	    var windowWidth = window.screen.width < window.outerWidth ? window.screen.width : window.outerWidth;
-	    if (windowWidth > breakLG) {
-		 $('body').addClass('nav-fixed');
-	    } else {
-	//	if ($(window).scrollTop() > topoffset) {
-		    $('body').addClass('nav-fixed');
-	//	} else {
-	//	    $('body').removeClass('nav-fixed');
-	//	}
-	    }
+
+	//    var windowWidth = window.screen.width < window.outerWidth ? window.screen.width : window.outerWidth;
+	//    if (windowWidth > breakLG) {
+	//	 $('body').addClass('nav-fixed');
+	//    } else {
+	//	    $('body').addClass('nav-fixed');
+	//    }
 
 	};
 	fixedHeader();
@@ -280,7 +261,7 @@ jQuery(document).ready(function($) {
 
 	// Off-canvas navigation
 	var navContainer = $('<div id="off-canvas">');
-	var offcanvaslogo = $('#logo').clone();
+	// var offcanvaslogo = $('#logo').clone();
 	var nav = $('#nav').clone();
 	var navCloseLabel = $('<a id="off-canvas-close" href="#"><span>Menü schließen</span> <i class="fa fa-times"></i></a>');
 	if ($('html').attr('lang') !== 'de-DE') {
@@ -288,7 +269,7 @@ jQuery(document).ready(function($) {
 	}
 
 	navCloseLabel.appendTo(navContainer);
-	offcanvaslogo.appendTo(navContainer);
+	// offcanvaslogo.appendTo(navContainer);
     
 	nav.appendTo(navContainer);
 	
@@ -315,6 +296,12 @@ jQuery(document).ready(function($) {
 		$('body').toggleClass('menu-toggled');	
 		$('#mainnav-toggle').attr('aria-expanded', 'true');
 	});
+	$('#search-toggle').bind('click', function(event) {
+		event.preventDefault();
+		$('body').toggleClass('search-toggled');	
+		$('#search-toggle').attr('aria-expanded', 'true');
+		$(":input[name=s]").focus();
+	});
 
 
 	$('#off-canvas-overlay, #off-canvas-close').on('click', function(e) {
@@ -330,7 +317,9 @@ jQuery(document).ready(function($) {
 		$('.logos-menu span').addClass('logos-menu-logo');
 		$('#content > .container').eq(0).append('<div class="responsive-logos-container" />');
 	}
-
+	
+	var logoalt = $('.branding h1 img').attr("alt");
+	
 	var updateResponsivePositioning = function() {
 		var body = $('body');
 		var heroNavigation = $('.hero-navigation').clone();
@@ -342,23 +331,16 @@ jQuery(document).ready(function($) {
 		var footermetalinks = $('<div class="cloned-meta-links"></div>'); 
 		var footerheronav = $('<div class="cloned-hero-nav"></div>'); 
 		
-		var isthiismobile = isMobile();
 		
-		if ((!isthiismobile) && !body.hasClass('responsive-large')) {
-			body.addClass('responsive-large');
-
-			subNav.prependTo('#content .row:first');
-			logos.appendTo('.logos-menu');
-			
-			if (body.hasClass('ismobile')) {
-			    body.removeClass('ismobile');
-			    $("#footer .cloned-meta-links").empty();
-			    $("#footer .cloned-hero-nav").empty();
-			    footermetalinks.empty();
-			    footerheronav.empty();
-			}
-			
-		} else if ((isthiismobile) && body.hasClass('responsive-large')) {
+		var viewportWidth = $(window).width();
+		if (viewportWidth < breakMD) {
+		   
+		    if ((logoalt.length>0) && (!body.hasClass('visiblelogo'))) {
+			body.addClass('visiblelogo');
+			visibletitle = '<span class="visiblelogo">' + logoalt + '</span>';
+			$('.branding h1 img').after(visibletitle);
+		    }
+		    if (body.hasClass('responsive-large')) {
 			body.removeClass('responsive-large');
 			body.addClass('ismobile');
 
@@ -373,15 +355,34 @@ jQuery(document).ready(function($) {
 			    footermetalinks.append(portallinks);
 			    footermetalinks.prependTo('#footer');
 			}	
+		    }
+		    
+		} else {
+		    if (body.hasClass('visiblelogo')) {
+			body.removeClass('visiblelogo');
+			$(".visiblelogo").remove();
+		    }
+		    if (body.hasClass('ismobile')) {
+			body.addClass('responsive-large');
+			subNav.prependTo('#content .row:first');
+			logos.appendTo('.logos-menu');
+
+			body.removeClass('ismobile');
+			$("#footer .cloned-meta-links").remove();
+			$("#footer .cloned-hero-nav").remove();
+			footermetalinks.empty();
+			footerheronav.empty();
+			
+		    }
+		    
 		}
+
+		
 	};
 
-	// updateResponsivePositioning();
 	$(window).on('resize', function() {
-		isMobile();
 		updateResponsivePositioning();
-	});
-	
+	});	
 	updateResponsivePositioning();
 	
 }

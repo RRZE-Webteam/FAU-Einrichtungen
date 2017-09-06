@@ -148,14 +148,16 @@
 
 
 #footer {
+    .cloned-meta-links,
+    .cloned-hero-nav,
     #meta-nav {
 	display: block;
-	margin: 10px;    
-
+	padding: 10px;
 	
 	li {
 		display: table;
-		padding-left: 0;
+		padding: 3px 0 4px 4px;
+
 		
 		a {
 		    display: block;
@@ -163,7 +165,7 @@
 		    @include border-radius(0);
 		    margin-bottom: 0;
 		    padding: 2px 0;
-		    color: #fff;
+		    color: $colorMeta;
 		}
 	    }
 	li:before {
@@ -171,7 +173,7 @@
 		    @extend .fa-angle-right;	
 		    font-weight: bold;
 		    display: table-cell;
-		    color: #fff;
+		    color:$colorMeta;
 		    width: 20px;
 	    }
 	
@@ -180,45 +182,20 @@
     .cloned-meta-links {
 	padding-left: 15px;
 	padding-right: 15px;
-	margin-bottom: 30px;
-
-	>*, h1, h2, h3 {
-			color: #fff;
+	margin-bottom: 0px;
+    }
+    .cloned-meta-links, 
+    .cloned-hero-nav {
+	background: $colorMetaBackground;
+	color: $colorMeta;
+	li, a, h1, h2, h3, h4, p {
+	    background: $colorMetaBackground;
+	    color: $colorMeta;
 	}
-
+    }
+    .cloned-hero-nav {
+	margin-bottom: 10px;
     }
 }
 	
 
-
-
-/*
-ul#meta-nav {
-			display: block;
-			margin-left: 0 !important;
-			margin-right: 0 !important;
-			background: $colorLightest;
-
-			li {
-				display: block;
-
-				a {
-					display: block;
-					padding: 10px 20px;
-				}
-				:focus, 
-				:hover {
-				    background: $colorMetaFAUHomeBackground;
-				    @include transition(background, 0.1s);
-				}
-			}
-			li.fauhome::before {
-			    content: '';
-			    margin: 0;
-			}
-			
-			
-			
-		}
-		
-		*/

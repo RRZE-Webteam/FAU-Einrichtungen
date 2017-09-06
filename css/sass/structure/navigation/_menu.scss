@@ -217,23 +217,6 @@
 	display: block;
 }
 
-.nav-fixed {	
-	#header {
-	 	position: fixed;
-		left: 0;
-		right: 0;
-		background: #fff;
-		z-index: 100;
-		
-	}
-
-}
-.nav-scrolled {
-    #header {
-	@include box-shadow(0 1px 3px rgba(0,0,0,0.3));
-    }
-}
-
 
 
 
@@ -242,35 +225,19 @@
 	display: none;
 }
 
-/* OLD Mobile Navigation Toggle Button */
-#nav-toggle {
-	position: absolute;
-	top: 45px;
-	right: 15px;
-	width: 25px;
-	
-	div {
-		height: 3px;
-		background: $colorMeta;
-		margin-bottom: 3px;
-	}
-}
-
 
 /* New Toogle Button */
 #wrap #mainnav-toggle {
   position: fixed;
   right: 0;
   top: 0;
-  padding: 8px;
-  font-size: 1em;
+  @include px2rem($font-size-mobile-meta);
   background: transparent;
   border: none;
   display: none;
   z-index: 100;
-
-
-  
+  color: $colorMeta;
+   
   @media (max-width: $screen-sm) { 
     .js & {
 	display: block;  
@@ -477,9 +444,7 @@
 	}
 	.js {	
 	
-	    #nav-toggle {
-		 top: 30px;
-	    }
+
 	    
 	    #nav {
 		margin: 10px 0 0 0;
@@ -525,13 +490,7 @@
 	 }
 
 	
-	.no-js {
-	     #nav-toggle,
-	    .hide-mobile {
-		display: none;
-	    }
 	
-	}
 	
 }
 @media (min-width: $breakMD +1) {

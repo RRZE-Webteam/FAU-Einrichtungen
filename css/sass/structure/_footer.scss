@@ -6,7 +6,7 @@
 #footer {
 	background: $colorPrimaryHero;
 	color: #fff;
-	padding: 20px 0;
+	padding: 0 0 20px 0;
 	
 	p {
 		color: #fff;
@@ -25,6 +25,9 @@
 	
 	a:hover, a:focus {
 		text-decoration: underline;
+	}
+	@media (min-width: $screen-sm +1) {
+	    padding: 20px 0;
 	}
 }
 

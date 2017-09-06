@@ -38,7 +38,7 @@ global $options;
 				</div>
 				<div class="meta-tools">
 				    <div class="meta-search">
-					<h3><?php _e('Seiteninterne Suche','fau'); ?></h3>
+					<button id="search-toggle" aria-expanded="false" aria-controls="search-header"><span><?php _e("Suche","fau"); ?></span></button>
 					<?php get_template_part('template-parts/search', 'header'); ?>
 				    </div>
 				<?php if ( is_active_sidebar( 'language-switcher' ) ) : ?>

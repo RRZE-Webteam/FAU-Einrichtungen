@@ -6,51 +6,73 @@
     padding: 10px 15px;
     
     .row {    
-	height: 65px;
-	 .branding {
-	     text-align: right;
-	     display: table-cell;
-	     float: none;
-	 }
-	 .header-menu {
-	    float: none;
-	    display: table-cell;
-	    vertical-align: bottom;
+	height: auto;
+	.branding {
+	   width: 100%;
+	}
+	.header-menu {
+	    display: inline;
 	}
      }
      
-    position: fixed;
-    top: 40px;
+    position: relative;
+    top: 0;
     left: 0;
     right: 0;
-    background: #fff;
-    
+    background: $colorPrimary;
+    color: #fff;
+    z-index: 100;
+    @include transition(0.5s,all);
+					
     @media (min-width: $screen-sm +1) {
+	position: fixed;
 	top: 40px;
 	padding-top: 20px;
+	background: #fff;
+	color: $colorPrimary;
 	
 	.nav-scrolled & {
 	     @include box-shadow(0 1px 3px rgba(0,0,0,0.3));	
 	}
+	
+	.row {    
+	    height: 65px;
+	    .branding {
+		 text-align: right;
+		 display: table-cell;
+		 float: none;
+		 width: auto;
+	    }
+	    .header-menu {
+		float: none;
+		display: table-cell;
+		vertical-align: bottom;
+	    }
+	 }
     }
     
     .admin-bar  & {
-	    position: fixed;
+	    // position: fixed;
 	    top: 46px;
 	    
 	    @media (min-width: $screen-sm +1) {
 		top: 72px;
 	    }    
     }
-    
- 
- }
- 
- 
- .nav-fixed #wpadminbar {
-     position: fixed;
+    .js & {
+	@media (max-width: $screen-sm) {
+	    img {
+		 @include hideout();
+	    }
+	}
+    } 
+
+    .search-toggled & {
+	// margin-top: 40px;
+    }
      
- } 
+ }
+  
  
  
 #logo {	
@@ -74,8 +96,15 @@
 		    background-color: lighten($colorHover, 5%);
 		    color: white;
 		}	
-		
 	    } 		
+	    @media (max-width: $screen-sm) {
+		color: #fff;
+		a {
+		    color: #fff;
+		}
+	    }
+	    
+	    
 	}
 	img {
 	   max-height: 85px;
