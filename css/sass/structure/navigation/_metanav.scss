@@ -129,7 +129,7 @@
 	@include transition(background, 0.1s);
     }
     
-    @media (max-width: $screen-sm) {
+    @media (max-width: $screen-sm - 1) {
 	li.fauhome:before {	
 	    display: none;
 	    content: "";

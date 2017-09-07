@@ -40,7 +40,7 @@
 	    border-left: 2px solid $colorLightest;
 	}
 
-	@media (min-width: $screen-lg +1) {
+	@media (min-width: $screen-lg ) {
 	    width: 300px;
 	}
 	@media (min-width: $screen-xxl ) {
@@ -48,9 +48,16 @@
 	}
 	
 	.page-template-page-subnav & {
-	    @media (min-width: $screen-lg +1) {
+	    @media (min-width: $screen-lg ) {
 		width: 220px;
 	    }
 	}
 
+}
+
+.startpage-sidebar {
+    .row {
+	margin-left: 0;
+	margin-right: 0;
+    }
 }

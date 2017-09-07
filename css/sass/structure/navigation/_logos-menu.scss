@@ -17,7 +17,7 @@
     }
 }
 
-@media (max-width: $breakMD) {
+@media (max-width: $screen-sm - 1) {
     .logos-menu-nav, 
 	#logos-menu-playpause {
 		display: none;

@@ -221,7 +221,7 @@
 
 
 
-@media (max-width: $breakMD) {
+@media (max-width: $screen-sm - 1) {
   	ul.menu {
 		margin-bottom: 10px;
 	}
@@ -249,7 +249,7 @@
     }
 }
 
-@media (max-width: $breakSM) {
+@media (max-width:  $screen-xs - 1) {
      #content .subpages-menu {
 	.menu-item {
 	    margin: 0 0 10px 0;

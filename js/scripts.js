@@ -160,12 +160,6 @@ jQuery(document).ready(function($) {
 		$('.top-link').fadeOut();
 	    }
 
-	//    var windowWidth = window.screen.width < window.outerWidth ? window.screen.width : window.outerWidth;
-	//    if (windowWidth > breakLG) {
-	//	 $('body').addClass('nav-fixed');
-	//    } else {
-	//	    $('body').addClass('nav-fixed');
-	//    }
 
 	};
 	fixedHeader();

@@ -2303,15 +2303,15 @@ cite { color: #0059b3; font-weight: normal; }
 /*-----------------------------------------------------------------------------------*/
 /* Devider
 /*-----------------------------------------------------------------------------------*/
-hr { position: relative; z-index: 10; clear: both; display: block; height: 20px; background: #fff; border: none; outline: none; margin: 0 0 40px 0; }
+hr { position: relative; z-index: 10; clear: both; background: #fff; border: none; outline: none; display: none; height: 40px; margin: 10px 0 30px; }
+@media (min-width: 480px) { hr { display: block; } }
+@media (min-width: 768px) { hr { margin: 0 0 40px 0; height: 20px; } }
 hr.big, .page-template-page-start hr, .home hr { height: 60px; margin: 0 0 60px 0; }
 hr::after { content: ""; position: absolute; top: 10px; bottom: 0; left: 50px; right: 50px; z-index: 9; -webkit-box-shadow: 0 0 10px #e9edf2; -moz-box-shadow: 0 0 10px #e9edf2; box-shadow: 0 0 10px #e9edf2; -webkit-border-radius: 10; -moz-border-radius: 10; border-radius: 10; background-clip: padding-box; }
 hr::before { content: ""; position: absolute; background: #fff; top: 0; left: 0; right: 0; bottom: 0; z-index: 11; }
 
 .page-template-page-start hr::after, .home hr::after { top: 30px; -webkit-box-shadow: 0 0 30px #e9edf2; -moz-box-shadow: 0 0 30px #e9edf2; box-shadow: 0 0 30px #e9edf2; }
 
-@media (max-width: 320px) { hr { display: none; } }
-@media (max-width: 767px) { hr { height: 40px; margin: 10px 0 30px; } }
 /*-----------------------------------------------------------------------------------*/
 /* Images
 /*-----------------------------------------------------------------------------------*/

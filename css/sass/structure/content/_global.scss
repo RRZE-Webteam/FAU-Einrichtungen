@@ -4,7 +4,6 @@
 
 
 #content {
-   
     padding: 0px;	
 
     @media (min-width: $screen-sm) {
@@ -18,7 +17,11 @@
 	@include px2rem($font-size-base);
 	color: $colorText;
 	font-family: $fontStack;
-	padding-top: 10px;
+	padding-top: 0;
+	 
+	@media (min-width: $screen-sm) {
+	    padding-top: 10px;
+	}
 	
 	.sidebar-inline {
 	    @include px2rem($font-size-sidebar);
@@ -27,19 +30,7 @@
   
 }
 
-@media (max-width: $breakSM) {
-    .page-template-page-start-sub  {
-	&.js-enabled #hero {
-	    .banner {
-		top: 0;
-		bottom: 0;
-	    }
-	}
-    }
-
-}
-
-@media (max-width: $breakMD) {
+@media (max-width: $screen-sm - 1) {
 	#content {
 	    ul.page-print-actions {
 		display: none;

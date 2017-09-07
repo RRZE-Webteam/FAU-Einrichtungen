@@ -58,13 +58,13 @@
 
 .content-person {
 	border: 1px solid $colorStandardHellgrau;
-	margin: 10px 0;
-	padding: 10px;
 	overflow: hidden;
+	margin: 10px 10px;
+	padding: 10px 0;
 	
-	@media(max-width: $breakMD) {
-		margin: 10px 10px;
-		padding: 10px 0;
+	@media(min-width: $screen-sm) {
+	    margin: 10px 0;
+	    padding: 10px;
 	}
 	
 	li {
@@ -75,7 +75,7 @@
 	.person-info-description {
 		padding-top: 8px;
 		
-		@media(max-width: $breakMD) {
+		@media(max-width: $screen-sm -1) {
 			margin-left: 0 !important;
 		}
 	}
@@ -212,6 +212,7 @@ span[itemprop="honorificSuffix"] {
 
 
 /* Sidebar: Inline */
+.startpage-sidebar,
 .sidebar-inline {
 	
     ul.person-info li {
@@ -276,7 +277,7 @@ span[itemprop="honorificSuffix"] {
 }
 
 
-@media (max-width: $breakMD) {
+@media (max-width: $screen-sm -1) {
     .widget_faupersonwidget,
 	.content-person {
 	    border: none;

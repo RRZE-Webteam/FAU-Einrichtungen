@@ -23,8 +23,30 @@
     color: #fff;
     z-index: 100;
     @include transition(0.5s,all);
-					
-    @media (min-width: $screen-sm +1) {
+
+    @media (min-width: $screen-sm) {
+	position: fixed;
+	top: 40px;
+	padding-top: 20px;
+	background: #fff;
+	color: $colorPrimary;
+	
+	.nav-scrolled & {
+	     @include box-shadow(0 1px 3px rgba(0,0,0,0.3));	
+	}
+	.row {    
+	    height: 112px;
+	    .branding {
+		height: 75px;
+	    }
+	    .header-menu {
+		height: 37px;
+		// width: 100%;
+	    }
+	 }
+    }
+    
+    @media (min-width: $screen-md) {
 	position: fixed;
 	top: 40px;
 	padding-top: 20px;
@@ -55,24 +77,20 @@
 	    // position: fixed;
 	    top: 46px;
 	    
-	    @media (min-width: $screen-sm +1) {
+	    @media (min-width: $screen-sm) {
 		top: 72px;
 	    }    
     }
-    .js & {
-	@media (max-width: $screen-sm) {
+
+ }
+  .js #header {
+	@media (max-width: $screen-sm - 1) {
 	    img {
 		 @include hideout();
+		 
 	    }
 	}
     } 
-
-    .search-toggled & {
-	// margin-top: 40px;
-    }
-     
- }
-  
  
  
 #logo {	

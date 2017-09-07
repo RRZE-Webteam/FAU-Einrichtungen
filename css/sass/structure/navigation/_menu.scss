@@ -9,7 +9,13 @@
 		display: none;
 		position: absolute;
 		z-index: 30;
-		top: 85px; // 129px;
+		top: 132px;
+		
+		@media (min-width: $screen-md) {
+		    top: 90px;
+		}
+		    
+		    
 		left: 0;
 		right: 0;
 		background: $colorPrimary;
@@ -238,7 +244,7 @@
   z-index: 100;
   color: $colorMeta;
    
-  @media (max-width: $screen-sm) { 
+  @media (max-width: $screen-sm - 1) { 
     .js & {
 	display: block;  
     }
@@ -258,12 +264,11 @@
     }
 }
 
-
-    
-
+  
 
 
-@media (max-width: $breakSM) {
+
+@media (max-width: $screen-xs - 1) {
     
     .no-js {
 	.hide-mobile  {
@@ -314,7 +319,7 @@
     
 }
 
-@media (max-width: $breakMD) {
+@media (max-width: $screen-sm - 1) {
 
 	body.js-enabled {
 
@@ -443,9 +448,6 @@
 
 	}
 	.js {	
-	
-
-	    
 	    #nav {
 		margin: 10px 0 0 0;
 		display: none;
@@ -493,9 +495,9 @@
 	
 	
 }
-@media (min-width: $breakMD +1) {
+@media (min-width: $screen-sm) {
     #nav {
-	overflow: hidden;
+	overflow: hidden; 
 	max-height: 37px;
     }
 }

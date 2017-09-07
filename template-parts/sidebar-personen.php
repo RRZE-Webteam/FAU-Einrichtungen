@@ -7,7 +7,7 @@
 	if(isset($sidebar_personen) && !empty($sidebar_personen))  { 
 	   $persons = $sidebar_personen;
 	   if (!fau_empty($sidebar_title_personen)) {
-		echo '<h2 class="widget-title>'.$sidebar_title_personen.'</h2>';
+		echo '<h2 class="widget-title">'.$sidebar_title_personen.'</h2>';
 	   }
 	   foreach($persons as $person) {
 		the_widget('FAUPersonWidget', array('id' => $person)); 
