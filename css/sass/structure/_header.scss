@@ -27,7 +27,7 @@
     @media (min-width: $screen-sm) {
 	position: fixed;
 	top: 40px;
-	padding-top: 20px;
+	padding: 20px 0 10px 0;
 	background: #fff;
 	color: $colorPrimary;
 	
@@ -49,7 +49,6 @@
     @media (min-width: $screen-md) {
 	position: fixed;
 	top: 40px;
-	padding-top: 20px;
 	background: #fff;
 	color: $colorPrimary;
 	

@@ -2505,12 +2505,12 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 #header .row { height: auto; }
 #header .row .branding { width: 100%; }
 #header .row .header-menu { display: inline; }
-@media (min-width: 768px) { #header { position: fixed; top: 40px; padding-top: 20px; background: #fff; color: #003366; }
+@media (min-width: 768px) { #header { position: fixed; top: 40px; padding: 20px 0 10px 0; background: #fff; color: #003366; }
   .nav-scrolled #header { -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
   #header .row { height: 112px; }
   #header .row .branding { height: 75px; }
   #header .row .header-menu { height: 37px; } }
-@media (min-width: 992px) { #header { position: fixed; top: 40px; padding-top: 20px; background: #fff; color: #003366; }
+@media (min-width: 992px) { #header { position: fixed; top: 40px; background: #fff; color: #003366; }
   .nav-scrolled #header { -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
   #header .row { height: 65px; }
   #header .row .branding { text-align: right; display: table-cell; float: none; width: auto; }
@@ -2889,11 +2889,10 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 /*-----------------------------------------------------------------------------------*/
 #hero.hero-small { background: url("../img/siegel-zuv.png") no-repeat 95% 20%, #003366; background: url("../img/siegel-zuv.png") no-repeat 95% 20%, -moz-radial-gradient(center, ellipse cover, #0059b3 0%, #003366 100%); background: url("../img/siegel-zuv.png") no-repeat 95% 20%, -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #0059b3), color-stop(100%, #003366)); background: url("../img/siegel-zuv.png") no-repeat 95% 20%, -webkit-radial-gradient(center, ellipse cover, #0059b3 0%, #003366 100%); background: url("../img/siegel-zuv.png") no-repeat 95% 20%, -o-radial-gradient(center, ellipse cover, #0059b3 0%, #003366 100%); background: url("../img/siegel-zuv.png") no-repeat 95% 20%, -ms-radial-gradient(center, ellipse cover, #0059b3 0%, #003366 100%); background: url("../img/siegel-zuv.png") no-repeat 95% 20%, radial-gradient(ellipse at center, #0059b3 0%, #003366 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=1 ); }
 #hero.hero-small h1 { padding: 0 0 0 15px; }
-@media (min-width: 769px) { #hero.hero-small h1 { padding: 30px 0 10px 0; } }
+@media (min-width: 768px) { #hero.hero-small h1 { padding: 30px 0 10px 0; } }
 
 .hero-meta-portal { position: absolute; top: 30px; right: 100px; text-align: right; color: #0059b3; font-size: 60px; line-height: 50px; display: none; }
-@media (max-width: 992px) { .hero-meta-portal { right: 15px; } }
-@media (min-width: 768px) { .hero-meta-portal { display: inline-block; } }
+@media (min-width: 992px) { .hero-meta-portal { display: inline-block; } }
 
 .breadcrumbs { color: #fff; padding: 10px 0; position: relative; z-index: 10; font-size: 13px; line-height: 18.2px; font-size: 0.8125rem; line-height: 1.1375rem; }
 .breadcrumbs span { padding: 0 5px; }
@@ -3115,6 +3114,7 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 .search-contenttry { font-size: 16px; line-height: 22.4px; font-size: 1rem; line-height: 1.4rem; margin-left: 30px; margin-bottom: 11px; margin-right: -15px; padding-left: 15px; border-left: 2px solid #dde5f0; }
 
 .widget_search form, .search-contenttry form { border: none; }
+.sidebar-single .widget_search form, .sidebar-single .search-contenttry form { padding: 20px 0; }
 .widget_search .search-text, .search-contenttry .search-text { margin: 0 20px; }
 .widget_search .search-text ::-webkit-input-placeholder, .search-contenttry .search-text ::-webkit-input-placeholder { color: #fff; }
 .widget_search .search-text :-moz-placeholder, .search-contenttry .search-text :-moz-placeholder { color: #fff; }
@@ -3132,6 +3132,9 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 .widget_search .filter label, .search-contenttry .filter label { display: inline-block; *display: inline; *zoom: 1; width: auto; float: none; margin: 0 10px 0 5px; padding: 0; }
 .widget_search .filter input[type="checkbox"], .search-contenttry .filter input[type="checkbox"] { margin: 0; width: 17px; height: 17px; border: 1px solid #bbb; box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.1); }
 .widget_search .filter .nowrap, .search-contenttry .filter .nowrap { display: inline-block; *display: inline; *zoom: 1; white-space: nowrap; }
+
+.widget_search .search-text { margin: 0 5px 0 20px; }
+.widget_search .search-text input[type="text"], .widget_search .search-text input[type="submit"] { font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
 
 /*-----------------------------------------------------------------------------------*/
 /* Accordion
@@ -3798,12 +3801,12 @@ span[itemprop="honorificPrefix"], span[itemprop="honorificSuffix"] { white-space
 
 /* Sidebar: Inline */
 .startpage-sidebar ul.person-info li, .sidebar-inline ul.person-info li { color: #444; }
-.startpage-sidebar li.person-info-address, .sidebar-inline li.person-info-address { white-space: pre; }
+.startpage-sidebar li.person-info-address, .sidebar-inline li.person-info-address { white-space: pre-line; }
 .startpage-sidebar .content-person, .sidebar-inline .content-person { border: none; margin: 0; padding: 0; }
 .startpage-sidebar h2, .sidebar-inline h2 { padding-bottom: 11px; }
 .startpage-sidebar .widget_faupersonwidget, .sidebar-inline .widget_faupersonwidget { margin-top: 0; }
 .startpage-sidebar .widget_faupersonwidget .row, .sidebar-inline .widget_faupersonwidget .row { display: inline-block; margin: 0; }
-.startpage-sidebar .widget_faupersonwidget .row .span1, .startpage-sidebar .widget_faupersonwidget .row .span3, .sidebar-inline .widget_faupersonwidget .row .span1, .sidebar-inline .widget_faupersonwidget .row .span3 { display: inline-block; float: none; width: auto; margin: 0; }
+.startpage-sidebar .widget_faupersonwidget .row .span1, .startpage-sidebar .widget_faupersonwidget .row .span3, .sidebar-inline .widget_faupersonwidget .row .span1, .sidebar-inline .widget_faupersonwidget .row .span3 { display: block; float: none; margin: 0; width: auto; }
 
 .sidebar-outline ul.person-info li { color: #444; }
 .sidebar-outline li.person-info-address { white-space: pre; }
