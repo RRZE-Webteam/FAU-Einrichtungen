@@ -218,6 +218,14 @@ $break-2200:	2200px;
 $screen-xl:	1400px;
 $screen-xxl:	1700px;
 
+$wordpress-adminbar-break:	    783px;
+// WordPress Adminbar breaks to small
+$wordpress-adminbar-smallheight:    32px;
+// WordPress Adminbar small
+$wordpress-adminbar-bigheight:	    46px;
+// WordPress Adminbar big
+
+
 $screen-xl-min:  $screen-xl;
 $screen-xl-max:	 ($screen-xxl - 1);   
 $screen-xxl-min:    $screen-xxl;

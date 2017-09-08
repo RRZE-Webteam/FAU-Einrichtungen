@@ -4,24 +4,30 @@
 
 
 #meta {
-	@include placeholder(#fff);
-	background: $colorMetaBackground;
-	position: relative;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 100;
+    @include placeholder(#fff);
+    background: $colorMetaBackground;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
 
-	.admin-bar & {
-	    top: 32px;
-	}
-	input,
-	li {
-	    @include px2rem($font-size-meta);
-	}
+    
+    input,
+    li {
+	@include px2rem($font-size-meta);
+    }
 	
-     @media (min-width: $screen-sm ) {
+    @media (min-width: $screen-sm ) {
 	position: fixed;
+	.admin-bar & {
+	    top: $wordpress-adminbar-bigheight;
+	}
+    }
+    @media (min-width: $wordpress-adminbar-break ) {
+	.admin-bar & {
+	    top: $wordpress-adminbar-smallheight;
+	}
     }
 }
 
@@ -31,22 +37,6 @@
     .active-meta-widget & {
 	@extend .col-sm-7;
     }
-} 
-.meta-tools {
-    @extend .col-sm-4;    
-    .active-meta-widget & {
-	@extend .col-sm-5;
-    }
-}
-
-.meta-tools {
-    text-align: right;
-} 
-
-
-
-
-.meta-links {
     padding: 1px 0;
     
     .ext-link  {
@@ -63,7 +53,16 @@
 	height: 40px;
 	overflow: hidden;
     }
+} 
+.meta-tools {
+    @extend .col-sm-4;    
+    .active-meta-widget & {
+	@extend .col-sm-5;
+    }
+     text-align: right;
 }
+
+
 
 
 .meta-search {

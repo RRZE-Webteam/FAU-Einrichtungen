@@ -27,6 +27,11 @@
     @media (min-width: $screen-sm) {
 	position: fixed;
 	top: 40px;
+	
+	.admin-bar & {
+	    top: 40px + $wordpress-adminbar-bigheight;
+	}
+	
 	padding: 20px 0 10px 0;
 	background: #fff;
 	color: $colorPrimary;
@@ -42,21 +47,21 @@
 	    .header-menu {
 		height: 37px;
 		display: block;
-		// width: 100%;
 	    }
 	 }
+	 .visiblelogo {
+	     display: none;
+	 }
+    }
+
+    @media (min-width: $wordpress-adminbar-break ) {
+	.admin-bar & {
+	    top: 40px + $wordpress-adminbar-smallheight;
+	}
     }
     
+    
     @media (min-width: $screen-md) {
-	position: fixed;
-	top: 40px;
-	background: #fff;
-	color: $colorPrimary;
-	
-	.nav-scrolled & {
-	     @include box-shadow(0 1px 3px rgba(0,0,0,0.3));	
-	}
-	
 	.row {    
 	    height: 65px;
 	    .branding {
@@ -73,14 +78,6 @@
 	 }
     }
     
-    .admin-bar  & {
-	    // position: fixed;
-	    top: 46px;
-	    
-	    @media (min-width: $screen-sm) {
-		top: 72px;
-	    }    
-    }
 
  }
   .js #header {
