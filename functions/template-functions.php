@@ -1474,7 +1474,7 @@ if ((!isset($posttag)) && (!isset($postcat))) {
  endif;
  
  /*-----------------------------------------------------------------------------------*/
- /* Custom Pirate Rogue template tags: Functions for templates and output
+ /* Custom template tags: Functions for templates and output
  /*-----------------------------------------------------------------------------------*/
 function fau_load_template_part($template_name, $part_name=null) {
     ob_start();
@@ -1483,3 +1483,16 @@ function fau_load_template_part($template_name, $part_name=null) {
     ob_end_clean();
     return $var;
 }
+/*-----------------------------------------------------------------------------------*/
+/* Check if color attribut is valid
+/*-----------------------------------------------------------------------------------*/
+function fau_columns_checkcolor($color = '') {
+    if ( ! in_array( $color, array( 'zuv', 'fau', 'tf', 'nat', 'med', 'rw', 'phil', 'primary', 'gray', 'grau' ) ) ) {
+	return '';
+    }
+    return $color;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* This is the end :)
+/*-----------------------------------------------------------------------------------*/

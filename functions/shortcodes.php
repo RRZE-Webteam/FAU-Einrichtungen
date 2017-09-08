@@ -70,7 +70,11 @@ class FAUShortcodes {
 		add_shortcode('blogroll', array( $this, 'fau_shortcode_blogroll'));
 		add_shortcode('articlelist', array( $this, 'fau_shortcode_articlelist'));
 
-		
+		add_shortcode( 'two_columns_one', array( $this, 'fau_shortcode_two_columns_one'));
+		add_shortcode( 'two_columns_one_last', array( $this, 'fau_shortcode_two_columns_one_last'));
+		add_shortcode( 'three_columns_one', array( $this, 'fau_shortcode_three_columns_one'));
+		add_shortcode( 'three_columns_one_last', array( $this, 'fau_shortcode_three_columns_one_last' ));
+
 
     
 	}
@@ -470,6 +474,97 @@ function fau_shortcode_articlelist( $atts, $content = null ) {
 	$out = '<p class="box red-box">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';	
     }
     return $out;
+}
+/*-----------------------------------------------------------------------------------*/
+/* Multi Columns Shortcodes
+/* Don't forget to add "_last" behind the shortcode if it is the last column.
+/*-----------------------------------------------------------------------------------*/
+
+// Two Columns
+function fau_shortcode_two_columns_one( $atts, $content = null ) {
+    extract(shortcode_atts(array(
+	'color'	=> '',
+	'lighten'   => '',
+    ), $atts));
+    $addclass = '';
+    if (isset($color)) {
+	
+	$setlighten = '';
+	if ($lighten) {
+	    $setlighten = ' lighten';
+	}   
+	
+	$color = fau_columns_checkcolor($color);
+	if (!empty($color)) {
+	    $addclass=' '.$color;
+	    $addclass .= $setlighten;
+	}
+    }
+    return '<div class="two-columns-one'.$addclass.'">' . do_shortcode( ($content) ) . '</div>';
+}
+
+function fau_shortcode_two_columns_one_last( $atts, $content = null ) {
+    extract(shortcode_atts(array(
+	'color'	=> '',
+	'lighten'   => '',
+    ), $atts));
+    $addclass = '';
+    if (isset($color)) {
+	$setlighten = '';
+	if ($lighten) {
+	    $setlighten = ' lighten';
+	}   
+
+	$color = fau_columns_checkcolor($color);
+	if (!empty($color)) {
+	    $addclass=' '.$color;
+	    $addclass .= $setlighten;
+	}
+    }
+   return '<div class="two-columns-one'.$addclass.' last">' . do_shortcode( ($content) ) . '</div>';
+}
+
+// Three Columns
+function fau_shortcode_three_columns_one($atts, $content = null) {
+    extract(shortcode_atts(array(
+	'color'	=> '',
+	'lighten'   => '',
+    ), $atts));
+    $addclass = '';
+    if (isset($color)) {
+	$setlighten = '';
+	if ($lighten) {
+	    $setlighten = ' lighten';
+	}   
+
+	$color = fau_columns_checkcolor($color);
+	if (!empty($color)) {
+	    $addclass=' '.$color;
+	    $addclass .= $setlighten;
+	}
+    }
+    return '<div class="three-columns-one'.$addclass.'">' . do_shortcode( ($content) ) . '</div>';
+}
+
+function fau_shortcode_three_columns_one_last($atts, $content = null) {
+    extract(shortcode_atts(array(
+	'color'	=> '',
+	'lighten'   => '',
+    ), $atts));
+    $addclass = '';
+    if (isset($color)) {
+	$setlighten = '';
+	if ($lighten) {
+	    $setlighten = ' lighten';
+	}   
+
+	$color = fau_columns_checkcolor($color);
+	if (!empty($color)) {
+	    $addclass=' '.$color;
+	    $addclass .= $setlighten;
+	}
+    }
+   return '<div class="three-columns-one'.$addclass.' last">' . do_shortcode( ($content) ) . '</div>';
 }
     
       

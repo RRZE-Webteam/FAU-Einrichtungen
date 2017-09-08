@@ -2805,6 +2805,7 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 #hero ul:before { display: none; }
 #hero li { list-style: none; margin: 0; padding: 0; background: none; font-size: 13px; padding-left: 20px; padding-bottom: 5px; }
 #hero li:before { display: none; }
+#hero li :before { display: table-cell; }
 #hero .container { position: relative; }
 .flyout-toggled #hero { opacity: 0.3; }
 #hero .infobar { padding-top: 5px; }
@@ -3246,6 +3247,41 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 #comments .comment-body p.quote:before { content: ''; width: 42px; height: 37px; background: url("../img/quote.png") no-repeat center center; display: block; float: left; margin-right: 20px; }
 #comments .comment-details { font-style: normal; font-size: 15px; font-weight: bold; padding: 10px 0; }
 
+/*-----------------------------------------------------------------------------------*/
+/* CSS für die von Shortcodes erzeugten für Spalten im Content
+/*-----------------------------------------------------------------------------------*/
+/*
+*  Columns
+*/
+.two-columns-one, .three-columns-one { width: 100%; }
+
+main .two-columns-one, main .three-columns-one { position: relative; float: left; margin-bottom: 30px; }
+main .two-columns-one.primary, main .three-columns-one.primary { background: #003366; padding: 10px; color: #fff; }
+main .two-columns-one.primary.lighten, main .three-columns-one.primary.lighten { background: #004d99; }
+main .two-columns-one.zuv, main .two-columns-one.fau, main .three-columns-one.zuv, main .three-columns-one.fau { background: #003366; padding: 10px; color: #fff; }
+main .two-columns-one.zuv.lighten, main .two-columns-one.fau.lighten, main .three-columns-one.zuv.lighten, main .three-columns-one.fau.lighten { background: #004d99; }
+main .two-columns-one.phil, main .three-columns-one.phil { background: #A36B0D; padding: 10px; color: #fff; }
+main .two-columns-one.phil.lighten, main .three-columns-one.phil.lighten { background: #d28a11; }
+main .two-columns-one.nat, main .three-columns-one.nat { background: #048767; padding: 10px; color: #fff; }
+main .two-columns-one.nat.lighten, main .three-columns-one.nat.lighten { background: #05b98d; }
+main .two-columns-one.med, main .three-columns-one.med { background: #0381A2; padding: 10px; color: #fff; }
+main .two-columns-one.med.lighten, main .three-columns-one.med.lighten { background: #04a9d4; }
+main .two-columns-one.tf, main .three-columns-one.tf { background: #6E7881; padding: 10px; color: #fff; }
+main .two-columns-one.tf.lighten, main .three-columns-one.tf.lighten { background: #88919a; }
+main .two-columns-one.rw, main .three-columns-one.rw { background: #8d1429; padding: 10px; color: #fff; }
+main .two-columns-one.rw.lighten, main .three-columns-one.rw.lighten { background: #ba1a36; }
+main .two-columns-one.grau, main .two-columns-one.gray, main .three-columns-one.grau, main .three-columns-one.gray { background: #e9edf2; padding: 10px; }
+main .two-columns-one.grau.lighten, main .two-columns-one.gray.lighten, main .three-columns-one.grau.lighten, main .three-columns-one.gray.lighten { background: white; }
+
+.last { clear: right; margin-right: 0 !important; }
+.last:after { margin-top: 10px; display: block; width: 100%; content: " "; }
+
+@media screen and (min-width: 768px) { .two-columns-one { width: 48.5%; }
+  .three-columns-one { width: 30.3%; }
+  .two-columns-one, .three-columns-one { position: relative; float: left; margin-bottom: 0; }
+  .two-columns-one { margin: 0 1.5% 0 0; }
+  .two-columns-one.last { margin: 0 1.5% 0; }
+  .three-columns-one { margin: 0 3% 0 0; } }
 /*-----------------------------------------------------------------------------------*/
 /* Globale Selectoren
 /*-----------------------------------------------------------------------------------*/

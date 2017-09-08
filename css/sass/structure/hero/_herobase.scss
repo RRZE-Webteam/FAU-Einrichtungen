@@ -49,7 +49,10 @@
     		@include no-list;
 		font-size: 13px;
 		padding-left: 20px;
-		padding-bottom: 5px;		
+		padding-bottom: 5px;
+		:before {
+		    display: table-cell;
+		}		
 	}
 	.container {
 		position: relative;
