@@ -26,17 +26,15 @@ get_header(); ?>
 					$headline = get_post_meta( $post->ID, 'headline', true );				
 					if (!fau_empty($headline)) {
 					      echo '<h2 class="subtitle">'.$headline."</h2>\n";
-					}
+					} ?>
 					
-					
-					 
-					get_template_part('template-parts/sidebar', 'inline'); 
-					the_content(); 
-					
-					echo wp_link_pages($pagebreakargs);
-
-					
-					?>
+					<div class="inline-box">					 
+					    <?php get_template_part('template-parts/sidebar', 'inline'); ?>
+					    <div class="content-inline">
+					    <?php the_content(); ?>					
+					    </div>
+					</div>    
+					<?php echo wp_link_pages($pagebreakargs); ?>    
 			    </main>
 			</div>		
 		    </div>

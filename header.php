@@ -17,7 +17,6 @@ global $options;
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?>>
 	
 	<div id="wrap">		
@@ -34,14 +33,12 @@ global $options;
 			<div class="container">
 			    <div class="row">
 				<div class="meta-links">
-					<h3><?php _e('Links zu weiteren Portalen','fau'); ?></h3>
-					<?php 
-					echo fau_get_toplinks(); 
-					?>
+					<h3><?php _e('Weitere Webauftritte','fau'); ?></h3>
+					<?php echo fau_get_toplinks(); ?>
 				</div>
 				<div class="meta-tools">
 				    <div class="meta-search">
-					<h3><?php _e('Seiteninterne Suche','fau'); ?></h3>
+					<button id="search-toggle" aria-expanded="false" aria-controls="search-header"><span><?php _e("Suche","fau"); ?></span></button>
 					<?php get_template_part('template-parts/search', 'header'); ?>
 				    </div>
 				<?php if ( is_active_sidebar( 'language-switcher' ) ) : ?>
@@ -97,12 +94,8 @@ global $options;
 			    echo '</h1>';
 			    ?>
 			    </div>
-			    <div class="header-menu">			    
-				<a href="#" id="nav-toggle" class="hide-desktop">
-					<div></div>
-					<div></div>
-					<div></div>
-				</a>			
+			    <nav class="header-menu">		
+				<button id="mainnav-toggle" aria-expanded="false" aria-controls="menu"><span><?php _e("Menu","fau"); ?></span></button>						
 				<?php
 				    if(has_nav_menu( 'main-menu' ) && class_exists('Walker_Main_Menu', false)) {
 					wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'items_wrap' => '<ul role="navigation" aria-label="'.__("Navigation", "fau").'" id="nav">%3$s</ul>', 'depth' => 2, 'walker' => new Walker_Main_Menu) ); 
@@ -110,7 +103,7 @@ global $options;
 					echo fau_main_menu_fallback(); 
 				    }
 				?>
-			    </div>
+			    </nav>
 			</div>
 		    </div>
 		</header>

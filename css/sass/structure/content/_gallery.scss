@@ -131,14 +131,14 @@
 	}
 }
 
-@media (max-width: $breakSM) {
+@media (max-width: $screen-xs - 1) {
      .image-gallery-slider .flex-viewport {
 	    max-height: 200px;
 	    overflow: hidden;
     }
 }
 
-@media (max-width: $breakMD) {
+@media (max-width: $screen-sm -1) {
     .image-gallery-grid ul li img {
 	   margin: 0;
     }

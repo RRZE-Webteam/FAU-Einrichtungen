@@ -47,13 +47,16 @@ get_header(); ?>
 					$headline = get_post_meta( $post->ID, 'headline', true );									
 					if (!fau_empty($headline)) {
 					    echo '<h2>'.$headline.'</h2>'; 					    
-					} else {
-				//	    echo '<div class="page-nosubtitle">&nbsp;</div>';
 					}
 
-
-					get_template_part('template-parts/sidebar', 'inline'); 
-					the_content(); ?>
+					?>
+					<div class="inline-box">					   	
+					    <?php get_template_part('template-parts/sidebar', 'inline'); ?> 
+					    <div class="content-inline">
+					    <?php the_content(); ?>
+					    </div>
+					</div>
+					<?php echo wp_link_pages($pagebreakargs); ?>
 				    </main>    
 				  <?php  echo fau_get_ad('werbebanner_unten',true); ?>				  
 				</div>

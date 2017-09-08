@@ -13,7 +13,7 @@ get_header();
             ?>
 
             <div class="row">
-                <div class="span12">
+               
                     <main>
                         <?php
                         echo $univis_data;
@@ -23,7 +23,7 @@ get_header();
                             <div class="nav-previous"><a href="<?php echo get_permalink();?>"><?php _e('<span class="meta-nav">&laquo;</span> Zurück zur Übersicht', RRZE_UnivIS::textdomain); ?></a></div>
                         </nav>
                     </main>
-                </div>
+             
             </div>
         </div>
     </div>

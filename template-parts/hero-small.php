@@ -13,27 +13,27 @@ global $options;
     <section id="hero" class="hero-small">
 	<div class="container">
 		<div class="row">
-		    <div class="span12">
+		    <div class="col-xs-12">
 			<?php 
-			 fau_breadcrumb();
-			 ?>
-
-			<div class="hero-meta-portal">
-			    <?php
-				if(get_post_type() == 'page') {
-					$parent = array_reverse(get_post_ancestors(get_the_ID()));
-					if(isset($parent) && is_array($parent) && isset($parent[0])) {
-						$first_parent = get_page($parent[0]);
-					}
-
-					if (isset($first_parent)) { //  && ($first_parent->ID != get_the_ID())) {
-						echo $first_parent->post_title;
-					}
-				} else if(get_post_type() == 'post') {
-					echo $options['title_hero_post_archive'];
+			fau_breadcrumb();
+			 
+			$metatitel = "";
+			if(get_post_type() == 'page') {
+				$parent = array_reverse(get_post_ancestors(get_the_ID()));
+				if(isset($parent) && is_array($parent) && isset($parent[0])) {
+					$first_parent = get_page($parent[0]);
 				}
-			    ?>
-			</div>
+				if (isset($first_parent)) { 
+					$metatitel = $first_parent->post_title;
+				}
+			} else if(get_post_type() == 'post') {
+				$metatitel = $options['title_hero_post_archive'];
+			}
+
+			if (!fau_empty($metatitel)) { ?>
+			    <div class="hero-meta-portal" role="presentation" aria-hidden="true" ><?php echo $metatitel; ?></div>
+			<?php } ?>
+			
 		    </div>
 		</div>
 		<div class="row">

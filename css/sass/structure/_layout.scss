@@ -62,7 +62,21 @@ html, body, button {
     .search-input {
 	@extend .col-sm-8;
     }
+    .hero-navigation {
+	.quicklinks {
+	    @extend .col-xs-12;
+	    @extend .col-sm-3;
+	}
+	.infobar {
+	    @extend .col-xs-12;
+	    @extend .col-sm-6;
+	}
+    }
+    
 }
+
+
+
 
 .error-notice {
     @extend .col-sm-3;
@@ -114,6 +128,45 @@ html, body, button {
     @extend .col-xs-12;
     @extend .col-sm-4;
     @extend .col-xxl-3;
+}
+
+
+.flyout-entries,
+.introthumb,
+.introtext {
+    @extend .col-xs-12;
+    @extend .col-sm-4;
+}
+.introtext-full {
+    @extend .col-xs-12;
+    @extend .col-sm-8;
+}
+.flyout-entries-full {
+     @extend .col-xs-12;
+}
+
+
+.inline-box {
+    display: flex;   
+    flex-wrap: wrap;
+
+    .sidebar-inline {
+	order: 2;
+    }
+    .content-inline {
+	order: 1;
+	width: 100%;
+    }
+     @media (min-width: $screen-sm) {
+	 display: block; 
+	 .sidebar-inline,
+	 .content-inline {
+	     display: inline;
+	     
+
+	 }
+	 
+    }
 }
 
 

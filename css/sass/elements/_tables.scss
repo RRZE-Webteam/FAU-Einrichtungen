@@ -3,20 +3,52 @@
 /*-----------------------------------------------------------------------------------*/
 
 
+	
+.table-wrapper {
+	position: relative;
+	overflow: hidden;
+	margin: 0;
+	border-right: 1px solid $colorContentBorders;
+	
+	
+	@media (min-width: $screen-sm) {
+	    border-right: none;
+	}
+	.scrollable {
+	    overflow-x: auto;
+	    overflow-y: hidden;
+	}
+
+}
+	
+
 table {
 	border: 0;
 	background: transparent;
+	
 	border-top: 1px solid $colorContentBorders;
 	border-bottom: 1px solid $colorContentBorders;
-	margin: 5px 0 20px 0;
+	margin: 0;
 	width: 100%;
+
+	
+	@media (min-width: $screen-sm) {
+	    margin: 5px 0 20px 0;
+	    
+	    th, td {
+		padding: 7px 10px;		
+	    }
+	    
+	}
+	
 	
 	tbody, tr, th, td {
 		border: 0;
 	}
 	
 	th, td {
-		padding: 7px 10px;		
+		padding-left: 15px;
+		padding-right: 15px;
 		font-size: 13px;
 		line-height: 18px;
 	}
@@ -64,30 +96,14 @@ table {
 			background-position: left 5px;
 		}
 	}
-}
-
-
-@media (max-width: $breakMD) {
 	
-	div.table-wrapper {
-		position: relative;
-		margin-bottom: 20px;
-		margin-left: 15px;
-		margin-right: 15px;
-		overflow: hidden;
-		border-right: 1px solid #ccc;
+	
+}
+.sorttable {
+	    th::after {
+		@extend .fa;
+		margin-left: 5px;
+		content: "\f0dc";
 		
-		.scrollable {
-		    overflow-x: auto;
-		    overflow-y: hidden;
-		}
-		
-	}
-	table {
-	    margin: 0;
-	    td,  th {
-		padding-left: 15px;
-		padding-right: 15px;
 	    }
 	}
-}

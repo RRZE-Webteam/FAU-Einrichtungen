@@ -79,13 +79,13 @@ img {
 	}
 }
 
-@media (max-width: $breakSM) {
+@media (max-width: $screen-xs) {
     img.alignleft, 
     img.alignright {
 	float: none;
 	padding: 0;
 	display: block;
 	margin: 5px auto;
-	max-width: $breakSM;
+	max-width: $screen-xs;
     }
 }

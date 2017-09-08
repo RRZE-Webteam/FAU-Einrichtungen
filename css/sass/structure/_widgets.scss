@@ -6,7 +6,7 @@
 /* All Widgets */
 .widget {
 	margin-bottom: 7px;
-	
+	@include px2rem($font-size-sidebar);
 	ul {
 	    margin: 0;
 	    padding: 0;
@@ -15,12 +15,11 @@
 		margin: 0 0 10px 5px;
 	    }
 	}
-	
+
 	
 	li {
 		padding: 0 0 0 5px;
-		font-size: 13px;
-		line-height: 20px;
+		@include px2rem($font-size-sidebar-listitem);
 		
 		list-style-type: none;
 		padding-bottom: 3px;
@@ -201,7 +200,7 @@
 }
 
 
-@media (max-width: $breakMD) {
+@media (max-width: $screen-sm - 1) {
     .textwidget {
 		margin-left: 15px;
 		margin-right: 15px;

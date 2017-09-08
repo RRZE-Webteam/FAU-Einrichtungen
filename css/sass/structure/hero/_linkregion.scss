@@ -1,0 +1,106 @@
+/*-----------------------------------------------------------------------------------*/
+/* Linkbereich unter dem Slider / Banner
+/*-----------------------------------------------------------------------------------*/
+
+.hero-navigation {
+	li {
+	    display: table;
+	    padding-left: 0;
+	}
+	li:before {
+		@extend .fa;
+		@extend .fa-angle-right;	
+		font-weight: bold;
+		display: table-cell;
+		color: #fff;
+		width: 20px;
+	}
+	.ismobile & {
+	    display: none;
+	}
+	#footer & {
+	    display: block;
+	    padding-left: 15px;
+	    padding-right: 15px;
+
+	    .infobar {
+		display: none;
+	    }
+	    li {
+		padding: 3px 0 4px 4px;
+	    }
+
+	    >*, h1, h2, h3 {
+			    color: $colorMeta;
+	    }
+
+	}
+}
+.hero-jumplink-content {
+		position: absolute;
+		left: 300px;
+		right: 300px;
+		bottom: -30;
+		display: none;
+		height: 30px;
+		text-align: center;
+		text-decoration: none;
+		
+		background: $colorPrimary;
+		color: #fff;
+		@include border-radius(4px);
+		
+		@extend .fa;
+		@extend .fa-2x;
+		@extend .fa-angle-down;
+		
+		&:hover, &:focus {
+			text-decoration: none;
+			color: #fff;
+			background: $colorHover;
+		}		
+	}
+	
+
+ /* Faculties Menu */
+    .menu-faculties {
+	@include no-list;
+	
+	li {
+		@include no-list;
+		font-size: 13px;
+		min-height: 34px;
+		line-height: 34px;
+		border-left: 8px solid #fff;
+		vertical-align: center;
+		@include hyphens(auto);
+		
+		a {
+			@include inline-block;
+			padding: 2px 0 2px 10px;
+			line-height: 16px;
+			vertical-align: center;
+		}
+		&.phil,
+		&.philfak {
+			border-color: $colorPhilFak;
+		}
+		&.rw,
+		&.rwfak {
+			border-color: $colorRwFak;
+		}
+		&.med,
+		&.medfak {
+			border-color: $colorMedFak;
+		}
+		&.nat,
+		&.natfak  {
+			border-color: $colorNatFak;
+		}
+		&.tf,
+		&.techfak {
+			border-color: $colorTechFak;
+		}
+	}
+    }
+	

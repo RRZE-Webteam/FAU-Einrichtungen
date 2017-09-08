@@ -6,8 +6,10 @@
  */
 
 load_theme_textdomain( 'fau', get_template_directory() . '/languages' );
+require_once( get_template_directory() . '/functions/relative-urls.php');
 require_once( get_template_directory() . '/functions/defaults.php' );
 require_once( get_template_directory() . '/functions/constants.php' );
+
 $options = fau_initoptions();
 require_once( get_template_directory() . '/functions/helper-functions.php' );
 require_once( get_template_directory() . '/functions/template-functions.php' );
@@ -135,15 +137,13 @@ function fau_custom_init() {
     remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
     remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-    add_filter( 'tiny_mce_plugins', 'fau_disable_emojis_tinymce' );
+    
+    
+   // remove_filter('the_content', 'wpautop');
+   // add_filter('the_content', 'wpautop', 12);
 }
 add_action( 'init', 'fau_custom_init' );
-/*-----------------------------------------------------------------------------------*/
-/* Disable Emojis also in tinyMCE plugin
-/*-----------------------------------------------------------------------------------*/
-function fau_disable_emojis_tinymce( $plugins ) {
-    return array_diff( $plugins, array( 'wpemoji' ) );
-}
+
 /*-----------------------------------------------------------------------------------*/
 /* Enqueues scripts and styles for front end.
 /*-----------------------------------------------------------------------------------*/
@@ -394,392 +394,8 @@ add_action( 'after_setup_theme', 'fau_custom_header_setup' );
 
 
 /*-----------------------------------------------------------------------------------*/
-/* Change output for gallery
+/*  Returns language code, without subcode
 /*-----------------------------------------------------------------------------------*/
-
-add_filter('post_gallery', 'fau_post_gallery', 10, 2);
-function fau_post_gallery($output, $attr) {
-    global $post;
-    global $options;
-    global $usejslibs;
-    
-    if (isset($attr['orderby'])) {
-        $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
-        if (!$attr['orderby'])
-            unset($attr['orderby']);
-    }
-
-    extract(shortcode_atts(array(
-        'order' => 'ASC',
-        'orderby' => 'menu_order ID',
-        'id' => $post->ID,
-        'itemtag' => 'dl',
-        'icontag' => 'dt',
-        'captiontag' => 'dd',
-        'columns' => 3,
-        'size' => 'thumbnail',
-        'include' => '',
-        'exclude' => '',
-	'type' => NULL,
-	'lightbox' => FALSE,
-	'captions' => 1,
-	'columns'   => 6,
-	'link'	=> 'file'
-
-    ), $attr));
-
-    $id = intval($id);
-    if ('RAND' == $order) $orderby = 'none';
-
-    if (!empty($include)) {
-        $include = preg_replace('/[^0-9,]+/', '', $include);
-        $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
-
-        $attachments = array();
-        foreach ($_attachments as $key => $val) {
-            $attachments[$val->ID] = $_attachments[$key];
-        }
-    }
-
-    if (empty($attachments)) return '';
-
-	
-    $output = '';
-    if (!isset($attr['captions'])) {
-	$attr['captions'] =1;
-    }
-     if (!isset($attr['columns'])) {
-	$attr['columns'] = 7;
-    }
-    if (!isset($attr['type'])) {
-	$attr['type'] = 'default';
-    }
-    if (!isset($attr['link'])) {
-	$attr['link'] = 'file';
-    }
-    switch($attr['type'])  {
-	    case "grid":
-		    {
-			$rand = rand();
-
-			$output .= "<div class=\"image-gallery-grid clearfix\">\n";
-			$output .= "<ul class=\"grid\">\n";
-
-			    foreach ($attachments as $id => $attachment) {
-				    $img = wp_get_attachment_image_src($id, 'gallery-grid');
-				    $meta = get_post($id);
-				    // $img_full = wp_get_attachment_image_src($id, 'gallery-full');
-				    $img_full = wp_get_attachment_image_src($id, 'full');
-				    $lightboxattr = '';
-				    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
-				    if (strlen(trim($lightboxtitle))>1) {
-					$lightboxattr = ' title="'.$lightboxtitle.'"';
-				    }
-				    if(isset( $attr['captions']) && ($attr['captions']==1) && $meta->post_excerpt) {
-					    $output .= "<li class=\"has-caption\">\n";
-				    } else  {
-					    $output .= "<li>\n";
-				    }
-					$output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox"';
-					$output .= ' rel="lightbox-'.$rand.'"'.$lightboxattr.'>';
-
-				    $output .= '<img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt="">';
-				    $output .= '</a>';
-				    if($meta->post_excerpt) {
-					    $output .= '<div class="caption">'.$meta->post_excerpt.'</div>';
-				    }
-			    $output .= "</li>\n";
-			}
-
-			    $output .= "</ul>\n";
-			$output .= "</div>\n";
-
-			    break;
-		    }
-
-	    case "2cols":
-		    {
-			    $rand = rand();
-
-			    $output .= '<div class="row">'."\n";
-			    $i = 0;
-
-			    foreach ($attachments as $id => $attachment) {
-				    $img = wp_get_attachment_image_src($id, 'image-2-col');
-				    $img_full = wp_get_attachment_image_src($id, 'full');
-				    $meta = get_post($id);
-				     $lightboxattr = '';
-				    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
-				    if (strlen(trim($lightboxtitle))>1) {
-					$lightboxattr = ' title="'.$lightboxtitle.'"';
-				    }
-				    $output .= '<div class="span4">';
-				    $output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';
-				    $output .= '<img class="content-image-cols" src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt=""></a>';
-				    if($attr['captions'] && $meta->post_excerpt) $output .= '<div class="caption">'.$meta->post_excerpt.'</div>';
-				    $output .= '</div>'."\n";
-				    $i++;
-
-				    if($i % 2 == 0) {
-					    $output .= '</div><div class="row">'."\n";
-				    }
-			    }
-
-			    $output .= '</div>'."\n";
-
-			    break;
-		    }
-
-	    case "4cols":
-		    {
-			    $rand = rand();
-
-			    $output .= '<div class="row">'."\n";
-			    $i = 0;
-
-			    foreach ($attachments as $id => $attachment) {
-				    $img = wp_get_attachment_image_src($id, 'image-4-col');
-				    $img_full = wp_get_attachment_image_src($id, 'full');
-				    $meta = get_post($id);
-				    $lightboxattr = '';
-				    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
-				    if (strlen(trim($lightboxtitle))>1) {
-					$lightboxattr = ' title="'.$lightboxtitle.'"';
-				    }
-				    $output .= '<div class="span2">';
-				    $output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';
-				    $output .= '<img class="content-image-cols" src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt=""></a>';
-				    if($attr['captions'] && $meta->post_excerpt) $output .= '<div class="caption">'.$meta->post_excerpt.'</div>';
-				    $output .= '</div>';
-				    $i++;
-
-				    if($i % 4 == 0) {
-					    $output .= '    </div><div class="row">'."\n";
-				    }
-			    }
-
-			    $output .= "</div>\n";
-
-			    break;
-		    }
-
-	    default:
-		    {
-			$usejslibs['flexslider'] = true;
-			$rand = rand();	    
-			$output .= "<div id=\"slider-$rand\" class=\"image-gallery-slider\">\n";
-			$output .= "	<ul class=\"slides\">\n";
-
-			foreach ($attachments as $id => $attachment) {
-			    $img = wp_get_attachment_image_src($id, 'gallery-full');
-			    $meta = get_post($id);
-			    $img_full = wp_get_attachment_image_src($id, 'full');
-
-			    $output .= '<li><img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt="">';
-			    if (($options['galery_link_original']) || ($meta->post_excerpt != '')) {
-				$output .= '<div class="gallery-image-caption">';
-				$lightboxattr = '';
-				if($meta->post_excerpt != '') { 
-				    $output .= $meta->post_excerpt; 
-				    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
-				    if (strlen(trim($lightboxtitle))>1) {
-					$lightboxattr = ' title="'.$lightboxtitle.'"';
-				    }
-				}
-				if (($options['galery_link_original']) && ($attr['link'] != 'none')) {
-				    if($meta->post_excerpt != '') { $output .= '<br>'; }
-				    $output .= '<span class="linkorigin">(<a href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
-				}
-				$output .='</div>';
-			    }
-			    $output .= "</li>\n";
-			}
-
-			$output .= "	</ul>\n";
-			$output .= "</div>\n";
-
-			
-			
-			$output .= "<div id=\"carousel-$rand\" class=\"image-gallery-carousel\">";
-			$output .= "	<ul class=\"slides\">";
-
-			foreach ($attachments as $id => $attachment) {
-			    $img = wp_get_attachment_image_src($id, 'gallery-thumb');
-			    $output .= '	<li><img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt=""></li>';
-			}
-
-			$output .= "	</ul>";
-			$output .= "</div>";				
-			$output .= "<script type=\"text/javascript\"> jQuery(document).ready(function($) {";			
-			$output .= "$('#carousel-$rand').flexslider({maxItems: ".$attr['columns'].",selector: 'ul > li',animation: 'slide',keyboard:true,multipleKeyboard:true,directionNav:true,controlNav: true,pausePlay: false,slideshow: false,asNavFor: '#slider-$rand',itemWidth: 125,itemMargin: 5});";
-			$output .= "$('#slider-$rand').flexslider({selector: 'ul > li',animation: 'slide',keyboard:true,multipleKeyboard:true,directionNav: false,controlNav: false,pausePlay: false,slideshow: false,sync: '#carousel-$rand'});";
-			$output .= "});</script>";
-
-		    }
-    }
-    return $output;
-}
-
-/*
- * Make URLs relative; Several functions
- */
-function fau_relativeurl($content){
-        return preg_replace_callback('/<a[^>]+/', 'fau_relativeurl_callback', $content);
-}
-function fau_relativeurl_callback($matches) {
-        $link = $matches[0];
-        $site_link =  wp_make_link_relative(home_url());  
-        $link = preg_replace("%href=\"$site_link%i", 'href="', $link);                 
-        return $link;
-    }
- add_filter('the_content', 'fau_relativeurl');
- 
- function fau_relativeimgurl($content){
-        return preg_replace_callback('/<img[^>]+/', 'fau_relativeimgurl_callback', $content);
-}
-function fau_relativeimgurl_callback($matches) {
-        $link = $matches[0];
-        $site_link =  wp_make_link_relative(home_url());  
-        $link = preg_replace("%src=\"$site_link%i", 'src="', $link);                 
-        return $link;
-    }
- add_filter('the_content', 'fau_relativeimgurl');
- 
- /*
-  * Replaces esc_url, but also makes URL relative
-  */
- function fau_esc_url( $url) {
-     if (!isset($url)) {
-	 $url = home_url("/");
-     }
-     return fau_make_link_relative(esc_url($url));
- }
- 
- function get_fau_template_uri () {
-     return get_template_directory_uri();
- }
- function fau_get_template_uri () {
-     return get_template_directory_uri();
- } 
-
- /*
-  * Makes absolute URL from relative URL
-  */
- function fau_make_absolute_url( $url) {
-    if (!isset($url)) {
-	$url = home_url("/");
-    } else {
-	if (substr($url,0,1)=='/') {
-	    $base = home_url();
-	    return $base.$url;
-	} else {
-	    return $url;
-	}
-    }
- }
- 
- 
-add_action('template_redirect', 'rw_relative_urls');
-function rw_relative_urls() {
-    // Don't do anything if:
-    // - In feed
-    // - In sitemap by WordPress SEO plugin
-    if (is_admin() || is_feed() || get_query_var('sitemap')) {
-        return;
-    }
-    $filters = array(
-    //    'post_link',
-        'post_type_link',
-        'page_link',
-        'attachment_link',
-        'get_shortlink',
-        'post_type_archive_link',
-        'get_pagenum_link',
-        'get_comments_pagenum_link',
-        'term_link',
-        'search_link',
-        'day_link',
-        'month_link',
-        'year_link',
-        'script_loader_src',
-        'style_loader_src',
-    );
-    foreach ($filters as $filter) {
-        add_filter($filter, 'fau_make_link_relative');
-    }
-}
-
-function fau_make_link_relative($url) {
-    $current_site_url = get_site_url();   
-	if (!empty($GLOBALS['_wp_switched_stack'])) {
-        $switched_stack = $GLOBALS['_wp_switched_stack'];
-        $blog_id = end($switched_stack);
-        if ($GLOBALS['blog_id'] != $blog_id) {
-            $current_site_url = get_site_url($blog_id);
-        }
-    }
-    $current_host = parse_url($current_site_url, PHP_URL_HOST);
-    $host = parse_url($url, PHP_URL_HOST);
-    if($current_host == $host) {
-        $url = wp_make_link_relative($url);
-    }
-    return $url; 
-}
-
-function fau_get_defaultlinks ($list = 'faculty', $ulclass = '', $ulid = '') {
-    global $default_link_liste;
-    global $options;
-    
-    if (is_array($default_link_liste[$list])) {
-	$uselist =  $default_link_liste[$list];
-    } else {
-	$uselist =  $default_link_liste['faculty'];
-    }
-    
-    $result = '';
-    if (isset($uselist['_title'])) {
-	$result .= '<h3>'.$uselist['_title'].'</h3>';	
-	$result .= "\n";
-    }
-    $thislist = '';
-    
-    foreach($uselist as $key => $entry ) {
-	if (substr($key,0,4) != 'link') {
-	    continue;
-	}
-	$thislist .= '<li';
-	if (isset($entry['class'])) {
-	    $thislist .= ' class="'.$entry['class'].'"';
-	}
-	$thislist .= '>';
-	if (isset($entry['content'])) {
-	    $thislist .= '<a data-wpel-link="internal" href="'.$entry['content'].'">';
-	}
-	$thislist .= $entry['name'];
-	if (isset($entry['content'])) {
-	    $thislist .= '</a>';
-	}
-	$thislist .= "</li>\n";
-    }    
-    if (isset($thislist)) {
-	$result .= '<ul';
-	if (!empty($ulclass)) {
-	    $result .= ' class="'.$ulclass.'"';
-	}
-	if (!empty($ulid)) {
-	    $result .= ' id="'.$ulid.'"';
-	}
-	$result .= '>';
-	$result .= $thislist;
-	$result .= '</ul>';	
-	$result .= "\n";	
-    }
-    return $result;
-}
-
-/* 
- * Returns language code, without subcode
- */
 function fau_get_language_main () {
     $charset = explode('-',get_bloginfo('language'))[0];
     return $charset;
@@ -806,211 +422,6 @@ function fau_get_language_attributes ($doctype = 'html' ) {
     return $output;
 }
 
-
-
-
-/* 
- * Erstellt Toplinkliste
- */
-function fau_get_toplinks() {
-    global $options;
-    global $defaultoptions;
-    global $default_link_liste;
-    global $default_fau_orga_data;
-    global $default_fau_orga_faculty;
-	    
-    $uselist =  $default_link_liste['meta'];
-    $result = '';
-    
-
-    if (isset($uselist['_title'])) {
-	$result .= '<h3>'.$uselist['_title'].'</h3>';	
-	$result .= "\n";
-    }
-    
-
-	/* 
-	 * website_type: 
-	 *  0 = Fakultaetsportal oder zentrale Einrichtung
-	 *	=> Nur Link zur FAU, kein Link zur Fakultät
-	 *	   Link zur FAU als Text, da FAU-Logo bereits Teil des
-	 *         Fakultätslogos
-	 *  1 = Lehrstuhl oder eine andere Einrichtung die einer Fakultät zugeordnet ist 
-	 *	=> Link zur FAU und Link zur Fakultät, 
-	 *         Link zur FAU als Grafik, Link zur Fakultät als Text (lang oder kurz nach Wahl)
-	 *  2 = Sonstige Einrichtung, die nicht einer Fakultät zugeordnet sein muss
-	 *	=> Nur Link zur FAU, kein Link zur Fakultät
-	 *	   Link zur FAU als Grafik (das ist der Unterschied zur Option 0)
-	 *  3 = Koopertation mit Externen (neu ab 1.4)
-	 *	=> Kein Link zur FAU
-	 *  -1 = FAU-Portal (neu ab 1.4, nur für zukunftigen Bedarf)
-	 *	=> Kein Link zur FAU, aktiviert 4 Spalten unter HERO
-	 * 
-	 * 'website_usefaculty' = ( nat | phil | med | tf | rw )
-	 *  Wenn gesetzt, wird davon ausgegangen, dass die Seite
-	 *  zu einer Fakultät gehört; Daher werden website_type-optionen auf
-	 *  0 und 2 reduziert. D.h.: Immer LInk zur FAU, keine Kooperationen.
-	 *  
-	 */
-    
-    $options['website_usefaculty'] = $defaultoptions['website_usefaculty'];
-    $isfaculty = false;
-    if ( (isset($options['website_usefaculty'])) && (in_array($options['website_usefaculty'],$default_fau_orga_faculty))) {
-	$isfaculty = true;
-    }
-    
-    $linkhome = true;
-    $linkhomeimg = false;
-    $linkfaculty = false;
-
-    // Using if-then-else structure, due to better performance as switch 
-    if ($options['website_type']==-1) {
-	$linkhome = false;
-	$linkfaculty = false;
-	$linkhomeimg = false;
-    } elseif ($isfaculty) {
-	if ($options['website_type']==0) {
-	    $linkhomeimg = false;
-	    $linkfaculty = false;
-	} else {
-	    $linkhomeimg = true;
-	    $linkfaculty = true;
-	}
-    } else {
-	if ($options['website_type']==1) {
-	    // Option sollte eigentlich nicht moeglich sein. Aber zur
-	    // moglichen zukünftigen Nutzung eingebaut.
-	     $linkhomeimg = true;
-	} elseif ($options['website_type']==2) {
-	     $linkhomeimg = true;
-	} elseif ($options['website_type']==3) {
-	    $linkhome = false;
-       
-	}
-    }
-
-    $charset = fau_get_language_main();
-    
-    if (isset($options['default_home_orga'])) {
-	$orga = $options['default_home_orga'];
-    } else {
-	$orga = 'fau';
-    }
-    $hometitle = $shorttitle = $homeurl = $linkimg = '';
-    if ((isset($default_fau_orga_data[$orga])) && is_array($default_fau_orga_data[$orga])) {
-	$hometitle = $default_fau_orga_data[$orga]['title'];
-	$shorttitle = $default_fau_orga_data[$orga]['shorttitle'];
-	if (isset($default_fau_orga_data[$orga]['homeurl_'.$charset])) {
-	    $homeurl = $default_fau_orga_data[$orga]['homeurl_'.$charset];
-	} else {
-	    $homeurl = $default_fau_orga_data[$orga]['homeurl'];
-	}
-	$linkimg = $default_fau_orga_data[$orga]['home_imgsrc'];
-    } else {
-	$linkhome = false;
-    }
-   
-    $facultytitle = $facultyshorttitle = $facultyurl = '';
-    if (($linkfaculty) && isset($default_fau_orga_data['_faculty'][$options['website_usefaculty']])) {
-	$orga =  $options['website_usefaculty'];
-	$facultytitle = $default_fau_orga_data['_faculty'][$orga]['title'];
-	$facultyshorttitle = $default_fau_orga_data['_faculty'][$orga]['shorttitle'];
-
-	if (isset($default_fau_orga_data['_faculty'][$orga]['homeurl_'.$charset])) {
-	    $facultyurl = $default_fau_orga_data['_faculty'][$orga]['homeurl_'.$charset];
-	} else {
-	    $facultyurl = $default_fau_orga_data['_faculty'][$orga]['homeurl'];
-	}
-	
-	
-    } else {
-	$linkfaculty = false;
-    }
-
-    
-    
-    $thislist = '';
-    
-    
-    if (($linkhome) && isset($homeurl)) {
-	$thislist .= '<li class="fauhome">';
-	$thislist .= '<a href="'.$homeurl.'">';
-	    			
-	if ($linkhomeimg) {
-	    $thislist .= '<img src="'.fau_esc_url($linkimg).'" alt="'.esc_attr($hometitle).'">'; 
-	} else {
-	    $thislist .= __('Zur','fau').' '.$shorttitle; 
-	}	
-	$thislist .= '</a>';
-	$thislist .= '</li>'."\n";	
-    }
-    
-
-    if (($linkfaculty) && isset($facultyurl)) {
-	$thislist .= '<li data-wpel-link="internal" class="facultyhome">';
-	$thislist .= '<a href="'.$facultyurl.'">';
-	if ($options['default_faculty_useshorttitle']) {
-	    $thislist .= $facultyshorttitle; 
-	} else {
-	    $thislist .= $facultytitle; 
-	}
-	$thislist .= '</a>';
-	$thislist .= '</li>'."\n";	
-    }
-
-    
-    
-    if ( has_nav_menu( 'meta' ) ) {
-	// wp_nav_menu( array( 'theme_location' => 'meta', 'container' => false, 'items_wrap' => '<ul id="meta-nav" class="%2$s">%3$s</ul>' ) );
-	
-	 $menu_name = 'meta';
-
-	    if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
-		$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-		$menu_items = wp_get_nav_menu_items($menu->term_id);
-		foreach ( (array) $menu_items as $key => $menu_item ) {
-		    $title = $menu_item->title;
-		    $url = $menu_item->url;
-		    $class_names = '';
-		    $classes[] = 'menu-item';
-		    $classes = empty( $menu_item->classes ) ? array() : (array) $menu_item->classes;
-		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ) ) ); 
-		    $class_names = ' class="' . esc_attr( $class_names ) . '"';
-		    $thislist .= '<li'.$class_names.'><a data-wpel-link="internal" href="' . $url . '">' . $title . '</a></li>';
-		}
-	    } 
-	
-    } else {
-	foreach($uselist as $key => $entry ) {
-	   if (substr($key,0,4) != 'link') {
-	       continue;
-	   }
-	   $thislist .= '<li';
-	   if (isset($entry['class'])) {
-	       $thislist .= ' class="'.$entry['class'].'"';
-	   }
-	   $thislist .= '>';
-	   if (isset($entry['content'])) {
-	       $thislist .= '<a data-wpel-link="internal" href="'.$entry['content'].'">';
-	   }
-	   $thislist .= $entry['name'];
-	   if (isset($entry['content'])) {
-	       $thislist .= '</a>';
-	   }
-	   $thislist .= "</li>\n";
-       }   
-    }
-    if (isset($thislist)) {	
-	$result .= '<ul id="meta-nav" class="menu">';
-	$result .= $thislist;
-	$result .= '</ul>';	
-	$result .= "\n";	
-    }
-    return $result;
-	     
-    
-  
-}
 
 
 
@@ -1086,25 +497,6 @@ function fau_custom_excerpt($id = 0, $length = 0, $withp = true, $class = '', $w
   return $the_str;
 }
 
-/**
- * CMS-Workflow Plugin
- */
-function is_workflow_translation_active() {
-    global $cms_workflow;
-    if ((class_exists('Workflow_Translation')) && (isset($cms_workflow->translation) && $cms_workflow->translation->module->options->activated)) {
-        return true;
-    }
-    return false;
-}
-
-function fau_get_rel_alternate() {
-    if ((class_exists('Workflow_Translation')) && (function_exists('get_rel_alternate')) && (is_workflow_translation_active())) {
-        return Workflow_Translation::get_rel_alternate();
-    } else {
-        return '';
-    }
-}
-
 
 
 /* Refuse spam-comments on media */
@@ -1116,31 +508,6 @@ function filter_media_comment_status( $open, $post_id ) {
 	return $open;
 }
 add_filter( 'comments_open', 'filter_media_comment_status', 10 , 2 );
-
-/* 
- * Create String for Publisher Info, used by Scema.org Microformat Data
- */
-
-function fau_create_schema_publisher($withrahmen = true) {
-    $out = '';
-    if ($withrahmen) {
-	$out .= '<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">'."\n";  
-    }
-    $header_image = get_header_image();
-    if ($header_image) {
-	$out .= "\t".'<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">'."\n";
-	$out .= "\t\t".'<meta itemprop="url" content="'.fau_make_absolute_url( $header_image ).'">'."\n";
-	$out .= "\t\t".'<meta itemprop="width" content="'.get_custom_header()->width.'">'."\n";
-	$out .= "\t\t".'<meta itemprop="height" content="'.get_custom_header()->height.'">'."\n";
-	$out .= "\t".'</div>'."\n";
-    }
-    $out .= "\t".'<meta itemprop="name" content="'.get_bloginfo( 'title' ).'">'."\n";
-    $out .= "\t".'<meta itemprop="url" content="'.home_url( '/' ).'">'."\n";
-    if ($withrahmen) {
-	$out .= '</div>'."\n";
-    }
-    return $out;
-}
 
 
 /* 
@@ -1175,16 +542,21 @@ add_filter("pre_get_posts","fau_searchfilter");
 
 /* 
  * Keine Bilder bei der Suche ausgeben. Attachments und Posts/Pages sonst aber ja
+ * 
+ * function fau_search_remove_images($where) {
+ *    global $wpdb;
+ *    if (!is_admin() ) {
+ *	$where.=' AND '.$wpdb->posts.'.post_mime_type NOT LIKE \'image/%\'';
+ *    }
+ *    return $where;
+ * }
+ * add_filter( 'posts_where' , 'fau_search_remove_images' );
+ *
+ * ACHTUNG!!!! 
+ * 
+ * DIESER CODE SORGT AUCH DAFÜR, DASS BILDER AUCH NICHT MEHR ALS ATTACHMENT/ANHANGSEITE
+ * AUFGERUFEN WERDEN KÖNNEN!
  */
-function fau_search_remove_images($where) {
-    global $wpdb;
-    if (!is_admin() ) {
-	$where.=' AND '.$wpdb->posts.'.post_mime_type NOT LIKE \'image/%\'';
-    }
-    return $where;
-}
-add_filter( 'posts_where' , 'fau_search_remove_images' );
-
 
 /*
  * Sortierung
@@ -1214,66 +586,6 @@ add_filter( 'wp_link_query_args', 'fau_wp_link_query_args' );
 
 
 
-if ( ! function_exists( 'fau_comment' ) ) :
-/**
- * Template for comments and pingbacks.
- */
-function fau_comment( $comment, $args, $depth ) {
-        $GLOBALS['comment'] = $comment;
-        global $options;         
-        
-        switch ( $comment->comment_type ) :
-                case '' :
-        ?>
-        <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-          <div id="comment-<?php comment_ID(); ?>">
-            <article itemprop="comment" itemscope itemtype="http://schema.org/UserComments">
-              <header>  
-                <div class="comment-details">
-                    
-                <span class="comment-author vcard" itemprop="creator" itemscope itemtype="http://schema.org/Person">
-                    <?php if ($options['advanced_comments_avatar']) {
-                        echo '<div class="avatar" itemprop="image">';
-                        echo get_avatar( $comment, 48); 
-                        echo '</div>';   
-                    } 
-                    printf( __( '%s <span class="says">schrieb am</span>', 'fau' ), sprintf( '<cite class="fn" itemprop="name">%s</cite>', get_comment_author_link() ) ); 
-                    ?>
-                </span><!-- .comment-author .vcard -->
-              
-
-                <span class="comment-meta commentmetadata"><a itemprop="url" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time itemprop="commentTime" datetime="<?php comment_time('c'); ?>">
-                    <?php
-                          /* translators: 1: date, 2: time */
-                       printf( __( '%1$s um %2$s Uhr', 'fau' ), get_comment_date(),  get_comment_time() ); ?></time></a> <?php echo __('folgendes','fau');?>:
-                  
-                </span><!-- .comment-meta .commentmetadata -->
-                </div>
-              </header>
-		     <?php if ( $comment->comment_approved == '0' ) : ?>
-                        <em><?php _e( 'Kommentar wartet auf Freischaltung.', 'fau' ); ?></em>
-                        <br />
-                <?php endif; ?>
-                <div class="comment-body" itemprop="commentText"><?php comment_text(); ?></div>
-		 <?php edit_comment_link( __( '(Bearbeiten)', 'fau' ), ' ' ); ?>
-            </article>
-          </div><!-- #comment-##  -->
-
-        <?php
-                        break;
-                case 'pingback'  :
-                case 'trackback' :
-        ?>
-        <li class="post pingback">
-                <p><?php _e( 'Pingback:', 'fau' ); ?> <?php comment_author_link(); edit_comment_link( __('Bearbeiten', 'fau'), ' ' ); ?></p>
-        <?php
-                        break;
-        endswitch;
-}
-endif;
-
-
-
 function revealid_add_id_column( $columns ) {
    $columns['revealid_id'] = 'ID';
    return $columns;
@@ -1289,134 +601,6 @@ if ($options['advanced_reveal_pages_id']) {
     add_filter( 'manage_pages_columns', 'revealid_add_id_column', 5 );
     add_action( 'manage_pages_custom_column', 'revealid_id_column_content', 5, 2 );
 }
-
-function fau_get_image_attributs($id=0) {
-    global $options;
-
-        $precopyright = ''; // __('Bild:','fau').' ';
-        if ($id==0) return;
-        
-        $meta = get_post_meta( $id );
-        if (!isset($meta)) {
-         return;
-        }
-    
-        $result = array();
-	if (isset($meta['_wp_attachment_image_alt'][0])) {
-	    $result['alt'] = trim(strip_tags($meta['_wp_attachment_image_alt'][0]));
-	} else {
-	    $result['alt'] = "";
-	}   
-
-        if (isset($meta['_wp_attachment_metadata']) && is_array($meta['_wp_attachment_metadata'])) {        
-	    $data = unserialize($meta['_wp_attachment_metadata'][0]);
-	    if (isset($data['image_meta']) && is_array($data['image_meta'])) {
-		if (isset($data['image_meta']['copyright'])) {
-		       $result['copyright'] = trim(strip_tags($data['image_meta']['copyright']));
-		}
-		if (isset($data['image_meta']['author'])) {
-		       $result['author'] = trim(strip_tags($data['image_meta']['author']));
-		} elseif (isset($data['image_meta']['credit'])) {
-		       $result['credit'] = trim(strip_tags($data['image_meta']['credit']));
-		}
-		if (isset($data['image_meta']['title'])) {
-		     $result['title'] = $data['image_meta']['title'];
-		}
-		if (isset($data['image_meta']['caption'])) {
-		     $result['caption'] = $data['image_meta']['caption'];
-		}
-	    }
-	    $result['orig_width'] = $data['width'];
-	    $result['orig_height'] = $data['height'];
-	    $result['orig_file'] = $data['file'];
-	    
-        }
-	
-        $attachment = get_post($id);
-	$result['excerpt'] = $result['credits'] = $result['description']= $result['title'] = '';
-        if (isset($attachment) ) {
-	   
-	    if (isset($attachment->post_excerpt)) {
-		$result['excerpt'] = trim(strip_tags( $attachment->post_excerpt ));
-	    }
-	    if (isset($attachment->post_content)) {
-		$result['description'] = trim(strip_tags( $attachment->post_content ));
-	    }        
-	    if (isset($attachment->post_title) && (empty( $result['title']))) {
-		 $result['title'] = trim(strip_tags( $attachment->post_title )); 
-	    }   
-        }      
-	
-	if ($options['advanced_images_info_credits'] == 1) {
-	    
-	    if (!empty($result['description'])) {
-		$result['credits'] = $result['description'];
-	    } elseif (!empty($result['copyright'])) {
-		$result['credits'] = $precopyright.' '.$result['copyright'];	
-	    } elseif (!empty($result['author'])) {
-		$result['credits'] = $precopyright.' '.$result['author'];
-	    } elseif (!empty($result['credit'])) {
-		$result['credits'] = $precopyright.' '.$result['credit'];	
-   	    } else {
-		if (!empty($result['caption'])) {
-		    $result['credits'] = $result['caption'];
-		} elseif (!empty($result['excerpt'])) {
-		    $result['credits'] = $result['excerpt'];
-		} 
-	    } 
-	} else {
-	
-	    if (!empty($result['copyright'])) {
-		$result['credits'] = $precopyright.' '.$result['copyright'];		
-	    } elseif (!empty($result['author'])) {
-		$result['credits'] = $precopyright.' '.$result['author'];
-	    } elseif (!empty($result['credit'])) {
-		$result['credits'] = $precopyright.' '.$result['credit'];		
-		} else {
-		if (!empty($result['description'])) {
-		    $result['credits'] = $result['description'];
-		} elseif (!empty($result['caption'])) {
-		    $result['credits'] = $result['caption'];
-		} elseif (!empty($result['excerpt'])) {
-		    $result['credits'] = $result['excerpt'];
-		} 
-	    }   
-	}
-        return $result;
-                
-}
-
-
-function fau_array2table($array, $table = true) {
-    $out = '';
-    $tableHeader = '';
-    foreach ($array as $key => $value) {
-	 $out .= '<tr>';
-	 $out .= "<th>$key</th>";
-        if (is_array($value)) {   
-            if (!isset($tableHeader)) {
-                $tableHeader =
-                    '<th>' .
-                    implode('</th><th>', array_keys($value)) .
-                    '</th>';
-            }
-            array_keys($value);
-	    $out .= "<td>";
-            $out .= fau_array2table($value, true);     
-	    $out .= "</td>";
-        } else {
-            $out .= "<td>$value</td>";
-        }
-	$out .= '</tr>';
-    }
-
-    if ($table) {
-        return '<table>' . $tableHeader . $out . '</table>';
-    } else {
-        return $out;
-    }
-}
-
 
 add_filter('the_content', 'remove_empty_p', 20, 1);
 function remove_empty_p($content){
@@ -1445,54 +629,15 @@ function categories_postcount_filter ($variable) {
 }
 
 
+/*-----------------------------------------------------------------------------------*/
+/* Load Comment Functions
+/*-----------------------------------------------------------------------------------*/
+require get_template_directory() . '/functions/comments.php';
 
 
+/*-----------------------------------------------------------------------------------*/
+/* This is the end of the code as we know it
+/*-----------------------------------------------------------------------------------*/
 
 
-/* 
- * Get category links for front page
- */
-
-function fau_get_category_links($cateid = 0) {
-    global $options;
-    
-    if ($cateid==0) {
-	$cateid = $options['start_link_news_cat'];
-    }
-    $link = get_category_link($cateid);
-    if (empty($link)){
-	$cat = get_categories(); 
-	if (is_array($cat)) {
-	    $cateid = $cat[0]->cat_ID;
-	    $link = get_category_link($cateid);
-	}
-    }
-    $res = '';
-    if (!fau_empty($link)) {
-	$res .= '<div class="news-more-links">'."\n";
-	$res .= "\t".'<a class="news-more" href="'.$link.'">'.$options['start_link_news_linktitle'].'</a>';
-	$res .= '<a class="news-rss" href="'.get_category_feed_link($cateid).'">'.__('RSS','fau').'</a>';
-	$res .= "</div>\n";	
-    }
-    return $res;
-}
-
-
-
-/**
- * Force srcset urls to be relative
- */
-add_filter( 'wp_calculate_image_srcset', function( $sources )
-{
-    if(	! is_array( $sources ) )
-       	return $sources;
-
-    foreach( $sources as &$source )
-    {
-        if( isset( $source['url'] ) )
-            $source['url'] = fau_esc_url( $source['url']);
-    }
-    return $sources;
-
-}, PHP_INT_MAX );
 

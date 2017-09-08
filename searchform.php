@@ -25,8 +25,11 @@ global $options;
 		echo '<input type="hidden" name="post_type[]" value="post">'."\n";		
 	    } else {
 		$listtypes = $options['search_post_types'];
+		$autosearch_types =  $options['search_post_types_checked'];
 		foreach ($listtypes as $type) {
-		    echo '<input type="hidden" name="post_type[]" value="'.$type.'">'."\n";				    
+		   if (in_array($type, $autosearch_types)) { 
+		    echo '<input type="hidden" name="post_type[]" value="'.$type.'">'."\n";				   
+		   }
 		}
 	    }
 	    

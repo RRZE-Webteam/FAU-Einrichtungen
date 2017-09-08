@@ -104,6 +104,9 @@
 .search-contenttry {	
 	form {
 	    border: none;
+	    .sidebar-single & {
+		padding: 20px 0;
+	    }
 	}
 	.search-text {
 	     margin: 0 20px;
@@ -188,3 +191,11 @@
 
 }
 
+.widget_search {
+    .search-text {
+	margin: 0 5px 0 20px;
+        input[type="text"], input[type="submit"] {
+	    @include px2rem($font-size-sidebar);
+	}
+    }
+}

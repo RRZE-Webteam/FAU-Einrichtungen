@@ -6,7 +6,7 @@
 #footer {
 	background: $colorPrimaryHero;
 	color: #fff;
-	padding: 20px 0;
+	padding: 0 0 20px 0;
 	
 	p {
 		color: #fff;
@@ -26,6 +26,9 @@
 	a:hover, a:focus {
 		text-decoration: underline;
 	}
+	@media (min-width: $screen-sm) {
+	    padding: 20px 0;
+	}
 }
 
 /* Footer Navigation */
@@ -40,7 +43,7 @@
 		background: none;
 	}
 }
-@media (max-width: $breakSM) {
+@media (max-width: $screen-xs - 1) {
  #footer {
 	li {
 	    line-height: 15px;
@@ -69,7 +72,7 @@
 	}
     }
 }
-@media (max-width: $breakMD) {
+@media (max-width: $screen-sm - 1) {
     #footer {
 	    .span3 {
 		width: 48%;

@@ -12,15 +12,20 @@
     z-index: 200;
     overflow: hidden;
     height: 30px;
-    
+
     &:before {
 	@extend .fa;
 	@extend .fa-language;
 	@include px2rem(21);
+	
     }
     
-    &:hover, &:focus {	
+   
+    
+    &:hover, 
+    &:focus {	
 	height: auto;
+	 z-index: 202;
 	ul {
 	    height: auto;
 	    background: white;
@@ -30,13 +35,26 @@
     ul {
 	@include no-list;
 	z-index: 201;
-	display: inline-table;
-	margin: 0 5px;
+	display: inline;
+	margin: 0;
 	
+	@media (min-width: $screen-lg) {
+	    margin: 0 5px;
+	}
 	
 	li {
 	    @include no-list;
-
+	    text-align: left;
+	    padding: 5px;
+	    display: inline-block;
+	    width: 30px;
+	    height: 20px;
+	    overflow: hidden; 
+	    @media (min-width: $screen-lg) {
+		    min-width: 60px;
+		    width: auto;
+		    max-width: 100px;
+	    }
 	    a {
 		text-align: left;
 		text-decoration: none;
@@ -44,7 +62,17 @@
 		font-weight: bold;
 		color: $colorMeta;
 	    }
-			
+	    a::before {
+		width: 30px;
+		content: attr(hreflang);
+		display: inline;
+		margin-right: 30px;
+		@media (min-width: $screen-lg) {
+		    content: "";
+		    margin-right: 0px;
+		    width: 0;
+		}
+	    }	
 	    a:hover, a:focus {
 		background-color: $colorLightest;
 	    }
@@ -76,4 +104,14 @@
 	h2 {
 	    @include hideout;
 	}
+}
+#wrap .meta-widget {
+    @media (max-width: $screen-sm - 1) {
+	position: fixed;
+	top: 0;
+	right: 50px;
+	background: white;
+	margin: 4px 0;
+	
+    }
 }

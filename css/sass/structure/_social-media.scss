@@ -4,10 +4,11 @@
 
 #social {
 	background: $colorSocialBackground;
-	padding: 20px 0;
-	margin-bottom: -30px;
-	margin-top: 30px;
 	
+	margin: 0 -15px;
+	padding: 20px 15px;
+	    
+	    
 	.textwidget, 
 	p, 
 	h2 {
@@ -89,12 +90,12 @@
 		
 	}
 	
- 
-}
+     @media (min-width: $screen-sm) {
+	padding: 20px 0;
+	margin-bottom: -30px;
+	margin-top: 30px;
 
-@media (max-width: $breakMD) {
-    #social {
-	    margin: 0 -15px;
-	    padding: 20px 15px;
     }
 }
+
+

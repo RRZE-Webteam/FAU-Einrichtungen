@@ -3,63 +3,91 @@
 /*-----------------------------------------------------------------------------------*/
  
  #header {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 15px;
+    
     .row {    
-	height: 65px;
-	 .branding {
-	     text-align: right;
-	     display: table-cell;
-	     float: none;
-	 }
-	 .header-menu {
-	    float: none;
-	    display: table-cell;
-	    vertical-align: bottom;
+	height: auto;
+	.branding {
+	   width: 100%;
+	}
+	.header-menu {
+	    display: inline;
 	}
      }
      
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
-    background: #fff;
-    
-    @media (min-width: $screen-sm +1) {
+    background: $colorPrimary;
+    color: #fff;
+    z-index: 100;
+    @include transition(0.5s,all);
+
+    @media (min-width: $screen-sm) {
+	position: fixed;
 	top: 40px;
+	
+	.admin-bar & {
+	    top: 40px + $wordpress-adminbar-bigheight;
+	}
+	
+	padding: 20px 0 10px 0;
+	background: #fff;
+	color: $colorPrimary;
 	
 	.nav-scrolled & {
 	     @include box-shadow(0 1px 3px rgba(0,0,0,0.3));	
 	}
+	.row {    
+	    height: 112px;
+	    .branding {
+		height: 75px;
+	    }
+	    .header-menu {
+		height: 37px;
+		display: block;
+	    }
+	 }
+	 .visiblelogo {
+	     display: none;
+	 }
     }
-    
-    .admin-bar  & {
-	    position: fixed;
-	    top: 46px;
-	    
-	    @media (min-width: $screen-sm +1) {
-		top: 72px;
-	    }    
-    }
-    
-    
-    
-   .no-js & {
-	    display: block;
-	    position: relative;
-	    float: none;
-	    width: 100%;
-	    top: inherit;
-	    margin: 5px 0px;
-	    padding: 3px;
+
+    @media (min-width: $wordpress-adminbar-break ) {
+	.admin-bar & {
+	    top: 40px + $wordpress-adminbar-smallheight;
 	}
+    }
+    
+    
+    @media (min-width: $screen-md) {
+	.row {    
+	    height: 65px;
+	    .branding {
+		 text-align: right;
+		 display: table-cell;
+		 float: none;
+		 width: auto;
+	    }
+	    .header-menu {
+		float: none;
+		display: table-cell;
+		vertical-align: bottom;
+	    }
+	 }
+    }
+    
+
  }
- 
- 
- .nav-fixed #wpadminbar {
-     position: fixed;
-     
- } 
+  .js #header {
+	@media (max-width: $screen-sm - 1) {
+	    img {
+		 @include hideout();
+		 
+	    }
+	}
+    } 
  
  
 #logo {	
@@ -83,8 +111,15 @@
 		    background-color: lighten($colorHover, 5%);
 		    color: white;
 		}	
-		
 	    } 		
+	    @media (max-width: $screen-sm) {
+		color: #fff;
+		a {
+		    color: #fff;
+		}
+	    }
+	    
+	    
 	}
 	img {
 	   max-height: 85px;

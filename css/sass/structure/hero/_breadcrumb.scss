@@ -1,0 +1,60 @@
+/*-----------------------------------------------------------------------------------*/
+/* Breadcrumb
+/*-----------------------------------------------------------------------------------*/
+
+#hero {
+    &.hero-small {
+	@include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% 20%);
+	
+	h1 {
+	    padding: 0 0 0 15px;
+	}
+
+	@media (min-width: $screen-sm ) {
+	    h1 {
+		padding: 30px 0 10px 0;
+	    }
+	}
+    }
+    
+}
+
+.hero-meta-portal {
+	position: absolute;
+	top: 30px;
+	right: 100px;
+	text-align: right;
+	color: $colorPrimaryHeroLight; 
+	font-size: 60px;
+	line-height: 50px;
+	display: none;
+
+	@media (min-width: $screen-md ) {
+	    display: inline-block;
+	}
+    }	
+
+
+.breadcrumbs {
+	color: #fff;
+	padding: 10px 0;
+	position: relative;
+	z-index: 10;
+	
+	@include px2rem($font-size-breadcrumb);
+	
+	span {
+		padding: 0 5px;
+	}
+	
+}
+
+h3.breadcrumb_sitetitle {
+	    font-size: 14px;
+	    font-weight: normal;
+	    line-height: 18px;
+	    margin-bottom: -5px;
+	    color: #fff;
+	}
+	
+	

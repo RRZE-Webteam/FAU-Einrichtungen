@@ -6,8 +6,7 @@
 // Import FAU variables
 @import "variables";
 // Reset Base styles
-@import "reset";
-// Framework
+
 @import "frameworks/frameworks";
 // Mixins
 @import "mixins/mixins";
@@ -18,4 +17,3 @@
 
 
 
-body { background-color: #fff;}
