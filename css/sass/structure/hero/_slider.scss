@@ -78,7 +78,9 @@
 	
 	
 	display: none;
-	
+	@media (min-width: $breakXS ) {
+	      display: block;
+	}
 	@media (max-width: $screen-sm - 1) {
 	    top: 0;
 	    height: 200px;
@@ -95,7 +97,9 @@
 		    display: inline;
 		}
 	    }
-
+	    .hero-slide-text {
+		bottom: 40px;
+	    }
 	    .no-js & {
 		display: none;
 	    }
@@ -127,7 +131,10 @@
 
 
 .slider-titel, .slider-text {
-    @extend .col-xs-9;
+   @extend .col-xs-12;
+   @extend .col-sm-9;
+    
+    
 }
 
 
