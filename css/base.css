@@ -2548,10 +2548,14 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 
 .meta-tools { text-align: right; }
 
+.meta-search { display: block; }
+.active-meta-widget .meta-search { display: inline; }
+
 .meta-search .searchform { -webkit-transition: 0.5s all; -moz-transition: 0.5s all; -ms-transition: 0.5s all; transition: 0.5s all; display: none; border: none; margin: 0; padding: 5px 0; }
 .meta-search .searchform input[type="text"] { -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; background-clip: padding-box; padding: 5px 35px 5px 10px; width: 220px; background: #003366; border: none; outline: none; color: #fff; height: 30px; display: inline-block; margin-right: -25px; margin-bottom: 0px; }
 .meta-search .searchform input[type="text"]:focus { background-color: #1f4d7a; }
-@media (min-width: 768px) { .meta-search .searchform input[type="text"] { width: 160px; padding-left: 35px; } }
+@media (min-width: 768px) { .meta-search .searchform input[type="text"] { width: 160px; padding-left: 35px; }
+  .active-meta-widget .meta-search .searchform input[type="text"] { width: 150px; } }
 @media (min-width: 1200px) { .meta-search .searchform input[type="text"] { width: 200px; } }
 .meta-search .searchform input[type="submit"] { -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; background-clip: padding-box; position: relative; z-index: 100; height: 30px; padding: 0 12px; font-weight: bold; border: none; outline: none; color: #003366; background: #fff; display: inline-block; }
 .meta-search .searchform input[type="submit"]:hover, .meta-search .searchform input[type="submit"]:focus { background: #e9edf2; -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); }
@@ -2567,7 +2571,8 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 @media (max-width: 767px) { .js #wrap #search-toggle { display: block; } }
 #wrap #search-toggle span { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 
-.meta-widget { display: inline-block; float: right; -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; background-clip: padding-box; background: #fff; margin: 5px 0 5px 15px; height: 30px; }
+.meta-widget { display: inline-block; float: right; -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; background-clip: padding-box; background: #fff; margin: 5px 0 5px 5px; height: 30px; max-width: 90px; }
+@media (min-width: 992px) { .meta-widget { max-width: inherit; margin-left: 15px; } }
 
 /*-----------------------------------------------------------------------------------*/
 /* Navigation: Including nav Elements in all regions: Main, Skiplinks, Overlays, Widgets,..
@@ -4013,19 +4018,25 @@ div.wpcf7-response-output { margin: 2em 0; padding: 0.2em 0; }
 /* Language switcher */
 .mlp_language_box { padding: 0 5px; margin: 0; display: inline-block; *display: inline; *zoom: 1; z-index: 200; overflow: hidden; height: 30px; }
 .mlp_language_box:before { font-size: 21px; line-height: 29.4px; font-size: 1.3125rem; line-height: 1.8375rem; }
-.mlp_language_box:hover, .mlp_language_box:focus { height: auto; }
+.mlp_language_box:hover, .mlp_language_box:focus { height: auto; z-index: 202; }
 .mlp_language_box:hover ul, .mlp_language_box:focus ul { height: auto; background: white; }
-.mlp_language_box ul { list-style: none; margin: 0; padding: 0; background: none; z-index: 201; display: inline-table; margin: 0 5px; }
+.mlp_language_box ul { list-style: none; margin: 0; padding: 0; background: none; z-index: 201; display: inline; margin: 0; }
 .mlp_language_box ul:before { display: none; }
-.mlp_language_box ul li { list-style: none; margin: 0; padding: 0; background: none; }
+@media (min-width: 1200px) { .mlp_language_box ul { margin: 0 5px; } }
+.mlp_language_box ul li { list-style: none; margin: 0; padding: 0; background: none; text-align: left; padding: 5px; display: inline-block; width: 30px; height: 20px; overflow: hidden; }
 .mlp_language_box ul li:before { display: none; }
+@media (min-width: 1200px) { .mlp_language_box ul li { min-width: 60px; width: auto; max-width: 100px; } }
 .mlp_language_box ul li a { text-align: left; text-decoration: none; text-transform: uppercase; font-weight: bold; color: #003366; }
+.mlp_language_box ul li a::before { width: 30px; content: attr(hreflang); display: inline; margin-right: 30px; }
+@media (min-width: 1200px) { .mlp_language_box ul li a::before { content: ""; margin-right: 0px; width: 0; } }
 .mlp_language_box ul li a:hover, .mlp_language_box ul li a:focus { background-color: #dde5f0; }
 .mlp_language_box ul li a.ext-link { background-image: none; }
 .mlp_language_box ul li.current { display: none; }
 .mlp_language_box ul li:hover, .mlp_language_box ul li:focus, .mlp_language_box ul li.focus { -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); }
 .mlp_language_box ul li:hover a, .mlp_language_box ul li:focus a, .mlp_language_box ul li.focus a { background-color: #fff; }
 .mlp_language_box h2 { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+
+@media (max-width: 767px) { #wrap .meta-widget { position: fixed; top: 0; right: 50px; background: white; margin: 4px 0; } }
 
 /*
 Anpassungen der Gestaltung an verschiedene Plugins

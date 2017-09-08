@@ -62,6 +62,15 @@
      text-align: right;
 }
 
+.meta-search {
+   display: block;
+    
+    .active-meta-widget & {
+	display: inline;
+	
+    }
+}
+
 
 
 
@@ -90,8 +99,13 @@
 		}
 
 		@media (min-width: $screen-sm ) {
-		     width: 160px;
-		     padding-left: 35px;
+		    width: 160px;
+		    padding-left: 35px;
+		    
+		    .active-meta-widget & {
+			width: 150px;
+		    }
+		    
 		}
 		@media (min-width: $screen-lg) {
 		    width: 200px;
@@ -193,7 +207,14 @@
     float: right;
     @include border-radius(20px);
     background: #fff;
-    margin: 5px 0 5px 15px;
+    margin: 5px 0 5px 5px;
     height: 30px;
+    max-width: 90px;
+    
+    @media (min-width: $screen-md ) {
+	    max-width: inherit;
+	    margin-left: 15px;
+    }
+	
 }
 

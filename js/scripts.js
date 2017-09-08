@@ -374,10 +374,13 @@ jQuery(document).ready(function($) {
 		
 	};
 
+
 	$(window).on('resize', function() {
 		updateResponsivePositioning();
 	});	
 	updateResponsivePositioning();
+	
+	
 	
 	
 	//Tablesorter
