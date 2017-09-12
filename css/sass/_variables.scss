@@ -157,6 +157,7 @@ $font-size-meta:		13;
 $font-size-breadcrumb:		13;
 $font-size-herosearch:		16;
 $font-size-header-branding:	19;
+
 $font-size-hero-slider-title:   24;
 $font-size-hero-slider-text:	18;
 $font-size-hero-slider-copyright: 14;
@@ -168,7 +169,10 @@ $font-size-content-listitem:	15;
 
 $font-size-sidebar:		14;
 $font-size-sidebar-listitem:    $font-size-sidebar;
-
+$font-size-sidebar-events:	$font-size-sidebar;
+$font-size-sidebar-events-month:    9;
+$font-size-sidebar-events-day:	20;
+    
 $font-size-nav-blockquote:	16;
 $font-size-nav-blockquote-cite:	14;
 $font-size-nav-introtext:	15;
@@ -176,6 +180,8 @@ $font-size-nav-flyout-items:	15;
 
 
 $font-size-h1:			32;
+$font-size-h1-mobilebranding:	24;
+
 $font-size-h2:			24;
 $font-size-h2-small:		22;
 $font-size-h3:			20; // 18

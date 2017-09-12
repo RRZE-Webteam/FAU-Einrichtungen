@@ -4,6 +4,8 @@
 
 
 #hero-slides {
+	
+	
 	position: relative;
 	
 	margin: 0 auto -15px auto;
@@ -74,7 +76,16 @@
 		    }
 		}	
 	}
+	ul {
+		@include no-list;
+	}
+	li {
+    		@include no-list;
+		font-size: 13px;
+		padding-left: 20px;
+		padding-bottom: 5px;
 	
+	}
 	
 	
 	display: none;

@@ -452,7 +452,7 @@ function fau_custom_excerpt($id = 0, $length = 0, $withp = true, $class = '', $w
 	$morestr = $options['default_excerpt_morestring'];
     }
     
-    $excerpt = get_the_excerpt(); // get_post_field('post_excerpt',$id);
+    $excerpt = get_the_excerpt($id); // get_post_field('post_excerpt',$id);
  
     if (mb_strlen(trim($excerpt))<5) {
 	$excerpt = get_post_field('post_content',$id);

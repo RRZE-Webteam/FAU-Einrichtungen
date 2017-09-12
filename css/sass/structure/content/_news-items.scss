@@ -95,6 +95,9 @@
 		    @include px2rem(16);
 		    @extend .fa;
 		    content: "\f08e";
+		    margin-left: 5px;
+		    position: relative;
+		    top: -5px;
 		    
 		    .wp-external-links & {
 			display: none;

@@ -92,8 +92,6 @@
  
 #logo {	
 	h1 {
-	    @include px2rem($font-size-header-branding);
-	    font-weight: bold;
 	    color: $colorPrimary;
 	    overflow: hidden;
 	    margin: 0;
@@ -112,7 +110,7 @@
 		    color: white;
 		}	
 	    } 		
-	    @media (max-width: $screen-sm) {
+	    @media (max-width: $screen-sm - 1) {
 		color: #fff;
 		a {
 		    color: #fff;

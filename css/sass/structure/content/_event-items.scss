@@ -3,9 +3,6 @@
 /*-----------------------------------------------------------------------------------*/
 
 
-
-
-/* Top-Event */
 .topevent-date {
 	color: $colorPrimary;
 	font-weight: bold;
@@ -30,8 +27,7 @@
 			@include no-list;
 			padding: 10px 0 0 0;
 			min-height: 42px;
-			font-size: 12px;
-			line-height: 18px;
+			@include px2rem($font-size-sidebar-events);	
 			background-image: none;
 		}
 	}
@@ -42,21 +38,19 @@
 	display: block;
 	background: $colorPrimary;
 	color: #fff;
-	padding: 5px;
-	width: 30px;
+	padding: 5px 10px;
+	width: 40px;
 	text-align: center;
 }
 
-.event-date-month {
-	font-size: 9px;
-	line-height: 10px;
+.event-date-month {	
+	@include px2rem($font-size-sidebar-events-month);	
 	text-transform: uppercase;
 	font-weight: bold;
 }
 
 .event-date-day {
-	font-size: 20px;
-	line-height: 20px;
+	@include px2rem($font-size-sidebar-events-day);	
 	font-weight: bold;
 }
 

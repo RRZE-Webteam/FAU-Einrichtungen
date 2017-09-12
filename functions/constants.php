@@ -4,7 +4,7 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'optiontable-version'		=> 17,
+    'optiontable-version'		=> 18,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -32,6 +32,8 @@ $defaultoptions = array(
 						'cugu.zuv.cms.rrze.uni-erlangen.de',
 						'alfirin.test.rrze.fau.de',
 						'ithron.rrze.uni-erlangen.de',
+						'beta.wordpress.rrze.fau.de',
+						'www.beta.wordpress.rrze.fau.de',
 						'test8.tindu.rrze.uni-erlangen.de',		
 						'test4.tindu.rrze.uni-erlangen.de'),
 	// welche Websites können bei website_type die Option -1 wählen 
