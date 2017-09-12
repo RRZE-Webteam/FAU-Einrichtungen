@@ -2,19 +2,36 @@
 /* Linkbereich unter dem Slider / Banner
 /*-----------------------------------------------------------------------------------*/
 
+
+	/*
+	li {
+    		@include no-list;
+		font-size: 13px;
+		padding-left: 20px;
+		padding-bottom: 5px;
+		:before {
+		    display: table-cell;
+		}		
+	}
+	*/
 .hero-navigation {
+    ul {
+		@include no-list;
+	}
 	li {
 	    display: table;
 	    padding-left: 0;
-	}
-	li:before {
+	    
+	    :before {
 		@extend .fa;
 		@extend .fa-angle-right;	
 		font-weight: bold;
 		display: table-cell;
 		color: #fff;
 		width: 20px;
+	    }   
 	}
+	
 	.ismobile & {
 	    display: none;
 	}
@@ -61,7 +78,7 @@
 		}		
 	}
 	
-
+#hero {
  /* Faculties Menu */
     .menu-faculties {
 	@include no-list;
@@ -75,6 +92,10 @@
 		vertical-align: center;
 		@include hyphens(auto);
 		
+		:before {
+		    display: none;
+		    content: "";
+		}
 		a {
 			@include inline-block;
 			padding: 2px 0 2px 10px;
@@ -103,4 +124,4 @@
 		}
 	}
     }
-	
+}	

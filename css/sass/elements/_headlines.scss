@@ -36,6 +36,11 @@ h1 {
     .sidebar-inline+& {
 	    margin-top: 0;
     }
+    #logo & {
+	@include px2rem($font-size-h1-mobilebranding);
+	
+    }
+    
 }
 
 h2 {
@@ -120,7 +125,6 @@ h3 {
 	
 	#off-canvas & {
 	     @include px2rem($font-size-h3-small);
-	     // font-weight: normal;
 		border-bottom: 1px solid #ccc;
 		margin: 20px 0 0 0;
 		padding: 0 10px;

@@ -75,6 +75,7 @@
 
 
 .meta-search {
+       
     .searchform {
 	@include transition(0.5s,all);
 	display: none;
@@ -154,7 +155,6 @@
 	
 	.search-toggled & .searchform {
 	    display: block;
-	    
 	    .searchicon {
 		display: none;
 	    }
