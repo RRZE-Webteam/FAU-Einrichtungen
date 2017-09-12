@@ -11,6 +11,10 @@
 
 .topevent-description {
 	color: $colorPrimary;
+	@include px2rem($font-size-sidebar);
+	p {
+	    @include px2rem($font-size-sidebar);	
+	}
 }
 
 /* Events */

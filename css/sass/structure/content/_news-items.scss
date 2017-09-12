@@ -49,7 +49,7 @@
 	    @include box-shadow(none);
 	}
 
-	@media (min-width: $screen-sm + 1) {
+	@media (min-width: $screen-sm) {
 	    padding: 4px;
 	    background: $colorStandardHellgrau;
 	    margin: 5px auto;

@@ -127,12 +127,12 @@ $show =false;
 			       $imagehtml = '<img src="'.fau_esc_url($options['default_topevent_thumb_src']).'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="">';			    
 			    }
 		   if (($hideimage < 1) && (isset($imagehtml))) { ?>
-			<div class="span2">
+			<div class="col-xs-6">
 				<?php echo '<a href="'.$link.'">'.$imagehtml.'</a>'; ?>
 			</div>
-			<div class="span2">
+			<div class="col-xs-6">
 		    <?php } else { ?>
-			<div class="span4">
+			<div class="col-xs-12">
 		    <?php } 
 			    if (!empty($topevent_date)) {
 				echo '<div class="topevent-date dtstart dt-start" title="'.$topevent_date.'">';
