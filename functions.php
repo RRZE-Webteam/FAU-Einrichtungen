@@ -477,7 +477,7 @@ function fau_custom_excerpt($id = 0, $length = 0, $withp = true, $class = '', $w
     $the_str = '';
     if ($withp) {
 	$the_str .= '<p';
-	if (isset($class)) {
+	if (!fau_empty($class)) {
 	    $the_str .= ' class="'.$class.'"';
 	}
 	$the_str .= '>';

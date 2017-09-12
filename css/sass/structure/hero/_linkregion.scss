@@ -22,14 +22,18 @@
 	    display: table;
 	    padding-left: 0;
 	    
-	    :before {
+	    @include px2rem($font-size-hero-links);
+	    
+	    &:before {
 		@extend .fa;
 		@extend .fa-angle-right;	
 		font-weight: bold;
 		display: table-cell;
 		color: #fff;
 		width: 20px;
-	    }   
+	    } 
+	    
+	   
 	}
 	
 	.ismobile & {
@@ -85,7 +89,8 @@
 	
 	li {
 		@include no-list;
-		font-size: 13px;
+		@include px2rem($font-size-hero-links);
+		
 		min-height: 34px;
 		line-height: 34px;
 		border-left: 8px solid #fff;
