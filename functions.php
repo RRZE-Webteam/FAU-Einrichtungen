@@ -441,62 +441,6 @@ function fau_main_menu_fallback() {
 
 
 
-function fau_custom_excerpt($id = 0, $length = 0, $withp = true, $class = '', $withmore = false, $morestr = '', $continuenextline=false) {
-  global $options;
-    
-    if ($length==0) {
-	$length = $options['default_excerpt_length'];
-    }
-    
-    if (empty($morestr)) {
-	$morestr = $options['default_excerpt_morestring'];
-    }
-    
-    $excerpt = get_the_excerpt($id); // get_post_field('post_excerpt',$id);
- 
-    if (mb_strlen(trim($excerpt))<5) {
-	$excerpt = get_post_field('post_content',$id);
-    }
-
-    $excerpt = preg_replace('/\s+(https?:\/\/www\.youtube[\/a-z0-9\.\-\?&;=_]+)/i','',$excerpt);
-    $excerpt = strip_shortcodes($excerpt);
-    $excerpt = strip_tags($excerpt, $options['custom_excerpt_allowtags']); 
-  
-  if (mb_strlen($excerpt)<5) {
-      $excerpt = '<!-- '.__( 'Kein Inhalt', 'fau' ).' -->';
-  }
-    
-  $needcontinue =0;
-  if (mb_strlen($excerpt) >  $length) {
-	$str = mb_substr($excerpt, 0, $length);
-	$needcontinue = 1;
-  }  else {
-	$str = $excerpt;
-  }
-	    
-    $the_str = '';
-    if ($withp) {
-	$the_str .= '<p';
-	if (!fau_empty($class)) {
-	    $the_str .= ' class="'.$class.'"';
-	}
-	$the_str .= '>';
-    }
-    $the_str .= $str;
-    
-    if (($needcontinue==1) && ($withmore==true)) {
-	    if ($continuenextline) {
-		  $the_str .= '<br>';
-	    }
-	    $the_str .= $morestr;
-    }
-  
-    if ($withp) {
-	$the_str .= '</p>';
-    }
-  return $the_str;
-}
-
 
 
 /* Refuse spam-comments on media */
