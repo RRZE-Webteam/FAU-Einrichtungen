@@ -187,6 +187,7 @@ $font-size-h2:			24;
 $font-size-h2-small:		22;
 $font-size-h3:			20; // 18
 $font-size-h3-small:		19;
+$font-size-h3-hero:		18;
 $font-size-h4:			18; // 15
 $font-size-h4-small:		17;
 $font-size-h5:			16; // 15 
@@ -194,8 +195,8 @@ $font-size-h6:			$font-size-base;
 
 $font-size-h3-contentmenu:	16;
 
-$font-size-quotes:		$font-size-base;
-$font-size-quotes-cites:	($font-size-base - 1);    
+$font-size-quotes:		18;
+$font-size-quotes-cites:	($font-size-quotes - 1);    
 
 $font-size-content-meta:	14;
 $font-size-pagination-h3:	$font-size-content-meta;
@@ -222,8 +223,8 @@ $break-1700:	1760px;
 // for 4k screens (2200px and more)
 $break-2200:	2200px;
 
-$screen-xl:	1400px;
-$screen-xxl:	1700px;
+$screen-xl:	1760px;
+$screen-xxl:	2400px;
 $screen-xxs:	320px;
 
 $wordpress-adminbar-break:	    783px;
@@ -239,7 +240,7 @@ $screen-xl-max:	 ($screen-xxl - 1);
 $screen-xxl-min:    $screen-xxl;
 
 $container-lg:	    970px;
-$container-xl:	    1100px;
+$container-xl:	    1200px;
 $container-xxl:	    1200px;	 
 
 // Bootstrap Adjustments

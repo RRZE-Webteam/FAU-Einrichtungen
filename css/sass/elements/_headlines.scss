@@ -116,8 +116,10 @@ h3 {
 	.subpages-menu & {
 		font-weight: normal;
 	}
-	
-	
+	.quicklinks & {
+	    @include px2rem( $font-size-h3-hero);
+	    padding: 10px 0;
+	}
 	#meta & {
 	    @extend .screen-reader-text;
 	}

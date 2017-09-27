@@ -2281,7 +2281,7 @@ CSS Font File for Wordpress Theme FAU
 /*-----------------------------------------------------------------------------------*/
 /* Extend grid for bigger breakpoints
 /*-----------------------------------------------------------------------------------*/
-@media (min-width: 1400px) { .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12 { float: left; }
+@media (min-width: 1760px) { .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12 { float: left; }
   .col-xl-1 { width: 8.33333%; }
   .col-xl-2 { width: 16.66667%; }
   .col-xl-3 { width: 25%; }
@@ -2333,7 +2333,7 @@ CSS Font File for Wordpress Theme FAU
   .col-xl-offset-10 { margin-left: 83.33333%; }
   .col-xl-offset-11 { margin-left: 91.66667%; }
   .col-xl-offset-12 { margin-left: 100%; } }
-@media (min-width: 1700px) { .col-xxl-1, .col-xxl-2, .col-xxl-3, .sidebar-single, .sidebar-subnav, .portalpage-sidebar, .startpage-sidebar, .col-xxl-4, .col-xxl-5, .col-xxl-6, .col-xxl-7, .col-xxl-8, .col-xxl-9, .entry-content, .portalpage-content, .startpage-blogroll, .col-xxl-10, .col-xxl-11, .col-xxl-12 { float: left; }
+@media (min-width: 2400px) { .col-xxl-1, .col-xxl-2, .col-xxl-3, .sidebar-single, .sidebar-subnav, .portalpage-sidebar, .startpage-sidebar, .col-xxl-4, .col-xxl-5, .col-xxl-6, .col-xxl-7, .col-xxl-8, .col-xxl-9, .entry-content, .portalpage-content, .startpage-blogroll, .col-xxl-10, .col-xxl-11, .col-xxl-12 { float: left; }
   .col-xxl-1 { width: 8.33333%; }
   .col-xxl-2 { width: 16.66667%; }
   .col-xxl-3, .sidebar-single, .sidebar-subnav, .portalpage-sidebar, .startpage-sidebar { width: 25%; }
@@ -2385,8 +2385,8 @@ CSS Font File for Wordpress Theme FAU
   .col-xxl-offset-10 { margin-left: 83.33333%; }
   .col-xxl-offset-11 { margin-left: 91.66667%; }
   .col-xxl-offset-12 { margin-left: 100%; } }
-@media (min-width: 1400px) { .container { width: 1100px; } }
-@media (min-width: 1700px) { .container { width: 1200px; } }
+@media (min-width: 1760px) { .container { width: 1200px; } }
+@media (min-width: 2400px) { .container { width: 1200px; } }
 
 /*-----------------------------------------------------------------------------------*/
 /* Layout: Base Structure
@@ -2733,7 +2733,7 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 .subpages-menu:before { display: none; }
 @media (min-width: 768px) { .subpages-menu { grid-template-columns: 1fr 1fr 1fr; } }
 @media (min-width: 992px) { .subpages-menu { grid-template-columns: 1fr 1fr 1fr 1fr; } }
-@media (min-width: 1700px) { .subpages-menu { grid-template-columns: 1fr 1fr 1fr 1fr  1fr; } }
+@media (min-width: 2400px) { .subpages-menu { grid-template-columns: 1fr 1fr 1fr 1fr  1fr; } }
 .subpages-menu li { list-style: none; margin: 0; padding: 0; background: none; background-image: none; margin: 10px; padding: 0; width: 220px; }
 .subpages-menu li:before { display: none; }
 .subpages-menu li a.image { text-decoration: none; width: 220px; height: 110px; display: inline-block; }
@@ -2796,7 +2796,7 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 #hero :-moz-placeholder { color: #fff; }
 #hero ::-moz-placeholder { color: #fff; }
 #hero :-ms-input-placeholder { color: #fff; }
-#hero h1, #hero h2, #hero h3, #hero h4, #hero p { font-weight: normal; color: #fff; margin: 10px 0; }
+#hero h1, #hero h2, #hero h3, #hero h4, #hero p { font-weight: normal; color: #fff; }
 #hero h1 { position: relative; z-index: 10; padding-top: 0px; }
 #hero p.description { font-weight: normal; color: #fff; font-size: 18px; line-height: 26px; display: none; }
 @media (min-width: 480px) { #hero p.description { display: inline-block; } }
@@ -3319,7 +3319,7 @@ main .two-columns-one.grau.lighten, main .two-columns-one.gray.lighten, main .th
 .content-portal .sidebar-inline { margin-top: 22px; }
 @media (min-width: 768px) { .sidebar-inline { border-top: none; width: 220px; margin-top: 0; margin-left: 30px; margin-right: -15px; padding-top: 0; padding-left: 15px; border-left: 2px solid #dde5f0; } }
 @media (min-width: 1200px) { .sidebar-inline { width: 300px; } }
-@media (min-width: 1700px) { .sidebar-inline { width: 300px; } }
+@media (min-width: 2400px) { .sidebar-inline { width: 300px; } }
 @media (min-width: 1200px) { .page-template-page-subnav .sidebar-inline { width: 220px; } }
 
 .startpage-sidebar .row { margin-left: 0; margin-right: 0; }
@@ -3452,6 +3452,7 @@ h3 { margin: 0; padding: 11px 0; font-size: 20px; line-height: 28px; font-size: 
 h3.abstract { padding: 0 0 22px 0; }
 .sidebar-inline h3, .search-sidebar h3, .sidebar-outline h3, .widget h3, .person h3, .subpages-menu h3 { font-size: 19px; line-height: 26.6px; font-size: 1.1875rem; line-height: 1.6625rem; }
 .subpages-menu h3 { font-weight: normal; }
+.quicklinks h3 { font-size: 18px; line-height: 25.2px; font-size: 1.125rem; line-height: 1.575rem; padding: 10px 0; }
 #off-canvas h3 { font-size: 19px; line-height: 26.6px; font-size: 1.1875rem; line-height: 1.6625rem; border-bottom: 1px solid #ccc; margin: 20px 0 0 0; padding: 0 10px; }
 
 h4 { margin: 0; padding: 11px 0 11px 0; font-size: 18px; line-height: 25.2px; font-size: 1.125rem; line-height: 1.575rem; }
@@ -3604,14 +3605,14 @@ table ul li { color: #003366; font-size: 13px; line-height: 18px; background-pos
 /*-----------------------------------------------------------------------------------*/
 /* Blockquotes, Cites
 /*-----------------------------------------------------------------------------------*/
-blockquote { padding: 0; margin: 0; border: none; font-family: Georgia, serif; font-style: italic; position: relative; font-size: 16px; line-height: 26px; font-size: 1rem; line-height: 1.625rem; }
-blockquote p { font-family: Georgia, serif; font-size: 16px; line-height: 26px; font-size: 1rem; line-height: 1.625rem; font-weight: 400; font-style: italic; }
+blockquote { padding: 0; margin: 0; border: none; font-family: Georgia, serif; font-style: italic; position: relative; font-size: 18px; line-height: 25.2px; font-size: 1.125rem; line-height: 1.575rem; }
+blockquote p { font-family: Georgia, serif; font-size: 18px; line-height: 25.2px; font-size: 1.125rem; line-height: 1.575rem; font-weight: 400; font-style: italic; }
 blockquote p strong { font-weight: bolder; }
 #tinymce blockquote, #content blockquote { font-style: italic; margin: 10px; padding-left: 50px; min-height: 50px; }
 @media (min-width: 768px) { #tinymce blockquote, #content blockquote { margin: 10px 50px; padding-left: 60px; } }
 #tinymce blockquote p, #content blockquote p { color: #003366; }
 #content .sidebar-inline blockquote { margin: 10px; }
-blockquote small, blockquote cite { display: block; text-align: right; font-size: 15px; line-height: 21px; font-size: 0.9375rem; line-height: 1.3125rem; color: #797676; }
+blockquote small, blockquote cite { display: block; text-align: right; font-size: 17px; line-height: 23.8px; font-size: 1.0625rem; line-height: 1.4875rem; color: #797676; }
 blockquote small:before, blockquote cite:before { content: '\2014 \00A0'; }
 blockquote.pull-right { border-right: none; padding-right: 50px; }
 blockquote.pull-right::before { content: ""; }
@@ -3628,20 +3629,10 @@ cite { color: #0059b3; font-weight: normal; }
 /*-----------------------------------------------------------------------------------*/
 /* Devider
 /*-----------------------------------------------------------------------------------*/
-/* 
-gradient style
-
-hr { position: relative; clear: both; display: none; border: none;  @media (min-width: $screen-xs) {
-	    display: block; } height: 1px; margin: 10px 0 30px;
-	 @media (min-width: $screen-sm) { margin: 0 0 40px 0; } @include linear-gradient-three(transparent 0%,$colorText 50%,transparent 100%);  &.big, .page-template-page-start &, .home & {
-	    margin: 0 0 60px 0; } 
-} 
-*/
 hr { position: relative; clear: both; background: #fff; border: none; outline: none; display: none; height: 40px; margin: 10px 10px 30px; -webkit-box-shadow: 0 10px 10px -10px #e9edf2 inset; -moz-box-shadow: 0 10px 10px -10px #e9edf2 inset; box-shadow: 0 10px 10px -10px #e9edf2 inset; }
-@media (min-width: 480px) { hr { display: block; } }
-@media (min-width: 768px) { hr { margin: 10px 50px 30px; height: 20px; } }
+@media (min-width: 320px) { hr { display: block; margin: 10px 50px 30px; height: 20px; } }
 hr.big, .page-template-page-start hr, .home hr { height: 60px; margin-bottom: 60px; }
-hr.line { height: 1px; background-color: transparent 0%; /* Fallback Color */ background-image: -webkit-linear-gradient(left, transparent 0%, #444 50%, transparent 100%); /* Chrome 10+, Saf5.1+, iOS 5+ */ background-image: -moz-linear-gradient(left, transparent 0%, #444 50%, transparent 100%); /* FF3.6 */ background-image: -ms-linear-gradient(left, transparent 0%, #444 50%, transparent 100%); /* IE10 */ background-image: -o-linear-gradient(left, transparent 0%, #444 50%, transparent 100%); /* Opera 11.10+ */ background-image: linear-gradient(left, transparent 0%, #444 50%, transparent 100%); }
+hr.line { height: 1px; background-color: transparent 0%; /* Fallback Color */ background-image: -webkit-linear-gradient(left, transparent 0%, #e9edf2 50%, transparent 100%); /* Chrome 10+, Saf5.1+, iOS 5+ */ background-image: -moz-linear-gradient(left, transparent 0%, #e9edf2 50%, transparent 100%); /* FF3.6 */ background-image: -ms-linear-gradient(left, transparent 0%, #e9edf2 50%, transparent 100%); /* IE10 */ background-image: -o-linear-gradient(left, transparent 0%, #e9edf2 50%, transparent 100%); /* Opera 11.10+ */ background-image: linear-gradient(left, transparent 0%, #e9edf2 50%, transparent 100%); }
 hr.line.big { margin-bottom: 60px; }
 
 .page-template-page-start hr::after, .home hr::after { top: 30px; -webkit-box-shadow: 0 0 30px #e9edf2; -moz-box-shadow: 0 0 30px #e9edf2; box-shadow: 0 0 30px #e9edf2; }

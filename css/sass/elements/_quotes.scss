@@ -11,12 +11,12 @@ blockquote {
 	font-style: italic;
 	position: relative;
 	
-	@include px2rem($font-size-quotes,$font-size-quotes,26);
+	@include px2rem($font-size-quotes);
 	
 	
 	p {
 		font-family: $fontStackSerifs;
-		@include px2rem($font-size-quotes,$font-size-quotes,26);
+		@include px2rem($font-size-quotes);
 		font-weight: 400;
 		font-style: italic;
 		
