@@ -165,13 +165,27 @@ class FAUShortcodes {
 
 	function fau_hr ( $atts, $content = null) {
 	    extract(shortcode_atts(array(
-			"size" => ''
+			"size" => '',
+			"class" => ''
 			), $atts));
 	    
-	    $size = $size ? ' ' . esc_attr( $size ) : '';
+	      
+	    $size = fau_sanitize_hr_shortcode($size);
+	    $class = fau_sanitize_hr_shortcode($class);
+	    
+	    $classes = "";
+	    if (!fau_empty($size)) {
+		$classes .= $size;
+	    }
+	    if (!fau_empty($class)) {
+		 if (!fau_empty($classes)) {
+		     $classes .= " ";
+		 }
+		$classes .= $class;
+	    }
 	    
 	    $return = '<hr';
-	    $return .= ($size) ? ' class="' . $size. '"' : '';
+	    $return .= ($classes) ? ' class="' . $classes. '"' : '';
 	    $return .= '>';
 	    
 	    return $return;
@@ -600,6 +614,9 @@ class FAUShortcodesRTE {
 
 }
 new FAUShortcodesRTE();
+
+
+
 
 
 
