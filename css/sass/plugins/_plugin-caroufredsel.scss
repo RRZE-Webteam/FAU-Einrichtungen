@@ -76,9 +76,9 @@
 #logos-menu-playpause {
 	@include inline-block;
 	height: 32px;
-	line-height: 32px;
 	padding-left: 32px;
-	font-size: 1.1em; 
+
+	@include px2rem($font-size-textbuttons);
 	
 	i {
 	   width: 20px;

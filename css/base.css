@@ -2953,7 +2953,7 @@ h3.breadcrumb_sitetitle { font-size: 14px; font-weight: normal; line-height: 18p
 #content .container { position: relative; }
 #content main { font-size: 16px; line-height: 22.4px; font-size: 1rem; line-height: 1.4rem; color: #444; font-family: "roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; padding-top: 0; }
 @media (min-width: 768px) { #content main { padding-top: 10px; } }
-#content main .sidebar-inline { font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
+#content main .sidebar-inline { font-size: 13px; line-height: 18.2px; font-size: 0.8125rem; line-height: 1.1375rem; }
 
 @media (max-width: 767px) { #content ul.page-print-actions { display: none; } }
 @media (max-width: 992px) { #content ul.page-print-actions { top: 440px; } }
@@ -3022,15 +3022,15 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 /*-----------------------------------------------------------------------------------*/
 .topevent-date { color: #003366; font-weight: bold; margin-bottom: 5px; }
 
-.topevent-description { color: #003366; font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
-.topevent-description p { font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
+.topevent-description { color: #003366; font-size: 13px; line-height: 18.2px; font-size: 0.8125rem; line-height: 1.1375rem; }
+.topevent-description p { font-size: 13px; line-height: 18.2px; font-size: 0.8125rem; line-height: 1.1375rem; }
 
 /* Events */
 .events-list { padding-bottom: 10px; }
 
 .widget_event_widget ul, .events-list ul { list-style: none; margin: 0; padding: 0; background: none; }
 .widget_event_widget ul:before, .events-list ul:before { display: none; }
-.widget_event_widget ul li, .events-list ul li { list-style: none; margin: 0; padding: 0; background: none; padding: 10px 0 0 0; min-height: 42px; font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; background-image: none; }
+.widget_event_widget ul li, .events-list ul li { list-style: none; margin: 0; padding: 0; background: none; padding: 10px 0 0 0; min-height: 42px; font-size: 13px; line-height: 18.2px; font-size: 0.8125rem; line-height: 1.1375rem; background-image: none; }
 .widget_event_widget ul li:before, .events-list ul li:before { display: none; }
 
 .event-date { float: left; display: block; background: #003366; color: #fff; padding: 5px 10px; width: 40px; text-align: center; }
@@ -3151,7 +3151,7 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 .widget_search .filter .nowrap, .search-contenttry .filter .nowrap { display: inline-block; *display: inline; *zoom: 1; white-space: nowrap; }
 
 .widget_search .search-text { margin: 0 5px 0 20px; }
-.widget_search .search-text input[type="text"], .widget_search .search-text input[type="submit"] { font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
+.widget_search .search-text input[type="text"], .widget_search .search-text input[type="submit"] { font-size: 13px; line-height: 18.2px; font-size: 0.8125rem; line-height: 1.1375rem; }
 
 /*-----------------------------------------------------------------------------------*/
 /* Accordion
@@ -3328,10 +3328,10 @@ main .two-columns-one.grau.lighten, main .two-columns-one.gray.lighten, main .th
 /* Widgets
 /*-----------------------------------------------------------------------------------*/
 /* All Widgets */
-.widget { margin-bottom: 7px; font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
+.widget { margin-bottom: 7px; font-size: 13px; line-height: 18.2px; font-size: 0.8125rem; line-height: 1.1375rem; }
 .widget ul { margin: 0; padding: 0; }
 .widget ul ul { margin: 0 0 10px 5px; }
-.widget li { padding: 0 0 0 5px; font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; list-style-type: none; padding-bottom: 3px; display: table-row; }
+.widget li { padding: 0 0 0 5px; font-size: 13px; line-height: 18.2px; font-size: 0.8125rem; line-height: 1.1375rem; list-style-type: none; padding-bottom: 3px; display: table-row; }
 .widget li a { text-decoration: none; }
 .widget li a:hover, .widget li a:focus { text-decoration: underline; }
 .widget li:before { font-weight: bold; color: #003366; width: 15px; display: table-cell; }
@@ -3473,7 +3473,7 @@ p { margin: 0; padding: 0 0 11px 0; font-size: 16px; line-height: 22.4px; font-s
 #content p { -moz-hyphens: auto; -o-hyphens: auto; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto; }
 #content .textwidget p { font-size: 13px; }
 p.searchnotice { font-size: 24px; line-height: 28px; padding: 4px 0 22px 0; }
-#content .span4 .widget p, #content .sidebar-inline .widget p { font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
+#content .span4 .widget p, #content .sidebar-inline .widget p { font-size: 13px; line-height: 18.2px; font-size: 0.8125rem; line-height: 1.1375rem; }
 
 /*-----------------------------------------------------------------------------------*/
 /* Links
@@ -3512,7 +3512,7 @@ table a:hover, table a:focus { text-decoration: none; }
 /* Lists
 /*-----------------------------------------------------------------------------------*/
 li { padding: 3px 0 4px 4px; font-size: 15px; line-height: 21px; font-size: 0.9375rem; line-height: 1.3125rem; color: #444; }
-.sidebar-inline li { padding: 3px 0 4px 20px; font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
+.sidebar-inline li { padding: 3px 0 4px 20px; font-size: 13px; line-height: 18.2px; font-size: 0.8125rem; line-height: 1.1375rem; }
 
 ul { /* Lettered Pagination */ /* File Lists */ }
 ul li { list-style-type: circle; }
@@ -3984,7 +3984,7 @@ span[itemprop="honorificPrefix"], span[itemprop="honorificSuffix"] { white-space
 
 .logos-menu-settings { text-align: center; }
 
-#logos-menu-playpause { display: inline-block; *display: inline; *zoom: 1; height: 32px; line-height: 32px; padding-left: 32px; font-size: 1.1em; }
+#logos-menu-playpause { display: inline-block; *display: inline; *zoom: 1; height: 32px; padding-left: 32px; font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
 #logos-menu-playpause i { width: 20px; }
 #logos-menu-playpause .play { display: none; }
 

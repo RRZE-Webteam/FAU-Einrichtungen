@@ -2151,7 +2151,7 @@ p { margin: 0; padding: 0 0 11px 0; font-size: 16px; line-height: 22.4px; font-s
 #content p { -moz-hyphens: auto; -o-hyphens: auto; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto; }
 #content .textwidget p { font-size: 13px; }
 p.searchnotice { font-size: 24px; line-height: 28px; padding: 4px 0 22px 0; }
-#content .span4 .widget p, #content .sidebar-inline .widget p { font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
+#content .span4 .widget p, #content .sidebar-inline .widget p { font-size: 13px; line-height: 18.2px; font-size: 0.8125rem; line-height: 1.1375rem; }
 
 /*-----------------------------------------------------------------------------------*/
 /* Links
@@ -2190,7 +2190,7 @@ table a:hover, table a:focus { text-decoration: none; }
 /* Lists
 /*-----------------------------------------------------------------------------------*/
 li { padding: 3px 0 4px 4px; font-size: 15px; line-height: 21px; font-size: 0.9375rem; line-height: 1.3125rem; color: #444; }
-.sidebar-inline li { padding: 3px 0 4px 20px; font-size: 14px; line-height: 19.6px; font-size: 0.875rem; line-height: 1.225rem; }
+.sidebar-inline li { padding: 3px 0 4px 20px; font-size: 13px; line-height: 18.2px; font-size: 0.8125rem; line-height: 1.1375rem; }
 
 ul { /* Lettered Pagination */ /* File Lists */ }
 ul li { list-style-type: circle; }
