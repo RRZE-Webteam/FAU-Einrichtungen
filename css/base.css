@@ -2691,7 +2691,8 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 .orgalist li.fauhome, .orgalist li.facultyhome { -webkit-transition: background 0.2s ease-out; -moz-transition: background 0.2s ease-out; -ms-transition: background 0.2s ease-out; transition: background 0.2s ease-out; }
 .orgalist li.fauhome:hover, .orgalist li.fauhome:focus, .orgalist li.facultyhome:hover, .orgalist li.facultyhome:focus { background: #d4d4d4; -webkit-transition: background 0.1s; -moz-transition: background 0.1s; -ms-transition: background 0.1s; transition: background 0.1s; }
 @media (max-width: 767px) { .orgalist li.fauhome:before { display: none; content: ""; } }
-@media (min-width: 768px) { .orgalist { display: inline; margin: 0; text-align: left; } }
+@media (min-width: 768px) { .orgalist { display: inline; margin: 0; text-align: left; }
+  .fauorg-home .orgalist .fauhome { display: none; } }
 
 #footer .cloned-meta-links, #footer .cloned-hero-nav, #footer #meta-nav { display: block; padding: 10px; }
 #footer .cloned-meta-links li, #footer .cloned-hero-nav li, #footer #meta-nav li { display: table; padding: 3px 0 4px 4px; }

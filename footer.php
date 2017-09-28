@@ -18,7 +18,7 @@ global $options;
 		<div class="container">
 			<div class="row">
 				<div class="footer-logo">
-					<p><img src="<?php echo get_fau_template_uri(); ?>/img/logo-fau-inverse.png" width="185" height="35" alt="Friedrich-Alexander-Universität Erlangen-Nürnberg"></p>
+					<p><img src="<?php echo get_fau_template_uri(); ?>/img/logo-fau-inverse.png" width="185" height="35" alt="<?php _e("Friedrich-Alexander-Universität Erlangen-Nürnberg","fau"); ?>"></p>
 				</div>
 				<div class="footer-address">
 					

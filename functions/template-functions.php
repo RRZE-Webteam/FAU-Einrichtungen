@@ -521,7 +521,9 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	
 	$output .= '<div class="row">';  	
 	if ((has_post_thumbnail( $post->ID )) ||($options['default_postthumb_always']))  {
-	    $output .= "\t\t".'<div aria-hidden="true" role="presentation" tabindex="-1" class="col-xs-5 col-sm-4" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">'; 
+	    
+	    $output .= '<div class="thumbnailregion">'; 
+	    $output .= '<div aria-hidden="true" role="presentation" tabindex="-1" class="passpartout" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">'; 
 	    $output .= '<a href="'.$link.'" class="news-image"';
 	    if ($external) {
 		$output .= ' ext-link';
@@ -553,9 +555,10 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	    $output .= '<meta itemprop="width" content="'.$imgwidth.'">';
 	    $output .= '<meta itemprop="height" content="'.$imgheight.'">';		    
 	    $output .= '</div>'; 
-	    $output .= '<div class="col-xs-7 col-sm-8">'; 
+	    $output .= '</div>'; 
+	    $output .= '<div class="teaserregion">'; 
 	} else {
-	    $output .= '<div class="col-xs-12">'; 
+	    $output .= '<div class="fullwidthregion">'; 
 	}
 	$output .= '<p itemprop="description">'; 
 	$cuttet = false;
