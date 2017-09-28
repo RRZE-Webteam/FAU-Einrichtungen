@@ -308,12 +308,13 @@ class FAUShortcodes {
 	  $GLOBALS['current_collapse']++;
 
 
-	$defaults = array( 'title' => 'Tab', 'color' => '', 'id' => '', 'load' => '');
+	$defaults = array( 'title' => 'Tab', 'color' => '', 'id' => '', 'load' => '', 'name' => '', );
 	extract( shortcode_atts( $defaults, $atts ) );
 
 	$addclass = '';
 
 	$title = esc_attr($title);
+	$name = esc_attr($name);
 	$color = $color ? ' ' . esc_attr( $color ) : '';
 	$load = $load ? ' ' . esc_attr( $load ) : '';
 
@@ -327,7 +328,12 @@ class FAUShortcodes {
 	}
 
 	$output = '<div class="accordion-group'.$color.'">';
-	$output .= '<div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-' . $GLOBALS['collapsibles_count'] . '" href="#collapse_' . $id .'">' . $title . '</a></div>'."\n";
+	$output .= '<div class="accordion-heading">';
+	$output .= '<a';
+	if (!fau_empty($name)) {
+	    $output .= ' name="'.$name.'"';
+	}
+	$output .= ' class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-' . $GLOBALS['collapsibles_count'] . '" href="#collapse_' . $id .'">' . $title . '</a></div>'."\n";
 	$output .= '<div id="collapse_' . $id . '" class="accordion-body'. $addclass .'">';
 	$output .= '<div class="accordion-inner clearfix">'."\n";
 	$output .= do_shortcode($content);

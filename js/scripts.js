@@ -126,6 +126,8 @@ jQuery(document).ready(function($) {
 			 $('html,body').animate({scrollTop: $scrolloffset},'slow');
 		    }
 		   
+		 } else {
+		     
 		 }
 	    }
 	}
