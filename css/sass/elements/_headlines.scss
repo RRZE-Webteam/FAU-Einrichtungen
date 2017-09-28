@@ -40,7 +40,9 @@ h1 {
 	@include px2rem($font-size-h1-mobilebranding);
 	
     }
-    
+    .banner-text & {
+	@include px2rem($font-size-h1-banner);
+    }
 }
 
 h2 {

@@ -21,20 +21,7 @@
 	    padding-top: 0px;
 	}
 
-	p.description {
-	    font-weight: normal;
-	    color: #fff;
-	    font-size: 18px;
-	    line-height: 26px;
-	    display: none;
-	    
-	     @media (min-width: $screen-xs) { 
 	
-		display: inline-block;
-	
-	    }
-	    
-	}
 	
 	a {
 		color: #fff;
@@ -46,9 +33,6 @@
 	}
 	.flyout-toggled & {
 		opacity: 0.3;
-	}
-	.infobar {
-	    padding-top: 5px;
 	}
 
   

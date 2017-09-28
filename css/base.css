@@ -457,7 +457,7 @@ pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap
 .row:before, .row:after { content: " "; display: table; }
 .row:after { clear: both; }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, #hero .hero-navigation .quicklinks, .error-notice, .error-image, .search-results .searchresult-image, .footer-logo, .col-md-3, .footer-address, .col-lg-3, .col-xs-4, .search-results .searchresult-image, .col-sm-4, .sidebar-single, .sidebar-subnav, #hero .search-title, .search-sidebar, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .footer-address, .meta-tools, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .error-search, .search-error-image, .footer-meta, .active-meta-widget .meta-tools, .col-md-5, .col-lg-5, .col-xs-6, .footer-logo, .footer-address, .col-sm-6, #hero .hero-navigation .infobar, .search-error-notice, .col-md-6, .footer-meta, .col-lg-6, .col-xs-7, .col-sm-7, .active-meta-widget .meta-links, .col-md-7, .col-lg-7, .col-xs-8, .search-results .searchresult-imagetext, .col-sm-8, .entry-content, #hero .search-input, .search-resultnested, .portalpage-content, .startpage-blogroll, .introtext-full, .meta-links, .infobar, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .search-results .searchresult-imagetext, .slider-titel, .slider-text, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .sidebar-single, .sidebar-subnav, .entry-content, #hero .hero-navigation .quicklinks, #hero .hero-navigation .infobar, .portalpage-content, .startpage-blogroll, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .introtext-full, .flyout-entries-full, .footer-meta, .slider-titel, .slider-text, .infobar, .thumbnailregion, .teaserregion, .fullwidthregion, .col-sm-12, .search-results article, .col-md-12, .col-lg-12 { position: relative; min-height: 1px; padding-left: 15px; padding-right: 15px; }
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, #hero .hero-navigation .quicklinks, .error-notice, .error-image, .search-results .searchresult-image, .footer-logo, .col-md-3, .footer-address, .col-lg-3, .col-xs-4, .search-results .searchresult-image, .col-sm-4, .sidebar-single, .sidebar-subnav, #hero .search-title, .search-sidebar, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .footer-address, .meta-tools, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .error-search, .search-error-image, .footer-meta, .active-meta-widget .meta-tools, .col-md-5, .col-lg-5, .col-xs-6, .footer-logo, .footer-address, .col-sm-6, #hero .hero-navigation .infobar, .search-error-notice, .col-md-6, .footer-meta, .col-lg-6, .col-xs-7, .col-sm-7, .active-meta-widget .meta-links, .col-md-7, .col-lg-7, .col-xs-8, .search-results .searchresult-imagetext, .col-sm-8, .entry-content, #hero .search-input, .search-resultnested, .portalpage-content, .startpage-blogroll, .introtext-full, .meta-links, .infobar, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .search-results .searchresult-imagetext, .slider-titel, .slider-text, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .sidebar-single, .sidebar-subnav, .entry-content, #hero .hero-navigation .quicklinks, #hero .hero-navigation .infobar, .portalpage-content, .startpage-blogroll, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .introtext-full, .flyout-entries-full, .footer-meta, .slider-titel, .slider-text, .infobar, .thumbnailregion, .teaserregion, .fullwidthregion, .col-sm-12, .search-results article, .infobar.fullsize, .col-md-12, .col-lg-12 { position: relative; min-height: 1px; padding-left: 15px; padding-right: 15px; }
 
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .search-results .searchresult-image, .col-xs-5, .col-xs-6, .footer-logo, .footer-address, .col-xs-7, .col-xs-8, .search-results .searchresult-imagetext, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .sidebar-single, .sidebar-subnav, .entry-content, #hero .hero-navigation .quicklinks, #hero .hero-navigation .infobar, .portalpage-content, .startpage-blogroll, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .introtext-full, .flyout-entries-full, .footer-meta, .slider-titel, .slider-text, .infobar, .thumbnailregion, .teaserregion, .fullwidthregion { float: left; }
 
@@ -563,7 +563,7 @@ pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap
 
 .col-xs-offset-12 { margin-left: 100%; }
 
-@media (min-width: 768px) { .col-sm-1, .col-sm-2, .col-sm-3, #hero .hero-navigation .quicklinks, .error-notice, .error-image, .search-results .searchresult-image, .footer-logo, .col-sm-4, .sidebar-single, .sidebar-subnav, #hero .search-title, .search-sidebar, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .footer-address, .meta-tools, .col-sm-5, .error-search, .search-error-image, .footer-meta, .active-meta-widget .meta-tools, .col-sm-6, #hero .hero-navigation .infobar, .search-error-notice, .col-sm-7, .active-meta-widget .meta-links, .col-sm-8, .entry-content, #hero .search-input, .search-resultnested, .portalpage-content, .startpage-blogroll, .introtext-full, .meta-links, .infobar, .col-sm-9, .search-results .searchresult-imagetext, .slider-titel, .slider-text, .col-sm-10, .col-sm-11, .col-sm-12, .search-results article { float: left; }
+@media (min-width: 768px) { .col-sm-1, .col-sm-2, .col-sm-3, #hero .hero-navigation .quicklinks, .error-notice, .error-image, .search-results .searchresult-image, .footer-logo, .col-sm-4, .sidebar-single, .sidebar-subnav, #hero .search-title, .search-sidebar, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .footer-address, .meta-tools, .col-sm-5, .error-search, .search-error-image, .footer-meta, .active-meta-widget .meta-tools, .col-sm-6, #hero .hero-navigation .infobar, .search-error-notice, .col-sm-7, .active-meta-widget .meta-links, .col-sm-8, .entry-content, #hero .search-input, .search-resultnested, .portalpage-content, .startpage-blogroll, .introtext-full, .meta-links, .infobar, .col-sm-9, .search-results .searchresult-imagetext, .slider-titel, .slider-text, .col-sm-10, .col-sm-11, .col-sm-12, .search-results article, .infobar.fullsize { float: left; }
   .col-sm-1 { width: 8.33333%; }
   .col-sm-2 { width: 16.66667%; }
   .col-sm-3, #hero .hero-navigation .quicklinks, .error-notice, .error-image, .search-results .searchresult-image, .footer-logo { width: 25%; }
@@ -575,7 +575,7 @@ pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap
   .col-sm-9, .search-results .searchresult-imagetext, .slider-titel, .slider-text { width: 75%; }
   .col-sm-10 { width: 83.33333%; }
   .col-sm-11 { width: 91.66667%; }
-  .col-sm-12, .search-results article { width: 100%; }
+  .col-sm-12, .search-results article, .infobar.fullsize { width: 100%; }
   .col-sm-pull-0 { right: auto; }
   .col-sm-pull-1 { right: 8.33333%; }
   .col-sm-pull-2 { right: 16.66667%; }
@@ -2802,12 +2802,9 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 #hero :-ms-input-placeholder { color: #fff; }
 #hero h1, #hero h2, #hero h3, #hero h4, #hero p { font-weight: normal; color: #fff; }
 #hero h1 { position: relative; z-index: 10; padding-top: 0px; }
-#hero p.description { font-weight: normal; color: #fff; font-size: 18px; line-height: 26px; display: none; }
-@media (min-width: 480px) { #hero p.description { display: inline-block; } }
 #hero a { color: #fff; }
 #hero .container { position: relative; }
 .flyout-toggled #hero { opacity: 0.3; }
-#hero .infobar { padding-top: 5px; }
 .no-js #hero { margin-top: 0; transition: none; padding-top: 10px; position: relative; }
 .no-js #hero .container { display: table; }
 .no-js #hero .span6 { display: table-cell; width: 90%; }
@@ -2897,9 +2894,11 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 @media (min-width: 768px) { .banner .introimg img { min-height: 182px; width: 1260px; height: auto; } }
 @media (min-width: 992px) { .banner .introimg img { width: 1260px; height: auto; } }
 .banner .introimg p.credits { background: rgba(0, 0, 0, 0.4); color: #ddd; font-size: 14px; line-height: 18px; position: absolute; bottom: 0; right: 0; z-index: 6; margin: 0; padding: 1px 4px; }
-.banner .banner-text { position: absolute; top: 0px; left: 0; right: 0; width: 100%; padding: 0px; }
-.banner .banner-text h1, .banner .banner-text h2 { display: block; color: #fff; background: rgba(0, 51, 102, 0.8); margin: 0; padding: 5px 7px; position: relative; z-index: 10; max-width: 600px; }
-.banner .banner-text p { display: inline-block; *display: inline; *zoom: 1; color: #fff; background: rgba(0, 51, 102, 0.8); padding: 5px 7px; margin: 0; font-size: 18px; max-width: 600px; }
+.banner .banner-text { position: absolute; top: 20px; bottom: 20px; left: 0; right: 0; width: 100%; padding: 0px; }
+@media (min-width: 480px) { .banner .banner-text { height: 142px; } }
+.banner .banner-text h1 { color: #fff; background: rgba(0, 51, 102, 0.8); margin: 0; padding: 5px 7px; position: relative; z-index: 10; max-height: 130px; overflow: hidden; display: inline-block; *display: inline; *zoom: 1; }
+.banner .banner-text p.description { font-weight: normal; color: #fff; font-size: 18px; line-height: 25.2px; font-size: 1.125rem; line-height: 1.575rem; display: none; background: rgba(0, 51, 102, 0.8); padding: 5px 7px; margin: 10px 0 0 0; }
+@media (min-width: 480px) { .banner .banner-text p.description { display: block; } }
 
 @media (max-width: 479px) { .page-template-page-start-sub.js-enabled #hero .banner { top: 0; bottom: 0; } }
 .infobar { display: none; }
@@ -3449,6 +3448,7 @@ h3, h4, h5, h6 { -moz-hyphens: auto; -o-hyphens: auto; -webkit-hyphens: auto; -m
 h1 { font-size: 32px; line-height: 44.8px; font-size: 2rem; line-height: 2.8rem; }
 .sidebar-inline + h1 { margin-top: 0; }
 #logo h1 { font-size: 24px; line-height: 33.6px; font-size: 1.5rem; line-height: 2.1rem; }
+.banner-text h1 { font-size: 28px; line-height: 39.2px; font-size: 1.75rem; line-height: 2.45rem; }
 
 h2 { font-size: 24px; line-height: 33.6px; font-size: 1.5rem; line-height: 2.1rem; margin: 0; padding: 22px 0; }
 .sidebar-outline h2, .widget h2 { padding-bottom: 11px; }

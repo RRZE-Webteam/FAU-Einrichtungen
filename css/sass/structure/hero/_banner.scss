@@ -68,32 +68,43 @@
 	    }
 	    .banner-text {
 		position: absolute;
-		top: 0px;
+		top: 20px;
+		bottom: 20px;
 		left: 0;
 		right: 0;
 		width: 100%;
 		padding: 0px;
-		
-		h1, h2 {
-			display: block;
+		@media (min-width: $screen-xs) {
+		    height: 142px;
+		}
+	    
+	    
+		h1 {
 			color: #fff;
 			background: rgba($colorPrimary,0.8);
 			margin: 0;
 			padding: 5px 7px;
 			position: relative;
 			z-index: 10;
-			max-width: 600px;
+			max-height: 130px;
+			overflow: hidden;
 			
+			@include inline-block;
 		}
 		
-		p {
-			@include inline-block;
+		p.description {
+			font-weight: normal;
 			color: #fff;
+			@include px2rem($font-size-hero-bannertext);
+			display: none;
 			background: rgba($colorPrimary,0.8);
 			padding: 5px 7px;
-			margin: 0;
-			font-size: 18px;
-			max-width: 600px;
+			margin: 10px 0 0 0;
+			
+			@media (min-width: $screen-xs) { 
+			   display: block;
+			}
+
 		}
 
 	    }
@@ -122,5 +133,9 @@
     @media (min-width: $screen-xs) {
         display: inline-block;
     }
+    &.fullsize {
+	 @extend .col-sm-12;
+    }
+    
 }
 
