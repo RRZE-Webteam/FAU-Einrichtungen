@@ -2122,9 +2122,10 @@ h2 { font-size: 24px; line-height: 33.6px; font-size: 1.5rem; line-height: 2.1re
 h2.small, h2.subtitle, .sidebar-inline h2, .search-sidebar h2, .sidebar-outline h2, .widget h2 { font-size: 22px; line-height: 30.8px; font-size: 1.375rem; line-height: 1.925rem; }
 .sidebar-inline .quicklinks h2 { font-weight: bold; padding-bottom: 11px; padding-top: 0; }
 .sidebar-inline .quicklinks h2.second { padding-top: 22px; }
-h2.subtitle { padding: 20px 0 22px 0; }
+h2.subtitle { padding: 0 0 22px 0; }
 h2.menu-header { padding: 11px 15px; margin-top: 0px; border-top: 1px solid #dde5f0; }
 .search h2 { padding-top: 4px; }
+main h2:first-child { padding-top: 0; }
 
 h3 { margin: 0; padding: 11px 0; font-size: 20px; line-height: 28px; font-size: 1.25rem; line-height: 1.75rem; }
 h3.abstract { padding: 0 0 22px 0; }
