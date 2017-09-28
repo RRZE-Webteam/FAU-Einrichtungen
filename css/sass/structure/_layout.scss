@@ -172,24 +172,6 @@ html, body, button {
 }
 
 
-.footer-logo {
-    @extend .col-xs-6;
-    @extend .col-sm-3;
-
-}
-.footer-address {
-    @extend .col-xs-6;
-    @extend .col-sm-4;
-    @extend .col-md-3;
-}
-.footer-meta {
-    @extend .col-xs-12;
-    @extend .col-sm-5;
-    @extend .col-md-6;
-    text-align: right;
-}
-
-
 
 
 [class*="span"] {

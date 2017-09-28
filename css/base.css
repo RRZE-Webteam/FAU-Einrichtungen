@@ -457,9 +457,9 @@ pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap
 .row:before, .row:after { content: " "; display: table; }
 .row:after { clear: both; }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, #hero .hero-navigation .quicklinks, .error-notice, .error-image, .search-results .searchresult-image, .footer-logo, .col-md-3, .footer-address, .col-lg-3, .col-xs-4, .search-results .searchresult-image, .col-sm-4, .sidebar-single, .sidebar-subnav, #hero .search-title, .search-sidebar, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .footer-address, .meta-tools, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .error-search, .search-error-image, .footer-meta, .active-meta-widget .meta-tools, .col-md-5, .col-lg-5, .col-xs-6, .footer-logo, .footer-address, .col-sm-6, #hero .hero-navigation .infobar, .search-error-notice, .col-md-6, .footer-meta, .col-lg-6, .col-xs-7, .col-sm-7, .active-meta-widget .meta-links, .col-md-7, .col-lg-7, .col-xs-8, .search-results .searchresult-imagetext, .col-sm-8, .entry-content, #hero .search-input, .search-resultnested, .portalpage-content, .startpage-blogroll, .introtext-full, .meta-links, .infobar, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .search-results .searchresult-imagetext, .slider-titel, .slider-text, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .sidebar-single, .sidebar-subnav, .entry-content, #hero .hero-navigation .quicklinks, #hero .hero-navigation .infobar, .portalpage-content, .startpage-blogroll, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .introtext-full, .flyout-entries-full, .footer-meta, .slider-titel, .slider-text, .infobar, .thumbnailregion, .teaserregion, .fullwidthregion, .col-sm-12, .search-results article, .infobar.fullsize, .col-md-12, .col-lg-12 { position: relative; min-height: 1px; padding-left: 15px; padding-right: 15px; }
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, #hero .hero-navigation .quicklinks, .error-notice, .error-image, .search-results .searchresult-image, .col-md-3, .footer-logo, .footer-address, .col-lg-3, .col-xs-4, .search-results .searchresult-image, .col-sm-4, .sidebar-single, .sidebar-subnav, #hero .search-title, .search-sidebar, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .meta-tools, .footer-logo, .footer-address, .footer-meta, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .error-search, .search-error-image, .active-meta-widget .meta-tools, .col-md-5, .col-lg-5, .col-xs-6, .footer-logo, .footer-address, .col-sm-6, #hero .hero-navigation .infobar, .search-error-notice, .col-md-6, .footer-meta, .col-lg-6, .col-xs-7, .col-sm-7, .active-meta-widget .meta-links, .col-md-7, .col-lg-7, .col-xs-8, .search-results .searchresult-imagetext, .col-sm-8, .entry-content, #hero .search-input, .search-resultnested, .portalpage-content, .startpage-blogroll, .introtext-full, .meta-links, .infobar, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .search-results .searchresult-imagetext, .slider-titel, .slider-text, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .sidebar-single, .sidebar-subnav, .entry-content, #hero .hero-navigation .quicklinks, #hero .hero-navigation .infobar, .portalpage-content, .startpage-blogroll, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .introtext-full, .flyout-entries-full, .slider-titel, .slider-text, .infobar, .thumbnailregion, .teaserregion, .fullwidthregion, .footer-meta, .col-sm-12, .search-results article, .infobar.fullsize, .col-md-12, .col-lg-12 { position: relative; min-height: 1px; padding-left: 15px; padding-right: 15px; }
 
-.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .search-results .searchresult-image, .col-xs-5, .col-xs-6, .footer-logo, .footer-address, .col-xs-7, .col-xs-8, .search-results .searchresult-imagetext, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .sidebar-single, .sidebar-subnav, .entry-content, #hero .hero-navigation .quicklinks, #hero .hero-navigation .infobar, .portalpage-content, .startpage-blogroll, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .introtext-full, .flyout-entries-full, .footer-meta, .slider-titel, .slider-text, .infobar, .thumbnailregion, .teaserregion, .fullwidthregion { float: left; }
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .search-results .searchresult-image, .col-xs-5, .col-xs-6, .footer-logo, .footer-address, .col-xs-7, .col-xs-8, .search-results .searchresult-imagetext, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .sidebar-single, .sidebar-subnav, .entry-content, #hero .hero-navigation .quicklinks, #hero .hero-navigation .infobar, .portalpage-content, .startpage-blogroll, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .introtext-full, .flyout-entries-full, .slider-titel, .slider-text, .infobar, .thumbnailregion, .teaserregion, .fullwidthregion, .footer-meta { float: left; }
 
 .col-xs-1 { width: 8.33333%; }
 
@@ -483,7 +483,7 @@ pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap
 
 .col-xs-11 { width: 91.66667%; }
 
-.col-xs-12, .sidebar-single, .sidebar-subnav, .entry-content, #hero .hero-navigation .quicklinks, #hero .hero-navigation .infobar, .portalpage-content, .startpage-blogroll, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .introtext-full, .flyout-entries-full, .footer-meta, .slider-titel, .slider-text, .infobar, .thumbnailregion, .teaserregion, .fullwidthregion { width: 100%; }
+.col-xs-12, .sidebar-single, .sidebar-subnav, .entry-content, #hero .hero-navigation .quicklinks, #hero .hero-navigation .infobar, .portalpage-content, .startpage-blogroll, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .introtext-full, .flyout-entries-full, .slider-titel, .slider-text, .infobar, .thumbnailregion, .teaserregion, .fullwidthregion, .footer-meta { width: 100%; }
 
 .col-xs-pull-0 { right: auto; }
 
@@ -563,12 +563,12 @@ pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap
 
 .col-xs-offset-12 { margin-left: 100%; }
 
-@media (min-width: 768px) { .col-sm-1, .col-sm-2, .col-sm-3, #hero .hero-navigation .quicklinks, .error-notice, .error-image, .search-results .searchresult-image, .footer-logo, .col-sm-4, .sidebar-single, .sidebar-subnav, #hero .search-title, .search-sidebar, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .footer-address, .meta-tools, .col-sm-5, .error-search, .search-error-image, .footer-meta, .active-meta-widget .meta-tools, .col-sm-6, #hero .hero-navigation .infobar, .search-error-notice, .col-sm-7, .active-meta-widget .meta-links, .col-sm-8, .entry-content, #hero .search-input, .search-resultnested, .portalpage-content, .startpage-blogroll, .introtext-full, .meta-links, .infobar, .col-sm-9, .search-results .searchresult-imagetext, .slider-titel, .slider-text, .col-sm-10, .col-sm-11, .col-sm-12, .search-results article, .infobar.fullsize { float: left; }
+@media (min-width: 768px) { .col-sm-1, .col-sm-2, .col-sm-3, #hero .hero-navigation .quicklinks, .error-notice, .error-image, .search-results .searchresult-image, .col-sm-4, .sidebar-single, .sidebar-subnav, #hero .search-title, .search-sidebar, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .meta-tools, .footer-logo, .footer-address, .footer-meta, .col-sm-5, .error-search, .search-error-image, .active-meta-widget .meta-tools, .col-sm-6, #hero .hero-navigation .infobar, .search-error-notice, .col-sm-7, .active-meta-widget .meta-links, .col-sm-8, .entry-content, #hero .search-input, .search-resultnested, .portalpage-content, .startpage-blogroll, .introtext-full, .meta-links, .infobar, .col-sm-9, .search-results .searchresult-imagetext, .slider-titel, .slider-text, .col-sm-10, .col-sm-11, .col-sm-12, .search-results article, .infobar.fullsize { float: left; }
   .col-sm-1 { width: 8.33333%; }
   .col-sm-2 { width: 16.66667%; }
-  .col-sm-3, #hero .hero-navigation .quicklinks, .error-notice, .error-image, .search-results .searchresult-image, .footer-logo { width: 25%; }
-  .col-sm-4, .sidebar-single, .sidebar-subnav, #hero .search-title, .search-sidebar, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .footer-address, .meta-tools { width: 33.33333%; }
-  .col-sm-5, .error-search, .search-error-image, .footer-meta, .active-meta-widget .meta-tools { width: 41.66667%; }
+  .col-sm-3, #hero .hero-navigation .quicklinks, .error-notice, .error-image, .search-results .searchresult-image { width: 25%; }
+  .col-sm-4, .sidebar-single, .sidebar-subnav, #hero .search-title, .search-sidebar, .portalpage-sidebar, .startpage-sidebar, .flyout-entries, .introthumb, .introtext, .meta-tools, .footer-logo, .footer-address, .footer-meta { width: 33.33333%; }
+  .col-sm-5, .error-search, .search-error-image, .active-meta-widget .meta-tools { width: 41.66667%; }
   .col-sm-6, #hero .hero-navigation .infobar, .search-error-notice { width: 50%; }
   .col-sm-7, .active-meta-widget .meta-links { width: 58.33333%; }
   .col-sm-8, .entry-content, #hero .search-input, .search-resultnested, .portalpage-content, .startpage-blogroll, .introtext-full, .meta-links, .infobar { width: 66.66667%; }
@@ -615,10 +615,10 @@ pre code { padding: 0; font-size: inherit; color: inherit; white-space: pre-wrap
   .col-sm-offset-10 { margin-left: 83.33333%; }
   .col-sm-offset-11 { margin-left: 91.66667%; }
   .col-sm-offset-12 { margin-left: 100%; } }
-@media (min-width: 992px) { .col-md-1, .col-md-2, .col-md-3, .footer-address, .col-md-4, .col-md-5, .col-md-6, .footer-meta, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 { float: left; }
+@media (min-width: 992px) { .col-md-1, .col-md-2, .col-md-3, .footer-logo, .footer-address, .col-md-4, .col-md-5, .col-md-6, .footer-meta, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 { float: left; }
   .col-md-1 { width: 8.33333%; }
   .col-md-2 { width: 16.66667%; }
-  .col-md-3, .footer-address { width: 25%; }
+  .col-md-3, .footer-logo, .footer-address { width: 25%; }
   .col-md-4 { width: 33.33333%; }
   .col-md-5 { width: 41.66667%; }
   .col-md-6, .footer-meta { width: 50%; }
@@ -2408,8 +2408,6 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
 @media (min-width: 768px) { .inline-box { display: block; }
   .inline-box .sidebar-inline, .inline-box .content-inline { display: inline; } }
 
-.footer-meta { text-align: right; }
-
 [class*="span"] { float: left; min-height: 1px; margin-left: 20px; }
 
 .span12 { width: 940px; }
@@ -3416,20 +3414,25 @@ main .two-columns-one.grau.lighten, main .two-columns-one.gray.lighten, main .th
 #footer a:hover, #footer a:focus { text-decoration: underline; }
 @media (min-width: 768px) { #footer { padding: 20px 0; } }
 
+.footer-meta { text-align: right; }
+
 /* Footer Navigation */
 #footer-nav { list-style: none; margin: 0; padding: 0; background: none; text-align: right; }
 #footer-nav:before { display: none; }
 #footer-nav li { list-style: none; margin: 0; padding: 0; background: none; display: inline; margin-left: 8px; background: none; }
 #footer-nav li:before { display: none; }
 
-@media (max-width: 479px) { #footer li { line-height: 15px; }
+@media (max-width: 479px) { .footer-logo { width: 100%; }
+  .footer-address { width: 100%; }
+  #footer-nav li { margin-left: 0px; } }
+@media (min-width: 480px) { #footer li { line-height: 15px; }
   #footer .span4, #footer .span3 { width: 48%; width: calc(50% - 10px); float: left; margin: 2px; }
   #footer .span5, #footer .span6 { width: 100%; margin: 0; float: none; }
+  .footer-logo { padding-right: 0; min-width: 200px; }
+  .footer-address { max-width: calc(100% - 215px); }
   #footer-nav { text-align: left; }
   #footer-nav li { display: inline; } }
-@media (max-width: 767px) { #footer .span3 { width: 48%; width: calc(50% - 10px); float: left; margin: 2px; }
-  #footer .span6 { width: 100%; margin: 0; float: none; }
-  #footer-nav { text-align: left; }
+@media (max-width: 767px) { #footer-nav { text-align: left; }
   #footer-nav li { display: inline; } }
 /*-----------------------------------------------------------------------------------*/
 /* Elements
