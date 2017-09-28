@@ -2385,7 +2385,7 @@ CSS Font File for Wordpress Theme FAU
   .col-xxl-offset-10 { margin-left: 83.33333%; }
   .col-xxl-offset-11 { margin-left: 91.66667%; }
   .col-xxl-offset-12 { margin-left: 100%; } }
-@media (min-width: 1760px) { .container { width: 1200px; } }
+@media (min-width: 1760px) { .container { width: 1000px; } }
 @media (min-width: 2400px) { .container { width: 1200px; } }
 
 /*-----------------------------------------------------------------------------------*/
@@ -2509,6 +2509,7 @@ html, body, button { font-family: "roboto", "Helvetica Neue", Helvetica, Arial, 
   .admin-bar #header { top: 86px; }
   .nav-scrolled #header { -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
   #header .row { height: 112px; }
+  #header .row .branding, #header .row .header-menu { padding-left: 15px; padding-right: 15px; }
   #header .row .branding { height: 75px; }
   #header .row .header-menu { height: 37px; display: block; }
   #header .visiblelogo { display: none; } }

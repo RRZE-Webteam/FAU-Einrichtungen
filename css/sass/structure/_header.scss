@@ -41,6 +41,13 @@
 	}
 	.row {    
 	    height: 112px;
+	    
+	    .branding, 
+	    .header-menu {
+		padding-left:  ($grid-gutter-width / 2);
+		padding-right: ($grid-gutter-width / 2);
+	    }
+	    
 	    .branding {
 		height: 75px;
 	    }
@@ -65,15 +72,19 @@
 	.row {    
 	    height: 65px;
 	    .branding {
-		 text-align: right;
-		 display: table-cell;
-		 float: none;
-		 width: auto;
+		text-align: right;
+		display: table-cell;
+		float: none;
+		width: auto;
+	//	padding-left:  0;
+	//	padding-right: 0;
 	    }
 	    .header-menu {
 		float: none;
 		display: table-cell;
 		vertical-align: bottom;
+	//	padding-left:  0;
+	//	padding-right: 0;
 	    }
 	 }
     }
