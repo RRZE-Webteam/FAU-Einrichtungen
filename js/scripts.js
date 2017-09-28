@@ -210,17 +210,6 @@ jQuery(document).ready(function($) {
 	});
 
 
-	// In case of longe department titles (really long!) that would extend 
-	// the limited infobar on the bannerpage, we extend to the fuill size grid
-	
-	var bannertitle = $('.infobar h1').text();
-	if (bannertitle.length > 80) {
-	    $('.infobar p').hide();
-	}
-	if (bannertitle.length > 140) {
-	    $('.infobar').addClass('fullsize');
-	}
-	
 	// Main Menu
 	// Keyboard-navigation, remove and set focus class on focus-change
 	$('a').not($('#nav > li div a')).focus(function() {

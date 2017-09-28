@@ -76,7 +76,11 @@
 		display: table-cell;
 		float: none;
 		width: auto;
-	    }
+                
+                h1 span, h1 a {
+                    height: 71px;
+                }
+	    } 
 	    .header-menu {
 		float: none;
 		display: table-cell;
@@ -109,7 +113,7 @@
 	    }
 	    a {
 		color: $colorPrimary;
-		
+		text-decoration: none;
 		 &:hover,
 		 &:focus {
 		    @include border-radius(4px);

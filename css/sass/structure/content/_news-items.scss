@@ -45,6 +45,11 @@
 	
 	img {
 	    @include box-shadow(none);
+            @media (max-width: $screen-xs) {
+                width: 100%;
+                height: auto;
+            }
+            
 	}
 	
 	@media (min-width: $screen-sm) {
@@ -117,14 +122,16 @@
         width: 100%;
 	text-align: center;
     }
-   
+   @media (max-width: $screen-xs) {
+       padding: 0;
+       margin-bottom: 5px;
+   }
     @media (min-width: $screen-sm) {
 	width: 220px;
 	
 	.passpartout {
 	     max-width: 220px;
 	}
-	
     }
     
 }
