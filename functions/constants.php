@@ -9,7 +9,7 @@ $defaultoptions = array(
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-    'js-version'			=> '1.7',
+    'js-version'			=> '1.8',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
     'website_type'			=> 2,
 	// website_type: 
@@ -45,7 +45,7 @@ $defaultoptions = array(
     'src-fallback-slider-image'		=> get_fau_template_uri().'/img/slider-fallback.jpg',
     'slider-category'			=> 'header',
     'slider-catid'			=> 1,    
-    'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.js',
+    'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.min.js',
     'src-pluginsjs'			=> get_fau_template_uri() . '/js/libs/plugins.min.js',
     'default_slider_excerpt_length'	=> 240,
     'start_header_count'		=> 5,
