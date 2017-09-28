@@ -80,7 +80,7 @@ h2 {
 	}
 	
 	&.subtitle {
-		padding: 20px 0 22px 0;		
+		padding: 0 0 22px 0;		
 	}
 	
 	&.menu-header {
@@ -92,6 +92,11 @@ h2 {
 	.search & {
 		padding-top: 4px;
 	}
+	
+	main &:first-child {
+	    padding-top: 0;
+	} 
+	
 }
 
 h3 {
