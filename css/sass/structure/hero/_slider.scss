@@ -89,32 +89,7 @@
 	
 	
 	display: none;
-	@media (min-width: $breakXS ) {
-	      display: block;
-	}
-	@media (max-width: $screen-sm - 1) {
-	    top: 0;
-	    height: 200px;
-	    .hero-slide {
-		img {
-		    left: inherit;
-		    margin-left: 0;
-		    left: 0;
-		    vertical-align: middle;
-		}
-		p.credits {
-		    top: 2px;
-		    bottom: inherit;
-		    display: inline;
-		}
-	    }
-	    .hero-slide-text {
-		bottom: 40px;
-	    }
-	    .no-js & {
-		display: none;
-	    }
-	}
+
 	@media (min-width: $screen-sm) {
 	    display: block;
 	    top: -20px;

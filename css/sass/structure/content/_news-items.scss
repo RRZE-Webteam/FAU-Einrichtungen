@@ -5,6 +5,9 @@
 .news-details {
 	margin-top: 20px;
 	
+        @media (max-width: $screen-xs - 1) {
+	    margin-top: -20px;
+        }
 	.post-image {
 	    margin-top: 0px;
 	}
@@ -45,14 +48,14 @@
 	
 	img {
 	    @include box-shadow(none);
-            @media (max-width: $screen-xs) {
+            @media (max-width: $screen-xs - 1) {
                 width: 100%;
                 height: auto;
             }
             
 	}
 	
-	@media (min-width: $screen-sm) {
+	@media (min-width: $screen-xs) {
 	    @include box-shadow(0 1px 2px rgba(0,0,0,0.3));
 	    padding: 4px;
 	    background: $colorStandardHellgrau;
@@ -122,11 +125,11 @@
         width: 100%;
 	text-align: center;
     }
-   @media (max-width: $screen-xs) {
+   @media (max-width: $screen-xs - 1) {
        padding: 0;
        margin-bottom: 5px;
    }
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-xs) {
 	width: 220px;
 	
 	.passpartout {
@@ -137,7 +140,7 @@
 }
 .teaserregion {
     @extend .col-xs-12;
-    @media (min-width: $screen-sm ) {
+    @media (min-width: $screen-xs ) {
 	width: calc(100% - 250px);
 	
 	p {

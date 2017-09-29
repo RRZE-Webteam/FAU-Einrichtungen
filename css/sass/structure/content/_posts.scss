@@ -13,8 +13,17 @@
 	    width: 300px;
 	    text-align: left;
     }
-    
-    @media (min-width: $screen-sm) {
+    @media (max-width: $screen-xs - 1) {
+	margin-left: -15px;
+	margin-right: -15px;
+	
+	img {
+	    width: 100%;
+	    height: auto;
+	    
+	}
+    }
+    @media (min-width: $screen-xs) {
 	float: right;
 	margin: 20px 0 10px 20px;
     }
@@ -23,7 +32,11 @@
 .post-meta {
 	    display: block;
 	    padding: 5px 0;
-	    margin: -14px 0 14px 0;
+	    margin: 0 0 14px 0;
+	    @media (min-width: $screen-xs) {
+		 margintop: -14px;
+	    }
+	    
 	    color: $colorPrimary;
 	    font-family: $fontStack;
 	    @include px2rem($font-size-content-meta);
