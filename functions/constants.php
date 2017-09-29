@@ -488,14 +488,14 @@ $setoptions = array(
                   'label'   => __( 'Begriff nach dem Titel des gewählten Menüs', 'fau' ),               
                   'default' => $defaultoptions['menu_aftertitle_portal'],
               ),  
-	       
+	      /* 
 	      'menu_fallbackquote_show_excerpt' => array(
                   'type'    => 'bool',
                   'title'   => __( 'Zitatersatz', 'fau' ),
                   'label'   => __( 'Wenn bei einem Menupunkt auf oberster Ebene kein Zitat vorgegeben ist, zeige stattdessen einen Auszug der Seite.', 'fau' ),                
                   'default' => $defaultoptions['menu_fallbackquote_show_excerpt'],
               ),  
-	       
+	       */
 	       
 	     'google-site-verification' => array(
                   'type'    => 'text',
