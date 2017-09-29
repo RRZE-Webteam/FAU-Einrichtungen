@@ -3093,14 +3093,15 @@ ul.assistant-tabs-nav li:last-child { border: none; }
 .news-item h2 .ext-link::after { font-size: 16px; line-height: 22.4px; font-size: 1rem; line-height: 1.4rem; content: "\f08e"; margin-left: 5px; position: relative; top: -5px; }
 .wp-external-links .news-item h2 .ext-link::after { display: none; }
 
-.thumbnailregion { display: inline; text-align: center; }
+.thumbnailregion { display: inline; text-align: center; padding: 0; }
 .thumbnailregion .passpartout { width: 100%; text-align: center; }
-@media (max-width: 479px) { .thumbnailregion { padding: 0; margin-bottom: 5px; } }
-@media (min-width: 480px) { .thumbnailregion { width: 220px; }
-  .thumbnailregion .passpartout { max-width: 220px; } }
+@media (min-width: 768px) { .thumbnailregion .passpartout { width: 220px; } }
+@media (max-width: 479px) { .thumbnailregion { margin-bottom: 5px; } }
+@media (min-width: 480px) { .thumbnailregion { width: 220px; margin-left: 15px; } }
 
 @media (min-width: 480px) { .teaserregion { width: calc(100% - 250px); }
   .teaserregion p { display: inline; } }
+@media (min-width: 768px) { .teaserregion { padding-left: 20px; } }
 
 .news-meta-categories { display: inline-block; *display: inline; *zoom: 1; }
 .news-meta-categories ul { list-style: none; margin: 0; padding: 0; background: none; display: inline-block; *display: inline; *zoom: 1; }

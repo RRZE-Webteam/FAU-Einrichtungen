@@ -4,7 +4,7 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'optiontable-version'		=> 18,
+    'optiontable-version'		=> 21,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -59,7 +59,7 @@ $defaultoptions = array(
     'start_title_videoportal_socialmedia'   => __('Videoportal','fau'),
     'start_title_videoportal_url'	    => 'http://video.fau.de',
 
-    'default_submenuthumb_src'		=>  get_fau_template_uri().'/img/default-submenuthumb.png',
+    'default_submenuthumb_src'		=>  get_fau_template_uri().'/img/thumbnail-siegel-faulogo-menu.gif',
     'default_submenu_spalten'		=> 4,
     'default_submenu_entries'		=> 5,
     'menu_fallbackquote_show_excerpt'	=> 1,
@@ -185,7 +185,7 @@ $defaultoptions = array(
     'default_anleser_excerpt_length'=> 300,
     'default_search_excerpt_length' => 300,
     
-    'default_postthumb_src'	    => get_fau_template_uri().'/img/default-postthumb.png',
+    'default_postthumb_src'	    => get_fau_template_uri().'/img/thumbnail-siegel-faulogo.gif',
 
     'default_postthumb_always'	    => 1,
 
