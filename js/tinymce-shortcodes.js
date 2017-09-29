@@ -6,7 +6,7 @@
 	    type: 'menuitem',
 	    text: 'Accordion einfügen',
 	    onclick: function() {
-	    	editor.insertContent('[collapsibles]<br>[collapse title="Name" color=""]<br>Hier der Text<br>[/collapse]<br>[collapse title="Name" color=""]<br>Hier der Text<br>[/collapse]<br>[/collapsibles]');
+	    	editor.insertContent('[collapsibles]<br>[collapse title="Titel Accordion 1" name="sprungmarke1"]<br>Hier der Text<br>[/collapse]<br>[collapse title="Titel Accordion 2" name="sprungmarke2"]<br>Hier der Text<br>[/collapse]<br>[/collapsibles]');
 	    }
 	});
 	menuItems.push({
