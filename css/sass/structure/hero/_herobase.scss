@@ -7,7 +7,7 @@
     transition: none;
     
     @include placeholder(#fff);	
-    @include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% 280px);
+    @include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% bottom);
    
 	
 	h1, h2, h3, h4, p {

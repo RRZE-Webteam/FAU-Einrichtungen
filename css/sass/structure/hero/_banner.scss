@@ -3,7 +3,7 @@
 /*-----------------------------------------------------------------------------------*/
 
 #hero.hero-banner {
-	    @include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% 20%);
+	    @include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat left 95% bottom);
 	   height: auto;
 	    margin-bottom: 30px;
 	    padding: 0;   

@@ -3,17 +3,6 @@
 /*-----------------------------------------------------------------------------------*/
 
 
-	/*
-	li {
-    		@include no-list;
-		font-size: 13px;
-		padding-left: 20px;
-		padding-bottom: 5px;
-		:before {
-		    display: table-cell;
-		}		
-	}
-	*/
 .hero-navigation {
     ul {
 		@include no-list;
