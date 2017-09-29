@@ -295,7 +295,7 @@ jQuery(document).ready(function($) {
 		event.preventDefault();
 		$('body').toggleClass('search-toggled');	
 		$('#search-toggle').attr('aria-expanded', 'true');
-		$(":input[name=s]").focus();
+		$("#search-header :input[name=s]").focus();
 	});
 
 
