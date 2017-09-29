@@ -139,7 +139,7 @@
     
     @media (min-width: $screen-sm) {
 	display: inline;
-	margin: 0;
+	margin: 0 0 0 -4px;
 	text-align: left;
 	
 	.fauorg-home & .fauhome {

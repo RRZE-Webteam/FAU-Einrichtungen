@@ -101,6 +101,7 @@ jQuery(document).ready(function($) {
 
 	function openAnchorAccordion() {
 	    if (window.location.hash) {
+                var hashstr = window.location.hash;
 		var identifier = window.location.hash.split('_')[0];
 		var inpagenum = window.location.hash.split('_')[1];
 		if (identifier == '#collapse') {
@@ -123,11 +124,26 @@ jQuery(document).ready(function($) {
 
 			var offset = $target.offset(); 
 			var $scrolloffset = offset.top - 220;	
-			 $('html,body').animate({scrollTop: $scrolloffset},'slow');
+			$('html,body').animate({scrollTop: $scrolloffset},'slow');
 		    }
 		   
 		 } else {
-		     
+                    var identifier = window.location.hash.split('#')[1];
+                    var anchor = encodeURIComponent(identifier);     
+                    var $target = $('a[name="' + anchor+ '"]');   
+			if ($target.closest('.accordion').parent().closest('.accordion-group')) {
+			    $upper = $target.closest('.accordion-group');
+			    $upper.find('.accordion-toggle').addClass('active');
+			    $upper.find('.accordion-body').show();
+			    $upper.find('.accordion-toggle').children().find('.accordion-toggle').removeClass('active');
+			    $upper.find('.accordion-body').children().find('.accordion-body').hide();
+                            $target.addClass('active');
+                            $target.show();
+                            var offset = $target.offset(); 
+                            var $scrolloffset = offset.top - 220;	
+                            $('html,body').animate({scrollTop: $scrolloffset},'slow');
+                     }
+                     
 		 }
 	    }
 	}
