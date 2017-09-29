@@ -70,8 +70,10 @@
 	$classes[] = 'fauorg-unterorg';
     }
 
-    
-    
+    $header_image = get_header_image();
+    if (empty( $header_image ) ) {	
+	$classes[] = 'nologo';
+    }
     return $classes;
  }
  add_filter( 'body_class', 'fau_body_class' );

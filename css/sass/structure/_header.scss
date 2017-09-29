@@ -54,6 +54,11 @@
 	    .header-menu {
 		height: 37px;
 		display: block;
+		
+		#nav {
+		    margin-left: -10px;
+		} 
+		
 	    }
 	 }
 	 .visiblelogo {
@@ -70,16 +75,12 @@
     
     @media (min-width: $screen-md) {
 	.row {    
-	    height: 65px;
+	    height: 75px;
 	    .branding {
-		text-align: right;
 		display: table-cell;
 		float: none;
-		width: auto;
-                
-                h1 span, h1 a {
-                    height: 71px;
-                }
+		width: 240px;
+		vertical-align: bottom;
 	    } 
 	    .header-menu {
 		float: none;
@@ -87,18 +88,19 @@
 		vertical-align: bottom;
 	    }
 	 }
+	
     }
     
 
  }
-  .js #header {
-	@media (max-width: $screen-sm - 1) {
-	    img {
-		 @include hideout();
-		 
-	    }
+.js #header {
+    @media (max-width: $screen-sm - 1) {
+	img {
+	     @include hideout();
+
 	}
-    } 
+    }
+} 
  
  
 #logo {	
@@ -113,33 +115,24 @@
 	    }
 	    a {
 		color: $colorPrimary;
-		text-decoration: none;
-		 &:hover,
-		 &:focus {
-		    @include border-radius(4px);
-		    background-color: lighten($colorHover, 5%);
-		    color: white;
-		}	
+		text-decoration: none;	
 	    } 		
 	    @media (max-width: $screen-sm - 1) {
 		color: #fff;
 		a {
 		    color: #fff;
 		}
-	    }
-	    
-	    
+	    } 
+	}
+	.nologo &.branding {
+		padding-bottom: 3px;
+	 
 	}
 	img {
 	   max-height: 85px;
 	   width: 240px;
 	   max-width: inherit;
-	   
-	    &:hover,
-	    &:focus {
-		 background-color: white;
-		 color:  $colorPrimary;
-	    }
+	   margin-bottom: 10px;
 		
 	}
 }
