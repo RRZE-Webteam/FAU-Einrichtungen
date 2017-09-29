@@ -7,13 +7,12 @@
     transition: none;
     
     @include placeholder(#fff);	
-    @include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% 280px);
+    @include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% bottom);
    
 	
 	h1, h2, h3, h4, p {
 		font-weight: normal;
 		color: #fff;
-		margin: 10px 0;
 		
 	}
 	h1 {
@@ -22,20 +21,7 @@
 	    padding-top: 0px;
 	}
 
-	p.description {
-	    font-weight: normal;
-	    color: #fff;
-	    font-size: 18px;
-	    line-height: 26px;
-	    display: none;
-	    
-	     @media (min-width: $screen-xs) { 
 	
-		display: inline-block;
-	
-	    }
-	    
-	}
 	
 	a {
 		color: #fff;
@@ -47,9 +33,6 @@
 	}
 	.flyout-toggled & {
 		opacity: 0.3;
-	}
-	.infobar {
-	    padding-top: 5px;
 	}
 
   
@@ -72,11 +55,12 @@
 	    width: 45%;
 	}
     }
+    
+    
     margin-top: 0;
     padding-top: 0;
-	
-   
-   
+    
+
     
     @media (min-width: $screen-sm) {
 	padding-bottom: 10px;

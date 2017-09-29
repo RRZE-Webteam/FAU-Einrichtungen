@@ -4,12 +4,12 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'optiontable-version'		=> 18,
+    'optiontable-version'		=> 21,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-    'js-version'			=> '1.7',
+    'js-version'			=> '1.8',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
     'website_type'			=> 2,
 	// website_type: 
@@ -45,7 +45,7 @@ $defaultoptions = array(
     'src-fallback-slider-image'		=> get_fau_template_uri().'/img/slider-fallback.jpg',
     'slider-category'			=> 'header',
     'slider-catid'			=> 1,    
-    'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.js',
+    'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.min.js',
     'src-pluginsjs'			=> get_fau_template_uri() . '/js/libs/plugins.min.js',
     'default_slider_excerpt_length'	=> 240,
     'start_header_count'		=> 5,
@@ -59,7 +59,7 @@ $defaultoptions = array(
     'start_title_videoportal_socialmedia'   => __('Videoportal','fau'),
     'start_title_videoportal_url'	    => 'http://video.fau.de',
 
-    'default_submenuthumb_src'		=>  get_fau_template_uri().'/img/default-submenuthumb.png',
+    'default_submenuthumb_src'		=>  get_fau_template_uri().'/img/thumbnail-siegel-faulogo-menu.gif',
     'default_submenu_spalten'		=> 4,
     'default_submenu_entries'		=> 5,
     'menu_fallbackquote_show_excerpt'	=> 1,
@@ -185,7 +185,7 @@ $defaultoptions = array(
     'default_anleser_excerpt_length'=> 300,
     'default_search_excerpt_length' => 300,
     
-    'default_postthumb_src'	    => get_fau_template_uri().'/img/default-postthumb.png',
+    'default_postthumb_src'	    => get_fau_template_uri().'/img/thumbnail-siegel-faulogo.gif',
 
     'default_postthumb_always'	    => 1,
 
@@ -289,6 +289,9 @@ function fau_initoptions() {
 	
     } else {
         $newoptions = $defaultoptions;
+	if (!fau_empty(get_bloginfo( 'title' ))) {
+	    $newoptions['breadcrumb_root'] = get_bloginfo( 'title' );
+	}
     }       
     
     $theme_data = wp_get_theme();

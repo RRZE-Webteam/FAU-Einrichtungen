@@ -126,6 +126,8 @@ jQuery(document).ready(function($) {
 			 $('html,body').animate({scrollTop: $scrolloffset},'slow');
 		    }
 		   
+		 } else {
+		     
 		 }
 	    }
 	}
@@ -207,8 +209,7 @@ jQuery(document).ready(function($) {
 		$(this).closest('.has-sub').children('ul').slideToggle();
 	});
 
-	
-	
+
 	// Main Menu
 	// Keyboard-navigation, remove and set focus class on focus-change
 	$('a').not($('#nav > li div a')).focus(function() {
@@ -294,7 +295,7 @@ jQuery(document).ready(function($) {
 		event.preventDefault();
 		$('body').toggleClass('search-toggled');	
 		$('#search-toggle').attr('aria-expanded', 'true');
-		$(":input[name=s]").focus();
+		$("#search-header :input[name=s]").focus();
 	});
 
 

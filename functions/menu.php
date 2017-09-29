@@ -465,6 +465,8 @@ function fau_breadcrumb($lasttitle = '') {
   $home		= $options['breadcrumb_root']; // __( 'Startseite', 'fau' ); // text for the 'Home' link
   $before	= $options['breadcrumb_beforehtml']; // '<span class="current">'; // tag before the current crumb
   $after	= $options['breadcrumb_afterhtml']; // '</span>'; // tag after the current crumb
+  $showcurrent	= 0;
+  
   $pretitletextstart   = '<span>';
   $pretitletextend     = '</span>';
   
@@ -506,19 +508,23 @@ function fau_breadcrumb($lasttitle = '') {
 	    $post_type = get_post_type_object(get_post_type());
 	    $slug = $post_type->rewrite;
 	    echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>' .$delimiter;
-	    echo $before . get_the_title() . $after; 
+	    if ($showcurrent) {
+		echo $before . get_the_title() . $after;
+	    }
 	} else {
 	    
-	$cat = get_the_category(); 
-	if ($options['breadcrumb_uselastcat']) {
-	    $last = array_pop($cat);
-	} else {
-	    $last = $cat[0];
-	}
-	$catid = $last->cat_ID;
+	    $cat = get_the_category(); 
+	    if ($options['breadcrumb_uselastcat']) {
+		$last = array_pop($cat);
+	    } else {
+		$last = $cat[0];
+	    }
+	    $catid = $last->cat_ID;
 
-	echo get_category_parents($catid, TRUE,  $delimiter );
-	echo $before . get_the_title() . $after;
+	    echo get_category_parents($catid, TRUE,  $delimiter );
+	    if ($showcurrent) {
+		echo $before . get_the_title() . $after;
+	    }
 
 	} 
     } elseif ( !is_single() && !is_page() && !is_search() && get_post_type() != 'post' && !is_404() ) {
@@ -527,10 +533,14 @@ function fau_breadcrumb($lasttitle = '') {
     } elseif ( is_attachment() ) {
 	$parent = get_post($post->post_parent);
 	echo '<a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a>'. $delimiter;
-	echo $before . get_the_title() . $after;
+	if ($showcurrent) {
+	    echo $before . get_the_title() . $after;
+	}
+	
     } elseif ( is_page() && !$post->post_parent ) {
-	echo $before . get_the_title() . $after;
- 
+	if ($showcurrent) {
+	    echo $before . get_the_title() . $after;
+	}
     } elseif ( is_page() && $post->post_parent ) {
 	$parent_id  = $post->post_parent;
 	$breadcrumbs = array();
@@ -541,7 +551,9 @@ function fau_breadcrumb($lasttitle = '') {
 	}
 	$breadcrumbs = array_reverse($breadcrumbs);
 	foreach ($breadcrumbs as $crumb) echo $crumb . $delimiter;
-	echo $before . get_the_title() . $after; 
+	if ($showcurrent) {
+	    echo $before . get_the_title() . $after; 
+	}
     } elseif ( is_search() ) {
 	if (isset($lasttitle) && (strlen(trim($lasttitle))>1)) {
 	    echo $before . $lasttitle. $after; 

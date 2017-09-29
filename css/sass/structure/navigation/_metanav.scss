@@ -120,7 +120,8 @@
 	margin-left: -15px;
     }
 
-    li.fauhome, li.facultyhome {
+    li.fauhome, 
+    li.facultyhome {
 	@include transition(background, 0.2s ease-out);
     }
     li.fauhome:hover, li.fauhome:focus, 
@@ -140,10 +141,15 @@
 	display: inline;
 	margin: 0;
 	text-align: left;
+	
+	.fauorg-home & .fauhome {
+	    // Zeige auf der FAU-Website selbst den Logolink in der Meta
+	    // nicht an, wenn die Darstellung größer gleich als Tablet ist.
+	    display: none;
+	}
     }
-    
-    
 }
+
 
 
 
@@ -179,9 +185,11 @@
 	
 	
     }
+     #meta-nav {
+	    padding: 10px 0;
+     }
+    
     .cloned-meta-links {
-	padding-left: 15px;
-	padding-right: 15px;
 	margin-bottom: 0px;
     }
     .cloned-meta-links, 

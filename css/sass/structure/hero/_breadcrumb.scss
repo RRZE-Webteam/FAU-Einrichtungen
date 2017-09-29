@@ -4,10 +4,13 @@
 
 #hero {
     &.hero-small {
-	@include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% 20%);
+	@include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% bottom);
 	
 	h1 {
-	    padding: 0 0 0 15px;
+	    padding: 0;
+	   
+		margin-left: 0;
+	  
 	}
 
 	@media (min-width: $screen-sm ) {

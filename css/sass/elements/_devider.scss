@@ -1,10 +1,55 @@
 /*-----------------------------------------------------------------------------------*/
 /* Devider
 /*-----------------------------------------------------------------------------------*/
+hr {
+	position: relative;
+	clear: both;
+	background: #fff;
+	border: none;
+	outline: none;
+	display: none;
+	
+	height: 20px;
+	margin: 10px 10px 30px;
+	
+	
+	@media (min-width: $screen-xxs) {
+	    display: block;
+	    margin: 10px 50px 30px;
+	    height: 20px;	
+	}
+
+	
+	&.big,
+	.page-template-page-start &,
+	.home & {
+	   
+	    @media (min-width: $screen-sm) {
+		height: 60px;
+		margin-bottom: 10px
+	    }
+	}
+	@include box-shadow(0 10px 10px -10px $colorStandardHellgrau inset);
+	
+	&.line {
+	    height: 1px;
+	    @include linear-gradient-three(transparent 0%,$colorStandardHellgrau 50%,transparent 100%);  
+	}
+	&.line.big {
+	     margin-bottom: 60px
+	}
+}
+.page-template-page-start hr::after,
+.home hr::after {
+    top: 30px;
+    @include box-shadow(0 0 30px $colorStandardHellgrau);
+}
+
+/* Old hack, works only in ff, ie, opera 
 
 hr {
 	position: relative;
-	z-index: 10;
+	 z-index: 10;
 	clear: both;
 	background: #fff;
 	border: none;
@@ -60,3 +105,4 @@ hr {
 }
 
 
+*/

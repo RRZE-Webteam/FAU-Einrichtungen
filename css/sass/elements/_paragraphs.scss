@@ -29,6 +29,7 @@ p {
 
 	
 	#content .span4 .widget &,
+	#content .startpage-sidebar .widget &,
 	#content .sidebar-inline .widget & {
 	    @include px2rem($font-size-sidebar);
 	}

@@ -46,7 +46,7 @@ get_header(); ?>
 					<?php 
 					$headline = get_post_meta( $post->ID, 'headline', true );									
 					if (!fau_empty($headline)) {
-					    echo '<h2>'.$headline.'</h2>'; 					    
+					    echo '<h2 class="subtitle">'.$headline.'</h2>'; 					    
 					}
 
 					?>

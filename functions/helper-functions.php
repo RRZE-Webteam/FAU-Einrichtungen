@@ -508,23 +508,3 @@ if ( ! function_exists( 'fau_save_standard' ) ) :
 
  endif;    
 
-/*-----------------------------------------------------------------------------------*/
-/* Sanitize string with trimming at first
-/*-----------------------------------------------------------------------------------*/
-if ( ! function_exists( 'fau_san' ) ) :  
-    function fau_san($s){
-	return filter_var(trim($s), FILTER_SANITIZE_STRING);
-    }
-endif;    
-
-
-/*-----------------------------------------------------------------------------------*/
-/* Empty function, which strips out empty chars
-/*-----------------------------------------------------------------------------------*/
-if ( ! function_exists( 'fau_empty' ) ) :  
-    function fau_empty($string){ 
-	 $string = trim($string); 
-	 if(!is_numeric($string)) return empty($string); 
-	 return FALSE; 
-    } 
-endif;    

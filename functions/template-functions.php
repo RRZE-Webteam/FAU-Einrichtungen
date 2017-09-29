@@ -70,8 +70,10 @@
 	$classes[] = 'fauorg-unterorg';
     }
 
-    
-    
+    $header_image = get_header_image();
+    if (empty( $header_image ) ) {	
+	$classes[] = 'nologo';
+    }
     return $classes;
  }
  add_filter( 'body_class', 'fau_body_class' );
@@ -521,7 +523,9 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	
 	$output .= '<div class="row">';  	
 	if ((has_post_thumbnail( $post->ID )) ||($options['default_postthumb_always']))  {
-	    $output .= "\t\t".'<div aria-hidden="true" role="presentation" tabindex="-1" class="col-xs-5 col-sm-4" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">'; 
+	    
+	    $output .= '<div class="thumbnailregion">'; 
+	    $output .= '<div aria-hidden="true" role="presentation" tabindex="-1" class="passpartout" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">'; 
 	    $output .= '<a href="'.$link.'" class="news-image"';
 	    if ($external) {
 		$output .= ' ext-link';
@@ -553,9 +557,10 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	    $output .= '<meta itemprop="width" content="'.$imgwidth.'">';
 	    $output .= '<meta itemprop="height" content="'.$imgheight.'">';		    
 	    $output .= '</div>'; 
-	    $output .= '<div class="col-xs-7 col-sm-8">'; 
+	    $output .= '</div>'; 
+	    $output .= '<div class="teaserregion">'; 
 	} else {
-	    $output .= '<div class="col-xs-12">'; 
+	    $output .= '<div class="fullwidthregion">'; 
 	}
 	$output .= '<p itemprop="description">'; 
 	$cuttet = false;
@@ -564,7 +569,6 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	   $abstract =  fau_custom_excerpt($post->ID,$options['default_anleser_excerpt_length'],false,'',true);
 	}
 	$output .= $abstract;
-	$output .= $link;
 	$output .= fau_create_readmore($link,get_the_title($post->ID),$external,true);	
 	$output .= '</p>'; 
 	$output .= '</div>'; 
@@ -575,6 +579,64 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	$output .= "</article>";	
     }
     return $output;
+}
+/*-----------------------------------------------------------------------------------*/
+/*  Create String with custom excerpt
+/*-----------------------------------------------------------------------------------*/
+function fau_custom_excerpt($id = 0, $length = 0, $withp = true, $class = '', $withmore = false, $morestr = '', $continuenextline=false) {
+  global $options;
+    
+    if ($length==0) {
+	$length = $options['default_excerpt_length'];
+    }
+    
+    if (fau_empty($morestr)) {
+	$morestr = $options['default_excerpt_morestring'];
+    }
+    
+    $excerpt = get_the_excerpt($id); // get_post_field('post_excerpt',$id);
+ 
+    if (mb_strlen(trim($excerpt))<5) {
+	$excerpt = get_post_field('post_content',$id);
+    }
+
+    $excerpt = preg_replace('/\s+(https?:\/\/www\.youtube[\/a-z0-9\.\-\?&;=_]+)/i','',$excerpt);
+    $excerpt = strip_shortcodes($excerpt);
+    $excerpt = strip_tags($excerpt, $options['custom_excerpt_allowtags']); 
+  
+  if (mb_strlen($excerpt)<5) {
+      $excerpt = '<!-- '.__( 'Kein Inhalt', 'fau' ).' -->';
+  }
+    
+  $needcontinue =0;
+  if (mb_strlen($excerpt) >  $length) {
+	$str = mb_substr($excerpt, 0, $length);
+	$needcontinue = 1;
+  }  else {
+	$str = $excerpt;
+  }
+	    
+    $the_str = '';
+    if ($withp) {
+	$the_str .= '<p';
+	if (!fau_empty($class)) {
+	    $the_str .= ' class="'.$class.'"';
+	}
+	$the_str .= '>';
+    }
+    $the_str .= $str;
+    
+    if (($needcontinue==1) && ($withmore==true)) {
+	    if ($continuenextline) {
+		  $the_str .= '<br>';
+	    }
+	    $the_str .= $morestr;
+    }
+  
+    if ($withp) {
+	$the_str .= '</p>';
+    }
+  return $the_str;
 }
 
 /*-----------------------------------------------------------------------------------*/

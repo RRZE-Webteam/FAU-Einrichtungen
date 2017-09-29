@@ -41,12 +41,24 @@
 	}
 	.row {    
 	    height: 112px;
+	    
+	    .branding, 
+	    .header-menu {
+		padding-left:  ($grid-gutter-width / 2);
+		padding-right: ($grid-gutter-width / 2);
+	    }
+	    
 	    .branding {
 		height: 75px;
 	    }
 	    .header-menu {
 		height: 37px;
 		display: block;
+		
+		#nav {
+		    margin-left: -10px;
+		} 
+		
 	    }
 	 }
 	 .visiblelogo {
@@ -63,31 +75,32 @@
     
     @media (min-width: $screen-md) {
 	.row {    
-	    height: 65px;
+	    height: 75px;
 	    .branding {
-		 text-align: right;
-		 display: table-cell;
-		 float: none;
-		 width: auto;
-	    }
+		display: table-cell;
+		float: none;
+		width: 240px;
+		vertical-align: bottom;
+	    } 
 	    .header-menu {
 		float: none;
 		display: table-cell;
 		vertical-align: bottom;
 	    }
 	 }
+	
     }
     
 
  }
-  .js #header {
-	@media (max-width: $screen-sm - 1) {
-	    img {
-		 @include hideout();
-		 
-	    }
+.js #header {
+    @media (max-width: $screen-sm - 1) {
+	img {
+	     @include hideout();
+
 	}
-    } 
+    }
+} 
  
  
 #logo {	
@@ -102,33 +115,24 @@
 	    }
 	    a {
 		color: $colorPrimary;
-		
-		 &:hover,
-		 &:focus {
-		    @include border-radius(4px);
-		    background-color: lighten($colorHover, 5%);
-		    color: white;
-		}	
+		text-decoration: none;	
 	    } 		
 	    @media (max-width: $screen-sm - 1) {
 		color: #fff;
 		a {
 		    color: #fff;
 		}
-	    }
-	    
-	    
+	    } 
+	}
+	.nologo &.branding {
+		padding-bottom: 3px;
+	 
 	}
 	img {
 	   max-height: 85px;
 	   width: 240px;
 	   max-width: inherit;
-	   
-	    &:hover,
-	    &:focus {
-		 background-color: white;
-		 color:  $colorPrimary;
-	    }
+	   margin-bottom: 10px;
 		
 	}
 }

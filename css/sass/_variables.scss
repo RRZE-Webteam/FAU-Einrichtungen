@@ -49,7 +49,7 @@ $PalettonHellste:	desaturate(lighten($colorPrimary, 73%), 75%);
 $PalettonHeller:	desaturate(lighten($colorPrimary, 69%), 75%);
 $PalettonDunkler:	desaturate(lighten($colorPrimary, 10%), 90%);
 $PalettonDunkelste:	desaturate(lighten($colorPrimary, 10%), 40%);
-$siegelurl: '../img/siegel-zuv.png';  
+$siegelurl: '../img/siegel-zuv-schnitt.png';  
 $errorimage:  '../img/friedrich-alexander.gif';  
 
 $colorPrimaryHero:	    $colorPrimary;
@@ -60,7 +60,7 @@ $colorPrimaryHero:	    $colorPrimary;
     $PalettonHeller:	#bfd6f5; // #08C0E7;
     $PalettonDunkler:	#026480;
     $PalettonDunkelste:	#014e63;
-    $siegelurl: '../img/siegel-medfak.png';
+    $siegelurl: '../img/siegel-medfak-schnitt.png';
 
  } @else if $farbfamilie == 'phil' {
     $colorPrimary: $colorPhilFak;
@@ -68,21 +68,21 @@ $colorPrimaryHero:	    $colorPrimary;
     $PalettonHeller:	#d9c689;
     $PalettonDunkler:	#805000;
     $PalettonDunkelste:	#553500;
-    $siegelurl: '../img/siegel-philfak.png';   
+    $siegelurl: '../img/siegel-philfak-schnitt.png';   
  }  @else if $farbfamilie == 'nat' {
     $colorPrimary: $colorNatFak;
     $PalettonHellste:	#e5efea;
     $PalettonHeller:	#aacfbd;
     $PalettonDunkler:	#006e53;
     $PalettonDunkelste:	#00533f;
-    $siegelurl: '../img/siegel-natfak.png';     
+    $siegelurl: '../img/siegel-natfak-schnitt.png';     
  }  @else if $farbfamilie == 'rw' {
     $colorPrimary: $colorRwFak;    
     $PalettonHellste:	#ede7de; // #C9A8AF;
     $PalettonHeller:	#c5ac94; // #bd7d8b;
     $PalettonDunkler:	#690013;
     $PalettonDunkelste:	#42000c;
-    $siegelurl: '../img/siegel-rwfak.png';   
+    $siegelurl: '../img/siegel-rwfak-schnitt.png';   
 
  }  @else if $farbfamilie == 'tf' {
     $colorPrimary: $colorTechFak;    
@@ -90,14 +90,14 @@ $colorPrimaryHero:	    $colorPrimary;
     $PalettonHeller:	#d2d5d7; // #8e949a;
     $PalettonDunkler:	#53606b;
     $PalettonDunkelste:	#3b4956;
-    $siegelurl: '../img/siegel-techfak.png';   
+    $siegelurl: '../img/siegel-techfak-schnitt.png';   
  } @else if $farbfamilie == 'zuv' {
     $colorPrimary: $colorZUV;
     $PalettonHellste:	#dde5f0;
     $PalettonHeller:	#8fb1ef;
     $PalettonDunkler:	#24598f;
     $PalettonDunkelste:	#1f4c7a;
-    $siegelurl: '../img/siegel-zuv.png';     
+    $siegelurl: '../img/siegel-zuv-schnitt.png';     
  }
     
 
@@ -164,11 +164,12 @@ $font-size-hero-slider-copyright: 14;
 $font-size-textbuttons:		14;
 $font-size-linkicon:		13;
 $font-size-hero-links:		13;
+$font-size-hero-bannertext:	18;
 
 $font-size-content-linkicon:	10;
 $font-size-content-listitem:	15;
 
-$font-size-sidebar:		14;
+$font-size-sidebar:		13;
 $font-size-sidebar-listitem:    $font-size-sidebar;
 $font-size-sidebar-events:	$font-size-sidebar;
 $font-size-sidebar-events-month:    9;
@@ -182,11 +183,13 @@ $font-size-nav-flyout-items:	15;
 
 $font-size-h1:			32;
 $font-size-h1-mobilebranding:	24;
+$font-size-h1-banner:		28;
 
 $font-size-h2:			24;
 $font-size-h2-small:		22;
 $font-size-h3:			20; // 18
 $font-size-h3-small:		19;
+$font-size-h3-hero:		18;
 $font-size-h4:			18; // 15
 $font-size-h4-small:		17;
 $font-size-h5:			16; // 15 
@@ -194,8 +197,8 @@ $font-size-h6:			$font-size-base;
 
 $font-size-h3-contentmenu:	16;
 
-$font-size-quotes:		$font-size-base;
-$font-size-quotes-cites:	($font-size-base - 1);    
+$font-size-quotes:		18;
+$font-size-quotes-cites:	($font-size-quotes - 1);    
 
 $font-size-content-meta:	14;
 $font-size-pagination-h3:	$font-size-content-meta;
@@ -222,8 +225,9 @@ $break-1700:	1760px;
 // for 4k screens (2200px and more)
 $break-2200:	2200px;
 
-$screen-xl:	1400px;
-$screen-xxl:	1700px;
+$screen-xl:	1760px;
+$screen-xxl:	2400px;
+$screen-xxs:	320px;
 
 $wordpress-adminbar-break:	    783px;
 // WordPress Adminbar breaks to small
@@ -238,7 +242,7 @@ $screen-xl-max:	 ($screen-xxl - 1);
 $screen-xxl-min:    $screen-xxl;
 
 $container-lg:	    970px;
-$container-xl:	    1100px;
+$container-xl:	    1000px;
 $container-xxl:	    1200px;	 
 
 // Bootstrap Adjustments
