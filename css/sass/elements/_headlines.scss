@@ -115,8 +115,7 @@ h3 {
 	.search-sidebar &,
 	.sidebar-outline &, 
 	.widget &,
-	.person &,
-	.subpages-menu & {
+	.person & {
 	    @include px2rem($font-size-h3-small);
 	}
 	

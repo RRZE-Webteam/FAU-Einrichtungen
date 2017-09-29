@@ -8,21 +8,26 @@ hr {
 	border: none;
 	outline: none;
 	display: none;
+	
+	height: 20px;
+	margin: 10px 10px 30px;
+	
+	
 	@media (min-width: $screen-xxs) {
 	    display: block;
 	    margin: 10px 50px 30px;
 	    height: 20px;	
 	}
 
-	height: 40px;
-	margin: 10px 10px 30px;
-	
 	
 	&.big,
 	.page-template-page-start &,
 	.home & {
-	    height: 60px;
-	    margin-bottom: 60px
+	   
+	    @media (min-width: $screen-sm) {
+		height: 60px;
+		margin-bottom: 10px
+	    }
 	}
 	@include box-shadow(0 10px 10px -10px $colorStandardHellgrau inset);
 	
