@@ -289,6 +289,9 @@ function fau_initoptions() {
 	
     } else {
         $newoptions = $defaultoptions;
+	if (!fau_empty(get_bloginfo( 'title' ))) {
+	    $newoptions['breadcrumb_root'] = get_bloginfo( 'title' );
+	}
     }       
     
     $theme_data = wp_get_theme();
