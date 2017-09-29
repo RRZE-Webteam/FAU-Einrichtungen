@@ -508,19 +508,23 @@ function fau_breadcrumb($lasttitle = '') {
 	    $post_type = get_post_type_object(get_post_type());
 	    $slug = $post_type->rewrite;
 	    echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>' .$delimiter;
-	    echo $before . get_the_title() . $after; 
+	    if ($showcurrent) {
+		echo $before . get_the_title() . $after;
+	    }
 	} else {
 	    
-	$cat = get_the_category(); 
-	if ($options['breadcrumb_uselastcat']) {
-	    $last = array_pop($cat);
-	} else {
-	    $last = $cat[0];
-	}
-	$catid = $last->cat_ID;
+	    $cat = get_the_category(); 
+	    if ($options['breadcrumb_uselastcat']) {
+		$last = array_pop($cat);
+	    } else {
+		$last = $cat[0];
+	    }
+	    $catid = $last->cat_ID;
 
-	echo get_category_parents($catid, TRUE,  $delimiter );
-	echo $before . get_the_title() . $after;
+	    echo get_category_parents($catid, TRUE,  $delimiter );
+	    if ($showcurrent) {
+		echo $before . get_the_title() . $after;
+	    }
 
 	} 
     } elseif ( !is_single() && !is_page() && !is_search() && get_post_type() != 'post' && !is_404() ) {
