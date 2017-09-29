@@ -71,6 +71,12 @@ img {
 		    border: 1px solid black;
 		    @include border-radius(2px);
 		}
+                &.borderless {
+		    border: none;
+		}
+                &.noshadow {
+		   box-shadow: none;
+		}
 		&.error-siegel {
 		    @include box-shadow(none);
 		    margin: 0 auto;
