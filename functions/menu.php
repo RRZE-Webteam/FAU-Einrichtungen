@@ -299,6 +299,8 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                     $output .= '</ul>';
                } elseif(($this->level == 2) && ($this->count[$this->level] == ($this->maxsecondlevel+1)) && ($this->showsub == 1)) {
                     $output .= '</ul>';
+               } elseif ($this->level == 2) {
+                    $output .= '</ul>';
                }
               
                 $this->level--;
