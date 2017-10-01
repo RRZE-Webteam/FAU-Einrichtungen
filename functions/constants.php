@@ -19,7 +19,7 @@ $defaultoptions = array(
 	//  3 = Kooperationen 
 	// -1 = fau.de Portal (4 Spalter in Bühne, kein Link zur FAU. 
 	//                       Nur wählbar für definierte Domains)
-    'website_usefaculty'		=> 'nat',
+    'website_usefaculty'		=> '',
 	// phil, med, nat, rw, tf
 	// Setzt fest die Fakultät bei Wahl des Website-Types    
     'website_allow_fauportal'		=> array('www.fau.de',
