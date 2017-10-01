@@ -111,8 +111,7 @@
 			    text-decoration: none;
 			    display: table-cell;
 			    padding: 5px 12px;
-			    font-size: 13px;
-			    line-height: 16px;
+                            @include px2rem($font-size-link-contentmenu); 
 		    }
 
 		    a:hover, a:focus {
@@ -122,7 +121,7 @@
 	    }	
 		
 	}
-
+        .subpage-item:focus .portaltop,
 	.subpage-item:focus h3 {
 		background-color: $colorLightest;
 	}
