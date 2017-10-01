@@ -230,7 +230,7 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 /*-----------------------------------------------------------------------------------*/
 /* Create submenu icon/grid in content
 /*-----------------------------------------------------------------------------------*/
-function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $spalte = 0, $nothumbs = 0, $nodefthumbs = 0) {
+function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $nothumbs = 0, $nodefthumbs = 0) {
     global $options;
     
     
@@ -278,7 +278,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 	private $showsub = 1;
 	
 	
-	function __construct($menu,$showsub=1,$maxsecondlevel=5,$noshowthumb=0,$nothumbnailfallback=0) {	   
+	function __construct($menu,$showsub=1,$maxsecondlevel=6,$noshowthumb=0,$nothumbnailfallback=0) {	   
 	    $this->showsub              = $showsub;
 	    $this->maxsecondlevel       = $maxsecondlevel;
 	    $this->nothumbnail          = $noshowthumb;
@@ -295,8 +295,12 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 	}
 	
 	function end_lvl( &$output, $depth = 0, $args = array() ) {		
-               if ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1)
+               if ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1) {
                     $output .= '</ul>';
+               } elseif(($this->level == 2) && ($this->count[$this->level] == ($this->maxsecondlevel+1)) && ($this->showsub == 1)) {
+                    $output .= '</ul>';
+               }
+              
                 $this->level--;
 	}
 	
