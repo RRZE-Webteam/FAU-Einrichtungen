@@ -278,7 +278,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 	private $showsub = 1;
 	
 	
-	function __construct($menu,$showsub=1,$maxsecondlevel=5,$noshowthumb=0,$nothumbnailfallback=0) {	   
+	function __construct($menu,$showsub=1,$maxsecondlevel=6,$noshowthumb=0,$nothumbnailfallback=0) {	   
 	    $this->showsub              = $showsub;
 	    $this->maxsecondlevel       = $maxsecondlevel;
 	    $this->nothumbnail          = $noshowthumb;
