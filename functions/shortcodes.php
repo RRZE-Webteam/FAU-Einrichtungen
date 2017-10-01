@@ -6,80 +6,133 @@
 */
 
 class FAUShortcodes {
-
 	function __construct() {
 	   remove_filter( 'the_content', 'wpautop' );
-	   add_filter( 'the_content', 'wpautop' , 12);
+	   add_filter( 'the_content', 'wpautop' , 99);
 	   add_action( 'init', array( $this, 'add_shortcodes' ) ); 
 	}
 
 	function add_shortcodes() {
-		add_shortcode('assistant', array( $this, 'fau_assistant' ));
-		add_shortcode('organigram', array( $this, 'fau_organigram'));
-		
-		/*
-		 *  Accordion
-		 */
-		    add_shortcode('collapsibles', array( $this, 'bs_collapsibles' ));
-		    add_shortcode('accordion', array( $this, 'bs_collapsibles' ));
-		    add_shortcode('accordionsub', array( $this, 'bs_collapsibles' ));
-			// Define more as one shortcode name to allow nestet accordions
+            add_shortcode('assistant', array( $this, 'fau_assistant' ));
+            add_shortcode('organigram', array( $this, 'fau_organigram'));
 
-		    add_shortcode('collapse', array( $this, 'bs_collapse' ));
-		    add_shortcode('accordion-item', array( $this, 'bs_collapse' ));
-			// Define more as one shortcode name to allow nestet accordions	
+            /*
+             *  Accordion
+             */
+            add_shortcode('collapsibles', array( $this, 'bs_collapsibles' ));
+            add_shortcode('accordion', array( $this, 'bs_collapsibles' ));
+            add_shortcode('accordionsub', array( $this, 'bs_collapsibles' ));
+                // Define more as one shortcode name to allow nestet accordions
 
-		
-		// Paragraphes and content regions
-		add_shortcode('hr', array( $this, 'fau_hr'));
-		// Old Shortcodes for downwards compatibility
-		add_shortcode('alert', array( $this, 'absatzklasse_attention' ));
-		add_shortcode('attention', array( $this, 'absatzklasse_attention' ));
-		add_shortcode('hinweis', array( $this, 'absatzklasse_hinweis' ));
-		add_shortcode('baustelle', array( $this, 'absatzklasse_baustelle' ));
-		add_shortcode('plus', array( $this, 'absatzklasse_plus' ));
-		add_shortcode('minus', array( $this, 'absatzklasse_minus' ));
-		add_shortcode('question', array( $this, 'absatzklasse_question' ));	
-		
-		// New Shortcodes in defined syntax
-		add_shortcode('notice-alert', array( $this, 'absatzklasse_attention' ));
-		add_shortcode('notice-attention', array( $this, 'absatzklasse_attention' ));
-		add_shortcode('notice-hinweis', array( $this, 'absatzklasse_hinweis' ));
-		add_shortcode('notice-baustelle', array( $this, 'absatzklasse_baustelle' ));
-		add_shortcode('notice-plus', array( $this, 'absatzklasse_plus' ));
-		add_shortcode('notice-minus', array( $this, 'absatzklasse_minus' ));
-		add_shortcode('notice-question', array( $this, 'absatzklasse_question' ));	
-
-		
-		add_shortcode('notice-tipp', array( $this, 'absatzklasse_tipp' ));	
-		add_shortcode('notice-video', array( $this, 'absatzklasse_video' ));	
-		add_shortcode('notice-audio', array( $this, 'absatzklasse_audio' ));	
-		add_shortcode('notice-download', array( $this, 'absatzklasse_download' ));	
-		add_shortcode('notice-faubox', array( $this, 'absatzklasse_faubox' ));	
-
-		add_shortcode('notice', array( $this, 'fau_notice' ));	
-		
-		
-		// Ported and adapted by old bootstrap code
-		add_shortcode('button', array( $this, 'bs_button' ));    
-		add_shortcode('code', array( $this, 'bs_code' ));
-		add_shortcode('span', array( $this, 'bs_span' ));
-		add_shortcode('row', array( $this, 'bs_row' ));
-		add_shortcode('table', array( $this, 'bs_table' ));
-
-		add_shortcode('blogroll', array( $this, 'fau_shortcode_blogroll'));
-		add_shortcode('articlelist', array( $this, 'fau_shortcode_articlelist'));
-
-		add_shortcode( 'two_columns_one', array( $this, 'fau_shortcode_two_columns_one'));
-		add_shortcode( 'two_columns_one_last', array( $this, 'fau_shortcode_two_columns_one_last'));
-		add_shortcode( 'three_columns_one', array( $this, 'fau_shortcode_three_columns_one'));
-		add_shortcode( 'three_columns_one_last', array( $this, 'fau_shortcode_three_columns_one_last' ));
+            add_shortcode('collapse', array( $this, 'bs_collapse' ));
+            add_shortcode('accordion-item', array( $this, 'bs_collapse' ));
+                // Define more as one shortcode name to allow nestet accordions	
 
 
-    
+            // Paragraphes and content regions
+            add_shortcode('hr', array( $this, 'fau_hr'));
+            // Old Shortcodes for downwards compatibility
+            add_shortcode('alert', array( $this, 'absatzklasse_attention' ));
+            add_shortcode('attention', array( $this, 'absatzklasse_attention' ));
+            add_shortcode('hinweis', array( $this, 'absatzklasse_hinweis' ));
+            add_shortcode('baustelle', array( $this, 'absatzklasse_baustelle' ));
+            add_shortcode('plus', array( $this, 'absatzklasse_plus' ));
+            add_shortcode('minus', array( $this, 'absatzklasse_minus' ));
+            add_shortcode('question', array( $this, 'absatzklasse_question' ));	
+
+            // New Shortcodes in defined syntax
+            add_shortcode('notice-alert', array( $this, 'absatzklasse_attention' ));
+            add_shortcode('notice-attention', array( $this, 'absatzklasse_attention' ));
+            add_shortcode('notice-hinweis', array( $this, 'absatzklasse_hinweis' ));
+            add_shortcode('notice-baustelle', array( $this, 'absatzklasse_baustelle' ));
+            add_shortcode('notice-plus', array( $this, 'absatzklasse_plus' ));
+            add_shortcode('notice-minus', array( $this, 'absatzklasse_minus' ));
+            add_shortcode('notice-question', array( $this, 'absatzklasse_question' ));	
+
+
+            add_shortcode('notice-tipp', array( $this, 'absatzklasse_tipp' ));	
+            add_shortcode('notice-video', array( $this, 'absatzklasse_video' ));	
+            add_shortcode('notice-audio', array( $this, 'absatzklasse_audio' ));	
+            add_shortcode('notice-download', array( $this, 'absatzklasse_download' ));	
+            add_shortcode('notice-faubox', array( $this, 'absatzklasse_faubox' ));	
+
+            add_shortcode('notice', array( $this, 'fau_notice' ));	
+
+
+            // Ported and adapted by old bootstrap code
+            add_shortcode('button', array( $this, 'bs_button' ));    
+            add_shortcode('code', array( $this, 'bs_code' ));
+            add_shortcode('span', array( $this, 'bs_span' ));
+            add_shortcode('row', array( $this, 'bs_row' ));
+            add_shortcode('table', array( $this, 'bs_table' ));
+
+            // Blogroll und Artikellisten    
+            add_shortcode('blogroll', array( $this, 'fau_shortcode_blogroll'));
+            add_shortcode('articlelist', array( $this, 'fau_shortcode_articlelist'));
+
+            // Spalten    
+            add_shortcode( 'two_columns_one', array( $this, 'fau_shortcode_two_columns_one'));
+            add_shortcode( 'two_columns_one_last', array( $this, 'fau_shortcode_two_columns_one_last'));
+            add_shortcode( 'three_columns_one', array( $this, 'fau_shortcode_three_columns_one'));
+            add_shortcode( 'three_columns_one_last', array( $this, 'fau_shortcode_three_columns_one_last' ));
+
+            // Portalmenu 
+             add_shortcode( 'portalmenu', array( $this, 'fau_portalmenu'));
 	}
 	
-	
+
+        /*-----------------------------------------------------------------------------------*/
+        /* Portalmenus als Shortcode
+        /*-----------------------------------------------------------------------------------*/
+        function fau_portalmenu( $atts, $content = null) {       
+            extract(shortcode_atts(array(
+                'menu'          => '',
+                'showsubs'	=> true,
+                'nothumbs'	=> false,
+                'nofallback'    => false,            
+            ), $atts));
+            $out ='';
+            $menu = $menu ?  esc_attr( $menu ) : '';
+            $error = '<p class="box red-box">'.__("Es konnte kein Menu unter der angegebenen Bezeichnung gefunden werden",'fau').'</p>';
+            $error .= "name=$menu";
+            if (! fau_empty($menu)) { 
+                if ($menu == sanitize_key($menu)) {
+                    $term = get_term_by('id', $menu, 'nav_menu');
+                } else {
+                    $term = get_term_by('name', $menu, 'nav_menu');
+                }
+                if ($term===false) {
+                    $out = $error;
+                } else {
+                    $slug = $term->slug;     
+                    global $options;
+                    $subentries = $options['default_submenu_entries'];
+                    $spalte = $options['default_submenu_spalten'];
+                   
+                    $out .= '<div class="contentmenu" role="navigation">';   
+                    $out .= '<ul class="subpages-menu">';
+                    $outnav .= wp_nav_menu( array( 'menu' => $slug, 
+                        'echo'          => false, 
+                        'container'     => true, 
+                       'items_wrap'     => '%3$s', 
+                        'link_before'   => '', 
+                        'link_after'    => '',         
+                        'item_spacing'  => 'discard',
+                        'walker'        => new Walker_Content_Menu($submenu,$showsubs,$spalte,$nothumbs,$nofallback)));
+                    $out .= $outnav;
+                    $out .=  "</ul></div>";
+                    
+                    
+                }
+                
+                
+            } else {
+                $out =  $error;
+            }
+            return $out;
+        }
+        
+        
 	function fau_organigram( $atts, $content = null) {
 		extract(shortcode_atts(array(
 			"menu" => 'menu'
