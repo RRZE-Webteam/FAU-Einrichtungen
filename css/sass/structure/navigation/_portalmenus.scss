@@ -130,7 +130,9 @@
 
 .subpages-menu, 
 .helpermenus {
+    .portaltop,
     h3 {
+        display: block;
 	@include px2rem($font-size-h3-contentmenu);  
 	padding: 10px 15px 10px 0;
 	a {

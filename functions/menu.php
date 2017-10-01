@@ -252,12 +252,17 @@ function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $spalte = 0, $
     if ($subentries==0) {
 	$subentries = $options['default_submenu_entries'];
     }
-     if ($spalte==0) {
-	$spalte = $options['default_submenu_spalten'];
-    }
+
    
     echo '<div class="contentmenu" role="navigation">';   
-    wp_nav_menu( array( 'menu' => $slug, 'container' => false, 'items_wrap' => '%3$s', 'link_before' => '', 'link_after' => '', 'walker' => new Walker_Content_Menu($submenu,$subentries,$spalte,$nothumbs,$nodefthumbs)));
+   echo '<ul class="subpages-menu">';
+    wp_nav_menu( array( 'menu' => $slug, 
+        'container' => false, 
+        'items_wrap' => '%3$s', 
+        'link_before' => '', 
+        'link_after' => '', 
+        'walker' => new Walker_Content_Menu($menu,$submenu,$subentries,$nothumbs,$nodefthumbs)));
+   echo '</ul>';
     echo "</div>\n";
 
     return;
@@ -273,29 +278,26 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 	private $showsub = 1;
 	
 	
-	function __construct($showsub=1,$maxsecondlevel=5,$spalten=4,$noshowthumb=0,$nothumbnailfallback=0) {
-	    echo '<ul class="subpages-menu">';
-	    $this->showsub = $showsub;
-	    $this->maxsecondlevel = $maxsecondlevel;
-	    $this->maxspalten = $spalten;
-	    $this->nothumbnail = $noshowthumb;
-	    $this->nothumbnailfallback = $nothumbnailfallback;
+	function __construct($menu,$showsub=1,$maxsecondlevel=5,$noshowthumb=0,$nothumbnailfallback=0) {	   
+	    $this->showsub              = $showsub;
+	    $this->maxsecondlevel       = $maxsecondlevel;
+	    $this->nothumbnail          = $noshowthumb;
+	    $this->nothumbnailfallback  = $nothumbnailfallback;
+        }
+        function __destruct( ) {
+		// $output .= '</ul> <!-- destruct -->';
 	}
-	
-	function __destruct() {
-		echo '</ul>';
-	}
-	
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
-		parent::start_lvl($output, $depth, $args);
 		$this->level++;
-		
 		$this->count[$this->level] = 0;
+                if ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1)
+                    $output .= '<ul class="sub-menu">';         
 	}
 	
-	function end_lvl( &$output, $depth = 0, $args = array() ) {
-		parent::end_lvl($output, $depth, $args);
-		$this->level--;
+	function end_lvl( &$output, $depth = 0, $args = array() ) {		
+               if ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1)
+                    $output .= '</ul>';
+                $this->level--;
 	}
 	
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
@@ -313,7 +315,8 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 		}
 		$item_output = '';
 		// Only show elements on the first level and only five on the second level, but only if showdescription == FALSE
-		if($this->level == 1 || ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1)) {
+		if($this->level == 1 || 
+                        ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1)) {
 			$class_names = $value = '';
 			$externlink = false;
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
@@ -358,7 +361,6 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
 			if($this->level == 1) $atts['class'] = 'subpage-item';
 			
-		
 			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
 
 			$attributes = '';
@@ -371,57 +373,51 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 			
 			$item_output = $args->before;
 			if($post && $post->post_type == 'imagelink') {
-				$protocol  = get_post_meta( $item->object_id, 'protocol', true );
-				$link  = get_post_meta( $item->object_id, 'link', true );
-				$targeturl = get_post_meta( $item->object_id, 'fauval_imagelink_url', true );
-				
-				 if (empty($targeturl) && isset($protocol) && isset($link)) {
-				    $targeturl = $protocol.$link;
-				}
-				$externlink = true; 	
-				$link = '<a class="ext-link" data-wpel-link="internal"  href="'.$targeturl.'">';
+                            $protocol  = get_post_meta( $item->object_id, 'protocol', true );
+                            $link  = get_post_meta( $item->object_id, 'link', true );
+                            $targeturl = get_post_meta( $item->object_id, 'fauval_imagelink_url', true );
+
+                            if (empty($targeturl) && isset($protocol) && isset($link)) {
+                                $targeturl = $protocol.$link;
+                            }
+                            $externlink = true; 	
+                            $link = '<a class="ext-link" data-wpel-link="internal"  href="'.$targeturl.'">';
 			} else {
-				$link = '<a'. $attributes .' >';
+                            $link = '<a'. $attributes .' >';
 			}
 
 			if($this->level == 1) {
-				if (!$this->nothumbnail) {
-				    
-				    $item_output .= '<a ';
-				    
-				    if ($externlink) {
-					 $item_output .= 'data-wpel-link="internal" ';
-				    }
-				    $item_output .= 'class="image';
-				    if ($externlink) {
-					 $item_output .= ' ext-link';
-				    }
-				    $item_output .= '" href="'.$targeturl.'">';
-				
-				
-				    $post_thumbnail_id = get_post_thumbnail_id( $item->object_id, 'page-thumb' ); 
-				    $imagehtml = '';
-				    $imageurl = '';
-				    if ($post_thumbnail_id) {
-					$thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  'page-thumb');
-					$imageurl = $thisimage[0]; 	
-					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$thisimage[1].'" height="'.$thisimage[2].'" alt="">';
-				    }
-				    if ((!isset($imageurl) || (strlen(trim($imageurl)) <4 )) && (!$this->nothumbnailfallback))  {
-					$imageurl = $options['default_submenuthumb_src'];
-					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" alt="">';
-				    }
-				    $item_output .= '</a>';
-				    
-				    // Anmerkdung: Leeres alt="", da dieses ansonsten redundant wäre zum darunter stehenden Titel.
-				}
-				
+                            if (!$this->nothumbnail) {
+                                $item_output .= '<a ';
 
-				$item_output .= $args->link_before.'<h3>';
-				$item_output .= $link;
-				$item_output .=  apply_filters( 'the_title', $item->title, $item->ID );
-				$item_output .= '</a>';
-				$item_output .= '</h3>'. $args->link_after;
+                                if ($externlink) {
+                                     $item_output .= 'data-wpel-link="internal" ';
+                                }
+                                $item_output .= 'role="presentation" aria-label="hide" tabindex="-1" class="image';
+                                if ($externlink) {
+                                     $item_output .= ' ext-link';
+                                }
+                                $item_output .= '" href="'.$targeturl.'">';
+                                $post_thumbnail_id = get_post_thumbnail_id( $item->object_id, 'page-thumb' ); 
+                                $imagehtml = '';
+                                $imageurl = '';
+                                if ($post_thumbnail_id) {
+                                    $thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  'page-thumb');
+                                    $imageurl = $thisimage[0]; 	
+                                    $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$thisimage[1].'" height="'.$thisimage[2].'" alt="">';
+                                }
+                                if ((!isset($imageurl) || (strlen(trim($imageurl)) <4 )) && (!$this->nothumbnailfallback))  {
+                                    $imageurl = $options['default_submenuthumb_src'];
+                                    $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" alt="">';
+                                }
+                                $item_output .= '</a>';
+                                // Anmerkung: Leeres alt="", da dieses ansonsten redundant wäre zum darunter stehenden Titel.
+                            }
+                            $item_output .= $args->link_before.'<span class="portaltop">';
+                            $item_output .= $link;
+                            $item_output .=  apply_filters( 'the_title', $item->title, $item->ID );
+                            $item_output .= '</a>';
+                            $item_output .= '</span>'. $args->link_after;
 			} else {
 				$item_output .= $link;
 				$item_output .= $args->link_before.apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
@@ -444,12 +440,13 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 	}
 	
 	function end_el(&$output, $item, $depth=0, $args=array()) {      
-		if($this->level == 1 || ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel))	{
-			if($this->level == 1) $output .= "</li>\n";  
-			else $output .= "</li>\n";
+		if($this->level == 1 
+                        || ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel))	{
+			if($this->level == 1) $output .= "</li>";  
+			else $output .= "</li>";
 		} elseif(($this->level == 2) && ($this->count[$this->level] == ($this->maxsecondlevel+1)) && ($this->showsub == 1)) {
 			$output .= '<li class="more"><a href="'.$this->element->url.'">'. __('Mehr', 'fau').' ...</a></li>';
-		}	
+                }	
 	}     
 }
 
