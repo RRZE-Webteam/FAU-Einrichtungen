@@ -9,17 +9,18 @@
  */
 
 global $options;
+global $pagebreakargs;
 get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-	<?php get_template_part('hero', 'small'); ?>
+	<?php get_template_part('template-parts/hero', 'small'); ?>
 
 	<div id="content">
 		<div class="container">
 
 			<div class="row">
-				<div class="span8">
+				<div class="entry-content">
 				    <main>
 					<article class="news-details">
 						<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
@@ -42,12 +43,18 @@ get_header(); ?>
 									echo '<div class="post-image-caption">'.$bildunterschrift.'</div>';
 								    } else {
 									$imgdata = fau_get_image_attributs($post_thumbnail_id);
-									$info = trim(strip_tags( $imgdata['excerpt'] ));		
+									$info = "";
 									$credits = '';
-									if ($options['advanced_display_postthumb_credits']==true) {
-									    $credits = trim(strip_tags(  $imgdata['credits']));    
+									if ($imgdata) {
+									    if ($imgdata['excerpt'] &&  !fau_empty($imgdata['excerpt'])) {
+										$info = trim(strip_tags( $imgdata['excerpt'] ));	
+									    }
+
+
+									    if ($options['advanced_display_postthumb_credits']==true) {
+										$credits = trim(strip_tags(  $imgdata['credits']));    
+									    }
 									}
-									
 									
 									if (  (!empty($info)) || (!empty($credits)) ) {
 									    echo '<div class="post-image-caption">';
@@ -109,6 +116,9 @@ get_header(); ?>
 						echo $output;    
 						the_content();
 						
+						echo wp_link_pages($pagebreakargs);
+						
+						
 						if ($options['post_display_category_below']) {
 						    $output = '<p class="meta-footer">'."\n";
 						    $output .= $typestr;
@@ -129,19 +139,17 @@ get_header(); ?>
 				    </main>
 				    <?php if ($options['advanced_activate_post_comments']) { ?>
 					 <div class="post-comments" id="comments"> 
-					    <?php 
-					    
-					    comments_template(); ?>
+					    <?php  comments_template(); ?>
 					 </div>
 				    <?php }
 				    ?>
 				</div>
 				
-				<?php get_template_part('sidebar', 'news'); ?>
+				<?php get_template_part('template-parts/sidebar', 'news'); ?>
 			</div>
 
 		</div>
-	    	<?php get_template_part('footer', 'social'); ?>	
+	    	<?php get_template_part('template-parts/footer', 'social'); ?>	
 	</div>
 	
 <?php endwhile; 

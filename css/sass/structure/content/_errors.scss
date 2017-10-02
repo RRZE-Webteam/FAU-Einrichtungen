@@ -1,0 +1,12 @@
+/*-----------------------------------------------------------------------------------*/
+/* Error notices
+/*-----------------------------------------------------------------------------------*/
+
+.error-image {
+    background-image: url($errorimage);
+    background-position: bottom center;  
+    background-repeat: no-repeat; 
+    margin-top: 30px;
+    height: 170px;
+}
+

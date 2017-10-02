@@ -508,10 +508,3 @@ if ( ! function_exists( 'fau_save_standard' ) ) :
 
  endif;    
 
-
-
-if ( ! function_exists( 'fau_san' ) ) :  
-    function fau_san($s){
-	return filter_var(trim($s), FILTER_SANITIZE_STRING);
-    }
-endif;    

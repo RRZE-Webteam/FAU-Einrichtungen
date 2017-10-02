@@ -71,6 +71,12 @@ img {
 		    border: 1px solid black;
 		    @include border-radius(2px);
 		}
+                &.borderless {
+		    border: none;
+		}
+                &.noshadow {
+		   box-shadow: none;
+		}
 		&.error-siegel {
 		    @include box-shadow(none);
 		    margin: 0 auto;
@@ -79,13 +85,13 @@ img {
 	}
 }
 
-@media (max-width: $breakSM) {
+@media (max-width: $screen-xs) {
     img.alignleft, 
     img.alignright {
 	float: none;
 	padding: 0;
 	display: block;
 	margin: 5px auto;
-	max-width: $breakSM;
+	max-width: $screen-xs;
     }
 }

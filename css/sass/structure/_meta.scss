@@ -4,132 +4,218 @@
 
 
 #meta {
-	@include placeholder(#fff);
-	background: $colorMetaBackground;
-	
-	.searchform {
-		border: none;
-		margin: 0;
-		padding: 5px 0;
-		float: right;
-		
-		
-		input[type="text"] {
-			@include border-radius(20px);
-			padding: 5px 35px 5px 35px;
-			width: 150px;
-			font-size: 13px;
-			line-height: 15px;
-			float: left;
-			background: $colorMeta url('../img/icon-search.png') no-repeat 10px center;
-			border: none;
-			outline: none;
-			color: #fff;
-			height: 20px;
-			display: inline-block;
-			margin-right: -25px;
-			margin-bottom: 0px;
-			&:focus {
-				background-color: $colorMetaHover;
-			}
-		}
-		
-		input[type="submit"] {
-			@include border-radius(20px);
-			position: relative;
-			z-index: 100;
-			margin-right: 20px;
-			height: 30px;
-			padding: 0 12px;
-			font-weight: bold;
-			border: none;
-			outline: none;
-			color: $colorMeta;
-			background: #fff;
-			font-size: 13px;
-			line-height: 15px;
-			display: inline-block;
-			
-			&:hover, &:focus {
-				background: $colorMetaLightest;
-				@include box-shadow(0 0 5px rgba(0,0,0,0.2));
-			}
-		}
-		
-		label {
-			@extend .unsichtbar;
-		}
-	}
-	
-	.pull-left .ext-link  {
-	    padding-right: 0 !important;
-	    background-image: none !important;
-	}
+    @include placeholder(#fff);
+    background: $colorMetaBackground;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
 
+    
+    input,
+    li {
+	@include px2rem($font-size-meta);
+    }
 	
-	
-	@media (min-width: $breakLG) {	    
-	    position: fixed;
-	    top: 0;
-	    height: 42px;
-	    left: 0;
-	    right: 0;
-	    z-index: 200;
-	     
-	    .admin-bar & {
-		top: 32px;
-	    }
-	}
-	@media (max-width: $breakLG) {
-	    position: fixed;
-	    top: 0;
-	    height: 42px;
-	    left: 0;
-	    right: 0;
-	    z-index: 200;
-		
-	    .searchform input[type="text"] {
-		width: 100px;
-	    }
-	    
-	    .admin-bar & {
-		top: 32px;
-	    }
-	    
-	}
-}
-@media (max-width: $breakMD) {
-     #meta {
-	position: relative;
-	top: 0;
-    } 
-    .js {
-	#meta {
-	    padding-top: 70px;	    
-	    ul {
-		margin: 0;
-	    }
-	    .searchform input[type="text"] {
-		width: 100px;
-	    }
-	}
-	.admin-bar #meta {
-	    padding-top: 40px;		
+    @media (min-width: $screen-sm ) {
+	position: fixed;
+	.admin-bar & {
+	    top: $wordpress-adminbar-bigheight;
 	}
     }
-
+    @media (min-width: $wordpress-adminbar-break ) {
+	.admin-bar & {
+	    top: $wordpress-adminbar-smallheight;
+	}
+    }
 }
 
-@media (max-width: $breakSM) {
-     .no-js {
-	 #meta {
-	    display: block;
+
+.meta-links {
+    @extend .col-sm-8;
+    .active-meta-widget & {
+	@extend .col-sm-7;
+    }
+    padding: 1px 0;
+    
+    .ext-link  {
+	    padding-right: 0 !important;
+	    background-image: none !important;
+    }   
+    
+    &:hover {
+	overflow: visible;
+	height: auto;
+    }
+    
+    @media (min-width: $screen-sm ) {
+	height: 40px;
+	overflow: hidden;
+        padding: 1px 15px 0 15px;
+    }
+} 
+.meta-tools {
+    @extend .col-sm-4;    
+    .active-meta-widget & {
+	@extend .col-sm-5;
+    }
+     text-align: right;
+}
+
+.meta-search {
+   display: block;
+    
+    .active-meta-widget & {
+	display: inline;
+	
+    }
+}
+
+
+
+
+.meta-search {
+       
+    .searchform {
+	@include transition(0.5s,all);
+	display: none;
+	border: none;
+	margin: 0;
+	padding: 5px 0;
+
+	input[type="text"] {
+		@include border-radius(20px);
+		padding: 5px 35px 5px 10px;
+		width: 220px;
+		background: $colorMeta;
+		border: none;
+		outline: none;
+		color: #fff;
+		height: 30px;
+		display: inline-block;
+		margin-right: -25px;
+		margin-bottom: 0px;
+		&:focus {
+			background-color: $colorMetaHover;
+		}
+
+		@media (min-width: $screen-sm ) {
+		    width: 160px;
+		    padding-left: 35px;
+		    
+		    .active-meta-widget & {
+			width: 150px;
+		    }
+		    
+		}
+		@media (min-width: $screen-lg) {
+		    width: 200px;
+		}
+
+	}
+
+	input[type="submit"] {
+		@include border-radius(20px);
+		position: relative;
+		z-index: 100;
+		height: 30px;
+		padding: 0 12px;
+		font-weight: bold;
+		border: none;
+		outline: none;
+		color: $colorMeta;
+		background: #fff;
+		display: inline-block;
+
+		&:hover, &:focus {
+			background: $colorMetaLightest;
+			@include box-shadow(0 0 5px rgba(0,0,0,0.2));
+		}
+	}
+
+	label {
+		@extend .screen-reader-text;		
+	}
+	.searchicon {
+	    display: inline;
+	    @extend .fa;
+	    @extend .fa-search;
 	    position: relative;
-	    float: none;
-	    width: 100%;
-	    top: inherit;
-	    margin: 5px 0px;
-	    padding: 3px;
-	 }
-     }
+	    margin-right: -30px;
+	    color: #fff;
+
+
+	}
+    }
+    @media (max-width: $screen-sm - 1) {
+	width: 100%;
+	.searchform {
+	    text-align: center;
+	}
+	
+	.search-toggled & .searchform {
+	    display: block;
+	    .searchicon {
+		display: none;
+	    }
+	}
+    }
+    @media (min-width: $screen-sm ) {
+	.searchform {
+	    display: inline-block;
+	}
+    }
 }
+
+
+/* New Toogle Button */
+#wrap #search-toggle {
+  position: fixed;
+  left: 0;
+  top: 0;
+  @include px2rem($font-size-mobile-meta);
+  background: transparent;
+  border: none;
+  display: none;
+  z-index: 100;
+  color: $colorMeta;
+   
+  @media (max-width: $screen-sm - 1) { 
+    .js & {
+	display: block;  
+    }
+  }
+  
+   span {
+       @include hideout();
+   }
+}
+#search-toggle:before {
+    @extend .fa;
+    @extend .fa-search;   
+    
+    &:focus, 
+    &:hover {
+	@extend .fa-search-minus;  
+    }
+}
+
+
+
+.meta-widget {
+    display: inline-block;
+    float: right;
+    @include border-radius(20px);
+    background: #fff;
+    margin: 5px 0 5px 5px;
+    height: 30px;
+    max-width: 90px;
+    
+    @media (min-width: $screen-md ) {
+	    max-width: inherit;
+	    margin-left: 15px;
+    }
+	
+}
+

@@ -3,9 +3,6 @@
 /*-----------------------------------------------------------------------------------*/
 
 
-
-
-/* Top-Event */
 .topevent-date {
 	color: $colorPrimary;
 	font-weight: bold;
@@ -14,6 +11,10 @@
 
 .topevent-description {
 	color: $colorPrimary;
+	@include px2rem($font-size-sidebar);
+	p {
+	    @include px2rem($font-size-sidebar);	
+	}
 }
 
 /* Events */
@@ -30,8 +31,7 @@
 			@include no-list;
 			padding: 10px 0 0 0;
 			min-height: 42px;
-			font-size: 12px;
-			line-height: 18px;
+			@include px2rem($font-size-sidebar-events);	
 			background-image: none;
 		}
 	}
@@ -43,20 +43,18 @@
 	background: $colorPrimary;
 	color: #fff;
 	padding: 5px;
-	width: 30px;
+	width: 45px;
 	text-align: center;
 }
 
-.event-date-month {
-	font-size: 9px;
-	line-height: 10px;
+.event-date-month {	
+	@include px2rem($font-size-sidebar-events-month);	
 	text-transform: uppercase;
 	font-weight: bold;
 }
 
 .event-date-day {
-	font-size: 20px;
-	line-height: 20px;
+	@include px2rem($font-size-sidebar-events-day);	
 	font-weight: bold;
 }
 
@@ -159,35 +157,9 @@
 }
 
 
-.events-more-links {
-	padding: 0;
-	text-align: left;
-	margin-bottom: 5px;
-	
-	a {
-		@include inline-block;
-		line-height: 15px;
-		margin-left: 60px;
-	}
-	
-	.events-more {
-		color: $colorButton;
-		background: $colorButtonBackground;
-		padding: 8px 10px;
-		text-decoration: none;
-		@include border-radius(3px);
-		font-size: 14px;
-		
-		&:hover, &:focus {
-			background: $colorButtonBackgroundHover;
-			text-decoration: none;
-		}
-	}
-}
 
 
-
-@media (max-width: $breakMD) {
+@media (max-width: $screen-sm -1) {
 	#content .widget_event_widget .event-info {
 		margin-left: 60px;
 	}

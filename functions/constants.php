@@ -4,14 +4,14 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'optiontable-version'		=> 12,
+    'optiontable-version'		=> 21,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-    'js-version'			=> '1.7',
-	// Theme-Versionslinie
-    'website_type'			=> 2,
+    'js-version'			=> '1.8',
+	// Theme-Versionslinie, wird überschrieben durch Style.css Version
+    'website_type'			=> 0,
 	// website_type: 
 	//  0 = Fakultaetsportal; 
 	//  1 = Lehrstuehle, Departents 
@@ -32,6 +32,8 @@ $defaultoptions = array(
 						'cugu.zuv.cms.rrze.uni-erlangen.de',
 						'alfirin.test.rrze.fau.de',
 						'ithron.rrze.uni-erlangen.de',
+						'beta.wordpress.rrze.fau.de',
+						'www.beta.wordpress.rrze.fau.de',
 						'test8.tindu.rrze.uni-erlangen.de',		
 						'test4.tindu.rrze.uni-erlangen.de'),
 	// welche Websites können bei website_type die Option -1 wählen 
@@ -57,7 +59,7 @@ $defaultoptions = array(
     'start_title_videoportal_socialmedia'   => __('Videoportal','fau'),
     'start_title_videoportal_url'	    => 'http://video.fau.de',
 
-    'default_submenuthumb_src'		=>  get_fau_template_uri().'/img/default-submenuthumb.png',
+    'default_submenuthumb_src'		=>  get_fau_template_uri().'/img/thumbnail-siegel-faulogo-menu.gif',
     'default_submenu_spalten'		=> 4,
     'default_submenu_entries'		=> 5,
     'menu_fallbackquote_show_excerpt'	=> 1,
@@ -117,20 +119,6 @@ $defaultoptions = array(
     'default_post_height'		=> 200,
     'default_post_crop'			=> false, 
     
-     /* Thumb for person-type; small for sidebar - Name: person-thumb */
-    'default_person_thumb_width'	=> 60,
-    'default_person_thumb_height'	=> 80,
-    'default_person_thumb_crop'		=> true, 
-     
-     /* Thumb for person-type; small for content - Name: person-thumb-bigger */
-    'default_person_thumb_bigger_width' => 90,
-    'default_person_thumb_bigger_height'=> 120,
-    'default_person_thumb_bigger_crop'	=> true,     
-
-     /* Thumb for person-type; small for content - Name: person-thumb-page */
-    'default_person_thumb_page_width'    => 200,
-    'default_person_thumb_page_height'   => 300,
-    'default_person_thumb_page_crop'	 => true,         
     
    
   
@@ -162,7 +150,7 @@ $defaultoptions = array(
    
     'breadcrumb_root'			=> __('Startseite', 'fau'),
     'breadcrumb_delimiter'		=> ' <span>/</span>',
-    'breadcrumb_beforehtml'		=> '<span class="active">', // '<span class="current">'; // tag before the current crumb
+    'breadcrumb_beforehtml'		=> '<span class="active" aria-current="location">', // '<span class="current">'; // tag before the current crumb
     'breadcrumb_afterhtml'		=> '</span>',
     'breadcrumb_uselastcat'		=> true,
     'breadcrumb_withtitle'		=> false,
@@ -197,7 +185,7 @@ $defaultoptions = array(
     'default_anleser_excerpt_length'=> 300,
     'default_search_excerpt_length' => 300,
     
-    'default_postthumb_src'	    => get_fau_template_uri().'/img/default-postthumb.png',
+    'default_postthumb_src'	    => get_fau_template_uri().'/img/thumbnail-siegel-faulogo.gif',
 
     'default_postthumb_always'	    => 1,
 
@@ -247,6 +235,8 @@ $defaultoptions = array(
     'search_display_excerpt_morestring'		=> '...',
     'search_display_typenote'		=> true,
     'search_post_types'			=> array("page", "post",  "person", "attachment"),
+    'search_post_types_checked'			=> array("page", "post"),
+    
     'search_allowfilter'		=> true,
    
     'plugin_fau_person_headline'	=> true,
@@ -299,11 +289,24 @@ function fau_initoptions() {
 	
     } else {
         $newoptions = $defaultoptions;
+	if (!fau_empty(get_bloginfo( 'title' ))) {
+	    $newoptions['breadcrumb_root'] = get_bloginfo( 'title' );
+	}
     }       
+    
+    $theme_data = wp_get_theme();
+    $newoptions['version'] =  $theme_data->Version;
+    
+    if (class_exists('FAU_Studienangebot')) {
+	$newoptions['search_post_types'][] ='studienangebot';
+    }
+     
+    
     return $newoptions;
 }
 
  $categories=get_categories(array('orderby' => 'name','order' => 'ASC'));
+ $currentcatliste = array();
  foreach($categories as $category) {
      if (!is_wp_error( $category )) {
 	$currentcatliste[$category->cat_ID] = $category->name.' ('.$category->count.' '.__('Einträge','fau').')';
@@ -485,14 +488,14 @@ $setoptions = array(
                   'label'   => __( 'Begriff nach dem Titel des gewählten Menüs', 'fau' ),               
                   'default' => $defaultoptions['menu_aftertitle_portal'],
               ),  
-	       
+	      /* 
 	      'menu_fallbackquote_show_excerpt' => array(
                   'type'    => 'bool',
                   'title'   => __( 'Zitatersatz', 'fau' ),
                   'label'   => __( 'Wenn bei einem Menupunkt auf oberster Ebene kein Zitat vorgegeben ist, zeige stattdessen einen Auszug der Seite.', 'fau' ),                
                   'default' => $defaultoptions['menu_fallbackquote_show_excerpt'],
               ),  
-	       
+	       */
 	       
 	     'google-site-verification' => array(
                   'type'    => 'text',

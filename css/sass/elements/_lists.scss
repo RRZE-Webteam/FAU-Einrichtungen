@@ -4,13 +4,13 @@
 
 
 li {
-	padding: 3px 0 4px 4px;
-	font-size: 15px;
-	line-height: 22px;
-	color: $colorText;
+    padding: 3px 0 4px 4px;
+    @include px2rem($font-size-content-listitem);  
+    color: $colorText;
 	
     .sidebar-inline & {
 	padding: 3px 0 4px 20px;
+	@include px2rem($font-size-sidebar-listitem);	    	
     }
 }
 
@@ -85,6 +85,9 @@ ol {
 		}
 	}
 }
+
+
+
 
 
 @media (max-width: $breakMD) {
