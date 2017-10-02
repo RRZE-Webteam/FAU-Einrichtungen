@@ -3,8 +3,7 @@
 /*-----------------------------------------------------------------------------------*/
 
 #social {
-	background: $colorSocialBackground;
-	
+	background: $colorSocialBackground;	
 	margin: 0 -15px;
 	padding: 20px 15px;
 	    
@@ -30,6 +29,10 @@
 		    text-decoration: underline;
 		    color: $colorPrimary;
 	    }
+	    
+	}
+	.link-all-videos {
+	    @include px2rem($font-size-socialmedia-morelink); 
 	}
 	ul.social {
 		@include no-list;
