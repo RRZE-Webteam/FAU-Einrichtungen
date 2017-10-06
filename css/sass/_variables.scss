@@ -53,7 +53,10 @@ $siegelurl: '../img/siegel-zuv-schnitt.png';
 $errorimage:  '../img/friedrich-alexander.gif';  
 
 $colorPrimaryHero:	    $colorPrimary;
-    
+   
+$colorPrintMain:	    #000;
+$colorPrintMainLinks:	    $colorText;
+
  @if $farbfamilie == 'med' {
     $colorPrimary: $colorMedFak;
     $PalettonHellste:	#eaf3fc; // #35C0DA;
@@ -209,6 +212,9 @@ $font-size-pagination-links:	$font-size-content-meta;
 
 $font-size-mobile-meta:	24;
 
+
+$font-size-print-base:		11;
+$font-size-print-base-small:	9;
 // Define breakpoints
 
 // iPhone 3G
