@@ -109,8 +109,8 @@ $show =false;
 
 	    
 	?>
-	<div class="widget h-event vevent">
-		<h2 class="small p-name"><a class="url u-url" href="<?php echo $link; ?>"><?php echo $titel; ?></a></h2>
+	<div class="widget" itemscope itemtype="http://schema.org/Event">
+		<h2 itemprop="name"><a itemprop="url" href="<?php echo $link; ?>"><?php echo $titel; ?></a></h2>
 		<div class="row">
 		 <?php 
 		    
@@ -120,22 +120,31 @@ $show =false;
 			    if (isset($imageid) && ($imageid>0)) {
 				$image = wp_get_attachment_image_src($imageid, 'topevent-thumb'); 					
 				if (($image) && ($image[0])) {  
-				    $imagehtml = '<img src="'.fau_esc_url($image[0]).'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="">';	
+				    $imagehtml = '<img itemprop="thumbnailUrl" src="'.fau_esc_url($image[0]).'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="">';	  
 				}								    
 			    } 
 			    if (empty($imagehtml)) {
-			       $imagehtml = '<img src="'.fau_esc_url($options['default_topevent_thumb_src']).'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="">';			    
+			       $imagehtml = '<img itemprop="thumbnailUrl" src="'.fau_esc_url($options['default_topevent_thumb_src']).'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="">';			    
 			    }
 		   if (($hideimage < 1) && (isset($imagehtml))) { ?>
-			<div class="col-xs-6">
-				<?php echo '<a href="'.$link.'">'.$imagehtml.'</a>'; ?>
+			<div class="col-xs-6" aria-hidden="true" role="presentation" tabindex="-1" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+				<?php echo '<a href="'.$link.'">'.$imagehtml.'</a>'; 
+				if (isset($imageid) && ($imageid>0)) {
+				    $schema = "";
+				    $bigimage = wp_get_attachment_image_src($imageid, 'full'); 
+				    $schema .= '<meta itemprop="url" content="'.fau_make_absolute_url($bigimage[0]).'">';
+				    $schema .= '<meta itemprop="width" content="'.$bigimage[1].'">';
+				    $schema .= '<meta itemprop="height" content="'.$bigimage[2].'">';	   
+				    echo $schema;
+				}
+				?>
 			</div>
 			<div class="col-xs-6">
 		    <?php } else { ?>
 			<div class="col-xs-12">
 		    <?php } 
 			    if (!empty($topevent_date)) {
-				echo '<div class="topevent-date dtstart dt-start" title="'.$topevent_date.'">';
+				echo '<div class="topevent-date" itemprop="startDate" content="'.$topevent_date.'">';
 				echo date_i18n( get_option( 'date_format' ), strtotime( $topevent_date ) );
 				echo "</div>\n";
 			    }
@@ -144,7 +153,7 @@ $show =false;
 			    if (strlen(trim($desc))<3) {
 				$desc =  fau_custom_excerpt($topevent->ID,$options['default_topevent_excerpt_length']);
 			    }  ?>   
-			    <div class="topevent-description summary p-summary"><?php echo $desc; ?></div>
+			    <div class="topevent-description" itemprop="description"><?php echo $desc; ?></div>
 
 			</div>			
 		</div>
