@@ -14,6 +14,14 @@
 }
 
 
+.startpage-blogroll {
+    margin-top: -10px;
+}
+.startpage-sidebar {
+    @media (max-width: $screen-sm - 1) {
+	@include linear-gradient-three(transparent 0%,$colorStandardHellgrau 50%,transparent 100%);  
+    }
+}
 
 @media (max-width: $screen-xs - 1) {
     .page-template-page-start {

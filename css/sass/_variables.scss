@@ -155,8 +155,13 @@ $colorCopyrightBackground:  rgba(0,0,0,0.4);
 
 
 // Font sizes
-$font-size-base:		16;
+$font-size-gridbase:		15;
+$font-size-base:		15;
 $font-size-meta:		13;
+$font-size-sidebar:		13;
+
+
+
 $font-size-breadcrumb:		13;
 $font-size-herosearch:		16;
 $font-size-header-branding:	19;
@@ -171,9 +176,9 @@ $font-size-hero-bannertext:	18;
 $font-size-link-contentmenu:    13;
 
 $font-size-content-linkicon:	10;
-$font-size-content-listitem:	15;
+$font-size-content-listitem:	$font-size-base;
 
-$font-size-sidebar:		14;
+
 $font-size-sidebar-listitem:    $font-size-sidebar;
 $font-size-sidebar-events:	$font-size-sidebar;
 $font-size-sidebar-events-month:    9;
@@ -201,7 +206,7 @@ $font-size-h4-small:		17;
 $font-size-h5:			16; // 15 
 $font-size-h6:			$font-size-base;
 
-$font-size-h3-contentmenu:	16;
+$font-size-h3-contentmenu:	15;
 
 $font-size-quotes:		18;
 $font-size-quotes-cites:	($font-size-quotes - 1);    

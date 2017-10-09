@@ -188,11 +188,11 @@ Mixins File for Wordpress Theme FAU
     overflow:hidden;
 }
 
-@function px2rem($font-size, $base-font-size: 16) {
+@function px2rem($font-size, $base-font-size: $font-size-gridbase) {
 	@return $font-size / $base-font-size + rem;
 }
 
-@mixin px2rem($font-size, $base-font-size: 16, $line: $font-size * 1.4) {
+@mixin px2rem($font-size, $base-font-size: $font-size-gridbase, $line: $font-size * 1.46) {
   font-size: $font-size + px; // für den IE8
   line-height: ($line) + px;
   font-size: px2rem($font-size, $base-font-size);
