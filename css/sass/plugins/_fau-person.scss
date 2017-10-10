@@ -11,12 +11,9 @@
 	h3 {
 		padding-bottom: 0;
 		padding-top: 5px;
-
-		
-		a {
-		    color: $colorText;
-		    
-		}
+	//	a {
+	//	    color: $colorText;
+	//	}
 		&:hover, &:focus {
 		    text-decoration: underline;
 		}
@@ -25,7 +22,7 @@
 	h4 {
 		padding-top: 0;
 		a {
-		    color: $colorText;
+	//	    color: $colorText;
 		    text-decoration: underline;
 		}
 	}
@@ -229,24 +226,41 @@ span[itemprop="honorificSuffix"] {
     h2 {
 	padding-bottom: 11px;
     }
-    
+    .connection {
+	h3 {
+	    @include px2rem($font-size-h4);
+	}
+    }
+}
+.startpage-sidebar,
+.sidebar-inline {   
     .widget_faupersonwidget {
 	margin-top: 0;
 	.row {
 	    display: inline-block;
 	    margin: 0;
 	    
-	    .span1, .span3, {
+	    .span1, 
+	    .span3 {
 		display: block;
 		float: none;
 		margin: 0;
 		width: auto;
 	    }
 	}
-	.person-info-description {
-	    
-	}
     }
+}
+
+.startpage-sidebar {
+        .widget_faupersonwidget {
+	    .row {
+		.span1 {
+		    display: inline;
+		    float: left;
+		    margin-right: 20px;
+		}
+	    }
+	}
 }
 
 .sidebar-outline {
