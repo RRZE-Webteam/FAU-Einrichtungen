@@ -82,14 +82,13 @@
 	.rssSummary,
 	.rss-description {
 		padding: 5px 0;
-		font-size: 13px;
-		line-height: 18px;
+		@include px2rem($font-size-sidebar);
 		color: $colorText;
 	}
 	
 	h4 {
-		font-size: 20px;
-		line-height: 24px;
+	//	font-size: 20px;
+	//	line-height: 24px;
 		margin: 0;
 		padding: 20px 0 20px 0;
 	}

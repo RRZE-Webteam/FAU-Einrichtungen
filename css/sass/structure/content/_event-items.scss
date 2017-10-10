@@ -2,6 +2,19 @@
 /* Top events and event entries
 /*-----------------------------------------------------------------------------------*/
 
+.topevent-widget {
+    width: 100%;
+    display: inline-block;
+}
+.event-thumb {
+    float: left;
+    width: 140px;
+    display: block;
+    margin-right: 20px;
+}
+.event-data {
+    display: block;
+}
 
 .topevent-date {
 	color: $colorPrimary;
@@ -10,7 +23,6 @@
 }
 
 .topevent-description {
-	color: $colorPrimary;
 	@include px2rem($font-size-sidebar);
 	p {
 	    @include px2rem($font-size-sidebar);	
