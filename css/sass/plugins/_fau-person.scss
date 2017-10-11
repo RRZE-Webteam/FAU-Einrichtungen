@@ -11,18 +11,18 @@
 	h3 {
 		padding-bottom: 0;
 		padding-top: 5px;
-	//	a {
-	//	    color: $colorText;
-	//	}
+
 		&:hover, &:focus {
 		    text-decoration: underline;
+		}
+		a {
+		     text-decoration: none;
 		}
 	}
 	
 	h4 {
 		padding-top: 0;
 		a {
-	//	    color: $colorText;
 		    text-decoration: underline;
 		}
 	}
@@ -51,19 +51,36 @@
 	    }
 	    
 	} 
+	
+	.side {
+	    margin: 0 15px;
+	    @media (min-width: $screen-sm) {
+		 margin: 0;
+	    }
+	}
+}
+.compactindex {
+    
+    @media (min-width: $screen-sm) {
+		 margin-left: -5px;
+    }
+   
 }
 
+
+
 .content-person {
-	border: 1px solid $colorStandardHellgrau;
-	overflow: hidden;
-	margin: 10px 10px;
-	padding: 10px 0;
+	margin: 0 15px;
+	padding: 0;
+	border: none;
 	
-	@media(min-width: $screen-sm) {
-	    margin: 10px 0;
-	    padding: 10px;
-	}
+	@media (min-width: $screen-sm) {
+	    border: 1px solid $colorStandardHellgrau;
+	    margin: 0;
+	    padding: 5px;
+        }
 	
+
 	li {
 
 		background-position: left 5px;

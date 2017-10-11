@@ -44,60 +44,6 @@
 	
 }
 
-/* Widget: RSS */
-.widget_rss,
-.rss-shortcode {
-	ul {
-		@include no-list;
-
-		li {
-			@include no-list;
-			padding: 5px 0;
-			background: none;
-			line-height: 18px;
-			
-			a {
-				font-weight: normal;
-				text-decoration: none;
-				font-size: 13px;
-			}
-			
-			> a {
-				font-weight: bold;
-				font-size: 15px;
-			}
-			
-			a:hover, a:focus {
-				text-decoration: underline;
-			}
-		}
-	}
-	
-	.rss-date {
-		display: block;
-		font-size: 13px;
-		padding: 5px 0;
-	}
-	
-	.rssSummary,
-	.rss-description {
-		padding: 5px 0;
-		@include px2rem($font-size-sidebar);
-		color: $colorText;
-	}
-	
-	h4 {
-	//	font-size: 20px;
-	//	line-height: 24px;
-		margin: 0;
-		padding: 20px 0 20px 0;
-	}
-	
-	cite {
-		color: #888;
-	}
-}
-
 
 
 /* Widget: Categories */
