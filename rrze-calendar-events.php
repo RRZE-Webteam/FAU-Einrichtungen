@@ -65,7 +65,9 @@ get_header(); ?>
 
 					    ?>
 					    <li>                                           
-						<div class="event-item">
+						<div class="event-item" itemscope itemtype="http://schema.org/Event">
+						    <meta itemprop="startDate" content="<?php echo date_i18n( "c", $event->start ); ?>">
+						    <meta itemprop="endDate" content="<?php echo date_i18n( "c", $event->end ); ?>">
 						    <div class="event-date <?php echo $bgcolorclass; ?>" <?php echo $inline; ?>>
 							<span class="event-date-month"><?php echo $event->start_month_html ?></span>
 							<span class="event-date-day"><?php echo $event->start_day_html ?></span>
@@ -89,10 +91,10 @@ get_header(); ?>
 							    } ?>
 							    </div>       
 							<?php } ?>							
-							<div class="event-title">
-							    <a href="<?php echo $event->endpoint_url; ?>"><?php echo esc_html($event->summary); ?></a>
+							<div class="event-title" itemprop="name">
+							    <a itemprop="url" href="<?php echo $event->endpoint_url; ?>"><?php echo esc_html($event->summary); ?></a>
 							</div>                                                    
-							<div class="event-location">
+							<div class="event-location" itemprop="location">
 							    <?php echo $event->location ? nl2br($event->location) : '&nbsp;'; ?>
 							</div>
 							

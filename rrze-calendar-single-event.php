@@ -24,13 +24,17 @@
             <div class="row">
                 <div class="col-xs-12">
                     <main>
-			<div class="rrze-calendar">
+			<div class="rrze-calendar" itemscope itemtype="http://schema.org/Event">
+			   
+			    <meta itemprop="name" content="<?php echo esc_html($event->summary);?>">
 			    <div class="event-detail-item">
 				<div class="event-date <?php echo $bgcolorclass; ?>" <?php echo $inline; ?>>
 				    <span class="event-date-month"><?php echo $event->start_month_html ?></span>
 				    <span class="event-date-day"><?php echo $event->start_day_html ?></span>
 				</div>
 				<div class="event-info event-id-<?php echo $event->id ?> <?php if ($event->allday) echo 'event-allday'; ?>">
+				    <meta itemprop="startDate" content="<?php echo date_i18n( "c", $event->start ); ?>">
+				    <meta itemprop="endDate" content="<?php echo date_i18n( "c", $event->end ); ?>">
 				    <?php 
 				    if ($event->allday && !$event->multiday) { ?>
 					<div class="event-allday">
@@ -48,7 +52,7 @@
 					    } ?>
 					</div>           
 				    <?php } ?>
-				    <div class="event-location"><?php echo $event->location ? $event->location : '&nbsp;'; ?></div>
+				    <div class="event-location" itemprop="location"><?php echo $event->location ? $event->location : '&nbsp;'; ?></div>
 				</div>
 			    </div>
 			    <div>
