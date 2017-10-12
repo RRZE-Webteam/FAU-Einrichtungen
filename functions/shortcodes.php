@@ -8,7 +8,7 @@
 class FAUShortcodes {
 	function __construct() {
 	   remove_filter( 'the_content', 'wpautop' );
-	   add_filter( 'the_content', 'wpautop' , 99);
+	   add_filter( 'the_content', 'wpautop' , 12);
 	   add_action( 'init', array( $this, 'add_shortcodes' ) ); 
 	}
 
@@ -111,14 +111,14 @@ class FAUShortcodes {
                    
                     $out .= '<div class="contentmenu" role="navigation">';   
                     $out .= '<ul class="subpages-menu">';
-                    $outnav .= wp_nav_menu( array( 'menu' => $slug, 
+                    $outnav = wp_nav_menu( array( 'menu' => $slug, 
                         'echo'          => false, 
                         'container'     => true, 
                        'items_wrap'     => '%3$s', 
                         'link_before'   => '', 
                         'link_after'    => '',         
                         'item_spacing'  => 'discard',
-                        'walker'        => new Walker_Content_Menu($submenu,$showsubs,$spalte,$nothumbs,$nofallback)));
+                        'walker'        => new Walker_Content_Menu($slug,$showsubs,$spalte,$nothumbs,$nofallback)));
                     $out .= $outnav;
                     $out .=  "</ul></div>";
                     

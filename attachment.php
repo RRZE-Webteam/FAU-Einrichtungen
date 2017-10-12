@@ -23,7 +23,6 @@ get_header(); ?>
 			<div class="row">
 					
 					<article>
-				    
 						<?php 
 											
 						echo wp_get_attachment_image( $post->ID, 'full' );

@@ -21,7 +21,7 @@ function fau_relativeurl_callback($matches) {
         $link = preg_replace("%href=\"$site_link%i", 'href="', $link);                 
         return $link;
     }
- add_filter('the_content', 'fau_relativeurl');
+// add_filter('the_content', 'fau_relativeurl');
  
  /*-----------------------------------------------------------------------------------*/
 /* Image URLs in Content
@@ -36,7 +36,7 @@ function fau_relativeimgurl_callback($matches) {
         $link = preg_replace("%src=\"$site_link%i", 'src="', $link);                 
         return $link;
     }
-add_filter('the_content', 'fau_relativeimgurl');
+// add_filter('the_content', 'fau_relativeimgurl');
  
  /*-----------------------------------------------------------------------------------*/
 /* Add another esc_url, but also makes URL relative
