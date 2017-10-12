@@ -23,7 +23,9 @@ global $options;
 				<div class="footer-address">
 					
 				    <p itemscope itemtype="http://schema.org/PostalAddress">
-					<span itemprop="name"><?php echo $options['contact_address_name']; 
+					<?php $schemaname = $options['contact_address_name']." ".$options['contact_address_name2']; ?>
+					<meta itemprop="name" content="<?php echo esc_html($schemaname);?>">
+					<span><?php echo $options['contact_address_name']; 
 					if (isset($options['contact_address_name2'])) { echo "<br>".$options['contact_address_name2']; } ?></span><br>
 					<span itemprop="streetAddress"><?php echo $options['contact_address_street']; ?></span><br>
 					<span itemprop="postalCode"><?php echo $options['contact_address_plz']; ?></span> <span itemprop="addressLocality"><?php echo $options['contact_address_ort']; ?></span><br>

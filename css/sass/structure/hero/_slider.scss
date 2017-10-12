@@ -4,10 +4,7 @@
 
 
 #hero-slides {
-	
-	
 	position: relative;
-	
 	margin: 0 auto -15px auto;
 	height: 350px;
 	background: $colorPrimary;
@@ -31,18 +28,33 @@
 			color: #fff;
 			background: rgba($colorPrimary,0.8);
 			display: inline;
-			padding: 0 3px;
+			padding: 3px;
 			margin: 10px 0 5px 0;
 			@include inline-block();
 			@include px2rem($font-size-hero-slider-title);
+			
+			box-decoration-break: clone;
+			-webkit-box-decoration-break: clone;
+		}
+		.slider-text {
+		    display: inline-block;
 		}
 		
 		p {
 			@include px2rem($font-size-hero-slider-text);
 			color: #fff;
 			background: rgba($colorPrimary,0.8);
-			padding: 0 3px;
+			padding: 3px;
 			margin: 0;
+			box-decoration-break: clone;
+			 -webkit-box-decoration-break: clone;
+			display: none;
+			 
+			 
+			@media (min-width: $screen-sm) {
+				display: inline;
+			}
+			 
 		}
 		p.credits {
 		    background: $colorCopyrightBackground;
@@ -67,14 +79,6 @@
 		margin: 0;
 		padding: 0;
 		width: 100%;
-
-		p {		    
-		    display: none;
-		    
-		    @media (min-width: $screen-sm) {
-			@include inline-block;
-		    }
-		}	
 	}
 	ul {
 		@include no-list;
@@ -118,9 +122,7 @@
 
 .slider-titel, .slider-text {
    @extend .col-xs-12;
-   @extend .col-sm-9;
-    
-    
+
 }
 
 

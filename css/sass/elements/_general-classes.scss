@@ -98,7 +98,7 @@ div.aligncenter {
 
 
 
-@media (max-width: $breakSM) {
+@media (max-width: $screen-xs - 1) {
     .alignleft, 
     .alignright,
     div.alignleft,
@@ -107,7 +107,7 @@ div.aligncenter {
 	padding: 0;
 	display: block;
 	margin: 5px auto;
-	max-width: $breakSM;
+	max-width: 100%;
     }
 }
 
@@ -173,7 +173,7 @@ div.aligncenter {
 
 
 
-@media (max-width: $breakMD) {
+@media (max-width: $screen-sm - 1) {
     .hide-mobile {
 	    display: none;
     }

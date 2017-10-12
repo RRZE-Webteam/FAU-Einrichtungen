@@ -55,7 +55,11 @@
 /* Footer Navigation */
 #footer-nav {
 	@include no-list;
-	text-align: right;
+	text-align: left;
+	
+	@media (min-width: $screen-sm) {
+	    text-align: right;
+	}
 	
 	li {
 		@include no-list;
@@ -76,6 +80,7 @@
 	margin-left: 0px;
     }
 }
+
 @media (min-width: $screen-xs) {
  #footer {
 	li {
@@ -104,22 +109,5 @@
     .footer-address {
 	max-width: calc(100% - 215px);
     }
-    
-    
-    #footer-nav {
-
-	text-align: left;
-	li {
-	    display: inline;
-	}
-    }
 }
-@media (max-width: $screen-sm - 1) {
 
-	#footer-nav {	    
-	    text-align: left;
-	    li {
-		display: inline;
-	    }
-	}
-}
