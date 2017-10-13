@@ -1,0 +1,22 @@
+/*-----------------------------------------------------------------------------------*/
+/* Extend grid for bigger breakpoints
+/*-----------------------------------------------------------------------------------*/
+
+@media (min-width: $screen-xl-min) {
+  @include make-grid(xl);
+}
+
+@media (min-width: $screen-xxl-min) {
+  @include make-grid(xxl);
+}
+
+
+.container {
+
+  @media (min-width: $screen-xl-min) {
+    width: $container-xl;
+  }
+  @media (min-width: $screen-xxl-min) {
+    width: $container-xxl;
+  }
+}

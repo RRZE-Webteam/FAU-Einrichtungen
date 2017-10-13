@@ -10,7 +10,7 @@ get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-	<?php get_template_part('hero', 'small'); ?>
+	<?php get_template_part('template-parts/hero', 'small'); ?>
 
 	<div id="content">
 		<div class="container">
@@ -20,7 +20,7 @@ get_header(); ?>
 		?>
 
 			<div class="row">
-				<div class="span12">
+				<div class="col-xs-12">
 				    <main>
 				    <?php 
 				    $id = $post->ID;
@@ -33,7 +33,7 @@ get_header(); ?>
 					</p>
 				    <?php }  ?>
 				    </main>
-				</div>
+			    </div>
 				
 			</div>
 		</div>

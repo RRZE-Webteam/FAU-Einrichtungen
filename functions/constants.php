@@ -4,14 +4,14 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'optiontable-version'		=> 12,
+    'optiontable-version'		=> 23,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-    'js-version'			=> '1.7',
-	// Theme-Versionslinie
-    'website_type'			=> 2,
+    'js-version'			=> '1.8',
+	// Theme-Versionslinie, wird überschrieben durch Style.css Version
+    'website_type'			=> 0,
 	// website_type: 
 	//  0 = Fakultaetsportal; 
 	//  1 = Lehrstuehle, Departents 
@@ -32,6 +32,8 @@ $defaultoptions = array(
 						'cugu.zuv.cms.rrze.uni-erlangen.de',
 						'alfirin.test.rrze.fau.de',
 						'ithron.rrze.uni-erlangen.de',
+						'beta.wordpress.rrze.fau.de',
+						'www.beta.wordpress.rrze.fau.de',
 						'test8.tindu.rrze.uni-erlangen.de',		
 						'test4.tindu.rrze.uni-erlangen.de'),
 	// welche Websites können bei website_type die Option -1 wählen 
@@ -57,7 +59,9 @@ $defaultoptions = array(
     'start_title_videoportal_socialmedia'   => __('Videoportal','fau'),
     'start_title_videoportal_url'	    => 'http://video.fau.de',
 
-    'default_submenuthumb_src'		=>  get_fau_template_uri().'/img/default-submenuthumb.png',
+    'default_postthumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-220x147.gif',
+    'default_postthumb_always'		=> 1,
+    'default_submenuthumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-220x110.gif',
     'default_submenu_spalten'		=> 4,
     'default_submenu_entries'		=> 5,
     'menu_fallbackquote_show_excerpt'	=> 1,
@@ -66,7 +70,7 @@ $defaultoptions = array(
     'start_topevents_active'		=> true,
     'topevent_hideimage'		=> false,
     'topevents_templates'		=> array(1), 
-    'default_topevent_thumb_src'	=> get_fau_template_uri().'/img/default-topeventthumb.png',
+    'default_topevent_thumb_src'	=> get_fau_template_uri().'/img/thumbnail-siegel-140x90.gif',
     'default_topevent_excerpt_length'	=> 100,
     
     'default_startseite-bannerbild-image_src'	    => get_fau_template_uri().'/img/bannerbild-tafel-1260x182.jpg',
@@ -92,77 +96,59 @@ $defaultoptions = array(
     
    
     /* Thumb for Image Menus in Content - Name: page-thumb */
-    'default_submenuthumb_width'	=> 220,
-    'default_submenuthumb_height'	=> 110,    
-    'default_submenuthumb_crop'		=> false,
+    'default_submenuthumb_width'	    => 220,
+    'default_submenuthumb_height'	    => 110,    
+    'default_submenuthumb_crop'		    => false,
     
     /* Thumb of Topevent in Sidebar - Name: topevent-thumb */
-    'default_topevent_thumb_width'	=> 140,
-    'default_topevent_thumb_height'	=> 90,
-    'default_topevent_thumb_crop'	=> true,  
+    'default_topevent_thumb_width'	    => 140,
+    'default_topevent_thumb_height'	    => 90,
+    'default_topevent_thumb_crop'	    => true,  
 
     /* Thumb for Logos (used in carousel) - Name: logo-thumb */
-    'default_logo_carousel_width'	=> 140,
-    'default_logo_carousel_height'	=> 110,
-    'default_logo_carousel_crop'	=> false,   
+    'default_logo_carousel_width'	    => 140,
+    'default_logo_carousel_height'	    => 110,
+    'default_logo_carousel_crop'	    => false,   
 
-    
     /* Thumb for Posts in Lists - Name: post-thumb */
-    'default_postthumb_width'		=> 220,
-    'default_postthumb_height'		=> 147,
-    'default_postthumb_crop'		=> false,
+    'default_postthumb_width'		    => 220,
+    'default_postthumb_height'		    => 147,
+    'default_postthumb_crop'		    => false,
    
      /* Thumb for Posts, displayed in post/page single display - Name: post */
-    'default_post_width'		=> 300,
-    'default_post_height'		=> 200,
-    'default_post_crop'			=> false, 
-    
-     /* Thumb for person-type; small for sidebar - Name: person-thumb */
-    'default_person_thumb_width'	=> 60,
-    'default_person_thumb_height'	=> 80,
-    'default_person_thumb_crop'		=> true, 
-     
-     /* Thumb for person-type; small for content - Name: person-thumb-bigger */
-    'default_person_thumb_bigger_width' => 90,
-    'default_person_thumb_bigger_height'=> 120,
-    'default_person_thumb_bigger_crop'	=> true,     
-
-     /* Thumb for person-type; small for content - Name: person-thumb-page */
-    'default_person_thumb_page_width'    => 200,
-    'default_person_thumb_page_height'   => 300,
-    'default_person_thumb_page_crop'	 => true,         
-    
-   
+    'default_post_width'		    => 300,
+    'default_post_height'		    => 200,
+    'default_post_crop'			    => false, 
   
     /* Images for gallerys - Name: gallery-full */
-    'default_gallery_full_width'	=> 940,
-    'default_gallery_full_height'	=> 470,
-    'default_gallery_full_crop'		=> false,     
+    'default_gallery_full_width'	    => 940,
+    'default_gallery_full_height'	    => 470,
+    'default_gallery_full_crop'		    => false,     
     
     /* Thumbs for gallerys - Name: gallery-thumb */
-    'default_gallery_thumb_width'	=> 120,
-    'default_gallery_thumb_height'	=> 80,
-    'default_gallery_thumb_crop'	=> true,     
+    'default_gallery_thumb_width'	    => 120,
+    'default_gallery_thumb_height'	    => 80,
+    'default_gallery_thumb_crop'	    => true,     
 
     /* Grid-Thumbs for gallerys - Name: gallery-grid */
-    'default_gallery_grid_width'	=> 145,
-    'default_gallery_grid_height'	=> 120,
-    'default_gallery_grid_crop'		=> false,    
+    'default_gallery_grid_width'	    => 145,
+    'default_gallery_grid_height'	    => 120,
+    'default_gallery_grid_crop'		    => false,    
     
      /* 2 column Imagelists for gallerys - Name: image-2-col */
-    'default_gallery_grid2col_width'	=> 300,
-    'default_gallery_grid2col_height'	=> 200,
-    'default_gallery_grid2col_crop'		=> true,        
+    'default_gallery_grid2col_width'	    => 300,
+    'default_gallery_grid2col_height'	    => 200,
+    'default_gallery_grid2col_crop'	    => true,        
 
     /* 4 column Imagelists for gallerys - Name: image-4-col */
-    'default_gallery_grid4col_width'	=> 140,
-    'default_gallery_grid4col_height'	=> 70,
-    'default_gallery_grid4col_crop'		=> true,   
+    'default_gallery_grid4col_width'	    => 140,
+    'default_gallery_grid4col_height'	    => 70,
+    'default_gallery_grid4col_crop'	    => true,   
     
    
     'breadcrumb_root'			=> __('Startseite', 'fau'),
     'breadcrumb_delimiter'		=> ' <span>/</span>',
-    'breadcrumb_beforehtml'		=> '<span class="active">', // '<span class="current">'; // tag before the current crumb
+    'breadcrumb_beforehtml'		=> '<span class="active" aria-current="location">', // '<span class="current">'; // tag before the current crumb
     'breadcrumb_afterhtml'		=> '</span>',
     'breadcrumb_uselastcat'		=> true,
     'breadcrumb_withtitle'		=> false,
@@ -197,9 +183,7 @@ $defaultoptions = array(
     'default_anleser_excerpt_length'=> 300,
     'default_search_excerpt_length' => 300,
     
-    'default_postthumb_src'	    => get_fau_template_uri().'/img/default-postthumb.png',
 
-    'default_postthumb_always'	    => 1,
 
     'custom_excerpt_allowtags'	    => 'br',
     'url_banner-ad-notice'	    => 'http://www.fau.info/werbungfaude',
@@ -247,6 +231,8 @@ $defaultoptions = array(
     'search_display_excerpt_morestring'		=> '...',
     'search_display_typenote'		=> true,
     'search_post_types'			=> array("page", "post",  "person", "attachment"),
+    'search_post_types_checked'			=> array("page", "post"),
+    
     'search_allowfilter'		=> true,
    
     'plugin_fau_person_headline'	=> true,
@@ -299,11 +285,24 @@ function fau_initoptions() {
 	
     } else {
         $newoptions = $defaultoptions;
+	if (!fau_empty(get_bloginfo( 'title' ))) {
+	    $newoptions['breadcrumb_root'] = get_bloginfo( 'title' );
+	}
     }       
+    
+    $theme_data = wp_get_theme();
+    $newoptions['version'] =  $theme_data->Version;
+    
+    if (class_exists('FAU_Studienangebot')) {
+	$newoptions['search_post_types'][] ='studienangebot';
+    }
+     
+    
     return $newoptions;
 }
 
  $categories=get_categories(array('orderby' => 'name','order' => 'ASC'));
+ $currentcatliste = array();
  foreach($categories as $category) {
      if (!is_wp_error( $category )) {
 	$currentcatliste[$category->cat_ID] = $category->name.' ('.$category->count.' '.__('Einträge','fau').')';
@@ -485,14 +484,14 @@ $setoptions = array(
                   'label'   => __( 'Begriff nach dem Titel des gewählten Menüs', 'fau' ),               
                   'default' => $defaultoptions['menu_aftertitle_portal'],
               ),  
-	       
+	      /* 
 	      'menu_fallbackquote_show_excerpt' => array(
                   'type'    => 'bool',
                   'title'   => __( 'Zitatersatz', 'fau' ),
                   'label'   => __( 'Wenn bei einem Menupunkt auf oberster Ebene kein Zitat vorgegeben ist, zeige stattdessen einen Auszug der Seite.', 'fau' ),                
                   'default' => $defaultoptions['menu_fallbackquote_show_excerpt'],
               ),  
-	       
+	       */
 	       
 	     'google-site-verification' => array(
                   'type'    => 'text',

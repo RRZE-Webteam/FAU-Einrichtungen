@@ -1,26 +1,17 @@
 /*-----------------------------------------------------------------------------------*/
-/* Meta-Nav
+/* Meta-Navigation
 /*-----------------------------------------------------------------------------------*/
-
-.header-menu {
-    width: 700px;
-    float: left;
-    margin-left: 0;
-}
-
-
-	
-/* Meta-Navigation */
+.orgalist,
 #meta-nav {
 	@include no-list;
 	padding: 0;
-	max-width: 650px;
 	overflow: hidden;
 	
+
 	li {
 		@include no-list;
 		@include inline-block;
-		margin-right: 8px;
+		margin: 0 4px;
 		background: none;
 		position: relative;
 		
@@ -33,14 +24,14 @@
 			@include inline-block;
 			padding: 10px 0;
 			color: $colorMeta;
-			font-size: 13px;
 			text-decoration: none;
 		}
 		
 		a:hover {
 		    text-decoration: underline;
 		}
-		&:hover a, &:focus a {
+		&:hover a, 
+		&:focus a {
 			text-decoration: underline;
 		} 
 	}
@@ -61,35 +52,6 @@
 			right: 11px;
 		}
 	}
-	li.fauhome {
-	    padding-right: 5px;
-	    margin-right: 10px;	    
-	}
-	li.fauhome:before {
-	    @extend .fa;
-	    @extend .fa-long-arrow-up;
-	    margin-left: 5px;
-	    margin-right: 5px;
-	}
-	li.facultyhome {
-	    padding-right: 5px;
-	    padding-left: 5px;
-	    margin-right: 10px;
-	    margin-left: -15px;
-	   
-	}
-
-	
-	
-	li.fauhome, li.facultyhome {
-	    @include transition(background, 0.2s ease-out);
-	}
-	li.fauhome:hover, li.fauhome:focus, 
-	li.facultyhome:hover, li.facultyhome:focus {
-	    background: $colorMetaFAUHomeBackground;
-	    @include transition(background, 0.1s);
-	}
-	   
 	
 	
 	ul.sub-menu {
@@ -127,26 +89,121 @@
 	}
 }
 
-@media (max-width: $breakLG) {
+
+#meta-nav {
+    display: none;
+    @media (min-width: $screen-sm) {
+	display: inline;   
+    }
+
+    
+}
+.orgalist {
+    display: block;   
+    margin: 0 auto;
+    text-align: center;
+    
+    li.fauhome {
+	padding-right: 5px;
+	margin-right: 10px;	    
+    }
+    li.fauhome:before {	
+	@extend .fa;
+	@extend .fa-long-arrow-up;
+	margin-left: 5px;
+	margin-right: 5px;
+    }
+    li.facultyhome {
+	padding-right: 5px;
+	padding-left: 5px;
+	margin-right: 10px;
+	margin-left: -15px;
+    }
+
+    li.fauhome, 
+    li.facultyhome {
+	@include transition(background, 0.2s ease-out);
+    }
+    li.fauhome:hover, li.fauhome:focus, 
+    li.facultyhome:hover, li.facultyhome:focus {
+	background: $colorMetaFAUHomeBackground;
+	@include transition(background, 0.1s);
+    }
+    
+    @media (max-width: $screen-sm - 1) {
+	li.fauhome:before {	
+	    display: none;
+	    content: "";
+	}
+    }
+    
+    @media (min-width: $screen-sm) {
+	display: inline;
+	margin: 0 0 0 -4px;
+	text-align: left;
 	
-	.header-menu {
-	    float: none;
-	    width: 100%;
-	    display: block;
-	    margin: 8px 0 0 0;
-	   margin-top: 8px;
-	    #nav {
-		margin: 0;
-	    }
+	.fauorg-home & .fauhome {
+	    // Zeige auf der FAU-Website selbst den Logolink in der Meta
+	    // nicht an, wenn die Darstellung größer gleich als Tablet ist.
+	    display: none;
 	}
+    }
 }
 
-@media (max-width: $breakMD) {
-    	.js {	
 
-	    #meta-nav {
-		display: none;
+
+
+#footer {
+    .cloned-meta-links,
+    .cloned-hero-nav,
+    #meta-nav {
+	display: block;
+	padding: 10px;
+	
+	li {
+		display: table;
+		padding: 3px 0 4px 4px;
+
+		
+		a {
+		    display: block;
+		    float: none;
+		    @include border-radius(0);
+		    margin-bottom: 0;
+		    padding: 2px 0;
+		    color: $colorMeta;
+		}
 	    }
+	li:before {
+		    @extend .fa;
+		    @extend .fa-angle-right;	
+		    font-weight: bold;
+		    display: table-cell;
+		    color:$colorMeta;
+		    width: 20px;
+	    }
+	
+	
+    }
+     #meta-nav {
+	    padding: 10px 0;
+     }
+    
+    .cloned-meta-links {
+	margin-bottom: 0px;
+    }
+    .cloned-meta-links, 
+    .cloned-hero-nav {
+	background: $colorMetaBackground;
+	color: $colorMeta;
+	li, a, h1, h2, h3, h4, p {
+	    background: $colorMetaBackground;
+	    color: $colorMeta;
 	}
-	    
+    }
+    .cloned-hero-nav {
+	margin-bottom: 10px;
+    }
 }
+	
+

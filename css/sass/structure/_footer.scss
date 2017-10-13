@@ -6,7 +6,7 @@
 #footer {
 	background: $colorPrimaryHero;
 	color: #fff;
-	padding: 20px 0;
+	padding: 0 0 20px 0;
 	
 	p {
 		color: #fff;
@@ -26,12 +26,40 @@
 	a:hover, a:focus {
 		text-decoration: underline;
 	}
+	@media (min-width: $screen-sm) {
+	    padding: 20px 0;
+	}
 }
+
+
+.footer-logo {
+    @extend .col-xs-6;
+    @extend .col-sm-4;
+    @extend .col-md-3;
+}
+.footer-address {
+    @extend .col-xs-6;
+    @extend .col-sm-4;
+    @extend .col-md-3;
+}
+.footer-meta {
+    @extend .col-xs-12;
+    @extend .col-sm-4;
+    @extend .col-md-6;
+    text-align: right;
+}
+
+
+
 
 /* Footer Navigation */
 #footer-nav {
 	@include no-list;
-	text-align: right;
+	text-align: left;
+	
+	@media (min-width: $screen-sm) {
+	    text-align: right;
+	}
 	
 	li {
 		@include no-list;
@@ -40,7 +68,20 @@
 		background: none;
 	}
 }
-@media (max-width: $breakSM) {
+
+@media (max-width: $screen-xs - 1) {
+    .footer-logo {
+	width: 100%;
+    }
+    .footer-address {
+	width: 100%;
+    }
+    #footer-nav li {
+	margin-left: 0px;
+    }
+}
+
+@media (min-width: $screen-xs) {
  #footer {
 	li {
 	    line-height: 15px;
@@ -61,35 +102,12 @@
 	}
 
     }
-    #footer-nav {
-
-	text-align: left;
-	li {
-	    display: inline;
-	}
+    .footer-logo {
+	padding-right: 0;
+	min-width: 200px;
+    }
+    .footer-address {
+	max-width: calc(100% - 215px);
     }
 }
-@media (max-width: $breakMD) {
-    #footer {
-	    .span3 {
-		width: 48%;
-		width: calc(50% - 10px);
-		float: left;
-		margin: 2px;
-		
-	    }
-	    .span6 {
-		width: 100%;
-		margin: 0;
-		float: none;
-	    }
-	    
-	}
 
-	#footer-nav {	    
-	    text-align: left;
-	    li {
-		display: inline;
-	    }
-	}
-}

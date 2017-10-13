@@ -6,21 +6,15 @@
 /* Sidebar: Inline */
 .sidebar-inline {
 	float: right;
-	width: 220px;
-	margin-left: 30px;
-	padding-left: 18px;
-	margin-bottom: 11px;
-	border-left: 2px solid $colorLightest;
+	min-width: 220px;	
+	width: 100%;
+	border-top: 2px solid $colorLightest;
+	margin: 10px 0;
+	padding-top: 10px;
 	
 	.widget {
 		margin-bottom: 22px;
 		margin-top: 22px;
-
-		li {
-		    font-size: 13px;
-		    line-height: 22px;		   
-		}
-		
 	}
 	
 	.widget:last-child {
@@ -34,25 +28,36 @@
 	.content-portal & {
 		margin-top: 22px;
 	}
+	
+	@media (min-width: $screen-sm) {
+	    border-top: none;
+	    width: 220px;
+	    margin-top: 0;
+	    margin-left: $fau-gutter-width;
+	    margin-right: - ceil(($fau-gutter-width / 2));
+	    padding-top: 0;
+	    padding-left: ceil(($fau-gutter-width / 2));	
+	    border-left: 2px solid $colorLightest;
+	}
 
-   
-}
-
-@media (max-width: $breakLG) {
-    	.sidebar-inline {
-		width: 240px;
+	@media (min-width: $screen-lg ) {
+	    width: 300px;
+	}
+	@media (min-width: $screen-xxl ) {
+	    width: 300px;
+	}
+	
+	.page-template-page-subnav & {
+	    @media (min-width: $screen-lg ) {
+		width: 220px;
+	    }
 	}
 
 }
-/*
-@media (min-width: $break-1360) {
-    .sidebar-inline {
-		width: 260px;
-	}
+
+.startpage-sidebar {
+    .row {
+	margin-left: 0;
+	margin-right: 0;
+    }
 }
-@media (min-width: $break-1700) {
-    .sidebar-inline {
-		width: 300px;
-	}
-}
-*/

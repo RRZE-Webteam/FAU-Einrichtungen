@@ -193,7 +193,7 @@ function fau_save_post_teaser($post_id, $post) {
         delete_post_meta($post_id, 'abstract');
     }
 
-    $newval = isset($_POST['fauval_external_link']) && filter_var(trim($_POST['fauval_external_link']), FILTER_VALIDATE_URL) ? trim($_POST['fauval_external_link']) : '';
+    $newval = isset($_POST['fauval_external_link']) && filter_var(trim($_POST['fauval_external_link']), FILTER_VALIDATE_URL, FILTER_FLAG_QUERY_REQUIRED) ? trim($_POST['fauval_external_link']) : '';
     $oldval = get_post_meta( $post_id, 'external_link', true );
 
     if (!empty($newval) && !empty($oldval)) {

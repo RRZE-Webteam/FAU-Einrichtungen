@@ -331,11 +331,12 @@ function fau_get_ad($type, $withhr = true) {
 		$list[0] = $val;
 	   } 
 
+	   
+
+	   $out .= '<aside class="fau-werbung'.$class.'" role="region">';
 	   if ($withhr) {
 	       $out .= "<hr>\n";
 	   }
-
-	   $out .= '<aside class="fau-werbung'.$class.'" role="region">';
 	   foreach ($list as $id) {
 
 		$out .= '<h3>';	    

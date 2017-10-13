@@ -15,6 +15,9 @@
 // Post
 @import "posts";
 
+// Page Templates
+@import "page-templates";
+
 
 // Event Items
 @import "event-items";
@@ -22,7 +25,11 @@
 // News Items
 @import "news-items";
 
+// Errorpages
+@import "errors";
 
+// Errorpages
+@import "search";
 
 // Accordion
 @import "accordion";
@@ -33,3 +40,7 @@
 
 // Comments
 @import "comments";
+
+// Spalten aus Shortcodes
+@import "spalten";
+

@@ -1,0 +1,184 @@
+/*-----------------------------------------------------------------------------------*/
+/* Portalmenus
+/*-----------------------------------------------------------------------------------*/
+
+/* Subpages / Portal Menu */
+.contentmenu {
+    @extend .row;
+}
+
+
+.subpages-menu {
+	@include no-list;
+	margin: 20px 0;
+	
+	
+	li {
+		@include no-list;
+		background-image: none;
+		margin: 0 0 20px 20px;
+		padding: 0px;
+		position: relative;
+		width: 220px;
+		float: left;
+		
+		
+		@media (max-width: $screen-xs - 1) {
+		    margin: 20px auto;
+		    float: none;
+		}
+		@media (min-width: $screen-xs) and (max-width: $screen-sm - 1) {
+		    margin-left: 25px;
+		    clear: none; 
+		    &.menu-item:nth-of-type(odd) {
+			clear: left;
+			margin-left: 15px;
+		    }
+		}
+		@media (min-width: $screen-sm) and (max-width: $screen-md - 1) {
+		    margin-left: 27px;
+		    clear: none; 
+		    &.menu-item:nth-of-type(3n+1) {
+			clear: left;
+			margin-left: 15px;
+		    }
+		}
+		
+		@media (min-width: $screen-md) {
+		    margin-left: 20px;
+		     clear: none; 
+		     &.menu-item:nth-of-type(4n+1) {
+	
+			clear: left;
+			margin-left: 15px;
+		    }
+		}
+		
+		
+		a.image {
+			text-decoration: none;
+			width: 220px;
+			height: 110px;
+			display: table-cell;
+			vertical-align: bottom;			
+			img {
+			    position: relative;
+			    max-width: none;
+			}
+			
+			&.ext-link:after {
+				@extend .fa;
+				content: "\f08e"; 
+				position: absolute;
+				top: 0;
+				right: 0px;
+				z-index: 10;
+				height: 20px;
+				width: 20px;
+				background: $colorPrimary;
+				
+				
+				@include px2rem($font-size-linkicon);  
+				color: #fff; 
+				font-weight: bolder;
+				text-align: right;
+				padding: 0 2px 0 0;
+				
+			}
+		}
+		  
+	    ul {
+		@include no-list;
+	       li {
+			    @include no-list;
+			    background: none;
+			    display: table;
+			    border-bottom: 1px solid $colorLightest;
+			    width: 100%;
+
+		    }
+		    li:before {
+			@extend .fa;
+			@extend .fa-angle-right;	
+			font-weight: bold;
+			display: table-cell;
+			vertical-align: middle;
+			color: $colorDefault;
+			width: 5px;
+		    }
+
+		    a {
+			    text-decoration: none;
+			    display: table-cell;
+			    padding: 5px 12px;
+                            @include px2rem($font-size-link-contentmenu); 
+		    }
+
+		    a:hover, a:focus {
+			    text-decoration: none;
+			    background-color: $colorLightest;
+		    }
+	    }	
+		
+	}
+        .subpage-item:focus .portaltop,
+	.subpage-item:focus h3 {
+		background-color: $colorLightest;
+	}
+}
+
+.subpages-menu, 
+.helpermenus {
+    .portaltop,
+    h3 {
+        display: block;
+	@include px2rem($font-size-h3-contentmenu);  
+	padding: 10px 15px 10px 0;
+	a {
+	     text-decoration: none;
+	     &:hover, &:focus {
+		text-decoration: underline;
+	    }
+
+	    &.ext-link:after {
+		    @extend .fa;
+		    content: "\f08e"; 
+		    margin-left: 5px;
+		    margin-top: 0;
+		    @include px2rem($font-size-content-linkicon);  
+		    color: $colorText; 
+		    vertical-align: top;
+
+	    }
+	}	    
+    }
+}
+.helpermenus {
+    ul {
+	@include no-list();
+    }
+    li {
+	@include anglelist();
+    }
+}
+
+
+
+
+@media (max-width: $screen-sm - 1) {
+    #content {
+	ul.menu, 
+	ul.menu ul {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.subpages-menu {
+		 a.image {
+		    &.ext-link:after {
+			display: none;
+		    }
+		}
+	}
+    }
+}
+

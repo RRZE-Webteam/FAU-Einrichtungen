@@ -1,26 +1,246 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: FAU-Einrichtungen\n"
+"Project-Id-Version: FAU v1.2.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-20 17:35+0200\n"
-"PO-Revision-Date: 2017-04-20 17:37+0200\n"
-"Last-Translator: xwolf <xwolf@xwolf.de>\n"
-"Language-Team: RRZE-Webteam\n"
-"Language: en_GB\n"
+"POT-Creation-Date: 2017-10-06 07:33+0000\n"
+"PO-Revision-Date: 2017-10-06 08:01+0000\n"
+"Last-Translator: Wolfgang Wiese <wolfgang.wiese@fau.de>\n"
+"Language-Team: English (UK)\n"
+"Language: en-GB\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Loco - https://localise.biz/\n"
 "X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
 "__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
 "_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
 "esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
-"X-Loco-Target-Locale: en_GB\n"
-"X-Poedit-SearchPath-0: ..\n"
+"X-Loco-Target-Locale: en_GB"
+
+#: ../functions/constants.php:575
+msgid "Auf welchen Seiten sollen Top Events in der Sidebar angezeigt werden."
+msgstr "On which pages top events will be displayed in sidebar"
+
+#: ../functions/constants.php:586
+msgid "Wieviele Top-Events sollen maximal angezeigt werden"
+msgstr "Maximum number of top events"
+
+#: ../functions/constants.php:884
+msgid "Links auf Startseite"
+msgstr "Links on start page"
+
+#: ../functions/constants.php:885
+msgid ""
+"Links auf die Startseite werden aus dem Hauptmenu entfernt, da diese unnötig "
+"sind (das Logo der Website verlinkt bereits zur Startseite)"
+msgstr ""
+"Links to the start page will be removed from the main menu, due to their "
+"redundancy with the logo"
+
+#: ../functions/constants.php:892
+msgid ""
+"Links auf externe Seiten werden aus dem Hauptmenu entfernt. Im Hauptmenü "
+"sollen aus Gründen der Usability nur Links auf Seiten des eigenen Angebots "
+"stehen. Externe Links gehören in andere Menüs (z.B. Metanavigation, Footer "
+"oder Quicklinks) oder in den Text der Seiten."
+msgstr ""
+"Links to other websites will be removed from the main menu. Please put "
+"external links in content menus, meta navigation, quicklinks or footer."
+
+#: ../functions/constants.php:1007
+msgid "Galeriebilder (Groß) - Breite"
+msgstr "Gallery images (big sized) - Width"
+
+#: ../functions/constants.php:1008
+msgid "Breite in Pixel für große Galeriebilder."
+msgstr "Width in pixel for big sized gallery images."
+
+#: ../functions/constants.php:1014
+msgid "Galeriebilder (Groß) - Höhe"
+msgstr "Gallery images (big sized) - Height"
+
+#: ../functions/constants.php:1015
+msgid "Höhe in Pixel für große Galeriebilder."
+msgstr "Height in pixel for big sized gallery images."
+
+#: ../functions/constants.php:1022
+msgid ""
+"Sollen die großen Galeriebilder zugeschnitten werden um in die Dimensionen "
+"zu passen?"
+msgstr "Crop big gallery images?"
+
+#: ../functions/constants.php:1029
+msgid "Galeriebilder  - Breite"
+msgstr "Gallery images - Width"
+
+#: ../functions/constants.php:1030
+msgid "Breite in Pixel für Galeriebilder."
+msgstr "Width in pixel of gallery images."
+
+#: ../functions/constants.php:1036
+msgid "Galeriebilder - Höhe"
+msgstr "Gallery images - Height"
+
+#: ../functions/constants.php:1037
+msgid "Höhe in Pixel für Galeriebilder."
+msgstr "Height in pixel of gallery images."
+
+#: ../functions/constants.php:1044
+msgid ""
+"Sollen die Galeriebilder zugeschnitten werden um in die Dimensionen zu "
+"passen?"
+msgstr "Crop gallery images?"
+
+#: ../functions/constants.php:1051
+msgid "Galeriebilder (Grid)  - Breite"
+msgstr "Gallery images - Width"
+
+#: ../functions/constants.php:1052
+msgid "Breite in Pixel für Galeriebilder (Grid)."
+msgstr "Width (Pixel) for gallery images"
+
+#: ../functions/constants.php:1058
+msgid "Galeriebilder (Grid) - Höhe"
+msgstr "Gallery images - Height"
+
+#: ../functions/constants.php:1059
+msgid "Höhe in Pixel für Galeriebilder (Grid)."
+msgstr "Height (Pixel) for gallery images"
+
+#: ../functions/constants.php:1066
+msgid ""
+"Sollen die Galeriebilder (Grid) zugeschnitten werden um in die Dimensionen "
+"zu passen?"
+msgstr "Crop gallery images?"
+
+#: ../functions/constants.php:1073
+msgid "Galeriebilder (2 Spalten)  - Breite"
+msgstr "Gallery images (2 rows) - Width"
+
+#: ../functions/constants.php:1080
+msgid "Galeriebilder (2 Spalten) - Höhe"
+msgstr "Gallery images (2 rows) - Height"
+
+#: ../functions/constants.php:1081
+msgid "Höhe in Pixel für Galeriebilder (2 Spalten)."
+msgstr "Height in pixel for gallery images (2 rows)."
+
+#: ../functions/constants.php:1088
+msgid ""
+"Sollen die Galeriebilder (2 Spalten) zugeschnitten werden um in die "
+"Dimensionen zu passen?"
+msgstr "Crop gallery images?"
+
+#: ../functions/constants.php:1096
+msgid "Galeriebilder (4 Spalten)  - Breite"
+msgstr "Gallery images (4 rows) -  Width"
+
+#: ../functions/constants.php:1097
+msgid "Breite in Pixel für Galeriebilder (4 Spalten)."
+msgstr "Gallery images (4 columns) - Width"
+
+#: ../functions/constants.php:1103
+msgid "Galeriebilder (4 Spalten) - Höhe"
+msgstr "Gallery images (4 columns) - Height"
+
+#: ../functions/constants.php:1104
+msgid "Höhe in Pixel für Galeriebilder (4 Spalten)."
+msgstr "Gallery images (4 rows) - Height in PIxel"
+
+#: ../functions/constants.php:1111
+msgid ""
+"Sollen die Galeriebilder (4 Spalten) zugeschnitten werden um in die "
+"Dimensionen zu passen?"
+msgstr "Crop gallery images?"
+
+#: ../functions/constants.php:1129
+msgid "Anzeige der Optionen"
+msgstr "View Options"
+
+#: ../functions/constants.php:1136
+msgid ""
+"Mit dieser Einstellung können Sie den erweiterten Anzeigemodus oder den "
+"Expertenmodus für die Theme Einstellungen ändern.<br>Durch den Wechsel von "
+"der Normal-Ansicht auf die erweiterte Anzeige oder den Expertenmodus "
+"erhalten Sie mehr Optionen angezeigt. Viele der Optionen, insbesondere die "
+"des Expertenmodus, sollten nur dann geändert werden, wenn man genau weiß man "
+"dabei tut. Für den Alltagseinsatz eines Theme ist es nicht notwendig auf den "
+"erweiterten Anzeigemodus oder den Expertenmodus zu wechseln. <br><b>Bitte "
+"verwenden Sie diese Optionen daher nur mit großer Vorsicht und Bedacht!</b> "
+"<br>"
+msgstr ""
+"Switch display to view more detailed options. <b>Please notice, that some "
+"options might chance your website design."
+
+#: ../functions/defaults.php:135
+msgid "Alle Studiengänge"
+msgstr "All degree programmes"
+
+#: ../functions/defaults.php:139
+msgid "Studium A-Z"
+msgstr "FAU from A to Z"
+
+#: ../functions/defaults.php:143
+msgid "Zahlen, Daten, Fakten"
+msgstr "Rankings"
+
+#: ../functions/defaults.php:151
+msgid "Stiften und Fördern"
+msgstr "Donations"
+
+#: ../functions/helper-functions.php:27
+msgid "Ungültiger Aufruf von fau_form_textarea() - Name oder Label fehlt."
+msgstr "Invalid call - Missing parameter name or label."
+
+#: ../functions/helper-functions.php:51
+msgid "Ungültiger Aufruf von fau_form_wpeditor() - Name oder Label fehlt."
+msgstr "Invalid call - Missing parameter name or label."
+
+#: ../functions/helper-functions.php:84
+msgid "Ungültiger Aufruf von fau_form_text() - Name oder Label fehlt."
+msgstr "Invalid call - Missing parameter name or label."
+
+#: ../functions/helper-functions.php:117
+msgid "Ungültiger Aufruf von fau_form_email() - Name oder Label fehlt."
+msgstr "Invalid call - Missing parameter name or label."
+
+#: ../functions/helper-functions.php:152
+msgid "Ungültiger Aufruf von fau_form_number() - Name oder Label fehlt."
+msgstr "Invalid call - Missing parameter name or label."
+
+#: ../functions/helper-functions.php:181
+msgid "Ungültiger Aufruf von fau_form_url() - Name oder Label fehlt."
+msgstr "Invalid call - Missing parameter name or label."
+
+#: ../functions/helper-functions.php:207
+msgid "Ungültiger Aufruf von fau_form_onoff() - Name oder Label fehlt."
+msgstr "Invalid call - Missing parameter name or label."
+
+#: ../functions/helper-functions.php:248
+msgid "Ungültiger Aufruf von fau_form_select() - Array, Name oder Label fehlt."
+msgstr "Invalid call - Missing parameter name or label."
+
+#: ../functions/helper-functions.php:299
+msgid ""
+"Ungültiger Aufruf von fau_form_multiselect() - Array, Name oder Label fehlt."
+msgstr "Invalid call - Missing parameter name or label."
+
+#: ../functions/helper-functions.php:363
+msgid "Ungültiger Aufruf von fau_form_image() - Name oder Label fehlt."
+msgstr "Invalid call - Missing parameter name or label."
+
+#: ../functions/helper-functions.php:467
+msgid "Ungültiger Aufruf von fau_form_link() - Name oder Label fehlt."
+msgstr "Invalid call - Missing parameter name or label."
+
+#: ../single-univis.php:23
+msgid "<span class=\"meta-nav\">&laquo;</span> Zurück zur Übersicht"
+msgstr "<span class=\"meta-nav\">&laquo;</span> Back to index"
 
 #: ../401.php:29
 msgid "Anmeldung fehlgeschlagen"
@@ -181,7 +401,7 @@ msgstr "Enlarge"
 
 #: ../functions.php:1022
 msgid "Zur"
-msgstr "Towards"
+msgstr "Go to"
 
 #: ../functions.php:1106 ../header.php:107
 msgid "Navigation"
@@ -250,10 +470,11 @@ msgstr "Entries by"
 msgid "%s <span class=\"says\">schrieb am</span>"
 msgstr "%s <span class=\"says\">wrote on</span>"
 
+#. translators: 1: date, 2: time
 #: ../functions.php:1859
 #, php-format
 msgid "%1$s um %2$s Uhr"
-msgstr "%1$s at %2$s"
+msgstr "%1$s at %2$s o'clock"
 
 #: ../functions.php:1859
 msgid "folgendes"
@@ -564,9 +785,9 @@ msgstr "URL video portal"
 
 #: ../functions/constants.php:462
 msgid ""
-"URL zum Videoportal. Diese sollte normalerweise auf <code>video.fau.de</"
-"code> bleiben. Manchmal nutzt man aber vielleicht ein anderes Portal, so "
-"dass man hier die URL ändern kann."
+"URL zum Videoportal. Diese sollte normalerweise auf <code>video.fau.de</code>"
+" bleiben. Manchmal nutzt man aber vielleicht ein anderes Portal, so dass man "
+"hier die URL ändern kann."
 msgstr ""
 "URL for the video portal; this should usually be <code>video.fau.de</code>. "
 "Sometimes there might be another portal in use, so that you can change the "
@@ -631,8 +852,8 @@ msgstr "Reference title for advertising banners"
 #: ../functions/constants.php:512
 msgid ""
 "Aus gesetzlichen Gründen muss vor Werbebannern ein Hinweis stehen, daß es "
-"sich um eben solche Werbung handelt. Üblicherweise reicht ein Titel \"Werbung"
-"\" o.ä.. Dieser Titel kann hier angegeben oder geändert werden."
+"sich um eben solche Werbung handelt. Üblicherweise reicht ein Titel "
+"\"Werbung\" o.ä.. Dieser Titel kann hier angegeben oder geändert werden."
 msgstr ""
 "Out of legal reasons, advertising banners should be preceded by a notice "
 "that this is an advertisement. Generally, it is enough to put a title saying "
@@ -697,7 +918,7 @@ msgstr "Show a list of categories below the article"
 
 #: ../functions/constants.php:561
 msgid "Top Events"
-msgstr ""
+msgstr "Top events"
 
 #: ../functions/constants.php:566
 msgid "Aktivieren"
@@ -709,19 +930,11 @@ msgstr "Activate top events on the home page"
 
 #: ../functions/constants.php:574
 msgid "Seitentypen"
-msgstr ""
-
-#: ../functions/constants.php:575
-msgid "Auf welchen Seiten sollen Top Events in der Sidebar angezeigt werden."
-msgstr ""
+msgstr "Page types"
 
 #: ../functions/constants.php:585
 msgid "Zahl der Top-Events"
 msgstr "Number of top events"
-
-#: ../functions/constants.php:586
-msgid "Wieviele Top-Events sollen maximal angezeigt werden"
-msgstr ""
 
 #: ../functions/constants.php:596 ../search.php:41
 msgid "Suchergebnisse"
@@ -820,8 +1033,8 @@ msgid ""
 "soll, wird der jüngste Artikel mit dem Tag angezeigt."
 msgstr ""
 "Declaration of the tag prefix that handles the position of certain articles "
-"on the home page. In the article, you put this tag together with a number "
-"(1, 2 or 3) to define the position. <br>\n"
+"on the home page. In the article, you put this tag together with a number (1,"
+" 2 or 3) to define the position. <br>\n"
 "E. g.: If you choose \"homepage\" as a tag prefix, then you tag the article "
 "you want to display first with \"homepage1\", the second with \"homepage2\" "
 "etc.; if there is more than one article with the tag \"homepage1\" and just "
@@ -989,9 +1202,8 @@ msgstr "Anchor link below the stage"
 
 #: ../functions/constants.php:823
 msgid ""
-"Aktiviert die Schaltung eines Sprunglinks unterhalb der Bühne der "
-"Startseite, wenn das Browserfenster eine Größe zwischen 700px und 900px Höhe "
-"hat."
+"Aktiviert die Schaltung eines Sprunglinks unterhalb der Bühne der Startseite,"
+" wenn das Browserfenster eine Größe zwischen 700px und 900px Höhe hat."
 msgstr ""
 "Activates an anchor link below the stage of the home page when the browser "
 "window has a height between 700px and 900px."
@@ -1068,8 +1280,8 @@ msgstr "Title home page in breadcrumb"
 #: ../functions/constants.php:866
 msgid ""
 "Definiert, wie der Link zur Startseite in der Breadcrumb aussehen soll. Per "
-"Default sollte hier die offizielle URL stehen; bspw. <code>phil.fau.de</"
-"code>."
+"Default sollte hier die offizielle URL stehen; bspw. <code>phil.fau.de</code>"
+"."
 msgstr ""
 "Defines how the link to the homepage is named. As a default, the official "
 "URL should be here, e. g. <code>phil.fau.de</code>."
@@ -1086,27 +1298,9 @@ msgstr "Show title of the website above breadcrumb"
 msgid "Hauptmenü"
 msgstr "Main menu"
 
-#: ../functions/constants.php:884
-msgid "Links auf Startseite"
-msgstr ""
-
-#: ../functions/constants.php:885
-msgid ""
-"Links auf die Startseite werden aus dem Hauptmenu entfernt, da diese unnötig "
-"sind (das Logo der Website verlinkt bereits zur Startseite)"
-msgstr ""
-
 #: ../functions/constants.php:891
 msgid "Externe Links"
 msgstr "External Links"
-
-#: ../functions/constants.php:892
-msgid ""
-"Links auf externe Seiten werden aus dem Hauptmenu entfernt. Im Hauptmenü "
-"sollen aus Gründen der Usability nur Links auf Seiten des eigenen Angebots "
-"stehen. Externe Links gehören in andere Menüs (z.B. Metanavigation, Footer "
-"oder Quicklinks) oder in den Text der Seiten."
-msgstr ""
 
 #: ../functions/constants.php:901
 msgid "Erweiterte Einstellunge für Sidebars (von Seiten)"
@@ -1221,121 +1415,15 @@ msgstr "Disclaimer note regarding content of comments"
 msgid "Image Dimensions"
 msgstr "Image dimensions"
 
-#: ../functions/constants.php:1007
-msgid "Galeriebilder (Groß) - Breite"
-msgstr ""
-
-#: ../functions/constants.php:1008
-msgid "Breite in Pixel für große Galeriebilder."
-msgstr ""
-
-#: ../functions/constants.php:1014
-msgid "Galeriebilder (Groß) - Höhe"
-msgstr ""
-
-#: ../functions/constants.php:1015
-msgid "Höhe in Pixel für große Galeriebilder."
-msgstr ""
-
 #: ../functions/constants.php:1021 ../functions/constants.php:1043
 #: ../functions/constants.php:1065 ../functions/constants.php:1087
 #: ../functions/constants.php:1110
 msgid "Bilder zuschneiden"
 msgstr "Crop images"
 
-#: ../functions/constants.php:1022
-msgid ""
-"Sollen die großen Galeriebilder zugeschnitten werden um in die Dimensionen "
-"zu passen?"
-msgstr ""
-
-#: ../functions/constants.php:1029
-msgid "Galeriebilder  - Breite"
-msgstr ""
-
-#: ../functions/constants.php:1030
-msgid "Breite in Pixel für Galeriebilder."
-msgstr ""
-
-#: ../functions/constants.php:1036
-msgid "Galeriebilder - Höhe"
-msgstr ""
-
-#: ../functions/constants.php:1037
-msgid "Höhe in Pixel für Galeriebilder."
-msgstr ""
-
-#: ../functions/constants.php:1044
-msgid ""
-"Sollen die Galeriebilder zugeschnitten werden um in die Dimensionen zu "
-"passen?"
-msgstr ""
-
-#: ../functions/constants.php:1051
-msgid "Galeriebilder (Grid)  - Breite"
-msgstr ""
-
-#: ../functions/constants.php:1052
-msgid "Breite in Pixel für Galeriebilder (Grid)."
-msgstr ""
-
-#: ../functions/constants.php:1058
-msgid "Galeriebilder (Grid) - Höhe"
-msgstr ""
-
-#: ../functions/constants.php:1059
-msgid "Höhe in Pixel für Galeriebilder (Grid)."
-msgstr ""
-
-#: ../functions/constants.php:1066
-msgid ""
-"Sollen die Galeriebilder (Grid) zugeschnitten werden um in die Dimensionen "
-"zu passen?"
-msgstr ""
-
-#: ../functions/constants.php:1073
-msgid "Galeriebilder (2 Spalten)  - Breite"
-msgstr ""
-
 #: ../functions/constants.php:1074
 msgid "Breite in Pixel für Galleriebilder (2 Spalten)."
 msgstr "Width for gallery images (2 columns) in pixels"
-
-#: ../functions/constants.php:1080
-msgid "Galeriebilder (2 Spalten) - Höhe"
-msgstr ""
-
-#: ../functions/constants.php:1081
-msgid "Höhe in Pixel für Galeriebilder (2 Spalten)."
-msgstr ""
-
-#: ../functions/constants.php:1088
-msgid ""
-"Sollen die Galeriebilder (2 Spalten) zugeschnitten werden um in die "
-"Dimensionen zu passen?"
-msgstr ""
-
-#: ../functions/constants.php:1096
-msgid "Galeriebilder (4 Spalten)  - Breite"
-msgstr ""
-
-#: ../functions/constants.php:1097
-msgid "Breite in Pixel für Galeriebilder (4 Spalten)."
-msgstr ""
-
-#: ../functions/constants.php:1103
-msgid "Galeriebilder (4 Spalten) - Höhe"
-msgstr ""
-
-#: ../functions/constants.php:1104
-msgid "Höhe in Pixel für Galeriebilder (4 Spalten)."
-msgstr ""
-
-#: ../functions/constants.php:1111
-msgid ""
-"Sollen die Galeriebilder (4 Spalten) zugeschnitten werden um in die "
-"Dimensionen zu passen?"
-msgstr ""
 
 #: ../functions/constants.php:1118
 msgid "Reset"
@@ -1349,26 +1437,9 @@ msgstr ""
 "Reset all settings and configurations. Note: This restores all default "
 "settings and configurations!"
 
-#: ../functions/constants.php:1129
-msgid "Anzeige der Optionen"
-msgstr ""
-
 #: ../functions/constants.php:1135
 msgid "Anzeigemodus"
 msgstr "Display mode"
-
-#: ../functions/constants.php:1136
-msgid ""
-"Mit dieser Einstellung können Sie den erweiterten Anzeigemodus oder den "
-"Expertenmodus für die Theme Einstellungen ändern.<br>Durch den Wechsel von "
-"der Normal-Ansicht auf die erweiterte Anzeige oder den Expertenmodus "
-"erhalten Sie mehr Optionen angezeigt. Viele der Optionen, insbesondere die "
-"des Expertenmodus, sollten nur dann geändert werden, wenn man genau weiß man "
-"dabei tut. Für den Alltagseinsatz eines Theme ist es nicht notwendig auf den "
-"erweiterten Anzeigemodus oder den Expertenmodus zu wechseln. <br><b>Bitte "
-"verwenden Sie diese Optionen daher nur mit großer Vorsicht und Bedacht!</b> "
-"<br>"
-msgstr ""
 
 #: ../functions/constants.php:1142
 msgid "Normal"
@@ -1489,7 +1560,7 @@ msgstr ""
 
 #: ../functions/custom-fields.php:271
 msgid "Diesen Artikel als Top-Event anzeigen."
-msgstr ""
+msgstr "Display entry as top event"
 
 #: ../functions/custom-fields.php:275
 msgid ""
@@ -1497,6 +1568,8 @@ msgid ""
 "entweder obige Option gesetzt sein oder der Artikel muss ein gültiges Datum "
 "für einen Top-Event angegeben haben, welches noch nicht abgelaufen ist."
 msgstr ""
+"Notice: To display a top event, you have to set the above above or you have "
+"to enter a valid date in future."
 
 #: ../functions/custom-fields.php:279 ../functions/helper-functions.php:388
 #: ../functions/plugin-events.php:266 ../functions/plugin-events.php:557
@@ -1534,6 +1607,8 @@ msgid ""
 "führenden Nullen schreiben und das Jahr vierstellig. Beispiel: 01-12-2016 "
 "für den ersten Dezember 2016."
 msgstr ""
+"<br>Use format: \"Day-Month-Year\". Please use leading zeros for date "
+"numbers. "
 
 #: ../functions/custom-fields.php:326
 msgid "Symbolbild"
@@ -1541,7 +1616,7 @@ msgstr "Symbol image"
 
 #: ../functions/custom-fields.php:336
 msgid "Kein Symbolbild anzeigen."
-msgstr ""
+msgstr "Hide placeholder image"
 
 #: ../functions/custom-fields.php:356
 msgid "Kein Bild ausgewählt. Ersatzbild wird gezeigt."
@@ -1863,25 +1938,9 @@ msgstr "Faculty of Engineering"
 msgid "Die FAU"
 msgstr "FAU"
 
-#: ../functions/defaults.php:135
-msgid "Alle Studiengänge"
-msgstr ""
-
-#: ../functions/defaults.php:139
-msgid "Studium A-Z"
-msgstr ""
-
-#: ../functions/defaults.php:143
-msgid "Zahlen, Daten, Fakten"
-msgstr ""
-
 #: ../functions/defaults.php:147
 msgid "Wissenschaftsschwerpunkte"
 msgstr "Research profile"
-
-#: ../functions/defaults.php:151
-msgid "Stiften und Fördern"
-msgstr ""
 
 #: ../functions/defaults.php:156
 msgid "Einrichtungen"
@@ -2003,51 +2062,9 @@ msgstr "School of Business and Economics"
 msgid "Fachbereich Rechtswissenschaften"
 msgstr "School of Law"
 
-#: ../functions/helper-functions.php:27
-msgid "Ungültiger Aufruf von fau_form_textarea() - Name oder Label fehlt."
-msgstr "Invalid request from fau_form_textarea() - name or label missing"
-
-#: ../functions/helper-functions.php:51
-msgid "Ungültiger Aufruf von fau_form_wpeditor() - Name oder Label fehlt."
-msgstr "Invalid request from fau_form_wpeditor() - name or label missing"
-
-#: ../functions/helper-functions.php:84
-msgid "Ungültiger Aufruf von fau_form_text() - Name oder Label fehlt."
-msgstr "Invalid request from fau_form_text() - name or label missing"
-
-#: ../functions/helper-functions.php:117
-msgid "Ungültiger Aufruf von fau_form_email() - Name oder Label fehlt."
-msgstr "Invalid request from fau_form_email() - name or label missing"
-
-#: ../functions/helper-functions.php:152
-msgid "Ungültiger Aufruf von fau_form_number() - Name oder Label fehlt."
-msgstr "Invalid request from fau_form_number() - name or label missing"
-
-#: ../functions/helper-functions.php:181
-msgid "Ungültiger Aufruf von fau_form_url() - Name oder Label fehlt."
-msgstr "Invalid request from fau_form_url() - name or label missing"
-
-#: ../functions/helper-functions.php:207
-msgid "Ungültiger Aufruf von fau_form_onoff() - Name oder Label fehlt."
-msgstr "Invalid request from fau_form_onoff() - name or label missing"
-
 #: ../functions/helper-functions.php:230 ../functions/helper-functions.php:271
 msgid "Keine Auswahl"
 msgstr "No Entries"
-
-#: ../functions/helper-functions.php:248
-msgid "Ungültiger Aufruf von fau_form_select() - Array, Name oder Label fehlt."
-msgstr "Invalid request from fau_form_select() - array, name or label missing"
-
-#: ../functions/helper-functions.php:299
-msgid ""
-"Ungültiger Aufruf von fau_form_multiselect() - Array, Name oder Label fehlt."
-msgstr ""
-"Invalid request from fau_form_multiselect() - array, name or label missing"
-
-#: ../functions/helper-functions.php:363
-msgid "Ungültiger Aufruf von fau_form_image() - Name oder Label fehlt."
-msgstr "Invalid request from fau_form_image() - name or label missing"
 
 #: ../functions/helper-functions.php:393
 msgid "URL"
@@ -2056,10 +2073,6 @@ msgstr "URL"
 #: ../functions/helper-functions.php:397
 msgid "Wähle Link"
 msgstr "Select link"
-
-#: ../functions/helper-functions.php:467
-msgid "Ungültiger Aufruf von fau_form_link() - Name oder Label fehlt."
-msgstr "Invalid request from fau_form_link() - name or label missing"
 
 #: ../functions/menu.php:412
 msgid "Mehr"
@@ -2080,7 +2093,7 @@ msgstr "No upcoming events"
 #: ../functions/plugin-events.php:660
 #, php-format
 msgid "%s Uhr bis %s Uhr"
-msgstr "%s - %s"
+msgstr "%s till %s o'clock"
 
 #: ../functions/plugin-events.php:98
 #, php-format
@@ -2329,8 +2342,8 @@ msgid ""
 "Nehmen Sie hier die Zahl, die bei Ihrem Code an der im Beispiel "
 "unterstrichenen Stelle hinter der Zeichenfolge <code>wp_id=</code> auftaucht."
 msgstr ""
-"In the example, you find an underlined part after the string <code>wp_id=</"
-"code>. Take the number you find there in your code."
+"In the example, you find an underlined part after the string <code>"
+"wp_id=</code>. Take the number you find there in your code."
 
 #: ../functions/posttype_ad.php:164
 msgid "Werbe-ID"
@@ -2600,11 +2613,11 @@ msgstr "Jump to page menu"
 
 #: ../header.php:37
 msgid "Links zu weiteren Portalen"
-msgstr ""
+msgstr "Links to other websites"
 
 #: ../header.php:46
 msgid "Seiteninterne Suche"
-msgstr ""
+msgstr "Search in this website"
 
 #: ../hero-index.php:22 ../hero-personindex.php:22
 msgid "Index"
@@ -2648,7 +2661,7 @@ msgstr "%1$s to %2$s"
 #: ../rrze-calendar-single-event.php:74 ../single-event.php:55
 #, php-format
 msgid "%1$s Uhr bis %2$s Uhr"
-msgstr "%1$s - %2$s"
+msgstr "%1$s o'clock  to %2$s o'clock"
 
 #: ../search-helper.php:51
 msgid "Folgende Inhalte könnten Ihnen auch helfen:"
@@ -2696,148 +2709,6 @@ msgid ""
 "Für den angegebenen Kontakt können keine Informationen abgerufen werden."
 msgstr "Cannot retrieve data for this contact"
 
-#: ../single-univis.php:23
-msgid "<span class=\"meta-nav\">&laquo;</span> Zurück zur Übersicht"
-msgstr ""
-
 #: ../single.php:118
 msgid "Schlagworte"
 msgstr "keywords"
-
-#~ msgid "Startseite Fakultät"
-#~ msgstr "Home page faculty"
-
-#~ msgid "Portalindex"
-#~ msgstr "portal index"
-
-#~ msgid "Portalseite"
-#~ msgstr "portal page"
-
-#~ msgid ""
-#~ "Bitte beachten: Damit ein Artikel als Top-Event angezeigt wird, muss er "
-#~ "das folgende Schlagwort erhalten: "
-#~ msgstr ""
-#~ "Attention: For an article to be displayed as a top event, it needs to "
-#~ "contain the following keyword:"
-
-#~ msgid "Startseite Top Events"
-#~ msgstr "Home page top events"
-
-#~ msgid ""
-#~ "Schlagwort mit dem Beiträge als ausgestattet sein müssen, damit sie als "
-#~ "Top-Event angezeigt werden."
-#~ msgstr "This keyword must be used to display articles as top events."
-
-#~ msgid ""
-#~ "Wieviele Top-Events sollen maximal auf der Startseite angezeigt werden"
-#~ msgstr ""
-#~ "How many top events are to be displayed on the home page as a maximum?"
-
-#~ msgid "Galleriebilder (Groß) - Breite"
-#~ msgstr "Width of gallery images (big)"
-
-#~ msgid "Breite in Pixel für große Galleriebilder."
-#~ msgstr "Width in pixels for big gallery images"
-
-#~ msgid "Galleriebilder (Groß) - Höhe"
-#~ msgstr "Height of gallery images (big)"
-
-#~ msgid "Höhe in Pixel für große Galleriebilder."
-#~ msgstr "Height in pixels for big gallery images"
-
-#~ msgid ""
-#~ "Sollen die großen Galleriebilder zugeschnitten werden um in die "
-#~ "Dimensionen zu passen?"
-#~ msgstr ""
-#~ "Would you like to crop the gallery images to fit into the dimensions?"
-
-#~ msgid "Galleriebilder  - Breite"
-#~ msgstr "Width of gallery images"
-
-#~ msgid "Breite in Pixel für Galleriebilder."
-#~ msgstr "Width in pixels for gallery images"
-
-#~ msgid "Galleriebilder - Höhe"
-#~ msgstr "Height of gallery images"
-
-#~ msgid "Höhe in Pixel für Galleriebilder."
-#~ msgstr "Height of gallery images in pixels"
-
-#~ msgid ""
-#~ "Sollen die Galleriebilder zugeschnitten werden um in die Dimensionen zu "
-#~ "passen?"
-#~ msgstr ""
-#~ "Would you like to crop the gallery images to fit into the dimensions?"
-
-#~ msgid "Galleriebilder (Grid)  - Breite"
-#~ msgstr "Width of gallery images (grid)"
-
-#~ msgid "Breite in Pixel für Galleriebilder (Grid)."
-#~ msgstr "Width of gallery images (grid) in pixels"
-
-#~ msgid "Galleriebilder (Grid) - Höhe"
-#~ msgstr "Height of gallery images (grid)"
-
-#~ msgid "Höhe in Pixel für Galleriebilder (Grid)."
-#~ msgstr "Height of gallery images (grid) in pixels"
-
-#~ msgid ""
-#~ "Sollen die Galleriebilder (Grid) zugeschnitten werden um in die "
-#~ "Dimensionen zu passen?"
-#~ msgstr ""
-#~ "Would you like to crop the gallery images (grid) to fit into the "
-#~ "dimensions?"
-
-#~ msgid "Galleriebilder (2 Spalten)  - Breite"
-#~ msgstr "Width of gallery images (2 colums)"
-
-#~ msgid "Galleriebilder (2 Spalten) - Höhe"
-#~ msgstr "Height of gallery images (2 columns)"
-
-#~ msgid "Höhe in Pixel für Galleriebilder (2 Spalten)."
-#~ msgstr "Height of gallery images (2 columns) in pixels"
-
-#~ msgid ""
-#~ "Sollen die Galleriebilder (2 Spalten) zugeschnitten werden um in die "
-#~ "Dimensionen zu passen?"
-#~ msgstr ""
-#~ "Would you like to crop the gallery images (2 columns) to fit into the "
-#~ "dimensions?"
-
-#~ msgid "Galleriebilder (4 Spalten)  - Breite"
-#~ msgstr "Width of gallery images (4 columns)"
-
-#~ msgid "Breite in Pixel für Galleriebilder (4 Spalten)."
-#~ msgstr "Width of gallery images (4 colums) in pixels"
-
-#~ msgid "Galleriebilder (4 Spalten) - Höhe"
-#~ msgstr "Height of gallery images (4 columns)"
-
-#~ msgid "Höhe in Pixel für Galleriebilder (4 Spalten)."
-#~ msgstr "Height of gallery images (4 colums) in pixels"
-
-#~ msgid ""
-#~ "Sollen die Galleriebilder (4 Spalten) zugeschnitten werden um in die "
-#~ "Dimensionen zu passen?"
-#~ msgstr ""
-#~ "Would you like to crop the gallery images (4 columns) to fit into the "
-#~ "dimensions?"
-
-#~ msgid "FAU-Einrichtungen"
-#~ msgstr "FAU institutions"
-
-#~ msgid "https://github.com/RRZE-Webteam/FAU-Einrichtungen"
-#~ msgstr "https://github.com/RRZE-Webteam/FAU-Einrichtungen"
-
-#~ msgid ""
-#~ "Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-"
-#~ "Universität Erlangen-Nürnberg (FAU)"
-#~ msgstr ""
-#~ "WordPress theme for central institutions of the Friedrich-Alexander-"
-#~ "Universität Erlangen-Nürnberg (FAU)"
-
-#~ msgid "RRZE-Webteam"
-#~ msgstr "RRZE Webteam"
-
-#~ msgid "http://www.rrze.fau.de"
-#~ msgstr "http://www.rrze.fau.de"

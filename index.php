@@ -13,36 +13,23 @@ $posttype = get_post_type();
 ?>
 
 	<?php if($posttype == 'event') {
-		get_template_part('hero', 'events');
+		get_template_part('template-parts/hero', 'events');
 	} elseif ($posttype == 'post') {
-		get_template_part('hero', 'category'); 
+		get_template_part('template-parts/hero', 'category'); 
 	} else {
-	    get_template_part('hero', 'index'); 
+	    get_template_part('template-parts/hero', 'index'); 
 	}
-	$active_sidebar = false;
 	?>
 
 	<div id="content">
 		<div class="container">
 		
 			<div class="row">
-			     <?php 
-				if( (get_post_type() != 'post') &&  (is_active_sidebar( 'search-sidebar' ) )) { 	
-					$active_sidebar = true; ?>
-				<div class="span3">
-					<div class="search-sidebar">
-					    <?php dynamic_sidebar( 'search-sidebar' ); ?>
-					</div>
-				</div>
-				<div class="span9">			
-			     <?php } else { 
-				 if (get_post_type() != 'post') { ?>
-				     <div class="span12">	
-				  <?php  } else { ?>
-				     <div class="span8">	
-				  <?php  } ?>	 
-			     <?php }  ?>
-				    <main>
+			    
+			   
+			    
+				    <main class="entry-content">
+					
 					<?php 
 					if (($posttype == 'synonym') && ($options['index_synonym_listall'])) {					    
 					    echo '<h2>'.__('Synonyme','fau')."</h2>\n";					    
@@ -105,16 +92,15 @@ $posttype = get_post_type();
 					} ?>
 					
 				    </main>
-				</div>
-				
-				    <?php if(get_post_type() == 'post') {
-					 get_template_part('sidebar', 'news');
-				    } ?>
-				    
+
+				    <?php 
+					 get_template_part('template-parts/sidebar', 'news');
+				    ?>
+				</div>    
 			</div>
 
 		</div>
-		<?php get_template_part('footer', 'social'); ?>	
+		<?php get_template_part('template-parts/footer', 'social'); ?>	
 	</div>
 
 

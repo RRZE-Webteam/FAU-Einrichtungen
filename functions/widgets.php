@@ -52,10 +52,10 @@ function fau_sidebars_init() {
 		    'name' => __( 'Sprachwechsler', 'fau' ),
 		    'id' => 'language-switcher',
 		    'description' => __( 'Sprachwechsler im Header der Seite', 'fau' ),
-		    'before_widget' => '',
-		    'after_widget' => '',
-		    'before_title' => '',
-		    'after_title' => '',
+		    'before_widget' => '<div class="meta-widget">',
+		    'after_widget' => '</div>',
+		    'before_title' => '<h3>',
+		    'after_title' => '</h3>',
 	    ) );
 	}
 	
