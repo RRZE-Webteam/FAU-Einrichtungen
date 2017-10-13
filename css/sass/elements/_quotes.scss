@@ -56,7 +56,10 @@ blockquote {
 	    &:before { content: '\2014 \00A0'; }
 
 	}
-
+	#content & img {
+	    box-shadow: none;
+	    border: none;
+	}
 	
 	&.pull-right {
 	    border-right: none;
@@ -107,6 +110,7 @@ blockquote {
         }
 	
 	#content .sidebar-inline &,
+	#tinymce  &.noquote,
 	#content  &.noquote {
 		    background: inherit;
 		    padding-left: 0;
