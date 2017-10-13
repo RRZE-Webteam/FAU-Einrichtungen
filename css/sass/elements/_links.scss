@@ -5,17 +5,22 @@
 a {
 	color: $colorPrimary;
 	
-	&:hover, &:focus {
+	&:hover, 
+	&:focus {
 		color: $colorHover;
 	}
 	
-	p &, li &, table &, .accordion-inner & {
+	p &, 
+	li &, 
+	table &, 
+	.accordion-inner & {
 		text-decoration: underline;
 	}
 	
 	
 	
-	table &:hover, table &:focus {
+	table &:hover, 
+	table &:focus {
 		text-decoration: none;
 	}
 	

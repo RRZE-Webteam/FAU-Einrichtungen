@@ -21,7 +21,7 @@ global $options;
 			
 			<div class="row">
 				<div class="startpage-blogroll">
-				    <main>
+				    <main<?php echo fau_get_page_langcode($post->ID);?>>
 					
 					<?php
 					

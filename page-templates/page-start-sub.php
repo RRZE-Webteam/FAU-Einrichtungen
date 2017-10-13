@@ -23,16 +23,14 @@
 			<div class="row">
 				<div class="startpage-blogroll">
 				   
-				    
+			<main<?php echo fau_get_page_langcode($post->ID);?>>	    
 		    <?php 
 			wp_reset_postdata();
 			wp_reset_query();
-			
-			echo "<main>\n";
-			
+
 			the_content();
 			
-			
+		
 			$number = 0;
 			$max = $options['start_max_newspertag'];
 			$maxall = $options['start_max_newscontent'];
