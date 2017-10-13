@@ -570,6 +570,17 @@ function categories_postcount_filter ($variable) {
    return $variable;
 }
 
+/*-----------------------------------------------------------------------------------*/
+/* Add rel lightbox to content images
+/*-----------------------------------------------------------------------------------*/
+add_filter('the_content', 'fau_addlightboxrel');
+function fau_addlightboxrel ($content) {
+    global $post;
+    $pattern = "/<a(.*?)href=('|\")(.*?).(bmp|gif|jpeg|jpg|png)('|\")(.*?)>/i";
+    $replacement = '<a$1class="lightbox" href=$2$3.$4$5$6</a>';
+    $content = preg_replace($pattern, $replacement, $content);
+    return $content;
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Load Comment Functions
