@@ -29,8 +29,7 @@
 			background: rgba($colorPrimary,0.8);
 			display: inline;
 			padding: 3px;
-			margin: 10px 0 5px 0;
-			@include inline-block();
+			margin: 10px 0 15px 0;
 			@include px2rem($font-size-hero-slider-title);
 			
 			box-decoration-break: clone;
@@ -70,7 +69,9 @@
 		}
 		
 	}
-	
+	.slider-titel {
+	    margin-bottom: 5px;
+	}
 	.hero-slide-text {
 		z-index: 10;
 		position: absolute;
