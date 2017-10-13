@@ -119,10 +119,12 @@
 
 }
 
-
-.slider-titel, .slider-text {
+.slider-titel {
    @extend .col-xs-12;
-
+}
+.slider-text {
+   @extend .col-xs-12;
+   @extend .col-sm-10;
 }
 
 
