@@ -399,10 +399,11 @@ function fau_get_language_main () {
     return $charset;
 }
 
-/* 
- * Change WordPress default language attributes function to 
- * strip of region code parts
- */
+
+/*-----------------------------------------------------------------------------------*/
+/* Change WordPress default language attributes function to 
+ * strip of region code parts. Not used yet /anymore
+/*-----------------------------------------------------------------------------------*/
 function fau_get_language_attributes ($doctype = 'html' ) {
     $attributes = array();
 	
@@ -421,8 +422,9 @@ function fau_get_language_attributes ($doctype = 'html' ) {
 }
 
 
-
-
+/*-----------------------------------------------------------------------------------*/
+/*Fallback, if no main menu is defined yet
+/*-----------------------------------------------------------------------------------*/
 function fau_main_menu_fallback() {
     global $options;
     $output = '';
@@ -438,10 +440,9 @@ function fau_main_menu_fallback() {
 }
 
 
-
-
-
-/* Refuse spam-comments on media */
+/*-----------------------------------------------------------------------------------*/
+/*  Refuse spam-comments on media
+/*-----------------------------------------------------------------------------------*/
 function filter_media_comment_status( $open, $post_id ) {
 	$post = get_post( $post_id );
 	if( $post->post_type == 'attachment' ) {
@@ -452,13 +453,9 @@ function filter_media_comment_status( $open, $post_id ) {
 add_filter( 'comments_open', 'filter_media_comment_status', 10 , 2 );
 
 
-/* 
- * Suchergebnisse 
-*/
-
-/* 
- * Optionaler Suchfilter
- */
+/*-----------------------------------------------------------------------------------*/
+/*  Search filter
+/*-----------------------------------------------------------------------------------*/
 function fau_searchfilter($query) {
     global $options;
     if ($query->is_search && !is_admin() ) {
@@ -482,27 +479,10 @@ function fau_searchfilter($query) {
 }
 add_filter("pre_get_posts","fau_searchfilter");
 
-/* 
- * Keine Bilder bei der Suche ausgeben. Attachments und Posts/Pages sonst aber ja
- * 
- * function fau_search_remove_images($where) {
- *    global $wpdb;
- *    if (!is_admin() ) {
- *	$where.=' AND '.$wpdb->posts.'.post_mime_type NOT LIKE \'image/%\'';
- *    }
- *    return $where;
- * }
- * add_filter( 'posts_where' , 'fau_search_remove_images' );
- *
- * ACHTUNG!!!! 
- * 
- * DIESER CODE SORGT AUCH DAFÜR, DASS BILDER AUCH NICHT MEHR ALS ATTACHMENT/ANHANGSEITE
- * AUFGERUFEN WERDEN KÖNNEN!
- */
 
-/*
- * Sortierung
- */
+/*-----------------------------------------------------------------------------------*/
+/*  Search sorting
+/*-----------------------------------------------------------------------------------*/
 add_filter('posts_orderby','fau_sort_custom',10,2);
 function fau_sort_custom( $orderby, $query ){
     global $wpdb;
@@ -515,8 +495,9 @@ function fau_sort_custom( $orderby, $query ){
 }
 
 
-
-
+/*-----------------------------------------------------------------------------------*/
+/* wplink query args adjustment
+/*-----------------------------------------------------------------------------------*/
 function fau_wp_link_query_args( $query ) {
      // check to make sure we are not in the admin
    //  if ( !is_admin() ) {
@@ -527,7 +508,9 @@ function fau_wp_link_query_args( $query ) {
 add_filter( 'wp_link_query_args', 'fau_wp_link_query_args' ); 
 
 
-
+/*-----------------------------------------------------------------------------------*/
+/*  display ids for pages columns and custom types
+/*-----------------------------------------------------------------------------------*/
 function revealid_add_id_column( $columns ) {
    $columns['revealid_id'] = 'ID';
    return $columns;
@@ -538,12 +521,14 @@ function revealid_id_column_content( $column, $id ) {
     echo $id;
   }
 }
-
 if ($options['advanced_reveal_pages_id']) {
     add_filter( 'manage_pages_columns', 'revealid_add_id_column', 5 );
     add_action( 'manage_pages_custom_column', 'revealid_id_column_content', 5, 2 );
 }
 
+/*-----------------------------------------------------------------------------------*/
+/* Filter bad paragraphs - fallback
+/*-----------------------------------------------------------------------------------*/
 add_filter('the_content', 'remove_empty_p', 20, 1);
 function remove_empty_p($content){
     $content = force_balance_tags($content);
@@ -563,6 +548,9 @@ function remove_bad_p($content){
     return preg_replace('#</div></p>#i', '</div>', $content);
 }
 
+/*-----------------------------------------------------------------------------------*/
+/* Filter for postcount
+/*-----------------------------------------------------------------------------------*/
 add_filter('wp_list_categories','categories_postcount_filter');
 function categories_postcount_filter ($variable) {
    $variable = str_replace('(', '<span class="post_count">(', $variable);

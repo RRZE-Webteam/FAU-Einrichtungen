@@ -4,7 +4,7 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'optiontable-version'		=> 23,
+    'optiontable-version'		=> 24,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -75,7 +75,7 @@ $defaultoptions = array(
     
     'default_startseite-bannerbild-image_src'	    => get_fau_template_uri().'/img/bannerbild-tafel-1260x182.jpg',
     'startseite_banner_usedefault'	=> false,
-
+    
 
     /* Image Sizes */
     
@@ -251,6 +251,9 @@ $defaultoptions = array(
 	// Links auf die Startseite werden aus dem Hauptmenu entfernt
     'advanced_forceclean_externlink'	=> true,
 	// Links auf externe Seiten werden aus dem Hauptmenu entfernt
+    
+    'advanced_activate_page_langcode'	=> false,
+	// Option zur Deklarierung einer anderen Sprache für eine Seite
     
 ); 
 
@@ -805,7 +808,22 @@ $setoptions = array(
                   'label'   => __( 'In der Übersicht der Seiten werden die Ids angezeigt.', 'fau' ),                
                   'default' => $defaultoptions['advanced_reveal_pages_id'],
 		  'parent'  => 'bedienung'
-              ),    
+              ),   
+	       
+	        'advanced_activate_page_langcode'	=> array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Seitensprache', 'fau' ),
+                  'label'   => __( 'Aktiviert die Möglichkeit, pro Seite eine eigene Inhaltssprache zu deklarieren, die von dem Rest des Webauftritts abweicht. <br>'
+			  . 'Deklariert wird dabei die Überschrift der Seite und dessen Inhaltsbereich. Die restlichen Bestandteile, inkl. der Sidebar bleiben in der Sprache, mit der die gesamte Website gekennzeichnet wurde.<br>'			  
+			  . '<strong>Achtung:</strong> Diese Option arbeitet nicht mit dem Workflow-Plugin für mehrsprachigen Webauftritten zusammen.<br> '
+			  . 'Diese Option sollte nur dann verwendet werden, wenn anderssprachige Seiten eine Ausnahme auf dem Webauftritt darstellen. '
+			  . 'Für umfangreiche Webauftritte in verschiedenen Sprachen sind eigene sprachspezifische Webauftritte vorzuziehen. Webauftritte, '
+			  . 'die unterhalb einer Domain mehrmals die Sprachen wechseln und eine Mischung im Navigationsmenu haben, haben zudem ein '
+			  . 'schlechteres Suchmaschinen-Ranking. <br>'
+			  . 'Bitte benutzen Sie diese Option daher nur mit großer Vorsicht und Bedacht.', 'fau' ),                
+                  'default' => $defaultoptions['advanced_activate_page_langcode'],
+		  'parent'  => 'bedienung'
+              ),   
 	       	       
   
 	       

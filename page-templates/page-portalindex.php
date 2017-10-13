@@ -23,7 +23,7 @@ get_header(); ?>
 		
 	    <div class="row">
 		<div class="col-xs-12">
-		    <main>
+		    <main<?php echo fau_get_page_langcode($post->ID);?>>
 		    <?php 
 			$headline = get_post_meta( $post->ID, 'headline', true );				
 			if (!fau_empty($headline)) {

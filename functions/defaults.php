@@ -335,3 +335,13 @@ $pagebreakargs = array(
 		'previouspagelink' => __( 'Vorherige Seite', 'fau' ),
 		'pagelink'         => '%',
     'echo' => 0);
+
+
+$default_fau_page_langcodes = array(
+	"de" => __('Deutsch','fau'),
+	"en" => __('Englisch','fau'),
+	"es" => __('Spanisch','fau'),
+	"fr" => __('Französisch','fau'),
+	"cn" => __('Chinesisch','fau'),
+	"ru" => __('Russisch','fau'),
+    );

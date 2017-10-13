@@ -1554,6 +1554,24 @@ function fau_columns_checkcolor($color = '') {
     }
     return $color;
 }
+/*-----------------------------------------------------------------------------------*/
+/* Check for langcode and return it
+/*-----------------------------------------------------------------------------------*/
+function fau_get_page_langcode($id = 0) {
+    if ($id == 0) {
+	return;
+    }
+    
+    $langcode = get_post_meta($id, 'fauval_langcode', true);
+    $setlang = "";
+    if (!fau_empty($langcode)) {
+        $sitelang = fau_get_language_main();
+	if ($langcode != $sitelang) {
+	    $setlang = ' lang="'.$langcode.'"';
+	}
+    }
+    return $setlang;
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* This is the end :)

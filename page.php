@@ -8,12 +8,13 @@
 
 global $pagebreakargs;
 
-get_header(); ?>
+get_header(); 
 
-<?php while ( have_posts() ) : the_post(); ?>
 
-	<?php get_template_part('template-parts/hero', 'small'); ?>
-
+while ( have_posts() ) : 
+	the_post(); 
+	get_template_part('template-parts/hero', 'small');
+	?>
 	<div id="content">
 		<div class="container">
 		    <?php 
@@ -21,7 +22,7 @@ get_header(); ?>
 		    ?>
 		    <div class="row">
 			<div class="col-xs-12">
-			    <main>
+			    <main<?php echo fau_get_page_langcode($post->ID);?>>
 					<?php 
 					$headline = get_post_meta( $post->ID, 'headline', true );				
 					if (!fau_empty($headline)) {
@@ -43,7 +44,6 @@ get_header(); ?>
 
 	</div>
 	
-<?php endwhile; ?>
+<?php endwhile;
 
-<?php 
 get_footer(); 
