@@ -4,7 +4,7 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'optiontable-version'		=> 21,
+    'optiontable-version'		=> 23,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -59,7 +59,9 @@ $defaultoptions = array(
     'start_title_videoportal_socialmedia'   => __('Videoportal','fau'),
     'start_title_videoportal_url'	    => 'http://video.fau.de',
 
-    'default_submenuthumb_src'		=>  get_fau_template_uri().'/img/thumbnail-siegel-faulogo-menu.gif',
+    'default_postthumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-220x147.gif',
+    'default_postthumb_always'		=> 1,
+    'default_submenuthumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-220x110.gif',
     'default_submenu_spalten'		=> 4,
     'default_submenu_entries'		=> 5,
     'menu_fallbackquote_show_excerpt'	=> 1,
@@ -68,7 +70,7 @@ $defaultoptions = array(
     'start_topevents_active'		=> true,
     'topevent_hideimage'		=> false,
     'topevents_templates'		=> array(1), 
-    'default_topevent_thumb_src'	=> get_fau_template_uri().'/img/default-topeventthumb.png',
+    'default_topevent_thumb_src'	=> get_fau_template_uri().'/img/thumbnail-siegel-140x90.gif',
     'default_topevent_excerpt_length'	=> 100,
     
     'default_startseite-bannerbild-image_src'	    => get_fau_template_uri().'/img/bannerbild-tafel-1260x182.jpg',
@@ -94,58 +96,54 @@ $defaultoptions = array(
     
    
     /* Thumb for Image Menus in Content - Name: page-thumb */
-    'default_submenuthumb_width'	=> 220,
-    'default_submenuthumb_height'	=> 110,    
-    'default_submenuthumb_crop'		=> false,
+    'default_submenuthumb_width'	    => 220,
+    'default_submenuthumb_height'	    => 110,    
+    'default_submenuthumb_crop'		    => false,
     
     /* Thumb of Topevent in Sidebar - Name: topevent-thumb */
-    'default_topevent_thumb_width'	=> 140,
-    'default_topevent_thumb_height'	=> 90,
-    'default_topevent_thumb_crop'	=> true,  
+    'default_topevent_thumb_width'	    => 140,
+    'default_topevent_thumb_height'	    => 90,
+    'default_topevent_thumb_crop'	    => true,  
 
     /* Thumb for Logos (used in carousel) - Name: logo-thumb */
-    'default_logo_carousel_width'	=> 140,
-    'default_logo_carousel_height'	=> 110,
-    'default_logo_carousel_crop'	=> false,   
+    'default_logo_carousel_width'	    => 140,
+    'default_logo_carousel_height'	    => 110,
+    'default_logo_carousel_crop'	    => false,   
 
-    
     /* Thumb for Posts in Lists - Name: post-thumb */
-    'default_postthumb_width'		=> 220,
-    'default_postthumb_height'		=> 147,
-    'default_postthumb_crop'		=> false,
+    'default_postthumb_width'		    => 220,
+    'default_postthumb_height'		    => 147,
+    'default_postthumb_crop'		    => false,
    
      /* Thumb for Posts, displayed in post/page single display - Name: post */
-    'default_post_width'		=> 300,
-    'default_post_height'		=> 200,
-    'default_post_crop'			=> false, 
-    
-    
-   
+    'default_post_width'		    => 300,
+    'default_post_height'		    => 200,
+    'default_post_crop'			    => false, 
   
     /* Images for gallerys - Name: gallery-full */
-    'default_gallery_full_width'	=> 940,
-    'default_gallery_full_height'	=> 470,
-    'default_gallery_full_crop'		=> false,     
+    'default_gallery_full_width'	    => 940,
+    'default_gallery_full_height'	    => 470,
+    'default_gallery_full_crop'		    => false,     
     
     /* Thumbs for gallerys - Name: gallery-thumb */
-    'default_gallery_thumb_width'	=> 120,
-    'default_gallery_thumb_height'	=> 80,
-    'default_gallery_thumb_crop'	=> true,     
+    'default_gallery_thumb_width'	    => 120,
+    'default_gallery_thumb_height'	    => 80,
+    'default_gallery_thumb_crop'	    => true,     
 
     /* Grid-Thumbs for gallerys - Name: gallery-grid */
-    'default_gallery_grid_width'	=> 145,
-    'default_gallery_grid_height'	=> 120,
-    'default_gallery_grid_crop'		=> false,    
+    'default_gallery_grid_width'	    => 145,
+    'default_gallery_grid_height'	    => 120,
+    'default_gallery_grid_crop'		    => false,    
     
      /* 2 column Imagelists for gallerys - Name: image-2-col */
-    'default_gallery_grid2col_width'	=> 300,
-    'default_gallery_grid2col_height'	=> 200,
-    'default_gallery_grid2col_crop'		=> true,        
+    'default_gallery_grid2col_width'	    => 300,
+    'default_gallery_grid2col_height'	    => 200,
+    'default_gallery_grid2col_crop'	    => true,        
 
     /* 4 column Imagelists for gallerys - Name: image-4-col */
-    'default_gallery_grid4col_width'	=> 140,
-    'default_gallery_grid4col_height'	=> 70,
-    'default_gallery_grid4col_crop'		=> true,   
+    'default_gallery_grid4col_width'	    => 140,
+    'default_gallery_grid4col_height'	    => 70,
+    'default_gallery_grid4col_crop'	    => true,   
     
    
     'breadcrumb_root'			=> __('Startseite', 'fau'),
@@ -185,9 +183,7 @@ $defaultoptions = array(
     'default_anleser_excerpt_length'=> 300,
     'default_search_excerpt_length' => 300,
     
-    'default_postthumb_src'	    => get_fau_template_uri().'/img/thumbnail-siegel-faulogo.gif',
 
-    'default_postthumb_always'	    => 1,
 
     'custom_excerpt_allowtags'	    => 'br',
     'url_banner-ad-notice'	    => 'http://www.fau.info/werbungfaude',
