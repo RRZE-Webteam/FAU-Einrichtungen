@@ -22,18 +22,23 @@
     
 }
 
+
 .hero-meta-portal {
 	position: absolute;
-	top: 30px;
-	right: 100px;
+	top: 100px;
+	right: 120px;
 	text-align: right;
 	color: $colorPrimaryHeroLight; 
 	font-size: 60px;
 	line-height: 50px;
 	display: none;
-
-	@media (min-width: $screen-md ) {
+	opacity: 0.9;
+	
+	@media (min-width: $screen-lg ) {
 	    display: inline-block;
+	}
+	@media (min-width: $screen-xl ) {
+	   right: 50px;
 	}
     }	
 
