@@ -1,0 +1,132 @@
+/*-----------------------------------------------------------------------------------*/
+/* Slider im Hero-Teil
+/*-----------------------------------------------------------------------------------*/
+
+
+#hero-slides {
+	position: relative;
+	margin: 0 auto -15px auto;
+	height: 350px;
+	background: $colorPrimary;
+	max-width: 1260px;
+	overflow: hidden;
+	@include box-shadow(0 10px 20px rgba(0,0,0,0.5));
+	
+	.hero-slide {
+		position: relative;
+		height: inherit;
+		
+		img {
+		    height: 100%;
+		    width: auto;
+		    max-width: inherit;
+		    vertical-align: middle;
+		    z-index: 5;
+		}
+		
+		h2 {
+			color: #fff;
+			background: rgba($colorPrimary,0.8);
+			display: inline;
+			padding: 3px;
+			margin: 10px 0 15px 0;
+			@include px2rem($font-size-hero-slider-title);
+			
+			box-decoration-break: clone;
+			-webkit-box-decoration-break: clone;
+		}
+		.slider-text {
+		    display: inline-block;
+		}
+		
+		p {
+			@include px2rem($font-size-hero-slider-text);
+			color: #fff;
+			background: rgba($colorPrimary,0.8);
+			padding: 3px;
+			margin: 0;
+			box-decoration-break: clone;
+			 -webkit-box-decoration-break: clone;
+			display: none;
+			 
+			 
+			@media (min-width: $screen-sm) {
+				display: inline;
+			}
+			 
+		}
+		p.credits {
+		    background: $colorCopyrightBackground;
+		    color: $colorCopyright;
+		    @include px2rem($font-size-hero-slider-copyright);
+
+		    position: absolute;
+		    bottom: 0;
+		    right: 0;
+		    z-index: 6;
+		    margin: 0;
+		    padding: 1px 4px;
+		}
+		
+	}
+	.slider-titel {
+	    margin-bottom: 5px;
+	}
+	.hero-slide-text {
+		z-index: 10;
+		position: absolute;
+		bottom: 30px;
+		top: inherit;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+	ul {
+		@include no-list;
+	}
+	li {
+    		@include no-list;
+		font-size: 13px;
+		padding-left: 20px;
+		padding-bottom: 5px;
+	
+	}
+	
+	
+	display: none;
+
+	@media (min-width: $screen-sm) {
+	    display: block;
+	    top: -20px;
+	    .no-js & {
+	    	display: none;
+	    }
+	}
+	@media (max-width: $breakLG) {
+	    .hero-slide {
+		img {
+		    vertical-align: middle;
+		}
+
+		p {
+		    .credits {
+			top: 10px;
+			bottom: inherit;
+		    }
+		}
+
+	    }
+	}
+
+}
+
+.slider-titel {
+   @extend .col-xs-12;
+}
+.slider-text {
+   @extend .col-xs-12;
+   @extend .col-sm-10;
+}
+
+
+

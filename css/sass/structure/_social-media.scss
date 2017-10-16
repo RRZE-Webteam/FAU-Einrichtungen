@@ -3,16 +3,25 @@
 /*-----------------------------------------------------------------------------------*/
 
 #social {
-	background: $colorSocialBackground;
-	padding: 20px 0;
-	margin-bottom: -30px;
-	margin-top: 30px;
-	
+	background: $colorSocialBackground;	
+	margin: 0 -15px;
+	padding: 20px 15px;
+	    
+	    
 	.textwidget, 
 	p, 
-	h2 {
+	h2.small,
+	h2  {
 		color: $colorSocial;
 		padding-top: 0;
+	}
+	
+	h2.small,
+	h2 {
+	    @include px2rem($font-size-h2-socialmedia);
+	    padding: 0;
+	    min-height: 50px;
+	    display: block;
 	}
 	a {
 	    color: $colorSocial;	    
@@ -20,6 +29,10 @@
 		    text-decoration: underline;
 		    color: $colorPrimary;
 	    }
+	    
+	}
+	.link-all-videos {
+	    @include px2rem($font-size-socialmedia-morelink); 
 	}
 	ul.social {
 		@include no-list;
@@ -89,12 +102,12 @@
 		
 	}
 	
- 
-}
+     @media (min-width: $screen-sm) {
+	padding: 20px 0;
+	margin-bottom: -30px;
+	margin-top: 30px;
 
-@media (max-width: $breakMD) {
-    #social {
-	    margin: 0 -15px;
-	    padding: 20px 15px;
     }
 }
+
+

@@ -11,7 +11,7 @@ get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-	<?php get_template_part('hero', 'small'); ?>
+	<?php get_template_part('template-parts/hero', 'small'); ?>
 
 	<div id="content">
 		<div class="container">
@@ -21,7 +21,7 @@ get_header(); ?>
 		?>
 
 			<div class="row">		
-				<div class="span4 span-sm-4 sidebar-subnav">
+				<div class="sidebar-subnav">
 					<?php 
 					$offset = 0;
 					if ($options['website_type']==-1) {
@@ -41,26 +41,29 @@ get_header(); ?>
 					</ul>
 				</div>
 				
-				<div class="span8 span-sm-8">
-				    <main>
+				<div class="entry-content">
+				    <main<?php echo fau_get_page_langcode($post->ID);?>>
 					<?php 
 					$headline = get_post_meta( $post->ID, 'headline', true );									
-					if ($headline) { 
-					    echo '<h2>'.$headline.'</h2>'; 					    
-					} else {
-					    echo '<div class="page-nosubtitle">&nbsp;</div>';
+					if (!fau_empty($headline)) {
+					    echo '<h2 class="subtitle">'.$headline.'</h2>'; 					    
 					}
 
-
-					get_template_part('sidebar', 'inline'); 
-					the_content(); ?>
+					?>
+					<div class="inline-box">					   	
+					    <?php get_template_part('template-parts/sidebar', 'inline'); ?> 
+					    <div class="content-inline">
+					    <?php the_content(); ?>
+					    </div>
+					</div>
+					<?php echo wp_link_pages($pagebreakargs); ?>
 				    </main>    
 				  <?php  echo fau_get_ad('werbebanner_unten',true); ?>				  
 				</div>
 				
 			</div>
 		</div>
-  		<?php get_template_part('footer', 'social'); ?>	
+  		<?php get_template_part('template-parts/footer', 'social'); ?>	
 	</div>
 	
 	

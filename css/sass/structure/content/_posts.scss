@@ -3,26 +3,48 @@
 /*-----------------------------------------------------------------------------------*/
 
 .post-image {
-    float: right;
-    margin: 20px 0 10px 20px;
     text-align: center;
+    margin: 0;
+    float: none;
     
     .post-image-caption {
-	    line-height: 18px;
-	    font-size: 13px;
+	    @include px2rem($font-size-content-meta);
 	    padding: 10px 0;
 	    width: 300px;
 	    text-align: left;
     }
+    @media (max-width: $screen-xs - 1) {
+	margin-left: -15px;
+	margin-right: -15px;
+	
+	img {
+	    width: 100%;
+	    height: auto;
+	    
+	}
+    }
+    @media (min-width: $screen-xs) {
+	float: right;
+	margin: 20px 0 10px 20px;
+    }
+    
 }
 .post-meta {
 	    display: block;
 	    padding: 5px 0;
-	    margin: -14px 0 14px 0;
+	    margin: 0 0 14px 0;
+	    @media (min-width: $screen-xs) {
+		 margintop: -14px;
+	    }
+	    
 	    color: $colorPrimary;
 	    font-family: $fontStack;
+	    @include px2rem($font-size-content-meta);
 }
 
+.meta-footer {
+     @include px2rem($font-size-content-meta);
+}
 
 .post-meta-tags {
 	@include inline-block;
@@ -35,7 +57,8 @@
 			@include no-list;
 			@include inline-block;
 			margin: 0;
-			font-size: 13px;
+			
+			
 			a {
 				@include inline-block;
 				text-decoration: none;
@@ -69,10 +92,3 @@
 	}
 }
 
-@media (max-width: $breakMD) {
-    .post-image {
-		margin: 0 !important;
-		float: none !important;
-	}
-
-}

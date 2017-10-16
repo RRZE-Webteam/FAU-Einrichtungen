@@ -237,13 +237,14 @@ $default_link_liste = array(
 
 $default_fau_orga_data = array(
    'fau' => array(
-	    'title'	    => __('Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)', 'fau'),
-	    'shorttitle'    => __('FAU', 'fau'),
-	    'homeurl'	    => 'https://www.fau.de',
-	    'homeurl_en'    => 'https://www.fau.eu',
-	    'url'           => '%s/img/logo-fau.png',
-	    'home_imgsrc'   => get_fau_template_uri().'/img/logo-fau-37x16.png',
-	    'thumbnail'	=> '%s/img/logos/logo-fau.png',
+	    'title'		=> __('Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)', 'fau'),
+	    'shorttitle'	=> __('FAU', 'fau'),
+	    'homeurl'		=> 'https://www.fau.de',
+	    'homeurl_en'	=> 'https://www.fau.eu',
+	    'url'		=> '%s/img/logos/logo-fau-240x65.gif',
+	    'home_imgsrc'	=> get_fau_template_uri().'/img/logos/fau-37x16.gif',
+	    'data-imgmobile'	=> get_fau_template_uri().'/img/logos/fau-220x100.gif',
+	    'thumbnail'		=> '%s/img/logos/logo-fau.png',
     ),
   
     '_faculty'	=> array(
@@ -252,40 +253,40 @@ $default_fau_orga_data = array(
 		'shorttitle'    => __('Med', 'fau'),
 		'homeurl'	    => 'https://med.fau.de',
 		'homeurl_en'	    => 'https://med.fau.eu',
-		'url'           => '%s/img/logos/logo-med.png',
-		'thumbnail'	=> '%s/img/logos/logo-med.png',
+		'url'           => '%s/img/logos/logo-med-240x65.gif',
+		'thumbnail'	=> '%s/img/logos/logo-med-240x65.gif',
 	),
 	'nat' => array(
 		'title'	    => __('Naturwissenschaftliche Fakultät', 'fau'),
 		'shorttitle'    => __('Nat', 'fau'),
 		'homeurl'	    => 'https://nat.fau.de',
 		'homeurl_en'	    => 'https://nat.fau.eu',
-		'url'           => '%s/img/logos/logo-nat.png',
-		'thumbnail'	=> '%s/img/logos/logo-nat.png',
+		'url'           => '%s/img/logos/logo-nat-240x65.gif',
+		'thumbnail'	=> '%s/img/logos/logo-nat-240x65.gif',
 	),
 	'phil' => array(
 		'title'	    => __('Philosophische Fakultät', 'fau'),
 		'shorttitle'    => __('Phil', 'fau'),
 		'homeurl'	    => 'https://phil.fau.de',
 		'homeurl_en'	    => 'https://phil.fau.eu',
-		'url'           => '%s/img/logos/logo-phil.png',
-		'thumbnail'	=> '%s/img/logos/logo-phil.png',
+		'url'           => '%s/img/logos/logo-phil-240x65.gif',
+		'thumbnail'	=> '%s/img/logos/logo-phil-240x65.gif',
 	),
 	'rw' => array(
 		'title'	    => __('Rechts- und Wirtschaftswissenschaftliche Fakultät', 'fau'),
 		'shorttitle'    => __('RW', 'fau'),
 		'homeurl'	    => 'https://rw.fau.de',
 		'homeurl_en'	    => 'https://rw.fau.eu',
-		'url'           => '%s/img/logos/logo-rw.png',
-		 'thumbnail'	=> '%s/img/logos/logo-rw.png',
+		'url'           => '%s/img/logos/logo-rw-240x65.gif',
+		 'thumbnail'	=> '%s/img/logos/logo-rw-240x65.gif',
 	),
 	'tf' => array(
 		'title'	    => __('Technische Fakultät', 'fau'),
 		'shorttitle'    => __('TF', 'fau'),
 		'homeurl'	    => 'https://tf.fau.de',
 		'homeurl_en'	    => 'http://tf.fau.eu',
-		'url'           => '%s/img/logos/logo-tf.png',
-		'thumbnail'	=> '%s/img/logos/logo-tf.png',
+		'url'           => '%s/img/logos/logo-tf-240x65.gif',
+		'thumbnail'	=> '%s/img/logos/logo-tf-240x65.gif',
 	)
     ),
     '_center'	=> array(
@@ -303,15 +304,15 @@ $default_fau_orga_data = array(
 	    'shorttitle'    => __('FB WiSo', 'fau'),
 	    'homeurl'	    => 'https://wiso.rw.fau.de',
 	    'homeurl_en'    => 'https://wiso.rw.fau.eu',
-	    'url'           => '%s/img/logos/logo-fb-wiso.jpg',
-	    'thumbnail'	    => '%s/img/logos/logo-fb-wiso.jpg',
+	    'url'           => '%s/img/logos/logo-wiso-240x65.gif',
+	    'thumbnail'	    => '%s/img/logos/logo-wiso-240x65.gif',
     ),
      'fb-jura' => array(
 	    'title'	    => __('Fachbereich Rechtswissenschaften', 'fau'),
 	    'shorttitle'    => __('FB WiSo', 'fau'),
 	    'homeurl'	    => 'https://jura.rw.fau.de',
-	    'url'           => '%s/img/logos/logo-fb-jura.jpg',
-	    'thumbnail'	    => '%s/img/logos/logo-fb-jura.jpg',
+	    'url'           => '%s/img/logos/logo-jura-240x65.gif',
+	    'thumbnail'	    => '%s/img/logos/logo-jura-240x65.gif',
     ),
     
 );
@@ -321,3 +322,26 @@ $default_fau_orga_faculty = array(
     'med', 'nat', 'phil', 'rw', 'tf'
 );
 
+
+$pagebreakargs = array(
+    
+    'before'   => '<nav class="pagination pagebreaks" role="navigation"><h3>' . __( 'Seite:', 'fau' ).'</h3><span class="subpages">',
+		'after'            => '</span></nav>',
+		'link_before'      => '<span class="number">',
+		'link_after'       => '</span>',
+		'next_or_number'   => 'number',
+		'separator'        => ' ',
+		'nextpagelink'     => __( 'Nächste Seite', 'fau' ),
+		'previouspagelink' => __( 'Vorherige Seite', 'fau' ),
+		'pagelink'         => '%',
+    'echo' => 0);
+
+
+$default_fau_page_langcodes = array(
+	"de" => __('Deutsch','fau'),
+	"en" => __('Englisch','fau'),
+	"es" => __('Spanisch','fau'),
+	"fr" => __('Französisch','fau'),
+	"cn" => __('Chinesisch','fau'),
+	"ru" => __('Russisch','fau'),
+    );

@@ -8,23 +8,133 @@ blockquote {
 	margin: 0;
 	border: none;
 	font-family: $fontStackSerifs;
+	font-style: italic;
+	position: relative;
+	
+	@include px2rem($font-size-quotes);
+	
 	
 	p {
 		font-family: $fontStackSerifs;
-	}
-	
-	
-	#content & {
+		@include px2rem($font-size-quotes);
+		font-weight: 400;
 		font-style: italic;
-		background: url('../img/quote-blue.png') no-repeat left top;
-		margin: 10px 50px;
-		padding-left: 60px;
-		min-height: 50px;
-
-		p {
-			color: $colorPrimary;
+		
+		strong {
+		    font-weight: bolder; 
 		}
 	}
+	
+	#tinymce &,
+	#content & {
+		font-style: italic;
+		margin: 10px;
+		padding-left: 50px;
+		min-height: 50px;
+
+		@media (min-width: $screen-sm) {
+		    margin: 10px 50px;
+		    padding-left: 60px;
+		}
+		
+		p {
+		    color: $colorPrimary;
+		}
+		
+		
+	}
+	
+	#content .sidebar-inline & {
+	    margin: 10px;
+	}
+	small,
+	cite { 
+	    display: block; 
+	    text-align: right;
+	    @include px2rem($font-size-quotes-cites);
+	    color: $colorTextLight;
+	    &:before { content: '\2014 \00A0'; }
+
+	}
+	#content & img {
+	    box-shadow: none;
+	    border: none;
+	}
+	
+	&.pull-right {
+	    border-right: none;
+	    padding-right: 50px;
+	    &::before {
+		content: "";
+	    }
+	    &::after {
+		content: "\201C"; // Unicode for Left Double Quote
+		font-family: Georgia, serif;
+		font-size: 70px;
+		font-weight: bold;
+		color: $colorTextLight; //lighten($color-text,50%); 
+
+		position: absolute;
+		right: 10px;
+		top: 10px;
+	    }
+	    
+	}
+	
+	
+	&::before {
+            content: "\201C"; // Unicode for Left Double Quote
+            font-family: Georgia, serif;
+            font-size: 70px;
+            font-weight: bold;
+            color: $colorTextLight; //lighten($color-text,50%); 
+
+            position: absolute;
+            left: 10px;
+            top: 10px;
+	    
+	    
+        }
+	#content &::before {
+	    color: $colorPrimary;
+	    left: 0px;
+	    
+	    @media (min-width: $screen-sm) {
+		left: 10px;
+	    }
+	}
+	
+        &::after{
+            // Reset to make sure
+            content: "";
+        }
+	
+	#content .sidebar-inline &,
+	#tinymce  &.noquote,
+	#content  &.noquote {
+		    background: inherit;
+		    padding-left: 0;
+		    padding-right: 0;
+		    &::after, 
+		    &::before {
+			content: "";
+		    }
+		   
+		}
+		
+	#content .sidebar-inline & {
+	    
+	    @include px2rem($font-size-sidebar);  
+	    p {
+		@include px2rem($font-size-sidebar);  
+	    }
+	}	
+		
 }
 
+
+cite {
+    color: $colorPrimaryHeroLight; 
+    font-weight: normal;
+}
 

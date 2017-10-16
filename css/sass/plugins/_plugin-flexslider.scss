@@ -1,9 +1,6 @@
 .flex-direction-nav {
 	@include no-list;
-	position: absolute;
 	z-index: 20;
-	bottom: 62px;
-	right: 30px; *bottom: 30px;
 	
 	li {
 		@include no-list;
@@ -16,13 +13,15 @@
 }
 
 .flex-pauseplay {
-	position: absolute;
 	z-index: 21;
-	bottom: 62px;
-	right: 30px;
 }
 
-.flex-direction-nav, .flex-pauseplay {
+.flex-direction-nav, 
+.flex-pauseplay {
+    position: absolute;
+    bottom: 62px;
+    right: 70px; 
+    
 	a {
 		display: block;
 		background-color: #fff;
@@ -36,6 +35,11 @@
 	
 	a:hover, a:focus {
 		background-color: rgba(255,255,255,1.0);
+	}
+	
+	@media (max-width: $screen-sm - 1) {
+	    bottom: 40px;
+	    right: 10px;
 	}
 }
 

@@ -1,0 +1,45 @@
+/*-----------------------------------------------------------------------------------*/
+/* Code und Preformated
+/*-----------------------------------------------------------------------------------*/
+
+code,
+pre {
+	padding: 0 3px 2px;
+	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+	@include px2rem($font-size-codepre);
+	color: $colorText;
+	background-color: $colorStandardHellgrau;
+}
+
+code {
+	padding: 2px 4px;
+	white-space: pre-line; 
+	@include border-radius(3px);
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
+}
+
+pre {
+	display: block;
+	padding: 9.5px;
+	margin: 0 0 10px;
+	word-break: break-all;
+	word-wrap: break-word;
+	white-space: pre;
+	white-space: pre-wrap;
+	border: 1px solid $colorContentBorders;
+	@include border-radius(4px);
+}
+
+pre.prettyprint {
+	margin-bottom: 20px;
+}
+
+pre code {
+	padding: 0;
+	color: inherit;
+	white-space: pre;
+	white-space: pre-wrap;
+	background-color: transparent;
+	border: 0;
+}

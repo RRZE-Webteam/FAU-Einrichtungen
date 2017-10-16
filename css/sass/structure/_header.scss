@@ -1,78 +1,140 @@
 /*-----------------------------------------------------------------------------------*/
 /* Header
 /*-----------------------------------------------------------------------------------*/
-@media (max-width: $breakSM) {
-    #header {
+ 
+ #header {
+    padding: 10px 15px;
+    
+    .row {    
+	height: auto;
+	.branding {
+	   width: 100%;
+	}
+	.header-menu {
+	    display: inline;
+	}
+     }
+     
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: $colorPrimary;
+    color: #fff;
+    z-index: 100;
+    @include transition(0.5s,all);
+
+    @media (min-width: $screen-sm) {
 	position: fixed;
-	top: 0;
-
-	.admin-bar  & {
-	    position: fixed;
-	    top: 46px;
-	}
-
-	.no-js & {
-	    display: block;
-	    position: relative;
-	    float: none;
-	    width: 100%;
-	    top: inherit;
-	    margin: 5px 0px;
-	    padding: 3px;
-	}
-    }
-}
-@media (max-width: $breakMD) {
-    #header {
-	top: 0;
-	left: 0;
-	right: 0;
-	background: #fff;
-	z-index: 100;
-        padding: 0;
-        height: 70px;
-        position: fixed;
-
-	.no-js & {
-	    position: relative;
-	}
-    }
-}
-
-
-@media (max-width: $breakLG) {
-    #header {
-	position: fixed;
-	top: 42px;
-	left: 0;
-	right: 0;
-	background: #fff;
-	z-index: 100;
+	top: 40px;
 	
 	.admin-bar & {
-		top: 74px;
+	    top: 40px + $wordpress-adminbar-bigheight;
 	}
-	.nav-scrolled & {
-	     @include box-shadow(0 1px 3px rgba(0,0,0,0.3));	
-	}
-
-    }
-}
-@media (min-width: $breakLG) {
-    #header {
-	position: fixed;
-	top: 42px;
-	left: 0;
-	right: 0;
+	
+	padding: 20px 0 10px 0;
 	background: #fff;
-	z-index: 100;
-
-	.admin-bar & {
-	    top: 74px;
-	}     
+	color: $colorPrimary;
+	
 	.nav-scrolled & {
 	     @include box-shadow(0 1px 3px rgba(0,0,0,0.3));	
 	}
+	.row {    
+	    height: 112px;
+	    
+	    .branding, 
+	    .header-menu {
+		padding-left:  ($grid-gutter-width / 2);
+		padding-right: ($grid-gutter-width / 2);
+	    }
+	    
+	    .branding {
+		height: 75px;
+	    }
+	    .header-menu {
+		height: 37px;
+		display: block;
+		
+		#nav {
+		    margin-left: -10px;
+		} 
+		
+	    }
+	 }
+	 .visiblelogo {
+	     display: none;
+	 }
     }
-}	
+
+    @media (min-width: $wordpress-adminbar-break ) {
+	.admin-bar & {
+	    top: 40px + $wordpress-adminbar-smallheight;
+	}
+    }
+    
+    
+    @media (min-width: $screen-md) {
+	.row {    
+	    height: 75px;
+	    .branding {
+		display: table-cell;
+		float: none;
+		width: 240px;
+		vertical-align: bottom;
+	    } 
+	    .header-menu {
+		float: none;
+		display: table-cell;
+		vertical-align: bottom;
+	    }
+	 }
+	
+    }
+    
+
+ }
+.js #header {
+    @media (max-width: $screen-sm - 1) {
+	img {
+	     @include hideout();
+
+	}
+    }
+} 
+ 
+ 
+#logo {	
+	h1 {
+	    color: $colorPrimary;
+	    overflow: hidden;
+	    margin: 0;
+	    
+	    a, span {
+		display: table-cell;
+		vertical-align: bottom;
+	    }
+	    a {
+		color: $colorPrimary;
+		text-decoration: none;	
+	    } 		
+	    @media (max-width: $screen-sm - 1) {
+		color: #fff;
+		a {
+		    color: #fff;
+		}
+	    } 
+	}
+	.nologo &.branding {
+		padding-bottom: 3px;
+	 
+	}
+	img {
+	   max-height: 85px;
+	   width: 240px;
+	   max-width: inherit;
+	   margin-bottom: 10px;
+		
+	}
+}
+
 

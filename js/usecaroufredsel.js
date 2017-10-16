@@ -11,6 +11,14 @@
     $breakLG:   979px;
  */
 
+/* 
+ * Achtung: Die Bildschirmbreite wird mit den unteren Code  für den gesamten Browser gemessen. 
+ * Das bedeutet, dass bei eingeschalteten WebDev-Tools, die einen Teil der
+ * Breite einnehmen, diese mit einberechnet ist! Wenn mit den Dev-Tools daher
+ * eine kleine Breite simuliert wird, indem das Fenster (innerhalbd es Browser) verkleinert und
+ * die DevTools vergrößert werden, wird das folgende Script trotzdem davon ausgehen,
+ * dass der verfügbare Platz groß genug ist für mehrere visible items.
+ */
 
 // Logo-Slider
 jQuery(document).ready(function($) {	

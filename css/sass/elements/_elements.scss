@@ -6,6 +6,9 @@
 // Überschriften
 @import "headlines";
 
+// Code
+@import "code";
+
 // Absaetze
 @import "paragraphs";
 
@@ -14,6 +17,9 @@
 
 // Lists
 @import "lists";
+
+//  Pagination
+@import "pagination";
 
 // Forms
 @import "forms";
@@ -29,6 +35,8 @@
 
 // Images
 @import "images";
+
+
 
 // General Classes
 @import "general-classes";

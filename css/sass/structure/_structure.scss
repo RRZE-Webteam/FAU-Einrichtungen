@@ -2,6 +2,9 @@
 /* Structural 
 /*-----------------------------------------------------------------------------------*/
 
+// Add grid extention
+@import "grid-extention";
+
 
 // Layout - Rahmen, grundlegende Struktur gesamte Website
 @import "layout";
@@ -12,19 +15,11 @@
 // Meta Region
 @import "meta";
 
-
-// Logo
-@import "logo";
-
 // Navigation
 @import "navigation/navigation";
 
-
 // Hero
-@import "hero";
-
-// Breadcrumb
-@import "breadcrumb";
+@import "hero/hero";
 
 
 // Content specials

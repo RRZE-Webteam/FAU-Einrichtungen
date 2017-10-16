@@ -1,0 +1,37 @@
+/*-----------------------------------------------------------------------------------*/
+/* Page Template definitions
+/*-----------------------------------------------------------------------------------*/
+
+
+// Portal Pages
+.page-template-page-portal {
+    .portalpage-content {
+	main {
+	    padding-top: 10px;
+	}
+    }
+    
+}
+
+
+.startpage-blogroll {
+    margin-top: -10px;
+}
+.startpage-sidebar {
+    @media (max-width: $screen-sm - 1) {
+	@include linear-gradient-three(transparent 0%,$colorStandardHellgrau 50%,transparent 100%);  
+    }
+}
+
+@media (max-width: $screen-xs - 1) {
+    .page-template-page-start {
+	
+	
+	#content .news-image {
+	    text-align: center;
+	    float: none;
+	}
+
+	
+    } 
+}

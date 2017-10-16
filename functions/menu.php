@@ -8,12 +8,14 @@
  */
 
 
+/*-----------------------------------------------------------------------------------*/
+/* returns child items by parent
+/*-----------------------------------------------------------------------------------*/
 function add_has_children_to_nav_items( $items ) {
     $parents = wp_list_pluck( $items, 'menu_item_parent');
     $out     = array ();
 
-    foreach ( $items as $item )
-    {
+    foreach ( $items as $item ) {
         in_array( $item->ID, $parents ) && $item->classes[] = 'has-sub';
         $out[] = $item;
     }
@@ -21,7 +23,9 @@ function add_has_children_to_nav_items( $items ) {
 }
 add_filter( 'wp_nav_menu_objects', 'add_has_children_to_nav_items' );
 
-
+/*-----------------------------------------------------------------------------------*/
+/* get menu title
+/*-----------------------------------------------------------------------------------*/
 function fau_get_menu_name($location){
 	if(!has_nav_menu($location)) return false;
 	$menus = get_nav_menu_locations();
@@ -30,7 +34,9 @@ function fau_get_menu_name($location){
 }
 
 
-
+/*-----------------------------------------------------------------------------------*/
+/* returns top parent id
+/*-----------------------------------------------------------------------------------*/
 function get_top_parent_page_id($id, $offset = FALSE) {
 
 	$parents = get_post_ancestors( $id );
@@ -44,13 +50,32 @@ function get_top_parent_page_id($id, $offset = FALSE) {
 
 }
 
+/*-----------------------------------------------------------------------------------*/
+/* Walker for main menu
+/*-----------------------------------------------------------------------------------*/
 class Walker_Main_Menu extends Walker_Nav_Menu {
 	private $currentID;
 
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat("\t", $depth);
 		$level = $depth + 2;		
-		$output .= $indent.'<div class="nav-flyout"><div class="container"><div class="row"><div class="span4"><ul class="sub-menu level'.$level.'">';
+		
+		$nothumbnail  = get_post_meta( $this->currentID, 'menuquote_nothumbnail', true );
+		if ($nothumbnail==1) {
+		    $thumbregion = '';
+		} else {
+		    $thumbregion = get_the_post_thumbnail($this->currentID,'post');
+		}
+		$quote  = get_post_meta( $this->currentID, 'zitat_text', true );
+	        $author =  get_post_meta( $this->currentID, 'zitat_autor', true );
+		
+		if (empty($thumbregion) && fau_empty($quote)) {
+		    $output .= $indent.'<div class="nav-flyout"><div class="container"><div class="row"><div class="flyout-entries-full"><ul class="sub-menu level'.$level.'">';
+		}  else {
+		    $output .= $indent.'<div class="nav-flyout"><div class="container"><div class="row"><div class="flyout-entries"><ul class="sub-menu level'.$level.'">';
+		}
+		
+		
 	}
 	
 	function end_lvl( &$output, $depth = 0, $args = array() ) {
@@ -81,42 +106,45 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		$val  = get_post_meta( $this->currentID, 'menuquote_texttype', true );	
 		$texttype = ( isset( $val ) ? intval( $val ) : 0 );
 		
-		
-		if (!empty($thumbregion)) {
-		    $output .= '<div class="span4 hide-mobile introtext">';
-		    if($quote) {
-			if ($texttype==0) {
-			    $output .= '<blockquote>';
-			    $output .= '<p class="quote">'.$quote.'</p>';
-			    
-			    $output .= '</blockquote>';
-			    if($author) $output .= '<p class="author"> &mdash; '.$author.'</p>';
-			} elseif ($texttype==1) {
-			     $output .= '<p>'.$quote.'</p>';
-			}
-		
-		    }
-		    $output .= '</div>';
-		    $output .= '<div class="span4 hide-mobile">';		
-		    $output .= $thumbregion;
-		    $output .= '</div>';	
+		if (empty($thumbregion) && fau_empty($quote)) {
+		    // keine spalten 
 		} else {
-		    $output .= '<div class="span8 hide-mobile introtext">';
-		     
-		     if($quote) {
-			if ($texttype==0) {
-			    $output .= '<blockquote>';
-			    $output .= '<p class="quote">'.$quote.'</p>';
-			    
-			    $output .= '</blockquote>';
-			    if($author) $output .= '<p class="author"> &mdash; '.$author.'</p>';
-			} elseif ($texttype==1) {
-			     $output .= '<p>'.$quote.'</p>';
+		    if (!empty($thumbregion)) {
+			$output .= '<div class="hide-mobile introtext">';
+			if($quote) {
+			    if ($texttype==0) {
+				$output .= '<blockquote>';
+				$output .= '<p>'.$quote.'</p>';
+				if($author) $output .= '<cite>'.$author.'</cite>'; 
+				$output .= '</blockquote>';
+
+			    } elseif ($texttype==1) {
+				 $output .= '<p>'.$quote.'</p>';
+			    }
+
 			}
+			$output .= '</div>';
+			$output .= '<div class="hide-mobile introthumb">';		
+			$output .= $thumbregion;
+			$output .= '</div>';	
+		    } else {
+			$output .= '<div class="hide-mobile introtext-full ">';
+
+			 if($quote) {
+			    if ($texttype==0) {
+				$output .= '<blockquote>';
+				$output .= '<p>'.$quote.'</p>';
+				 if($author) $output .= '<cite>'.$author.'</cite>';
+				$output .= '</blockquote>';
+
+			    } elseif ($texttype==1) {
+				 $output .= '<p>'.$quote.'</p>';
+			    }
+
+			}
+			$output .= '</div>';	
 
 		    }
-		    $output .= '</div>';	
-	
 		}
 		$output .= '</div></div></div>';
 	}
@@ -158,6 +186,10 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 		    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 		    
+		    $iscurrent =0;
+		    if (in_array("current_page_item",$item->classes)) {
+			$iscurrent = 1;
+		    }
 		    if ($level>1) {
 			 $class_names = str_replace("has-sub","",$class_names);   
 		    }
@@ -168,7 +200,9 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		    $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
 		    $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
 		    $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
-
+		    if ($iscurrent==1) {
+			$atts['aria-current'] = "page";
+		    }
 		    $atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
 
 		    if($level == 1) $this->currentID = $item->object_id;		
@@ -180,6 +214,7 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 				    $attributes .= ' ' . $attr . '="' . $value . '"';
 			    }
 		    }
+		    
 
 		    $item_output = $args->before;
 		    $item_output .= '<a'. $attributes .'>';
@@ -192,10 +227,10 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 	}
 }
 
-/* 
- * Darstellung eines Submenus im Inhaltsbereich
- */
-function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $spalte = 0, $nothumbs = 0, $nodefthumbs = 0) {
+/*-----------------------------------------------------------------------------------*/
+/* Create submenu icon/grid in content
+/*-----------------------------------------------------------------------------------*/
+function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $nothumbs = 0, $nodefthumbs = 0) {
     global $options;
     
     
@@ -217,20 +252,25 @@ function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $spalte = 0, $
     if ($subentries==0) {
 	$subentries = $options['default_submenu_entries'];
     }
-     if ($spalte==0) {
-	$spalte = $options['default_submenu_spalten'];
-    }
+
    
     echo '<div class="contentmenu" role="navigation">';   
-    wp_nav_menu( array( 'menu' => $slug, 'container' => false, 'items_wrap' => '%3$s', 'link_before' => '', 'link_after' => '', 'walker' => new Walker_Content_Menu($submenu,$subentries,$spalte,$nothumbs,$nodefthumbs)));
+   echo '<ul class="subpages-menu">';
+    wp_nav_menu( array( 'menu' => $slug, 
+        'container' => false, 
+        'items_wrap' => '%3$s', 
+        'link_before' => '', 
+        'link_after' => '', 
+        'walker' => new Walker_Content_Menu($menu,$submenu,$subentries,$nothumbs,$nodefthumbs)));
+   echo '</ul>';
     echo "</div>\n";
 
     return;
 }
 
-
-
-
+/*-----------------------------------------------------------------------------------*/
+/* Walker for subnav
+/*-----------------------------------------------------------------------------------*/
 class Walker_Content_Menu extends Walker_Nav_Menu {
 	private $level = 1;
 	private $count = array();
@@ -238,29 +278,32 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 	private $showsub = 1;
 	
 	
-	function __construct($showsub=1,$maxsecondlevel=5,$spalten=4,$noshowthumb=0,$nothumbnailfallback=0) {
-	    echo '<ul class="row subpages-menu">';
-	    $this->showsub = $showsub;
-	    $this->maxsecondlevel = $maxsecondlevel;
-	    $this->maxspalten = $spalten;
-	    $this->nothumbnail = $noshowthumb;
-	    $this->nothumbnailfallback = $nothumbnailfallback;
+	function __construct($menu,$showsub=1,$maxsecondlevel=6,$noshowthumb=0,$nothumbnailfallback=0) {	   
+	    $this->showsub              = $showsub;
+	    $this->maxsecondlevel       = $maxsecondlevel;
+	    $this->nothumbnail          = $noshowthumb;
+	    $this->nothumbnailfallback  = $nothumbnailfallback;
+        }
+        function __destruct( ) {
+		// $output .= '</ul> <!-- destruct -->';
 	}
-	
-	function __destruct() {
-		echo '</ul>';
-	}
-	
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
-		parent::start_lvl($output, $depth, $args);
 		$this->level++;
-		
 		$this->count[$this->level] = 0;
+                if ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1)
+                    $output .= '<ul class="sub-menu">';         
 	}
 	
-	function end_lvl( &$output, $depth = 0, $args = array() ) {
-		parent::end_lvl($output, $depth, $args);
-		$this->level--;
+	function end_lvl( &$output, $depth = 0, $args = array() ) {		
+               if ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1) {
+                    $output .= '</ul>';
+               } elseif(($this->level == 2) && ($this->count[$this->level] == ($this->maxsecondlevel+1)) && ($this->showsub == 1)) {
+                    $output .= '</ul>';
+               } elseif (($this->level == 2)  && ($this->showsub == 1)) {
+                    $output .= '</ul>';
+               }
+              
+                $this->level--;
 	}
 	
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
@@ -278,22 +321,25 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 		}
 		$item_output = '';
 		// Only show elements on the first level and only five on the second level, but only if showdescription == FALSE
-		if($this->level == 1 || ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1)) {
+		if($this->level == 1 || 
+                        ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1)) {
 			$class_names = $value = '';
 			$externlink = false;
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 			$classes[] = 'menu-item-' . $item->ID;
-			if($this->level == 1 && (isset($this->count[$this->level])) && (($this->count[$this->level]-1) % $this->maxspalten==0) ) {
-			    $classes[] = 'clear';
-			}    
+	//		if($this->level == 1 && (isset($this->count[$this->level])) && (($this->count[$this->level]-1) % $this->maxspalten==0) ) {
+	//		    $classes[] = 'clear';
+	//		}    
 			if($this->level == 1) {
-			    $classes[] = 'span3';
+			    $classes[] = 'menubox';
 			}
-		//	$classes[] = 'level'.$this->level;
-		//	$classes[] = 'count'.$this->count[$this->level];
+
 			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-
+			$iscurrent =0;
+			if (in_array("current_page_item",$item->classes)) {
+			    $iscurrent = 1;
+			}
 			$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
 			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
@@ -307,7 +353,9 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 			$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
 			$atts['target'] = ! empty( $item->target )     ? $item->target     : '';
 			$atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
-			
+			if ($iscurrent==1) {
+			    $atts['aria-current'] = "page";
+			}
 		
 			$post = get_post($item->object_id);
 			if ($post && $post->post_type != 'imagelink') {
@@ -319,7 +367,6 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
 			if($this->level == 1) $atts['class'] = 'subpage-item';
 			
-		
 			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
 
 			$attributes = '';
@@ -332,57 +379,51 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 			
 			$item_output = $args->before;
 			if($post && $post->post_type == 'imagelink') {
-				$protocol  = get_post_meta( $item->object_id, 'protocol', true );
-				$link  = get_post_meta( $item->object_id, 'link', true );
-				$targeturl = get_post_meta( $item->object_id, 'fauval_imagelink_url', true );
-				
-				 if (empty($targeturl) && isset($protocol) && isset($link)) {
-				    $targeturl = $protocol.$link;
-				}
-				$externlink = true; 	
-				$link = '<a class="ext-link" data-wpel-link="internal"  href="'.$targeturl.'">';
+                            $protocol  = get_post_meta( $item->object_id, 'protocol', true );
+                            $link  = get_post_meta( $item->object_id, 'link', true );
+                            $targeturl = get_post_meta( $item->object_id, 'fauval_imagelink_url', true );
+
+                            if (empty($targeturl) && isset($protocol) && isset($link)) {
+                                $targeturl = $protocol.$link;
+                            }
+                            $externlink = true; 	
+                            $link = '<a class="ext-link" data-wpel-link="internal"  href="'.$targeturl.'">';
 			} else {
-				$link = '<a'. $attributes .' >';
+                            $link = '<a'. $attributes .' >';
 			}
 
 			if($this->level == 1) {
-				if (!$this->nothumbnail) {
-				    
-				    $item_output .= '<a ';
-				    
-				    if ($externlink) {
-					 $item_output .= 'data-wpel-link="internal" ';
-				    }
-				    $item_output .= 'class="image';
-				    if ($externlink) {
-					 $item_output .= ' ext-link';
-				    }
-				    $item_output .= '" href="'.$targeturl.'">';
-				
-				
-				    $post_thumbnail_id = get_post_thumbnail_id( $item->object_id, 'page-thumb' ); 
-				    $imagehtml = '';
-				    $imageurl = '';
-				    if ($post_thumbnail_id) {
-					$thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  'page-thumb');
-					$imageurl = $thisimage[0]; 	
-					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$thisimage[1].'" height="'.$thisimage[2].'" alt="">';
-				    }
-				    if ((!isset($imageurl) || (strlen(trim($imageurl)) <4 )) && (!$this->nothumbnailfallback))  {
-					$imageurl = $options['default_submenuthumb_src'];
-					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" alt="">';
-				    }
-				    $item_output .= '</a>';
-				    
-				    // Anmerkdung: Leeres alt="", da dieses ansonsten redundant wäre zum darunter stehenden Titel.
-				}
-				
+                            if (!$this->nothumbnail) {
+                                $item_output .= '<a ';
 
-				$item_output .= $args->link_before.'<h3>';
-				$item_output .= $link;
-				$item_output .=  apply_filters( 'the_title', $item->title, $item->ID );
-				$item_output .= '</a>';
-				$item_output .= '</h3>'. $args->link_after;
+                                if ($externlink) {
+                                     $item_output .= 'data-wpel-link="internal" ';
+                                }
+                                $item_output .= 'role="presentation" aria-label="hide" tabindex="-1" class="image';
+                                if ($externlink) {
+                                     $item_output .= ' ext-link';
+                                }
+                                $item_output .= '" href="'.$targeturl.'">';
+                                $post_thumbnail_id = get_post_thumbnail_id( $item->object_id, 'page-thumb' ); 
+                                $imagehtml = '';
+                                $imageurl = '';
+                                if ($post_thumbnail_id) {
+                                    $thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  'page-thumb');
+                                    $imageurl = $thisimage[0]; 	
+                                    $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$thisimage[1].'" height="'.$thisimage[2].'" alt="">';
+                                }
+                                if ((!isset($imageurl) || (strlen(trim($imageurl)) <4 )) && (!$this->nothumbnailfallback))  {
+                                    $imageurl = $options['default_submenuthumb_src'];
+                                    $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" alt="">';
+                                }
+                                $item_output .= '</a>';
+                                // Anmerkung: Leeres alt="", da dieses ansonsten redundant wäre zum darunter stehenden Titel.
+                            }
+                            $item_output .= $args->link_before.'<span class="portaltop">';
+                            $item_output .= $link;
+                            $item_output .=  apply_filters( 'the_title', $item->title, $item->ID );
+                            $item_output .= '</a>';
+                            $item_output .= '</span>'. $args->link_after;
 			} else {
 				$item_output .= $link;
 				$item_output .= $args->link_before.apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
@@ -405,12 +446,138 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 	}
 	
 	function end_el(&$output, $item, $depth=0, $args=array()) {      
-		if($this->level == 1 || ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel))	{
-			if($this->level == 1) $output .= "</li>\n";  
-			else $output .= "</li>\n";
+		if($this->level == 1 
+                        || ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel))	{
+			if($this->level == 1) $output .= "</li>";  
+			else $output .= "</li>";
 		} elseif(($this->level == 2) && ($this->count[$this->level] == ($this->maxsecondlevel+1)) && ($this->showsub == 1)) {
 			$output .= '<li class="more"><a href="'.$this->element->url.'">'. __('Mehr', 'fau').' ...</a></li>';
-		}	
-	}  
+                }	
+	}     
+}
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Create breadcrumb
+/*-----------------------------------------------------------------------------------*/
+function fau_breadcrumb($lasttitle = '') {
+  global $options;
+  
+  $delimiter	= $options['breadcrumb_delimiter']; // = ' / ';
+  $home		= $options['breadcrumb_root']; // __( 'Startseite', 'fau' ); // text for the 'Home' link
+  $before	= $options['breadcrumb_beforehtml']; // '<span class="current">'; // tag before the current crumb
+  $after	= $options['breadcrumb_afterhtml']; // '</span>'; // tag after the current crumb
+  $showcurrent	= 0;
+  
+  $pretitletextstart   = '<span>';
+  $pretitletextend     = '</span>';
+  
+  if ($options['breadcrumb_withtitle']) {
+	echo '<h3 class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo( 'title' ).'</h3>';
+	echo "\n";
+    }
+  echo '<nav aria-labelledby="bc-title" class="breadcrumbs">'; 
+  echo '<h4 class="screen-reader-text" id="bc-title">'.__('Sie befinden sich hier:','fau').'</h4>';
+  if ( !is_home() && !is_front_page() || is_paged() ) { 
     
+    global $post;
+    
+    $homeLink = home_url('/');
+    echo '<a href="' . $homeLink . '">' . $home . '</a>' . $delimiter;
+ 
+    if ( is_category() ) {
+	global $wp_query;
+	$cat_obj = $wp_query->get_queried_object();
+	$thisCat = $cat_obj->term_id;
+	$thisCat = get_category($thisCat);
+	$parentCat = get_category($thisCat->parent);
+	if ($thisCat->parent != 0) 
+	    echo(get_category_parents($parentCat, TRUE, $delimiter ));
+	echo $before . single_cat_title('', false) .  $after;
+ 
+    } elseif ( is_day() ) {
+	echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>' .$delimiter;
+	echo '<a href="' . get_month_link(get_the_time('Y'),get_the_time('m')) . '">' . get_the_time('F') . '</a>' .$delimiter;
+	echo $before . get_the_time('d') . $after; 
+    } elseif ( is_month() ) {
+	echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>' . $delimiter;
+	echo $before . get_the_time('F') . $after;
+    } elseif ( is_year() ) {
+	echo $before . get_the_time('Y') . $after; 
+    } elseif ( is_single() && !is_attachment() ) {
+	 
+	if ( get_post_type() != 'post' ) {
+	    $post_type = get_post_type_object(get_post_type());
+	    $slug = $post_type->rewrite;
+	    echo '<a href="' . $homeLink . '/' . $slug['slug'] . '">' . $post_type->labels->singular_name . '</a>' .$delimiter;
+	    if ($showcurrent) {
+		echo $before . get_the_title() . $after;
+	    }
+	} else {
+	    
+	    $cat = get_the_category(); 
+	    if ($options['breadcrumb_uselastcat']) {
+		$last = array_pop($cat);
+	    } else {
+		$last = $cat[0];
+	    }
+	    $catid = $last->cat_ID;
+
+	    echo get_category_parents($catid, TRUE,  $delimiter );
+	    if ($showcurrent) {
+		echo $before . get_the_title() . $after;
+	    }
+
+	} 
+    } elseif ( !is_single() && !is_page() && !is_search() && get_post_type() != 'post' && !is_404() ) {
+	$post_type = get_post_type_object(get_post_type());
+	echo $before . $post_type->labels->singular_name . $after;
+    } elseif ( is_attachment() ) {
+	$parent = get_post($post->post_parent);
+	echo '<a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a>'. $delimiter;
+	if ($showcurrent) {
+	    echo $before . get_the_title() . $after;
+	}
+	
+    } elseif ( is_page() && !$post->post_parent ) {
+	if ($showcurrent) {
+	    echo $before . get_the_title() . $after;
+	}
+    } elseif ( is_page() && $post->post_parent ) {
+	$parent_id  = $post->post_parent;
+	$breadcrumbs = array();
+	while ($parent_id) {
+	    $page = get_page($parent_id);
+	    $breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
+	    $parent_id  = $page->post_parent;
+	}
+	$breadcrumbs = array_reverse($breadcrumbs);
+	foreach ($breadcrumbs as $crumb) echo $crumb . $delimiter;
+	if ($showcurrent) {
+	    echo $before . get_the_title() . $after; 
+	}
+    } elseif ( is_search() ) {
+	if (isset($lasttitle) && (strlen(trim($lasttitle))>1)) {
+	    echo $before . $lasttitle. $after; 
+	} else {
+	    echo $before .$pretitletextstart. __( 'Suche nach', 'fau' ).$pretitletextend.' "' . get_search_query() . '"' . $after; 
+	}
+    } elseif ( is_tag() ) {
+	echo $before .$pretitletextstart. __( 'Schlagwort', 'fau' ).$pretitletextend. ' "' . single_tag_title('', false) . '"' . $after; 
+    } elseif ( is_author() ) {
+	global $author;
+	$userdata = get_userdata($author);
+	echo $before .$pretitletextstart. __( 'Beiträge von', 'fau' ).$pretitletextend.' '.$userdata->display_name . $after;
+    } elseif ( is_404() ) {
+	echo $before . '404' . $after;
+    }
+
+  } elseif (is_front_page())  {
+	echo $before . $home . $after;
+  } elseif (is_home()) {
+	echo $before . get_the_title(get_option('page_for_posts')) . $after;
+  }
+   echo '</nav>'; 
+
 }

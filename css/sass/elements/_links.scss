@@ -5,15 +5,22 @@
 a {
 	color: $colorPrimary;
 	
-	&:hover, &:focus {
+	&:hover, 
+	&:focus {
 		color: $colorHover;
 	}
 	
-	p &, li &, table &, .accordion-inner & {
+	p &, 
+	li &, 
+	table &, 
+	.accordion-inner & {
 		text-decoration: underline;
 	}
 	
-	table &:hover, table &:focus {
+	
+	
+	table &:hover, 
+	table &:focus {
 		text-decoration: none;
 	}
 	
@@ -31,4 +38,86 @@ a {
 #nav .ext-link {
 	padding-right: 0 !important;
 	background-image: none !important;
+}
+
+
+.jumplinks {
+	@include no-list;
+	
+	li {
+		@include no-list;
+		
+		a {
+			display: block;
+			position: fixed;
+			z-index: 10000;
+			top: 20px;
+			left: -1000px;
+			padding: 6px 10px;
+			background: #fff;
+		}
+		
+		a:hover, a:focus {
+			left: 20px;	
+		}
+	}
+}
+
+
+
+.news-more-links {
+	padding: 20px 0;
+	text-align: left;
+	
+	a {
+		@include inline-block;
+		margin-right: 15px;
+	}
+
+	.news-rss:before {
+		@extend .fa;
+		@extend .fa-lg;
+		@extend .fa-rss-square;
+		padding-right: 5px;
+	}
+	
+	.news-more {
+		color: $colorButton;
+		background: $colorButtonBackground;
+		padding: 6px 10px;
+		text-decoration: none;
+		@include border-radius(3px);
+		@include px2rem($font-size-textbuttons);
+		
+		
+		&:hover, &:focus {
+			background: $colorButtonBackgroundHover;
+		}
+	}
+}
+
+
+//Special Links
+
+.top-link {
+	position: fixed;
+	bottom: 20px; 
+	right: 20px;
+	
+	@extend .fa;
+	@extend .fa-2x;
+	@extend .fa-chevron-up;
+
+	background: $colorPrimary;
+	color: #fff;
+	padding: 7px;
+	@include border-radius(4px);
+	
+	&:hover, &:focus {
+		color: #fff;
+		background: $colorHover;
+	}
+	
+	display: none;
+
 }

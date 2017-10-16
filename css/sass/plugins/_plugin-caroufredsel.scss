@@ -1,8 +1,6 @@
 /*
     Settings for Carousel (caroufredsel js)
     Created on : 21.10.2016, 13:40:28
-
-
 */
 
 /* Logo Slider */
@@ -16,6 +14,7 @@
     margin-left: 0;
     
     li {
+	margin: 0 10px;
 	display: inline-block;
 	text-align: center;
 	vertical-align: middle;
@@ -76,9 +75,9 @@
 #logos-menu-playpause {
 	@include inline-block;
 	height: 32px;
-	line-height: 32px;
 	padding-left: 32px;
-	font-size: 1.1em; 
+
+	@include px2rem($font-size-textbuttons);
 	
 	i {
 	   width: 20px;

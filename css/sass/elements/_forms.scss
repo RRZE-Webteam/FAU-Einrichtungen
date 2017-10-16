@@ -8,6 +8,7 @@ textarea, input, select {
 }
 
 
+
 select, 
 textarea,
 input[type="text"],
@@ -26,20 +27,37 @@ input[type="tel"],
 input[type="color"] {
 	width: 290px;
 	padding: 5px 10px;
+	@include px2rem($font-size-base);
 }
 
 textarea {
 	height: 100px;
 }
 
-form {
-	border: 1px solid $colorLightest;
+form {	
 	padding: 20px;
+	display: inline-block;
+	border: 1px solid $colorLightest;
+	 
+	&.noborder {
+	    border: none;
+	}
+	
+	legend {
+	    margin: 0;
+	    padding: 0 0 11px 0;
+	    @include px2rem($font-size-h3);
+	    color: $colorPrimary;
+	    font-weight: bold;
+	}
 }
 
 label {
 	padding-top: 5px;
 	margin-right: 20px;
+	display: inline-block;
+	@include px2rem($font-size-base);
+	
 }
 
 input[type="submit"] {
@@ -62,8 +80,14 @@ input[type="submit"] {
 		background: $colorHover;
 	}
 }
+input[type="radio"] {
+    margin: -5px 10px 0 0;
+}
 
-
+fieldset {
+    margin: 10px 0;
+    @include border-radius(4px);
+}
 /* Login/Passwords Form */
 .post-password-form {
 	label {

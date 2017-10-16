@@ -4,9 +4,7 @@
 
 
 .img-rounded {
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
+	@include border-radius(6px);
 }
 
 .img-polaroid {
@@ -14,15 +12,11 @@
 	background-color: #fff;
 	border: 1px solid #ccc;
 	border: 1px solid rgba(0, 0, 0, 0.2);
-	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	@include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
 }
 
 .img-circle {
-	-webkit-border-radius: 500px;
-	-moz-border-radius: 500px;
-	border-radius: 500px;
+	@include border-radius(500px);
 }
 
 
@@ -71,6 +65,12 @@ img {
 		    border: 1px solid black;
 		    @include border-radius(2px);
 		}
+                &.borderless {
+		    border: none;
+		}
+                &.noshadow {
+		   box-shadow: none;
+		}
 		&.error-siegel {
 		    @include box-shadow(none);
 		    margin: 0 auto;
@@ -79,13 +79,13 @@ img {
 	}
 }
 
-@media (max-width: $breakSM) {
+@media (max-width: $screen-xs) {
     img.alignleft, 
     img.alignright {
 	float: none;
 	padding: 0;
 	display: block;
 	margin: 5px auto;
-	max-width: $breakSM;
+	max-width: $screen-xs;
     }
 }

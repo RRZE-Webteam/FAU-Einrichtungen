@@ -7,74 +7,12 @@
  * @since FAU 1.0
  */
 
-get_header();
-global $options;
-
+    get_header();    
+    get_template_part('template-parts/hero', 'banner');
+    
+    global $options;
 
 ?>
-
-	<section id="hero" class="hero-banner">
-		<div class="banner">
-		    <div class="introimg">
-			    <?php 
-			    $copyright = '';
-			    if (isset($options['startseite_banner_image_id']) && ($options['startseite_banner_image_id']>0)) {
-				$imagedata = wp_get_attachment_image_src( $options['startseite_banner_image_id'], 'herobanner' );
-				
-				$slidersrcset =  wp_get_attachment_image_srcset($options['startseite_banner_image_id'],'herobanner');
-				
-				if ($imagedata) {
-				    $image = '<img src="'.fau_esc_url($imagedata[0]).'" width="'.$imagedata[1].'" height="'.$imagedata[2].'" alt=""';
-				    if ($slidersrcset) {
-					$image .= 'srcset="'.$slidersrcset.'"';
-				    }
-				    $image .= '>';
-				    
-				}
-				$imgdata = fau_get_image_attributs($options['startseite_banner_image_id']);
-				$copyright = trim(strip_tags( $imgdata['credits'] ));
-			    } elseif ($options['startseite_banner_usedefault']) {
-				$image = '<img src="'.fau_esc_url($options['default_startseite-bannerbild-image_src']).'" width="'.$options['default_startseite-bannerbild-image_width'].'" height="'.$options['default_startseite-bannerbild-image_height'].'" alt="">';	
-			    } else {
-				$image = '';
-			    }
-			    echo $image."\n"; 
-			    if (($options['advanced_display_hero_credits']==true) && (!empty($copyright))) {
-				echo '<p class="credits">'.$copyright."</p>";
-			    } 
-			    ?>
-			     <div class="banner-text">
-				<div class="container">
-				    <div class="row">
-					    <div role="presentation" class="span9 infobar">				    
-						<?php 
-					       $header_image = get_header_image();
-						if (!empty( $header_image ) ){	
-						    echo "<h1>". get_bloginfo( 'title' ). "</h1>\n";
-						}
-						$desc = trim(strip_tags(get_bloginfo( 'description' )));
-						if (!empty($desc)) {
-						    if (!empty( $header_image ) ){	
-							echo "<br>";
-						    }
-						     echo '<p class="description">'.$desc."</p>";
-						}
-						?>
-					    </div>
-				    </div>
-				<?php if ($options['advanced_page_start_herojumplink']) { ?>
-				    <a href="#content" class="hero-jumplink-content"></a>
-				<?php } ?>
-				</div>
-			     </div>
-
-	
-				    
-		    </div>
-		</div>
-	
-		
-	</section> <!-- /hero -->
 
 	<div id="content">
 		<div class="container">
@@ -83,18 +21,16 @@ global $options;
 			 ?>
 			
 			<div class="row">
-				<div class="span8">
+				<div class="startpage-blogroll">
 				   
-				    
+			<main<?php echo fau_get_page_langcode($post->ID);?>>	    
 		    <?php 
 			wp_reset_postdata();
 			wp_reset_query();
-			
-			echo "<main>\n";
-			
+
 			the_content();
 			
-			
+		
 			$number = 0;
 			$max = $options['start_max_newspertag'];
 			$maxall = $options['start_max_newscontent'];
@@ -156,10 +92,10 @@ global $options;
 			?>
 			</main>	
 				</div>
-				<div class="span4 sidebar-outline">
+				<div class="startpage-sidebar">
 					<?php
-					get_template_part('sidebar', 'events'); 					
-					get_template_part('sidebar');
+					get_template_part('template-parts/sidebar', 'events'); 					
+					get_template_part('template-parts/sidebar');
 					?>
 				</div>
 			</div> <!-- /row -->
@@ -179,7 +115,7 @@ global $options;
 				$nofallbackthumbs  = get_post_meta( $post->ID, 'fauval_portalmenu_nofallbackthumb', true );
 				$nothumbnails  = get_post_meta( $post->ID, 'fauval_portalmenu_thumbnailson', true ); 
 
-				fau_get_contentmenu($menuslug,$displaysub,0,0,$nothumbnails,$nofallbackthumbs);
+				fau_get_contentmenu($menuslug,$displaysub,0,$nothumbnails,$nofallbackthumbs);
 	
 			 }
 			 
@@ -197,7 +133,7 @@ global $options;
 			
 			
 		</div> <!-- /container -->
-		<?php get_template_part('footer', 'social'); ?>	
+		<?php get_template_part('template-parts/footer', 'social'); ?>	
 		
 	</div> <!-- /content -->
 

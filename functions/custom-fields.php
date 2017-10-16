@@ -1,12 +1,14 @@
 <?php
+/*-----------------------------------------------------------------------------------*/
+/* Metaboxes and adjustments for generell custom fields 
+/*-----------------------------------------------------------------------------------*/
 
-/*
- * Metaboxes and adjustments for generell custom fields 
- */
 add_action('load-post.php', 'fau_metabox_cf_setup');
 add_action('load-post-new.php', 'fau_metabox_cf_setup');
 
-/* Meta box setup function. */
+/*-----------------------------------------------------------------------------------*/
+/* Meta box setup function.
+/*-----------------------------------------------------------------------------------*/
 function fau_metabox_cf_setup() {
     global $options;
     
@@ -43,9 +45,16 @@ function fau_metabox_cf_setup() {
     if ($options['advanced_topevent'] == true) {
         add_action('save_post', 'fau_save_post_topevent', 10, 2);
     }
+   
+    if ($options['advanced_activate_page_langcode'] == true) {
+	 add_action('save_post', 'fau_save_metabox_page_langcode', 10, 2);
+    }
 }
 
-/* Create one or more meta boxes to be displayed on the post editor screen. */
+/*-----------------------------------------------------------------------------------*/
+/*  Create one or more meta boxes to be displayed on the post editor screen. 
+/*-----------------------------------------------------------------------------------*/
+
 function fau_add_metabox_page() {
     global $options;
     
@@ -94,7 +103,19 @@ function fau_add_metabox_page() {
         'fau_do_metabox_page_sidebar',		
         'page','normal','core'
     );
+    if ($options['advanced_activate_page_langcode'] == true) {
+        add_meta_box(
+            'fau_metabox_page_langcode',			
+            esc_html__( 'Seitensprache', 'fau' ),		
+            'fau_do_metabox_page_langcode',		
+            'page','side','core'
+        );
+    }
 }
+
+/*-----------------------------------------------------------------------------------*/
+/*  Metaboxes fuer Posts
+/*-----------------------------------------------------------------------------------*/
 
 function fau_add_metabox_post() {
     global $options;
@@ -124,8 +145,9 @@ function fau_add_metabox_post() {
         );
     }
 }
-
-/* Display Options for posts */
+/*-----------------------------------------------------------------------------------*/
+/*  Display Options for posts
+/*-----------------------------------------------------------------------------------*/
 function fau_do_metabox_post_teaser($object, $box) {
     global $options;
 
@@ -193,7 +215,7 @@ function fau_save_post_teaser($post_id, $post) {
         delete_post_meta($post_id, 'abstract');
     }
 
-    $newval = isset($_POST['fauval_external_link']) && filter_var(trim($_POST['fauval_external_link']), FILTER_VALIDATE_URL) ? trim($_POST['fauval_external_link']) : '';
+    $newval = isset($_POST['fauval_external_link']) && filter_var(trim($_POST['fauval_external_link']), FILTER_VALIDATE_URL, FILTER_FLAG_QUERY_REQUIRED) ? trim($_POST['fauval_external_link']) : '';
     $oldval = get_post_meta( $post_id, 'external_link', true );
 
     if (!empty($newval) && !empty($oldval)) {
@@ -1068,9 +1090,50 @@ function fau_save_metabox_page_sidebar($post_id, $post) {
     }
 }
 
-/*
- *  Ersetzt das wpLink-Skript durch ein benutzerdefiniertes Skript.
- */
+/*-----------------------------------------------------------------------------------*/
+/*  Metabox fuer optionalen Sprachcode auf Seiten
+/*-----------------------------------------------------------------------------------*/
+function fau_do_metabox_page_langcode($object, $box) {
+    wp_nonce_field(basename(__FILE__), 'fau_metabox_page_langcode_nonce');
+
+    if (!current_user_can('edit_page', $object->ID)) {
+        return;
+    }
+
+    $prevalue = get_post_meta($object->ID, 'fauval_langcode', true);
+    global $default_fau_page_langcodes;
+    
+    $liste = $default_fau_page_langcodes;
+    $sitelang = fau_get_language_main();
+    unset($liste[$sitelang]);
+    
+    
+    $labeltext = __('Sprache im Inhaltsbereich deklarieren','fau');
+    $howtotext = __('Falls die Sprache dieser Seite von anderen Webseiten des Webauftritts abweicht, geben Sie hier bitte die Sprache an, welche verwendet wird. Wenn die Sprache nicht geändert wird, ändern Sie nichts.</p><p class="hinweis">Achtung: Diese Funktion wird vom Workflow-Plugin nicht berücksichtigt.','fau');
+    fau_form_select('fau_metabox_page_langcode', $liste, $prevalue, $labeltext,  $howtotext);
+    
+    
+}
+/*-----------------------------------------------------------------------------------*/
+/* Speichere optionalen Sprachcode auf Seiten
+/*-----------------------------------------------------------------------------------*/
+function fau_save_metabox_page_langcode( $post_id, $post ) {
+	/* Verify the nonce before proceeding. */
+	if ( !isset( $_POST['fau_metabox_page_langcode_nonce'] ) || !wp_verify_nonce( $_POST['fau_metabox_page_langcode_nonce'], basename( __FILE__ ) ) ) {
+            return $post_id;
+        }
+
+	$post_type = get_post_type($post_id);
+	if ('page' != $post_type || !current_user_can('edit_page', $post_id)) {
+            return;
+	}
+	fau_save_standard('fauval_langcode', $_POST['fau_metabox_page_langcode'], $post_id, 'page', 'text');
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Ersetzt das wpLink-Skript durch ein benutzerdefiniertes Skript.
+/*-----------------------------------------------------------------------------------*/
+
 add_action('admin_enqueue_scripts', function () {
     $suffix = defined('WP_DEBUG') && WP_DEBUG ? '' : '.min';
  
@@ -1092,3 +1155,6 @@ add_action('admin_enqueue_scripts', function () {
     wp_localize_script('rrze-wplink', 'wpLinkL10n', $localized);
     
 }, 999);
+/*-----------------------------------------------------------------------------------*/
+/* EOF
+/*-----------------------------------------------------------------------------------*/
