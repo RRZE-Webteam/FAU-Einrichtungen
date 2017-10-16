@@ -4,7 +4,7 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'optiontable-version'		=> 24,
+    'optiontable-version'		=> 25,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
