@@ -190,7 +190,8 @@ class FAUShortcodes {
 							else $class = '';
 
 							$return .= '<div class="assistant-tab-pane '.$class.'" id="accordion-'.$page->ID.'-'.$i.'-tab-'.$j.'">';
-								$return .= '<p>'.do_shortcode($subpage->post_content).'</p>';
+								// $return .= '<p>'.do_shortcode($subpage->post_content).'</p>';
+								$return .= do_shortcode($subpage->post_content);
 							$return .= '</div>';
 
 							$j++;
@@ -198,7 +199,8 @@ class FAUShortcodes {
 
 					    $return .= '</div>';
 					}  else {
-						$return .= '<p>'.do_shortcode($page->post_content).'</p>';
+						// $return .= '<p>'.do_shortcode($page->post_content).'</p>';
+						$return .= do_shortcode($page->post_content);
 					}
 
 

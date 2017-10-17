@@ -5,6 +5,7 @@
 #hero {
     &.hero-small {
 	@include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% bottom);
+	overflow:hidden;
 	
 	h1 {
 	    padding: 0;
