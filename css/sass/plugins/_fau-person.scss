@@ -73,13 +73,16 @@
 	margin: 0 15px;
 	padding: 0;
 	border: none;
+	display: inline-block;
 	
 	@media (min-width: $screen-sm) {
 	    border: 1px solid $colorStandardHellgrau;
 	    margin: 0 0 10px 0;
 	    padding: 5px;
         }
-	
+	&.noborder {
+	    border: none;
+	}
 
 	li {
 
