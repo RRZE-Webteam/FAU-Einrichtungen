@@ -24,7 +24,17 @@
 	    
 	   
 	}
-	
+	.infobar {
+	    padding-top: 5px;
+	    
+	    p.description {
+		font-weight: normal;
+		color: #fff;
+		@include px2rem($font-size-hero-bannertext);
+		padding: 0;
+		margin: 10px 0 0 0; 
+	    }
+	}
 	.ismobile & {
 	    display: none;
 	}
