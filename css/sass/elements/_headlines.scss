@@ -36,10 +36,7 @@ h1 {
     .sidebar-inline+& {
 	    margin-top: 0;
     }
-    #logo & {
-	@include px2rem($font-size-h1-mobilebranding);
-	
-    }
+   
     .banner-text & {
 	@include px2rem($font-size-h1-banner);
     }

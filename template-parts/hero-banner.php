@@ -53,7 +53,7 @@ global $options;
                                
                                 if ((!empty( $header_image ) && (!fau_empty($title)) )){
                                    $length = strlen($title);
-                                   if ($length > 140) {
+                                   if ($length > 50) {
                                        $infobarclass .= " fullsize";
                                    }
                                 }

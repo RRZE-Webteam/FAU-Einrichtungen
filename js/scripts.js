@@ -324,29 +324,42 @@ jQuery(document).ready(function($) {
 
 	//Update responsive positioning of some elements
 	$('body').addClass('responsive-large');
-	if ($('body').hasClass('page-template-page-start')) {
-		$('.logos-menu span').addClass('logos-menu-logo');
-		$('#content > .container').eq(0).append('<div class="responsive-logos-container" />');
+	// if ($('body').hasClass('page-template-page-start')) {
+	//	$('.logos-menu span').addClass('logos-menu-logo');
+	// 	$('#content > .container').eq(0).append('<div class="responsive-logos-container" />');
+	// }
+	
+	var heroNavigation = $('#hero .hero-navigation').clone();
+	var footerheronav = $('<div class="cloned-hero-nav"></div>'); 
+	var footermetalinks = $('<div class="cloned-meta-links"></div>');
+	var titleportallinks = $('.meta-links h3').clone();
+	var portallinks = $('.meta-links #meta-nav').clone();
+		
+	footerheronav.append(heroNavigation);
+	footerheronav.prependTo('#footer');
+	
+	 if (portallinks.length > 0) {			       
+	    footermetalinks.append(titleportallinks);
+	    footermetalinks.append(portallinks);
+	    footermetalinks.prependTo('#footer');
 	}
-	
-	var logoalt = $('.branding h1 img').attr("alt");
-	
+			
 	var updateResponsivePositioning = function() {
-		var body = $('body');
-		var heroNavigation = $('.hero-navigation').clone();
+		var body = $('body');		
+		var logoalt;
+		if (body.hasClass('nologo')) {
+		     logoalt = "";
+		}else {
+		     logoalt = $('.branding h1 img').attr("alt");
+		}
+	
 		var subNav = $('#subnav').parent();
-		var logos = $('.logos-menu-logo');
-		
-		var titleportallinks = $('.meta-links h3').clone();
-		var portallinks = $('.meta-links #meta-nav').clone();
-		var footermetalinks = $('<div class="cloned-meta-links"></div>'); 
-		var footerheronav = $('<div class="cloned-hero-nav"></div>'); 
-		
-		
+	//	var logos = $('.logos-menu-logo');
+	
 		var viewportWidth = $(window).width();
 		if (viewportWidth < breakMD) {
-		   
-		    if ((logoalt.length>0) && (!body.hasClass('visiblelogo'))) {
+		 
+		    if (!body.hasClass('nologo') && (!body.hasClass('visiblelogo'))) {
 			body.addClass('visiblelogo');
 			visibletitle = '<span class="visiblelogo">' + logoalt + '</span>';
 			$('.branding h1 img').after(visibletitle);
@@ -356,16 +369,8 @@ jQuery(document).ready(function($) {
 			body.addClass('ismobile');
 
 			subNav.appendTo(navContainer);
-			logos.appendTo('.responsive-logos-container');
-			
-			footerheronav.append(heroNavigation);
-			footerheronav.prependTo('#footer');
-			
-			if (portallinks.length > 0) {			       
-			    footermetalinks.append(titleportallinks);
-			    footermetalinks.append(portallinks);
-			    footermetalinks.prependTo('#footer');
-			}	
+	//		logos.appendTo('.responsive-logos-container');
+				
 		    }
 		    
 		} else {
@@ -376,14 +381,9 @@ jQuery(document).ready(function($) {
 		    if (body.hasClass('ismobile')) {
 			body.addClass('responsive-large');
 			subNav.prependTo('#content .row:first');
-			logos.appendTo('.logos-menu');
-
+	//		logos.appendTo('.logos-menu');
 			body.removeClass('ismobile');
-			$("#footer .cloned-meta-links").remove();
-			$("#footer .cloned-hero-nav").remove();
-			footermetalinks.empty();
-			footerheronav.empty();
-			
+
 		    }
 		    
 		}

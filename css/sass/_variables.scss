@@ -7,7 +7,6 @@
 
  // DEBUGMODE
  // (Sets border around container and main regions)
-    
 $debugmode: 'false';
 
 
@@ -160,7 +159,7 @@ $font-size-base:		15;
 $font-size-meta:		13;
 $font-size-sidebar:		13;
 
-
+$font-size-footer:		13;
 $font-size-breadcrumb:		13;
 $font-size-herosearch:		16;
 $font-size-header-branding:	19;
@@ -189,10 +188,12 @@ $font-size-nav-blockquote:	16;
 $font-size-nav-blockquote-cite:	14;
 $font-size-nav-introtext:	15;
 $font-size-nav-flyout-items:	15;
-
+$font-size-nav-mainlinks:	17;
 
 $font-size-h1:			32;
 $font-size-h1-mobilebranding:	24;
+$font-size-h1-desktopbranding:	20;
+$font-size-h1-desktopbranding-longtitle:    17;
 $font-size-h1-banner:		28;
 
 $font-size-h2:			24;

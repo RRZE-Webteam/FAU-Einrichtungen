@@ -81,7 +81,13 @@
 		float: none;
 		width: 240px;
 		vertical-align: bottom;
+		
+		
+		.nologo.longtitle & {
+		    width: 300px;
+		}
 	    } 
+	   
 	    .header-menu {
 		float: none;
 		display: table-cell;
@@ -107,7 +113,12 @@
 	h1 {
 	    color: $colorPrimary;
 	    overflow: hidden;
-	    margin: 0;
+	    margin: 0 0 10px 0;
+	    
+	    max-height: inherit; 
+	    @media (min-width: $screen-sm ) {
+		  max-height: 65px;
+	    }
 	    
 	    a, span {
 		display: table-cell;
@@ -116,7 +127,22 @@
 	    a {
 		color: $colorPrimary;
 		text-decoration: none;	
-	    } 		
+	    } 
+
+	    
+	    @include px2rem($font-size-h1-mobilebranding);
+	    @media (min-width: $screen-sm) {
+		@include px2rem($font-size-h1-desktopbranding);
+		
+		.nologo.longtitle & {
+		   @include px2rem($font-size-h1-desktopbranding-longtitle, $font-size-gridbase, $font-size-h1-desktopbranding-longtitle + 2);
+		
+		   hyphens: auto;
+		}
+		
+	    }
+	    
+	    
 	    @media (max-width: $screen-sm - 1) {
 		color: #fff;
 		a {
@@ -125,15 +151,14 @@
 	    } 
 	}
 	.nologo &.branding {
-		padding-bottom: 3px;
+		padding: 0 0 3px 15px;
 	 
 	}
 	img {
-	   max-height: 85px;
-	   width: 240px;
-	   max-width: inherit;
-	   margin-bottom: 10px;
-		
+	   max-width: 240px;
+	   max-height: 65px;
+	   width: auto;
+	   height: auto; 		
 	}
 }
 

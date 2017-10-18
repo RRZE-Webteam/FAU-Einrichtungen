@@ -74,6 +74,13 @@
     if (empty( $header_image ) ) {	
 	$classes[] = 'nologo';
     }
+    
+    $sitetitle = get_bloginfo( 'title' );
+    if (strlen($sitetitle) > 50) {
+	$classes[] = 'longtitle';
+    }
+    
+    
     return $classes;
  }
  add_filter( 'body_class', 'fau_body_class' );

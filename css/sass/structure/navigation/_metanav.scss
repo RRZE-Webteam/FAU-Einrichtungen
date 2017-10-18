@@ -135,6 +135,9 @@
 	    display: none;
 	    content: "";
 	}
+	li.facultyhome {
+	    display: none;
+	}
     }
     
     @media (min-width: $screen-sm) {
@@ -154,6 +157,7 @@
 
 
 #footer {
+
     .cloned-meta-links,
     .cloned-hero-nav,
     #meta-nav {
@@ -185,6 +189,13 @@
 	
 	
     }
+    .cloned-meta-links,
+    .cloned-hero-nav {
+	 @media (min-width: $screen-sm) {
+	     display: none;
+	 }
+	
+    }
      #meta-nav {
 	    padding: 10px 0;
      }
@@ -203,6 +214,7 @@
     }
     .cloned-hero-nav {
 	margin-bottom: 10px;
+	margin-left: -15px;
     }
 }
 	
