@@ -62,16 +62,7 @@ html, body, button {
     .search-input {
 	@extend .col-sm-8;
     }
-    .hero-navigation {
-	.quicklinks {
-	    @extend .col-xs-12;
-	    @extend .col-sm-3;
-	}
-	.infobar {
-	    @extend .col-xs-12;
-	    @extend .col-sm-6;
-	}
-    }
+    
     
 }
 

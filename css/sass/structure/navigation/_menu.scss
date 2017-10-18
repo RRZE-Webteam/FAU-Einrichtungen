@@ -54,8 +54,8 @@
 			color: $colorPrimary;
 			text-decoration: none;
 			padding: 10px;
-			font-size: 17px;
-			line-height: 17px;
+			@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
+			
 			@include border-radius(4px);
 			margin: 0 0 10px 0;
 		}
@@ -238,7 +238,7 @@
 /* New Toogle Button */
 #wrap #mainnav-toggle {
   position: fixed;
-  right: 0;
+  right: 10px;
   top: 0;
   @include px2rem($font-size-mobile-meta);
   background: transparent;
