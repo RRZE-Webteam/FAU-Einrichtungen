@@ -54,8 +54,8 @@
 			color: $colorPrimary;
 			text-decoration: none;
 			padding: 10px;
-			font-size: 17px;
-			line-height: 17px;
+			@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
+			
 			@include border-radius(4px);
 			margin: 0 0 10px 0;
 		}
