@@ -113,10 +113,12 @@
 	h1 {
 	    color: $colorPrimary;
 	    overflow: hidden;
-	    max-height: 65px;
-	    
 	    margin: 0 0 10px 0;
 	    
+	    max-height: inherit; 
+	    @media (min-width: $screen-sm ) {
+		  max-height: 65px;
+	    }
 	    
 	    a, span {
 		display: table-cell;

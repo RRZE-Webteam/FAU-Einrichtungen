@@ -10,8 +10,7 @@
 	
 	p {
 		color: #fff;
-		font-size: 13px;
-		line-height: 18px;
+		@include px2rem($font-size-footer);
 	}
 	
 	a {
@@ -20,7 +19,7 @@
 	}
 	
 	li {
-		font-size: 13px;
+		@include px2rem($font-size-footer);
 	}
 	
 	a:hover, a:focus {
@@ -72,6 +71,7 @@
 @media (max-width: $screen-xs - 1) {
     .footer-logo {
 	width: 100%;
+	padding-top: 10px;
     }
     .footer-address {
 	width: 100%;

@@ -238,7 +238,7 @@
 /* New Toogle Button */
 #wrap #mainnav-toggle {
   position: fixed;
-  right: 0;
+  right: 10px;
   top: 0;
   @include px2rem($font-size-mobile-meta);
   background: transparent;
