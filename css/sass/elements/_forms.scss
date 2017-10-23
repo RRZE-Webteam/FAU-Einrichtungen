@@ -28,10 +28,11 @@ input[type="color"] {
 	width: 290px;
 	padding: 5px 10px;
 	@include px2rem($font-size-base);
+	height: auto;
 }
 
 textarea {
-	height: 100px;
+	min-height: 100px;
 }
 
 form {	

@@ -1,16 +1,25 @@
-/*-----------------------------------------------------------------------------------*/
-/* Main CSS File for Wordpress Theme FAU
-/*-----------------------------------------------------------------------------------*/
-
 // Import FAU variables
 @import "variables";
+/*! 
+Theme Name: #{$stylecomment_themename} 
+Theme URI: #{$stylecomment_themeuri}
+GitHub Theme URI: #{$stylecomment_themeuri}
+Author: RRZE-Webteam
+Author URI: http://www.rrze.fau.de
+Description: #{$stylecomment_description}
+Version: #{$stylecomment_themeversion}
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: #{$stylecomment_tags}
+Text Domain: fau
+*/ 
+
 
 // Reset Base styles
 @import "reset";
 
 // Framework
 @import "frameworks/frameworks";
-
 
 // Mixins
 @import "mixins/mixins";

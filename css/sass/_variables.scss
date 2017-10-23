@@ -1,8 +1,13 @@
 //-----------------------------------------------------------------------------------*/
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
+$version:  '1.8.6';
+    // Theme Version
+    // First Digit:  Manual
+    // Second Digit: Branch Version
+    // Third Digit:  (Daily) )Submit Version
 
- $farbfamilie: 'zuv';
+$farbfamilie: 'zuv';
     // med, phil, nat, rw, tf, zuv 
 
  // DEBUGMODE
@@ -11,11 +16,12 @@ $debugmode: 'false';
 
 
 // Define fonts
-$fontStack: 'roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
-$fontStackSerifs: Georgia, serif;
-$font-family-base:    $fontStack;
+$fontStack:		'roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$fontStackSerifs:	Georgia, serif;
+$font-family-base:	$fontStack;
 
-// Define text colors
+
+// Define colors
 $colorText:		#444;
 $colorTextLight:	#797676;
 
@@ -48,13 +54,21 @@ $PalettonHellste:	desaturate(lighten($colorPrimary, 73%), 75%);
 $PalettonHeller:	desaturate(lighten($colorPrimary, 69%), 75%);
 $PalettonDunkler:	desaturate(lighten($colorPrimary, 10%), 90%);
 $PalettonDunkelste:	desaturate(lighten($colorPrimary, 10%), 40%);
-$siegelurl: '../img/siegel-zuv-schnitt.png';  
-$errorimage:  '../img/friedrich-alexander.gif';  
+$siegelurl:	'./img/siegel-zuv-schnitt.png';  
+$errorimage:	'./img/friedrich-alexander.gif';  
 
 $colorPrimaryHero:	    $colorPrimary;
    
 $colorPrintMain:	    #000;
 $colorPrintMainLinks:	    $colorText;
+
+// Default Style comments
+$stylecomment_themename:	'FAU-Einrichtungen';     
+$stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Einrichtungen';     
+$stylecomment_themeversion:	$version;
+$stylecomment_description:	'Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
+$stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';   
+
 
  @if $farbfamilie == 'med' {
     $colorPrimary: $colorMedFak;
@@ -62,29 +76,53 @@ $colorPrintMainLinks:	    $colorText;
     $PalettonHeller:	#bfd6f5; // #08C0E7;
     $PalettonDunkler:	#026480;
     $PalettonDunkelste:	#014e63;
-    $siegelurl: '../img/siegel-medfak-schnitt.png';
-
+    $siegelurl: './img/siegel-medfak-schnitt.png';
+    
+    $stylecomment_themename:	'FAU-Medfak';     
+    $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Medfak';     
+    $stylecomment_themeversion:	$version;
+    $stylecomment_description:	'Wordpress-Theme für die Medizinische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
+    $stylecomment_tags:		'blue, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';  
+    
  } @else if $farbfamilie == 'phil' {
     $colorPrimary: $colorPhilFak;
     $PalettonHellste:	#f3eedf;
     $PalettonHeller:	#d9c689;
     $PalettonDunkler:	#805000;
     $PalettonDunkelste:	#553500;
-    $siegelurl: '../img/siegel-philfak-schnitt.png';   
+    $siegelurl: './img/siegel-philfak-schnitt.png';   
+    
+    $stylecomment_themename:	'FAU-Philfak';     
+    $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Philfak';     
+    $stylecomment_themeversion:	$version;
+    $stylecomment_description:	'Wordpress-Theme für die Philosophische Fakultät und den Fachbereich Theologie der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
+    $stylecomment_tags:		'blue, gold, orange, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';    
  }  @else if $farbfamilie == 'nat' {
     $colorPrimary: $colorNatFak;
     $PalettonHellste:	#e5efea;
     $PalettonHeller:	#aacfbd;
     $PalettonDunkler:	#006e53;
     $PalettonDunkelste:	#00533f;
-    $siegelurl: '../img/siegel-natfak-schnitt.png';     
+    $siegelurl: './img/siegel-natfak-schnitt.png';     
+    
+    $stylecomment_themename:	'FAU-Natfak';     
+    $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Natfak';     
+    $stylecomment_themeversion:	$version;
+    $stylecomment_description:	'Wordpress-Theme für die Naturwissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
+    $stylecomment_tags:		'blue, green, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';      
  }  @else if $farbfamilie == 'rw' {
     $colorPrimary: $colorRwFak;    
     $PalettonHellste:	#ede7de; // #C9A8AF;
     $PalettonHeller:	#c5ac94; // #bd7d8b;
     $PalettonDunkler:	#690013;
     $PalettonDunkelste:	#42000c;
-    $siegelurl: '../img/siegel-rwfak-schnitt.png';   
+    $siegelurl: './img/siegel-rwfak-schnitt.png';   
+    
+    $stylecomment_themename:	'FAU-RWFak';     
+    $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-RWFak';     
+    $stylecomment_themeversion:	$version;
+    $stylecomment_description:	'Wordpress-Theme für die Rechts- und Wirtschaftswissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
+    $stylecomment_tags:		'blue, red, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';  
 
  }  @else if $farbfamilie == 'tf' {
     $colorPrimary: $colorTechFak;    
@@ -92,16 +130,30 @@ $colorPrintMainLinks:	    $colorText;
     $PalettonHeller:	#d2d5d7; // #8e949a;
     $PalettonDunkler:	#53606b;
     $PalettonDunkelste:	#3b4956;
-    $siegelurl: '../img/siegel-techfak-schnitt.png';   
+    $siegelurl: './img/siegel-techfak-schnitt.png';   
+
+    $stylecomment_themename:	'FAU-Techfak';     
+    $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Techfak';     
+    $stylecomment_themeversion:	$version;
+    $stylecomment_description:	'Wordpress-Theme für die Technische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
+    $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';  
+    
  } @else if $farbfamilie == 'zuv' {
     $colorPrimary: $colorZUV;
     $PalettonHellste:	#dde5f0;
     $PalettonHeller:	#8fb1ef;
     $PalettonDunkler:	#24598f;
     $PalettonDunkelste:	#1f4c7a;
-    $siegelurl: '../img/siegel-zuv-schnitt.png';     
- }
+    $siegelurl: './img/siegel-zuv-schnitt.png';     
     
+    $stylecomment_themename:	'FAU-Einrichtungen';     
+    $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Einrichtungen';     
+    $stylecomment_themeversion:	$version;
+    $stylecomment_description:	'Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
+    $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';    
+ }
+ 
+ 
 
 $colorHover:		    $PalettonDunkelste;
 $colorLight:		    $PalettonHeller;
@@ -195,19 +247,30 @@ $font-size-h1-mobilebranding:	24;
 $font-size-h1-desktopbranding:	20;
 $font-size-h1-desktopbranding-longtitle:    17;
 $font-size-h1-banner:		28;
+$font-size-h1-sidebar:		22;
+
 
 $font-size-h2:			24;
 $font-size-h2-small:		22;
 $font-size-h2-socialmedia:	18;
-$font-size-h3:			20; // 18
-$font-size-h3-small:		19;
-$font-size-h3-hero:		18;
-$font-size-h4:			18; // 15
-$font-size-h4-small:		17;
-$font-size-h5:			16; // 15 
-$font-size-h6:			$font-size-base;
+$font-size-h2-sidebar:		18;
 
+$font-size-h3:			18; // 18
+$font-size-h3-small:		17;
+$font-size-h3-hero:		18;
+$font-size-h3-sidebar:		17;
 $font-size-h3-contentmenu:	15;
+
+$font-size-h4:			17; // 15
+$font-size-h4-small:		16;
+$font-size-h4-sidebar:		16;
+
+$font-size-h5:			16; // 15 
+$font-size-h5-sidebar:		15;
+
+$font-size-h6:			$font-size-base;
+$font-size-h6-sidebar:		14;
+
 
 $font-size-quotes:		18;
 $font-size-quotes-cites:	($font-size-quotes - 1);    
@@ -222,6 +285,9 @@ $font-size-mobile-meta:	24;
 
 $font-size-print-base:		11;
 $font-size-print-base-small:	9;
+
+
+
 // Define breakpoints
 
 // iPhone 3G
