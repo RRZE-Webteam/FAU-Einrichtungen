@@ -65,12 +65,12 @@ global $options;
 				    }
 				    $desc = strip_tags(get_bloginfo( 'description' ));
 				    if (!fau_empty($desc)) {
-                                        
-					echo '<p class="description';
+                                    
+					echo '<div class="slogan"><p class="description';
                                         if ($length > 80) {
                                             echo " screen-reader-text";
                                         }
-                                        echo '">'.$desc."</p>";
+                                        echo '">'.$desc."</p></div>";
 				    }
 				    ?>
 				</div>

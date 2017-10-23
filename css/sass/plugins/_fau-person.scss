@@ -73,7 +73,7 @@
 	margin: 0 15px;
 	padding: 0;
 	border: none;
-	display: inline-block;
+	display: block;
 	
 	@media (min-width: $screen-sm) {
 	    border: 1px solid $colorStandardHellgrau;
@@ -222,10 +222,16 @@ span[itemprop="honorificPrefix"],
 span[itemprop="honorificSuffix"] {
     white-space: nowrap;
 }
+.fullname {
+    @include hyphens(none);
+    white-space: nowrap;
+     
+}
 
 .widget .person ul.person-info ul {
     margin: 0 0 10px 25px;
 }
+
 
 
 /* Sidebar: Inline */
