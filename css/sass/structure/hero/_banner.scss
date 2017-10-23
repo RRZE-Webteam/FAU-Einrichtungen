@@ -97,10 +97,16 @@
 			overflow: hidden;
 			
 			display: none;
+			box-decoration-break: clone;
+			-webkit-box-decoration-break: clone;
 			
 			@media (min-width: $screen-sm) {
-			    @include inline-block;
+			    display: inline;
 			}
+		}
+		.slogan {
+		    display: block;
+		    margin-top: 15px;
 		}
 		
 		p.description {
@@ -111,13 +117,14 @@
 			background: rgba($colorPrimary,0.8);
 			padding: 5px 7px;
 			margin: 10px 0 0 0;
+			box-decoration-break: clone;
+			-webkit-box-decoration-break: clone;
 			
 			@media (min-width: $screen-xs) { 
-			   
 			   @include inline-block;
 			}
 			@media (min-width: $screen-sm) {
-			    display: block;
+			   display: inline;
 			} 
 
 		}
@@ -149,7 +156,7 @@
         display: inline-block;
     }
     &.fullsize {
-	 @extend .col-sm-12;
+	 @extend .col-sm-10;
     }
     
 }
