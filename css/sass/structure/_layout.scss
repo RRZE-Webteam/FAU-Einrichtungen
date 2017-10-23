@@ -156,9 +156,15 @@ html, body, button {
 	 .content-inline {
 	     display: inline;
 	     
-
 	 }
 	 
+    }
+    
+    * {
+	-moz-backface-visibility: inherit;
+	-ms-backface-visibility: inherit;
+	-o-backface-visibility: inherit;
+	backface-visibility: inherit;
     }
 }
 
