@@ -5,7 +5,7 @@
 
 /* All Widgets */
 .widget {
-	margin-bottom: 7px;
+	margin-bottom: 10px;
 	@include px2rem($font-size-sidebar);
 	ul {
 	    margin: 0;
