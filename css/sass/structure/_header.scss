@@ -33,12 +33,17 @@
 	}
 	
 	padding: 20px 0 10px 0;
+
 	background: #fff;
 	color: $colorPrimary;
 	
 	.nav-scrolled & {
 	     @include box-shadow(0 1px 3px rgba(0,0,0,0.3));	
 	}
+	.page-template-page-start-sub & {
+	    padding: 20px 0 0 0;
+	}
+	
 	.row {    
 	    height: 112px;
 	    
