@@ -58,6 +58,9 @@
 		 margin: 0;
 	    }
 	}
+	
+	
+	
 }
 .compactindex {
     
@@ -83,7 +86,47 @@
 	&.noborder {
 	    border: none;
 	}
+	&.background-fau, &.background-zuv {
+	    background: $colorZUV;
+	     a, li, p {
+		color: #fff;
+	    }
+	}
+	&.background-grau {
+	    background: $colorStandardHellgrau;
+	}
+	&.background-phil {
+	    background: $colorPhilFak;
+	    a, li, p {
+		color: #fff;
+	    }
+	}
+	&.background-med {
+	    background: $colorMedFak;
+	     a, li, p {
+		color: #fff;
+	    }
+	}
+	&.background-nat {
+	    background: $colorNatFak;
+	     a, li, p {
+		color: #fff;
+	    }
+	}
+	&.background-tf {
+	    background: $colorTechFak;  
+	     a, li, p {
+		color: #fff;
+	    }
+	}
+	&.background-rw {
+	    background: $colorRwFak;  
+	    a, li, p {
+		color: #fff;
+	    }
+	}
 
+	
 	li {
 
 		background-position: left 5px;
@@ -92,7 +135,7 @@
 	.person-info-description {
 		padding-top: 8px;
 		
-		@media(max-width: $screen-sm -1) {
+		@media(max-width: $screen-sm - 1) {
 			margin-left: 0 !important;
 		}
 	}
@@ -232,7 +275,50 @@ span[itemprop="honorificSuffix"] {
     margin: 0 0 10px 25px;
 }
 
+/* Strukturen Personenshortcode Content */
 
+.portalpage-content,
+.startpage-blogroll,
+.content-inline {
+    
+    .person-thumb,
+    .person-default, 
+    .person-default-thumb {
+	float: left;
+	min-height: 1px;
+	margin-left: 20px;
+    }
+    
+    .span1,
+    .person-thumb {
+	width: 90px;
+	
+    }
+    .span3,
+    .person-default-more,
+    .person-default-thumb {
+	width: 220px;
+
+	&.person-nomoreinfo {
+	   width: auto;
+	}
+    }
+    
+    .span4, 
+    .person-default {
+	width: 300px;
+	
+	&.person-nomoreinfo {
+	     width: auto;
+	}
+    }
+    .person-default-more {
+	.person-info {
+	    margin-top: $font-size-base * 1.46;
+	    margin-top: 1.46rem;
+	}
+    }
+}
 
 /* Sidebar: Inline */
 .startpage-sidebar,
@@ -258,36 +344,36 @@ span[itemprop="honorificSuffix"] {
 	}
     }
 }
+.portalpage-sidebar,
 .startpage-sidebar,
 .sidebar-inline {   
+    .person,
     .widget_faupersonwidget {
 	margin-top: 0;
 	.row {
 	    display: inline-block;
 	    margin: 0;
 	    
-	    .span1, 
-	    .span3 {
+	    .person-default,
+	    .span3, 
+	    .span4 {
 		display: block;
 		float: none;
 		margin: 0;
 		width: auto;
 	    }
+	    
+	    
+	    .person-thumb,
+	    .span1 {
+		display: inline;
+		float: left;
+		margin: 0 20px 0 0;
+	    }
 	}
     }
 }
 
-.startpage-sidebar {
-        .widget_faupersonwidget {
-	    .row {
-		.span1 {
-		    display: inline;
-		    float: left;
-		    margin-right: 20px;
-		}
-	    }
-	}
-}
 
 .sidebar-outline {
     ul.person-info li {
@@ -326,6 +412,7 @@ span[itemprop="honorificSuffix"] {
 	    }
 	    .person,
 	    .compactindex {
+		.person-thumb, 
 		.span1 {
 		    width: 90px;
 		    float: left;
