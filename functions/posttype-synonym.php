@@ -138,8 +138,8 @@ function fau_synonym_metabox_content( $object, $box ) {
     
    
     $desc  = get_post_meta( $object->ID, 'synonym', true );		
-    fau_form_text('fau_synonym', $desc, __('Ausgeschriebene Form','fau'), __('Geben Sie hier die lange, ausgeschriebene Form des Synonyms ein. Mit diesem Text wird dann im späteren Gebrauch der verwendete Shortcode ersetzt.','fau'));
-    
+    fau_form_textarea('fau_synonym', $desc, __('Ausgeschriebene Form','fau'), 60, 3, __('Geben Sie hier die lange, ausgeschriebene Form des Synonyms ein. Mit diesem Text wird dann im späteren Gebrauch der verwendete Shortcode ersetzt. <br>Achtung: Umbrüche oder HTML-Anweisungen werden nicht übernommen.','fau'));
+	    
     if ($post->ID >0) {
 	$helpuse = __('<p>Einbindung in Seiten und Beiträgen via: </p>','fau');
 	$helpuse .= '<pre> [synonym id="'.$post->ID.'"] </pre>';
