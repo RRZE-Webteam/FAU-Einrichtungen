@@ -531,7 +531,7 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	$output .= '<meta itemprop="datePublished" content="'. esc_attr( get_the_modified_time('c') ).'">';
 
 	$schemaauthor = $options['contact_address_name']." ".$options['contact_address_name2']; 
-	$output .= '<meta itemprop="name" content="'. esc_attr( $schemaauthor ).'">';
+	$output .= '<meta itemprop="author" content="'. esc_attr( $schemaauthor ).'">';
 					
 	
 	$output .= '<div class="row">';  	
