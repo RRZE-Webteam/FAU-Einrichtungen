@@ -1,10 +1,11 @@
 /*-----------------------------------------------------------------------------------*/
-/* Backend CSS
+/* Plugin Output in Backend
 /*-----------------------------------------------------------------------------------*/
 
 
-// Überschriften
-@import "metaboxes";
-
-// Plugins
-@import "plugins";
+// Remove reCAPTCHA Option
+#tag-generator-list {
+    a[title ~= "reCAPTCHA"] {
+	display: none;
+    }
+}
