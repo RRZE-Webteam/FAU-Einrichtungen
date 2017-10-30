@@ -8,23 +8,23 @@
 }
 
 .person {
-	h3 {
-		padding-bottom: 0;
-		padding-top: 5px;
-
-		&:hover, &:focus {
+    h3, h4, h5 {
+	&:hover, &:focus {
 		    text-decoration: underline;
 		}
 		a {
 		     text-decoration: none;
 		}
+    }
+	h3 {
+		padding-bottom: 0;
+		padding-top: 5px;
 	}
 	
 	h4 {
 		padding-top: 0;
-		a {
-		    text-decoration: underline;
-		}
+		padding-bottom: 0;
+		
 	}
 	.connection {
 	    margin-top: 10px;
