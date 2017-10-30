@@ -98,6 +98,16 @@ table {
 	}
 	
 	
+	&.nobackground {
+	    tr:nth-child(odd) td {
+		background: transparent;
+		color: $colorText;
+		li {
+		    color: $colorText;
+		}
+	    }
+	}
+	
 }
 .sorttable {
 	    th::after {
@@ -107,3 +117,5 @@ table {
 		
 	    }
 	}
+
+	
