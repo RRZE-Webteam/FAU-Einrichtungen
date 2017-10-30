@@ -525,8 +525,14 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	    $output .= $typestr;
 	    $output .= '<span class="news-meta-date" itemprop="datePublished" content="'. esc_attr( get_post_time('c') ).'"> '.get_the_date('',$post->ID)."</span>";
 	    $output .= '</div>';
+	} else {
+	    $output .= '<meta itemprop="datePublished" content="'. esc_attr( get_post_time('c') ).'">';
 	}
+	$output .= '<meta itemprop="dateModified" content="'. esc_attr( get_the_modified_time('c') ).'">';
 
+	$schemaauthor = $options['contact_address_name']." ".$options['contact_address_name2']; 
+	$output .= '<meta itemprop="author" content="'. esc_attr( $schemaauthor ).'">';
+					
 	
 	$output .= '<div class="row">';  	
 	if ((has_post_thumbnail( $post->ID )) ||($options['default_postthumb_always']))  {

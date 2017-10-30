@@ -50,11 +50,14 @@
 	    .branding, 
 	    .header-menu {
 		padding-left:  ($grid-gutter-width / 2);
-		padding-right: ($grid-gutter-width / 2);
+	    }
+	    .header-menu {
+		padding-right: 0;
 	    }
 	    
 	    .branding {
 		height: 75px;
+		padding-right: ($grid-gutter-width / 2);
 	    }
 	    .header-menu {
 		height: 37px;
