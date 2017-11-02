@@ -45,7 +45,10 @@ h1 {
 	.sidebar-outline &, 
 	.widget & {
 	    @include px2rem($font-size-h1-sidebar);
-	}
+    }
+    table & {
+	@include px2rem($font-size-h1-table);
+    }
 }
 
 h2 {
@@ -100,7 +103,9 @@ h2 {
 	.widget & {
 	    @include px2rem($font-size-h2-sidebar);
 	}
-	
+	table & {
+	    @include px2rem($font-size-h2-table);
+	}
 }
 
 h3 {
@@ -142,6 +147,9 @@ h3 {
 	.widget & {
 	    @include px2rem($font-size-h3-sidebar);
 	}
+	table & {
+	    @include px2rem($font-size-h3-table);
+	}
 	
 }
 
@@ -161,6 +169,9 @@ h4 {
 	.widget & {
 	    @include px2rem($font-size-h4-sidebar);
 	}
+	table & {
+	     @include px2rem($font-size-h4-table);
+	}
 
 }
 
@@ -174,6 +185,9 @@ h5 {
 	.widget & {
 	    @include px2rem($font-size-h5-sidebar);
 	}
+	table & {
+	     @include px2rem($font-size-h5-table);
+	}
 }
 
 h6 {
@@ -183,7 +197,10 @@ h6 {
 	.sidebar-outline &, 
 	.widget & {
 	    @include px2rem($font-size-h6-sidebar);
-	}
+    }
+    table & {
+        @include px2rem($font-size-h6-table);
+    }
 }
 
 

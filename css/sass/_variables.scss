@@ -1,11 +1,11 @@
 //-----------------------------------------------------------------------------------*/
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
-$version:  '1.8.11';
+$version:  '1.8.14';
     // Theme Version
     // First Digit:  Manual
     // Second Digit: Branch Version
-    // Third Digit:  (Daily) )Submit Version
+    // Third Digit:  (Daily) Submit Version
 
 $farbfamilie: 'zuv';
     // med, phil, nat, rw, tf, zuv 
@@ -228,7 +228,7 @@ $font-size-link-contentmenu:    13;
 $font-size-content-linkicon:	10;
 $font-size-content-listitem:	$font-size-base;
 $font-size-codepre:		13;
-
+$font-size-table:		13;
 
 $font-size-sidebar-listitem:    $font-size-sidebar;
 $font-size-sidebar-events:	$font-size-sidebar;
@@ -248,28 +248,37 @@ $font-size-h1-desktopbranding:	20;
 $font-size-h1-desktopbranding-longtitle:    17;
 $font-size-h1-banner:		28;
 $font-size-h1-sidebar:		22;
+$font-size-h1-table:		22;
 
 
 $font-size-h2:			24;
 $font-size-h2-small:		22;
 $font-size-h2-socialmedia:	18;
 $font-size-h2-sidebar:		18;
+$font-size-h2-table:		18;
 
 $font-size-h3:			18; // 18
 $font-size-h3-small:		17;
 $font-size-h3-hero:		18;
 $font-size-h3-sidebar:		15;
 $font-size-h3-contentmenu:	15;
+$font-size-h3-table:		15;
+
 
 $font-size-h4:			17; // 15
 $font-size-h4-small:		16;
 $font-size-h4-sidebar:		14;
+$font-size-h4-table:		14;
+
 
 $font-size-h5:			16; // 15 
 $font-size-h5-sidebar:		13;
+$font-size-h5-table:		13;
+
 
 $font-size-h6:			$font-size-base;
-$font-size-h6-sidebar:		14;
+$font-size-h6-sidebar:		13;
+$font-size-h6-table:		13;
 
 
 $font-size-quotes:		18;
