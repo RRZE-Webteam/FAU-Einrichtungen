@@ -267,8 +267,8 @@ span[itemprop="honorificSuffix"] {
 }
 .fullname {
     @include hyphens(none);
-    white-space: nowrap;
-     
+  //  white-space: nowrap;
+  //  erstmal wieder raus, da es bei langen Titeln Probleme gibt; #403   
 }
 
 .widget .person ul.person-info ul {
