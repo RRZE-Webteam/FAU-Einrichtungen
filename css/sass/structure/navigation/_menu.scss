@@ -106,7 +106,7 @@
 		    flex-wrap: wrap;
 		    flex-direction: column;
 		    justify-content: flex-start;
-		    height: 120px;
+		    max-height: 250px;
 		    align-items: flex-start;
 		    
 		    li {
@@ -419,7 +419,7 @@
 			        transition: all 500ms;
 
 			a {
-				color: #E9EDF2;
+				color: $colorStandardHellgrau;
 			}
 
 			.container {
