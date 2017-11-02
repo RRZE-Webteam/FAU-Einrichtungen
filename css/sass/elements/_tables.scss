@@ -97,8 +97,22 @@ table {
 		}
 	}
 	
-	
+	&.nooddcolor {
+	    tr:nth-child(odd) td {
+		color:  $colorText;
+		background: transparent;
+		
+		ul {
+		    li {
+			color:  $colorText;
+		    }
+		}
+	    }
+	}
 	&.nobackground {
+	    th {
+		background: transparent;
+	    }
 	    tr:nth-child(odd) td {
 		background: transparent;
 		color: $colorText;
