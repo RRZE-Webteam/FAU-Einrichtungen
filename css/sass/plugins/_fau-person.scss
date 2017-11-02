@@ -267,8 +267,8 @@ span[itemprop="honorificSuffix"] {
 }
 .fullname {
     @include hyphens(none);
-    white-space: nowrap;
-     
+  //  white-space: nowrap;
+  //  erstmal wieder raus, da es bei langen Titeln Probleme gibt; #403   
 }
 
 .widget .person ul.person-info ul {
@@ -318,6 +318,13 @@ span[itemprop="honorificSuffix"] {
 	    margin-top: 1.46rem;
 	}
     }
+    
+    .person-default-more,
+    .person-default-thumb, 
+    .person-default, 
+    .person-default-more {
+	max-width: calc(100% - 20px);
+    }
 }
 
 /* Sidebar: Inline */
@@ -351,7 +358,8 @@ span[itemprop="honorificSuffix"] {
     .widget_faupersonwidget {
 	margin-top: 0;
 	.row {
-	    display: inline-block;
+	    display: block;
+	//     display: inline-block;
 	    margin: 0;
 	    
 	    .person-default,
@@ -395,6 +403,7 @@ span[itemprop="honorificSuffix"] {
 	}
     }
 }
+
 
 
 .search .search-result .content-person {
