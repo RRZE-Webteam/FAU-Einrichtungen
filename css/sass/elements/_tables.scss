@@ -110,8 +110,12 @@ table {
 	    }
 	}
 	&.nobackground {
+	    border-top: none;
+	    border-bottom: none;
 	    th {
 		background: transparent;
+		border-top: none;
+		border-bottom: none;
 	    }
 	    tr:nth-child(odd) td {
 		background: transparent;
