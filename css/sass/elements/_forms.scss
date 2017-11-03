@@ -57,9 +57,13 @@ label {
 	padding-top: 5px;
 	margin-right: 20px;
 	display: inline-block;
+	min-width: 300px;
 	@include px2rem($font-size-base);
-	
 }
+
+
+
+
 
 input[type="submit"] {
 	@include inline-block;
@@ -73,6 +77,8 @@ input[type="submit"] {
 	color: #fff;
 	font-weight: bold;
 	
+	clear: left;
+	
 	&:hover, &:focus {
 		background: $colorHover;
 	}
@@ -80,7 +86,12 @@ input[type="submit"] {
 	&:active {
 		background: $colorHover;
 	}
+	
+	
 }
+
+
+
 input[type="radio"] {
     margin: -5px 10px 0 0;
 }

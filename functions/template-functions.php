@@ -480,13 +480,21 @@ function fau_display_search_resultitem($withsidebar = 1) {
 /*-----------------------------------------------------------------------------------*/
 /*  Blogroll
 /*-----------------------------------------------------------------------------------*/
-function fau_display_news_teaser($id = 0, $withdate = false) {
+function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2) {
     if ($id ==0) return;   
     global $options;
     
     $post = get_post($id);
     $output = '';
     if ($post) {
+	
+	
+	if (!is_int($hstart)) {
+	    $hstart = 2;
+	} elseif (($hstart < 1) || ($hstart >6)) {
+	    $hstart = 2;
+	}
+	
 	$output .= '<article class="news-item" itemscope itemtype="http://schema.org/NewsArticle">';
 	$link = get_post_meta( $post->ID, 'external_link', true );
 	$external = false;
@@ -495,13 +503,13 @@ function fau_display_news_teaser($id = 0, $withdate = false) {
 	} else {
 	    $link = fau_esc_url(get_permalink($post->ID));
 	}
-	$output .= "<h2 itemprop=\"headline\">";  
+	$output .= "<h".$hstart." itemprop=\"headline\">";  
 	$output .= '<a itemprop="url" ';
 	if ($external) {
 	    $output .= 'class="ext-link" rel="canonical" ';
 	}
 	$output .= 'href="'.$link.'">'.get_the_title($post->ID).'</a>';
-	$output .= "</h2>";  
+	$output .= "</h".$hstart.">";  
 	
 	
 	$categories = get_the_category();
@@ -1424,7 +1432,7 @@ function fau_get_tag_ID($tag_name) {
  /* Display blog entries as blogroll
  /*-----------------------------------------------------------------------------------*/
  if ( ! function_exists( 'fau_blogroll' ) ) :
- function fau_blogroll($posttag = '', $postcat = '', $num = 4, $divclass= '') {
+ function fau_blogroll($posttag = '', $postcat = '', $num = 4, $divclass= '', $hstart = 2) {
     $posttag = $posttag ? esc_attr( $posttag ) : '';
         
     if ((!isset($posttag)) && (!isset($postcat))) {
@@ -1439,6 +1447,9 @@ function fau_get_tag_ID($tag_name) {
     
     if (!is_int($num)) {
 	$num = 4;
+    }
+    if (!is_int($hstart)) {
+	$hstart = 2;
     }
     $divclass = $divclass ? esc_attr( $divclass ) : '';
 
@@ -1466,7 +1477,8 @@ function fau_get_tag_ID($tag_name) {
 	while($blogroll_query->have_posts()) : 
 	    $blogroll_query->the_post();
 	    $id = get_the_ID();
-            $out .= fau_load_template_part('template-parts/content-blogroll' );  // fau_display_news_teaser($id,true); // 
+	    $out .= fau_display_news_teaser($id,true,$hstart);
+           //  $out .= fau_load_template_part('template-parts/content-blogroll' );  // fau_display_news_teaser($id,true); // 
 	endwhile; 
     endif; // have_posts()                  
      
