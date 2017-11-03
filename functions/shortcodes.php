@@ -513,13 +513,17 @@ function fau_shortcode_blogroll( $atts, $content = null ) {
     'cat'	=> '',
     'tag'	=> '',
     'num'	=> '',
+    'divclass'	=> '',
+    'hstart'	=> 2,	
     ), $atts));
 
     $cat = ($cat) ? $cat : '';
     $tag = ($tag) ? $tag : '';
     $num = ($num) ? intval($num) : 4;
-    
-    $out = fau_blogroll($tag, $cat, $num);
+    $hstart = ($hstart) ? intval($hstart) : 2;
+    $divclass = $divclass ? esc_attr( $divclass ) : '';
+
+    $out = fau_blogroll($tag, $cat, $num, $divclass, $hstart);
 	
     if (empty($out)) {
 	$out =  '<p class="box red-box">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';	
@@ -533,7 +537,6 @@ function fau_shortcode_articlelist( $atts, $content = null ) {
     extract(shortcode_atts(array(
     'cat'	=> '',
     'tag'	=> '',
-        
     'num'	=> '',
     'class'     => '',
     'title'	=> '',
