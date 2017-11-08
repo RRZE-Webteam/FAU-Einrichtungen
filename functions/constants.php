@@ -4,12 +4,12 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'optiontable-version'		=> 25,
+    'optiontable-version'		=> 26,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-    'js-version'			=> '1.8',
+    'js-version'			=> '1.9',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
     'website_type'			=> 0,
 	// website_type: 
