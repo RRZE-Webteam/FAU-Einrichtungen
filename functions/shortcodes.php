@@ -514,6 +514,7 @@ function fau_shortcode_blogroll( $atts, $content = null ) {
     'tag'	=> '',
     'num'	=> '',
     'divclass'	=> '',
+    'hidemeta'	=> false,
     'hstart'	=> 2,	
     ), $atts));
 
@@ -523,10 +524,16 @@ function fau_shortcode_blogroll( $atts, $content = null ) {
     $hstart = ($hstart) ? intval($hstart) : 2;
     $divclass = $divclass ? esc_attr( $divclass ) : '';
 
-    $out = fau_blogroll($tag, $cat, $num, $divclass, $hstart);
+    
+    if (!is_page()) {
+	$out =  '<p class="attention">'.__("Der Shortcode darf nur auf Seiten verwendet werden.",'fau').'</p>';	
+	return $out;
+    }
+    
+    $out = fau_blogroll($tag, $cat, $num, $divclass, $hstart,$hidemeta);
 	
     if (empty($out)) {
-	$out =  '<p class="box red-box">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';	
+	$out =  '<p class="attention">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';	
     }
     return $out;
 }
@@ -546,10 +553,16 @@ function fau_shortcode_articlelist( $atts, $content = null ) {
     $tag = ($tag) ? $tag : '';
     $num = ($num) ? intval($num) : 5;
     $class = ($class) ? $class : '';
+
+    if (!is_page()) {
+	$out =  '<p class="attention">'.__("Der Shortcode darf nur auf Seiten verwendet werden.",'fau').'</p>';	
+	return $out;
+    }
+    
     $out = fau_articlelist($tag, $cat, $num,$class, $title);
 	
     if (empty($out)) {
-	$out = '<p class="box red-box">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';	
+	$out = '<p class="attention">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';	
     }
     return $out;
 }
