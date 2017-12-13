@@ -8,7 +8,7 @@
     float: none;
     
     .post-image-caption {
-	    @include px2rem($font-size-content-meta);
+	    @include px2rem($font-size-image-caption);
 	    padding: 10px 0;
 	    width: 300px;
 	    text-align: left;

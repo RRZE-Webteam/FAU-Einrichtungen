@@ -199,6 +199,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
     if (isset($post) && isset($post->ID)) {
 	
 	$link = get_post_meta( $post->ID, 'external_link', true );
+	$link = esc_url(trim($link));
 	$external = 0;
 	if (isset($link) && (filter_var($link, FILTER_VALIDATE_URL))) {
 	    $external = 1;
@@ -480,7 +481,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 /*-----------------------------------------------------------------------------------*/
 /*  Blogroll
 /*-----------------------------------------------------------------------------------*/
-function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2) {
+function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidemeta = false) {
     if ($id ==0) return;   
     global $options;
     
@@ -497,6 +498,7 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2) {
 	
 	$output .= '<article class="news-item" itemscope itemtype="http://schema.org/NewsArticle">';
 	$link = get_post_meta( $post->ID, 'external_link', true );
+	$link = esc_url(trim($link));
 	$external = false;
 	if (isset($link) && (filter_var($link, FILTER_VALIDATE_URL))) {
 	    $external = true;
@@ -511,30 +513,31 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2) {
 	$output .= 'href="'.$link.'">'.get_the_title($post->ID).'</a>';
 	$output .= "</h".$hstart.">";  
 	
-	
-	$categories = get_the_category();
-	$separator = ', ';
-	$thiscatstr = '';
-	$typestr = '';
-	if($categories){
-	    $typestr .= '<span class="news-meta-categories"> ';
-	    $typestr .= __('Kategorie', 'fau');
-	    $typestr .= ': ';
-	    foreach($categories as $category) {
-		$thiscatstr .= '<a href="'.get_category_link( $category->term_id ).'">'.$category->cat_name.'</a>'.$separator;
+	if ($hidemeta == false) {
+	    $categories = get_the_category();
+	    $separator = ', ';
+	    $thiscatstr = '';
+	    $typestr = '';
+	    if($categories){
+		$typestr .= '<span class="news-meta-categories"> ';
+		$typestr .= __('Kategorie', 'fau');
+		$typestr .= ': ';
+		foreach($categories as $category) {
+		    $thiscatstr .= '<a href="'.get_category_link( $category->term_id ).'">'.$category->cat_name.'</a>'.$separator;
+		}
+		$typestr .= trim($thiscatstr, $separator);
+		$typestr .= '</span> ';
 	    }
-	    $typestr .= trim($thiscatstr, $separator);
-	    $typestr .= '</span> ';
-	}
 	    
 	
-	if ($withdate) {
-	    $output .= '<div class="news-meta">';
-	    $output .= $typestr;
-	    $output .= '<span class="news-meta-date" itemprop="datePublished" content="'. esc_attr( get_post_time('c') ).'"> '.get_the_date('',$post->ID)."</span>";
-	    $output .= '</div>';
-	} else {
-	    $output .= '<meta itemprop="datePublished" content="'. esc_attr( get_post_time('c') ).'">';
+	    if ($withdate) {
+		$output .= '<div class="news-meta">';
+		$output .= $typestr;
+		$output .= '<span class="news-meta-date" itemprop="datePublished" content="'. esc_attr( get_post_time('c') ).'"> '.get_the_date('',$post->ID)."</span>";
+		$output .= '</div>';
+	    } else {
+		$output .= '<meta itemprop="datePublished" content="'. esc_attr( get_post_time('c') ).'">';
+	    }
 	}
 	$output .= '<meta itemprop="dateModified" content="'. esc_attr( get_the_modified_time('c') ).'">';
 
@@ -614,9 +617,11 @@ function fau_custom_excerpt($id = 0, $length = 0, $withp = true, $class = '', $w
     if (fau_empty($morestr)) {
 	$morestr = $options['default_excerpt_morestring'];
     }
+    $excerpt = "";
+    //  $excerpt = get_the_excerpt($id); // get_post_field('post_excerpt',$id);
+    // get_the_excerpt  nmacht Probleme, wenn text Shortcode enthält, daher direkte Lösung
     
-    $excerpt = get_the_excerpt($id); // get_post_field('post_excerpt',$id);
- 
+    $excerpt = get_post_field('post_excerpt',$id);
     if (mb_strlen(trim($excerpt))<5) {
 	$excerpt = get_post_field('post_content',$id);
     }
@@ -1432,7 +1437,7 @@ function fau_get_tag_ID($tag_name) {
  /* Display blog entries as blogroll
  /*-----------------------------------------------------------------------------------*/
  if ( ! function_exists( 'fau_blogroll' ) ) :
- function fau_blogroll($posttag = '', $postcat = '', $num = 4, $divclass= '', $hstart = 2) {
+ function fau_blogroll($posttag = '', $postcat = '', $num = 4, $divclass= '', $hstart = 2, $hidemeta = false) {
     $posttag = $posttag ? esc_attr( $posttag ) : '';
         
     if ((!isset($posttag)) && (!isset($postcat))) {
@@ -1477,7 +1482,7 @@ function fau_get_tag_ID($tag_name) {
 	while($blogroll_query->have_posts()) : 
 	    $blogroll_query->the_post();
 	    $id = get_the_ID();
-	    $out .= fau_display_news_teaser($id,true,$hstart);
+	    $out .= fau_display_news_teaser($id,true,$hstart,$hidemeta);
            //  $out .= fau_load_template_part('template-parts/content-blogroll' );  // fau_display_news_teaser($id,true); // 
 	endwhile; 
     endif; // have_posts()                  
