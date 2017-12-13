@@ -199,6 +199,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
     if (isset($post) && isset($post->ID)) {
 	
 	$link = get_post_meta( $post->ID, 'external_link', true );
+	$link = esc_url(trim($link));
 	$external = 0;
 	if (isset($link) && (filter_var($link, FILTER_VALIDATE_URL))) {
 	    $external = 1;
@@ -497,6 +498,7 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	
 	$output .= '<article class="news-item" itemscope itemtype="http://schema.org/NewsArticle">';
 	$link = get_post_meta( $post->ID, 'external_link', true );
+	$link = esc_url(trim($link));
 	$external = false;
 	if (isset($link) && (filter_var($link, FILTER_VALIDATE_URL))) {
 	    $external = true;
@@ -615,9 +617,11 @@ function fau_custom_excerpt($id = 0, $length = 0, $withp = true, $class = '', $w
     if (fau_empty($morestr)) {
 	$morestr = $options['default_excerpt_morestring'];
     }
+    $excerpt = "";
+    //  $excerpt = get_the_excerpt($id); // get_post_field('post_excerpt',$id);
+    // get_the_excerpt  nmacht Probleme, wenn text Shortcode enthält, daher direkte Lösung
     
-    $excerpt = get_the_excerpt($id); // get_post_field('post_excerpt',$id);
- 
+    $excerpt = get_post_field('post_excerpt',$id);
     if (mb_strlen(trim($excerpt))<5) {
 	$excerpt = get_post_field('post_content',$id);
     }
