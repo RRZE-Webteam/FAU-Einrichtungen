@@ -6,12 +6,11 @@
 .sticky, 
 .gallery-caption, 
 .bypostauthor {
-    font-size: 15px;
-    line-height: 22px;
+    @include px2rem($font-size-base);
 }
 
 .wp-caption-text {
-	font-size: 13px;
+	@include px2rem($font-size-image-caption);
 	padding: 5px 0 5px 0;
 }
 
