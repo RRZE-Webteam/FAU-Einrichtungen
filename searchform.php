@@ -20,7 +20,7 @@ global $options;
 	
 	if ($options['search_allowfilter']) {
 	    
-	    if (is_single()) {
+	    if (is_single() || is_category() || is_tag() || is_tax() ) {
 		// Only Posts please :)
 		echo '<input type="hidden" name="post_type[]" value="post">'."\n";		
 	    } else {

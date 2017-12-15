@@ -4,12 +4,12 @@
  * Default Constants and values 
  */
 $defaultoptions = array(
-    'optiontable-version'		=> 25,
+    'optiontable-version'		=> 26,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-    'js-version'			=> '1.8',
+    'js-version'			=> '1.9',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
     'website_type'			=> 0,
 	// website_type: 
@@ -499,7 +499,9 @@ $setoptions = array(
 	     'google-site-verification' => array(
                   'type'    => 'text',
                   'title'   => __( 'Google Site Verification', 'fau' ),
-                  'label'   => __( 'Meta-Tag zur Identifikation der Inhaberschaft gegenüber Google. geben Sie hier den Content-Bestand an für die Identifikation mittels Meta-Tag.', 'fau' ),               
+                  'label'   => __( 'Zur Verifikation der Website als Property in den <a target="_blank" href="https://www.google.com/webmasters/tools/home">Google Webmaster Tools</a> wird die Methode über den HTML-Tag ausgewählt. '
+			  . 'Google erstellt dann auf der Einrichtungsseite eine HTML-Anweisung. Von dieser Anweisung kopiert man den Bestandteil, der im Attribut "content" angegeben ist. <br>'
+                        . 'Beispiel: <br>Google gibt den HTML-Code: &nbsp; &nbsp;<code>&lt;meta name="google-site-verification" content="BBssyCpddd8" /&gt;</code><br>  Dann geben Sie dies ein: <code>BBssyCpddd8</code> .', 'fau' ),               
                   'default' => $defaultoptions['google-site-verification'],
               ),  
 	      'url_banner-ad-notice'	 => array(
