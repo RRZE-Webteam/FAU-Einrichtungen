@@ -407,71 +407,9 @@ $setoptions = array(
           )
        ),
        
-       'socialmedia'   => array(
-           'tabtitle'   => __('Social Media Footer', 'fau'),
-           'fields' => array(
-              'active_socialmedia_footer' => array(
-                  'type'    => 'multiselectlist',
-                  'title'   => __( 'Social Media Footer anzeigen', 'fau' ),
-                  'label'   => __( 'Auf welchen Seiten soll der Social Media Footer angezeigt werden.', 'fau' ),
-		  'liste'   => array(
-				1 => __('Startseite','fau'),
-      				2 => __('Portalseiten','fau'),
-      				3 => __('Suche und Fehlerseiten','fau'),
-      				4 => __('Inhaltsseite mit Navi','fau'),
-      				5 => __('Standard Seiten','fau'),
-      				6 => __('Beiträge','fau'),       
-		      ),
-                  'default' => $defaultoptions['active_socialmedia_footer'],
-              ),  
-	       
-              'socialmedia' => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Buttons anzeigen', 'fau' ),
-                  'label'   => __( 'Welche Social Media Buttons sollen auf der Startseite angezeigt werden.', 'fau' ),
-                 
-                  'default' => $defaultoptions['socialmedia'],
-              ),  
-	        'socialmedia_buttons_title' => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Titel Socialmediabereich', 'fau' ),
-                  'label'   => __( 'Titel über den Social Media Icons im Social Media Footer.', 'fau' ),               
-                  'default' => $defaultoptions['socialmedia_buttons_title'],
-		),        
-	       
-	       
-	      'sm-list'  => array(
-		  'type'    => 'urlchecklist',
-		  'title'   => __( 'Social Media Portale', 'fau' ),
-		  'liste'   => $default_socialmedia_liste,
-	      ), 
-	     'start_link_videoportal_socialmedia'  => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Verlinke Videoportal', 'fau' ),
-                  'label'   => __( 'Verlinke Videoportal auf dem Social Media Fußteil der Startseite', 'fau' ),
-                  'default' => $defaultoptions['start_link_videoportal_socialmedia'],
-              ),     
-	      'start_title_videoportal_socialmedia' => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Verlinkungstext Videoportal', 'fau' ),
-                  'label'   => __( 'Text mit der auf das Videoportal im Social Media Fußteil verlinkt wird.', 'fau' ),               
-                  'default' => $defaultoptions['start_title_videoportal_socialmedia'],
-              ), 
-	       
-	       'start_title_videoportal_url' => array(
-                  'type'    => 'url',
-                  'title'   => __( 'URL Videoportal', 'fau' ),
-                  'label'   => __( 'URL zum Videoportal. Diese sollte normalerweise auf <code>video.fau.de</code> bleiben. Manchmal nutzt man aber vielleicht ein anderes Portal, so dass man hier die URL ändern kann.', 'fau' ),               
-                  'default' => $defaultoptions['start_title_videoportal_url'],
-              ), 
-	       
-	       
-	       
-	       
-          )
-       ),
+     
        'allgemeines'   => array(
-           'tabtitle'   => __('Allgemeine Einstellungen', 'fau'),
+           'tabtitle'   => __('Anzeigeoptionen', 'fau'),
 	   'user_level'	=> 1,
            'fields' => array(
               
@@ -649,8 +587,137 @@ $setoptions = array(
 		  'parent'  => 'suchergebnisse'
 		),    
 	       
-	          
+	        
+	       'socialmediafooter'  => array(
+                  'type'    => 'section',
+                  'title'   => __( 'Social Media', 'fau' ),                      
+		),
+	       
+	       'active_socialmedia_footer' => array(
+                  'type'    => 'multiselectlist',
+                  'title'   => __( 'Social Media Footer anzeigen', 'fau' ),
+                  'label'   => __( 'Auf welchen Seiten soll der Social Media Footer angezeigt werden.', 'fau' ),
+		  'liste'   => array(
+				1 => __('Startseite','fau'),
+      				2 => __('Portalseiten','fau'),
+      				3 => __('Suche und Fehlerseiten','fau'),
+      				4 => __('Inhaltsseite mit Navi','fau'),
+      				5 => __('Standard Seiten','fau'),
+      				6 => __('Beiträge','fau'),       
+		      ),
+                  'default' => $defaultoptions['active_socialmedia_footer'],
+		  'parent'  => 'socialmediafooter',
+              ),  
+	       
+              'socialmedia' => array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Buttons anzeigen', 'fau' ),
+                  'label'   => __( 'Welche Social Media Buttons sollen auf der Startseite angezeigt werden.', 'fau' ),
+                 
+                  'default' => $defaultoptions['socialmedia'],
+              ),  
+	        'socialmedia_buttons_title' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'Titel Socialmediabereich', 'fau' ),
+                  'label'   => __( 'Titel über den Social Media Icons im Social Media Footer.', 'fau' ),               
+                  'default' => $defaultoptions['socialmedia_buttons_title'],
+		    'parent'  => 'socialmediafooter',
+  
+		),        
+	       
+	       
+	      'sm-list'  => array(
+		  'type'    => 'urlchecklist',
+		  'title'   => __( 'Social Media Portale', 'fau' ),
+		  'liste'   => $default_socialmedia_liste,
+		  'parent'  => 'socialmediafooter',
+	      ), 
+	     'start_link_videoportal_socialmedia'  => array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Verlinke Videoportal', 'fau' ),
+                  'label'   => __( 'Verlinke Videoportal auf dem Social Media Fußteil der Startseite', 'fau' ),
+                  'default' => $defaultoptions['start_link_videoportal_socialmedia'],
+		 'parent'  => 'socialmediafooter',
+              ),     
+	      'start_title_videoportal_socialmedia' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'Verlinkungstext Videoportal', 'fau' ),
+                  'label'   => __( 'Text mit der auf das Videoportal im Social Media Fußteil verlinkt wird.', 'fau' ),               
+                  'default' => $defaultoptions['start_title_videoportal_socialmedia'],
+		  'parent'  => 'socialmediafooter',
+              ), 
+	       
+	       'start_title_videoportal_url' => array(
+                  'type'    => 'url',
+                  'title'   => __( 'URL Videoportal', 'fau' ),
+                  'label'   => __( 'URL zum Videoportal. Diese sollte normalerweise auf <code>video.fau.de</code> bleiben. Manchmal nutzt man aber vielleicht ein anderes Portal, so dass man hier die URL ändern kann.', 'fau' ),               
+                  'default' => $defaultoptions['start_title_videoportal_url'],
+		   'parent'  => 'socialmediafooter',
+              ), 
+	       
+'design'  => array(
+                  'type'    => 'section',
+                  'title'   => __( 'Design', 'fau' ),       
+		  'user_level'	=> 2,
+              ),
+	        'advanced_page_start_herojumplink' => array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Sprunglink unter der Bühne', 'fau' ),
+                  'label'   => __( 'Aktiviert die Schaltung eines Sprunglinks unterhalb der Bühne der Startseite, wenn das Browserfenster eine Größe zwischen 700px und 900px Höhe hat.', 'fau' ),                
+                  'default' => $defaultoptions['advanced_page_start_herojumplink'],
+		  'parent'  => 'design'
+		),  
 
+		'galery_link_original'	  => array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Verlinke Galerybilder', 'fau' ),
+                  'label'   => __( 'Bei der Anzeige einer Defaultgalerie unter der Bildunterschrift eine Verlinkung auf das Originalbild einschalten', 'fau' ),                
+                  'default' => $defaultoptions['galery_link_original'],
+		  'parent'  => 'design'
+		),   
+	       'advanced_display_hero_credits'	  => array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Copyright-Hinweis Startseite', 'fau' ),
+                  'label'   => __( 'Auf der Startseite wird im Slider bzw. im Banner der Copyright-Hinweis des Bildes angezeigt, wenn vorhanden', 'fau' ),                
+                  'default' => $defaultoptions['advanced_display_hero_credits'],
+		  'parent'  => 'design'
+              ),  
+	       'advanced_display_postthumb_credits'	  => array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Copyright-Hinweis Beiträge', 'fau' ),
+                  'label'   => __( 'In Beiträgen wird das Artikelbild mit einem Copyright-Hinweis des Bildes versehen, wenn vorhanden', 'fau' ),                
+                  'default' => $defaultoptions['advanced_display_postthumb_credits'],
+		  'parent'  => 'design'
+              ), 
+	          'advanced_images_info_credits' => array(
+		    'type'    => 'select',
+		    'title'   => __( 'Copyright-Info ermitteln', 'fau' ),
+		    'label'   => __( 'Definiert, ob die Copyright-Info eines Bildes sich aus dessen IPTC-Infos ermittelt oder durch die Texteingabe Beschreibung überschrieben werden kann.<br>Reihenfolge via IPTC: 1. IPTC-Copyright, 2. IPTC-Credit, 3. IPTC-Author, 4. Beschreibung, 5. IPTC-Caption, 6. Bildunterschrift. <br>Durch diese Auswahl kann die Beschreibung priorisiert werden.', 'fau' ),      
+		    'liste'   => array('0' => __('IPTC-Feld Copyright hat Priorität', 'fau'), 
+					'1' => __('Eingabefeld Beschreibung überschreibt IPTC und andere vorangige Felder.', 'fau')),
+		    'default' => $defaultoptions['advanced_images_info_credits'],
+		    'parent'  => 'design'
+              ), 
+	       
+	        'breadcrumb'  => array(
+		    'type'    => 'section',
+		    'title'   => __( 'Breadcrumb', 'fau' ),                      
+		),
+		'breadcrumb_root'	 => array(
+		    'type'    => 'text',
+		    'title'   => __( 'Titel Startseite in Breadcrumb', 'fau' ),
+		    'label'   => __( 'Definiert, wie der Link zur Startseite in der Breadcrumb aussehen soll. Per Default sollte hier die offizielle URL stehen; bspw. <code>phil.fau.de</code>.', 'fau' ),               
+		    'default' => $defaultoptions['breadcrumb_root'],
+		    'parent'  => 'breadcrumb'
+		), 
+		'breadcrumb_withtitle'	  => array(
+		    'type'    => 'bool',
+		    'title'   => __( 'Website-Titel', 'fau' ),
+		    'label'   => __( 'Zeige den Website-Titel oberhalb der Breadcrumb', 'fau' ),                
+		    'default' => $defaultoptions['breadcrumb_withtitle'],
+		    'parent'  => 'breadcrumb'
+		),   
+	       
 	       
           )
        ),
@@ -755,6 +822,7 @@ $setoptions = array(
        'advanced'   => array(
            'tabtitle'   => __('Erweitert', 'fau'),
 	   'user_level'	=> 1,
+	   'capability'    => 'customize',
            'fields' => array(
                'bedienung'  => array(
                   'type'    => 'section',
@@ -831,69 +899,7 @@ $setoptions = array(
 	       
 	       
 	       
-	      'design'  => array(
-                  'type'    => 'section',
-                  'title'   => __( 'Design', 'fau' ),       
-		  'user_level'	=> 2,
-              ),
-	        'advanced_page_start_herojumplink' => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Sprunglink unter der Bühne', 'fau' ),
-                  'label'   => __( 'Aktiviert die Schaltung eines Sprunglinks unterhalb der Bühne der Startseite, wenn das Browserfenster eine Größe zwischen 700px und 900px Höhe hat.', 'fau' ),                
-                  'default' => $defaultoptions['advanced_page_start_herojumplink'],
-		  'parent'  => 'design'
-		),  
-
-		'galery_link_original'	  => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Verlinke Galerybilder', 'fau' ),
-                  'label'   => __( 'Bei der Anzeige einer Defaultgalerie unter der Bildunterschrift eine Verlinkung auf das Originalbild einschalten', 'fau' ),                
-                  'default' => $defaultoptions['galery_link_original'],
-		  'parent'  => 'design'
-		),   
-	       'advanced_display_hero_credits'	  => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Copyright-Hinweis Startseite', 'fau' ),
-                  'label'   => __( 'Auf der Startseite wird im Slider bzw. im Banner der Copyright-Hinweis des Bildes angezeigt, wenn vorhanden', 'fau' ),                
-                  'default' => $defaultoptions['advanced_display_hero_credits'],
-		  'parent'  => 'design'
-              ),  
-	       'advanced_display_postthumb_credits'	  => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Copyright-Hinweis Beiträge', 'fau' ),
-                  'label'   => __( 'In Beiträgen wird das Artikelbild mit einem Copyright-Hinweis des Bildes versehen, wenn vorhanden', 'fau' ),                
-                  'default' => $defaultoptions['advanced_display_postthumb_credits'],
-		  'parent'  => 'design'
-              ), 
-	          'advanced_images_info_credits' => array(
-		    'type'    => 'select',
-		    'title'   => __( 'Copyright-Info ermitteln', 'fau' ),
-		    'label'   => __( 'Definiert, ob die Copyright-Info eines Bildes sich aus dessen IPTC-Infos ermittelt oder durch die Texteingabe Beschreibung überschrieben werden kann.<br>Reihenfolge via IPTC: 1. IPTC-Copyright, 2. IPTC-Credit, 3. IPTC-Author, 4. Beschreibung, 5. IPTC-Caption, 6. Bildunterschrift. <br>Durch diese Auswahl kann die Beschreibung priorisiert werden.', 'fau' ),      
-		    'liste'   => array('0' => __('IPTC-Feld Copyright hat Priorität', 'fau'), 
-					'1' => __('Eingabefeld Beschreibung überschreibt IPTC und andere vorangige Felder.', 'fau')),
-		    'default' => $defaultoptions['advanced_images_info_credits'],
-		    'parent'  => 'design'
-              ), 
-	       
-	        'breadcrumb'  => array(
-		    'type'    => 'section',
-		    'title'   => __( 'Breadcrumb', 'fau' ),                      
-		),
-		'breadcrumb_root'	 => array(
-		    'type'    => 'text',
-		    'title'   => __( 'Titel Startseite in Breadcrumb', 'fau' ),
-		    'label'   => __( 'Definiert, wie der Link zur Startseite in der Breadcrumb aussehen soll. Per Default sollte hier die offizielle URL stehen; bspw. <code>phil.fau.de</code>.', 'fau' ),               
-		    'default' => $defaultoptions['breadcrumb_root'],
-		    'parent'  => 'breadcrumb'
-		), 
-		'breadcrumb_withtitle'	  => array(
-		    'type'    => 'bool',
-		    'title'   => __( 'Website-Titel', 'fau' ),
-		    'label'   => __( 'Zeige den Website-Titel oberhalb der Breadcrumb', 'fau' ),                
-		    'default' => $defaultoptions['breadcrumb_withtitle'],
-		    'parent'  => 'breadcrumb'
-		),   
-	       
+	      
 	        'topmenulinks'  => array(
 		    'type'    => 'section',
 		    'title'   => __( 'Hauptmenü', 'fau' ),                      
@@ -917,7 +923,8 @@ $setoptions = array(
 	       
 	       'sidebaropt'  => array(
                   'type'    => 'section',
-                  'title'   => __( 'Erweiterte Einstellunge für Sidebars (von Seiten)', 'fau' ),     
+                  'title'   => __( 'Sidebar', 'fau' ),     
+		   'desc'   => __('Konfigurationen der Sidebar auf Seiten'),
 		  'user_level'	=> 2,
               ),
 	       'advanced_page_sidebar_titleabove'	  => array(
@@ -1015,10 +1022,18 @@ $setoptions = array(
                   'default' => $defaultoptions['advanced_comments_disclaimer'],
 		  'parent'  => 'kommentare'
 		), 
+	    ),    
+	),    
+	       
+	'superadmin'   => array(
+           'tabtitle'   => __('Superadmin-Einstellungen', 'fau'),
+	   'user_level'	=> 1,
+	   'capability'    => 'manage_sites',
+           'fields' => array(   
+	       
 	       	'dimensions'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Image Dimensions', 'fau' ),
-		   'user_level'	=> 3,
 		),   
 	       
                'default_gallery_full_width' => array(
@@ -1132,40 +1147,26 @@ $setoptions = array(
 		  'parent' => 'dimensions',
                 ),	       
   
+	       
+	       'adminmisc'  => array(
+                  'type'    => 'section',
+                  'title'   => __( 'Sonstiges', 'fau' ),
+		),   
+	       
 	       'reset_options' => array(
                   'type'    => 'bool',
                   'title'   => __( 'Reset', 'fau' ),
                   'label'   => __( 'Setze alle Einstellungen und Konfigurationen zurück. Achtung: Dies setzt alle Voreinstellungen unwiederbringlich zurück!', 'fau' ),
                   'default' => 0,
 		  'mark_option' => 1,
+		  'parent' => 'adminmisc',
               ),   	       
 
 	       
    
           )
        ),
-       'switchusrlvl'    => array(
-	   'tabtitle'   => __('Anzeige der Optionen', 'fau'),
-	   'fields' => array(
-	       
-
-		'admin_user_level' => array(
-		    'type' => 'select',
-		    'title'   => __( 'Anzeigemodus', 'fau' ),
-		    'label'   => __( 'Mit dieser Einstellung können Sie den erweiterten Anzeigemodus oder den Expertenmodus für die Theme Einstellungen ändern.<br>'
-			    . 'Durch den Wechsel von der Normal-Ansicht auf die erweiterte Anzeige oder den Expertenmodus erhalten Sie mehr Optionen angezeigt. '
-			    . 'Viele der Optionen, insbesondere die des Expertenmodus, sollten nur dann geändert werden, wenn man genau weiß man dabei tut. '
-			    . 'Für den Alltagseinsatz eines Theme ist es nicht notwendig auf den erweiterten Anzeigemodus oder den Expertenmodus zu wechseln. '
-			    . '<br><b>Bitte verwenden Sie diese Optionen daher nur mit großer Vorsicht und Bedacht!</b> <br>', 'fau' ),
-		    'liste'   => array(
-				    0 => __('Normal','fau'), 
-				    1 => __('Erweitert','fau'),  
-				    2 => __('Expertenmodus','fau') ),
-		    'default' => 0,
-		    
-		    ),
-	    ),
-       ),
+       
        
     )
 );

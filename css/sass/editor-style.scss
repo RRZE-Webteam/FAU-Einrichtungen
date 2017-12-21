@@ -6,6 +6,11 @@
 // Import FAU variables
 @import "variables";
 // Reset Base styles
+$font-path-awesome:	'../fonts/fontawesome/';
+// da admin.css unter /css muss der pfad angepasst werden
+$font-path-roboto:	'../fonts/roboto/';
+// da admin.css unter /css muss der pfad angepasst werden
+
 
 @import "frameworks/frameworks";
 // Mixins

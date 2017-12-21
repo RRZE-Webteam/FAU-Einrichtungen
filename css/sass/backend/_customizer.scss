@@ -1,0 +1,68 @@
+/*-----------------------------------------------------------------------------------*/
+/* Customizer view
+/*-----------------------------------------------------------------------------------*/
+
+
+
+#customize-theme-controls {
+    #accordion-panel-website,
+    #accordion-panel-socialmedia,
+    #accordion-panel-allgemeines,
+    #accordion-panel-templates,
+    #accordion-panel-advanced {
+	.accordion-section-title {
+	     border-left-color: $colorDefault;
+	}
+    }
+    #accordion-panel-superadmin {
+	.accordion-section-title {	   
+	    border-left-color: red;	    
+	    color: red;
+	    &:before {
+		color: red;
+		@extend .fa;
+		@extend .fa-cogs;
+		width: 18px;
+	    }
+	}
+    }
+    
+    #accordion-panel-website {
+	.accordion-section-title:before {
+	    @extend .fa;
+	    @extend .fa-wpexplorer;
+	    width: 18px;
+	}
+    }
+    #accordion-panel-socialmedia {
+	.accordion-section-title:before {
+	    @extend .fa;
+	    @extend .fa-at ;
+	    width: 18px;
+	}
+    }
+    #accordion-panel-allgemeines {
+	.accordion-section-title:before {
+	    @extend .fa;
+	    @extend .fa-toggle-on;
+	    width: 18px;
+	}
+    }
+    #accordion-panel-templates {
+	.accordion-section-title:before {
+	    @extend .fa;
+	    @extend .fa-files-o;
+	    width: 18px;
+	}
+    }
+     #accordion-panel-advanced {
+	.accordion-section-title:before {
+	    @extend .fa;
+	    @extend .fa-cogs;
+	    width: 18px;
+	}
+    }
+    
+    
+}    
+

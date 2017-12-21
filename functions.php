@@ -11,6 +11,9 @@ require_once( get_template_directory() . '/functions/defaults.php' );
 require_once( get_template_directory() . '/functions/constants.php' );
 require_once( get_template_directory() . '/functions/sanitizer.php' );
 
+require_once( get_template_directory() . '/functions/customizer.php');
+
+
 $options = fau_initoptions();
 require_once( get_template_directory() . '/functions/helper-functions.php' );
 require_once( get_template_directory() . '/functions/template-functions.php' );
@@ -27,7 +30,7 @@ require_once( get_template_directory() . '/functions/posttype-glossary.php');
 
 function fau_setup() {
 	global $options;
-	
+	 
 
 	if ( ! isset( $content_width ) ) $content_width = $options['content-width'];
 	add_editor_style( array( 'css/editor-style.css' ) );
