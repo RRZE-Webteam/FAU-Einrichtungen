@@ -262,8 +262,19 @@ $defaultoptions = array(
  * Get Options
  */
 function fau_initoptions() {
-   global $defaultoptions;
-    $oldoptions = get_option('fau_theme_options');
+    global $defaultoptions;
+    global $setoptions;
+     
+    $optionname = 'fau_theme_options';
+    
+    $oldoptions = get_option($optionname);
+    $themeopt = get_theme_mod($optionname);
+    
+    if ((isset($oldoptions) && (is_array($oldoptions))) && (isset($themeopt) && (is_array($themeopt)))) {
+	 $oldoptions = array_merge($oldoptions,$themeopt);	  
+    }
+	
+    
     if (isset($oldoptions) && (is_array($oldoptions))) {
         $newoptions = array_merge($defaultoptions,$oldoptions);	  
 	
@@ -271,9 +282,9 @@ function fau_initoptions() {
 	    // Neue Optionen: Ueberschreibe Default-Optionen, die nicht manuell
 	    // gesetzt werden konnten
 	    $ignoreoptions = array();
-	    global $setoptions;
-	    foreach($setoptions['fau_theme_options'] as $tab => $f) {       
-		foreach($setoptions['fau_theme_options'][$tab]['fields'] as $i => $value) {  
+	   
+	    foreach($setoptions[$optionname] as $tab => $f) {       
+		foreach($setoptions[$optionname][$tab]['fields'] as $i => $value) {  
 		    $ignoreoptions[$i] = $value;
 		}
 	    }
@@ -283,7 +294,7 @@ function fau_initoptions() {
 		    $newoptions[$i] = $defaultoptions[$i];		    
 		}
 	    }
-	    update_option( 'fau_theme_options', $newoptions );
+	    update_option( $optionname, $newoptions );
 	}
 	
     } else {
@@ -299,7 +310,21 @@ function fau_initoptions() {
     if (class_exists('FAU_Studienangebot')) {
 	$newoptions['search_post_types'][] ='studienangebot';
     }
-     
+
+    // Fuer Abwaertscompatibilitaet zu alten Images aus dem Option Settings:
+    foreach($setoptions[$optionname] as $tab => $f) {       
+		foreach($setoptions[$optionname][$tab]['fields'] as $i => $value) {  
+		    if ($value['type'] == "image") {
+			if ((!isset($newoptions[$i])) && (isset($newoptions[$i."_id"]))) {			    
+			    $newoptions[$i] = $newoptions[$i."_id"];
+			} 
+		    }
+		}
+    }
+    
+    
+    set_theme_mod($optionname,$newoptions);
+    
     
     return $newoptions;
 }
@@ -337,7 +362,7 @@ $setoptions = array(
 		    'parent'  => 'webgroup'
 		    
 		),  
-	    'default_faculty_useshorttitle' => array(
+		'default_faculty_useshorttitle' => array(
 		    'type'    => 'bool',
 		    'title'   => __( 'Fakultätslink', 'fau' ),
 		    'label'   => __( 'Textlink zur Fakultät verkürzen auf Abkürzung. <br>Diese Option ist nur bei Nutzung eines Fakultätsthemes aktiv.', 'fau' ), 
@@ -353,28 +378,28 @@ $setoptions = array(
 		    'title'   => __( 'Banner Startseite', 'fau' ),
 		    'label'   => __( 'Festes Banner für die Startseite (Template für Lehrstühle und Einrichtungen) im Format 1260x182 Pixel', 'fau' ),               
 		    'parent'  => 'webgroup'
-              ),  
+		),  
 	       
 	       
                'pubadresse'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Öffentliche Adresse im Fußteil', 'fau' ),                      
-              ),
-              'contact_address_name' => array(
+		),
+		'contact_address_name' => array(
                   'type'    => 'text',
                   'title'   => __( 'Adressat', 'fau' ),
                   'label'   => __( 'Erste Zeile der Adresse', 'fau' ),               
                   'default' => $defaultoptions['contact_address_name'],
 		  'parent'  => 'pubadresse'
-              ),  
+		),  
 	       'contact_address_name2' => array(
                   'type'    => 'text',
                   'title'   => __( 'Adressat (Zusatz)', 'fau' ),
                   'label'   => __( 'Zweite Zeile der Adresse', 'fau' ),               
                   'default' => $defaultoptions['contact_address_name2'],
 		    'parent'  => 'pubadresse'
-              ),  
-	      'contact_address_street' => array(
+		),  
+		'contact_address_street' => array(
                   'type'    => 'text',
                   'title'   => __( 'Strasse', 'fau' ),
                   'label'   => __( 'Strasse inkl. Hausnummer', 'fau' ),               

@@ -9,7 +9,7 @@
  * @subpackage FAU
  * @since FAU 1.0
  */
-global $options;
+$options = get_theme_mod('fau_theme_options');
 ?>
 
 	</div> <!-- /wrap -->

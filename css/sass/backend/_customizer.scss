@@ -3,6 +3,12 @@
 /*-----------------------------------------------------------------------------------*/
 
 
+#customize-controls #sub-accordion-section-header_image img {
+    height: 65px;
+    max-height: 65px;
+    max-width: 240px;
+    width: auto;
+}
 
 #customize-theme-controls {
     #accordion-panel-website,
@@ -34,13 +40,7 @@
 	    width: 18px;
 	}
     }
-    #accordion-panel-socialmedia {
-	.accordion-section-title:before {
-	    @extend .fa;
-	    @extend .fa-at ;
-	    width: 18px;
-	}
-    }
+    
     #accordion-panel-allgemeines {
 	.accordion-section-title:before {
 	    @extend .fa;

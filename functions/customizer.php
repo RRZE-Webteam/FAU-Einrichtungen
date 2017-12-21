@@ -12,8 +12,15 @@ function fau_customizer_settings( $wp_customize ) {
 	// List of all options, including defaults and fixed theme definitions
     global $setoptions;
 	// list of options, that may be changed
+    global $options;
     $theme_mod_array = 'fau_theme_options';
 	// Name of array in theme options
+   
+   if (!current_user_can('manage_sites')) {
+       $wp_customize->remove_section( 'custom_css' );
+	// Nichts da mit eigenen CSS - Corporate Design rulez.. *huestel*
+    }
+    
     
     $wp_customize->get_setting( 'blogname' )->transport		= 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport	= 'postMessage';	
@@ -22,13 +29,13 @@ function fau_customizer_settings( $wp_customize ) {
     $definedtypes = array(
 	"text", "checkbox", "radio", "select", "textarea", "dropdown-pages", "email", "url", "number", "hidden", "date",
 	    // defaults
-	"bool", "html"
+	"bool", "html", "image", "multiselectlist"
 	    // self defined boolean
 
     );
   
     
-    foreach($setoptions['fau_theme_options'] as $tab => $value) {        
+    foreach($setoptions[$theme_mod_array] as $tab => $value) {        
 	$tabtitel = $value['tabtitle'];    
 	
 	$desc = '';
@@ -36,7 +43,7 @@ function fau_customizer_settings( $wp_customize ) {
 	if (isset($value['capability'])) 
 	    $capability = $value['capability'];
 	if (isset($value['desc']))
-			$desc = esc_html($value['desc']);
+	    $desc = esc_html($value['desc']);
 	
 	$num = $num +1;
 	$wp_customize->add_panel( $tab, array(
@@ -45,11 +52,11 @@ function fau_customizer_settings( $wp_customize ) {
 		'title'		=> esc_html($tabtitel),
 		'description'	=> $desc,
 	) );
-	if (isset($setoptions['fau_theme_options'][$tab]['fields'])) {
+	if (isset($setoptions[$theme_mod_array][$tab]['fields'])) {
 	    
 	    $nosectionentries = array();	  
 	    $sectionprio = 0;
-	    foreach($setoptions['fau_theme_options'][$tab]['fields'] as $field => $value) {  
+	    foreach($setoptions[$theme_mod_array][$tab]['fields'] as $field => $value) {  
 		$sectionprio = $sectionprio +1; 
 		if ($value['type'] == 'section') {
 		    // Definition einer Section
@@ -62,7 +69,6 @@ function fau_customizer_settings( $wp_customize ) {
 		    $thisprio = $sectionprio;
 		    if (isset($value['priority'])) 
 			$thisprio = $value['priority'];
-		    
 		    if (isset($value['title']))
 			$title = esc_html($value['title']);
 		    if (isset($value['desc']))
@@ -88,7 +94,7 @@ function fau_customizer_settings( $wp_customize ) {
 			'priority'	=> $sectionprio,
 		    ) ); 
 	    
-	    foreach($setoptions['fau_theme_options'][$tab]['fields'] as $field => $value) {   
+	    foreach($setoptions[$theme_mod_array][$tab]['fields'] as $field => $value) {   
 		if ($value['type'] == 'section') {
 		    // nothing to do
 		} else {
@@ -99,18 +105,23 @@ function fau_customizer_settings( $wp_customize ) {
 		    }
 		    // Gehoert zu einer Section
 		    $title = $desc = $label = $type = '';
+		    $optionid = $theme_mod_array."[".esc_html($field)."]";
 		    
-		   
-		    $optionid = esc_html($field);
+		    
+		    
+		    
 		    if (isset($value['title']))
 			$title = esc_html($value['title']);
 		    if (isset($value['desc']))
 			$desc = $value['desc'];
 		    if (isset($value['label']))
-			$label = esc_html($value['label']);
-		    if (isset($value['default']))
+			$label = $value['label'];
+		    
+		    if (isset($value['default'])) {
 			$default = $value['default'];  
-		      
+		    } elseif (isset($defaultoptions[$field])) {
+			$default = $defaultoptions[$field];  
+		    }	
 		   
 		    
 		    $type = $value['type'];
@@ -121,12 +132,13 @@ function fau_customizer_settings( $wp_customize ) {
 		    
 			
 			
-			$wp_customize->add_setting( $optionid , array(
-			    'default'     => $default,
-			    'transport'   => 'refresh',
-			) );
+			
 			
 			if ($type == 'bool') {    
+			    $wp_customize->add_setting( $optionid , array(
+				'default'     => $default,
+				'transport'   => 'refresh',
+			    ) );
 			     $wp_customize->add_control( $optionid, array(
 				    'label'             => $title,
 				    'description'	=> $label,
@@ -136,7 +148,11 @@ function fau_customizer_settings( $wp_customize ) {
 				    
 			    ) );
 			     
-			} elseif ($type == 'select') {    
+			} elseif (($type == 'select') || ($type == 'multiselectlist')) {    
+			    $wp_customize->add_setting( $optionid , array(
+				'default'     => $default,
+				'transport'   => 'refresh',
+			    ) );
 			     $wp_customize->add_control( $optionid, array(
 				    'label'             => $title,
 				    'description'	=> $label,
@@ -147,6 +163,10 @@ function fau_customizer_settings( $wp_customize ) {
 				    
 			    ) );
 			} elseif ($type == 'html') {    
+			    $wp_customize->add_setting( $optionid , array(
+				'default'     => $default,
+				'transport'   => 'refresh',
+			    ) );
 			     $wp_customize->add_control( $optionid, array(
 				    'label'             => $title,
 				    'description'	=> $label,
@@ -155,7 +175,60 @@ function fau_customizer_settings( $wp_customize ) {
 				    'type' 		=> 'textarea',
 				    
 			    ) );     
+			} elseif ($type == 'image') {    
+			  
+			    $width = 0;
+			    $flexwidth = false;
+			    $height = 0;
+			    $flexheight = false;
+			    
+			    if (isset($value['width'])) {
+				$width = $value['width'];
+			    }
+			     if (isset($value['height'])) {
+				$height = $value['height'];
+			    }
+			    if (isset($value['maxwidth'])) {
+				$width = $value['maxwidth'];
+				$flexwidth = true;
+			    }
+			    if (isset($value['maxheight'])) {
+				$height = $value['maxheight'];
+				$flexheight = true;
+			    }
+
+			   
+			//    if ((!isset($default))|| (empty($default))) {
+			/*	$oldimageid = esc_html($field)."_id";
+				if (isset($options[$oldimageid]) && ($options[$oldimageid]>0)) {
+				    $default = $options[$oldimageid];
+				} 
+			*/	 
+				 
+			  // }
+			    
+			    $wp_customize->add_setting( $optionid , array(
+				'default'     => $default,
+				'transport'   => 'refresh',
+			    ) );
+			   
+			    
+			    $wp_customize->add_control( new WP_Customize_Cropped_Image_Control( $wp_customize, $optionid, array(
+				'section'     => $section,
+				'label'       => $title,
+				'description' => $label,
+				'flex_width'  => $flexwidth,
+				'flex_height' => $flexheight,
+				'width'       => $width,
+				'height'      => $height,
+			    ) ) );	
+			     
+			     
 			} else {
+			     $wp_customize->add_setting( $optionid , array(
+				'default'     => $default,
+				'transport'   => 'refresh',
+			    ) );
 			    $wp_customize->add_control( $optionid, array(
 				    'label'             => $title,
 				    'description'	=> $label,
@@ -178,51 +251,3 @@ function fau_customizer_settings( $wp_customize ) {
     }
     
 }
-
-/*
- * 
-    foreach($setoptions['fau_theme_options'] as $tab => $value) {        
-	    
-	$tabtitel = $value['tabtitle'];             
-	$num = $num +1;
-echo $tabtitel;
-	
-	// Custom Uku panels:
-	$wp_customize->add_panel( $tab, array(
-		'priority'			=> $num,
-		'theme_supports' 	         => '',
-	        'capability'		=> 'edit_theme_options',
-
-		'title' 	                 => esc_html($tabtitel)
-	) );
-
-	
-	 if (isset($setoptions['fau_theme_options'][$tab]['fields'])) {
-	    $setsection = '';
-            foreach($setoptions['fau_theme_options'][$tab]['fields'] as $i => $value) {   
-                            $name = $i;
-			    $mark_option =0;
-			    $userlvl = 0;
-                            if (isset($value['title'])) $title = $value['title'];
-                            if (isset($value['type'])) $type = $value['type'];
-                            if (isset($value['label'])) $label = $value['label'];
-                            if (isset($value['parent'])) $parent = $value['parent'];
-                            if (isset($value['liste'])) $liste = $value['liste']; 
-			    if (isset($value['user_level'])) $userlvl = $value['user_level'];
-			    if (isset($value['mark_option']) && $value['mark_option']==1) $mark_option =1; 
-			     
-
-                            if ($type == 'section') {
-				$wp_customize->add_section( 'cd_colors' , array(
-				    'title'      => $title,
-				    'panel'	 => $tab,
-				) );
-				
-			    }
-	    }
-	 }
-			
-
-		    
-    }
- */

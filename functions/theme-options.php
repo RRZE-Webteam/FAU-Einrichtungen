@@ -607,9 +607,12 @@ function theme_options_do_page($tab = '') {
 function theme_options_validate( $input ) {
     global $setoptions;
     global $defaultoptions;
-    $options = get_option( 'fau_theme_options' );
+    $optionname = 'fau_theme_options';
+  
+    $options = get_theme_mod($optionname);
+//    $options = get_option( 'fau_theme_options' );
     
-    $saved = (array) get_option( 'fau_theme_options' );	
+    $saved = (array) get_option( $optionname );	
         //    $options= $saved;
     $output = wp_parse_args( $saved, $defaultoptions );
        $tab = '';
@@ -620,18 +623,18 @@ function theme_options_validate( $input ) {
             $tab = $input['tab'];
        }
 
-        if (!isset($setoptions['fau_theme_options'][$tab])) {
+        if (!isset($setoptions[$optionname][$tab])) {
             return $output;          
         }
 
 	
 	
-       if (isset($setoptions['fau_theme_options'][$tab]['fields'])) {
+       if (isset($setoptions[$optionname][$tab]['fields'])) {
 	    $paralist = array();
 	    $paralist = explode(",",wp_filter_nohtml_kses($input['askfieldlist']));	    
 	    
 	   
-            foreach($setoptions['fau_theme_options'][$tab]['fields'] as $i => $value) {   
+            foreach($setoptions[$optionname][$tab]['fields'] as $i => $value) {   
                 $name = $i;
 		if (in_array($name,$paralist)) {
 		    $type = $value['type'];  
@@ -714,9 +717,11 @@ function theme_options_validate( $input ) {
 
 
     if  (isset($input['reset_options']) && ($input['reset_options'] == 1)) {
-	delete_option('fau_theme_options');
+	delete_option($optionname);
 	
     } 
+   set_theme_mod($optionname,$output);
+
    return $output;
 
 }
