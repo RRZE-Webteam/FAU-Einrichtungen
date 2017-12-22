@@ -9,7 +9,6 @@
  * @subpackage FAU
  * @since FAU 1.0
  */
-$options = get_theme_mod('fau_theme_options');
 ?>
 
 	</div> <!-- /wrap -->
@@ -17,20 +16,31 @@ $options = get_theme_mod('fau_theme_options');
 	<footer id="footer">
 		<div class="container">
 			<div class="row">
+			    
+			    
+			    
 				<div class="footer-logo">
 					<p><img src="<?php echo get_fau_template_uri(); ?>/img/logo-fau-inverse.png" width="185" height="35" alt="<?php _e("Friedrich-Alexander-Universität Erlangen-Nürnberg","fau"); ?>"></p>
 				</div>
 				<div class="footer-address">
 					
 				    <p itemscope itemtype="http://schema.org/PostalAddress">
-					<?php $schemaname = $options['contact_address_name']." ".$options['contact_address_name2']; ?>
+					<?php
+
+					$contact_address_name = get_theme_mod("contact_address_name");
+					$contact_address_name2 = get_theme_mod("contact_address_name2");
+					$contact_address_street = get_theme_mod("contact_address_street");
+					$contact_address_plz = get_theme_mod("contact_address_plz");
+					$contact_address_ort = get_theme_mod("contact_address_ort");
+					$contact_address_country = get_theme_mod("contact_address_country");
+					$schemaname = $contact_address_name." ".$contact_address_name2; ?>
 					<meta itemprop="name" content="<?php echo esc_html($schemaname);?>">
-					<span><?php echo $options['contact_address_name']; 
-					if (isset($options['contact_address_name2'])) { echo "<br>".$options['contact_address_name2']; } ?></span><br>
-					<span itemprop="streetAddress"><?php echo $options['contact_address_street']; ?></span><br>
-					<span itemprop="postalCode"><?php echo $options['contact_address_plz']; ?></span> <span itemprop="addressLocality"><?php echo $options['contact_address_ort']; ?></span><br>
-					<?php if (isset($options['contact_address_country'])) { ?>
-					   <span itemprop="addressCountry"><?php echo $options['contact_address_country']; ?></span>
+					<span><?php echo $contact_address_name; 
+					if (isset($contact_address_name2)) { echo "<br>".$contact_address_name2; } ?></span><br>
+					<span itemprop="streetAddress"><?php echo $contact_address_street; ?></span><br>
+					<span itemprop="postalCode"><?php echo $contact_address_plz; ?></span> <span itemprop="addressLocality"><?php echo $contact_address_ort; ?></span><br>
+					<?php if (isset($contact_address_country)) { ?>
+					   <span itemprop="addressCountry"><?php echo $contact_address_country; ?></span>
 					<?php } ?>   
 				   </p>
 	

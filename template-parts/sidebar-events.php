@@ -12,11 +12,18 @@ $show =false;
 	5 => __('Standard Seiten','fau'),
 	6 => __('Beiträge','fau'),       
 */
- if ((isset($options['start_topevents_active'])) && ($options['start_topevents_active']==true)) {
-    $displayon = $options['topevents_templates'];
+
+
+$start_topevents_active = get_theme_mod("start_topevents_active");
+
+
+ if ((isset($start_topevents_active)) && ($start_topevents_active==true)) {
+    $start_topevents_templates = get_theme_mod("topevents_templates");
+
+    // $displayon = $options['topevents_templates'];
     $template = get_page_template();
 
-     foreach ($displayon as $key) {
+     foreach ($start_topevents_templates as $key) {
 	if (($key==1) && (is_page_template( 'page-templates/page-start.php' ))) {
 	    $show = true;
 	    break;

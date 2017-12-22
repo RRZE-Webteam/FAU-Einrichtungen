@@ -3,8 +3,13 @@
 /* 
  * Default Constants and values 
  */
+
+
+$OPTIONS_NAME = 'fau_theme_options';
+    // Name des Options-Array
+
 $defaultoptions = array(
-    'optiontable-version'		=> 26,
+    'optiontable-version'		=> 27,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -264,15 +269,15 @@ $defaultoptions = array(
 function fau_initoptions() {
     global $defaultoptions;
     global $setoptions;
-     
-    $optionname = 'fau_theme_options';
+    global $OPTIONS_NAME;
     
-    $oldoptions = get_option($optionname);
-    $themeopt = get_theme_mod($optionname);
     
-    if ((isset($oldoptions) && (is_array($oldoptions))) && (isset($themeopt) && (is_array($themeopt)))) {
-	 $oldoptions = array_merge($oldoptions,$themeopt);	  
-    }
+    $oldoptions = get_option($OPTIONS_NAME);
+    $themeopt = get_theme_mods();
+    
+   // if ((isset($oldoptions) && (is_array($oldoptions))) && (isset($themeopt) && (is_array($themeopt)))) {
+//	 $oldoptions = array_merge($oldoptions,$themeopt);	  
+  //  }
 	
     
     if (isset($oldoptions) && (is_array($oldoptions))) {
@@ -283,8 +288,8 @@ function fau_initoptions() {
 	    // gesetzt werden konnten
 	    $ignoreoptions = array();
 	   
-	    foreach($setoptions[$optionname] as $tab => $f) {       
-		foreach($setoptions[$optionname][$tab]['fields'] as $i => $value) {  
+	    foreach($setoptions[$OPTIONS_NAME] as $tab => $f) {       
+		foreach($setoptions[$OPTIONS_NAME][$tab]['fields'] as $i => $value) {  
 		    $ignoreoptions[$i] = $value;
 		}
 	    }
@@ -294,7 +299,7 @@ function fau_initoptions() {
 		    $newoptions[$i] = $defaultoptions[$i];		    
 		}
 	    }
-	    update_option( $optionname, $newoptions );
+	    update_option( $OPTIONS_NAME, $newoptions );
 	}
 	
     } else {
@@ -310,21 +315,31 @@ function fau_initoptions() {
     if (class_exists('FAU_Studienangebot')) {
 	$newoptions['search_post_types'][] ='studienangebot';
     }
-
+    
+    $update_thememods = false;
     // Fuer Abwaertscompatibilitaet zu alten Images aus dem Option Settings:
-    foreach($setoptions[$optionname] as $tab => $f) {       
-		foreach($setoptions[$optionname][$tab]['fields'] as $i => $value) {  
+    foreach($setoptions[$OPTIONS_NAME] as $tab => $f) {       
+		foreach($setoptions[$OPTIONS_NAME][$tab]['fields'] as $i => $value) {  
 		    if ($value['type'] == "image") {
-			if ((!isset($newoptions[$i])) && (isset($newoptions[$i."_id"]))) {			    
-			    $newoptions[$i] = $newoptions[$i."_id"];
+			if (isset($newoptions[$i."_id"])) {			    
+			    if (!isset($themeopt[$i])) {
+				$themeopt[$i] = $newoptions[$i."_id"];
+				$update_thememods = true;
+			    }  
 			} 
+		    } elseif ($value['type'] == 'section') {
+			// this not
+		    } elseif ((!isset($themeopt[$i])) && (isset($newoptions[$i]))) {
+			$themeopt[$i] = $newoptions[$i];
+			$update_thememods = true;
 		    }
-		}
+		}		
     }
-    
-    
-    set_theme_mod($optionname,$newoptions);
-    
+    if ($update_thememods==true) {
+	$theme = get_option( 'stylesheet' );
+        update_option( "theme_mods_$theme", $themeopt );
+    }
+       
     
     return $newoptions;
 }
@@ -1051,7 +1066,7 @@ $setoptions = array(
 	),    
 	       
 	'superadmin'   => array(
-           'tabtitle'   => __('Superadmin-Einstellungen', 'fau'),
+           'tabtitle'   => __('Admin-Einstellungen', 'fau'),
 	   'user_level'	=> 1,
 	   'capability'    => 'manage_sites',
            'fields' => array(   

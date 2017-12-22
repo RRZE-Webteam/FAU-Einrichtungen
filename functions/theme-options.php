@@ -7,9 +7,8 @@ add_action( 'admin_menu', 'theme_options_add_page' );
  * Init plugin options to white list our options
  */
 function theme_options_init(){
-	register_setting( 'fau_options',
-                'fau_theme_options', 
-                'theme_options_validate' );
+    global $OPTIONS_NAME;
+    register_setting( 'fau_options', $OPTIONS_NAME, 'theme_options_validate' );
 }
 
 /**
@@ -31,7 +30,8 @@ function theme_options_add_page() {
 function theme_options_do_page($tab = '') {
         global $setoptions;  
         global $options;
-        
+        global $OPTIONS_NAME;
+
 	if ( ! isset( $_REQUEST['settings-updated'] ) )
 		$_REQUEST['settings-updated'] = false;
 
@@ -44,11 +44,11 @@ function theme_options_do_page($tab = '') {
     $options['website_usefaculty'] = $defaultoptions['website_usefaculty'];
     if ( (isset($options['website_usefaculty'])) && (in_array($options['website_usefaculty'],$default_fau_orga_faculty))) {
 	
-	    $setoptions['fau_theme_options']['website']['fields']['website_type']['liste'] = array(
+	    $setoptions[$OPTIONS_NAME]['website']['fields']['website_type']['liste'] = array(
 		0 => __('Fakultätsportal','fau'), 
 		1 => __('Department, Lehrstuhl, Einrichtung','fau'));
     } else {
-	    $setoptions['fau_theme_options']['website']['fields']['website_type']['liste'] = array(
+	    $setoptions[$OPTIONS_NAME]['website']['fields']['website_type']['liste'] = array(
 		2 => __('Zentrale Einrichtung','fau') ,
 		3 => __('Website für uniübergreifende Kooperationen mit Externen','fau') );
     }
@@ -57,7 +57,7 @@ function theme_options_do_page($tab = '') {
 	$siteurl = get_site_url();
 	$siteurl = preg_replace("(^https?://)", "", $siteurl );
 	if (in_array($siteurl,$defaultoptions['website_allow_fauportal'])) {
-	    $setoptions['fau_theme_options']['website']['fields']['website_type']['liste']['-1'] =  __('Zentrales FAU-Portal','fau');
+	    $setoptions[$OPTIONS_NAME]['website']['fields']['website_type']['liste']['-1'] =  __('Zentrales FAU-Portal','fau');
 	}
     }
  ?>
@@ -76,28 +76,22 @@ function theme_options_do_page($tab = '') {
         if ((!isset($tab)) || (empty($tab))) {
             $tab = $options['optionpage-tab-default'];
         }
-        if (!isset($setoptions['fau_theme_options'][$tab])) {
+        if (!isset($setoptions[$OPTIONS_NAME][$tab])) {
            // echo "Invalid Tab-Option or undefined Option-Field $tab";            
-	    $tab = array_keys($setoptions['fau_theme_options'])[0];
+	    $tab = array_keys($setoptions[$OPTIONS_NAME])[0];
         }        
 	
-        $myuserlvl = 0;
-	if (isset($options['admin_user_level'])) {
-	    $myuserlvl = $options['admin_user_level'];
-	}
+       
 	$askfieldlist = '';
 	
         echo "<p class=\"nav-tab-wrapper\">\n";
-        foreach($setoptions['fau_theme_options'] as $i => $value) {        
-	    
-	    if ((isset($value['user_level']) && ($myuserlvl >= $value['user_level'])) || (!isset($value['user_level']))) { 	    
+        foreach($setoptions[$OPTIONS_NAME] as $i => $value) {        
 		$tabtitel = $value['tabtitle'];             
 		 echo "<a href=\"?page=theme_options&amp;tab=$i\" class=\"nav-tab ";
 		 if ($tab==$i) {
 		     echo "nav-tab-active";
 		 }
 		 echo "\">$tabtitel</a>\n";	      
-	    }
         }
         echo "</p>\n";  ?>
          
@@ -110,12 +104,11 @@ function theme_options_do_page($tab = '') {
         <div id="einstellungen">                                       
 	<table>	
                 <?php
-                    if (isset($setoptions['fau_theme_options'][$tab]['fields'])) {
+                    if (isset($setoptions[$OPTIONS_NAME][$tab]['fields'])) {
 			$setsection = '';
-                        foreach($setoptions['fau_theme_options'][$tab]['fields'] as $i => $value) {   
+                        foreach($setoptions[$OPTIONS_NAME][$tab]['fields'] as $i => $value) {   
                             $name = $i;
 			    $mark_option =0;
-			    $userlvl = 0;
                             if (isset($value['title'])) $title = $value['title'];
                             if (isset($value['type'])) $type = $value['type'];
                             if (isset($value['label'])) $label = $value['label'];
@@ -127,7 +120,6 @@ function theme_options_do_page($tab = '') {
 
                             if ($type == 'section') {
 				
-				if ((($userlvl>0) && ($myuserlvl >= $userlvl)) || ($userlvl<1)) { 	 
 				
 				    if ((isset($setsection)) && ($setsection != "")) {
 					echo "\t\t\t</table>\n";   
@@ -139,16 +131,11 @@ function theme_options_do_page($tab = '') {
 				    echo "</th>\n\t\t<td>";                                 
 				    echo "\t\t\t<table class=\"suboptions\">\n";      
 				    $setsection = $name;
-				    $setsectionusrlvl = $userlvl;
-				    
-				} elseif ($userlvl>0) {
-				    $setsectionusrlvl = $userlvl;
-				}
+				
 				
 	
 			    
-                            } elseif (   (isset($setsection) && ($setsection != "") && ($myuserlvl >= $setsectionusrlvl))
-				    ||   ((!$setsection) && ($myuserlvl >= $userlvl)) ) {
+                            } else {
 				  
 				$askfieldlist .= $name.",";
 				
@@ -259,8 +246,17 @@ function theme_options_do_page($tab = '') {
 				    if (isset($value['maxheight'])) {
 					$addstyle .= 'max-height: '.$value['maxheight'].'px;';
 				    }
-				   		   
-				     if ((isset($options[$name])) && esc_url( $options[$name])) { 
+				    if (($type=='image') && (isset($options[$name]))) {
+					    
+					    if ( isset( $options[$name."_id"] ) )
+						   $options[$name] = $options[$name."_id"];
+					    $imagedata = wp_get_attachment_image_src( $options[$name], 'herobanner' );
+					    echo '<img src="'.esc_url( $imagedata[0]).'" class="image_show_'.$name.'"';
+					    if (isset($addstyle) && strlen($addstyle)>1) {
+						echo ' style="'.$addstyle.'"';
+					    }				   	
+					  echo '/>';
+				    } elseif ((isset($options[$name])) && esc_url( $options[$name])) { 
 					  echo '<img src="'.esc_url( $options[$name]).'" class="image_show_'.$name.'"';
 					  if (isset($addstyle) && strlen($addstyle)>1) {
 					      echo ' style="'.$addstyle.'"';
@@ -569,15 +565,15 @@ function theme_options_do_page($tab = '') {
                                     $setsection = "";
                             }                                                                 
                         }
-                            if ((isset($setsection)) && ($setsection!="")) {
-                                /*
-                                    * Kein Parent mehr 
-                                    */
-                                    echo "\t\t\t</table>\n";   
-                                    echo "\t\t</td>\n";
-                                    echo "\t</tr>\n";
-                                    $setsection = "";
-                            }    
+			if ((isset($setsection)) && ($setsection!="")) {
+			    /*
+				* Kein Parent mehr 
+				*/
+				echo "\t\t\t</table>\n";   
+				echo "\t\t</td>\n";
+				echo "\t</tr>\n";
+				$setsection = "";
+			}    
                     } else {
                         _e( 'Option nicht definiert.', 'fau' );
                     }
@@ -607,34 +603,33 @@ function theme_options_do_page($tab = '') {
 function theme_options_validate( $input ) {
     global $setoptions;
     global $defaultoptions;
-    $optionname = 'fau_theme_options';
+    global $OPTIONS_NAME;
   
-    $options = get_theme_mod($optionname);
-//    $options = get_option( 'fau_theme_options' );
-    
-    $saved = (array) get_option( $optionname );	
+    $themeopt = get_theme_mods();
+    $update_thememods = false;
+     
+    $saved = (array) get_option( $OPTIONS_NAME );	
         //    $options= $saved;
     $output = wp_parse_args( $saved, $defaultoptions );
-       $tab = '';
-       if ((isset($_GET['tab'])) && (!empty($_GET['tab']))) {
+        $tab = '';
+        if ((isset($_GET['tab'])) && (!empty($_GET['tab']))) {
             $tab = $_GET['tab'];
-       }
-       if ((empty($tab) && (isset($input['tab'])))) {
+        }
+        if ((empty($tab) && (isset($input['tab'])))) {
             $tab = $input['tab'];
-       }
-
-        if (!isset($setoptions[$optionname][$tab])) {
-            return $output;          
         }
 
+        if (!isset($setoptions[$OPTIONS_NAME][$tab])) {
+            return $output;          
+        }
 	
 	
-       if (isset($setoptions[$optionname][$tab]['fields'])) {
+       if (isset($setoptions[$OPTIONS_NAME][$tab]['fields'])) {
 	    $paralist = array();
 	    $paralist = explode(",",wp_filter_nohtml_kses($input['askfieldlist']));	    
 	    
 	   
-            foreach($setoptions[$optionname][$tab]['fields'] as $i => $value) {   
+            foreach($setoptions[$OPTIONS_NAME][$tab]['fields'] as $i => $value) {   
                 $name = $i;
 		if (in_array($name,$paralist)) {
 		    $type = $value['type'];  
@@ -654,11 +649,17 @@ function theme_options_validate( $input ) {
 				 $output[$name]  =  $input[$name] ;     
 			    } elseif ($type=='html') {;    
 				$output[$name] = $input[$name];
-			    } elseif (($type=='imageurl') || ($type=='image')) {
-				 $output[$name]  =  esc_url( $input[$name] );
-				 if (isset($input[$name."_id"])) {
+			    } elseif ($type=='imageurl')  {
+				$output[$name]  =  esc_url( $input[$name] );
+				if (isset($input[$name."_id"])) {
 				    $output[$name."_id"]  =  sanitize_key( $input[$name."_id"] );
-				 }
+				    
+				    $themeopt[$name] = $output[$name."_id"];
+				    $update_thememods=true;
+				    
+				}
+			    } elseif ($type=='image') {
+				$output[$name]  =  sanitize_key( $input[$name] );
 			    } elseif (($type=='url') || ($type=='imgurl')) {
 				 $output[$name]  =  esc_url( $input[$name] ); 
 			    } elseif ($type=='file') {
@@ -679,6 +680,12 @@ function theme_options_validate( $input ) {
 			    } else {
 				$output[$name]  =  wp_filter_nohtml_kses( $input[$name] );
 			    }
+			    
+			    if ((!isset($themeopt[$name])) || (  isset($themeopt[$name]) && ( $output[$name] != $themeopt[$name] )  )) {
+				$themeopt[$name] = $output[$name];
+				$update_thememods=true;
+			    }
+			    
 			} else {                        
 			    if ($type=='bool') {
 				$output[$name] =0;
@@ -714,13 +721,16 @@ function theme_options_validate( $input ) {
 
       
     
-
-
+    
     if  (isset($input['reset_options']) && ($input['reset_options'] == 1)) {
-	delete_option($optionname);
-	
+	delete_option($OPTIONS_NAME);	
+	remove_theme_mods();
+	$update_thememods = false;
     } 
-   set_theme_mod($optionname,$output);
+    if ($update_thememods==true) {
+	$theme = get_option( 'stylesheet' );
+        update_option( "theme_mods_$theme", $themeopt );
+    }
 
    return $output;
 

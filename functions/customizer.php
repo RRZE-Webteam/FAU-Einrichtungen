@@ -13,8 +13,9 @@ function fau_customizer_settings( $wp_customize ) {
     global $setoptions;
 	// list of options, that may be changed
     global $options;
-    $theme_mod_array = 'fau_theme_options';
-	// Name of array in theme options
+    global $OPTIONS_NAME;
+
+   $thememods = get_theme_mods();
    
    if (!current_user_can('manage_sites')) {
        $wp_customize->remove_section( 'custom_css' );
@@ -35,7 +36,7 @@ function fau_customizer_settings( $wp_customize ) {
     );
   
     
-    foreach($setoptions[$theme_mod_array] as $tab => $value) {        
+    foreach($setoptions[$OPTIONS_NAME] as $tab => $value) {        
 	$tabtitel = $value['tabtitle'];    
 	
 	$desc = '';
@@ -52,11 +53,11 @@ function fau_customizer_settings( $wp_customize ) {
 		'title'		=> esc_html($tabtitel),
 		'description'	=> $desc,
 	) );
-	if (isset($setoptions[$theme_mod_array][$tab]['fields'])) {
+	if (isset($setoptions[$OPTIONS_NAME][$tab]['fields'])) {
 	    
 	    $nosectionentries = array();	  
 	    $sectionprio = 0;
-	    foreach($setoptions[$theme_mod_array][$tab]['fields'] as $field => $value) {  
+	    foreach($setoptions[$OPTIONS_NAME][$tab]['fields'] as $field => $value) {  
 		$sectionprio = $sectionprio +1; 
 		if ($value['type'] == 'section') {
 		    // Definition einer Section
@@ -94,7 +95,7 @@ function fau_customizer_settings( $wp_customize ) {
 			'priority'	=> $sectionprio,
 		    ) ); 
 	    
-	    foreach($setoptions[$theme_mod_array][$tab]['fields'] as $field => $value) {   
+	    foreach($setoptions[$OPTIONS_NAME][$tab]['fields'] as $field => $value) {   
 		if ($value['type'] == 'section') {
 		    // nothing to do
 		} else {
@@ -105,7 +106,7 @@ function fau_customizer_settings( $wp_customize ) {
 		    }
 		    // Gehoert zu einer Section
 		    $title = $desc = $label = $type = '';
-		    $optionid = $theme_mod_array."[".esc_html($field)."]";
+		    $optionid = esc_html($field); // $OPTIONS_NAME."[".esc_html($field)."]";
 		    
 		    
 		    
@@ -138,6 +139,7 @@ function fau_customizer_settings( $wp_customize ) {
 			    $wp_customize->add_setting( $optionid , array(
 				'default'     => $default,
 				'transport'   => 'refresh',
+				'sanitize_callback' => 'fau_sanitize_customizer_bool'
 			    ) );
 			     $wp_customize->add_control( $optionid, array(
 				    'label'             => $title,
@@ -251,3 +253,17 @@ function fau_customizer_settings( $wp_customize ) {
     }
     
 }
+
+/*--------------------------------------------------------------------*/
+/* Sanitize bool
+/*--------------------------------------------------------------------*/
+function fau_sanitize_customizer_bool( $value ) {
+    if ( ! in_array( $value, array( true, false ) ) )
+        $value = false;
+ 
+    return $value;
+}
+
+/*--------------------------------------------------------------------*/
+/* EOCustomizer
+/*--------------------------------------------------------------------*/
