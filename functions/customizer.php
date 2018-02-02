@@ -74,6 +74,7 @@ function fau_customizer_settings( $wp_customize ) {
 			$title = esc_html($value['title']);
 		    if (isset($value['desc']))
 			$desc = esc_html($value['desc']);
+
 		    
 		    $sectionid = esc_html($field);
 		    

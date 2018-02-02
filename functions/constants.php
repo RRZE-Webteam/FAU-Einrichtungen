@@ -361,7 +361,7 @@ $setoptions = array(
 	       
 	        'webgroup'  => array(
                   'type'    => 'section',
-                  'title'   => __( 'Daten zum Webauftritt', 'fau' ),                      
+                  'title'   => __( 'Daten zum Webauftritt', 'fau' ),     
                 ),
 	       
 	        'website_type'=> array(
