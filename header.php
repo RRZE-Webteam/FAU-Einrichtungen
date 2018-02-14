@@ -33,8 +33,10 @@ global $options;
 			<div class="container">
 			    <div class="row">
 				<div class="meta-links">
-					<h3><?php _e('Weitere Webauftritte','fau'); ?></h3>
-					<?php echo fau_get_toplinks(); ?>
+					<?php echo fau_get_toplinks(array(
+						    "titletag" => 'h3',
+						    "title" => __('Weitere Portale','fau'),
+						    )); ?>
 				</div>
 				<div class="meta-tools">
 				    <div class="meta-search">
@@ -48,17 +50,7 @@ global $options;
 			    </div>
 			</div>
 		</section>
-		<?php if (isset($options['display_nojs_notice']) && $options['display_nojs_notice']==1) { ?> 
-		<noscript>
-			<div id="no-script">
-				<div class="container">
-					<div class="notice">
-						<?php  echo $options['display_nojs_note']; ?>				
-					</div>
-				</div>
-			</div>
-		</noscript>
-		<?php } ?>
+		
 		<header id="header">
 		    <div class="container">
 			<div class="row">

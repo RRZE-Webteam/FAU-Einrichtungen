@@ -38,24 +38,11 @@ function fau_setup() {
 	add_theme_support('title-tag');
 
 	
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menu( 'meta', __( 'Meta-Navigation oben', 'fau' ) );
-	register_nav_menu( 'meta-footer', __( 'Meta-Navigation unten', 'fau' ) );
-	register_nav_menu( 'main-menu', __( 'Haupt-Navigation', 'fau' ) );
+	fau_register_menus();
+	    // Register Menus
+	fau_create_socialmedia_menu();
+	    // Checkup Social Media Menu
 	
-	if ($options['website_type']==-1) {
-	    register_nav_menu( 'quicklinks-1', __( 'Startseite FAU Portal: Bühne Spalte 1', 'fau' ) );
-	    register_nav_menu( 'quicklinks-2', __( 'Startseite FAU Portal: Bühne Spalte 2', 'fau' ) );
-	    register_nav_menu( 'quicklinks-3', __( 'Startseite FAU Portal: Bühne Spalte 3', 'fau' ) );
-	    register_nav_menu( 'quicklinks-4', __( 'Startseite FAU Portal: Bühne Spalte 4', 'fau' ) );
-	} else {
-	    register_nav_menu( 'quicklinks-3', __( 'Startseite Fakultät: Bühne Spalte 1', 'fau' ) );
-	    register_nav_menu( 'quicklinks-4', __( 'Startseite Fakultät: Bühne Spalte 2', 'fau' ) );
-	}
-	register_nav_menu( 'error-1', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 1', 'fau' ) );
-	register_nav_menu( 'error-2', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 2', 'fau' ) );
-	register_nav_menu( 'error-3', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 3', 'fau' ) );
-	register_nav_menu( 'error-4', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 4', 'fau' ) );
 	
 	/*
 	 * This theme uses a custom image size for featured images, displayed on

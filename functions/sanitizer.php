@@ -43,3 +43,13 @@ if ( ! function_exists( 'fau_empty' ) ) :
     } 
 endif;    
 
+
+/*--------------------------------------------------------------------*/
+/* Sanitize bool
+/*--------------------------------------------------------------------*/
+function fau_sanitize_customizer_bool( $value ) {
+    if ( ! in_array( $value, array( true, false ) ) )
+        $value = false;
+ 
+    return $value;
+}

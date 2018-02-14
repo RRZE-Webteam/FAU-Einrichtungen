@@ -7,7 +7,125 @@
  * @since FAU 1.0
  */
 
+/*-----------------------------------------------------------------------------------*/
+/* Register FAU Menus in Theme
+/*-----------------------------------------------------------------------------------*/
+function fau_register_menus() {   
+    $website_type = get_theme_mod('website_type');
+    if (!isset($website_type)) {
+	global $options;
+	$website_type = $options['website_type'];
+    }
+    
+	
+    register_nav_menu( 'meta', __( 'Meta-Navigation oben', 'fau' ) );
+	// Meta Navigation oben im Header
 
+    register_nav_menu( 'meta-footer', __( 'Meta-Navigation unten', 'fau' ) );
+	// Meta Navigation unten im Footer
+
+    register_nav_menu( 'main-menu', __( 'Haupt-Navigation', 'fau' ) );
+	// Hauptnavigation
+
+    if ($website_type==-1) {
+	// Buehnennavigation Template Portal Startseite mit 4 Spalten
+	register_nav_menu( 'quicklinks-1', __( 'Startseite FAU Portal: Bühne Spalte 1', 'fau' ) );
+	register_nav_menu( 'quicklinks-2', __( 'Startseite FAU Portal: Bühne Spalte 2', 'fau' ) );
+	register_nav_menu( 'quicklinks-3', __( 'Startseite FAU Portal: Bühne Spalte 3', 'fau' ) );
+	register_nav_menu( 'quicklinks-4', __( 'Startseite FAU Portal: Bühne Spalte 4', 'fau' ) );
+    } else {
+	 // Buehnennavigation Template Portal Startseite mit 2 Spalten
+	register_nav_menu( 'quicklinks-3', __( 'Startseite Fakultät: Bühne Spalte 1', 'fau' ) );
+	register_nav_menu( 'quicklinks-4', __( 'Startseite Fakultät: Bühne Spalte 2', 'fau' ) );
+    }
+
+    global $defaultoptions;
+    register_nav_menu( $defaultoptions['socialmedia_menu_position'], $defaultoptions['socialmedia_menu_position_title'] );
+	// Social Media Menu (seit 1.9.5)
+    
+    register_nav_menu( 'error-1', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 1', 'fau' ) );
+	// Fehler und Suchseite: Vorschlagmenu Spalte 1
+    register_nav_menu( 'error-2', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 2', 'fau' ) );
+	// Fehler und Suchseite: Vorschlagmenu Spalte 2
+    register_nav_menu( 'error-3', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 3', 'fau' ) );
+	// Fehler und Suchseite: Vorschlagmenu Spalte 3
+    register_nav_menu( 'error-4', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 4', 'fau' ) );
+	// Fehler und Suchseite: Vorschlagmenu Spalte 4
+	
+}
+/*-----------------------------------------------------------------------------------*/
+/* Erstelle ein Social Media Menu, wenn es noch nicht vorhanden ist
+/*-----------------------------------------------------------------------------------*/
+function fau_create_socialmedia_menu() {
+    global $defaultoptions;
+    
+    // Zuerst schauen wir, ob das Menu bereits existiert
+    $menuitems = wp_get_nav_menu_items($defaultoptions['socialmedia_menu_name']);
+    if (!is_array($menuitems)) {
+	// Menu existiert noch nicht
+	
+	
+	// Existieren bereits Einträge in der alten Options-Tabelle mit Social Media Angaben, die angezeigt werden sollen?
+	// Wenn ja, dann fülle das Menu mit diesen; enn nein, fülle das Menu mit Default-Einträgen
+
+	global $default_socialmedia_liste;
+	ksort($default_socialmedia_liste);
+	global $options;
+	$olditems = false;
+	
+	$name = $defaultoptions['socialmedia_menu_name'];
+	$menu_id = wp_create_nav_menu($name);
+	$menu = get_term_by( 'name', $name, 'nav_menu' ); 
+	 
+	 
+	foreach ( $default_socialmedia_liste as $entry => $listdata ) {  
+	    $value = '';
+	    $active = 0;
+	    if (isset($options['sm-list'][$entry]['content'])) {
+		$value = esc_url($options['sm-list'][$entry]['content']);
+		if (isset($options['sm-list'][$entry]['active'])) {
+		    $active = $options['sm-list'][$entry]['active'];
+		} 
+	    }
+	    if (($active ==1) && ($value)) {
+		$olditems = true;
+		$title = esc_attr($default_socialmedia_liste[$entry]['name']);
+		
+		wp_update_nav_menu_item($menu->term_id, 0, array(
+		    'menu-item-title'	=> $title,
+		    'menu-item-url'	=> $value,
+		    'menu-item-type'	=> 'custom',
+		    'menu-item-status'	=> 'publish')
+		);
+	    }
+	}
+	if ($olditems==false) {
+	    // Keine aktiven Social Media in dem alten Options vorhanden; Befülle daher Menü mit Defaults
+	    foreach ( $default_socialmedia_liste as $entry => $listdata ) {
+		$value = esc_url($default_socialmedia_liste[$entry]['content']);
+		$active = $default_socialmedia_liste[$entry]['active'];
+		$title = esc_attr($default_socialmedia_liste[$entry]['name']);
+		
+		if (($active ==1) && ($value)) {
+		    wp_update_nav_menu_item($menu->term_id, 0, array(
+			'menu-item-title'	=> $title,
+			'menu-item-url'		=> $value,
+			'menu-item-type'	=> 'custom',
+			'menu-item-status'	=> 'publish')
+		    );
+		}
+	    }
+	}
+	
+	// Setze Menu nun an die Position
+	$pos = $defaultoptions['socialmedia_menu_position']; 
+	$locations = get_theme_mod('nav_menu_locations');
+	$locations[$pos] = $menu->term_id;
+	set_theme_mod( 'nav_menu_locations', $locations );
+
+    }
+    
+}
 /*-----------------------------------------------------------------------------------*/
 /* returns child items by parent
 /*-----------------------------------------------------------------------------------*/
@@ -255,14 +373,14 @@ function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $nothumbs = 0,
 
    
     echo '<div class="contentmenu" role="navigation">';   
-   echo '<ul class="subpages-menu">';
+    echo '<ul class="subpages-menu">';
     wp_nav_menu( array( 'menu' => $slug, 
         'container' => false, 
         'items_wrap' => '%3$s', 
         'link_before' => '', 
         'link_after' => '', 
         'walker' => new Walker_Content_Menu($menu,$submenu,$subentries,$nothumbs,$nodefthumbs)));
-   echo '</ul>';
+    echo '</ul>';
     echo "</div>\n";
 
     return;
@@ -581,3 +699,42 @@ function fau_breadcrumb($lasttitle = '') {
    echo '</nav>'; 
 
 }
+/*-----------------------------------------------------------------------------------*/
+/* Create Social Media Menu
+/*-----------------------------------------------------------------------------------*/
+function fau_get_socialmedia_menu($name = '', $ulclass = '', $withog = true) {
+    
+    if (!isset($name)) {
+	return;
+    }
+    $menu = wp_get_nav_menu_object($name);
+    $thislist = '';
+    if (isset($menu)) {
+	    $thislist = '<ul';
+	    if ($ulclass) {
+		$thislist .= ' class="'.$ulclass.'"';
+	    }
+	    $thislist .= '>';
+	    
+		$menu_items = wp_get_nav_menu_items($menu->term_id);
+		foreach ( (array) $menu_items as $key => $menu_item ) {
+		    $title = esc_attr($menu_item->title);
+		    $url = esc_url($menu_item->url);
+		    $class_names = '';
+		    $social = strtolower($title);
+		    
+		    $class_names = 'social-'.$social;
+		    
+		    $thislist .= '<li class="'.$class_names.'">';
+		    $thislist .= '<a data-wpel-link="internal" ';
+		    if ($withog) {
+			 $thislist .= ' itemprop="sameAs"';
+		    }
+		    $thislist .= 'href="' . $url . '">' . $title . '</a></li>';
+		}
+	 $thislist .= '</ul>';	
+	   
+    }
+    return $thislist;
+}
+

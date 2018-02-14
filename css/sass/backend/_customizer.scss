@@ -64,5 +64,15 @@
     }
     
     
+    .customize-control-multiple-select {
+	option:checked, 
+	option[selected] {
+	    background: $colorStandardHellgrau linear-gradient(0deg, $colorStandardHellgrau 0%, $colorStandardHellgrau 100%);
+	}
+	select[multiple]:focus option:checked {
+	  background: red linear-gradient(0deg, red 0%, red 100%);
+	}
+    }
+    
 }    
 

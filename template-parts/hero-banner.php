@@ -30,6 +30,7 @@ if (isset($banner) && ($banner > 0)) {
     $imgdata = fau_get_image_attributs($banner);
     $copyright = trim(strip_tags( $imgdata['credits'] ));
 } elseif (isset($options['startseite_banner_image_id']) && ($options['startseite_banner_image_id']>0)) {
+    /* Diese Bedingung dient der Abwärtscompatibilität; Früher haben wir die Option-Table statt theme_mods verwendet */
     $imagedata = wp_get_attachment_image_src( $options['startseite_banner_image_id'], 'herobanner' );
     $slidersrcset =  wp_get_attachment_image_srcset($options['startseite_banner_image_id'],'herobanner');
 

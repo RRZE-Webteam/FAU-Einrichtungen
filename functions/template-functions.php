@@ -1208,9 +1208,9 @@ function fau_get_orgahomelink() {
 	 */    
     $result = '';
  
-    $options['website_usefaculty'] = $defaultoptions['website_usefaculty'];
+    $website_usefaculty = $defaultoptions['website_usefaculty'];
     $isfaculty = false;
-    if ( (isset($options['website_usefaculty'])) && (in_array($options['website_usefaculty'],$default_fau_orga_faculty))) {
+    if ( (isset($website_usefaculty)) && (in_array($website_usefaculty,$default_fau_orga_faculty))) {
 	$isfaculty = true;
     }
     
@@ -1218,15 +1218,21 @@ function fau_get_orgahomelink() {
     $linkhomeimg = false;
     $linkfaculty = false;
 
+    
+    $website_type = get_theme_mod("website_type");
+    if (!isset($website_type)) {
+	$website_type = $options['website_type'];
+    }
+    
     // Using if-then-else structure, due to better performance as switch 
-    if ($options['website_type']==-1) {
+    if ($website_type==-1) {
 	$linkhome = true; // wird uber CSS unsichtbar gemacht fuer desktop und bei kleinen aufloesungen gezeigt
 	$linkfaculty = false;
 	$linkhomeimg = true;
     } elseif ($isfaculty) {
 	$linkhomeimg = true;
 	
-	if ($options['website_type']==0) {
+	if ($website_type==0) {
 	    //  0 = Fakultaetsportal oder zentrale Einrichtung
 	    $linkfaculty = false;
 	} else {
@@ -1234,31 +1240,28 @@ function fau_get_orgahomelink() {
 	}
     } else {
 	$linkhomeimg = true;
-	if ($options['website_type']==3) {
+	if ($website_type==3) {
 	    $linkhome = false;
 	}
     }
 
     $charset = fau_get_language_main();
     
-    if (isset($options['default_home_orga'])) {
-	$orga = $options['default_home_orga'];
-    } else {
-	$orga = 'fau';
-    }
+    $homeorga = 'fau';
+    
     $hometitle = $shorttitle = $homeurl = $linkimg = $linkdataset ='';
     
-    if ((isset($default_fau_orga_data[$orga])) && is_array($default_fau_orga_data[$orga])) {
-	$hometitle = $default_fau_orga_data[$orga]['title'];
-	$shorttitle = $default_fau_orga_data[$orga]['shorttitle'];
-	if (isset($default_fau_orga_data[$orga]['homeurl_'.$charset])) {
-	    $homeurl = $default_fau_orga_data[$orga]['homeurl_'.$charset];
+    if ((isset($default_fau_orga_data[$homeorga])) && is_array($default_fau_orga_data[$homeorga])) {
+	$hometitle = $default_fau_orga_data[$homeorga]['title'];
+	$shorttitle = $default_fau_orga_data[$homeorga]['shorttitle'];
+	if (isset($default_fau_orga_data[$homeorga]['homeurl_'.$charset])) {
+	    $homeurl = $default_fau_orga_data[$homeorga]['homeurl_'.$charset];
 	} else {
-	    $homeurl = $default_fau_orga_data[$orga]['homeurl'];
+	    $homeurl = $default_fau_orga_data[$homeorga]['homeurl'];
 	}
-	$linkimg = $default_fau_orga_data[$orga]['home_imgsrc'];
-	if (isset($default_fau_orga_data[$orga]['data-imgmobile'])) {
-	    $linkdataset = $default_fau_orga_data[$orga]['data-imgmobile'];
+	$linkimg = $default_fau_orga_data[$homeorga]['home_imgsrc'];
+	if (isset($default_fau_orga_data[$homeorga]['data-imgmobile'])) {
+	    $linkdataset = $default_fau_orga_data[$homeorga]['data-imgmobile'];
 	}
 
     } else {
@@ -1266,15 +1269,14 @@ function fau_get_orgahomelink() {
     }
    
     $facultytitle = $facultyshorttitle = $facultyurl = '';
-    if (($linkfaculty) && isset($default_fau_orga_data['_faculty'][$options['website_usefaculty']])) {
-	$orga =  $options['website_usefaculty'];
-	$facultytitle = $default_fau_orga_data['_faculty'][$orga]['title'];
-	$facultyshorttitle = $default_fau_orga_data['_faculty'][$orga]['shorttitle'];
+    if (($linkfaculty) && isset($default_fau_orga_data['_faculty'][$website_usefaculty])) {
+	$facultytitle = $default_fau_orga_data['_faculty'][$website_usefaculty]['title'];
+	$facultyshorttitle = $default_fau_orga_data['_faculty'][$website_usefaculty]['shorttitle'];
 
-	if (isset($default_fau_orga_data['_faculty'][$orga]['homeurl_'.$charset])) {
-	    $facultyurl = $default_fau_orga_data['_faculty'][$orga]['homeurl_'.$charset];
+	if (isset($default_fau_orga_data['_faculty'][$website_usefaculty]['homeurl_'.$charset])) {
+	    $facultyurl = $default_fau_orga_data['_faculty'][$website_usefaculty]['homeurl_'.$charset];
 	} else {
-	    $facultyurl = $default_fau_orga_data['_faculty'][$orga]['homeurl'];
+	    $facultyurl = $default_fau_orga_data['_faculty'][$website_usefaculty]['homeurl'];
 	}
 	
 	
@@ -1306,7 +1308,9 @@ function fau_get_orgahomelink() {
     if (($linkfaculty) && isset($facultyurl)) {
 	$orgalist .= '<li data-wpel-link="internal" class="facultyhome">';
 	$orgalist .= '<a href="'.$facultyurl.'">';
-	if ($options['default_faculty_useshorttitle']) {
+	
+	$useshorttitle = get_theme_mod("default_faculty_useshorttitle");
+	if ($useshorttitle) {
 	    $orgalist .= $facultyshorttitle; 
 	} else {
 	    $orgalist .= $facultytitle; 
@@ -1327,16 +1331,18 @@ function fau_get_orgahomelink() {
 /*-----------------------------------------------------------------------------------*/
 /* Erstellt Links in der Metanav oben
 /*-----------------------------------------------------------------------------------*/
-function fau_get_toplinks() {
+function fau_get_toplinks($args = array()) {
     global $default_link_liste;
-	    
+	   
+    
+    
     $uselist =  $default_link_liste['meta'];
     $result = '';
 
-    if (isset($uselist['_title'])) {
-	$result .= '<h3>'.$uselist['_title'].'</h3>';	
-	$result .= "\n";
-    }
+    // if (isset($uselist['_title'])) {
+//	$result .= '<h3>'.$uselist['_title'].'</h3>';	
+// $result .= "\n";
+//    }
     
     $orgalist = fau_get_orgahomelink();
     $thislist = "";
@@ -1389,6 +1395,16 @@ function fau_get_toplinks() {
 	$result .= $orgalist;
     }
     if (isset($thislist)) {	
+	if (is_array($args) && isset($args['title'])) {
+	    $html = 'h3';
+	    if (isset($args['titletag'])) {
+		 $html = $args['titletag'];
+	    }
+	    $html = esc_attr($html);
+	    
+	    $result .= '<'.$html.'>'.esc_attr($args['title']).'</'.$html.'>';
+	}
+	
 	$result .= '<ul id="meta-nav" class="menu">';
 	$result .= $thislist;
 	$result .= '</ul>';	

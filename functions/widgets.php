@@ -10,11 +10,9 @@
 global $options;
 
 
-/**
- * Registers our main widget area and the front page widget areas.
- *
- * @since FAU 1.0
- */
+/*-----------------------------------------------------------------------------------*/
+/* Registers our main widget area and the front page widget areas.
+/*-----------------------------------------------------------------------------------*/
 function fau_sidebars_init() {
 
 	register_sidebar( array(
@@ -39,7 +37,7 @@ function fau_sidebars_init() {
 	register_sidebar( array(
 		'name' => __( 'Social Media Infobereich (Footer)', 'fau' ),
 		'id' => 'startpage-socialmediainfo',
-		'description' => __( 'Widgetbereich neben den Social Media Icons im Footer der Startseite.', 'fau' ),
+		'description' => __( 'Widgetbereich neben den Social Media Icons im Footer.', 'fau' ),
 		'before_widget' => '<div class="span3">',
 		'after_widget' => '</div>',
 		'before_title' => '<h2 class="small">',
@@ -74,8 +72,10 @@ if (function_exists('get_field'))
         return register_widget( 'FAUMenuTagcloudWidget' );
 });
 
-class Walker_Tagcloud_Menu extends Walker_Nav_Menu
-{
+/*-----------------------------------------------------------------------------------*/
+/* Walker für eine bessere Tagcloud
+/*-----------------------------------------------------------------------------------*/
+class Walker_Tagcloud_Menu extends Walker_Nav_Menu {
 	
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 
@@ -147,9 +147,10 @@ class Walker_Tagcloud_Menu extends Walker_Nav_Menu
     
 }
 
-
-class FAUMenuTagcloudWidget extends WP_Widget
-{
+/*-----------------------------------------------------------------------------------*/
+/* Auswahl des Menus für eine Tagcloud als Widget
+/*-----------------------------------------------------------------------------------*/
+class FAUMenuTagcloudWidget extends WP_Widget {
 	public function __construct() {
 	    parent::__construct(
 		'FAUMenuTagcloudWidget', __('Tagcloud-Menü', 'fau'), array(
@@ -160,8 +161,7 @@ class FAUMenuTagcloudWidget extends WP_Widget
 	}
  
 
-	function form($instance)
-	{
+	function form($instance) {
 		$instance = wp_parse_args( (array) $instance, array( 'menu-slug' => '' ) );
 		$slug = $instance['menu-slug'];
 		if (isset($instance['title'])) {
@@ -192,8 +192,7 @@ class FAUMenuTagcloudWidget extends WP_Widget
 
 	}
 
-	function update($new_instance, $old_instance)
-	{
+	function update($new_instance, $old_instance) {
 		$instance = $old_instance;
 		$instance['menu-slug'] = $new_instance['menu-slug'];
 		$instance['title'] = $new_instance['title'];

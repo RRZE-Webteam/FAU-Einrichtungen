@@ -30,7 +30,7 @@ function fau_customizer_settings( $wp_customize ) {
     $definedtypes = array(
 	"text", "checkbox", "radio", "select", "textarea", "dropdown-pages", "email", "url", "number", "hidden", "date",
 	    // defaults
-	"bool", "html", "image", "multiselectlist"
+	"bool", "html", "image", "multiselectlist", "urlchecklist"
 	    // self defined boolean
 
     );
@@ -151,7 +151,7 @@ function fau_customizer_settings( $wp_customize ) {
 				    
 			    ) );
 			     
-			} elseif (($type == 'select') || ($type == 'multiselectlist')) {    
+			} elseif ($type == 'select')  {    
 			    $wp_customize->add_setting( $optionid , array(
 				'default'     => $default,
 				'transport'   => 'refresh',
@@ -165,6 +165,21 @@ function fau_customizer_settings( $wp_customize ) {
 				    'choices'		=>  $value['liste']
 				    
 			    ) );
+			} elseif (($type == 'multiselect') || ($type == 'multiselectlist')) {
+			    $wp_customize->add_setting( $optionid , array(
+				'default'     => $default,
+				'transport'   => 'refresh',
+			    ) );
+			    $wp_customize->add_control(  new WP_Customize_Control_Multiple_Select( $wp_customize, $optionid, array(
+				    'label'             => $title,
+				    'description'	=> $label,
+				    'section'		=> $section,
+				    'settings'		=> $optionid,
+				    'type' 		=> 'multiple-select',
+				    'choices'		=>  $value['liste']
+				    
+			    ) ) );
+
 			} elseif ($type == 'html') {    
 			    $wp_customize->add_setting( $optionid , array(
 				'default'     => $default,
@@ -256,15 +271,120 @@ function fau_customizer_settings( $wp_customize ) {
 }
 
 /*--------------------------------------------------------------------*/
-/* Sanitize bool
+/* Multiple select customize control class.
 /*--------------------------------------------------------------------*/
-function fau_sanitize_customizer_bool( $value ) {
-    if ( ! in_array( $value, array( true, false ) ) )
-        $value = false;
- 
-    return $value;
+if (class_exists('WP_Customize_Control')) {
+    class WP_Customize_Control_Multiple_Select extends WP_Customize_Control {
+	// The type of customize control being rendered.
+	public $type = 'multiple-select';
+
+	//Displays the multiple select on the customize screen.
+	public function render_content() {
+	    if ( empty( $this->choices ) )
+		return;
+	    ?>
+		<label>
+		    <?php if ( ! empty( $this->label ) ) : ?>
+                    <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+		    <?php endif;
+		    if ( ! empty( $this->description ) ) : ?>
+			<span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+		    <?php endif; ?>
+		    <select <?php $this->link(); ?> multiple="multiple" style="height: 100%;">
+			<?php
+			    foreach ( $this->choices as $value => $label ) {
+				$selected = ( in_array( $value, $this->value() ) ) ? selected( 1, 1, false ) : '';
+				echo '<option value="' . esc_attr( $value ) . '"' . $selected . '>' . $label . '</option>';
+			    }
+			?>
+		    </select>
+		</label>
+	<?php }
+    }
+}
+/*-----------------------------------------------------------------------------------*/
+/* Add Custom Customizer Controls - Category Dropdown
+/*-----------------------------------------------------------------------------------*/
+if (class_exists('WP_Customize_Control')) {
+    class WP_Customize_Colorlist_Radio extends WP_Customize_Control {
+        // The type of customize control being rendered.
+        public $type = 'colorlist-radio';
+
+        // Displays the multiple select on the customize screen.
+        public function render_content() {
+            if ( empty( $this->choices ) )
+                return;
+           ?>
+                <?php if ( ! empty( $this->label ) ) : ?>
+                    <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+                <?php endif;
+                if ( ! empty( $this->description ) ) : ?>
+                    <span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+                <?php endif; ?>
+                    <div class="colorlist-radio-group">
+                        
+                        
+                        
+                    <?php foreach ( $this->choices as $name => $value ) : ?>                        
+                        <label for="_customize-colorlist-radio_<?php echo esc_attr( $this->id ); ?>_<?php echo esc_attr( $name ); ?>" <?php if ($value=="#000") { echo 'style="color: white;"'; } ?>>
+                            <input name="_customize-colorlist-radio_<?php echo esc_attr( $this->id ); ?>" id="_customize-colorlist-radio_<?php echo esc_attr( $this->id ); ?>_<?php echo esc_attr( $name ); ?>" type="radio" value="<?php echo esc_attr( $name ); ?>" <?php $this->link(); checked( $this->value(), $name ); ?> >
+                                <span class="colorbox" style="background-color: <?php echo esc_attr( $value ); ?>">&nbsp;</span>
+                            </input>
+                            <span class="screen-reader-text"><?php echo ucfirst(esc_attr( $name) ); ?></span>
+                        </label>
+                    <?php endforeach; ?>
+                        
+                        <label for="_customize-colorlist-radio_<?php echo esc_attr( $this->id ); ?>_reset">
+                            <input name="_customize-colorlist-radio_<?php echo esc_attr( $this->id ); ?>" id="_customize-colorlist-radio_<?php echo esc_attr( $this->id ); ?>_reset" type="radio" value="" <?php $this->link(); checked( $this->value(), "" ); ?> >
+                                <span class="reset"><?php echo __("Reset",'pirate-rogue'); ?></span> 
+                            </input>
+                        </label>
+                    </div>
+	<?php }
+        
+    }
 }
 
+/*-----------------------------------------------------------------------------------*/
+/* Add Custom Customizer Controls - Category Dropdown
+/*-----------------------------------------------------------------------------------*/
+if (class_exists('WP_Customize_Control')) {
+    class WP_Customize_Category_Control extends WP_Customize_Control {
+
+        public function render_content() {
+	    ?>
+
+		    <label>
+		    <?php if ( ! empty( $this->label ) ) : ?>
+			<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+		    <?php endif;
+		    if ( ! empty( $this->description ) ) : ?>
+			<span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+		    <?php endif;
+
+
+			    $dropdown = wp_dropdown_categories(
+				array(
+				    'name'              => '_customize-dropdown-categories-' . $this->id,
+				    'echo'              => 0,
+				    'show_option_none'  => __( '&mdash; Select &mdash;' ),
+				    'option_none_value' => '0',
+				    'selected'          => $this->value(),
+				)
+			    );
+
+			    // Hackily add in the data link parameter.
+			    $dropdown = str_replace( '<select', '<select ' . $this->get_link(), $dropdown );
+			    echo $dropdown;
+
+		    ?>	
+		    </label>
+
+	    <?php
+
+        }
+    }
+}
 /*--------------------------------------------------------------------*/
 /* EOCustomizer
 /*--------------------------------------------------------------------*/

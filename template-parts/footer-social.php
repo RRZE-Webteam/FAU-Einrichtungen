@@ -5,53 +5,58 @@
  */
 
 global $options;
+global $defaultoptions;
 
 $template = get_page_template();
-$displayon = $options['active_socialmedia_footer'];
-
+$displayon = get_theme_mod("active_socialmedia_footer"); 
+if (!isset($displayon)) {
+    $displayon = $options['active_socialmedia_footer'];
+}
 $show =false;
-/*
-				1 => __('Startseite','fau'),
-      				2 => __('Portalseiten','fau'),
-      				3 => __('Suche und Fehlerseiten','fau'),
-      				4 => __('Inhaltsseite mit Navi','fau'),
-      				5 => __('Standard Seiten','fau'),
-      				6 => __('Beiträge','fau'),       
 
-*/
 
  foreach ($displayon as $key) {
     if (($key==1) && (is_page_template( 'page-templates/page-start.php' ))) {
+	// Startseite Fakultaet / Zentrale
 	$show = true;
 	break;
     } elseif (($key==1) && (is_page_template( 'page-templates/page-start-sub.php' ))) {
+	// Startseite Department / Lehrstuhl
 	$show = true;
 	break;
     } elseif (($key==2) && (is_page_template( 'page-templates/page-portal.php')))  {
+	// Portalseite
 	$show = true;
 	break;
     } elseif (($key==3) && (is_search() || is_404() ))  {
+	// Fehlerseiten
 	$show = true;
 	break;
     } elseif (($key==4) && (is_page_template( 'page-templates/page-subnav.php')))  {
+	// Seiten mit Navigation links
 	$show = true;
 	break;
     } elseif (($key==5) && (is_page()))  {
+	// Seiten
 	$show = true;
 	break;
-    } elseif (($key==6) && (is_single()))  {	 
+    } elseif (($key==6) && (is_single()))  {	
+	// Beitraege
 	$show = true;
 	break;
-    } else {
-//	echo "<!-- PAGE TEMPLATE: $template -->";
+    } elseif ($key==-1) {
+	// Alle Seiten
+	$show = true;
+	break;
     }
  }
 
  $showicons = false;
  $showsocialsidebar = false;
- if ((isset($options['socialmedia'])) && ($options['socialmedia']==true)) {
-     $showicons = true;
- }
+
+ $showicons = get_theme_mod("socialmedia");
+ 
+
  if ( is_active_sidebar( 'startpage-socialmediainfo' ) ) { 
      $showsocialsidebar = true;
  }
@@ -76,39 +81,17 @@ if ($show) {
 					<?php 
 					}
 					if ($showicons==true) {
-					    if (!empty($options['socialmedia_buttons_title'])) {
-						echo '<h2 class="small">'.$options['socialmedia_buttons_title'].'</h2>';
+					    $socialmedia_buttons_title = get_theme_mod('socialmedia_buttons_title');
+					    if (!fau_empty($socialmedia_buttons_title)) {
+						echo '<h2 class="small">'.$socialmedia_buttons_title.'</h2>';
 					    }
 
 					    global $default_socialmedia_liste;
 
 					    echo '<nav id="socialmedia" aria-label="'.__('Social Media','fau').'">';
 					    echo '<div itemscope itemtype="http://schema.org/Organization">';
-					    echo fau_create_schema_publisher(false);							
-					    echo '<ul class="social">';       
-					   
-					    ksort($default_socialmedia_liste);
-					    
-					    foreach ( $default_socialmedia_liste as $entry => $listdata ) {        
-
-						$value = '';
-						$active = 0;
-						if (isset($options['sm-list'][$entry]['content'])) {
-							$value = $options['sm-list'][$entry]['content'];
-							if (isset($options['sm-list'][$entry]['active'])) {
-							    $active = $options['sm-list'][$entry]['active'];
-							} 
-						} else {
-							$value = $default_socialmedia_liste[$entry]['content'];
-							$active = $default_socialmedia_liste[$entry]['active'];
-						 }
-
-						if (($active ==1) && ($value)) {
-						    echo '<li class="social-'.$entry.'"><a data-wpel-link="internal" itemprop="sameAs" href="'.$value.'">';
-						    echo $listdata['name'].'</a></li>';
-						}
-					    }
-					    echo '</ul>';
+					    echo fau_create_schema_publisher(false);		
+					    echo fau_get_socialmedia_menu($defaultoptions['socialmedia_menu_name'],'social',true);
 					    echo '</div>';
 					    echo '</nav>';
 					    
@@ -125,9 +108,14 @@ if ($show) {
 							dynamic_sidebar( 'startpage-socialmediainfo' ); 
 						    }  ?>
 						</div>
-						<?php if ($options['start_link_videoportal_socialmedia']) { ?>
+						<?php 
+						$showlink_videoportal = get_theme_mod("start_link_videoportal_socialmedia");
+						$urlvideoportal  = esc_url(get_theme_mod("start_title_videoportal_url"));
+						$linktitlevideportal = esc_attr(get_theme_mod("start_title_videoportal_socialmedia"));
+						
+						if ($showlink_videoportal) { ?>
 						<div class="pull-right link-all-videos">
-						    <a href="<?php echo $options['start_title_videoportal_url']; ?>"><?php echo $options['start_title_videoportal_socialmedia']; ?></a>
+						    <a href="<?php echo $urlvideoportal; ?>"><?php echo $linktitlevideportal; ?></a>
 						</div>
 						<?php } ?>
 					<?php } ?>

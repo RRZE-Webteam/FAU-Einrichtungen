@@ -159,13 +159,17 @@ $defaultoptions = array(
     'breadcrumb_withtitle'		=> false,
     
 
-    'default_logo_src'		    => get_fau_template_uri().'/img/logos/logo-default.png',
-    'default_logo_height'	    => 65,
-    'default_logo_width'	    => 240,
+    'default_logo_src'			=> get_fau_template_uri().'/img/logos/logo-default.png',
+    'default_logo_height'		=> 65,
+    'default_logo_width'		=> 240,
     
-    'socialmedia'		    => 0,
-    'active_socialmedia_footer'	    => array(0),  
-    'socialmedia_buttons_title'	    => __('FAUSocial','fau'),
+    'socialmedia'			=> 0,
+    'active_socialmedia_footer'		=> array(0),  
+    'socialmedia_buttons_title'		=> __('FAUSocial','fau'),
+    
+    'socialmedia_menu_name'		=> __( 'Social Media Menu', 'fau' ),
+    'socialmedia_menu_position'		=> 'FAU_SocialMedia_Menu_Footer',
+    'socialmedia_menu_position_title'	=> __( 'Social Media Bereich im Footer', 'fau' ),
     
     'menu_pretitle_portal'	    => __('Portal', 'fau'),
     'menu_aftertitle_portal'	    => '',
@@ -177,8 +181,6 @@ $defaultoptions = array(
    'contact_address_ort'	    => __('Erlangen', 'fau'),
    
     'contact_address_country'	    => '',
-    'display_nojs_notice'	    => 0,
-    'display_nojs_note'		    => __('JavaScript wurde deaktiviert oder Ihr Browser unterstützt kein JavaScript. Alle Inhalte sind erreichbar, jedoch ist die Bedienung teilweise umständlicher.','fau'),
     'google-site-verification'	    => '',
     'default_mainmenu_number'	    => 4,
    
@@ -263,9 +265,11 @@ $defaultoptions = array(
 ); 
 
 
-/*
- * Get Options
- */
+
+/*--------------------------------------------------------------------*/
+/* Initialisiere Options und Theme Mods 
+/*  (unter besonderer Berücksichtung der Abwärtskompatibilität alter Options)
+/*--------------------------------------------------------------------*/
 function fau_initoptions() {
     global $defaultoptions;
     global $setoptions;
@@ -274,11 +278,7 @@ function fau_initoptions() {
     
     $oldoptions = get_option($OPTIONS_NAME);
     $themeopt = get_theme_mods();
-    
-   // if ((isset($oldoptions) && (is_array($oldoptions))) && (isset($themeopt) && (is_array($themeopt)))) {
-//	 $oldoptions = array_merge($oldoptions,$themeopt);	  
-  //  }
-	
+   
     
     if (isset($oldoptions) && (is_array($oldoptions))) {
         $newoptions = array_merge($defaultoptions,$oldoptions);	  
@@ -344,6 +344,11 @@ function fau_initoptions() {
     return $newoptions;
 }
 
+/*--------------------------------------------------------------------*/
+/* Erstelle globale Kategorieliste 
+ * (für Version unter 1.9.4 benötigt
+ */
+/*--------------------------------------------------------------------*/
  $categories=get_categories(array('orderby' => 'name','order' => 'ASC'));
  $currentcatliste = array();
  foreach($categories as $category) {
@@ -351,7 +356,10 @@ function fau_initoptions() {
 	$currentcatliste[$category->cat_ID] = $category->name.' ('.$category->count.' '.__('Einträge','fau').')';
      }
  }        
-
+/*--------------------------------------------------------------------*/
+/* Durch User änderbare Konfigurationen
+ *   Ab 1.9.5 über CUstomizer, davor über Theme Options
+/*--------------------------------------------------------------------*/
 $setoptions = array(
     'fau_theme_options'   => array(
        
@@ -630,9 +638,16 @@ $setoptions = array(
 	        
 	       'socialmediafooter'  => array(
                   'type'    => 'section',
-                  'title'   => __( 'Social Media', 'fau' ),                      
+                  'title'   => __( 'Social Media', 'fau' ),    
+		   'desc'   => __( 'Einstellungen zur Anzeige von Social Media Icons. Bitte beachten Sie, daß die anzuzeigenden Icons selbst als Menü verwaltet werden. Rufen Sie hierzu die Menüeinstellungen auf und bearbeiten dort das Social Media Menü.' , 'fau'),
 		),
-	       
+	        'socialmedia' => array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Social Media Buttons anzeigen', 'fau' ),
+                  'label'   => __( 'Schaltet die Social Media Buttons insgesamt an oder aus.', 'fau' ),
+                  'parent'  => 'socialmediafooter',
+                  'default' => $defaultoptions['socialmedia'],
+		),  
 	       'active_socialmedia_footer' => array(
                   'type'    => 'multiselectlist',
                   'title'   => __( 'Social Media Footer anzeigen', 'fau' ),
@@ -643,19 +658,14 @@ $setoptions = array(
       				3 => __('Suche und Fehlerseiten','fau'),
       				4 => __('Inhaltsseite mit Navi','fau'),
       				5 => __('Standard Seiten','fau'),
-      				6 => __('Beiträge','fau'),       
+      				6 => __('Beiträge','fau'), 
+				-1 => __('Auf allen Seiten','fau'), 
 		      ),
                   'default' => $defaultoptions['active_socialmedia_footer'],
 		  'parent'  => 'socialmediafooter',
               ),  
 	       
-              'socialmedia' => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Buttons anzeigen', 'fau' ),
-                  'label'   => __( 'Welche Social Media Buttons sollen auf der Startseite angezeigt werden.', 'fau' ),
-                 
-                  'default' => $defaultoptions['socialmedia'],
-              ),  
+            
 	        'socialmedia_buttons_title' => array(
                   'type'    => 'text',
                   'title'   => __( 'Titel Socialmediabereich', 'fau' ),
@@ -664,14 +674,7 @@ $setoptions = array(
 		    'parent'  => 'socialmediafooter',
   
 		),        
-	       
-	       
-	      'sm-list'  => array(
-		  'type'    => 'urlchecklist',
-		  'title'   => __( 'Social Media Portale', 'fau' ),
-		  'liste'   => $default_socialmedia_liste,
-		  'parent'  => 'socialmediafooter',
-	      ), 
+	      
 	     'start_link_videoportal_socialmedia'  => array(
                   'type'    => 'bool',
                   'title'   => __( 'Verlinke Videoportal', 'fau' ),
