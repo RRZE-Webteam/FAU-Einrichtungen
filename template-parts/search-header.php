@@ -10,9 +10,9 @@ global $options;
 ?>
 
 <form id="search-header" role="search" method="get" class="searchform" action="<?php echo fau_esc_url(home_url( '/' ))?>">
-	<label for="s"><?php _e('Suchbegriff eingeben','fau'); ?></label>
+	<label for="headsearchinput"><?php _e('Suchbegriff eingeben','fau'); ?></label>
 	<span class="searchicon"> </span>
-	<input type="text" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>">
+	<input id="headsearchinput" type="text" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>">
 	<?php 
 	if ($options['search_allowfilter']) {
 	    $autosearch_types =  $options['search_post_types_checked'];

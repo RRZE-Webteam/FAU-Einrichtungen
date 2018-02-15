@@ -572,7 +572,16 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	    if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
 		$imageurl = $options['default_postthumb_src'];
 	    }
-	    $output .= '<img itemprop="thumbnailUrl" src="'.fau_esc_url($imageurl).'" width="'.$imgwidth.'" height="'.$imgheight.'" alt=""';
+	    $output .= '<img itemprop="thumbnailUrl" src="'.fau_esc_url($imageurl).'" width="'.$imgwidth.'" height="'.$imgheight.'"';
+	    
+	    
+	    $pretitle = $options['advanced_blogroll_thumblink_alt_pretitle'];
+	    $posttitle = $options['advanced_blogroll_thumblink_alt_posttitle'];
+	    $alttext = $pretitle.get_the_title($post->ID).$posttitle;
+	    $alttext = esc_html($alttext);
+	
+	    $output .= ' alt="'.$alttext.'"';
+	    
 	    if ($imgsrcset) {
 		$output .= ' srcset="'.$imgsrcset.'"';
 	    }
@@ -712,9 +721,9 @@ function fau_create_readmore($url,$linktitle = '',$external = false, $ariahide =
 	}
 	$output .= '>';
 	$output .= '<i class="read-more-arrow">&nbsp;</i>';
-	if ($ariahide===false) {
+//	if ($ariahide == false) {
 	    $output .= '<span class="screen-reader-text">'.__('Weiterlesen','fau').'</span>'; 
-	}
+//	}
 	$output .= '</a>'; 
     }
     return $output;

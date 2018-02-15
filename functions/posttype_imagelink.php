@@ -287,23 +287,23 @@ function fau_get_imagelinks ( $catid, $echo = true ) {
 	    }
 	    $item_output .= '<li>';
 	    $item_output .= '<a rel="nofollow" href="'.$currenturl.'">';
+
+
+	    $alttext = get_the_title($item->ID);
+	    $alttext = esc_html($alttext);
+	    $altattr = 'alt="'.$alttext.'"';
 	    
 	    
-	    $item_output .= get_the_post_thumbnail($item->ID, 'logo-thumb');
-	    /*
-	     * Falls ich bei den ALT-Tag lieber auf Empty wechseln will, dann diesen Code
-	     * aktivieren: 
-	     * 
 	    $post_thumbnail_id = get_post_thumbnail_id( $item->ID ); 
 	    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id, 'logo-thumb' );
 	    $slidersrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'logo-thumb');
 	    
-	    $item_output .= '<img src="'.$sliderimage[0].'" alt="" width="'.$sliderimage[1].'" height="'.$sliderimage[2].'"';
+	    $item_output .= '<img src="'.$sliderimage[0].'" '.$altattr.' width="'.$sliderimage[1].'" height="'.$sliderimage[2].'"';
 	    if ($slidersrcset) {
 		$item_output .= 'srcset="'.$slidersrcset.'"';
 	    }
 	    $item_output .= '>';
-	    */
+	 
 	    
 	    $item_output .= '</a>';
 	    $item_output .= '</li>';
