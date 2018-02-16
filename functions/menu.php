@@ -730,11 +730,14 @@ function fau_get_socialmedia_menu($name = '', $ulclass = '', $withog = true) {
 		    $title = esc_attr($menu_item->title);
 		    $url = esc_url($menu_item->url);
 		    $class_names = '';
-		    $social = strtolower($title);
+		    $social = fau_sanitize_socialmedia_classes($title);
+		    if ($social) {
+			$class_names = 'social-'.$social;
+			$thislist .= '<li class="'.$class_names.'">';
+		    } else {
+			$thislist .= '<li class="social-iconbyurl">';
+		    }
 		    
-		    $class_names = 'social-'.$social;
-		    
-		    $thislist .= '<li class="'.$class_names.'">';
 		    $thislist .= '<a data-wpel-link="internal" ';
 		    if ($withog) {
 			 $thislist .= ' itemprop="sameAs"';

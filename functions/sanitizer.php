@@ -53,3 +53,18 @@ function fau_sanitize_customizer_bool( $value ) {
  
     return $value;
 }
+/*--------------------------------------------------------------------*/
+/* Sanitize known social media for classes
+/*--------------------------------------------------------------------*/
+function fau_sanitize_socialmedia_classes( $socialmedia ) {
+    if (!empty($socialmedia)) {
+	$socialmedia = esc_attr($socialmedia);
+	$socialmedia = strtolower($socialmedia);
+	if ( ! in_array( $socialmedia, 
+		array( 'facebook', 'twitter', 'instagram', 'pinterest', 'delicious', 'diaspora', 'gplus', 
+			'flickr', 'itunes', 'skype',  'xing',  'tumblr', 'github', 'feed',  'wikipedia'  ) ) ) {
+		$socialmedia = '';
+	}
+    }
+    return $socialmedia;
+}
