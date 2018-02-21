@@ -30,7 +30,7 @@ function fau_customizer_settings( $wp_customize ) {
     $definedtypes = array(
 	"text", "checkbox", "radio", "select", "textarea", "dropdown-pages", "email", "url", "number", "hidden", "date",
 	    // defaults
-	"bool", "html", "image", "multiselectlist", "urlchecklist"
+	"bool", "html", "image", "multiselectlist", "urlchecklist", "range", "range-value"
 	    // self defined boolean
 
     );
@@ -150,7 +150,43 @@ function fau_customizer_settings( $wp_customize ) {
 				    'type' 		=> 'checkbox',
 				    
 			    ) );
-			     
+			} elseif (($type == 'range') || ($type == 'range-value')) {
+			    $wp_customize->add_setting( $optionid , array(
+				'default'     => $default,
+				'transport'   => 'refresh',
+				'sanitize_callback' => 'fau_sanitize_customizer_range'
+			    ) );
+			    
+			    $min = 0;
+			    $max = $step = 1;
+			    $suffix = '';
+			    
+			    if (isset($value['min'])) {
+				$min = $value['min'];
+			    }
+			     if (isset($value['max'])) {
+				$max = $value['max'];
+			    }
+			    if (isset($value['step'])) {
+				$step = $value['step'];
+			    }
+			    if (isset($value['suffix'])) {
+				$suffix = $value['suffix'];
+			    }
+			   
+			    $wp_customize->add_control( new WP_Customize_Range_Value_Control( $wp_customize, $optionid, array(
+				    'type'     => 'range-value',
+				    'label'             => $title,
+				    'description'	=> $label,
+				    'section'		=> $section,
+				    'settings'		=> $optionid,
+				    'input_attrs' => array(
+					    'min'    => $min,
+					    'max'    => $max,
+					    'step'   => $step,
+					    'suffix' => $suffix, //optional suffix
+				    ),
+			    ) ) );
 			} elseif ($type == 'select')  {    
 			    $wp_customize->add_setting( $optionid , array(
 				'default'     => $default,
@@ -268,6 +304,31 @@ function fau_customizer_settings( $wp_customize ) {
 	
     }
     
+    
+    /*-----------------------------------------------------------------------------------*/
+    /* Plugin FAU ORGA Breadcrumb: Add to customizer
+    /*-----------------------------------------------------------------------------------*/
+
+    if ( is_plugin_active( 'fau-orga-breadcrumb/fau-orga-breadcrumb.php' ) ) {
+	// Wenn das FAU.ORG Plugin vorhanden und aktiv ist, erlaube es hier, die Option
+	// dazu zu verwalten
+
+       $wp_customize->add_setting( 'fau_orga_breadcrumb_options[site-orga]', array(
+	    'default'		    => '',
+	    'sanitize_callback'	    => 'wp_kses_post',
+	    'type'		    => 'option'
+	) );
+	$wp_customize->add_control( 'fau_orga_breadcrumb_options[site-orga]', array(
+		'label'		    => esc_html__( 'Organisatorische Zuordnung', 'fau'),
+		'description'	    => esc_html__( 'Wählen Sie hier die organisatorische Einheit aus, zu der Ihre Einrichtung oder Ihr Webauftritt gehört.', 'fau'),
+		'section'	    => 'webgroup',
+		'type'		    => 'select',
+		'choices'	    => get_fau_orga_breadcrumb_customizer_choices(),
+		'priority'	    => 3,
+	) );
+    }
+    
+    
 }
 
 /*--------------------------------------------------------------------*/
@@ -383,6 +444,31 @@ if (class_exists('WP_Customize_Control')) {
 	    <?php
 
         }
+    }
+}
+/*-----------------------------------------------------------------------------------*/
+/* Add Custom Customizer Controls - Range Value Control
+ * adapted from https://github.com/soderlind/class-customizer-range-value-control 
+/*-----------------------------------------------------------------------------------*/
+if (class_exists('WP_Customize_Control')) {
+    class WP_Customize_Range_Value_Control extends WP_Customize_Control {
+	public $type = 'range-value';
+
+	
+	public function render_content() {
+		?>
+		<label>
+			<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+			<div class="range-slider"  style="width:100%; display:flex;flex-direction: row;justify-content: flex-start;">
+				<span  style="width:100%; flex: 1 0 0; vertical-align: middle;"><input class="range-slider__range" type="range" value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->input_attrs(); $this->link(); ?>>
+				<span class="range-slider__value">0</span></span>
+			</div>
+			<?php if ( ! empty( $this->description ) ) : ?>
+			<span class="description customize-control-description"><?php echo $this->description; ?></span>
+			<?php endif; ?>
+		</label>
+		<?php
+	}
     }
 }
 /*--------------------------------------------------------------------*/

@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 29,
+    'optiontable-version'		=> 30,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -423,7 +423,7 @@ $setoptions = array(
 	       
                'pubadresse'  => array(
                   'type'    => 'section',
-                  'title'   => __( 'Öffentliche Adresse im Fußteil', 'fau' ),                      
+                  'title'   => __( 'Adressdaten', 'fau' ),                      
 		),
 		'contact_address_name' => array(
                   'type'    => 'text',
@@ -563,6 +563,29 @@ $setoptions = array(
 		  'parent'  => 'postoptions'
               ),  
 	       
+	       'post_display_tags_below' => array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Zeige Schlagworte', 'fau' ),
+                  'label'   => __( 'Zeige die Schlagworte eines Beitrags unterhalb des Artikels', 'fau' ),                
+                  'default' => $defaultoptions['post_display_tags_below'],
+		  'parent'  => 'postoptions'
+              ),  
+	       'advanced_display_postthumb_credits'	  => array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Copyright-Hinweis', 'fau' ),
+                  'label'   => __( 'In Beiträgen wird das Artikelbild mit einem Copyright-Hinweis des Bildes versehen, wenn ein solcher Hinweis vorhanden ist.', 'fau' ),                
+                  'default' => $defaultoptions['advanced_display_postthumb_credits'],
+		  'parent'  => 'postoptions'
+              ), 
+	       'advanced_activate_post_comments'		  => array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Kommentarfunktion', 'fau' ),
+                  'label'   => __( 'Schaltet die Kommentarfunktion für Beiträge ein. Die Kommentare erscheinen unterhalb des Artikels. Bitte beachten Sie, daß diese Darstellung von KOmmentarfunktionen ebenfalls von den Diskussions-Einstellungen abhängig sind.', 'fau' ),                
+                  'default' => $defaultoptions['advanced_activate_post_comments'],
+		  'parent'  => 'postoptions'
+		), 
+	       
+	       
 	    'topevents'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Top Events', 'fau' ),                      
@@ -571,28 +594,30 @@ $setoptions = array(
 	    'start_topevents_active' => array(
                   'type'    => 'bool',
                   'title'   => __( 'Aktivieren', 'fau' ),
-                  'label'   => __( 'Anzeige der Top-Events auf der Startseite aktivieren', 'fau' ),               
+                  'label'   => __( 'Anzeige der Top-Events aktivieren', 'fau' ),               
                   'default' => $defaultoptions['start_topevents_active'],
 		  'parent'  => 'topevents'
             ),  
 	     
 	    'topevents_templates' => array(
-                  'type'    => 'multiselectlist',
-                  'title'   => __( 'Seitentypen', 'fau' ),
-                  'label'   => __( 'Auf welchen Seiten sollen Top Events in der Sidebar angezeigt werden.', 'fau' ),
-		  'liste'   => array(
+		    'type'    => 'multiselectlist',
+		    'title'   => __( 'Seitentypen', 'fau' ),
+		    'label'   => __( 'Auf welchen Seiten sollen Top Events in der Sidebar angezeigt werden.', 'fau' ),
+		    'liste'   => array(
 				1 => __('Startseite','fau'),
       				2 => __('Portalseiten','fau'),
       				3 => __('Suche und Fehlerseiten','fau'),
 		      ),
-                  'default' => $defaultoptions['topevents_templates'],
+		    'default' => $defaultoptions['topevents_templates'],
+		    'parent'  => 'topevents'
             ),     
            'start_topevents_max'=> array(
-                  'type'    => 'select',
-                  'title'   => __( 'Zahl der Top-Events', 'fau' ),
-                  'label'   => __( 'Wieviele Top-Events sollen maximal angezeigt werden', 'fau' ),
-		  'liste'   => array(1 => 1,2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6),
+                  'type'    => 'range-value',
+                  'title'   => __( 'Anzahl Top-Events', 'fau' ),
+                  'label'   => __( 'Wieviele Top-Events sollen maximal angezeigt werden.', 'fau' ),
                   'default' => $defaultoptions['start_topevents_max'],
+		  'min'	    => 1,
+		  'max'	    => 6,		  
                   'parent'  => 'topevents'
             ),   
 	    
@@ -742,13 +767,7 @@ $setoptions = array(
                   'default' => $defaultoptions['advanced_display_hero_credits'],
 		  'parent'  => 'design'
               ),  
-	       'advanced_display_postthumb_credits'	  => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Copyright-Hinweis Beiträge', 'fau' ),
-                  'label'   => __( 'In Beiträgen wird das Artikelbild mit einem Copyright-Hinweis des Bildes versehen, wenn vorhanden', 'fau' ),                
-                  'default' => $defaultoptions['advanced_display_postthumb_credits'],
-		  'parent'  => 'design'
-              ), 
+	     
 	          'advanced_images_info_credits' => array(
 		    'type'    => 'select',
 		    'title'   => __( 'Copyright-Info ermitteln', 'fau' ),
@@ -779,6 +798,35 @@ $setoptions = array(
 		),   
 	       
 	       
+	       'sliderpars'  => array(
+                  'type'    => 'section',
+                  'title'   => __( 'Slider', 'fau' ),    
+		  'desc'    => __( 'Einstellungen für die wechselnden Bilder auf der Startseite für Fakultäten.', 'fau' ),
+              ),
+              
+	     'start_header_count'=> array(
+                  'type'    => 'range-value',
+                  'title'   => __( 'Zahl der Slides', 'fau' ),
+                  'label'   => __( 'Anzahl der Slides von verlinkten Top-Artikeln', 'fau' ),
+		  'min'	    => 2,
+		  'max'	    => 7,	
+                  'default' => $defaultoptions['start_header_count'],
+                   'parent'  => 'sliderpars'
+              ), 
+
+               
+              'slider-catid' => array(
+                  'type'    => 'select',
+                  'title'   => __( 'Kategorie', 'fau' ),
+                  'label'   => __( 'Bitte wählen Sie die Kategorie der Artikel aus, die im Slider erscheinen sollen.', 'fau' ),
+                  'liste'   => $currentcatliste,
+                  'default' => $defaultoptions['slider-catid'],
+                   'parent'  => 'sliderpars'
+              ), 
+
+	       
+	       
+	       
           )
        ),
         'templates'   => array(
@@ -792,12 +840,13 @@ $setoptions = array(
               ),
 	       
 	       'start_max_newscontent'=> array(
-                  'type'    => 'select',
+                  'type'    => 'range-value',
                   'title'   => __( 'Zahl der Artikel (Gesamt)', 'fau' ),
                   'label'   => __( 'Anzahl der News auf der Startseite unterhalb des Sliders', 'fau' ),
-		  'liste'   => array(0=> 0, 1=> 1, 2 => 2,3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7),
                   'default' => $defaultoptions['start_max_newscontent'],
-		   'parent'  => 'newsbereich'
+		   'parent'  => 'newsbereich',
+		   'min'	    => 0,
+		  'max'	    => 7,	
               ),  
 	        'start_prefix_tag_newscontent' => array(
                   'type'    => 'text',
@@ -809,10 +858,11 @@ $setoptions = array(
 	       
 	       
 	       'start_max_newspertag'=> array(
-                  'type'    => 'select',
+                  'type'    => 'range-value',
                   'title'   => __( 'Artikel mit gleichem Positionierungs-Tag', 'fau' ),
                   'label'   => __( 'Anzahl der Artikel mit dem gleichen Prefix-Tag (Positionierung), die angezeigt werden sollen. Normalerweise sollte hier nur 1 Artikel auf der ersten Position sein.', 'fau' ),
-		   'liste'   => array(1 => 1, 2 => 2,3 => 3, 4 => 4, 5 => 5),
+		   'min'	    => 1,
+		  'max'	    => 5,
                   'default' => $defaultoptions['start_max_newspertag'],
 		    'parent'  => 'newsbereich'
               ),  
@@ -853,30 +903,7 @@ $setoptions = array(
 	       
            
              
-	       'sliderpars'  => array(
-                  'type'    => 'section',
-                  'title'   => __( 'Startseite Fakultät Slider', 'fau' ),                      
-              ),
-              
-	     'start_header_count'=> array(
-                  'type'    => 'select',
-                  'title'   => __( 'Zahl der Slides', 'fau' ),
-                  'label'   => __( 'Anzahl der Slides von verlinkten Top-Artikeln', 'fau' ),
-		  'liste'   => array(2 => 2,3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7),
-                  'default' => $defaultoptions['start_header_count'],
-                   'parent'  => 'sliderpars'
-              ), 
-
-               
-              'slider-catid' => array(
-                  'type'    => 'select',
-                  'title'   => __( 'Kategorie', 'fau' ),
-                  'label'   => __( 'Bitte wählen Sie die Kategorie der Artikel aus die im Slider erscheinen sollen.', 'fau' ),
-                  'liste'   => $currentcatliste,
-                  'default' => $defaultoptions['slider-catid'],
-                   'parent'  => 'sliderpars'
-              ), 
-
+	       
           )
        ), 
        'advanced'   => array(
@@ -1061,13 +1088,7 @@ $setoptions = array(
                   'type'    => 'section',
                   'title'   => __( 'Kommentare', 'fau' ),                      
 		),
-	       'advanced_activate_post_comments'		  => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Kommentarfunktion aktivieren', 'fau' ),
-                  'label'   => __( 'Schaltet die Kommentarfunktion für Beiträge ein.', 'fau' ),                
-                  'default' => $defaultoptions['advanced_activate_post_comments'],
-		  'parent'  => 'kommentare'
-		), 
+	       
 	        'advanced_comments_notes_before'	  => array(
                   'type'    => 'text',
                   'title'   => __( 'Hinweistext Eingabeformular', 'fau' ),
