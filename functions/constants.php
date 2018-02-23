@@ -48,8 +48,7 @@ $defaultoptions = array(
     'optionpage-tab-default'		=> 'website',
     'content-width'			=> 770,
     'src-fallback-slider-image'		=> get_fau_template_uri().'/img/slider-fallback.jpg',
-    'slider-category'			=> 'header',
-    'slider-catid'			=> 1,    
+    'slider-catid'			=> 0,    
     'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.min.js',
     'src-pluginsjs'			=> get_fau_template_uri() . '/js/libs/plugins.min.js',
     'default_slider_excerpt_length'	=> 240,
@@ -157,8 +156,8 @@ $defaultoptions = array(
     'breadcrumb_afterhtml'		=> '</span>',
     'breadcrumb_uselastcat'		=> true,
     'breadcrumb_withtitle'		=> false,
-    
-
+    'breadcrumb_withtitle_parent_page'	=> true,
+    'breadcrumb_showcurrent'		=> false,
     'default_logo_src'			=> get_fau_template_uri().'/img/logos/logo-default.png',
     'default_logo_height'		=> 65,
     'default_logo_width'		=> 240,
@@ -230,17 +229,16 @@ $defaultoptions = array(
     'advanced_activate_glossary'	    => false,
   
 
-    'post_display_category_below'	=> true,
-    'post_display_tags_below'		=> true,
-    'search_display_post_thumbnails'	=> true,
-    'search_display_post_cats'		=> true,
-    'search_display_continue_arrow'		=> true,
-    'search_display_excerpt_morestring'		=> '...',
-    'search_display_typenote'		=> true,
-    'search_post_types'			=> array("page", "post",  "person", "attachment"),
-    'search_post_types_checked'			=> array("page", "post"),
-    
-    'search_allowfilter'		=> true,
+    'post_display_category_below'	    => true,
+    'post_display_tags_below'		    => true,
+    'search_display_post_thumbnails'	    => true,
+    'search_display_post_cats'		    => true,
+    'search_display_continue_arrow'	    => true,
+    'search_display_excerpt_morestring'	    => '...',
+    'search_display_typenote'		    => true,
+    'search_post_types'			    => array("page", "post", "attachment"),
+    'search_post_types_checked'		    => array("page", "post"),
+    'search_allowfilter'		    => true,
    
     'plugin_fau_person_headline'	=> true,
     'plugin_fau_person_malethumb'	=> get_fau_template_uri().'/img/platzhalter-mann.png',
@@ -282,7 +280,6 @@ $defaultoptions = array(
 ); 
 
 
-
 /*--------------------------------------------------------------------*/
 /* Initialisiere Options und Theme Mods 
 /*  (unter besonderer Berücksichtung der Abwärtskompatibilität alter Options)
@@ -321,18 +318,13 @@ function fau_initoptions() {
 	
     } else {
         $newoptions = $defaultoptions;
-	if (!fau_empty(get_bloginfo( 'title' ))) {
-	    $newoptions['breadcrumb_root'] = get_bloginfo( 'title' );
-	}
+	
     }       
     
     $theme_data = wp_get_theme();
     $newoptions['version'] =  $theme_data->Version;
     
-    if (class_exists('FAU_Studienangebot')) {
-	$newoptions['search_post_types'][] ='studienangebot';
-    }
-    
+   
     $update_thememods = false;
     // Fuer Abwaertscompatibilitaet zu alten Images aus dem Option Settings:
     foreach($setoptions[$OPTIONS_NAME] as $tab => $f) {       
@@ -361,6 +353,20 @@ function fau_initoptions() {
     return $newoptions;
 }
 
+/*--------------------------------------------------------------------*/
+/* Suchfelder
+/*--------------------------------------------------------------------*/
+function fau_get_searchable_fields() {
+    $search_post_types = array("page", "post", "attachment");
+    
+    if (class_exists('FAU_Studienangebot')) {
+	$search_post_types[] ='studienangebot';
+    }
+    if (class_exists('FAU_Person')) {
+	$search_post_types[] ='person';
+    }
+    return $search_post_types;
+}
 /*--------------------------------------------------------------------*/
 /* Erstelle globale Kategorieliste 
  * (für Version unter 1.9.4 benötigt
@@ -520,31 +526,7 @@ $setoptions = array(
                   'default' => $defaultoptions['title_banner-ad-notice'],
               ),  
    
-		'title_hero_post_categories'	 => array(
-		    'type'    => 'text',
-		    'title'   => __( 'Bühnentitel Kategorieseiten', 'fau' ),
-		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Kategorieseiten von Nachrichten hinterlegt werden.', 'fau' ),               
-		    'default' => $defaultoptions['title_hero_post_categories'],
-		), 
-		'title_hero_post_archive'	 => array(
-		    'type'    => 'text',
-		    'title'   => __( 'Bühnentitel Beitragsarchiv', 'fau' ),
-		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Archivseiten von Nachrichten hinterlegt werden.', 'fau' ),               
-		    'default' => $defaultoptions['title_hero_post_archive'],
-		), 
-	       'title_hero_search'	 => array(
-		    'type'    => 'text',
-		    'title'   => __( 'Bühnentitel Suche', 'fau' ),
-		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Suchergebnisseiten hinterlegt werden.', 'fau' ),               
-		    'default' => $defaultoptions['title_hero_search'],
-		), 
-	       'title_hero_events'	 => array(
-		    'type'    => 'text',
-		    'title'   => __( 'Bühnentitel Veranstaltungen', 'fau' ),
-		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Seiten zu Veranstaltungen hinterlegt werden.', 'fau' ),               
-		    'default' => $defaultoptions['title_hero_events'],
-		), 
-	           
+		
 	       
 	       
 
@@ -584,6 +566,23 @@ $setoptions = array(
                   'default' => $defaultoptions['advanced_activate_post_comments'],
 		  'parent'  => 'postoptions'
 		), 
+	       
+	       
+	        'advanced_comments_notes_before'	  => array(
+                  'type'    => 'text',
+                  'title'   => __( 'Hinweistext Eingabeformular', 'fau' ),
+                  'label'   => __( 'Informationen über den Eingabefeldern für neue Kommentare.', 'fau' ),                
+                  'default' => $defaultoptions['advanced_comments_notes_before'],
+		  'parent'  => 'postoptions'
+		), 
+	        'advanced_comments_disclaimer'	  => array(
+                  'type'    => 'text',
+                  'title'   => __( 'Kommentar-Disclaimer', 'fau' ),
+                  'label'   => __( 'Hinweistext zur Abgrenzung zum Inhalt der Kommentare.', 'fau' ),                
+                  'default' => $defaultoptions['advanced_comments_disclaimer'],
+		  'parent'  => 'postoptions'
+		), 
+	       
 	       
 	       
 	    'topevents'  => array(
@@ -650,10 +649,13 @@ $setoptions = array(
 		  'parent'  => 'suchergebnisse'
 		),   
 		'default_search_excerpt_length' => array(
-                  'type'    => 'number',
+                  'type'    => 'range-value',
                   'title'   => __( 'Länge Textauszug', 'fau' ),
                   'label'   => __( 'Anzahl der maximalen Zeichen für den Textauszug bei der Ergebnisliste.', 'fau' ),                
                   'default' => $defaultoptions['default_search_excerpt_length'],
+		    'min'   => 80,
+		    'max'   => 500,
+		    'step'  => 10,
 		  'parent'  => 'suchergebnisse'
 		),   
 		'search_display_excerpt_morestring'=> array(
@@ -669,6 +671,9 @@ $setoptions = array(
                   'default' => $defaultoptions['search_display_typenote'],
 		  'parent'  => 'suchergebnisse'
 		),    
+	       
+	       
+   
 	       'search_allowfilter' => array(
                   'type'    => 'bool',
                   'title'   => __( 'Suche filterbar', 'fau' ),
@@ -676,7 +681,20 @@ $setoptions = array(
                   'default' => $defaultoptions['search_allowfilter'],
 		  'parent'  => 'suchergebnisse'
 		),    
+	        'search_post_types_checked' => array(
+		    'type'    => 'multiselectlist',
+		    'title'   => __( 'Filter', 'fau' ),
+		    'label'   => __( 'Vorab aktivierte Suchbereiche des Filters. In diesen wird gesucht, wenn der Nutzer der Seite keine Auswahl trifft oder diese nicht zur Verfügung gestellt wird.', 'fau' ),
+		    'liste'   => array(
+				"page"		=> __('Seiten','fau'),
+      				"post"		=> __('Artikel','fau'),
+				"attachment"	=> __('Medien','fau'),
+		      ),
+		    'default' => $defaultoptions['search_post_types_checked'],
+		    'parent'  => 'suchergebnisse'
+            ),     
 	       
+
 	        
 	       'socialmediafooter'  => array(
                   'type'    => 'section',
@@ -745,28 +763,14 @@ $setoptions = array(
                   'title'   => __( 'Design', 'fau' ),       
 		  'user_level'	=> 2,
               ),
-	        'advanced_page_start_herojumplink' => array(
+	       'galery_link_original'	  => array(
                   'type'    => 'bool',
-                  'title'   => __( 'Sprunglink unter der Bühne', 'fau' ),
-                  'label'   => __( 'Aktiviert die Schaltung eines Sprunglinks unterhalb der Bühne der Startseite, wenn das Browserfenster eine Größe zwischen 700px und 900px Höhe hat.', 'fau' ),                
-                  'default' => $defaultoptions['advanced_page_start_herojumplink'],
-		  'parent'  => 'design'
-		),  
-
-		'galery_link_original'	  => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Verlinke Galerybilder', 'fau' ),
+                  'title'   => __( 'Verlinke Galeriebilder', 'fau' ),
                   'label'   => __( 'Bei der Anzeige einer Defaultgalerie unter der Bildunterschrift eine Verlinkung auf das Originalbild einschalten', 'fau' ),                
                   'default' => $defaultoptions['galery_link_original'],
 		  'parent'  => 'design'
 		),   
-	       'advanced_display_hero_credits'	  => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Copyright-Hinweis Startseite', 'fau' ),
-                  'label'   => __( 'Auf der Startseite wird im Slider bzw. im Banner der Copyright-Hinweis des Bildes angezeigt, wenn vorhanden', 'fau' ),                
-                  'default' => $defaultoptions['advanced_display_hero_credits'],
-		  'parent'  => 'design'
-              ),  
+	      
 	     
 	          'advanced_images_info_credits' => array(
 		    'type'    => 'select',
@@ -777,31 +781,14 @@ $setoptions = array(
 		    'default' => $defaultoptions['advanced_images_info_credits'],
 		    'parent'  => 'design'
               ), 
-	       
-	        'breadcrumb'  => array(
-		    'type'    => 'section',
-		    'title'   => __( 'Breadcrumb', 'fau' ),                      
-		),
-		'breadcrumb_root'	 => array(
-		    'type'    => 'text',
-		    'title'   => __( 'Titel Startseite in Breadcrumb', 'fau' ),
-		    'label'   => __( 'Definiert, wie der Link zur Startseite in der Breadcrumb aussehen soll. Per Default sollte hier die offizielle URL stehen; bspw. <code>phil.fau.de</code>.', 'fau' ),               
-		    'default' => $defaultoptions['breadcrumb_root'],
-		    'parent'  => 'breadcrumb'
-		), 
-		'breadcrumb_withtitle'	  => array(
-		    'type'    => 'bool',
-		    'title'   => __( 'Website-Titel', 'fau' ),
-		    'label'   => __( 'Zeige den Website-Titel oberhalb der Breadcrumb', 'fau' ),                
-		    'default' => $defaultoptions['breadcrumb_withtitle'],
-		    'parent'  => 'breadcrumb'
-		),   
+	             
 	       
 	       
-	       'sliderpars'  => array(
+	       
+	       'slider'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Slider', 'fau' ),    
-		  'desc'    => __( 'Einstellungen für die wechselnden Bilder auf der Startseite für Fakultäten.', 'fau' ),
+		  'desc'    => __( 'Einstellungen für die wechselnden Bilder auf Startseiten.', 'fau' ),
               ),
               
 	     'start_header_count'=> array(
@@ -811,20 +798,119 @@ $setoptions = array(
 		  'min'	    => 2,
 		  'max'	    => 7,	
                   'default' => $defaultoptions['start_header_count'],
-                   'parent'  => 'sliderpars'
+                   'parent'  => 'slider'
               ), 
-
-               
+      
               'slider-catid' => array(
-                  'type'    => 'select',
+                  'type'    => 'category',
                   'title'   => __( 'Kategorie', 'fau' ),
                   'label'   => __( 'Bitte wählen Sie die Kategorie der Artikel aus, die im Slider erscheinen sollen.', 'fau' ),
-                  'liste'   => $currentcatliste,
                   'default' => $defaultoptions['slider-catid'],
-                   'parent'  => 'sliderpars'
+                   'parent'  => 'slider'
               ), 
 
+	       'fallback-slider-image' => array(
+		    'type'    => 'image',
+		    'maxwidth'	=> $defaultoptions['slider-image-width'],
+		    'maxheight'	=> $defaultoptions['slider-image-height'],
+		    'title'   => __( 'Slider Ersatzbild', 'fau' ),
+		    'label'   => __( 'Ersatzbild für den Slider, für den Fall, daß ein Artikel kein eigenes Artikel- oder Bühnenbild definiert hat.', 'fau' ),               
+		    'parent'  => 'slider'
+		),  
+
+	       'default_slider_excerpt_length' => array(
+                  'type'    => 'range-value',
+                  'title'   => __( 'Textauszug', 'fau' ),
+                  'label'   => __( 'Maximale Länge des Teasers des verlinkten Beitrags.', 'fau' ),
+		  'min'	    => 0,
+		  'max'	    => 350,	
+		   'step'   => 10,
+                  'default' => $defaultoptions['default_slider_excerpt_length'],
+                   'parent'  => 'slider'
+              ), 
 	       
+	       
+	      'breadcrumb'  => array(
+                  'type'    => 'section',
+                  'title'   => __( 'Bühne und Breadcrumb', 'fau' ),    
+		  'desc'    => __( 'Einstellungen für den Kopfteil der Startseite und die Breadcrumb.', 'fau' ),
+              ),
+	         'advanced_page_start_herojumplink' => array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Sprunglink unter der Bühne', 'fau' ),
+                  'label'   => __( 'Aktiviert die Schaltung eines Sprunglinks unterhalb der Bühne, wenn das Browserfenster eine Größe zwischen 700px und 900px Höhe hat.', 'fau' ),                
+                  'default' => $defaultoptions['advanced_page_start_herojumplink'],
+		  'parent'  => 'breadcrumb'
+		),  	
+	       'advanced_display_hero_credits'	  => array(
+                  'type'    => 'bool',
+                  'title'   => __( 'Copyright-Hinweis Startseite', 'fau' ),
+                  'label'   => __( 'Auf der Startseite wird im Slider bzw. im Banner der Copyright-Hinweis des Bildes angezeigt, wenn vorhanden', 'fau' ),                
+                  'default' => $defaultoptions['advanced_display_hero_credits'],
+		  'parent'  => 'breadcrumb'
+              ),  
+	       
+	      'breadcrumb_root'	 => array(
+		    'type'    => 'text',
+		    'title'   => __( 'Titel Startseite in Breadcrumb', 'fau' ),
+		    'label'   => __( 'Definiert, wie der Link zur Startseite in der Breadcrumb aussehen soll. Per Default sollte hier die offizielle URL oder der Text "Startseite" stehen.', 'fau' ),               
+		    'default' => $defaultoptions['breadcrumb_root'],
+		    'parent'  => 'breadcrumb'
+		), 
+	        'breadcrumb_showcurrent'	  => array(
+		    'type'    => 'bool',
+		    'title'   => __( 'Aktuelle Seite anzeigen', 'fau' ),
+		    'label'   => __( 'Zeige auch den Titel der aktuellen Seite in der Breadcrumb.', 'fau' ),                
+		    'default' => $defaultoptions['breadcrumb_showcurrent'],
+		    'parent'  => 'breadcrumb'
+		),   	  
+	       'breadcrumb_withtitle'	  => array(
+		    'type'    => 'bool',
+		    'title'   => __( 'Website-Titel', 'fau' ),
+		    'label'   => __( 'Zeige den Website-Titel oberhalb der Breadcrumb', 'fau' ),                
+		    'default' => $defaultoptions['breadcrumb_withtitle'],
+		    'parent'  => 'breadcrumb'
+		),   	  
+	       
+	       
+	       
+	       'title_hero_post_categories'	 => array(
+		    'type'    => 'text',
+		    'title'   => __( 'Bühnentitel Kategorieseiten', 'fau' ),
+		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Kategorieseiten von Nachrichten hinterlegt werden.', 'fau' ),               
+		    'default' => $defaultoptions['title_hero_post_categories'],
+		    'parent'  => 'breadcrumb'
+		), 
+		'title_hero_post_archive'	 => array(
+		    'type'    => 'text',
+		    'title'   => __( 'Bühnentitel Beiträge', 'fau' ),
+		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Archivseiten von Nachrichten hinterlegt werden.', 'fau' ),               
+		    'default' => $defaultoptions['title_hero_post_archive'],
+		     'parent'  => 'breadcrumb'
+		), 
+	       'title_hero_search'	 => array(
+		    'type'    => 'text',
+		    'title'   => __( 'Bühnentitel Suche', 'fau' ),
+		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Suchergebnisseiten hinterlegt werden.', 'fau' ),               
+		    'default' => $defaultoptions['title_hero_search'],
+		    'parent'  => 'breadcrumb'
+		), 
+	       'title_hero_events'	 => array(
+		    'type'    => 'text',
+		    'title'   => __( 'Bühnentitel Veranstaltungen', 'fau' ),
+		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Seiten zu Veranstaltungen hinterlegt werden.', 'fau' ),               
+		    'default' => $defaultoptions['title_hero_events'],
+		    'parent'  => 'breadcrumb'
+		),  
+	       
+	       
+	       'breadcrumb_withtitle_parent_page'	  => array(
+		    'type'    => 'bool',
+		    'title'   => __( 'Bühnentitel Oberseite', 'fau' ),
+		    'label'   => __( 'Zeige bei Seiten den Titel der hierarchisch nächsthöheren Seite in der Bühne an', 'fau' ),                
+		    'default' => $defaultoptions['breadcrumb_withtitle_parent_page'],
+		    'parent'  => 'breadcrumb'
+		),   	  
 	       
 	       
           )
@@ -1084,25 +1170,7 @@ $setoptions = array(
 		), 
 	       
 
-		'kommentare'  => array(
-                  'type'    => 'section',
-                  'title'   => __( 'Kommentare', 'fau' ),                      
-		),
-	       
-	        'advanced_comments_notes_before'	  => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Hinweistext Eingabeformular', 'fau' ),
-                  'label'   => __( 'Informationen über den Eingabefeldern für neue Kommentare.', 'fau' ),                
-                  'default' => $defaultoptions['advanced_comments_notes_before'],
-		  'parent'  => 'kommentare'
-		), 
-	        'advanced_comments_disclaimer'	  => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Kommentar-Disclaimer', 'fau' ),
-                  'label'   => __( 'Hinweistext zur Abgrenzung zum Inhalt der Kommentare.', 'fau' ),                
-                  'default' => $defaultoptions['advanced_comments_disclaimer'],
-		  'parent'  => 'kommentare'
-		), 
+		
 	    ),    
 	),    
 	       

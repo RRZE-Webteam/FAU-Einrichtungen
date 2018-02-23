@@ -18,7 +18,6 @@ $showhelplinks = 0;
 			<div class="row">
 			    
 			    <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	
-				// add sidebar and nest content in sub-row
 				$active_sidebar = 1; ?>
 				<div class="search-sidebar">
 					    <?php dynamic_sidebar( 'search-sidebar' ); ?>
@@ -47,6 +46,9 @@ $showhelplinks = 0;
 						</p>
 						<?php 
 	
+						
+						 $listtypes = get_theme_mod('search_post_types');
+						
 						while ( have_posts() ) { 
 						    the_post(); 
 						    echo fau_display_search_resultitem($active_sidebar);
@@ -79,7 +81,6 @@ $showhelplinks = 0;
 						    'total'    => $wp_query->max_num_pages,
 						    'current'  => $paged,
 						    'mid_size' => 1,
-					//	    'add_args' => array_map( 'urlencode', $query_args ),
 						    'prev_text' => __( '<span class="meta-nav">&larr;</span> Zurück', 'fau' ),
 						    'next_text' => __( 'Weiter <span class="meta-nav">&rarr;</span>', 'fau' ),
 						    'before_page_number' => '<span class="screen-reader-text">'.__( 'Seite', 'fau' ).' </span>'

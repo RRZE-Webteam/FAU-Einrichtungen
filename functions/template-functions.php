@@ -191,9 +191,9 @@ function fau_display_search_resultitem($withsidebar = 1) {
     global $options;
     
     $output = '';
-    $withthumb = $options['search_display_post_thumbnails'];
-    $withcats =  $options['search_display_post_cats'];
-    $withtypenote = $options['search_display_typenote'];
+    $withthumb = get_theme_mod('search_display_post_thumbnails');
+    $withcats =  get_theme_mod('search_display_post_cats');
+    $withtypenote = get_theme_mod('search_display_typenote');
     $attachment = array();
     
     if (isset($post) && isset($post->ID)) {
@@ -222,8 +222,6 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	if ( $type == 'post') {
 	    $typestr = '<div class="search-meta">';
 	    if ($withtypenote == true) { 
-		
-		
 		if ($external == 1) {
 		    $typestr .= '<span class="post-meta-news-external"> ';
 		    $typestr .= __('Externer ', 'fau'); 
@@ -367,7 +365,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 		    $imageurl = $sliderimage[0]; 	
 		}
 		if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
-		    $imageurl = $options['default_postthumb_src'];
+		    $imageurl = get_theme_mod('default_postthumb_src');
 		}
 		$output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_postthumb_width'].'" height="'.$options['default_postthumb_height'].'" alt=""';
 		if ($imgsrcset) {
@@ -385,10 +383,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	    if (($withthumb==true) && (has_post_thumbnail( $post->ID )) )  {
 	        $output .= "\t</div> <!-- /row -->\n";
 	    }	
-/*	}elseif (($type == 'standort') && (function_exists('fau_standort'))) {
-		 $output .= fau_standort(array("id"=> $post->ID));	 
-		 
-	*/	
+	
 		 
 	} elseif ($type == 'attachment') {
 	     if ($withthumb==true)   {
@@ -417,7 +412,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	    }	
 	} elseif ($type == 'studienangebot') {
 	    $output .= "\t\t".'<p>'."\n"; 
-	    $output .= fau_custom_excerpt($post->ID,$options['default_search_excerpt_length'],false,'',true,$options['search_display_excerpt_morestring']);	
+	    $output .= fau_custom_excerpt($post->ID,get_theme_mod('default_search_excerpt_length'),false,'',true,get_theme_mod('search_display_excerpt_morestring'));	
 	  
 	    $output .= "\t\t\t".'</p>'."\n"; 
 
@@ -443,7 +438,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 		    $imageurl = $sliderimage[0]; 	
 		}
 		if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
-		    $imageurl = $options['default_postthumb_src'];
+		    $imageurl = get_theme_mod('default_postthumb_src');
 		}
 		$output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_postthumb_width'].'" height="'.$options['default_postthumb_height'].'" alt=""';
 		if ($imgsrcset) {
@@ -458,8 +453,8 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	    }
 
 	    $output .= "\t\t".'<p>'."\n"; 
-	    $output .= fau_custom_excerpt($post->ID,$options['default_search_excerpt_length'],false,'',true,$options['search_display_excerpt_morestring']);	
-	    if ($options['search_display_continue_arrow']) {
+	    $output .= fau_custom_excerpt($post->ID,get_theme_mod('default_search_excerpt_length'),false,'',true,get_theme_mod('search_display_excerpt_morestring'));	
+	    if (get_theme_mod('search_display_continue_arrow')) {
 		$output .= fau_create_readmore($link,'',$external,true);	
 	    }
 	    $output .= "\t\t\t".'</p>'."\n"; 

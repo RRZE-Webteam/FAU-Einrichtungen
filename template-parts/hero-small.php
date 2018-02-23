@@ -7,7 +7,6 @@
  * @since FAU 1.7
  */
  
-global $options; 
 ?>
 
     <section id="hero" class="hero-small">
@@ -19,6 +18,7 @@ global $options;
 			 
 			$metatitel = "";
 			if(get_post_type() == 'page') {
+			    if (get_theme_mod('breadcrumb_withtitle_parent_page')==true) {
 				$parent = array_reverse(get_post_ancestors(get_the_ID()));
 				if(isset($parent) && is_array($parent) && isset($parent[0])) {
 					$first_parent = get_page($parent[0]);
@@ -26,8 +26,9 @@ global $options;
 				if (isset($first_parent)) { 
 					$metatitel = $first_parent->post_title;
 				}
+			    }
 			} else if(get_post_type() == 'post') {
-				$metatitel = $options['title_hero_post_archive'];
+				$metatitel = get_theme_mod('title_hero_post_archive');
 			}
 
 			if (!fau_empty($metatitel)) { ?>

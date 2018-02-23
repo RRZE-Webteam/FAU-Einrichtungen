@@ -15,7 +15,6 @@
 } else {
     $msg = __('Seite nicht gefunden','fau');
 }
-global $options; 
 					    
 ?>
 
@@ -25,7 +24,7 @@ global $options;
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="breadcrumbs">
-						<a href="<?php echo fau_esc_url( home_url( '/' ) ); ?>"><?php echo $options['breadcrumb_root']; ?></a>
+						<a href="<?php echo fau_esc_url( home_url( '/' ) ); ?>"><?php echo get_theme_mod('breadcrumb_root'); ?></a>
 					</div>
 
 				</div>

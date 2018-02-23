@@ -595,12 +595,12 @@ function fau_breadcrumb($lasttitle = '') {
   $home		= $options['breadcrumb_root']; // __( 'Startseite', 'fau' ); // text for the 'Home' link
   $before	= $options['breadcrumb_beforehtml']; // '<span class="current">'; // tag before the current crumb
   $after	= $options['breadcrumb_afterhtml']; // '</span>'; // tag after the current crumb
-  $showcurrent	= 0;
+  $showcurrent	= get_theme_mod('breadcrumb_showcurrent');
   
   $pretitletextstart   = '<span>';
   $pretitletextend     = '</span>';
   
-  if ($options['breadcrumb_withtitle']) {
+  if (get_theme_mod('breadcrumb_withtitle')) {
 	echo '<h3 class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo( 'title' ).'</h3>';
 	echo "\n";
     }
@@ -644,7 +644,7 @@ function fau_breadcrumb($lasttitle = '') {
 	} else {
 	    
 	    $cat = get_the_category(); 
-	    if ($options['breadcrumb_uselastcat']) {
+	    if (get_theme_mod('breadcrumb_uselastcat')) {
 		$last = array_pop($cat);
 	    } else {
 		$last = $cat[0];

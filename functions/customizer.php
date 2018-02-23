@@ -30,7 +30,7 @@ function fau_customizer_settings( $wp_customize ) {
     $definedtypes = array(
 	"text", "checkbox", "radio", "select", "textarea", "dropdown-pages", "email", "url", "number", "hidden", "date",
 	    // defaults
-	"bool", "html", "image", "multiselectlist", "urlchecklist", "range", "range-value"
+	"bool", "html", "image", "multiselectlist", "urlchecklist", "range", "range-value", "category"
 	    // self defined boolean
 
     );
@@ -187,6 +187,19 @@ function fau_customizer_settings( $wp_customize ) {
 					    'suffix' => $suffix, //optional suffix
 				    ),
 			    ) ) );
+			} elseif ($type == 'category')  {    
+			    $wp_customize->add_setting( $optionid , array(
+				'default'     => $default,
+				'transport'   => 'refresh',
+			    ) );
+			     $wp_customize->add_control( new WP_Customize_Category_Control( $wp_customize, $optionid, array(
+				    'label'             => $title,
+				    'description'	=> $label,
+				    'section'		=> $section,
+				    'settings'		=> $optionid,
+				    'type' 		=> 'category',
+				    
+			    ) ) );
 			} elseif ($type == 'select')  {    
 			    $wp_customize->add_setting( $optionid , array(
 				'default'     => $default,
@@ -250,16 +263,6 @@ function fau_customizer_settings( $wp_customize ) {
 				$height = $value['maxheight'];
 				$flexheight = true;
 			    }
-
-			   
-			//    if ((!isset($default))|| (empty($default))) {
-			/*	$oldimageid = esc_html($field)."_id";
-				if (isset($options[$oldimageid]) && ($options[$oldimageid]>0)) {
-				    $default = $options[$oldimageid];
-				} 
-			*/	 
-				 
-			  // }
 			    
 			    $wp_customize->add_setting( $optionid , array(
 				'default'     => $default,
@@ -454,7 +457,9 @@ if (class_exists('WP_Customize_Control')) {
     class WP_Customize_Range_Value_Control extends WP_Customize_Control {
 	public $type = 'range-value';
 
-	
+	public function enqueue() {
+		wp_enqueue_script( 'customizer-range-value-control', get_stylesheet_directory_uri() . '/js/customizer-range-value-control.js', array( 'jquery' ), rand(), true );
+	}
 	public function render_content() {
 		?>
 		<label>

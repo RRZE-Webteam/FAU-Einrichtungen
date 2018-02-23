@@ -13,14 +13,11 @@ global $options;
 <section id="hero" class="hero-small">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12">
-		
+			<div class="col-xs-12">		
 			    <?php
 			    fau_breadcrumb();		    
 			      ?>
-			     
-
-				<h1><?php echo $options['title_hero_events']; ?></h1>
+				<h1><?php echo get_theme_mod('title_hero_events'); ?></h1>
 			</div>
 		</div>
 	</div>

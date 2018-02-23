@@ -14,11 +14,9 @@ global $options;
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
-		
 			    <?php
 			    fau_breadcrumb();		    
-			      ?>
-			     
+			      ?>			     
 			    <h1><?php echo __('Index','fau') ?></h1>
 				
 			</div>

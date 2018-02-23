@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Customizer view
 /*-----------------------------------------------------------------------------------*/
-
+$color_customizer_buttons: #0085ba;
 
 #customize-controls #sub-accordion-section-header_image img {
     height: 65px;
@@ -67,10 +67,11 @@
     .customize-control-multiple-select {
 	option:checked, 
 	option[selected] {
-	    background: $colorStandardHellgrau linear-gradient(0deg, $colorStandardHellgrau 0%, $colorStandardHellgrau 100%);
+	    background: $colorStandardHellgrau;
 	}
 	select[multiple]:focus option:checked {
-	  background: red linear-gradient(0deg, red 0%, red 100%);
+	  background: $color_customizer_buttons;
+	  color: #fff;
 	}
     }
     
@@ -97,18 +98,18 @@
 	    width: 20px;
 	    height: 20px;
 	    border-radius: 50%;
-	    background: #0085ba;
+	    background: $color_customizer_buttons;
 	    cursor: pointer;
 	    -webkit-transition: background .15s ease-in-out;
 	    transition: background .15s ease-in-out;
 	}
 
 	.range-slider__range::-webkit-slider-thumb:hover {
-	    background: #0085ba;
+	    background: $color_customizer_buttons;
 	}
 
 	.range-slider__range:active::-webkit-slider-thumb {
-	    background: #0085ba;
+	    background: $color_customizer_buttons;
 	}
 
 	.range-slider__range::-moz-range-thumb {
@@ -116,18 +117,18 @@
 	    height: 20px;
 	    border: 0;
 	    border-radius: 50%;
-	    background: #0085ba;
+	    background: $color_customizer_buttons;
 	    cursor: pointer;
 	    -webkit-transition: background .15s ease-in-out;
 	    transition: background .15s ease-in-out;
 	}
 
 	.range-slider__range::-moz-range-thumb:hover {
-	    background: #0085ba;
+	    background:  $color_customizer_buttons;
 	}
 
 	.range-slider__range:active::-moz-range-thumb {
-	    background: #0085ba;
+	    background: $color_customizer_buttons;
 	}
 
 	.range-slider__value {
@@ -138,7 +139,7 @@
 	    line-height: 20px;
 	    text-align: center;
 	    border-radius: 3px;
-	    background: #0085ba;
+	    background:  $color_customizer_buttons;
 	    padding: 2px 5px;
 	    margin-left: 8px;
 	}

@@ -24,7 +24,7 @@ global $options;
 				<div class="hero-meta-portal">
 					<?php
 					    if(get_post_type() == 'post') {
-						echo $options['title_hero_post_categories'];
+						echo get_theme_mod('title_hero_post_categories');
 					    }
 					?>
 				</div>

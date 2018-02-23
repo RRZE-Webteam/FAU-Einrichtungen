@@ -4,7 +4,6 @@
  * Search form for content: Errorpages or when someone could try a search
  */
 
-global $options;
 $uri = esc_url($_SERVER['REQUEST_URI']);
 $uri = str_replace('/', ' ', $uri);
 
@@ -21,10 +20,10 @@ $uri = str_replace('/', ' ', $uri);
 	    <input type="submit" value="<?php _e('Finden','fau'); ?>">
 	</div>
 	<?php
-	if ($options['search_allowfilter']) {
+	if (get_theme_mod('search_allowfilter')) {
 	    echo '<div class="filter">';
 	    $query_types = get_query_var('post_type');
-	    $listtypes = $options['search_post_types'];
+	    $listtypes = get_theme_mod('search_post_types');
 	     $allowed_types = get_post_types(array('public' => true, 'exclude_from_search' => false));
 
 	    foreach ($listtypes as $type) {                                                
