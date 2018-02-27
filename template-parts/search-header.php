@@ -28,5 +28,3 @@
 	<input type="submit" id="searchsubmit" value="<?php _e('Finden','fau'); ?>">
 </form>
 
-
-	

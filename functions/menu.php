@@ -196,18 +196,18 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		
 	}
 	
-	function end_lvl( &$output, $depth = 0, $args = array() ) {
-		global $options;
-		
+	function end_lvl( &$output, $depth = 0, $args = array() ) {		
 		$indent = str_repeat("\t", $depth);
 		$output .= $indent.'</ul>';
 		$output .= '<a href="'.get_permalink($this->currentID).'" class="button-portal">';
-		if (isset($options['menu_pretitle_portal']) && $options['menu_pretitle_portal']) {
-		    $output .=  $options['menu_pretitle_portal'].' ';
+		$pretitle = get_theme_mod('menu_pretitle_portal');
+		if (!fau_empty($pretitle)) {
+		    $output .=  $pretitle.' ';
 		}
 		$output .= get_the_title($this->currentID);
-		if (isset($options['menu_aftertitle_portal']) && $options['menu_aftertitle_portal']) {
-		    $output .=  ' '.$options['menu_aftertitle_portal'];
+		$posttitle = get_theme_mod('menu_aftertitle_portal');
+		if (!fau_empty($posttitle)) {
+		    $output .=  ' '.$posttitle;
 		}
 		$output .= '</a>';
 		$output .= '</div>';
@@ -268,7 +268,6 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 	}
 	
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-	    global $options;
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 		$level = $depth + 1;
 
@@ -291,9 +290,9 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		    $force_cleanmenu = 2;
 		}
 
-		if (($options['advanced_forceclean_homelink']) && ($force_cleanmenu==1)) {
+		if ((get_theme_mod('advanced_forceclean_homelink')) && ($force_cleanmenu==1)) {
 		    // Ignore homelink
-		} elseif (($options['advanced_forceclean_externlink']) && ($force_cleanmenu==1)) {    
+		} elseif ((get_theme_mod('advanced_forceclean_externlink')) && ($force_cleanmenu==1)) {    
 		    // Ignore external link in Main menu
 		} else {
 		   
@@ -348,9 +347,7 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 /*-----------------------------------------------------------------------------------*/
 /* Create submenu icon/grid in content
 /*-----------------------------------------------------------------------------------*/
-function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $nothumbs = 0, $nodefthumbs = 0) {
-    global $options;
-    
+function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $nothumbs = 0, $nodefthumbs = 0) {   
     
     if (empty($menu)) {
 	echo '<!-- no id and empty slug for menu -->';
@@ -368,7 +365,7 @@ function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $nothumbs = 0,
     $slug = $term->slug;     
     
     if ($subentries==0) {
-	$subentries = $options['default_submenu_entries'];
+	$subentries =  get_theme_mod('default_submenu_entries');
     }
 
    

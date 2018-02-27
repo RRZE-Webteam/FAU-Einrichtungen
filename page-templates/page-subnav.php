@@ -24,7 +24,8 @@ get_header(); ?>
 				<div class="sidebar-subnav">
 					<?php 
 					$offset = 0;
-					if ($options['website_type']==-1) {
+					$websitetype = get_theme_mod('website_type');
+					if ($websitetype==-1) {
 						$menulevel = get_post_meta( $post->ID, 'menu-level', true );
 						if ($menulevel) {
 							$offset = $menulevel;

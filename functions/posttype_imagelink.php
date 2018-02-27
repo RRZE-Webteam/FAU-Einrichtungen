@@ -182,7 +182,6 @@ add_action( 'add_meta_boxes', 'fau_imagelink_metabox' );
 
 
 function fau_imagelink_metabox_content_save( $post_id ) {
-    global $options;
     if (  'imagelink'!= get_post_type()  ) {
 	return;
     }
@@ -253,7 +252,6 @@ add_action( 'save_post', 'fau_imagelink_metabox_content_save' );
 
 
 function fau_get_imagelinks ( $catid, $echo = true ) {
-    global $options;
     global $usejslibs;
     
     if ( isset($catid) && $catid >0) {

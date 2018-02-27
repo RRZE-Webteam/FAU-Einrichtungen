@@ -8,13 +8,14 @@
  * @since FAU 1.7
  */
 
-global $options;
 $banner = get_theme_mod("startseite_banner_image");
 $copyright = '';
 
 $show_copyright  = get_theme_mod("advanced_display_hero_credits"); 
 $use_bannerdefault = get_theme_mod("startseite_banner_usedefault"); 
 $show_jumplink = get_theme_mod("advanced_page_start_herojumplink"); 
+
+$startseite_banner_image_id = get_theme_mod("startseite_banner_image_id"); 
 if (isset($banner) && ($banner > 0)) {
     $imagedata = wp_get_attachment_image_src( $banner, 'herobanner' );
     $slidersrcset =  wp_get_attachment_image_srcset($banner,'herobanner');
@@ -29,10 +30,10 @@ if (isset($banner) && ($banner > 0)) {
     }
     $imgdata = fau_get_image_attributs($banner);
     $copyright = trim(strip_tags( $imgdata['credits'] ));
-} elseif (isset($options['startseite_banner_image_id']) && ($options['startseite_banner_image_id']>0)) {
+} elseif (isset($startseite_banner_image_id) && ($startseite_banner_image_id>0)) {
     /* Diese Bedingung dient der Abwärtscompatibilität; Früher haben wir die Option-Table statt theme_mods verwendet */
-    $imagedata = wp_get_attachment_image_src( $options['startseite_banner_image_id'], 'herobanner' );
-    $slidersrcset =  wp_get_attachment_image_srcset($options['startseite_banner_image_id'],'herobanner');
+    $imagedata = wp_get_attachment_image_src( $startseite_banner_image_id, 'herobanner' );
+    $slidersrcset =  wp_get_attachment_image_srcset($startseite_banner_image_id,'herobanner');
 
     if ($imagedata) {
 	$image = '<img src="'.fau_esc_url($imagedata[0]).'" width="'.$imagedata[1].'" height="'.$imagedata[2].'" alt=""';
@@ -42,7 +43,7 @@ if (isset($banner) && ($banner > 0)) {
 	$image .= '>';
 
     }
-    $imgdata = fau_get_image_attributs($options['startseite_banner_image_id']);
+    $imgdata = fau_get_image_attributs($startseite_banner_image_id);
     $copyright = trim(strip_tags( $imgdata['credits'] ));
 } elseif ($use_bannerdefault) {
     $url = get_theme_mod("default_startseite-bannerbild-image_src");

@@ -5,7 +5,6 @@
  * @since FAU 1.0
  */
 
-global $options;
 get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>

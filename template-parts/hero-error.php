@@ -21,18 +21,18 @@
 
 	<section id="hero" class="hero-small">
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="breadcrumbs">
-						<a href="<?php echo fau_esc_url( home_url( '/' ) ); ?>"><?php echo get_theme_mod('breadcrumb_root'); ?></a>
-					</div>
+		    <div class="row">
+			<div class="col-xs-12">
+				<div class="breadcrumbs">
+					<a href="<?php echo fau_esc_url( home_url( '/' ) ); ?>"><?php echo get_theme_mod('breadcrumb_root'); ?></a>
+				</div>
 
-				</div>
 			</div>
-			<div class="row">
-				<div class="col-xs-12">
-					<h1><?php echo $msg; ?></h1>
-				</div>
+		    </div>
+		    <div class="row">
+			<div class="col-xs-12">
+				<h1><?php echo $msg; ?></h1>
 			</div>
+		    </div>
 		</div>
 	</section>

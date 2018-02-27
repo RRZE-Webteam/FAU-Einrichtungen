@@ -4,20 +4,14 @@
 * @subpackage FAU
 * @since FAU 1.7
 * 
-* Comment Functions 
+*  Template for comments and pingbacks.
 */
 
 
-
-
-
 if ( ! function_exists( 'fau_comment' ) ) :
-/**
- * Template for comments and pingbacks.
- */
+
 function fau_comment( $comment, $args, $depth ) {
         $GLOBALS['comment'] = $comment;
-        global $options;         
         
         switch ( $comment->comment_type ) :
                 case '' :
@@ -29,7 +23,9 @@ function fau_comment( $comment, $args, $depth ) {
                 <div class="comment-details">
                     
                 <span class="comment-author vcard" itemprop="creator" itemscope itemtype="http://schema.org/Person">
-                    <?php if ($options['advanced_comments_avatar']) {
+                    <?php
+		    $show_avatar = get_theme_mod("advanced_comments_avatar");
+		    if ($show_avatar) {
                         echo '<div class="avatar" itemprop="image">';
                         echo get_avatar( $comment, 48); 
                         echo '</div>';   

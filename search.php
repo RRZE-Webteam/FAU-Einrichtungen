@@ -97,20 +97,12 @@ $showhelplinks = 0;
 					    } 
 
 				    } else { ?>
-						
-						
 					<div class="search-error-notice">
-						<p class="attention">
-							<strong><?php _e('Nichts gefunden.','fau'); ?></strong>
-						</p>
-						<p>
-							<?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?>
-						</p>
+						<p class="attention"><strong><?php _e('Nichts gefunden.','fau'); ?></strong></p>
+						<p><?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?></p>
 
 					</div>
-					<div class="search-error-image">
-
-					</div>
+					<div class="search-error-image"></div>
 					<?php 
 					    $showhelplinks = 1;
 				    } 
@@ -121,9 +113,7 @@ $showhelplinks = 0;
 						    <strong><?php _e('Bitte geben Sie einen Suchbegriff in das Suchfeld ein.','fau'); ?></strong>
 					    </p>
 					</div>
-					<div class="search-error-image">
-
-					</div>
+					<div class="search-error-image"></div>
 					
 					
 					<?php

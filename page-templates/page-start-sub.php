@@ -9,9 +9,8 @@
 
     get_header();    
     get_template_part('template-parts/hero', 'banner');
-    
-    global $options;
 
+    
 ?>
 
 	<div id="content">
@@ -32,15 +31,15 @@
 			
 		
 			$number = 0;
-			$max = $options['start_max_newspertag'];
-			$maxall = $options['start_max_newscontent'];
+			$max = get_theme_mod('start_max_newspertag');
+			$maxall = get_theme_mod('start_max_newscontent');
 			    
 			if ($maxall > 0) {    
 			    
 			    $displayedposts = array();
 			    for($j = 1; $j <= 3; $j++) {
 				    $i = 0;
-				    $thistag = $options['start_prefix_tag_newscontent'].$j;    
+				    $thistag = get_theme_mod('start_prefix_tag_newscontent').$j;    
 				    $query = new WP_Query( 'tag='.$thistag );
 
 				     while ($query->have_posts() && ($i<$max) && ($number<$maxall) ) { 
@@ -55,27 +54,28 @@
 
 			    }
 			    if (($number==0) || ($number < $maxall)) {
-
+				$startlinknewscat = get_theme_mod('start_link_news_cat');
 				if ($number < $maxall) {
 				    $num = $maxall - $number;
 				    if ($num <=0 ) {
 					$num=1;
 				    }
-				    if (isset($options['start_link_news_cat'])) {
-					$query = new WP_Query(  array( 'post__not_in' => $displayedposts, 'posts_per_page'  => $num, 'has_password' => false, 'post_type' => 'post', 'cat' => $options['start_link_news_cat']  ) );
+				    
+				    if (isset($startlinknewscat)) {
+					$query = new WP_Query(  array( 'post__not_in' => $displayedposts, 'posts_per_page'  => $num, 'has_password' => false, 'post_type' => 'post', 'cat' => $startlinknewscat ) );
 				    } else {
 					$query = new WP_Query(  array( 'post__not_in' => $displayedposts, 'posts_per_page'  => $num, 'has_password' => false, 'post_type' => 'post'  ) );							    
 				    }
 				} else {
 				     $args = '';
-				    if (isset($options['start_link_news_cat'])) {
-					$args = 'cat='.$options['start_link_news_cat'];	
+				    if (isset($startlinknewscat)) {
+					$args = 'cat='.$startlinknewscat;	
 				    }
 				    if (isset($args)) {
 					$args .= '&';
 				    }
 
-				    $args .= 'post_type=post&has_password=0&posts_per_page='.$options['start_max_newscontent'];	
+				    $args .= 'post_type=post&has_password=0&posts_per_page='.get_theme_mod('start_max_newscontent');	
 				    $query = new WP_Query( $args );
 				}
 				while ($query->have_posts() ) { 
@@ -85,7 +85,7 @@
 				}
 			    }
 
-			    if ($options['start_link_news_show']) {
+			    if (get_theme_mod('start_link_news_show')) {
 				echo fau_get_category_links();
 			    }
 			}    

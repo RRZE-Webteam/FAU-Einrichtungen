@@ -44,7 +44,16 @@ if ( ! function_exists( 'fau_empty' ) ) :
 endif;    
 
 /*--------------------------------------------------------------------*/
-/* Sanitize range
+/* Sanitize customizer range
+/*--------------------------------------------------------------------*/
+function fau_sanitize_customizer_number( $number, $setting ) {
+  $number = absint( $number );
+
+  return ( $number ? $number : $setting->default );
+}
+
+/*--------------------------------------------------------------------*/
+/* Sanitize customizer range
 /*--------------------------------------------------------------------*/
 function fau_sanitize_customizer_range( $value ) {
     return filter_var($value, FILTER_SANITIZE_NUMBER_INT);
@@ -57,6 +66,18 @@ function fau_sanitize_customizer_bool( $value ) {
         $value = false;
  
     return $value;
+}
+/*--------------------------------------------------------------------*/
+/* Sanitize toogle switch
+/*--------------------------------------------------------------------*/
+if ( ! function_exists( 'fau_sanitize_customizer_toggle_switch' ) ) {
+    function fau_sanitize_customizer_toggle_switch( $input ) {
+	if ( true === $input ) {
+	    return 1;
+	} else {
+	    return 0;
+	}
+    }
 }
 /*--------------------------------------------------------------------*/
 /* Sanitize known social media for classes
@@ -72,4 +93,13 @@ function fau_sanitize_socialmedia_classes( $socialmedia ) {
 	}
     }
     return $socialmedia;
+}
+/*-----------------------------------------------------------------------------------*/
+/* Check if color attribut is valid
+/*-----------------------------------------------------------------------------------*/
+function fau_columns_checkcolor($color = '') {
+    if ( ! in_array( $color, array( 'zuv', 'fau', 'tf', 'nat', 'med', 'rw', 'phil', 'primary', 'gray', 'grau' ) ) ) {
+	return '';
+    }
+    return $color;
 }

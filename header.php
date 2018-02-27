@@ -2,14 +2,11 @@
 /**
  * The Header for our theme.
  *
- * Displays all of the <head> section and everything up till <div id="main">
- *
  * @package WordPress
  * @subpackage FAU
  * @since FAU 1.0
  */
 
-global $options;
 ?>
 <!DOCTYPE html>
 <html class="no-js" <?php language_attributes(); ?>>
@@ -32,10 +29,10 @@ global $options;
 		<div class="container">
 		    <div class="row">
 			<div class="meta-links">
-				<?php echo fau_get_toplinks(array(
-					    "titletag" => 'h3',
-					    "title" => __('Weitere Portale','fau'),
-					    )); ?>
+			    <?php echo fau_get_toplinks(array(
+					"titletag" => 'h3',
+					"title" => __('Weitere Portale','fau'),
+					)); ?>
 			</div>
 			<div class="meta-tools">
 			    <div class="meta-search">

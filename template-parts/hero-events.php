@@ -7,7 +7,6 @@
  * @since FAU 1.0
  */
 	    
-global $options;
 ?>
 
 <section id="hero" class="hero-small">

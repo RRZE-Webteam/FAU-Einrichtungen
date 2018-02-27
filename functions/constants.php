@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 30,
+    'optiontable-version'		=> 32,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -157,7 +157,7 @@ $defaultoptions = array(
     'breadcrumb_uselastcat'		=> true,
     'breadcrumb_withtitle'		=> false,
     'breadcrumb_withtitle_parent_page'	=> true,
-    'breadcrumb_showcurrent'		=> false,
+    'breadcrumb_showcurrent'		=> true,
     'default_logo_src'			=> get_fau_template_uri().'/img/logos/logo-default.png',
     'default_logo_height'		=> 65,
     'default_logo_width'		=> 240,
@@ -293,7 +293,8 @@ function fau_initoptions() {
     $oldoptions = get_option($OPTIONS_NAME);
     $themeopt = get_theme_mods();
    
-    
+    // This part is for old installations.
+    // will be removed soon
     if (isset($oldoptions) && (is_array($oldoptions))) {
         $newoptions = array_merge($defaultoptions,$oldoptions);	  
 	
@@ -320,6 +321,7 @@ function fau_initoptions() {
         $newoptions = $defaultoptions;
 	
     }       
+    // end old part
     
     $theme_data = wp_get_theme();
     $newoptions['version'] =  $theme_data->Version;
@@ -348,7 +350,39 @@ function fau_initoptions() {
 	$theme = get_option( 'stylesheet' );
         update_option( "theme_mods_$theme", $themeopt );
     }
-       
+    
+    $theme_opt_version = get_theme_mod('optiontable-version');
+    
+    if ((!isset($theme_opt_version)) || ($theme_opt_version < $defaultoptions['optiontable-version'])) {
+	// Optiontable ist neuer. Prüefe noch die Optionen, die nicht
+	// in der Settable stehen und fülle diese ebenfalls in theme_mods:
+	
+	    $ignoreoptions = array();
+	    $update_thememods = false;
+	    foreach($setoptions[$OPTIONS_NAME] as $tab => $f) {       
+		foreach($setoptions[$OPTIONS_NAME][$tab]['fields'] as $i => $value) {  
+		    $ignoreoptions[$i] = $value;
+		}
+	    }
+	    $defaultlist = '';
+	    foreach($defaultoptions as $i => $value) {       
+		if (!isset($ignoreoptions[$i])) {
+		    if (isset($themeopt[$i]) && ($themeopt[$i] !=  $defaultoptions[$i])) {
+			$themeopt[$i] = $defaultoptions[$i];	
+			$update_thememods = true;
+		    }
+		}
+	    }
+	    if ($update_thememods==true) {
+		$theme = get_option( 'stylesheet' );
+		update_option( "theme_mods_$theme", $themeopt );
+	    } else {
+		// only version number
+		set_theme_mod( 'optiontable-version', $defaultoptions['optiontable-version'] ); 
+	    }
+    }
+    
+    
     
     return $newoptions;
 }
@@ -409,7 +443,7 @@ $setoptions = array(
 		    
 		),  
 		'default_faculty_useshorttitle' => array(
-		    'type'    => 'bool',
+		    'type'    => 'toggle',
 		    'title'   => __( 'Fakultätslink', 'fau' ),
 		    'label'   => __( 'Textlink zur Fakultät verkürzen auf Abkürzung. <br>Diese Option ist nur bei Nutzung eines Fakultätsthemes aktiv.', 'fau' ), 
 		    'default' => $defaultoptions['default_faculty_useshorttitle'],
@@ -484,61 +518,13 @@ $setoptions = array(
 	   'user_level'	=> 1,
            'fields' => array(
               
-              'menu_pretitle_portal' => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Menü Portal-Button (Vortitel)', 'fau' ),
-                  'label'   => __( 'Begriff vor dem Titel des gewählten Menüs', 'fau' ),               
-                  'default' => $defaultoptions['menu_pretitle_portal'],
-              ),  
-	        'menu_aftertitle_portal' => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Menü Portal-Button (Nachtitel)', 'fau' ),
-                  'label'   => __( 'Begriff nach dem Titel des gewählten Menüs', 'fau' ),               
-                  'default' => $defaultoptions['menu_aftertitle_portal'],
-              ),  
-	      /* 
-	      'menu_fallbackquote_show_excerpt' => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Zitatersatz', 'fau' ),
-                  'label'   => __( 'Wenn bei einem Menupunkt auf oberster Ebene kein Zitat vorgegeben ist, zeige stattdessen einen Auszug der Seite.', 'fau' ),                
-                  'default' => $defaultoptions['menu_fallbackquote_show_excerpt'],
-              ),  
-	       */
-	       
-	     'google-site-verification' => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Google Site Verification', 'fau' ),
-                  'label'   => __( 'Zur Verifikation der Website als Property in den <a target="_blank" href="https://www.google.com/webmasters/tools/home">Google Webmaster Tools</a> wird die Methode über den HTML-Tag ausgewählt. '
-			  . 'Google erstellt dann auf der Einrichtungsseite eine HTML-Anweisung. Von dieser Anweisung kopiert man den Bestandteil, der im Attribut "content" angegeben ist. <br>'
-                        . 'Beispiel: <br>Google gibt den HTML-Code: &nbsp; &nbsp;<code>&lt;meta name="google-site-verification" content="BBssyCpddd8" /&gt;</code><br>  Dann geben Sie dies ein: <code>BBssyCpddd8</code> .', 'fau' ),               
-                  'default' => $defaultoptions['google-site-verification'],
-              ),  
-	      'url_banner-ad-notice'	 => array(
-                  'type'    => 'url',
-                  'title'   => __( 'Werbebanner Infolink', 'fau' ),
-                  'label'   => __( 'URL zu einer Seite, die bei einem Klick auf den Hinweis zur Werbung aufgerufen wird.', 'fau' ),               
-                  'default' => $defaultoptions['url_banner-ad-notice'],
-              ),  
-	       'title_banner-ad-notice'	 => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Hinweistitel für Werbebanner', 'fau' ),
-                  'label'   => __( 'Aus gesetzlichen Gründen muss vor Werbebannern ein Hinweis stehen, daß es sich um eben solche Werbung handelt. Üblicherweise reicht ein Titel "Werbung" o.ä.. Dieser Titel kann hier angegeben oder geändert werden.', 'fau' ),               
-                  'default' => $defaultoptions['title_banner-ad-notice'],
-              ),  
-   
-		
-	       
-	       
-
-	       
-	       
 	     'postoptions'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Beiträge', 'fau' ),                      
               ),
 	       
 	       'post_display_category_below' => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Zeige Kategorien', 'fau' ),
                   'label'   => __( 'Liste der Kategorien unter dem Beitrag anzeigen', 'fau' ),                
                   'default' => $defaultoptions['post_display_category_below'],
@@ -546,21 +532,21 @@ $setoptions = array(
               ),  
 	       
 	       'post_display_tags_below' => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Zeige Schlagworte', 'fau' ),
                   'label'   => __( 'Zeige die Schlagworte eines Beitrags unterhalb des Artikels', 'fau' ),                
                   'default' => $defaultoptions['post_display_tags_below'],
 		  'parent'  => 'postoptions'
               ),  
 	       'advanced_display_postthumb_credits'	  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Copyright-Hinweis', 'fau' ),
                   'label'   => __( 'In Beiträgen wird das Artikelbild mit einem Copyright-Hinweis des Bildes versehen, wenn ein solcher Hinweis vorhanden ist.', 'fau' ),                
                   'default' => $defaultoptions['advanced_display_postthumb_credits'],
 		  'parent'  => 'postoptions'
               ), 
 	       'advanced_activate_post_comments'		  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Kommentarfunktion', 'fau' ),
                   'label'   => __( 'Schaltet die Kommentarfunktion für Beiträge ein. Die Kommentare erscheinen unterhalb des Artikels. Bitte beachten Sie, daß diese Darstellung von KOmmentarfunktionen ebenfalls von den Diskussions-Einstellungen abhängig sind.', 'fau' ),                
                   'default' => $defaultoptions['advanced_activate_post_comments'],
@@ -591,7 +577,7 @@ $setoptions = array(
             ), 
 	      
 	    'start_topevents_active' => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Aktivieren', 'fau' ),
                   'label'   => __( 'Anzeige der Top-Events aktivieren', 'fau' ),               
                   'default' => $defaultoptions['start_topevents_active'],
@@ -628,21 +614,21 @@ $setoptions = array(
 		),
 	       
 		'search_display_post_thumbnails' => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Zeige Thumbs', 'fau' ),
                   'label'   => __( 'Bei den Suchergebnisse Thumbnails anzeigen, wenn diese vorhanden sind', 'fau' ),                
                   'default' => $defaultoptions['search_display_post_thumbnails'],
 		  'parent'  => 'suchergebnisse'
 		),   
 		'search_display_post_cats'  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Zeige Kategorien', 'fau' ),
                   'label'   => __( 'Bei den Suchergebnisse Kategorien der Beiträge anzeigen', 'fau' ),                
                   'default' => $defaultoptions['search_display_post_cats'],
 		  'parent'  => 'suchergebnisse'
 		),   
 		'search_display_continue_arrow' => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Weiterlesen-Pfeil', 'fau' ),
                   'label'   => __( 'Zeige verlinkten Pfeil zum Weiterlesen.', 'fau' ),                
                   'default' => $defaultoptions['search_display_continue_arrow'],
@@ -663,9 +649,10 @@ $setoptions = array(
 		    'title'   => __( 'Textabbruch', 'fau' ),
 		    'label'   => __( 'Falls der Textauszug nach der vorgegebenen Länge abgeschnitten werden muss, können hier Trennzeichen angegeben werden.', 'fau' ),               
 		    'default' => $defaultoptions['search_display_excerpt_morestring'],
+		     'parent'  => 'suchergebnisse'
 		), 
 		'search_display_typenote' => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Typ anzeigen', 'fau' ),
                   'label'   => __( 'Zeige Inhaltstyp des Treffers an.', 'fau' ),                
                   'default' => $defaultoptions['search_display_typenote'],
@@ -675,7 +662,7 @@ $setoptions = array(
 	       
    
 	       'search_allowfilter' => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Suche filterbar', 'fau' ),
                   'label'   => __( 'Erlaubt es, Suchergebnisse nach der Art des Dokumenttypes (Seiten, Beiträge, etc.) zu filtern.', 'fau' ),                
                   'default' => $defaultoptions['search_allowfilter'],
@@ -702,7 +689,7 @@ $setoptions = array(
 		   'desc'   => __( 'Einstellungen zur Anzeige von Social Media Icons. Bitte beachten Sie, daß die anzuzeigenden Icons selbst als Menü verwaltet werden. Rufen Sie hierzu die Menüeinstellungen auf und bearbeiten dort das Social Media Menü.' , 'fau'),
 		),
 	        'socialmedia' => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Social Media Buttons anzeigen', 'fau' ),
                   'label'   => __( 'Schaltet die Social Media Buttons insgesamt an oder aus.', 'fau' ),
                   'parent'  => 'socialmediafooter',
@@ -736,7 +723,7 @@ $setoptions = array(
 		),        
 	      
 	     'start_link_videoportal_socialmedia'  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Verlinke Videoportal', 'fau' ),
                   'label'   => __( 'Verlinke Videoportal auf dem Social Media Fußteil der Startseite', 'fau' ),
                   'default' => $defaultoptions['start_link_videoportal_socialmedia'],
@@ -758,32 +745,10 @@ $setoptions = array(
 		   'parent'  => 'socialmediafooter',
               ), 
 	       
-'design'  => array(
-                  'type'    => 'section',
-                  'title'   => __( 'Design', 'fau' ),       
-		  'user_level'	=> 2,
-              ),
-	       'galery_link_original'	  => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Verlinke Galeriebilder', 'fau' ),
-                  'label'   => __( 'Bei der Anzeige einer Defaultgalerie unter der Bildunterschrift eine Verlinkung auf das Originalbild einschalten', 'fau' ),                
-                  'default' => $defaultoptions['galery_link_original'],
-		  'parent'  => 'design'
-		),   
-	      
+
+	    
 	     
-	          'advanced_images_info_credits' => array(
-		    'type'    => 'select',
-		    'title'   => __( 'Copyright-Info ermitteln', 'fau' ),
-		    'label'   => __( 'Definiert, ob die Copyright-Info eines Bildes sich aus dessen IPTC-Infos ermittelt oder durch die Texteingabe Beschreibung überschrieben werden kann.<br>Reihenfolge via IPTC: 1. IPTC-Copyright, 2. IPTC-Credit, 3. IPTC-Author, 4. Beschreibung, 5. IPTC-Caption, 6. Bildunterschrift. <br>Durch diese Auswahl kann die Beschreibung priorisiert werden.', 'fau' ),      
-		    'liste'   => array('0' => __('IPTC-Feld Copyright hat Priorität', 'fau'), 
-					'1' => __('Eingabefeld Beschreibung überschreibt IPTC und andere vorangige Felder.', 'fau')),
-		    'default' => $defaultoptions['advanced_images_info_credits'],
-		    'parent'  => 'design'
-              ), 
-	             
-	       
-	       
+	    
 	       
 	       'slider'  => array(
                   'type'    => 'section',
@@ -836,7 +801,7 @@ $setoptions = array(
 		  'desc'    => __( 'Einstellungen für den Kopfteil der Startseite und die Breadcrumb.', 'fau' ),
               ),
 	         'advanced_page_start_herojumplink' => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Sprunglink unter der Bühne', 'fau' ),
                   'label'   => __( 'Aktiviert die Schaltung eines Sprunglinks unterhalb der Bühne, wenn das Browserfenster eine Größe zwischen 700px und 900px Höhe hat.', 'fau' ),                
                   'default' => $defaultoptions['advanced_page_start_herojumplink'],
@@ -858,14 +823,14 @@ $setoptions = array(
 		    'parent'  => 'breadcrumb'
 		), 
 	        'breadcrumb_showcurrent'	  => array(
-		    'type'    => 'bool',
+		    'type'    => 'toggle',
 		    'title'   => __( 'Aktuelle Seite anzeigen', 'fau' ),
 		    'label'   => __( 'Zeige auch den Titel der aktuellen Seite in der Breadcrumb.', 'fau' ),                
 		    'default' => $defaultoptions['breadcrumb_showcurrent'],
 		    'parent'  => 'breadcrumb'
 		),   	  
 	       'breadcrumb_withtitle'	  => array(
-		    'type'    => 'bool',
+		    'type'    => 'toggle',
 		    'title'   => __( 'Website-Titel', 'fau' ),
 		    'label'   => __( 'Zeige den Website-Titel oberhalb der Breadcrumb', 'fau' ),                
 		    'default' => $defaultoptions['breadcrumb_withtitle'],
@@ -905,7 +870,7 @@ $setoptions = array(
 	       
 	       
 	       'breadcrumb_withtitle_parent_page'	  => array(
-		    'type'    => 'bool',
+		    'type'    => 'toggle',
 		    'title'   => __( 'Bühnentitel Oberseite', 'fau' ),
 		    'label'   => __( 'Zeige bei Seiten den Titel der hierarchisch nächsthöheren Seite in der Bühne an', 'fau' ),                
 		    'default' => $defaultoptions['breadcrumb_withtitle_parent_page'],
@@ -922,7 +887,8 @@ $setoptions = array(
                             
 	      'newsbereich'  => array(
                   'type'    => 'section',
-                  'title'   => __( 'Startseite Nachrichtenbereich', 'fau' ),                      
+                  'title'   => __( 'Startseite', 'fau' ),        
+		  'desc'    => __('Einstellungen für die Startseiten-Templates','fau')
               ),
 	       
 	       'start_max_newscontent'=> array(
@@ -953,17 +919,16 @@ $setoptions = array(
 		    'parent'  => 'newsbereich'
               ),  
 	       'start_link_news_show' => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Artikel verlinken', 'fau' ),
                   'label'   => __( 'Weitere Meldungen verlinken.', 'fau' ),               
                   'default' => $defaultoptions['start_link_news_show'],
 		     'parent'  => 'newsbereich'
               ),  
 		'start_link_news_cat' => array(
-                  'type'    => 'select',
+                  'type'    => 'category',
                   'title'   => __( 'Artikel-Kategorie', 'fau' ),
                   'label'   => __( 'Unter den News erscheint ein Link auf eine Übersicht der Artikel. Hier wird die Kategorie dafür ausgewählt. Für den Fall, dass keine Artikel mit einem Prefix-Tag ausgestattet sind, wird diese Kategorie auch bei der Anzeige der ersten News verwendet.', 'fau' ),
-                  'liste'   => $currentcatliste,
                   'default' => $defaultoptions['start_link_news_cat'],
 		     'parent'  => 'newsbereich'
               ), 
@@ -976,10 +941,9 @@ $setoptions = array(
               ),  
 	       
 	    'default_postthumb_always' => array(
-		    'type'    => 'select',
+		    'type'    => 'toggle',
 		    'title'   => __( 'Immer ein Artikelbild anzeigen', 'fau' ),
 		    'label'   => __( 'Immer ein Artikelbild zu einer Nachricht zeigen. Wenn kein Artikelbild definiert wurde, nehme stattdessen ein Ersatzbild.', 'fau' ),      
-		    'liste'   => array(1 => __('Ja', 'fau'), 0 => __('Nein', 'fau')),
 		    'default' => $defaultoptions['default_postthumb_always'],
 		    'parent'  => 'newsbereich'
               ), 
@@ -1002,35 +966,35 @@ $setoptions = array(
                   'title'   => __( 'Backend', 'fau' ),                      
               ),
              'advanced_beitragsoptionen'  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Erweiterte Beitragsoptionen', 'fau' ),
                   'label'   => __( 'Bei der Bearbeitung von Beiträgen die erweiterten Optionen anzeigen.', 'fau' ),                
                   'default' => $defaultoptions['advanced_beitragsoptionen'],
 		  'parent'  => 'bedienung'
               ),   
 	      'advanced_topevent'  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Top-Events', 'fau' ),
                   'label'   => __( 'Ermöglicht es Beiträge als Top-Event zu deklarieren und entsprechende Optionen freizuschalten.', 'fau' ),                
                   'default' => $defaultoptions['advanced_topevent'],
 		  'parent'  => 'bedienung'
               ),   
 	      'advanced_activateads' => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Werbebanner', 'fau' ),
                   'label'   => __( 'Aktiviert die Möglichkeit, Werbebanner zu verwalten.', 'fau' ),                
                   'default' => $defaultoptions['advanced_activateads'],
 		  'parent'  => 'bedienung'
               ),   
 	       'advanced_activate_synonyms'  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Synonyme', 'fau' ),
                   'label'   => __( 'Aktiviert die Verwaltung von Synonymen.', 'fau' ),                
                   'default' => $defaultoptions['advanced_activate_synonyms'],
 		  'parent'  => 'bedienung'
               ),   
 		'advanced_activate_glossary'  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Glossar', 'fau' ),
                   'label'   => __( 'Aktiviert die Verwaltung von Glossareinträgen.', 'fau' ),                
                   'default' => $defaultoptions['advanced_activate_glossary'],
@@ -1038,7 +1002,7 @@ $setoptions = array(
 		),  
 
 	       'advanced_post_active_subtitle'	=> array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Untertitel (Beiträge)', 'fau' ),
                   'label'   => __( 'Erlaube die Eingabe von Untertitel bei Beiträgen.', 'fau' ),                
                   'default' => $defaultoptions['advanced_post_active_subtitle'],
@@ -1046,7 +1010,7 @@ $setoptions = array(
               ),   
 	       
 	      'advanced_reveal_pages_id'	=> array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Zeige Seiten-Ids', 'fau' ),
                   'label'   => __( 'In der Übersicht der Seiten werden die Ids angezeigt.', 'fau' ),                
                   'default' => $defaultoptions['advanced_reveal_pages_id'],
@@ -1054,16 +1018,15 @@ $setoptions = array(
               ),   
 	       
 	        'advanced_activate_page_langcode'	=> array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Seitensprache', 'fau' ),
-                  'label'   => __( 'Aktiviert die Möglichkeit, pro Seite eine eigene Inhaltssprache zu deklarieren, die von dem Rest des Webauftritts abweicht. <br>'
-			  . 'Deklariert wird dabei die Überschrift der Seite und dessen Inhaltsbereich. Die restlichen Bestandteile, inkl. der Sidebar bleiben in der Sprache, mit der die gesamte Website gekennzeichnet wurde.<br>'			  
-			  . '<strong>Achtung:</strong> Diese Option arbeitet nicht mit dem Workflow-Plugin für mehrsprachigen Webauftritten zusammen.<br> '
+                  'label'   => __( 'Aktiviert die Möglichkeit, pro Seite eine eigene Inhaltssprache zu deklarieren, die von dem Rest des Webauftritts abweicht.'
+			  . 'Deklariert wird dabei die Überschrift der Seite und dessen Inhaltsbereich. Die restlichen Bestandteile, inkl. der Sidebar bleiben in der Sprache, mit der die gesamte Website gekennzeichnet wurde.'			  
+			  . 'Achtung: Diese Option arbeitet nicht mit dem Workflow-Plugin für mehrsprachigen Webauftritten zusammen. '
 			  . 'Diese Option sollte nur dann verwendet werden, wenn anderssprachige Seiten eine Ausnahme auf dem Webauftritt darstellen. '
 			  . 'Für umfangreiche Webauftritte in verschiedenen Sprachen sind eigene sprachspezifische Webauftritte vorzuziehen. Webauftritte, '
 			  . 'die unterhalb einer Domain mehrmals die Sprachen wechseln und eine Mischung im Navigationsmenu haben, haben zudem ein '
-			  . 'schlechteres Suchmaschinen-Ranking. <br>'
-			  . 'Bitte benutzen Sie diese Option daher nur mit großer Vorsicht und Bedacht.', 'fau' ),                
+			  . 'schlechteres Suchmaschinen-Ranking.', 'fau' ),                
                   'default' => $defaultoptions['advanced_activate_page_langcode'],
 		  'parent'  => 'bedienung'
               ),   
@@ -1078,21 +1041,34 @@ $setoptions = array(
 		    'title'   => __( 'Hauptmenü', 'fau' ),                      
 		),
 	       'advanced_forceclean_homelink'	  => array(
-		    'type'    => 'bool',
+		    'type'    => 'toggle',
 		    'title'   => __( 'Links auf Startseite', 'fau' ),
 		    'label'   => __( 'Links auf die Startseite werden aus dem Hauptmenu entfernt, da diese unnötig sind (das Logo der Website verlinkt bereits zur Startseite)', 'fau' ),                
 		    'default' => $defaultoptions['advanced_forceclean_homelink'],
 		    'parent'  => 'topmenulinks'
 		),  
 	       'advanced_forceclean_externlink'	  => array(
-		    'type'    => 'bool',
+		    'type'    => 'toggle',
 		    'title'   => __( 'Externe Links', 'fau' ),
 		    'label'   => __( 'Links auf externe Seiten werden aus dem Hauptmenu entfernt. Im Hauptmenü sollen aus Gründen der Usability nur Links auf Seiten des eigenen Angebots stehen. Externe Links gehören in andere Menüs (z.B. Metanavigation, Footer oder Quicklinks) oder in den Text der Seiten.', 'fau' ),                
 		    'default' => $defaultoptions['advanced_forceclean_externlink'],
 		    'parent'  => 'topmenulinks'
 		),  
 	    
-	       
+	        'menu_pretitle_portal' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'Menü Portal-Button (Vortitel)', 'fau' ),
+                  'label'   => __( 'Begriff vor dem Titel des gewählten Menüs', 'fau' ),               
+                  'default' => $defaultoptions['menu_pretitle_portal'],
+		    'parent'  => 'topmenulinks'
+		),  
+	        'menu_aftertitle_portal' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'Menü Portal-Button (Nachtitel)', 'fau' ),
+                  'label'   => __( 'Begriff nach dem Titel des gewählten Menüs', 'fau' ),               
+                  'default' => $defaultoptions['menu_aftertitle_portal'],
+		    'parent'  => 'topmenulinks'
+		),  
 	       
 	       'sidebaropt'  => array(
                   'type'    => 'section',
@@ -1101,14 +1077,14 @@ $setoptions = array(
 		  'user_level'	=> 2,
               ),
 	       'advanced_page_sidebar_titleabove'	  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Feld Titel oben', 'fau' ),
                   'label'   => __( 'Fragt ein eigenes Titelfeld über den Texteditor zum Text oben ab (Titel können allerdings auch im Editorfeld eingegeben werden)', 'fau' ),                
                   'default' => $defaultoptions['advanced_page_sidebar_titleabove'],
 		  'parent'  => 'sidebaropt'
               ), 
 	       'advanced_page_sidebar_titlebelow'	  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Feld Titel unten', 'fau' ),
                   'label'   => __( 'Fragt ein eigenes Titelfeld über den Texteditor zum Text unten ab (Titel können allerdings auch im Editorfeld eingegeben werden)', 'fau' ),                
                   'default' => $defaultoptions['advanced_page_sidebar_titlebelow'],
@@ -1116,14 +1092,14 @@ $setoptions = array(
               ), 
 	       
 	        'advanced_page_sidebar_useeditor_textabove'		  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'WYSIWYG-Editor Text oben', 'fau' ),
                   'label'   => __( 'Erlaubt die Nutzung des WYSWYG-Editors für die Eingabe von Text in der Sidebar. Dies schließt auch HTML-Tags mit Bildern und Links ein. Andernfalls ist nur ein Text mit Absätzen möglich.', 'fau' ),                
                   'default' => $defaultoptions['advanced_page_sidebar_useeditor_textabove'],
 		  'parent'  => 'sidebaropt'
               ), 
 	    'advanced_page_sidebar_useeditor_textbelow'		  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'WYSIWYG-Editor Text unten', 'fau' ),
                   'label'   => __('Erlaubt die Nutzung des WYSWYG-Editors für die Eingabe von Text in der Sidebar. Dies schließt auch HTML-Tags mit Bildern und Links ein. Andernfalls ist nur ein Text mit Absätzen möglich.', 'fau' ),                
                   'default' => $defaultoptions['advanced_page_sidebar_useeditor_textbelow'],
@@ -1155,25 +1131,77 @@ $setoptions = array(
 		  'parent'  => 'sidebaropt'
 		), 
 	        'advanced_page_sidebar_linkblock1_number'	  => array(
-                  'type'    => 'number',
+                  'type'    => 'range-value',
                   'title'   => __( 'Links im ersten Linkblock', 'fau' ),
                   'label'   => __( 'Wieviele Links können maximal im ersten Linkblock angegeben werden.', 'fau' ),                
                   'default' => $defaultoptions['advanced_page_sidebar_linkblock1_number'],
+		  'min'	    => 1,
+		  'max'   => 10,
 		  'parent'  => 'sidebaropt'
 		), 
 	         'advanced_page_sidebar_linkblock2_number'	  => array(
-                  'type'    => 'number',
+                  'type'    => 'range-value',
                   'title'   => __( 'Links im zweiten Linkblock', 'fau' ),
                   'label'   => __( 'Wieviele Links können maximal im zweiten Linkblock angegeben werden.', 'fau' ),                
                   'default' => $defaultoptions['advanced_page_sidebar_linkblock2_number'],
+		  'min'	    => 1,
+		  'max'   => 10,
 		  'parent'  => 'sidebaropt'
 		), 
 	       
 
-		
+	        'inhalte'  => array(
+                  'type'    => 'section',
+                  'title'   => __( 'Metadaten und Inhalte', 'fau' ),     
+		),
+		'advanced_images_info_credits' => array(
+		    'type'    => 'select',
+		    'title'   => __( 'Copyright-Info ermitteln', 'fau' ),
+		    'label'   => __( 'Definiert, ob die Copyright-Info eines Bildes sich aus dessen IPTC-Infos ermittelt oder durch die Texteingabe Beschreibung überschrieben werden kann.<br>Reihenfolge via IPTC: 1. IPTC-Copyright, 2. IPTC-Credit, 3. IPTC-Author, 4. Beschreibung, 5. IPTC-Caption, 6. Bildunterschrift. <br>Durch diese Auswahl kann die Beschreibung priorisiert werden.', 'fau' ),      
+		    'liste'   => array('0' => __('IPTC-Feld Copyright hat Priorität', 'fau'), 
+					'1' => __('Eingabefeld Beschreibung überschreibt IPTC und andere vorangige Felder.', 'fau')),
+		    'default' => $defaultoptions['advanced_images_info_credits'],
+		    'parent'  => 'inhalte'
+		), 
+	             
+	        'google-site-verification' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'Google Site Verification', 'fau' ),
+                  'label'   => __( 'Zur Verifikation der Website als Property in den <a target="_blank" href="https://www.google.com/webmasters/tools/home">Google Webmaster Tools</a> wird die Methode über den HTML-Tag ausgewählt. '
+			  . 'Google erstellt dann auf der Einrichtungsseite eine HTML-Anweisung. Von dieser Anweisung kopiert man den Bestandteil, der im Attribut "content" angegeben ist. <br>'
+                        . 'Beispiel: <br>Google gibt den HTML-Code: &nbsp; &nbsp;<code>&lt;meta name="google-site-verification" content="BBssyCpddd8" /&gt;</code><br>  Dann geben Sie dies ein: <code>BBssyCpddd8</code> .', 'fau' ),               
+                  'default' => $defaultoptions['google-site-verification'],
+		     'parent'  => 'inhalte'
+              ),  
+	      'url_banner-ad-notice'	 => array(
+                  'type'    => 'url',
+                  'title'   => __( 'Werbebanner Infolink', 'fau' ),
+                  'label'   => __( 'URL zu einer Seite, die bei einem Klick auf den Hinweis zur Werbung aufgerufen wird.', 'fau' ),               
+                  'default' => $defaultoptions['url_banner-ad-notice'],
+		   'parent'  => 'inhalte'
+              ),  
+	       'title_banner-ad-notice'	 => array(
+                  'type'    => 'text',
+                  'title'   => __( 'Hinweistitel für Werbebanner', 'fau' ),
+                  'label'   => __( 'Aus gesetzlichen Gründen muss vor Werbebannern ein Hinweis stehen, daß es sich um eben solche Werbung handelt. Üblicherweise reicht ein Titel "Werbung" o.ä.. Dieser Titel kann hier angegeben oder geändert werden.', 'fau' ),               
+                  'default' => $defaultoptions['title_banner-ad-notice'],
+		    'parent'  => 'inhalte'
+              ),  
+   
+		   'galery_link_original'	  => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Verlinke Galeriebilder', 'fau' ),
+                  'label'   => __( 'Bei der Anzeige einer Defaultgalerie unter der Bildunterschrift eine Verlinkung auf das Originalbild einschalten', 'fau' ),                
+                  'default' => $defaultoptions['galery_link_original'],
+		  'parent'  => 'inhalte'
+		),   
+	      
+	       
+	       
+	       
 	    ),    
 	),    
-	       
+	/*       
 	'superadmin'   => array(
            'tabtitle'   => __('Admin-Einstellungen', 'fau'),
 	   'user_level'	=> 1,
@@ -1200,7 +1228,7 @@ $setoptions = array(
                    'parent'  => 'dimensions',
                 ),              
                 'default_gallery_full_crop'  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Bilder zuschneiden', 'fau' ),
                   'label'   => __( 'Sollen die großen Galeriebilder zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
                   'default' => $defaultoptions['default_gallery_full_crop'],
@@ -1222,7 +1250,7 @@ $setoptions = array(
                    'parent'  => 'dimensions',
                 ),              
                 'default_gallery_thumb_crop'  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Bilder zuschneiden', 'fau' ),
                   'label'   => __( 'Sollen die Galeriebilder zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
                   'default' => $defaultoptions['default_gallery_thumb_crop'],
@@ -1244,7 +1272,7 @@ $setoptions = array(
                    'parent'  => 'dimensions',
                 ),              
                 'default_gallery_grid_crop'  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Bilder zuschneiden', 'fau' ),
                   'label'   => __( 'Sollen die Galeriebilder (Grid) zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
                   'default' => $defaultoptions['default_gallery_grid_crop'],
@@ -1266,7 +1294,7 @@ $setoptions = array(
                    'parent'  => 'dimensions',
                 ),              
                 'default_gallery_grid2col_crop'  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Bilder zuschneiden', 'fau' ),
                   'label'   => __( 'Sollen die Galeriebilder (2 Spalten) zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
                   'default' => $defaultoptions['default_gallery_grid2col_crop'],
@@ -1289,33 +1317,19 @@ $setoptions = array(
                    'parent'  => 'dimensions',
                 ),              
                 'default_gallery_grid4col_crop'  => array(
-                  'type'    => 'bool',
+                  'type'    => 'toggle',
                   'title'   => __( 'Bilder zuschneiden', 'fau' ),
                   'label'   => __( 'Sollen die Galeriebilder (4 Spalten) zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
                   'default' => $defaultoptions['default_gallery_grid4col_crop'],
 		  'parent' => 'dimensions',
                 ),	       
   
-	       
-	       'adminmisc'  => array(
-                  'type'    => 'section',
-                  'title'   => __( 'Sonstiges', 'fau' ),
-		),   
-	       
-	       'reset_options' => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Reset', 'fau' ),
-                  'label'   => __( 'Setze alle Einstellungen und Konfigurationen zurück. Achtung: Dies setzt alle Voreinstellungen unwiederbringlich zurück!', 'fau' ),
-                  'default' => 0,
-		  'mark_option' => 1,
-		  'parent' => 'adminmisc',
-              ),   	       
-
+	      
 	       
    
           )
        ),
-       
+       */
        
     )
 );

@@ -14,8 +14,7 @@ get_header(); ?>
     <?php get_template_part('template-parts/hero', 'small'); ?>
 
     <div id="content" class="content-portal">
-	<div class="container">
-		
+	<div class="container">		
 	    <?php 
 	       echo fau_get_ad('werbebanner_seitlich',false);
 	     ?>

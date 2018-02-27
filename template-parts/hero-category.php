@@ -7,7 +7,6 @@
  * @since FAU 1.0
  */
 
-global $options; 
 ?>
 
 <section id="hero" class="hero-small">
@@ -15,9 +14,7 @@ global $options;
 		<div class="row">
 			<div class="col-xs-12">
 				
-			    <?php
-				fau_breadcrumb(); ?>
-				 
+			    <?php fau_breadcrumb(); ?>
 
 				<h1><?php single_cat_title(); ?></h1>
 				

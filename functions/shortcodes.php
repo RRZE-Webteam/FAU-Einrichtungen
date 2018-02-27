@@ -105,9 +105,8 @@ class FAUShortcodes {
                     $out = $error;
                 } else {
                     $slug = $term->slug;     
-                    global $options;
-                    $subentries = $options['default_submenu_entries'];
-                    $spalte = $options['default_submenu_spalten'];
+                    $subentries = get_theme_mod('default_submenu_entries');
+                    $spalte = get_theme_mod('default_submenu_spalten');
                    
                     $out .= '<div class="contentmenu" role="navigation">';   
                     $out .= '<ul class="subpages-menu">';
@@ -190,8 +189,7 @@ class FAUShortcodes {
 							else $class = '';
 
 							$return .= '<div class="assistant-tab-pane '.$class.'" id="accordion-'.$page->ID.'-'.$i.'-tab-'.$j.'">';
-								// $return .= '<p>'.do_shortcode($subpage->post_content).'</p>';
-								$return .= do_shortcode($subpage->post_content);
+							$return .= do_shortcode($subpage->post_content);
 							$return .= '</div>';
 
 							$j++;
@@ -199,19 +197,16 @@ class FAUShortcodes {
 
 					    $return .= '</div>';
 					}  else {
-						// $return .= '<p>'.do_shortcode($page->post_content).'</p>';
-						$return .= do_shortcode($page->post_content);
+					    $return .= do_shortcode($page->post_content);
 					}
 
 
 				    $return .= '</div>';
 			    $return .= '</div>';
 		    $return .= '</div>';
-
 		    $i++;
 		}
-		
-		
+
 		$return .= '</div>';
 		
 		return $return;

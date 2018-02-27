@@ -30,7 +30,7 @@ function fau_customizer_settings( $wp_customize ) {
     $definedtypes = array(
 	"text", "checkbox", "radio", "select", "textarea", "dropdown-pages", "email", "url", "number", "hidden", "date",
 	    // defaults
-	"bool", "html", "image", "multiselectlist", "urlchecklist", "range", "range-value", "category"
+	"bool", "html", "image", "multiselectlist", "urlchecklist", "range", "range-value", "category", "toggle", "toogle-switch"
 	    // self defined boolean
 
     );
@@ -150,6 +150,19 @@ function fau_customizer_settings( $wp_customize ) {
 				    'type' 		=> 'checkbox',
 				    
 			    ) );
+			} elseif (($type == 'toggle') || ($type == 'toggle-switch')) {
+			    $wp_customize->add_setting( $optionid, array(
+					    'default' => 0,
+					    'transport' => 'refresh',
+					    'sanitize_callback' => 'fau_sanitize_customizer_toggle_switch'
+				    )
+			    );
+			    $wp_customize->add_control( new WP_Customize_Control_Toggle_Switch( $wp_customize, $optionid, array(
+					    'label' => $title,
+					    'section' => $section,
+					    'description'	=> $label,
+				    )
+			    ) );			    
 			} elseif (($type == 'range') || ($type == 'range-value')) {
 			    $wp_customize->add_setting( $optionid , array(
 				'default'     => $default,
@@ -280,7 +293,36 @@ function fau_customizer_settings( $wp_customize ) {
 				'height'      => $height,
 			    ) ) );	
 			     
-			     
+			} elseif ($type == 'number') {    
+			    $wp_customize->add_setting( $optionid , array(
+				'default'     => $default,
+				'transport'   => 'refresh',
+				'sanitize_callback' => 'fau_sanitize_customizer_number'	
+			    ) );
+			     $wp_customize->add_control( $optionid, array(
+				    'label'             => $title,
+				    'description'	=> $label,
+				    'section'		=> $section,
+				    'settings'		=> $optionid,
+				    'type' 		=> 'number',
+				    
+			    ) );          
+			} elseif ($type == 'text') {    
+			    $wp_customize->add_setting( $optionid , array(
+				'default'     => $default,
+				'transport'   => 'refresh',
+				'sanitize_callback' => 'sanitize_text_field'	
+			    ) );
+			     $wp_customize->add_control( $optionid, array(
+				    'label'             => $title,
+				    'description'	=> $label,
+				    'section'		=> $section,
+				    'settings'		=> $optionid,
+				    'type' 		=> 'text',
+				    
+			    ) );     
+			    
+			    
 			} else {
 			     $wp_customize->add_setting( $optionid , array(
 				'default'     => $default,
@@ -327,7 +369,7 @@ function fau_customizer_settings( $wp_customize ) {
 		'section'	    => 'webgroup',
 		'type'		    => 'select',
 		'choices'	    => get_fau_orga_breadcrumb_customizer_choices(),
-		'priority'	    => 3,
+		'priority'	    => 5,
 	) );
     }
     
@@ -364,6 +406,35 @@ if (class_exists('WP_Customize_Control')) {
 		    </select>
 		</label>
 	<?php }
+    }
+}
+/*--------------------------------------------------------------------*/
+/* Toogle switch
+ * adapted from https://github.com/maddisondesigns/customizer-custom-controls
+/*--------------------------------------------------------------------*/
+if (class_exists('WP_Customize_Control')) {
+    class WP_Customize_Control_Toggle_Switch extends WP_Customize_Control {
+	// The type of control being rendered
+	public $type = 'toogle-switch';
+
+
+	public function render_content(){
+	?>
+		<div class="toggle-switch-control">
+			<div class="toggle-switch">
+				<input type="checkbox" id="<?php echo esc_attr($this->id); ?>" name="<?php echo esc_attr($this->id); ?>" class="toggle-switch-checkbox" value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->link(); checked( $this->value() ); ?>>
+				<label class="toggle-switch-label" for="<?php echo esc_attr( $this->id ); ?>">
+					<span class="toggle-switch-inner"></span>
+					<span class="toggle-switch-switch"></span>
+				</label>
+			</div>
+			<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+			<?php if( !empty( $this->description ) ) { ?>
+				<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+			<?php } ?>
+		</div>
+	<?php
+	}
     }
 }
 /*-----------------------------------------------------------------------------------*/

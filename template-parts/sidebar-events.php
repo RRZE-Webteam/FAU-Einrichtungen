@@ -1,7 +1,6 @@
 <?php
 
 
-global $options;
 
 $show =false;
 /*
@@ -20,7 +19,6 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
  if ((isset($start_topevents_active)) && ($start_topevents_active==true)) {
     $start_topevents_templates = get_theme_mod("topevents_templates");
 
-    // $displayon = $options['topevents_templates'];
     $template = get_page_template();
 
      foreach ($start_topevents_templates as $key) {
@@ -123,8 +121,8 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 		    $imageid = get_post_meta( $topevent->ID, 'topevent_image', true );
 		    $imagehtml = '';
 		    
-		    $pretitle = $options['advanced_blogroll_thumblink_alt_pretitle'];
-		    $posttitle = $options['advanced_blogroll_thumblink_alt_posttitle'];
+		    $pretitle = get_theme_mod('advanced_blogroll_thumblink_alt_pretitle');
+		    $posttitle = get_theme_mod('advanced_blogroll_thumblink_alt_posttitle');
 		    $alttext = $pretitle.$titel.$posttitle;
 		    $alttext = esc_html($alttext);
 		    
@@ -132,11 +130,13 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 		    if (isset($imageid) && ($imageid>0)) {
 			$image = wp_get_attachment_image_src($imageid, 'topevent-thumb'); 					
 			if (($image) && ($image[0])) {  
-			    $imagehtml = '<img itemprop="thumbnailUrl" src="'.fau_esc_url($image[0]).'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="'.$alttext.'">';	  
+			    $imagehtml = '<img itemprop="thumbnailUrl" src="'.fau_esc_url($image[0]).'" width="'.$image[1].'" height="'.$image[2].'" alt="'.$alttext.'">';	  
 			}								    
 		    } 
 		    if (empty($imagehtml)) {
-		       $imagehtml = '<img itemprop="thumbnailUrl" src="'.fau_esc_url($options['default_topevent_thumb_src']).'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="'.$alttext.'">';			    
+			global $defaultoptions;
+
+		       $imagehtml = '<img itemprop="thumbnailUrl" src="'.fau_esc_url($defaultoptions['default_topevent_thumb_src']).'" width="'.$defaultoptions['default_topevent_thumb_width'].'" height="'.$defaultoptions['default_topevent_thumb_height'].'" alt="'.$alttext.'">';			    
 		    }
 		    if (($hideimage < 1) && (isset($imagehtml))) { ?>
 			<div class="event-thumb" aria-hidden="true" role="presentation" tabindex="-1" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
@@ -161,7 +161,7 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 			    }
 			    $desc = get_post_meta( $topevent->ID, 'topevent_description', true );
 			    if (strlen(trim($desc))<3) {
-				$desc =  fau_custom_excerpt($topevent->ID,$options['default_topevent_excerpt_length']);
+				$desc =  fau_custom_excerpt($topevent->ID,get_theme_mod('default_topevent_excerpt_length'));
 			    }  ?>   
 			<div class="topevent-description" itemprop="description"><?php echo $desc; ?></div>
 		    </div>			

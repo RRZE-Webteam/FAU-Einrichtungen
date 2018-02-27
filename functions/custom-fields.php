@@ -10,7 +10,6 @@ add_action('load-post-new.php', 'fau_metabox_cf_setup');
 /* Meta box setup function.
 /*-----------------------------------------------------------------------------------*/
 function fau_metabox_cf_setup() {
-    global $options;
     
     /* Display Metabox */
     add_action('add_meta_boxes_page', 'fau_add_metabox_page');
@@ -20,7 +19,7 @@ function fau_metabox_cf_setup() {
     /* Save sidecontent */
     add_action('save_post', 'fau_save_metabox_page_untertitel', 10, 2);
 
-    if ($options['website_type'] == -1) {
+    if (get_theme_mod('website_type') == -1) {
         add_action('save_post', 'fau_save_metabox_page_subnavmenu', 10, 2);
     }
 
@@ -30,23 +29,23 @@ function fau_metabox_cf_setup() {
 
     add_action('save_post', 'fau_save_metabox_page_sidebar', 10, 2);
 
-    if ($options['advanced_post_active_subtitle'] == true) {
+    if (get_theme_mod('advanced_post_active_subtitle') == true) {
         add_action('save_post', 'fau_save_metabox_post_untertitel', 10, 2);
     }
     
-    if ($options['advanced_activateads'] == true) {
+    if (get_theme_mod('advanced_activateads') == true) {
         add_action('save_post', 'fau_save_metabox_page_ad', 10, 2);
     }
     
-    if ($options['advanced_beitragsoptionen'] == true) {
+    if (get_theme_mod('advanced_beitragsoptionen') == true) {
         add_action('save_post', 'fau_save_post_teaser', 10, 2);
     }
     
-    if ($options['advanced_topevent'] == true) {
+    if (get_theme_mod('advanced_topevent') == true) {
         add_action('save_post', 'fau_save_post_topevent', 10, 2);
     }
    
-    if ($options['advanced_activate_page_langcode'] == true) {
+    if (get_theme_mod('advanced_activate_page_langcode') == true) {
 	 add_action('save_post', 'fau_save_metabox_page_langcode', 10, 2);
     }
 }
@@ -56,7 +55,6 @@ function fau_metabox_cf_setup() {
 /*-----------------------------------------------------------------------------------*/
 
 function fau_add_metabox_page() {
-    global $options;
     
     add_meta_box(
         'fau_metabox_page_untertitel',			
@@ -72,7 +70,7 @@ function fau_add_metabox_page() {
         'page','side','core'
     );
 
-    if ($options['website_type']==-1) {
+    if (get_theme_mod('website_type')==-1) {
         add_meta_box(
             'fau_metabox_page_subnavmenu',			
             esc_html__( 'Menüoptionen', 'fau' ),		
@@ -88,7 +86,7 @@ function fau_add_metabox_page() {
         'page','side','core'
     );
 
-    if ($options['advanced_activateads'] == true) {
+    if (get_theme_mod('advanced_activateads') == true) {
         add_meta_box(
             'fau_metabox_page_ad',			
             esc_html__( 'Werbung aktivieren', 'fau' ),		
@@ -103,7 +101,7 @@ function fau_add_metabox_page() {
         'fau_do_metabox_page_sidebar',		
         'page','normal','core'
     );
-    if ($options['advanced_activate_page_langcode'] == true) {
+    if (get_theme_mod('advanced_activate_page_langcode') == true) {
         add_meta_box(
             'fau_metabox_page_langcode',			
             esc_html__( 'Seitensprache', 'fau' ),		
@@ -116,10 +114,8 @@ function fau_add_metabox_page() {
 /*-----------------------------------------------------------------------------------*/
 /*  Metaboxes fuer Posts
 /*-----------------------------------------------------------------------------------*/
-
 function fau_add_metabox_post() {
-    global $options;
-    
+   
     add_meta_box(
         'fau_metabox_post_teaser', 
         esc_html__('Beitragsoptionen', 'fau'), 
@@ -127,7 +123,7 @@ function fau_add_metabox_post() {
         'post', 'normal', 'high'
     );
     
-    if ($options['advanced_post_active_subtitle'] == true) {
+    if (get_theme_mod('advanced_post_active_subtitle') == true) {
         add_meta_box(
             'fau_metabox_post_untertitel', 
             esc_html__('Untertitel', 'fau'), 
@@ -136,7 +132,7 @@ function fau_add_metabox_post() {
         );
     }
     
-    if ($options['advanced_topevent'] == true) {
+    if (get_theme_mod('advanced_topevent') == true) {
         add_meta_box(
             'fau_metabox_post_topevent', 
             esc_html__('Top-Event', 'fau'), 
@@ -159,9 +155,11 @@ function fau_do_metabox_post_teaser($object, $box) {
 
     echo "<p>\n";
     echo __('Bitte beachten: Damit ein Artikel auf der Startseite angezeigt werden soll, muss er das folgende Schlagwort erhalten: ', 'fau');
-    echo '<b>' . $options['start_prefix_tag_newscontent'] . '</b> - ' . __('Dies gefolgt von einer Nummer (1-3) für die Reihenfolge.', 'fau');
-    if (isset($options['slider-catid']) && $options['slider-catid'] > 0) {
-        $category = get_category($options['slider-catid']);
+    echo '<b>' . get_theme_mod('start_prefix_tag_newscontent') . '</b> - ' . __('Dies gefolgt von einer Nummer (1-3) für die Reihenfolge.', 'fau');
+    
+    $slider_catid = get_theme_mod('slider-catid'); 
+    if (isset($slider_catid) && $slider_catid > 0) {
+        $category = get_category($slider_catid);
         if (isset($category->name)) {
             echo ' ' . __('Damit ein Artikel in der Bühne erscheint, muss er folgender Kategorie angehören: ', 'fau');
             echo '<b>' . $category->name . '</b>';
@@ -170,11 +168,11 @@ function fau_do_metabox_post_teaser($object, $box) {
 
     echo "</p>\n";
 
-    if ($options['advanced_beitragsoptionen'] == true) {
+    if (get_theme_mod('advanced_beitragsoptionen') == true) {
 
         $howto = __('Kurztext für die Bühne und den Newsindex (Startseite und Indexseiten). Wenn leer, wird der Kurztext automatisch aus dem Inhalt abzüglich der erlaubten Zeichen gebildet. ', 'fau');
         $howto .= '<br>' . __('Erlaubte Anzahl an Zeichen:', 'fau');
-        $howto .= ' <span class="fauval_anleser_signs">' . $options['default_anleser_excerpt_length'] . '</span>';
+        $howto .= ' <span class="fauval_anleser_signs">' . get_theme_mod('default_anleser_excerpt_length') . '</span>';
 
 
         $abstract = get_post_meta($object->ID, 'abstract', true);
@@ -190,8 +188,9 @@ function fau_do_metabox_post_teaser($object, $box) {
         fau_form_image('fauval_slider_image', $sliderimage, __('Bühnenbild', 'fau'), __('An dieser Stelle kann optional ein alternatives Bild für die Bühne der Startseite ausgewählt werden, falls das normale Beitragsbild hierzu nicht verwendet werden soll.', 'fau'), 540, 150);
     }
 }
-
- /* Save the meta box's post metadata. */
+/*-----------------------------------------------------------------------------------*/
+/* Save the meta box's post metadata.
+/*-----------------------------------------------------------------------------------*/
 function fau_save_post_teaser($post_id, $post) {
     /* Verify the nonce before proceeding. */
     if (!isset($_POST['fau_metabox_post_teaser_nonce']) || !wp_verify_nonce($_POST['fau_metabox_post_teaser_nonce'], basename(__FILE__))) {
@@ -252,8 +251,6 @@ function fau_save_post_teaser($post_id, $post) {
  
 /* Display Options for pages */
 function fau_do_metabox_post_topevent($object, $box) { 
-    global $options;
-
     wp_nonce_field( basename( __FILE__ ), 'fau_metabox_post_topevent_nonce' );
 
     if (!current_user_can('edit_post', $object->ID)) {
@@ -264,7 +261,7 @@ function fau_do_metabox_post_topevent($object, $box) {
     fau_form_onoff('fauval_topevent_active',$istopevent,__('Diesen Artikel als Top-Event anzeigen.','fau'));	
 
 
-    if (!empty($options['start_topevents_tag'])) {	
+    if (!empty(get_theme_mod('start_topevents_tag'))) {	
        echo '<p>'.__('Bitte beachten: Damit ein Artikel als Top-Event angezeigt wird, muss entweder obige Option gesetzt sein oder der Artikel muss ein gültiges Datum für einen Top-Event angegeben haben, welches noch nicht abgelaufen ist.','fau').'</p>';
     }
 
@@ -274,7 +271,7 @@ function fau_do_metabox_post_topevent($object, $box) {
     $topevent_desc  = get_post_meta( $object->ID, 'topevent_description', true );
     $help  = __('Kurztext für die Sidebar. Wenn leer, wird der Anleser verwendet.','fau');
     $help  .= ' '. __('Erlaubte Anzahl an Zeichen:','fau');
-    $help  .=  ' <span class="fauval_topevent_desc_signs">'.$options['default_topevent_excerpt_length'].'</span>';    
+    $help  .=  ' <span class="fauval_topevent_desc_signs">'.get_theme_mod('default_topevent_excerpt_length').'</span>';    
     fau_form_textarea('fauval_topevent_desc', $topevent_desc, __( "Kurzbeschreibung", 'fau' ),40,5, $help); 	    	
 
 
@@ -318,7 +315,7 @@ function fau_do_metabox_post_topevent($object, $box) {
 
         $hideimage  = get_post_meta( $object->ID, 'topevent_hideimage', true ); 
         if (!isset($hideimage)) {
-            $hideimage = $options['topevent_hideimage'];
+            $hideimage = get_theme_mod('topevent_hideimage');
         }
 
         fau_form_onoff('fauval_topevent_hideimage',$hideimage,__('Kein Symbolbild anzeigen.','fau'));	
@@ -330,7 +327,7 @@ function fau_do_metabox_post_topevent($object, $box) {
         if (isset($topevent_image) && ($topevent_image>0)) {
             $image = wp_get_attachment_image_src($topevent_image, 'topevent-thumb'); 
             if (isset($image)) {
-                $imagehtml = '<img class="image_show_topevent_image" src="'.$image[0].'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="">';
+                $imagehtml = '<img class="image_show_topevent_image" src="'.$image[0].'" width="'.get_theme_mod('default_topevent_thumb_width').'" height="'.get_theme_mod('default_topevent_thumb_height').'" alt="">';
             }
         }
 
@@ -338,7 +335,7 @@ function fau_do_metabox_post_topevent($object, $box) {
         if (!empty($imagehtml)) {  
             echo $imagehtml;
         } else {
-            $imagehtml = '<img src="'.fau_esc_url($options['default_topevent_thumb_src']).'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="">';			    
+            $imagehtml = '<img src="'.fau_esc_url(get_theme_mod('default_topevent_thumb_src')).'" width="'.get_theme_mod('default_topevent_thumb_width').'" height="'.get_theme_mod('default_topevent_thumb_height').'" alt="">';			    
             echo $imagehtml;
             echo "<br>";
             _e('Kein Bild ausgewählt. Ersatzbild wird gezeigt.', 'fau');
@@ -358,7 +355,7 @@ function fau_do_metabox_post_topevent($object, $box) {
             jQuery('#image_button_topevent_image').click(function()  {
                 wp.media.editor.send.attachment = function(props, attachment) {
                     jQuery('#fauval_topevent_image').val(attachment.id);
-                    htmlshow = "<img src=\""+attachment.url + "\" width=\"<?php echo $options['default_topevent_thumb_width'];?>\" height=\"<?php echo $options['default_topevent_thumb_height'];?>\"/>";  					   
+                    htmlshow = "<img src=\""+attachment.url + "\" width=\"<?php echo get_theme_mod('default_topevent_thumb_width');?>\" height=\"<?php echo get_theme_mod('default_topevent_thumb_height');?>\"/>";  					   
                     jQuery('.showimg_topevent_image').html(htmlshow);
 
                 }
@@ -526,9 +523,7 @@ function fau_save_metabox_page_untertitel( $post_id, $post ) {
 }
 
 /* Display Options for menuquotes on pages */
-function fau_do_metabox_page_portalmenu($object, $box) {
-    global $options;
-    
+function fau_do_metabox_page_portalmenu($object, $box) {    
     wp_nonce_field(basename(__FILE__), 'fau_metabox_page_portalmenu_nonce');
 
     if (!current_user_can('edit_page', $object->ID)) {
@@ -673,7 +668,6 @@ function fau_save_metabox_page_portalmenu($post_id, $post) {
 
 /* Display Options for menuquotes on pages */
 function fau_do_metabox_page_imagelinks($object, $box) {
-    global $options;
     wp_nonce_field(basename(__FILE__), 'fau_metabox_page_imagelinks_nonce');
 
     if (!current_user_can('edit_page', $object->ID)) {
@@ -725,7 +719,6 @@ function fau_save_metabox_page_imagelinks($post_id, $post) {
 
 /* Display Options for menuquotes on pages */
 function fau_do_metabox_page_ad($object, $box) {
-    global $options;
     
     wp_nonce_field(basename(__FILE__), 'fau_metabox_page_ad_nonce');
 
@@ -830,30 +823,29 @@ function fau_save_metabox_page_ad($post_id, $post) {
 
 /* Display Options for menuquotes on pages */
 function fau_do_metabox_page_sidebar($object, $box) {
-    global $options;
     wp_nonce_field(basename(__FILE__), 'fau_metabox_page_sidebar_nonce');
     
     if (!current_user_can('edit_page', $object->ID)) {
         return;
     }
     
-    if ($options['advanced_page_sidebar_titleabove']) {
+    if (get_theme_mod('advanced_page_sidebar_titleabove')) {
         $sidebar_title_above = get_post_meta($object->ID, 'sidebar_title_above', true);
         fau_form_text('sidebar_title_above', $sidebar_title_above, __('Titel oben', 'fau'), __('Titel am Anfang der Sidebar', 'fau'));
     }
 
     $sidebar_text_above = get_post_meta($object->ID, 'sidebar_text_above', true);
-    if ($options['advanced_page_sidebar_useeditor_textabove']) {
+    if (get_theme_mod('advanced_page_sidebar_useeditor_textabove')) {
         fau_form_wpeditor('sidebar_text_above', $sidebar_text_above, __('Textbereich oben', 'fau'), __('Text am Anfang der Sidebar', 'fau'), true);
     } else {
         fau_form_textarea('sidebar_text_above', $sidebar_text_above, __('Textbereich oben', 'fau'), $cols = 50, $rows = 5, __('Text am Anfang der Sidebar', 'fau'));
     }
-    if (($options['advanced_page_sidebar_linkblock1_number'] > 0) || ($options['advanced_page_sidebar_linkblock2_number'] > 0)) {
+    if ((get_theme_mod('advanced_page_sidebar_linkblock1_number') > 0) || (get_theme_mod('advanced_page_sidebar_linkblock2_number') > 0)) {
         // Frage nach Reihenfolge Linklisten vs Personen
 
         $fauval_sidebar_order_personlinks = get_post_meta($object->ID, 'fauval_sidebar_order_personlinks', true);
         if (!isset($fauval_sidebar_order_personlinks)) {
-            $fauval_sidebar_order_personlinks = $options['advanced_page_sidebar_order_personlinks'];
+            $fauval_sidebar_order_personlinks = get_theme_mod('advanced_page_sidebar_order_personlinks');
         }
         fau_form_select('fauval_sidebar_order_personlinks', array(0 => __('Zuerst Kontake, dann Linklisten', 'fau'), 1 => __('Zuerst Linklisten, dann Kontakte', 'fau')), $fauval_sidebar_order_personlinks, __('Reihenfolge Kontakte und Linklisten', 'fau'), __('Hier kann die Reihenfolge von Kontakte und Linklisten geändert werden, wie sie auf der Seite präsentiert werden.', 'fau'), 0);
     }
@@ -873,18 +865,18 @@ function fau_do_metabox_page_sidebar($object, $box) {
         if ($found == 1) {
             $sidebar_personen = get_post_meta($object->ID, 'sidebar_personen', true);
             $sidebar_title_personen = get_post_meta($object->ID, 'sidebar_title_personen', true);
-            fau_form_text('sidebar_title_personen', $sidebar_title_personen, $options['advanced_page_sidebar_personen_title'], __('Titel über Ansprechpartner', 'fau'));
+            fau_form_text('sidebar_title_personen', $sidebar_title_personen, get_theme_mod('advanced_page_sidebar_personen_title'), __('Titel über Ansprechpartner', 'fau'));
             fau_form_multiselect('sidebar_personen', $auswahl, $sidebar_personen, __('Auswahl Ansprechpartner', 'fau'), __('Wählen Sie die Personen oder Ansprechpartner, die in der Sidebar erscheinen sollen. Es kann mehr als ein Eintrag gewählt werden.', 'fau'), 0);
         } else {
             echo __('Derzeit sind noch Persoen oder Kontakte eingetragen, die man verlinken könnte.', 'fau');
         }
     }
 
-    if ($options['advanced_page_sidebar_linkblock1_number'] > 0) {
+    if (get_theme_mod('advanced_page_sidebar_linkblock1_number') > 0) {
         $block_title = get_post_meta($object->ID, 'fauval_sidebar_title_linkblock1', true);
 
         fau_form_text('fauval_sidebar_title_linkblock1', $block_title, __('Titel erster Linkblock', 'fau'), __('Titel über die erste Liste von Links, sogenannte Quicklinks', 'fau'));
-        for ($i = 1; $i <= $options['advanced_page_sidebar_linkblock1_number']; $i++) {
+        for ($i = 1; $i <= get_theme_mod('advanced_page_sidebar_linkblock1_number'); $i++) {
             $name = 'fauval_linkblock1_link' . $i;
             $title = __('Link Nr. ', 'fau') . $i;
             $urlname = $name . '_url';
@@ -897,7 +889,7 @@ function fau_do_metabox_page_sidebar($object, $box) {
         }
     }
 
-    if ($options['advanced_page_sidebar_linkblock2_number'] > 0) {
+    if (get_theme_mod('advanced_page_sidebar_linkblock2_number') > 0) {
 
         $block_title = get_post_meta($object->ID, 'fauval_sidebar_title_linkblock2', true);
         // Default erstmal auskommentiert wenn man es leer haben will; irritiert sonst
@@ -906,7 +898,7 @@ function fau_do_metabox_page_sidebar($object, $box) {
         //}
         fau_form_text('fauval_sidebar_title_linkblock2', $block_title, __('Titel zweiter Linkblock', 'fau'), __('Titel über die zweite Liste von Links. Weitere Links oder bspw. externe Links.', 'fau'));
 
-        for ($i = 1; $i <= $options['advanced_page_sidebar_linkblock2_number']; $i++) {
+        for ($i = 1; $i <= get_theme_mod('advanced_page_sidebar_linkblock2_number'); $i++) {
             $name = 'fauval_linkblock2_link' . $i;
             $title = __('Link Nr. ', 'fau') . $i;
             $urlname = $name . '_url';
@@ -920,13 +912,13 @@ function fau_do_metabox_page_sidebar($object, $box) {
         }
     }
 
-    if ($options['advanced_page_sidebar_titlebelow']) {
+    if (get_theme_mod('advanced_page_sidebar_titlebelow')) {
         $sidebar_title_below = get_post_meta($object->ID, 'sidebar_title_below', true);
         fau_form_text('sidebar_title_below', $sidebar_title_below, __('Titel unten', 'fau'), __('Titel am Ende der Sidebar', 'fau'));
     }
 
     $sidebar_text_below = get_post_meta($object->ID, 'sidebar_text_below', true);
-    if ($options['advanced_page_sidebar_useeditor_textbelow']) {
+    if (get_theme_mod('advanced_page_sidebar_useeditor_textbelow')) {
         fau_form_wpeditor('sidebar_text_below', $sidebar_text_below, __('Textbereich unten', 'fau'), __('Text am Ende der Sidebar', 'fau'), true);
     } else {
         fau_form_textarea('sidebar_text_below', $sidebar_text_below, __('Textbereich unten', 'fau'), $cols = 50, $rows = 5, __('Text am Ende der Sidebar', 'fau'));
@@ -937,7 +929,6 @@ function fau_do_metabox_page_sidebar($object, $box) {
 
 /* Save the meta box's page metadata. */
 function fau_save_metabox_page_sidebar($post_id, $post) {
-    global $options;
     if (!isset($_POST['fau_metabox_page_sidebar_nonce']) || !wp_verify_nonce($_POST['fau_metabox_page_sidebar_nonce'], basename(__FILE__))) {
         return $post_id;
     }
@@ -950,7 +941,7 @@ function fau_save_metabox_page_sidebar($post_id, $post) {
 
     fau_save_standard('sidebar_title_above', $_POST['sidebar_title_above'], $post_id, 'page', 'text');
 
-    if ($options['advanced_page_sidebar_useeditor_textabove'] == false) {
+    if (get_theme_mod('advanced_page_sidebar_useeditor_textabove') == false) {
         fau_save_standard('sidebar_text_above', $_POST['sidebar_text_above'], $post_id, 'page', 'textnohtml');
     } else {
         fau_save_standard('sidebar_text_above', $_POST['sidebar_text_above'], $post_id, 'page', 'wpeditor');
@@ -958,7 +949,7 @@ function fau_save_metabox_page_sidebar($post_id, $post) {
 
     fau_save_standard('sidebar_title_below', $_POST['sidebar_title_below'], $post_id, 'page', 'text');
 
-    if ($options['advanced_page_sidebar_useeditor_textbelow'] == false) {
+    if (get_theme_mod('advanced_page_sidebar_useeditor_textbelow') == false) {
         fau_save_standard('sidebar_text_below', $_POST['sidebar_text_below'], $post_id, 'page', 'textnohtml');
     } else {
         fau_save_standard('sidebar_text_below', $_POST['sidebar_text_below'], $post_id, 'page', 'wpeditor');
@@ -1031,9 +1022,7 @@ function fau_save_metabox_page_sidebar($post_id, $post) {
         delete_post_meta($post_id, 'fauval_sidebar_title_linkblock2');
     }
 
-    global $options;
-
-    for ($i = 1; $i <= $options['advanced_page_sidebar_linkblock1_number']; $i++) {
+    for ($i = 1; $i <= get_theme_mod('advanced_page_sidebar_linkblock1_number'); $i++) {
         $name = 'fauval_linkblock1_link' . $i;
         $urlname = $name . '_url';
         $titlename = $name . '_title';
@@ -1062,7 +1051,7 @@ function fau_save_metabox_page_sidebar($post_id, $post) {
     }
 
 
-    for ($i = 1; $i <= $options['advanced_page_sidebar_linkblock2_number']; $i++) {
+    for ($i = 1; $i <= get_theme_mod('advanced_page_sidebar_linkblock2_number'); $i++) {
         $name = 'fauval_linkblock2_link' . $i;
         $urlname = $name . '_url';
         $titlename = $name . '_title';

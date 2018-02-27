@@ -40,6 +40,11 @@
 					    if( in_array( $type, $allowed_types ) ) {
 						$typeinfo = get_post_type_object( $type );
 						$typestr = $typeinfo->labels->name; 	    
+						
+						if ($type == 'attachment') {
+						    $typestr = __('Dokumente und Bilder', 'fau');
+						}
+						
 						echo '<div class="nowrap"><input type="checkbox" name="post_type[]" id="label-'.$type.'" value="'.$type.'"';
 						if (in_array($type, $query_types)) { echo ' checked="checked"'; }
 						echo ">";			

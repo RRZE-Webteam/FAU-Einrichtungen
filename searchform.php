@@ -18,14 +18,14 @@ global $options;
 	</div>
 	<?php 
 	
-	if ($options['search_allowfilter']) {
+	if (get_theme_mod('search_allowfilter')) {
 	    
 	    if (is_single() || is_category() || is_tag() || is_tax() ) {
 		// Only Posts please :)
 		echo '<input type="hidden" name="post_type[]" value="post">'."\n";		
 	    } else {
-		$listtypes = $options['search_post_types'];
-		$autosearch_types =  $options['search_post_types_checked'];
+		$listtypes = get_theme_mod('search_post_types');
+		$autosearch_types =  get_theme_mod('search_post_types_checked');
 		foreach ($listtypes as $type) {
 		   if (in_array($type, $autosearch_types)) { 
 		    echo '<input type="hidden" name="post_type[]" value="'.$type.'">'."\n";				   

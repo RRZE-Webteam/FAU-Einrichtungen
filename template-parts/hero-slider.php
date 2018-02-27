@@ -14,7 +14,7 @@
     <div id="hero-slides">
     <?php	
     global $usejslibs;
-    global $options;
+    global $defaultoptions;
 
     $numberposts = get_theme_mod('start_header_count');
     $catid =  get_theme_mod('slider-catid');
@@ -76,10 +76,10 @@
 			$copyright = trim(strip_tags( $imgdata['credits'] ));
 		    
 		    } else {
-			$slidersrc = '<img src="'.fau_esc_url($options['src-fallback-slider-image']).'" width="'.$options['slider-image-width'].'" height="'.$options['slider-image-height'].'" alt="">';		
+			$slidersrc = '<img src="'.fau_esc_url($defaultoptions['src-fallback-slider-image']).'" width="'.$defaultoptions['slider-image-width'].'" height="'.$defaultoptions['slider-image-height'].'" alt="">';		
 		    }		    
 		} else {
-		    $slidersrc = '<img src="'.fau_esc_url($sliderimage[0]).'" width="'.$options['slider-image-width'].'" height="'.$options['slider-image-height'].'" alt=""';
+		    $slidersrc = '<img src="'.fau_esc_url($sliderimage[0]).'" width="'.$defaultoptions['slider-image-width'].'" height="'.$defaultoptions['slider-image-height'].'" alt=""';
 		    if ($slidersrcset) {
 			$slidersrc .= ' srcset="'.$slidersrcset.'"';
 		    }
