@@ -305,10 +305,11 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		    $classes[] = 'homelink';
 		    $force_cleanmenu = 2;
 		}
-
-		if ((get_theme_mod('advanced_forceclean_homelink')) && ($force_cleanmenu==1)) {
+		$forceclean_externlink = get_theme_mod('advanced_forceclean_externlink');
+		$forceclean_homelink =    get_theme_mod('advanced_forceclean_homelink');
+		if (($forceclean_homelink==true) && ($force_cleanmenu==2)) {
 		    // Ignore homelink
-		} elseif ((get_theme_mod('advanced_forceclean_externlink')) && ($force_cleanmenu==1)) {    
+		} elseif (($forceclean_externlink==true) && ($force_cleanmenu==1)) {    
 		    // Ignore external link in Main menu
 		} else {
 		   
