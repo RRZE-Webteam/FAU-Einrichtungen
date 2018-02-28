@@ -11,10 +11,10 @@
 /* Register FAU Menus in Theme
 /*-----------------------------------------------------------------------------------*/
 function fau_register_menus() {   
+    global $defaultoptions;
     $website_type = get_theme_mod('website_type');
     if (!isset($website_type)) {
-	global $options;
-	$website_type = $options['website_type'];
+	$website_type = $defaultoptions['website_type'];
     }
     
 	
@@ -39,7 +39,7 @@ function fau_register_menus() {
 	register_nav_menu( 'quicklinks-4', __( 'Startseite Fakultät: Bühne Spalte 2', 'fau' ) );
     }
 
-    global $defaultoptions;
+    
     register_nav_menu( $defaultoptions['socialmedia_menu_position'], $defaultoptions['socialmedia_menu_position_title'] );
 	// Social Media Menu (seit 1.9.5)
     

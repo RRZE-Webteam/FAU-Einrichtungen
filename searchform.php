@@ -8,9 +8,10 @@
 */
 ?>
 
-<form role="search" method="get" class="searchform" action="<?php echo fau_esc_url(home_url( '/' ))?>">
+<form method="get" class="searchform" action="<?php echo fau_esc_url(home_url( '/' ))?>">
+    <h2 class="screen-reader-text"><?php echo get_theme_mod('title_hero_search'); ?></h2>
 	<div class="search-text">
-	    <label for="s"><?php _e('Suchen nach...','fau'); ?></label>
+	    <label for="s"><?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:','fau'); ?></label>
 	    <span class="searchicon"> </span>
 	    <input type="text" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>">
 	    <input type="submit" id="searchsubmit" value="<?php _e('Finden','fau'); ?>">

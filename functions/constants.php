@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 33,
+    'optiontable-version'		=> 34,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -152,7 +152,7 @@ $defaultoptions = array(
    
     'breadcrumb_root'			=> __('Startseite', 'fau'),
     'breadcrumb_delimiter'		=> ' <span>/</span>',
-    'breadcrumb_beforehtml'		=> '<span class="active" aria-current="location">', // '<span class="current">'; // tag before the current crumb
+    'breadcrumb_beforehtml'		=> '<span class="active" aria-current="page">', // '<span class="current">'; // tag before the current crumb
     'breadcrumb_afterhtml'		=> '</span>',
     'breadcrumb_uselastcat'		=> true,
     'breadcrumb_withtitle'		=> false,
@@ -552,6 +552,13 @@ $setoptions = array(
 		    'default' => $defaultoptions['title_hero_post_categories'],
 		    'parent'  => 'postoptions'
 		), 
+	       'title_hero_post_archive'	 => array(
+		    'type'    => 'text',
+		    'title'   => __( 'Bühnentitel Beiträge', 'fau' ),
+		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Archivseiten von Nachrichten hinterlegt werden.', 'fau' ),               
+		    'default' => $defaultoptions['title_hero_post_archive'],
+		     'parent'  => 'breadcrumb'
+		), 
 	       'advanced_activate_post_comments'		  => array(
                   'type'    => 'toggle',
                   'title'   => __( 'Kommentarfunktion', 'fau' ),
@@ -727,13 +734,7 @@ $setoptions = array(
 	       
 	       
 	
-		'title_hero_post_archive'	 => array(
-		    'type'    => 'text',
-		    'title'   => __( 'Bühnentitel Beiträge', 'fau' ),
-		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Archivseiten von Nachrichten hinterlegt werden.', 'fau' ),               
-		    'default' => $defaultoptions['title_hero_post_archive'],
-		     'parent'  => 'breadcrumb'
-		), 
+		
 	     
 	       'title_hero_events'	 => array(
 		    'type'    => 'text',

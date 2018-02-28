@@ -7,9 +7,9 @@
 * @since FAU 1.0
 */
 ?>
-
 <form id="search-header" role="search" method="get" class="searchform" action="<?php echo fau_esc_url(home_url( '/' ))?>">
-	<label for="headsearchinput"><?php _e('Suchbegriff eingeben','fau'); ?></label>
+    <h2 class="screen-reader-text"><?php echo get_theme_mod('title_hero_search'); ?></h2>
+	<label for="headsearchinput"><?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:','fau'); ?></label>
 	<span class="searchicon"> </span>
 	<input id="headsearchinput" type="text" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>">
 	<?php 

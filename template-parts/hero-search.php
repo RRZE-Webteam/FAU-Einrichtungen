@@ -22,7 +22,7 @@
 			<div class="search-input">
 			    <form method="get" class="searchform" action="<?php echo home_url( '/' )?>">
 				<div class="search-text">
-				    <label for="suchmaske-hero"><?php _e('Geben Sie hier den Suchbegriff ein','fau'); ?></label>
+				    <label for="suchmaske-hero"><?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:','fau'); ?></label>
 				    <span class="searchicon"> </span>
 				    <input id="suchmaske-hero" type="text" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>">
 				    <input type="submit" value="<?php _e('Finden','fau'); ?>">

@@ -105,7 +105,7 @@ $default_link_liste = array(
 	    '_title'	=> __('Fakultäten','fau'),
 	    'link1'  => array(
 		'name'	    => __('Philosophische Fakultät und Fachbereich Theologie', 'fau' ),
-		'content'  => 'http://www.phil.fau.de/',
+		'content'  => 'https://www.phil.fau.de/',
 		'class'	    => 'phil',
 	    ),
 	    'link2'  => array(
@@ -115,7 +115,7 @@ $default_link_liste = array(
 	    ),
 	    'link3'  => array(
 		'name'	    => __('Medizinische Fakultät', 'fau' ),
-		'content'  => 'http://www.dekanat.med.uni-erlangen.de/',
+		'content'  => 'https://www.med.fau.de/',
 		'class'	    => 'med',
 	    ),
 	    'link4'  => array(
@@ -156,7 +156,7 @@ $default_link_liste = array(
 	    '_title'	=> __('Einrichtungen','fau'),
 	    'link1'  => array(
 		'name'	    => __('Universitätsbibliothek', 'fau' ),
-		'content'  => 'http://www.ub.fau.de/',
+		'content'  => 'https://www.ub.fau.de/',
 	    ),
 	    'link2'  => array(
 		'name'	    => __('Rechenzentrum', 'fau' ),
@@ -210,7 +210,7 @@ $default_link_liste = array(
 	    ),
 	    'link3'  => array(
 		'name'	    => __('Lageplan', 'fau' ),
-		'content'  => 'http://karte.fau.de/',
+		'content'  => 'https://karte.fau.de/',
 	    ),
 	   
 	),
