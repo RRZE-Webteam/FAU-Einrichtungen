@@ -90,7 +90,7 @@
 			<button id="mainnav-toggle" aria-expanded="false" aria-controls="menu"><span><?php _e("Menu","fau"); ?></span></button>						
 			<?php
 			    if(has_nav_menu( 'main-menu' ) && class_exists('Walker_Main_Menu', false)) {
-				wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'items_wrap' => '<ul role="navigation" aria-label="'.__("Navigation", "fau").'" id="nav">%3$s</ul>', 'depth' => 2, 'walker' => new Walker_Main_Menu) ); 
+				wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'items_wrap' => '<ul role="navigation" aria-label="'.__("Hauptnavigation", "fau").'" id="nav">%3$s</ul>', 'depth' => 2, 'walker' => new Walker_Main_Menu) ); 
 			    } elseif(!has_nav_menu( 'main-menu' )) {
 				echo fau_main_menu_fallback(); 
 			    }

@@ -8,7 +8,6 @@
  * @since FAU 1.0
  */
 
-global $options;
 global $pagebreakargs;
 get_header(); ?>
 

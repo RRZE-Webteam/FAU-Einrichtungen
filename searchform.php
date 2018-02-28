@@ -6,7 +6,6 @@
 * @subpackage FAU
 * @since FAU 1.0
 */
-global $options;
 ?>
 
 <form role="search" method="get" class="searchform" action="<?php echo fau_esc_url(home_url( '/' ))?>">

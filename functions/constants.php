@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 32,
+    'optiontable-version'		=> 33,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -195,10 +195,10 @@ $defaultoptions = array(
     'url_banner-ad-notice'	    => 'http://www.fau.info/werbungfaude',
     'title_banner-ad-notice'	    => __( 'Werbung', 'fau' ),
     
-    'title_hero_post_categories'    => __( 'FAU aktuell', 'fau' ),
-    'title_hero_post_archive'	    => __( 'FAU aktuell', 'fau' ),
-    'title_hero_search'		    => __( 'Suche', 'fau' ),
-    'title_hero_events'		    => __( 'Veranstaltungskalender','fau'),
+    'title_hero_post_categories'	=> __( 'FAU aktuell', 'fau' ),
+    'title_hero_post_archive'		=> __( 'FAU aktuell', 'fau' ),
+    'title_hero_search'			=> __( 'Webauftritt durchsuchen', 'fau' ),
+    'title_hero_events'			=> __( 'Veranstaltungskalender','fau'),
     
     'advanced_beitragsoptionen'		=> true,
     'advanced_topevent'			=> true,
@@ -545,6 +545,13 @@ $setoptions = array(
                   'default' => $defaultoptions['advanced_display_postthumb_credits'],
 		  'parent'  => 'postoptions'
               ), 
+	       'title_hero_post_categories'	 => array(
+		    'type'    => 'text',
+		    'title'   => __( 'Bühnentitel Kategorieseiten', 'fau' ),
+		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Kategorieseiten von Nachrichten hinterlegt werden.', 'fau' ),               
+		    'default' => $defaultoptions['title_hero_post_categories'],
+		    'parent'  => 'postoptions'
+		), 
 	       'advanced_activate_post_comments'		  => array(
                   'type'    => 'toggle',
                   'title'   => __( 'Kommentarfunktion', 'fau' ),
@@ -571,117 +578,10 @@ $setoptions = array(
 	       
 	       
 	       
-	    'topevents'  => array(
-                  'type'    => 'section',
-                  'title'   => __( 'Top Events', 'fau' ),                      
-            ), 
-	      
-	    'start_topevents_active' => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Aktivieren', 'fau' ),
-                  'label'   => __( 'Anzeige der Top-Events aktivieren', 'fau' ),               
-                  'default' => $defaultoptions['start_topevents_active'],
-		  'parent'  => 'topevents'
-            ),  
-	     
-	    'topevents_templates' => array(
-		    'type'    => 'multiselectlist',
-		    'title'   => __( 'Seitentypen', 'fau' ),
-		    'label'   => __( 'Auf welchen Seiten sollen Top Events in der Sidebar angezeigt werden.', 'fau' ),
-		    'liste'   => array(
-				1 => __('Startseite','fau'),
-      				2 => __('Portalseiten','fau'),
-      				3 => __('Suche und Fehlerseiten','fau'),
-		      ),
-		    'default' => $defaultoptions['topevents_templates'],
-		    'parent'  => 'topevents'
-            ),     
-           'start_topevents_max'=> array(
-                  'type'    => 'range-value',
-                  'title'   => __( 'Anzahl Top-Events', 'fau' ),
-                  'label'   => __( 'Wieviele Top-Events sollen maximal angezeigt werden.', 'fau' ),
-                  'default' => $defaultoptions['start_topevents_max'],
-		  'min'	    => 1,
-		  'max'	    => 6,		  
-                  'parent'  => 'topevents'
-            ),   
-	    
+	 
 	         
 	       
-		'suchergebnisse'  => array(
-                  'type'    => 'section',
-                  'title'   => __( 'Suchergebnisse', 'fau' ),                      
-		),
-	       
-		'search_display_post_thumbnails' => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Zeige Thumbs', 'fau' ),
-                  'label'   => __( 'Bei den Suchergebnisse Thumbnails anzeigen, wenn diese vorhanden sind', 'fau' ),                
-                  'default' => $defaultoptions['search_display_post_thumbnails'],
-		  'parent'  => 'suchergebnisse'
-		),   
-		'search_display_post_cats'  => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Zeige Kategorien', 'fau' ),
-                  'label'   => __( 'Bei den Suchergebnisse Kategorien der Beiträge anzeigen', 'fau' ),                
-                  'default' => $defaultoptions['search_display_post_cats'],
-		  'parent'  => 'suchergebnisse'
-		),   
-		'search_display_continue_arrow' => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Weiterlesen-Pfeil', 'fau' ),
-                  'label'   => __( 'Zeige verlinkten Pfeil zum Weiterlesen.', 'fau' ),                
-                  'default' => $defaultoptions['search_display_continue_arrow'],
-		  'parent'  => 'suchergebnisse'
-		),   
-		'default_search_excerpt_length' => array(
-                  'type'    => 'range-value',
-                  'title'   => __( 'Länge Textauszug', 'fau' ),
-                  'label'   => __( 'Anzahl der maximalen Zeichen für den Textauszug bei der Ergebnisliste.', 'fau' ),                
-                  'default' => $defaultoptions['default_search_excerpt_length'],
-		    'min'   => 80,
-		    'max'   => 500,
-		    'step'  => 10,
-		  'parent'  => 'suchergebnisse'
-		),   
-		'search_display_excerpt_morestring'=> array(
-		    'type'    => 'text',
-		    'title'   => __( 'Textabbruch', 'fau' ),
-		    'label'   => __( 'Falls der Textauszug nach der vorgegebenen Länge abgeschnitten werden muss, können hier Trennzeichen angegeben werden.', 'fau' ),               
-		    'default' => $defaultoptions['search_display_excerpt_morestring'],
-		     'parent'  => 'suchergebnisse'
-		), 
-		'search_display_typenote' => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Typ anzeigen', 'fau' ),
-                  'label'   => __( 'Zeige Inhaltstyp des Treffers an.', 'fau' ),                
-                  'default' => $defaultoptions['search_display_typenote'],
-		  'parent'  => 'suchergebnisse'
-		),    
-	       
-	       
-   
-	       'search_allowfilter' => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Suche filterbar', 'fau' ),
-                  'label'   => __( 'Erlaubt es, Suchergebnisse nach der Art des Dokumenttypes (Seiten, Beiträge, etc.) zu filtern.', 'fau' ),                
-                  'default' => $defaultoptions['search_allowfilter'],
-		  'parent'  => 'suchergebnisse'
-		),    
-	        'search_post_types_checked' => array(
-		    'type'    => 'multiselectlist',
-		    'title'   => __( 'Filter', 'fau' ),
-		    'label'   => __( 'Vorab aktivierte Suchbereiche des Filters. In diesen wird gesucht, wenn der Nutzer der Seite keine Auswahl trifft oder diese nicht zur Verfügung gestellt wird.', 'fau' ),
-		    'liste'   => array(
-				"page"		=> __('Seiten','fau'),
-      				"post"		=> __('Artikel','fau'),
-				"attachment"	=> __('Medien','fau'),
-		      ),
-		    'default' => $defaultoptions['search_post_types_checked'],
-		    'parent'  => 'suchergebnisse'
-            ),     
-	       
-
+		
 	        
 	       'socialmediafooter'  => array(
                   'type'    => 'section',
@@ -793,8 +693,7 @@ $setoptions = array(
                   'default' => $defaultoptions['default_slider_excerpt_length'],
                    'parent'  => 'slider'
               ), 
-	       
-	       
+	      
 	      'breadcrumb'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Bühne und Breadcrumb', 'fau' ),    
@@ -807,13 +706,7 @@ $setoptions = array(
                   'default' => $defaultoptions['advanced_page_start_herojumplink'],
 		  'parent'  => 'breadcrumb'
 		),  	
-	       'advanced_display_hero_credits'	  => array(
-                  'type'    => 'bool',
-                  'title'   => __( 'Copyright-Hinweis Startseite', 'fau' ),
-                  'label'   => __( 'Auf der Startseite wird im Slider bzw. im Banner der Copyright-Hinweis des Bildes angezeigt, wenn vorhanden', 'fau' ),                
-                  'default' => $defaultoptions['advanced_display_hero_credits'],
-		  'parent'  => 'breadcrumb'
-              ),  
+	      
 	       
 	      'breadcrumb_root'	 => array(
 		    'type'    => 'text',
@@ -822,13 +715,7 @@ $setoptions = array(
 		    'default' => $defaultoptions['breadcrumb_root'],
 		    'parent'  => 'breadcrumb'
 		), 
-	        'breadcrumb_showcurrent'	  => array(
-		    'type'    => 'toggle',
-		    'title'   => __( 'Aktuelle Seite anzeigen', 'fau' ),
-		    'label'   => __( 'Zeige auch den Titel der aktuellen Seite in der Breadcrumb.', 'fau' ),                
-		    'default' => $defaultoptions['breadcrumb_showcurrent'],
-		    'parent'  => 'breadcrumb'
-		),   	  
+	          
 	       'breadcrumb_withtitle'	  => array(
 		    'type'    => 'toggle',
 		    'title'   => __( 'Website-Titel', 'fau' ),
@@ -839,13 +726,7 @@ $setoptions = array(
 	       
 	       
 	       
-	       'title_hero_post_categories'	 => array(
-		    'type'    => 'text',
-		    'title'   => __( 'Bühnentitel Kategorieseiten', 'fau' ),
-		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Kategorieseiten von Nachrichten hinterlegt werden.', 'fau' ),               
-		    'default' => $defaultoptions['title_hero_post_categories'],
-		    'parent'  => 'breadcrumb'
-		), 
+	
 		'title_hero_post_archive'	 => array(
 		    'type'    => 'text',
 		    'title'   => __( 'Bühnentitel Beiträge', 'fau' ),
@@ -853,13 +734,7 @@ $setoptions = array(
 		    'default' => $defaultoptions['title_hero_post_archive'],
 		     'parent'  => 'breadcrumb'
 		), 
-	       'title_hero_search'	 => array(
-		    'type'    => 'text',
-		    'title'   => __( 'Bühnentitel Suche', 'fau' ),
-		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Suchergebnisseiten hinterlegt werden.', 'fau' ),               
-		    'default' => $defaultoptions['title_hero_search'],
-		    'parent'  => 'breadcrumb'
-		), 
+	     
 	       'title_hero_events'	 => array(
 		    'type'    => 'text',
 		    'title'   => __( 'Bühnentitel Veranstaltungen', 'fau' ),
@@ -881,7 +756,7 @@ $setoptions = array(
           )
        ),
         'templates'   => array(
-           'tabtitle'   => __('Templates', 'fau'),
+           'tabtitle'   => __('Inhaltsbereiche', 'fau'),
 	   'user_level'	=> 1,
            'fields' => array(
                             
@@ -948,8 +823,114 @@ $setoptions = array(
 		    'parent'  => 'newsbereich'
               ), 
 	        	
+	    'topevents'  => array(
+                  'type'    => 'section',
+                  'title'   => __( 'Top Events', 'fau' ),                      
+            ), 
+	      
+	    'start_topevents_active' => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Aktivieren', 'fau' ),
+                  'label'   => __( 'Anzeige der Top-Events aktivieren', 'fau' ),               
+                  'default' => $defaultoptions['start_topevents_active'],
+		  'parent'  => 'topevents'
+            ),  
+	     
+	    'topevents_templates' => array(
+		    'type'    => 'multiselectlist',
+		    'title'   => __( 'Seitentypen', 'fau' ),
+		    'label'   => __( 'Auf welchen Seiten sollen Top Events in der Sidebar angezeigt werden.', 'fau' ),
+		    'liste'   => array(
+				1 => __('Startseite','fau'),
+      				2 => __('Portalseiten','fau'),
+      				3 => __('Suche und Fehlerseiten','fau'),
+		      ),
+		    'default' => $defaultoptions['topevents_templates'],
+		    'parent'  => 'topevents'
+            ),     
+           'start_topevents_max'=> array(
+                  'type'    => 'range-value',
+                  'title'   => __( 'Anzahl Top-Events', 'fau' ),
+                  'label'   => __( 'Wieviele Top-Events sollen maximal angezeigt werden.', 'fau' ),
+                  'default' => $defaultoptions['start_topevents_max'],
+		  'min'	    => 1,
+		  'max'	    => 6,		  
+                  'parent'  => 'topevents'
+            ),   
+	    
+	    'suchergebnisse'  => array(
+                  'type'    => 'section',
+                  'title'   => __( 'Suchergebnisse', 'fau' ),                      
+		),
+	        
+		'search_display_post_thumbnails' => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Thumbnails', 'fau' ),
+                  'label'   => __( 'Bei den Suchergebnisse Thumbnails anzeigen, wenn diese vorhanden sind', 'fau' ),                
+                  'default' => $defaultoptions['search_display_post_thumbnails'],
+		  'parent'  => 'suchergebnisse'
+		),   
+		'search_display_post_cats'  => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Kategorien', 'fau' ),
+                  'label'   => __( 'Bei den Suchergebnisse Kategorien der Beiträge anzeigen', 'fau' ),                
+                  'default' => $defaultoptions['search_display_post_cats'],
+		  'parent'  => 'suchergebnisse'
+		),   
+		'search_display_continue_arrow' => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Weiterlesen-Pfeil', 'fau' ),
+                  'label'   => __( 'Zeige verlinkten Pfeil zum Weiterlesen.', 'fau' ),                
+                  'default' => $defaultoptions['search_display_continue_arrow'],
+		  'parent'  => 'suchergebnisse'
+		),   
+		'default_search_excerpt_length' => array(
+                  'type'    => 'range-value',
+                  'title'   => __( 'Länge Textauszug', 'fau' ),
+                  'label'   => __( 'Anzahl der maximalen Zeichen für den Textauszug bei der Ergebnisliste.', 'fau' ),                
+                  'default' => $defaultoptions['default_search_excerpt_length'],
+		    'min'   => 80,
+		    'max'   => 500,
+		    'step'  => 10,
+		  'parent'  => 'suchergebnisse'
+		),   
+		'search_display_excerpt_morestring'=> array(
+		    'type'    => 'text',
+		    'title'   => __( 'Textabbruch', 'fau' ),
+		    'label'   => __( 'Falls der Textauszug nach der vorgegebenen Länge abgeschnitten werden muss, können hier Trennzeichen angegeben werden.', 'fau' ),               
+		    'default' => $defaultoptions['search_display_excerpt_morestring'],
+		     'parent'  => 'suchergebnisse'
+		), 
+		'search_display_typenote' => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Typ anzeigen', 'fau' ),
+                  'label'   => __( 'Zeige Inhaltstyp des Treffers an.', 'fau' ),                
+                  'default' => $defaultoptions['search_display_typenote'],
+		  'parent'  => 'suchergebnisse'
+		),    
+
+   
+	       'search_allowfilter' => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Suche filterbar', 'fau' ),
+                  'label'   => __( 'Erlaubt es, Suchergebnisse nach der Art des Dokumenttypes (Seiten, Beiträge, etc.) zu filtern.', 'fau' ),                
+                  'default' => $defaultoptions['search_allowfilter'],
+		  'parent'  => 'suchergebnisse'
+		),    
+	        'search_post_types_checked' => array(
+		    'type'    => 'multiselectlist',
+		    'title'   => __( 'Filter', 'fau' ),
+		    'label'   => __( 'Vorab aktivierte Suchbereiche des Filters. In diesen wird gesucht, wenn der Nutzer der Seite keine Auswahl trifft oder diese nicht zur Verfügung gestellt wird.', 'fau' ),
+		    'liste'   => array(
+				"page"		=> __('Seiten','fau'),
+      				"post"		=> __('Artikel','fau'),
+				"attachment"	=> __('Medien','fau'),
+		      ),
+		    'default' => $defaultoptions['search_post_types_checked'],
+		    'parent'  => 'suchergebnisse'
+            ),     
 	       
-	       
+   
 	       
            
              
@@ -1163,7 +1144,14 @@ $setoptions = array(
 		    'default' => $defaultoptions['advanced_images_info_credits'],
 		    'parent'  => 'inhalte'
 		), 
-	             
+	        'advanced_display_hero_credits'	  => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Copyright-Hinweis', 'fau' ),
+                  'label'   => __( 'Auf der Startseite wird im Slider bzw. im Banner der Copyright-Hinweis des Bildes angezeigt, wenn vorhanden', 'fau' ),                
+                  'default' => $defaultoptions['advanced_display_hero_credits'],
+		  'parent'  => 'inhalte'
+              ),   
+	       
 	        'google-site-verification' => array(
                   'type'    => 'text',
                   'title'   => __( 'Google Site Verification', 'fau' ),

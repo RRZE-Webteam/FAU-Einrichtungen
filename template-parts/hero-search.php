@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
-			    <?php fau_breadcrumb(get_theme_mod('title_hero_search')); ?>
+			    <?php fau_breadcrumb(); ?>
 			</div>
 		</div>
 		<div class="row">
@@ -20,7 +20,7 @@
 			    <h1><?php echo get_theme_mod('title_hero_search'); ?></h1>
 			</div>
 			<div class="search-input">
-			    <form role="search" method="get" class="searchform" action="<?php echo home_url( '/' )?>">
+			    <form method="get" class="searchform" action="<?php echo home_url( '/' )?>">
 				<div class="search-text">
 				    <label for="suchmaske-hero"><?php _e('Geben Sie hier den Suchbegriff ein','fau'); ?></label>
 				    <span class="searchicon"> </span>

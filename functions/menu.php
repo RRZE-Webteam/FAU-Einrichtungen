@@ -167,6 +167,22 @@ function get_top_parent_page_id($id, $offset = FALSE) {
 	return ($parents) ? $parents[$index]: $id;
 
 }
+/*-----------------------------------------------------------------------------------*/
+/*Fallback, if no main menu is defined yet
+/*-----------------------------------------------------------------------------------*/
+function fau_main_menu_fallback() {
+    global $defaultoptions;
+    $output = '';
+    $some_pages = get_pages(array('parent' => 0, 'number' => $defaultoptions['default_mainmenu_number'], 'hierarchical' => 0));
+    if($some_pages) {
+        foreach($some_pages as $page) {
+            $output .= sprintf('<li class="menu-item level1"><a href="%1$s">%2$s</a></li>', get_permalink($page->ID), $page->post_title);
+        }
+        
+        $output = sprintf('<ul role="navigation" aria-label="%1$s" id="nav">%2$s</ul>', __('Hauptnavigation', 'fau'), $output);
+    }   
+    return $output;
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Walker for main menu
@@ -586,13 +602,13 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 /* Create breadcrumb
 /*-----------------------------------------------------------------------------------*/
 function fau_breadcrumb($lasttitle = '') {
-  global $options;
+  global $defaultoptions;
   
-  $delimiter	= $options['breadcrumb_delimiter']; // = ' / ';
-  $home		= $options['breadcrumb_root']; // __( 'Startseite', 'fau' ); // text for the 'Home' link
-  $before	= $options['breadcrumb_beforehtml']; // '<span class="current">'; // tag before the current crumb
-  $after	= $options['breadcrumb_afterhtml']; // '</span>'; // tag after the current crumb
-  $showcurrent	= get_theme_mod('breadcrumb_showcurrent');
+  $delimiter	= $defaultoptions['breadcrumb_delimiter']; // = ' / ';
+  $home		= $defaultoptions['breadcrumb_root']; // __( 'Startseite', 'fau' ); // text for the 'Home' link
+  $before	= $defaultoptions['breadcrumb_beforehtml']; // '<span class="current">'; // tag before the current crumb
+  $after	= $defaultoptions['breadcrumb_afterhtml']; // '</span>'; // tag after the current crumb
+  $showcurrent	= $defaultoptions['breadcrumb_showcurrent'];
   
   $pretitletextstart   = '<span>';
   $pretitletextend     = '</span>';
@@ -682,11 +698,15 @@ function fau_breadcrumb($lasttitle = '') {
 	    echo $before . get_the_title() . $after; 
 	}
     } elseif ( is_search() ) {
-	if (isset($lasttitle) && (strlen(trim($lasttitle))>1)) {
-	    echo $before . $lasttitle. $after; 
-	} else {
-	    echo $before .$pretitletextstart. __( 'Suche nach', 'fau' ).$pretitletextend.' "' . get_search_query() . '"' . $after; 
-	}
+
+	    $searchstring = esc_attr(get_search_query());
+	    if (!fau_empty($searchstring)) {
+		 echo $before .$pretitletextstart. __( 'Suche nach', 'fau' ).$pretitletextend.' "' . $searchstring . '"' . $after; 
+	    } else {
+		 echo $before .$pretitletextstart. __( 'Suche', 'fau' ).$pretitletextend. $after; 
+	    }
+	   
+	
     } elseif ( is_tag() ) {
 	echo $before .$pretitletextstart. __( 'Schlagwort', 'fau' ).$pretitletextend. ' "' . single_tag_title('', false) . '"' . $after; 
     } elseif ( is_author() ) {

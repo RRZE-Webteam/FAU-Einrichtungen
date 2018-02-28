@@ -21,7 +21,7 @@ get_header(); ?>
 		?>
 
 			<div class="row">		
-				<div class="sidebar-subnav">
+				<nav class="sidebar-subnav" aria-label="subnavtitle">
 					<?php 
 					$offset = 0;
 					$websitetype = get_theme_mod('website_type');
@@ -34,14 +34,13 @@ get_header(); ?>
 					$parent_page = get_top_parent_page_id($post->ID, $offset);
 					$parent = get_page($parent_page);
 					?>
-					<h2 class="small menu-header">
-						<a href="<?php echo get_permalink($parent->ID); ?>"><?php echo $parent->post_title; ?></a>
+					<h2 id="subnavtitle" class="small menu-header">
+					    <span class="screen-reader-text"><?php echo __('Bereichsnavigation:', 'fau').' '; ?></span><a href="<?php echo get_permalink($parent->ID); ?>"><?php echo $parent->post_title; ?></a>
 					</h2>
 					<ul id="subnav">
 					<?php wp_list_pages("child_of=$parent_page&title_li="); ?>
 					</ul>
-				</div>
-				
+				</nav>				
 				<div class="entry-content">
 				    <main<?php echo fau_get_page_langcode($post->ID);?>>
 					<?php 
