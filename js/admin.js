@@ -129,7 +129,7 @@ jQuery(document).ready(function($){
        
        if (currenteditimenu == mainmenunum) {
 	//  console.log("Working on main menu");
-	   $('#add-custom-links').css("display", "none");
+	//   $('#add-custom-links').css("display", "none");
 	   $('.menu-item-custom .menu-item-bar .menu-item-handle').css("background","red");
 	   $('.menu-item-custom .menu-item-bar .menu-item-handle').append("<p><em>Bitte verwenden Sie keine externen Links im Hauptmenü, da dies zu Problemen in der Bedienbarkeit der Website führt.<br> Abhängig von der Konfiguration der Website in den Theme-Options werden externe Links ausgeblendet.</em></p>");
        
@@ -156,4 +156,5 @@ jQuery(document).ready(function($){
 	}   	   
    }
    
+
 });

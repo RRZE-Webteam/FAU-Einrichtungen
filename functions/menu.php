@@ -7,7 +7,125 @@
  * @since FAU 1.0
  */
 
+/*-----------------------------------------------------------------------------------*/
+/* Register FAU Menus in Theme
+/*-----------------------------------------------------------------------------------*/
+function fau_register_menus() {   
+    global $defaultoptions;
+    $website_type = get_theme_mod('website_type');
+    if (!isset($website_type)) {
+	$website_type = $defaultoptions['website_type'];
+    }
+    
+	
+    register_nav_menu( 'meta', __( 'Meta-Navigation oben: Links zu anderen Webauftritten und Portalen', 'fau' ) );
+	// Meta Navigation oben im Header
 
+    register_nav_menu( 'meta-footer', __( 'Navigation unten: Kontakt, Impressum und weitere Hinweise zum Webauftritt', 'fau' ) );
+	// Meta Navigation unten im Footer
+
+    register_nav_menu( 'main-menu', __( 'Haupt-Navigation', 'fau' ) );
+	// Hauptnavigation
+
+    if ($website_type==-1) {
+	// Buehnennavigation Template Portal Startseite mit 4 Spalten
+	register_nav_menu( 'quicklinks-1', __( 'Startseite FAU Portal: Bühne Spalte 1', 'fau' ) );
+	register_nav_menu( 'quicklinks-2', __( 'Startseite FAU Portal: Bühne Spalte 2', 'fau' ) );
+	register_nav_menu( 'quicklinks-3', __( 'Startseite FAU Portal: Bühne Spalte 3', 'fau' ) );
+	register_nav_menu( 'quicklinks-4', __( 'Startseite FAU Portal: Bühne Spalte 4', 'fau' ) );
+    } else {
+	 // Buehnennavigation Template Portal Startseite mit 2 Spalten
+	register_nav_menu( 'quicklinks-3', __( 'Startseite Fakultät: Bühne Spalte 1', 'fau' ) );
+	register_nav_menu( 'quicklinks-4', __( 'Startseite Fakultät: Bühne Spalte 2', 'fau' ) );
+    }
+
+    
+    register_nav_menu( $defaultoptions['socialmedia_menu_position'], $defaultoptions['socialmedia_menu_position_title'] );
+	// Social Media Menu (seit 1.9.5)
+    
+    register_nav_menu( 'error-1', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 1', 'fau' ) );
+	// Fehler und Suchseite: Vorschlagmenu Spalte 1
+    register_nav_menu( 'error-2', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 2', 'fau' ) );
+	// Fehler und Suchseite: Vorschlagmenu Spalte 2
+    register_nav_menu( 'error-3', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 3', 'fau' ) );
+	// Fehler und Suchseite: Vorschlagmenu Spalte 3
+    register_nav_menu( 'error-4', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 4', 'fau' ) );
+	// Fehler und Suchseite: Vorschlagmenu Spalte 4
+	
+}
+/*-----------------------------------------------------------------------------------*/
+/* Erstelle ein Social Media Menu, wenn es noch nicht vorhanden ist
+/*-----------------------------------------------------------------------------------*/
+function fau_create_socialmedia_menu() {
+    global $defaultoptions;
+    
+    // Zuerst schauen wir, ob das Menu bereits existiert
+    $menuitems = wp_get_nav_menu_items($defaultoptions['socialmedia_menu_name']);
+    if (!is_array($menuitems)) {
+	// Menu existiert noch nicht
+	
+	
+	// Existieren bereits Einträge in der alten Options-Tabelle mit Social Media Angaben, die angezeigt werden sollen?
+	// Wenn ja, dann fülle das Menu mit diesen; enn nein, fülle das Menu mit Default-Einträgen
+
+	global $default_socialmedia_liste;
+	ksort($default_socialmedia_liste);
+	global $options;
+	$olditems = false;
+	
+	$name = $defaultoptions['socialmedia_menu_name'];
+	$menu_id = wp_create_nav_menu($name);
+	$menu = get_term_by( 'name', $name, 'nav_menu' ); 
+	 
+	 
+	foreach ( $default_socialmedia_liste as $entry => $listdata ) {  
+	    $value = '';
+	    $active = 0;
+	    if (isset($options['sm-list'][$entry]['content'])) {
+		$value = esc_url($options['sm-list'][$entry]['content']);
+		if (isset($options['sm-list'][$entry]['active'])) {
+		    $active = $options['sm-list'][$entry]['active'];
+		} 
+	    }
+	    if (($active ==1) && ($value)) {
+		$olditems = true;
+		$title = esc_attr($default_socialmedia_liste[$entry]['name']);
+		
+		wp_update_nav_menu_item($menu->term_id, 0, array(
+		    'menu-item-title'	=> $title,
+		    'menu-item-url'	=> $value,
+		    'menu-item-type'	=> 'custom',
+		    'menu-item-status'	=> 'publish')
+		);
+	    }
+	}
+	if ($olditems==false) {
+	    // Keine aktiven Social Media in dem alten Options vorhanden; Befülle daher Menü mit Defaults
+	    foreach ( $default_socialmedia_liste as $entry => $listdata ) {
+		$value = esc_url($default_socialmedia_liste[$entry]['content']);
+		$active = $default_socialmedia_liste[$entry]['active'];
+		$title = esc_attr($default_socialmedia_liste[$entry]['name']);
+		
+		if (($active ==1) && ($value)) {
+		    wp_update_nav_menu_item($menu->term_id, 0, array(
+			'menu-item-title'	=> $title,
+			'menu-item-url'		=> $value,
+			'menu-item-type'	=> 'custom',
+			'menu-item-status'	=> 'publish')
+		    );
+		}
+	    }
+	}
+	
+	// Setze Menu nun an die Position
+	$pos = $defaultoptions['socialmedia_menu_position']; 
+	$locations = get_theme_mod('nav_menu_locations');
+	$locations[$pos] = $menu->term_id;
+	set_theme_mod( 'nav_menu_locations', $locations );
+
+    }
+    
+}
 /*-----------------------------------------------------------------------------------*/
 /* returns child items by parent
 /*-----------------------------------------------------------------------------------*/
@@ -49,6 +167,22 @@ function get_top_parent_page_id($id, $offset = FALSE) {
 	return ($parents) ? $parents[$index]: $id;
 
 }
+/*-----------------------------------------------------------------------------------*/
+/*Fallback, if no main menu is defined yet
+/*-----------------------------------------------------------------------------------*/
+function fau_main_menu_fallback() {
+    global $defaultoptions;
+    $output = '';
+    $some_pages = get_pages(array('parent' => 0, 'number' => $defaultoptions['default_mainmenu_number'], 'hierarchical' => 0));
+    if($some_pages) {
+        foreach($some_pages as $page) {
+            $output .= sprintf('<li class="menu-item level1"><a href="%1$s">%2$s</a></li>', get_permalink($page->ID), $page->post_title);
+        }
+        
+        $output = sprintf('<ul role="navigation" aria-label="%1$s" id="nav">%2$s</ul>', __('Hauptnavigation', 'fau'), $output);
+    }   
+    return $output;
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Walker for main menu
@@ -78,18 +212,18 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		
 	}
 	
-	function end_lvl( &$output, $depth = 0, $args = array() ) {
-		global $options;
-		
+	function end_lvl( &$output, $depth = 0, $args = array() ) {		
 		$indent = str_repeat("\t", $depth);
 		$output .= $indent.'</ul>';
 		$output .= '<a href="'.get_permalink($this->currentID).'" class="button-portal">';
-		if (isset($options['menu_pretitle_portal']) && $options['menu_pretitle_portal']) {
-		    $output .=  $options['menu_pretitle_portal'].' ';
+		$pretitle = get_theme_mod('menu_pretitle_portal');
+		if (!fau_empty($pretitle)) {
+		    $output .=  $pretitle.' ';
 		}
 		$output .= get_the_title($this->currentID);
-		if (isset($options['menu_aftertitle_portal']) && $options['menu_aftertitle_portal']) {
-		    $output .=  ' '.$options['menu_aftertitle_portal'];
+		$posttitle = get_theme_mod('menu_aftertitle_portal');
+		if (!fau_empty($posttitle)) {
+		    $output .=  ' '.$posttitle;
 		}
 		$output .= '</a>';
 		$output .= '</div>';
@@ -150,7 +284,6 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 	}
 	
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-	    global $options;
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 		$level = $depth + 1;
 
@@ -172,16 +305,17 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		    $classes[] = 'homelink';
 		    $force_cleanmenu = 2;
 		}
-
-		if (($options['advanced_forceclean_homelink']) && ($force_cleanmenu==1)) {
+		$forceclean_externlink = get_theme_mod('advanced_forceclean_externlink');
+		$forceclean_homelink =    get_theme_mod('advanced_forceclean_homelink');
+		if (($forceclean_homelink==true) && ($force_cleanmenu==2)) {
 		    // Ignore homelink
-		} elseif (($options['advanced_forceclean_externlink']) && ($force_cleanmenu==1)) {    
+		} elseif (($forceclean_externlink==true) && ($force_cleanmenu==1)) {    
 		    // Ignore external link in Main menu
 		} else {
 		   
 
-		    $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-		    $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+		 //   $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+		 //   $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 	    
 		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 		    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
@@ -193,7 +327,7 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		    if ($level>1) {
 			 $class_names = str_replace("has-sub","",$class_names);   
 		    }
-		    $output .= $indent . '<li' . $id . $value . $class_names .'>';
+		    $output .= $indent . '<li' . $value . $class_names .'>';
 		    
 		    $atts = array();
 		    $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
@@ -230,9 +364,7 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 /*-----------------------------------------------------------------------------------*/
 /* Create submenu icon/grid in content
 /*-----------------------------------------------------------------------------------*/
-function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $nothumbs = 0, $nodefthumbs = 0) {
-    global $options;
-    
+function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $nothumbs = 0, $nodefthumbs = 0) {   
     
     if (empty($menu)) {
 	echo '<!-- no id and empty slug for menu -->';
@@ -250,19 +382,19 @@ function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $nothumbs = 0,
     $slug = $term->slug;     
     
     if ($subentries==0) {
-	$subentries = $options['default_submenu_entries'];
+	$subentries =  get_theme_mod('default_submenu_entries');
     }
 
    
     echo '<div class="contentmenu" role="navigation">';   
-   echo '<ul class="subpages-menu">';
+    echo '<ul class="subpages-menu">';
     wp_nav_menu( array( 'menu' => $slug, 
         'container' => false, 
         'items_wrap' => '%3$s', 
         'link_before' => '', 
         'link_after' => '', 
         'walker' => new Walker_Content_Menu($menu,$submenu,$subentries,$nothumbs,$nodefthumbs)));
-   echo '</ul>';
+    echo '</ul>';
     echo "</div>\n";
 
     return;
@@ -340,11 +472,11 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 			if (in_array("current_page_item",$item->classes)) {
 			    $iscurrent = 1;
 			}
-			$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+	//		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+	//		$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
 			if($this->level == 1) {
-				$output .= $indent . '<li' . $id . $value . $class_names .'>';
+				$output .= $indent . '<li' . $class_names .'>';
 			} else	{
 				$output .= '<li>';
 			}
@@ -407,14 +539,23 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                                 $post_thumbnail_id = get_post_thumbnail_id( $item->object_id, 'page-thumb' ); 
                                 $imagehtml = '';
                                 $imageurl = '';
+				
+				
+				$pretitle = $options['advanced_contentmenu_thumblink_alt_pretitle'];
+				$posttitle = $options['advanced_contentmenu_thumblink_alt_posttitle'];
+				$alttext = $pretitle.apply_filters( 'the_title', $item->title, $item->ID ).$posttitle;
+				$alttext = esc_html($alttext);
+				$altattr = 'alt="'.$alttext.'"';
+				
+				
                                 if ($post_thumbnail_id) {
                                     $thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  'page-thumb');
                                     $imageurl = $thisimage[0]; 	
-                                    $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$thisimage[1].'" height="'.$thisimage[2].'" alt="">';
+                                    $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$thisimage[1].'" height="'.$thisimage[2].'" '.$altattr.'>';
                                 }
                                 if ((!isset($imageurl) || (strlen(trim($imageurl)) <4 )) && (!$this->nothumbnailfallback))  {
                                     $imageurl = $options['default_submenuthumb_src'];
-                                    $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" alt="">';
+                                    $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" '.$altattr.'>';
                                 }
                                 $item_output .= '</a>';
                                 // Anmerkung: Leeres alt="", da dieses ansonsten redundant wäre zum darunter stehenden Titel.
@@ -462,23 +603,25 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 /* Create breadcrumb
 /*-----------------------------------------------------------------------------------*/
 function fau_breadcrumb($lasttitle = '') {
-  global $options;
+  global $defaultoptions;
   
-  $delimiter	= $options['breadcrumb_delimiter']; // = ' / ';
-  $home		= $options['breadcrumb_root']; // __( 'Startseite', 'fau' ); // text for the 'Home' link
-  $before	= $options['breadcrumb_beforehtml']; // '<span class="current">'; // tag before the current crumb
-  $after	= $options['breadcrumb_afterhtml']; // '</span>'; // tag after the current crumb
-  $showcurrent	= 0;
+  $delimiter	= $defaultoptions['breadcrumb_delimiter']; // = ' / ';
+  $home		= $defaultoptions['breadcrumb_root']; // __( 'Startseite', 'fau' ); // text for the 'Home' link
+  $before	= $defaultoptions['breadcrumb_beforehtml']; // '<span class="current">'; // tag before the current crumb
+  $after	= $defaultoptions['breadcrumb_afterhtml']; // '</span>'; // tag after the current crumb
+  $showcurrent	= $defaultoptions['breadcrumb_showcurrent'];
   
   $pretitletextstart   = '<span>';
   $pretitletextend     = '</span>';
   
-  if ($options['breadcrumb_withtitle']) {
-	echo '<h3 class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo( 'title' ).'</h3>';
+
+  echo '<nav aria-labelledby="bc-title" class="breadcrumbs">'; 
+  echo '<h2 class="screen-reader-text" id="bc-title">'.__('Breadcrumb','fau').'</h2>';
+    if (get_theme_mod('breadcrumb_withtitle')) {
+	echo '<p class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo( 'title' ).'</p>';
 	echo "\n";
     }
-  echo '<nav aria-labelledby="bc-title" class="breadcrumbs">'; 
-  echo '<h4 class="screen-reader-text" id="bc-title">'.__('Sie befinden sich hier:','fau').'</h4>';
+
   if ( !is_home() && !is_front_page() || is_paged() ) { 
     
     global $post;
@@ -517,7 +660,7 @@ function fau_breadcrumb($lasttitle = '') {
 	} else {
 	    
 	    $cat = get_the_category(); 
-	    if ($options['breadcrumb_uselastcat']) {
+	    if (get_theme_mod('breadcrumb_uselastcat')) {
 		$last = array_pop($cat);
 	    } else {
 		$last = $cat[0];
@@ -558,11 +701,15 @@ function fau_breadcrumb($lasttitle = '') {
 	    echo $before . get_the_title() . $after; 
 	}
     } elseif ( is_search() ) {
-	if (isset($lasttitle) && (strlen(trim($lasttitle))>1)) {
-	    echo $before . $lasttitle. $after; 
-	} else {
-	    echo $before .$pretitletextstart. __( 'Suche nach', 'fau' ).$pretitletextend.' "' . get_search_query() . '"' . $after; 
-	}
+
+	    $searchstring = esc_attr(get_search_query());
+	    if (!fau_empty($searchstring)) {
+		 echo $before .$pretitletextstart. __( 'Suche nach', 'fau' ).$pretitletextend.' "' . $searchstring . '"' . $after; 
+	    } else {
+		 echo $before .$pretitletextstart. __( 'Suche', 'fau' ).$pretitletextend. $after; 
+	    }
+	   
+	
     } elseif ( is_tag() ) {
 	echo $before .$pretitletextstart. __( 'Schlagwort', 'fau' ).$pretitletextend. ' "' . single_tag_title('', false) . '"' . $after; 
     } elseif ( is_author() ) {
@@ -581,3 +728,45 @@ function fau_breadcrumb($lasttitle = '') {
    echo '</nav>'; 
 
 }
+/*-----------------------------------------------------------------------------------*/
+/* Create Social Media Menu
+/*-----------------------------------------------------------------------------------*/
+function fau_get_socialmedia_menu($name = '', $ulclass = '', $withog = true) {
+    
+    if (!isset($name)) {
+	return;
+    }
+    $menu = wp_get_nav_menu_object($name);
+    $thislist = '';
+    if (isset($menu)) {
+	    $thislist = '<ul';
+	    if ($ulclass) {
+		$thislist .= ' class="'.$ulclass.'"';
+	    }
+	    $thislist .= '>';
+	    
+		$menu_items = wp_get_nav_menu_items($menu->term_id);
+		foreach ( (array) $menu_items as $key => $menu_item ) {
+		    $title = esc_attr($menu_item->title);
+		    $url = esc_url($menu_item->url);
+		    $class_names = '';
+		    $social = fau_sanitize_socialmedia_classes($title);
+		    if ($social) {
+			$class_names = 'social-'.$social;
+			$thislist .= '<li class="'.$class_names.'">';
+		    } else {
+			$thislist .= '<li class="social-iconbyurl">';
+		    }
+		    
+		    $thislist .= '<a data-wpel-link="internal" ';
+		    if ($withog) {
+			 $thislist .= ' itemprop="sameAs"';
+		    }
+		    $thislist .= 'href="' . $url . '">' . $title . '</a></li>';
+		}
+	 $thislist .= '</ul>';	
+	   
+    }
+    return $thislist;
+}
+

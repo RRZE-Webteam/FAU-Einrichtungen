@@ -8,12 +8,11 @@
  * @since FAU 1.7
  */
 
-global $options; 
 ?>
 	    <div class="container hero-navigation">
 		<div class="row">
 			<?php 
-			if ($options['website_type']==-1) { ?>
+			if (get_theme_mod('website_type')==-1) { ?>
 			 <div class="quicklinks">
 				<?php if(has_nav_menu('quicklinks-1')) { ?>
 					<h3><?php echo fau_get_menu_name('quicklinks-1'); ?></h3>
@@ -43,7 +42,6 @@ global $options;
 			    ?>
 			</div>
 			<?php } ?>
-
 			<div class="quicklinks">
 				<?php if(has_nav_menu('quicklinks-3')) { ?>
 					<h3><?php echo fau_get_menu_name('quicklinks-3'); ?></h3>
@@ -61,7 +59,7 @@ global $options;
 				} ?>
 			</div>
 		</div>
-	    <?php if ($options['advanced_page_start_herojumplink']) { ?>
+	    <?php if (get_theme_mod('advanced_page_start_herojumplink')) { ?>
 		<a tabindex="-1" aria-hidden="true" href="#content" class="hero-jumplink-content"></a>
 	    <?php } ?>
 	</div>

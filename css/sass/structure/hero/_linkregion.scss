@@ -4,15 +4,14 @@
 
 
 .hero-navigation {
-    
-    
     ul {
 		@include no-list;
     }
     li {
 	display: table;
 	padding-left: 0;
-
+	color: #fff;
+	
 	@include px2rem($font-size-hero-links);
 
 	&:before {

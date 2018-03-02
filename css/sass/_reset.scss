@@ -264,16 +264,8 @@ q:after {
 	content: "";
 }
 
-address {
-	display: block;
-	margin-bottom: 20px;
-	font-style: normal;
-	line-height: 20px;
-}
 
-form {
-	margin: 0 0 20px;
-}
+
 
 fieldset {
 	padding: 0;
@@ -477,19 +469,5 @@ select:focus:invalid:focus {
 	-webkit-box-shadow: 0 0 6px #f8b9b7;
 	-moz-box-shadow: 0 0 6px #f8b9b7;
 	box-shadow: 0 0 6px #f8b9b7;
-}
-
-table {
-	max-width: 100%;
-	background-color: transparent;
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-table td[class*="span"],
-table th[class*="span"] {
-	display: table-cell;
-	float: none;
-	margin-left: 0;
 }
 

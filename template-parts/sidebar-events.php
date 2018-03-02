@@ -1,7 +1,6 @@
 <?php
 
 
-global $options;
 
 $show =false;
 /*
@@ -12,11 +11,17 @@ $show =false;
 	5 => __('Standard Seiten','fau'),
 	6 => __('Beiträge','fau'),       
 */
- if ((isset($options['start_topevents_active'])) && ($options['start_topevents_active']==true)) {
-    $displayon = $options['topevents_templates'];
+
+
+$start_topevents_active = get_theme_mod("start_topevents_active");
+
+
+ if ((isset($start_topevents_active)) && ($start_topevents_active==true)) {
+    $start_topevents_templates = get_theme_mod("topevents_templates");
+
     $template = get_page_template();
 
-     foreach ($displayon as $key) {
+     foreach ($start_topevents_templates as $key) {
 	if (($key==1) && (is_page_template( 'page-templates/page-start.php' ))) {
 	    $show = true;
 	    break;
@@ -43,7 +48,8 @@ $show =false;
 	}
      }
  }
- if ($show) {
+ if ($show==true) {
+    $maxnum = get_theme_mod('start_topevents_max');
     $args =  array(
 	'post_type'	    => 'post',
 	'post_status'       => 'publish',
@@ -74,7 +80,7 @@ $show =false;
 		)
 	    ),
 	),
-	'numberposts' => $options['start_topevents_max'],
+	'numberposts' => $maxnum,
     );
     $topevent_posts = get_posts($args);
 
@@ -110,18 +116,50 @@ $show =false;
 	<div class="widget topevent-widget" itemscope itemtype="http://schema.org/Event">
 		<h2 itemprop="name"><a itemprop="url" href="<?php echo $link; ?>"><?php echo $titel; ?></a></h2>
 		<?php 
-		    
+		     global $defaultoptions;
 		    $hideimage  = get_post_meta( $topevent->ID, 'topevent_hideimage', true ); 
 		    $imageid = get_post_meta( $topevent->ID, 'topevent_image', true );
 		    $imagehtml = '';
+		    
+		    $pretitle = get_theme_mod('advanced_blogroll_thumblink_alt_pretitle');
+		    $posttitle = get_theme_mod('advanced_blogroll_thumblink_alt_posttitle');
+		    $alttext = $pretitle.$titel.$posttitle;
+		    $alttext = esc_html($alttext);
+		    
+		    $imgwidth = $defaultoptions['default_topevent_thumb_width'];
+		    $imgheight = $defaultoptions['default_topevent_thumb_height'];
+		    $imgsrcset = '';
+			
 		    if (isset($imageid) && ($imageid>0)) {
-			$image = wp_get_attachment_image_src($imageid, 'topevent-thumb'); 					
+			$image = wp_get_attachment_image_src($imageid, 'topevent-thumb'); 	
+			$imgsrcset =  wp_get_attachment_image_srcset($imageid, 'topevent-thumb'); 
 			if (($image) && ($image[0])) {  
-			    $imagehtml = '<img itemprop="thumbnailUrl" src="'.fau_esc_url($image[0]).'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="">';	  
+			    $imagehtml = '<img itemprop="thumbnailUrl" src="'.fau_esc_url($image[0]).'" width="'.$image[1].'" height="'.$image[2].'" alt="'.$alttext.'"';	  
+			    if ($imgsrcset) {
+				$imagehtml .= ' srcset="'.$imgsrcset.'"';
+			    }
+			    $imagehtml .= ">";
 			}								    
 		    } 
 		    if (empty($imagehtml)) {
-		       $imagehtml = '<img itemprop="thumbnailUrl" src="'.fau_esc_url($options['default_topevent_thumb_src']).'" width="'.$options['default_topevent_thumb_width'].'" height="'.$options['default_topevent_thumb_height'].'" alt="">';			    
+			
+			$fallback = get_theme_mod('fallback_topevent_image');
+			if ($fallback) {
+			    $thisimage = wp_get_attachment_image_src( $fallback,  'topevent-thumb');
+			    $imageurl = $thisimage[0]; 	
+			    $imgwidth = $thisimage[1];
+			    $imgheight = $thisimage[2];
+			    $imgsrcset =  wp_get_attachment_image_srcset($fallback, 'topevent-thumb'); 
+			} else {	   
+			    $imageurl = fau_esc_url($defaultoptions['default_topevent_thumb_src']);
+			    
+			}
+			$imagehtml = '<img itemprop="thumbnailUrl" src="'.$imageurl.'" width="'.$imgwidth.'" height="'.$imgheight.'" alt="'.$alttext.'"';
+			if ($imgsrcset) {
+			    $imagehtml .= ' srcset="'.$imgsrcset.'"';
+			}
+			$imagehtml .= ">";
+ 
 		    }
 		    if (($hideimage < 1) && (isset($imagehtml))) { ?>
 			<div class="event-thumb" aria-hidden="true" role="presentation" tabindex="-1" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
@@ -146,7 +184,7 @@ $show =false;
 			    }
 			    $desc = get_post_meta( $topevent->ID, 'topevent_description', true );
 			    if (strlen(trim($desc))<3) {
-				$desc =  fau_custom_excerpt($topevent->ID,$options['default_topevent_excerpt_length']);
+				$desc =  fau_custom_excerpt($topevent->ID,get_theme_mod('default_topevent_excerpt_length'));
 			    }  ?>   
 			<div class="topevent-description" itemprop="description"><?php echo $desc; ?></div>
 		    </div>			

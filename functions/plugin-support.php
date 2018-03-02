@@ -3,6 +3,7 @@
 /* Code to support or modify optional plugins
 /*-----------------------------------------------------------------------------------*/
 
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 /*-----------------------------------------------------------------------------------*/
 /* Plugin CMS-Workflow 

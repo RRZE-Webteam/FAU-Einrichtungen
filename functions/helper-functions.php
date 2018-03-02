@@ -155,7 +155,7 @@ if ( ! function_exists( 'fau_form_number' ) ) :
 endif;
 
 if ( ! function_exists( 'fau_form_url' ) ) :
-    function fau_form_url($name= '', $prevalue = '', $labeltext = '', $howtotext = '', $placeholder='http://', $size = 0) {
+    function fau_form_url($name= '', $prevalue = '', $labeltext = '', $howtotext = '', $placeholder='https://', $size = 0) {
 	$name = fau_san( $name );
 	$labeltext = fau_san( $labeltext );
 	if (isset($name) &&  isset($labeltext))  {

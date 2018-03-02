@@ -15,25 +15,24 @@
 } else {
     $msg = __('Seite nicht gefunden','fau');
 }
-global $options; 
 					    
 ?>
 
 
 	<section id="hero" class="hero-small">
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="breadcrumbs">
-						<a href="<?php echo fau_esc_url( home_url( '/' ) ); ?>"><?php echo $options['breadcrumb_root']; ?></a>
-					</div>
+		    <div class="row">
+			<div class="col-xs-12">
+				<div class="breadcrumbs">
+					<a href="<?php echo fau_esc_url( home_url( '/' ) ); ?>"><?php echo get_theme_mod('breadcrumb_root'); ?></a>
+				</div>
 
-				</div>
 			</div>
-			<div class="row">
-				<div class="col-xs-12">
-					<h1><?php echo $msg; ?></h1>
-				</div>
+		    </div>
+		    <div class="row">
+			<div class="col-xs-12">
+				 <p class="presentationtitle"  aria-hidden="true" role="presentation"><?php echo $msg; ?></p>
 			</div>
+		    </div>
 		</div>
 	</section>

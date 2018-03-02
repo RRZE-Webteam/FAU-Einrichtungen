@@ -7,6 +7,7 @@
 		
 		form {
 		    border: none;
+		    margin: 0;
 		}
 		.search-text {
 		     margin: 0 20px;
@@ -22,7 +23,6 @@
 		    input[type="text"] {
 			@include px2rem($font-size-herosearch);
 			border: 1px solid $colorMeta;
-			width: 50%;
 			padding: 5px 10px 5px 30px;
 			height: inherit;
 			margin: 0;

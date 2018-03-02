@@ -1,14 +1,14 @@
 //-----------------------------------------------------------------------------------*/
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
-$version:  '1.9.1';
+$version:  '1.9.15';
     // Theme Version
     // First Digit:  Manual
     // Second Digit: Branch Version
     // Third Digit:  (Daily) Submit Version
 
 $farbfamilie: 'zuv';
-    // med, phil, nat, rw, tf, zuv 
+    // med, phil, nat, rw, tf, zuv   
 
  // DEBUGMODE
  // (Sets border around container and main regions)
@@ -19,6 +19,8 @@ $debugmode: 'false';
 $fontStack:		'roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
 $fontStackSerifs:	Georgia, serif;
 $font-family-base:	$fontStack;
+$font-path-awesome:	'./fonts/fontawesome/';
+$font-path-roboto:	'./fonts/roboto/';
 
 
 // Define colors
@@ -200,8 +202,8 @@ $colorSocialBackground:		$colorMetaBackground;
 
 
 // CopyrightInfos auf Slider und Banner
-$colorCopyright:	     #ddd;
-$colorCopyrightBackground:  rgba(0,0,0,0.4);
+$colorCopyright:	     #fff;
+$colorCopyrightBackground:  rgba(0,0,0,0.7);
 
 
 
@@ -229,10 +231,11 @@ $font-size-content-linkicon:	10;
 $font-size-content-listitem:	$font-size-base;
 $font-size-codepre:		13;
 $font-size-table:		13;
+$font-size-comtentwidgets:	13;
 
 $font-size-sidebar-listitem:    $font-size-sidebar;
 $font-size-sidebar-events:	$font-size-sidebar;
-$font-size-sidebar-events-month:    9;
+$font-size-sidebar-events-month:    10;
 $font-size-sidebar-events-day:	20;
 
 $font-size-socialmedia-morelink:    $font-size-sidebar;
@@ -257,10 +260,10 @@ $font-size-h2-socialmedia:	18;
 $font-size-h2-sidebar:		18;
 $font-size-h2-table:		18;
 
-$font-size-h3:			18; // 18
-$font-size-h3-small:		17;
+$font-size-h3:			19; // 18
+$font-size-h3-small:		18;
 $font-size-h3-hero:		18;
-$font-size-h3-sidebar:		15;
+$font-size-h3-sidebar:		16;
 $font-size-h3-contentmenu:	15;
 $font-size-h3-table:		15;
 

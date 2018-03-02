@@ -14,8 +14,7 @@ get_header(); ?>
     <?php get_template_part('template-parts/hero', 'small'); ?>
 
     <div id="content" class="content-portal">
-	<div class="container">
-		
+	<div class="container">		
 	    <?php 
 	       echo fau_get_ad('werbebanner_seitlich',false);
 	     ?>
@@ -24,7 +23,10 @@ get_header(); ?>
 	    <div class="row">
 		<div class="portalpage-content">
 		     <main<?php echo fau_get_page_langcode($post->ID);?>>
+			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 		    <?php 
+		   
+		    
 			$headline = get_post_meta( $post->ID, 'headline', true );				
 			if (!fau_empty($headline)) {
 			     echo '<h2 class="subtitle">'.$headline."</h2>\n";  
@@ -73,9 +75,9 @@ get_header(); ?>
 	    <?php echo fau_get_ad('werbebanner_unten',false); ?>
 	</div>
 	
-	<?php get_template_part('template-parts/footer', 'social'); ?>	
+	
     </div>
 <?php endwhile; ?>
-
+<?php get_template_part('template-parts/footer', 'social'); ?>	
 <?php 
 get_footer();

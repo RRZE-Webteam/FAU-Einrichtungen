@@ -7,14 +7,14 @@
 	@include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% bottom);
 	overflow:hidden;
 	
+	p.presentationtitle,
 	h1 {
 	    padding: 0;
-	   
-		margin-left: 0;
-	  
+	    margin: 20px 0;
 	}
 
 	@media (min-width: $screen-sm ) {
+	    p.presentationtitle,
 	    h1 {
 		padding: 30px 0 10px 0;
 	    }
