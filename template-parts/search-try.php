@@ -11,10 +11,10 @@ $uri = str_replace('/', ' ', $uri);
 
 
 <div class="search-contenttry">
-    <h3><?php _e('Vielleicht hilft Ihnen die Suche:','fau'); ?></h3>
-    <form role="search" method="get" action="<?php echo home_url( '/' )?>">
+    <p><?php _e('Vielleicht hilft Ihnen die Suche:','fau'); ?></p>
+    <form method="get" action="<?php echo home_url( '/' )?>">
 	<div class="search-text">
-	    <label for="suchmaske-try"><?php _e('Geben Sie hier den Suchbegriff ein','fau'); ?></label>
+	    <label for="suchmaske-try"><?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:','fau'); ?></label>
 	    <span class="searchicon"> </span>
 	    <input id="suchmaske-try" type="text" value="<?php echo $uri ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>">
 	    <input type="submit" value="<?php _e('Finden','fau'); ?>">
@@ -29,7 +29,10 @@ $uri = str_replace('/', ' ', $uri);
 	    foreach ($listtypes as $type) {                                                
 		if( in_array( $type, $allowed_types ) ) {
 		    $typeinfo = get_post_type_object( $type );
-		    $typestr = $typeinfo->labels->name; 	    
+		    $typestr = $typeinfo->labels->name; 	  
+		    if ($type == 'attachment') {
+						    $typestr = __('Dokumente und Bilder', 'fau');
+						}
 		    echo '<div class="nowrap"><input type="checkbox" name="post_type[]" id="label-'.$type.'" value="'.$type.'" checked="checked">';
 		    echo '<label for="label-'.$type.'">'.$typestr.'</label></div>';
 		}
