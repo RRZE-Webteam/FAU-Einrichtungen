@@ -31,7 +31,7 @@
 		    </div>
 		    <div class="row">
 			<div class="col-xs-12">
-				<h1><?php echo $msg; ?></h1>
+				 <p class="presentationtitle"  aria-hidden="true" role="presentation"><?php echo $msg; ?></p>
 			</div>
 		    </div>
 		</div>

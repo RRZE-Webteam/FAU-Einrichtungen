@@ -21,7 +21,7 @@ get_header(); ?>
 		?>
 
 			<div class="row">		
-				<nav class="sidebar-subnav" aria-label="subnavtitle">
+				<nav class="sidebar-subnav" aria-labeledby="subnavtitle">
 					<?php 
 					$offset = 0;
 					$websitetype = get_theme_mod('website_type');
@@ -43,6 +43,7 @@ get_header(); ?>
 				</nav>				
 				<div class="entry-content">
 				    <main<?php echo fau_get_page_langcode($post->ID);?>>
+					<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 					<?php 
 					$headline = get_post_meta( $post->ID, 'headline', true );									
 					if (!fau_empty($headline)) {
@@ -63,11 +64,11 @@ get_header(); ?>
 				
 			</div>
 		</div>
-  		<?php get_template_part('template-parts/footer', 'social'); ?>	
+  		
 	</div>
 	
 	
 <?php endwhile; ?>
-
+<?php get_template_part('template-parts/footer', 'social'); ?>	
 <?php 
 get_footer(); 

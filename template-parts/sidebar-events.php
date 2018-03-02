@@ -116,7 +116,7 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 	<div class="widget topevent-widget" itemscope itemtype="http://schema.org/Event">
 		<h2 itemprop="name"><a itemprop="url" href="<?php echo $link; ?>"><?php echo $titel; ?></a></h2>
 		<?php 
-		    
+		     global $defaultoptions;
 		    $hideimage  = get_post_meta( $topevent->ID, 'topevent_hideimage', true ); 
 		    $imageid = get_post_meta( $topevent->ID, 'topevent_image', true );
 		    $imagehtml = '';
@@ -126,17 +126,40 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 		    $alttext = $pretitle.$titel.$posttitle;
 		    $alttext = esc_html($alttext);
 		    
-		    
+		    $imgwidth = $defaultoptions['default_topevent_thumb_width'];
+		    $imgheight = $defaultoptions['default_topevent_thumb_height'];
+		    $imgsrcset = '';
+			
 		    if (isset($imageid) && ($imageid>0)) {
-			$image = wp_get_attachment_image_src($imageid, 'topevent-thumb'); 					
+			$image = wp_get_attachment_image_src($imageid, 'topevent-thumb'); 	
+			$imgsrcset =  wp_get_attachment_image_srcset($imageid, 'topevent-thumb'); 
 			if (($image) && ($image[0])) {  
-			    $imagehtml = '<img itemprop="thumbnailUrl" src="'.fau_esc_url($image[0]).'" width="'.$image[1].'" height="'.$image[2].'" alt="'.$alttext.'">';	  
+			    $imagehtml = '<img itemprop="thumbnailUrl" src="'.fau_esc_url($image[0]).'" width="'.$image[1].'" height="'.$image[2].'" alt="'.$alttext.'"';	  
+			    if ($imgsrcset) {
+				$imagehtml .= ' srcset="'.$imgsrcset.'"';
+			    }
+			    $imagehtml .= ">";
 			}								    
 		    } 
 		    if (empty($imagehtml)) {
-			global $defaultoptions;
-
-		       $imagehtml = '<img itemprop="thumbnailUrl" src="'.fau_esc_url($defaultoptions['default_topevent_thumb_src']).'" width="'.$defaultoptions['default_topevent_thumb_width'].'" height="'.$defaultoptions['default_topevent_thumb_height'].'" alt="'.$alttext.'">';			    
+			
+			$fallback = get_theme_mod('fallback_topevent_image');
+			if ($fallback) {
+			    $thisimage = wp_get_attachment_image_src( $fallback,  'topevent-thumb');
+			    $imageurl = $thisimage[0]; 	
+			    $imgwidth = $thisimage[1];
+			    $imgheight = $thisimage[2];
+			    $imgsrcset =  wp_get_attachment_image_srcset($fallback, 'topevent-thumb'); 
+			} else {	   
+			    $imageurl = fau_esc_url($defaultoptions['default_topevent_thumb_src']);
+			    
+			}
+			$imagehtml = '<img itemprop="thumbnailUrl" src="'.$imageurl.'" width="'.$imgwidth.'" height="'.$imgheight.'" alt="'.$alttext.'"';
+			if ($imgsrcset) {
+			    $imagehtml .= ' srcset="'.$imgsrcset.'"';
+			}
+			$imagehtml .= ">";
+ 
 		    }
 		    if (($hideimage < 1) && (isset($imagehtml))) { ?>
 			<div class="event-thumb" aria-hidden="true" role="presentation" tabindex="-1" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">

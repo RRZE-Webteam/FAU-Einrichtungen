@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 34,
+    'optiontable-version'		=> 37,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -65,6 +65,7 @@ $defaultoptions = array(
 
     'default_postthumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-220x147.gif',
     'default_postthumb_always'		=> 1,
+    'default_postthumb_image'		=> 0,
     'default_submenuthumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-220x110.gif',
     'default_submenu_spalten'		=> 4,
     'default_submenu_entries'		=> 5,
@@ -75,6 +76,7 @@ $defaultoptions = array(
     'topevent_hideimage'		=> false,
     'topevents_templates'		=> array(1), 
     'default_topevent_thumb_src'	=> get_fau_template_uri().'/img/thumbnail-siegel-140x90.gif',
+    'fallback_topevent_image'		=> 0,
     'default_topevent_excerpt_length'	=> 100,
     
     'default_startseite-bannerbild-image_src'	    => get_fau_template_uri().'/img/bannerbild-tafel-1260x182.jpg',
@@ -239,7 +241,7 @@ $defaultoptions = array(
     'search_post_types'			    => array("page", "post", "attachment"),
     'search_post_types_checked'		    => array("page", "post"),
     'search_allowfilter'		    => true,
-   
+    'search_notice_searchregion'	    => __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.','fau'),
     'plugin_fau_person_headline'	=> true,
     'plugin_fau_person_malethumb'	=> get_fau_template_uri().'/img/platzhalter-mann.png',
     'plugin_fau_person_femalethumb'	=> get_fau_template_uri().'/img/platzhalter-frau.png',
@@ -292,6 +294,7 @@ function fau_initoptions() {
     
     $oldoptions = get_option($OPTIONS_NAME);
     $themeopt = get_theme_mods();
+    $theme = get_option( 'stylesheet' );
    
     // This part is for old installations.
     // will be removed soon
@@ -347,7 +350,7 @@ function fau_initoptions() {
 		}		
     }
     if ($update_thememods==true) {
-	$theme = get_option( 'stylesheet' );
+	
         update_option( "theme_mods_$theme", $themeopt );
     }
     
@@ -370,11 +373,13 @@ function fau_initoptions() {
 		    if (isset($themeopt[$i]) && ($themeopt[$i] !=  $defaultoptions[$i])) {
 			$themeopt[$i] = $defaultoptions[$i];	
 			$update_thememods = true;
+		    } elseif (!isset($themeopt[$i])) {
+			$themeopt[$i] = $defaultoptions[$i];	
+			$update_thememods = true;
 		    }
 		}
 	    }
 	    if ($update_thememods==true) {
-		$theme = get_option( 'stylesheet' );
 		update_option( "theme_mods_$theme", $themeopt );
 	    } else {
 		// only version number
@@ -445,7 +450,7 @@ $setoptions = array(
 		'default_faculty_useshorttitle' => array(
 		    'type'    => 'toggle',
 		    'title'   => __( 'Fakultätslink', 'fau' ),
-		    'label'   => __( 'Textlink zur Fakultät verkürzen auf Abkürzung. <br>Diese Option ist nur bei Nutzung eines Fakultätsthemes aktiv.', 'fau' ), 
+		    'label'   => __( 'Textlink zur Fakultät verkürzen auf Abkürzung. Diese Option ist nur bei Nutzung eines Fakultätsthemes aktiv.', 'fau' ), 
 		    'default' => $defaultoptions['default_faculty_useshorttitle'],
 		    'parent'  => 'webgroup'
 		),      
@@ -456,7 +461,7 @@ $setoptions = array(
 		    'maxwidth'	=> 1260,
 		    'maxheight'	=> 182,
 		    'title'   => __( 'Banner Startseite', 'fau' ),
-		    'label'   => __( 'Festes Banner für die Startseite (Template für Lehrstühle und Einrichtungen) im Format 1260x182 Pixel', 'fau' ),               
+		    'label'   => __( 'Festes Banner für die Startseite (Template für Lehrstühle und Einrichtungen)', 'fau' ),               
 		    'parent'  => 'webgroup'
 		),  
 	       
@@ -763,8 +768,7 @@ $setoptions = array(
                             
 	      'newsbereich'  => array(
                   'type'    => 'section',
-                  'title'   => __( 'Startseite', 'fau' ),        
-		  'desc'    => __('Einstellungen für die Startseiten-Templates','fau')
+                  'title'   => __( 'Artikelliste (Blogroll)', 'fau' ),        
               ),
 	       
 	       'start_max_newscontent'=> array(
@@ -796,14 +800,14 @@ $setoptions = array(
               ),  
 	       'start_link_news_show' => array(
                   'type'    => 'toggle',
-                  'title'   => __( 'Artikel verlinken', 'fau' ),
+                  'title'   => __( 'Kategorie verlinken', 'fau' ),
                   'label'   => __( 'Weitere Meldungen verlinken.', 'fau' ),               
                   'default' => $defaultoptions['start_link_news_show'],
 		     'parent'  => 'newsbereich'
               ),  
 		'start_link_news_cat' => array(
                   'type'    => 'category',
-                  'title'   => __( 'Artikel-Kategorie', 'fau' ),
+                  'title'   => __( 'Kategorie auswählen', 'fau' ),
                   'label'   => __( 'Unter den News erscheint ein Link auf eine Übersicht der Artikel. Hier wird die Kategorie dafür ausgewählt. Für den Fall, dass keine Artikel mit einem Prefix-Tag ausgestattet sind, wird diese Kategorie auch bei der Anzeige der ersten News verwendet.', 'fau' ),
                   'default' => $defaultoptions['start_link_news_cat'],
 		     'parent'  => 'newsbereich'
@@ -818,11 +822,21 @@ $setoptions = array(
 	       
 	    'default_postthumb_always' => array(
 		    'type'    => 'toggle',
-		    'title'   => __( 'Immer ein Artikelbild anzeigen', 'fau' ),
+		    'title'   => __( 'Artikelbild erzwingen', 'fau' ),
 		    'label'   => __( 'Immer ein Artikelbild zu einer Nachricht zeigen. Wenn kein Artikelbild definiert wurde, nehme stattdessen ein Ersatzbild.', 'fau' ),      
 		    'default' => $defaultoptions['default_postthumb_always'],
 		    'parent'  => 'newsbereich'
               ), 
+
+	    'default_postthumb_image' => array(
+		    'type'    => 'image',
+		    'maxwidth'	=> $defaultoptions['default_postthumb_width'],
+		    'maxheight'	=> $defaultoptions['default_postthumb_height'],
+		    'title'   => __( 'Thumbnail Ersatzbild', 'fau' ),
+		    'label'   => __( 'Ersatzbild für den Fall, daß ein Artikel kein eigenes Artikelbild definiert hat.', 'fau' ),               
+		    'parent'  => 'newsbereich'
+		),  
+	       
 	        	
 	    'topevents'  => array(
                   'type'    => 'section',
@@ -858,6 +872,19 @@ $setoptions = array(
 		  'max'	    => 6,		  
                   'parent'  => 'topevents'
             ),   
+	       
+	      'fallback_topevent_image' => array(
+		    'type'    => 'image',
+		    'maxwidth'	=> $defaultoptions['default_topevent_thumb_width'], 
+		    'maxheight'	=> $defaultoptions['default_topevent_thumb_height'],
+		    'title'   => __( 'Thumbnail Ersatzbild', 'fau' ),
+		    'default' => $defaultoptions['fallback_topevent_image'],
+		    'label'   => __( 'Ersatzbild für den Fall, daßfür den Eventeintrag kein eigenes Bild definiert wurde.', 'fau' ),               
+		    'parent'  => 'topevents'
+		),  
+	          
+	       
+	       
 	    
 	    'suchergebnisse'  => array(
                   'type'    => 'section',
@@ -930,7 +957,13 @@ $setoptions = array(
 		    'default' => $defaultoptions['search_post_types_checked'],
 		    'parent'  => 'suchergebnisse'
             ),     
-	       
+	       'search_notice_searchregion' => array(
+		    'type'    => 'text',
+		    'title'   => __( 'Hinweis zum Suchbereich', 'fau' ),
+		    'label'   => __( 'Für Besucher der Website ist oft nicht klar, daß die Suchmaschine nur den einzelnen Webauftritt durchsucht und nicht beispielsweise alle Seiten der FAU. Dieser Texthinweis macht darauf aufmerksam.', 'fau' ),               
+		    'default' => $defaultoptions['search_display_excerpt_morestring'],
+		     'parent'  => 'suchergebnisse'
+		), 
    
 	       
            

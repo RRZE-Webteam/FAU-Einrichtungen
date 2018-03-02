@@ -39,7 +39,7 @@
 		</div>
 		<div class="row">
 		    <div class="col-xs-12 col-sm-8">
-			<h1<?php echo fau_get_page_langcode($post->ID);?>><?php the_title(); ?></h1>
+			<p class="presentationtitle" aria-hidden="true" role="presentation" <?php echo fau_get_page_langcode($post->ID);?>><?php the_title(); ?></p>
 		    </div>
 		</div>
 	</div>

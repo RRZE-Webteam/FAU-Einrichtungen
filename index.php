@@ -10,14 +10,18 @@
 get_header(); 
 
 $posttype = get_post_type();
-?>
+$screenreadertitle = '';
 
-	<?php if($posttype == 'event') {
+if($posttype == 'event') {
 		get_template_part('template-parts/hero', 'events');
+		$screenreadertitle = get_theme_mod('title_hero_events');
 	} elseif ($posttype == 'post') {
 		get_template_part('template-parts/hero', 'category'); 
+		$screenreadertitle = single_cat_title("", false);
+		
 	} else {
 	    get_template_part('template-parts/hero', 'index'); 
+	    $screenreadertitle = __('Index','fau');
 	}
 	?>
 
@@ -25,6 +29,7 @@ $posttype = get_post_type();
 		<div class="container">
 			<div class="row">
 			    <main class="entry-content">
+				<h1 class="screen-reader-text"><?php echo $screenreadertitle; ?></h1>
 				<?php 
 				if (($posttype == 'synonym') && (get_theme_mod('index_synonym_listall'))) {					    
 				    echo '<h2>'.__('Synonyme','fau')."</h2>\n";					    
@@ -90,9 +95,10 @@ $posttype = get_post_type();
 			    ?>
 			</div>    
 		</div>
-	<?php get_template_part('template-parts/footer', 'social'); ?>	
+	
     </div>
 
+<?php get_template_part('template-parts/footer', 'social'); ?>	
 <?php 
 get_footer(); 
 

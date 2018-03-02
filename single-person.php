@@ -40,5 +40,5 @@ get_header(); ?>
 	
 	
 <?php endwhile; ?>
-
+<?php get_template_part('template-parts/footer', 'social'); ?>	
 <?php get_footer(); ?>

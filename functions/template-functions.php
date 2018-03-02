@@ -567,7 +567,18 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 		  
 	    }
 	    if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
-		$imageurl = get_theme_mod('default_postthumb_src');
+		$default_postthumb_image = get_theme_mod('default_postthumb_image');
+		if ($default_postthumb_image) {
+		    $thisimage = wp_get_attachment_image_src( $default_postthumb_image,  'post-thumb');
+		    $imageurl = $thisimage[0]; 	
+		    $imgwidth = $thisimage[1];
+		    $imgheight = $thisimage[2];
+		    $imgsrcset =  wp_get_attachment_image_srcset($default_postthumb_image, 'post-thumb'); 
+		} else {
+		    // Abwaertskompatibilitaet zu 1.9
+		    $imageurl = get_theme_mod('default_postthumb_src');
+		}
+
 	    }
 	    $output .= '<img itemprop="thumbnailUrl" src="'.fau_esc_url($imageurl).'" width="'.$imgwidth.'" height="'.$imgheight.'"';
 	    

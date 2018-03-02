@@ -4,13 +4,12 @@
  * Social Media Footer
  */
 
-global $options;
 global $defaultoptions;
 
 $template = get_page_template();
 $displayon = get_theme_mod("active_socialmedia_footer"); 
 if (!isset($displayon)) {
-    $displayon = $options['active_socialmedia_footer'];
+    $displayon = $defaultoptions['active_socialmedia_footer'];
 }
 $show =false;
 
@@ -67,6 +66,7 @@ $show =false;
  
 if ($show) {
 ?>
+    	    <h1 class="screen-reader-text"><?php _e("Weitere Hinweise zum Webauftritt","fau"); ?></h1>
 	<div id="social">
 		<div class="container">
 			<div class="row">
@@ -81,6 +81,8 @@ if ($show) {
 				<?php 
 				}
 				if ($showicons==true) {
+				    echo '<nav class="socialmedia" aria-label="'.__('Social Media','fau').'">';
+				    
 				    $socialmedia_buttons_title = get_theme_mod('socialmedia_buttons_title');
 				    if (!fau_empty($socialmedia_buttons_title)) {
 					echo '<h2 class="small">'.$socialmedia_buttons_title.'</h2>';
@@ -88,7 +90,7 @@ if ($show) {
 
 				    global $default_socialmedia_liste;
 
-				    echo '<nav id="socialmedia" aria-label="'.__('Social Media','fau').'">';
+				    
 				    echo '<div itemscope itemtype="http://schema.org/Organization">';
 				    echo fau_create_schema_publisher(false);		
 				    echo fau_get_socialmedia_menu($defaultoptions['socialmedia_menu_name'],'social',true);
@@ -102,12 +104,12 @@ if ($show) {
 				    }
 				}
 				if ($showsocialsidebar==true) { ?>
-					<div class="row">
+					<aside class="row">
 					<?php 
 					    if ( is_active_sidebar( 'startpage-socialmediainfo' ) ) { 
 						dynamic_sidebar( 'startpage-socialmediainfo' ); 
 					    }  ?>
-					</div>
+					</aside>
 					<?php 
 					$showlink_videoportal = get_theme_mod("start_link_videoportal_socialmedia");
 					$urlvideoportal  = esc_url(get_theme_mod("start_title_videoportal_url"));
@@ -118,6 +120,7 @@ if ($show) {
 					    <a href="<?php echo $urlvideoportal; ?>"><?php echo $linktitlevideportal; ?></a>
 					</div>
 					<?php } ?>
+					    
 				<?php } ?>
 
 				</div>						

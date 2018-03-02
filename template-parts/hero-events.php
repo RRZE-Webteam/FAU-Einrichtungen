@@ -16,7 +16,7 @@
 			    <?php
 			    fau_breadcrumb();		    
 			      ?>
-				<h1><?php echo get_theme_mod('title_hero_events'); ?></h1>
+				 <p class="presentationtitle" aria-hidden="true" role="presentation"><?php echo get_theme_mod('title_hero_events'); ?></p>
 			</div>
 		</div>
 	</div>

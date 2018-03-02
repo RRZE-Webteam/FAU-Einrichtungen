@@ -18,6 +18,7 @@ while ( have_posts() ) : the_post(); ?>
 			<div class="row">
 					
 			    <article>
+				<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 				    <?php 
 
 				    echo wp_get_attachment_image( $post->ID, 'full' );
@@ -103,5 +104,5 @@ while ( have_posts() ) : the_post(); ?>
 	</section>
 	
 <?php endwhile; ?>
-
+<?php get_template_part('template-parts/footer', 'social'); ?>	
 <?php get_footer(); 

@@ -21,7 +21,7 @@
 		    </div>
 		    <div class="footer-address">
 
-			<p itemscope itemtype="http://schema.org/PostalAddress">
+			<address itemscope itemtype="http://schema.org/PostalAddress">
 			    <?php
 
 			    $contact_address_name = get_theme_mod("contact_address_name");
@@ -39,10 +39,11 @@
 			    <?php if (isset($contact_address_country)) { ?>
 			       <span itemprop="addressCountry"><?php echo $contact_address_country; ?></span>
 			    <?php } ?>   
-		       </p>
+		       </address>
 
 		    </div>
-		    <div class="footer-meta">
+		    <nav class="footer-meta">
+			<h2 class="screen-reader-text"><?php echo __('Kontakt, Impressum und Zusatzinformationen','fau'); ?></h2>
 			    <?php 
 			    if ( has_nav_menu( 'meta-footer' ) ) {
 				wp_nav_menu( array( 'theme_location' => 'meta-footer', 'container' => false, 'items_wrap' => '<ul id="footer-nav" class="%2$s">%3$s</ul>' ) ); 
@@ -50,7 +51,7 @@
 				echo fau_get_defaultlinks('techmenu', 'menu', 'footer-nav');
 			    }
 			    ?>
-		    </div>
+		    </nav>
 		</div>
 	    </div>
 	</footer>

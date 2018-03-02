@@ -29,7 +29,7 @@ get_header();
 		    <?php } ?>
 
 			    <main>
-
+				<h1 class="screen-reader-text"><?php echo __('Index','fau'); ?></h1>
 				<?php 
 
 				    while ( have_posts() ) { 
@@ -56,10 +56,11 @@ get_header();
 			} ?>
 		</div>
 	    </div>
-	    <?php get_template_part('template-parts/footer', 'social'); ?>	
+	   
 	</div>
 
 
 <?php 
+get_template_part('template-parts/footer', 'social'); 
 get_footer(); 
 

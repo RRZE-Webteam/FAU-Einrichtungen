@@ -21,6 +21,7 @@ get_header(); ?>
 			<div class="row">
 				<div class="entry-content">
 				    <main>
+					<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 					<article class="news-details">
 						<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 						    <div class="post-image">
@@ -150,9 +151,9 @@ get_header(); ?>
 			</div>
 
 		</div>
-	    	<?php get_template_part('template-parts/footer', 'social'); ?>	
+	    	
 	</div>
 	
 <?php endwhile; 
-
+get_template_part('template-parts/footer', 'social');
 get_footer();

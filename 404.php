@@ -9,11 +9,14 @@
 
 get_header();
 get_template_part('template-parts/hero', 'error');  
+
 ?>
 
 	<section id="content">
 		<div class="container">
 			<div class="row">
+			    <h1 class="screen-reader-text"><?php echo __('Seite nicht gefunden','fau'); ?></h1>
+			    
 			    <div class="error-notice">
 				<p class="hinweis">
 					<strong><?php _e('Es tut uns leid.','fau'); ?></strong>
@@ -31,9 +34,9 @@ get_template_part('template-parts/hero', 'error');
 			<?php get_template_part('template-parts/search', 'helper');  ?>
 
 		</div>
-    		<?php get_template_part('template-parts/footer', 'social'); ?>	
+    		
 	</section>
-
+<?php get_template_part('template-parts/footer', 'social'); ?>	
 <?php 
 get_footer();
 

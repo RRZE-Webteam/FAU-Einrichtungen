@@ -36,6 +36,12 @@ $showhelplinks = 0;
 					
 					?>							
 						<h2><?php _e('Suchergebnisse','fau'); ?></h2>
+						<?php
+						$notice_search = get_theme_mod('search_notice_searchregion');
+						if (!fau_empty($notice_search)) {
+						?>
+						<p class="notice-hinweis"><?php echo $notice_search; ?></p>
+						<?php } ?>
 						<p class="meta-resultinfo"><?php 
 						    if ($wp_query->found_posts>1) {
 							echo __("Es wurden",'fau');

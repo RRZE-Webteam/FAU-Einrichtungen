@@ -17,7 +17,7 @@
 		</div>
 		<div class="row">
 			<div class="search-title">
-			    <h1><?php echo get_theme_mod('title_hero_search'); ?></h1>
+			    <p class="presentationtitle"  aria-hidden="true" role="presentation"><?php echo get_theme_mod('title_hero_search'); ?></p>
 			</div>
 			<div class="search-input">
 			    <form method="get" class="searchform" action="<?php echo home_url( '/' )?>">

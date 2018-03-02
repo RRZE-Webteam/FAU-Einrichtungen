@@ -18,10 +18,10 @@ function fau_register_menus() {
     }
     
 	
-    register_nav_menu( 'meta', __( 'Meta-Navigation oben', 'fau' ) );
+    register_nav_menu( 'meta', __( 'Meta-Navigation oben: Links zu anderen Webauftritten und Portalen', 'fau' ) );
 	// Meta Navigation oben im Header
 
-    register_nav_menu( 'meta-footer', __( 'Meta-Navigation unten', 'fau' ) );
+    register_nav_menu( 'meta-footer', __( 'Navigation unten: Kontakt, Impressum und weitere Hinweise zum Webauftritt', 'fau' ) );
 	// Meta Navigation unten im Footer
 
     register_nav_menu( 'main-menu', __( 'Haupt-Navigation', 'fau' ) );
@@ -314,8 +314,8 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		} else {
 		   
 
-		    $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-		    $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+		 //   $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+		 //   $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 	    
 		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 		    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
@@ -327,7 +327,7 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		    if ($level>1) {
 			 $class_names = str_replace("has-sub","",$class_names);   
 		    }
-		    $output .= $indent . '<li' . $id . $value . $class_names .'>';
+		    $output .= $indent . '<li' . $value . $class_names .'>';
 		    
 		    $atts = array();
 		    $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
@@ -472,11 +472,11 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 			if (in_array("current_page_item",$item->classes)) {
 			    $iscurrent = 1;
 			}
-			$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+	//		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+	//		$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
 			if($this->level == 1) {
-				$output .= $indent . '<li' . $id . $value . $class_names .'>';
+				$output .= $indent . '<li' . $class_names .'>';
 			} else	{
 				$output .= '<li>';
 			}
@@ -614,12 +614,14 @@ function fau_breadcrumb($lasttitle = '') {
   $pretitletextstart   = '<span>';
   $pretitletextend     = '</span>';
   
-  if (get_theme_mod('breadcrumb_withtitle')) {
-	echo '<h3 class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo( 'title' ).'</h3>';
+
+  echo '<nav aria-labelledby="bc-title" class="breadcrumbs">'; 
+  echo '<h2 class="screen-reader-text" id="bc-title">'.__('Breadcrumb','fau').'</h2>';
+    if (get_theme_mod('breadcrumb_withtitle')) {
+	echo '<p class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo( 'title' ).'</p>';
 	echo "\n";
     }
-  echo '<nav aria-labelledby="bc-title" class="breadcrumbs">'; 
-  echo '<h4 class="screen-reader-text" id="bc-title">'.__('Sie befinden sich hier:','fau').'</h4>';
+
   if ( !is_home() && !is_front_page() || is_paged() ) { 
     
     global $post;

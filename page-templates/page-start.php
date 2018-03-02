@@ -21,6 +21,7 @@ get_header();
 			<div class="row">
 				<div class="startpage-blogroll">
 				    <main<?php echo fau_get_page_langcode($post->ID);?>>
+					<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 					
 					<?php
 					
@@ -123,10 +124,10 @@ get_header();
 			 ?>
 			
 		</div> <!-- /container -->
-		<?php get_template_part('template-parts/footer', 'social'); ?>	
+		
 		
 	</div> <!-- /content -->
-
+<?php get_template_part('template-parts/footer', 'social'); ?>	
 <?php 
 get_footer(); 
 
