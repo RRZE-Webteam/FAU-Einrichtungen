@@ -22,7 +22,7 @@
 		<ul class="jumplinks">
 		    <li><a href="#content" data-target="#content" data-firstchild="0" class="jumplink-content"><?php _e('Zum Inhalt springen','fau'); ?></a></li>
 		    <li><a href="#search-header" data-target="#meta .searchform input" data-firstchild="1" class="jumplink-search"><?php _e('Zur Suche springen','fau'); ?></a></li>
-		    <li><a href="#nav" data-target="#nav a" data-firstchild="1" class="jumplink-nav"><?php _e('Zum Hauptmenü springen','fau'); ?></a></li>
+		    <li><a href="#hauptnav-anchor" data-target="#hauptnav-anchor" data-firstchild="1" class="jumplink-nav"><?php _e('Zur Hauptnavigation springen','fau'); ?></a></li>
 		    <?php if(!is_tax() && !is_category()  && basename( get_page_template() )=='page-subnav.php') { ?>
 		    <li><a href="#subnavtitle" data-firstchild="1" class="jumplink-subnav"><?php _e('Zur Bereichsnavigation springen','fau'); ?></a></li><?php } ?>
 		</ul>
@@ -55,42 +55,40 @@
 	    <div class="container">
 		<div class="row">
 		    <div class="branding" id="logo" role="banner" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-		    <?php 
+                        <p class="sitetitle">
+                        <?php if ( ! is_front_page() ) { 
+                            echo '<a itemprop="url" rel="home" href="'.fau_esc_url(home_url( '/' ) ).'">';	
+                        } 
+                        $header_image = get_header_image();
+                        if ( ! empty( $header_image ) ) {	
+                            $customheader =  get_custom_header();
+                            $attachment_id = 0;
+                            if (isset($customheader->attachment_id)) {
+                                $attachment_id = $customheader->attachment_id; 
+                                $srcset=  esc_attr(wp_get_attachment_image_srcset( $attachment_id, 'full'));
+                            } else {
+                                $srcset ='';
+                            }  
+                            echo '<img src="'.$header_image.'" width="'.get_custom_header()->width.'" height="'.get_custom_header()->height.'" alt="'.esc_attr(get_bloginfo( 'title' )).'"';
+                            if ($srcset) {
+                                echo ' srcset="'.$srcset.'"';
+                            }
+                            echo ">";	
 
-		    echo '<h1>';
-		    if ( ! is_front_page() ) { 
-			echo '<a itemprop="url" rel="home" href="'.fau_esc_url(home_url( '/' ) ).'">';	
-		    } 
-		    $header_image = get_header_image();
-		    if ( ! empty( $header_image ) ) {	
-			$customheader =  get_custom_header();
-			$attachment_id = 0;
-			if (isset($customheader->attachment_id)) {
-			    $attachment_id = $customheader->attachment_id; 
-			    $srcset=  esc_attr(wp_get_attachment_image_srcset( $attachment_id, 'full'));
-			} else {
-			    $srcset ='';
-			}  
-			echo '<img src="'.$header_image.'" width="'.get_custom_header()->width.'" height="'.get_custom_header()->height.'" alt="'.esc_attr(get_bloginfo( 'title' )).'"';
-			if ($srcset) {
-			    echo ' srcset="'.$srcset.'"';
-			}
-			echo ">";	
-
-		    } else {				 
-			echo "<span>".get_bloginfo( 'title' )."</span>";   
-		    } 
-		    if ( ! is_front_page() ) {  
-			echo "</a>"; 			    
-		    } 
-		    echo '</h1>';
-		    ?>
+                        } else {				 
+                            echo "<span>".get_bloginfo( 'title' )."</span>";   
+                        } 
+                        if ( ! is_front_page() ) {  
+                            echo "</a>"; 			    
+                        } ?>
+                        </p>       
 		    </div>
-		    <nav class="header-menu">		
+		    <nav class="header-menu">	
+                        <h2 id="hauptnav-anchor" class="screen-reader-text"><?php _e("Hauptnavigation","fau"); ?></h2>
 			<button id="mainnav-toggle" aria-expanded="false" aria-controls="menu"><span><?php _e("Menu","fau"); ?></span></button>						
 			<?php
 			    if(has_nav_menu( 'main-menu' ) && class_exists('Walker_Main_Menu', false)) {
-				wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'items_wrap' => '<ul role="navigation" aria-label="'.__("Hauptnavigation", "fau").'" id="nav">%3$s</ul>', 'depth' => 2, 'walker' => new Walker_Main_Menu) ); 
+				wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'items_wrap' => '<ul role="navigation" id="nav">%3$s</ul>', 'depth' => 2, 'walker' => new Walker_Main_Menu) ); 
 			    } elseif(!has_nav_menu( 'main-menu' )) {
 				echo fau_main_menu_fallback(); 
 			    }
