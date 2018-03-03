@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 37,
+    'optiontable-version'		=> 38,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -242,9 +242,7 @@ $defaultoptions = array(
     'search_post_types_checked'		    => array("page", "post"),
     'search_allowfilter'		    => true,
     'search_notice_searchregion'	    => __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.','fau'),
-    'plugin_fau_person_headline'	=> true,
-    'plugin_fau_person_malethumb'	=> get_fau_template_uri().'/img/platzhalter-mann.png',
-    'plugin_fau_person_femalethumb'	=> get_fau_template_uri().'/img/platzhalter-frau.png',
+
     
     'index_synonym_listall'		=> true,
     'index_glossary_listall'		=> true,
