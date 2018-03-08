@@ -91,6 +91,7 @@ Mixins File for Wordpress Theme FAU
 }
 
 @mixin radial-gradient-image($color2, $color1, $image) {
+    background-color: $color2;
     background: $image, $color2;
     background: $image, -moz-radial-gradient(center, ellipse cover, $color1 0%, $color2 100%);
     background: $image, -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$color1), color-stop(100%,$color2));

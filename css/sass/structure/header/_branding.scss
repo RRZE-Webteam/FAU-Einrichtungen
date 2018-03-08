@@ -1,0 +1,194 @@
+/*-----------------------------------------------------------------------------------*/
+/* Branding 
+/*-----------------------------------------------------------------------------------*/
+ 
+ #header {
+    padding: 10px 0px;
+    
+    .row {    
+	height: auto;
+	.branding {
+	   width: 100%;
+	}
+	.header-menu {
+	    display: inline;
+	}
+     }
+     
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    background: $colorPrimary;
+    color: #fff;
+    z-index: 100;
+    @include transition(0.5s,all);
+
+    @media (min-width: $screen-sm) {
+	position: fixed;
+	margin-top: 40px;
+	.admin-bar & {
+	    margin-top: 40px + $wordpress-adminbar-bigheight;
+	}
+	
+	padding: 20px 0 10px 0;
+
+	background: #fff;
+	color: $colorPrimary;
+	
+	.nav-scrolled & {
+	     @include box-shadow(0 1px 3px rgba(0,0,0,0.3));	
+	}
+	.page-template-page-start-sub & {
+	    padding: 20px 0 0 0;
+	}
+	
+	.row {    
+	    height: 112px;
+	    
+	    .branding, 
+	    .header-menu {
+		padding-left:  ($grid-gutter-width / 2);
+	    }
+	    .header-menu {
+		padding-right: 0;
+	    }
+	    
+	    .branding {
+		height: 75px;
+		padding-right: ($grid-gutter-width / 2);
+	    }
+	    .header-menu {
+		height: 37px;
+		display: block;
+		
+		#nav {
+		    margin-left: -10px;
+		} 
+		
+	    }
+	 }
+	 .visiblelogo {
+	     display: none;
+	 }
+    }
+
+    @media (min-width: $wordpress-adminbar-break ) {
+	.admin-bar & {
+	    margin-top: 40px + $wordpress-adminbar-smallheight;
+	}
+    }
+
+    @media (min-width: $screen-md) {
+	
+	.row {    
+	    height: 75px;
+	    .branding {
+		display: table-cell;
+		float: none;
+		width: 240px;
+		vertical-align: bottom;
+		
+		
+		.nologo.longtitle & {
+		    width: 300px;
+		}
+	    } 
+	   
+	    .header-menu {
+		float: none;
+		display: table-cell;
+		vertical-align: bottom;
+	    }
+	 }
+	
+    }
+    
+
+ }
+.js #header {
+    @media (max-width: $screen-sm - 1) {
+	img {
+	     @include hideout();
+
+	}
+    }
+} 
+ 
+ 
+#logo {	
+    .sitetitle {
+        padding: 0;
+    }
+    .sitetitle,
+    h1 {
+        color: $colorPrimary;
+        overflow: hidden;
+        margin: 0 0 10px 0;
+        max-height: inherit;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 0 15px;
+
+        @media (min-width: $screen-sm ) {
+              max-height: 65px;
+              margin-top: 0px;
+	       padding: 0;
+        } 
+
+
+        a, span {
+            display: table-cell;
+            vertical-align: bottom;
+        }
+        a {
+            color: $colorPrimary;
+            text-decoration: none;	
+        } 
+
+
+        @include px2rem($font-size-h1-mobilebranding, $font-size-gridbase, $font-size-h1-mobilebranding);
+        @media (min-width: $screen-sm) {
+            @include px2rem($font-size-h1-desktopbranding, $font-size-gridbase, $font-size-h1-desktopbranding);
+
+            .nologo.longtitle & {
+               @include px2rem($font-size-h1-desktopbranding-longtitle, $font-size-gridbase, $font-size-h1-desktopbranding-longtitle + 2);
+
+               hyphens: auto;
+            }
+
+        }
+
+
+        @media (max-width: $screen-sm - 1) {
+            color: #fff;
+            a {
+                color: #fff;
+            }
+        } 
+    }
+    .nologo &.branding {
+            padding: 0 0 3px 15px;
+            
+            .sitetitle,	
+            h1 {
+                
+                @media (min-width: $screen-sm) {
+                    padding: 15px 0;
+                }  
+                 @media (min-width: $screen-md) {
+                    padding: 0;
+                }  
+                margin: 0 0 7px 0;     
+            }
+    }
+    img {
+       max-width: 240px;
+       max-height: 65px;
+       width: auto;
+       height: auto; 		
+    }
+}
+
+

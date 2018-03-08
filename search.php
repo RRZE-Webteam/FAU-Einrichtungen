@@ -18,7 +18,6 @@ $showhelplinks = 0;
 			<div class="row">
 			    
 			    <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	
-				// add sidebar and nest content in sub-row
 				$active_sidebar = 1; ?>
 				<div class="search-sidebar">
 					    <?php dynamic_sidebar( 'search-sidebar' ); ?>
@@ -37,6 +36,12 @@ $showhelplinks = 0;
 					
 					?>							
 						<h2><?php _e('Suchergebnisse','fau'); ?></h2>
+						<?php
+						$notice_search = get_theme_mod('search_notice_searchregion');
+						if (!fau_empty($notice_search)) {
+						?>
+						<p class="notice-hinweis"><?php echo $notice_search; ?></p>
+						<?php } ?>
 						<p class="meta-resultinfo"><?php 
 						    if ($wp_query->found_posts>1) {
 							echo __("Es wurden",'fau');
@@ -47,6 +52,9 @@ $showhelplinks = 0;
 						</p>
 						<?php 
 	
+						
+						 $listtypes = get_theme_mod('search_post_types');
+						
 						while ( have_posts() ) { 
 						    the_post(); 
 						    echo fau_display_search_resultitem($active_sidebar);
@@ -79,7 +87,6 @@ $showhelplinks = 0;
 						    'total'    => $wp_query->max_num_pages,
 						    'current'  => $paged,
 						    'mid_size' => 1,
-					//	    'add_args' => array_map( 'urlencode', $query_args ),
 						    'prev_text' => __( '<span class="meta-nav">&larr;</span> Zurück', 'fau' ),
 						    'next_text' => __( 'Weiter <span class="meta-nav">&rarr;</span>', 'fau' ),
 						    'before_page_number' => '<span class="screen-reader-text">'.__( 'Seite', 'fau' ).' </span>'
@@ -96,20 +103,12 @@ $showhelplinks = 0;
 					    } 
 
 				    } else { ?>
-						
-						
 					<div class="search-error-notice">
-						<p class="attention">
-							<strong><?php _e('Nichts gefunden.','fau'); ?></strong>
-						</p>
-						<p>
-							<?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?>
-						</p>
+						<p class="attention"><strong><?php _e('Nichts gefunden.','fau'); ?></strong></p>
+						<p><?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?></p>
 
 					</div>
-					<div class="search-error-image">
-
-					</div>
+					<div class="search-error-image"></div>
 					<?php 
 					    $showhelplinks = 1;
 				    } 
@@ -120,9 +119,7 @@ $showhelplinks = 0;
 						    <strong><?php _e('Bitte geben Sie einen Suchbegriff in das Suchfeld ein.','fau'); ?></strong>
 					    </p>
 					</div>
-					<div class="search-error-image">
-
-					</div>
+					<div class="search-error-image"></div>
 					
 					
 					<?php

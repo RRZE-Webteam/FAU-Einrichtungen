@@ -4,11 +4,9 @@
  * Code fuer den Custom Type "ad" / Werbebanner
  */
 
-global $options;
 
 // Register Custom Post Type
 function ad_post_type() {
-    global $options;
 	$labels = array(
 		'name'                => __( 'Werbung',  'fau' ),
 		'singular_name'       => __( 'Werbung',  'fau' ),
@@ -66,13 +64,12 @@ function ad_post_type() {
 }
 
 // Hook into the 'init' action
-if ( current_user_can('publish_pages') && ($options['advanced_activateads'] == true)) {
+if ( current_user_can('publish_pages') && (get_theme_mod('advanced_activateads') == true)) {
     add_action( 'init', 'ad_post_type' );
 }
 
 function ad_restrict_manage_posts() {
 	global $typenow;
-	global $options;
 	if ($typenow == "ad" )  {
 		$filters = get_object_taxonomies($typenow);
 		
@@ -180,14 +177,13 @@ function fau_ad_metabox_content( $object, $box ) {
 }
 
 
-if ($options['advanced_activateads'] == true) {
+if (get_theme_mod('advanced_activateads') == true) {
     add_action( 'add_meta_boxes', 'fau_ad_metabox' );
 }
 
 
 
 function fau_ad_metabox_content_save( $post_id ) {
-    global $options;
     if (  'ad'!= get_post_type()  ) {
 	return;
     }
@@ -297,21 +293,15 @@ function fau_ad_metabox_content_save( $post_id ) {
    
     
 }
-if ($options['advanced_activateads'] == true) {
+if (get_theme_mod('advanced_activateads') == true) {
     add_action( 'save_post', 'fau_ad_metabox_content_save' );
 }
 
 
-
-
-
-
-
 function fau_get_ad($type, $withhr = true) {
-    global $options;
     global $post;
     
-    if ($options['advanced_activateads'] == true) {
+    if (get_theme_mod('advanced_activateads') == true) {
 
 	// werbebanner_seitlich   oder     werbebanner_unten
        $list = get_post_meta( $post->ID, $type, true );
@@ -340,11 +330,11 @@ function fau_get_ad($type, $withhr = true) {
 	   foreach ($list as $id) {
 
 		$out .= '<h3>';	    
-		if (isset($options['url_banner-ad-notice'])) {
-		    $out .= '<a data-wpel-link="internal" class="banner-ad-notice" href="'.$options['url_banner-ad-notice'].'">';
+		if (get_theme_mod('url_banner-ad-notice')) {
+		    $out .= '<a data-wpel-link="internal" class="banner-ad-notice" href="'.get_theme_mod('url_banner-ad-notice').'">';
 		}
-		$out .= $options['title_banner-ad-notice'];
-		if (isset($options['url_banner-ad-notice'])) {
+		$out .= get_theme_mod('title_banner-ad-notice');
+		if (get_theme_mod('url_banner-ad-notice')) {
 		      $out .= '</a>';
 		}
 		$out .= '</h3>';	   

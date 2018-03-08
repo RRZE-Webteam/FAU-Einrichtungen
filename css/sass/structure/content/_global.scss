@@ -7,7 +7,7 @@
     padding: 20px 0 0 0;	
 
     @media (min-width: $screen-sm) {
-	padding: 20px 0 30px 0;
+	padding: 40px 0 30px 0;
     }
     
     .container {
@@ -19,9 +19,6 @@
 	font-family: $fontStack;
 	padding-top: 0;
 	 
-	@media (min-width: $screen-sm) {
-	    padding-top: 10px;
-	}
 	
 	.sidebar-inline {
 	    @include px2rem($font-size-sidebar);
@@ -29,21 +26,17 @@
 	
 	
     }
-  
-}
-
-@media (max-width: $screen-sm - 1) {
-	#content {
-	    ul.page-print-actions {
-		display: none;
-	    }
+    .page-template-page-start-sub &,
+    .page-template-page-start & {
+	padding-top: 20px;
+    }
+    
+    
+    ul.page-print-actions {
+	display: none;
+	@media (min-width: $screen-sm) {
+	    top: 440px;
 	}
-
+    }
 }
 
-@media (max-width: $breakLG) {
-	#content ul.page-print-actions {
-		top: 440px;
-	}
-
-}

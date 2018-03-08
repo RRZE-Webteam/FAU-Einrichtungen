@@ -1,6 +1,5 @@
 <?php
 global $univis_data;
-global $options;
 
 get_header();
 ?>

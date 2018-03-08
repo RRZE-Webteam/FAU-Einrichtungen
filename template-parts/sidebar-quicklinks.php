@@ -1,14 +1,13 @@
 <?php 
 
 
-global $options;
-
 $list1 = '';
 $list2 = '';
 $titleblock1 = '';
 $titleblock2 = '';
 
-if ($options['advanced_page_sidebar_linkblock1_number'] > 0) {	
+$linkblock1_number = get_theme_mod('advanced_page_sidebar_linkblock1_number');
+if ($linkblock1_number > 0) {	
     $sidebar_quicklinks = get_post_meta( $post->ID, 'sidebar_quicklinks', true );
 	    // Alter ACF Rotz
 	    
@@ -22,7 +21,7 @@ if ($options['advanced_page_sidebar_linkblock1_number'] > 0) {
 	    if (strlen(trim($block_title))>1) {
 		$titleblock1 .= '<h2 class="widget-title">'.$block_title.'</h2>'."\n";
 	    }
-	    for ($i = 1; $i <= $options['advanced_page_sidebar_linkblock1_number']; $i++) {
+	    for ($i = 1; $i <= $linkblock1_number; $i++) {
 		$name = 'fauval_linkblock1_link'.$i;
 		$urlname= $name.'_url';
 		$titlename= $name.'_title';
@@ -54,7 +53,9 @@ if ($options['advanced_page_sidebar_linkblock1_number'] > 0) {
 		}
 	    }   
 }
-if ($options['advanced_page_sidebar_linkblock2_number'] > 0) {	    
+$linkblock2_number = get_theme_mod('advanced_page_sidebar_linkblock1_number');
+
+if ($linkblock2_number > 0) {	    
 	     $sidebar_quicklinks = get_post_meta( $post->ID, 'sidebar_quicklinks_external', true );
 	   	    // Alter ACF Rotz mit SubFields	    
 	    
@@ -66,7 +67,7 @@ if ($options['advanced_page_sidebar_linkblock2_number'] > 0) {
 		    $titleblock2 = '<h2 class="widget-title">'.$block_title.'</h2>'."\n"; 
 		}
 	    }
-	   for ($i = 1; $i <= $options['advanced_page_sidebar_linkblock2_number']; $i++) {
+	   for ($i = 1; $i <= $linkblock2_number; $i++) {
 		$name = 'fauval_linkblock2_link'.$i;
 		$urlname= $name.'_url';
 		$titlename= $name.'_title';

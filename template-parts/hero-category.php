@@ -7,7 +7,6 @@
  * @since FAU 1.0
  */
 
-global $options; 
 ?>
 
 <section id="hero" class="hero-small">
@@ -15,16 +14,14 @@ global $options;
 		<div class="row">
 			<div class="col-xs-12">
 				
-			    <?php
-				fau_breadcrumb(); ?>
-				 
+			    <?php fau_breadcrumb(); ?>
 
-				<h1><?php single_cat_title(); ?></h1>
+				 <p class="presentationtitle" aria-hidden="true" role="presentation"><?php single_cat_title(); ?></p>
 				
-				<div class="hero-meta-portal">
+				<div aria-hidden="true" role="presentation" class="hero-meta-portal">
 					<?php
 					    if(get_post_type() == 'post') {
-						echo $options['title_hero_post_categories'];
+						echo get_theme_mod('title_hero_post_categories');
 					    }
 					?>
 				</div>

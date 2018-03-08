@@ -350,7 +350,7 @@ jQuery(document).ready(function($) {
 		if (body.hasClass('nologo')) {
 		     logoalt = "";
 		}else {
-		     logoalt = $('.branding h1 img').attr("alt");
+		     logoalt = $('.branding p.sitetitle img').attr("alt");
 		}
 	
 		var subNav = $('#subnav').parent();
@@ -362,7 +362,7 @@ jQuery(document).ready(function($) {
 		    if (!body.hasClass('nologo') && (!body.hasClass('visiblelogo'))) {
 			body.addClass('visiblelogo');
 			visibletitle = '<span class="visiblelogo">' + logoalt + '</span>';
-			$('.branding h1 img').after(visibletitle);
+			$('.branding p.sitetitle img').after(visibletitle);
 		    }
 		    if (body.hasClass('responsive-large')) {
 			body.removeClass('responsive-large');
