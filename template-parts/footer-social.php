@@ -77,7 +77,7 @@ if ($show) {
 				<?php     
 				} else { 
 				?>
-				    <div class="col-xs-3">					
+				    <div class="col-xs-6 col-sm-3">					
 				<?php 
 				}
 				if ($showicons==true) {
@@ -100,7 +100,7 @@ if ($show) {
 
 				    if ($showsocialsidebar==true) {
 					 echo '</div>'; // span3, da beide activ bereiche activ
-					 echo '<div class="col-xs-9">';
+					 echo '<div class="col-xs-6 col-sm-9">';
 				    }
 				}
 				if ($showsocialsidebar==true) { ?>

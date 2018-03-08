@@ -88,7 +88,7 @@ if (isset($banner) && ($banner > 0)) {
 				<div class="<?php echo $infobarclass;?>">				    
 				    <?php 
 				    if ((!empty( $header_image ) && (!fau_empty($title)) )){	
-					echo "<h1>". $title. "</h1>\n";
+					echo '<p class="sitetitle">'. $title. '</p>';
 				    }
 				    $desc = strip_tags(get_bloginfo( 'description' ));
 				    if (!fau_empty($desc)) {
