@@ -161,17 +161,14 @@ $default_link_liste = array(
 	    'link2'  => array(
 		'name'	    => __('Rechenzentrum', 'fau' ),
 		'content'  => 'https://www.rrze.fau.de/',
-		'class'	    => 'rwfak',
 	    ),
 	    'link3'  => array(
 		'name'	    => __('Sprachenzentrum', 'fau' ),
 		'content'  => 'http://www.sz.uni-erlangen.de/',
-		'class'	    => 'medfak',
 	    ),
 	    'link4'  => array(
 		'name'	    => __('Graduiertenschule', 'fau' ),
 		'content'  => 'http://www.promotion.fau.de/',
-		'class'	    => 'natfak',
 	    ),
 	  
 	),
