@@ -12,6 +12,7 @@
 
 <section id="hero">
     <div id="hero-slides">
+	<h2 class="screen-reader-text"><?php echo __('Slider','fau'); ?></h2>
     <?php	
     global $usejslibs;
     global $defaultoptions;
@@ -99,7 +100,7 @@
 			<div class="row">
 			    <div class="slider-titel">
 				<?php
-				    echo '<h2><a href="';
+				    echo '<h3><a href="';
 
 				    $link = get_post_meta( $hero->ID, 'external_link', true );
 				    $external = 0;
@@ -109,7 +110,7 @@
 					$link = fau_esc_url(get_permalink($hero->ID));
 				    }
 				    echo $link;
-				    echo '">'.get_the_title($hero->ID).'</a></h2>'."\n";					
+				    echo '">'.get_the_title($hero->ID).'</a></h3>'."\n";					
 				    ?>
 				</div>
 			    </div>

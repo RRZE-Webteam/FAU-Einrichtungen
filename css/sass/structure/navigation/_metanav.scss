@@ -177,14 +177,72 @@
 		    padding: 2px 0;
 		    color: $colorMeta;
 		}
-	    }
-	li:before {
+		&:before {
 		    @extend .fa;
 		    @extend .fa-angle-right;	
 		    font-weight: bold;
 		    display: table-cell;
 		    color:$colorMeta;
 		    width: 20px;
+		}
+	    
+		
+		&.zuv, &.phil,
+		&.philfak, &.rw,
+		&.rwfak , &.med,
+		&.medfak, &.nat,
+		&.natfak, &.tf,
+		&.techfak, 
+		&.white, &.grau {
+		    min-height: 34px;
+		    line-height: 34px;
+		    border-left: 8px solid transparent;
+		    vertical-align: center;
+		    @include hyphens(auto);
+
+
+		    &:before {
+			    display: none;
+			    content: "";
+		    }
+		    a {
+				@include inline-block;
+				padding: 2px 0 2px 10px;
+				line-height: 16px;
+				vertical-align: center;
+		    }
+		}
+		&.zuv {
+			border-color: $colorZUV;
+		}
+		&.phil,
+		&.philfak {
+			border-color: $colorPhilFak;
+		}
+		&.rw,
+		&.rwfak {
+			border-color: $colorRwFak;
+		}
+		&.med,
+		&.medfak {
+			border-color: $colorMedFak;
+		}
+		&.nat,
+		&.natfak  {
+			border-color: $colorNatFak;
+		}
+		&.tf,
+		&.techfak {
+			border-color: $colorTechFak;
+		}	
+		&.white {
+			border-color: #fff;
+		}
+		&.gray {
+			border-color: $colorStandardHellgrau;
+		}
+		
+		
 	    }
 	
 	
