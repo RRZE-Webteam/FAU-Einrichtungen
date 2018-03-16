@@ -17,7 +17,6 @@
 	    <input type="submit" id="searchsubmit" value="<?php _e('Finden','fau'); ?>">
 	</div>
 	<?php 
-	
 	if (get_theme_mod('search_allowfilter')) {
 	    
 	    if (is_single() || is_category() || is_tag() || is_tax() ) {
@@ -32,9 +31,5 @@
 		   }
 		}
 	    }
-	    
-	    
-	}
-	?>
-	
+	} ?>
 </form>

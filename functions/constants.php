@@ -1004,6 +1004,7 @@ $setoptions = array(
                   'title'   => __( 'Synonyme', 'fau' ),
                   'label'   => __( 'Aktiviert die Verwaltung von Synonymen.', 'fau' ),                
                   'default' => $defaultoptions['advanced_activate_synonyms'],
+		  'notifplugin'    => 'rrze-synonym/rrze-synonym.php',
 		  'parent'  => 'bedienung'
               ),   
 		'advanced_activate_glossary'  => array(
@@ -1011,6 +1012,7 @@ $setoptions = array(
                   'title'   => __( 'Glossar', 'fau' ),
                   'label'   => __( 'Aktiviert die Verwaltung von Glossareinträgen.', 'fau' ),                
                   'default' => $defaultoptions['advanced_activate_glossary'],
+		  'notifplugin' => 'rrze-faq/rrze-faq.php',
 		  'parent'  => 'bedienung'
 		),  
 

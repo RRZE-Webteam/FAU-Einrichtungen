@@ -8,7 +8,7 @@
  */
 ?>
 
-<section id="hero" class="hero-small">
+<div id="hero" class="hero-small">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
@@ -61,4 +61,4 @@
 			</div>
 		</div>
 	</div>
-</section>
+</div>

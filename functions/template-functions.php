@@ -48,6 +48,11 @@
 	 $classes[] = 'wp-external-links';
     }
     
+
+    if ( ! is_plugin_active( 'rrze-elements/rrze-elements.php' ) ) {
+	$classes[] = 'theme-accordion';
+    }
+    
     
     $website_usefaculty = $defaultoptions['website_usefaculty'];
     if ( (isset($website_usefaculty)) && (in_array($website_usefaculty,$default_fau_orga_faculty))) {
@@ -210,7 +215,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	
 	$type = get_post_type();
 	$typeclass = "res-".$type;
-	$output .= '<article class="search-result '.$typeclass.'">'."\n";
+	$output .= '<li class="search-result '.$typeclass.'">'."\n";
 	$output .= "\t<h3><a ";
 	if ($external==1) {
 	    $output .= 'class="ext-link" ';
@@ -466,9 +471,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	}
 	
 	
-	$output .= "</article>\n";
-    } else {
-	$output .= "<!-- empty result -->\n";
+	$output .= "</li>\n";
     }
     return $output;						     
 							

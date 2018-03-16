@@ -14,11 +14,14 @@ require_once( get_template_directory() . '/functions/customizer.php');
 
 
 $options = fau_initoptions();
+require_once( get_template_directory() . '/functions/plugin-support.php' );
+
 require_once( get_template_directory() . '/functions/helper-functions.php' );
 require_once( get_template_directory() . '/functions/template-functions.php' );
 // require_once( get_template_directory() . '/functions/theme-options.php' );     
 require_once( get_template_directory() . '/functions/shortcodes.php');
-require_once( get_template_directory() . '/functions/plugin-support.php' );
+require_once( get_template_directory() . '/functions/shortcode-accordion.php');
+
 require_once( get_template_directory() . '/functions/menu.php');
 require_once( get_template_directory() . '/functions/custom-fields.php' );
 require_once( get_template_directory() . '/functions/posttype_imagelink.php' );

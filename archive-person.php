@@ -26,8 +26,9 @@ get_header();
 			</div>	
 			<div class="search-resultnested">   
 			    <div class="row">
+				 
 		    <?php } ?>
-
+			<div class="col-xs-12">
 			    <main>
 				<h1 class="screen-reader-text"><?php echo __('Index','fau'); ?></h1>
 				<?php 
@@ -43,7 +44,7 @@ get_header();
 				    </nav>
 
 			    </main>
-
+			</div>
 			     <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	?>
 			    </div>
 			 </div>
