@@ -16,17 +16,7 @@ class FAUShortcodes {
             add_shortcode('assistant', array( $this, 'fau_assistant' ));
             add_shortcode('organigram', array( $this, 'fau_organigram'));
 
-            /*
-             *  Accordion
-             */
-            add_shortcode('collapsibles', array( $this, 'bs_collapsibles' ));
-            add_shortcode('accordion', array( $this, 'bs_collapsibles' ));
-            add_shortcode('accordionsub', array( $this, 'bs_collapsibles' ));
-                // Define more as one shortcode name to allow nestet accordions
-
-            add_shortcode('collapse', array( $this, 'bs_collapse' ));
-            add_shortcode('accordion-item', array( $this, 'bs_collapse' ));
-                // Define more as one shortcode name to allow nestet accordions	
+         
 
 
             // Paragraphes and content regions
@@ -312,88 +302,7 @@ class FAUShortcodes {
       }
 
 
-      /*--------------------------------------------------------------------------------------
-	*
-	* bs_collapsibles
-	*
-	* @author Filip Stefansson
-	* @since 1.0
-	* 
-	*-------------------------------------------------------------------------------------*/
-      function bs_collapsibles( $atts, $content = null ) {
-
-	if( isset($GLOBALS['collapsibles_count']) )
-	  $GLOBALS['collapsibles_count']++;
-	else
-	  $GLOBALS['collapsibles_count'] = 0;
-
-	$defaults = array();
-	extract( shortcode_atts( $defaults, $atts ) );
-
-	// Extract the tab titles for use in the tab widget.
-     //   preg_match_all( '/collapse title="([^\"]+)"/i', $content, $matches, PREG_OFFSET_CAPTURE );
-
-    //    $tab_titles = array();
-    //    if( isset($matches[1]) ){ $tab_titles = $matches[1]; }
-
-	$output = '';
-
-       // if( count($tab_titles) ){
-	  $output .= '<div class="accordion" id="accordion-' . $GLOBALS['collapsibles_count'] . '">';
-	  $output .= do_shortcode( $content );
-	  $output .= '</div>';
-       // } else {
-       //   $output .= do_shortcode( $content );
-      //  }
-
-	return $output;
-      }
-
-
-      function bs_collapse( $atts, $content = null ) {
-
-	if( !isset($GLOBALS['current_collapse']) )
-	  $GLOBALS['current_collapse'] = 0;
-	else 
-	  $GLOBALS['current_collapse']++;
-
-
-	$defaults = array( 'title' => 'Tab', 'color' => '', 'id' => '', 'load' => '', 'name' => '', );
-	extract( shortcode_atts( $defaults, $atts ) );
-
-	$addclass = '';
-
-	$title = esc_attr($title);
-	$name = esc_attr($name);
-	$color = $color ? ' ' . esc_attr( $color ) : '';
-	$load = $load ? ' ' . esc_attr( $load ) : '';
-
-	if (!empty($load)) {
-	    $addclass .= " ".$load;
-	}
-
-	$id = intval($id) ? intval($id) : 0;
-	if ($id<1) {
-	    $id = $GLOBALS['current_collapse'];
-	}
-
-	$output = '<div class="accordion-group'.$color.'">';
-	$output .= '<div class="accordion-heading">';
-	$output .= '<a';
-	if (!fau_empty($name)) {
-	    $output .= ' name="'.$name.'"';
-	}
-	$output .= ' class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-' . $GLOBALS['collapsibles_count'] . '" href="#collapse_' . $id .'">' . $title . '</a></div>'."\n";
-	$output .= '<div id="collapse_' . $id . '" class="accordion-body'. $addclass .'">';
-	$output .= '<div class="accordion-inner clearfix">'."\n";
-	$output .= do_shortcode($content);
-	$output .= '</div>';
-	$output .= '</div></div>';
-
-
-	return $output;
-      }
-
+     
       
       /* 
        * Not for productive use yet

@@ -4,7 +4,11 @@
 /* Post Type synonym in case no plugin is avaible
 /*--------------------------------------------------------------------*/
 $activate_synonyms = get_theme_mod('advanced_activate_synonyms');
-if ( (isset($activate_synonyms)) && ($activate_synonyms == true)) {    
+$plugin_there = false;
+if ( is_plugin_active( 'rrze-synonym/rrze-synonym.php' ) ) {
+    $plugin_there = true;
+}
+if ( (isset($activate_synonyms)) && ($activate_synonyms == true) && ($plugin_there == false)) {    
     
     if  (! function_exists( 'synonym_post_type' ) ) {
 	function synonym_post_type() {	

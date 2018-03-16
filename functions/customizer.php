@@ -106,7 +106,7 @@ function fau_customizer_settings( $wp_customize ) {
 			 $section =  $tab."-elsesection";
 		    }
 		    // Gehoert zu einer Section
-		    $title = $desc = $label = $type = '';
+		    $title = $desc = $label = $type = $notifplugin = '';
 		    $optionid = esc_html($field); // $OPTIONS_NAME."[".esc_html($field)."]";
 		    
 		    
@@ -118,7 +118,8 @@ function fau_customizer_settings( $wp_customize ) {
 			$desc = $value['desc'];
 		    if (isset($value['label']))
 			$label = $value['label'];
-		    
+		    if (isset($value['notifplugin']))
+			$notifplugin = $value['notifplugin'];
 		    if (isset($value['default'])) {
 			$default = $value['default'];  
 		    } elseif (isset($defaultoptions[$field])) {
@@ -130,9 +131,13 @@ function fau_customizer_settings( $wp_customize ) {
 		    if (!in_array($type, $definedtypes)) {
 			$type = 'text';
 		    }
-		    
-		    
-			
+		    $plugin_there = false;
+		    if ($notifplugin) {
+			if ( is_plugin_active( $notifplugin ) ) {
+			    $plugin_there = true;
+			}
+		    }
+		    if ($plugin_there==false) {
 			
 			
 			
@@ -337,7 +342,7 @@ function fau_customizer_settings( $wp_customize ) {
 			    ) );
 			}
 
-		    
+		    }
 		}
 	    }
 	    

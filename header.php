@@ -27,7 +27,7 @@
 		    <li><a href="#subnavtitle" data-firstchild="1" class="jumplink-subnav"><?php _e('Zur Bereichsnavigation springen','fau'); ?></a></li><?php } ?>
 		</ul>
 	</nav>    
-	<section id="meta">
+	<div id="meta">
 		<div class="container">
 		    <div class="row">
 			<nav class="meta-links">
@@ -50,7 +50,7 @@
 		    </div>
 		    <?php } ?>
 		</div>
-	</section>
+	</div>
 	<header id="header">
 	    <div class="container">
 		<div class="row">

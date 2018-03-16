@@ -20,6 +20,7 @@ $showhelplinks = 0;
 			    <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	
 				$active_sidebar = 1; ?>
 				<div class="search-sidebar">
+				    <h1 class="screen-reader-text"><?php _e('Sidebar','fau'); ?></h1>
 					    <?php dynamic_sidebar( 'search-sidebar' ); ?>
 				</div>	
 				<div class="search-resultnested">   
@@ -28,6 +29,7 @@ $showhelplinks = 0;
 			    
 				    
 				<main>
+				   <h1 class="screen-reader-text"><?php _e('Webauftritt durchsuchen','fau'); ?></h1>
 				 <?php 
 								 
 				if(strlen(get_search_query()) > 0) {
@@ -54,12 +56,12 @@ $showhelplinks = 0;
 	
 						
 						 $listtypes = get_theme_mod('search_post_types');
-						
+						echo '<ul class="searchresults">';
 						while ( have_posts() ) { 
 						    the_post(); 
 						    echo fau_display_search_resultitem($active_sidebar);
 						} 
-					    
+						echo "</ul>";
 
 					    if ( $wp_query->max_num_pages > 1 ) {
 						if (absint( get_query_var( 'paged' ))>0) {
