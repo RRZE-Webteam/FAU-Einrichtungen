@@ -10,13 +10,18 @@ require_once( get_template_directory() . '/functions/relative-urls.php');
 require_once( get_template_directory() . '/functions/defaults.php' );
 require_once( get_template_directory() . '/functions/constants.php' );
 require_once( get_template_directory() . '/functions/sanitizer.php' );
+require_once( get_template_directory() . '/functions/customizer.php');
+
 
 $options = fau_initoptions();
+require_once( get_template_directory() . '/functions/plugin-support.php' );
+
 require_once( get_template_directory() . '/functions/helper-functions.php' );
 require_once( get_template_directory() . '/functions/template-functions.php' );
-require_once( get_template_directory() . '/functions/theme-options.php' );     
+// require_once( get_template_directory() . '/functions/theme-options.php' );     
 require_once( get_template_directory() . '/functions/shortcodes.php');
-require_once( get_template_directory() . '/functions/plugin-support.php' );
+require_once( get_template_directory() . '/functions/shortcode-accordion.php');
+
 require_once( get_template_directory() . '/functions/menu.php');
 require_once( get_template_directory() . '/functions/custom-fields.php' );
 require_once( get_template_directory() . '/functions/posttype_imagelink.php' );
@@ -26,81 +31,66 @@ require_once( get_template_directory() . '/functions/posttype-synonym.php');
 require_once( get_template_directory() . '/functions/posttype-glossary.php');
 
 function fau_setup() {
-	global $options;
-	
+	global $defaultoptions;
+	 
 
-	if ( ! isset( $content_width ) ) $content_width = $options['content-width'];
+	if ( ! isset( $content_width ) ) $content_width = $defaultoptions['content-width'];
 	add_editor_style( array( 'css/editor-style.css' ) );
 	add_theme_support( 'html5');
 	add_theme_support('title-tag');
 
 	
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menu( 'meta', __( 'Meta-Navigation oben', 'fau' ) );
-	register_nav_menu( 'meta-footer', __( 'Meta-Navigation unten', 'fau' ) );
-	register_nav_menu( 'main-menu', __( 'Haupt-Navigation', 'fau' ) );
+	fau_register_menus();
+	    // Register Menus
+	fau_create_socialmedia_menu();
+	    // Checkup Social Media Menu
 	
-	if ($options['website_type']==-1) {
-	    register_nav_menu( 'quicklinks-1', __( 'Startseite FAU Portal: Bühne Spalte 1', 'fau' ) );
-	    register_nav_menu( 'quicklinks-2', __( 'Startseite FAU Portal: Bühne Spalte 2', 'fau' ) );
-	    register_nav_menu( 'quicklinks-3', __( 'Startseite FAU Portal: Bühne Spalte 3', 'fau' ) );
-	    register_nav_menu( 'quicklinks-4', __( 'Startseite FAU Portal: Bühne Spalte 4', 'fau' ) );
-	} else {
-	    register_nav_menu( 'quicklinks-3', __( 'Startseite Fakultät: Bühne Spalte 1', 'fau' ) );
-	    register_nav_menu( 'quicklinks-4', __( 'Startseite Fakultät: Bühne Spalte 2', 'fau' ) );
-	}
-	register_nav_menu( 'error-1', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 1', 'fau' ) );
-	register_nav_menu( 'error-2', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 2', 'fau' ) );
-	register_nav_menu( 'error-3', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 3', 'fau' ) );
-	register_nav_menu( 'error-4', __( 'Fehler- und Suchseite: Vorschlagmenu Spalte 4', 'fau' ) );
 	
 	/*
 	 * This theme uses a custom image size for featured images, displayed on
 	 * "standard" posts and pages.
 	 */
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( $options['default_thumb_width'], $options['default_thumb_height'], $options['default_thumb_crop'] ); // 300:150:false
+	set_post_thumbnail_size( $defaultoptions['default_thumb_width'], $defaultoptions['default_thumb_height'], $defaultoptions['default_thumb_crop'] ); // 300:150:false
 	
 	/* Image Sizes for Slider, Name: hero */
-	add_image_size( 'hero', $options['slider-image-width'], $options['slider-image-height'], $options['slider-image-crop']);	// 1260:350
+	add_image_size( 'hero', $defaultoptions['slider-image-width'], $defaultoptions['slider-image-height'], $defaultoptions['slider-image-crop']);	// 1260:350
 	
 	/* Banner fuer Startseiten */
-	add_image_size( 'herobanner', $options['default_startseite-bannerbild-image_width'], $options['default_startseite-bannerbild-image_height'], $options['default_startseite-bannerbild-image_crop']);	// 1260:182
+	add_image_size( 'herobanner', $defaultoptions['default_startseite-bannerbild-image_width'], $defaultoptions['default_startseite-bannerbild-image_height'], $defaultoptions['default_startseite-bannerbild-image_crop']);	// 1260:182
     
 	/* Thumb for Posts in Lists - Name: post-thumb */
-	add_image_size( 'post-thumb', $options['default_postthumb_width'], $options['default_postthumb_height'], $options['default_postthumb_crop']); // 3:2  220:147, false
+	add_image_size( 'post-thumb', $defaultoptions['default_postthumb_width'], $defaultoptions['default_postthumb_height'], $defaultoptions['default_postthumb_crop']); // 3:2  220:147, false
 	
 	/* Thumb of Topevent in Sidebar - Name: topevent-thumb */
-	add_image_size( 'topevent-thumb', $options['default_topevent_thumb_width'], $options['default_topevent_thumb_height'], $options['default_topevent_thumb_crop']); // 140:90, true
+	add_image_size( 'topevent-thumb', $defaultoptions['default_topevent_thumb_width'], $defaultoptions['default_topevent_thumb_height'], $defaultoptions['default_topevent_thumb_crop']); // 140:90, true
 	
 	/* Thumb for Image Menus in Content - Name: page-thumb */
-	add_image_size( 'page-thumb', $options['default_submenuthumb_width'], $options['default_submenuthumb_height'],  $options['default_submenuthumb_crop']); // 220:110, true
+	add_image_size( 'page-thumb', $defaultoptions['default_submenuthumb_width'], $defaultoptions['default_submenuthumb_height'],  $defaultoptions['default_submenuthumb_crop']); // 220:110, true
 	
 	/* Thumb for Posts, displayed in post/page single display - Name: post */
-	add_image_size( 'post', $options['default_post_width'], $options['default_post_height'], $options['default_post_crop']);  // 300:200  false
-	
-	    
+	add_image_size( 'post', $defaultoptions['default_post_width'], $defaultoptions['default_post_height'], $defaultoptions['default_post_crop']);  // 300:200  false
 	
 	/* Thumb for Logos (used in carousel) - Name: logo-thumb */
-	add_image_size( 'logo-thumb', $options['default_logo_carousel_width'], $options['default_logo_carousel_height'], $options['default_logo_carousel_crop']);   // 140:110, true
+	add_image_size( 'logo-thumb', $defaultoptions['default_logo_carousel_width'], $defaultoptions['default_logo_carousel_height'], $defaultoptions['default_logo_carousel_crop']);   // 140:110, true
 
 	/* 
 	 * Größen für Bildergalerien: 
 	 */
 	/* Images for gallerys - Name: gallery-full */
-	add_image_size( 'gallery-full', $options['default_gallery_full_width'], $options['default_gallery_full_height'], $options['default_gallery_full_crop']); // 940, 470, false
+	add_image_size( 'gallery-full', $defaultoptions['default_gallery_full_width'], $defaultoptions['default_gallery_full_height'], $defaultoptions['default_gallery_full_crop']); // 940, 470, false
 	//
 	// Wird bei Default-Galerien verwendet als ANzeige des großen Bildes.
-	add_image_size( 'gallery-thumb', $options['default_gallery_thumb_width'], $options['default_gallery_thumb_height'], $options['default_gallery_thumb_crop']); // 120, 80, true
+	add_image_size( 'gallery-thumb', $defaultoptions['default_gallery_thumb_width'], $defaultoptions['default_gallery_thumb_height'], $defaultoptions['default_gallery_thumb_crop']); // 120, 80, true
 
 	/* Grid-Thumbs for gallerys - Name: gallery-grid */
-	add_image_size( 'gallery-grid', $options['default_gallery_grid_width'], $options['default_gallery_grid_height'], $options['default_gallery_grid_crop']); // 145, 120, false
+	add_image_size( 'gallery-grid', $defaultoptions['default_gallery_grid_width'], $defaultoptions['default_gallery_grid_height'], $defaultoptions['default_gallery_grid_crop']); // 145, 120, false
 	
 	/* 2 column Imagelists for gallerys - Name: image-2-col */
-	add_image_size( 'image-2-col', $options['default_gallery_grid2col_width'], $options['default_gallery_grid2col_height'], $options['default_gallery_grid2col_crop']); // 300, 200, true
+	add_image_size( 'image-2-col', $defaultoptions['default_gallery_grid2col_width'], $defaultoptions['default_gallery_grid2col_height'], $defaultoptions['default_gallery_grid2col_crop']); // 300, 200, true
 	
 	/* 4 column Imagelists for gallerys - Name: image-4-col */
-	add_image_size( 'image-4-col', $options['default_gallery_grid4col_width'], $options['default_gallery_grid4col_height'], $options['default_gallery_grid4col_crop']);	// 140, 70, true
+	add_image_size( 'image-4-col', $defaultoptions['default_gallery_grid4col_width'], $defaultoptions['default_gallery_grid4col_height'], $defaultoptions['default_gallery_grid4col_crop']);	// 140, 70, true
 
 
 	
@@ -147,13 +137,18 @@ add_action( 'init', 'fau_custom_init' );
 /*-----------------------------------------------------------------------------------*/
 function fau_register_scripts() {
     global $defaultoptions;
-    global $options;
     
-    wp_register_script( 'fau-scripts', $defaultoptions['src-scriptjs'], array('jquery'), $options['version'], true );
-    wp_register_script( 'fau-libs-jquery-flexslider', get_fau_template_uri() . '/js/libs/jquery.flexslider.js', array('jquery'), $options['version'], true );
+    $theme_data = wp_get_theme();
+    $theme_version = $theme_data->Version;
+
+    wp_register_style('fau-style',  get_stylesheet_uri(), array(), $theme_version);
+	// Base Style
+    wp_register_script('fau-scripts', $defaultoptions['src-scriptjs'], array('jquery'), $theme_version, true );
+	// Base Scripts
+    wp_register_script('fau-libs-jquery-flexslider', get_fau_template_uri() . '/js/libs/jquery.flexslider.js', array('jquery'), $theme_version, true );
 	// Flexslider für Startseite und für Galerien.     
-    wp_register_script( 'fau-libs-jquery-caroufredsel', get_fau_template_uri() . '/js/libs/jquery.caroufredsel.js', array('jquery'), $options['version'], true );
-    wp_register_script( 'fau-js-caroufredsel', get_fau_template_uri() . '/js/usecaroufredsel.min.js', array('jquery','fau-libs-jquery-caroufredsel'), $options['version'], true );
+    wp_register_script('fau-libs-jquery-caroufredsel', get_fau_template_uri() . '/js/libs/jquery.caroufredsel.js', array('jquery'), $theme_version, true );
+    wp_register_script('fau-js-caroufredsel', get_fau_template_uri() . '/js/usecaroufredsel.min.js', array('jquery','fau-libs-jquery-caroufredsel'), $theme_version, true );
 	// Slidende Logos 
 }
 add_action('init', 'fau_register_scripts');
@@ -165,9 +160,8 @@ add_action('init', 'fau_register_scripts');
 function fau_basescripts_styles() {
     global $defaultoptions;
     global $usejslibs;
-    global $options;
     
-    wp_enqueue_style( 'fau-style', get_stylesheet_uri(), array(), $options['version'] );	
+    wp_enqueue_style( 'fau-style');	
     wp_enqueue_script( 'fau-scripts');
 
 }
@@ -177,7 +171,6 @@ add_action( 'wp_enqueue_scripts', 'fau_basescripts_styles' );
 /* Activate scripts depending on use
 /*-----------------------------------------------------------------------------------*/
 function fau_enqueuefootercripts() {
-    global $options;
     global $usejslibs;
    
     
@@ -213,16 +206,16 @@ add_action( 'admin_enqueue_scripts', 'fau_admin_header_style' );
 /* Change default header
 /*-----------------------------------------------------------------------------------*/
 function fau_addmetatags() {
-    global $options;
 
     $output = "";
     $output .= '<meta http-equiv="Content-Type" content="text/html; charset='.get_bloginfo('charset').'">'."\n";
     $output .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">'."\n";    
 
     $output .= fau_get_rel_alternate();
-            
-    if ((isset( $options['google-site-verification'] )) && ( strlen(trim($options['google-site-verification']))>1 )) {
-        $output .= '<meta name="google-site-verification" content="'.$options['google-site-verification'].'">'."\n";
+    
+    $googleverification = get_theme_mod('google-site-verification');
+    if ((isset( $googleverification )) && ( !fau_empty($googleverification) )) {
+        $output .= '<meta name="google-site-verification" content="'.$googleverification.'">'."\n";
     }
 
     if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {
@@ -307,8 +300,7 @@ add_filter( 'wp_title', 'fau_wp_title', 10, 2 );
 /* Resets the Excerpt More
 /*-----------------------------------------------------------------------------------*/
 function fau_excerpt_more( $more ) {
-    global $options;
-    return $options['default_excerpt_morestring'];
+    return get_theme_mod('default_excerpt_morestring');
 }
 add_filter('excerpt_more', 'fau_excerpt_more');
 
@@ -316,9 +308,8 @@ add_filter('excerpt_more', 'fau_excerpt_more');
 /*-----------------------------------------------------------------------------------*/
 /* Changes default length for excerpt
 /*-----------------------------------------------------------------------------------*/
-function fau_excerpt_length( $length ) {
-    global $options;
-    return $options['default_excerpt_length'];
+function fau_excerpt_length( $length ) {    
+    return get_theme_mod('default_excerpt_length');
 }
 add_filter( 'excerpt_length', 'fau_excerpt_length' );
 
@@ -327,15 +318,16 @@ add_filter( 'excerpt_length', 'fau_excerpt_length' );
 /* create array with organisation logos
 /*-----------------------------------------------------------------------------------*/
 function fau_init_header_logos() {
-    global $options;
     global $default_fau_orga_data;
 
     $header_logos = array();
+    $website_usefaculty = get_theme_mod('website_usefaculty');
+    
     foreach($default_fau_orga_data as $name=>$value) {
 
 	if (strpos($name, '_') === 0) {
-	    if ((strpos($name, '_faculty') === 0) && (!empty($options['website_usefaculty'])) ) {	    
-		    $sub = $options['website_usefaculty'];
+	    if ((strpos($name, '_faculty') === 0) && (!empty($website_usefaculty)) ) {	    
+		    $sub = $website_usefaculty;
 		    if (isset($default_fau_orga_data[$name][$sub])) {
 			$header_logos[$sub]['url'] = $default_fau_orga_data[$name][$sub]['thumbnail'];
 			if (isset($default_fau_orga_data[$name][$sub]['url'])) {
@@ -374,11 +366,10 @@ function fau_init_header_logos() {
 /* Header setup
 /*-----------------------------------------------------------------------------------*/
 function fau_custom_header_setup() { 
-    global $options;
+    global $defaultoptions;
 	$args = array(
-//	    'default-image'          => $options['default_logo_src'],
-	    'height'			=> $options['default_logo_height'],
-	    'width'			=> $options['default_logo_width'],
+	    'height'			=> $defaultoptions['default_logo_height'],
+	    'width'			=> $defaultoptions['default_logo_width'],
 	    'admin-head-callback'	=> 'fau_admin_header_style',
 	    'header-text'		=> false,
 	    'flex-width'		=> true,
@@ -422,22 +413,6 @@ function fau_get_language_attributes ($doctype = 'html' ) {
 }
 
 
-/*-----------------------------------------------------------------------------------*/
-/*Fallback, if no main menu is defined yet
-/*-----------------------------------------------------------------------------------*/
-function fau_main_menu_fallback() {
-    global $options;
-    $output = '';
-    $some_pages = get_pages(array('parent' => 0, 'number' => $options['default_mainmenu_number'], 'hierarchical' => 0));
-    if($some_pages) {
-        foreach($some_pages as $page) {
-            $output .= sprintf('<li class="menu-item level1"><a href="%1$s">%2$s</a></li>', get_permalink($page->ID), $page->post_title);
-        }
-        
-        $output = sprintf('<ul role="navigation" aria-label="%1$s" id="nav">%2$s</ul>', __('Navigation', 'fau'), $output);
-    }   
-    return $output;
-}
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -457,12 +432,11 @@ add_filter( 'comments_open', 'filter_media_comment_status', 10 , 2 );
 /*  Search filter
 /*-----------------------------------------------------------------------------------*/
 function fau_searchfilter($query) {
-    global $options;
     if ($query->is_search && !is_admin() ) {
 	if(isset($_GET['post_type'])) {
 	    $types = (array) $_GET['post_type'];
 	} else {
-	    $types = $options['search_post_types'];
+	    $types = get_theme_mod('search_post_types');
 	  //  $types = array("person", "post", "page", "attachment");
 	  //  $types = array("attachment","person");
 	}
@@ -521,7 +495,7 @@ function revealid_id_column_content( $column, $id ) {
     echo $id;
   }
 }
-if ($options['advanced_reveal_pages_id']) {
+if (get_theme_mod('advanced_reveal_pages_id')) {
     add_filter( 'manage_pages_columns', 'revealid_add_id_column', 5 );
     add_action( 'manage_pages_custom_column', 'revealid_id_column_content', 5, 2 );
 }

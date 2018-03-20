@@ -7,10 +7,9 @@
  * @since FAU 1.7
  */
  
-global $options; 
 ?>
 
-    <section id="hero" class="hero-small">
+    <div id="hero" class="hero-small">
 	<div class="container">
 		<div class="row">
 		    <div class="col-xs-12">
@@ -19,6 +18,7 @@ global $options;
 			 
 			$metatitel = "";
 			if(get_post_type() == 'page') {
+			    if (get_theme_mod('breadcrumb_withtitle_parent_page')==true) {
 				$parent = array_reverse(get_post_ancestors(get_the_ID()));
 				if(isset($parent) && is_array($parent) && isset($parent[0])) {
 					$first_parent = get_page($parent[0]);
@@ -26,8 +26,9 @@ global $options;
 				if (isset($first_parent)) { 
 					$metatitel = $first_parent->post_title;
 				}
+			    }
 			} else if(get_post_type() == 'post') {
-				$metatitel = $options['title_hero_post_archive'];
+				$metatitel = get_theme_mod('title_hero_post_archive');
 			}
 
 			if (!fau_empty($metatitel)) { ?>
@@ -38,8 +39,8 @@ global $options;
 		</div>
 		<div class="row">
 		    <div class="col-xs-12 col-sm-8">
-			<h1<?php echo fau_get_page_langcode($post->ID);?>><?php the_title(); ?></h1>
+			<p class="presentationtitle" aria-hidden="true" role="presentation" <?php echo fau_get_page_langcode($post->ID);?>><?php the_title(); ?></p>
 		    </div>
 		</div>
 	</div>
-    </section>
+    </div>

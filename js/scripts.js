@@ -4,6 +4,13 @@ jQuery(document).ready(function($) {
 	//Add JS-enabled class to body
 	$('body').addClass('js-enabled');
 
+
+	var $body = $( 'body' ),
+		use_theme_accordion = $body.hasClass( 'theme-accordion' );
+
+
+		
+		
 	var breakMD = 768;
 	var breakSM = 480;
 	var breakLG = 979;
@@ -12,26 +19,30 @@ jQuery(document).ready(function($) {
 	var metaBar = 42;
 	var $openflyover = false;
 	
-	// Smooth scrolling for anchor-links (excluding accordion-toggles)
-	$('a[href*="#"]:not([href="#"]):not(.accordion-toggle):not(.accordion-tabs-nav-toggle)').click(function() {
+	
+	
+	if (use_theme_accordion) {
+	    // Smooth scrolling for anchor-links (excluding accordion-toggles)
+	    $('a[href*="#"]:not([href="#"]):not(.accordion-toggle):not(.accordion-tabs-nav-toggle)').click(function() {
 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-			var target = $(this.hash);
-			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-			if (target.length) {
-				$('html,body').animate({
-					scrollTop: target.offset().top - 185
-					}, 1000);
-					return false;
-				}
-			}
-		});
-
+		    var target = $(this.hash);
+		    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+		    if (target.length) {
+			    $('html,body').animate({
+				    scrollTop: target.offset().top - 185
+				    }, 1000);
+				    return false;
+			    }
+		    }
+	    });	
+	}
+	
+	
+	
 	// Fancybox for lightboxes
 	$('a.lightbox').fancybox({ helpers: { title: { type: 'outside'}}});
 	
 
-	
-	
 	// Set jumplinks
 	$('.jumplinks a').bind('click', function(event) {
 		event.preventDefault();
@@ -73,82 +84,85 @@ jQuery(document).ready(function($) {
 		}
 	});
 	
-	// Accordions
 	
-	// Close Accordions on start, except first
-	$('.accordion-body').not(".accordion-body.open").not('.accordion-body.stayopen').hide();
 	
-	$('.accordion-toggle').bind('click', function(event) {
-		event.preventDefault();
-		var accordion = $(this).attr('href');
-		$(this).closest('.accordion').find('.accordion-toggle').not($(this)).removeClass('active');
-		$(this).closest('.accordion').find('.accordion-body').not(accordion).not('.accordion-body.stayopen').slideUp();
-		$(this).toggleClass('active');
-		$(accordion).slideToggle();
-	});
-	
-	// Keyboard navigation for accordions
-	$('.accordion-toggle').keydown(function(event) {
-		if(event.keyCode == 32) {
-			var accordion = $(this).attr('href');
-			$(this).closest('.accordion').find('.accordion-toggle').not($(this)).removeClass('active');
-			$(this).closest('.accordion').find('.accordion-body').not(accordion).not('.accordion-body.stayopen').slideUp();
-			$(this).toggleClass('active');
-			$(accordion).slideToggle();
-		}
-	});
+	if (use_theme_accordion) {
+	    // Accordions
 
+	    // Close Accordions on start, except first
+	    $('.accordion-body').not(".accordion-body.open").not('.accordion-body.stayopen').hide();
 
-	function openAnchorAccordion() {
-	    if (window.location.hash) {
-                var hashstr = window.location.hash;
-		var identifier = window.location.hash.split('_')[0];
-		var inpagenum = window.location.hash.split('_')[1];
-		if (identifier == '#collapse') {
-		    if ($.isNumeric(inpagenum)) {
-			var $findid = 'collapse_'+ inpagenum;
-			var $target = $('body').find('#'+ $findid);  
-						 
-			if ($target.closest('.accordion').parent().closest('.accordion-group')) {
-			    $upper = $target.closest('.accordion').parent().closest('.accordion-group');
-			   
-			    $upper.find('.accordion-toggle').addClass('active');
-			    $upper.find('.accordion-body').show();
-			    
-			    $upper.find('.accordion-toggle').children().find('.accordion-toggle').removeClass('active');
-			    $upper.find('.accordion-body').children().find('.accordion-body').hide();
-			    
-			}
-			$target.find('.accordion-toggle').addClass('active');
-			$target.show();
+	    $('.accordion-toggle').bind('click', function(event) {
+		    event.preventDefault();
+		    var accordion = $(this).attr('href');
+		    $(this).closest('.accordion').find('.accordion-toggle').not($(this)).removeClass('active');
+		    $(this).closest('.accordion').find('.accordion-body').not(accordion).not('.accordion-body.stayopen').slideUp();
+		    $(this).toggleClass('active');
+		    $(accordion).slideToggle();
+	    });
 
-			var offset = $target.offset(); 
-			var $scrolloffset = offset.top - 220;	
-			$('html,body').animate({scrollTop: $scrolloffset},'slow');
+	    // Keyboard navigation for accordions
+	    $('.accordion-toggle').keydown(function(event) {
+		    if(event.keyCode == 32) {
+			    var accordion = $(this).attr('href');
+			    $(this).closest('.accordion').find('.accordion-toggle').not($(this)).removeClass('active');
+			    $(this).closest('.accordion').find('.accordion-body').not(accordion).not('.accordion-body.stayopen').slideUp();
+			    $(this).toggleClass('active');
+			    $(accordion).slideToggle();
 		    }
-		   
-		 } else {
-                    var identifier = window.location.hash.split('#')[1];
-                    var anchor = encodeURIComponent(identifier);     
-                    var $target = $('a[name="' + anchor+ '"]');   
-			if ($target.closest('.accordion').parent().closest('.accordion-group')) {
-			    $upper = $target.closest('.accordion-group');
-			    $upper.find('.accordion-toggle').addClass('active');
-			    $upper.find('.accordion-body').show();
-			    $upper.find('.accordion-toggle').children().find('.accordion-toggle').removeClass('active');
-			    $upper.find('.accordion-body').children().find('.accordion-body').hide();
-                            $target.addClass('active');
-                            $target.show();
-                            var offset = $target.offset(); 
-                            var $scrolloffset = offset.top - 220;	
-                            $('html,body').animate({scrollTop: $scrolloffset},'slow');
-                     }
-                     
-		 }
-	    }
-	}
-	openAnchorAccordion();
+	    });
 
+
+	    function openAnchorAccordion() {
+		if (window.location.hash) {
+		    var hashstr = window.location.hash;
+		    var identifier = window.location.hash.split('_')[0];
+		    var inpagenum = window.location.hash.split('_')[1];
+		    if (identifier == '#collapse') {
+			if ($.isNumeric(inpagenum)) {
+			    var $findid = 'collapse_'+ inpagenum;
+			    var $target = $('body').find('#'+ $findid);  
+
+			    if ($target.closest('.accordion').parent().closest('.accordion-group')) {
+				$upper = $target.closest('.accordion').parent().closest('.accordion-group');
+
+				$upper.find('.accordion-toggle').addClass('active');
+				$upper.find('.accordion-body').show();
+
+				$upper.find('.accordion-toggle').children().find('.accordion-toggle').removeClass('active');
+				$upper.find('.accordion-body').children().find('.accordion-body').hide();
+
+			    }
+			    $target.find('.accordion-toggle').addClass('active');
+			    $target.show();
+
+			    var offset = $target.offset(); 
+			    var $scrolloffset = offset.top - 220;	
+			    $('html,body').animate({scrollTop: $scrolloffset},'slow');
+			}
+
+		     } else {
+			var identifier = window.location.hash.split('#')[1];
+			var anchor = encodeURIComponent(identifier);     
+			var $target = $('a[name="' + anchor+ '"]');   
+			    if ($target.closest('.accordion').parent().closest('.accordion-group')) {
+				$upper = $target.closest('.accordion-group');
+				$upper.find('.accordion-toggle').addClass('active');
+				$upper.find('.accordion-body').show();
+				$upper.find('.accordion-toggle').children().find('.accordion-toggle').removeClass('active');
+				$upper.find('.accordion-body').children().find('.accordion-body').hide();
+				$target.addClass('active');
+				$target.show();
+				var offset = $target.offset(); 
+				var $scrolloffset = offset.top - 220;	
+				$('html,body').animate({scrollTop: $scrolloffset},'slow');
+			 }
+
+		     }
+		}
+	    }
+	    openAnchorAccordion();
+	}
 
 
 	
@@ -350,7 +364,7 @@ jQuery(document).ready(function($) {
 		if (body.hasClass('nologo')) {
 		     logoalt = "";
 		}else {
-		     logoalt = $('.branding h1 img').attr("alt");
+		     logoalt = $('.branding p.sitetitle img').attr("alt");
 		}
 	
 		var subNav = $('#subnav').parent();
@@ -362,7 +376,7 @@ jQuery(document).ready(function($) {
 		    if (!body.hasClass('nologo') && (!body.hasClass('visiblelogo'))) {
 			body.addClass('visiblelogo');
 			visibletitle = '<span class="visiblelogo">' + logoalt + '</span>';
-			$('.branding h1 img').after(visibletitle);
+			$('.branding p.sitetitle img').after(visibletitle);
 		    }
 		    if (body.hasClass('responsive-large')) {
 			body.removeClass('responsive-large');

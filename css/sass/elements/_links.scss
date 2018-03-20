@@ -17,7 +17,15 @@ a {
 		text-decoration: underline;
 	}
 	
-	
+	li.search-result & {
+	    text-decoration: none;
+
+	    &:hover, 
+	    &:focus {
+		text-decoration: underline;
+	    }
+	    
+	}
 	
 	table &:hover, 
 	table &:focus {

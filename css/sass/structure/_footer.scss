@@ -8,10 +8,7 @@
 	color: #fff;
 	padding: 0 0 20px 0;
 	
-	p {
-		color: #fff;
-		@include px2rem($font-size-footer);
-	}
+	
 	
 	a {
 		color: #fff;

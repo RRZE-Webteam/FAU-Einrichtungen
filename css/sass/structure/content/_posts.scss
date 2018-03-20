@@ -9,9 +9,17 @@
     
     .post-image-caption {
 	    @include px2rem($font-size-image-caption);
-	    padding: 10px 0;
+	    padding: 5px 0 10px 0;
 	    width: 300px;
 	    text-align: left;
+	    
+	    
+	    margin: 0 15px;
+	    
+	    @media (min-width: $screen-sm) {
+		margin: 0;
+		padding: 10px 0;
+	    }
     }
     @media (max-width: $screen-xs - 1) {
 	margin-left: -15px;

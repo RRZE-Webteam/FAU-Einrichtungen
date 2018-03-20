@@ -34,77 +34,10 @@
 	.link-all-videos {
 	    @include px2rem($font-size-socialmedia-morelink); 
 	}
-	ul.social {
-		@include no-list;
-		margin: 0 0 10px 0;
-		
-		li {
-			@include no-list;
-			@include inline-block;
-			max-width: 220px;
-			width: 100%;
-			
-			background: none;
-			
-			a {
-				@include inline-block;
-				color: $colorSocial;
-				text-decoration: none;
-				height: 20px;
-				line-height: 20px;
-				padding: 5px 0;
-				background: none;
-
-				&:hover, &:focus {
-					color: $colorPrimary;
-					text-decoration: underline;
-					
-					&:before {
-						background: $colorPrimary;
-					}
-				}
-			}
-			
-			a:before {
-				background: $colorSocial;
-				color: $colorSocialBackground;
-				height: 21px;
-				width: 24px;
-				padding-top: 5px;
-				line-height: 24px;
-				text-align: center;
-				@include border-radius(12px);
-				font-size: 16px;
-				margin-right: 6px;
-			}
-		}
-		
 	
-		
-		li.social-gplus a:before {  @extend .fa;  @extend .fa-google-plus;}
-		li.social-diaspora a:before { @extend .fa; content: '*'; font-size: 20px; font-weight: bold;}
-		li.social-pinterest a:before { @extend .fa; @extend .fa-pinterest-p; @extend .fa-lg; line-height: 1.0em;}
-		li.social-instagram a:before { @extend .fa; @extend .fa-instagram; line-height: 1.0em;}
-		li.social-facebook a:before {  @extend .fa; @extend .fa-facebook; }
-		li.social-twitter a:before {  @extend .fa; @extend .fa-twitter; }
-		li.social-xing a:before {  @extend .fa; @extend .fa-xing; }
-		li.social-github a:before {  @extend .fa; @extend .fa-github; }	
-		li.social-skype a:before {  @extend .fa; @extend .fa-skype; }
-		li.social-tumblr a:before {  @extend .fa; @extend .fa-tumblr; }
-		li.social-delicious a:before {  @extend .fa; @extend .fa-delicious; }
-		li.social-flickr a:before {  @extend .fa; @extend .fa-flickr; }
-		li.social-feed a:before { @extend .fa;  @extend .fa-rss-square; }
-		li.social-vimeo a:before { @extend .fa; @extend .fa-vimeo-square; }
-		li.social-youtube a:before { @extend .fa; @extend .fa-youtube-square; }
-		li.social-itunes a:before { @extend .fa; @extend .fa-apple; }
-		li.social-wikipedia a:before { @extend .fa; @extend .fa-wikipedia-w; }
-		
-		
-	}
 	
      @media (min-width: $screen-sm) {
 	padding: 20px 0;
-	margin-bottom: -30px;
 	margin-top: 30px;
 
     }

@@ -3,6 +3,24 @@
 /*-----------------------------------------------------------------------------------*/
 
 
+ul,
+ol {
+	margin: 0 15px 10px 25px;
+	
+	@media (min-width: $screen-sm) {
+	    margin-right: 0;
+	}
+	
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+	margin-bottom: 0;
+}
+
+
 li {
     padding: 3px 0 4px 4px;
     @include px2rem($font-size-content-listitem);  
@@ -59,6 +77,33 @@ ul {
 			line-height: 18px;
 		}
 	}
+
+	/* Search results */
+	&.searchresults {
+	    margin-left: 0;
+	    li {
+		    @include no-list;
+	    }
+	}
+	
+	/* Lists without list points */
+	
+	&.nolist {
+	    margin-left: 0;	    
+	    li {	  
+		list-style-type: none;
+		
+		
+		li {
+		    margin-left: 25px;
+		    list-style-type: circle;
+		}
+		ul.nolist li {
+		     margin-left: 0;	
+		     list-style-type: none;
+		}
+	    }
+	}
 }
 
 ol {
@@ -90,9 +135,3 @@ ol {
 
 
 
-@media (max-width: $breakMD) {
-    	ul, ol {
-		margin-left: 15px;
-		margin-right: 15px;
-	}
-}

@@ -31,10 +31,10 @@ jQuery(document).ready(function($) {
 	if($('.logos-menu').length > 0) {
 		if( ! isMobile) {
 		    if (windowWidth > 979) {
-			itemsvisible = 6;
+			itemsvisible = 5;
 			barwidth = 960;
 		    } else if (windowWidth > 767) {
-			itemsvisible = 5;
+			itemsvisible = 4;
 			barwidth = 740;
 		    } else if (windowWidth > 480) {
 			itemsvisible = 3;

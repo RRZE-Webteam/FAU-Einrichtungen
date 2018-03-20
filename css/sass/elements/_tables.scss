@@ -2,6 +2,21 @@
 /* Tables
 /*-----------------------------------------------------------------------------------*/
 
+table {
+	max-width: 100%;
+	background-color: transparent;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+table td[class*="span"],
+table th[class*="span"] {
+	display: table-cell;
+	float: none;
+	margin-left: 0;
+}
+
+
 
 	
 .table-wrapper {

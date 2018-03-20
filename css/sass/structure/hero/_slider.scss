@@ -23,8 +23,8 @@
 		    vertical-align: middle;
 		    z-index: 5;
 		}
-		
-		h2 {
+		h2,
+		h3 {
 			color: #fff;
 			background: rgba($colorPrimary,0.8);
 			display: inline;
@@ -40,7 +40,7 @@
 		}
 		
 		p {
-			@include px2rem($font-size-hero-slider-text);
+			@include px2rem($font-size-hero-slider-text,$font-size-gridbase,$font-size-hero-slider-text * 1.7);
 			color: #fff;
 			background: rgba($colorPrimary,0.8);
 			padding: 3px;

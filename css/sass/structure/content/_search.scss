@@ -2,7 +2,14 @@
 /* Search page
 /*-----------------------------------------------------------------------------------*/
 
-
+.search-resultnested {
+    .row {
+	margin: 0;
+    }
+    li.search-result {
+	padding: 0;
+    }
+}
 .search-result {
 	margin-bottom: 11px;
 

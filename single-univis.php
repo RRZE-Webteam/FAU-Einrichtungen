@@ -1,6 +1,5 @@
 <?php
 global $univis_data;
-global $options;
 
 get_header();
 ?>
@@ -13,17 +12,17 @@ get_header();
             ?>
 
             <div class="row">
-               
+               <div class="col-xs-12">
                     <main>
                         <?php
                         echo $univis_data;
                         ?>
-                        <p></p>
+                    
                         <nav class="navigation">
                             <div class="nav-previous"><a href="<?php echo get_permalink();?>"><?php _e('<span class="meta-nav">&laquo;</span> Zurück zur Übersicht', RRZE_UnivIS::textdomain); ?></a></div>
                         </nav>
                     </main>
-             
+             </div>
             </div>
         </div>
     </div>
