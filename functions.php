@@ -149,6 +149,8 @@ function fau_register_scripts() {
 	// Flexslider für Startseite und für Galerien.     
     wp_register_script('fau-libs-jquery-caroufredsel', get_fau_template_uri() . '/js/libs/jquery.caroufredsel.js', array('jquery'), $theme_version, true );
     wp_register_script('fau-js-caroufredsel', get_fau_template_uri() . '/js/usecaroufredsel.min.js', array('jquery','fau-libs-jquery-caroufredsel'), $theme_version, true );
+    wp_register_script('fau-js-bootstrap', get_fau_template_uri() . '/js/libs/bootstrap.min.js', array('jquery'), $theme_version, true );
+    wp_enqueue_script('fau-js-bootstrap');
 	// Slidende Logos 
 }
 add_action('init', 'fau_register_scripts');

@@ -33,7 +33,7 @@
 	$hero_posts = get_posts($query); 
     }
     foreach($hero_posts as $hero): ?>
-	<div class="hero-slide">
+	<!--<div class="hero-slide">
 		<?php 
 
 		$sliderimage = '';
@@ -95,7 +95,7 @@
 		    echo '<p class="credits">'.$copyright."</p>";
 		}
 		?>
-		<div class="hero-slide-text">
+		<!--<div class="hero-slide-text">
 		    <div class="container">
 			<div class="row">
 			    <div class="slider-titel">
@@ -128,13 +128,93 @@
 			    </div>  <?php } ?>		   
 		    </div>
 		</div>
-	    </div>
+	    </div> -->
     <?php endforeach; 
       wp_reset_query();
-      ?>
-	    <script type="text/javascript">
-		jQuery(document).ready(function($) { $('#hero-slides').flexslider({selector: '.hero-slide',directionNav: true,pausePlay: true}); });
-	    </script>
-	    </div>
+    ?>
+                
+    <div class="bs-example">
+       <div id="myCarousel" class="carousel slide" data-ride="carousel">
+           <!-- Carousel indicators -->
+           <!--<ol class="carousel-indicators">
+               <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+               <li data-target="#myCarousel" data-slide-to="1"></li>
+               <li data-target="#myCarousel" data-slide-to="2"></li>
+           </ol>   
+           <!-- Wrapper for carousel items -->
+           <div class="carousel-inner">
+               <div class="item active">
+                   <img src="http://lorempixel.com/1260/350/abstract/3" alt="First Slide">
+                    <div class="carousel-caption">
+                        <h3>Flowers1</h3>
+                        <p>Beautiful flowers in Kolymbari, Crete.</p>
+                    </div>
+               </div>
+               <div class="item">
+                   <img src="http://lorempixel.com/1260/350/abstract/3" alt="Second Slide">
+                     <div class="carousel-caption">
+                        <h3>Flowers2</h3>
+                        <p>Beautiful flowers in Kolymbari, Crete.</p>
+                    </div>
+               </div>
+               <div class="item">
+                   <img src="http://lorempixel.com/1260/350/abstract/3" alt="Third Slide">
+                     <div class="carousel-caption">
+                        <h3>Flowers3</h3>
+                        <p>Beautiful flowers in Kolymbari, Crete.</p>
+                    </div>
+               </div>
+           </div>
+           <!-- Carousel controls -->
+            <button class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <i class="fa fa-arrow-circle-left fa-3x" aria-hidden="true"></i>
+            </button>
+            <button class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <i class="fa fa-arrow-circle-right fa-3x" aria-hidden="true"></i>
+            </button>
+               <div id="carouselButtons">
+                <button id="playButton" type="button" class="btn btn-default btn-xs">
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                 </button>
+                <button id="pauseButton" type="button" class="btn btn-default btn-xs">
+                    <i class="fa fa-pause" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>       
+                
+                
+    <script type="text/javascript">
+        //jQuery(document).ready(function($) { $('#hero-slides').flexslider({selector: '.hero-slide',directionNav: true,pausePlay: true}); });
+        jQuery(document).ready(function($) {
+        $('#myCarousel').carousel({
+            interval:2000,
+            pause: "false"
+        });
+        $('#playButton').click(function () {
+            $('#myCarousel').carousel('cycle');
+        });
+        $("#pauseButton").click(function () {
+            $(".carousel").carousel("pause");
+        });
+    });
+    </script>
+
+    <style>
+           #carouselButtons {
+    right: 15%;
+    top: 86%;
+    position: absolute;
+    bottom: 0px;
+}
+    
+    .carousel-control.left, .carousel-control.right {
+  border:none;
+    background-image: none;}
+
+    </style>
+          
+            
+</div>
     <?php get_template_part('template-parts/hero', 'jumplinks'); ?>	
 </section>
