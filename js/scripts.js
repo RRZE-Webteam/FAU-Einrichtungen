@@ -37,6 +37,18 @@ jQuery(document).ready(function($) {
 	    });	
 	}
 	
+        
+        // Carousel slider
+        $('#myCarousel').carousel({
+            //interval:200,
+            pause: "false"
+        });
+        $('#playButton').click(function () {
+            $('#myCarousel').carousel('cycle');
+        });
+        $("#pauseButton").click(function () {
+            $(".carousel").carousel("pause");
+        });
 	
 	
 	// Fancybox for lightboxes
