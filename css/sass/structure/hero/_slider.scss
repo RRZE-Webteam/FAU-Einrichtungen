@@ -126,6 +126,7 @@ button {
     border-radius: 0;
     background-color: rgba(255,255,255,0.5);
     border:none;
+    padding: 8px 10px;
   }
   &#playButton:hover, &#pauseButton:hover, &#next:hover, &#prev:hover {
     opacity: 1;
@@ -154,6 +155,7 @@ button#next:focus, button#prev:focus {
 }
 
 button#playButton:focus, button#pauseButton:focus {
+    background: #fff;
     outline: 0;
 }
 
@@ -174,7 +176,8 @@ button#playButton:focus, button#pauseButton:focus {
   top: 80%;
   position: absolute;
   bottom: 0px;
-  z-index: 100;
+  z-index: 10;
+  font-size: 0.75em;
 }
 
 .carousel-control {
