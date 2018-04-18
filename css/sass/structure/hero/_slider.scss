@@ -122,24 +122,33 @@
 /* Carousel slider */
 
 button {
-  &#playButton, &#pauseButton, &#next, &#prev {
+  &#playButton, &#pauseButton, &#next, &#prev, &#toggleCarousel {
     border-radius: 0;
     background-color: rgba(255,255,255,0.5);
     border:none;
     padding: 8px 10px;
   }
-  &#playButton:hover, &#pauseButton:hover, &#next:hover, &#prev:hover {
+  &#playButton:hover, &#pauseButton:hover, &#next:hover, &#prev:hover, &#toggleCarousel:hover {
     opacity: 1;
     border-radius: 0;
     background: #fff;
   }
+  &#toggleCarousel {
+      margin-right: 1px;
+  }
 }
 
-i.fa.fa-play, i.fa.fa-pause  {
+i.fa.fa-play  {
     color: #036;
     opacity: 1;
     font-size: 1.25em;
   
+}
+
+i.fa.fa-pause {
+    color: #036;
+    opacity: 1;
+    font-size: 1.15em; 
 }
 
 i.fa.fa-chevron-right, i.fa.fa-chevron-left {
@@ -149,12 +158,16 @@ i.fa.fa-chevron-right, i.fa.fa-chevron-left {
     font-size: 1.25em;
 }
 
-button#next:focus, button#prev:focus {
+button#toggleCarousel , x:-moz-any-link, x:default {
+    margin-right: 0px;
+}
+
+#next:focus, #prev:focus {
     background: #fff;
     outline: 0;
 }
 
-button#playButton:focus, button#pauseButton:focus {
+button#playButton:focus, pauseButton:focus, #toggleCarousel:focus {
     background: #fff;
     outline: 0;
 }

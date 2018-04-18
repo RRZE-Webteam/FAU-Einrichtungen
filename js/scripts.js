@@ -36,9 +36,10 @@ jQuery(document).ready(function($) {
 		    }
 	    });	
 	}
-	
-        
+       
         // Carousel slider
+        
+        var paused = 0;
         $('#myCarousel').carousel({
             //interval:200,
             pause: "false"
@@ -48,6 +49,14 @@ jQuery(document).ready(function($) {
         });
         $("#pauseButton").click(function () {
             $(".carousel").carousel("pause");
+        });
+        
+        $('#toggleCarousel').click(function() {
+            console.log('pressed');
+            var state = (paused) ? 'cycle' : 'pause';
+            paused = (paused) ? 0 : 1;
+            $('#myCarousel').carousel(state);
+            $(this).find('i').toggleClass('fa-play fa-pause');
         });
 	
 	
