@@ -20,7 +20,7 @@
 
     $numberposts = get_theme_mod('start_header_count');
     $catid =  get_theme_mod('slider-catid');
-    $usejslibs['flexslider'] = true;
+    $usejslibs['heroslider'] = true;
 
     if (isset($catid) && $catid > 0) {
 	$hero_posts = get_posts( array( 
@@ -148,20 +148,15 @@
     <div id="carouselButtons">
          <button id="prev"class="btn btn-default" href="#myCarousel" type="button" data-slide="prev">
             <i class="fa fa-chevron-left" aria-hidden="true"></i>
-            <span class="sr-only">Previous</span>
+            <span class="sr-only"><?php _e('Zurück','fau');?></span>
         </button>
-        <!--<button id="playButton" type="button" class="btn btn-default">
-            <i class="fa fa-play" aria-hidden="true"></i>
-         </button>
-        <button id="pauseButton" type="button" class="btn btn-default">
-            <i class="fa fa-pause" aria-hidden="true"></i>
-        </button>-->
         <button id="toggleCarousel" href="#myCarousel" class="btn btn-default" type="button">
-            <i class="fa fa-pause"></i>
+            <i class="fa fa-pause" aria-hidden="true"></i>
+	    <span class="sr-only"><?php _e('Pause','fau');?></span>
         </button>
         <button id="next" class="btn btn-default" href="#myCarousel" type="button" data-slide="next">
             <i class="fa fa-chevron-right" aria-hidden="true"></i>
-            <span class="sr-only">Next</span>
+            <span class="sr-only"><?php _e('Vor','fau');?></span>
         </button>
     </div>
 </div>

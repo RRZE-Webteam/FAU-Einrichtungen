@@ -6,7 +6,7 @@ GitHub Theme URI: https://github.com/RRZE-Webteam/FAU-Einrichtungen
 Author: RRZE-Webteam
 Author URI: http://www.rrze.fau.de
 Description: Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)
-Version: 1.10.2
+Version: 1.10.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blue, gray, silver, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images
@@ -2903,7 +2903,7 @@ button#toggleCarousel { margin-right: 1px; }
 .hero-navigation ul:before { display: none; }
 .hero-navigation li { display: table; padding-left: 0; color: #fff; font-size: 13px; line-height: 18.98px; font-size: 0.8666666667rem; line-height: 1.2653333333rem; }
 .hero-navigation li:before { font-weight: bold; display: table-cell; color: #fff; width: 20px; }
-.hero-navigation li.zuv, .hero-navigation li.phil, .hero-navigation li.philfak, .hero-navigation li.rw, .hero-navigation li.rwfak, .hero-navigation li.med, .hero-navigation li.medfak, .hero-navigation li.nat, .hero-navigation li.natfak, .hero-navigation li.tf, .hero-navigation li.techfak, .hero-navigation li.white, .hero-navigation li.grau { min-height: 34px; line-height: 34px; border-left: 8px solid transparent; vertical-align: center; -moz-hyphens: auto; -o-hyphens: auto; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto; }
+.hero-navigation li.zuv, .hero-navigation li.phil, .hero-navigation li.philfak, .hero-navigation li.rw, .hero-navigation li.rwfak, .hero-navigation li.med, .hero-navigation li.medfak, .hero-navigation li.nat, .hero-navigation li.natfak, .hero-navigation li.tf, .hero-navigation li.techfak, .hero-navigation li.white, .hero-navigation li.grau { border-left: 8px solid transparent; vertical-align: center; -moz-hyphens: auto; -o-hyphens: auto; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto; }
 .hero-navigation li.zuv:before, .hero-navigation li.phil:before, .hero-navigation li.philfak:before, .hero-navigation li.rw:before, .hero-navigation li.rwfak:before, .hero-navigation li.med:before, .hero-navigation li.medfak:before, .hero-navigation li.nat:before, .hero-navigation li.natfak:before, .hero-navigation li.tf:before, .hero-navigation li.techfak:before, .hero-navigation li.white:before, .hero-navigation li.grau:before { display: none; content: ""; }
 .hero-navigation li.zuv a, .hero-navigation li.phil a, .hero-navigation li.philfak a, .hero-navigation li.rw a, .hero-navigation li.rwfak a, .hero-navigation li.med a, .hero-navigation li.medfak a, .hero-navigation li.nat a, .hero-navigation li.natfak a, .hero-navigation li.tf a, .hero-navigation li.techfak a, .hero-navigation li.white a, .hero-navigation li.grau a { display: inline-block; *display: inline; *zoom: 1; padding: 2px 0 2px 10px; line-height: 16px; vertical-align: center; }
 .hero-navigation li.zuv { border-color: #003366; }
@@ -2925,7 +2925,8 @@ button#toggleCarousel { margin-right: 1px; }
 #footer .hero-navigation > *, #footer .hero-navigation h1, #footer .hero-navigation h2, #footer .hero-navigation h3 { color: #003366; }
 
 #hero .hero-navigation { display: none; }
-@media (min-width: 768px) { #hero .hero-navigation { display: block; margin-top: 10px; } }
+@media (min-width: 768px) { #hero .hero-navigation { display: block; margin-top: 20px; } }
+@media (min-width: 992px) { #hero .hero-navigation { display: block; margin-top: 10px; } }
 
 .hero-jumplink-content { position: absolute; left: 300px; right: 300px; bottom: -30; display: none; height: 30px; text-align: center; text-decoration: none; background: #003366; color: #fff; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; background-clip: padding-box; }
 .hero-jumplink-content:hover, .hero-jumplink-content:focus { text-decoration: none; color: #fff; background: #1f4c7a; }
