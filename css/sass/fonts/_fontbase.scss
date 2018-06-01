@@ -8,7 +8,5 @@ html {
 //    -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-    
-    font-size: $font-size-base + px; 
-    line-height: ($font-size-base * 1.4) + px;
-}
+    font-size: $font-size-rembase;
+} 
