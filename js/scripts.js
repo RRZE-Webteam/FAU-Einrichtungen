@@ -42,7 +42,8 @@ jQuery(document).ready(function($) {
         var paused = 0;
         $('#myCarousel').carousel({
           //  interval: 5000, 
-            pause: "hover"
+            pause: "hover",
+	    wrap: true,
         });
         $('#playButton').click(function () {
             $('#myCarousel').carousel('cycle');

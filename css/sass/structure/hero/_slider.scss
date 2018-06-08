@@ -10,6 +10,21 @@
 	@include box-shadow(0 10px 20px rgba(0,0,0,0.5));
 	
 	.item {
+	    position: relative;
+	    width: 100%;
+	    max-height: 214px;
+	    
+	    @media (min-width: $screen-sm) {
+		max-height: 350px;  
+	    }
+
+	    @media (min-width: 1260px) {
+		width: 1260px;
+		height: 350px;
+	    }
+	    
+	    
+	    
 		h2,
 		h3 {
 			color: #fff;
@@ -60,15 +75,14 @@
 		    right: 0;
 		    bottom: 0;
 		}
-		
-		
 		img {
-		    display: block;
-		    line-height: 1;	
-		    width: auto;
-		    max-width: inherit;
+		    min-height: 350px;
+		    min-width: 1260px;
 		    vertical-align: middle;
+		    z-index: 5;
 		}
+		
+		
 		
 	}
 	.slider-titel {
@@ -97,38 +111,24 @@
 	
 	
 	
-	.hero-slide {
-		img {
-		    vertical-align: middle;
-		}
-	}
 	
 	display: none;
+	height: auto;
 	
 	@media (min-width: $screen-sm) {
 	    display: block;
-	    height: 214px;  
-	    max-width: 100%;
-	  
+	    width: 100%;
+	    max-height: 350px;  
 	    .no-js & {
 	    	display: none;
 	    }
-	    img {
-		height: 214px;
-		max-height: 214px;
-	    }
-	}
-	@media (min-width: $screen-md) {
-	    height: 350px;
-	    max-width: 1260px;
 	    top: -20px;
-	    img {
-		height: 350px;
-		max-height: 350px;
-	    }
 	}
-	
-
+	@media (min-width: 1260px) {
+	   
+	    width: 1260px;
+	    height: 350px;
+	}
 }
 
 
@@ -229,14 +229,16 @@
     .carousel-fade {
 	.carousel-inner {
 	    .item {
-		opacity: 0;
+		opacity: 0.5;
 		transition-property: opacity;
 	    }
 	    .active {
 		opacity: 1;
-		&.left, &.right {
+		transition: transform 0.6s ease-in-out;
+		&.left, 
+		&.right {
 		    left: 0;
-		    opacity: 0;
+		    opacity: 0.5;
 		    z-index: 1;
 		}
 	    }
@@ -252,12 +254,17 @@
 
     @media all and (transform-3d), (-webkit-transform-3d) {
 	.carousel-fade .carousel-inner > .item {
-	      &.next, &.active.right, &.prev, &.active.left {
-		opacity: 0;
-		-webkit-transform: translate3d(0, 0, 0);
-		transform: translate3d(0, 0, 0);
+	      &.next,
+	      &.active.right, 
+	      &.prev, 
+	      &.active.left {
+	//	opacity: 0.5;
+	//	-webkit-transform: translate3d(0, 0, 0);
+	//	transform: translate3d(0, 0, 0);
 	      }
-	      &.next.left, &.prev.right, &.active {
+	      &.next.left, 
+	      &.prev.right, 
+	      &.active {
 		opacity: 1;
 		-webkit-transform: translate3d(0, 0, 0);
 		transform: translate3d(0, 0, 0);
