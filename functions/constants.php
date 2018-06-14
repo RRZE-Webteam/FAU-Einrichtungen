@@ -708,13 +708,6 @@ $setoptions = array(
 		),  	
 	      
 	       
-	      'breadcrumb_root'	 => array(
-		    'type'    => 'text',
-		    'title'   => __( 'Titel Startseite in Breadcrumb', 'fau' ),
-		    'label'   => __( 'Definiert, wie der Link zur Startseite in der Breadcrumb aussehen soll. Per Default sollte hier die offizielle URL oder der Text "Startseite" stehen.', 'fau' ),               
-		    'default' => $defaultoptions['breadcrumb_root'],
-		    'parent'  => 'breadcrumb'
-		), 
 	          
 	       'breadcrumb_withtitle'	  => array(
 		    'type'    => 'toggle',
