@@ -9,13 +9,14 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 38,
+    'optiontable-version'		=> 40,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-    'js-version'			=> '1.9',
+    'js-version'			=> '1.10',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
+    
     'website_type'			=> 0,
 	// website_type: 
 	//  0 = Fakultaetsportal; 
@@ -23,25 +24,11 @@ $defaultoptions = array(
 	//  2 = Zentrale Einrichtungen, 
 	//  3 = Kooperationen 
 	// -1 = fau.de Portal (4 Spalter in Bühne, kein Link zur FAU. 
-	//                       Nur wählbar für definierte Domains)
+
     'website_usefaculty'		=> '',
 	// phil, med, nat, rw, tf
 	// Setzt fest die Fakultät bei Wahl des Website-Types    
-    'website_allow_fauportal'		=> array('www.fau.de',
-						'www.fau.eu',
-						'zuv.cms.rrze.uni-erlangen.de',
-						'megli.zuv.cms.rrze.uni-erlangen.de',
-						'heledir.zuv.cms.rrze.uni-erlangen.de',
-						'annabon.zuv.cms.rrze.uni-erlangen.de',
-						'tuilinn.zuv.cms.rrze.uni-erlangen.de',
-						'cugu.zuv.cms.rrze.uni-erlangen.de',
-						'alfirin.test.rrze.fau.de',
-						'ithron.rrze.uni-erlangen.de',
-						'beta.wordpress.rrze.fau.de',
-						'www.beta.wordpress.rrze.fau.de',
-						'test8.tindu.rrze.uni-erlangen.de',		
-						'test4.tindu.rrze.uni-erlangen.de'),
-	// welche Websites können bei website_type die Option -1 wählen 
+
     'default_home_orga'			=> 'fau',
 	// Muss in $default_fau_orga_data auf erster Ebene vorhanden sein.	
     'default_faculty_useshorttitle'	=> false,   
@@ -61,7 +48,7 @@ $defaultoptions = array(
     'start_link_news_linktitle'		=> __('Mehr Meldungen','fau'),
     'start_link_videoportal_socialmedia'    => false,
     'start_title_videoportal_socialmedia'   => __('Videoportal','fau'),
-    'start_title_videoportal_url'	    => 'http://video.fau.de',
+    'start_title_videoportal_url'	    => 'https://video.fau.de',
 
     'default_postthumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-220x147.gif',
     'default_postthumb_always'		=> 1,
@@ -437,10 +424,13 @@ $setoptions = array(
 		    'title'   => __( 'Typ', 'fau' ),
 		    'label'   => __( 'Bitte wählen Sie hier aus, um welcherart Webauftritt es sich handelt.', 'fau' ),
 		    'liste'   => array(
+				
 				    0 => __('Fakultätsportal','fau'), 
 				    1 => __('Department, Lehrstuhl, Einrichtung','fau'),  
 				    2 => __('Zentrale Einrichtung','fau') ,
-				    3 => __('Website für uniübergreifende Kooperationen mit Externen','fau') ),
+				    3 => __('Website für uniübergreifende Kooperationen mit Externen','fau') ,
+				    -1 => __('Zentrales FAU-Portal www.fau.de','fau') 
+			),
 		    'default' => $defaultoptions['website_type'],
 		    'parent'  => 'webgroup'
 		    
@@ -671,7 +661,7 @@ $setoptions = array(
                   'title'   => __( 'Zahl der Slides', 'fau' ),
                   'label'   => __( 'Anzahl der Slides von verlinkten Top-Artikeln', 'fau' ),
 		  'min'	    => 2,
-		  'max'	    => 7,	
+		  'max'	    => 10,	
                   'default' => $defaultoptions['start_header_count'],
                    'parent'  => 'slider'
               ), 

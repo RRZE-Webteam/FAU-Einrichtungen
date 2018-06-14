@@ -3,33 +3,6 @@
  * Additional features to allow styling of the templates
  */
 
-
-   
-	/* 
-	 * website_type: 
-	 *  0 = Fakultaetsportal oder zentrale Einrichtung
-	 *	=> Nur Link zur FAU, kein Link zur Fakultät
-	 *	   Link zur FAU als Text, da FAU-Logo bereits Teil des
-	 *         Fakultätslogos
-	 *  1 = Lehrstuhl oder eine andere Einrichtung die einer Fakultät zugeordnet ist 
-	 *	=> Link zur FAU und Link zur Fakultät, 
-	 *         Link zur FAU als Grafik, Link zur Fakultät als Text (lang oder kurz nach Wahl)
-	 *  2 = Sonstige Einrichtung, die nicht einer Fakultät zugeordnet sein muss
-	 *	=> Nur Link zur FAU, kein Link zur Fakultät
-	 *	   Link zur FAU als Grafik (das ist der Unterschied zur Option 0)
-	 *  3 = Koopertation mit Externen (neu ab 1.4)
-	 *	=> Kein Link zur FAU
-	 *  -1 = FAU-Portal (neu ab 1.4, nur für zukunftigen Bedarf)
-	 *	=> Kein Link zur FAU, aktiviert 4 Spalten unter HERO
-	 * 
-	 * 'website_usefaculty' = ( nat | phil | med | tf | rw )
-	 *  Wenn gesetzt, wird davon ausgegangen, dass die Seite
-	 *  zu einer Fakultät gehört; Daher werden website_type-optionen auf
-	 *  0 und 2 reduziert. D.h.: Immer LInk zur FAU, keine Kooperationen.
-	 *  
-	 */
-
-
  /*-----------------------------------------------------------------------------------*/
  /* Extends the default WordPress body classes
  /*-----------------------------------------------------------------------------------*/
@@ -59,7 +32,29 @@
 	 $classes[] = 'faculty-'.$website_usefaculty;
     }
     $website_type = get_theme_mod('website_type');
-    
+    /* 
+	 * website_type: 
+	 *  0 = Fakultaetsportal oder zentrale Einrichtung
+	 *	=> Nur Link zur FAU, kein Link zur Fakultät
+	 *	   Link zur FAU als Text, da FAU-Logo bereits Teil des
+	 *         Fakultätslogos
+	 *  1 = Lehrstuhl oder eine andere Einrichtung die einer Fakultät zugeordnet ist 
+	 *	=> Link zur FAU und Link zur Fakultät, 
+	 *         Link zur FAU als Grafik, Link zur Fakultät als Text (lang oder kurz nach Wahl)
+	 *  2 = Sonstige Einrichtung, die nicht einer Fakultät zugeordnet sein muss
+	 *	=> Nur Link zur FAU, kein Link zur Fakultät
+	 *	   Link zur FAU als Grafik (das ist der Unterschied zur Option 0)
+	 *  3 = Koopertation mit Externen (neu ab 1.4)
+	 *	=> Kein Link zur FAU
+	 *  -1 = FAU-Portal (neu ab 1.4, nur für zukunftigen Bedarf)
+	 *	=> Kein Link zur FAU, aktiviert 4 Spalten unter HERO
+	 * 
+	 * 'website_usefaculty' = ( nat | phil | med | tf | rw )
+	 *  Wenn gesetzt, wird davon ausgegangen, dass die Seite
+	 *  zu einer Fakultät gehört; Daher werden website_type-optionen auf
+	 *  0 und 2 reduziert. D.h.: Immer LInk zur FAU, keine Kooperationen.
+	 *  
+	 */
     if ($website_type==-1) {
 	$classes[] = 'fauorg-home';
     } elseif ($website_type==0) {
