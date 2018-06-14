@@ -82,6 +82,17 @@
     }
     
     
+    if (('' != get_theme_mod( 'slider-autoplay' )) && (true== get_theme_mod( 'slider-autoplay' )) ) {
+	     $classes[] = 'slider-autoplay';
+    } else {
+	  $classes[] = 'slider-noplay';
+    }
+
+    if ('fade' == get_theme_mod( 'slider-animation' ) ) {
+	    $classes[] = 'slider-fade';
+    }
+    
+    
     return $classes;
  }
  add_filter( 'body_class', 'fau_body_class' );
@@ -1344,11 +1355,6 @@ function fau_get_toplinks($args = array()) {
     $uselist =  $default_link_liste['meta'];
     $result = '';
 
-    // if (isset($uselist['_title'])) {
-//	$result .= '<h3>'.$uselist['_title'].'</h3>';	
-// $result .= "\n";
-//    }
-    
     $orgalist = fau_get_orgahomelink();
     $thislist = "";
     
@@ -1504,7 +1510,6 @@ function fau_get_tag_ID($tag_name) {
 	    $blogroll_query->the_post();
 	    $id = get_the_ID();
 	    $out .= fau_display_news_teaser($id,true,$hstart,$hidemeta);
-           //  $out .= fau_load_template_part('template-parts/content-blogroll' );  // fau_display_news_teaser($id,true); // 
 	endwhile; 
     endif; // have_posts()                  
      

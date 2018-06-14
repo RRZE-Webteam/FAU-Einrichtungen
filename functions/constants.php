@@ -36,9 +36,10 @@ $defaultoptions = array(
     'content-width'			=> 770,
     'src-fallback-slider-image'		=> get_fau_template_uri().'/img/slider-fallback.jpg',
     'slider-catid'			=> 0,    
-    'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.min.js',
-    'src-pluginsjs'			=> get_fau_template_uri() . '/js/libs/plugins.min.js',
+    'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.js',
     'default_slider_excerpt_length'	=> 240,
+    'slider-autoplay'			=> true,
+    'slider-animation'			=> 'fade',
     'start_header_count'		=> 5,
     'start_max_newscontent'		=> 5,
     'start_max_newspertag'		=> 1,    
@@ -694,6 +695,27 @@ $setoptions = array(
                    'parent'  => 'slider'
               ), 
 	      
+	       
+	       'slider-autoplay'  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Autoplay', 'fau' ),
+		    'label'   => __( 'Slider automatisch starten', 'fau' ),                
+		    'default' => $defaultoptions['slider-autoplay'],
+		    'parent'  => 'slider'
+		),   	  
+	       
+	       'slider-animation' => array(
+		'type'      => 'select',
+		'title'     => esc_html__( 'Slider Animation', 'fau'),
+                'label'     => esc_html__( 'Art der Animation einzelner Slides', 'fau'),
+		'liste'     => array(
+    			'slide'	 => esc_html__( 'Verschieben', 'fau'),
+			'fade' 	 => esc_html__( 'Erscheinen', 'fau'),
+                ),
+		'default'   => $defaultoptions['slider-animation'],
+                'parent'    => 'slider'	    
+            ),
+	       
 	      'breadcrumb'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Bühne und Breadcrumb', 'fau' ),    

@@ -6,13 +6,14 @@
 	position: relative;
 	margin: 0 auto -15px auto;
 	background: $colorPrimary;
-	overflow: hidden;
+	// overflow: hidden;
 	@include box-shadow(0 10px 20px rgba(0,0,0,0.5));
 	
 	.item {
 	    position: relative;
 	    width: 100%;
 	    max-height: 214px;
+	    overflow: hidden;
 	    
 	    @media (min-width: $screen-sm) {
 		max-height: 350px;  
@@ -98,14 +99,9 @@
 		padding: 0;
 		width: 100%;
 	}
-	ul {
-		@include no-list;
-	}
 	li {
     		@include no-list;
-		font-size: 13px;
-		padding-left: 20px;
-		padding-bottom: 5px;
+		padding: 0;
 	
 	}
 	
@@ -132,144 +128,126 @@
 }
 
 
-/* Carousel slider */
 
 
-    button {
-	&#playButton, 
-	&#pauseButton, 
-	&#next, 
-	&#prev, 
-	&#toggleCarousel {
-	    border-radius: 0;
-	    background-color: rgba(255,255,255,0.5);
-	    border:none;
-	    padding: 8px 10px;
-	}
-	&#playButton:hover, 
-	&#pauseButton:hover, 
-	&#next:hover, 
-	&#prev:hover, 
-	&#toggleCarousel:hover {
-	    opacity: 1;
-	    border-radius: 0;
-	    background: #fff;
-	}
-	&#toggleCarousel {
-	    margin-right: 1px;
-	}
-    }
-    .carousel-inner {
-	i.fa.fa-play  {
-	    color: #036;
-	    opacity: 1;
-	    font-size: 1.25em;
-
-	}
-
-	i.fa.fa-pause {
-	    color: #036;
-	    opacity: 1;
-	    font-size: 1.15em; 
-	}
-
-	i.fa.fa-chevron-right, 
-	i.fa.fa-chevron-left {
-	    vertical-align: -6%;
-	    color: #036;
-	    opacity: 1;
-	    font-size: 1.25em;
-	}
-	 button#toggleCarousel, 
-	x:-moz-any-link, x:default {
-	    margin-right: 0px;
-	}
-
-	#next:focus, 
-	#prev:focus {
-	    background: #fff;
-	    outline: 0;
-	}
-
-	button#playButton:focus, 
-	pauseButton:focus, 
-	#toggleCarousel:focus {
-	    background: #fff;
-	    outline: 0;
-	}
-
-    }
-   /*
-    
-*/
     #hero-slides .hero-slide-text {
-	top: initial;
+//	top: initial;
     }
 
-    #carouselButtons {
-	right: 40px;
-	@media (min-width: $screen-md) {
-	    right: 70px;
-	}
-	position: absolute;
-	bottom: 30px;
-	z-index: 10;
-	font-size: 0.75em;
+  
+
+
+
+ /* Arrows */
+$slick-loader-path: "./img/" !default;
+$slick-arrow-color: white !default;
+$slick-dot-color: black !default;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-dot-character: "\2022" !default;
+$slick-dot-size: 6px !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
+
+.slick-play,
+.slick-stop,
+.slick-prev,
+.slick-next {
+    position: absolute;
+    display: block;
+    height: 20px;
+    width: 20px;
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    background: transparent;
+    color: transparent;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    padding: 0;
+    border: none;
+    outline: none;
+    
+    
+    &:hover, 
+    &:focus {
+        outline: none;
+        background: transparent;
+        color: transparent;
+        &:before {
+            opacity: $slick-opacity-on-hover;
+        }
     }
-
-    .carousel-control {
-	&.left, 
-	&.right {
-	    border: none;
-	    background-image: none;
-	    z-index: 100;
-	}
+    &.slick-disabled:before {
+        opacity: $slick-opacity-not-active;
     }
-
-    .carousel-fade {
-	.carousel-inner {
-	    .item {
-		opacity: 0.5;
-		transition-property: opacity;
-	    }
-	    .active {
-		opacity: 1;
-		transition: transform 0.6s ease-in-out;
-		&.left, 
-		&.right {
-		    left: 0;
-		    opacity: 0.5;
-		    z-index: 1;
-		}
-	    }
-	    .next.left, 
-	    .prev.right {
-		opacity: 1;
-	    }
-	}
-	.carousel-control {
-	    z-index: 2;
-	}
+    &:before {
+        font-size: 30px;
+        line-height: 1;
+        color: $slick-arrow-color;
+        opacity: $slick-opacity-default;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+	
     }
+}
 
-    @media all and (transform-3d), (-webkit-transform-3d) {
-	.carousel-fade .carousel-inner > .item {
-	      &.next,
-	      &.active.right, 
-	      &.prev, 
-	      &.active.left {
-	//	opacity: 0.5;
-	//	-webkit-transform: translate3d(0, 0, 0);
-	//	transform: translate3d(0, 0, 0);
-	      }
-	      &.next.left, 
-	      &.prev.right, 
-	      &.active {
-		opacity: 1;
-		-webkit-transform: translate3d(0, 0, 0);
-		transform: translate3d(0, 0, 0);
-	      }
-	}
+.slick-prev {
+    left: -30px;
+    [dir="rtl"] & {
+        left: auto;
+        right: -30px;
     }
+    &:before {	
+	@extend .fa;
+	@extend .fa-chevron-left;
+	
+        [dir="rtl"] & {
+	    @extend .fa-chevron-right;
+        }
+    }
+}
 
+.slick-next {
+    right: -30px;
+    [dir="rtl"] & {
+        left: -30px;
+        right: auto;
+    }
+    &:before {
+	@extend .fa;
+	@extend .fa-chevron-right;
+	
+        [dir="rtl"] & {
+	    @extend .fa-chevron-left;
+        }
+    }
+}
 
+.slick-stop {
+    top: 30px;
+    right: 20px;
+        
+    &:before {
+	@extend .fa;
+	@extend .fa-stop-circle;
+//	box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
+//	opacity: 1;
+//	background: #000;
+
+    }
+}
+.slick-play {
+    top: 30px;
+    right: 20px;
+    background: #000;
+    
+    &:before {
+	@extend .fa;
+	@extend .fa-play-circle;
+//	box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
+
+    }
+}

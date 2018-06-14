@@ -6,11 +6,13 @@ jQuery(document).ready(function($) {
 
 
 	var $body = $( 'body' ),
+		sliderFade = $body.hasClass( 'slider-fade' ),
+                sliderAutostart = $body.hasClass( 'slider-autoplay' ),
+		sliderShowDots = $body.hasClass( 'slider-dots' ),
 		use_theme_accordion = $body.hasClass( 'theme-accordion' );
 
 
-		
-		
+
 	var breakMD = 768;
 	var breakSM = 480;
 	var breakLG = 979;
@@ -37,29 +39,53 @@ jQuery(document).ready(function($) {
 	    });	
 	}
        
-        // Carousel slider
-        
-        var paused = 0;
-        $('#myCarousel').carousel({
-          //  interval: 5000, 
-            pause: "hover",
-	    wrap: true,
-        });
-        $('#playButton').click(function () {
-            $('#myCarousel').carousel('cycle');
-        });
-        $("#pauseButton").click(function () {
-            $(".carousel").carousel("pause");
-        });
-        
-        $('#toggleCarousel').click(function() {
-            console.log('pressed');
-            var state = (paused) ? 'cycle' : 'pause';
-            paused = (paused) ? 0 : 1;
-            $('#myCarousel').carousel(state);
-            $(this).find('i').toggleClass('fa-play fa-pause');
-        });
+       //  Slider
+
+	var autostart = false;
+	var pauseOnHovervar = false
+	if ( sliderAutostart ) {
+	    autostart = true;
+	    pauseOnHovervar = true;
+	}
+	var showdots = false;
+	var fadeit = false;
+	if ( sliderFade ) {
+	    fadeit = true;
+	}
 	
+	var autoplaySpeedval = 5000;
+	var sliderNextHTML = '<button type="button" class="slick-next">Next</button>';
+	var sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
+	
+	if ($('html').attr('lang') == 'de-DE') {		
+		sliderNextHTML = '<button type="button" class="slick-next">Weiter</button>';
+		sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
+	}
+
+
+
+	$( '.featured-slider' ).slick( {
+		dots          : showdots,
+		slidesToShow  : 1,
+		autoplay      : autostart,
+		cssEase       : 'ease',
+		draggable     : true,
+		pauseOnHover  : pauseOnHovervar,
+		pauseOnFocus  : pauseOnHovervar,	
+		infinite      : true,
+		adaptiveHeight: true,
+		fade          : fadeit,
+		autoplaySpeed : autoplaySpeedval,
+		nextArrow     : sliderNextHTML,
+		prevArrow     : sliderPrevHTML,
+		
+		appendArrows: '.slider-controls',
+	} );
+	
+
+
+      
+  
 	
 	// Fancybox for lightboxes
 	$('a.lightbox').fancybox({ helpers: { title: { type: 'outside'}}});
