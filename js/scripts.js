@@ -68,7 +68,7 @@ jQuery(document).ready(function($) {
 	}
 
 
-
+    if ( $.fn.slick ) {
 	$( '.featured-slider' ).slick( {
 		dots          : showdots,
 		slidesToShow  : 1,
@@ -98,8 +98,7 @@ jQuery(document).ready(function($) {
 		$('.slick-startstop').html(startSliderHTML);
 	    }
 	})
-
-      
+    }
   
 	
 	// Fancybox for lightboxes
