@@ -955,7 +955,7 @@ $setoptions = array(
 		    'liste'   => array(
 				"page"		=> __('Seiten','fau'),
       				"post"		=> __('Artikel','fau'),
-				"attachment"	=> __('Medien','fau'),
+				"attachment"	=> __('Dokumente und Bilder','fau'),
 		      ),
 		    'default' => $defaultoptions['search_post_types_checked'],
 		    'parent'  => 'suchergebnisse'
