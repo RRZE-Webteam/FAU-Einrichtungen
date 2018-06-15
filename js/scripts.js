@@ -56,10 +56,15 @@ jQuery(document).ready(function($) {
 	var autoplaySpeedval = 5000;
 	var sliderNextHTML = '<button type="button" class="slick-next">Next</button>';
 	var sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
+	var stopSliderHTML = 'Stop Animation';
+	var startSliderHTML = 'Start Animation';
+	
 	
 	if ($('html').attr('lang') == 'de-DE') {		
 		sliderNextHTML = '<button type="button" class="slick-next">Weiter</button>';
 		sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
+		stopSliderHTML = 'Stoppe Animation';
+		startSliderHTML = 'Starte Animation';
 	}
 
 
@@ -82,7 +87,17 @@ jQuery(document).ready(function($) {
 		appendArrows: '.slider-controls',
 	} );
 	
-
+	$('.slick-startstop').on('click', function() {
+	    if ($('.slick-startstop').hasClass("stopped")) {
+		$( '.featured-slider' ).slick('slickPlay');
+		$('.slick-startstop').removeClass('stopped');
+		$('.slick-startstop').html(stopSliderHTML);		
+	    } else {
+		$( '.featured-slider' ).slick('slickPause');
+		$('.slick-startstop').addClass('stopped');
+		$('.slick-startstop').html(startSliderHTML);
+	    }
+	})
 
       
   

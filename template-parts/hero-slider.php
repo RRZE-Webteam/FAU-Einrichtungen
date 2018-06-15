@@ -38,7 +38,7 @@
 	   <div class="slick-slider featured-slider cf">
 	       <?php
 		foreach($hero_posts as $hero): ?>	
-		<div class="item">  
+		<article class="item">  
 		    <?php 
 
 		    $sliderimage = $copyright = $slidersrc = $slidersrcset = '';
@@ -124,18 +124,28 @@
 				</div>  <?php } ?>		   
 			</div>
 		    </div>
-		</div>
+		</article>
 	       
 		<?php endforeach; 
 		wp_reset_query();
 		?>
 	    </div>
-	<div class="slider-controls">
-	    <button type="button" class="slick-stop">
-		<?php echo __('Stopp','fau');?>
-	    </button>
-	</div>
+	    <div class="slider-controls">
+		<?php 
+		$stopButtontext = __('Stoppe Animation','fau');
+		$startButtontext = __('Starte Animation','fau');
+		if (('' != get_theme_mod( 'slider-autoplay' )) && (true== get_theme_mod( 'slider-autoplay' )) ) {
+		    $startstopclass= '';
+		    $buttontext = $stopButtontext;
+		} else {
+		    $startstopclass= ' stopped';
+		    $buttontext = $startButtontext;
+		} ?>
+
+		<button type="button" class="slick-startstop<?php echo $startstopclass;?>">
+		    <?php echo $buttontext;?>
+		</button>
+	    </div>
 	    
 	</div>
    
-
