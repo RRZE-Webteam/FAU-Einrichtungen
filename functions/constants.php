@@ -683,7 +683,14 @@ $setoptions = array(
 		    'label'   => __( 'Ersatzbild für den Slider, für den Fall, daß ein Artikel kein eigenes Artikel- oder Bühnenbild definiert hat.', 'fau' ),               
 		    'parent'  => 'slider'
 		),  
-
+		'fallback-slider-image-title' => array(
+		    'type'    => 'text',
+		    'title'   => __( 'Copyright/Titel Ersatzbild', 'fau' ),
+		    'label'   => __( 'Optionaler Titel bzw. Copyright-Info für das Ersatzbild für den Fall, daß es sich um ein geschnittenes Originalbild handelt.', 'fau' ),               
+		    'default' => '',
+		    'parent'  => 'slider'
+		),  
+	       
 	       'default_slider_excerpt_length' => array(
                   'type'    => 'range-value',
                   'title'   => __( 'Textauszug', 'fau' ),
