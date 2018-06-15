@@ -787,7 +787,7 @@ function fau_get_image_attributs($id=0) {
         
         $meta = get_post_meta( $id );
         if (!isset($meta)) {
-         return;
+	    return;
         }
     
         $result = array();
@@ -870,7 +870,7 @@ function fau_get_image_attributs($id=0) {
 		$result['credits'] = $precopyright.' '.$result['author'];
 	    } elseif (!empty($result['credit'])) {
 		$result['credits'] = $precopyright.' '.$result['credit'];		
-		} else {
+	    } else {
 		if (!empty($result['description'])) {
 		    $result['credits'] = $result['description'];
 		} elseif (!empty($result['caption'])) {

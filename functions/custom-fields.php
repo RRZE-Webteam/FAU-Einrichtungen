@@ -340,7 +340,6 @@ function fau_do_metabox_post_topevent($object, $box) {
             echo "<br>";
             _e('Kein Bild ausgewählt. Ersatzbild wird gezeigt.', 'fau');
         }
-
         echo "</div>\n"; ?>		
 
         <input type="hidden" name="fauval_topevent_image" id="fauval_topevent_image" value="<?php echo sanitize_key($topevent_image) ; ?>"/>
@@ -371,6 +370,7 @@ function fau_do_metabox_post_topevent($object, $box) {
             });
         });
        </script>
+    </div>
     </div>
     <?php
 }

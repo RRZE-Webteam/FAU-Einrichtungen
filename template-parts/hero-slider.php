@@ -67,12 +67,16 @@
 				$sliderimage = wp_get_attachment_image_src( $fallbackid, 'hero' );
 				$slidersrcset =  wp_get_attachment_image_srcset($fallbackid,'hero');
 				$imgdata = fau_get_image_attributs($fallbackid);
-				$copyright = trim(strip_tags( $imgdata['credits'] ));
+				if (preg_match("/^cropped\-/",$imgdata['title'])) {
+				    $copyright = get_theme_mod("fallback-slider-image-title");			
+				} else {
+				    $copyright = trim(strip_tags( $imgdata['credits'] ));
+				}
+				
+				
 			    } else {
 				// Kein Fallbackbild definiert, also hardcodiertes Fallback des Themes
-				$sliderimage[0] = fau_esc_url($defaultoptions['src-fallback-slider-image']);
-				$sliderimage[1] = $defaultoptions['slider-image-width'];
-				$sliderimage[2] = $defaultoptions['slider-image-height'];
+				$sliderimage = array($defaultoptions['src-fallback-slider-image'],$defaultoptions['slider-image-width'],$defaultoptions['slider-image-height']);  
 			    }	
 			}
 		    }
@@ -83,9 +87,7 @@
 			$slidersrc .= ' srcset="'.$slidersrcset.'"';
 		    }
 		    $slidersrc .= ' role="presentation">';
-
 		    echo $slidersrc."\n"; 
-
 
 		    if ((get_theme_mod('advanced_display_hero_credits')==true) && (!empty($copyright))) {
 			echo '<p class="credits">'.$copyright."</p>";
@@ -117,7 +119,7 @@
 				    <div class="slider-text"><?php 
 					$abstract = get_post_meta( $hero->ID, 'abstract', true );			   
 					if (strlen(trim($abstract))<3) {
-					   $abstract =  fau_custom_excerpt($hero->ID,$maxlen,false);
+					   $abstract =  fau_custom_excerpt($hero->ID,$maxlen,false,'',true);
 					} ?>
 					<p><?php echo $abstract; ?></p>
 				    </div>
