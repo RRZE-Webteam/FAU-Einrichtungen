@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------------*/
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
-$version:  '1.10.7';
+$version:  '1.10.8';
     // Theme Version
     // First Digit:  Manual
     // Second Digit: Branch Version
@@ -205,7 +205,8 @@ $colorSocialBackground:		$colorMetaBackground;
 $colorCopyright:	     #fff;
 $colorCopyrightBackground:  rgba(0,0,0,0.6);
 
-
+// Abbrevations, Acronyms
+$colorAbbr:		    #000;
 
 // Font sizes
 $font-size-rembase:		93.75%;

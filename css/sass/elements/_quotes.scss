@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------------*/
-/* Blockquotes, Cites
+/* Blockquotes, Cites, Abbr
 /*-----------------------------------------------------------------------------------*/
 
 
@@ -137,4 +137,28 @@ cite {
     color: $colorPrimaryHeroLight; 
     font-weight: normal;
 }
+
+
+// Abbrevations, Acronyms
+
+accronym[title],
+accronym[data-original-title],
+abbr[title],
+abbr[data-original-title] {
+    font-style: italic;
+    cursor: help;
+    border-bottom: 1px dotted $colorPrimary;
+    text-decoration: none; 
+    
+    &:hover, &:focus {
+	background: $colorPrimary;
+	color: $colorPrimaryContrast;
+    }
+}
+accronym.initialism,
+abbr.initialism {
+	font-size: 90%;
+	text-transform: uppercase;
+}
+
 
