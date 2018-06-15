@@ -83,9 +83,7 @@
 			$slidersrc .= ' srcset="'.$slidersrcset.'"';
 		    }
 		    $slidersrc .= ' role="presentation">';
-
 		    echo $slidersrc."\n"; 
-
 
 		    if ((get_theme_mod('advanced_display_hero_credits')==true) && (!empty($copyright))) {
 			echo '<p class="credits">'.$copyright."</p>";
@@ -117,7 +115,7 @@
 				    <div class="slider-text"><?php 
 					$abstract = get_post_meta( $hero->ID, 'abstract', true );			   
 					if (strlen(trim($abstract))<3) {
-					   $abstract =  fau_custom_excerpt($hero->ID,$maxlen,false);
+					   $abstract =  fau_custom_excerpt($hero->ID,$maxlen,false,'',true);
 					} ?>
 					<p><?php echo $abstract; ?></p>
 				    </div>
