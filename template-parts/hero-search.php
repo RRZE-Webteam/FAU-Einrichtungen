@@ -30,11 +30,11 @@
 				<?php
 				if (get_theme_mod('search_allowfilter')) {
 				    echo '<div class="filter">';
-				    $query_types = get_query_var('post_type');
 				    
-				    $listtypes = fau_get_searchable_fields();	    
+				    
+				    $listtypes = fau_get_searchable_fields();	  
+				    $query_types = get_query_var('post_type',$listtypes);
 				    $allowed_types = get_post_types(array('public' => true, 'exclude_from_search' => false));
-				  
 				    if ((is_array($listtypes)) && (!empty($listtypes))) {
 					foreach ($listtypes as $type) {       
 					    if( in_array( $type, $allowed_types ) ) {

@@ -22,7 +22,9 @@ class FAUShortcodes {
             // Paragraphes and content regions
             add_shortcode('hr', array( $this, 'fau_hr'));
             // Old Shortcodes for downwards compatibility
-            add_shortcode('alert', array( $this, 'absatzklasse_attention' ));
+            if ( !is_plugin_active( 'rrze-elements/rrze-elements.php' ) ) {
+                add_shortcode('alert', array( $this, 'absatzklasse_attention' ));
+            }
             add_shortcode('attention', array( $this, 'absatzklasse_attention' ));
             add_shortcode('hinweis', array( $this, 'absatzklasse_hinweis' ));
             add_shortcode('baustelle', array( $this, 'absatzklasse_baustelle' ));
@@ -50,7 +52,9 @@ class FAUShortcodes {
 
 
             // Ported and adapted by old bootstrap code
-            add_shortcode('button', array( $this, 'bs_button' ));    
+            if ( !is_plugin_active( 'rrze-elements/rrze-elements.php' ) ) {
+                add_shortcode('button', array( $this, 'bs_button' ));
+            }
             add_shortcode('code', array( $this, 'bs_code' ));
             add_shortcode('span', array( $this, 'bs_span' ));
             add_shortcode('row', array( $this, 'bs_row' ));

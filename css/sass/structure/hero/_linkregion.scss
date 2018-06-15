@@ -5,7 +5,7 @@
 
 .hero-navigation {
     ul {
-		@include no-list;
+	@include no-list;
     }
     li {
 	display: table;
@@ -31,8 +31,6 @@
 	&.natfak, &.tf,
 	&.techfak, 
 	&.white, &.grau {
-	    min-height: 34px;
-	    line-height: 34px;
 	    border-left: 8px solid transparent;
 	    vertical-align: center;
 	    @include hyphens(auto);
@@ -128,6 +126,11 @@
     display: none;
 	@media (min-width: $screen-sm) {
 	    display: block;
+	    margin-top: 20px;
+	}
+	@media (min-width: $screen-md) {
+	    display: block;
+	    margin-top: 10px;
 	}
 }
 

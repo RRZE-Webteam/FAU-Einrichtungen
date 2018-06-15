@@ -9,14 +9,13 @@
 
 get_header();
 ?>
-	
+	<section id="hero">
 	<?php get_template_part('template-parts/hero', 'slider'); ?>
-	
+	<?php get_template_part('template-parts/hero', 'jumplinks'); ?>
+	</section>
 	<div id="content">
 		<div class="container">
-			<?php 
-			    echo fau_get_ad('werbebanner_seitlich',false);
-			 ?>
+			<?php  echo fau_get_ad('werbebanner_seitlich',false); ?>
 			
 			<div class="row">
 				<div class="startpage-blogroll">
@@ -110,8 +109,7 @@ get_header();
 			 }
 			 
 			echo fau_get_ad('werbebanner_unten',true);
-			
-			
+
 			$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
 			if ($logoliste) { 
 			    $logos = fau_get_imagelinks($logoliste, false);
@@ -119,13 +117,9 @@ get_header();
 				echo "<hr>\n";
 				echo $logos;
 			    }
-			}
-			
-			 ?>
-			
+			}		
+			 ?>			
 		</div> <!-- /container -->
-		
-		
 	</div> <!-- /content -->
 <?php get_template_part('template-parts/footer', 'social'); ?>	
 <?php 
