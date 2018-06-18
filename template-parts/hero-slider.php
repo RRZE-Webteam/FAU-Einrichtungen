@@ -134,14 +134,14 @@
 	    </div>
 	    <div class="slider-controls">
 		<?php 
-		$stopButtontext = __('Stoppe Animation','fau');
-		$startButtontext = __('Starte Animation','fau');
+		
+  
 		if (('' != get_theme_mod( 'slider-autoplay' )) && (true== get_theme_mod( 'slider-autoplay' )) ) {
 		    $startstopclass= '';
-		    $buttontext = $stopButtontext;
+		    $buttontext = $defaultoptions['slider-stoptext'];
 		} else {
 		    $startstopclass= ' stopped';
-		    $buttontext = $startButtontext;
+		    $buttontext = $defaultoptions['slider-starttext'];
 		} ?>
 
 		<button type="button" class="slick-startstop<?php echo $startstopclass;?>">

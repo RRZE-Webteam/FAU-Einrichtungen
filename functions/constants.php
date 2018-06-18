@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 40,
+    'optiontable-version'		=> 41,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -40,6 +40,8 @@ $defaultoptions = array(
     'default_slider_excerpt_length'	=> 240,
     'slider-autoplay'			=> true,
     'slider-animation'			=> 'fade',
+    'slider-stoptext'			=> __('Animation stoppen','fau'),
+    'slider-starttext'			=> __('Animation starten','fau'),
     'start_header_count'		=> 5,
     'start_max_newscontent'		=> 5,
     'start_max_newspertag'		=> 1,    
@@ -229,7 +231,7 @@ $defaultoptions = array(
     'search_post_types'			    => array("page", "post", "attachment"),
     'search_post_types_checked'		    => array("page", "post"),
     'search_allowfilter'		    => true,
-    'search_notice_searchregion'	    => __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.','fau'),
+    'search_notice_searchregion'	    => __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie bitte die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.','fau'),
 
     
     'index_synonym_listall'		=> true,
@@ -556,7 +558,7 @@ $setoptions = array(
 	       'advanced_activate_post_comments'		  => array(
                   'type'    => 'toggle',
                   'title'   => __( 'Kommentarfunktion', 'fau' ),
-                  'label'   => __( 'Schaltet die Kommentarfunktion für Beiträge ein. Die Kommentare erscheinen unterhalb des Artikels. Bitte beachten Sie, daß diese Darstellung von KOmmentarfunktionen ebenfalls von den Diskussions-Einstellungen abhängig sind.', 'fau' ),                
+                  'label'   => __( 'Schaltet die Kommentarfunktion für Beiträge ein. Die Kommentare erscheinen unterhalb des Artikels. Bitte beachten Sie, daß diese Darstellung von Kommentarfunktionen ebenfalls von den Diskussions-Einstellungen abhängig sind.', 'fau' ),                
                   'default' => $defaultoptions['advanced_activate_post_comments'],
 		  'parent'  => 'postoptions'
 		), 
@@ -971,7 +973,7 @@ $setoptions = array(
 		    'type'    => 'text',
 		    'title'   => __( 'Hinweis zum Suchbereich', 'fau' ),
 		    'label'   => __( 'Für Besucher der Website ist oft nicht klar, daß die Suchmaschine nur den einzelnen Webauftritt durchsucht und nicht beispielsweise alle Seiten der FAU. Dieser Texthinweis macht darauf aufmerksam.', 'fau' ),               
-		    'default' => $defaultoptions['search_display_excerpt_morestring'],
+		    'default' => $defaultoptions['search_notice_searchregion'],
 		     'parent'  => 'suchergebnisse'
 		), 
    

@@ -156,10 +156,16 @@
 	   line-height: 1;
 	   color: $slick-arrow-color;
 	   opacity: $slick-opacity-default;
-	   text-shadow: 2px 2px #000;
+	   
 	   -webkit-font-smoothing: antialiased;
 	   -moz-osx-font-smoothing: grayscale;
+	   text-shadow: 2px 2px #000;
+	   
+	    @media (min-width: $break-1360) {
+		text-shadow: none;
+	    }
        }
+       
    }
 
    .slick-prev {
@@ -187,18 +193,7 @@
 	       @extend .fa-chevron-right;
 	   }
        }
-       &:hover, 
-       &:focus {	       
-	       transition-timing-function: ease;
-	       
-		@media (min-width: $break-1360) {
-		    left: -45px;
-		    [dir="rtl"] & {
-			left: auto;
-			right: -45px;
-		    }
-		}
-       }
+      
    }
 
    .slick-next {
@@ -224,17 +219,7 @@
 	       @extend .fa-chevron-left;
 	   }
        }
-       &:hover, 
-       &:focus {
-	    @media (min-width: $break-1360) {
-	       right: -45px;
-	       [dir="rtl"] & {
-		   right: auto;
-		   left: -45px;
-	       }
-	    }
-	    transition-timing-function: ease;
-       }
+      
    }
 
 

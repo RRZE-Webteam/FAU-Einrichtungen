@@ -63,8 +63,8 @@ jQuery(document).ready(function($) {
 	if ($('html').attr('lang') == 'de-DE') {		
 		sliderNextHTML = '<button type="button" class="slick-next">Weiter</button>';
 		sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
-		stopSliderHTML = 'Stoppe Animation';
-		startSliderHTML = 'Starte Animation';
+		stopSliderHTML = 'Animation stoppen';
+		startSliderHTML = 'Animation starten';
 	}
 
 
