@@ -6,11 +6,13 @@ jQuery(document).ready(function($) {
 
 
 	var $body = $( 'body' ),
+		sliderFade = $body.hasClass( 'slider-fade' ),
+                sliderAutostart = $body.hasClass( 'slider-autoplay' ),
+		sliderShowDots = $body.hasClass( 'slider-dots' ),
 		use_theme_accordion = $body.hasClass( 'theme-accordion' );
 
 
-		
-		
+
 	var breakMD = 768;
 	var breakSM = 480;
 	var breakLG = 979;
@@ -36,8 +38,68 @@ jQuery(document).ready(function($) {
 		    }
 	    });	
 	}
+       
+       //  Slider
+
+	var autostart = false;
+	var pauseOnHovervar = false
+	if ( sliderAutostart ) {
+	    autostart = true;
+	    pauseOnHovervar = true;
+	}
+	var showdots = false;
+	var fadeit = false;
+	if ( sliderFade ) {
+	    fadeit = true;
+	}
+	
+	var autoplaySpeedval = 5000;
+	var sliderNextHTML = '<button type="button" class="slick-next">Next</button>';
+	var sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
+	var stopSliderHTML = 'Stop Animation';
+	var startSliderHTML = 'Start Animation';
 	
 	
+	if ($('html').attr('lang') == 'de-DE') {		
+		sliderNextHTML = '<button type="button" class="slick-next">Weiter</button>';
+		sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
+		stopSliderHTML = 'Animation stoppen';
+		startSliderHTML = 'Animation starten';
+	}
+
+
+    if ( $.fn.slick ) {
+	$( '.featured-slider' ).slick( {
+		dots          : showdots,
+		slidesToShow  : 1,
+		autoplay      : autostart,
+		cssEase       : 'ease',
+		draggable     : true,
+		pauseOnHover  : pauseOnHovervar,
+		pauseOnFocus  : pauseOnHovervar,	
+		infinite      : true,
+		adaptiveHeight: true,
+		fade          : fadeit,
+		autoplaySpeed : autoplaySpeedval,
+		nextArrow     : sliderNextHTML,
+		prevArrow     : sliderPrevHTML,
+		
+		appendArrows: '.slider-controls',
+	} );
+	
+	$('.slick-startstop').on('click', function() {
+	    if ($('.slick-startstop').hasClass("stopped")) {
+		$( '.featured-slider' ).slick('slickPlay');
+		$('.slick-startstop').removeClass('stopped');
+		$('.slick-startstop').html(stopSliderHTML);		
+	    } else {
+		$( '.featured-slider' ).slick('slickPause');
+		$('.slick-startstop').addClass('stopped');
+		$('.slick-startstop').html(startSliderHTML);
+	    }
+	})
+    }
+  
 	
 	// Fancybox for lightboxes
 	$('a.lightbox').fancybox({ helpers: { title: { type: 'outside'}}});

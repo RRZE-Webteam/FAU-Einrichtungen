@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------------*/
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
-$version:  '1.9.19';
+$version:  '1.10.10';
     // Theme Version
     // First Digit:  Manual
     // Second Digit: Branch Version
@@ -203,11 +203,13 @@ $colorSocialBackground:		$colorMetaBackground;
 
 // CopyrightInfos auf Slider und Banner
 $colorCopyright:	     #fff;
-$colorCopyrightBackground:  rgba(0,0,0,0.7);
+$colorCopyrightBackground:  rgba(0,0,0,0.6);
 
-
+// Abbrevations, Acronyms
+$colorAbbr:		    #000;
 
 // Font sizes
+$font-size-rembase:		93.75%;
 $font-size-gridbase:		15;
 $font-size-base:		15;
 $font-size-meta:		13;
@@ -304,7 +306,13 @@ $font-size-print-base:		11;
 $font-size-print-base-small:	9;
 
 
-
+// Slider
+$slick-arrow-color: white !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
+   
+   
 // Define breakpoints
 
 // iPhone 3G

@@ -9,13 +9,14 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 38,
+    'optiontable-version'		=> 41,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-    'js-version'			=> '1.9',
+    'js-version'			=> '1.10',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
+    
     'website_type'			=> 0,
 	// website_type: 
 	//  0 = Fakultaetsportal; 
@@ -23,25 +24,11 @@ $defaultoptions = array(
 	//  2 = Zentrale Einrichtungen, 
 	//  3 = Kooperationen 
 	// -1 = fau.de Portal (4 Spalter in Bühne, kein Link zur FAU. 
-	//                       Nur wählbar für definierte Domains)
+
     'website_usefaculty'		=> '',
 	// phil, med, nat, rw, tf
 	// Setzt fest die Fakultät bei Wahl des Website-Types    
-    'website_allow_fauportal'		=> array('www.fau.de',
-						'www.fau.eu',
-						'zuv.cms.rrze.uni-erlangen.de',
-						'megli.zuv.cms.rrze.uni-erlangen.de',
-						'heledir.zuv.cms.rrze.uni-erlangen.de',
-						'annabon.zuv.cms.rrze.uni-erlangen.de',
-						'tuilinn.zuv.cms.rrze.uni-erlangen.de',
-						'cugu.zuv.cms.rrze.uni-erlangen.de',
-						'alfirin.test.rrze.fau.de',
-						'ithron.rrze.uni-erlangen.de',
-						'beta.wordpress.rrze.fau.de',
-						'www.beta.wordpress.rrze.fau.de',
-						'test8.tindu.rrze.uni-erlangen.de',		
-						'test4.tindu.rrze.uni-erlangen.de'),
-	// welche Websites können bei website_type die Option -1 wählen 
+
     'default_home_orga'			=> 'fau',
 	// Muss in $default_fau_orga_data auf erster Ebene vorhanden sein.	
     'default_faculty_useshorttitle'	=> false,   
@@ -50,8 +37,11 @@ $defaultoptions = array(
     'src-fallback-slider-image'		=> get_fau_template_uri().'/img/slider-fallback.jpg',
     'slider-catid'			=> 0,    
     'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.min.js',
-    'src-pluginsjs'			=> get_fau_template_uri() . '/js/libs/plugins.min.js',
     'default_slider_excerpt_length'	=> 240,
+    'slider-autoplay'			=> true,
+    'slider-animation'			=> 'fade',
+    'slider-stoptext'			=> __('Animation stoppen','fau'),
+    'slider-starttext'			=> __('Animation starten','fau'),
     'start_header_count'		=> 5,
     'start_max_newscontent'		=> 5,
     'start_max_newspertag'		=> 1,    
@@ -61,7 +51,7 @@ $defaultoptions = array(
     'start_link_news_linktitle'		=> __('Mehr Meldungen','fau'),
     'start_link_videoportal_socialmedia'    => false,
     'start_title_videoportal_socialmedia'   => __('Videoportal','fau'),
-    'start_title_videoportal_url'	    => 'http://video.fau.de',
+    'start_title_videoportal_url'	    => 'https://video.fau.de',
 
     'default_postthumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-220x147.gif',
     'default_postthumb_always'		=> 1,
@@ -241,7 +231,7 @@ $defaultoptions = array(
     'search_post_types'			    => array("page", "post", "attachment"),
     'search_post_types_checked'		    => array("page", "post"),
     'search_allowfilter'		    => true,
-    'search_notice_searchregion'	    => __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.','fau'),
+    'search_notice_searchregion'	    => __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie bitte die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.','fau'),
 
     
     'index_synonym_listall'		=> true,
@@ -437,10 +427,13 @@ $setoptions = array(
 		    'title'   => __( 'Typ', 'fau' ),
 		    'label'   => __( 'Bitte wählen Sie hier aus, um welcherart Webauftritt es sich handelt.', 'fau' ),
 		    'liste'   => array(
+				
 				    0 => __('Fakultätsportal','fau'), 
 				    1 => __('Department, Lehrstuhl, Einrichtung','fau'),  
 				    2 => __('Zentrale Einrichtung','fau') ,
-				    3 => __('Website für uniübergreifende Kooperationen mit Externen','fau') ),
+				    3 => __('Website für uniübergreifende Kooperationen mit Externen','fau') ,
+				    -1 => __('Zentrales FAU-Portal www.fau.de','fau') 
+			),
 		    'default' => $defaultoptions['website_type'],
 		    'parent'  => 'webgroup'
 		    
@@ -565,7 +558,7 @@ $setoptions = array(
 	       'advanced_activate_post_comments'		  => array(
                   'type'    => 'toggle',
                   'title'   => __( 'Kommentarfunktion', 'fau' ),
-                  'label'   => __( 'Schaltet die Kommentarfunktion für Beiträge ein. Die Kommentare erscheinen unterhalb des Artikels. Bitte beachten Sie, daß diese Darstellung von KOmmentarfunktionen ebenfalls von den Diskussions-Einstellungen abhängig sind.', 'fau' ),                
+                  'label'   => __( 'Schaltet die Kommentarfunktion für Beiträge ein. Die Kommentare erscheinen unterhalb des Artikels. Bitte beachten Sie, daß diese Darstellung von Kommentarfunktionen ebenfalls von den Diskussions-Einstellungen abhängig sind.', 'fau' ),                
                   'default' => $defaultoptions['advanced_activate_post_comments'],
 		  'parent'  => 'postoptions'
 		), 
@@ -671,7 +664,7 @@ $setoptions = array(
                   'title'   => __( 'Zahl der Slides', 'fau' ),
                   'label'   => __( 'Anzahl der Slides von verlinkten Top-Artikeln', 'fau' ),
 		  'min'	    => 2,
-		  'max'	    => 7,	
+		  'max'	    => 10,	
                   'default' => $defaultoptions['start_header_count'],
                    'parent'  => 'slider'
               ), 
@@ -692,7 +685,14 @@ $setoptions = array(
 		    'label'   => __( 'Ersatzbild für den Slider, für den Fall, daß ein Artikel kein eigenes Artikel- oder Bühnenbild definiert hat.', 'fau' ),               
 		    'parent'  => 'slider'
 		),  
-
+		'fallback-slider-image-title' => array(
+		    'type'    => 'text',
+		    'title'   => __( 'Copyright/Titel Ersatzbild', 'fau' ),
+		    'label'   => __( 'Optionaler Titel bzw. Copyright-Info für das Ersatzbild für den Fall, daß es sich um ein geschnittenes Originalbild handelt.', 'fau' ),               
+		    'default' => '',
+		    'parent'  => 'slider'
+		),  
+	       
 	       'default_slider_excerpt_length' => array(
                   'type'    => 'range-value',
                   'title'   => __( 'Textauszug', 'fau' ),
@@ -704,6 +704,27 @@ $setoptions = array(
                    'parent'  => 'slider'
               ), 
 	      
+	       
+	       'slider-autoplay'  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Autoplay', 'fau' ),
+		    'label'   => __( 'Slider automatisch starten', 'fau' ),                
+		    'default' => $defaultoptions['slider-autoplay'],
+		    'parent'  => 'slider'
+		),   	  
+	       
+	       'slider-animation' => array(
+		'type'      => 'select',
+		'title'     => esc_html__( 'Slider Animation', 'fau'),
+                'label'     => esc_html__( 'Art der Animation einzelner Slides', 'fau'),
+		'liste'     => array(
+    			'slide'	 => esc_html__( 'Verschieben', 'fau'),
+			'fade' 	 => esc_html__( 'Erscheinen', 'fau'),
+                ),
+		'default'   => $defaultoptions['slider-animation'],
+                'parent'    => 'slider'	    
+            ),
+	       
 	      'breadcrumb'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Bühne und Breadcrumb', 'fau' ),    
@@ -718,13 +739,6 @@ $setoptions = array(
 		),  	
 	      
 	       
-	      'breadcrumb_root'	 => array(
-		    'type'    => 'text',
-		    'title'   => __( 'Titel Startseite in Breadcrumb', 'fau' ),
-		    'label'   => __( 'Definiert, wie der Link zur Startseite in der Breadcrumb aussehen soll. Per Default sollte hier die offizielle URL oder der Text "Startseite" stehen.', 'fau' ),               
-		    'default' => $defaultoptions['breadcrumb_root'],
-		    'parent'  => 'breadcrumb'
-		), 
 	          
 	       'breadcrumb_withtitle'	  => array(
 		    'type'    => 'toggle',
@@ -950,7 +964,7 @@ $setoptions = array(
 		    'liste'   => array(
 				"page"		=> __('Seiten','fau'),
       				"post"		=> __('Artikel','fau'),
-				"attachment"	=> __('Medien','fau'),
+				"attachment"	=> __('Dokumente und Bilder','fau'),
 		      ),
 		    'default' => $defaultoptions['search_post_types_checked'],
 		    'parent'  => 'suchergebnisse'
@@ -959,7 +973,7 @@ $setoptions = array(
 		    'type'    => 'text',
 		    'title'   => __( 'Hinweis zum Suchbereich', 'fau' ),
 		    'label'   => __( 'Für Besucher der Website ist oft nicht klar, daß die Suchmaschine nur den einzelnen Webauftritt durchsucht und nicht beispielsweise alle Seiten der FAU. Dieser Texthinweis macht darauf aufmerksam.', 'fau' ),               
-		    'default' => $defaultoptions['search_display_excerpt_morestring'],
+		    'default' => $defaultoptions['search_notice_searchregion'],
 		     'parent'  => 'suchergebnisse'
 		), 
    

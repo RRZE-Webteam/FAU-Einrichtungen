@@ -18,7 +18,6 @@ require_once( get_template_directory() . '/functions/plugin-support.php' );
 
 require_once( get_template_directory() . '/functions/helper-functions.php' );
 require_once( get_template_directory() . '/functions/template-functions.php' );
-// require_once( get_template_directory() . '/functions/theme-options.php' );     
 require_once( get_template_directory() . '/functions/shortcodes.php');
 require_once( get_template_directory() . '/functions/shortcode-accordion.php');
 
@@ -149,7 +148,9 @@ function fau_register_scripts() {
 	// Flexslider für Startseite und für Galerien.     
     wp_register_script('fau-libs-jquery-caroufredsel', get_fau_template_uri() . '/js/libs/jquery.caroufredsel.js', array('jquery'), $theme_version, true );
     wp_register_script('fau-js-caroufredsel', get_fau_template_uri() . '/js/usecaroufredsel.min.js', array('jquery','fau-libs-jquery-caroufredsel'), $theme_version, true );
-	// Slidende Logos 
+    wp_register_script('fau-js-heroslider', get_fau_template_uri() . '/js/slick.min.js', array('jquery'), $theme_version, true );
+   
+	
 }
 add_action('init', 'fau_register_scripts');
 
@@ -175,10 +176,13 @@ function fau_enqueuefootercripts() {
    
     
      if ((isset($usejslibs['flexslider']) && ($usejslibs['flexslider'] == true))) {
-	 // wird bei Startseite Slider und auch bei gallerien verwendet
+	 // wird bei Gallerien verwendet (und früher bei der Startseite)
 	wp_enqueue_script('fau-libs-jquery-flexslider');	     
      }	 
-
+     if ((isset($usejslibs['heroslider']) && ($usejslibs['heroslider'] == true))) {
+	 // wird bei Startseite Slider und auch bei gallerien verwendet
+	 wp_enqueue_script('fau-js-heroslider');
+     }	 
      if ((isset($usejslibs['caroufredsel']) && ($usejslibs['caroufredsel'] == true))) {
 	// wird bei Logo-Menus verwendet
 	wp_enqueue_script('fau-libs-jquery-caroufredsel');

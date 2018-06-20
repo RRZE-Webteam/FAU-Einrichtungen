@@ -3,33 +3,6 @@
  * Additional features to allow styling of the templates
  */
 
-
-   
-	/* 
-	 * website_type: 
-	 *  0 = Fakultaetsportal oder zentrale Einrichtung
-	 *	=> Nur Link zur FAU, kein Link zur Fakultät
-	 *	   Link zur FAU als Text, da FAU-Logo bereits Teil des
-	 *         Fakultätslogos
-	 *  1 = Lehrstuhl oder eine andere Einrichtung die einer Fakultät zugeordnet ist 
-	 *	=> Link zur FAU und Link zur Fakultät, 
-	 *         Link zur FAU als Grafik, Link zur Fakultät als Text (lang oder kurz nach Wahl)
-	 *  2 = Sonstige Einrichtung, die nicht einer Fakultät zugeordnet sein muss
-	 *	=> Nur Link zur FAU, kein Link zur Fakultät
-	 *	   Link zur FAU als Grafik (das ist der Unterschied zur Option 0)
-	 *  3 = Koopertation mit Externen (neu ab 1.4)
-	 *	=> Kein Link zur FAU
-	 *  -1 = FAU-Portal (neu ab 1.4, nur für zukunftigen Bedarf)
-	 *	=> Kein Link zur FAU, aktiviert 4 Spalten unter HERO
-	 * 
-	 * 'website_usefaculty' = ( nat | phil | med | tf | rw )
-	 *  Wenn gesetzt, wird davon ausgegangen, dass die Seite
-	 *  zu einer Fakultät gehört; Daher werden website_type-optionen auf
-	 *  0 und 2 reduziert. D.h.: Immer LInk zur FAU, keine Kooperationen.
-	 *  
-	 */
-
-
  /*-----------------------------------------------------------------------------------*/
  /* Extends the default WordPress body classes
  /*-----------------------------------------------------------------------------------*/
@@ -59,7 +32,29 @@
 	 $classes[] = 'faculty-'.$website_usefaculty;
     }
     $website_type = get_theme_mod('website_type');
-    
+    /* 
+	 * website_type: 
+	 *  0 = Fakultaetsportal oder zentrale Einrichtung
+	 *	=> Nur Link zur FAU, kein Link zur Fakultät
+	 *	   Link zur FAU als Text, da FAU-Logo bereits Teil des
+	 *         Fakultätslogos
+	 *  1 = Lehrstuhl oder eine andere Einrichtung die einer Fakultät zugeordnet ist 
+	 *	=> Link zur FAU und Link zur Fakultät, 
+	 *         Link zur FAU als Grafik, Link zur Fakultät als Text (lang oder kurz nach Wahl)
+	 *  2 = Sonstige Einrichtung, die nicht einer Fakultät zugeordnet sein muss
+	 *	=> Nur Link zur FAU, kein Link zur Fakultät
+	 *	   Link zur FAU als Grafik (das ist der Unterschied zur Option 0)
+	 *  3 = Koopertation mit Externen (neu ab 1.4)
+	 *	=> Kein Link zur FAU
+	 *  -1 = FAU-Portal (neu ab 1.4, nur für zukunftigen Bedarf)
+	 *	=> Kein Link zur FAU, aktiviert 4 Spalten unter HERO
+	 * 
+	 * 'website_usefaculty' = ( nat | phil | med | tf | rw )
+	 *  Wenn gesetzt, wird davon ausgegangen, dass die Seite
+	 *  zu einer Fakultät gehört; Daher werden website_type-optionen auf
+	 *  0 und 2 reduziert. D.h.: Immer LInk zur FAU, keine Kooperationen.
+	 *  
+	 */
     if ($website_type==-1) {
 	$classes[] = 'fauorg-home';
     } elseif ($website_type==0) {
@@ -84,6 +79,17 @@
     $sitetitle = get_bloginfo( 'title' );
     if (strlen($sitetitle) > 50) {
 	$classes[] = 'longtitle';
+    }
+    
+    
+    if (('' != get_theme_mod( 'slider-autoplay' )) && (true== get_theme_mod( 'slider-autoplay' )) ) {
+	     $classes[] = 'slider-autoplay';
+    } else {
+	  $classes[] = 'slider-noplay';
+    }
+
+    if ('fade' == get_theme_mod( 'slider-animation' ) ) {
+	    $classes[] = 'slider-fade';
     }
     
     
@@ -781,7 +787,7 @@ function fau_get_image_attributs($id=0) {
         
         $meta = get_post_meta( $id );
         if (!isset($meta)) {
-         return;
+	    return;
         }
     
         $result = array();
@@ -864,7 +870,7 @@ function fau_get_image_attributs($id=0) {
 		$result['credits'] = $precopyright.' '.$result['author'];
 	    } elseif (!empty($result['credit'])) {
 		$result['credits'] = $precopyright.' '.$result['credit'];		
-		} else {
+	    } else {
 		if (!empty($result['description'])) {
 		    $result['credits'] = $result['description'];
 		} elseif (!empty($result['caption'])) {
@@ -1349,11 +1355,6 @@ function fau_get_toplinks($args = array()) {
     $uselist =  $default_link_liste['meta'];
     $result = '';
 
-    // if (isset($uselist['_title'])) {
-//	$result .= '<h3>'.$uselist['_title'].'</h3>';	
-// $result .= "\n";
-//    }
-    
     $orgalist = fau_get_orgahomelink();
     $thislist = "";
     
@@ -1509,7 +1510,6 @@ function fau_get_tag_ID($tag_name) {
 	    $blogroll_query->the_post();
 	    $id = get_the_ID();
 	    $out .= fau_display_news_teaser($id,true,$hstart,$hidemeta);
-           //  $out .= fau_load_template_part('template-parts/content-blogroll' );  // fau_display_news_teaser($id,true); // 
 	endwhile; 
     endif; // have_posts()                  
      

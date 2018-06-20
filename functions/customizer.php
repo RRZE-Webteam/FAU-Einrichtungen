@@ -30,7 +30,7 @@ function fau_customizer_settings( $wp_customize ) {
     $definedtypes = array(
 	"text", "checkbox", "radio", "select", "textarea", "dropdown-pages", "email", "url", "number", "hidden", "date",
 	    // defaults
-	"bool", "html", "image", "multiselectlist", "urlchecklist", "range", "range-value", "category", "toggle", "toogle-switch"
+	"bool", "html", "image", "multiselect", "multiselectlist", "urlchecklist", "range", "range-value", "category", "toggle", "toogle-switch"
 	    // self defined boolean
 
     );
@@ -476,7 +476,7 @@ if (class_exists('WP_Customize_Control')) {
                         
                         <label for="_customize-colorlist-radio_<?php echo esc_attr( $this->id ); ?>_reset">
                             <input name="_customize-colorlist-radio_<?php echo esc_attr( $this->id ); ?>" id="_customize-colorlist-radio_<?php echo esc_attr( $this->id ); ?>_reset" type="radio" value="" <?php $this->link(); checked( $this->value(), "" ); ?> >
-                                <span class="reset"><?php echo __("Reset",'pirate-rogue'); ?></span> 
+                                <span class="reset"><?php echo __("Reset",'fau'); ?></span> 
                             </input>
                         </label>
                     </div>

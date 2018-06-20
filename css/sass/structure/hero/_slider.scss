@@ -2,74 +2,88 @@
 /* Slider im Hero-Teil
 /*-----------------------------------------------------------------------------------*/
 
-
 #hero-slides {
 	position: relative;
 	margin: 0 auto -15px auto;
-	height: 350px;
 	background: $colorPrimary;
-	max-width: 1260px;
-	overflow: hidden;
 	@include box-shadow(0 10px 20px rgba(0,0,0,0.5));
 	
-	.hero-slide {
-		position: relative;
-		height: inherit;
-		
-		img {
-		    height: 100%;
-		    width: auto;
-		    max-width: inherit;
-		    vertical-align: middle;
-		    z-index: 5;
-		}
-		h2,
-		h3 {
-			color: #fff;
-			background: rgba($colorPrimary,0.8);
-			display: inline;
-			padding: 3px;
-			margin: 10px 0 15px 0;
-			@include px2rem($font-size-hero-slider-title);
-			
-			box-decoration-break: clone;
-			-webkit-box-decoration-break: clone;
-		}
-		.slider-text {
-		    display: inline-block;
-		}
-		
-		p {
-			@include px2rem($font-size-hero-slider-text,$font-size-gridbase,$font-size-hero-slider-text * 1.7);
-			color: #fff;
-			background: rgba($colorPrimary,0.8);
-			padding: 3px;
-			margin: 0;
-			box-decoration-break: clone;
-			 -webkit-box-decoration-break: clone;
-			display: none;
-			 
-			 
-			@media (min-width: $screen-sm) {
-				display: inline;
-			}
-			 
-		}
-		p.credits {
-		    background: $colorCopyrightBackground;
-		    color: $colorCopyright;
-		    @include px2rem($font-size-hero-slider-copyright);
+	.item {
+	    position: relative;
+	    width: 100%;
+	    max-height: 214px;
+	    overflow: hidden;
+	    
+	    @media (min-width: $screen-sm) {
+		max-height: 350px;  
+	    }
 
-		    position: absolute;
-		    bottom: 0;
-		    right: 0;
-		    z-index: 6;
-		    margin: 0;
-		    padding: 1px 4px;
+	    @media (min-width: 1260px) {
+		width: 1260px;
+		height: 350px;
+	    }
+	    
+	    
+	    
+	    h2,
+	    h3 {
+		    color: #fff;
+		    background: rgba($colorPrimary,0.8);
+		    display: inline;
+		    padding: 3px;
+		    margin: 10px 0 15px 0;
+		    @include px2rem($font-size-hero-slider-title);
+
+		    box-decoration-break: clone;
+		    -webkit-box-decoration-break: clone;
+	    }
+
+	    .slider-text {
+		@extend .col-xs-12;
+		@extend .col-sm-10;
+
+		display: none;   
+		@media (min-width:  $screen-sm) {
+		      display: inline-block;
 		}
-		
+	    }
+
+	    p {
+		    @include px2rem($font-size-hero-slider-text,$font-size-gridbase,$font-size-hero-slider-text * 1.7);
+		    color: #fff;
+		    background: rgba($colorPrimary,0.8);
+		    padding: 3px;
+		    margin: 0;
+		    box-decoration-break: clone;
+		     -webkit-box-decoration-break: clone;
+		    display: none;
+
+
+		    @media (min-width: $screen-sm) {
+			    display: inline;
+		    }
+
+	    }
+	    p.credits {
+		background: $colorCopyrightBackground;
+		color: $colorCopyright;
+		@include px2rem($font-size-hero-slider-copyright);
+		z-index: 6;
+		margin: 0;
+		padding: 1px 4px;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	    }
+	    img {
+		min-height: 350px;
+		min-width: 1260px;
+		vertical-align: middle;
+		z-index: 5;
+	    }
 	}
 	.slider-titel {
+	    @extend .col-xs-12;
 	    margin-bottom: 5px;
 	}
 	.hero-slide-text {
@@ -81,52 +95,161 @@
 		padding: 0;
 		width: 100%;
 	}
-	ul {
-		@include no-list;
-	}
 	li {
     		@include no-list;
-		font-size: 13px;
-		padding-left: 20px;
-		padding-bottom: 5px;
+		padding: 0;
 	
 	}
-	
-	
-	display: none;
 
-	@media (min-width: $screen-sm) {
+	display: none;
+	height: auto;
+	@media (min-width: $screen-xs) {
 	    display: block;
-	    top: -20px;
+	    width: 100%;
+	    max-height: 350px;  
 	    .no-js & {
 	    	display: none;
 	    }
+	    top: -20px;
 	}
-	@media (max-width: $breakLG) {
-	    .hero-slide {
-		img {
-		    vertical-align: middle;
-		}
+	@media (min-width: 1260px) {
+	    width: 1260px;
+	    height: 350px;
+	}
 
-		p {
-		    .credits {
-			top: 10px;
-			bottom: inherit;
-		    }
-		}
 
+
+   .slick-prev,
+   .slick-next {
+       position: absolute;
+       display: block;
+       height: 30px;
+       width: 30px;
+       line-height: 0px;
+       font-size: 0px;
+       cursor: pointer;
+       background: transparent;
+       color: transparent;
+       top: 50%;
+       -webkit-transform: translate(0, -50%);
+       -ms-transform: translate(0, -50%);
+       transform: translate(0, -50%);
+       padding: 0;
+       border: none;
+       outline: none;
+
+
+       &:hover, 
+       &:focus {
+	   outline: none;
+	   background: transparent;
+	   color: transparent;
+	   &:before {
+	       opacity: $slick-opacity-on-hover;
+	   }
+       }
+       &.slick-disabled:before {
+	   opacity: $slick-opacity-not-active;
+       }
+       &:before {
+	   font-size: 30px;
+	   line-height: 1;
+	   color: $slick-arrow-color;
+	   opacity: $slick-opacity-default;
+	   
+	   -webkit-font-smoothing: antialiased;
+	   -moz-osx-font-smoothing: grayscale;
+	   text-shadow: 2px 2px #000;
+	   
+	    @media (min-width: $break-1360) {
+		text-shadow: none;
+	    }
+       }
+       
+   }
+
+   .slick-prev {
+       left: 5px;
+       [dir="rtl"] & {
+	   left: auto;
+	   right: 5px;
+       }
+       
+	@media (min-width: $break-1360) {
+	   left: -40px;
+	    [dir="rtl"] & {
+		left: auto;
+		right: -40px;
 	    }
 	}
+       
+       
+       
+       &:before {	
+	   @extend .fa;
+	   @extend .fa-chevron-left;
 
+	   [dir="rtl"] & {
+	       @extend .fa-chevron-right;
+	   }
+       }
+      
+   }
+
+   .slick-next {
+       right: 5px;
+       [dir="rtl"] & {
+	   left: 5px;
+	   right: auto;
+	}
+	@media (min-width: $break-1360) {
+	    right: -40px;
+	    [dir="rtl"] & {
+		left: -40px;
+		right: auto;
+	     }
+	}
+       
+       
+       &:before {
+	   @extend .fa;
+	   @extend .fa-chevron-right;
+
+	   [dir="rtl"] & {
+	       @extend .fa-chevron-left;
+	   }
+       }
+      
+   }
+
+
+    .slick-startstop {
+       position: absolute;
+       display: block;
+       top: 20px;
+       right: 0px;
+
+       
+	@media (min-width: $screen-md) {
+		top: 5px;
+	}
+
+       background: $colorCopyrightBackground;
+       color: $colorCopyright;
+       @include px2rem($font-size-hero-slider-copyright);
+       margin: 0;
+       padding: 1px 4px;
+       border: none;
+
+       &:hover, 
+       &:focus {
+	       color: #fff;
+	       background: #000;
+	       transition-timing-function: ease;
+       }	   
+
+       .no-js & {
+	   display: none;
+       }
+   }
 }
-
-.slider-titel {
-   @extend .col-xs-12;
-}
-.slider-text {
-   @extend .col-xs-12;
-   @extend .col-sm-10;
-}
-
-
-
