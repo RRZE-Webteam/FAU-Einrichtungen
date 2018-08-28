@@ -16,62 +16,56 @@ class FAUShortcodes {
             add_shortcode('assistant', array( $this, 'fau_assistant' ));
             add_shortcode('organigram', array( $this, 'fau_organigram'));
 
-         
-
-
             // Paragraphes and content regions
             add_shortcode('hr', array( $this, 'fau_hr'));
-            // Old Shortcodes for downwards compatibility
-            if ( !is_plugin_active( 'rrze-elements/rrze-elements.php' ) ) {
-                add_shortcode('alert', array( $this, 'absatzklasse_attention' ));
-            }
-            add_shortcode('attention', array( $this, 'absatzklasse_attention' ));
-            add_shortcode('hinweis', array( $this, 'absatzklasse_hinweis' ));
-            add_shortcode('baustelle', array( $this, 'absatzklasse_baustelle' ));
-            add_shortcode('plus', array( $this, 'absatzklasse_plus' ));
-            add_shortcode('minus', array( $this, 'absatzklasse_minus' ));
-            add_shortcode('question', array( $this, 'absatzklasse_question' ));	
-
-            // New Shortcodes in defined syntax
-            add_shortcode('notice-alert', array( $this, 'absatzklasse_attention' ));
-            add_shortcode('notice-attention', array( $this, 'absatzklasse_attention' ));
-            add_shortcode('notice-hinweis', array( $this, 'absatzklasse_hinweis' ));
-            add_shortcode('notice-baustelle', array( $this, 'absatzklasse_baustelle' ));
-            add_shortcode('notice-plus', array( $this, 'absatzklasse_plus' ));
-            add_shortcode('notice-minus', array( $this, 'absatzklasse_minus' ));
-            add_shortcode('notice-question', array( $this, 'absatzklasse_question' ));	
-
-
-            add_shortcode('notice-tipp', array( $this, 'absatzklasse_tipp' ));	
-            add_shortcode('notice-video', array( $this, 'absatzklasse_video' ));	
-            add_shortcode('notice-audio', array( $this, 'absatzklasse_audio' ));	
-            add_shortcode('notice-download', array( $this, 'absatzklasse_download' ));	
-            add_shortcode('notice-faubox', array( $this, 'absatzklasse_faubox' ));	
-
-            add_shortcode('notice', array( $this, 'fau_notice' ));	
-
-
+            
             // Ported and adapted by old bootstrap code
-            if ( !is_plugin_active( 'rrze-elements/rrze-elements.php' ) ) {
-                add_shortcode('button', array( $this, 'bs_button' ));
-            }
             add_shortcode('code', array( $this, 'bs_code' ));
             add_shortcode('span', array( $this, 'bs_span' ));
             add_shortcode('row', array( $this, 'bs_row' ));
             add_shortcode('table', array( $this, 'bs_table' ));
 
-            // Blogroll und Artikellisten    
+            // Blogroll und Artikellisten
             add_shortcode('blogroll', array( $this, 'fau_shortcode_blogroll'));
             add_shortcode('articlelist', array( $this, 'fau_shortcode_articlelist'));
 
-            // Spalten    
-            add_shortcode( 'two_columns_one', array( $this, 'fau_shortcode_two_columns_one'));
-            add_shortcode( 'two_columns_one_last', array( $this, 'fau_shortcode_two_columns_one_last'));
-            add_shortcode( 'three_columns_one', array( $this, 'fau_shortcode_three_columns_one'));
-            add_shortcode( 'three_columns_one_last', array( $this, 'fau_shortcode_three_columns_one_last' ));
+            // Portalmenu
+            add_shortcode( 'portalmenu', array( $this, 'fau_portalmenu'));
 
-            // Portalmenu 
-             add_shortcode( 'portalmenu', array( $this, 'fau_portalmenu'));
+            add_shortcode('notice', array( $this, 'fau_notice' ));
+
+            if ( !is_plugin_active( 'rrze-elements/rrze-elements.php' ) ) {
+
+                add_shortcode('button', array( $this, 'bs_button' ));
+
+                // Old Shortcodes for downwards compatibility
+                add_shortcode('alert', array( $this, 'absatzklasse_attention' ));
+                add_shortcode('attention', array( $this, 'absatzklasse_attention' ));
+                add_shortcode('hinweis', array( $this, 'absatzklasse_hinweis' ));
+                add_shortcode('baustelle', array( $this, 'absatzklasse_baustelle' ));
+                add_shortcode('plus', array( $this, 'absatzklasse_plus' ));
+                add_shortcode('minus', array( $this, 'absatzklasse_minus' ));
+                add_shortcode('question', array( $this, 'absatzklasse_question' ));
+                // New Shortcodes in defined syntax
+                add_shortcode('notice-alert', array( $this, 'absatzklasse_attention' ));
+                add_shortcode('notice-attention', array( $this, 'absatzklasse_attention' ));
+                add_shortcode('notice-hinweis', array( $this, 'absatzklasse_hinweis' ));
+                add_shortcode('notice-baustelle', array( $this, 'absatzklasse_baustelle' ));
+                add_shortcode('notice-plus', array( $this, 'absatzklasse_plus' ));
+                add_shortcode('notice-minus', array( $this, 'absatzklasse_minus' ));
+                add_shortcode('notice-question', array( $this, 'absatzklasse_question' ));
+                add_shortcode('notice-tipp', array( $this, 'absatzklasse_tipp' ));
+                add_shortcode('notice-video', array( $this, 'absatzklasse_video' ));
+                add_shortcode('notice-audio', array( $this, 'absatzklasse_audio' ));
+                add_shortcode('notice-download', array( $this, 'absatzklasse_download' ));
+                add_shortcode('notice-faubox', array( $this, 'absatzklasse_faubox' ));
+
+                // Spalten
+                add_shortcode( 'two_columns_one', array( $this, 'fau_shortcode_two_columns_one'));
+                add_shortcode( 'two_columns_one_last', array( $this, 'fau_shortcode_two_columns_one_last'));
+                add_shortcode( 'three_columns_one', array( $this, 'fau_shortcode_three_columns_one'));
+                add_shortcode( 'three_columns_one_last', array( $this, 'fau_shortcode_three_columns_one_last' ));
+            }            	
 	}
 	
 

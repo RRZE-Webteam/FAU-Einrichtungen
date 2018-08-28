@@ -233,7 +233,32 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		if ($nothumbnail==1) {
 		    $thumbregion = '';
 		} else {
-		    $thumbregion = get_the_post_thumbnail($this->currentID,'post');
+		    $thumbregion = '';
+		    $thumbnail_id = get_post_thumbnail_id($this->currentID); 
+		    
+		    
+		    if ($thumbnail_id) {
+			$image_attributes = wp_get_attachment_image_src( $thumbnail_id, 'post' );
+			
+			
+			$thumbregion .= '<figure>';
+			$thumbregion .= '<img src="'.fau_esc_url($image_attributes[0]).'" width="'.$image_attributes[1].'" height="'.$image_attributes[1].'" alt="">';
+				
+			$imgdata = fau_get_image_attributs($thumbnail_id);
+			$displaycredits = get_theme_mod("advanced_display_portalmenu_thumb_credits");
+			$info = "";
+			$credits = '';										
+			if (isset($imgdata) && ($displaycredits==true)) {
+			    $credits = trim(strip_tags(  $imgdata['credits']));  
+			   if (!empty($credits)) {
+			        $thumbregion .=  '<figcaption>';
+				$thumbregion .=  $credits;
+				$thumbregion .=  '</figcaption>';
+			   }
+			}
+			
+			$thumbregion .= '</figure>';			
+		    }
 		}
 	        $quote  = get_post_meta( $this->currentID, 'zitat_text', true );
 	        $author =  get_post_meta( $this->currentID, 'zitat_autor', true );

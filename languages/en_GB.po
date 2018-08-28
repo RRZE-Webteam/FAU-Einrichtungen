@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: FAU v1.2.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-18 12:48+0000\n"
-"PO-Revision-Date: 2018-06-18 12:51+0000\n"
+"PO-Revision-Date: 2018-06-22 10:16+0000\n"
 "Last-Translator: Wolfgang Wiese <wolfgang.wiese@fau.de>\n"
 "Language-Team: English (UK)\n"
 "Language: en_GB\n"
@@ -877,12 +877,14 @@ msgstr "<p>Embedding in pages and articles via: </p>"
 
 #: functions/menu.php:21
 msgid "Meta-Navigation oben: Links zu anderen Webauftritten und Portalen"
-msgstr ""
+msgstr "Upper Meta Navigation: Links towards external websites "
 
 #: functions/menu.php:24
 msgid ""
 "Navigation unten: Kontakt, Impressum und weitere Hinweise zum Webauftritt"
 msgstr ""
+"Lower Meta Navigation: Use for contact page, legal information, privacy and "
+"other pages giving information about the website."
 
 #: functions/menu.php:27
 msgid "Haupt-Navigation"
@@ -2072,7 +2074,7 @@ msgstr ""
 
 #: functions/constants.php:690
 msgid "Copyright/Titel Ersatzbild"
-msgstr ""
+msgstr "Copyright / Title Replacement"
 
 #: functions/constants.php:691
 msgid ""
@@ -2119,6 +2121,7 @@ msgstr "Header and Breadcrumb"
 #: functions/constants.php:731
 msgid "Einstellungen für den Kopfteil der Startseite und die Breadcrumb."
 msgstr ""
+"Settings for header region of the start page and the breadcrumb region."
 
 #: functions/constants.php:735
 msgid "Sprunglink unter der Bühne"

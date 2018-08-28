@@ -180,6 +180,11 @@
 	.introthumb {
 	    padding-top: 7px;
 	}
+	figcaption {
+	    color: #fff;
+	    opacity: 0.7;
+	    @include px2rem($font-size-nav-blockquote-cite);
+	} 
 	p.nav-excerpt {
 		color: $colorLightest;
 		font-size: 15px;

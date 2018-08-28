@@ -33,7 +33,14 @@ p {
 	}
 
 	
-
+	&.lead-in {
+		margin: 0;
+		padding: 0;
+		color: $colorPrimary;
+		font-weight: 300;
+		font-style: italic;
+		@include px2rem($font-size-quotes);
+        }
 	
 	#content .span4 .widget &,
 	#content .startpage-sidebar .widget &,
