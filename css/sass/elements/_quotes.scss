@@ -136,6 +136,11 @@ blockquote {
 cite {
     color: $colorPrimaryHeroLight; 
     font-weight: normal;
+    
+    
+    &.text {
+	color: inherit;
+    }
 }
 
 

@@ -53,7 +53,7 @@ jQuery(document).ready(function($) {
 	    fadeit = true;
 	}
 	
-	var autoplaySpeedval = 5000;
+	var autoplaySpeedval = 7000;
 	var sliderNextHTML = '<button type="button" class="slick-next">Next</button>';
 	var sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
 	var stopSliderHTML = 'Stop Animation';
