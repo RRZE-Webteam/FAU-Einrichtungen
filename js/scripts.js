@@ -313,8 +313,8 @@ jQuery(document).ready(function($) {
 		$(this).parents('li').addClass('focus');
 	});
 	
-	$('#meta-nav > li > a').focus(function() {
-		$('#meta-nav > li').removeClass('focus');
+	$('.meta-nav > li > a').focus(function() {
+		$('.meta-nav > li').removeClass('focus');
 		$(this).parents('li').addClass('focus');
 	});
 	
@@ -350,6 +350,7 @@ jQuery(document).ready(function($) {
 	var navContainer = $('<div id="off-canvas">');
 	// var offcanvaslogo = $('#logo').clone();
 	var nav = $('#nav').clone();
+	nav.attr("id", "nav-off-canvas");
 	var navCloseLabel = $('<a id="off-canvas-close" href="#"><span>Menü schließen</span> <i class="fa fa-times"></i></a>');
 	if ($('html').attr('lang') !== 'de-DE') {
 		$('span', navCloseLabel).text('Close menu');
@@ -409,8 +410,8 @@ jQuery(document).ready(function($) {
 	var footerheronav = $('<div class="cloned-hero-nav"></div>'); 
 	var footermetalinks = $('<div class="cloned-meta-links"></div>');
 	var titleportallinks = $('.meta-links h3').clone();
-	var portallinks = $('.meta-links #meta-nav').clone();
-		
+	var portallinks = $('.meta-links .meta-nav').clone();
+
 	footerheronav.append(heroNavigation);
 	footerheronav.prependTo('#footer');
 	

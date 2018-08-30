@@ -499,8 +499,8 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	} elseif (($hstart < 1) || ($hstart >6)) {
 	    $hstart = 2;
 	}
-	
-	$output .= '<article class="news-item" itemscope itemtype="http://schema.org/NewsArticle">';
+	$arialabelid= "aria-".$post->ID;
+	$output .= '<article class="news-item" aria-labelledby="'.$arialabelid.'" itemscope itemtype="http://schema.org/NewsArticle">';
 	$link = get_post_meta( $post->ID, 'external_link', true );
 	$link = esc_url(trim($link));
 	$external = false;
@@ -509,7 +509,8 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	} else {
 	    $link = fau_esc_url(get_permalink($post->ID));
 	}
-	$output .= "<h".$hstart." itemprop=\"headline\">";  
+	
+	$output .= '<h'.$hstart.' id="'.$arialabelid.'" itemprop="headline">';  
 	$output .= '<a itemprop="url" ';
 	if ($external) {
 	    $output .= 'class="ext-link" rel="canonical" ';
@@ -735,10 +736,8 @@ function fau_create_readmore($url,$linktitle = '',$external = false, $ariahide =
 	    $output .= ' title="'.$linktitle.'"';
 	}
 	$output .= '>';
-	$output .= '<i class="read-more-arrow">&nbsp;</i>';
-//	if ($ariahide == false) {
-	    $output .= '<span class="screen-reader-text">'.__('Weiterlesen','fau').'</span>'; 
-//	}
+	$output .= '<span class="read-more-arrow">&nbsp;</span>';
+	$output .= '<span class="screen-reader-text">'.__('Weiterlesen','fau').'</span>'; 
 	$output .= '</a>'; 
     }
     return $output;
@@ -1416,7 +1415,7 @@ function fau_get_toplinks($args = array()) {
 	    $result .= '<'.$html.'>'.esc_attr($args['title']).'</'.$html.'>';
 	}
 	
-	$result .= '<ul id="meta-nav" class="menu">';
+	$result .= '<ul class="meta-nav" class="menu">';
 	$result .= $thislist;
 	$result .= '</ul>';	
 	$result .= "\n";	

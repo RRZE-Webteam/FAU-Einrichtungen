@@ -151,6 +151,13 @@ function fau_get_menu_name($location){
 	return $menu_title;
 }
 
+/*-----------------------------------------------------------------------------------*/
+/*remove Menu Item IDs
+/*-----------------------------------------------------------------------------------*/
+add_filter('nav_menu_item_id', 'clear_nav_menu_item_id', 10, 3);
+function clear_nav_menu_item_id($id, $item, $args) {
+    return "";
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* returns top parent id
