@@ -351,7 +351,7 @@ jQuery(document).ready(function($) {
 	// var offcanvaslogo = $('#logo').clone();
 	var nav = $('#nav').clone();
 	nav.attr("id", "nav-off-canvas");
-	var navCloseLabel = $('<a id="off-canvas-close" href="#"><span>Menü schließen</span> <i class="fa fa-times"></i></a>');
+	var navCloseLabel = $('<a id="off-canvas-close" href="#"><span>Menü schließen</span> <em class="fa fa-times"></em></a>');
 	if ($('html').attr('lang') !== 'de-DE') {
 		$('span', navCloseLabel).text('Close menu');
 	}

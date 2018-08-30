@@ -313,8 +313,8 @@ function fau_get_imagelinks ( $catid, $echo = true ) {
 	    $output .= '<div class="imagelink_carousel">';
 		$output .= '<div class="container">';
 		    $output .= '<div class="logos-menu-nav">';
-			$output .= '<a id="logos-menu-prev" href="#"><i class="fa fa-chevron-left"></i><span class="screen-reader-text">'. __('Zurück', 'fau') . '</span></a>';
-			$output .= '<a id="logos-menu-next" href="#"><i class="fa fa-chevron-right"></i><span class="screen-reader-text">'. __('Weiter', 'fau') . '</span></a>';
+			$output .= '<a id="logos-menu-prev" href="#"><em class="fa fa-chevron-left"></em><span class="screen-reader-text">'. __('Zurück', 'fau') . '</span></a>';
+			$output .= '<a id="logos-menu-next" href="#"><em class="fa fa-chevron-right"></em><span class="screen-reader-text">'. __('Weiter', 'fau') . '</span></a>';
 		    $output .= '</div>';
 		$output .= "</div>\n";
 		$output .= '<ul class="logos-menu">';
@@ -324,8 +324,8 @@ function fau_get_imagelinks ( $catid, $echo = true ) {
 		$output .= '<div class="container">';
 		    $output .= '<div class="row logos-menu-settings">';
 			$output .= '<a id="logos-menu-playpause" href="#">'
-				. '<span class="play"><i class="fa fa-play"></i>'. __('Abspielen', 'fau') . '</span>'
-				. '<span class="pause"><i class="fa fa-pause"></i>'. __('Pause', 'fau') . '</span></a>';
+				. '<span class="play"><em class="fa fa-play"></em>'. __('Abspielen', 'fau') . '</span>'
+				. '<span class="pause"><em class="fa fa-pause"></em>'. __('Pause', 'fau') . '</span></a>';
 		    $output .= '</div>';
 		$output .= '</div>';
 	    $output .= "</div>\n";
