@@ -83,7 +83,7 @@
                         } ?>
                         </p>       
 		    </div>
-		    <nav class="header-menu">	
+		    <nav class="header-menu" aria-labelledby="hauptnav-anchor">	
                         <h2 id="hauptnav-anchor" class="screen-reader-text"><?php _e("Hauptnavigation","fau"); ?></h2>
 			<button id="mainnav-toggle" aria-expanded="false" aria-controls="menu"><span><?php _e("Menu","fau"); ?></span></button>						
 			<?php
