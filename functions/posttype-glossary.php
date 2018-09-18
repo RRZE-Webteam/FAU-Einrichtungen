@@ -282,6 +282,12 @@ if  ( (isset($activated_theme_glossary)) && ($activated_theme_glossary == true) 
 		    $return .= '</ul>'."\n";
 		    $return .= $accordion;
 		    $return .= '</div>'."\n";
+		    
+		    if ( is_plugin_active( 'rrze-elements/rrze-elements.php' ) ) {
+			wp_enqueue_script('rrze-accordions');
+		    }
+		  
+		    
 		    return $return;
 		}
 	}
