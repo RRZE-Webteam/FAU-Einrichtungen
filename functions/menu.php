@@ -563,7 +563,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                                 if ($externlink) {
                                      $item_output .= 'data-wpel-link="internal" ';
                                 }
-                                $item_output .= 'role="presentation" aria-label="hide" tabindex="-1" class="image';
+                                $item_output .= 'role="presentation" aria-hidden="true" tabindex="-1" class="image';
                                 if ($externlink) {
                                      $item_output .= ' ext-link';
                                 }
