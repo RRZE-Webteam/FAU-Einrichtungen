@@ -11,8 +11,8 @@
 ?>
 
 
-    <div id="hero-slides">
-	<h2 class="screen-reader-text"><?php echo __('Slider','fau'); ?></h2>
+    <section id="hero-slides" aria-labelledby="slider-aria-title">
+	<h2 id="slider-aria-title" class="screen-reader-text"><?php echo __('Slider','fau'); ?></h2>
 	<?php	
 	global $usejslibs;
 	global $defaultoptions;
@@ -37,9 +37,8 @@
 	
 	   <div class="slick-slider featured-slider cf">
 	       <?php
-		foreach($hero_posts as $hero): ?>	
-		<article class="item">  
-		    <?php 
+		foreach($hero_posts as $hero): 
+		    echo '<div class="item">';
 
 		    $sliderimage = $copyright = $slidersrc = $slidersrcset = '';
 
@@ -98,6 +97,7 @@
 			    <div class="row">
 				<div class="slider-titel">
 				    <?php
+					
 					echo '<h3><a href="';
 
 					$link = get_post_meta( $hero->ID, 'external_link', true );
@@ -126,7 +126,7 @@
 				</div>  <?php } ?>		   
 			</div>
 		    </div>
-		</article>
+		</div>
 	       
 		<?php endforeach; 
 		wp_reset_query();
@@ -149,5 +149,5 @@
 		</button>
 	    </div>
 	    
-	</div>
+	</section>
    

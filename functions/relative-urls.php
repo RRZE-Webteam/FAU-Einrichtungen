@@ -9,35 +9,7 @@
  * 
  */
 
-/*-----------------------------------------------------------------------------------*/
-/* Erstellt Toplinkliste
-/*-----------------------------------------------------------------------------------*/
-function fau_relativeurl($content){
-        return preg_replace_callback('/<a[^>]+/', 'fau_relativeurl_callback', $content);
-}
-function fau_relativeurl_callback($matches) {
-        $link = $matches[0];
-        $site_link =  wp_make_link_relative(home_url());  
-        $link = preg_replace("%href=\"$site_link%i", 'href="', $link);                 
-        return $link;
-    }
-// add_filter('the_content', 'fau_relativeurl');
- 
- /*-----------------------------------------------------------------------------------*/
-/* Image URLs in Content
-/*-----------------------------------------------------------------------------------*/
- 
- function fau_relativeimgurl($content){
-        return preg_replace_callback('/<img[^>]+/', 'fau_relativeimgurl_callback', $content);
-}
-function fau_relativeimgurl_callback($matches) {
-        $link = $matches[0];
-        $site_link =  wp_make_link_relative(home_url());  
-        $link = preg_replace("%src=\"$site_link%i", 'src="', $link);                 
-        return $link;
-    }
-// add_filter('the_content', 'fau_relativeimgurl');
- 
+
  /*-----------------------------------------------------------------------------------*/
 /* Add another esc_url, but also makes URL relative
 /*-----------------------------------------------------------------------------------*/
@@ -72,7 +44,12 @@ function fau_relativeimgurl_callback($matches) {
 /*-----------------------------------------------------------------------------------*/
 /* Rewrite Template redirects for generated urls
 /*-----------------------------------------------------------------------------------*/
-add_action('template_redirect', 'fau_rw_relative_urls');
+// add_action('template_redirect', 'fau_rw_relative_urls');
+ 
+ // removed, due to problems with other plugins that need absolute urls ;/
+ // WW: 19.09.2018
+ 
+ /* 
 function fau_rw_relative_urls() {
     // Don't do anything if:
     // - In feed
@@ -81,11 +58,8 @@ function fau_rw_relative_urls() {
         return;
     }
     $filters = array(
-    //    'post_link',
         'post_type_link',
         'page_link',
-    //    'attachment_link',
-    //    'get_shortlink',
         'post_type_archive_link',
         'get_pagenum_link',
         'get_comments_pagenum_link',
@@ -101,7 +75,7 @@ function fau_rw_relative_urls() {
         add_filter($filter, 'fau_make_link_relative');
     }
 }
-
+*/
 /*-----------------------------------------------------------------------------------*/
 /* make urls relative to base url
 /*-----------------------------------------------------------------------------------*/
@@ -125,14 +99,11 @@ function fau_make_link_relative($url) {
 /*-----------------------------------------------------------------------------------*/
 /* Force srcset urls to be relative
 /*-----------------------------------------------------------------------------------*/
-
-add_filter( 'wp_calculate_image_srcset', function( $sources )
-{
+add_filter( 'wp_calculate_image_srcset', function( $sources ) {
     if(	! is_array( $sources ) )
        	return $sources;
 
-    foreach( $sources as &$source )
-    {
+    foreach( $sources as &$source ) {
         if( isset( $source['url'] ) )
             $source['url'] = fau_esc_url( $source['url']);
     }

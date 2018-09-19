@@ -242,13 +242,9 @@ if  ( (isset($activated_theme_glossary)) && ($activated_theme_glossary == true) 
 				    $current = $letter;
 				    $letters[] = $letter;
 			    }
-
-			    $accordion .= '<div class="accordion-group white">'."\n";
-			    $accordion .= '  <div class="accordion-heading">'."\n";
-			    $accordion .= '     <a name="'.$post->post_name.'" class="accordion-toggle" data-toggle="collapse" data-parent="accordion-" href="#collapse_'.$post->ID.'000'.$i.'">'.get_the_title($post->ID).'</a>'."\n";
-			    $accordion .= '  </div>'."\n";
-			    $accordion .= '  <div id="collapse_'.$post->ID.'000'.$i.'" class="accordion-body">'."\n";
-			    $accordion .= '    <div class="accordion-inner">'."\n";
+			    
+			    $id = $post->ID.'000'.$i;
+			    $title = get_the_title($post->ID);
 
 			    $content = apply_filters( 'the_content',  get_post_field('post_content',$post->ID) );
 			    $content = str_replace( ']]>', ']]&gt;', $content );
@@ -257,12 +253,11 @@ if  ( (isset($activated_theme_glossary)) && ($activated_theme_glossary == true) 
 			    } else {
 				$desc = get_post_meta( $post->ID, 'description', true );
 			    }
-			    $accordion .= $desc;
 
-			    $accordion .= '    </div>'."\n";
-			    $accordion .= '  </div>'."\n";
-			    $accordion .= '</div>'."\n";
+			    $accordion .= getAccordionbyTheme($id,$title,'','','',$desc);
 
+			    
+			    
 			    $i++;
 		    }
 
@@ -282,6 +277,12 @@ if  ( (isset($activated_theme_glossary)) && ($activated_theme_glossary == true) 
 		    $return .= '</ul>'."\n";
 		    $return .= $accordion;
 		    $return .= '</div>'."\n";
+		    
+		    if ( is_plugin_active( 'rrze-elements/rrze-elements.php' ) ) {
+			wp_enqueue_script('rrze-accordions');
+		    }
+		  
+		    
 		    return $return;
 		}
 	}
@@ -294,4 +295,42 @@ if  ( (isset($activated_theme_glossary)) && ($activated_theme_glossary == true) 
 	}
 	add_filter( 'mce_external_plugins','fau_glossary_rte_add_buttons');
     }
+    
+    function getAccordionbyTheme($id = 0, $title = '', $color= '', $load = '', $name= '', $content = '') {
+	    $addclass = '';
+	    $title = esc_attr($title);
+	    $color = $color ? ' ' . esc_attr($color) : '';
+	    $load = $load ? ' ' . esc_attr($load) : '';
+	    $name = $name ? ' name="' . esc_attr($name) . '"' : '';
+
+	    if (empty($title) && ($empty($content))) {
+		return;
+	    }
+	    if (!empty($load)) {
+		$addclass .= " " . $load;
+	    }
+
+	    $id = intval($id) ? intval($id) : 0;
+	    if ($id < 1) {
+		if (!isset($GLOBALS['current_collapse'])) {
+		    $GLOBALS['current_collapse'] = 0;
+		} else {
+		    $GLOBALS['current_collapse'] ++;
+		}
+		$id = $GLOBALS['current_collapse'];
+	    }
+
+	    $output = '<div class="accordion-group' . $color . '">';
+	    $output .= '<h3 class="accordion-heading"><button class="accordion-toggle" data-toggle="collapse" href="#collapse_' . $id . '">' . $title . '</button></h3>';
+	    $output .= '<div id="collapse_' . $id . '" class="accordion-body' . $addclass . '"' . $name . '>';
+	    $output .= '<div class="accordion-inner clearfix">';
+
+	    $output .= do_shortcode(trim($content));
+
+	    $output .= '</div></div>';  // .accordion-inner & .accordion-body
+	    $output .= '</div>';        // . accordion-group
+
+	    return $output;
+    }
 }
+

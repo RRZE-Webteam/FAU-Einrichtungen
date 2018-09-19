@@ -102,7 +102,7 @@ if ($linkblock2_number > 0) {
 $output = '';
 if ((strlen(trim($list1))>0) || (strlen(trim($list2))>0)) {
     // Es gibt eine Liste
-    $output .= '<aside class="widget quicklinks">'."\n";
+    $output .= '<aside class="widget quicklinks" aria-label='.__('Links','fau').'>'."\n";
    
      if (  (strlen(trim($titleblock2))>0) || (strlen(trim($titleblock1)>0))) {
 	// Zwei Listen mit zwei Überschriften
