@@ -2,6 +2,22 @@
 /* Accordion
 /*-----------------------------------------------------------------------------------*/
 
+h3.accordion-heading {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-align: left;
+}
+button.accordion-toggle {
+    width: 100%;
+    border: none;
+    text-align: left;
+}
+button.expand-all {
+    margin: 5px 0;
+    float: right;
+}
 
 .accordion-group {
 	margin-bottom: 2px;

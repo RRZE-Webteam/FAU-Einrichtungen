@@ -22,7 +22,8 @@
     }
     
 
-    if ( ! is_plugin_active( 'rrze-elements/rrze-elements.php' ) ) {
+    if ((! is_plugin_active( 'rrze-elements/rrze-elements.php' ) )
+	&& (! is_plugin_active( 'rrze-faq/rrze-faq.php' ) )) {
 	$classes[] = 'theme-accordion';
     }
     
@@ -216,7 +217,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	if (isset($link) && (filter_var($link, FILTER_VALIDATE_URL))) {
 	    $external = 1;
 	} else {
-	    $link = fau_make_link_relative(get_permalink($post->ID));
+	    $link = get_permalink($post->ID);
 	}
 	
 	$type = get_post_type();
