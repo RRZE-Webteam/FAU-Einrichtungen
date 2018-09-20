@@ -172,7 +172,7 @@
             
             .sitetitle,	
             h1 {
-                
+                padding: 0;
                 @media (min-width: $screen-sm) {
                     padding: 15px 0;
                 }  

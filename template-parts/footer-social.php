@@ -66,8 +66,9 @@ $show =false;
  
 if ($show) {
 ?>
-    	    <h1 class="screen-reader-text"><?php _e("Weitere Hinweise zum Webauftritt","fau"); ?></h1>
-	<div id="social">
+    	    
+	<section id="social" role="contentinfo" aria-labelledby="contentfooter">
+	    <h1 class="screen-reader-text" id="contentfooter"><?php _e("Weitere Hinweise zum Webauftritt","fau"); ?></h1>	
 		<div class="container">
 			<div class="row">
 				<?php 
@@ -126,6 +127,6 @@ if ($show) {
 				</div>						
 			</div>
 		</div>
-	</div> <!-- /social -->	
+	</section> <!-- /social -->	
 <?php
 }

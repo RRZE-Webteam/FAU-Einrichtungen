@@ -54,8 +54,9 @@
 		    </nav>
 		</div>
 	    </div>
+	    <a href="#wrap" class="top-link"><span class="hidden">Nach oben</span></a>
 	</footer>
-	<a href="#wrap" class="top-link"><span class="hidden">Nach oben</span></a>
+	
 	<?php wp_footer(); ?>
 </body>
 </html>
