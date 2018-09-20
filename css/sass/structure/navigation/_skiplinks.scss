@@ -14,7 +14,7 @@
 	    padding: 6px 10px;
 	    background: #fff;
 	    text-decoration: none;
-	    color: $colorTextLight;
+	    color:  #000;
 
 	    &:hover, 
 	    &:focus {
@@ -25,8 +25,7 @@
 		    text-decoration: underline;
 		    text-align: center;
 		    background: $colorMetaLightest;
-		    color: $colorText;
-
+	
 	    }
 	}
     }
