@@ -347,7 +347,7 @@ jQuery(document).ready(function($) {
 
 
 	// Off-canvas navigation
-	var navContainer = $('<div id="off-canvas">');
+	var navContainer = $('<div id="off-canvas" role="navigation" aria-label="Hamburger Navigation" aria-controls="nav-off-canvas">');
 	// var offcanvaslogo = $('#logo').clone();
 	var nav = $('#nav').clone();
 	nav.attr("id", "nav-off-canvas");
