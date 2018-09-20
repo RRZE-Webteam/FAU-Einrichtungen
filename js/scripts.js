@@ -313,14 +313,8 @@ jQuery(document).ready(function($) {
 		$(this).parents('li').addClass('focus');
 	});
 	
-	$('.meta-nav > li > a').focus(function() {
-		$('.meta-nav > li').removeClass('focus');
-		$(this).parents('li').addClass('focus');
-	});
-	
-	$('.mlp_language_box ul li a').focus(function() {
-		$(this).parents('ul').addClass('focus');
-	});
+
+
 	
 	
 	// Handling touch devices and laptops with touch window:
