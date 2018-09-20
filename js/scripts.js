@@ -105,23 +105,6 @@ jQuery(document).ready(function($) {
 	$('a.lightbox').fancybox({ helpers: { title: { type: 'outside'}}});
 	
 
-	// Set jumplinks
-	$('.jumplinks a').bind('click', function(event) {
-		event.preventDefault();
-		
-		var target = $(this).data('target');
-		var firstchild = $(this).data('firstchild');
-		
-		if(firstchild == 1) {
-			$(target).eq(0).focus();
-		}
-		else {
-			$(target).focus();
-		}
-	});
-	
-
-	
 
 	
 	// Assistant tabs
@@ -302,17 +285,6 @@ jQuery(document).ready(function($) {
 	});
 
 
-	// Main Menu
-	// Keyboard-navigation, remove and set focus class on focus-change
-	$('a').not($('#nav > li div a')).focus(function() {
-		$('#nav > li').removeClass('focus');
-	});
-	
-	$('#nav > li > a').focus(function() {
-		$('#nav > li').removeClass('focus');
-		$(this).parents('li').addClass('focus');
-	});
-	
 
 
 	
