@@ -91,13 +91,11 @@
 	font-weight: bold;
 }
 
-.event-time {
+.event-time, 
+.event-location {
 	color: $colorPrimary;
 }
 
-.event-location {
-	color: $colorTextLight;
-}
 
 .event-info {
 	a, .event-time {
