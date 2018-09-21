@@ -381,6 +381,8 @@ jQuery(document).ready(function($) {
 	// }
 	
 	var heroNavigation = $('#hero .hero-navigation').clone();
+	heroNavigation.attr("aria-label", "Quicklink Navigation");
+	
 	var footerheronav = $('<div class="cloned-hero-nav"></div>'); 
 	var footermetalinks = $('<div class="cloned-meta-links"></div>');
 	var titleportallinks = $('.meta-links h3').clone();

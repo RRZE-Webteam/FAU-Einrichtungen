@@ -1621,7 +1621,45 @@ function fau_get_page_langcode($id = 0) {
     }
     return $setlang;
 }
+/*-----------------------------------------------------------------------------------*/
+/* Check for langcode and return it
+/*-----------------------------------------------------------------------------------*/
+ function getAccordionbyTheme($id = 0, $title = '', $color= '', $load = '', $name= '', $content = '') {
+	$addclass = '';
+	$title = esc_attr($title);
+	$color = $color ? ' ' . esc_attr($color) : '';
+	$load = $load ? ' ' . esc_attr($load) : '';
+	$name = $name ? ' name="' . esc_attr($name) . '"' : '';
 
+	if (empty($title) && ($empty($content))) {
+	    return;
+	}
+	if (!empty($load)) {
+	    $addclass .= " " . $load;
+	}
+
+	$id = intval($id) ? intval($id) : 0;
+	if ($id < 1) {
+	    if (!isset($GLOBALS['current_collapse'])) {
+		$GLOBALS['current_collapse'] = 0;
+	    } else {
+		$GLOBALS['current_collapse'] ++;
+	    }
+	    $id = $GLOBALS['current_collapse'];
+	}
+
+	$output = '<div class="accordion-group' . $color . '">';
+	$output .= '<h3 class="accordion-heading"><button class="accordion-toggle" data-toggle="collapse" href="#collapse_' . $id . '">' . $title . '</button></h3>';
+	$output .= '<div id="collapse_' . $id . '" class="accordion-body' . $addclass . '"' . $name . '>';
+	$output .= '<div class="accordion-inner clearfix">';
+
+	$output .= do_shortcode(trim($content));
+
+	$output .= '</div></div>';  // .accordion-inner & .accordion-body
+	$output .= '</div>';        // . accordion-group
+
+	return $output;
+}
 /*-----------------------------------------------------------------------------------*/
 /* This is the end :)
 /*-----------------------------------------------------------------------------------*/

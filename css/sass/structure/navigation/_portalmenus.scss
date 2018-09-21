@@ -115,7 +115,8 @@
                             @include px2rem($font-size-link-contentmenu); 
 		    }
 
-		    a:hover, a:focus {
+		    a:hover, 
+		    a:focus {
 			    text-decoration: none;
 			    background-color: $colorLightest;
 		    }
@@ -136,8 +137,9 @@
 	@include px2rem($font-size-h3-contentmenu);  
 	padding: 10px 15px 10px 0;
 	a {
-	     text-decoration: none;
-	     &:hover, &:focus {
+	    text-decoration: none;
+	    &:hover, 
+	    &:focus {
 		text-decoration: underline;
 	    }
 
