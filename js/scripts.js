@@ -227,17 +227,25 @@ jQuery(document).ready(function($) {
 	// Make #header fixed once scrolled down behind meta or on small screens
 	function fixedHeader() {
 	    if ($(window).scrollTop() > 20) {
-		$('body').addClass('nav-scrolled');
+		if (! $('body').hasClass("nav-scrolled")) {
+		    $('body').addClass('nav-scrolled');
+		}
 	    } else {
-		$('body').removeClass('nav-scrolled');
+		if ($('body').hasClass("nav-scrolled")) {
+		    $('body').removeClass('nav-scrolled');
+		}
 	    }
 	    if ($(window).scrollTop() > 200) {
-		$('.top-link').fadeIn();
+		if (! $('body').hasClass("toplink-faded")) {
+		    $('.top-link').fadeIn();
+		    $('body').addClass('toplink-faded');
+		}
 	    } else {
-		$('.top-link').fadeOut();
+		if ($('body').hasClass("toplink-faded")) {
+		    $('.top-link').fadeOut();
+		    $('body').removeClass('toplink-faded');
+		}
 	    }
-
-
 	};
 	fixedHeader();
 	
