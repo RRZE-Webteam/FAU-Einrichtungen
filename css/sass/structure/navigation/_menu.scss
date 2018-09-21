@@ -37,8 +37,8 @@
 		}
 		a:hover, 
 		a:focus {
-				text-decoration: none;
-				background-color: $colorHover;
+			text-decoration: none;
+			background-color: $colorHover;
 		}
 		
 	}
@@ -80,23 +80,21 @@
 					@include border-radius(0);
 					border-bottom: 1px solid $colorHover;
 					width: calc(100% - 20px);
-					
-					
-					&:before {
-					    @extend .fa;
-					    @extend .fa-angle-right;	
-					    font-weight: bold;
-					    display: table-cell;
-					    color: #fff;
-					    width: 15px;
-					    padding-left: 2px;
-					}
-					&:hover, 
-					&:focus {
-						text-decoration: none;
-						background-color: $colorHover;
-					}
-					
+					color: #fff;
+
+				}
+				a:before {
+				    @extend .fa;
+				    @extend .fa-angle-right;	
+				    font-weight: bold;
+				    display: table-cell;
+				    width: 15px;
+				    padding-left: 2px;
+				}
+				a:hover, 
+				a:focus {
+					text-decoration: none;
+					background-color: $colorHover;
 				}
 				
 			}
@@ -144,14 +142,14 @@
 	.introtext-full,
 	.introtext {
 	    p {
-			color: #fff;
-			@include px2rem($font-size-nav-introtext, $font-size-nav-introtext, 24);
-			padding: 20px;
-			margin: 0;
-			opacity: 0.7;
-			
-			font-style: normal;
-			font-weight: normal;
+		    color: #fff;
+		    @include px2rem($font-size-nav-introtext, $font-size-nav-introtext, 24);
+		    padding: 20px;
+		    margin: 0;
+		    opacity: 0.7;
+
+		    font-style: normal;
+		    font-weight: normal;
 	    }
 	    blockquote {
 		padding: 20px 20px 20px 70px; 
@@ -196,8 +194,9 @@
 	}
 	
 	
-    li.level1.has-sub > a:hover,
-    li.level1.focus.has-sub > a  {
+     	
+    li.level1.has-sub a:hover,
+    li.level1.focus.has-sub a  {
 	@include border-bottom-radius(0px);
 	background-color: $colorPrimary; 
 	color: #fff; 
@@ -223,6 +222,8 @@
 	color: $colorMainMenu;
     }
 
+    
+   
     li.level1:hover .nav-flyout, 
     li.level1:focus .nav-flyout, 
     li.focus .nav-flyout {
@@ -231,7 +232,42 @@
 	
 }
 
-
+#nav {
+    li.level1 a:hover {
+	background-color: $colorPrimary; 
+	color: #fff; 
+    }
+    li.level1:focus-within {
+	    background-color: $colorPrimary; 
+	    a {
+		 color: #fff; 
+	    }	
+	    .nav-flyout {
+		display: block;		
+		li {
+		    a {
+			color: #fff;
+			&:hover,
+			&:focus {
+			    background-color: $colorHover;
+			}
+		    }
+		}
+		
+	    }
+    }
+    li:hover .nav-flyout ul li {
+	a {
+	    color: #fff;
+	} 
+	a:hover,
+	a:focus {
+	    background-color: $colorHover;
+	}
+    }
+    
+ 
+}
 
 
 

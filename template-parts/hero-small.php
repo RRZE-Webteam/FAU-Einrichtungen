@@ -37,9 +37,9 @@
 			
 		    </div>
 		</div>
-		<div class="row">
+		<div class="row" aria-hidden="true" role="presentation">
 		    <div class="col-xs-12 col-sm-8">
-			<p class="presentationtitle" aria-hidden="true" role="presentation" <?php echo fau_get_page_langcode($post->ID);?>><?php the_title(); ?></p>
+			<p class="presentationtitle" <?php echo fau_get_page_langcode($post->ID);?>><?php the_title(); ?></p>
 		    </div>
 		</div>
 	</div>

@@ -10,11 +10,8 @@
     &.pagebreaks {
 	text-align: left;
 	margin: 0;
-	
-	
-	h3 {
-	    @include px2rem($font-size-pagination-h3);
-	    font-weight: normal;
+
+	p {
 	    @include inline-block();
 	}
 

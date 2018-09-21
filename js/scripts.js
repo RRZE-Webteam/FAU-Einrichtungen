@@ -105,23 +105,6 @@ jQuery(document).ready(function($) {
 	$('a.lightbox').fancybox({ helpers: { title: { type: 'outside'}}});
 	
 
-	// Set jumplinks
-	$('.jumplinks a').bind('click', function(event) {
-		event.preventDefault();
-		
-		var target = $(this).data('target');
-		var firstchild = $(this).data('firstchild');
-		
-		if(firstchild == 1) {
-			$(target).eq(0).focus();
-		}
-		else {
-			$(target).focus();
-		}
-	});
-	
-
-	
 
 	
 	// Assistant tabs
@@ -244,17 +227,25 @@ jQuery(document).ready(function($) {
 	// Make #header fixed once scrolled down behind meta or on small screens
 	function fixedHeader() {
 	    if ($(window).scrollTop() > 20) {
-		$('body').addClass('nav-scrolled');
+		if (! $('body').hasClass("nav-scrolled")) {
+		    $('body').addClass('nav-scrolled');
+		}
 	    } else {
-		$('body').removeClass('nav-scrolled');
+		if ($('body').hasClass("nav-scrolled")) {
+		    $('body').removeClass('nav-scrolled');
+		}
 	    }
 	    if ($(window).scrollTop() > 200) {
-		$('.top-link').fadeIn();
+		if (! $('body').hasClass("toplink-faded")) {
+		    $('.top-link').fadeIn();
+		    $('body').addClass('toplink-faded');
+		}
 	    } else {
-		$('.top-link').fadeOut();
+		if ($('body').hasClass("toplink-faded")) {
+		    $('.top-link').fadeOut();
+		    $('body').removeClass('toplink-faded');
+		}
 	    }
-
-
 	};
 	fixedHeader();
 	
@@ -302,25 +293,8 @@ jQuery(document).ready(function($) {
 	});
 
 
-	// Main Menu
-	// Keyboard-navigation, remove and set focus class on focus-change
-	$('a').not($('#nav > li div a')).focus(function() {
-		$('#nav > li').removeClass('focus');
-	});
-	
-	$('#nav > li > a').focus(function() {
-		$('#nav > li').removeClass('focus');
-		$(this).parents('li').addClass('focus');
-	});
-	
-	$('.meta-nav > li > a').focus(function() {
-		$('.meta-nav > li').removeClass('focus');
-		$(this).parents('li').addClass('focus');
-	});
-	
-	$('.mlp_language_box ul li a').focus(function() {
-		$(this).parents('ul').addClass('focus');
-	});
+
+
 	
 	
 	// Handling touch devices and laptops with touch window:
@@ -347,7 +321,7 @@ jQuery(document).ready(function($) {
 
 
 	// Off-canvas navigation
-	var navContainer = $('<div id="off-canvas">');
+	var navContainer = $('<div id="off-canvas" role="navigation" aria-label="Hamburger Navigation" aria-controls="nav-off-canvas">');
 	// var offcanvaslogo = $('#logo').clone();
 	var nav = $('#nav').clone();
 	nav.attr("id", "nav-off-canvas");

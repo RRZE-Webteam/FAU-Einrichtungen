@@ -26,10 +26,9 @@
 			color: $colorMeta;
 			text-decoration: none;
 		}
-		
-		a:hover {
-		    text-decoration: underline;
-		}
+		a:focus,
+		a:hover,
+		&:focus-within a,
 		&:hover a, 
 		&:focus a {
 			text-decoration: underline;
