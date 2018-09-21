@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -56,7 +56,7 @@
 	<header id="header">
 	    <div class="container">
 		<div class="row">
-		    <div class="branding" id="logo" role="banner" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+		    <div class="branding" id="logo" role="banner" itemscope itemtype="http://schema.org/Organization">
                         <p class="sitetitle">
                         <?php if ( ! is_front_page() ) { 
                             echo '<a itemprop="url" rel="home" href="'.fau_esc_url(home_url( '/' ) ).'">';	
@@ -87,7 +87,7 @@
 		    </div>
 		    <nav class="header-menu" aria-labelledby="hauptnav-anchor">	
                         <h2 id="hauptnav-anchor" class="screen-reader-text"><?php _e("Hauptnavigation","fau"); ?></h2>
-			<button id="mainnav-toggle" aria-expanded="false" aria-controls="menu"><span><?php _e("Menu","fau"); ?></span></button>						
+			<button id="mainnav-toggle" aria-expanded="false" aria-controls="nav"><span><?php _e("Menu","fau"); ?></span></button>						
 			<?php
 			    if(has_nav_menu( 'main-menu' ) && class_exists('Walker_Main_Menu', false)) {
 				wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'items_wrap' => '<ul id="nav">%3$s</ul>', 'depth' => 2, 'walker' => new Walker_Main_Menu) ); 

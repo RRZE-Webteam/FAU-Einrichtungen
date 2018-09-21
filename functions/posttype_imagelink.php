@@ -6,18 +6,18 @@
 
 function imagelink_taxonomy() {
 	register_taxonomy(
-		'imagelinks_category',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces).
-		'imagelink',   		 //post type name
+		'imagelinks_category',  
+		'imagelink',   		
 		array(
-			'hierarchical' 		=> true,
-			'label' 			=> __('Bildlink-Kategorien', 'fau'),  //Display name
-			'query_var' 		=> true,
-			'rewrite'			=> array(
-					'slug' 			=> 'imagelinks', // This controls the base slug that will display before each term
-					'with_front' 	=> false // Don't display the category base before
-					)
+			'hierarchical' 	=> true,
+			'label' 	=> __('Bildlink-Kategorien', 'fau'), 
+			'query_var' 	=> true,
+			'rewrite'	=> array(
+			    'slug' 		=> 'imagelinks',
+			    'with_front' 	=> false
 			)
-		);
+		)
+	);
 }
 add_action( 'init', 'imagelink_taxonomy');
 
@@ -58,25 +58,7 @@ function imagelink_post_type() {
 		'publicly_queryable'  => true,
 		'query_var'           => 'imagelink',
 		'rewrite'             => false,
-	/*	'capability_type'     => 'imagelink',
-		'capabilities' => array(
-		    'edit_post' => 'edit_imagelink',
-		    'read_post' => 'read_imagelink',
-		    'delete_post' => 'delete_imagelink',
-		    'edit_posts' => 'edit_imagelinks',
-		    'edit_others_posts' => 'edit_others_imagelinks',
-		    'publish_posts' => 'publish_imagelinks',
-		    'read_private_posts' => 'read_private_imagelinks',
-		    'delete_posts' => 'delete_imagelinks',
-		    'delete_private_posts' => 'delete_private_imagelinks',
-		    'delete_published_posts' => 'delete_published_imagelinks',
-		    'delete_others_posts' => 'delete_others_imagelinks',
-		    'edit_private_posts' => 'edit_private_imagelinks',
-		    'edit_published_posts' => 'edit_published_imagelinks'
-		),
-		'map_meta_cap' => true
-	 
-	 */
+	
 	);
 	register_post_type( 'imagelink', $args );
 
@@ -271,7 +253,7 @@ function fau_get_imagelinks ( $catid, $echo = true ) {
                             )
                     )
         );
-	$output = '';
+	$output = $alttext = '';
 	$imagelist = get_posts($args); 
 	$item_output = '';
 	$number =0;
@@ -285,29 +267,17 @@ function fau_get_imagelinks ( $catid, $echo = true ) {
 	    }
 	    $item_output .= '<li>';
 	    $item_output .= '<a rel="nofollow" href="'.$currenturl.'">';
-
-
 	    $alttext = get_the_title($item->ID);
 	    $alttext = esc_html($alttext);
 	    $altattr = 'alt="'.$alttext.'"';
-	    
-	    
+
 	    $post_thumbnail_id = get_post_thumbnail_id( $item->ID ); 
 	    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id, 'logo-thumb' );
-	    $slidersrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'logo-thumb');
 	    
-	    $item_output .= '<img src="'.$sliderimage[0].'" '.$altattr.' width="'.$sliderimage[1].'" height="'.$sliderimage[2].'"';
-	    if ($slidersrcset) {
-		$item_output .= 'srcset="'.$slidersrcset.'"';
-	    }
-	    $item_output .= '>';
-	 
-	    
+	    $item_output .= '<img src="'.$sliderimage[0].'" '.$altattr.' width="'.$sliderimage[1].'" height="'.$sliderimage[2].'">';
 	    $item_output .= '</a>';
 	    $item_output .= '</li>';
-   
-	    
-	    
+
 	}
 	if ($number>0) {
 	    $output .= '<div class="imagelink_carousel">';
