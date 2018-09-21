@@ -294,7 +294,7 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 			$output .= $thumbregion;
 			$output .= '</div>';	
 		    } else {
-			$output .= '<div class="hide-mobile introtext-full ">';
+			$output .= '<div class="hide-mobile introtext-full">';
 
 			 if($quote) {
 			    if ($texttype==0) {
@@ -391,6 +391,26 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		    $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 		}
 	}
+	function end_el(&$output, $item, $depth=0, $args=array()) {      
+	    $rellink = fau_make_link_relative($item->url);
+	    $force_cleanmenu = 0;
+	    if (substr($rellink,0,4) == 'http') {
+		    // absoluter Link auf externe Seite
+		    $force_cleanmenu= 1;
+	    } elseif ($rellink == '/') {
+		// Link auf Startseite
+		$force_cleanmenu = 2;
+	    }
+	    $forceclean_externlink = get_theme_mod('advanced_forceclean_externlink');
+	    $forceclean_homelink =    get_theme_mod('advanced_forceclean_homelink');
+	    if (($forceclean_homelink==true) && ($force_cleanmenu==2)) {
+		// Ignore homelink
+	    } elseif (($forceclean_externlink==true) && ($force_cleanmenu==1)) {    
+		// Ignore external link in Main menu
+	    } else {
+		 $output .= "</li>";
+	    }
+	}
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -417,7 +437,7 @@ function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $nothumbs = 0,
 	$subentries =  get_theme_mod('default_submenu_entries');
     }
 
-   
+   $subentries = 1;
     echo '<div class="contentmenu" role="navigation" aria-label="'.__('Inhaltsmenu','fau').'">';   
     echo '<ul class="subpages-menu">';
     wp_nav_menu( array( 'menu' => $slug, 
@@ -462,7 +482,9 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                if ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1) {
                     $output .= '</ul>';
                } elseif(($this->level == 2) && ($this->count[$this->level] == ($this->maxsecondlevel+1)) && ($this->showsub == 1)) {
-                    $output .= '</ul>';
+                    $output .= '<li class="more"><a href="'.$this->element->url.'">'. __('Mehr', 'fau').' ...</a></li>';
+		    $output .= '</ul>';
+		   
                } elseif (($this->level == 2)  && ($this->showsub == 1)) {
                     $output .= '</ul>';
                }
@@ -558,12 +580,13 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
 			if($this->level == 1) {
                             if (!$this->nothumbnail) {
+				$item_output .= '<div role="presentation" aria-hidden="true" tabindex="-1">';
                                 $item_output .= '<a ';
 
                                 if ($externlink) {
                                      $item_output .= 'data-wpel-link="internal" ';
                                 }
-                                $item_output .= 'role="presentation" aria-hidden="true" tabindex="-1" class="image';
+                                $item_output .= 'class="image';
                                 if ($externlink) {
                                      $item_output .= ' ext-link';
                                 }
@@ -590,6 +613,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                                     $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" '.$altattr.'>';
                                 }
                                 $item_output .= '</a>';
+				$item_output .= '</div>';
                                 // Anmerkung: Leeres alt="", da dieses ansonsten redundant wäre zum darunter stehenden Titel.
                             }
                             $item_output .= $args->link_before.'<span class="portaltop">';
@@ -619,13 +643,13 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 	}
 	
 	function end_el(&$output, $item, $depth=0, $args=array()) {      
-		if($this->level == 1 
-                        || ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel))	{
-			if($this->level == 1) $output .= "</li>";  
-			else $output .= "</li>";
-		} elseif(($this->level == 2) && ($this->count[$this->level] == ($this->maxsecondlevel+1)) && ($this->showsub == 1)) {
-			$output .= '<li class="more"><a href="'.$this->element->url.'">'. __('Mehr', 'fau').' ...</a></li>';
-                }	
+	    
+	    if($this->level == 1 || 
+                        ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1)) {
+		 $output .= "</li>"; 
+	  
+	    }
+
 	}     
 }
 
@@ -792,7 +816,7 @@ function fau_get_socialmedia_menu($name = '', $ulclass = '', $withog = true) {
 		    
 		    $thislist .= '<a data-wpel-link="internal" ';
 		    if ($withog) {
-			 $thislist .= ' itemprop="sameAs"';
+			 $thislist .= 'itemprop="sameAs" ';
 		    }
 		    $thislist .= 'href="' . $url . '">' . $title . '</a></li>';
 		}
@@ -802,3 +826,6 @@ function fau_get_socialmedia_menu($name = '', $ulclass = '', $withog = true) {
     return $thislist;
 }
 
+/*-----------------------------------------------------------------------------------*/
+/* EOF menu.php
+/*-----------------------------------------------------------------------------------*/

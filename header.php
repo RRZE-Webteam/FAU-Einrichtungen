@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -56,7 +56,7 @@
 	<header id="header">
 	    <div class="container">
 		<div class="row">
-		    <div class="branding" id="logo" role="banner" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+		    <div class="branding" id="logo" role="banner" itemscope itemtype="http://schema.org/Organization">
                         <p class="sitetitle">
                         <?php if ( ! is_front_page() ) { 
                             echo '<a itemprop="url" rel="home" href="'.fau_esc_url(home_url( '/' ) ).'">';	

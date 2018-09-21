@@ -558,23 +558,23 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	    
 	    $output .= '<div class="thumbnailregion">'; 
 	    $output .= '<div aria-hidden="true" role="presentation" tabindex="-1" class="passpartout" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">'; 
-	    $output .= '<a href="'.$link.'" class="news-image"';
+	    $output .= '<a href="'.$link.'" class="news-image';
 	    if ($external) {
 		$output .= ' ext-link';
 	    }
-	    $output .= '>';
+	    $output .= '">';
 
 	    $post_thumbnail_id = get_post_thumbnail_id( $post->ID, 'post-thumb' ); 
 	    $imagehtml = '';
 	    $imgwidth = get_theme_mod('default_postthumb_width');
 	    $imgheight = get_theme_mod('default_postthumb_height');
-	    $imgsrcset = '';
+	//    $imgsrcset = '';
 	    if ($post_thumbnail_id) {
 		$sliderimage = wp_get_attachment_image_src( $post_thumbnail_id,  'post-thumb');
 		$imageurl = $sliderimage[0]; 	
 		$imgwidth = $sliderimage[1];
 		$imgheight = $sliderimage[2];
-		$imgsrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'post-thumb');
+	//	$imgsrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'post-thumb');
 		  
 	    }
 	    if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
@@ -584,7 +584,7 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 		    $imageurl = $thisimage[0]; 	
 		    $imgwidth = $thisimage[1];
 		    $imgheight = $thisimage[2];
-		    $imgsrcset =  wp_get_attachment_image_srcset($default_postthumb_image, 'post-thumb'); 
+		    // $imgsrcset =  wp_get_attachment_image_srcset($default_postthumb_image, 'post-thumb'); 
 		} else {
 		    // Abwaertskompatibilitaet zu 1.9
 		    $imageurl = get_theme_mod('default_postthumb_src');
@@ -601,9 +601,10 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	
 	    $output .= ' alt="'.$alttext.'"';
 	    
-	    if ($imgsrcset) {
-		$output .= ' srcset="'.$imgsrcset.'"';
-	    }
+	    // Commented out: $imgsrcset cause it makes no sense in this case
+//	    if ($imgsrcset) {
+//		$output .= ' srcset="'.$imgsrcset.'"';
+//	    }
 	    $output .= '></a>';
 	    $output .= '<meta itemprop="url" content="'.fau_make_absolute_url($imageurl).'">';
 	    $output .= '<meta itemprop="width" content="'.$imgwidth.'">';
@@ -1416,7 +1417,7 @@ function fau_get_toplinks($args = array()) {
 	    $result .= '<'.$html.'>'.esc_attr($args['title']).'</'.$html.'>';
 	}
 	
-	$result .= '<ul class="meta-nav" class="menu">';
+	$result .= '<ul class="meta-nav menu">';
 	$result .= $thislist;
 	$result .= '</ul>';	
 	$result .= "\n";	
