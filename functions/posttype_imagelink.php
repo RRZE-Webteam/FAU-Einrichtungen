@@ -280,7 +280,7 @@ function fau_get_imagelinks ( $catid, $echo = true ) {
 
 	}
 	if ($number>0) {
-	    $output .= '<div class="imagelink_carousel">';
+	    $output .= '<nav class="imagelink_carousel" aria-label="'. __('Partnerlogos', 'fau') . '">';
 		$output .= '<div class="container">';
 		    $output .= '<div class="logos-menu-nav">';
 			$output .= '<a id="logos-menu-prev" href="#"><em class="fa fa-chevron-left"></em><span class="screen-reader-text">'. __('Zurück', 'fau') . '</span></a>';
@@ -298,7 +298,7 @@ function fau_get_imagelinks ( $catid, $echo = true ) {
 				. '<span class="pause"><em class="fa fa-pause"></em>'. __('Pause', 'fau') . '</span></a>';
 		    $output .= '</div>';
 		$output .= '</div>';
-	    $output .= "</div>\n";
+	    $output .= "</nav>\n";
 
 	    $usejslibs['caroufredsel'] = true;
 	} 
