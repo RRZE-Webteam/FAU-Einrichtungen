@@ -21,7 +21,7 @@ get_header(); ?>
 		?>
 
 			<div class="row">		
-				<nav class="sidebar-subnav" aria-labeledby="subnavtitle">
+				<nav class="sidebar-subnav" aria-labelledby="subnavtitle">
 					<?php 
 					$offset = 0;
 					$websitetype = get_theme_mod('website_type');

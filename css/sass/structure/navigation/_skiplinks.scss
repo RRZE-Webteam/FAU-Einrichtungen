@@ -19,13 +19,16 @@
 	    &:hover, 
 	    &:focus {
 		    position: absolute;
-		    top: 200px;
-		    left: 42%;
-		    width: 16%;
+		    width: 250px;
+		    top: 240px;
+		    left: 0;
+		    right: 0;
+		    margin: auto;
+		    min-width: 240px;
 		    text-decoration: underline;
 		    text-align: center;
 		    background: $colorMetaLightest;
-	
+
 	    }
 	}
     }
