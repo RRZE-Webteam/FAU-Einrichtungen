@@ -19,9 +19,9 @@ function fau_sidebars_init() {
 		'name' => __( 'News Sidebar', 'fau' ),
 		'id' => 'news-sidebar',
 		'description' => __( 'Sidebar auf der News-Kategorieseite', 'fau' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s" aria-label="Sidebar">',
-		'after_widget' => '</aside>',
-		'before_title' => '<h2 class="small">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2>',
 		'after_title' => '</h2>',
 	) );
 

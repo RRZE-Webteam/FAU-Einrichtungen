@@ -74,7 +74,7 @@ if  (! function_exists( 'fau_collapse' ) ) {
 	$id = intval($id) ? intval($id) : 0;
 
 
-	$output .= getAccordionbyTheme($id,$title,$color,$load,$name,$desc);
+	$output = getAccordionbyTheme($id,$title,$color,$load,$name,$content);
 	return $output;
     }
 }
