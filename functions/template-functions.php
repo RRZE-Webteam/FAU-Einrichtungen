@@ -370,11 +370,11 @@ function fau_display_search_resultitem($withsidebar = 1) {
 
 		$post_thumbnail_id = get_post_thumbnail_id( $post->ID, 'post-thumb' ); 
 		$imagehtml = '';
-		$imgsrcset = '';
+		$imgsrcset = $imgsrc_sizes = '';
 		if ($post_thumbnail_id) {
 		    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id,  'post-thumb');
         	    $imgsrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'post-thumb');
-
+                    $imgsrc_sizes =  wp_get_attachment_image_sizes($post_thumbnail_id, 'post-thumb');
 		    $imageurl = $sliderimage[0]; 	
 		}
 		if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
@@ -383,6 +383,10 @@ function fau_display_search_resultitem($withsidebar = 1) {
 		$output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$defaultoptions['default_postthumb_width'].'" height="'.$defaultoptions['default_postthumb_height'].'" alt=""';
 		if ($imgsrcset) {
 		    $output .= ' srcset="'.$imgsrcset.'"';
+                    
+                    if ($imgsrc_sizes) {
+                         $output .= ' sizes="'.$imgsrc_sizes.'"';
+                    }
 		}
 		$output .= '>';
 		$output .= '</a>';
@@ -443,11 +447,11 @@ function fau_display_search_resultitem($withsidebar = 1) {
 
 		$post_thumbnail_id = get_post_thumbnail_id( $post->ID, 'post-thumb' ); 
 		$imagehtml = '';
-		$imgsrcset = '';
+		$imgsrcset = $imgsrc_sizes = '';
 		if ($post_thumbnail_id) {
 		    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id,  'post-thumb');
         	    $imgsrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'post-thumb');
-
+                    $imgsrc_sizes=  wp_get_attachment_image_sizes($post_thumbnail_id, 'post-thumb');
 		    $imageurl = $sliderimage[0]; 	
 		}
 		if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
@@ -456,6 +460,9 @@ function fau_display_search_resultitem($withsidebar = 1) {
 		$output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$defaultoptions['default_postthumb_width'].'" height="'.$defaultoptions['default_postthumb_height'].'" alt=""';
 		if ($imgsrcset) {
 		    $output .= ' srcset="'.$imgsrcset.'"';
+                    if ($imgsrc_sizes) {
+                        $output .= ' sizes="'.$imgsrc_sizes.'"';
+                    }
 		}
 		$output .= '>';
 		$output .= '</a>';
@@ -568,14 +575,14 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	    $imagehtml = '';
 	    $imgwidth = get_theme_mod('default_postthumb_width');
 	    $imgheight = get_theme_mod('default_postthumb_height');
-	//    $imgsrcset = '';
+	    $imgsrcset = $imgsrc_sizes = '';
 	    if ($post_thumbnail_id) {
 		$sliderimage = wp_get_attachment_image_src( $post_thumbnail_id,  'post-thumb');
 		$imageurl = $sliderimage[0]; 	
 		$imgwidth = $sliderimage[1];
 		$imgheight = $sliderimage[2];
-	//	$imgsrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'post-thumb');
-		  
+		$imgsrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'post-thumb');
+		$imgsrc_sizes=  wp_get_attachment_image_sizes($post_thumbnail_id, 'post-thumb');
 	    }
 	    if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
 		$default_postthumb_image = get_theme_mod('default_postthumb_image');
@@ -584,7 +591,8 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 		    $imageurl = $thisimage[0]; 	
 		    $imgwidth = $thisimage[1];
 		    $imgheight = $thisimage[2];
-		    // $imgsrcset =  wp_get_attachment_image_srcset($default_postthumb_image, 'post-thumb'); 
+		    $imgsrcset =  wp_get_attachment_image_srcset($default_postthumb_image, 'post-thumb'); 
+                    $imgsrc_sizes=  wp_get_attachment_image_sizes($default_postthumb_image, 'post-thumb');
 		} else {
 		    // Abwaertskompatibilitaet zu 1.9
 		    $imageurl = get_theme_mod('default_postthumb_src');
@@ -601,10 +609,12 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	
 	    $output .= ' alt="'.$alttext.'"';
 	    
-	    // Commented out: $imgsrcset cause it makes no sense in this case
-//	    if ($imgsrcset) {
-//		$output .= ' srcset="'.$imgsrcset.'"';
-//	    }
+	    if ($imgsrcset) {
+		$output .= ' srcset="'.$imgsrcset.'"';
+                if ($imgsrc_sizes) {
+                    $output .= ' sizes="'.$imgsrc_sizes.'"';
+                }
+	    }
 	    $output .= '></a>';
 	    $output .= '<meta itemprop="url" content="'.fau_make_absolute_url($imageurl).'">';
 	    $output .= '<meta itemprop="width" content="'.$imgwidth.'">';
