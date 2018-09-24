@@ -11,7 +11,7 @@
     left: 0;
     right: 0;
     z-index: 100;
-
+    margin-top: -10px;
     
     input,
     li {
@@ -19,6 +19,7 @@
     }
 	
     @media (min-width: $screen-sm ) {
+	margin-top: 0;
 	position: fixed;
 	.admin-bar & {
 	    top: $wordpress-adminbar-bigheight;
@@ -34,12 +35,7 @@
 	display: none;
 	// an dieser STelle müssen die Anweisungen zur FAU ORGA Breadcrumb kommen.
 	// ggf. müssen auch Änderungen an der _branding.scss gemacht werden.
-	
 
-	
-	@media (min-width: $screen-sm ) {
-	    // ab 768px ..
-	}
     }
     
 }
@@ -224,8 +220,7 @@
 .meta-widget {
     display: inline-block;
     float: right;
-    @include border-radius(20px);
-    background: #fff;
+
     margin: 5px 0 5px 5px;
     height: 30px;
     max-width: 90px;

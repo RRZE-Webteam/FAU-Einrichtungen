@@ -2,7 +2,7 @@
 /* Meta-Navigation
 /*-----------------------------------------------------------------------------------*/
 .orgalist,
-#meta-nav {
+.meta-nav {
 	@include no-list;
 	padding: 0;
 	overflow: hidden;
@@ -26,10 +26,9 @@
 			color: $colorMeta;
 			text-decoration: none;
 		}
-		
-		a:hover {
-		    text-decoration: underline;
-		}
+		a:focus,
+		a:hover,
+		&:focus-within a,
 		&:hover a, 
 		&:focus a {
 			text-decoration: underline;
@@ -90,7 +89,7 @@
 }
 
 
-#meta-nav {
+.meta-nav {
     display: none;
     @media (min-width: $screen-sm) {
 	display: inline;   
@@ -160,7 +159,7 @@
 
     .cloned-meta-links,
     .cloned-hero-nav,
-    #meta-nav {
+    .meta-nav {
 	display: block;
 	padding: 10px;
 	
@@ -254,7 +253,7 @@
 	 }
 	
     }
-     #meta-nav {
+     .meta-nav {
 	    padding: 10px 0;
      }
     

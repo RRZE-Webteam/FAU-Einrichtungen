@@ -11,10 +11,15 @@
 <form method="get" class="searchform" action="<?php echo fau_esc_url(home_url( '/' ))?>">
     <h2 class="screen-reader-text"><?php echo get_theme_mod('title_hero_search'); ?></h2>
 	<div class="search-text">
-	    <label for="s"><?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:','fau'); ?></label>
+	    
+	    <?php 
+	        $randid= wp_rand(1,100);
+		$labelid= 'widgetsearchinput-'.$randid;
+		?>
+	    <label for="<?php echo $labelid;?>"><?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:','fau'); ?></label>
 	    <span class="searchicon"> </span>
-	    <input type="text" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>">
-	    <input type="submit" id="searchsubmit" value="<?php _e('Finden','fau'); ?>">
+	    <input type="text" id="<?php echo $labelid;?>" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>">
+	    <input type="submit" value="<?php _e('Finden','fau'); ?>">
 	</div>
 	<?php 
 	if (get_theme_mod('search_allowfilter')) {

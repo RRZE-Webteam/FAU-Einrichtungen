@@ -72,24 +72,9 @@ if  (! function_exists( 'fau_collapse' ) ) {
 	}
 
 	$id = intval($id) ? intval($id) : 0;
-	if ($id<1) {
-	    $id = $GLOBALS['current_collapse'];
-	}
-
-	$output = '<div class="accordion-group'.$color.'">';
-	$output .= '<div class="accordion-heading">';
-	$output .= '<a';
-	if (!fau_empty($name)) {
-	    $output .= ' name="'.$name.'"';
-	}
-	$output .= ' class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-' . $GLOBALS['collapsibles_count'] . '" href="#collapse_' . $id .'">' . $title . '</a></div>'."\n";
-	$output .= '<div id="collapse_' . $id . '" class="accordion-body'. $addclass .'">';
-	$output .= '<div class="accordion-inner clearfix">'."\n";
-	$output .= do_shortcode($content);
-	$output .= '</div>';
-	$output .= '</div></div>';
 
 
+	$output = getAccordionbyTheme($id,$title,$color,$load,$name,$content);
 	return $output;
     }
 }

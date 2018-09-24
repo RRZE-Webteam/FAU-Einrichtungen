@@ -415,8 +415,8 @@ html, body, button {
 }
 
 
-@media (max-width: $breakSM) {
-  
+@media (max-width: $screen-xs - 1) {
+    
     .js-enabled {
 	body.admin-bar #wpadminbar {
 	    position: fixed;
@@ -427,8 +427,9 @@ html, body, button {
 }
 
 
-@media (max-width: $breakMD) {
+@media (max-width: $screen-sm - 1) {
 	body {
+	    overflow: hidden;
 		padding: 0;
 	}
 }

@@ -9,7 +9,7 @@
  */
 
 ?>
-	    <div class="container hero-navigation">
+	    <nav class="container hero-navigation" aria-label="<?php echo __('Quicklinks','fau'); ?>">
 		<div class="row">
 		    <h2 class="screen-reader-text"><?php echo __('Quicklinks','fau'); ?></h2>
 			<?php 
@@ -63,4 +63,4 @@
 	    <?php if (get_theme_mod('advanced_page_start_herojumplink')) { ?>
 		<a tabindex="-1" aria-hidden="true" href="#content" class="hero-jumplink-content"></a>
 	    <?php } ?>
-	</div>
+	</nav>

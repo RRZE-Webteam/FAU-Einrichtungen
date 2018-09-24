@@ -9,10 +9,10 @@
 
 get_header();
 ?>
-	<section id="hero">
+	<div id="hero">
 	<?php get_template_part('template-parts/hero', 'slider'); ?>
 	<?php get_template_part('template-parts/hero', 'jumplinks'); ?>
-	</section>
+	</div>
 	<div id="content">
 		<div class="container">
 			<?php  echo fau_get_ad('werbebanner_seitlich',false); ?>
@@ -82,12 +82,12 @@ get_header();
 					?>			    
 				    </main>	
 				</div>
-				<div class="startpage-sidebar">
+				<aside class="startpage-sidebar" aria-label="<?php echo __('Sidebar','fau');?>">
 					<?php
 					get_template_part('template-parts/sidebar', 'events'); 	
 					get_template_part('template-parts/sidebar');
 					?>
-				</div>
+				</aside>
 			</div> <!-- /row -->
 			<?php  
 			

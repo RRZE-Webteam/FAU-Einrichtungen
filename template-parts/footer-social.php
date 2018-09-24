@@ -66,8 +66,9 @@ $show =false;
  
 if ($show) {
 ?>
-    	    <h1 class="screen-reader-text"><?php _e("Weitere Hinweise zum Webauftritt","fau"); ?></h1>
-	<div id="social">
+    	    
+	<section id="social" aria-labelledby="contentfooter">
+	    <h1 class="screen-reader-text" id="contentfooter"><?php _e("Weitere Hinweise zum Webauftritt","fau"); ?></h1>	
 		<div class="container">
 			<div class="row">
 				<?php 
@@ -99,17 +100,17 @@ if ($show) {
 
 
 				    if ($showsocialsidebar==true) {
-					 echo '</div>'; // span3, da beide activ bereiche activ
+					 echo '</div>'; 
 					 echo '<div class="col-xs-12 col-sm-9">';
 				    }
 				}
 				if ($showsocialsidebar==true) { ?>
-					<aside class="row">
+					<div class="row">
 					<?php 
 					    if ( is_active_sidebar( 'startpage-socialmediainfo' ) ) { 
 						dynamic_sidebar( 'startpage-socialmediainfo' ); 
 					    }  ?>
-					</aside>
+					</div>
 					<?php 
 					$showlink_videoportal = get_theme_mod("start_link_videoportal_socialmedia");
 					$urlvideoportal  = esc_url(get_theme_mod("start_title_videoportal_url"));
@@ -126,6 +127,6 @@ if ($show) {
 				</div>						
 			</div>
 		</div>
-	</div> <!-- /social -->	
+	</section> <!-- /social -->	
 <?php
 }

@@ -322,8 +322,8 @@ $default_fau_orga_faculty = array(
 
 $pagebreakargs = array(
     
-    'before'   => '<nav class="pagination pagebreaks" role="navigation"><h3>' . __( 'Seite:', 'fau' ).'</h3><span class="subpages">',
-		'after'            => '</span></nav>',
+    'before'   => '<nav class="pagination pagebreaks" aria-label="'.__( 'Seitenüberblick', 'fau' ).'"><p>' . __( 'Seite:', 'fau' ).' <span class="subpages">',
+		'after'            => '</span></p></nav>',
 		'link_before'      => '<span class="number">',
 		'link_after'       => '</span>',
 		'next_or_number'   => 'number',

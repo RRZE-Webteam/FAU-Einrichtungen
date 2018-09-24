@@ -24,12 +24,13 @@
 		
 		
 		@media (max-width: $screen-xs - 1) {
-		    margin: 20px auto;
-		    float: none;
+		    margin: 0 5px;
+		    width: calc(50% - 10px);
 		}
 		@media (min-width: $screen-xs) and (max-width: $screen-sm - 1) {
 		    margin-left: 25px;
 		    clear: none; 
+		    width: calc(50% - 25px);
 		    &.menu-item:nth-of-type(odd) {
 			clear: left;
 			margin-left: 15px;
@@ -114,7 +115,8 @@
                             @include px2rem($font-size-link-contentmenu); 
 		    }
 
-		    a:hover, a:focus {
+		    a:hover, 
+		    a:focus {
 			    text-decoration: none;
 			    background-color: $colorLightest;
 		    }
@@ -135,8 +137,9 @@
 	@include px2rem($font-size-h3-contentmenu);  
 	padding: 10px 15px 10px 0;
 	a {
-	     text-decoration: none;
-	     &:hover, &:focus {
+	    text-decoration: none;
+	    &:hover, 
+	    &:focus {
 		text-decoration: underline;
 	    }
 

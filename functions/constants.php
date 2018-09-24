@@ -267,6 +267,8 @@ $defaultoptions = array(
     'advanced_topevent_thumblink_alt_posttitle'	=> __('"','fau'), 
 	// Alternativer Tag wird mit dem Tiotel des verlinkten Beitrags gefüllt. 
 	// Hier kann davor noch ein teil dahinter stehen.     
+    'advanced_display_portalmenu_thumb_credits'	=> false,
+	// Zeige bei optionalen Thumbnails im Hauptmenu auch die Creditinfo, wenn vorhanden
 ); 
 
 
@@ -1098,6 +1100,17 @@ $setoptions = array(
                   'default' => $defaultoptions['menu_aftertitle_portal'],
 		    'parent'  => 'topmenulinks'
 		),  
+	       'advanced_display_portalmenu_thumb_credits'	  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Zeige Credits der Menübildern', 'fau' ),
+		    'label'   => __( 'Falls im Hauptmenu bei den Portalseiten Bilder definiert wurden, die im Hauptmenu angezeigt werden sollen, kann hier definiert werden, ob bei deren Ausgabe die Copyright-Info mit ausgegeben werden soll.', 'fau' ),                
+		    'default' => $defaultoptions['advanced_display_portalmenu_thumb_credits'],
+		    'parent'  => 'topmenulinks'
+		), 
+	       
+	       
+	       
+	       
 	       
 	       'sidebaropt'  => array(
                   'type'    => 'section',

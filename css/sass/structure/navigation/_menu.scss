@@ -2,6 +2,7 @@
 /* Main menu
 /*-----------------------------------------------------------------------------------*/
 /* Primary Navigation */
+#nav-off-canvas,
 #nav {
 	@include no-list;
 	
@@ -36,8 +37,8 @@
 		}
 		a:hover, 
 		a:focus {
-				text-decoration: none;
-				background-color: $colorHover;
+			text-decoration: none;
+			background-color: $colorHover;
 		}
 		
 	}
@@ -79,23 +80,21 @@
 					@include border-radius(0);
 					border-bottom: 1px solid $colorHover;
 					width: calc(100% - 20px);
-					
-					
-					&:before {
-					    @extend .fa;
-					    @extend .fa-angle-right;	
-					    font-weight: bold;
-					    display: table-cell;
-					    color: #fff;
-					    width: 15px;
-					    padding-left: 2px;
-					}
-					&:hover, 
-					&:focus {
-						text-decoration: none;
-						background-color: $colorHover;
-					}
-					
+					color: #fff;
+
+				}
+				a:before {
+				    @extend .fa;
+				    @extend .fa-angle-right;	
+				    font-weight: bold;
+				    display: table-cell;
+				    width: 15px;
+				    padding-left: 2px;
+				}
+				a:hover, 
+				a:focus {
+					text-decoration: none;
+					background-color: $colorHover;
 				}
 				
 			}
@@ -143,14 +142,14 @@
 	.introtext-full,
 	.introtext {
 	    p {
-			color: #fff;
-			@include px2rem($font-size-nav-introtext, $font-size-nav-introtext, 24);
-			padding: 20px;
-			margin: 0;
-			opacity: 0.7;
-			
-			font-style: normal;
-			font-weight: normal;
+		    color: #fff;
+		    @include px2rem($font-size-nav-introtext, $font-size-nav-introtext, 24);
+		    padding: 20px;
+		    margin: 0;
+		    opacity: 0.7;
+
+		    font-style: normal;
+		    font-weight: normal;
 	    }
 	    blockquote {
 		padding: 20px 20px 20px 70px; 
@@ -180,6 +179,11 @@
 	.introthumb {
 	    padding-top: 7px;
 	}
+	figcaption {
+	    color: #fff;
+	    opacity: 0.7;
+	    @include px2rem($font-size-nav-blockquote-cite);
+	} 
 	p.nav-excerpt {
 		color: $colorLightest;
 		font-size: 15px;
@@ -188,44 +192,82 @@
 		padding: 0;
 		margin: 0;
 	}
-}
-#nav li.level1.has-sub > a:hover,
-#nav li.level1.focus.has-sub > a  {
-
+	
+	
+     	
+    li.level1.has-sub a:hover,
+    li.level1.focus.has-sub a  {
 	@include border-bottom-radius(0px);
 	background-color: $colorPrimary; 
 	color: #fff; 
-	
-	
-}
-#nav li.level1 a.clicked-once,
-#nav li.level1.focus.has-sub a,
-#nav li.level1:hover a, 
-#nav li.active a, 
-#nav li.level1:focus a, 
-#nav li.focus a {
+    }
+    li.level1 a.clicked-once,
+    li.level1.focus.has-sub a,
+    li.level1:hover a, 
+    li.active a, 
+    li.level1:focus a, 
+    li.focus a {
 	background-color: $colorPrimary; 
 	color: #fff; 
+
+    }
+
+    li.has-sub a.clicked-once, 
+    li.has-sub a:hover, 
+    li.has-sub a:focus, 
+    li.has-sub.active, 
+    li.has-sub:hover a, 
+    li.has-sub:focus a, 
+    li.has-sub.focus a {
+	color: $colorMainMenu;
+    }
+
+    
+   
+    li.level1:hover .nav-flyout, 
+    li.level1:focus .nav-flyout, 
+    li.focus .nav-flyout {
+	display: block;
+    }
 	
 }
 
-#nav li.has-sub a.clicked-once, 
-#nav li.has-sub a:hover, 
-#nav li.has-sub a:focus, 
-#nav li.has-sub.active, 
-#nav li.has-sub:hover a, 
-#nav li.has-sub:focus a, 
-#nav li.has-sub.focus a {
-	color: $colorMainMenu;
-
+#nav {
+    li.level1 a:hover {
+	background-color: $colorPrimary; 
+	color: #fff; 
+    }
+    li.level1:focus-within {
+	    background-color: $colorPrimary; 
+	    a {
+		 color: #fff; 
+	    }	
+	    .nav-flyout {
+		display: block;		
+		li {
+		    a {
+			color: #fff;
+			&:hover,
+			&:focus {
+			    background-color: $colorHover;
+			}
+		    }
+		}
+		
+	    }
+    }
+    li:hover .nav-flyout ul li {
+	a {
+	    color: #fff;
+	} 
+	a:hover,
+	a:focus {
+	    background-color: $colorHover;
+	}
+    }
+    
+ 
 }
-
-#nav li.level1:hover .nav-flyout, 
-#nav li.level1:focus .nav-flyout, 
-#nav li.focus .nav-flyout {
-	display: block;
-}
-
 
 
 
@@ -274,44 +316,48 @@
 	    top: 0;
 	    position: relative;
 	}
-
-	#nav .nav-flyout {
-	    display: block;
-	    position: relative;
-	    float: none;
-	    width: 100%;
-	    top: inherit;
-	    margin: 5px 0px;
-	    padding: 3px;
-	}
-	#nav li.level1:hover,
-	#nav .nav-flyout, 
-	#nav .nav-flyout:hover {
-	    background: none !important;
-	    box-shadow: none;
-	    margin: 0;
-	    
-	}
-	  
-	#nav li {
-	    float: none;
-	    display: block;
-	    margin: 0;
-	    padding: 0;
-	    a {
+	#nav-off-canvas,
+	#nav {
+	    .nav-flyout  {
+		display: block;
+		position: relative;
 		float: none;
+		width: 100%;
+		top: inherit;
+		margin: 5px 0px;
+		padding: 3px;
+	    }
+	    li {
+		float: none;
+		display: block;
+		margin: 0;
 		padding: 0;
-		:hover {
-		    text-decoration: underline;
-		    background: none;
+		a {
+		    float: none;
+		    padding: 0;
+		    :hover {
+			text-decoration: underline;
+			background: none;
+		    }
+		}
+		.nav-flyout a.button-portal {
+		    color: #fff;
+		    text-align: center;
+		    margin: 0 10px;
 		}
 	    }
-	    .nav-flyout a.button-portal {
-		color: #fff;
-		text-align: center;
-		margin: 0 10px;
+	    
+	    li.level1:hover,
+	    .nav-flyout, 
+	    .nav-flyout:hover {
+		background: none !important;
+		box-shadow: none;
+		margin: 0;   
 	    }
 	}
+
+	
+
 
     }
     
@@ -362,7 +408,7 @@
 
 			overflow-y: auto;
 
-			#nav {
+			#nav-off-canvas {
 				display: block;
 				
 				
@@ -402,7 +448,7 @@
 			-webkit-transition: -webkit-transform 240ms;
 			        transition: transform 240ms;
 		}
-
+		#nav-off-canvas,
 		#nav {
 		    .nav-flyout {
 			display: block;
@@ -446,6 +492,7 @@
 
 	}
 	.js {	
+	    #nav-off-canvas,  
 	    #nav {
 		margin: 10px 0 0 0;
 		display: none;
@@ -494,6 +541,7 @@
 	
 }
 @media (min-width: $screen-sm) {
+    #nav-off-canvas,
     #nav {
 	overflow: hidden; 
 	max-height: 37px;

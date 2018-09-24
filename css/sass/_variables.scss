@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------------*/
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
-$version:  '1.10.10';
+$version:  '1.10.21';
     // Theme Version
     // First Digit:  Manual
     // Second Digit: Branch Version
@@ -176,7 +176,7 @@ $colorSubNavBackgroundHover:	$PalettonDunkler; // darken($colorSubNavBackground,
 $colorMainMenu:			#fff;
 
 
-$colorButton:			$PalettonDunkelste;
+$colorButton:			desaturate(lighten($colorPrimary, 5%), 40%); // $PalettonDunkelste;
 $colorButtonBackground:		$colorLightest;
 $colorButtonBackgroundHover:	darken($colorButtonBackground, 5%);
 

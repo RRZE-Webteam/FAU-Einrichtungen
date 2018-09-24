@@ -53,7 +53,7 @@ jQuery(document).ready(function($) {
 	    fadeit = true;
 	}
 	
-	var autoplaySpeedval = 5000;
+	var autoplaySpeedval = 7000;
 	var sliderNextHTML = '<button type="button" class="slick-next">Next</button>';
 	var sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
 	var stopSliderHTML = 'Stop Animation';
@@ -105,23 +105,6 @@ jQuery(document).ready(function($) {
 	$('a.lightbox').fancybox({ helpers: { title: { type: 'outside'}}});
 	
 
-	// Set jumplinks
-	$('.jumplinks a').bind('click', function(event) {
-		event.preventDefault();
-		
-		var target = $(this).data('target');
-		var firstchild = $(this).data('firstchild');
-		
-		if(firstchild == 1) {
-			$(target).eq(0).focus();
-		}
-		else {
-			$(target).focus();
-		}
-	});
-	
-
-	
 
 	
 	// Assistant tabs
@@ -244,17 +227,25 @@ jQuery(document).ready(function($) {
 	// Make #header fixed once scrolled down behind meta or on small screens
 	function fixedHeader() {
 	    if ($(window).scrollTop() > 20) {
-		$('body').addClass('nav-scrolled');
+		if (! $('body').hasClass("nav-scrolled")) {
+		    $('body').addClass('nav-scrolled');
+		}
 	    } else {
-		$('body').removeClass('nav-scrolled');
+		if ($('body').hasClass("nav-scrolled")) {
+		    $('body').removeClass('nav-scrolled');
+		}
 	    }
 	    if ($(window).scrollTop() > 200) {
-		$('.top-link').fadeIn();
+		if (! $('body').hasClass("toplink-faded")) {
+		    $('.top-link').fadeIn();
+		    $('body').addClass('toplink-faded');
+		}
 	    } else {
-		$('.top-link').fadeOut();
+		if ($('body').hasClass("toplink-faded")) {
+		    $('.top-link').fadeOut();
+		    $('body').removeClass('toplink-faded');
+		}
 	    }
-
-
 	};
 	fixedHeader();
 	
@@ -302,25 +293,8 @@ jQuery(document).ready(function($) {
 	});
 
 
-	// Main Menu
-	// Keyboard-navigation, remove and set focus class on focus-change
-	$('a').not($('#nav > li div a')).focus(function() {
-		$('#nav > li').removeClass('focus');
-	});
-	
-	$('#nav > li > a').focus(function() {
-		$('#nav > li').removeClass('focus');
-		$(this).parents('li').addClass('focus');
-	});
-	
-	$('#meta-nav > li > a').focus(function() {
-		$('#meta-nav > li').removeClass('focus');
-		$(this).parents('li').addClass('focus');
-	});
-	
-	$('.mlp_language_box ul li a').focus(function() {
-		$(this).parents('ul').addClass('focus');
-	});
+
+
 	
 	
 	// Handling touch devices and laptops with touch window:
@@ -347,10 +321,11 @@ jQuery(document).ready(function($) {
 
 
 	// Off-canvas navigation
-	var navContainer = $('<div id="off-canvas">');
+	var navContainer = $('<div id="off-canvas" role="navigation" aria-label="Hamburger Navigation" aria-controls="nav-off-canvas">');
 	// var offcanvaslogo = $('#logo').clone();
 	var nav = $('#nav').clone();
-	var navCloseLabel = $('<a id="off-canvas-close" href="#"><span>Menü schließen</span> <i class="fa fa-times"></i></a>');
+	nav.attr("id", "nav-off-canvas");
+	var navCloseLabel = $('<a id="off-canvas-close" href="#"><span>Menü schließen</span> <em class="fa fa-times"></em></a>');
 	if ($('html').attr('lang') !== 'de-DE') {
 		$('span', navCloseLabel).text('Close menu');
 	}
@@ -406,11 +381,13 @@ jQuery(document).ready(function($) {
 	// }
 	
 	var heroNavigation = $('#hero .hero-navigation').clone();
+	heroNavigation.attr("aria-label", "Quicklink Navigation");
+	
 	var footerheronav = $('<div class="cloned-hero-nav"></div>'); 
 	var footermetalinks = $('<div class="cloned-meta-links"></div>');
 	var titleportallinks = $('.meta-links h3').clone();
-	var portallinks = $('.meta-links #meta-nav').clone();
-		
+	var portallinks = $('.meta-links .meta-nav').clone();
+
 	footerheronav.append(heroNavigation);
 	footerheronav.prependTo('#footer');
 	

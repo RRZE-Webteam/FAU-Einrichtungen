@@ -34,7 +34,7 @@ blockquote {
 
 		@media (min-width: $screen-sm) {
 		    margin: 10px 50px;
-		    padding-left: 60px;
+		    padding-left: 65px;
 		}
 		
 		p {
@@ -136,6 +136,11 @@ blockquote {
 cite {
     color: $colorPrimaryHeroLight; 
     font-weight: normal;
+    
+    
+    &.text {
+	color: inherit;
+    }
 }
 
 

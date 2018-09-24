@@ -58,7 +58,7 @@ if (isset($banner) && ($banner > 0)) {
 
 ?>
 
-    <section id="hero" class="hero-banner">
+    <div id="hero" class="hero-banner">
 	<div class="banner" aria-hidden="true" role="presentation">
 	    <div class="introimg">
 		<?php 
@@ -109,4 +109,4 @@ if (isset($banner) && ($banner > 0)) {
 		 </div>    
 	    </div>
 	</div>
-    </section>
+    </div>

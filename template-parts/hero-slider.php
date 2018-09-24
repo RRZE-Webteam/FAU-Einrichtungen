@@ -11,8 +11,8 @@
 ?>
 
 
-    <div id="hero-slides">
-	<h2 class="screen-reader-text"><?php echo __('Slider','fau'); ?></h2>
+    <section id="hero-slides" aria-labelledby="slider-aria-title">
+	<h2 id="slider-aria-title" class="screen-reader-text"><?php echo __('Slider','fau'); ?></h2>
 	<?php	
 	global $usejslibs;
 	global $defaultoptions;
@@ -37,11 +37,10 @@
 	
 	   <div class="slick-slider featured-slider cf">
 	       <?php
-		foreach($hero_posts as $hero): ?>	
-		<article class="item">  
-		    <?php 
+		foreach($hero_posts as $hero): 
+		    echo '<div class="item">';
 
-		    $sliderimage = $copyright = $slidersrc = $slidersrcset = '';
+		    $sliderimage = $copyright = $slidersrc = $slidersrcset = $slidersrcsizes = '';
 
 		    $imageid = get_post_meta( $hero->ID, 'fauval_slider_image', true );
 		    if (isset($imageid) && ($imageid>0)) {
@@ -50,6 +49,7 @@
 			$imgdata = fau_get_image_attributs($imageid);
 			$copyright = trim(strip_tags( $imgdata['credits'] ));
 			$slidersrcset =  wp_get_attachment_image_srcset($imageid,'hero');
+			$slidersrcsizes = wp_get_attachment_image_sizes($imageid,'hero' );
 		    } else {
 			$post_thumbnail_id = get_post_thumbnail_id( $hero->ID ); 
 			if ($post_thumbnail_id) {
@@ -59,6 +59,7 @@
 			    $imgdata = fau_get_image_attributs($post_thumbnail_id);
 			    $copyright = trim(strip_tags( $imgdata['credits'] ));
 			    $slidersrcset =  wp_get_attachment_image_srcset($post_thumbnail_id,'hero');
+			    $slidersrcsizes = wp_get_attachment_image_sizes($post_thumbnail_id,'hero' );
 			} else {
 			    $fallbackid = get_theme_mod("fallback-slider-image");			
 			    if (isset($fallbackid) && ($fallbackid > 0)) {
@@ -66,6 +67,7 @@
 				// Wir nehmen das Fallbackbild aus dem Customizer
 				$sliderimage = wp_get_attachment_image_src( $fallbackid, 'hero' );
 				$slidersrcset =  wp_get_attachment_image_srcset($fallbackid,'hero');
+				$slidersrcsizes = wp_get_attachment_image_sizes($fallbackid,'hero' );
 				$imgdata = fau_get_image_attributs($fallbackid);
 				if (preg_match("/^cropped\-/",$imgdata['title'])) {
 				    $copyright = get_theme_mod("fallback-slider-image-title");			
@@ -85,6 +87,9 @@
 		    $slidersrc = '<img src="'.fau_esc_url($sliderimage[0]).'" width="'.$sliderimage[1].'" height="'.$sliderimage[2].'" alt=""';
 		    if ($slidersrcset) {
 			$slidersrc .= ' srcset="'.$slidersrcset.'"';
+			if ($slidersrcsizes) {
+			     $slidersrc .= ' sizes="'.$slidersrcsizes.'"';
+			}
 		    }
 		    $slidersrc .= ' role="presentation">';
 		    echo $slidersrc."\n"; 
@@ -98,6 +103,7 @@
 			    <div class="row">
 				<div class="slider-titel">
 				    <?php
+					
 					echo '<h3><a href="';
 
 					$link = get_post_meta( $hero->ID, 'external_link', true );
@@ -126,7 +132,7 @@
 				</div>  <?php } ?>		   
 			</div>
 		    </div>
-		</article>
+		</div>
 	       
 		<?php endforeach; 
 		wp_reset_query();
@@ -149,5 +155,5 @@
 		</button>
 	    </div>
 	    
-	</div>
+	</section>
    

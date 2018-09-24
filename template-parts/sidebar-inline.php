@@ -61,7 +61,7 @@
 
 
     if ($sidebarfilled>0) { ?>
-	<div class="sidebar-inline">
+	<aside class="sidebar-inline" aria-label="Sidebar">
 	    <?php 		
 	    get_template_part('template-parts/sidebar', 'events'); 	
 	    get_template_part('template-parts/sidebar', 'textabove');  
@@ -77,6 +77,6 @@
 	    }
 
 	 get_template_part('template-parts/sidebar', 'textbelow'); ?>
-    </div>
+    </aside>
 
     <?php }	?>

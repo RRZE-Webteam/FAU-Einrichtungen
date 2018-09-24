@@ -42,8 +42,8 @@
 		       </address>
 
 		    </div>
-		    <nav class="footer-meta">
-			<h2 class="screen-reader-text"><?php echo __('Kontakt, Impressum und Zusatzinformationen','fau'); ?></h2>
+		    <nav class="footer-meta" aria-labelledby="footer-nav-title">
+			<h2 class="screen-reader-text" id="footer-nav-title"><?php echo __('Kontakt, Impressum und Zusatzinformationen','fau'); ?></h2>
 			    <?php 
 			    if ( has_nav_menu( 'meta-footer' ) ) {
 				wp_nav_menu( array( 'theme_location' => 'meta-footer', 'container' => false, 'items_wrap' => '<ul id="footer-nav" class="%2$s">%3$s</ul>' ) ); 
@@ -54,8 +54,9 @@
 		    </nav>
 		</div>
 	    </div>
+	    <a href="#wrap" class="top-link"><span class="hidden">Nach oben</span></a>
 	</footer>
-	<a href="#wrap" class="top-link"><span class="hidden">Nach oben</span></a>
+	
 	<?php wp_footer(); ?>
 </body>
 </html>

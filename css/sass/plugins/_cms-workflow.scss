@@ -5,6 +5,19 @@
 
 
 /* Language switcher */
+
+.cms-workflow-widget {
+    @include border-radius(20px);
+    background: #fff;
+    
+    &:hover, 
+    &:focus, 
+    &:focus-within {
+	background: $colorMetaLightest;
+	@include box-shadow(0 0 5px rgba(0,0,0,0.2));
+    }
+}
+
 .mlp_language_box {
     padding: 0 5px;
     margin: 0;   
@@ -28,7 +41,6 @@
 	 z-index: 202;
 	ul {
 	    height: auto;
-	    background: white;
 	}
     }
     
@@ -73,10 +85,7 @@
 		    width: 0;
 		}
 	    }	
-	    a:hover, a:focus {
-		background-color: $colorLightest;
-	    }
-	
+
 			
 	    a.ext-link {
 		background-image: none;
@@ -85,16 +94,7 @@
 	    &.current  {
 	        display: none;
 	    }
-	    &:hover, 
-	    &:focus, 
-	    &.focus {
-		@include box-shadow(0 0 5px rgba(0,0,0,0.2));
-
-		a {
-		    background-color: #fff;
-		 }
-
-	    }
+	   
 	}
 		
 		
@@ -105,7 +105,7 @@
 	    @include hideout;
 	}
 }
-#wrap .meta-widget {
+#wrap .cms-workflow-widget {
     @media (max-width: $screen-sm - 1) {
 	position: fixed;
 	top: 0;

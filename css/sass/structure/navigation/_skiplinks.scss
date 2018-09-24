@@ -1,0 +1,37 @@
+/*-----------------------------------------------------------------------------------*/
+/* Skiplinks in top position of page; for keyboard users
+/*-----------------------------------------------------------------------------------*/
+
+.jumplinks {	
+    li {
+	@include no-list;
+	a {
+	    display: block;
+	    position: fixed;
+	    z-index: 10000;
+	    top: 20px;
+	    left: -1000px;
+	    padding: 6px 10px;
+	    background: #fff;
+	    text-decoration: none;
+	    color:  #000;
+
+	    &:hover, 
+	    &:focus {
+		    position: absolute;
+		    width: 250px;
+		    top: 240px;
+		    left: 0;
+		    right: 0;
+		    margin: auto;
+		    min-width: 240px;
+		    text-decoration: underline;
+		    text-align: center;
+		    background: $colorMetaLightest;
+
+	    }
+	}
+    }
+	
+}
+

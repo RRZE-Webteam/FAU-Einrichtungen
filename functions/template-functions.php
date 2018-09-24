@@ -22,7 +22,8 @@
     }
     
 
-    if ( ! is_plugin_active( 'rrze-elements/rrze-elements.php' ) ) {
+    if ((! is_plugin_active( 'rrze-elements/rrze-elements.php' ) )
+	&& (! is_plugin_active( 'rrze-faq/rrze-faq.php' ) )) {
 	$classes[] = 'theme-accordion';
     }
     
@@ -216,7 +217,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	if (isset($link) && (filter_var($link, FILTER_VALIDATE_URL))) {
 	    $external = 1;
 	} else {
-	    $link = fau_make_link_relative(get_permalink($post->ID));
+	    $link = get_permalink($post->ID);
 	}
 	
 	$type = get_post_type();
@@ -369,11 +370,11 @@ function fau_display_search_resultitem($withsidebar = 1) {
 
 		$post_thumbnail_id = get_post_thumbnail_id( $post->ID, 'post-thumb' ); 
 		$imagehtml = '';
-		$imgsrcset = '';
+		$imgsrcset = $imgsrc_sizes = '';
 		if ($post_thumbnail_id) {
 		    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id,  'post-thumb');
         	    $imgsrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'post-thumb');
-
+                    $imgsrc_sizes =  wp_get_attachment_image_sizes($post_thumbnail_id, 'post-thumb');
 		    $imageurl = $sliderimage[0]; 	
 		}
 		if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
@@ -382,6 +383,10 @@ function fau_display_search_resultitem($withsidebar = 1) {
 		$output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$defaultoptions['default_postthumb_width'].'" height="'.$defaultoptions['default_postthumb_height'].'" alt=""';
 		if ($imgsrcset) {
 		    $output .= ' srcset="'.$imgsrcset.'"';
+                    
+                    if ($imgsrc_sizes) {
+                         $output .= ' sizes="'.$imgsrc_sizes.'"';
+                    }
 		}
 		$output .= '>';
 		$output .= '</a>';
@@ -442,11 +447,11 @@ function fau_display_search_resultitem($withsidebar = 1) {
 
 		$post_thumbnail_id = get_post_thumbnail_id( $post->ID, 'post-thumb' ); 
 		$imagehtml = '';
-		$imgsrcset = '';
+		$imgsrcset = $imgsrc_sizes = '';
 		if ($post_thumbnail_id) {
 		    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id,  'post-thumb');
         	    $imgsrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'post-thumb');
-
+                    $imgsrc_sizes=  wp_get_attachment_image_sizes($post_thumbnail_id, 'post-thumb');
 		    $imageurl = $sliderimage[0]; 	
 		}
 		if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
@@ -455,6 +460,9 @@ function fau_display_search_resultitem($withsidebar = 1) {
 		$output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$defaultoptions['default_postthumb_width'].'" height="'.$defaultoptions['default_postthumb_height'].'" alt=""';
 		if ($imgsrcset) {
 		    $output .= ' srcset="'.$imgsrcset.'"';
+                    if ($imgsrc_sizes) {
+                        $output .= ' sizes="'.$imgsrc_sizes.'"';
+                    }
 		}
 		$output .= '>';
 		$output .= '</a>';
@@ -499,8 +507,8 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	} elseif (($hstart < 1) || ($hstart >6)) {
 	    $hstart = 2;
 	}
-	
-	$output .= '<article class="news-item" itemscope itemtype="http://schema.org/NewsArticle">';
+	$arialabelid= "aria-".$post->ID;
+	$output .= '<article class="news-item" aria-labelledby="'.$arialabelid.'" itemscope itemtype="http://schema.org/NewsArticle">';
 	$link = get_post_meta( $post->ID, 'external_link', true );
 	$link = esc_url(trim($link));
 	$external = false;
@@ -509,7 +517,8 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	} else {
 	    $link = fau_esc_url(get_permalink($post->ID));
 	}
-	$output .= "<h".$hstart." itemprop=\"headline\">";  
+	
+	$output .= '<h'.$hstart.' id="'.$arialabelid.'" itemprop="headline">';  
 	$output .= '<a itemprop="url" ';
 	if ($external) {
 	    $output .= 'class="ext-link" rel="canonical" ';
@@ -556,24 +565,24 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	    
 	    $output .= '<div class="thumbnailregion">'; 
 	    $output .= '<div aria-hidden="true" role="presentation" tabindex="-1" class="passpartout" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">'; 
-	    $output .= '<a href="'.$link.'" class="news-image"';
+	    $output .= '<a href="'.$link.'" class="news-image';
 	    if ($external) {
 		$output .= ' ext-link';
 	    }
-	    $output .= '>';
+	    $output .= '">';
 
 	    $post_thumbnail_id = get_post_thumbnail_id( $post->ID, 'post-thumb' ); 
 	    $imagehtml = '';
 	    $imgwidth = get_theme_mod('default_postthumb_width');
 	    $imgheight = get_theme_mod('default_postthumb_height');
-	    $imgsrcset = '';
+	    $imgsrcset = $imgsrc_sizes = '';
 	    if ($post_thumbnail_id) {
 		$sliderimage = wp_get_attachment_image_src( $post_thumbnail_id,  'post-thumb');
 		$imageurl = $sliderimage[0]; 	
 		$imgwidth = $sliderimage[1];
 		$imgheight = $sliderimage[2];
 		$imgsrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'post-thumb');
-		  
+		$imgsrc_sizes=  wp_get_attachment_image_sizes($post_thumbnail_id, 'post-thumb');
 	    }
 	    if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
 		$default_postthumb_image = get_theme_mod('default_postthumb_image');
@@ -583,6 +592,7 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 		    $imgwidth = $thisimage[1];
 		    $imgheight = $thisimage[2];
 		    $imgsrcset =  wp_get_attachment_image_srcset($default_postthumb_image, 'post-thumb'); 
+                    $imgsrc_sizes=  wp_get_attachment_image_sizes($default_postthumb_image, 'post-thumb');
 		} else {
 		    // Abwaertskompatibilitaet zu 1.9
 		    $imageurl = get_theme_mod('default_postthumb_src');
@@ -601,6 +611,9 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	    
 	    if ($imgsrcset) {
 		$output .= ' srcset="'.$imgsrcset.'"';
+                if ($imgsrc_sizes) {
+                    $output .= ' sizes="'.$imgsrc_sizes.'"';
+                }
 	    }
 	    $output .= '></a>';
 	    $output .= '<meta itemprop="url" content="'.fau_make_absolute_url($imageurl).'">';
@@ -735,10 +748,8 @@ function fau_create_readmore($url,$linktitle = '',$external = false, $ariahide =
 	    $output .= ' title="'.$linktitle.'"';
 	}
 	$output .= '>';
-	$output .= '<i class="read-more-arrow">&nbsp;</i>';
-//	if ($ariahide == false) {
-	    $output .= '<span class="screen-reader-text">'.__('Weiterlesen','fau').'</span>'; 
-//	}
+	$output .= '<span class="read-more-arrow">&nbsp;</span>';
+	$output .= '<span class="screen-reader-text">'.__('Weiterlesen','fau').'</span>'; 
 	$output .= '</a>'; 
     }
     return $output;
@@ -1416,7 +1427,7 @@ function fau_get_toplinks($args = array()) {
 	    $result .= '<'.$html.'>'.esc_attr($args['title']).'</'.$html.'>';
 	}
 	
-	$result .= '<ul id="meta-nav" class="menu">';
+	$result .= '<ul class="meta-nav menu">';
 	$result .= $thislist;
 	$result .= '</ul>';	
 	$result .= "\n";	
@@ -1620,7 +1631,45 @@ function fau_get_page_langcode($id = 0) {
     }
     return $setlang;
 }
+/*-----------------------------------------------------------------------------------*/
+/* Check for langcode and return it
+/*-----------------------------------------------------------------------------------*/
+ function getAccordionbyTheme($id = 0, $title = '', $color= '', $load = '', $name= '', $content = '') {
+	$addclass = '';
+	$title = esc_attr($title);
+	$color = $color ? ' ' . esc_attr($color) : '';
+	$load = $load ? ' ' . esc_attr($load) : '';
+	$name = $name ? ' name="' . esc_attr($name) . '"' : '';
 
+	if (empty($title) && ($empty($content))) {
+	    return;
+	}
+	if (!empty($load)) {
+	    $addclass .= " " . $load;
+	}
+
+	$id = intval($id) ? intval($id) : 0;
+	if ($id < 1) {
+	    if (!isset($GLOBALS['current_collapse'])) {
+		$GLOBALS['current_collapse'] = 0;
+	    } else {
+		$GLOBALS['current_collapse'] ++;
+	    }
+	    $id = $GLOBALS['current_collapse'];
+	}
+
+	$output = '<div class="accordion-group' . $color . '">';
+	$output .= '<h3 class="accordion-heading"><button class="accordion-toggle" data-toggle="collapse" href="#collapse_' . $id . '">' . $title . '</button></h3>';
+	$output .= '<div id="collapse_' . $id . '" class="accordion-body' . $addclass . '"' . $name . '>';
+	$output .= '<div class="accordion-inner clearfix">';
+
+	$output .= do_shortcode(trim($content));
+
+	$output .= '</div></div>';  // .accordion-inner & .accordion-body
+	$output .= '</div>';        // . accordion-group
+
+	return $output;
+}
 /*-----------------------------------------------------------------------------------*/
 /* This is the end :)
 /*-----------------------------------------------------------------------------------*/

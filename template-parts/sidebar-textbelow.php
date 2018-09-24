@@ -20,8 +20,8 @@
 	}
 
 	if (!empty($output)) {
-	    echo '<aside class="widget">'."\n";
+	    echo '<div class="widget">'."\n";
 	    echo $output;
-	    echo "</aside>\n";
+	    echo "</div>\n";
 	}
 

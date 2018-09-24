@@ -2,11 +2,108 @@
 /* Logo Menu / Logo Slider
 /*-----------------------------------------------------------------------------------*/
 
-#content {
-    	.logos-menu img {
+
+.logos-menu-nav {
+	position: relative;
+}
+
+.logos-menu {
+    align-items:center;
+    justify-content:center;	    
+    margin-left: 0;
+    img {
+		@include box-shadow(none);
+    }
+	
+    li {
+	margin: 0 10px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	@include no-list();
+	
+	&:focus {
+		outline: 1px solid $colorPrimary;
+	}
+	
+	img {
 		@include box-shadow(none);
 	}
+    }
 }
+
+#logos-menu-prev {
+	position: absolute;
+	z-index: 10;
+	top: 0;
+	left: -40px;
+	width: 40px;
+	height: 110px;
+	text-indent: inherit;
+	
+	em, 
+	i {
+	   font-size: 1.6em; 
+	   width: 100%;
+	   height: 100%;
+	   padding-top: 40px;
+	   text-align: center;
+	}
+}
+
+#logos-menu-next {
+	position: absolute;
+	z-index: 10;
+	top: 0;
+	right: -40px;
+	display: block;
+	width: 30px;
+	height: 110px;
+
+	em,
+	i {
+	   font-size: 1.6em; 
+	   width: 100%;
+	   height: 100%;
+	   padding-top: 40px;
+	   text-align: center;
+	}
+	
+}
+
+.logos-menu-settings {
+    text-align: center;
+}
+
+
+#logos-menu-playpause {
+	@include inline-block;
+	height: 32px;
+	padding-left: 32px;
+
+	@include px2rem($font-size-textbuttons);
+	
+	em,
+	i {
+	   width: 20px;
+	}
+	
+	.play {
+	    display: none;
+	}
+}
+
+
+
+#logos-menu-playpause.paused {
+    .pause {
+	display: none;
+    }	
+    .play {
+	display: inline;
+    }
+}
+
 
 
 @media (max-width: $breakXS) {
