@@ -34,7 +34,7 @@ if (is_plugin_active('rrze-search/rrze-search.php')) {
             }
         }
         ?>
-        <input type="submit" id="searchsubmit" value="<?php _e('Finden','fau'); ?>">
+        <input type="submit" value="<?php _e('Finden','fau'); ?>">
     </form>
 <?php }
 echo PHP_EOL;
