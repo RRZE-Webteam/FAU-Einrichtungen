@@ -8,3 +8,10 @@
 	
     }
 }
+.rrze-video-widget-box  {
+    width: 100%;
+    
+    @media (min-width: 320px) {
+        max-width:270px;  
+    }
+}
