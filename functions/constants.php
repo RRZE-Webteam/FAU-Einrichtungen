@@ -410,7 +410,7 @@ function fau_get_searchable_fields() {
  }        
 /*--------------------------------------------------------------------*/
 /* Durch User änderbare Konfigurationen
- *   Ab 1.9.5 über CUstomizer, davor über Theme Options
+ *   Ab 1.9.5 über Customizer, davor über Theme Options
 /*--------------------------------------------------------------------*/
 $setoptions = array(
     'fau_theme_options'   => array(
@@ -1109,8 +1109,21 @@ $setoptions = array(
 		), 
 	       
 	       
-	       
-	       
+                'contentmenus'  => array(
+		    'type'    => 'section',
+		    'title'   => __( 'Inhaltsmenüs', 'fau' ),                      
+		),
+                'default_submenu_entries' => array(
+                  'type'    => 'range-value',
+                  'title'   => __( 'Untermenüpunkte', 'fau' ),
+                  'label'   => __( 'Anzahl der anzuzeigenden Untermenüpunkte (Zweite Ebene).', 'fau' ),                
+                  'default' => $defaultoptions['default_submenu_entries'],
+		    'min'   => 0,
+		    'max'   => 10,
+		    'step'  => 1,
+		  'parent'  => 'contentmenus'
+		),   
+              
 	       
 	       'sidebaropt'  => array(
                   'type'    => 'section',
