@@ -437,7 +437,6 @@ function fau_get_contentmenu($menu, $submenu = 1, $subentries =0, $nothumbs = 0,
 	$subentries =  get_theme_mod('default_submenu_entries');
     }
 
-   $subentries = 1;
     echo '<div class="contentmenu" role="navigation" aria-label="'.__('Inhaltsmenu','fau').'">';   
     echo '<ul class="subpages-menu">';
     wp_nav_menu( array( 'menu' => $slug, 
