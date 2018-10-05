@@ -31,14 +31,14 @@ function fau_sidebars_init() {
 		'description' => __( 'Sidebar auf der Such-Ergebnisseite links', 'fau' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s" aria-label="'.__('Suche', 'fau').' Sidebar">',
 		'after_widget' => '</aside>',
-		'before_title' => '<h2 class="small">',
+		'before_title' => '<h2>',
 		'after_title' => '</h2>',
 	) );
 	register_sidebar( array(
 		'name' => __( 'Social Media Infobereich (Footer)', 'fau' ),
 		'id' => 'startpage-socialmediainfo',
 		'description' => __( 'Widgetbereich neben den Social Media Icons im Footer.', 'fau' ),
-		'before_widget' => '<div class="span3">',
+		'before_widget' => '<div class="social-media-widget">',
 		'after_widget' => '</div>',
 		'before_title' => '<h2 class="small">',
 		'after_title' => '</h2>',
