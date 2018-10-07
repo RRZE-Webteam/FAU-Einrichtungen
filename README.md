@@ -25,7 +25,6 @@ GNU General Public License (GPL) Version 2
   Apache License, Version 2.0, January 2004
 * fancyBox v2.1.5 fancyapps.com 
 * jQuery carouFredSel 6.2.1, https://dev7studios.com/
-* jQuery FlexSlider v2.3.0
 * Slick Slider v1.9
 * hoverIntent v1.8.0
 * Bootstrap 3.3.7, http://getbootstrap.com/
@@ -44,23 +43,27 @@ or send an email to
 
 ## Entwickler-Hinweise
 
-### CSS-Anweisungen
+### SASS-Compiler
 
-Die CSS Anweisungen werden mittels SASS erzeugt. Hierzu werden im Verzeichnis
-  /css/sass/
-alle notwendigen SASS und SCSS Dateien abgelegt.
-Die zentrale CSS-Datei style.css wird bei der SASS-Compilierung im 
-Hauptverzeichnis des Themes abgelegt. Die CSS-Datei für das Backend wird
-dagegen im Unterverzeichnis /css abfelegt.
+Die CSS Anweisungen werden mittels SASS erzeugt. Hierzu werden im Verzeichnis 
+```/css/sass/``` alle notwendigen SASS und SCSS Dateien abgelegt.
+Die zentrale CSS-Datei style.css wird bei der SASS-Compilierung im  
+Hauptverzeichnis des Themes abgelegt. Die CSS-Datei für das Backend wird 
+dagegen im Unterverzeichnis ```/css``` abfelegt.
 
-SASS-Watcher:
-1. Eingabequelle:   /css/sass/base.scss    -   Ausgabeort:     /style.css
+#### SASS-Watcher:
 
-2. Eingabequelle:  /css/sass/  -   Ausgabeort:     /css
+1. Basis Stylesheet
+    Eingabequelle:   ```/css/sass/base.scss```   
+    Ausgabeort:  ```/style.css```
+
+2. Sonstiges Styles
+    Eingabequelle:  ```/css/sass/```  
+    Ausgabeort:     ```/css```
 
 Mit Compiler-Option soll im prdokutiven Betrieb die erzeigte CSS-Datei kompimiert 
 sein. Außerdem sind Source-Map Dateien nicht benötigt. Die dafür notwendige 
-Compiler-Argumente sind daher:
-   --style compressed  --sourcemap=none
+Compiler-Argumente sind daher ```--style compressed  --sourcemap=none```
+
 
  
