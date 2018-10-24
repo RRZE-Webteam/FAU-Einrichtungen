@@ -347,16 +347,17 @@ jQuery(document).ready(function ($) {
             $('#mainnav-toggle').attr('aria-expanded', 'true');
         });
 
-        var searchExpanded = false;
-        document.getElementById('search-toggle')._toggleSearch = function (onOff) {
-            searchExpanded = onOff;
-            $body.toggleClass('search-toggled', searchExpanded);
-            this.setAttribute('aria-expanded', searchExpanded ? 'true' : 'false');
-            $("#headsearchinput")[searchExpanded ? 'focus' : 'blur']();
+        var searchToggle = document.getElementById('search-toggle');
+        searchToggle._expanded = false;
+        searchToggle._toggleSearch = function (onOff) {
+            this._expanded = onOff;
+            $body.toggleClass('search-toggled', this._expanded);
+            this.setAttribute('aria-expanded', this._expanded ? 'true' : 'false');
+            $("#headsearchinput")[this._expanded ? 'focus' : 'blur']();
         }
-        $('#search-toggle').bind('click', function (event) {
+        $(searchToggle).bind('click', function (event) {
             event.preventDefault();
-            this._toggleSearch(!searchExpanded);
+            this._toggleSearch(!this._expanded);
         });
 
         $('#off-canvas-overlay, #off-canvas-close').on('click', function (e) {
