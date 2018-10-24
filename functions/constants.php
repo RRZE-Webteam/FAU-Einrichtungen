@@ -9,12 +9,12 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 41,
+    'optiontable-version'		=> 42,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-    'js-version'			=> '1.10',
+    'js-version'			=> '1.11',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
     
     'website_type'			=> 0,
@@ -150,7 +150,7 @@ $defaultoptions = array(
     'breadcrumb_withtitle'		=> false,
     'breadcrumb_withtitle_parent_page'	=> true,
     'breadcrumb_showcurrent'		=> true,
-    'default_logo_src'			=> get_fau_template_uri().'/img/logos/logo-default.png',
+    'default_logo_src'			=> get_fau_template_uri().'/img/logos/logo-fau-240x65.svg',
     'default_logo_height'		=> 65,
     'default_logo_width'		=> 240,
     
