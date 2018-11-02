@@ -109,6 +109,7 @@
  }
 .js #header {
     @media (max-width: $screen-sm - 1) {
+	svg, 
 	img {
 	     @include hideout();
 
@@ -182,6 +183,7 @@
                 margin: 0 0 7px 0;     
             }
     }
+    svg,
     img {
        max-width: 240px;
        max-height: 65px;
