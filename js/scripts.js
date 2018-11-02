@@ -9,6 +9,7 @@ jQuery(document).ready(function ($) {
             sliderFade = $body.hasClass('slider-fade'),
             sliderAutostart = $body.hasClass('slider-autoplay'),
             sliderShowDots = $body.hasClass('slider-dots'),
+	    sliderAdaptiveHeight = $body.hasClass('slider-adaptiveHeight'),
             use_theme_accordion = $body.hasClass('theme-accordion');
 
 
@@ -50,6 +51,11 @@ jQuery(document).ready(function ($) {
         if (sliderFade) {
             fadeit = true;
         }
+	
+	var adaptiveHeight = false;
+        if (sliderAdaptiveHeight) {
+            adaptiveHeight = true;
+        }
 
         var autoplaySpeedval = 7000;
         var sliderNextHTML = '<button type="button" class="slick-next">Next</button>';
@@ -76,11 +82,12 @@ jQuery(document).ready(function ($) {
                 pauseOnHover: pauseOnHovervar,
                 pauseOnFocus: pauseOnHovervar,
                 infinite: true,
-                adaptiveHeight: true,
+                adaptiveHeight: adaptiveHeight,
                 fade: fadeit,
                 autoplaySpeed: autoplaySpeedval,
                 nextArrow: sliderNextHTML,
                 prevArrow: sliderPrevHTML,
+		// mobileFirst: true,
 
                 appendArrows: '.slider-controls',
             });
