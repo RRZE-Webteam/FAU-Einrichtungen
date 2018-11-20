@@ -8,7 +8,9 @@ p, address {
 
     @include px2rem($font-size-base);
     color: $colorText;
-    font-family: $fontStack;
+    font-family: $fontStack; 
+    
+    
     #footer & {
 	color: #fff;
 	background: $colorPrimaryHero;

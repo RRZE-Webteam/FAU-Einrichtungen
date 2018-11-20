@@ -157,9 +157,6 @@
 	}
 	@media (max-width: $screen-sm - 1) {
 		width: 100%;
-		.searchform {
-			text-align: center;
-		}
 
 		.search-toggled & .searchform {
 			display: block;

@@ -28,6 +28,8 @@ require_once( get_template_directory() . '/functions/posttype_ad.php' );
 require_once( get_template_directory() . '/functions/widgets.php' );
 require_once( get_template_directory() . '/functions/posttype-synonym.php');
 require_once( get_template_directory() . '/functions/posttype-glossary.php');
+require_once( get_template_directory() . '/functions/gutenberg.php');
+
 
 function fau_setup() {
 	global $defaultoptions;
