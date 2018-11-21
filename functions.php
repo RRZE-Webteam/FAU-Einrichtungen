@@ -208,6 +208,8 @@ function fau_admin_header_style() {
 }
 add_action( 'admin_enqueue_scripts', 'fau_admin_header_style' );
 
+
+
 /*-----------------------------------------------------------------------------------*/
 /* Change default header
 /*-----------------------------------------------------------------------------------*/

@@ -61,7 +61,7 @@ p.has-drop-cap {
 	float:left;
 	@include px2rem($font-size-larger * 3, $font-size-gridbase, $font-size-larger * 3);
 	font-weight: 100;
-	margin :.05em .1em 0 0;
+	margin: 0 .1em 0 0;
 	text-transform:uppercase;
 	font-style:normal;
     }

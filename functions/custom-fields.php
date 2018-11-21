@@ -55,6 +55,9 @@ function fau_metabox_cf_setup() {
 /*-----------------------------------------------------------------------------------*/
 
 function fau_add_metabox_page() {
+    // Einige der Metaboxen sollten wir "bald" zu einem Block in Gutenberg wandeln
+    // vgl. https://wordpress.org/gutenberg/handbook/extensibility/meta-box/
+	    
     
     add_meta_box(
         'fau_metabox_page_untertitel',			
@@ -63,6 +66,7 @@ function fau_add_metabox_page() {
         'page','normal','high'
     );
 
+    
     add_meta_box(
         'fau_metabox_page_portalmenu',			
         esc_html__( 'Optionen für Portalseiten', 'fau' ),		
