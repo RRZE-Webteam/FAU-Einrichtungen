@@ -146,56 +146,40 @@ class FAUShortcodes {
 		$pages = get_pages(array('sort_order' => 'ASC', 'sort_column' => 'menu_order', 'parent' => $id, 'hierarchical' => 0));
 		$i = 0;
 		foreach($pages as $page) {
-		    
-		    
-		    
-		    
-		    
-		//    $return .= '<div class="accordion-group">';
-		//	$return .= '<div class="accordion-heading">';
-		//	    $return .= '<a class="accordion-toggle" data-toggle="collapse" data-parent="accordion-" href="#collapse_'.$page->ID.'000'.$i.'">'.$page->post_title.'</a>';
-		//	$return .= '</div>';
-		//	$return .= '<div id="collapse_'.$page->ID.'000'.$i.'" class="accordion-body">';
-    		//	    $return .= '<div class="accordion-inner clearfix">';
-
 			    
-			$inner = '';	    
-		    
-					$subpages = get_pages(array('sort_order' => 'ASC', 'sort_column' => 'menu_order', 'parent' => $page->ID, 'hierarchical' => 0));
+		    $inner = '';	        
+		    $subpages = get_pages(array('sort_order' => 'ASC', 'sort_column' => 'menu_order', 'parent' => $page->ID, 'hierarchical' => 0));
 
-					if(count($subpages) > 0)  {
-					    $inner .= '<div class="assistant-tabs">';
+		    if(count($subpages) > 0)  {
+			$inner .= '<div class="assistant-tabs">';
 
-						$inner .= '<ul class="assistant-tabs-nav">';
+			    $inner .= '<ul class="assistant-tabs-nav">';
 
-						$j = 0;
-						foreach($subpages as $subpage) {
-							if($j == 0) $class = 'active';
-							else $class = '';
+			    $j = 0;
+			    foreach($subpages as $subpage) {
+				    if($j == 0) $class = 'active';
+				    else $class = '';
 
-							$inner .= '<li><a href="#accordion-'.$page->ID.'-'.$i.'-tab-'.$j.'" class="accordion-tabs-nav-toggle '.$class.'">'.$subpage->post_title.'</a></li>';
-							$j++;
-						}
-						$inner .= '</ul>';
+				    $inner .= '<li><a href="#accordion-'.$page->ID.'-'.$i.'-tab-'.$j.'" class="accordion-tabs-nav-toggle '.$class.'">'.$subpage->post_title.'</a></li>';
+				    $j++;
+			    }
+			    $inner .= '</ul>';
 
-						$j = 0;
-						foreach($subpages as $subpage) {
-							if($j == 0) $class = 'assistant-tab-pane-active';
-							else $class = '';
-							$inner .= '<div class="assistant-tab-pane '.$class.'" id="accordion-'.$page->ID.'-'.$i.'-tab-'.$j.'">';
-							$inner .= do_shortcode($subpage->post_content);
-							$inner .= '</div>';
-							$j++;
-						}
-					    $inner .= '</div>';
-					}  else {
-					    $inner .= do_shortcode($page->post_content);
-					}
+			    $j = 0;
+			    foreach($subpages as $subpage) {
+				    if($j == 0) $class = 'assistant-tab-pane-active';
+				    else $class = '';
+				    $inner .= '<div class="assistant-tab-pane '.$class.'" id="accordion-'.$page->ID.'-'.$i.'-tab-'.$j.'">';
+				    $inner .= do_shortcode($subpage->post_content);
+				    $inner .= '</div>';
+				    $j++;
+			    }
+			$inner .= '</div>';
+		    }  else {
+			$inner .= do_shortcode($page->post_content);
+		    }
 
 
-			//	    $return .= '</div>';
-			//    $return .= '</div>';
-		    // $return .= '</div>';
 		    $thisid = $page->ID.'000'.$i;
 		    $return .= getAccordionbyTheme($thisid, $page->post_title, '', '','', $inner);
 		    $i++;

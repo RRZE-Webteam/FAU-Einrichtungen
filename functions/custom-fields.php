@@ -19,10 +19,6 @@ function fau_metabox_cf_setup() {
     /* Save sidecontent */
     add_action('save_post', 'fau_save_metabox_page_untertitel', 10, 2);
 
-    if (get_theme_mod('website_type') == -1) {
-        add_action('save_post', 'fau_save_metabox_page_subnavmenu', 10, 2);
-    }
-
 
     add_action('save_post', 'fau_save_metabox_page_portalmenu', 10, 2);
     add_action('save_post', 'fau_save_metabox_page_imagelinks', 10, 2);
@@ -45,9 +41,8 @@ function fau_metabox_cf_setup() {
         add_action('save_post', 'fau_save_post_topevent', 10, 2);
     }
    
-    if (get_theme_mod('advanced_activate_page_langcode') == true) {
-	 add_action('save_post', 'fau_save_metabox_page_langcode', 10, 2);
-    }
+    // Speichere Seiten-Eigenschaften
+    add_action('save_post', 'fau_save_metabox_page_additional_attributes', 10, 2);
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -63,9 +58,12 @@ function fau_add_metabox_page() {
         'fau_metabox_page_untertitel',			
         esc_html__( 'Untertitel', 'fau' ),		
         'fau_do_metabox_page_untertitel',		
-        'page','normal','high'
+        'page','normal','high',
+	array(
+	    '__block_editor_compatible_meta_box' => true,
+	)
     );
-
+    
     
     add_meta_box(
         'fau_metabox_page_portalmenu',			
@@ -74,14 +72,7 @@ function fau_add_metabox_page() {
         'page','side','core'
     );
 
-    if (get_theme_mod('website_type')==-1) {
-        add_meta_box(
-            'fau_metabox_page_subnavmenu',			
-            esc_html__( 'Menüoptionen', 'fau' ),		
-            'fau_do_metabox_page_subnavmenu',		
-            'page','side','core'
-        );
-    }
+ 
 
     add_meta_box(
         'fau_metabox_page_imagelinks',			
@@ -105,14 +96,18 @@ function fau_add_metabox_page() {
         'fau_do_metabox_page_sidebar',		
         'page','normal','core'
     );
-    if (get_theme_mod('advanced_activate_page_langcode') == true) {
-        add_meta_box(
-            'fau_metabox_page_langcode',			
-            esc_html__( 'Seitensprache', 'fau' ),		
-            'fau_do_metabox_page_langcode',		
-            'page','side','core'
-        );
-    }
+
+    
+     add_meta_box(
+        'fau_metabox_page_additional_attributes',			
+        esc_html__( 'Seiten-Eigenschaften', 'fau' ),		
+        'fau_do_metabox_page_additional_attributes',		
+        'page','side','core',
+	array(
+	    '__block_editor_compatible_meta_box' => true,
+	)
+    );
+    
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -398,58 +393,6 @@ function fau_save_post_topevent($post_id, $post) {
     fau_save_standard('topevent_description', $_POST['fauval_topevent_desc'], $post_id, 'post', 'text');
     fau_save_standard('topevent_date', $_POST['fauval_topevent_date'], $post_id, 'post', 'date');
     fau_save_standard('topevent_image', $_POST['fauval_topevent_image'], $post_id, 'post', 'int');
-}
-
- /* Display Options for menuquotes on pages */
-function fau_do_metabox_page_subnavmenu($object, $box) {
-    wp_nonce_field(basename(__FILE__), 'fau_metabox_page_subnavmenu_nonce');
-
-    if (!current_user_can('edit_page', $object->ID)) {
-        return;
-    }
-
-    $menuebene = get_post_meta($object->ID, 'menu-level', true);
-    ?>
-    <p>
-        <label for="fau_metabox_page_menuebene">
-            <?php _e("Menüebene", 'fau'); ?>:
-        </label>
-    </p>
-    <select name="fau_metabox_page_menuebene" id="fau_metabox_page_menuebene">
-        <option value="1" <?php selected($menuebene, 1); ?>>1. Ebene</option>
-        <option value="2" <?php selected($menuebene, 2); ?>>2. Ebene</option>
-        <option value="3" <?php selected($menuebene, 3); ?>>3. Ebene</option>  
-    </select>
-    <p class="howto">
-        <?php _e('Die Menüebene definiert bei Seiten bis zur welchen Ebene das Menu auf der linken Seite gezeigt wird. Dies gilt nur für Seiten, die das folgende Template ausgewählt haben:', 'fau'); ?>
-        <code><?php _e('Inhaltsseite mit Navi', 'fau'); ?></code> 
-    </p>
-    <?php
-}
-
-/* Save the meta box's page metadata. */
-function fau_save_metabox_page_subnavmenu($post_id, $post) {
-    /* Verify the nonce before proceeding. */
-    if (!isset($_POST['fau_metabox_page_subnavmenu_nonce']) || !wp_verify_nonce($_POST['fau_metabox_page_subnavmenu_nonce'], basename(__FILE__))) {
-        return;
-    }
-    
-    $post_type = get_post_type($post_id);
-    
-    if ('page' != $_POST['post_type'] || !current_user_can('edit_page', $post_id)) {
-        return;
-    }
-
-    $newval = isset($_POST['fau_metabox_page_menuebene']) ? absint($_POST['fau_metabox_page_menuebene']) : 0;
-    $oldval = get_post_meta($post_id, 'menu-level', true);
-
-    if (!empty($newval) && !empty($oldval)) {
-        update_post_meta($post_id, 'menu-level', $newval);
-    } elseif (!empty($newval) && empty($oldval)) {
-        add_post_meta($post_id, 'menu-level', $newval, true);
-    } else {
-        delete_post_meta($post_id, 'menu-level');
-    }
 }
 
 /* Display Options for menuquotes on posts */
@@ -1107,12 +1050,51 @@ function fau_do_metabox_page_langcode($object, $box) {
     
     
 }
+
+/*-----------------------------------------------------------------------------------*/
+/*  Metabox fuer optionalen Sprachcode auf Seiten
+/*-----------------------------------------------------------------------------------*/
+function fau_do_metabox_page_additional_attributes($object, $box) {
+    wp_nonce_field(basename(__FILE__), 'fau_metabox_page_additional_attributes_nonce');
+
+    if (!current_user_can('edit_page', $object->ID)) {
+        return;
+    }
+
+    if (get_theme_mod('advanced_activate_page_langcode') == true) {
+	$prevalue = get_post_meta($object->ID, 'fauval_langcode', true);
+	global $default_fau_page_langcodes;
+
+	$liste = $default_fau_page_langcodes;
+	$sitelang = fau_get_language_main();
+	unset($liste[$sitelang]);
+
+
+	$labeltext = __('Sprache im Inhaltsbereich deklarieren','fau');
+	$howtotext = __('Falls die Sprache dieser Seite von anderen Webseiten des Webauftritts abweicht, geben Sie hier bitte die Sprache an, welche verwendet wird. Wenn die Sprache nicht geändert wird, ändern Sie nichts.</p><p class="hinweis">Achtung: Diese Funktion wird vom Workflow-Plugin nicht berücksichtigt.','fau');
+	fau_form_select('fau_metabox_page_langcode', $liste, $prevalue, $labeltext,  $howtotext);
+    }
+    
+    
+    if (get_theme_mod('website_type')==-1) {
+	$menuebene = get_post_meta($object->ID, 'menu-level', true);
+	global $default_fau_page_menuuebenen;
+	
+	$liste = $default_fau_page_menuuebenen;
+	$labeltext = __('Menüebene','fau');
+	$howtotext = __('Die Menüebene definiert bei Seiten bis zur welchen Ebene das Menu auf der linken Seite gezeigt wird. Dies gilt nur für Seiten vom Template "Inhaltsseite mit Navi".','fau');
+	echo '<div class="ontemplate_page-subnav">';
+	fau_form_select('fau_metabox_page_menuebene', $liste, $menuebene, $labeltext,  $howtotext);
+	echo '</div>';
+    }
+    
+}
 /*-----------------------------------------------------------------------------------*/
 /* Speichere optionalen Sprachcode auf Seiten
 /*-----------------------------------------------------------------------------------*/
-function fau_save_metabox_page_langcode( $post_id, $post ) {
+function fau_save_metabox_page_additional_attributes( $post_id, $post ) {
 	/* Verify the nonce before proceeding. */
-	if ( !isset( $_POST['fau_metabox_page_langcode_nonce'] ) || !wp_verify_nonce( $_POST['fau_metabox_page_langcode_nonce'], basename( __FILE__ ) ) ) {
+	if ( !isset( $_POST['fau_metabox_page_additional_attributes_nonce'] ) || !wp_verify_nonce( $_POST['fau_metabox_page_additional_attributes_nonce'], basename( __FILE__ ) ) ) {
             return $post_id;
         }
 
@@ -1120,9 +1102,15 @@ function fau_save_metabox_page_langcode( $post_id, $post ) {
 	if ('page' != $post_type || !current_user_can('edit_page', $post_id)) {
             return;
 	}
-	fau_save_standard('fauval_langcode', $_POST['fau_metabox_page_langcode'], $post_id, 'page', 'text');
+	if (get_theme_mod('advanced_activate_page_langcode') == true) {
+	    fau_save_standard('fauval_langcode', $_POST['fau_metabox_page_langcode'], $post_id, 'page', 'text');
+	}
+	
+	if (get_theme_mod('website_type')==-1) {
+	    fau_save_standard('menu-level', $_POST['fau_metabox_page_menuebene'], $post_id, 'page', 'int');  
+	}
+	
 }
-
 /*-----------------------------------------------------------------------------------*/
 /* Ersetzt das wpLink-Skript durch ein benutzerdefiniertes Skript.
 /*-----------------------------------------------------------------------------------*/

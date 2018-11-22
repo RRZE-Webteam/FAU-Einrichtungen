@@ -342,3 +342,9 @@ $default_fau_page_langcodes = array(
 	"cn" => __('Chinesisch','fau'),
 	"ru" => __('Russisch','fau'),
     );
+
+$default_fau_page_menuuebenen = array(
+    "1"	=> __('Eine Ebene','fau'),
+    "2"	=> __('Zwei Ebenen','fau'),
+    "3"	=> __('Drei Ebenen','fau'),
+);

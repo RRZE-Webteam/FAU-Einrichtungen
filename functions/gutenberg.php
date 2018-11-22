@@ -9,6 +9,16 @@
  *   https://www.billerickson.net/getting-your-theme-ready-for-gutenberg/
  */
 
+/*
+ * Note: Maybe test if gutenberg is enabled first.
+ *   $is_gutenberg_enabled = false;
+ *   if(has_filter('is_gutenberg_enabled') {
+ *       $is_gutenberg_enabled = apply_filters('is_gutenberg_enabled', false);
+ *    }
+ * with plugin https://gitlab.rrze.fau.de/rrze-webteam/rrze-writing/blob/master/RRZE/Writing/Editor/Editor.php
+ */
+
+
 /*-----------------------------------------------------------------------------------*/
 /* We use our own color set in this theme and dont want autors to change text colors
 /*-----------------------------------------------------------------------------------*/
