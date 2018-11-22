@@ -1,0 +1,34 @@
+/*-----------------------------------------------------------------------------------*/
+/* CSS Definitionen für das Plugin FAU CRIS
+/* https://github.com/RRZE-Webteam/fau-cris
+/*
+/* Definitionen für die automatisch synchronisierten Menüpunkte,
+/* daher müssen sie auf jeder Seite geladen werden.
+/*-----------------------------------------------------------------------------------*/
+
+
+#nav .level2 li.cris-last {
+     border-bottom: 1px solid #aaa;
+     padding-bottom: 10px;
+     margin-bottom: 10px;
+ }
+
+ #nav .level2 li.cris-first {
+     border-top: 1px solid #aaa;
+     padding-top: 10px;
+ }
+
+ #nav .level2 li.cris-first:before {
+     content: 'Research Areas';
+     display:block;
+     color: #fff;
+     font-weight: bold;
+     margin-bottom: 5px;
+ }
+ :lang(de-DE) #nav .level2 li.cris-first:before {
+     content: 'Forschungsbereiche';
+ }
+
+ #nav .level2 li.cris-last a {
+     border-bottom-color: transparent;
+ }
