@@ -18,8 +18,19 @@ div.wpcf7-response-output {
 
 .wpcf7-mail-sent-ok {
     @extend .wpcf7-undostyle;
-     @extend .notice-hinweis;
-    color: $colorText  !important;;
+    margin: 0;
+    padding: 22px 0;
+    font-weight: bold;
+    &:before {
+        @extend .fa;
+        @extend .fa-2x;
+        @extend .fa-exclamation-circle;
+        padding-right: 8px;
+        font-weight: normal;
+        vertical-align: -4px;
+        min-width: 24px;
+    }
+    color: $colorText;
 }
 
 .wpcf7-mail-sent-ng {
@@ -39,8 +50,20 @@ div.wpcf7-response-output {
 
 .wpcf7-validation-errors {
     @extend .wpcf7-undostyle;
-    @extend .notice-attention;
-    color: $colorNotice  !important;;
+    display: block;
+    padding: 10px 0;
+    margin: 20px 0;
+    font-weight: bold;
+    &:before {
+        @extend .fa;
+        @extend .fa-2x;
+        @extend .fa-exclamation-circle;
+        padding-right: 8px;
+        font-weight: normal;
+        vertical-align: -4px;
+        min-width: 24px;
+    }
+    color: $colorNotice;
 }
 
 .wpcf7-form-control-wrap {
@@ -51,11 +74,22 @@ div.wpcf7-response-output {
     z-index: 100;
     padding: 2px;
     @extend .wpcf7-undostyle;
-    @extend .notice-attention;
+    display: block;
+    color: $colorNotice;
+    padding: 10px 0;
+    margin: 20px 0;
+    font-weight: bold;
+    &:before {
+        @extend .fa;
+        @extend .fa-2x;
+        @extend .fa-exclamation-circle;
+        padding-right: 8px;
+        font-weight: normal;
+        vertical-align: -4px;
+        min-width: 24px;
+    }
     color: $colorNotice  !important;
-    margin-top: 0px;
-
-		
+    margin-top: 0px;	
 }
 
 .wpcf7-not-valid-tip-no-ajax {
