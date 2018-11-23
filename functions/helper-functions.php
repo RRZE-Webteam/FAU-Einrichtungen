@@ -208,13 +208,41 @@ if ( ! function_exists( 'fau_form_onoff' ) ) :
 	}
     }
 endif;    
-    
+
+if ( ! function_exists( 'fau_form_toggle' ) ) :
+    function fau_form_toggle($name= '', $prevalue = 0, $labeltext = '',  $howtotext = '' ) {
+	$name = fau_san( $name );
+	$labeltext = fau_san( $labeltext );
+	if (isset($name) &&  isset($labeltext))  { ?>
+		<div class="toggle-switch-control">
+			<div class="toggle-switch">
+				<input type="checkbox" id="<?php echo $name; ?>" name="<?php echo $name; ?>" class="toggle-switch-checkbox" value="1" <?php checked( $prevalue ,1 ); ?>>
+				<label class="toggle-switch-label" for="<?php echo esc_attr( $name ); ?>">
+					<span class="toggle-switch-inner"></span>
+					<span class="toggle-switch-switch"></span>
+				</label>
+			</div>
+			<span class="customize-control-title"><?php echo esc_html( $labeltext ); ?></span>
+			<?php if( !empty( $howtotext ) ) { ?>
+				<p class="howto"><?php echo esc_html( $howtotext ); ?></p>
+			<?php } ?>
+		</div>
+	    <?php 
+
+	} else {
+	    echo _('Ungültiger Aufruf von fau_form_toggle() - Name oder Label fehlt.', 'fau');
+	}
+    }
+endif;   
+
+
+
 if ( ! function_exists( 'fau_form_select' ) ) :
-    function fau_form_select($name= '', $liste = array(), $prevalue, $labeltext = '',  $howtotext = '', $showempty=1, $emptytext = '' ) {
+    function fau_form_select($name= '', $liste = array(), $prevalue, $labeltext = '',  $howtotext = '', $showempty=1, $emptytext = '', $modal = false ) {
 	$name = fau_san( $name );
 	$labeltext = fau_san( $labeltext );
 	$emptytext = fau_san( $emptytext );
-
+	
 	if (is_array($liste) && isset($name) &&  isset($labeltext))  { ?>
 	    <div class="liste">
 		<p><label for="<?php echo $name; ?>">
@@ -237,12 +265,28 @@ if ( ! function_exists( 'fau_form_select' ) ) :
 		<?php } ?>	
 		</select>
 
-	    </div>
+	   
 	    <?php 
 	    if (strlen(trim($howtotext))) {
-		echo '<p class="howto">';
-		echo $howtotext;
-		echo "</p>\n";
+		
+		if ($modal==true) {
+		    $dataname = 'modal-'.$name;
+		    echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#'.$dataname.'"> ? </button>';
+		    echo '<div id="'.$dataname.'" class="modal fade '.$dataname.'" tabindex="-1" role="dialog" aria-labelledby="'.$labeltext.'">';
+		    echo '<div class="modal-dialog modal-sm" role="document">';
+		      echo '<div class="modal-content">';
+			echo $howtotext;
+		      echo '</div>';
+		   echo ' </div>';
+		  echo '</div>';
+		  echo "<script>$('#".$dataname."').modal();</script>";
+		  echo '</div>';
+		} else {
+		    echo '</div>'; 
+		    echo '<p class="howto">';
+		    echo $howtotext;
+		    echo "</p>\n";
+		}
 	    }
 	} else {
 	    echo _('Ungültiger Aufruf von fau_form_select() - Array, Name oder Label fehlt.', 'fau');

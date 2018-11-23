@@ -202,6 +202,11 @@ function fau_admin_header_style() {
     wp_enqueue_style( 'dashicons' );
     wp_enqueue_media();
     wp_enqueue_script('jquery-ui-datepicker');
+    
+//    wp_register_script('bootstrap', get_fau_template_uri().'/js/bootstrap/bootstrap.min.js', array('jquery'));    
+//    wp_enqueue_script('bootstrap');	   
+//  Later - for Gutenberg hacks :)
+    
     wp_register_script('themeadminscripts', get_fau_template_uri().'/js/admin.min.js', array('jquery'));    
     wp_enqueue_script('themeadminscripts');	   
 }
