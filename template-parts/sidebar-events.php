@@ -9,7 +9,8 @@ $show =false;
 	3 => __('Suche und Fehlerseiten','fau'),
 	4 => __('Inhaltsseite mit Navi','fau'),
 	5 => __('Standard Seiten','fau'),
-	6 => __('Beiträge','fau'),       
+	6 => __('Beiträge','fau'),
+	7 => __('Landing Pages','fau'),
 */
 
 
@@ -41,6 +42,9 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 	    $show = true;
 	    break;
 	} elseif (($key==6) && (is_single()))  {	 
+	    $show = true;
+	    break;
+	} elseif (($key==7) && (get_page_template_slug( get_the_ID() ) === 'templates/template-landing-page.php')) {	 
 	    $show = true;
 	    break;
 	} else {
