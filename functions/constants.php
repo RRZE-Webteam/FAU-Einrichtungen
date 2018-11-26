@@ -873,6 +873,7 @@ $setoptions = array(
 				1 => __('Startseite','fau'),
       				2 => __('Portalseiten','fau'),
       				3 => __('Suche und Fehlerseiten','fau'),
+			   	7 => __('Landing Pages','fau'),
 		      ),
 		    'default' => $defaultoptions['topevents_templates'],
 		    'parent'  => 'topevents'
