@@ -1395,4 +1395,12 @@ $setoptions = array(
        
     )
 );
-	       
+
+// Add landing page option for top events
+$active_plugins = (array) get_option( 'active_plugins', array() );
+$ilifautpl_is_active = in_array( 'ili-fau-templates/ili-fau-templates-master.php', $active_plugins );
+
+if( $ilifautpl_is_active ) {
+    $setoptions['fau_theme_options']['templates']['fields']['topevents_templates']['liste'][7] = __('Landing Pages', 'fau');
+}
+ 
