@@ -43,6 +43,9 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 	} elseif (($key==6) && (is_single()))  {	 
 	    $show = true;
 	    break;
+	} elseif ( ( in_array( 7, $start_topevents_templates ) ) && ( is_page_template('templates/template-landing-page.php') ) ) {
+	    $show = true;
+	    break;
 	} else {
     //	echo "<!-- PAGE TEMPLATE: $template -->";
 	}
