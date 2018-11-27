@@ -34,9 +34,9 @@ function fau_customizer_settings( $wp_customize ) {
 	    // self defined boolean
 
     );
-  
+    $var = apply_filters('fau_setoptions',$setoptions[$OPTIONS_NAME]);
     
-    foreach($setoptions[$OPTIONS_NAME] as $tab => $value) {        
+    foreach($var as $tab => $value) {        
 	$tabtitel = $value['tabtitle'];    
 	
 	$desc = '';
