@@ -20,7 +20,9 @@
 			<p><img src="<?php echo get_fau_template_uri(); ?>/img/logo-fau-inverse.png" width="185" height="35" alt="<?php _e("Friedrich-Alexander-Universität Erlangen-Nürnberg","fau"); ?>"></p>
 		    </div>
 		    <div class="footer-address">
-
+			<?php 
+			$display_address = get_theme_mod("advanced_footer_display_address");
+			if ($display_address) { ?>
 			<address itemscope itemtype="http://schema.org/PostalAddress">
 			    <?php
 
@@ -40,7 +42,7 @@
 			       <span itemprop="addressCountry"><?php echo $contact_address_country; ?></span>
 			    <?php } ?>   
 		       </address>
-
+		     <?php } ?>   
 		    </div>
 		    <nav class="footer-meta" aria-labelledby="footer-nav-title">
 			<h2 class="screen-reader-text" id="footer-nav-title"><?php echo __('Kontakt, Impressum und Zusatzinformationen','fau'); ?></h2>
