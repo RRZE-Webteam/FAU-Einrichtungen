@@ -180,11 +180,6 @@ $default_link_liste = array(
 		'name'	    => __('Studierende', 'fau' ),
 		'content'  => 'https://www.fau.de/studium/',
 	    ),
-	  
-	    'link2'  => array(
-		'name'	    => __('Schülerinnen und Schüler', 'fau' ),
-		'content'  => 'https://www.fau.de/schulportal-der-fau/',
-	    ),	
 	    'link3'  => array(
 		'name'	    => __('Alumni', 'fau' ),
 		'content'  => 'https://www.fau.de/alumni/',
@@ -193,6 +188,7 @@ $default_link_liste = array(
 		'name'	    => __('Unternehmen', 'fau' ),
 		'content'  => 'https://www.fau.de/patente-gruendung-wissenstransfer/service-fuer-unternehmen/',
 	    ),	
+
 	    	
 	 
 	),
@@ -250,67 +246,60 @@ $default_fau_orga_data = array(
 		'shorttitle'    => __('Med', 'fau'),
 		'homeurl'	    => 'https://med.fau.de',
 		'homeurl_en'	    => 'https://med.fau.eu',
-		'url'           => '%s/img/logos/logo-med-240x65.gif',
-		'thumbnail'	=> '%s/img/logos/logo-med-240x65.gif',
+		'url'           => '%s/img/logos/logo-med.svg',
+		'thumbnail'	=> '%s/img/logos/logo-med.svg',
 	),
 	'nat' => array(
 		'title'	    => __('Naturwissenschaftliche Fakultät', 'fau'),
 		'shorttitle'    => __('Nat', 'fau'),
 		'homeurl'	    => 'https://nat.fau.de',
 		'homeurl_en'	    => 'https://nat.fau.eu',
-		'url'           => '%s/img/logos/logo-nat-240x65.gif',
-		'thumbnail'	=> '%s/img/logos/logo-nat-240x65.gif',
+		'url'           => '%s/img/logos/logo-nat.svg',
+		'thumbnail'	=> '%s/img/logos/logo-nat.svg',
 	),
 	'phil' => array(
 		'title'	    => __('Philosophische Fakultät', 'fau'),
 		'shorttitle'    => __('Phil', 'fau'),
 		'homeurl'	    => 'https://phil.fau.de',
 		'homeurl_en'	    => 'https://phil.fau.eu',
-		'url'           => '%s/img/logos/logo-phil-240x65.gif',
-		'thumbnail'	=> '%s/img/logos/logo-phil-240x65.gif',
+		'url'           => '%s/img/logos/logo-phil.svg',
+		'thumbnail'	=> '%s/img/logos/logo-phil.svg',
 	),
 	'rw' => array(
 		'title'	    => __('Rechts- und Wirtschaftswissenschaftliche Fakultät', 'fau'),
 		'shorttitle'    => __('RW', 'fau'),
 		'homeurl'	    => 'https://rw.fau.de',
 		'homeurl_en'	    => 'https://rw.fau.eu',
-		'url'           => '%s/img/logos/logo-rw-240x65.gif',
-		 'thumbnail'	=> '%s/img/logos/logo-rw-240x65.gif',
+		'url'           => '%s/img/logos/logo-rw.svg',
+		 'thumbnail'	=> '%s/img/logos/logo-rw.svg',
 	),
 	'tf' => array(
 		'title'	    => __('Technische Fakultät', 'fau'),
 		'shorttitle'    => __('TF', 'fau'),
 		'homeurl'	    => 'https://tf.fau.de',
 		'homeurl_en'	    => 'http://tf.fau.eu',
-		'url'           => '%s/img/logos/logo-tf-240x65.gif',
-		'thumbnail'	=> '%s/img/logos/logo-tf-240x65.gif',
+		'url'           => '%s/img/logos/logo-tf.svg',
+		'thumbnail'	=> '%s/img/logos/logo-tf.svg',
 	)
     ),
-    '_center'	=> array(
-	'rrze' => array(
-		'title'	    => __('Regionales Rechenzentrum Erlangen (RRZE)', 'fau'),
-		'shorttitle'    => __('RRZE', 'fau'),
-		'homeurl'	    => 'https://rrze.fau.de',
-		'url'           => '%s/img/logos/logo-rrze.png',
-		'thumbnail'	=> '%s/img/logos/logo-rrze.png',
-	),
-
-    ),
+    
     'fb-wiso' => array(
 	    'title'	    => __('Fachbereich Wirtschaftswissenschaften', 'fau'),
 	    'shorttitle'    => __('FB WiSo', 'fau'),
 	    'homeurl'	    => 'https://wiso.rw.fau.de',
 	    'homeurl_en'    => 'https://wiso.rw.fau.eu',
-	    'url'           => '%s/img/logos/logo-wiso-240x65.gif',
-	    'thumbnail'	    => '%s/img/logos/logo-wiso-240x65.gif',
+	    'url'           => '%s/img/logos/logo-rw-wiso.svg',
+	    'thumbnail'	    => '%s/img/logos/logo-rw-wiso.svg',
     ),
-     'fb-jura' => array(
+    'fb-jura' => array(
 	    'title'	    => __('Fachbereich Rechtswissenschaften', 'fau'),
 	    'shorttitle'    => __('FB WiSo', 'fau'),
 	    'homeurl'	    => 'https://jura.rw.fau.de',
-	    'url'           => '%s/img/logos/logo-jura-240x65.gif',
-	    'thumbnail'	    => '%s/img/logos/logo-jura-240x65.gif',
+	    'url'           => '%s/img/logos/logo-rw-jura.svg',
+	    'thumbnail'	    => '%s/img/logos/logo-rw-jura.svg',
     ),
+    
+   
     
 );
 
