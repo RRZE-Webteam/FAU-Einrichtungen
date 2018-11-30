@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 42,
+    'optiontable-version'		=> 43,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -192,6 +192,8 @@ $defaultoptions = array(
     'title_hero_search'			=> __( 'Webauftritt durchsuchen', 'fau' ),
     'title_hero_events'			=> __( 'Veranstaltungskalender','fau'),
     
+    'advanced_footer_display_address'	=> true,
+	
     'advanced_beitragsoptionen'		=> true,
     'advanced_topevent'			=> true,
     'advanced_activateads'		=> false,
@@ -772,6 +774,20 @@ $setoptions = array(
 		    'parent'  => 'breadcrumb'
 		),   	  
 	       
+	       'footer'  => array(
+                  'type'    => 'section',
+                  'title'   => __( 'Footer', 'fau' ),    
+		  'desc'    => __( 'Einstellungen für den Fußteil des Webauftritts.', 'fau' ),
+              ),
+	        'advanced_footer_display_address'	  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Adresse', 'fau' ),
+		    'label'   => __( 'Zeigt die Postadresse an, wie sie bei den Inhaltsdaten des Webauftritts angegeben wurde.', 'fau' ),                
+		    'default' => $defaultoptions['advanced_footer_display_address'],
+		    'parent'  => 'footer'
+		),   	  
+	       
+	       
 	       
           )
        ),
@@ -1263,136 +1279,7 @@ $setoptions = array(
 	       
 	    ),    
 	),    
-	/*       
-	'superadmin'   => array(
-           'tabtitle'   => __('Admin-Einstellungen', 'fau'),
-	   'user_level'	=> 1,
-	   'capability'    => 'manage_sites',
-           'fields' => array(   
-	       
-	       	'dimensions'  => array(
-                  'type'    => 'section',
-                  'title'   => __( 'Image Dimensions', 'fau' ),
-		),   
-	       
-               'default_gallery_full_width' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (Groß) - Breite', 'fau' ),
-                  'label'   => __( 'Breite in Pixel für große Galeriebilder.', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_full_width'],
-                   'parent'  => 'dimensions',
-                ), 
-                'default_gallery_full_height' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (Groß) - Höhe', 'fau' ),
-                  'label'   => __( 'Höhe in Pixel für große Galeriebilder.', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_full_height'],
-                   'parent'  => 'dimensions',
-                ),              
-                'default_gallery_full_crop'  => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Bilder zuschneiden', 'fau' ),
-                  'label'   => __( 'Sollen die großen Galeriebilder zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_full_crop'],
-		  'parent' => 'dimensions',
-                ),
 
-		'default_gallery_thumb_width' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder  - Breite', 'fau' ),
-                  'label'   => __( 'Breite in Pixel für Galeriebilder.', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_thumb_width'],
-                   'parent'  => 'dimensions',
-                ), 
-                'default_gallery_thumb_height' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder - Höhe', 'fau' ),
-                  'label'   => __( 'Höhe in Pixel für Galeriebilder.', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_thumb_height'],
-                   'parent'  => 'dimensions',
-                ),              
-                'default_gallery_thumb_crop'  => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Bilder zuschneiden', 'fau' ),
-                  'label'   => __( 'Sollen die Galeriebilder zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_thumb_crop'],
-		  'parent' => 'dimensions',
-                ),
-	       
-		'default_gallery_grid_width' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (Grid)  - Breite', 'fau' ),
-                  'label'   => __( 'Breite in Pixel für Galeriebilder (Grid).', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid_width'],
-                   'parent'  => 'dimensions',
-                ), 
-                'default_gallery_grid_height' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (Grid) - Höhe', 'fau' ),
-                  'label'   => __( 'Höhe in Pixel für Galeriebilder (Grid).', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid_height'],
-                   'parent'  => 'dimensions',
-                ),              
-                'default_gallery_grid_crop'  => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Bilder zuschneiden', 'fau' ),
-                  'label'   => __( 'Sollen die Galeriebilder (Grid) zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid_crop'],
-		  'parent' => 'dimensions',
-                ),
-	       
-		'default_gallery_grid2col_width' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (2 Spalten)  - Breite', 'fau' ),
-                  'label'   => __( 'Breite in Pixel für Galleriebilder (2 Spalten).', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid2col_width'],
-                   'parent'  => 'dimensions',
-                ), 
-                'default_gallery_grid2col_height' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (2 Spalten) - Höhe', 'fau' ),
-                  'label'   => __( 'Höhe in Pixel für Galeriebilder (2 Spalten).', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid2col_height'],
-                   'parent'  => 'dimensions',
-                ),              
-                'default_gallery_grid2col_crop'  => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Bilder zuschneiden', 'fau' ),
-                  'label'   => __( 'Sollen die Galeriebilder (2 Spalten) zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid2col_crop'],
-		  'parent' => 'dimensions',
-                ),
-	       	       
-	       
-		'default_gallery_grid4col_width' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (4 Spalten)  - Breite', 'fau' ),
-                  'label'   => __( 'Breite in Pixel für Galeriebilder (4 Spalten).', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid4col_width'],
-                   'parent'  => 'dimensions',
-                ), 
-                'default_gallery_grid4col_height' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (4 Spalten) - Höhe', 'fau' ),
-                  'label'   => __( 'Höhe in Pixel für Galeriebilder (4 Spalten).', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid4col_height'],
-                   'parent'  => 'dimensions',
-                ),              
-                'default_gallery_grid4col_crop'  => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Bilder zuschneiden', 'fau' ),
-                  'label'   => __( 'Sollen die Galeriebilder (4 Spalten) zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid4col_crop'],
-		  'parent' => 'dimensions',
-                ),	       
-  
-	      
-	       
-   
-          )
-       ),
-       */
-       
     )
 );
 	       
