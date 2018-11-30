@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 42,
+    'optiontable-version'		=> 43,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -191,6 +191,10 @@ $defaultoptions = array(
     'title_hero_post_archive'		=> __( 'FAU aktuell', 'fau' ),
     'title_hero_search'			=> __( 'Webauftritt durchsuchen', 'fau' ),
     'title_hero_events'			=> __( 'Veranstaltungskalender','fau'),
+    
+    'advanced_footer_display_address'	=> true,
+    'advanced_footer_display_socialmedia'   => false,
+    
     
     'advanced_beitragsoptionen'		=> true,
     'advanced_topevent'			=> true,
@@ -590,20 +594,14 @@ $setoptions = array(
 	        
 	       'socialmediafooter'  => array(
                   'type'    => 'section',
-                  'title'   => __( 'Social Media', 'fau' ),    
-		   'desc'   => __( 'Einstellungen zur Anzeige von Social Media Icons. Bitte beachten Sie, daß die anzuzeigenden Icons selbst als Menü verwaltet werden. Rufen Sie hierzu die Menüeinstellungen auf und bearbeiten dort das Social Media Menü.' , 'fau'),
+                  'title'   => __( 'Widget unterhalb Inhaltsbereich', 'fau' ),    
+		   'desc'   => __( 'Einstellungen zur Anzeige eines Widgets unterhalb des Inhaltsbereich.' , 'fau'),
 		),
-	        'socialmedia' => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Social Media Buttons anzeigen', 'fau' ),
-                  'label'   => __( 'Schaltet die Social Media Buttons insgesamt an oder aus.', 'fau' ),
-                  'parent'  => 'socialmediafooter',
-                  'default' => $defaultoptions['socialmedia'],
-		),  
+	       
 	       'active_socialmedia_footer' => array(
                   'type'    => 'multiselectlist',
-                  'title'   => __( 'Social Media Footer anzeigen', 'fau' ),
-                  'label'   => __( 'Auf welchen Seiten soll der Social Media Footer angezeigt werden.', 'fau' ),
+                  'title'   => __( 'Widget aktivieren', 'fau' ),
+                  'label'   => __( 'Auf welchen Seiten soll das Widget angezeigt werden.', 'fau' ),
 		  'liste'   => array(
 				1 => __('Startseite','fau'),
       				2 => __('Portalseiten','fau'),
@@ -616,12 +614,18 @@ $setoptions = array(
                   'default' => $defaultoptions['active_socialmedia_footer'],
 		  'parent'  => 'socialmediafooter',
               ),  
-	       
+	        'socialmedia' => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Social Media Buttons in der ersten Spalte anzeigen', 'fau' ),
+                  'label'   => __( 'Schaltet die Social Media Buttons insgesamt an oder aus. Bitte beachten Sie, daß die anzuzeigenden Icons selbst als Menü verwaltet werden. Rufen Sie hierzu die Menüeinstellungen auf und bearbeiten dort das Social Media Menü.', 'fau' ),
+                  'parent'  => 'socialmediafooter',
+                  'default' => $defaultoptions['socialmedia'],
+		),  
             
 	        'socialmedia_buttons_title' => array(
                   'type'    => 'text',
-                  'title'   => __( 'Titel Socialmediabereich', 'fau' ),
-                  'label'   => __( 'Titel über den Social Media Icons im Social Media Footer.', 'fau' ),               
+                  'title'   => __( 'Titel', 'fau' ),
+                  'label'   => __( 'Titel über den Social Media Icons in der ersten Spalte.', 'fau' ),               
                   'default' => $defaultoptions['socialmedia_buttons_title'],
 		    'parent'  => 'socialmediafooter',
   
@@ -630,14 +634,14 @@ $setoptions = array(
 	     'start_link_videoportal_socialmedia'  => array(
                   'type'    => 'toggle',
                   'title'   => __( 'Verlinke Videoportal', 'fau' ),
-                  'label'   => __( 'Verlinke Videoportal auf dem Social Media Fußteil der Startseite', 'fau' ),
+                  'label'   => __( 'Verlinke Videoportal auf dem Social Media Widget', 'fau' ),
                   'default' => $defaultoptions['start_link_videoportal_socialmedia'],
 		 'parent'  => 'socialmediafooter',
               ),     
 	      'start_title_videoportal_socialmedia' => array(
                   'type'    => 'text',
                   'title'   => __( 'Verlinkungstext Videoportal', 'fau' ),
-                  'label'   => __( 'Text mit der auf das Videoportal im Social Media Fußteil verlinkt wird.', 'fau' ),               
+                  'label'   => __( 'Text mit der auf das Videoportal im Social Media Widget verlinkt wird.', 'fau' ),               
                   'default' => $defaultoptions['start_title_videoportal_socialmedia'],
 		  'parent'  => 'socialmediafooter',
               ), 
@@ -771,6 +775,29 @@ $setoptions = array(
 		    'default' => $defaultoptions['breadcrumb_withtitle_parent_page'],
 		    'parent'  => 'breadcrumb'
 		),   	  
+	       
+	       'footer'  => array(
+                  'type'    => 'section',
+                  'title'   => __( 'Footer', 'fau' ),    
+		  'desc'    => __( 'Einstellungen für den Fußteil des Webauftritts.', 'fau' ),
+              ),
+	        'advanced_footer_display_address'	  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Adresse', 'fau' ),
+		    'label'   => __( 'Zeigt die Postadresse an, wie sie bei den Inhaltsdaten des Webauftritts angegeben wurde.', 'fau' ),                
+		    'default' => $defaultoptions['advanced_footer_display_address'],
+		    'parent'  => 'footer'
+		), 
+	        'advanced_footer_display_socialmedia'	  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Social Media', 'fau' ),
+		    'label'   => __( 'Zeigt die Social Media Icons im Footerbereich an', 'fau' ),                
+		    'default' => $defaultoptions['advanced_footer_display_socialmedia'],
+		    'parent'  => 'footer'
+		), 
+	       
+	       
+	       
 	       
 	       
           )
@@ -1263,136 +1290,7 @@ $setoptions = array(
 	       
 	    ),    
 	),    
-	/*       
-	'superadmin'   => array(
-           'tabtitle'   => __('Admin-Einstellungen', 'fau'),
-	   'user_level'	=> 1,
-	   'capability'    => 'manage_sites',
-           'fields' => array(   
-	       
-	       	'dimensions'  => array(
-                  'type'    => 'section',
-                  'title'   => __( 'Image Dimensions', 'fau' ),
-		),   
-	       
-               'default_gallery_full_width' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (Groß) - Breite', 'fau' ),
-                  'label'   => __( 'Breite in Pixel für große Galeriebilder.', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_full_width'],
-                   'parent'  => 'dimensions',
-                ), 
-                'default_gallery_full_height' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (Groß) - Höhe', 'fau' ),
-                  'label'   => __( 'Höhe in Pixel für große Galeriebilder.', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_full_height'],
-                   'parent'  => 'dimensions',
-                ),              
-                'default_gallery_full_crop'  => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Bilder zuschneiden', 'fau' ),
-                  'label'   => __( 'Sollen die großen Galeriebilder zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_full_crop'],
-		  'parent' => 'dimensions',
-                ),
 
-		'default_gallery_thumb_width' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder  - Breite', 'fau' ),
-                  'label'   => __( 'Breite in Pixel für Galeriebilder.', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_thumb_width'],
-                   'parent'  => 'dimensions',
-                ), 
-                'default_gallery_thumb_height' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder - Höhe', 'fau' ),
-                  'label'   => __( 'Höhe in Pixel für Galeriebilder.', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_thumb_height'],
-                   'parent'  => 'dimensions',
-                ),              
-                'default_gallery_thumb_crop'  => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Bilder zuschneiden', 'fau' ),
-                  'label'   => __( 'Sollen die Galeriebilder zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_thumb_crop'],
-		  'parent' => 'dimensions',
-                ),
-	       
-		'default_gallery_grid_width' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (Grid)  - Breite', 'fau' ),
-                  'label'   => __( 'Breite in Pixel für Galeriebilder (Grid).', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid_width'],
-                   'parent'  => 'dimensions',
-                ), 
-                'default_gallery_grid_height' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (Grid) - Höhe', 'fau' ),
-                  'label'   => __( 'Höhe in Pixel für Galeriebilder (Grid).', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid_height'],
-                   'parent'  => 'dimensions',
-                ),              
-                'default_gallery_grid_crop'  => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Bilder zuschneiden', 'fau' ),
-                  'label'   => __( 'Sollen die Galeriebilder (Grid) zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid_crop'],
-		  'parent' => 'dimensions',
-                ),
-	       
-		'default_gallery_grid2col_width' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (2 Spalten)  - Breite', 'fau' ),
-                  'label'   => __( 'Breite in Pixel für Galleriebilder (2 Spalten).', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid2col_width'],
-                   'parent'  => 'dimensions',
-                ), 
-                'default_gallery_grid2col_height' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (2 Spalten) - Höhe', 'fau' ),
-                  'label'   => __( 'Höhe in Pixel für Galeriebilder (2 Spalten).', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid2col_height'],
-                   'parent'  => 'dimensions',
-                ),              
-                'default_gallery_grid2col_crop'  => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Bilder zuschneiden', 'fau' ),
-                  'label'   => __( 'Sollen die Galeriebilder (2 Spalten) zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid2col_crop'],
-		  'parent' => 'dimensions',
-                ),
-	       	       
-	       
-		'default_gallery_grid4col_width' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (4 Spalten)  - Breite', 'fau' ),
-                  'label'   => __( 'Breite in Pixel für Galeriebilder (4 Spalten).', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid4col_width'],
-                   'parent'  => 'dimensions',
-                ), 
-                'default_gallery_grid4col_height' => array(
-                  'type'    => 'number',
-                  'title'   => __( 'Galeriebilder (4 Spalten) - Höhe', 'fau' ),
-                  'label'   => __( 'Höhe in Pixel für Galeriebilder (4 Spalten).', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid4col_height'],
-                   'parent'  => 'dimensions',
-                ),              
-                'default_gallery_grid4col_crop'  => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Bilder zuschneiden', 'fau' ),
-                  'label'   => __( 'Sollen die Galeriebilder (4 Spalten) zugeschnitten werden um in die Dimensionen zu passen?', 'fau' ),
-                  'default' => $defaultoptions['default_gallery_grid4col_crop'],
-		  'parent' => 'dimensions',
-                ),	       
-  
-	      
-	       
-   
-          )
-       ),
-       */
-       
     )
 );
 	       

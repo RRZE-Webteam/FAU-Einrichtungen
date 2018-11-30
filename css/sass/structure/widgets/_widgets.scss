@@ -1,16 +1,12 @@
 /*-----------------------------------------------------------------------------------*/
-/* Backend CSS
+/* Widgets
 /*-----------------------------------------------------------------------------------*/
+
+// Sidebar
+@import "sidebar";
 
 // Misc
 @import "misc";
 
-// Metaboxes
-@import "metaboxes";
-
-// Customizer Settings
-@import "customizer";
-
-// Plugins
-@import "plugins";
-
+// Social Media Widget
+@import "social-media";

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------------*/
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
-$version:  '1.10.26';
+$version:  '1.10.33';
     // Theme Version
     // First Digit:  Manual
     // Second Digit: Branch Version
@@ -214,6 +214,11 @@ $font-size-gridbase:		15;
 $font-size-base:		15;
 $font-size-meta:		13;
 $font-size-sidebar:		13;
+
+
+$font-size-small:		($font-size-base - 2);  
+$font-size-large:		($font-size-base + 4);  
+$font-size-larger:		($font-size-base + 8);  
 
 $font-size-footer:		13;
 $font-size-breadcrumb:		13;

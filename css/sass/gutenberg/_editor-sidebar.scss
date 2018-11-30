@@ -1,0 +1,52 @@
+// CSS belong Editor: Sidebar and tools
+
+.edit-post-sidebar {
+
+    
+    .blocks-font-size {
+//	 display: none;
+    }
+    h3 {
+	font-weight: bold;
+    }
+    select {
+	width: 100%;
+    }
+    p.howto {
+	margin: 0.5em 0.3em;
+	font-style: inherit;
+    }
+    .subsetting {
+	margin-left: 20px;	
+    }
+    .customize-control-title {
+	 font-weight: bold;
+    }
+   
+    .toggle-switch-control {
+	margin: 0 0 1.5em;
+    }
+
+    .toggle-switch {
+	float: left;
+	margin-right: 10px;
+	.toggle-switch-label {
+	    box-sizing: border-box;
+
+	}
+	.toggle-switch-inner:before, .toggle-switch-inner:after {
+	    height: 14px;
+	    line-height: 14px;
+	    font-size: 12px;
+	}
+	.toggle-switch-inner:after {
+	    background-color: inherit;
+	}
+    }
+    .customize-control-title {
+	 font-weight: bold;
+    }
+
+
+    
+}

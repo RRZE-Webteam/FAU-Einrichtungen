@@ -1632,7 +1632,7 @@ function fau_get_page_langcode($id = 0) {
     return $setlang;
 }
 /*-----------------------------------------------------------------------------------*/
-/* Check for langcode and return it
+/* getAccordionbyTheme if RRZE ELement Accordions are not active
 /*-----------------------------------------------------------------------------------*/
  function getAccordionbyTheme($id = 0, $title = '', $color= '', $load = '', $name= '', $content = '') {
 	$addclass = '';
@@ -1641,7 +1641,16 @@ function fau_get_page_langcode($id = 0) {
 	$load = $load ? ' ' . esc_attr($load) : '';
 	$name = $name ? ' name="' . esc_attr($name) . '"' : '';
 
-	if (empty($title) && ($empty($content))) {
+	
+	/* TODO:
+	 * 1. Add detection of rrze-elements plugin and if its there and active, use it.
+	 * 2. Later: Add a warning prompt to activate rrze-elements instead of
+	 *    returning the content
+	 * 
+	 */
+	
+	
+	if (empty($title) && (empty($content))) {
 	    return;
 	}
 	if (!empty($load)) {

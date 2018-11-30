@@ -28,6 +28,7 @@ require_once( get_template_directory() . '/functions/posttype_ad.php' );
 require_once( get_template_directory() . '/functions/widgets.php' );
 require_once( get_template_directory() . '/functions/posttype-synonym.php');
 require_once( get_template_directory() . '/functions/posttype-glossary.php');
+require_once( get_template_directory() . '/functions/gutenberg.php');
 
 function fau_setup() {
 	global $defaultoptions;
@@ -201,10 +202,17 @@ function fau_admin_header_style() {
     wp_enqueue_style( 'dashicons' );
     wp_enqueue_media();
     wp_enqueue_script('jquery-ui-datepicker');
+    
+//    wp_register_script('bootstrap', get_fau_template_uri().'/js/bootstrap/bootstrap.min.js', array('jquery'));    
+//    wp_enqueue_script('bootstrap');	   
+//  Later - for Gutenberg hacks :)
+    
     wp_register_script('themeadminscripts', get_fau_template_uri().'/js/admin.min.js', array('jquery'));    
     wp_enqueue_script('themeadminscripts');	   
 }
 add_action( 'admin_enqueue_scripts', 'fau_admin_header_style' );
+
+
 
 /*-----------------------------------------------------------------------------------*/
 /* Change default header

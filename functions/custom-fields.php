@@ -19,22 +19,12 @@ function fau_metabox_cf_setup() {
     /* Save sidecontent */
     add_action('save_post', 'fau_save_metabox_page_untertitel', 10, 2);
 
-    if (get_theme_mod('website_type') == -1) {
-        add_action('save_post', 'fau_save_metabox_page_subnavmenu', 10, 2);
-    }
-
-
     add_action('save_post', 'fau_save_metabox_page_portalmenu', 10, 2);
-    add_action('save_post', 'fau_save_metabox_page_imagelinks', 10, 2);
 
     add_action('save_post', 'fau_save_metabox_page_sidebar', 10, 2);
 
     if (get_theme_mod('advanced_post_active_subtitle') == true) {
         add_action('save_post', 'fau_save_metabox_post_untertitel', 10, 2);
-    }
-    
-    if (get_theme_mod('advanced_activateads') == true) {
-        add_action('save_post', 'fau_save_metabox_page_ad', 10, 2);
     }
     
     if (get_theme_mod('advanced_beitragsoptionen') == true) {
@@ -45,24 +35,29 @@ function fau_metabox_cf_setup() {
         add_action('save_post', 'fau_save_post_topevent', 10, 2);
     }
    
-    if (get_theme_mod('advanced_activate_page_langcode') == true) {
-	 add_action('save_post', 'fau_save_metabox_page_langcode', 10, 2);
-    }
+    // Speichere Seiten-Eigenschaften
+    add_action('save_post', 'fau_save_metabox_page_additional_attributes', 10, 2);
 }
-
 /*-----------------------------------------------------------------------------------*/
 /*  Create one or more meta boxes to be displayed on the post editor screen. 
 /*-----------------------------------------------------------------------------------*/
 
 function fau_add_metabox_page() {
+    // Einige der Metaboxen sollten wir "bald" zu einem Block in Gutenberg wandeln
+    // vgl. https://wordpress.org/gutenberg/handbook/extensibility/meta-box/
+	    
     
     add_meta_box(
         'fau_metabox_page_untertitel',			
         esc_html__( 'Untertitel', 'fau' ),		
         'fau_do_metabox_page_untertitel',		
-        'page','normal','high'
+        'page','normal','high',
+	array(
+	    '__block_editor_compatible_meta_box' => true,
+	)
     );
-
+    
+    
     add_meta_box(
         'fau_metabox_page_portalmenu',			
         esc_html__( 'Optionen für Portalseiten', 'fau' ),		
@@ -70,30 +65,8 @@ function fau_add_metabox_page() {
         'page','side','core'
     );
 
-    if (get_theme_mod('website_type')==-1) {
-        add_meta_box(
-            'fau_metabox_page_subnavmenu',			
-            esc_html__( 'Menüoptionen', 'fau' ),		
-            'fau_do_metabox_page_subnavmenu',		
-            'page','side','core'
-        );
-    }
 
-    add_meta_box(
-        'fau_metabox_page_imagelinks',			
-        esc_html__( 'Logos (Bildlinks) anzeigen', 'fau' ),		
-        'fau_do_metabox_page_imagelinks',		
-        'page','side','core'
-    );
-
-    if (get_theme_mod('advanced_activateads') == true) {
-        add_meta_box(
-            'fau_metabox_page_ad',			
-            esc_html__( 'Werbung aktivieren', 'fau' ),		
-            'fau_do_metabox_page_ad',		
-            'page','side','core'
-        );
-    }
+  
 
     add_meta_box(
         'fau_metabox_page_sidebar',			
@@ -101,14 +74,18 @@ function fau_add_metabox_page() {
         'fau_do_metabox_page_sidebar',		
         'page','normal','core'
     );
-    if (get_theme_mod('advanced_activate_page_langcode') == true) {
-        add_meta_box(
-            'fau_metabox_page_langcode',			
-            esc_html__( 'Seitensprache', 'fau' ),		
-            'fau_do_metabox_page_langcode',		
-            'page','side','core'
-        );
-    }
+
+    
+     add_meta_box(
+        'fau_metabox_page_additional_attributes',			
+        esc_html__( 'Seiten-Eigenschaften', 'fau' ),		
+        'fau_do_metabox_page_additional_attributes',		
+        'page','side','core',
+	array(
+	    '__block_editor_compatible_meta_box' => true,
+	)
+    );
+    
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -396,58 +373,6 @@ function fau_save_post_topevent($post_id, $post) {
     fau_save_standard('topevent_image', $_POST['fauval_topevent_image'], $post_id, 'post', 'int');
 }
 
- /* Display Options for menuquotes on pages */
-function fau_do_metabox_page_subnavmenu($object, $box) {
-    wp_nonce_field(basename(__FILE__), 'fau_metabox_page_subnavmenu_nonce');
-
-    if (!current_user_can('edit_page', $object->ID)) {
-        return;
-    }
-
-    $menuebene = get_post_meta($object->ID, 'menu-level', true);
-    ?>
-    <p>
-        <label for="fau_metabox_page_menuebene">
-            <?php _e("Menüebene", 'fau'); ?>:
-        </label>
-    </p>
-    <select name="fau_metabox_page_menuebene" id="fau_metabox_page_menuebene">
-        <option value="1" <?php selected($menuebene, 1); ?>>1. Ebene</option>
-        <option value="2" <?php selected($menuebene, 2); ?>>2. Ebene</option>
-        <option value="3" <?php selected($menuebene, 3); ?>>3. Ebene</option>  
-    </select>
-    <p class="howto">
-        <?php _e('Die Menüebene definiert bei Seiten bis zur welchen Ebene das Menu auf der linken Seite gezeigt wird. Dies gilt nur für Seiten, die das folgende Template ausgewählt haben:', 'fau'); ?>
-        <code><?php _e('Inhaltsseite mit Navi', 'fau'); ?></code> 
-    </p>
-    <?php
-}
-
-/* Save the meta box's page metadata. */
-function fau_save_metabox_page_subnavmenu($post_id, $post) {
-    /* Verify the nonce before proceeding. */
-    if (!isset($_POST['fau_metabox_page_subnavmenu_nonce']) || !wp_verify_nonce($_POST['fau_metabox_page_subnavmenu_nonce'], basename(__FILE__))) {
-        return;
-    }
-    
-    $post_type = get_post_type($post_id);
-    
-    if ('page' != $_POST['post_type'] || !current_user_can('edit_page', $post_id)) {
-        return;
-    }
-
-    $newval = isset($_POST['fau_metabox_page_menuebene']) ? absint($_POST['fau_metabox_page_menuebene']) : 0;
-    $oldval = get_post_meta($post_id, 'menu-level', true);
-
-    if (!empty($newval) && !empty($oldval)) {
-        update_post_meta($post_id, 'menu-level', $newval);
-    } elseif (!empty($newval) && empty($oldval)) {
-        add_post_meta($post_id, 'menu-level', $newval, true);
-    } else {
-        delete_post_meta($post_id, 'menu-level');
-    }
-}
-
 /* Display Options for menuquotes on posts */
 function fau_do_metabox_post_untertitel($object, $box) {
     wp_nonce_field(basename(__FILE__), 'fau_metabox_post_untertitel_nonce');
@@ -535,7 +460,7 @@ function fau_do_metabox_page_portalmenu($object, $box) {
     $texttype = ( isset($val) ? intval($val) : 0 );
     $author = get_post_meta($object->ID, 'zitat_autor', true);
     $nothumbnail = get_post_meta($object->ID, 'menuquote_nothumbnail', true) ? 1 : 0;
-
+    echo '<div class="ontemplate_page-portal ontemplate_page-portalindex">';
     echo '<div id="portalseitenquote">';
     fau_form_textarea('fau_metabox_menuquote_quote', $quote, __("Zitat (Text)", 'fau'), 40, 3, __('Das Zitat und der Autor erscheint bei Portalseiten oder Menüpunkten der ersten Ebene des Hauptmenüs neben der Auflistung der Untermenüpunkte.', 'fau'));
     fau_form_text('fau_metabox_menuquote_autor', $author, __("Autor", 'fau'), __('Dieser freie Text kann einen Namen enthalten auf den das Zitat zurückzuführen ist oder andere Informationen hierzu.', 'fau'), '', 20);
@@ -575,6 +500,7 @@ function fau_do_metabox_page_portalmenu($object, $box) {
 
     $nosub = get_post_meta($object->ID, 'fauval_portalmenu_nosub', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_nosub', $nosub, __('Unterpunkte verbergen.', 'fau'));
+    echo '</div>';
 }
 
 /* Save the meta box's page metadata. */
@@ -662,160 +588,6 @@ function fau_save_metabox_page_portalmenu($post_id, $post) {
     fau_save_standard('menuquote_nothumbnail', $newval, $post_id, '', 'int');
 }
 
-/* 
- * Imagelinks einbinden 
- */
-
-/* Display Options for menuquotes on pages */
-function fau_do_metabox_page_imagelinks($object, $box) {
-    wp_nonce_field(basename(__FILE__), 'fau_metabox_page_imagelinks_nonce');
-
-    if (!current_user_can('edit_page', $object->ID)) {
-        return;
-    }
-
-    $thislist = array();
-    $categories = get_categories(array('type' => 'imagelink', 'taxonomy' => 'imagelinks_category', 'orderby' => 'name', 'order' => 'ASC', 'hide_empty' => 1));
-    foreach ($categories as $category) {
-        if (!is_wp_error($category)) {
-            if ($category->count > 1) {
-                $thislist[$category->cat_ID] = $category->name . ' (' . $category->count . ' ' . __('Bilder', 'fau') . ')';
-            } else {
-                $thislist[$category->cat_ID] = $category->name . ' (' . $category->count . ' ' . __('Bild', 'fau') . ')';
-            }
-        }
-    }
-
-    if (empty($thislist)) {
-        echo __('Es wurden noch keine Bilder als Logos definiert. Daher kann hier noch nichts ausgewählt werden.', 'fau');
-    } else {
-        $currentcat = get_post_meta($object->ID, 'fauval_imagelink_catid', true);
-        fau_form_select('fau_metabox_page_imagelinks_catid', $thislist, $currentcat, __('Kategorie', 'fau'), __('Wählen Sie hier die Kategorie aus aus der Logos (Bildlinks) verwendet werden sollen. Die Bilder aus der gewählten Kategorie werden dann angezeigt.', 'fau'), 1, __('Keine Logos zeigen', 'fau'));
-    }
-    
-    return;
-}
-
-/* Save the meta box's page metadata. */
-function fau_save_metabox_page_imagelinks($post_id, $post) {
-    /* Verify the nonce before proceeding. */
-    if (!isset($_POST['fau_metabox_page_imagelinks_nonce']) || !wp_verify_nonce($_POST['fau_metabox_page_imagelinks_nonce'], basename(__FILE__))) {
-        return;
-    }
-
-    $post_type = get_post_type($post_id);
-
-    if ('page' != $post_type || !current_user_can('edit_page', $post_id)) {
-        return;
-    }
-
-    $newval = isset($_POST['fau_metabox_page_imagelinks_catid']) ? absint($_POST['fau_metabox_page_imagelinks_catid']) : 0;
-    fau_save_standard('fauval_imagelink_catid', $newval, $post_id, 'post', 'int');
-}
-
-/* 
- * Werbung aktivieren 
- */
-
-/* Display Options for menuquotes on pages */
-function fau_do_metabox_page_ad($object, $box) {
-    
-    wp_nonce_field(basename(__FILE__), 'fau_metabox_page_ad_nonce');
-
-    if (!current_user_can('edit_page', $object->ID)) {
-        return;
-    }
-
-    $allads = get_posts(array('post_type' => 'ad', 'posts_per_page' => -1));
-    if ($allads) {
-        $sidebarads = array('-1' => __('Keine (Deaktivieren)', 'fau'));
-        $bottomads = array('-1' => __('Keine (Deaktivieren)', 'fau'));
-
-        foreach ($allads as $ad) {
-            $title = get_the_title($ad->ID);
-            $position = get_post_meta($ad->ID, 'fauval_ad_position', true);
-            if ($position == 1) {
-                // Nur in der Sidebar
-                $sidebarads[$ad->ID] = $title;
-            } elseif ($position == 2) {
-                // Nur Unten
-                $bottomads[$ad->ID] = $title;
-            } else {
-                // Beide Bereiceh oder unedefiniert
-                $sidebarads[$ad->ID] = $title;
-                $bottomads[$ad->ID] = $title;
-            }
-        }
-        wp_reset_postdata();
-        $listseite = get_post_meta($object->ID, 'werbebanner_seitlich', true);
-        $listunten = get_post_meta($object->ID, 'werbebanner_unten', true);
-
-        fau_form_multiselect('werbebanner_seitlich', $sidebarads, $listseite, __('Sidebar', 'fau'), __('Wählen Sie die Werbung, die in der Sidebar erscheinen soll.', 'fau'), 0);
-        fau_form_multiselect('werbebanner_unten', $bottomads, $listunten, __('Inhaltsbereich', 'fau'), __('Wählen Sie die Werbung, die unterhalb des Inhalts erscheinen soll.', 'fau'), 0);
-    } else {
-        _e('Es wurde noch keine Werbung definiert, die angezeigt werden kann.', 'fau');
-    }
-    return;
-}
-
-/* Save the meta box's post/page metadata. */
-function fau_save_metabox_page_ad($post_id, $post) {
-    if (!isset($_POST['fau_metabox_page_ad_nonce']) || !wp_verify_nonce($_POST['fau_metabox_page_ad_nonce'], basename(__FILE__))) {
-        return;
-    }
-
-    $post_type = get_post_type($post_id);
-
-    if ('page' != $post_type || !current_user_can('edit_page', $post_id)) {
-        return;
-    }
-
-    $newval = isset($_POST['werbebanner_seitlich']) ? (array) $_POST['werbebanner_seitlich'] : [];
-    $oldval = get_post_meta($post_id, 'werbebanner_seitlich', true);
-    $remove = 0;
-    $found = 0;
-
-    foreach ($newval as $i) {
-        if ($i == -1) {
-            $remove = 1;
-        } elseif ($i > 0) {
-            $found = 1;
-        }
-    }
-
-    if (($remove == 1) || ($found == 0)) {
-        delete_post_meta($post_id, 'werbebanner_seitlich');
-    } else {
-        if (!empty($oldval)) {
-            update_post_meta($post_id, 'werbebanner_seitlich', $newval);
-        } else {
-            add_post_meta($post_id, 'werbebanner_seitlich', $newval, true);
-        }
-    }
-
-    $newval = isset($_POST['werbebanner_unten']) ? (array) $_POST['werbebanner_unten'] : [];
-    $oldval = get_post_meta($post_id, 'werbebanner_unten', true);
-    $remove = 0;
-    $found = 0;
-
-    foreach ($newval as $i) {
-        if ($i == -1) {
-            $remove = 1;
-        } elseif ($i > 0) {
-            $found = 1;
-        }
-    }
-
-    if (($remove == 1) || ($found == 0)) {
-        delete_post_meta($post_id, 'werbebanner_unten');
-    } else {
-        if (!empty($oldval)) {
-            update_post_meta($post_id, 'werbebanner_unten', $newval);
-        } else {
-            add_post_meta($post_id, 'werbebanner_unten', $newval, true);
-        }
-    }
-}
 
 /* 
  * Sidebar der Seiten  
@@ -1103,22 +875,199 @@ function fau_do_metabox_page_langcode($object, $box) {
     
     
 }
+
+/*-----------------------------------------------------------------------------------*/
+/*  Metabox fuer optionalen Sprachcode auf Seiten
+/*-----------------------------------------------------------------------------------*/
+function fau_do_metabox_page_additional_attributes($object, $box) {
+    wp_nonce_field(basename(__FILE__), 'fau_metabox_page_additional_attributes_nonce');
+
+    if (!current_user_can('edit_page', $object->ID)) {
+        return;
+    }
+
+    $only_subnavi = __('Dies gilt nur für Seiten vom Template "Inhaltsseite mit Navi".','fau');
+    
+    if (get_theme_mod('advanced_activate_page_langcode') == true) {
+	$prevalue = get_post_meta($object->ID, 'fauval_langcode', true);
+	global $default_fau_page_langcodes;
+
+	$liste = $default_fau_page_langcodes;
+	$sitelang = fau_get_language_main();
+	unset($liste[$sitelang]);
+
+
+	$labeltext = __('Sprache im Inhaltsbereich deklarieren','fau');
+	$howtotext = __('Falls die Sprache dieser Seite von anderen Webseiten des Webauftritts abweicht, geben Sie hier bitte die Sprache an, welche verwendet wird. Wenn die Sprache nicht geändert wird, ändern Sie nichts.</p><p class="hinweis">Achtung: Diese Funktion wird vom Workflow-Plugin nicht berücksichtigt.','fau');
+	fau_form_select('fau_metabox_page_langcode', $liste, $prevalue, $labeltext,  $howtotext);
+    }
+    
+    
+	$ignoresubnavi = get_post_meta($object->ID, 'fauval_hide-in-subnav', true);
+	$labeltext = __('Seite verbergen','fau');
+	$howtotext = __('Diese Seite wird nicht im Navigationsmenü im Inhaltsbereich gezeigt.','fau').' '.$only_subnavi;
+	echo '<div class="ontemplate_page-subnav">';
+	fau_form_toggle('fau_metabox_page_hide-in-subnav', $ignoresubnavi, $labeltext, $howtotext);
+	echo '</div>';
+    
+	
+	
+	
+	
+    
+    if (get_theme_mod('website_type')==-1) {
+	$menuebene = get_post_meta($object->ID, 'menu-level', true);
+	global $default_fau_page_menuuebenen;
+	
+	$liste = $default_fau_page_menuuebenen;
+	$labeltext = __('Menüebene','fau');
+	$howtotext = __('Die Menüebene definiert bei Seiten bis zur welchen Ebene das Menu auf der linken Seite gezeigt wird.','fau').' '.$only_subnavi;
+	echo '<div class="ontemplate_page-subnav">';
+	fau_form_select('fau_metabox_page_menuebene', $liste, $menuebene, $labeltext,  $howtotext);
+	echo '</div>';
+    }
+    
+    
+    $thislist = array();
+    $categories = get_categories(array('type' => 'imagelink', 'taxonomy' => 'imagelinks_category', 'orderby' => 'name', 'order' => 'ASC', 'hide_empty' => 1));
+    foreach ($categories as $category) {
+        if (!is_wp_error($category)) {
+            if ($category->count > 1) {
+                $thislist[$category->cat_ID] = $category->name . ' (' . $category->count . ' ' . __('Bilder', 'fau') . ')';
+            } else {
+                $thislist[$category->cat_ID] = $category->name . ' (' . $category->count . ' ' . __('Bild', 'fau') . ')';
+            }
+        }
+    }
+
+    if (empty($thislist)) {
+       // echo __('Es wurden noch keine Bilder als Logos definiert. Daher kann hier noch nichts ausgewählt werden.', 'fau');
+	// Keine Meldung mehr
+    } else {
+	echo '<div class="ontemplate_page-portal ontemplate_page-portalindex ontemplate_page-start ontemplate_page-start-sub">';
+        $currentcat = get_post_meta($object->ID, 'fauval_imagelink_catid', true);
+        fau_form_select('fau_metabox_page_imagelinks_catid', $thislist, $currentcat, __('Bildlinks einblenden', 'fau'), __('Wählen Sie hier die Kategorie aus aus der Bildlinks (verlinkte Logos) verwendet werden sollen. Die Bilder aus der gewählten Kategorie werden dann am Ende der Seite angezeigt.', 'fau'), 1, __('Keine Logos zeigen', 'fau'));
+	echo '</div>';
+	
+    }
+    if (get_theme_mod('advanced_activateads') == true) {
+	$allads = get_posts(array('post_type' => 'ad', 'posts_per_page' => -1));
+	if ($allads) {
+	    
+	    echo '<h3>'.__('Werbebanner anzeigen','fau').'</h3>';
+	    echo '<div class="subsetting">';
+	    $sidebarads = array('-1' => __('Keine (Deaktivieren)', 'fau'));
+	    $bottomads = array('-1' => __('Keine (Deaktivieren)', 'fau'));
+
+	    foreach ($allads as $ad) {
+		$title = get_the_title($ad->ID);
+		$position = get_post_meta($ad->ID, 'fauval_ad_position', true);
+		if ($position == 1) {
+		    // Nur in der Sidebar
+		    $sidebarads[$ad->ID] = $title;
+		} elseif ($position == 2) {
+		    // Nur Unten
+		    $bottomads[$ad->ID] = $title;
+		} else {
+		    // Beide Bereiceh oder unedefiniert
+		    $sidebarads[$ad->ID] = $title;
+		    $bottomads[$ad->ID] = $title;
+		}
+	    }
+	    wp_reset_postdata();
+	    $listseite = get_post_meta($object->ID, 'werbebanner_seitlich', true);
+	    if (is_array($listseite)) {
+		$listseite = $listseite[0];
+	    }
+	    $listunten = get_post_meta($object->ID, 'werbebanner_unten', true);
+	    if (is_array($listunten)) {
+		$listunten = $listunten[0];
+	    }
+	    fau_form_select('werbebanner_seitlich', $sidebarads, $listseite, __('Sidebar', 'fau'), __('Wählen Sie die Werbung, die in der Sidebar erscheinen soll.', 'fau'), 0, '', false);
+	    fau_form_select('werbebanner_unten', $bottomads, $listunten, __('Inhaltsbereich', 'fau'), __('Wählen Sie die Werbung, die unterhalb des Inhalts erscheinen soll.', 'fau'), 0, '', false);
+	     echo '</div>';
+	}
+    }
+    
+    
+}
 /*-----------------------------------------------------------------------------------*/
 /* Speichere optionalen Sprachcode auf Seiten
 /*-----------------------------------------------------------------------------------*/
-function fau_save_metabox_page_langcode( $post_id, $post ) {
-	/* Verify the nonce before proceeding. */
-	if ( !isset( $_POST['fau_metabox_page_langcode_nonce'] ) || !wp_verify_nonce( $_POST['fau_metabox_page_langcode_nonce'], basename( __FILE__ ) ) ) {
-            return $post_id;
-        }
+function fau_save_metabox_page_additional_attributes( $post_id, $post ) {
+    /* Verify the nonce before proceeding. */
+    if ( !isset( $_POST['fau_metabox_page_additional_attributes_nonce'] ) || !wp_verify_nonce( $_POST['fau_metabox_page_additional_attributes_nonce'], basename( __FILE__ ) ) ) {
+	return $post_id;
+    }
 
-	$post_type = get_post_type($post_id);
-	if ('page' != $post_type || !current_user_can('edit_page', $post_id)) {
-            return;
-	}
+    $post_type = get_post_type($post_id);
+    if ('page' != $post_type || !current_user_can('edit_page', $post_id)) {
+	return;
+    }
+    if (get_theme_mod('advanced_activate_page_langcode') == true) {
 	fau_save_standard('fauval_langcode', $_POST['fau_metabox_page_langcode'], $post_id, 'page', 'text');
-}
+    }
 
+    if (get_theme_mod('website_type')==-1) {
+	fau_save_standard('menu-level', $_POST['fau_metabox_page_menuebene'], $post_id, 'page', 'int');  
+    }
+
+    $newval = !empty($_POST['fau_metabox_page_hide-in-subnav']) ? 1 : 0;
+    fau_save_standard('fauval_hide-in-subnav', $newval, $post_id, '', 'int');
+    
+
+    $newval = isset($_POST['fau_metabox_page_imagelinks_catid']) ? absint($_POST['fau_metabox_page_imagelinks_catid']) : 0;
+    fau_save_standard('fauval_imagelink_catid', $newval, $post_id, 'post', 'int');
+
+	
+    if (get_theme_mod('advanced_activateads') == true) {	
+	$newval = isset($_POST['werbebanner_seitlich']) ? (array) $_POST['werbebanner_seitlich'] : [];
+	$oldval = get_post_meta($post_id, 'werbebanner_seitlich', true);
+	$remove = 0;
+	$found = 0;
+
+	foreach ($newval as $i) {
+	    if ($i == -1) {
+		$remove = 1;
+	    } elseif ($i > 0) {
+		$found = 1;
+	    }
+	}
+
+	if (($remove == 1) || ($found == 0)) {
+	    delete_post_meta($post_id, 'werbebanner_seitlich');
+	} else {
+	    if (!empty($oldval)) {
+		update_post_meta($post_id, 'werbebanner_seitlich', $newval);
+	    } else {
+		add_post_meta($post_id, 'werbebanner_seitlich', $newval, true);
+	    }
+	}
+
+	$newval = isset($_POST['werbebanner_unten']) ? (array) $_POST['werbebanner_unten'] : [];
+	$oldval = get_post_meta($post_id, 'werbebanner_unten', true);
+	$remove = 0;
+	$found = 0;
+
+	foreach ($newval as $i) {
+	    if ($i == -1) {
+		$remove = 1;
+	    } elseif ($i > 0) {
+		$found = 1;
+	    }
+	}
+
+	if (($remove == 1) || ($found == 0)) {
+	    delete_post_meta($post_id, 'werbebanner_unten');
+	} else {
+	    if (!empty($oldval)) {
+		update_post_meta($post_id, 'werbebanner_unten', $newval);
+	    } else {
+		add_post_meta($post_id, 'werbebanner_unten', $newval, true);
+	    }
+	}
+    }
+}
 /*-----------------------------------------------------------------------------------*/
 /* Ersetzt das wpLink-Skript durch ein benutzerdefiniertes Skript.
 /*-----------------------------------------------------------------------------------*/
