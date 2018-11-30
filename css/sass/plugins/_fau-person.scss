@@ -166,7 +166,7 @@
 
 }
 
-ul.person-info {
+.person-info {
 	@include no-list;
 	margin-bottom: 10px;
 	
@@ -212,22 +212,22 @@ ul.person-info {
 		width: 20px;
 	} */
 	
-	li.person-info-phone:before { 
+	.person-info-phone:before { 
 	    @extend .fa;
 	    width: 20px; 
 	    @extend .fa-phone; 
 	}
-	li.person-info-mobile:before { 
+	.person-info-mobile:before { 
 	    @extend .fa;
 	    width: 20px; 
 	    @extend .fa-mobile; 
 	}	
-	li.person-info-fax:before {
+	.person-info-fax:before {
 	    @extend .fa;
 	    width: 20px; 
 	    @extend .fa-print; 
 	}
-	li.person-info-email:before {
+	.person-info-email:before {
 	    @extend .fa;
 	    width: 20px; 
 	    @extend .fa-envelope; 
@@ -239,20 +239,20 @@ ul.person-info {
 	    @extend .fa-building; 
 	}
 	*/
-	li.person-info-www:before { 
+	.person-info-www:before { 
 	    @extend .fa;
 	    width: 20px; 
 	    @extend .fa-info-circle; 
 	}
-	li.person-info-position {
+	.person-info-position {
 	    font-weight: bold;
 	}
-	li.person-info-address {
+	.person-info-address {
 	    margin-top: 10px;
 	    padding-left: 0px;
 	}
 	
-	li.person-info-description {
+	.person-info-description {
 	    margin-top: 10px;
 	    padding-left: 20px;
 	}
