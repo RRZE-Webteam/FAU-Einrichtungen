@@ -73,10 +73,10 @@
     @extend .col-md-3;
 }
 .footer-meta {
-    @extend .col-xs-12;
+    @extend .col-xs-10;
     @extend .col-sm-4;
     @extend .col-md-6;
-    text-align: right;
+
 }
 
 
@@ -139,6 +139,9 @@
     }
     .footer-address {
 	max-width: calc(100% - 215px);
+    }
+    .footer-meta {
+	text-align: right;
     }
 }
 
