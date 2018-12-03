@@ -8,8 +8,10 @@ $titleblock2 = '';
 
 $linkblock1_number = get_theme_mod('advanced_page_sidebar_linkblock1_number');
 if ($linkblock1_number > 0) {	
-    $sidebar_quicklinks = get_post_meta( $post->ID, 'sidebar_quicklinks', true );
-	    // Alter ACF Rotz
+	    $sidebar_quicklinks = get_post_meta( $post->ID, 'sidebar_quicklinks', true );
+	    // Prüfe auch alten ACF Rotz Inhalt
+	    // wegen Rückwartscompatibilität bei der Hauptwebsite leider noch 
+	    // nicht loschbar.
 	    
 	    $block_title = get_post_meta( $post->ID, 'fauval_sidebar_title_linkblock1', true );
 	    if (strlen(trim($block_title))<1) {
@@ -19,7 +21,7 @@ if ($linkblock1_number > 0) {
 		}
 	    }
 	    if (strlen(trim($block_title))>1) {
-		$titleblock1 .= '<h2 class="widget-title">'.$block_title.'</h2>'."\n";
+		$titleblock1 .= '<h2>'.$block_title.'</h2>'."\n";
 	    }
 	    for ($i = 1; $i <= $linkblock1_number; $i++) {
 		$name = 'fauval_linkblock1_link'.$i;
@@ -39,8 +41,9 @@ if ($linkblock1_number > 0) {
 			}
 		    }
 		} else {
-		    if( isset($oldpageid) && is_numeric($oldpageid) && ($oldpageid>0)) {
+		    if( empty($oldurl) && isset($oldpageid) && is_numeric($oldpageid) && ($oldpageid>0)) {
 		    // Hole zur Sicherheit nochmal aktuelle URL
+		    //  - deaktiviert, da es interne sprunglinks kaputt macht
 			$oldurl = get_permalink($oldpageid);
 		    }
 		    if (empty(trim($oldtitle))) {
@@ -48,13 +51,12 @@ if ($linkblock1_number > 0) {
 		    }
 		}
 		if (!empty($oldurl)) {
-		    $oldurl = fau_make_link_relative($oldurl);
-		    $list1 .= "\t".'<li class="tag"><a href="'.$oldurl.'">'.$oldtitle.'</a></li>'."\n";
+		    $list1 .= "\t".'<li><a href="'.esc_url($oldurl).'">'.$oldtitle.'</a></li>'."\n";
 		}
 	    }   
 }
-$linkblock2_number = get_theme_mod('advanced_page_sidebar_linkblock1_number');
 
+$linkblock2_number = get_theme_mod('advanced_page_sidebar_linkblock2_number');
 if ($linkblock2_number > 0) {	    
 	     $sidebar_quicklinks = get_post_meta( $post->ID, 'sidebar_quicklinks_external', true );
 	   	    // Alter ACF Rotz mit SubFields	    
@@ -62,9 +64,9 @@ if ($linkblock2_number > 0) {
 	    $block_title = get_post_meta( $post->ID, 'fauval_sidebar_title_linkblock2', true );
 	     if (strlen(trim($block_title))>1) {
 		if ($titleblock1) {
-		    $titleblock2 = '<h2 class="widget-title second">'.$block_title.'</h2>'."\n"; 
+		    $titleblock2 = '<h2 class="second">'.$block_title.'</h2>'."\n"; 
 		} else {
-		    $titleblock2 = '<h2 class="widget-title">'.$block_title.'</h2>'."\n"; 
+		    $titleblock2 = '<h2>'.$block_title.'</h2>'."\n"; 
 		}
 	    }
 	   for ($i = 1; $i <= $linkblock2_number; $i++) {
@@ -85,7 +87,7 @@ if ($linkblock2_number > 0) {
 			$oldtitle =  get_post_meta( $post->ID, $oldlinkname, true );
 		    }
 		} else {
-		    if( isset($oldpageid) && is_numeric($oldpageid) && ($oldpageid>0)) {
+		    if(empty($oldurl) && isset($oldpageid) && is_numeric($oldpageid) && ($oldpageid>0)) {
 		    // Hole zur Sicherheit nochmal aktuelle URL
 			$oldurl = get_permalink($oldpageid);
 		    }
@@ -94,8 +96,7 @@ if ($linkblock2_number > 0) {
 		    }
 		}
 		if (!empty($oldurl) && (!empty($oldtitle))) {
-		    $relativeurl = fau_make_link_relative($oldurl);
-		    $list2 .= "\t".'<li class="tag"><a href="'.$relativeurl.'">'.$oldtitle.'</a></li>'."\n"; 
+		    $list2 .= "\t".'<li><a href="'.esc_url($oldurl).'">'.$oldtitle.'</a></li>'."\n"; 
 		}
 	    }
 }
@@ -108,11 +109,11 @@ if ((strlen(trim($list1))>0) || (strlen(trim($list2))>0)) {
 	// Zwei Listen mit zwei Überschriften
 	 
 	$output .= $titleblock1;
-	$output .= '<ul class="tagcloud">'."\n";
+	$output .= '<ul>'."\n";
 	$output .= $list1;
 	$output .= '</ul>'."\n";
 	$output .= $titleblock2;
-	$output .= '<ul class="tagcloud">'."\n";
+	$output .= '<ul>'."\n";
 	$output .= $list2;
 	$output .= '</ul>'."\n"; 
 	 
@@ -125,7 +126,7 @@ if ((strlen(trim($list1))>0) || (strlen(trim($list2))>0)) {
 	}
 	 
 	// Eine Liste mit einer Überschrift
-	$output .= '<ul class="tagcloud">'."\n";
+	$output .= '<ul>'."\n";
 	$output .= $list1;
 	$output .= $list2;
 	$output .= '</ul>'."\n";
@@ -134,7 +135,7 @@ if ((strlen(trim($list1))>0) || (strlen(trim($list2))>0)) {
 }
 
  if(function_exists('mimetypes_to_icons')) {
-		$output = mimetypes_to_icons($output); 
+	$output = mimetypes_to_icons($output); 
  }
 
 echo $output;

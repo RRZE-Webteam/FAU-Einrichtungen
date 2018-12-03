@@ -1,6 +1,6 @@
-/*-----------------------------------------------------------------------------------*/
-/* Editor Style CSS
-/*-----------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/*  Stylings for Gutenberg Editor
+/*----------------------------------------------------------------------------*/
 
 
 // Import FAU variables
@@ -12,13 +12,12 @@ $font-path-roboto:	'../fonts/roboto/';
 // da admin.css unter /css muss der pfad angepasst werden
 
 
-@import "frameworks/frameworks";
+@import "frameworks/bootstrap";
 // Mixins
 @import "mixins/mixins";
 // Fonts
 @import "fonts/fonts";
-// Element Styles
-@import "elements/elements";
 
- 
+// Backend Specials
+@import "gutenberg/gutenberg";
 

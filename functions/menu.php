@@ -824,6 +824,55 @@ function fau_get_socialmedia_menu($name = '', $ulclass = '', $withog = true) {
     }
     return $thislist;
 }
+/*-----------------------------------------------------------------------------------*/
+/* Create Page Nav for Template Page with SUbnav
+/*-----------------------------------------------------------------------------------*/
+function fau_get_page_subnav($id) {
+    $thismenu = '';
+    $thismenu .= '<nav class="sidebar-subnav" aria-labelledby="subnavtitle">';
+
+    $offset = 0;
+    if (!isset($id)) {
+	$id = $post->ID;
+    }
+    
+    $websitetype = get_theme_mod('website_type');
+    if ($websitetype==-1) {
+	    $menulevel = get_post_meta( $id, 'menu-level', true );
+	    if ($menulevel) {
+		    $offset = $menulevel;
+	    }
+    }
+    $parent_page = get_top_parent_page_id($id, $offset);
+    $parent = get_page($parent_page);
+    
+    
+    $pagelist = get_pages( array( 'child_of' => $parent_page ) );
+    $exclude = '';
+
+    foreach ( $pagelist as $page ) {	
+	$ignoresubnavi = get_post_meta($page->ID, 'fauval_hide-in-subnav', true);
+	if ( $ignoresubnavi) {
+	    $exclude .= $page->ID . ",";
+	}
+    }
+    
+    
+    $thismenu .= '<h2 id="subnavtitle" class="small menu-header">';
+    $thismenu .= '<span class="screen-reader-text">'.__('Bereichsnavigation:', 'fau').' </span><a href="'.get_permalink($parent->ID).'">'.$parent->post_title.'</a>';
+    $thismenu .= '</h2>';
+    $thismenu .= '<ul id="subnav">';
+    $thismenu .= wp_list_pages(array(
+	    'child_of'	=> $parent_page,
+	    'title_li'	=> '',
+	    'echo'	=> false,
+	    'exclude'	=> $exclude
+     ));
+    $thismenu .= '</ul>';
+    $thismenu .= '</nav>';
+    return $thismenu;
+} 
+
 
 /*-----------------------------------------------------------------------------------*/
 /* EOF menu.php

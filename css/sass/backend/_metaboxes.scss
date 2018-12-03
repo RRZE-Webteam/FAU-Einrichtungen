@@ -176,4 +176,18 @@ table.wp-list-table {
     }
 }
 
+.postbox-container,
+.edit-post-sidebar {
+    .toggle-switch {
+	float: left;
+	margin-right: 10px;
+	.toggle-switch-label {
+	    box-sizing: border-box;
+
+	}
+    }
+    .customize-control-title {
+	 font-weight: bold;
+    }
+}
 

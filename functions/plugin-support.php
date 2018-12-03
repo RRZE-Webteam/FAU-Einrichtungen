@@ -5,6 +5,15 @@
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
+
+/*-----------------------------------------------------------------------------------*/
+/* Plugin ILI FAU Templates
+ *    https://github.com/RRZE-Webteam/ili-fau-templates
+/*-----------------------------------------------------------------------------------*/
+if ( is_plugin_active( 'ili-fau-templates/ili-fau-templates-master.php' ) ) {
+   $setoptions['fau_theme_options']['templates']['fields']['topevents_templates']['liste'][7] = __('Landing Pages', 'fau');
+   // Ergänzung der für Top Events verfügbaren Seitenoptionen um das Template aus dem Plugin
+}
 /*-----------------------------------------------------------------------------------*/
 /* Plugin CMS-Workflow 
 /*-----------------------------------------------------------------------------------*/
