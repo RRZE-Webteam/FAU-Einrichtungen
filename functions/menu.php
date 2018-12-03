@@ -859,7 +859,7 @@ function fau_get_page_subnav($id) {
     
     
     $thismenu .= '<h2 id="subnavtitle" class="small menu-header">';
-    $thismenu .= '<span class="screen-reader-text">'.__('Bereichsnavigation:', 'fau').' </span><a href="<?php echo get_permalink($parent->ID); ?>">'.$parent->post_title.'</a>';
+    $thismenu .= '<span class="screen-reader-text">'.__('Bereichsnavigation:', 'fau').' </span><a href="'.get_permalink($parent->ID).'">'.$parent->post_title.'</a>';
     $thismenu .= '</h2>';
     $thismenu .= '<ul id="subnav">';
     $thismenu .= wp_list_pages(array(
