@@ -2,19 +2,21 @@
 /* CSS Adjustment for WordPress Plugin RRZE-Video 
 /*-----------------------------------------------------------------------------------*/
 
-#social {
+.social-media-widget {
     .rrze-video {
-	margin: 0;
+	margin: 0 auto;
+	width: 270px;
 	
     }
 }
+
+
 .rrze-video-widget-box  {
     width: 100%;
-    
-    @media (min-width: 320px) {
-        max-width:270px;  
-    }
-    
-  
+
+    .yt-icon-widget {
+	width: 80px;
+    }  
 }
+
 
