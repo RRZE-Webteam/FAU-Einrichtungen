@@ -197,7 +197,7 @@ $colorMetaLightest:		desaturate(lighten($colorDefault, 73%), 75%);
 $colorPasspartoutBackground:	$colorStandardHellgrau;
 
 // Social Bar Startseite
-$colorSocial:			$colorDefault;
+$colorSocial:			$colorPrimary; // $colorDefault;
 $colorSocialBackground:		$colorMetaBackground;
 
 
