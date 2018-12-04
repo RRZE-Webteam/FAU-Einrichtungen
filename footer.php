@@ -35,7 +35,7 @@
 			    $schemaname = $contact_address_name." ".$contact_address_name2; ?>
 			    <meta itemprop="name" content="<?php echo esc_html($schemaname);?>">
 			    <span><?php echo $contact_address_name; 
-			    if (isset($contact_address_name2)) { echo "<br>".$contact_address_name2; } ?></span><br>
+			    if (!fau_empty($contact_address_name2)) { echo "<br>".$contact_address_name2; } ?></span><br>
 			    <span itemprop="streetAddress"><?php echo $contact_address_street; ?></span><br>
 			    <span itemprop="postalCode"><?php echo $contact_address_plz; ?></span> <span itemprop="addressLocality"><?php echo $contact_address_ort; ?></span><br>
 			    <?php if (isset($contact_address_country)) { ?>
