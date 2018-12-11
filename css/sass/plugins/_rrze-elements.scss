@@ -227,3 +227,44 @@ button.expand-all {
         margin-right: 15px;
     }
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* Absatzklassen
+/*-----------------------------------------------------------------------------------*/
+
+.notice-hinweis,
+.notice-hinweis h3,
+.notice-hinweis p,
+.notice-question:before,
+.notice-download:before,
+.notice-faubox:before,
+.notice-audio:before,
+.notice-video:before {
+    .faculty-phil & {
+        color: $colorPhilFak;
+    }
+    .faculty-rw & {
+        color: $colorRwFak;
+    }
+    .faculty-med & {
+        color: $colorMedFak;
+    }
+    .faculty-nat & {
+        color: $colorNatFak;
+    }
+    .faculty-tf & {
+        color: $colorTechFak;
+    }
+}
+
+.faculty-phil,
+.faculty-rw,
+.faculty-med,
+.faculty-nat,
+.faculty-tf {
+    .notice-hinweis h3+p,
+    .notice-hinweis h3+ul,
+    .notice-hinweis h3+ol {
+        color: $colorText;
+    }
+}
