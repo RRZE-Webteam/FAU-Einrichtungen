@@ -708,7 +708,7 @@ function fau_breadcrumb($lasttitle = '') {
 	if ( get_post_type() != 'post' ) {
 	    $post_type = get_post_type_object(get_post_type());
 	    $slug = $post_type->rewrite;
-	    echo '<a href="' . $homeLink . '/' . $slug['slug'] . '">' . $post_type->labels->singular_name . '</a>' .$delimiter;
+	    echo '<a href="' . $homeLink . $slug['slug'] . '">' . $post_type->labels->singular_name . '</a>' .$delimiter;
 	    if ($showcurrent) {
 		echo $before . get_the_title() . $after;
 	    }
