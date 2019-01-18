@@ -3,6 +3,15 @@
 /*-----------------------------------------------------------------------------------*/
 
 
+.container .entry-content {
+  .container {
+    // if an embed like image links will be placed inside an existing container, 
+    // we have to set the inner container to 100% width to the width of the above
+    // container with.
+    width: 100%;
+  }
+}
+
 .logos-menu-nav {
 	position: relative;
 }
@@ -36,7 +45,7 @@
 	position: absolute;
 	z-index: 10;
 	top: 0;
-	left: -40px;
+	left: -50px;
 	width: 40px;
 	height: 110px;
 	text-indent: inherit;
@@ -55,9 +64,9 @@
 	position: absolute;
 	z-index: 10;
 	top: 0;
-	right: -40px;
+	right: -50px;
 	display: block;
-	width: 30px;
+	width: 40px;
 	height: 110px;
 
 	em,
