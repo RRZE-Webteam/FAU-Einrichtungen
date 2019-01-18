@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------------*/
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
-$version:  '1.10.36';
+$version:  '1.10.41';
     // Theme Version
     // First Digit:  Manual
     // Second Digit: Branch Version
@@ -13,7 +13,6 @@ $farbfamilie: 'zuv';
  // DEBUGMODE
  // (Sets border around container and main regions)
 $debugmode: 'false';
-
 
 // Define fonts
 $fontStack:		'roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -197,7 +196,7 @@ $colorMetaLightest:		desaturate(lighten($colorDefault, 73%), 75%);
 $colorPasspartoutBackground:	$colorStandardHellgrau;
 
 // Social Bar Startseite
-$colorSocial:			$colorDefault;
+$colorSocial:			$colorPrimary; // $colorDefault;
 $colorSocialBackground:		$colorMetaBackground;
 
 
