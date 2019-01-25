@@ -257,14 +257,21 @@ button.expand-all {
     }
 }
 
+.fauorg-home,
 .faculty-phil,
 .faculty-rw,
 .faculty-med,
 .faculty-nat,
 .faculty-tf {
-    .notice-hinweis h3+p,
-    .notice-hinweis h3+ul,
-    .notice-hinweis h3+ol {
-        color: $colorText;
+    .notice-hinweis {
+         color: $colorPrimary;
+         h3, p {
+            color: $colorPrimary;
+	}
+	h3+p, 
+	h3+ul, 
+	h3+ol {
+            color: $colorText;
+        }
     }
 }
