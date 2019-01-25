@@ -273,6 +273,10 @@ $defaultoptions = array(
 	// Hier kann davor noch ein teil dahinter stehen.     
     'advanced_display_portalmenu_thumb_credits'	=> false,
 	// Zeige bei optionalen Thumbnails im Hauptmenu auch die Creditinfo, wenn vorhanden
+    'advanced_display_portalmenu_forceclick'		=> false,
+	// Hauptmenü öffnet sich nur bei einem Klick
+    'advanced_display_portalmenu_plainview'		=> false,
+	// Flyover der Untermenüpunkte in der PLainview Ansicht
 ); 
 
 
@@ -1134,6 +1138,26 @@ $setoptions = array(
 		    'default' => $defaultoptions['advanced_display_portalmenu_thumb_credits'],
 		    'parent'  => 'topmenulinks'
 		), 
+	       
+	       'advanced_display_portalmenu_forceclick'	  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Menü erfordert Klick', 'fau' ),
+		    'label'   => __( 'Die Unterpunkte des Menüs öffnen sich nur bei einem Klick auf den jeweiligen Menüpunkt.', 'fau' ),                
+		    'default' => $defaultoptions['advanced_display_portalmenu_forceclick'],
+		    'ifmodvalue'    => -1,
+		    'ifmodname'	=> 'website_type',
+		    'parent'  => 'topmenulinks'
+		), 
+	       'advanced_display_portalmenu_plainview'	  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Unterpunkte stilfrei', 'fau' ),
+		    'label'   => __( 'Die Unterpunkte des Menüs werden ohne Zitat oder Bilder der Portalseite angezeigt.', 'fau' ),                
+		    'default' => $defaultoptions['advanced_display_portalmenu_plainview'],
+		    'ifmodvalue'    => -1,
+		    'ifmodname'	=> 'website_type',
+		    'parent'  => 'topmenulinks'
+		), 
+	       
 	       
 	       
                 'contentmenus'  => array(

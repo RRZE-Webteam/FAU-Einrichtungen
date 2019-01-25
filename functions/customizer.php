@@ -106,11 +106,9 @@ function fau_customizer_settings( $wp_customize ) {
 			 $section =  $tab."-elsesection";
 		    }
 		    // Gehoert zu einer Section
-		    $title = $desc = $label = $type = $notifplugin = '';
-		    $optionid = esc_html($field); // $OPTIONS_NAME."[".esc_html($field)."]";
-		    
-		    
-		    
+		    $title = $desc = $label = $type = '';
+		    $notifplugin = $ifplugin = $ifclassexists = $iffunctionexists = $ifmodvalue = '';
+		    $optionid = esc_html($field); 
 		    
 		    if (isset($value['title']))
 			$title = esc_html($value['title']);
@@ -120,6 +118,17 @@ function fau_customizer_settings( $wp_customize ) {
 			$label = $value['label'];
 		    if (isset($value['notifplugin']))
 			$notifplugin = $value['notifplugin'];
+		    if (isset($value['ifplugin']))
+			$ifplugin = $value['ifplugin'];
+                      if (isset($value['ifclass']))
+			$ifclassexists = $value['ifclass'];
+                      if (isset($value['iffunction']))
+			$iffunctionexists = $value['iffunction'];
+		   
+			
+		      
+		      
+		    
 		    if (isset($value['default'])) {
 			$default = $value['default'];  
 		    } elseif (isset($defaultoptions[$field])) {
@@ -131,16 +140,44 @@ function fau_customizer_settings( $wp_customize ) {
 		    if (!in_array($type, $definedtypes)) {
 			$type = 'text';
 		    }
-		    $plugin_there = false;
+		    $breakthiscontrol = false;
+		    
+
 		    if ($notifplugin) {
 			if ( is_plugin_active( $notifplugin ) ) {
-			    $plugin_there = true;
+			    $breakthiscontrol = true;
 			}
 		    }
-		    if ($plugin_there==false) {
+		    if ($ifplugin) {
+                        if ( !is_plugin_active( $ifplugin ) ) {
+			    $breakthiscontrol = true;
+			}                        
+		    }
+                      if ($ifclassexists) {
+                        if (!class_exists($ifclassexists)) {
+			    $breakthiscontrol = true;
+			}
+                      }
+                      if ($iffunctionexists) {
+                        if (!function_exists($iffunctionexists)) {
+			    $breakthiscontrol = true;
+			}
+                      }
+		     if (isset($value['ifmodvalue']) && isset($value['ifmodname'])) {
+			$modvalue = $value['ifmodvalue'];
+			$modname = $value['ifmodname'];
 			
+			$curval = get_theme_mod($modname);
+			if ($curval != $value['ifmodvalue']) {
+			    $breakthiscontrol = true;
+			}
 			
-			
+		    }
+		    
+		    
+		    
+		    if ($breakthiscontrol==false) {
+		
 			if ($type == 'bool') {    
 			    $wp_customize->add_setting( $optionid , array(
 				'default'     => $default,

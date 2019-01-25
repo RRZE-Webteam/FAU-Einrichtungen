@@ -93,6 +93,14 @@
 	    $classes[] = 'slider-fade';
     }
     
+    if (('' != get_theme_mod( 'advanced_display_portalmenu_forceclick' )) && (true== get_theme_mod( 'advanced_display_portalmenu_forceclick' )) ) {
+	     $classes[] = 'mainnav-forceclick';
+    }
+    if (('' != get_theme_mod( 'advanced_display_portalmenu_plainview' )) && (true== get_theme_mod( 'advanced_display_portalmenu_plainview' )) ) {
+	     $classes[] = 'mainnav-plainview';
+    }
+
+    
     
     return $classes;
  }
