@@ -99,7 +99,22 @@
     if (('' != get_theme_mod( 'advanced_display_portalmenu_plainview' )) && (true== get_theme_mod( 'advanced_display_portalmenu_plainview' )) ) {
 	     $classes[] = 'mainnav-plainview';
     }
+    
+    
+    if ($defaultoptions['slider-opacity-text-background'] != get_theme_mod('slider-opacity-text-background' ))  {
+	$num = get_theme_mod('slider-opacity-text-background');
+	if (isset($num)) {
+	    if (isset($defaultoptions['slider-opacity-text-background-array'][$num])) {
+		$thisclass = 'hero-slides-op-'.$num;
+		$classes[] = $thisclass;
+	    }
 
+	}
+	    
+    }
+    
+    
+    
     
     
     return $classes;

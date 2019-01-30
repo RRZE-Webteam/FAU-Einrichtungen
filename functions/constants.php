@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 43,
+    'optiontable-version'		=> 44,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -37,21 +37,37 @@ $defaultoptions = array(
     'src-fallback-slider-image'		=> get_fau_template_uri().'/img/slider-fallback.jpg',
     'slider-catid'			=> 0,    
     'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.min.js',
-    'default_slider_excerpt_length'	=> 240,
+    'default_slider_excerpt_length'		=> 240,
     'slider-autoplay'			=> true,
     'slider-animation'			=> 'fade',
     'slider-stoptext'			=> __('Animation stoppen','fau'),
     'slider-starttext'			=> __('Animation starten','fau'),
-    'start_header_count'		=> 5,
+    'slider-opacity-text-background'	=> 7,
+    'slider-opacity-text-background-array'	=> array(
+	0   => '0',
+	1   => '0.1',
+	2   => '0.2',
+	3   => '0.3',
+	4   => '0.4',
+	5   => '0.5',
+	6   => '0.6',
+	7   => '0.7',
+	8   => '0.8',
+	9   => '0.9',
+	10   => '1',
+    ),
+    
+    
+    'start_header_count'			=> 5,
     'start_max_newscontent'		=> 5,
-    'start_max_newspertag'		=> 1,    
-    'start_prefix_tag_newscontent'	=> 'startseite',
-    'start_link_news_cat'		=> 0,    
-    'start_link_news_show'		=> 1,
+    'start_max_newspertag'			=> 1,    
+    'start_prefix_tag_newscontent'		=> 'startseite',
+    'start_link_news_cat'			=> 0,    
+    'start_link_news_show'			=> 1,
     'start_link_news_linktitle'		=> __('Mehr Meldungen','fau'),
     'start_link_videoportal_socialmedia'    => false,
     'start_title_videoportal_socialmedia'   => __('Videoportal','fau'),
-    'start_title_videoportal_url'	    => 'https://video.fau.de',
+    'start_title_videoportal_url'		=> 'https://video.fau.de',
 
     'default_postthumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-220x147.gif',
     'default_postthumb_always'		=> 1,
@@ -61,16 +77,16 @@ $defaultoptions = array(
     'default_submenu_entries'		=> 5,
     'menu_fallbackquote_show_excerpt'	=> 1,
     'menu_fallbackquote_excerpt_length'	=> 240,  
-    'start_topevents_max'		=> 1,
+    'start_topevents_max'			=> 1,
     'start_topevents_active'		=> true,
-    'topevent_hideimage'		=> false,
-    'topevents_templates'		=> array(1), 
-    'default_topevent_thumb_src'	=> get_fau_template_uri().'/img/thumbnail-siegel-140x90.gif',
+    'topevent_hideimage'			=> false,
+    'topevents_templates'			=> array(1), 
+    'default_topevent_thumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-140x90.gif',
     'fallback_topevent_image'		=> 0,
     'default_topevent_excerpt_length'	=> 100,
     
     'default_startseite-bannerbild-image_src'	    => get_fau_template_uri().'/img/bannerbild-tafel-1260x182.jpg',
-    'startseite_banner_usedefault'	=> false,
+    'startseite_banner_usedefault'		=> false,
     
 
     /* Image Sizes */
@@ -722,17 +738,27 @@ $setoptions = array(
 		    'parent'  => 'slider'
 		),   	  
 	       
-	       'slider-animation' => array(
-		'type'      => 'select',
-		'title'     => esc_html__( 'Slider Animation', 'fau'),
-                'label'     => esc_html__( 'Art der Animation einzelner Slides', 'fau'),
-		'liste'     => array(
-    			'slide'	 => esc_html__( 'Verschieben', 'fau'),
-			'fade' 	 => esc_html__( 'Erscheinen', 'fau'),
-                ),
-		'default'   => $defaultoptions['slider-animation'],
-                'parent'    => 'slider'	    
-            ),
+		'slider-animation' => array(
+		    'type'      => 'select',
+		    'title'     => esc_html__( 'Slider Animation', 'fau'),
+		    'label'     => esc_html__( 'Art der Animation einzelner Slides', 'fau'),
+		    'liste'     => array(
+			    'slide'	 => esc_html__( 'Verschieben', 'fau'),
+			    'fade' 	 => esc_html__( 'Erscheinen', 'fau'),
+		    ),
+		    'default'   => $defaultoptions['slider-animation'],
+		    'parent'    => 'slider'	    
+		),
+		'slider-opacity-text-background' => array(
+		    'type'	=> 'range',
+		    'title'	=> __( 'Transparenz', 'fau' ),
+		    'label'	=> __( 'Hintergrundfarbe von Titel und Kurztext des Sliders einstellen.', 'fau' ),
+		    'min'	    => 0,
+		    'max'	    => 10,	
+		    'step'	    => 1,
+		    'default'	=> $defaultoptions['slider-opacity-text-background'],
+		    'parent'	=> 'slider'
+		), 
 	       
 	      'breadcrumb'  => array(
                   'type'    => 'section',
