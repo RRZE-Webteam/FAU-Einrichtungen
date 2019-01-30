@@ -1100,13 +1100,7 @@ $setoptions = array(
 	        'advanced_activate_page_langcode'	=> array(
                   'type'    => 'toggle',
                   'title'   => __( 'Seitensprache', 'fau' ),
-                  'label'   => __( 'Aktiviert die Möglichkeit, pro Seite eine eigene Inhaltssprache zu deklarieren, die von dem Rest des Webauftritts abweicht.'
-			  . 'Deklariert wird dabei die Überschrift der Seite und dessen Inhaltsbereich. Die restlichen Bestandteile, inkl. der Sidebar bleiben in der Sprache, mit der die gesamte Website gekennzeichnet wurde.'			  
-			  . 'Achtung: Diese Option arbeitet nicht mit dem Workflow-Plugin für mehrsprachigen Webauftritten zusammen. '
-			  . 'Diese Option sollte nur dann verwendet werden, wenn anderssprachige Seiten eine Ausnahme auf dem Webauftritt darstellen. '
-			  . 'Für umfangreiche Webauftritte in verschiedenen Sprachen sind eigene sprachspezifische Webauftritte vorzuziehen. Webauftritte, '
-			  . 'die unterhalb einer Domain mehrmals die Sprachen wechseln und eine Mischung im Navigationsmenu haben, haben zudem ein '
-			  . 'schlechteres Suchmaschinen-Ranking.', 'fau' ),                
+                  'label'   => __( 'Aktiviert die Möglichkeit, pro Seite eine eigene Inhaltssprache zu deklarieren, die von dem Rest des Webauftritts abweicht. Deklariert wird dabei die Überschrift der Seite und dessen Inhaltsbereich. Die restlichen Bestandteile, inkl. der Sidebar bleiben in der Sprache, mit der die gesamte Website gekennzeichnet wurde. Achtung: Diese Option arbeitet nicht mit dem Workflow-Plugin für mehrsprachigen Webauftritten zusammen. Diese Option sollte nur dann verwendet werden, wenn anderssprachige Seiten eine Ausnahme auf dem Webauftritt darstellen. Für umfangreiche Webauftritte in verschiedenen Sprachen sind eigene sprachspezifische Webauftritte vorzuziehen. Webauftritte, die unterhalb einer Domain mehrmals die Sprachen wechseln und eine Mischung im Navigationsmenu haben, haben zudem ein schlechteres Suchmaschinen-Ranking.', 'fau' ),                
                   'default' => $defaultoptions['advanced_activate_page_langcode'],
 		  'parent'  => 'bedienung'
               ),   
@@ -1195,10 +1189,10 @@ $setoptions = array(
               
 	       
 	       'sidebaropt'  => array(
-                  'type'    => 'section',
-                  'title'   => __( 'Sidebar', 'fau' ),     
-		   'desc'   => __('Konfigurationen der Sidebar auf Seiten'),
-		  'user_level'	=> 2,
+		    'type'	=> 'section',
+		    'title'	=> __( 'Sidebar', 'fau' ),     
+		    'desc'	=> __('Konfigurationen der Sidebar auf Seiten', 'fau'),
+		    'user_level'	=> 2,
               ),
 	       'advanced_page_sidebar_titleabove'	  => array(
                   'type'    => 'toggle',
@@ -1298,9 +1292,7 @@ $setoptions = array(
 	        'google-site-verification' => array(
                   'type'    => 'text',
                   'title'   => __( 'Google Site Verification', 'fau' ),
-                  'label'   => __( 'Zur Verifikation der Website als Property in den <a target="_blank" href="https://www.google.com/webmasters/tools/home">Google Webmaster Tools</a> wird die Methode über den HTML-Tag ausgewählt. '
-			  . 'Google erstellt dann auf der Einrichtungsseite eine HTML-Anweisung. Von dieser Anweisung kopiert man den Bestandteil, der im Attribut "content" angegeben ist. <br>'
-                        . 'Beispiel: <br>Google gibt den HTML-Code: &nbsp; &nbsp;<code>&lt;meta name="google-site-verification" content="BBssyCpddd8" /&gt;</code><br>  Dann geben Sie dies ein: <code>BBssyCpddd8</code> .', 'fau' ),               
+                  'label'   => __( 'Zur Verifikation der Website als Property in den <a target="_blank" href="https://www.google.com/webmasters/tools/home">Google Webmaster Tools</a> wird die Methode über den HTML-Tag ausgewählt. Google erstellt dann auf der Einrichtungsseite eine HTML-Anweisung. Von dieser Anweisung kopiert man den Bestandteil, der im Attribut "content" angegeben ist. <br>Beispiel: <br>Google gibt den HTML-Code: &nbsp; &nbsp;<code>&lt;meta name="google-site-verification" content="BBssyCpddd8" /&gt;</code><br>  Dann geben Sie dies ein: <code>BBssyCpddd8</code> .', 'fau' ),               
                   'default' => $defaultoptions['google-site-verification'],
 		     'parent'  => 'inhalte'
               ),  

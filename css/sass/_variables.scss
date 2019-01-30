@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------------*/
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
-$version:  '1.10.45';
+$version:  '1.10.46';
     // Theme Version
     // First Digit:  Manual
     // Second Digit: Branch Version
@@ -68,7 +68,7 @@ $stylecomment_themename:	'FAU-Einrichtungen';
 $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Einrichtungen';     
 $stylecomment_themeversion:	$version;
 $stylecomment_description:	'Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-$stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';   
+$stylecomment_tags:		'three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';   
 
 
  @if $farbfamilie == 'med' {
@@ -83,7 +83,7 @@ $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one
     $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Medfak';     
     $stylecomment_themeversion:	$version;
     $stylecomment_description:	'Wordpress-Theme für die Medizinische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-    $stylecomment_tags:		'blue, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';  
+    $stylecomment_tags:		'three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';  
     
  } @else if $farbfamilie == 'phil' {
     $colorPrimary: $colorPhilFak;
@@ -97,7 +97,7 @@ $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one
     $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Philfak';     
     $stylecomment_themeversion:	$version;
     $stylecomment_description:	'Wordpress-Theme für die Philosophische Fakultät und den Fachbereich Theologie der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-    $stylecomment_tags:		'blue, gold, orange, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';    
+    $stylecomment_tags:		'gold, orange, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';    
  }  @else if $farbfamilie == 'nat' {
     $colorPrimary: $colorNatFak;
     $PalettonHellste:	#e5efea;
@@ -110,7 +110,7 @@ $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one
     $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Natfak';     
     $stylecomment_themeversion:	$version;
     $stylecomment_description:	'Wordpress-Theme für die Naturwissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-    $stylecomment_tags:		'blue, green, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';      
+    $stylecomment_tags:		'green, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';      
  }  @else if $farbfamilie == 'rw' {
     $colorPrimary: $colorRwFak;    
     $PalettonHellste:	#ede7de; // #C9A8AF;
@@ -123,7 +123,7 @@ $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one
     $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-RWFak';     
     $stylecomment_themeversion:	$version;
     $stylecomment_description:	'Wordpress-Theme für die Rechts- und Wirtschaftswissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-    $stylecomment_tags:		'blue, red, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';  
+    $stylecomment_tags:		'red, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';  
 
  }  @else if $farbfamilie == 'tf' {
     $colorPrimary: $colorTechFak;    
@@ -137,7 +137,7 @@ $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one
     $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Techfak';     
     $stylecomment_themeversion:	$version;
     $stylecomment_description:	'Wordpress-Theme für die Technische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-    $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';  
+    $stylecomment_tags:		'three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';  
     
  } @else if $farbfamilie == 'zuv' {
     $colorPrimary: $colorZUV;
@@ -151,7 +151,7 @@ $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one
     $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Einrichtungen';     
     $stylecomment_themeversion:	$version;
     $stylecomment_description:	'Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-    $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';    
+    $stylecomment_tags:		'three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';    
  }
  
  
