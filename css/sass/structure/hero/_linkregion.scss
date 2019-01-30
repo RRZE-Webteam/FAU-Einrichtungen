@@ -145,28 +145,3 @@
 	}
 }
 
-.hero-jumplink-content {
-		position: absolute;
-		left: 300px;
-		right: 300px;
-		bottom: -30;
-		display: none;
-		height: 30px;
-		text-align: center;
-		text-decoration: none;
-		
-		background: $colorPrimary;
-		color: #fff;
-		@include border-radius(4px);
-		
-		@extend .fa;
-		@extend .fa-2x;
-		@extend .fa-angle-down;
-		
-		&:hover, &:focus {
-			text-decoration: none;
-			color: #fff;
-			background: $colorHover;
-		}		
-	}
-	

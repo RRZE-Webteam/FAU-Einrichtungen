@@ -200,7 +200,6 @@ $defaultoptions = array(
     'advanced_topevent'			=> true,
     'advanced_activateads'		=> false,
     'galery_link_original'		=> true,
-    'advanced_page_start_herojumplink'	=> false,
 
     'advanced_post_active_subtitle'	=> true,
 
@@ -740,14 +739,7 @@ $setoptions = array(
                   'title'   => __( 'Bühne und Breadcrumb', 'fau' ),    
 		  'desc'    => __( 'Einstellungen für den Kopfteil der Startseite und die Breadcrumb.', 'fau' ),
               ),
-	         'advanced_page_start_herojumplink' => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Sprunglink unter der Bühne', 'fau' ),
-                  'label'   => __( 'Aktiviert die Schaltung eines Sprunglinks unterhalb der Bühne, wenn das Browserfenster eine Größe zwischen 700px und 900px Höhe hat.', 'fau' ),                
-                  'default' => $defaultoptions['advanced_page_start_herojumplink'],
-		  'parent'  => 'breadcrumb'
-		),  	
-	      
+	        
 	       
 	          
 	       'breadcrumb_withtitle'	  => array(
