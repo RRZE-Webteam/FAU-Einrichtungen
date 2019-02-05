@@ -29,6 +29,9 @@
     .page-template-page-start-sub &,
     .page-template-page-start & {
 	padding-top: 20px;
+	@media (min-width: $screen-sm) and (max-width: $screen-md) {
+	    margin-top: 40px;
+	}
     }
     
     
