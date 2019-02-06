@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------------*/
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
-$version:  '1.10.36';
+$version:  '1.10.48';
     // Theme Version
     // First Digit:  Manual
     // Second Digit: Branch Version
@@ -13,7 +13,6 @@ $farbfamilie: 'zuv';
  // DEBUGMODE
  // (Sets border around container and main regions)
 $debugmode: 'false';
-
 
 // Define fonts
 $fontStack:		'roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -69,7 +68,7 @@ $stylecomment_themename:	'FAU-Einrichtungen';
 $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Einrichtungen';     
 $stylecomment_themeversion:	$version;
 $stylecomment_description:	'Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-$stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';   
+$stylecomment_tags:		'three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';   
 
 
  @if $farbfamilie == 'med' {
@@ -84,7 +83,6 @@ $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one
     $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Medfak';     
     $stylecomment_themeversion:	$version;
     $stylecomment_description:	'Wordpress-Theme für die Medizinische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-    $stylecomment_tags:		'blue, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';  
     
  } @else if $farbfamilie == 'phil' {
     $colorPrimary: $colorPhilFak;
@@ -98,7 +96,6 @@ $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one
     $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Philfak';     
     $stylecomment_themeversion:	$version;
     $stylecomment_description:	'Wordpress-Theme für die Philosophische Fakultät und den Fachbereich Theologie der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-    $stylecomment_tags:		'blue, gold, orange, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';    
  }  @else if $farbfamilie == 'nat' {
     $colorPrimary: $colorNatFak;
     $PalettonHellste:	#e5efea;
@@ -111,7 +108,6 @@ $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one
     $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Natfak';     
     $stylecomment_themeversion:	$version;
     $stylecomment_description:	'Wordpress-Theme für die Naturwissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-    $stylecomment_tags:		'blue, green, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';      
  }  @else if $farbfamilie == 'rw' {
     $colorPrimary: $colorRwFak;    
     $PalettonHellste:	#ede7de; // #C9A8AF;
@@ -124,7 +120,6 @@ $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one
     $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-RWFak';     
     $stylecomment_themeversion:	$version;
     $stylecomment_description:	'Wordpress-Theme für die Rechts- und Wirtschaftswissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-    $stylecomment_tags:		'blue, red, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';  
 
  }  @else if $farbfamilie == 'tf' {
     $colorPrimary: $colorTechFak;    
@@ -138,7 +133,6 @@ $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one
     $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Techfak';     
     $stylecomment_themeversion:	$version;
     $stylecomment_description:	'Wordpress-Theme für die Technische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-    $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';  
     
  } @else if $farbfamilie == 'zuv' {
     $colorPrimary: $colorZUV;
@@ -152,7 +146,6 @@ $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one
     $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Einrichtungen';     
     $stylecomment_themeversion:	$version;
     $stylecomment_description:	'Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-    $stylecomment_tags:		'blue, gray, silver, white, three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';    
  }
  
  
@@ -190,34 +183,34 @@ $colorMeta:			$colorDefault;
 // Define Background-Color for Meta Menu at top
 $colorMetaBackground:		$colorStandardHellgrau;
 $colorMetaFAUHomeBackground:	desaturate(darken($colorStandardHellgrau, 10%), 90%); // #d0d3d8;
-$colorMetaHover:		desaturate(lighten($colorDefault, 10%), 40%);
-$colorMetaLight:		desaturate(lighten($colorDefault, 69%), 75%);
+$colorMetaHover:			desaturate(lighten($colorDefault, 10%), 40%);
+$colorMetaLight:			desaturate(lighten($colorDefault, 69%), 75%);
 $colorMetaLightest:		desaturate(lighten($colorDefault, 73%), 75%);
 
 $colorPasspartoutBackground:	$colorStandardHellgrau;
 
 // Social Bar Startseite
-$colorSocial:			$colorDefault;
+$colorSocial:			$colorPrimary; // $colorDefault;
 $colorSocialBackground:		$colorMetaBackground;
 
 
 // CopyrightInfos auf Slider und Banner
-$colorCopyright:	     #fff;
-$colorCopyrightBackground:  rgba(0,0,0,0.6);
+$colorCopyright:			#fff;
+$colorCopyrightBackground:		rgba(0,0,0,0.6);
 
 // Abbrevations, Acronyms
-$colorAbbr:		    #000;
+$colorAbbr:			#000;
 
 // Font sizes
 $font-size-rembase:		93.75%;
 $font-size-gridbase:		15;
-$font-size-base:		15;
-$font-size-meta:		13;
+$font-size-base:			15;
+$font-size-meta:			13;
 $font-size-sidebar:		13;
 
 
-$font-size-small:		($font-size-base - 2);  
-$font-size-large:		($font-size-base + 4);  
+$font-size-small:			($font-size-base - 2);  
+$font-size-large:			($font-size-base + 4);  
 $font-size-larger:		($font-size-base + 8);  
 
 $font-size-footer:		13;
@@ -240,8 +233,8 @@ $font-size-codepre:		13;
 $font-size-table:		13;
 $font-size-comtentwidgets:	13;
 
-$font-size-sidebar-listitem:    $font-size-sidebar;
-$font-size-sidebar-events:	$font-size-sidebar;
+$font-size-sidebar-listitem:	$font-size-sidebar;
+$font-size-sidebar-events:		$font-size-sidebar;
 $font-size-sidebar-events-month:    10;
 $font-size-sidebar-events-day:	20;
 
@@ -312,12 +305,13 @@ $font-size-print-base-small:	9;
 
 
 // Slider
-$slick-arrow-color: white !default;
-$slick-opacity-default: 0.75 !default;
-$slick-opacity-on-hover: 1 !default;
-$slick-opacity-not-active: 0.25 !default;
-   
-   
+$slick-arrow-color:		    white !default;
+$slick-opacity-default:		    0.75 !default;
+$slick-opacity-on-hover:		    1 !default;
+$slick-opacity-not-active:		    0.25 !default;
+  
+$slick-opacity-text-background:	    0.7;
+$slick-opacity-text-shadow:	    0px 0px 4px #000;   
 // Define breakpoints
 
 // iPhone 3G

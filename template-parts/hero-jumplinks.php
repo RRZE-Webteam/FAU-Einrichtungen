@@ -60,7 +60,4 @@
 				} ?>
 			</div>
 		</div>
-	    <?php if (get_theme_mod('advanced_page_start_herojumplink')) { ?>
-		<a tabindex="-1" aria-hidden="true" href="#content" class="hero-jumplink-content"></a>
-	    <?php } ?>
 	</nav>

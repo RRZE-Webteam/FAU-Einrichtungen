@@ -93,6 +93,29 @@
 	    $classes[] = 'slider-fade';
     }
     
+    if (('' != get_theme_mod( 'advanced_display_portalmenu_forceclick' )) && (true== get_theme_mod( 'advanced_display_portalmenu_forceclick' )) ) {
+	     $classes[] = 'mainnav-forceclick';
+    }
+    if (('' != get_theme_mod( 'advanced_display_portalmenu_plainview' )) && (true== get_theme_mod( 'advanced_display_portalmenu_plainview' )) ) {
+	     $classes[] = 'mainnav-plainview';
+    }
+    
+    
+    if ($defaultoptions['slider-opacity-text-background'] != get_theme_mod('slider-opacity-text-background' ))  {
+	$num = get_theme_mod('slider-opacity-text-background');
+	if (isset($num)) {
+	    if (isset($defaultoptions['slider-opacity-text-background-array'][$num])) {
+		$thisclass = 'hero-slides-op-'.$num;
+		$classes[] = $thisclass;
+	    }
+
+	}
+	    
+    }
+    
+    
+    
+    
     
     return $classes;
  }
@@ -507,7 +530,9 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	} elseif (($hstart < 1) || ($hstart >6)) {
 	    $hstart = 2;
 	}
-	$arialabelid= "aria-".$post->ID;
+	$arialabelid= "aria-".$post->ID."-".random_int(10000,30000);
+	    // add random key, due to the possible use of blogrolls of the news. The same article can be displayed
+	    // more times on the same page. This would result in an wcag/html error, cause the uniq id would be used more as one time
 	$output .= '<article class="news-item" aria-labelledby="'.$arialabelid.'" itemscope itemtype="http://schema.org/NewsArticle">';
 	$link = get_post_meta( $post->ID, 'external_link', true );
 	$link = esc_url(trim($link));

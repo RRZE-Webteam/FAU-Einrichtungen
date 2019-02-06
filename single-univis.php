@@ -19,7 +19,7 @@ get_header();
                         ?>
                     
                         <nav class="navigation">
-                            <div class="nav-previous"><a href="<?php echo get_permalink();?>"><?php _e('<span class="meta-nav">&laquo;</span> Zurück zur Übersicht', RRZE_UnivIS::textdomain); ?></a></div>
+                            <div class="nav-previous"><a href="<?php echo get_permalink();?>"><?php _e('<span class="meta-nav">&laquo;</span> Zurück zur Übersicht', 'fau'); ?></a></div>
                         </nav>
                     </main>
              </div>

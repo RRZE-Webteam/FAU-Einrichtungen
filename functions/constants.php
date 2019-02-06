@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 43,
+    'optiontable-version'		=> 44,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -37,21 +37,37 @@ $defaultoptions = array(
     'src-fallback-slider-image'		=> get_fau_template_uri().'/img/slider-fallback.jpg',
     'slider-catid'			=> 0,    
     'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.min.js',
-    'default_slider_excerpt_length'	=> 240,
+    'default_slider_excerpt_length'		=> 240,
     'slider-autoplay'			=> true,
     'slider-animation'			=> 'fade',
     'slider-stoptext'			=> __('Animation stoppen','fau'),
     'slider-starttext'			=> __('Animation starten','fau'),
-    'start_header_count'		=> 5,
+    'slider-opacity-text-background'	=> 7,
+    'slider-opacity-text-background-array'	=> array(
+	0   => '0',
+	1   => '0.1',
+	2   => '0.2',
+	3   => '0.3',
+	4   => '0.4',
+	5   => '0.5',
+	6   => '0.6',
+	7   => '0.7',
+	8   => '0.8',
+	9   => '0.9',
+	10   => '1',
+    ),
+    
+    
+    'start_header_count'			=> 5,
     'start_max_newscontent'		=> 5,
-    'start_max_newspertag'		=> 1,    
-    'start_prefix_tag_newscontent'	=> 'startseite',
-    'start_link_news_cat'		=> 0,    
-    'start_link_news_show'		=> 1,
+    'start_max_newspertag'			=> 1,    
+    'start_prefix_tag_newscontent'		=> 'startseite',
+    'start_link_news_cat'			=> 0,    
+    'start_link_news_show'			=> 1,
     'start_link_news_linktitle'		=> __('Mehr Meldungen','fau'),
     'start_link_videoportal_socialmedia'    => false,
     'start_title_videoportal_socialmedia'   => __('Videoportal','fau'),
-    'start_title_videoportal_url'	    => 'https://video.fau.de',
+    'start_title_videoportal_url'		=> 'https://video.fau.de',
 
     'default_postthumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-220x147.gif',
     'default_postthumb_always'		=> 1,
@@ -61,16 +77,16 @@ $defaultoptions = array(
     'default_submenu_entries'		=> 5,
     'menu_fallbackquote_show_excerpt'	=> 1,
     'menu_fallbackquote_excerpt_length'	=> 240,  
-    'start_topevents_max'		=> 1,
+    'start_topevents_max'			=> 1,
     'start_topevents_active'		=> true,
-    'topevent_hideimage'		=> false,
-    'topevents_templates'		=> array(1), 
-    'default_topevent_thumb_src'	=> get_fau_template_uri().'/img/thumbnail-siegel-140x90.gif',
+    'topevent_hideimage'			=> false,
+    'topevents_templates'			=> array(1), 
+    'default_topevent_thumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-140x90.gif',
     'fallback_topevent_image'		=> 0,
     'default_topevent_excerpt_length'	=> 100,
     
     'default_startseite-bannerbild-image_src'	    => get_fau_template_uri().'/img/bannerbild-tafel-1260x182.jpg',
-    'startseite_banner_usedefault'	=> false,
+    'startseite_banner_usedefault'		=> false,
     
 
     /* Image Sizes */
@@ -200,7 +216,6 @@ $defaultoptions = array(
     'advanced_topevent'			=> true,
     'advanced_activateads'		=> false,
     'galery_link_original'		=> true,
-    'advanced_page_start_herojumplink'	=> false,
 
     'advanced_post_active_subtitle'	=> true,
 
@@ -273,6 +288,10 @@ $defaultoptions = array(
 	// Hier kann davor noch ein teil dahinter stehen.     
     'advanced_display_portalmenu_thumb_credits'	=> false,
 	// Zeige bei optionalen Thumbnails im Hauptmenu auch die Creditinfo, wenn vorhanden
+    'advanced_display_portalmenu_forceclick'		=> false,
+	// Hauptmenü öffnet sich nur bei einem Klick
+    'advanced_display_portalmenu_plainview'		=> false,
+	// Flyover der Untermenüpunkte in der PLainview Ansicht
 ); 
 
 
@@ -719,31 +738,34 @@ $setoptions = array(
 		    'parent'  => 'slider'
 		),   	  
 	       
-	       'slider-animation' => array(
-		'type'      => 'select',
-		'title'     => esc_html__( 'Slider Animation', 'fau'),
-                'label'     => esc_html__( 'Art der Animation einzelner Slides', 'fau'),
-		'liste'     => array(
-    			'slide'	 => esc_html__( 'Verschieben', 'fau'),
-			'fade' 	 => esc_html__( 'Erscheinen', 'fau'),
-                ),
-		'default'   => $defaultoptions['slider-animation'],
-                'parent'    => 'slider'	    
-            ),
+		'slider-animation' => array(
+		    'type'      => 'select',
+		    'title'     => esc_html__( 'Slider Animation', 'fau'),
+		    'label'     => esc_html__( 'Art der Animation einzelner Slides', 'fau'),
+		    'liste'     => array(
+			    'slide'	 => esc_html__( 'Verschieben', 'fau'),
+			    'fade' 	 => esc_html__( 'Erscheinen', 'fau'),
+		    ),
+		    'default'   => $defaultoptions['slider-animation'],
+		    'parent'    => 'slider'	    
+		),
+		'slider-opacity-text-background' => array(
+		    'type'	=> 'range',
+		    'title'	=> __( 'Transparenz', 'fau' ),
+		    'label'	=> __( 'Hintergrundfarbe von Titel und Kurztext des Sliders einstellen.', 'fau' ),
+		    'min'	    => 0,
+		    'max'	    => 10,	
+		    'step'	    => 1,
+		    'default'	=> $defaultoptions['slider-opacity-text-background'],
+		    'parent'	=> 'slider'
+		), 
 	       
 	      'breadcrumb'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Bühne und Breadcrumb', 'fau' ),    
 		  'desc'    => __( 'Einstellungen für den Kopfteil der Startseite und die Breadcrumb.', 'fau' ),
               ),
-	         'advanced_page_start_herojumplink' => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Sprunglink unter der Bühne', 'fau' ),
-                  'label'   => __( 'Aktiviert die Schaltung eines Sprunglinks unterhalb der Bühne, wenn das Browserfenster eine Größe zwischen 700px und 900px Höhe hat.', 'fau' ),                
-                  'default' => $defaultoptions['advanced_page_start_herojumplink'],
-		  'parent'  => 'breadcrumb'
-		),  	
-	      
+	        
 	       
 	          
 	       'breadcrumb_withtitle'	  => array(
@@ -1078,13 +1100,7 @@ $setoptions = array(
 	        'advanced_activate_page_langcode'	=> array(
                   'type'    => 'toggle',
                   'title'   => __( 'Seitensprache', 'fau' ),
-                  'label'   => __( 'Aktiviert die Möglichkeit, pro Seite eine eigene Inhaltssprache zu deklarieren, die von dem Rest des Webauftritts abweicht.'
-			  . 'Deklariert wird dabei die Überschrift der Seite und dessen Inhaltsbereich. Die restlichen Bestandteile, inkl. der Sidebar bleiben in der Sprache, mit der die gesamte Website gekennzeichnet wurde.'			  
-			  . 'Achtung: Diese Option arbeitet nicht mit dem Workflow-Plugin für mehrsprachigen Webauftritten zusammen. '
-			  . 'Diese Option sollte nur dann verwendet werden, wenn anderssprachige Seiten eine Ausnahme auf dem Webauftritt darstellen. '
-			  . 'Für umfangreiche Webauftritte in verschiedenen Sprachen sind eigene sprachspezifische Webauftritte vorzuziehen. Webauftritte, '
-			  . 'die unterhalb einer Domain mehrmals die Sprachen wechseln und eine Mischung im Navigationsmenu haben, haben zudem ein '
-			  . 'schlechteres Suchmaschinen-Ranking.', 'fau' ),                
+                  'label'   => __( 'Aktiviert die Möglichkeit, pro Seite eine eigene Inhaltssprache zu deklarieren, die von dem Rest des Webauftritts abweicht. Deklariert wird dabei die Überschrift der Seite und dessen Inhaltsbereich. Die restlichen Bestandteile, inkl. der Sidebar bleiben in der Sprache, mit der die gesamte Website gekennzeichnet wurde. Achtung: Diese Option arbeitet nicht mit dem Workflow-Plugin für mehrsprachigen Webauftritten zusammen. Diese Option sollte nur dann verwendet werden, wenn anderssprachige Seiten eine Ausnahme auf dem Webauftritt darstellen. Für umfangreiche Webauftritte in verschiedenen Sprachen sind eigene sprachspezifische Webauftritte vorzuziehen. Webauftritte, die unterhalb einer Domain mehrmals die Sprachen wechseln und eine Mischung im Navigationsmenu haben, haben zudem ein schlechteres Suchmaschinen-Ranking.', 'fau' ),                
                   'default' => $defaultoptions['advanced_activate_page_langcode'],
 		  'parent'  => 'bedienung'
               ),   
@@ -1135,6 +1151,26 @@ $setoptions = array(
 		    'parent'  => 'topmenulinks'
 		), 
 	       
+	       'advanced_display_portalmenu_forceclick'	  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Menü erfordert Klick', 'fau' ),
+		    'label'   => __( 'Die Unterpunkte des Menüs öffnen sich nur bei einem Klick auf den jeweiligen Menüpunkt.', 'fau' ),                
+		    'default' => $defaultoptions['advanced_display_portalmenu_forceclick'],
+		    'ifmodvalue'    => -1,
+		    'ifmodname'	=> 'website_type',
+		    'parent'  => 'topmenulinks'
+		), 
+	       'advanced_display_portalmenu_plainview'	  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Unterpunkte stilfrei', 'fau' ),
+		    'label'   => __( 'Die Unterpunkte des Menüs werden ohne Zitat oder Bilder der Portalseite angezeigt.', 'fau' ),                
+		    'default' => $defaultoptions['advanced_display_portalmenu_plainview'],
+		    'ifmodvalue'    => -1,
+		    'ifmodname'	=> 'website_type',
+		    'parent'  => 'topmenulinks'
+		), 
+	       
+	       
 	       
                 'contentmenus'  => array(
 		    'type'    => 'section',
@@ -1153,10 +1189,10 @@ $setoptions = array(
               
 	       
 	       'sidebaropt'  => array(
-                  'type'    => 'section',
-                  'title'   => __( 'Sidebar', 'fau' ),     
-		   'desc'   => __('Konfigurationen der Sidebar auf Seiten'),
-		  'user_level'	=> 2,
+		    'type'	=> 'section',
+		    'title'	=> __( 'Sidebar', 'fau' ),     
+		    'desc'	=> __('Konfigurationen der Sidebar auf Seiten', 'fau'),
+		    'user_level'	=> 2,
               ),
 	       'advanced_page_sidebar_titleabove'	  => array(
                   'type'    => 'toggle',
@@ -1256,9 +1292,7 @@ $setoptions = array(
 	        'google-site-verification' => array(
                   'type'    => 'text',
                   'title'   => __( 'Google Site Verification', 'fau' ),
-                  'label'   => __( 'Zur Verifikation der Website als Property in den <a target="_blank" href="https://www.google.com/webmasters/tools/home">Google Webmaster Tools</a> wird die Methode über den HTML-Tag ausgewählt. '
-			  . 'Google erstellt dann auf der Einrichtungsseite eine HTML-Anweisung. Von dieser Anweisung kopiert man den Bestandteil, der im Attribut "content" angegeben ist. <br>'
-                        . 'Beispiel: <br>Google gibt den HTML-Code: &nbsp; &nbsp;<code>&lt;meta name="google-site-verification" content="BBssyCpddd8" /&gt;</code><br>  Dann geben Sie dies ein: <code>BBssyCpddd8</code> .', 'fau' ),               
+                  'label'   => __( 'Zur Verifikation der Website als Property in den <a target="_blank" href="https://www.google.com/webmasters/tools/home">Google Webmaster Tools</a> wird die Methode über den HTML-Tag ausgewählt. Google erstellt dann auf der Einrichtungsseite eine HTML-Anweisung. Von dieser Anweisung kopiert man den Bestandteil, der im Attribut "content" angegeben ist. <br>Beispiel: <br>Google gibt den HTML-Code: &nbsp; &nbsp;<code>&lt;meta name="google-site-verification" content="BBssyCpddd8" /&gt;</code><br>  Dann geben Sie dies ein: <code>BBssyCpddd8</code> .', 'fau' ),               
                   'default' => $defaultoptions['google-site-verification'],
 		     'parent'  => 'inhalte'
               ),  

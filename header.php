@@ -53,7 +53,7 @@
 		    </div>
 	    </div>
 	</div>
-	<header id="header">
+	<header id="header" aria-label="<?php _e("Seitenkopf","fau"); ?>">
 	    <div class="container">
 		<div class="row">
 		    <div class="branding" id="logo" role="banner" itemscope itemtype="http://schema.org/Organization">

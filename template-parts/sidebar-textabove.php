@@ -2,7 +2,7 @@
 	$output = '';
 	$title = get_post_meta( $post->ID, 'sidebar_title_above', true );
 	if (strlen(trim($title))>1) {
-	    $output .= '<h2'.$title.'</h2>'."\n";
+	    $output .= '<h2>'.$title.'</h2>'."\n";
 	}
 	$text = get_post_meta( $post->ID, 'sidebar_text_above', true );
 	if (!fau_empty($text)) {

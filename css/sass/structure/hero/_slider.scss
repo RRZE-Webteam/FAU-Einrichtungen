@@ -12,12 +12,10 @@
 	    position: relative;
 	    width: 100%;
 	    height: 250px;
-	  //  max-height: 250px;  
 	    overflow: hidden;
 	    
 	    
 	    @media (min-width: $screen-sm) {
-	//	max-height: 350px;  
 		height: 350px;
 	    }
 
@@ -31,7 +29,7 @@
 	    h2,
 	    h3 {
 		    color: #fff;
-		    text-shadow: 2px 2px 5px #000;
+		    text-shadow: $slick-opacity-text-shadow;
 		    display: inline;
 		    padding: 3px;
 		    margin: 25px 30px;
@@ -39,11 +37,10 @@
 
 		    box-decoration-break: clone;
 		    -webkit-box-decoration-break: clone;
-		    
-		    
+    
 		    @media (min-width: $screen-sm) {
 			margin: 10px 0 15px 0;
-			background: rgba($colorPrimary,0.5);
+			background: rgba($colorPrimary, $slick-opacity-text-background);
 		    }
 	    
 	    }
@@ -61,7 +58,7 @@
 	    p {
 		    @include px2rem($font-size-hero-slider-text,$font-size-gridbase,$font-size-hero-slider-text * 1.7);
 		    color: #fff;
-		    text-shadow: 2px 2px 5px #000;
+		    text-shadow: $slick-opacity-text-shadow;
 		    padding: 3px;
 		    margin: 0;
 		    box-decoration-break: clone;
@@ -69,7 +66,7 @@
 
 		    @media (min-width: $screen-sm) {
 			    display: inline;
-			    background: rgba($colorPrimary,0.5);
+			    background: rgba($colorPrimary, $slick-opacity-text-background);
 		    }
 
 	    }
@@ -110,13 +107,10 @@
 	}
 	.hero-slide-text {
 		z-index: 10;
-		position: absolute;
-		
+		position: absolute;		
 		margin: 0;
 		padding: 0;
 		width: 100%;
-		
-		
 		top: 75%;
 		@include transform-translate(0,-75%);
 		
@@ -124,7 +118,6 @@
 		   bottom: 30px;
 		   top: inherit;
 		   transform: none;
-		  // @include transform-translate(0,inherit);
 		}
 		
 	}
@@ -143,7 +136,6 @@
 	    .no-js & {
 	    	display: none;
 	    }
-	  //  top: -20px;
 	}
 	@media (min-width: $screen-xs) {
 	    top: -20px;
@@ -202,8 +194,7 @@
 	   
 	   -webkit-font-smoothing: antialiased;
 	   -moz-osx-font-smoothing: grayscale;
-	//   text-shadow: 2px 2px #000;
-	  text-shadow:  2px 2px 5px #000;
+	    text-shadow:  $slick-opacity-text-shadow;
 	    @media (min-width: $break-1360) {
 		text-shadow: none;
 	    }
@@ -304,3 +295,27 @@
        }
    }
 }
+
+
+
+.hero-slides-op-0 #hero-slides .item {
+	h2, h3, p {
+	    @media (min-width: $screen-sm) {
+		background: rgba($colorPrimary, 0);
+	    }
+	}
+}
+
+$oc-list: 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1;
+@each $current-oc in $oc-list {
+    $i: index($oc-list, $current-oc);
+    .hero-slides-op-#{$i} #hero-slides .item {
+	h2, h3, p {
+	    @media (min-width: $screen-sm) {
+		background: rgba($colorPrimary, $current-oc);
+	    }
+	}
+    }
+}
+
+

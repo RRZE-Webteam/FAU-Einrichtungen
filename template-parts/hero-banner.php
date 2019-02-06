@@ -13,9 +13,8 @@ $copyright = '';
 
 $show_copyright  = get_theme_mod("advanced_display_hero_credits"); 
 $use_bannerdefault = get_theme_mod("startseite_banner_usedefault"); 
-$show_jumplink = get_theme_mod("advanced_page_start_herojumplink"); 
-
 $startseite_banner_image_id = get_theme_mod("startseite_banner_image_id"); 
+
 if (isset($banner) && ($banner > 0)) {
     $imagedata = wp_get_attachment_image_src( $banner, 'herobanner' );
     $slidersrcset =  wp_get_attachment_image_srcset($banner,'herobanner');
@@ -101,10 +100,7 @@ if (isset($banner) && ($banner > 0)) {
 				    }
 				    ?>
 				</div>
-			</div>
-		    <?php if ($show_jumplink) { ?>
-			<a href="#content" class="hero-jumplink-content"></a>
-		    <?php } ?>
+			</div>		   
 		    </div>
 		 </div>    
 	    </div>

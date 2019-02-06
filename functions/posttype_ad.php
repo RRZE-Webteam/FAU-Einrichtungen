@@ -37,25 +37,7 @@ function ad_post_type() {
 		'publicly_queryable'  => true,
 		'query_var'           => 'ad',
 		'rewrite'             => $rewrite,
-	/*
-	    	'capability_type'     => 'ad',
-		'capabilities' => array(
-		    'edit_post' => 'edit_ad',
-		    'read_post' => 'read_ad',
-		    'delete_post' => 'delete_ad',
-		    'edit_posts' => 'edit_ads',
-		    'edit_others_posts' => 'edit_others_ads',
-		    'publish_posts' => 'publish_ads',
-		    'read_private_posts' => 'read_private_ads',
-		    'delete_posts' => 'delete_ads',
-		    'delete_private_posts' => 'delete_private_ads',
-		    'delete_published_posts' => 'delete_published_ads',
-		    'delete_others_posts' => 'delete_others_ads',
-		    'edit_private_posts' => 'edit_private_ads',
-		    'edit_published_posts' => 'edit_published_ads'
-		),
-		'map_meta_cap' => true
-	 */	 
+	
 	);
 
     register_post_type( 'ad', $args );
@@ -130,8 +112,6 @@ function fau_ad_metabox_content( $object, $box ) {
     wp_nonce_field( basename( __FILE__ ), 'fau_ad_metabox_content_nonce' ); 
 
     if ( !current_user_can( 'edit_page',  $object->ID) )
-	    // Oder sollten wir nach publish_pages  fragen? 
-	    // oder nach der Rolle? vgl. http://docs.appthemes.com/tutorials/wordpress-check-user-role-function/ 
 	return;
 
     $aditionid = get_post_meta( $object->ID, 'fauval_ad_aditionid', true );
@@ -322,11 +302,14 @@ function fau_get_ad($type, $withhr = true) {
 	   } 
 
 	   
-
-	   $out .= '<aside class="fau-werbung'.$class.'" role="region">';
-	   if ($withhr) {
+	    if ($withhr) {
 	       $out .= "<hr>\n";
-	   }
+	    }
+	    
+	    
+	    
+	   $out .= '<div class="fau-werbung'.$class.'">';
+	  
 	   foreach ($list as $id) {
 
 		$out .= '<h3>';	    
@@ -342,7 +325,6 @@ function fau_get_ad($type, $withhr = true) {
 		$aditionid = get_post_meta( $id, 'fauval_ad_aditionid', true );
 		if ($aditionid >0) { 
 		    
-		//    $out .= "aditionid > 0: $aditionid<br>";
 		    $prot = 'https';
 		    $out .= "<!-- BEGIN ADITIONSSLTAG -->";
 		    $out .= "<script type=\"text/javascript\" src=\"".$prot."://imagesrv.adition.com/js/adition.js\"></script>";
@@ -367,11 +349,9 @@ function fau_get_ad($type, $withhr = true) {
 		    }
 		 }
 		$out .= '</div>';
-
 	   }
-	   $out .= '</aside>';
+	   $out .= '</div>';
 	   return $out;
-
        }
     } else {
 	return;

@@ -559,36 +559,4 @@ function fau_shortcode_three_columns_one_last($atts, $content = null) {
 new FAUShortcodes();
 
 
-
-class FAUShortcodesRTE {
-    public function __construct()  {
-        add_action('admin_init', array($this, 'fau_shortcodes_rte_button'));
-    }
-
-    public function fau_shortcodes_rte_button()  {
-        if( current_user_can('edit_posts') &&  current_user_can('edit_pages') ) {
-            add_filter( 'mce_external_plugins', array($this, 'fau_rte_add_buttons' ));
-            add_filter( 'mce_buttons', array($this, 'fau_rte_register_buttons' ));
-        }
-    }
-
-    public function fau_rte_add_buttons( $plugin_array ) {
-        $plugin_array['faurteshortcodes'] = get_template_directory_uri().'/js/tinymce-shortcodes.js';
-
-        return $plugin_array;
-    }
-
-    public function fau_rte_register_buttons( $buttons )  {
-        array_push( $buttons, 'separator', 'faurteshortcodes' );
-        return $buttons;
-    }
-
-}
-new FAUShortcodesRTE();
-
-
-
-
-
-
 ?>

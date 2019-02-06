@@ -538,17 +538,13 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 			$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
 			$atts['target'] = ! empty( $item->target )     ? $item->target     : '';
 			$atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
+			$atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+			$targeturl = $atts['href'];
 			if ($iscurrent==1) {
 			    $atts['aria-current'] = "page";
 			}
-		
-			$post = get_post($item->object_id);
-			if ($post && $post->post_type != 'imagelink') {
-			    $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
-			    $targeturl = $atts['href'];
-			} else {
-			    $targeturl = '';
-			}
+
+			$post = get_post($item->object_id);			
 
 			if($this->level == 1) $atts['class'] = 'subpage-item';
 			
@@ -564,62 +560,63 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 			
 			$item_output = $args->before;
 			if($post && $post->post_type == 'imagelink') {
-                            $protocol  = get_post_meta( $item->object_id, 'protocol', true );
-                            $link  = get_post_meta( $item->object_id, 'link', true );
-                            $targeturl = get_post_meta( $item->object_id, 'fauval_imagelink_url', true );
+				$protocol  = get_post_meta( $item->object_id, 'protocol', true );
+				$link  = get_post_meta( $item->object_id, 'link', true );
+				$targeturl = get_post_meta( $item->object_id, 'fauval_imagelink_url', true );
 
-                            if (empty($targeturl) && isset($protocol) && isset($link)) {
-                                $targeturl = $protocol.$link;
-                            }
-                            $externlink = true; 	
-                            $link = '<a class="ext-link" data-wpel-link="internal"  href="'.$targeturl.'">';
+				if (empty($targeturl) && isset($protocol) && isset($link)) {
+				    $targeturl = $protocol.$link;
+				}
+				$externlink = true; 	
+				$link = '<a class="ext-link" data-wpel-link="internal"  href="'.$targeturl.'">';
 			} else {
-                            $link = '<a'. $attributes .' >';
+				$link = '<a'. $attributes .' >';
 			}
 
+			
 			if($this->level == 1) {
-                            if (!$this->nothumbnail) {
-				$item_output .= '<div role="presentation" aria-hidden="true" tabindex="-1">';
-                                $item_output .= '<a ';
+				if (!$this->nothumbnail) {
+				    $item_output .= '<div role="presentation" aria-hidden="true" tabindex="-1">';
+				    $item_output .= '<a ';
 
-                                if ($externlink) {
-                                     $item_output .= 'data-wpel-link="internal" ';
-                                }
-                                $item_output .= 'class="image';
-                                if ($externlink) {
-                                     $item_output .= ' ext-link';
-                                }
-                                $item_output .= '" href="'.$targeturl.'">';
-                                $post_thumbnail_id = get_post_thumbnail_id( $item->object_id, 'page-thumb' ); 
-                                $imagehtml = '';
-                                $imageurl = '';
-				
-				
-				$pretitle = $options['advanced_contentmenu_thumblink_alt_pretitle'];
-				$posttitle = $options['advanced_contentmenu_thumblink_alt_posttitle'];
-				$alttext = $pretitle.apply_filters( 'the_title', $item->title, $item->ID ).$posttitle;
-				$alttext = esc_html($alttext);
-				$altattr = 'alt="'.$alttext.'"';
-				
-				
-                                if ($post_thumbnail_id) {
-                                    $thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  'page-thumb');
-                                    $imageurl = $thisimage[0]; 	
-                                    $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$thisimage[1].'" height="'.$thisimage[2].'" '.$altattr.'>';
-                                }
-                                if ((!isset($imageurl) || (strlen(trim($imageurl)) <4 )) && (!$this->nothumbnailfallback))  {
-                                    $imageurl = $options['default_submenuthumb_src'];
-                                    $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" '.$altattr.'>';
-                                }
-                                $item_output .= '</a>';
-				$item_output .= '</div>';
-                                // Anmerkung: Leeres alt="", da dieses ansonsten redundant wäre zum darunter stehenden Titel.
-                            }
-                            $item_output .= $args->link_before.'<span class="portaltop">';
-                            $item_output .= $link;
-                            $item_output .=  apply_filters( 'the_title', $item->title, $item->ID );
-                            $item_output .= '</a>';
-                            $item_output .= '</span>'. $args->link_after;
+				    if ($externlink) {
+					 $item_output .= 'data-wpel-link="internal" ';
+				    }
+				    $item_output .= 'class="image';
+				    if ($externlink) {
+					 $item_output .= ' ext-link';
+				    }
+				    $item_output .= '" href="'.$targeturl.'">';
+				    $post_thumbnail_id = get_post_thumbnail_id( $item->object_id, 'page-thumb' ); 
+				    $imagehtml = '';
+				    $imageurl = '';
+
+
+				    $pretitle = $options['advanced_contentmenu_thumblink_alt_pretitle'];
+				    $posttitle = $options['advanced_contentmenu_thumblink_alt_posttitle'];
+				    $alttext = $pretitle.apply_filters( 'the_title', $item->title, $item->ID ).$posttitle;
+				    $alttext = esc_html($alttext);
+				    $altattr = 'alt="'.$alttext.'"';
+
+
+				    if ($post_thumbnail_id) {
+					$thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  'page-thumb');
+					$imageurl = $thisimage[0]; 	
+					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$thisimage[1].'" height="'.$thisimage[2].'" '.$altattr.'>';
+				    }
+				    if ((!isset($imageurl) || (strlen(trim($imageurl)) <4 )) && (!$this->nothumbnailfallback))  {
+					$imageurl = $options['default_submenuthumb_src'];
+					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" '.$altattr.'>';
+				    }
+				    $item_output .= '</a>';
+				    $item_output .= '</div>';
+				    // Anmerkung: Leeres alt="", da dieses ansonsten redundant wäre zum darunter stehenden Titel.
+				}
+				$item_output .= $args->link_before.'<span class="portaltop">';
+				$item_output .= $link;
+				$item_output .=  apply_filters( 'the_title', $item->title, $item->ID );
+				$item_output .= '</a>';
+				$item_output .= '</span>'. $args->link_after;
 			} else {
 				$item_output .= $link;
 				$item_output .= $args->link_before.apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
@@ -708,7 +705,7 @@ function fau_breadcrumb($lasttitle = '') {
 	if ( get_post_type() != 'post' ) {
 	    $post_type = get_post_type_object(get_post_type());
 	    $slug = $post_type->rewrite;
-	    echo '<a href="' . $homeLink . '/' . $slug['slug'] . '">' . $post_type->labels->singular_name . '</a>' .$delimiter;
+	    echo '<a href="' . $homeLink . $slug['slug'] . '">' . $post_type->labels->singular_name . '</a>' .$delimiter;
 	    if ($showcurrent) {
 		echo $before . get_the_title() . $after;
 	    }
