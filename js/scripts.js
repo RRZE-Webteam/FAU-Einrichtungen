@@ -9,7 +9,7 @@ jQuery(document).ready(function ($) {
             sliderFade = $body.hasClass('slider-fade'),
             sliderAutostart = $body.hasClass('slider-autoplay'),
             sliderShowDots = $body.hasClass('slider-dots'),
-	    sliderAdaptiveHeight = $body.hasClass('slider-adaptiveHeight'),
+            sliderAdaptiveHeight = $body.hasClass('slider-adaptiveHeight'),
             use_theme_accordion = $body.hasClass('theme-accordion');
 
 
@@ -51,8 +51,8 @@ jQuery(document).ready(function ($) {
         if (sliderFade) {
             fadeit = true;
         }
-	
-	var adaptiveHeight = false;
+
+        var adaptiveHeight = false;
         if (sliderAdaptiveHeight) {
             adaptiveHeight = true;
         }
@@ -87,7 +87,7 @@ jQuery(document).ready(function ($) {
                 autoplaySpeed: autoplaySpeedval,
                 nextArrow: sliderNextHTML,
                 prevArrow: sliderPrevHTML,
-		// mobileFirst: true,
+                // mobileFirst: true,
 
                 appendArrows: '.slider-controls',
             });
@@ -315,7 +315,6 @@ jQuery(document).ready(function ($) {
             }
         });
 
-
         // Off-canvas navigation
         var navContainer = $('<div id="off-canvas" role="navigation" aria-label="Hamburger Navigation" aria-controls="nav-off-canvas">');
         // var offcanvaslogo = $('#logo').clone();
@@ -328,10 +327,7 @@ jQuery(document).ready(function ($) {
 
         navCloseLabel.appendTo(navContainer);
         // offcanvaslogo.appendTo(navContainer);
-
         nav.appendTo(navContainer);
-
-
         navContainer.appendTo('body');
         $('<div id="off-canvas-overlay">').appendTo('body');
 
@@ -373,6 +369,24 @@ jQuery(document).ready(function ($) {
             $('#mainnav-toggle').attr('aria-expanded', 'false');
         });
 
+        // Activate "Force Click" behavior on the desktop navigation
+        if ($body.hasClass('mainnav-forceclick')) {
+            $('#nav > .menu-item-has-children > a + .nav-flyout').each(function (index, topLevelFlyout) {
+                var uniqueId = '_' + Math.random().toString(36).substr(2, 9);
+                var $toggleLink = $(topLevelFlyout.previousSibling);
+                var $toggleButton = $('<button type="button" aria-controls="' + uniqueId + '" aria-haspopup="true" aria-expanded="false"/>')
+                    .text($toggleLink.text())
+                    .click(function () {
+                        var toggle = this;
+                        $('#nav > .menu-item-has-children > [type=button]').each(function (i, btn) {
+                            btn._isExpanded = (toggle === btn) ? !btn._isExpanded : false;
+                            $(btn).attr('aria-expanded', btn._isExpanded ? 'true' : 'false');
+                        });
+                    });
+                $toggleLink.replaceWith($toggleButton);
+                $(topLevelFlyout).attr('id', uniqueId);
+            })
+        }
 
         //Update responsive positioning of some elements
         $('body').addClass('responsive-large');
@@ -786,7 +800,7 @@ if (!(window.console && console.log)) {
                         }
                     }
                 } else {
-                    if (typeof(config.textExtraction) == "function") {
+                    if (typeof (config.textExtraction) == "function") {
                         text = config.textExtraction(node);
                     } else {
                         text = $(node).text();
@@ -910,19 +924,19 @@ if (!(window.console && console.log)) {
                         var rowSpan = c.rowSpan || 1;
                         var colSpan = c.colSpan || 1
                         var firstAvailCol;
-                        if (typeof(matrix[rowIndex]) == "undefined") {
+                        if (typeof (matrix[rowIndex]) == "undefined") {
                             matrix[rowIndex] = [];
                         }
                         // Find first available column in the first row
                         for (var k = 0; k < matrix[rowIndex].length + 1; k++) {
-                            if (typeof(matrix[rowIndex][k]) == "undefined") {
+                            if (typeof (matrix[rowIndex][k]) == "undefined") {
                                 firstAvailCol = k;
                                 break;
                             }
                         }
                         lookup[cellId] = firstAvailCol;
                         for (var k = rowIndex; k < rowIndex + rowSpan; k++) {
-                            if (typeof(matrix[k]) == "undefined") {
+                            if (typeof (matrix[k]) == "undefined") {
                                 matrix[k] = [];
                             }
                             var matrixrow = matrix[k];
@@ -996,7 +1010,7 @@ if (!(window.console && console.log)) {
             };
 
             function formatSortingOrder(v) {
-                if (typeof(v) != "Number") {
+                if (typeof (v) != "Number") {
                     return (v.toLowerCase() == "desc") ? 1 : 0;
                 } else {
                     return (v == 1) ? 1 : 0;
@@ -1655,7 +1669,7 @@ if (!(window.console && console.log)) {
                 wrap: '<div class="fancybox-wrap" tabIndex="-1"><div class="fancybox-skin"><div class="fancybox-outer"><div class="fancybox-inner"></div></div></div></div>',
                 image: '<img class="fancybox-image" src="{href}" alt="" />',
                 iframe: '<iframe id="fancybox-frame{rnd}" name="fancybox-frame{rnd}" class="fancybox-iframe" frameborder="0" vspace="0" hspace="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen' +
-                (I ? ' allowtransparency="true"' : "") + "></iframe>",
+                    (I ? ' allowtransparency="true"' : "") + "></iframe>",
                 error: '<p class="fancybox-error">The requested content cannot be loaded.<br/>Please try again later.</p>',
                 closeBtn: '<a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a>',
                 next: '<a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
