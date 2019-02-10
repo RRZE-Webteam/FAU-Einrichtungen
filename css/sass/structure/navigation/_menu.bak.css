@@ -6,216 +6,155 @@
 #nav {
 	@include no-list;
 
-	/* All links & buttons */
-	a, [type=button] {
-		text-decoration: none;
-		color: $colorPrimary;
-	}
-
-	/* First-level items */
-	> li {
-		@include no-list;
-		/*display: block;*/
-		float: left;
-
-		/* Primary navigation toggle links / buttons */
-		> a,
-		> [type=button] {
-			display: block;
-			position: relative;
-			@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
-			font-weight: bold;
-			margin: 0 0 10px 0;
-			padding: 10px;
-			@include border-radius(4px);
-
-			/* Necessary for force-click toggle buttons */
-			border: none;
-			background-color: transparent;
-		}
-
-		&.has-sub {
-			> a,
-			> [type=button] {
-				padding-bottom: 10px;
-				padding-right: 30px;
-				margin-bottom: 0;
-
-				&:before {
-					@extend .fa;
-					@extend .fa-caret-down;
-					position: absolute;
-					top: 11px;
-					right: 11px;
-				}
-			}
-
-			&:hover {
-				> a {
-					@include border-bottom-radius(0);
-				}
-			}
-
-			body:not(.mainnav-forceclick) & {
-				> a:focus + .nav-flyout,
-				> [type=button]:focus + .nav-flyout,
-				&:hover .nav-flyout {
-					display: block;
-				}
-			}
-
-			/* Must be an extra selector as IE / Edge doesn't support :focus-within and considers this invalid */
-			body:not(.mainnav-forceclick) &:focus-within .nav-flyout {
-				display: block;
-			}
-
-			> [type=button][aria-expanded=true] + .nav-flyout {
-				display: block;
-			}
-		}
-
-		/* Hover & focus states */
-		&.has-sub:hover > a,
-		&.has-sub:hover > [type=button],
-		> a:hover,
-		> a:focus,
-		> [type=button][aria-expanded=true],
-		> [type=button]:hover,
-		> [type=button]:focus {
-			color: $colorMainMenu;
-			background-color: $colorPrimary;
-		}
-
-		/* Must be an extra selector as IE / Edge doesn't support :focus-within and considers this invalid */
-		&.has-sub:focus-within > a,
-		&.has-sub:focus-within > [type=button] {
-			color: $colorMainMenu;
-			background-color: $colorPrimary;
-		}
-
-		body.mainnav-forceclick & {
-			> a:hover,
-			> a:focus,
-			> [type=button]:hover,
-			> [type=button]:focus {
-				background-color: $colorHover;
-			}
-
-			// Overwrite for "active" button
-			> [type=button][aria-expanded=true] {
-				background-color: $colorPrimary;
-			}
-		}
-	}
-
-	/* Questions
-
-	- li.level1 a.clicked-once
-	- li.level1.focus.has-sub
-	- li.active
-
-	 */
-
-	/* Fly-Out / secondary navigation */
 	.nav-flyout {
 		display: none;
 		position: absolute;
 		z-index: 30;
 		top: 130px;
+
+		@media (min-width: $screen-md) {
+			top: 90px;
+		}
+
+
 		left: 0;
 		right: 0;
 		background: $colorPrimary;
 		padding: 20px 0;
 		@include box-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
 
-		@media (min-width: $screen-md) {
-			top: 90px;
-		}
-	}
-
-	/* Portal buttons */
-	.button-portal {
-		@include inline-block;
-		color: $colorMainMenu;
-		background-color: $colorHover;
-		padding: 13px 20px;
-		font-weight: bold;
-		font-size: 18px;
-		line-height: 18px;
-		@include border-radius(4px);
-
-		&:hover,
-		&:focus {
-			background: lighten($colorHover, 5%);
-		}
-	}
-
-	ul {
-		@include no-list;
-		margin: 0 0 15px 0;
-
-		li {
-			@include no-list; /* Necessary because there's a global style setting this to "disc" */
-			padding: 0;
-		}
-
-		a {
-			display: inline-block;
-			padding: 7px 20px 7px 15px;
-			border-bottom: 1px solid $colorHover;
-			color: #fff;
-			width: 100%;
-
-			&:before {
-				@extend .fa;
-				@extend .fa-angle-right;
-				font-weight: bold;
-				width: 15px;
-				display: inline-block;
-				margin-left: -15px;
-				padding-left: 2px;
-			}
+		a.button-portal {
+			@include inline-block;
+			background: $colorHover !important;
+			padding: 13px 20px;
+			font-size: 18px;
+			line-height: 18px;
 
 			&:hover,
 			&:focus {
-				text-decoration: none;
-				background-color: $colorHover;
+				background: lighten($colorHover, 5%) !important;;
 			}
 		}
-	}
 
-	/* When does this happen?
-	.flyout-entries-full ul.sub-menu {
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: column;
-		justify-content: flex-start;
-		max-height: 250px;
-		align-items: flex-start;
-
-		li {
-			width: 30%;
+		a:hover,
+		a:focus {
+			text-decoration: none;
+			background-color: $colorHover;
 		}
 
-		#off-canvas & {
+	}
+
+	li {
+		@include no-list;
+		display: block;
+		float: left;
+
+		a, [type=button] {
 			display: block;
-			height: auto;
+			float: left;
+			font-weight: bold;
+			color: $colorPrimary;
+			text-decoration: none;
+			padding: 10px;
+			@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
+
+			@include border-radius(4px);
+			margin: 0 0 10px 0;
+		}
+
+		[type=button] {
+			border: none;
+			background-color: transparent;
+		}
+
+		ul {
+			@include no-list;
+			margin: 0 0 15px 0;
 
 			li {
-				width: inherit;
+				@include no-list;
+				float: none;
+				background: none;
+
+				a {
+					float: none;
+					margin: 0;
+					font-weight: normal;
+					@include px2rem($font-size-nav-flyout-items);
+					display: table;
+					padding: 7px 20px 7px 0px;
+					@include border-radius(0);
+					border-bottom: 1px solid $colorHover;
+					width: calc(100% - 20px);
+					color: #fff;
+
+				}
+
+				a:before {
+					@extend .fa;
+					@extend .fa-angle-right;
+					font-weight: bold;
+					display: table-cell;
+					width: 15px;
+					padding-left: 2px;
+				}
+
+				a:hover,
+				a:focus {
+					text-decoration: none;
+					background-color: $colorHover;
+				}
+			}
+		}
+
+		.flyout-entries-full ul.sub-menu {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+			justify-content: flex-start;
+			max-height: 250px;
+			align-items: flex-start;
+
+			li {
+				width: 30%;
+			}
+
+			#off-canvas & {
+				display: block;
+				height: auto;
+
+				li {
+					width: inherit;
+				}
 			}
 		}
 	}
-	*/
+
+	li.has-sub {
+		> a, > [type=button] {
+			padding-bottom: 10px;
+			padding-right: 30px;
+			margin-bottom: 0px;
+			position: relative;
+
+			&:before {
+				@extend .fa;
+				@extend .fa-caret-down;
+				position: absolute;
+				top: 11px;
+				right: 11px;
+			}
+		}
+	}
 
 	.introtext-full,
 	.introtext {
 		p {
+			color: #fff;
 			@include px2rem($font-size-nav-introtext, $font-size-nav-introtext, 24);
 			padding: 20px;
 			margin: 0;
-			color: #fff;
-			opacity: .7;
+			opacity: 0.7;
 
 			font-style: normal;
 			font-weight: normal;
@@ -267,13 +206,110 @@
 		padding: 0;
 		margin: 0;
 	}
+
+
+	li.level1.has-sub a:hover,
+	li.level1.focus.has-sub a {
+		@include border-bottom-radius(0px);
+		background-color: $colorPrimary;
+		color: #fff;
+	}
+
+	li.level1 a.clicked-once,
+	li.level1.focus.has-sub a,
+	li.level1:hover a,
+	li.active a,
+	li.level1:focus a,
+	li.focus a {
+		background-color: $colorPrimary;
+		color: #fff;
+
+	}
+
+	li.has-sub a.clicked-once,
+	li.has-sub a:hover,
+	li.has-sub a:focus,
+	li.has-sub.active,
+	li.has-sub:hover a,
+	li.has-sub:focus a,
+	li.has-sub.focus a {
+		color: $colorMainMenu;
+	}
+
+	body:not(.mainnav-forceclick) & {
+		li.level1:hover .nav-flyout,
+		li.level1:focus .nav-flyout,
+		li.focus .nav-flyout {
+			display: block;
+		}
+	}
 }
 
-/* Hide Off-Canvas menu by default */
+#nav {
+	a:hover,
+	a:focus {
+		background-color: $colorPrimary;
+		color: #fff;
+	}
+
+	[aria-expanded=true] + .nav-flyout a {
+		color: $colorMainMenu;
+	}
+
+	li.level1 > [type=button]:hover,
+	li.level1 > [type=button]:focus {
+		background-color: $colorHover;
+		color: $colorMainMenu;
+	}
+
+	li.level1 > [type=button][aria-expanded=true],
+	[aria-expanded=true] + .nav-flyout a:hover {
+		background-color: $colorPrimary;
+		color: $colorMainMenu;
+	}
+
+	body:not(.mainnav-forceclick) & li.level1:focus-within {
+		background-color: $colorPrimary;
+
+		a {
+			color: #fff;
+		}
+	}
+
+	body:not(.mainnav-forceclick) & li.level1:focus-within .nav-flyout,
+	li.level1 > [type=button][aria-expanded=true] + .nav-flyout {
+		display: block;
+
+		li {
+			a {
+				color: #fff;
+
+				&:hover,
+				&:focus {
+					background-color: $colorHover;
+				}
+			}
+		}
+	}
+
+	li:hover .nav-flyout ul li {
+		a {
+			color: #fff;
+		}
+
+		a:hover,
+		a:focus {
+			background-color: $colorHover;
+		}
+	}
+}
+
+
 #off-canvas,
 #off-canvas-overlay {
 	display: none;
 }
+
 
 /* New Toogle Button */
 #wrap #mainnav-toggle {
@@ -303,8 +339,9 @@
 	@extend .fa-bars;
 }
 
-/* Very small device */
+
 @media (max-width: $screen-xs - 1) {
+
 	.no-js {
 		.hide-mobile {
 			display: none;
@@ -312,7 +349,6 @@
 			position: relative;
 		}
 
-		/*
 		#nav-off-canvas,
 		#nav {
 			.nav-flyout {
@@ -321,7 +357,7 @@
 				float: none;
 				width: 100%;
 				top: inherit;
-				margin: 5px 0;
+				margin: 5px 0px;
 				padding: 3px;
 			}
 
@@ -356,13 +392,16 @@
 				margin: 0;
 			}
 		}
-*/
+
+
 	}
+
 }
 
-/* Medium sized device */
 @media (max-width: $screen-sm - 1) {
+
 	body.js-enabled {
+
 		&.menu-toggled {
 			#off-canvas {
 				-webkit-transform: translate3d(0, 0, 0);
@@ -392,8 +431,8 @@
 			position: fixed;
 			width: 250px;
 			height: 100%;
-			top: 0;
-			right: 0;
+			top: 0px;
+			right: 0px;
 			z-index: 999;
 			background: #eee;
 
@@ -412,7 +451,7 @@
 					li {
 						a {
 							display: table;
-							padding: 7px 20px 7px 0;
+							padding: 7px 20px 7px 0px;
 							@include border-radius(0);
 							border-bottom: 1px solid $colorHover;
 							width: calc(100% - 20px);
@@ -447,7 +486,6 @@
 			transition: transform 240ms;
 		}
 
-		/*
 		#nav-off-canvas,
 		#nav {
 			.nav-flyout {
@@ -474,7 +512,7 @@
 				}
 			}
 		}
-		*/
+
 
 		#off-canvas-close {
 			display: block;
@@ -485,10 +523,12 @@
 			&:hover {
 				text-decoration: underline;
 			}
+		;
 		}
+
+
 	}
 	.js {
-		/*
 		#nav-off-canvas,
 		#nav {
 			margin: 10px 0 0 0;
@@ -534,15 +574,18 @@
 		body.admin-bar #nav .nav-flyout {
 			top: 0;
 		}
-		*/
 	}
+
+
 }
 
-/* As of 768 pixels screen width */
 @media (min-width: $screen-sm) {
 	#nav-off-canvas,
 	#nav {
 		overflow: hidden;
 		max-height: 37px;
+
 	}
 }
+
+
