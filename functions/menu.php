@@ -208,12 +208,15 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		    $thumbregion = get_the_post_thumbnail($this->currentID,'post');
 		}
 		$quote  = get_post_meta( $this->currentID, 'zitat_text', true );
-	        $author =  get_post_meta( $this->currentID, 'zitat_autor', true );
+		$author =  get_post_meta( $this->currentID, 'zitat_autor', true );
+		
+		
+		$output .= $indent.'<div class="nav-flyout"><div class="container"><div class="row">';
 		
 		if (empty($thumbregion) && fau_empty($quote)) {
-		    $output .= $indent.'<div class="nav-flyout"><div class="container"><div class="row"><div class="flyout-entries-full"><ul class="sub-menu level'.$level.'">';
+		    $output .= '<div class="flyout-entries-full"><ul class="sub-menu level'.$level.'">';
 		}  else {
-		    $output .= $indent.'<div class="nav-flyout"><div class="container"><div class="row"><div class="flyout-entries"><ul class="sub-menu level'.$level.'">';
+		    $output .= '<div class="flyout-entries"><ul class="sub-menu level'.$level.'">';
 		}
 		
 		
@@ -344,10 +347,6 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		} elseif (($forceclean_externlink==true) && ($force_cleanmenu==1)) {    
 		    // Ignore external link in Main menu
 		} else {
-		   
-
-		 //   $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-		 //   $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 	    
 		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 		    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
@@ -412,7 +411,115 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 	    }
 	}
 }
+/*-----------------------------------------------------------------------------------*/
+/* Walker for main menu with Theme Mod Plainview
+/*-----------------------------------------------------------------------------------*/
+class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
+	private $currentID;
+	private $level = 1;
+	private $count = array();
+	private $element;
+	
 
+	function start_lvl( &$output, $depth = 0, $args = array() ) {
+		$this->level++;
+		$this->count[$this->level] = 0;	
+		if ($this->level == 2) {
+		    $output .= '<div class="nav-flyout"><div class="container"><div class="row">';
+		    $output .= '<div class="flyout-entries-full">';
+		}
+		$output .= '<ul class="sub-menu level'.$this->level.'">';
+		
+	}
+	
+	function end_lvl( &$output, $depth = 0, $args = array() ) {		
+   
+              if ($this->level == 2) {
+                  $output .= '</ul>';
+		
+		$output .= '<a href="'.get_permalink($this->currentID).'" class="button-portal">';
+		$pretitle = get_theme_mod('menu_pretitle_portal');
+		if (!fau_empty($pretitle)) {
+		    $output .=  $pretitle.' ';
+		}
+		$output .= get_the_title($this->currentID);
+		$posttitle = get_theme_mod('menu_aftertitle_portal');
+		if (!fau_empty($posttitle)) {
+		    $output .=  ' '.$posttitle;
+		}
+		$output .= '</a>';
+
+		$output .= '</div>';
+		$output .= '</div></div></div>';
+		
+             } else {
+		  $output .= '</ul>';
+	    }
+              
+             $this->level--;
+	
+	}
+	
+	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+		$level = $this->level;
+
+		$class_names = $value = '';
+		$classes = array(); // empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		 if ($this->level < 2) {
+		    $classes[] = 'menu-item-' . $item->ID;
+		    $classes[] = 'level' . $level;
+		}	
+		
+	
+
+		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+		    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+		    
+		    $iscurrent =0;
+		    if (in_array("current_page_item",$item->classes)) {
+			$iscurrent = 1;
+		    }
+		    if ($this->level > 2) {
+			 $class_names = str_replace("has-sub","",$class_names);   
+		    }
+		    $output .= $indent . '<li' . $value . $class_names .'>';
+		    
+		    $atts = array();
+		    $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+		    $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
+		    $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
+		    $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+		    if ($iscurrent==1) {
+			$atts['aria-current'] = "page";
+		    }
+		    $atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
+
+		    if($this->level == 1) $this->currentID = $item->object_id;		
+
+		    $attributes = '';
+		    foreach ( $atts as $attr => $value ) {
+			    if ( ! empty( $value ) ) {
+				    $value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+				    $attributes .= ' ' . $attr . '="' . $value . '"';
+			    }
+		    }
+		    
+
+		    $item_output = $args->before;
+		    $item_output .= '<a'. $attributes .'>';
+		    $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+		    $item_output .= '</a>';
+		    $item_output .= $args->after;
+
+		    $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+		
+	}
+	function end_el(&$output, $item, $depth=0, $args=array()) {      
+	    $output .= "</li>";   
+	}
+}
 /*-----------------------------------------------------------------------------------*/
 /* Create submenu icon/grid in content
 /*-----------------------------------------------------------------------------------*/
@@ -657,10 +764,10 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 function fau_breadcrumb($lasttitle = '') {
   global $defaultoptions;
   
-  $delimiter	= $defaultoptions['breadcrumb_delimiter']; // = ' / ';
-  $home		= $defaultoptions['breadcrumb_root']; // __( 'Startseite', 'fau' ); // text for the 'Home' link
-  $before	= $defaultoptions['breadcrumb_beforehtml']; // '<span class="current">'; // tag before the current crumb
-  $after	= $defaultoptions['breadcrumb_afterhtml']; // '</span>'; // tag after the current crumb
+  $delimiter	= $defaultoptions['breadcrumb_delimiter']; 
+  $home		= $defaultoptions['breadcrumb_root']; 
+  $before	= $defaultoptions['breadcrumb_beforehtml']; 
+  $after		= $defaultoptions['breadcrumb_afterhtml']; 
   $showcurrent	= $defaultoptions['breadcrumb_showcurrent'];
   
   $pretitletextstart   = '<span>';
@@ -728,30 +835,32 @@ function fau_breadcrumb($lasttitle = '') {
     } elseif ( !is_single() && !is_page() && !is_search() && get_post_type() != 'post' && !is_404() ) {
 	$post_type = get_post_type_object(get_post_type());
 	echo $before . $post_type->labels->singular_name . $after;
+	
     } elseif ( is_attachment() ) {
 	$parent = get_post($post->post_parent);
 	echo '<a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a>'. $delimiter;
 	if ($showcurrent) {
 	    echo $before . get_the_title() . $after;
 	}
-	
-    } elseif ( is_page() && !$post->post_parent ) {
-	if ($showcurrent) {
-	    echo $before . get_the_title() . $after;
-	}
-    } elseif ( is_page() && $post->post_parent ) {
-	$parent_id  = $post->post_parent;
-	$breadcrumbs = array();
-	while ($parent_id) {
-	    $page = get_page($parent_id);
-	    $breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
-	    $parent_id  = $page->post_parent;
-	}
-	$breadcrumbs = array_reverse($breadcrumbs);
-	foreach ($breadcrumbs as $crumb) echo $crumb . $delimiter;
-	if ($showcurrent) {
-	    echo $before . get_the_title() . $after; 
-	}
+    } elseif ( is_page() ) {
+	if (!$post->post_parent ) {
+	    if ($showcurrent) {
+		echo $before . get_the_title() . $after;
+	    }
+	} else {
+	    $parent_id  = $post->post_parent;
+	    $breadcrumbs = array();
+	    while ($parent_id) {
+		$page = get_page($parent_id);
+		$breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
+		$parent_id  = $page->post_parent;
+	    }
+	    $breadcrumbs = array_reverse($breadcrumbs);
+	    foreach ($breadcrumbs as $crumb) echo $crumb . $delimiter;
+	    if ($showcurrent) {
+		echo $before . get_the_title() . $after; 
+	    }
+	}    
     } elseif ( is_search() ) {
 
 	    $searchstring = esc_attr(get_search_query());

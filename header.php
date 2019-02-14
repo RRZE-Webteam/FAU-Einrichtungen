@@ -91,7 +91,11 @@
                 <a href="#menu" id="mainnav-toggle"><span><?php _e("Menu","fau"); ?></span></a>
 			<?php
 			    if(has_nav_menu( 'main-menu' ) && class_exists('Walker_Main_Menu', false)) {
-				wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'items_wrap' => '<ul id="nav">%3$s</ul>', 'depth' => 2, 'walker' => new Walker_Main_Menu) ); 
+				if (('' != get_theme_mod( 'advanced_display_portalmenu_plainview' )) && (true== get_theme_mod( 'advanced_display_portalmenu_plainview' )) ) {
+				    wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'items_wrap' => '<ul id="nav">%3$s</ul>', 'depth' => 3, 'walker' => new Walker_Main_Menu_Plainview) ); 
+				} else {
+				    wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'items_wrap' => '<ul id="nav">%3$s</ul>', 'depth' => 2, 'walker' => new Walker_Main_Menu) ); 
+				}
 			    } elseif(!has_nav_menu( 'main-menu' )) {
 				echo fau_main_menu_fallback(); 
 			    }

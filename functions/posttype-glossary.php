@@ -32,8 +32,8 @@ if  ( (isset($activated_theme_glossary)) && ($activated_theme_glossary == true) 
 	function fau_glossary_post_type() {	
 
 		$labels = array(
-			'name'                => _x( 'Glossar-Einträge', 'Post Type General Name', 'fau' ),
-			'singular_name'       => _x( 'Glossar-Eintrag', 'Post Type Singular Name', 'fau' ),
+			'name'                => _x( 'Glossar', 'Post Type General Name', 'fau' ),
+			'singular_name'       => _x( 'Glossar', 'Post Type Singular Name', 'fau' ),
 			'menu_name'           => __( 'Glossar', 'fau' ),
 			'parent_item_colon'   => __( 'Übergeordneter Glossar-Eintrag', 'fau' ),
 			'all_items'           => __( 'Alle Glossar-Einträge', 'fau' ),
@@ -143,11 +143,11 @@ if  ( (isset($activated_theme_glossary)) && ($activated_theme_glossary == true) 
 		$helpuse = __('<p>Einbindung in Seiten und Beiträgen via: </p>','fau');
 		$helpuse .= '<ul><li>Einzelbeiträge:';
 		$helpuse .= '<pre> [glossary id="'.$post->ID.'"] </pre>';
-		$helpuse .= 'Inklusive der optionalen Parameter: color="<i>Fakultät</i>", wobei <i>Fakultät</i> folgende Werte haben kann: tf, nat, rw, med, phil.';
+		$helpuse .= 'Inklusive der optionalen Parameter: color="<em>Fakultät</em>", wobei <em>Fakultät</em> folgende Werte haben kann: tf, nat, rw, med, phil.';
 		$helpuse .= '<br>Bei der Einzeleinzeige eines Glossareintrags, ist dieser nicht in einem Accordion, sondern wird so wie er ist angezeigt.';
 		$helpuse .= '</li>';
 		$helpuse .= '<li>Accordion mit Kategory:';
-		$helpuse .= '<pre> [glossary category="<i>Kategoryname</i>"] </pre>';
+		$helpuse .= '<pre> [glossary category="<em>Kategoryname</em>"] </pre>';
 		$helpuse .= '</li>';	
 		$helpuse .= '<li>Accordion mit allen Beiträgen:';
 		$helpuse .= '<pre> [glossary] </pre>';
