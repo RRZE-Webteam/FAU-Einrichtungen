@@ -480,7 +480,12 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 		$iscurrent = 1;
 		$classes[] = 'current-page-item';
 	    }
-
+	    $rellink = fau_make_link_relative($item->url);
+	    if (substr($rellink,0,4) == 'http') {
+	        // absoluter Link auf externe Seite
+	        $classes[] = 'external';
+	    }
+		
 	    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 	    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
