@@ -312,6 +312,7 @@
 		}
 	}
 }
+
 .mainnav-plainview-3 {
 	#nav ul {
 
@@ -319,7 +320,12 @@
 			color: $PalettonHellste;
 		}
 	}
+
+	#nav .nav-flyout {
+		background: url("./img/siegel-zuv-schnitt.png") no-repeat 100% bottom, linear-gradient(to top, #004488 0%, #036 100%);
+	}
 }
+
 .mainnav-plainview-4 {
 	.flyout-entries-full {
 		background-color: $PalettonHellste;
@@ -327,6 +333,12 @@
 		a {
 			color: #000;
 		}
+	}
+}
+
+.mainnav-plainview-5 {
+	#nav .nav-flyout {
+		background: url("./img/siegel-zuv-schnitt.png") no-repeat 100% bottom, linear-gradient(to top, #004488 0%, #036 100%);
 	}
 }
 

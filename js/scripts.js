@@ -490,31 +490,6 @@ jQuery(document).ready(function ($) {
         //Tablesorter
         $('.sorttable').tablesorter();
 
-        /*****************************************************************************
-         * Temporary: Fake 3rd level navigation
-         ****************************************************************************/
-        function getRandom(div) {
-            return Math.ceil(Math.random() / div);
-        }
-
-        $('.mainnav-plainview #nav .level1:last-child .level2 li').each(function (index, item) {
-            var r = Math.floor(Math.random() / .1)
-            if (r) {
-                var submenu = '<ul class="level3">';
-                for (var i = 0; i < r; ++i) {
-                    submenu += '<li><a href="#"/></li>';
-                }
-                submenu += '</ul>';
-                $(item).addClass('has-sub')
-                    .append(submenu)
-                    .find('.level3 a')
-                    .each(function () {
-                        var a = getRandom(.2);
-                        $(this).lorem({ type: 'words', amount: a })
-                    });
-            }
-        });
-        /*****************************************************************************/
     }
 );
 
