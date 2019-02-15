@@ -99,7 +99,7 @@
     if (('' != get_theme_mod( 'advanced_display_portalmenu_plainview' )) && (true== get_theme_mod( 'advanced_display_portalmenu_plainview' )) ) {
 	     $classes[] = 'mainnav-plainview';
     }
-    if (('' != get_theme_mod( 'advanced_activate_quicklinks' )) && (false== get_theme_mod( 'advanced_activate_quicklinks' )) ) {
+    if (false== get_theme_mod( 'advanced_activate_quicklinks' )) {
 	 $classes[] = 'no-quicklinks';
     }
     
