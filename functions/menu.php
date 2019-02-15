@@ -420,20 +420,17 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 	private $count = array();
 	private $element;
 	
-
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
-		$this->level++;
-		$this->count[$this->level] = 0;	
-		if ($this->level == 2) {
-		    $output .= '<div class="nav-flyout"><div class="container"><div class="row">';
-		    $output .= '<div class="flyout-entries-full">';
-		}
-		$output .= '<ul class="sub-menu level'.$this->level.'">';
-		
+	    $this->level++;
+	    $this->count[$this->level] = 0;	
+	    if ($this->level == 2) {
+		$output .= '<div class="nav-flyout"><div class="container"><div class="row">';
+		$output .= '<div class="flyout-entries-full">';
+	    }
+	    $output .= '<ul class="sub-menu level'.$this->level.'">';
 	}
 	
 	function end_lvl( &$output, $depth = 0, $args = array() ) {		
-   
               if ($this->level == 2) {
                   $output .= '</ul>';
 		
@@ -455,67 +452,71 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
              } else {
 		  $output .= '</ul>';
 	    }
-              
-             $this->level--;
-	
+             $this->level--;	
 	}
 	
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-		$level = $this->level;
+	    $level = $this->level;
+	    $iscurrent =0;
+	    $class_names = $value = '';
+	    $classes = array(); 
+	    // Generate Classes. Dont use WordPress default, cause i dont want to 
+	    // get all those unused data filled up my html
 
-		$class_names = $value = '';
-		$classes = array(); // empty( $item->classes ) ? array() : (array) $item->classes;
-		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-		 if ($this->level < 2) {
-		    $classes[] = 'menu-item-' . $item->ID;
-		    $classes[] = 'level' . $level;
-		}	
-		
-	
+	    if ($this->level < 2) { 
+		$classes[] = 'menu-item-' . $item->ID;
+		$classes[] = 'level' . $level;
+	    }	
+	    if (in_array("menu-item-has-children",$item->classes)) {
+		$classes[] = 'has-sub';
+	    }
+	    if (in_array("current-menu-item",$item->classes)) {
+		$classes[] = 'current-menu-item';
+	    }
+	    if (in_array("current-menu-parent",$item->classes)) {
+		$classes[] = 'current-menu-parent';
+	    }		 
+	    if (in_array("current-page-item",$item->classes)) {
+		$iscurrent = 1;
+		$classes[] = 'current-page-item';
+	    }
 
-		    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
-		    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-		    
-		    $iscurrent =0;
-		    if (in_array("current_page_item",$item->classes)) {
-			$iscurrent = 1;
+	    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+	    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+
+
+	    $output .= '<li' . $value . $class_names .'>';
+
+	    $atts = array();
+	    $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+	    $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
+	    $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
+	    $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+	    if ($iscurrent==1) {
+		$atts['aria-current'] = "page";
+	    }
+	    $atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
+
+	    if($this->level == 1) $this->currentID = $item->object_id;		
+
+	    $attributes = '';
+	    foreach ( $atts as $attr => $value ) {
+		    if ( ! empty( $value ) ) {
+			    $value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+			    $attributes .= ' ' . $attr . '="' . $value . '"';
 		    }
-		    if ($this->level > 2) {
-			 $class_names = str_replace("has-sub","",$class_names);   
-		    }
-		    $output .= $indent . '<li' . $value . $class_names .'>';
-		    
-		    $atts = array();
-		    $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
-		    $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
-		    $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
-		    $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
-		    if ($iscurrent==1) {
-			$atts['aria-current'] = "page";
-		    }
-		    $atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
+	    }
 
-		    if($this->level == 1) $this->currentID = $item->object_id;		
 
-		    $attributes = '';
-		    foreach ( $atts as $attr => $value ) {
-			    if ( ! empty( $value ) ) {
-				    $value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
-				    $attributes .= ' ' . $attr . '="' . $value . '"';
-			    }
-		    }
-		    
+	    $item_output = $args->before;
+	    $item_output .= '<a'. $attributes .'>';
+	    $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+	    $item_output .= '</a>';
+	    $item_output .= $args->after;
 
-		    $item_output = $args->before;
-		    $item_output .= '<a'. $attributes .'>';
-		    $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-		    $item_output .= '</a>';
-		    $item_output .= $args->after;
-
-		    $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-		
+	    $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );	
 	}
+	
 	function end_el(&$output, $item, $depth=0, $args=array()) {      
 	    $output .= "</li>";   
 	}
@@ -619,9 +620,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 			$externlink = false;
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 			$classes[] = 'menu-item-' . $item->ID;
-	//		if($this->level == 1 && (isset($this->count[$this->level])) && (($this->count[$this->level]-1) % $this->maxspalten==0) ) {
-	//		    $classes[] = 'clear';
-	//		}    
+
 			if($this->level == 1) {
 			    $classes[] = 'menubox';
 			}
@@ -632,8 +631,6 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 			if (in_array("current_page_item",$item->classes)) {
 			    $iscurrent = 1;
 			}
-	//		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-	//		$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
 			if($this->level == 1) {
 				$output .= $indent . '<li' . $class_names .'>';
