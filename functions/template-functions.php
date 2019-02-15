@@ -99,7 +99,9 @@
     if (('' != get_theme_mod( 'advanced_display_portalmenu_plainview' )) && (true== get_theme_mod( 'advanced_display_portalmenu_plainview' )) ) {
 	     $classes[] = 'mainnav-plainview';
     }
-    
+    if (('' != get_theme_mod( 'advanced_activate_quicklinks' )) && (false== get_theme_mod( 'advanced_activate_quicklinks' )) ) {
+	 $classes[] = 'no-quicklinks';
+    }
     
     if ($defaultoptions['slider-opacity-text-background'] != get_theme_mod('slider-opacity-text-background' ))  {
 	$num = get_theme_mod('slider-opacity-text-background');
@@ -112,11 +114,7 @@
 	}
 	    
     }
-    
-    
-    
-    
-    
+
     return $classes;
  }
  add_filter( 'body_class', 'fau_body_class' );

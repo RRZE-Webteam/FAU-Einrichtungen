@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 44,
+    'optiontable-version'		=> 45,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -159,18 +159,18 @@ $defaultoptions = array(
     
    
     'breadcrumb_root'			=> __('Startseite', 'fau'),
-    'breadcrumb_delimiter'		=> ' <span>/</span>',
+    'breadcrumb_delimiter'			=> ' <span>/</span>',
     'breadcrumb_beforehtml'		=> '<span class="active" aria-current="page">', // '<span class="current">'; // tag before the current crumb
-    'breadcrumb_afterhtml'		=> '</span>',
+    'breadcrumb_afterhtml'			=> '</span>',
     'breadcrumb_uselastcat'		=> true,
-    'breadcrumb_withtitle'		=> false,
+    'breadcrumb_withtitle'			=> false,
     'breadcrumb_withtitle_parent_page'	=> true,
     'breadcrumb_showcurrent'		=> true,
     'default_logo_src'			=> get_fau_template_uri().'/img/logos/logo-fau-240x65.svg',
-    'default_logo_height'		=> 65,
-    'default_logo_width'		=> 240,
+    'default_logo_height'			=> 65,
+    'default_logo_width'			=> 240,
     
-    'socialmedia'			=> 0,
+    'socialmedia'				=> 0,
     'active_socialmedia_footer'		=> array(0),  
     'socialmedia_buttons_title'		=> __('FAUSocial','fau'),
     
@@ -178,8 +178,8 @@ $defaultoptions = array(
     'socialmedia_menu_position'		=> 'FAU_SocialMedia_Menu_Footer',
     'socialmedia_menu_position_title'	=> __( 'Social Media Bereich im Footer', 'fau' ),
     
-    'menu_pretitle_portal'	    => __('Portal', 'fau'),
-    'menu_aftertitle_portal'	    => '',
+    'menu_pretitle_portal'			=> __('Portal', 'fau'),
+    'menu_aftertitle_portal'		=> '',
     
    'contact_address_name'	    => __('Friedrich-Alexander-Universität', 'fau'),
    'contact_address_name2'	    => __('Erlangen-Nürnberg', 'fau'),
@@ -232,25 +232,26 @@ $defaultoptions = array(
     'advanced_page_sidebar_order_personlinks'	=> 0,
 	// 0 = Kontakte, Links
 	// 1 = Links, Kontakte
-    'advanced_activate_post_comments'	=> false,
+    'advanced_activate_post_comments'	    => false,
     'advanced_comments_notes_before'	    => __( 'Ihre E-Mail-Adresse wird nicht angezeigt. Verpflichtende Felder werden mit dem folgenden Zeichen markiert: <span class="required">*</span>', 'fau' ),
-    'advanced_comments_disclaimer'          => __('Hinweis: Die Kommentare wurden von Lesern geschrieben und spiegeln deren persönliche Meinung wieder. Sie müssen nicht die Meinung der Universität oder der Fakultät repräsentieren.', 'fau' ),
+    'advanced_comments_disclaimer'		    => __('Hinweis: Die Kommentare wurden von Lesern geschrieben und spiegeln deren persönliche Meinung wieder. Sie müssen nicht die Meinung der Universität oder der Fakultät repräsentieren.', 'fau' ),
     'advanced_comments_avatar'		    => false,
-    'advanced_activate_synonyms'	    => false,
-    'advanced_activate_glossary'	    => false,
-  
-
-    'post_display_category_below'	    => true,
+    'advanced_activate_synonyms'		    => false,
+    'advanced_activate_glossary'		    => false,
+    'advanced_activate_quicklinks'		    => true,
+    
+    
+    'post_display_category_below'		    => true,
     'post_display_tags_below'		    => true,
     'search_display_post_thumbnails'	    => true,
     'search_display_post_cats'		    => true,
-    'search_display_continue_arrow'	    => true,
+    'search_display_continue_arrow'		    => true,
     'search_display_excerpt_morestring'	    => '...',
     'search_display_typenote'		    => true,
     'search_post_types'			    => array("page", "post", "attachment"),
     'search_post_types_checked'		    => array("page", "post"),
-    'search_allowfilter'		    => true,
-    'search_notice_searchregion'	    => __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie bitte die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.','fau'),
+    'search_allowfilter'			    => true,
+    'search_notice_searchregion'		    => __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie bitte die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.','fau'),
 
     
     'index_synonym_listall'		=> true,
@@ -1268,6 +1269,20 @@ $setoptions = array(
 		), 
 	       
 
+	       
+	       
+		'templates'  => array(
+		    'type'    => 'section',
+		    'title'   => __( 'Templates', 'fau' ),     
+		),
+		'advanced_activate_quicklinks'	  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Quicklinks', 'fau' ),
+		    'label'   => __( 'Auf dem Template Startseite werden unterhalb des Sliders die Quicklinks angezeigt.', 'fau' ),                
+		    'default' => $defaultoptions['advanced_activate_quicklinks'],
+		    'parent'  => 'templates'
+		),   
+	       
 	        'inhalte'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Metadaten und Inhalte', 'fau' ),     
