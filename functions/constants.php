@@ -1278,7 +1278,7 @@ $setoptions = array(
 		'advanced_activate_quicklinks'	  => array(
 		    'type'    => 'toggle',
 		    'title'   => __( 'Quicklinks', 'fau' ),
-		    'label'   => __( 'Auf dem Template Startseite werden unterhalb des Sliders die Quicklinks angezeigt.', 'fau' ),                
+		    'label'   => __( 'Auf dem Template Startseite werden unterhalb des Sliders die Quicklinks angezeigt. <strong>Experimental: Noch nicht im produktiven Einsatz nutzen!</strong>', 'fau' ),                
 		    'default' => $defaultoptions['advanced_activate_quicklinks'],
 		    'parent'  => 'templates'
 		),   

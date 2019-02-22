@@ -205,15 +205,6 @@ function custom_error_class($classes) {
  
 add_action('wp','custom_error_pages');
 
-/*-----------------------------------------------------------------------------------*/
-/* Surround embeddings with div class
-/*-----------------------------------------------------------------------------------*/
-function add_video_embed_note($html, $url, $attr) {
-	return '<div class="oembed">'.$html.'</div>';
-}
-add_filter('embed_oembed_html', 'add_video_embed_note', 10, 3);
-
-
 
 
 
