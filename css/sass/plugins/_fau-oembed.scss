@@ -37,8 +37,9 @@ and open the template in the editor.
 	       width: 617px;
 	       height: 346px;
 	   }
-	   
-	   
+	   iframe.slideshare.defaultwidth {
+	       height: 401px;
+	   }
 
 	}
 	
@@ -55,6 +56,9 @@ and open the template in the editor.
 	   iframe.defaultwidth {
 	       width: 940px;
 	       height: 528px;
+	   }
+	   iframe.slideshare.defaultwidth {
+	       height: 567px;
 	   }
        }
 
