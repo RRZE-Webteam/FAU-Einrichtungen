@@ -33,7 +33,8 @@ $defaultoptions = array(
 	// Muss in $default_fau_orga_data auf erster Ebene vorhanden sein.	
     'default_faculty_useshorttitle'	=> false,   
     'optionpage-tab-default'		=> 'website',
-    'content-width'			=> 770,
+    'content-width'			=> 616,
+    'content-width-fullpage'		=> 940,
     'src-fallback-slider-image'		=> get_fau_template_uri().'/img/slider-fallback.jpg',
     'slider-catid'			=> 0,    
     'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.min.js',
@@ -295,6 +296,7 @@ $defaultoptions = array(
 	// Flyover der Untermenüpunkte in der PLainview Ansicht
 ); 
 
+ $content_width =$defaultoptions['content-width'];
 
 /*--------------------------------------------------------------------*/
 /* Initialisiere Options und Theme Mods 

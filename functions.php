@@ -14,6 +14,7 @@ require_once( get_template_directory() . '/functions/customizer.php');
 
 
 $options = fau_initoptions();
+
 require_once( get_template_directory() . '/functions/plugin-support.php' );
 
 require_once( get_template_directory() . '/functions/helper-functions.php' );
@@ -32,11 +33,13 @@ require_once( get_template_directory() . '/functions/posttype-synonym.php');
 require_once( get_template_directory() . '/functions/posttype-glossary.php');
 require_once( get_template_directory() . '/functions/gutenberg.php');
 
+
 function fau_setup() {
 	global $defaultoptions;
 	 
-
 	if ( ! isset( $content_width ) ) $content_width = $defaultoptions['content-width'];
+	
+	    
 	add_editor_style( array( 'css/editor-style.css' ) );
 	add_theme_support( 'html5');
 	add_theme_support('title-tag');
@@ -107,6 +110,8 @@ add_action( 'after_setup_theme', 'fau_setup' );
 /* Set extra init values
 /*-----------------------------------------------------------------------------------*/
 function fau_custom_init() {
+        global $defaultoptions;
+
     /* Keine verwirrende Abfrage nach Kommentaren im Page-Editor */
     remove_post_type_support( 'page', 'comments' );
 
@@ -118,6 +123,7 @@ function fau_custom_init() {
     remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
     remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+  
 
 }
 add_action( 'init', 'fau_custom_init' );

@@ -7,9 +7,10 @@
  */
 
 global $pagebreakargs;
-
+global $defaultoptions;
 get_header(); 
 
+$content_width =$defaultoptions['content-width-fullpage'];
 
 while ( have_posts() ) : 
 	the_post(); 
