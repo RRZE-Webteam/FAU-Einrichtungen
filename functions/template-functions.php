@@ -56,6 +56,8 @@
 	 *  0 und 2 reduziert. D.h.: Immer LInk zur FAU, keine Kooperationen.
 	 *  
 	 */
+    
+    $classes[] = 'fau-theme';
     if ($website_type==-1) {
 	$classes[] = 'fauorg-home';
     } elseif ($website_type==0) {
