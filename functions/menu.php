@@ -574,13 +574,14 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 	private $showsub = 1;
 	
 	
-	function __construct($menu,$showsub=1,$maxsecondlevel=6,$noshowthumb=0,$nothumbnailfallback=0) {	   
+	function __construct($menu,$showsub=1,$maxsecondlevel=6,$noshowthumb=0,$nothumbnailfallback=0,$thumbnail='page-thumb') {	   
 	    $this->showsub              = $showsub;
 	    $this->maxsecondlevel       = $maxsecondlevel;
 	    $this->nothumbnail          = $noshowthumb;
 	    $this->nothumbnailfallback  = $nothumbnailfallback;
-        }
-        function __destruct( ) {
+	    $this->thumbnail  = $thumbnail;
+    }
+    function __destruct( ) {
 		// $output .= '</ul> <!-- destruct -->';
 	}
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
@@ -709,7 +710,11 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
 
 				    if ($post_thumbnail_id) {
-					$thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  'page-thumb');
+				    if($this->thumbnail == 'image-2-col' || $this->thumbnail == 'post-thumb' || $this->thumbnail == 'gallery-full') {
+						$thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  $this->thumbnail);
+				    } else {
+						$thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  'page-thumb');
+					}
 					$imageurl = $thisimage[0]; 	
 					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$thisimage[1].'" height="'.$thisimage[2].'" '.$altattr.'>';
 				    }
