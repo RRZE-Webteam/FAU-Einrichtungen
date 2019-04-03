@@ -56,6 +56,8 @@
 	 *  0 und 2 reduziert. D.h.: Immer LInk zur FAU, keine Kooperationen.
 	 *  
 	 */
+    
+    $classes[] = 'fau-theme';
     if ($website_type==-1) {
 	$classes[] = 'fauorg-home';
     } elseif ($website_type==0) {
@@ -99,7 +101,9 @@
     if (('' != get_theme_mod( 'advanced_display_portalmenu_plainview' )) && (true== get_theme_mod( 'advanced_display_portalmenu_plainview' )) ) {
 	     $classes[] = 'mainnav-plainview';
     }
-    
+    if (false== get_theme_mod( 'advanced_activate_quicklinks' )) {
+	 $classes[] = 'no-quicklinks';
+    }
     
     if ($defaultoptions['slider-opacity-text-background'] != get_theme_mod('slider-opacity-text-background' ))  {
 	$num = get_theme_mod('slider-opacity-text-background');
@@ -112,11 +116,7 @@
 	}
 	    
     }
-    
-    
-    
-    
-    
+
     return $classes;
  }
  add_filter( 'body_class', 'fau_body_class' );
@@ -206,15 +206,6 @@ function custom_error_class($classes) {
 }
  
 add_action('wp','custom_error_pages');
-
-/*-----------------------------------------------------------------------------------*/
-/* Surround embeddings with div class
-/*-----------------------------------------------------------------------------------*/
-function add_video_embed_note($html, $url, $attr) {
-	return '<div class="oembed">'.$html.'</div>';
-}
-add_filter('embed_oembed_html', 'add_video_embed_note', 10, 3);
-
 
 
 
