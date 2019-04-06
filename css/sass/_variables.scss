@@ -1,357 +1,357 @@
 //-----------------------------------------------------------------------------------*/
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
-$version:  '1.10.48';
-    // Theme Version
-    // First Digit:  Manual
-    // Second Digit: Branch Version
-    // Third Digit:  (Daily) Submit Version
+$version: '1.10.49';
+// Theme Version
+// First Digit:  Manual
+// Second Digit: Branch Version
+// Third Digit:  (Daily) Submit Version
 
 $farbfamilie: 'zuv';
-    // med, phil, nat, rw, tf, zuv   
+// med, phil, nat, rw, tf, zuv
 
- // DEBUGMODE
- // (Sets border around container and main regions)
+// DEBUGMODE
+// (Sets border around container and main regions)
 $debugmode: 'false';
 
 // Define fonts
-$fontStack:		'roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
-$fontStackSerifs:	Georgia, serif;
-$font-family-base:	$fontStack;
-$font-path-awesome:	'./fonts/fontawesome/';
-$font-path-roboto:	'./fonts/roboto/';
+$fontStack: 'roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$fontStackSerifs: Georgia, serif;
+$font-family-base: $fontStack;
+$font-path-awesome: './fonts/fontawesome/';
+$font-path-roboto: './fonts/roboto/';
 
 
 // Define colors
-$colorText:		#444;
-$colorTextLight:	#797676;
+$colorText: #444;
+$colorTextLight: #797676;
 
 // Define notice colors
-$colorNotice: 		#a71c18;
+$colorNotice: #a71c18;
 
 
 // Define colors of each faculty
-$colorPhilFak:	    #A36B0D;
-$colorRwFak:	    #8d1429;
-$colorMedFak:	    #0381A2;
-$colorNatFak:	    #048767;
-$colorTechFak:	    #6E7881;
-$colorZUV:	    #003366;
-$colorDefault:	    #003366;
+$colorPhilFak: #A36B0D;
+$colorRwFak: #8d1429;
+$colorMedFak: #0381A2;
+$colorNatFak: #048767;
+$colorTechFak: #6E7881;
+$colorZUV: #003366;
+$colorDefault: #003366;
 
-$colorStandardHellgrau:	    #e9edf2;  
-    // FAU: colorlightest:
-    // desaturate(lighten($colorZUV, 73%), 75%);
-$colorContentBorders:	    #dfe6ec;  
-    // FAU: colorlight
-    // desaturate(lighten($colorZUV, 69%), 75%);
-$colorContentRegions:	    #f5f7f9;
-    // FAU: lighten($colorZUV, 4%);
+$colorStandardHellgrau: #e9edf2;
+// FAU: colorlightest:
+// desaturate(lighten($colorZUV, 73%), 75%);
+$colorContentBorders: #dfe6ec;
+// FAU: colorlight
+// desaturate(lighten($colorZUV, 69%), 75%);
+$colorContentRegions: #f5f7f9;
+// FAU: lighten($colorZUV, 4%);
 
 // Define defaults and variables
-$colorPrimary:		$colorZUV;	
-$colorPrimaryContrast:	#fff;
-$PalettonHellste:	desaturate(lighten($colorPrimary, 73%), 75%);
-$PalettonHeller:	desaturate(lighten($colorPrimary, 69%), 75%);
-$PalettonDunkler:	desaturate(lighten($colorPrimary, 10%), 90%);
-$PalettonDunkelste:	desaturate(lighten($colorPrimary, 10%), 40%);
-$siegelurl:	'./img/siegel-zuv-schnitt.png';  
-$errorimage:	'./img/friedrich-alexander.gif';  
+$colorPrimary: $colorZUV;
+$colorPrimaryContrast: #fff;
+$PalettonHellste: desaturate(lighten($colorPrimary, 73%), 75%);
+$PalettonHeller: desaturate(lighten($colorPrimary, 69%), 75%);
+$PalettonDunkler: desaturate(lighten($colorPrimary, 10%), 90%);
+$PalettonDunkelste: desaturate(lighten($colorPrimary, 10%), 40%);
+$siegelurl: './img/siegel-zuv-schnitt.png';
+$errorimage: './img/friedrich-alexander.gif';
 
-$colorPrimaryHero:	    $colorPrimary;
-   
-$colorPrintMain:	    #000;
-$colorPrintMainLinks:	    $colorText;
+$colorPrimaryHero: $colorPrimary;
+
+$colorPrintMain: #000;
+$colorPrintMainLinks: $colorText;
 
 // Default Style comments
-$stylecomment_themename:	'FAU-Einrichtungen';     
-$stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Einrichtungen';     
-$stylecomment_themeversion:	$version;
-$stylecomment_description:	'Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-$stylecomment_tags:		'three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';   
+$stylecomment_themename: 'FAU-Einrichtungen';
+$stylecomment_themeuri: 'https://github.com/RRZE-Webteam/FAU-Einrichtungen';
+$stylecomment_themeversion: $version;
+$stylecomment_description: 'Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';
+$stylecomment_tags: 'three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images';
 
 
- @if $farbfamilie == 'med' {
-    $colorPrimary: $colorMedFak;
-    $PalettonHellste:	#eaf3fc; // #35C0DA;
-    $PalettonHeller:	#bfd6f5; // #08C0E7;
-    $PalettonDunkler:	#026480;
-    $PalettonDunkelste:	#014e63;
-    $siegelurl: './img/siegel-medfak-schnitt.png';
-    
-    $stylecomment_themename:	'FAU-Medfak';     
-    $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Medfak';     
-    $stylecomment_themeversion:	$version;
-    $stylecomment_description:	'Wordpress-Theme für die Medizinische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-    
- } @else if $farbfamilie == 'phil' {
-    $colorPrimary: $colorPhilFak;
-    $PalettonHellste:	#f3eedf;
-    $PalettonHeller:	#d9c689;
-    $PalettonDunkler:	#805000;
-    $PalettonDunkelste:	#553500;
-    $siegelurl: './img/siegel-philfak-schnitt.png';   
-    
-    $stylecomment_themename:	'FAU-Philfak';     
-    $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Philfak';     
-    $stylecomment_themeversion:	$version;
-    $stylecomment_description:	'Wordpress-Theme für die Philosophische Fakultät und den Fachbereich Theologie der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
- }  @else if $farbfamilie == 'nat' {
-    $colorPrimary: $colorNatFak;
-    $PalettonHellste:	#e5efea;
-    $PalettonHeller:	#aacfbd;
-    $PalettonDunkler:	#006e53;
-    $PalettonDunkelste:	#00533f;
-    $siegelurl: './img/siegel-natfak-schnitt.png';     
-    
-    $stylecomment_themename:	'FAU-Natfak';     
-    $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Natfak';     
-    $stylecomment_themeversion:	$version;
-    $stylecomment_description:	'Wordpress-Theme für die Naturwissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
- }  @else if $farbfamilie == 'rw' {
-    $colorPrimary: $colorRwFak;    
-    $PalettonHellste:	#ede7de; // #C9A8AF;
-    $PalettonHeller:	#c5ac94; // #bd7d8b;
-    $PalettonDunkler:	#690013;
-    $PalettonDunkelste:	#42000c;
-    $siegelurl: './img/siegel-rwfak-schnitt.png';   
-    
-    $stylecomment_themename:	'FAU-RWFak';     
-    $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-RWFak';     
-    $stylecomment_themeversion:	$version;
-    $stylecomment_description:	'Wordpress-Theme für die Rechts- und Wirtschaftswissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
+@if $farbfamilie == 'med' {
+	$colorPrimary: $colorMedFak;
+	$PalettonHellste: #eaf3fc; // #35C0DA;
+	$PalettonHeller: #bfd6f5; // #08C0E7;
+	$PalettonDunkler: #026480;
+	$PalettonDunkelste: #014e63;
+	$siegelurl: './img/siegel-medfak-schnitt.png';
 
- }  @else if $farbfamilie == 'tf' {
-    $colorPrimary: $colorTechFak;    
-    $PalettonHellste:	#ebecee; // #bfc2c5;
-    $PalettonHeller:	#d2d5d7; // #8e949a;
-    $PalettonDunkler:	#53606b;
-    $PalettonDunkelste:	#3b4956;
-    $siegelurl: './img/siegel-techfak-schnitt.png';   
+	$stylecomment_themename: 'FAU-Medfak';
+	$stylecomment_themeuri: 'https://github.com/RRZE-Webteam/FAU-Medfak';
+	$stylecomment_themeversion: $version;
+	$stylecomment_description: 'Wordpress-Theme für die Medizinische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';
 
-    $stylecomment_themename:	'FAU-Techfak';     
-    $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Techfak';     
-    $stylecomment_themeversion:	$version;
-    $stylecomment_description:	'Wordpress-Theme für die Technische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
-    
- } @else if $farbfamilie == 'zuv' {
-    $colorPrimary: $colorZUV;
-    $PalettonHellste:	#dde5f0;
-    $PalettonHeller:	#8fb1ef;
-    $PalettonDunkler:	#24598f;
-    $PalettonDunkelste:	#1f4c7a;
-    $siegelurl: './img/siegel-zuv-schnitt.png';     
-    
-    $stylecomment_themename:	'FAU-Einrichtungen';     
-    $stylecomment_themeuri:	'https://github.com/RRZE-Webteam/FAU-Einrichtungen';     
-    $stylecomment_themeversion:	$version;
-    $stylecomment_description:	'Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';     
- }
- 
- 
+} @else if $farbfamilie == 'phil' {
+	$colorPrimary: $colorPhilFak;
+	$PalettonHellste: #f3eedf;
+	$PalettonHeller: #d9c689;
+	$PalettonDunkler: #805000;
+	$PalettonDunkelste: #553500;
+	$siegelurl: './img/siegel-philfak-schnitt.png';
 
-$colorHover:		    $PalettonDunkelste;
-$colorLight:		    $PalettonHeller;
-$colorLightContrast:	    #fff;
-$colorLightest:		    $PalettonHellste;
-$colorLightestContrast:	    $PalettonDunkelste;
-$colorPrimaryHero:	    $colorPrimary;
-$colorPrimaryHeroLight:	    lighten($colorPrimary, 15%); 
+	$stylecomment_themename: 'FAU-Philfak';
+	$stylecomment_themeuri: 'https://github.com/RRZE-Webteam/FAU-Philfak';
+	$stylecomment_themeversion: $version;
+	$stylecomment_description: 'Wordpress-Theme für die Philosophische Fakultät und den Fachbereich Theologie der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';
+} @else if $farbfamilie == 'nat' {
+	$colorPrimary: $colorNatFak;
+	$PalettonHellste: #e5efea;
+	$PalettonHeller: #aacfbd;
+	$PalettonDunkler: #006e53;
+	$PalettonDunkelste: #00533f;
+	$siegelurl: './img/siegel-natfak-schnitt.png';
+
+	$stylecomment_themename: 'FAU-Natfak';
+	$stylecomment_themeuri: 'https://github.com/RRZE-Webteam/FAU-Natfak';
+	$stylecomment_themeversion: $version;
+	$stylecomment_description: 'Wordpress-Theme für die Naturwissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';
+} @else if $farbfamilie == 'rw' {
+	$colorPrimary: $colorRwFak;
+	$PalettonHellste: #ede7de; // #C9A8AF;
+	$PalettonHeller: #c5ac94; // #bd7d8b;
+	$PalettonDunkler: #690013;
+	$PalettonDunkelste: #42000c;
+	$siegelurl: './img/siegel-rwfak-schnitt.png';
+
+	$stylecomment_themename: 'FAU-RWFak';
+	$stylecomment_themeuri: 'https://github.com/RRZE-Webteam/FAU-RWFak';
+	$stylecomment_themeversion: $version;
+	$stylecomment_description: 'Wordpress-Theme für die Rechts- und Wirtschaftswissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';
+
+} @else if $farbfamilie == 'tf' {
+	$colorPrimary: $colorTechFak;
+	$PalettonHellste: #ebecee; // #bfc2c5;
+	$PalettonHeller: #d2d5d7; // #8e949a;
+	$PalettonDunkler: #53606b;
+	$PalettonDunkelste: #3b4956;
+	$siegelurl: './img/siegel-techfak-schnitt.png';
+
+	$stylecomment_themename: 'FAU-Techfak';
+	$stylecomment_themeuri: 'https://github.com/RRZE-Webteam/FAU-Techfak';
+	$stylecomment_themeversion: $version;
+	$stylecomment_description: 'Wordpress-Theme für die Technische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';
+
+} @else if $farbfamilie == 'zuv' {
+	$colorPrimary: $colorZUV;
+	$PalettonHellste: #dde5f0;
+	$PalettonHeller: #8fb1ef;
+	$PalettonDunkler: #24598f;
+	$PalettonDunkelste: #1f4c7a;
+	$siegelurl: './img/siegel-zuv-schnitt.png';
+
+	$stylecomment_themename: 'FAU-Einrichtungen';
+	$stylecomment_themeuri: 'https://github.com/RRZE-Webteam/FAU-Einrichtungen';
+	$stylecomment_themeversion: $version;
+	$stylecomment_description: 'Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';
+}
 
 
-$colorSubNavCurrent:		#fff;
-$colorSubNavCurrentBackground:  $PalettonDunkler;
-$colorSubNavCurrentHover:	#fff;
+$colorHover: $PalettonDunkelste;
+$colorLight: $PalettonHeller;
+$colorLightContrast: #fff;
+$colorLightest: $PalettonHellste;
+$colorLightestContrast: $PalettonDunkelste;
+$colorPrimaryHero: $colorPrimary;
+$colorPrimaryHeroLight: lighten($colorPrimary, 15%);
+
+
+$colorSubNavCurrent: #fff;
+$colorSubNavCurrentBackground: $PalettonDunkler;
+$colorSubNavCurrentHover: #fff;
 $colorSubNavCurrentHoverBackground: $colorHover;
-$colorSubNav:			$PalettonDunkelste;
-$colorSubNavBackground:		$colorLightest;
-$colorSubNavBackgroundHover:	$PalettonDunkler; // darken($colorSubNavBackground, 5%);
-$colorMainMenu:			#fff;
+$colorSubNav: $PalettonDunkelste;
+$colorSubNavBackground: $colorLightest;
+$colorSubNavBackgroundHover: $PalettonDunkler; // darken($colorSubNavBackground, 5%);
+$colorMainMenu: #fff;
 
 
-$colorButton:			desaturate(lighten($colorPrimary, 5%), 40%); // $PalettonDunkelste;
-$colorButtonBackground:		$colorLightest;
-$colorButtonBackgroundHover:	darken($colorButtonBackground, 5%);
+$colorButton: desaturate(lighten($colorPrimary, 5%), 40%); // $PalettonDunkelste;
+$colorButtonBackground: $colorLightest;
+$colorButtonBackgroundHover: darken($colorButtonBackground, 5%);
 
-$colorSearchPlaceholder:        #111;
-$colorSearchInput:		#000;
-$colorSearchInputBackground:	$colorLightest;
-$colorSearchInputBackgroundFocus:  #fff;
+$colorSearchPlaceholder: #111;
+$colorSearchInput: #000;
+$colorSearchInputBackground: $colorLightest;
+$colorSearchInputBackgroundFocus: #fff;
 
 // Meta Menu
-$colorMeta:			$colorDefault;
+$colorMeta: $colorDefault;
 // Define Background-Color for Meta Menu at top
-$colorMetaBackground:		$colorStandardHellgrau;
-$colorMetaFAUHomeBackground:	desaturate(darken($colorStandardHellgrau, 10%), 90%); // #d0d3d8;
-$colorMetaHover:			desaturate(lighten($colorDefault, 10%), 40%);
-$colorMetaLight:			desaturate(lighten($colorDefault, 69%), 75%);
-$colorMetaLightest:		desaturate(lighten($colorDefault, 73%), 75%);
+$colorMetaBackground: $colorStandardHellgrau;
+$colorMetaFAUHomeBackground: desaturate(darken($colorStandardHellgrau, 10%), 90%); // #d0d3d8;
+$colorMetaHover: desaturate(lighten($colorDefault, 10%), 40%);
+$colorMetaLight: desaturate(lighten($colorDefault, 69%), 75%);
+$colorMetaLightest: desaturate(lighten($colorDefault, 73%), 75%);
 
-$colorPasspartoutBackground:	$colorStandardHellgrau;
+$colorPasspartoutBackground: $colorStandardHellgrau;
 
 // Social Bar Startseite
-$colorSocial:			$colorPrimary; // $colorDefault;
-$colorSocialBackground:		$colorMetaBackground;
+$colorSocial: $colorPrimary; // $colorDefault;
+$colorSocialBackground: $colorMetaBackground;
 
 
 // CopyrightInfos auf Slider und Banner
-$colorCopyright:			#fff;
-$colorCopyrightBackground:		rgba(0,0,0,0.6);
+$colorCopyright: #fff;
+$colorCopyrightBackground: rgba(0, 0, 0, 0.6);
 
 // Abbrevations, Acronyms
-$colorAbbr:			#000;
+$colorAbbr: #000;
 
 // Font sizes
-$font-size-rembase:		93.75%;
-$font-size-gridbase:		15;
-$font-size-base:			15;
-$font-size-meta:			13;
-$font-size-sidebar:		13;
+$font-size-rembase: 93.75%;
+$font-size-gridbase: 15;
+$font-size-base: 15;
+$font-size-meta: 13;
+$font-size-sidebar: 13;
 
 
-$font-size-small:			($font-size-base - 2);  
-$font-size-large:			($font-size-base + 4);  
-$font-size-larger:		($font-size-base + 8);  
+$font-size-small: ($font-size-base - 2);
+$font-size-large: ($font-size-base + 4);
+$font-size-larger: ($font-size-base + 8);
 
-$font-size-footer:		13;
-$font-size-breadcrumb:		13;
-$font-size-herosearch:		16;
-$font-size-header-branding:	19;
+$font-size-footer: 13;
+$font-size-breadcrumb: 13;
+$font-size-herosearch: 16;
+$font-size-header-branding: 19;
 
-$font-size-hero-slider-title:   25;
-$font-size-hero-slider-text:	18;
+$font-size-hero-slider-title: 25;
+$font-size-hero-slider-text: 18;
 $font-size-hero-slider-copyright: 14;
-$font-size-textbuttons:		14;
-$font-size-linkicon:		13;
-$font-size-hero-links:		13;
-$font-size-hero-bannertext:	18;
-$font-size-link-contentmenu:    13;
+$font-size-textbuttons: 14;
+$font-size-linkicon: 13;
+$font-size-hero-links: 13;
+$font-size-hero-bannertext: 18;
+$font-size-link-contentmenu: 13;
 
-$font-size-content-linkicon:	10;
-$font-size-content-listitem:	$font-size-base;
-$font-size-codepre:		13;
-$font-size-table:		13;
-$font-size-comtentwidgets:	13;
+$font-size-content-linkicon: 10;
+$font-size-content-listitem: $font-size-base;
+$font-size-codepre: 13;
+$font-size-table: 13;
+$font-size-comtentwidgets: 13;
 
-$font-size-sidebar-listitem:	$font-size-sidebar;
-$font-size-sidebar-events:		$font-size-sidebar;
-$font-size-sidebar-events-month:    10;
-$font-size-sidebar-events-day:	20;
+$font-size-sidebar-listitem: $font-size-sidebar;
+$font-size-sidebar-events: $font-size-sidebar;
+$font-size-sidebar-events-month: 10;
+$font-size-sidebar-events-day: 20;
 
-$font-size-socialmedia-morelink:    $font-size-sidebar;
-$font-size-nav-blockquote:	16;
-$font-size-nav-blockquote-cite:	14;
-$font-size-nav-introtext:	15;
-$font-size-nav-flyout-items:	15;
-$font-size-nav-mainlinks:	17;
+$font-size-socialmedia-morelink: $font-size-sidebar;
+$font-size-nav-blockquote: 16;
+$font-size-nav-blockquote-cite: 14;
+$font-size-nav-introtext: 15;
+$font-size-nav-flyout-items: 15;
+$font-size-nav-mainlinks: 17;
+$font-size-nav-mainlinks-small: 24;
 
-$font-size-h1:			32;
-$font-size-h1-mobilebranding:	24;
-$font-size-h1-desktopbranding:	20;
-$font-size-h1-desktopbranding-longtitle:    17;
-$font-size-h1-banner:		28;
-$font-size-h1-sidebar:		22;
-$font-size-h1-table:		22;
-$font-size-h1-small:		24;
-
-
-$font-size-h2:			24;
-$font-size-h2-small:		22;
-$font-size-h2-socialmedia:	18;
-$font-size-h2-sidebar:		18;
-$font-size-h2-table:		18;
-
-$font-size-h3:			19; // 18
-$font-size-h3-small:		18;
-$font-size-h3-hero:		18;
-$font-size-h3-sidebar:		16;
-$font-size-h3-contentmenu:	15;
-$font-size-h3-table:		15;
+$font-size-h1: 32;
+$font-size-h1-mobilebranding: 24;
+$font-size-h1-desktopbranding: 20;
+$font-size-h1-desktopbranding-longtitle: 17;
+$font-size-h1-banner: 28;
+$font-size-h1-sidebar: 22;
+$font-size-h1-table: 22;
+$font-size-h1-small: 24;
 
 
-$font-size-h4:			17; // 15
-$font-size-h4-small:		16;
-$font-size-h4-sidebar:		14;
-$font-size-h4-table:		14;
+$font-size-h2: 24;
+$font-size-h2-small: 22;
+$font-size-h2-socialmedia: 18;
+$font-size-h2-sidebar: 18;
+$font-size-h2-table: 18;
+
+$font-size-h3: 19; // 18
+$font-size-h3-small: 18;
+$font-size-h3-hero: 18;
+$font-size-h3-sidebar: 16;
+$font-size-h3-contentmenu: 15;
+$font-size-h3-table: 15;
 
 
-$font-size-h5:			16; // 15 
-$font-size-h5-sidebar:		13;
-$font-size-h5-table:		13;
+$font-size-h4: 17; // 15
+$font-size-h4-small: 16;
+$font-size-h4-sidebar: 14;
+$font-size-h4-table: 14;
 
 
-$font-size-h6:			$font-size-base;
-$font-size-h6-sidebar:		13;
-$font-size-h6-table:		13;
+$font-size-h5: 16; // 15
+$font-size-h5-sidebar: 13;
+$font-size-h5-table: 13;
 
 
-$font-size-quotes:		18;
-$font-size-quotes-cites:	($font-size-quotes - 1);    
-
-$font-size-content-meta:	14;
-
-$font-size-image-caption:	13;
+$font-size-h6: $font-size-base;
+$font-size-h6-sidebar: 13;
+$font-size-h6-table: 13;
 
 
-$font-size-pagination-h3:	$font-size-content-meta;
-$font-size-pagination-links:	$font-size-content-meta;
+$font-size-quotes: 18;
+$font-size-quotes-cites: ($font-size-quotes - 1);
+
+$font-size-content-meta: 14;
+
+$font-size-image-caption: 13;
 
 
-$font-size-mobile-meta:	24;
+$font-size-pagination-h3: $font-size-content-meta;
+$font-size-pagination-links: $font-size-content-meta;
 
 
-$font-size-print-base:		11;
-$font-size-print-base-small:	9;
+$font-size-mobile-meta: 24;
+
+
+$font-size-print-base: 11;
+$font-size-print-base-small: 9;
 
 
 // Slider
-$slick-arrow-color:		    white !default;
-$slick-opacity-default:		    0.75 !default;
-$slick-opacity-on-hover:		    1 !default;
-$slick-opacity-not-active:		    0.25 !default;
-  
-$slick-opacity-text-background:	    0.7;
-$slick-opacity-text-shadow:	    0px 0px 4px #000;   
+$slick-arrow-color: white !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
+
+$slick-opacity-text-background: 0.7;
+$slick-opacity-text-shadow: 0px 0px 4px #000;
 // Define breakpoints
 
 // iPhone 3G
-$breakXS:   320px;
+$breakXS: 320px;
 // M8, Google, small others
-$breakSM:   480px;
+$breakSM: 480px;
 // iPad
-$breakMD:   767px;
+$breakMD: 767px;
 // iPad
-$breakLG:   992px; // 979px;
+$breakLG: 992px; // 979px;
 // for small desktop up to 1200 pc or 1280 macbook air
-$break-1060:   1060px;
+$break-1060: 1060px;
 // for larger desktop up to 1400 or macbook pro 1440
-$break-1360:	1360px;
+$break-1360: 1360px;
 // for larger screen up to 1800px
-$break-1700:	1760px;
+$break-1700: 1760px;
 // for 4k screens (2200px and more)
-$break-2200:	2200px;
+$break-2200: 2200px;
 
-$screen-xl:	1760px;
-$screen-xxl:	3200px;
-$screen-xxs:	320px;
+$screen-xl: 1760px;
+$screen-xxl: 3200px;
+$screen-xxs: 320px;
 
-$wordpress-adminbar-break:	    783px;
+$wordpress-adminbar-break: 783px;
 // WordPress Adminbar breaks to small
-$wordpress-adminbar-smallheight:    32px;
+$wordpress-adminbar-smallheight: 32px;
 // WordPress Adminbar small
-$wordpress-adminbar-bigheight:	    46px;
+$wordpress-adminbar-bigheight: 46px;
 // WordPress Adminbar big
 
 
-$screen-xl-min:  $screen-xl;
-$screen-xl-max:	 ($screen-xxl - 1);   
-$screen-xxl-min:    $screen-xxl;
+$screen-xl-min: $screen-xl;
+$screen-xl-max: ($screen-xxl - 1);
+$screen-xxl-min: $screen-xxl;
 
-$container-lg:	    970px;
-$container-xl:	    1000px;
-$container-xxl:	    1100px;	 
+$container-lg: 970px;
+$container-xl: 1000px;
+$container-xxl: 1100px;
 
 // Bootstrap Adjustments
-$fau-gutter-width:	30px;
+$fau-gutter-width: 30px;
 
-$grid-gutter-width:	$fau-gutter-width;
+$grid-gutter-width: $fau-gutter-width;
