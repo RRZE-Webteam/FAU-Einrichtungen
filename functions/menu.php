@@ -933,7 +933,7 @@ function fau_get_socialmedia_menu($name = '', $ulclass = '', $withog = true) {
     return $thislist;
 }
 /*-----------------------------------------------------------------------------------*/
-/* Create Page Nav for Template Page with SUbnav
+/* Create Page Nav for Template Page with Subnav
 /*-----------------------------------------------------------------------------------*/
 function fau_get_page_subnav($id) {
     $thismenu = '';
