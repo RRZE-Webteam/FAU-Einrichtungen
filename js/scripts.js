@@ -402,6 +402,7 @@ jQuery(document).ready(function ($) {
         }
 
         var $metaNavigation = $('ul.meta-nav');
+        var $metaNavigationOrigParent = $metaNavigation.length ? $metaNavigation.parent() : null;
 
         /**
          * Move the meta navigation
@@ -412,7 +413,7 @@ jQuery(document).ready(function ($) {
             if ($metaNavigation.length) {
                 if (header) {
                     $('.meta-links').append($metaNavigation.attr({ role: null, 'aria-label': null }));
-                    metaNavigation._origParentNode.appendChild(metaNavigation);
+                    $metaNavigationOrigParent.append($metaNavigation);
                 } else {
                     $('#nav').append($metaNavigation.attr({ role: 'navigation', 'aria-label': 'Portal links' }));
                 }
