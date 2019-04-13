@@ -291,6 +291,7 @@ jQuery(document).ready(function ($) {
                 .click(function () {
                     this._isExpanded = !this._isExpanded;
                     $(this).attr('aria-expanded', this._isExpanded ? 'true' : 'false');
+                    $('#logo')[this._isExpanded ? 'hide' : 'show']();
                 });
             $(this).replaceWith($toggleButton);
             $backdrop = $('<div id="menu-backdrop" aria-hidden="true"/>').click(function() {
