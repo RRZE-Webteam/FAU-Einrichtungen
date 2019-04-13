@@ -289,7 +289,7 @@
 
 #mainnav-toggle {
 	position: absolute;
-	right: 10px;
+	right: 5px;
 	top: 0;
 	@include px2rem($font-size-mobile-meta);
 	background-color: transparent;
@@ -340,7 +340,12 @@
 	}
 
 	.no-js #nav:target,
-	[aria-expanded=true] + #nav {
+	[aria-expanded=true] ~ #nav {
+		display: block;
+	}
+
+	.no-js #nav:target ~ #menu-backdrop,
+	[aria-expanded=true] ~ #menu-backdrop {
 		display: block;
 	}
 
@@ -458,4 +463,15 @@
 			top: 90px;
 		}
 	}
+}
+
+#menu-backdrop {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 51, 102, .7);
+	z-index: 10;
 }
