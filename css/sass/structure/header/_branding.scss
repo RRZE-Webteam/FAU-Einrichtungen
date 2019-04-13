@@ -122,6 +122,9 @@
 */
 
 #logo {
+	position: relative;
+	z-index: 11;
+
 	.sitetitle {
 		padding: 0;
 	}
