@@ -108,7 +108,7 @@ class FAUShortcodes {
                     		$showsubs = false;
                     		$a_contentmenuclasses[] = 'refresh';
                     		$a_contentmenuclasses[] = 'no-shadow';
-                    		$thumbnail = 'post-thumb';
+//                    		$thumbnail = 'post-thumb';
                     		$thumbnail = 'image-2-col';
                     		break;
                     	case 3:
