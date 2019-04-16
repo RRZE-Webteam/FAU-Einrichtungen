@@ -26,7 +26,7 @@ jQuery(document).ready(function ($) {
 
         // Smooth scrolling for anchor-links (excluding accordion-toggles)
         if (useThemeAccordion) {
-            $('a[href*="#"]:not([href="#"]):not([href="#nav"]):not(.accordion-toggle):not(.accordion-tabs-nav-toggle)').click(function () {
+            $('a[href*="#"]:not([href="#"]):not([href="#nav"]):not([href="#hauptnav-anchor"]):not(.accordion-toggle):not(.accordion-tabs-nav-toggle)').click(function () {
                 if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
                     var target = $(this.hash);
                     target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -294,7 +294,7 @@ jQuery(document).ready(function ($) {
                     $('#logo')[this._isExpanded ? 'hide' : 'show']();
                 });
             $(this).replaceWith($toggleButton);
-            $backdrop = $('<div id="menu-backdrop" aria-hidden="true"/>').click(function() {
+            $backdrop = $('<div id="menu-backdrop" aria-hidden="true"/>').click(function () {
                 $toggleButton.trigger('click');
             });
             $('#nav').after($backdrop);
@@ -406,7 +406,7 @@ jQuery(document).ready(function ($) {
 
         var mobileState = null;
         var updateResponsivePositioning = function () {
-            var newMobileState = ($(window).width() < breakMD);
+            var newMobileState = (window.innerWidth < breakMD);
             if (newMobileState !== mobileState) {
                 mobileState = newMobileState;
 

@@ -81,7 +81,8 @@
 		> [type=button] {
 			display: block;
 			position: relative;
-			@include px2rem($font-size-nav-mainlinks-small, $font-size-gridbase, $font-size-nav-mainlinks-small);
+			//@include px2rem($font-size-nav-mainlinks-small, $font-size-gridbase, $font-size-nav-mainlinks-small);
+			@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
 			font-weight: bold;
 			padding: 10px 15px;
 
@@ -368,7 +369,7 @@
 		> li {
 			border-top: 1px solid #ccc;
 
-			&.has-sub {
+			&.level1 {
 				> a,
 				> [type=button] {
 					&[aria-expanded=true] {
@@ -421,10 +422,10 @@
 			z-index: 11;
 		}
 
-		.nav > li.has-sub {
+		.nav > li.level1 {
 			> a,
 			> [type=button] {
-				@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
+				//@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
 
 				&:before {
 					display: block;
@@ -456,7 +457,7 @@
 			> a,
 			> [type=button] {
 				padding: 10px;
-				@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
+				//@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
 				@include border-radius(4px);
 			}
 
