@@ -406,7 +406,7 @@ jQuery(document).ready(function ($) {
 
         var mobileState = null;
         var updateResponsivePositioning = function () {
-            var newMobileState = ($(window).width() < breakMD);
+            var newMobileState = (window.innerWidth < breakMD);
             if (newMobileState !== mobileState) {
                 mobileState = newMobileState;
 
