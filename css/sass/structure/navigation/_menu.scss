@@ -368,7 +368,7 @@
 		> li {
 			border-top: 1px solid #ccc;
 
-			&.has-sub {
+			&.level1 {
 				> a,
 				> [type=button] {
 					&[aria-expanded=true] {
@@ -421,7 +421,7 @@
 			z-index: 11;
 		}
 
-		.nav > li.has-sub {
+		.nav > li.level1 {
 			> a,
 			> [type=button] {
 				@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
