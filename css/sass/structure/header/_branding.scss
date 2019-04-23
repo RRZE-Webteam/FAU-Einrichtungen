@@ -16,7 +16,7 @@
 	}
 
 	@media (max-width: $screen-sm - 1) {
-		body:not(.md-showsitelogo) & {
+		.js body:not(.md-showsitelogo) & {
 			background-color: $colorPrimary;
 
 			img,
@@ -122,6 +122,9 @@
 */
 
 #logo {
+	position: relative;
+	z-index: 11;
+
 	.sitetitle {
 		padding: 0;
 	}

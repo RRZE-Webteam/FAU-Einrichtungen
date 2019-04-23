@@ -26,7 +26,7 @@ jQuery(document).ready(function ($) {
 
         // Smooth scrolling for anchor-links (excluding accordion-toggles)
         if (useThemeAccordion) {
-            $('a[href*="#"]:not([href="#"]):not([href="#nav"]):not(.accordion-toggle):not(.accordion-tabs-nav-toggle)').click(function () {
+            $('a[href*="#"]:not([href="#"]):not([href="#nav"]):not([href="#hauptnav-anchor"]):not(.accordion-toggle):not(.accordion-tabs-nav-toggle)').click(function () {
                 if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
                     var target = $(this.hash);
                     target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -284,15 +284,20 @@ jQuery(document).ready(function ($) {
             }
         });
 
-        // Swap out the main navigation link against a button
+        // Swap out the main navigation link against a button and create a JavaScript enabled backdrop
         $('#mainnav-toggle').each(function () {
             var $toggleButton = $('<button id="mainnav-toggle" type="button" aria-controls="nav" aria-haspopup="true" aria-expanded="false"/>')
                 .append(this.innerHTML)
                 .click(function () {
                     this._isExpanded = !this._isExpanded;
                     $(this).attr('aria-expanded', this._isExpanded ? 'true' : 'false');
+                    $('#logo')[this._isExpanded ? 'hide' : 'show']();
                 });
             $(this).replaceWith($toggleButton);
+            $backdrop = $('<div id="menu-backdrop" aria-hidden="true"/>').click(function () {
+                $toggleButton.trigger('click');
+            });
+            $('#nav').after($backdrop);
         });
 
         // Install the search toggle
@@ -308,27 +313,6 @@ jQuery(document).ready(function ($) {
             event.preventDefault();
             this._toggleSearch(!this._expanded);
         });
-
-        // Activate "Force Click" behavior on the desktop navigation
-        /*
-        if ($body.hasClass('mainnav-forceclick')) {
-            $('#nav > .has-sub > a + .nav-flyout').each(function (index, topLevelFlyout) {
-                var uniqueId = '_' + Math.random().toString(36).substr(2, 9);
-                var $toggleLink = $(topLevelFlyout.previousSibling);
-                var $toggleButton = $('<button type="button" aria-controls="' + uniqueId + '" aria-haspopup="true" aria-expanded="false"/>')
-                    .text($toggleLink.text())
-                    .click(function () {
-                        var toggle = this;
-                        $('#nav > .has-sub > [type=button]').each(function (i, btn) {
-                            btn._isExpanded = (toggle === btn) ? !btn._isExpanded : false;
-                            $(btn).attr('aria-expanded', btn._isExpanded ? 'true' : 'false');
-                        });
-                    });
-                $toggleLink.replaceWith($toggleButton);
-                $(topLevelFlyout).attr('id', uniqueId);
-            })
-        }
-        */
 
         // Create and inject alternative toggle buttons for submenus
         var $topLevelFlyouts = $('.nav > .has-sub > a + .nav-flyout');
@@ -422,7 +406,7 @@ jQuery(document).ready(function ($) {
 
         var mobileState = null;
         var updateResponsivePositioning = function () {
-            var newMobileState = ($(window).width() < breakMD);
+            var newMobileState = (window.innerWidth < breakMD);
             if (newMobileState !== mobileState) {
                 mobileState = newMobileState;
 

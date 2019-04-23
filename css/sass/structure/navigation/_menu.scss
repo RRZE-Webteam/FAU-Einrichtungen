@@ -3,32 +3,57 @@
 /*-----------------------------------------------------------------------------------*/
 
 #nav {
-	background-color: $colorPrimary;
-	padding-bottom: 20px;
+	background-color: $colorStandardHellgrau;
 
 	.meta-nav {
-		border-top: 1px solid #dde5f0;
+		border-top: 1px solid #ccc;
+		color: $colorPrimary;
 		display: block;
-		margin: 11px 15px 0 11px;
+		padding: 15px 11px;
+		margin-bottom: 0;
 	}
 
 	.sidebar-subnav {
+		border-top: 1px solid #ccc;
 		float: none;
+		padding: 15px 0 0;
+		background-color: darken($colorSubNavBackground, 5%);
 
-		+ .meta-nav {
-			border-top: none;
+		a {
+			background-color: darken($colorSubNavBackground, 5%);
 		}
 	}
 
 	.menu-header {
-		margin: 10px 0;
-		padding: 10px 0 0;
+		@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
+		margin: 0;
+		border-top: none;
+
+		&, & a {
+			color: $colorPrimary;
+		}
+
+		.screen-reader-text {
+			position: static;
+		}
 	}
 
-	.meta-nav,
-	.menu-header {
-		a {
-			color: $colorPrimaryContrast;
+	#subnav {
+		font-size: 1rem;
+
+		li {
+			border-bottom: none;
+			border-top: 1px solid #fff;
+		}
+
+		.current_page_item a {
+			background-color: $colorPrimary;
+		}
+
+		a, .current_page_item a {
+			&:hover, &:focus {
+				background-color: $colorHover;
+			}
 		}
 	}
 }
@@ -39,8 +64,10 @@
 
 	/* All links & buttons */
 	a, [type=button] {
-		&, &:hover {
-			text-decoration: none;
+		text-decoration: none;
+		color: $colorPrimary;
+
+		&:hover, &:focus, &[aria-expanded=true] {
 			color: $colorPrimaryContrast;
 		}
 	}
@@ -54,7 +81,8 @@
 		> [type=button] {
 			display: block;
 			position: relative;
-			@include px2rem($font-size-nav-mainlinks-small, $font-size-gridbase, $font-size-nav-mainlinks-small);
+			//@include px2rem($font-size-nav-mainlinks-small, $font-size-gridbase, $font-size-nav-mainlinks-small);
+			@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
 			font-weight: bold;
 			padding: 10px 15px;
 
@@ -79,6 +107,7 @@
 					top: 11px;
 					right: 15px;
 					display: none;
+					transition: transform .2s ease-in-out;
 				}
 			}
 
@@ -103,7 +132,7 @@
 
 			> [type=button][aria-expanded=true] {
 				&:before {
-					@extend .fa-caret-up;
+					transform: rotate(-180deg);
 				}
 
 				~ .nav-flyout {
@@ -289,7 +318,7 @@
 
 #mainnav-toggle {
 	position: absolute;
-	right: 10px;
+	right: 5px;
 	top: 0;
 	@include px2rem($font-size-mobile-meta);
 	background-color: transparent;
@@ -329,18 +358,56 @@
 	/* If there's no JavaScript available */
 	#nav {
 		display: none;
+		//border-top: 1px solid $PalettonHellste;
 	}
-	.nav > li.has-sub {
-		> a,
-		> [type=button] {
-			&:hover {
-				background-color: $colorHover;
+
+	.nav {
+		.nav-flyout {
+			padding-top: 0;
+		}
+
+		> li {
+			border-top: 1px solid #ccc;
+
+			&.level1 {
+				> a,
+				> [type=button] {
+					&[aria-expanded=true] {
+						background-color: $colorPrimary;
+					}
+
+					&:hover, &:focus {
+						background-color: $colorHover;
+					}
+				}
 			}
 		}
 	}
 
+	.flyout-entries {
+		padding: 0;
+
+		ul a {
+			padding-left: 30px;
+			padding-right: 35px;
+		}
+
+		.button-portal {
+			margin-left: 15px;
+		}
+	}
+
+	.level2 {
+		border-top: 1px solid #1f4c7a;
+	}
+
 	.no-js #nav:target,
-	[aria-expanded=true] + #nav {
+	[aria-expanded=true] ~ #nav {
+		display: block;
+	}
+
+	.no-js #nav:target ~ #menu-backdrop,
+	[aria-expanded=true] ~ #menu-backdrop {
 		display: block;
 	}
 
@@ -355,10 +422,10 @@
 			z-index: 11;
 		}
 
-		.nav > li.has-sub {
+		.nav > li.level1 {
 			> a,
 			> [type=button] {
-				@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
+				//@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
 
 				&:before {
 					display: block;
@@ -390,7 +457,7 @@
 			> a,
 			> [type=button] {
 				padding: 10px;
-				@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
+				//@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
 				@include border-radius(4px);
 			}
 
@@ -458,4 +525,15 @@
 			top: 90px;
 		}
 	}
+}
+
+#menu-backdrop {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 51, 102, .7);
+	z-index: 10;
 }

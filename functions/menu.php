@@ -185,8 +185,7 @@ function fau_main_menu_fallback() {
         foreach($some_pages as $page) {
             $output .= sprintf('<li class="menu-item level1"><a href="%1$s">%2$s</a></li>', get_permalink($page->ID), $page->post_title);
         }
-        
-        $output = sprintf('<ul role="navigation" aria-label="%1$s" id="nav">%2$s</ul>', __('Hauptnavigation', 'fau'), $output);
+	    $output = sprintf('<div id="nav"><ul class="nav">%s</ul></div>', $output);
     }   
     return $output;
 }
