@@ -133,12 +133,19 @@
 		@include transition(background, 0.2s ease-out);
 	}
 
-	li.fauhome:hover, li.fauhome:focus,
-	li.facultyhome:hover, li.facultyhome:focus {
+	li.fauhome:hover, 
+	li.fauhome:focus,
+	li.facultyhome:hover, 
+	li.facultyhome:focus {
 		background: $colorMetaFAUHomeBackground;
 		@include transition(background, 0.1s);
 	}
-
+	
+	.md-showsitelogo & {
+	    text-align: left;
+	}
+	
+	
 	@media (max-width: $screen-sm - 1) {
 		li.fauhome:before {
 			display: none;
@@ -158,7 +165,7 @@
 			// Zeige auf der FAU-Website selbst den Logolink in der Meta
 			// nicht an, wenn die Darstellung größer gleich als Tablet ist.
 			display: none;
-		}
+		}	
 	}
 }
 
