@@ -69,6 +69,7 @@
 		@extend .col-sm-5;
 	}
 	text-align: right;
+	position: static;
 }
 
 .meta-search {
@@ -174,7 +175,7 @@
 
 /* New Toogle Button */
 #wrap #search-toggle {
-	position: fixed;
+	position: absolute;
 	left: 0;
 	top: 0;
 	@include px2rem($font-size-mobile-meta);

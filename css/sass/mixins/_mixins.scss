@@ -115,7 +115,6 @@ Mixins File for Wordpress Theme FAU
     transform: translate($tx, $ty);
 }
 
-
 @mixin hyphens($value) {
     -moz-hyphens: $value;
     -o-hyphens: $value;
@@ -206,7 +205,6 @@ Mixins File for Wordpress Theme FAU
   font-size: px2rem($font-size, $base-font-size);
   line-height: ($line / $base-font-size) + rem;
 }
-
 
 @mixin morelink() {
     margin: 10px 0 0 0;
