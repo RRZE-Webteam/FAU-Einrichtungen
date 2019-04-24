@@ -9,7 +9,7 @@ class FAUShortcodes {
 	function __construct() {
 	   remove_filter( 'the_content', 'wpautop' );
 	   add_filter( 'the_content', 'wpautop' , 12);
-	   add_action( 'init', array( $this, 'add_shortcodes' ) ); 
+	   add_action( 'init', array( $this, 'add_shortcodes' ) );
 	}
 
 	function add_shortcodes() {
@@ -18,7 +18,7 @@ class FAUShortcodes {
 
             // Paragraphes and content regions
             add_shortcode('hr', array( $this, 'fau_hr'));
-            
+
             // Ported and adapted by old bootstrap code
             add_shortcode('code', array( $this, 'bs_code' ));
             add_shortcode('span', array( $this, 'bs_span' ));
@@ -65,25 +65,27 @@ class FAUShortcodes {
                 add_shortcode( 'two_columns_one_last', array( $this, 'fau_shortcode_two_columns_one_last'));
                 add_shortcode( 'three_columns_one', array( $this, 'fau_shortcode_three_columns_one'));
                 add_shortcode( 'three_columns_one_last', array( $this, 'fau_shortcode_three_columns_one_last' ));
-            }            	
+            }
 	}
-	
+
 
         /*-----------------------------------------------------------------------------------*/
         /* Portalmenus als Shortcode
         /*-----------------------------------------------------------------------------------*/
-        function fau_portalmenu( $atts, $content = null) {       
+				function fau_portalmenu( $atts, $content = null) {
             extract(shortcode_atts(array(
                 'menu'          => '',
                 'showsubs'	=> true,
                 'nothumbs'	=> false,
-                'nofallback'    => false,            
+                'nofallback'    => false,
+                'type'    => 1,
+                'skewed'    => false,
             ), $atts));
             $out ='';
             $menu = $menu ?  esc_attr( $menu ) : '';
             $error = '<p class="box red-box">'.__("Es konnte kein Menu unter der angegebenen Bezeichnung gefunden werden",'fau').'</p>';
             $error .= "name=$menu";
-            if (! fau_empty($menu)) { 
+            if (! fau_empty($menu)) {
                 if ($menu == sanitize_key($menu)) {
                     $term = get_term_by('id', $menu, 'nav_menu');
                 } else {
@@ -92,62 +94,87 @@ class FAUShortcodes {
                 if ($term===false) {
                     $out = $error;
                 } else {
-                    $slug = $term->slug;     
+                    $slug = $term->slug;
                     $subentries = get_theme_mod('default_submenu_entries');
                     $spalte = get_theme_mod('default_submenu_spalten');
-                   
-                    $out .= '<div class="contentmenu" role="navigation">';   
+
+                    $a_contentmenuclasses[] = 'contentmenu';
+                    $thumbnail = '';
+            				$type = intval($type);
+                    switch ($type) {
+                    	case 1:
+                    		break;
+                    	case 2:
+                    		$showsubs = false;
+                    		$a_contentmenuclasses[] = 'refresh';
+                    		$a_contentmenuclasses[] = 'no-shadow';
+//                    		$thumbnail = 'post-thumb';
+                    		$thumbnail = 'image-2-col';
+                    		break;
+                    	case 3:
+                    		$showsubs = false;
+                    		$a_contentmenuclasses[] = 'refresh';
+                    		//$a_contentmenuclasses[] = 'gallery-full';
+                    		$a_contentmenuclasses[] = 'no-shadow';
+                    		$thumbnail = 'gallery-full';
+                    		break;
+                    	default:
+                    		$type = 1;
+                    		break;
+                    }
+                    $a_contentmenuclasses[] = 'contentmenutype' . $type;
+
+                    if($skewed) {
+                    	$a_contentmenuclasses[] = 'skewed';
+                    }
+                    $out .= '<div class="'. implode(' ',$a_contentmenuclasses) . '" role="navigation">';
                     $out .= '<ul class="subpages-menu">';
-                    $outnav = wp_nav_menu( array( 'menu' => $slug, 
-                        'echo'          => false, 
-                        'container'     => true, 
-                       'items_wrap'     => '%3$s', 
-                        'link_before'   => '', 
-                        'link_after'    => '',         
+                    $outnav = wp_nav_menu( array( 'menu' => $slug,
+                        'echo'          => false,
+                        'container'     => true,
+												'items_wrap'     => '%3$s',
+                        'link_before'   => '',
+                        'link_after'    => '',
                         'item_spacing'  => 'discard',
-                        'walker'        => new Walker_Content_Menu($slug,$showsubs,$spalte,$nothumbs,$nofallback)));
+                        'walker'        => new Walker_Content_Menu($slug,$showsubs,$spalte,$nothumbs,$nofallback,$thumbnail)));
                     $out .= $outnav;
                     $out .=  "</ul></div>";
-                    
-                    
                 }
-                
-                
             } else {
                 $out =  $error;
             }
             return $out;
         }
-        
-        
+
+
 	function fau_organigram( $atts, $content = null) {
 		extract(shortcode_atts(array(
 			"menu" => 'menu'
 			), $atts));
-			
+
 		return wp_nav_menu( array('menu' => $menu, 'container' => false, 'menu_id' => 'organigram', 'menu_class' => 'organigram', 'echo' => 0));
 	}
-	
-	
-	
+
+
+
 	function fau_subpages( $atts, $content = null ) {
 		return '<div class="row">' . do_shortcode( $content ) . '</div>';
 	}
-		
-		
+
+
 	function fau_assistant( $atts, $content = null) {
 		extract(shortcode_atts(array(
 			"id" => 'id'
 			), $atts));
-			
+
 		$return = '';
 		$return .= '<div class="accordion">';
 
 		$pages = get_pages(array('sort_order' => 'ASC', 'sort_column' => 'menu_order', 'parent' => $id, 'hierarchical' => 0));
 		$i = 0;
 		foreach($pages as $page) {
-			    
-		    $inner = '';	        
+
+		    $inner = '';
 		    $subpages = get_pages(array('sort_order' => 'ASC', 'sort_column' => 'menu_order', 'parent' => $page->ID, 'hierarchical' => 0));
 
 		    if(count($subpages) > 0)  {
@@ -188,21 +215,21 @@ class FAUShortcodes {
 		$return .= '</div>';
 		if ( is_plugin_active( 'rrze-elements/rrze-elements.php' ) ) {
 		    wp_enqueue_script('rrze-accordions');
-		}		
+		}
 		return $return;
 	}
-	
+
 
 	function fau_hr ( $atts, $content = null) {
 	    extract(shortcode_atts(array(
 			"size" => '',
 			"class" => ''
 			), $atts));
-	    
-	      
+
+
 	    $size = fau_sanitize_hr_shortcode($size);
 	    $class = fau_sanitize_hr_shortcode($class);
-	    
+
 	    $classes = "";
 	    if (!fau_empty($size)) {
 		$classes .= $size;
@@ -213,14 +240,14 @@ class FAUShortcodes {
 		 }
 		$classes .= $class;
 	    }
-	    
+
 	    $return = '<hr';
 	    $return .= ($classes) ? ' class="' . $classes. '"' : '';
 	    $return .= '>';
-	    
+
 	    return $return;
 	}
-		
+
 
       function bs_button($atts, $content = null) {
 	 extract(shortcode_atts(array(
@@ -292,9 +319,9 @@ class FAUShortcodes {
       }
 
 
-     
-      
-      /* 
+
+
+      /*
        * Not for productive use yet
        */
     function fau_notice($atts, $content = null) {
@@ -303,16 +330,16 @@ class FAUShortcodes {
 	    "block" => ''
 	 ), $atts));
 
-	 
+
 	$block = $block ? esc_attr( $block ) : 'p';
 	$type = $type ? 'notice-'.$type  : 'notice-hinweis';
-	 
+
 	$return  =  '<p ';
 	$return .= 'class="'.$type.'"';
 	$return .= '>' . do_shortcode( $content ) . '</p>';
 
 	return $return;
-      }   
+      }
 
     /*
      * Absatzklasse attention
@@ -336,7 +363,7 @@ class FAUShortcodes {
       function absatzklasse_baustelle($atts, $content = null) {
 	 extract(shortcode_atts(array(), $atts));
 	 return '<p class="notice-baustelle">' . do_shortcode( $content ) . '</p>';
-      }  
+      }
 
       /*
        * Absatzklasse question
@@ -344,7 +371,7 @@ class FAUShortcodes {
       function absatzklasse_question($atts, $content = null) {
 	 extract(shortcode_atts(array(), $atts));
 	 return '<p class="notice-question">' . do_shortcode( $content ) . '</p>';
-      }  
+      }
 
       /*
        * Absatzklasse plus
@@ -352,14 +379,14 @@ class FAUShortcodes {
       function absatzklasse_plus($atts, $content = null) {
 	 extract(shortcode_atts(array(), $atts));
 	 return '<p class="notice-plus">' . do_shortcode( $content ) . '</p>';
-      }  
+      }
       /*
        * Absatzklasse minus
        */
       function absatzklasse_minus($atts, $content = null) {
 	 extract(shortcode_atts(array(), $atts));
 	 return '<p class="notice-minus">' . do_shortcode( $content ) . '</p>';
-      }    
+      }
 
       /*
        * Absatzklasse tipp
@@ -367,38 +394,38 @@ class FAUShortcodes {
       function absatzklasse_tipp($atts, $content = null) {
 	 extract(shortcode_atts(array(), $atts));
 	 return '<p class="notice-tipp">' . do_shortcode( $content ) . '</p>';
-      }   
+      }
       /*
        * Absatzklasse faubox
        */
       function absatzklasse_faubox($atts, $content = null) {
 	 extract(shortcode_atts(array(), $atts));
 	 return '<p class="notice-faubox">' . do_shortcode( $content ) . '</p>';
-      }  
+      }
        /*
        * Absatzklasse video
        */
       function absatzklasse_video($atts, $content = null) {
 	 extract(shortcode_atts(array(), $atts));
 	 return '<p class="notice-video">' . do_shortcode( $content ) . '</p>';
-      }  
+      }
         /*
        * Absatzklasse audio
        */
       function absatzklasse_audio($atts, $content = null) {
 	 extract(shortcode_atts(array(), $atts));
 	 return '<p class="notice-audio">' . do_shortcode( $content ) . '</p>';
-      }  
+      }
         /*
        * Absatzklasse download
        */
       function absatzklasse_download($atts, $content = null) {
 	 extract(shortcode_atts(array(), $atts));
 	 return '<p class="notice-download">' . do_shortcode( $content ) . '</p>';
-      }  
-       
-      
-      
+      }
+
+
+
   /*-----------------------------------------------------------------------------------*/
 /* Shortcodes to display default blogroll
 /*-----------------------------------------------------------------------------------*/
@@ -409,7 +436,7 @@ function fau_shortcode_blogroll( $atts, $content = null ) {
     'num'	=> '',
     'divclass'	=> '',
     'hidemeta'	=> false,
-    'hstart'	=> 2,	
+    'hstart'	=> 2,
     ), $atts));
 
     $cat = ($cat) ? $cat : '';
@@ -418,16 +445,16 @@ function fau_shortcode_blogroll( $atts, $content = null ) {
     $hstart = ($hstart) ? intval($hstart) : 2;
     $divclass = $divclass ? esc_attr( $divclass ) : '';
 
-    
+
     if (!is_page()) {
-	$out =  '<p class="attention">'.__("Der Shortcode darf nur auf Seiten verwendet werden.",'fau').'</p>';	
+	$out =  '<p class="attention">'.__("Der Shortcode darf nur auf Seiten verwendet werden.",'fau').'</p>';
 	return $out;
     }
-    
+
     $out = fau_blogroll($tag, $cat, $num, $divclass, $hstart,$hidemeta);
-	
+
     if (empty($out)) {
-	$out =  '<p class="attention">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';	
+	$out =  '<p class="attention">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';
     }
     return $out;
 }
@@ -449,14 +476,14 @@ function fau_shortcode_articlelist( $atts, $content = null ) {
     $class = ($class) ? $class : '';
 
     if (!is_page()) {
-	$out =  '<p class="attention">'.__("Der Shortcode darf nur auf Seiten verwendet werden.",'fau').'</p>';	
+	$out =  '<p class="attention">'.__("Der Shortcode darf nur auf Seiten verwendet werden.",'fau').'</p>';
 	return $out;
     }
-    
+
     $out = fau_articlelist($tag, $cat, $num,$class, $title);
-	
+
     if (empty($out)) {
-	$out = '<p class="attention">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';	
+	$out = '<p class="attention">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';
     }
     return $out;
 }
@@ -473,12 +500,12 @@ function fau_shortcode_two_columns_one( $atts, $content = null ) {
     ), $atts));
     $addclass = '';
     if (isset($color)) {
-	
+
 	$setlighten = '';
 	if ($lighten) {
 	    $setlighten = ' lighten';
-	}   
-	
+	}
+
 	$color = fau_columns_checkcolor($color);
 	if (!empty($color)) {
 	    $addclass=' '.$color;
@@ -498,7 +525,7 @@ function fau_shortcode_two_columns_one_last( $atts, $content = null ) {
 	$setlighten = '';
 	if ($lighten) {
 	    $setlighten = ' lighten';
-	}   
+	}
 
 	$color = fau_columns_checkcolor($color);
 	if (!empty($color)) {
@@ -520,7 +547,7 @@ function fau_shortcode_three_columns_one($atts, $content = null) {
 	$setlighten = '';
 	if ($lighten) {
 	    $setlighten = ' lighten';
-	}   
+	}
 
 	$color = fau_columns_checkcolor($color);
 	if (!empty($color)) {
@@ -541,7 +568,7 @@ function fau_shortcode_three_columns_one_last($atts, $content = null) {
 	$setlighten = '';
 	if ($lighten) {
 	    $setlighten = ' lighten';
-	}   
+	}
 
 	$color = fau_columns_checkcolor($color);
 	if (!empty($color)) {
@@ -551,10 +578,10 @@ function fau_shortcode_three_columns_one_last($atts, $content = null) {
     }
    return '<div class="three-columns-one'.$addclass.' last">' . do_shortcode( ($content) ) . '</div>';
 }
-    
-      
-	
-	
+
+
+
+
 }
 new FAUShortcodes();
 

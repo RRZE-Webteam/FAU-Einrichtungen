@@ -28,9 +28,11 @@ function fau_customizer_settings( $wp_customize ) {
     $num = 0;
        
     $definedtypes = array(
-	"text", "checkbox", "radio", "select", "textarea", "dropdown-pages", "email", "url", "number", "hidden", "date",
+	"text", "checkbox", "radio", "select", "textarea", "dropdown-pages", "email", 
+	"url", "number", "hidden", "date",
 	    // defaults
-	"bool", "html", "image", "multiselect", "multiselectlist", "urlchecklist", "range", "range-value", "category", "toggle", "toogle-switch"
+	"bool", "html", "image", "multiselect", "multiselectlist", "urlchecklist", 
+	"range", "range-value", "category", "toggle", "toogle-switch"
 	    // self defined boolean
 
     );

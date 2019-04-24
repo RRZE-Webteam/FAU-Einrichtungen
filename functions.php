@@ -14,9 +14,12 @@ require_once( get_template_directory() . '/functions/customizer.php');
 
 
 $options = fau_initoptions();
+
 require_once( get_template_directory() . '/functions/plugin-support.php' );
 
 require_once( get_template_directory() . '/functions/helper-functions.php' );
+require_once( get_template_directory() . '/functions/embeddings.php');
+
 require_once( get_template_directory() . '/functions/template-functions.php' );
 require_once( get_template_directory() . '/functions/shortcodes.php');
 require_once( get_template_directory() . '/functions/shortcode-accordion.php');
@@ -30,11 +33,13 @@ require_once( get_template_directory() . '/functions/posttype-synonym.php');
 require_once( get_template_directory() . '/functions/posttype-glossary.php');
 require_once( get_template_directory() . '/functions/gutenberg.php');
 
+
 function fau_setup() {
 	global $defaultoptions;
 	 
-
 	if ( ! isset( $content_width ) ) $content_width = $defaultoptions['content-width'];
+	
+	    
 	add_editor_style( array( 'css/editor-style.css' ) );
 	add_theme_support( 'html5');
 	add_theme_support('title-tag');
@@ -94,18 +99,6 @@ function fau_setup() {
 
 
 	
-	
-	
-	/* Remove something out of the head */
-	// remove_action( 'wp_head', 'feed_links_extra', 3 ); // Display the links to the extra feeds such as category feeds
-	// remove_action( 'wp_head', 'feed_links', 2 ); // Display the links to the general feeds: Post and Comment Feed	
-	remove_action( 'wp_head', 'post_comments_feed_link ', 2 ); // Display the links to the general feeds: Post and Comment Feed
-	remove_action( 'wp_head', 'rsd_link' ); // Display the link to the Really Simple Discovery service endpoint, EditURI link
-	remove_action( 'wp_head', 'wlwmanifest_link' ); // Display the link to the Windows Live Writer manifest file.
-	// remove_action( 'wp_head', 'index_rel_link' ); // index link
-	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); // prev link
-	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 ); // Display relational links for the posts adjacent to the current post.
-	//remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0);
 
 	
 
@@ -117,6 +110,8 @@ add_action( 'after_setup_theme', 'fau_setup' );
 /* Set extra init values
 /*-----------------------------------------------------------------------------------*/
 function fau_custom_init() {
+        global $defaultoptions;
+
     /* Keine verwirrende Abfrage nach Kommentaren im Page-Editor */
     remove_post_type_support( 'page', 'comments' );
 
@@ -128,6 +123,7 @@ function fau_custom_init() {
     remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
     remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+  
 
 }
 add_action( 'init', 'fau_custom_init' );
@@ -155,14 +151,10 @@ function fau_register_scripts() {
 }
 add_action('init', 'fau_register_scripts');
 
-
 /*-----------------------------------------------------------------------------------*/
 /* Activate base scripts
 /*-----------------------------------------------------------------------------------*/
 function fau_basescripts_styles() {
-    global $defaultoptions;
-    global $usejslibs;
-    
     wp_enqueue_style( 'fau-style');	
     wp_enqueue_script( 'fau-scripts');
 
@@ -213,6 +205,15 @@ function fau_admin_header_style() {
 add_action( 'admin_enqueue_scripts', 'fau_admin_header_style' );
 
 
+
+/*-----------------------------------------------------------------------------------*/
+/* Remove type-String from link-reference to follow W3C Validator
+/*-----------------------------------------------------------------------------------*/
+function fau_remove_type_attr($tag, $handle) {
+    return preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
+}
+add_filter('style_loader_tag', 'fau_remove_type_attr', 10, 2);
+add_filter('script_loader_tag', 'fau_remove_type_attr', 10, 2);
 
 /*-----------------------------------------------------------------------------------*/
 /* Change default header
@@ -283,6 +284,25 @@ function fau_dns_prefetch() {
 add_action('wp_head', 'fau_dns_prefetch', 0);
 
 
+/*-----------------------------------------------------------------------------------*/
+/*  Remove something out of the head
+/*-----------------------------------------------------------------------------------*/
+function fau_remove_unwanted_head_actions() {
+	remove_action( 'wp_head', 'post_comments_feed_link ', 2 ); 
+	    // Display the links to the general feeds: Post and Comment Feed
+	remove_action( 'wp_head', 'rsd_link' ); 
+	    // Display the link to the Really Simple Discovery service endpoint, EditURI link
+	remove_action( 'wp_head', 'wlwmanifest_link' ); 
+	    // Display the link to the Windows Live Writer manifest file.
+	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); 
+	    // remove prev link
+	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 ); 
+	    // remove Display relational links for the posts adjacent to the current post.
+	remove_action( 'wp_head',      'wp_oembed_add_discovery_links'         ); 
+	    // remove oEmbed discovery links in the website 
+
+}
+add_action('wp_head', 'fau_remove_unwanted_head_actions', 0);
 /*-----------------------------------------------------------------------------------*/
 /* Change default title
 /*-----------------------------------------------------------------------------------*/

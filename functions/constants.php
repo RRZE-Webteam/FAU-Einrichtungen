@@ -9,12 +9,12 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 44,
+    'optiontable-version'		=> 47,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-    'js-version'			=> '1.11',
+    'js-version'			=> '1.12',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
     
     'website_type'			=> 0,
@@ -33,7 +33,8 @@ $defaultoptions = array(
 	// Muss in $default_fau_orga_data auf erster Ebene vorhanden sein.	
     'default_faculty_useshorttitle'	=> false,   
     'optionpage-tab-default'		=> 'website',
-    'content-width'			=> 770,
+    'content-width'			=> 616,
+    'content-width-fullpage'		=> 940,
     'src-fallback-slider-image'		=> get_fau_template_uri().'/img/slider-fallback.jpg',
     'slider-catid'			=> 0,    
     'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.min.js',
@@ -159,18 +160,18 @@ $defaultoptions = array(
     
    
     'breadcrumb_root'			=> __('Startseite', 'fau'),
-    'breadcrumb_delimiter'		=> ' <span>/</span>',
+    'breadcrumb_delimiter'			=> ' <span>/</span>',
     'breadcrumb_beforehtml'		=> '<span class="active" aria-current="page">', // '<span class="current">'; // tag before the current crumb
-    'breadcrumb_afterhtml'		=> '</span>',
+    'breadcrumb_afterhtml'			=> '</span>',
     'breadcrumb_uselastcat'		=> true,
-    'breadcrumb_withtitle'		=> false,
+    'breadcrumb_withtitle'			=> false,
     'breadcrumb_withtitle_parent_page'	=> true,
     'breadcrumb_showcurrent'		=> true,
     'default_logo_src'			=> get_fau_template_uri().'/img/logos/logo-fau-240x65.svg',
-    'default_logo_height'		=> 65,
-    'default_logo_width'		=> 240,
+    'default_logo_height'			=> 65,
+    'default_logo_width'			=> 240,
     
-    'socialmedia'			=> 0,
+    'socialmedia'				=> 0,
     'active_socialmedia_footer'		=> array(0),  
     'socialmedia_buttons_title'		=> __('FAUSocial','fau'),
     
@@ -178,8 +179,8 @@ $defaultoptions = array(
     'socialmedia_menu_position'		=> 'FAU_SocialMedia_Menu_Footer',
     'socialmedia_menu_position_title'	=> __( 'Social Media Bereich im Footer', 'fau' ),
     
-    'menu_pretitle_portal'	    => __('Portal', 'fau'),
-    'menu_aftertitle_portal'	    => '',
+    'menu_pretitle_portal'			=> __('Portal', 'fau'),
+    'menu_aftertitle_portal'		=> '',
     
    'contact_address_name'	    => __('Friedrich-Alexander-Universität', 'fau'),
    'contact_address_name2'	    => __('Erlangen-Nürnberg', 'fau'),
@@ -232,41 +233,42 @@ $defaultoptions = array(
     'advanced_page_sidebar_order_personlinks'	=> 0,
 	// 0 = Kontakte, Links
 	// 1 = Links, Kontakte
-    'advanced_activate_post_comments'	=> false,
-    'advanced_comments_notes_before'	    => __( 'Ihre E-Mail-Adresse wird nicht angezeigt. Verpflichtende Felder werden mit dem folgenden Zeichen markiert: <span class="required">*</span>', 'fau' ),
-    'advanced_comments_disclaimer'          => __('Hinweis: Die Kommentare wurden von Lesern geschrieben und spiegeln deren persönliche Meinung wieder. Sie müssen nicht die Meinung der Universität oder der Fakultät repräsentieren.', 'fau' ),
-    'advanced_comments_avatar'		    => false,
-    'advanced_activate_synonyms'	    => false,
-    'advanced_activate_glossary'	    => false,
-  
+    'advanced_activate_post_comments'		=> false,
+    'advanced_comments_notes_before'		=> __( 'Ihre E-Mail-Adresse wird nicht angezeigt. Verpflichtende Felder werden mit dem folgenden Zeichen markiert: <span class="required">*</span>', 'fau' ),
+    'advanced_comments_disclaimer'			=> __('Hinweis: Die Kommentare wurden von Lesern geschrieben und spiegeln deren persönliche Meinung wieder. Sie müssen nicht die Meinung der Universität oder der Fakultät repräsentieren.', 'fau' ),
+    'advanced_comments_avatar'			=> false,
+    'advanced_activate_synonyms'			=> false,
+    'advanced_activate_glossary'			=> false,
+    'advanced_activate_quicklinks'			=> true,
+    
+    
+    'post_display_category_below'			=> true,
+    'post_display_tags_below'		    	=> true,
+    'search_display_post_thumbnails'		=> true,
+    'search_display_post_cats'			=> true,
+    'search_display_continue_arrow'			=> true,
+    'search_display_excerpt_morestring'		=> '...',
+    'search_display_typenote'			=> true,
+    'search_post_types'			    	=> array("page", "post", "attachment"),
+    'search_post_types_checked'			=> array("page", "post"),
+    'search_allowfilter'				=> true,
+    'search_notice_searchregion'			=> __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie bitte die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.','fau'),
 
-    'post_display_category_below'	    => true,
-    'post_display_tags_below'		    => true,
-    'search_display_post_thumbnails'	    => true,
-    'search_display_post_cats'		    => true,
-    'search_display_continue_arrow'	    => true,
-    'search_display_excerpt_morestring'	    => '...',
-    'search_display_typenote'		    => true,
-    'search_post_types'			    => array("page", "post", "attachment"),
-    'search_post_types_checked'		    => array("page", "post"),
-    'search_allowfilter'		    => true,
-    'search_notice_searchregion'	    => __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie bitte die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.','fau'),
-
     
-    'index_synonym_listall'		=> true,
-    'index_glossary_listall'		=> true,
+    'index_synonym_listall'			=> true,
+    'index_glossary_listall'			=> true,
     
-    'advanced_reveal_pages_id'		=> false,
-    'advanced_images_info_credits'	=> 0,
-    'advanced_display_hero_credits'	=> true,   
-    'advanced_display_postthumb_credits'    => true,
+    'advanced_reveal_pages_id'			=> false,
+	// Zeigt Page-ID im Backend der Seitebearbeitung
+    'advanced_images_info_credits'			=> 0,
+    'advanced_display_hero_credits'			=> true,   
+    'advanced_display_postthumb_credits'		=> true,
     
-    'advanced_forceclean_homelink'	=> true,
+    'advanced_forceclean_homelink'			=> true,
 	// Links auf die Startseite werden aus dem Hauptmenu entfernt
-    'advanced_forceclean_externlink'	=> true,
+    'advanced_forceclean_externlink'		=> true,
 	// Links auf externe Seiten werden aus dem Hauptmenu entfernt
-    
-    'advanced_activate_page_langcode'	=> false,
+    'advanced_activate_page_langcode'		=> false,
 	// Option zur Deklarierung einer anderen Sprache für eine Seite
     'advanced_blogroll_thumblink_alt_pretitle'	=> __('Zum Artikel "','fau'), 
 	// Alternativer Tag wird mit dem Tiotel des verlinkten Beitrags gefüllt. 
@@ -292,8 +294,12 @@ $defaultoptions = array(
 	// Hauptmenü öffnet sich nur bei einem Klick
     'advanced_display_portalmenu_plainview'		=> false,
 	// Flyover der Untermenüpunkte in der PLainview Ansicht
+    'advanced_display_header_md-showsitelogo'	=> false,
+	// Zeigt bei der mobilen Ansicht statt dem Logo der Website das 
+	// CI Logo der FAU anstelle des Logos der Website
 ); 
 
+ $content_width =$defaultoptions['content-width'];
 
 /*--------------------------------------------------------------------*/
 /* Initialisiere Options und Theme Mods 
@@ -604,12 +610,7 @@ $setoptions = array(
 		  'parent'  => 'postoptions'
 		), 
 	       
-	       
-	       
-	 
-	         
-	       
-		
+
 	        
 	       'socialmediafooter'  => array(
                   'type'    => 'section',
@@ -796,13 +797,39 @@ $setoptions = array(
 		    'label'   => __( 'Zeige bei Seiten den Titel der hierarchisch nächsthöheren Seite in der Bühne an', 'fau' ),                
 		    'default' => $defaultoptions['breadcrumb_withtitle_parent_page'],
 		    'parent'  => 'breadcrumb'
-		),   	  
+		),   	
 	       
-	       'footer'  => array(
-                  'type'    => 'section',
-                  'title'   => __( 'Footer', 'fau' ),    
-		  'desc'    => __( 'Einstellungen für den Fußteil des Webauftritts.', 'fau' ),
-              ),
+	       
+	        'header'  => array(
+		    'type'    => 'section',
+		    'title'   => __( 'Header', 'fau' ),    
+		    'desc'    => __( 'Einstellungen für den Kopfteil des Webauftritts.', 'fau' ),
+		),
+	        'advanced_display_header_md-showsitelogo'		  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Website Logo (Mobil)', 'fau' ),
+		    'label'   => __( 'Zeigt bei der mobilen Ansicht (Darstellung auf kleinen Bildschirmen) das Logo des Webauftritts. Ist dieser Schalter nicht eingeschaltet, wird stattdessen das CI-Logo angezeigt.', 'fau' ),                
+		    'default' => $defaultoptions['advanced_display_header_md-showsitelogo'],
+		    'parent'  => 'header'
+		), 
+	       
+	
+		'advanced_activate_quicklinks'	  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Quicklinks', 'fau' ),
+		    'label'   => __( 'Auf dem Template "Startseite Fakultät" werden unterhalb des Sliders die Quicklinks angezeigt. ', 'fau' ),                
+		    'default' => $defaultoptions['advanced_activate_quicklinks'],
+		    'parent'  => 'header'
+		),   
+	       
+	       
+	       
+	       
+		'footer'  => array(
+		    'type'    => 'section',
+		    'title'   => __( 'Footer', 'fau' ),    
+		    'desc'    => __( 'Einstellungen für den Fußteil des Webauftritts.', 'fau' ),
+		),
 	        'advanced_footer_display_address'	  => array(
 		    'type'    => 'toggle',
 		    'title'   => __( 'Adresse', 'fau' ),
@@ -818,9 +845,7 @@ $setoptions = array(
 		    'parent'  => 'footer'
 		), 
 	       
-	       
-	       
-	       
+
 	       
           )
        ),
@@ -1268,6 +1293,9 @@ $setoptions = array(
 		), 
 	       
 
+	       
+	       
+		
 	        'inhalte'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Metadaten und Inhalte', 'fau' ),     
