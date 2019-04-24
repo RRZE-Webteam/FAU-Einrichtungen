@@ -148,6 +148,16 @@
 
 }
 
+@media (min-width: $screen-md) {
+    .page-template-page-start.no-quicklinks  {
+	#hero {
+	    height: 310px;
+	}
+    }
+
+}
+
+
 
 .infobar {
     @extend .col-xs-12;
