@@ -1,8 +1,9 @@
 jQuery(document).ready(function ($) {
+        var $html = $('html');
         var $body = $('body');
 
         // This browser supports JS
-        $('html').removeClass('no-js').addClass('js');
+        $html.removeClass('no-js').addClass('js');
         // Add JS-enabled class to body
         $body.addClass('js-enabled responsive-large');
 
@@ -291,7 +292,7 @@ jQuery(document).ready(function ($) {
                 .click(function () {
                     this._isExpanded = !this._isExpanded;
                     $(this).attr('aria-expanded', this._isExpanded ? 'true' : 'false');
-                    $('#logo')[this._isExpanded ? 'hide' : 'show']();
+                    $('#logo').toggle(!this._isExpanded);
                 });
             $(this).replaceWith($toggleButton);
             $backdrop = $('<div id="menu-backdrop" aria-hidden="true"/>').click(function () {
@@ -318,10 +319,14 @@ jQuery(document).ready(function ($) {
         var $topLevelFlyouts = $('.nav > .has-sub > a + .nav-flyout');
         var toggleFlyout = function () {
             var toggle = this || null;
+            var isExpanded = false;
             $('.nav > .has-sub > [type=button]').each(function (i, btn) {
                 btn._isExpanded = (toggle === btn) ? !btn._isExpanded : false;
                 $(btn).attr('aria-expanded', btn._isExpanded ? 'true' : 'false');
+                isExpanded = isExpanded || btn._isExpanded;
+                btn.nextElementSibling.scrollTop = 0;
             });
+            $html.toggleClass('flyout-scrolling', isExpanded);
         };
         $topLevelFlyouts.each(function (index, topLevelFlyout) {
             var uniqueId = '_' + Math.random().toString(36).substr(2, 9);

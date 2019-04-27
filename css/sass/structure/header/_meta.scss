@@ -70,6 +70,15 @@
 	}
 	text-align: right;
 	position: static;
+
+	@media (max-width: $screen-sm - 1) {
+		.active-meta-widget & {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+		}
+	}
 }
 
 .meta-search {
