@@ -290,7 +290,7 @@
 					> a {
 						font-weight: bold;
 						border-bottom-color: $PalettonDunkler;
-						padding-left: 0;
+						padding-left: $padding-base-horizontal;
 
 						&:before {
 							display: none;
@@ -300,6 +300,7 @@
 
 				&.level3 a {
 					color: $PalettonHellste;
+					padding-left: $padding-base-horizontal;
 				}
 			}
 
@@ -318,6 +319,12 @@
 					min-height: 199px;
 				}
 			}
+
+			.container {
+				padding-left:  floor(($grid-gutter-width / 2) - $padding-base-horizontal);
+				padding-right: ceil(($grid-gutter-width / 2) - $padding-base-horizontal);
+			}
+
 		}
 	}
 }
