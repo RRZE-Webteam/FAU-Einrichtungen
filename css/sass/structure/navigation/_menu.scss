@@ -527,6 +527,8 @@
 	.nav {
 		.nav-flyout {
 			top: 90px;
+			max-height: calc(100vh - 162px);
+			overflow-y: auto;
 		}
 	}
 }
