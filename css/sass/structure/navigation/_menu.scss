@@ -271,51 +271,53 @@
 	}
 }
 
-.mainnav-plainview {
-	.nav {
-		ul {
-			margin-bottom: 0;
+/* Large device */
+@media (min-width: $screen-sm) {
+	.mainnav-plainview {
+		.nav {
+			ul {
+				margin-bottom: 0;
 
-			&.level2 > li {
-				margin-bottom: 15px;
+				&.level2 > li {
+					margin-bottom: 15px;
 
-				&:not(.has-sub) {
+					&:not(.has-sub) {
+						> a {
+							border-bottom: none;
+						}
+					}
+
 					> a {
-						border-bottom: none;
+						font-weight: bold;
+						border-bottom-color: $PalettonDunkler;
+						padding-left: 0;
+
+						&:before {
+							display: none;
+						}
 					}
 				}
 
-				> a {
-					font-weight: bold;
-					border-bottom-color: $PalettonDunkler;
-					padding-left: 0;
-
-					&:before {
-						display: none;
-					}
+				&.level3 a {
+					color: $PalettonHellste;
 				}
 			}
 
-			&.level3 a {
-				color: $PalettonHellste;
-			}
-		}
+			.flyout-entries-full {
+				column-count: 3;
+				column-gap: 30px;
 
-		.flyout-entries-full {
-			column-count: 3;
-			column-gap: 30px;
-
-			@media (max-width: $screen-md - 1) {
-				column-count: 2;
+				@media (max-width: $screen-md - 1) {
+					column-count: 2;
+				}
 			}
-		}
 
-		.nav-flyout {
-			background: url("./img/siegel-zuv-schnitt.png") no-repeat 95% bottom, linear-gradient(to top, #005599 0%, #036 100%);
-			@media (min-width: $screen-sm) {
-			    min-height: 199px;
+			.nav-flyout {
+				background: url("./img/siegel-zuv-schnitt.png") no-repeat 95% bottom, linear-gradient(to top, #005599 0%, #036 100%);
+				@media (min-width: $screen-sm) {
+					min-height: 199px;
+				}
 			}
-			
 		}
 	}
 }
