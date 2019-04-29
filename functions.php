@@ -298,8 +298,17 @@ function fau_remove_unwanted_head_actions() {
 	    // remove prev link
 	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 ); 
 	    // remove Display relational links for the posts adjacent to the current post.
-	remove_action( 'wp_head',      'wp_oembed_add_discovery_links'         ); 
+	remove_action( 'wp_head', 'wp_oembed_add_discovery_links'         ); 
 	    // remove oEmbed discovery links in the website 
+	
+	remove_action('wp_head', '_admin_bar_bump_cb');
+	    // remove Inline CSS to display WordPress Admin Bar
+	    // we move this into our CSS-file - see: css/sass/backend/wordpress 	
+	if (!is_user_logged_in()) {
+	    // remove admin settings in footer if not logged in
+	    remove_action( 'wp_footer', 'wp_admin_bar_render', 1000 );
+	    add_filter( 'show_admin_bar', '__return_false' );
+	}
 
 }
 add_action('wp_head', 'fau_remove_unwanted_head_actions', 0);
