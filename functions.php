@@ -91,12 +91,7 @@ function fau_setup() {
 	/* Grid-Thumbs for gallerys - Name: gallery-grid */
 	add_image_size( 'gallery-grid', $defaultoptions['default_gallery_grid_width'], $defaultoptions['default_gallery_grid_height'], $defaultoptions['default_gallery_grid_crop']); // 145, 120, false
 	
-	/* 2 column Imagelists for gallerys - Name: image-2-col */
-	add_image_size( 'image-2-col', $defaultoptions['default_gallery_grid2col_width'], $defaultoptions['default_gallery_grid2col_height'], $defaultoptions['default_gallery_grid2col_crop']); // 300, 200, true
 	
-	/* 4 column Imagelists for gallerys - Name: image-4-col */
-	add_image_size( 'image-4-col', $defaultoptions['default_gallery_grid4col_width'], $defaultoptions['default_gallery_grid4col_height'], $defaultoptions['default_gallery_grid4col_crop']);	// 140, 70, true
-
 
 	
 

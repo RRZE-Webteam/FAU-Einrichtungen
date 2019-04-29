@@ -954,7 +954,7 @@ add_filter('post_gallery', 'fau_post_gallery', 10, 2);
 function fau_post_gallery($output, $attr) {
     global $post;
     global $usejslibs;
-    
+    global $defaultoptions;
     if (isset($attr['orderby'])) {
         $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
         if (!$attr['orderby'])
@@ -1057,7 +1057,7 @@ function fau_post_gallery($output, $attr) {
 			    $i = 0;
 
 			    foreach ($attachments as $id => $attachment) {
-				    $img = wp_get_attachment_image_src($id, 'image-2-col');
+				    $img = wp_get_attachment_image_src($id, 'post');
 				    $img_full = wp_get_attachment_image_src($id, 'full');
 				    $meta = get_post($id);
 				     $lightboxattr = '';
@@ -1082,38 +1082,7 @@ function fau_post_gallery($output, $attr) {
 			    break;
 		    }
 
-	    case "4cols":
-		    {
-			    $rand = rand();
-
-			    $output .= '<div class="row">'."\n";
-			    $i = 0;
-
-			    foreach ($attachments as $id => $attachment) {
-				    $img = wp_get_attachment_image_src($id, 'image-4-col');
-				    $img_full = wp_get_attachment_image_src($id, 'full');
-				    $meta = get_post($id);
-				    $lightboxattr = '';
-				    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
-				    if (strlen(trim($lightboxtitle))>1) {
-					$lightboxattr = ' title="'.$lightboxtitle.'"';
-				    }
-				    $output .= '<div class="span2">';
-				    $output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';
-				    $output .= '<img class="content-image-cols" src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt=""></a>';
-				    if($attr['captions'] && $meta->post_excerpt) $output .= '<div class="caption">'.$meta->post_excerpt.'</div>';
-				    $output .= '</div>';
-				    $i++;
-
-				    if($i % 4 == 0) {
-					    $output .= '    </div><div class="row">'."\n";
-				    }
-			    }
-
-			    $output .= "</div>\n";
-
-			    break;
-		    }
+	  
 
 	    default:
 		    {
@@ -1156,15 +1125,37 @@ function fau_post_gallery($output, $attr) {
 			$output .= "<div id=\"carousel-$rand\" class=\"image-gallery-carousel\">";
 			$output .= "	<ul class=\"slides\">";
 
+			
+			// why not:
+			// add_image_size( 'logo-thumb', $defaultoptions['default_logo_carousel_width'], $defaultoptions['default_logo_carousel_height'], $defaultoptions['default_logo_carousel_crop']);   // 140:110, true
+		//	add_image_size( 'gallery-thumb', $defaultoptions['default_gallery_thumb_width'], $defaultoptions['default_gallery_thumb_height'], $defaultoptions['default_gallery_thumb_crop']); // 120, 80, true
+
+			
+			
+			$thumbwidth = 120;
+			 
+			if ($defaultoptions['default_gallery_thumb_size'] == 'logo_carousel') {
+			    $usesize = 'logo-thumb';
+			    $thumbwidth = $defaultoptions['default_logo_carousel_width'];
+			    $thumbheight = $defaultoptions['default_logo_carousel_height'];
+			    $itemwidth = $thumbwidth + 5;
+			} else {
+			    $usesize = 'gallery-thumb';
+			    $thumbwidth = $defaultoptions['default_gallery_thumb_width'];
+			    $thumbheight = $defaultoptions['default_gallery_thumb_height'];
+			    $itemwidth = $thumbwidth + 5;
+			}
+			
+			
 			foreach ($attachments as $id => $attachment) {
-			    $img = wp_get_attachment_image_src($id, 'gallery-thumb');
-			    $output .= '	<li><img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt=""></li>';
+			    $img = wp_get_attachment_image_src($id, $usesize);
+			    $output .= '	<li><img src="'.fau_esc_url($img[0]).'" width="'.$thumbwidth.'" height="'.$thumbheight.'" alt=""></li>';
 			}
 
 			$output .= "	</ul>";
 			$output .= "</div>";				
 			$output .= "<script type=\"text/javascript\"> jQuery(document).ready(function($) {";			
-			$output .= "$('#carousel-$rand').flexslider({maxItems: ".$attr['columns'].",selector: 'ul > li',animation: 'slide',keyboard:true,multipleKeyboard:true,directionNav:true,controlNav: true,pausePlay: false,slideshow: false,asNavFor: '#slider-$rand',itemWidth: 125,itemMargin: 5});";
+			$output .= "$('#carousel-$rand').flexslider({maxItems: ".$attr['columns'].",selector: 'ul > li',animation: 'slide',keyboard:true,multipleKeyboard:true,directionNav:true,controlNav: true,pausePlay: false,slideshow: false,asNavFor: '#slider-$rand',itemWidth: ".$itemwidth.",itemMargin: 5});";
 			$output .= "$('#slider-$rand').flexslider({selector: 'ul > li',animation: 'slide',keyboard:true,multipleKeyboard:true,directionNav: false,controlNav: false,pausePlay: false,slideshow: false,sync: '#carousel-$rand'});";
 			$output .= "});</script>";
 

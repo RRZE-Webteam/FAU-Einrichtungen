@@ -50,9 +50,12 @@
 			cursor: pointer;
 			opacity: 0.3;
 			background: none;
+			max-height: 110px;
 			
-			&:hover, &:focus, &.flex-active-slide {
-				opacity: 1.0;
+			&:hover, 
+			&:focus, 
+			&.flex-active-slide {
+			    opacity: $slick-opacity-on-hover;
 			}
 		}
 	}
@@ -70,24 +73,24 @@
 		}
 		
 	}
-	
+
 	.flex-prev {
 		top: 60px;
 		left: 0px;
-		opacity: 0.1;
+		opacity: $slick-opacity-default;
 	}
 	
 	.flex-next {
 		top: 60px;
 		right: 0px;
-		opacity: 0.1;
+		opacity: $slick-opacity-default;
 	}
 	&:hover {
 	    .flex-prev {
-		opacity: 1;
+		opacity: $slick-opacity-on-hover;
 	    }
 	    .flex-next {
-		opacity: 1;
+		opacity: $slick-opacity-on-hover;
 	    }
 	}
 }
