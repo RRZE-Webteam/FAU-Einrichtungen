@@ -6,7 +6,8 @@
  */
 
 load_theme_textdomain( 'fau', get_template_directory() . '/languages' );
-require_once( get_template_directory() . '/functions/relative-urls.php');
+require_once( get_template_directory() . '/functions/template-functions.php' );
+
 require_once( get_template_directory() . '/functions/defaults.php' );
 require_once( get_template_directory() . '/functions/constants.php' );
 require_once( get_template_directory() . '/functions/sanitizer.php' );
@@ -16,11 +17,9 @@ require_once( get_template_directory() . '/functions/customizer.php');
 $options = fau_initoptions();
 
 require_once( get_template_directory() . '/functions/plugin-support.php' );
-
 require_once( get_template_directory() . '/functions/helper-functions.php' );
 require_once( get_template_directory() . '/functions/embeddings.php');
 
-require_once( get_template_directory() . '/functions/template-functions.php' );
 require_once( get_template_directory() . '/functions/shortcodes.php');
 require_once( get_template_directory() . '/functions/shortcode-accordion.php');
 
@@ -85,9 +84,11 @@ function fau_setup() {
 	/* Images for gallerys - Name: gallery-full */
 	add_image_size( 'gallery-full', $defaultoptions['default_gallery_full_width'], $defaultoptions['default_gallery_full_height'], $defaultoptions['default_gallery_full_crop']); // 940, 470, false
 	//
-	// Wird bei Default-Galerien verwendet als ANzeige des großen Bildes.
-	add_image_size( 'gallery-thumb', $defaultoptions['default_gallery_thumb_width'], $defaultoptions['default_gallery_thumb_height'], $defaultoptions['default_gallery_thumb_crop']); // 120, 80, true
-
+	//
+	if ($defaultoptions['default_gallery_thumb_size'] != 'logo_carousel') {
+	    // Wird bei Default-Galerien verwendet als ANzeige des großen Bildes.
+	    add_image_size( 'gallery-thumb', $defaultoptions['default_gallery_thumb_width'], $defaultoptions['default_gallery_thumb_height'], $defaultoptions['default_gallery_thumb_crop']); // 120, 80, true
+	}
 	/* Grid-Thumbs for gallerys - Name: gallery-grid */
 	add_image_size( 'gallery-grid', $defaultoptions['default_gallery_grid_width'], $defaultoptions['default_gallery_grid_height'], $defaultoptions['default_gallery_grid_crop']); // 145, 120, false
 	
