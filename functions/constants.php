@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 48,
+    'optiontable-version'		=> 49,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -148,10 +148,6 @@ $defaultoptions = array(
     'default_gallery_thumb_height'	    => 80,
     'default_gallery_thumb_crop'	    => true,     
 
-    /* Grid-Thumbs for gallerys - Name: gallery-grid */
-    'default_gallery_grid_width'	    => 145,
-    'default_gallery_grid_height'	    => 120,
-    'default_gallery_grid_crop'		    => false,    
    
     
    

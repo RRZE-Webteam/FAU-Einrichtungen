@@ -921,6 +921,8 @@ function fau_get_image_attributs($id=0) {
 /* Get category links for front page
 /*-----------------------------------------------------------------------------------*/
 
+
+
 function fau_get_category_links($cateid = 0) {
     
     if ($cateid==0) {
@@ -955,6 +957,8 @@ function fau_post_gallery($output, $attr) {
     global $post;
     global $usejslibs;
     global $defaultoptions;
+    
+    
     if (isset($attr['orderby'])) {
         $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
         if (!$attr['orderby'])
@@ -962,22 +966,19 @@ function fau_post_gallery($output, $attr) {
     }
 
     extract(shortcode_atts(array(
-        'order' => 'ASC',
-        'orderby' => 'menu_order ID',
-        'id' => $post->ID,
-        'itemtag' => 'dl',
-        'icontag' => 'dt',
-        'captiontag' => 'dd',
-        'columns' => 3,
-        'size' => 'thumbnail',
-        'include' => '',
-        'exclude' => '',
-	'type' => NULL,
-	'lightbox' => FALSE,
-	'captions' => 1,
-	'columns'   => 6,
-	'link'	=> 'file'
-
+	'order'		=> 'ASC',
+	'orderby'	=> 'menu_order ID',
+	'id'		=> $post->ID,
+	'columns'	=> 3,
+	'include'	=> '',
+	'exclude'	=> '',
+	'type'		=> 'default',
+	'captions'	=> 1,
+	'link'		=> 'file'
+	    // aus Wizard:
+	    // file = direkt zur mediendatei
+	    // none = nirgendwohin
+	    // NULL = anhang seite
     ), $attr));
 
     $id = intval($id);
@@ -995,8 +996,9 @@ function fau_post_gallery($output, $attr) {
 
     if (empty($attachments)) return '';
 
-	
-    $output = '';
+    $gridtype = 'default';
+    
+    $output = '<div class="image-gallery">';
     if (!isset($attr['captions'])) {
 	$attr['captions'] =1;
     }
@@ -1006,161 +1008,248 @@ function fau_post_gallery($output, $attr) {
     if (!isset($attr['type'])) {
 	$attr['type'] = 'default';
     }
-    if (!isset($attr['link'])) {
-	$attr['link'] = 'file';
+
+    if ($attr['type'] == 'slick') {
+	$gridtype = 'slick';
+	
+    } elseif ($attr['type'] != 'default') {
+	
+	$gridclass = 'flexgrid';
+	$gridtype = 'grid';
+	if ($attr['columns']==2) {
+	    $gridclass = 'two';
+	} elseif ($attr['columns']==3) {
+	    $gridclass = 'three';
+	} elseif ($attr['columns']==4) {
+	    $gridclass = 'four';
+	}
+	
+	// Overwrite by type
+	if ($attr['type'] == '2cols') {
+	    $gridclass = 'two';
+	}
+	if ($attr['type'] == '4cols') {
+	    $gridclass = 'four';
+	}
+   
     }
-    switch($attr['type'])  {
-	    case "grid":
-		    {
-			$rand = rand();
+    
+    
+    if ($gridtype == 'grid') {
+	// Images in grid view
+	
+	$rand = rand();
+	$output .= '<div class="grid">'."\n";
+	
+	if ($gridclass=='flexgrid') {
+	    $output .= '<div class="flexgrid">'."\n";
+	} else {
+	    $output .= '<div class="'.$gridclass.'">'."\n";
+	    $output .= '<div class="row">'."\n";
+	}
+	
+	
+	
+	$i = 0;
+	
+	$usesize = 'post-thumb';
+	$thumbwidth = $defaultoptions['default_postthumb_width'];
+	$thumbheight = $defaultoptions['default_postthumb_height'];
+			    
+			    
+	foreach ($attachments as $id => $attachment) {
+		$img = wp_get_attachment_image_src($id, $usesize);
+		$img_full = wp_get_attachment_image_src($id, 'full');
+		$meta = get_post($id);
+		$lightboxattr = '';
+		$lightboxtitle = sanitize_text_field($meta->post_excerpt);
+		if (strlen(trim($lightboxtitle))>1) {
+		    $lightboxattr = ' title="'.$lightboxtitle.'"';
+		}
+		
+		if(isset( $attr['captions']) && ($attr['captions']==1) && $meta->post_excerpt) {
+		    $output .= '<figure class="with-caption">';
+		} else {
+		    $output .= '<figure>';
+		}
+		if ('none' !== $attr['link'] ) {
+		    $output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';		    
+		}
+		
+		$output .= '<img src="'.fau_esc_url($img[0]).'" width="'.$thumbwidth.'" height="'.$thumbheight.'" alt=""></a>';
+		if ('none' !== $attr['link'] ) {
+		    $output .= '</a>';
+		}
+		
+		if(isset( $attr['captions']) && ($attr['captions']==1) && $meta->post_excerpt) {
+		    $output .= '<figcaption>'.$meta->post_excerpt.'</figcaption>';
+		}
+		$output .= '</figure>'."\n";
+		$i++;
 
-			$output .= "<div class=\"image-gallery-grid clearfix\">\n";
-			$output .= "<ul class=\"grid\">\n";
+		if (($gridclass == 'two') && ($i % 2 == 0)) {
+		    $output .= '</div><div class="row">'."\n";  
+		} elseif (($gridclass == 'three') && ($i % 3 == 0)) {
+		    $output .= '</div><div class="row">'."\n";
+		} elseif (($gridclass == 'four') && ($i % 4 == 0)) {
+		    $output .= '</div><div class="row">'."\n";
+		}
+	}
 
-			    foreach ($attachments as $id => $attachment) {
-				    $img = wp_get_attachment_image_src($id, 'gallery-grid');
-				    $meta = get_post($id);
-				    // $img_full = wp_get_attachment_image_src($id, 'gallery-full');
-				    $img_full = wp_get_attachment_image_src($id, 'full');
-				    $lightboxattr = '';
-				    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
-				    if (strlen(trim($lightboxtitle))>1) {
-					$lightboxattr = ' title="'.$lightboxtitle.'"';
-				    }
-				    if(isset( $attr['captions']) && ($attr['captions']==1) && $meta->post_excerpt) {
-					    $output .= "<li class=\"has-caption\">\n";
-				    } else  {
-					    $output .= "<li>\n";
-				    }
-					$output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox"';
-					$output .= ' rel="lightbox-'.$rand.'"'.$lightboxattr.'>';
+	$output .= '</div>'."\n";
+	if ($gridclass !='flexgrid') {
+	    $output .= '</div>'."\n";
+	}
+	$output .= '</div>'."\n";
+	
+	
+    } elseif ($gridtype=='slick') {
+	wp_enqueue_script('fau-js-heroslider');
+	
+	$rand = rand();	    
+	$output .= "<div id=\"slider-$rand\" class=\"gallery-slick\">\n";
+	
+	
+	$output .= "<div class=\"slider-for-$rand\">\n";
 
-				    $output .= '<img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt="">';
-				    $output .= '</a>';
-				    if($meta->post_excerpt) {
-					    $output .= '<div class="caption">'.$meta->post_excerpt.'</div>';
-				    }
-			    $output .= "</li>\n";
+	foreach ($attachments as $id => $attachment) {
+	    $img = wp_get_attachment_image_src($id, 'gallery-full');
+	    $meta = get_post($id);
+	    $img_full = wp_get_attachment_image_src($id, 'full');
+	   
+	    $output .= '<div class="item">';
+	    $output .= '<img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt="">';
+	    $link_origin = get_theme_mod('galery_link_original');
+	    if (($link_origin) || ($meta->post_excerpt != '')) {
+		$output .= '<div class="gallery-image-caption">';
+		    $lightboxattr = '';
+		    if($meta->post_excerpt != '') { 
+			$output .= $meta->post_excerpt; 
+			$lightboxtitle = sanitize_text_field($meta->post_excerpt);
+			if (strlen(trim($lightboxtitle))>1) {
+			    $lightboxattr = ' title="'.$lightboxtitle.'"';
 			}
-
-			    $output .= "</ul>\n";
-			$output .= "</div>\n";
-
-			    break;
 		    }
-
-	    case "2cols":
-		    {
-			    $rand = rand();
-
-			    $output .= '<div class="row">'."\n";
-			    $i = 0;
-
-			    foreach ($attachments as $id => $attachment) {
-				    $img = wp_get_attachment_image_src($id, 'post');
-				    $img_full = wp_get_attachment_image_src($id, 'full');
-				    $meta = get_post($id);
-				     $lightboxattr = '';
-				    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
-				    if (strlen(trim($lightboxtitle))>1) {
-					$lightboxattr = ' title="'.$lightboxtitle.'"';
-				    }
-				    $output .= '<div class="span4">';
-				    $output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';
-				    $output .= '<img class="content-image-cols" src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt=""></a>';
-				    if($attr['captions'] && $meta->post_excerpt) $output .= '<div class="caption">'.$meta->post_excerpt.'</div>';
-				    $output .= '</div>'."\n";
-				    $i++;
-
-				    if($i % 2 == 0) {
-					    $output .= '</div><div class="row">'."\n";
-				    }
-			    }
-
-			    $output .= '</div>'."\n";
-
-			    break;
+		    if (($link_origin) && ($attr['link'] != 'none')) {
+			if($meta->post_excerpt != '') { $output .= '<br>'; }
+			$output .= '<span class="linkorigin">(<a href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
 		    }
+		$output .='</div>';
+	    }
+	    
+	    $output .='</div>';
+	    
+	}
 
-	  
+	$output .= "</div>\n";
+	$output .= "<div class=\"slider-nav-width slider-nav-$rand\">\n";
 
-	    default:
-		    {
-			$usejslibs['flexslider'] = true;
-			$rand = rand();	    
-			$output .= "<div id=\"slider-$rand\" class=\"image-gallery-slider\">\n";
-			$output .= "	<ul class=\"slides\">\n";
 
-			foreach ($attachments as $id => $attachment) {
-			    $img = wp_get_attachment_image_src($id, 'gallery-full');
-			    $meta = get_post($id);
-			    $img_full = wp_get_attachment_image_src($id, 'full');
+	$thumbwidth = 120;
 
-			    $output .= '<li><img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt="">';
-			    $link_origin = get_theme_mod('galery_link_original');
-			    if (($link_origin) || ($meta->post_excerpt != '')) {
-				$output .= '<div class="gallery-image-caption">';
-				$lightboxattr = '';
-				if($meta->post_excerpt != '') { 
-				    $output .= $meta->post_excerpt; 
-				    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
-				    if (strlen(trim($lightboxtitle))>1) {
-					$lightboxattr = ' title="'.$lightboxtitle.'"';
-				    }
-				}
-				if (($link_origin) && ($attr['link'] != 'none')) {
-				    if($meta->post_excerpt != '') { $output .= '<br>'; }
-				    $output .= '<span class="linkorigin">(<a href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
-				}
-				$output .='</div>';
-			    }
-			    $output .= "</li>\n";
-			}
+	if ($defaultoptions['default_gallery_thumb_size'] == 'logo_carousel') {
+	    $usesize = 'logo-thumb';
+	    $thumbwidth = $defaultoptions['default_logo_carousel_width'];
+	    $thumbheight = $defaultoptions['default_logo_carousel_height'];
+	} else {
+	    $usesize = 'gallery-thumb';
+	    $thumbwidth = $defaultoptions['default_gallery_thumb_width'];
+	    $thumbheight = $defaultoptions['default_gallery_thumb_height'];
+	}
 
-			$output .= "	</ul>\n";
-			$output .= "</div>\n";
+	foreach ($attachments as $id => $attachment) {
+	    $img = wp_get_attachment_image_src($id, $usesize);
+	    $output .= '	<div><img src="'.fau_esc_url($img[0]).'" width="'.$thumbwidth.'" height="'.$thumbheight.'" alt=""></div>';
+	}
 
-			
-			
-			$output .= "<div id=\"carousel-$rand\" class=\"image-gallery-carousel\">";
-			$output .= "	<ul class=\"slides\">";
+	$output .= "</div>\n";	
+	$output .= "<script type=\"text/javascript\"> jQuery(document).ready(function($) {";	
+	$output .= "$('.slider-for-$rand').slick({slidesToShow: 1,slidesToScroll: 1, arrows: false, fade: true,adaptiveHeight: true,asNavFor: '.slider-nav-$rand' });";
+	$output .= "$('.slider-nav-$rand').slick({ slidesToShow: 3,  slidesToScroll: 1, adaptiveHeight: true,  asNavFor: '.slider-for-$rand',  dots: true, centerMode: true,focusOnSelect: true, centerPadding: 5});";
+	$output .= "});</script>";
 
-			
-			// why not:
-			// add_image_size( 'logo-thumb', $defaultoptions['default_logo_carousel_width'], $defaultoptions['default_logo_carousel_height'], $defaultoptions['default_logo_carousel_crop']);   // 140:110, true
-		//	add_image_size( 'gallery-thumb', $defaultoptions['default_gallery_thumb_width'], $defaultoptions['default_gallery_thumb_height'], $defaultoptions['default_gallery_thumb_crop']); // 120, 80, true
+	$output .= "</div>";	
 
-			
-			
-			$thumbwidth = 120;
-			 
-			if ($defaultoptions['default_gallery_thumb_size'] == 'logo_carousel') {
-			    $usesize = 'logo-thumb';
-			    $thumbwidth = $defaultoptions['default_logo_carousel_width'];
-			    $thumbheight = $defaultoptions['default_logo_carousel_height'];
-			    $itemwidth = $thumbwidth + 5;
-			} else {
-			    $usesize = 'gallery-thumb';
-			    $thumbwidth = $defaultoptions['default_gallery_thumb_width'];
-			    $thumbheight = $defaultoptions['default_gallery_thumb_height'];
-			    $itemwidth = $thumbwidth + 5;
-			}
-			
-			
-			foreach ($attachments as $id => $attachment) {
-			    $img = wp_get_attachment_image_src($id, $usesize);
-			    $output .= '	<li><img src="'.fau_esc_url($img[0]).'" width="'.$thumbwidth.'" height="'.$thumbheight.'" alt=""></li>';
-			}
 
-			$output .= "	</ul>";
-			$output .= "</div>";				
-			$output .= "<script type=\"text/javascript\"> jQuery(document).ready(function($) {";			
-			$output .= "$('#carousel-$rand').flexslider({maxItems: ".$attr['columns'].",selector: 'ul > li',animation: 'slide',keyboard:true,multipleKeyboard:true,directionNav:true,controlNav: true,pausePlay: false,slideshow: false,asNavFor: '#slider-$rand',itemWidth: ".$itemwidth.",itemMargin: 5});";
-			$output .= "$('#slider-$rand').flexslider({selector: 'ul > li',animation: 'slide',keyboard:true,multipleKeyboard:true,directionNav: false,controlNav: false,pausePlay: false,slideshow: false,sync: '#carousel-$rand'});";
-			$output .= "});</script>";
+	
 
+	
+    } else {
+	// Images in gallery function  
+	
+	$usejslibs['flexslider'] = true;
+	
+	$rand = rand();	    
+	$output .= "<div id=\"slider-$rand\" class=\"image-gallery-slider\">\n";
+	$output .= "	<ul class=\"slides\">\n";
+
+	foreach ($attachments as $id => $attachment) {
+	    $img = wp_get_attachment_image_src($id, 'gallery-full');
+	    $meta = get_post($id);
+	    $img_full = wp_get_attachment_image_src($id, 'full');
+
+	    $output .= '<li><img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt="">';
+	    $link_origin = get_theme_mod('galery_link_original');
+	    if (($link_origin) || ($meta->post_excerpt != '')) {
+		$output .= '<div class="gallery-image-caption">';
+		$lightboxattr = '';
+		if($meta->post_excerpt != '') { 
+		    $output .= $meta->post_excerpt; 
+		    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
+		    if (strlen(trim($lightboxtitle))>1) {
+			$lightboxattr = ' title="'.$lightboxtitle.'"';
 		    }
+		}
+		if (($link_origin) && ($attr['link'] != 'none')) {
+		    if($meta->post_excerpt != '') { $output .= '<br>'; }
+		    $output .= '<span class="linkorigin">(<a href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
+		}
+		$output .='</div>';
+	    }
+	    $output .= "</li>\n";
+	}
+
+	$output .= "	</ul>\n";
+	$output .= "</div>\n";
+
+
+
+	$output .= "<div id=\"carousel-$rand\" class=\"image-gallery-carousel\">";
+	$output .= "	<ul class=\"slides\">";
+
+
+
+	$thumbwidth = 120;
+
+	if ($defaultoptions['default_gallery_thumb_size'] == 'logo_carousel') {
+	    $usesize = 'logo-thumb';
+	    $thumbwidth = $defaultoptions['default_logo_carousel_width'];
+	    $thumbheight = $defaultoptions['default_logo_carousel_height'];
+	    $itemwidth = $thumbwidth + 5;
+	} else {
+	    $usesize = 'gallery-thumb';
+	    $thumbwidth = $defaultoptions['default_gallery_thumb_width'];
+	    $thumbheight = $defaultoptions['default_gallery_thumb_height'];
+	    $itemwidth = $thumbwidth + 5;
+	}
+
+
+	foreach ($attachments as $id => $attachment) {
+	    $img = wp_get_attachment_image_src($id, $usesize);
+	    $output .= '	<li><img src="'.fau_esc_url($img[0]).'" width="'.$thumbwidth.'" height="'.$thumbheight.'" alt=""></li>';
+	}
+
+	$output .= "	</ul>";
+	$output .= "</div>";				
+	$output .= "<script type=\"text/javascript\"> jQuery(document).ready(function($) {";			
+	$output .= "$('#carousel-$rand').flexslider({maxItems: ".$attr['columns'].",selector: 'ul > li',animation: 'slide',keyboard:true,multipleKeyboard:true,directionNav:true,controlNav: true,pausePlay: false,slideshow: false,asNavFor: '#slider-$rand',itemWidth: ".$itemwidth.",itemMargin: 5});";
+	$output .= "$('#slider-$rand').flexslider({selector: 'ul > li',animation: 'slide',keyboard:true,multipleKeyboard:true,directionNav: false,controlNav: false,pausePlay: false,slideshow: false,sync: '#carousel-$rand'});";
+	$output .= "});</script>";
+
     }
+    
+    
+    $output .= "</div>\n";
     return $output;
 }
 

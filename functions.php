@@ -89,10 +89,6 @@ function fau_setup() {
 	    // Wird bei Default-Galerien verwendet als ANzeige des großen Bildes.
 	    add_image_size( 'gallery-thumb', $defaultoptions['default_gallery_thumb_width'], $defaultoptions['default_gallery_thumb_height'], $defaultoptions['default_gallery_thumb_crop']); // 120, 80, true
 	}
-	/* Grid-Thumbs for gallerys - Name: gallery-grid */
-	add_image_size( 'gallery-grid', $defaultoptions['default_gallery_grid_width'], $defaultoptions['default_gallery_grid_height'], $defaultoptions['default_gallery_grid_crop']); // 145, 120, false
-	
-	
 
 	
 
