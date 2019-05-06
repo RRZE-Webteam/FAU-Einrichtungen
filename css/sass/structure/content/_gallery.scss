@@ -20,7 +20,16 @@
 	}
     }
     .grid {
+	.two, 
+	.three,
+	.four {
+	    .row {
+		display: flex;
+		flex-wrap: wrap;
+	    }
+	}
 	.two {
+	    
 	    figure {
 		@extend .col-xs-6;
 	    }
@@ -69,12 +78,23 @@
 	    color: $PalettonDunkler;
 	    padding: 5px;
 	}
+	.slick-slider {
+	    img {
+		margin: 0 auto;
+	    }
+	}
 	.slider-nav-width {
 	   width: calc(100% - 100px);
 	   margin: 20px auto 0;
 	
 	    .slick-slide {
 		cursor: pointer;
+		max-height: 110px;
+		overflow: hidden;
+		margin-left: 5px;
+		margin-right: 5px;
+		
+		
 	    }
 	}
 	.slick-prev,
@@ -126,20 +146,17 @@
 
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
-			text-shadow: $slick-opacity-text-shadow;
-			@media (min-width: $break-1360) {
-				text-shadow: none;
-			}
+
 		}
 
 	}
 
 	.slick-prev {
-		left: 5px;
+		left: -40px;
 
 		[dir="rtl"] & {
 			left: auto;
-			right: 5px;
+			right: -40px;
 		}
 
 		@media (min-width: $break-1360) {
@@ -163,10 +180,10 @@
 	}
 
 	.slick-next {
-		right: 5px;
+		right: -40px;
 
 		[dir="rtl"] & {
-			left: 5px;
+			left: -40px;
 			right: auto;
 		}
 
@@ -233,11 +250,10 @@
 	
 	.slick-dots {
 	    position: absolute;
-	    bottom: -25px;
 	    display: block;
 	    width: 100%;
 	    padding: 0;
-	    margin: 0;
+	    margin: 5px auto 15px auto;
 	    list-style: none;
 	    text-align: center;
 	    li {
