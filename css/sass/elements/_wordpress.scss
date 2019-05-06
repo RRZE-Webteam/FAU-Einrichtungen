@@ -34,6 +34,22 @@
 }
 
 
+// Admin Bar
+.admin-bar {
+   
+	html & { 
+	    margin-top: 32px !important; }
+	// * html body.& { 
+	//    margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html & { margin-top: 46px !important; }
+	//	* html body.& { margin-top: 46px !important; }
+	}
+
+}
+
+
+
 // Settings for Gutenberg / WordPress 5.
 
 // Small Font size
@@ -66,3 +82,4 @@ p.has-drop-cap {
 	font-style:normal;
     }
 }
+

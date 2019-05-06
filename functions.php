@@ -6,7 +6,8 @@
  */
 
 load_theme_textdomain( 'fau', get_template_directory() . '/languages' );
-require_once( get_template_directory() . '/functions/relative-urls.php');
+require_once( get_template_directory() . '/functions/template-functions.php' );
+
 require_once( get_template_directory() . '/functions/defaults.php' );
 require_once( get_template_directory() . '/functions/constants.php' );
 require_once( get_template_directory() . '/functions/sanitizer.php' );
@@ -16,11 +17,9 @@ require_once( get_template_directory() . '/functions/customizer.php');
 $options = fau_initoptions();
 
 require_once( get_template_directory() . '/functions/plugin-support.php' );
-
 require_once( get_template_directory() . '/functions/helper-functions.php' );
 require_once( get_template_directory() . '/functions/embeddings.php');
 
-require_once( get_template_directory() . '/functions/template-functions.php' );
 require_once( get_template_directory() . '/functions/shortcodes.php');
 require_once( get_template_directory() . '/functions/shortcode-accordion.php');
 
@@ -29,6 +28,8 @@ require_once( get_template_directory() . '/functions/custom-fields.php' );
 require_once( get_template_directory() . '/functions/posttype_imagelink.php' );
 require_once( get_template_directory() . '/functions/posttype_ad.php' );
 require_once( get_template_directory() . '/functions/widgets.php' );
+require_once( get_template_directory() . '/functions/gallery.php' );
+
 require_once( get_template_directory() . '/functions/posttype-synonym.php');
 require_once( get_template_directory() . '/functions/posttype-glossary.php');
 require_once( get_template_directory() . '/functions/gutenberg.php');
@@ -85,18 +86,11 @@ function fau_setup() {
 	/* Images for gallerys - Name: gallery-full */
 	add_image_size( 'gallery-full', $defaultoptions['default_gallery_full_width'], $defaultoptions['default_gallery_full_height'], $defaultoptions['default_gallery_full_crop']); // 940, 470, false
 	//
-	// Wird bei Default-Galerien verwendet als ANzeige des großen Bildes.
-	add_image_size( 'gallery-thumb', $defaultoptions['default_gallery_thumb_width'], $defaultoptions['default_gallery_thumb_height'], $defaultoptions['default_gallery_thumb_crop']); // 120, 80, true
-
-	/* Grid-Thumbs for gallerys - Name: gallery-grid */
-	add_image_size( 'gallery-grid', $defaultoptions['default_gallery_grid_width'], $defaultoptions['default_gallery_grid_height'], $defaultoptions['default_gallery_grid_crop']); // 145, 120, false
-	
-	/* 2 column Imagelists for gallerys - Name: image-2-col */
-	add_image_size( 'image-2-col', $defaultoptions['default_gallery_grid2col_width'], $defaultoptions['default_gallery_grid2col_height'], $defaultoptions['default_gallery_grid2col_crop']); // 300, 200, true
-	
-	/* 4 column Imagelists for gallerys - Name: image-4-col */
-	add_image_size( 'image-4-col', $defaultoptions['default_gallery_grid4col_width'], $defaultoptions['default_gallery_grid4col_height'], $defaultoptions['default_gallery_grid4col_crop']);	// 140, 70, true
-
+	//
+	if ($defaultoptions['default_gallery_thumb_size'] != 'logo_carousel') {
+	    // Wird bei Default-Galerien verwendet als ANzeige des großen Bildes.
+	    add_image_size( 'gallery-thumb', $defaultoptions['default_gallery_thumb_width'], $defaultoptions['default_gallery_thumb_height'], $defaultoptions['default_gallery_thumb_crop']); // 120, 80, true
+	}
 
 	
 
@@ -298,8 +292,17 @@ function fau_remove_unwanted_head_actions() {
 	    // remove prev link
 	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 ); 
 	    // remove Display relational links for the posts adjacent to the current post.
-	remove_action( 'wp_head',      'wp_oembed_add_discovery_links'         ); 
+	remove_action( 'wp_head', 'wp_oembed_add_discovery_links'         ); 
 	    // remove oEmbed discovery links in the website 
+	
+	remove_action('wp_head', '_admin_bar_bump_cb');
+	    // remove Inline CSS to display WordPress Admin Bar
+	    // we move this into our CSS-file - see: css/sass/backend/wordpress 	
+	if (!is_user_logged_in()) {
+	    // remove admin settings in footer if not logged in
+	    remove_action( 'wp_footer', 'wp_admin_bar_render', 1000 );
+	    add_filter( 'show_admin_bar', '__return_false' );
+	}
 
 }
 add_action('wp_head', 'fau_remove_unwanted_head_actions', 0);

@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 47,
+    'optiontable-version'		=> 49,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -113,6 +113,9 @@ $defaultoptions = array(
     'default_submenuthumb_height'	    => 110,    
     'default_submenuthumb_crop'		    => false,
     
+    
+    
+    
     /* Thumb of Topevent in Sidebar - Name: topevent-thumb */
     'default_topevent_thumb_width'	    => 140,
     'default_topevent_thumb_height'	    => 90,
@@ -132,7 +135,9 @@ $defaultoptions = array(
     'default_post_width'		    => 300,
     'default_post_height'		    => 200,
     'default_post_crop'			    => false, 
-  
+
+    'default_gallery_thumb_size'	    => 'logo_carousel',
+
     /* Images for gallerys - Name: gallery-full */
     'default_gallery_full_width'	    => 940,
     'default_gallery_full_height'	    => 470,
@@ -143,20 +148,7 @@ $defaultoptions = array(
     'default_gallery_thumb_height'	    => 80,
     'default_gallery_thumb_crop'	    => true,     
 
-    /* Grid-Thumbs for gallerys - Name: gallery-grid */
-    'default_gallery_grid_width'	    => 145,
-    'default_gallery_grid_height'	    => 120,
-    'default_gallery_grid_crop'		    => false,    
-    
-     /* 2 column Imagelists for gallerys - Name: image-2-col */
-    'default_gallery_grid2col_width'	    => 300,
-    'default_gallery_grid2col_height'	    => 200,
-    'default_gallery_grid2col_crop'	    => true,        
-
-    /* 4 column Imagelists for gallerys - Name: image-4-col */
-    'default_gallery_grid4col_width'	    => 140,
-    'default_gallery_grid4col_height'	    => 70,
-    'default_gallery_grid4col_crop'	    => true,   
+   
     
    
     'breadcrumb_root'			=> __('Startseite', 'fau'),
