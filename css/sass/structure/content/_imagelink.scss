@@ -1,0 +1,207 @@
+/*-----------------------------------------------------------------------------------*/
+/* Imagelink slider and grid
+/*  (since 1.10.56, replaces navigation/_logos-menu.scss)
+/*-----------------------------------------------------------------------------------*/
+
+.imagelink {
+    width: calc(100% - 100px);
+    margin: 20px auto 0;
+    
+	.slick-item {
+	    padding: 0 5px;
+	}
+	.slick-slide {
+	    
+	    
+	    a {
+		height: 110px;		
+		display: flex;
+		margin: auto;
+		vertical-align: middle;
+		text-align: center;
+		
+	    }
+	    img {
+		box-shadow: none;
+		max-width: inherit; 
+		display: block;
+		margin: auto;
+
+		
+	    }
+	}
+	
+	.slick-prev,
+	.slick-next {
+		position: absolute;
+		display: block;
+		height: 40px;
+		width: 40px;
+		line-height: 0px;
+		font-size: 0px;
+		cursor: pointer;
+		background: transparent;
+		color: transparent;
+
+
+		top: 75%;
+		@include transform-translate(0, -75%);
+
+		@media (min-width: $screen-xs) {
+			top: 50%;
+			@include transform-translate(0, -50%);
+		}
+
+		padding: 0;
+		border: none;
+		outline: none;
+
+
+		&:hover,
+		&:focus {
+			outline: none;
+			background: transparent;
+			color: $slick-arrow-color;
+
+			&:before {
+				opacity: $slick-opacity-on-hover;
+			}
+		}
+
+		&.slick-disabled:before {
+			opacity: $slick-opacity-not-active;
+		}
+
+		&:before {
+			font-size: 40px;
+			line-height: 1;
+			color: $colorPrimary;
+			opacity: $slick-opacity-default;
+
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+
+		}
+
+	}
+
+	.slick-prev {
+		left: -40px;
+
+		[dir="rtl"] & {
+			left: auto;
+			right: -40px;
+		}
+
+		@media (min-width: $break-1360) {
+			left: -50px;
+			[dir="rtl"] & {
+				left: auto;
+				right: -50px;
+			}
+		}
+
+
+		&:before {
+			@extend .fa;
+			@extend .fa-chevron-left;
+
+			[dir="rtl"] & {
+				@extend .fa-chevron-right;
+			}
+		}
+
+	}
+
+	.slick-next {
+		right: -40px;
+
+		[dir="rtl"] & {
+			left: -40px;
+			right: auto;
+		}
+
+		@media (min-width: $break-1360) {
+			right: -50px;
+			[dir="rtl"] & {
+				left: -50px;
+				right: auto;
+			}
+		}
+
+
+		&:before {
+			@extend .fa;
+			@extend .fa-chevron-right;
+
+			[dir="rtl"] & {
+				@extend .fa-chevron-left;
+			}
+		}
+
+	}
+
+
+	
+	.slick-dots {
+	    position: absolute;
+	    display: block;
+	    width: 100%;
+	    padding: 0;
+	    margin: 5px auto 15px auto;
+	    list-style: none;
+	    text-align: center;
+	    li {
+
+		position: relative;
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		margin: 0 5px;
+		padding: 0;
+		cursor: pointer;
+		
+		button {
+		    
+		    display: block;
+		    width: 20px;
+		    height: 20px;
+		    padding: 5px;
+		    cursor: pointer;
+		    color: transparent;
+		    border: 0;
+		    outline: none;
+		    background: transparent;
+
+		    &:before {
+			@extend .fa;
+			content: "\f111";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 20px;
+			height: 20px;
+		
+			text-align: center;
+			opacity: .25;
+			color: $colorPrimary;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+
+		    }
+		    
+		     &:hover, &:focus {
+			    outline: none;
+			    &:before {
+				opacity: 1;
+			    }
+			}
+  
+		}
+		 &.slick-active button:before {
+		     opacity: 1;
+		 }
+	    }
+	}
+    
+}

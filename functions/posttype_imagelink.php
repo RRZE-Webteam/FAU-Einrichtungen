@@ -1,9 +1,16 @@
 <?php
+/*-----------------------------------------------------------------------------------*/
+/* Verwaltung der Bildlinks / Logos
+/*-----------------------------------------------------------------------------------*/
 
 /*
- * Verwaltung der Bildlinks / Logos
+ * TODO/ISSUE: Als eigenen Plugin auslagern oder in Plugin RRZE Elements übernehmen
  */
 
+
+/*-----------------------------------------------------------------------------------*/
+/* Register Imagelink Taxonomy 
+/*-----------------------------------------------------------------------------------*/
 function imagelink_taxonomy() {
 	register_taxonomy(
 		'imagelinks_category',  
@@ -21,7 +28,9 @@ function imagelink_taxonomy() {
 }
 add_action( 'init', 'imagelink_taxonomy');
 
-// Register Custom Post Type
+/*-----------------------------------------------------------------------------------*/
+/* Register Imagelink Custom Post Type 
+/*-----------------------------------------------------------------------------------*/
 function imagelink_post_type() {
 
 	$labels = array(
@@ -63,57 +72,12 @@ function imagelink_post_type() {
 	register_post_type( 'imagelink', $args );
 
 }
-
-// Hook into the 'init' action
 add_action( 'init', 'imagelink_post_type', 0 );
 
 
-function imagelink_restrict_manage_posts() {
-	global $typenow;
-
-	if( $typenow == "imagelink" ){
-		$filters = get_object_taxonomies($typenow);
-		
-		foreach ($filters as $tax_slug) {
-			$tax_obj = get_taxonomy($tax_slug);
-			wp_dropdown_categories(array(
-			'show_option_all' => sprintf(__('Alle %s anzeigen', 'fau'), $tax_obj->label),
-			'taxonomy' => $tax_slug,
-			'name' => $tax_obj->name,
-			'orderby' => 'name',
-			'selected' => isset($_GET[$tax_slug]) ? $_GET[$tax_slug] : '',
-			'hierarchical' => $tax_obj->hierarchical,
-			'show_count' => true,
-			'hide_if_empty' => true
-		    ));
-		}
-
-	}
-}
-add_action( 'restrict_manage_posts', 'imagelink_restrict_manage_posts' );
-
-
-
-function imagelink_post_types_admin_order( $wp_query ) {
-	if ((is_admin()) && ($wp_query)) {
-	        if (isset($wp_query->query['post_type'])) {
-		    $post_type = $wp_query->query['post_type'];
-		    if ( $post_type == 'imagelink') {
-
-			    if( ! isset($wp_query->query['orderby']))
-			    {
-				    $wp_query->set('orderby', 'title');
-				    $wp_query->set('order', 'ASC');
-			    }
-
-		    }
-		}
-	}
-}
-add_filter('pre_get_posts', 'imagelink_post_types_admin_order');
-
-
-
+/*-----------------------------------------------------------------------------------*/
+/* Define Metabox
+/*-----------------------------------------------------------------------------------*/
 function fau_imagelink_metabox() {
     add_meta_box(
         'fau_imagelink_metabox',
@@ -138,101 +102,225 @@ function fau_imagelink_metabox_content( $object, $box ) {
 
     
     $targeturl = get_post_meta( $object->ID, 'fauval_imagelink_url', true );
-   
-    /* Old values */
     $desc  = get_post_meta( $object->ID, 'portal_description', true );
-    $protocol  = get_post_meta( $object->ID, 'protocol', true );
-    $link  = get_post_meta( $object->ID, 'link', true );
-	
-    if (empty($targeturl) && isset($protocol) && isset($link)) {
-	$targeturl = $protocol.$link;
-    }
-				
-    fau_form_url('fau_imagelink_url', $targeturl, __('Webadresse','fau'), '', $placeholder='http://');   
+    
+    /* Old - deprecated since 1.7
+	   
+	    $protocol  = get_post_meta( $object->ID, 'protocol', true );
+	    $link  = get_post_meta( $object->ID, 'link', true );
+
+	    if (empty($targeturl) && isset($protocol) && isset($link)) {
+		$targeturl = $protocol.$link;
+	    }
+    */			
+    fau_form_url('fau_imagelink_url', $targeturl, __('Webadresse','fau'), '', $placeholder='https://');   
     fau_form_text('fau_imagelink_desc', $desc, __('Kurzbeschreibung','fau'));
 
     return;
 
 }
-
-
 add_action( 'add_meta_boxes', 'fau_imagelink_metabox' );
 
 
 
-
-
-
+/*-----------------------------------------------------------------------------------*/
+/* Save values of metabox
+/*-----------------------------------------------------------------------------------*/
 function fau_imagelink_metabox_content_save( $post_id ) {
     if (  'imagelink'!= get_post_type()  ) {
 	return;
     }
 
-
-	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 	return;
-	
-	
-	if ( !isset( $_POST['fau_imagelink_metabox_content_nonce'] ) || !wp_verify_nonce( $_POST['fau_imagelink_metabox_content_nonce'], basename( __FILE__ ) ) )
-		return $post_id;
+
+    if ( !isset( $_POST['fau_imagelink_metabox_content_nonce'] ) || !wp_verify_nonce( $_POST['fau_imagelink_metabox_content_nonce'], basename( __FILE__ ) ) )
+	return $post_id;
 
 
+    if ( !current_user_can( 'edit_post', $post_id ) )
+	return;
 
-	if ( 'page' == $_POST['post_type'] ) {
-		if ( !current_user_can( 'edit_page', $post_id ) )
-		return;
-	} else {
-		if ( !current_user_can( 'edit_post', $post_id ) )
-		return;
-	}
 	
-    /* Old values */	
-    $targeturl = get_post_meta( $post_id, 'fauval_imagelink_url', true );
-    $protocol  = get_post_meta( $post_id, 'protocol', true );
-    $link  = get_post_meta( $post_id, 'link', true );
 
-    
-    $newval = ( isset( $_POST['fau_imagelink_desc'] ) ? sanitize_text_field( $_POST['fau_imagelink_desc'] ) : 0 );
-    $oldval =  get_post_meta( $post_id, 'portal_description', true );
-	
-	if (!empty(trim($newval))) {
-	    if (isset($oldval)  && ($oldval != $newval)) {
-		update_post_meta( $post_id, 'portal_description', $newval );
-	    } else {
-		add_post_meta( $post_id, 'portal_description', $newval, true );
-	    }
-	} elseif ($oldval) {
-	    delete_post_meta( $post_id, 'portal_description', $oldval );	
-	} 
-    
-	
-    if (empty($targeturl) && isset($protocol) && isset($link)) {
-	$targeturl2 = $protocol.$link;
-    }
-    
-    if (filter_var($_POST['fau_imagelink_url'], FILTER_VALIDATE_URL)) {
-	$newval = $_POST['fau_imagelink_url'];
-    }
-    if (!empty($newval)) {
-	    if (isset($targeturl)  && ($targeturl != $newval)) {
-		update_post_meta( $post_id, 'fauval_imagelink_url', $newval );
-	    } else {
-		add_post_meta( $post_id, 'fauval_imagelink_url', $newval, true );
-	    }
-    } else {
-	    if ($targeturl) {
-		delete_post_meta( $post_id, 'fauval_imagelink_url', $oldval );	
-	    }    
-    } 
-    if (isset($protocol) && isset($link)) {
-	delete_post_meta( $post_id, 'protocol' );	
-	delete_post_meta( $post_id, 'link' );	
-    }
+    fau_save_standard('fauval_imagelink_url', $_POST['fau_imagelink_url'], $post_id, 'imagelink', 'url');
+    fau_save_standard('portal_description', $_POST['fau_imagelink_desc'], $post_id, 'imagelink', 'text');
+
 }
 add_action( 'save_post', 'fau_imagelink_metabox_content_save' );
 
+/*-----------------------------------------------------------------------------------*/
+/* Display imagelink slider
+/*-----------------------------------------------------------------------------------*/
+function fau_imagelink_get( $atts = array()) {
+    global $defaultoptions;
+    
+    $allowedsizes = array("logo-thumb", "page-thumb", "post-thumbnails");
+    $slides = ( isset($atts['slides'] ) ? intval( $atts['slides'] ) : 5 );
+    $dots =  (( isset($atts['dots'])  && ($atts['dots']==true)) ?  'true'  : 'false' );
+    $autoplay = (( isset($atts['autoplay']) && ($atts['autoplay']==true)) ?  'true'  : 'false' );
+    $catid = ( isset($atts['catid'] ) ? intval( $atts['catid'] ) : 0 );
+    $order = ( isset($atts['order'] ) ? esc_attr( $atts['order'] ) : 'ASC' );
+    $size = ( isset($atts['size'] ) ? esc_attr( $atts['size'] ) : 'logo-thumb' );
+    $navtitle = sanitize_text_field( $atts['navtitle'] );
+    if (!in_array($size, $allowedsizes)) {
+	$size = 'logo-thumb';
+    }
+    // $size = "post-thumbnails";
+    
+    if ( isset($catid) && $catid >0) {
+	$args = array(
+	   'post_type'	=> 'imagelink',
+	   'nopaging'	=> 1,
+	   'orderby'	=> 'name', 
+	   'order'	=> $order,
+	   'tax_query'	=> array(
+		    array(
+		       'taxonomy' => 'imagelinks_category',
+		       'field' => 'id', // can be slug or id - a CPT-onomy term's ID is the same as its post ID
+		       'terms' => $catid,
 
+		   )
+	   )
+	);	 
+    } else {
+	$args = array(
+	   'post_type'	=> 'imagelink',
+	   'nopaging'	=> 1,
+	   'orderby'	=> 'name', 
+	   'order'	=> $order
+	);
+    }
+    
+    
+    
+    $imagelist = get_posts($args); 
+    $number =0;
+    $item_output = $output = '';
+    $rand = rand();	    
+   /*
+    $output .= 'cat: '.$catid.'<br>';
+    $output .= 'order: '.$order.'<br>';
+    $output .= 'echo: '.$echo.'<br>';
+    $output .= 'navtitle: '.$navtitle.'<br>';
+    $output .= 'slides: '.$slides.'<br>';
+    $output .= 'size: '.$size.'<br>';
+    $output .= 'dots: '.$dots.'<br>';
+    $output .= 'autoplay: '.$autoplay.'<br>';
+	*/
+	
+    
+    $logowidth = $logoheight = 0;
+        
 
+    if ($size == 'post-thumbnails') {
+	/* Default Thumb Size
+	 'post-thumbnails'
+	'default_thumb_width'		=> 300,
+	'default_thumb_height'		=> 150,
+	'default_thumb_crop'		=> false,
+	*/
+	$logowidth = $defaultoptions['default_thumb_width'];
+	$logoheight = $defaultoptions['default_thumb_height'];
+    } elseif ($size == 'logo-thumb') {
+	/* Thumb for Image Menus in Content - Name: page-thumb
+	    'default_submenuthumb_width'	    => 220,
+	    'default_submenuthumb_height'	    => 110,    
+	    'default_submenuthumb_crop'	    => false,
+	*/
+    	$logowidth = $defaultoptions['default_submenuthumb_width'];
+	$logoheight = $defaultoptions['default_submenuthumb_height'];
+    } else {
+	 /* Thumb for Logos (used in carousel) - Name: logo-thumb 
+	    'default_logo_carousel_width'	    => 140,
+	    'default_logo_carousel_height'	    => 110,
+	    'default_logo_carousel_crop'	    => false,   
+	*/
+	$logowidth = $defaultoptions['default_logo_carousel_width'];
+	$logoheight = $defaultoptions['default_logo_carousel_height'];
+    }
+	
+
+    foreach($imagelist as $item) {
+	$number++;
+	$currenturl  = get_post_meta( $item->ID, 'fauval_imagelink_url', true );
+
+	$item_output .= '<div class="slick-item">';
+	$item_output .= '<a class="'.$size.'" rel="nofollow" href="'.$currenturl.'">';
+	$alttext = get_the_title($item->ID);
+	$alttext = esc_html($alttext);
+	$altattr = 'alt="'.$alttext.'"';
+
+	$post_thumbnail_id = get_post_thumbnail_id( $item->ID ); 
+	$sliderimage = wp_get_attachment_image_src( $post_thumbnail_id, $size );
+
+	$item_output .= '<img src="'.fau_esc_url($sliderimage[0]).'" '.$altattr.' width="'.$sliderimage[1].'" height="'.$sliderimage[2].'">';
+	$item_output .= '</a>';
+	$item_output .= '</div>';
+    }
+
+    if ($number>0) {
+	$output .= '<nav class="imagelink" aria-label="'.$navtitle. '">';
+	$output .= '<div class="slick slider-for-'.$rand.'">';
+	$output .= $item_output;
+	$output .= '</div>';
+	$output .= "</nav>\n";
+	$output .= "<script type=\"text/javascript\"> jQuery(document).ready(function($) {";		
+	$output .= "$('.slider-for-$rand').slick({ slidesToShow: $slides, slidesToScroll: 1, focusOnSelect: true";
+	$output .= ", dots: $dots";
+	$output .= ", autoplay: $autoplay";
+	$output .= ", responsive: [{
+	      breakpoint: 768,
+	      settings: {
+		arrows: false,
+		slidesToShow: 3
+	      }
+	    },
+	    {
+	      breakpoint: 480,
+	      settings: {
+		arrows: false,
+		slidesToShow: 1
+	      }
+	    }]";
+	
+	
+	$output .= "});";
+	$output .= "});</script>";
+	
+	wp_enqueue_script('fau-js-heroslider');
+	if ($echo==true) {
+	    echo $output;
+	    return;
+	} else {
+	    return $output;
+	}
+    }
+
+}
+/*-----------------------------------------------------------------------------------*/
+/* Shortcode for image slider
+/*-----------------------------------------------------------------------------------*/
+function fau_imagelink_shortcode( $atts ) {
+    
+    $args = shortcode_atts( array(
+	'catid'		=> 0,
+	'echo'		=> false, 
+	'order'		=> 'ASC', 
+	'dots'		=> true, 
+	'slides'	    	=> 5, 
+	'autoplay'	=> true, 
+	'size'		=> 'page-thumb',
+	'navtitle'	=> __('Partnerlogos', 'fau') 
+	), $atts, 'imagelink' );
+    
+    return fau_imagelink_get($args);   
+}
+add_shortcode('imagelink', 'fau_imagelink_shortcode' );
+
+/*-----------------------------------------------------------------------------------*/
+/* Display imagelink slider (OLD)
+/*-----------------------------------------------------------------------------------*/
 function fau_get_imagelinks ( $catid, $echo = true ) {
     global $usejslibs;
     
@@ -279,6 +367,10 @@ function fau_get_imagelinks ( $catid, $echo = true ) {
 	    $item_output .= '</li>';
 
 	}
+	
+	
+
+	
 	if ($number>0) {
 	    $output .= '<nav class="imagelink_carousel" aria-label="'. __('Partnerlogos', 'fau') . '">';
 		$output .= '<div class="container">';
@@ -316,3 +408,6 @@ function fau_get_imagelinks ( $catid, $echo = true ) {
 	return;
     }
 }
+/*-----------------------------------------------------------------------------------*/
+/* EOF
+/*-----------------------------------------------------------------------------------*/
