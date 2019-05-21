@@ -136,7 +136,7 @@ function fau_register_scripts() {
     wp_register_script('fau-scripts', $defaultoptions['src-scriptjs'], array('jquery'), $theme_version, true );
 	// Base Scripts
     wp_register_script('fau-libs-jquery-flexslider', get_fau_template_uri() . '/js/libs/jquery.flexslider.js', array('jquery'), $theme_version, true );
-	// Flexslider für Startseite und für Galerien.     
+	// Flexslider für alte Galerien.     
     wp_register_script('fau-js-heroslider', get_fau_template_uri() . '/js/slick.min.js', array('jquery'), $theme_version, true );
    
 	
