@@ -36,7 +36,6 @@
 	width: 100%;
 	min-height: 30px;
 	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
@@ -201,23 +200,26 @@ div.aligncenter {
 }
 
 .bgcol-phil {
-		background-color: $colorPhilFak !important;
+    background-color: $colorPhilFak !important;
 }
 .bgcol-rw {
-		background-color: $colorRwFak !important;
+    background-color: $colorRwFak !important;
 }
 .bgcol-med {
-		background-color: $colorMedFak !important;
+    background-color: $colorMedFak !important;
 }
 .bgcol-nat {
-		background-color: $colorNatFak !important;
+    background-color: $colorNatFak !important;
 }
 .bgcol-tf,
 .bgcol-tech {
-		background-color: $colorTechFak !important;
+    background-color: $colorTechFak !important;
 }
 .bgcol-fau, 
 .bgcol-default {
-		background-color: $colorDefault !important;
+    background-color: $colorDefault !important;
 }
 
+.bgcol-grau {
+    background-color: $colorStandardHellgrau;
+}

@@ -3,33 +3,94 @@
 /*  (since 1.10.56, replaces navigation/_logos-menu.scss)
 /*-----------------------------------------------------------------------------------*/
 
-.imagelink {
+#content .imagelink .slick-item {
+    img  {
+	@include box-shadow(none);
+    }
+    &.shadow img {
+	 @include box-shadow(2px 2px 5px $colorShadows);
+    }
+}
+
+.imagelink {    
     width: calc(100% - 100px);
     margin: 20px auto 0;
-    
-	.slick-item {
-	    padding: 0 5px;
+	
+
+	.slick-item { 
+	    border: 1px solid transparent;
+	    
+	    &.shadow {
+		img {
+		    @include box-shadow(2px 2px 5px $colorShadows);
+		}
+	    }
+	    &.border {
+		border: 1px solid $colorContentBorders;
+	    }
+	    
+	    &.rounded {
+		border: 1px solid $colorContentBorders;
+		@include box-shadow(0 0 1px $colorContentBorders);
+		overflow: hidden;
+		border-radius: 50%;
+	    }
+	    
+	    &:active,
+	    &:focus-within,
+	    &:hover, 
+	    &:focus {
+		border: 1px solid $colorHover;
+	    }
+	    
 	}
 	.slick-slide {
-	    
+	    width: 152px;
+	    height: 152px;
+	    margin: 0 10px;
 	    
 	    a {
-		height: 110px;		
+		height: 150px;		
 		display: flex;
 		margin: auto;
 		vertical-align: middle;
 		text-align: center;
 		
 	    }
+	    
+	    
+	    
 	    img {
 		box-shadow: none;
 		max-width: inherit; 
 		display: block;
 		margin: auto;
-
-		
 	    }
 	}
+	.logo-thumb .slick-slide {
+	    width: 142px;
+	    height: 142px;
+
+	    a {
+		height: 140px;	
+	    }
+	}
+	.page-thumb .slick-slide {
+	    width: 222px;
+	    height: 222px;
+	    a {
+		height: 220px;
+	    }
+	}
+	.post-thumbnails .slick-slide {
+	    width: 302px;
+	    height: 302px;
+	    a {
+		height: 300px;
+	    }
+	}
+	
+	
 	
 	.slick-prev,
 	.slick-next {
@@ -77,9 +138,7 @@
 			line-height: 1;
 			color: $colorPrimary;
 			opacity: $slick-opacity-default;
-
 			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
 
 		}
 
@@ -186,8 +245,6 @@
 			opacity: .25;
 			color: $colorPrimary;
 			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-
 		    }
 		    
 		     &:hover, &:focus {
@@ -202,6 +259,82 @@
 		     opacity: 1;
 		 }
 	    }
+	}   
+	
+	
+    &.list {
+	width: 100%;
+	display: flex;
+	text-align: center;
+	
+	.slick-item {
+	    width: 152px;
+	    height: 152px;
+	    margin: 10px;
+	    display: inline-block;
+	    border: 1px solid transparent;
+	    
+	    &:active,
+	    &:focus-within,
+	    &:hover, 
+	    &:focus {
+		border-color: $colorHover;
+	    }
+		
+	    a {
+		height: 150px;		
+		margin: auto;
+		vertical-align: middle;
+		text-align: center;
+		display: inline-flex;
+		
+	    }
+	    
+	    img {
+		box-shadow: none;
+		max-width: inherit; 
+		display: inline-block;
+		margin: auto;
+	    }
+	    &.rounded {
+		border-width: 2px;
+		border-color: $colorContentBorders;
+		a {
+		    display: flex;
+		}
+	    }
+	    &.rounded:hover, 
+	    &.rounded:focus, 
+	    &.rounded:active  {
+		border-color: $colorHover;
+	    }
 	}
+	.logo-thumb .slick-item {
+	    width: 142px;
+	    height: 142px;
+
+	    a {
+		height: 140px;	
+	    }
+	}
+	.page-thumb .slick-item {
+	    width: 222px;
+	    height: 222px;
+	    a {
+		height: 220px;
+	    }
+	}
+	.post-thumbnails .slick-item {
+	    width: 302px;
+	    height: 302px;
+	    a {
+		height: 300px;
+	    }
+	}
+	
+    }
     
+    &.dots {
+	 margin: 20px auto;
+    }
 }

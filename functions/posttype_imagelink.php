@@ -155,18 +155,23 @@ add_action( 'save_post', 'fau_imagelink_metabox_content_save' );
 function fau_imagelink_get( $atts = array()) {
     global $defaultoptions;
     
-    $allowedsizes = array("logo-thumb", "page-thumb", "post-thumbnails");
+    $allowedsizes = array("logo-thumb", "page-thumb", "post-thumbnails", "thumbnail");
     $slides = ( isset($atts['slides'] ) ? intval( $atts['slides'] ) : 5 );
-    $dots =  (( isset($atts['dots'])  && ($atts['dots']==true)) ?  'true'  : 'false' );
-    $autoplay = (( isset($atts['autoplay']) && ($atts['autoplay']==true)) ?  'true'  : 'false' );
+    $dots =   (( isset($atts['dots'])  && ($atts['dots']==true)) ?  'true'  : 'false' );
+    $autoplay =   (( isset($atts['autoplay'])  && ($atts['autoplay']==true)) ?  'true'  : 'false' );
+
     $catid = ( isset($atts['catid'] ) ? intval( $atts['catid'] ) : 0 );
     $order = ( isset($atts['order'] ) ? esc_attr( $atts['order'] ) : 'ASC' );
     $size = ( isset($atts['size'] ) ? esc_attr( $atts['size'] ) : 'logo-thumb' );
     $navtitle = sanitize_text_field( $atts['navtitle'] );
+    
+    $class = sanitize_text_field( $atts['class'] );
+    $type = ( isset($atts['type'] ) ? esc_attr( $atts['type'] ) : 'slide' );
+
     if (!in_array($size, $allowedsizes)) {
-	$size = 'logo-thumb';
+	$size = 'thumbnail';
     }
-    // $size = "post-thumbnails";
+
     
     if ( isset($catid) && $catid >0) {
 	$args = array(
@@ -198,57 +203,23 @@ function fau_imagelink_get( $atts = array()) {
     $number =0;
     $item_output = $output = '';
     $rand = rand();	    
-   /*
-    $output .= 'cat: '.$catid.'<br>';
-    $output .= 'order: '.$order.'<br>';
-    $output .= 'echo: '.$echo.'<br>';
-    $output .= 'navtitle: '.$navtitle.'<br>';
-    $output .= 'slides: '.$slides.'<br>';
-    $output .= 'size: '.$size.'<br>';
-    $output .= 'dots: '.$dots.'<br>';
-    $output .= 'autoplay: '.$autoplay.'<br>';
-	*/
-	
-    
-    $logowidth = $logoheight = 0;
-        
 
-    if ($size == 'post-thumbnails') {
-	/* Default Thumb Size
-	 'post-thumbnails'
-	'default_thumb_width'		=> 300,
-	'default_thumb_height'		=> 150,
-	'default_thumb_crop'		=> false,
-	*/
-	$logowidth = $defaultoptions['default_thumb_width'];
-	$logoheight = $defaultoptions['default_thumb_height'];
-    } elseif ($size == 'logo-thumb') {
-	/* Thumb for Image Menus in Content - Name: page-thumb
-	    'default_submenuthumb_width'	    => 220,
-	    'default_submenuthumb_height'	    => 110,    
-	    'default_submenuthumb_crop'	    => false,
-	*/
-    	$logowidth = $defaultoptions['default_submenuthumb_width'];
-	$logoheight = $defaultoptions['default_submenuthumb_height'];
-    } else {
-	 /* Thumb for Logos (used in carousel) - Name: logo-thumb 
-	    'default_logo_carousel_width'	    => 140,
-	    'default_logo_carousel_height'	    => 110,
-	    'default_logo_carousel_crop'	    => false,   
-	*/
-	$logowidth = $defaultoptions['default_logo_carousel_width'];
-	$logoheight = $defaultoptions['default_logo_carousel_height'];
-    }
-	
 
     foreach($imagelist as $item) {
 	$number++;
 	$currenturl  = get_post_meta( $item->ID, 'fauval_imagelink_url', true );
-
-	$item_output .= '<div class="slick-item">';
-	$item_output .= '<a class="'.$size.'" rel="nofollow" href="'.$currenturl.'">';
+	
+	$item_output .= '<div class="slick-item';
+	if (!empty($class)) {
+	    $item_output .= ' '.$class;
+	}
+	$item_output .= '">';
+	$item_output .= '<a rel="nofollow" href="'.$currenturl.'">';
 	$alttext = get_the_title($item->ID);
 	$alttext = esc_html($alttext);
+	if (empty($alttext)) {
+	    $alttext = __("Zum Webauftritt: ", 'fau').$currenturl;
+	}
 	$altattr = 'alt="'.$alttext.'"';
 
 	$post_thumbnail_id = get_post_thumbnail_id( $item->ID ); 
@@ -260,35 +231,53 @@ function fau_imagelink_get( $atts = array()) {
     }
 
     if ($number>0) {
-	$output .= '<nav class="imagelink" aria-label="'.$navtitle. '">';
-	$output .= '<div class="slick slider-for-'.$rand.'">';
+	$output .= '<nav aria-label="'.$navtitle.'" class="imagelink';
+	
+	if ($slides > $number) {
+	    $slides = $number;
+	}
+	if (isset($type) && ($type == 'list')) {
+	    $output .= " list";
+	} elseif ($dots) {
+	    $output .= " dots";
+	}
+	$output .= '">';
+	$mainclass .= $size;
+	$mainclass .= ' slider-for-'.$rand;
+	 $output .= '<div class="'.$mainclass.'">';
+	
 	$output .= $item_output;
 	$output .= '</div>';
 	$output .= "</nav>\n";
-	$output .= "<script type=\"text/javascript\"> jQuery(document).ready(function($) {";		
-	$output .= "$('.slider-for-$rand').slick({ slidesToShow: $slides, slidesToScroll: 1, focusOnSelect: true";
-	$output .= ", dots: $dots";
-	$output .= ", autoplay: $autoplay";
-	$output .= ", responsive: [{
-	      breakpoint: 768,
-	      settings: {
-		arrows: false,
-		slidesToShow: 3
-	      }
-	    },
-	    {
-	      breakpoint: 480,
-	      settings: {
-		arrows: false,
-		slidesToShow: 1
-	      }
-	    }]";
-	
-	
-	$output .= "});";
-	$output .= "});</script>";
-	
-	wp_enqueue_script('fau-js-heroslider');
+	if (isset($type) && ($type == 'slide')) {
+	    $output .= "<script type=\"text/javascript\"> jQuery(document).ready(function($) {";		
+	    $output .= "$('.slider-for-$rand').slick({ variableWidth: true, slidesToScroll: 1, focusOnSelect: true";
+	    if ($slides > 1) {
+		$output .= ", slidesToShow: $slides";
+	    }
+	    $output .= ", dots: $dots";
+	    $output .= ", autoplay: $autoplay";
+	    $output .= ", responsive: [{
+		  breakpoint: 768,
+		  settings: {
+		    arrows: false,
+		    slidesToShow: 3
+		  }
+		},
+		{
+		  breakpoint: 480,
+		  settings: {
+		    arrows: false,
+		    slidesToShow: 1
+		  }
+		}]";
+
+
+	    $output .= "});";
+	    $output .= "});</script>";
+
+	    wp_enqueue_script('fau-js-heroslider');
+	}
 	if ($echo==true) {
 	    echo $output;
 	    return;
@@ -310,9 +299,15 @@ function fau_imagelink_shortcode( $atts ) {
 	'dots'		=> true, 
 	'slides'	    	=> 5, 
 	'autoplay'	=> true, 
-	'size'		=> 'page-thumb',
+	'class'		=> '', 
+	'type'		=> 'slide', 
+	'size'		=> 'thumbnail',
 	'navtitle'	=> __('Partnerlogos', 'fau') 
 	), $atts, 'imagelink' );
+    
+    $args['autoplay'] = filter_var( $args['autoplay'], FILTER_VALIDATE_BOOLEAN );
+    $args['echo'] = filter_var( $args['echo'], FILTER_VALIDATE_BOOLEAN );
+    $args['dots'] = filter_var( $args['dots'], FILTER_VALIDATE_BOOLEAN );
     
     return fau_imagelink_get($args);   
 }
