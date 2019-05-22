@@ -42,16 +42,16 @@ while ( have_posts() ) :
 			    
 			     <?php  
 				    echo fau_get_ad('werbebanner_unten',true); 		
-				    $logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
+				    $logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );		
 				    if ($logoliste) { 
-					$logos = fau_get_imagelinks($logoliste, false);
+					/* New since 1.10.57 */
+					$logos = fau_imagelink_get(array('size' => "logo-thumb", 'catid' => $logoliste, "autoplay" => true, "dots" => true));
 					if ((isset($logos) && (!empty($logos)))) {
 					    echo "<hr>\n";
 					    echo $logos;
 					}
-				    }	
+				    }
 				    ?>	
-			    
 			</div>		
 		    </div>
 		</div>

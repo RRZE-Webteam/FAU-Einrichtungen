@@ -1581,6 +1581,32 @@ function fau_get_page_langcode($id = 0) {
 
 	return $output;
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* Add langcode to title if need
+/*-----------------------------------------------------------------------------------*/
+function fau_get_the_title($id = 0) {
+    global $post;
+    if ($id==0) {
+	$id = $post->ID;
+    }
+    
+    if (is_page($id)) {
+	$titlelangcode = get_post_meta($id, 'fauval_pagetitle_langcode', true);
+	if (!fau_empty($titlelangcode)) {
+	    $sitelang = fau_get_language_main();
+	    if ($titlelangcode != $sitelang) {
+		$res = '<span lang="'.$titlelangcode.'">';
+		$res .=get_the_title($id);
+		$res .= '</span>';
+		return $res;
+	    }
+	} 
+    } else {
+	return get_the_title($id);
+    }
+}
 /*-----------------------------------------------------------------------------------*/
 /* This is the end :)
 /*-----------------------------------------------------------------------------------*/
+

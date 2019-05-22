@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 49,
+    'optiontable-version'		=> 50,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -111,7 +111,7 @@ $defaultoptions = array(
     /* Thumb for Image Menus in Content - Name: page-thumb */
     'default_submenuthumb_width'	    => 220,
     'default_submenuthumb_height'	    => 110,    
-    'default_submenuthumb_crop'		    => false,
+    'default_submenuthumb_crop'	    => false,
     
     
     
@@ -802,6 +802,7 @@ $setoptions = array(
 		    'title'   => __( 'Website Logo (Mobil)', 'fau' ),
 		    'label'   => __( 'Zeigt bei der mobilen Ansicht (Darstellung auf kleinen Bildschirmen) das Logo des Webauftritts. Ist dieser Schalter nicht eingeschaltet, wird stattdessen das CI-Logo angezeigt.', 'fau' ),                
 		    'default' => $defaultoptions['advanced_display_header_md-showsitelogo'],
+		    'ifsuperadmin'   => true,
 		    'parent'  => 'header'
 		), 
 	       
@@ -1175,6 +1176,7 @@ $setoptions = array(
 		    'default' => $defaultoptions['advanced_display_portalmenu_forceclick'],
 		    'ifmodvalue'    => -1,
 		    'ifmodname'	=> 'website_type',
+		    'ifsuperadmin'   => true,
 		    'parent'  => 'topmenulinks'
 		), 
 	       'advanced_display_portalmenu_plainview'	  => array(
@@ -1184,6 +1186,7 @@ $setoptions = array(
 		    'default' => $defaultoptions['advanced_display_portalmenu_plainview'],
 		    'ifmodvalue'    => -1,
 		    'ifmodname'	=> 'website_type',
+		    'ifsuperadmin'   => true,
 		    'parent'  => 'topmenulinks'
 		), 
 	       

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------------*/
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
-$version: '1.10.56';
+$version: '1.10.60';
 // Theme Version
 // First Digit:  Manual
 // Second Digit: Branch Version
@@ -47,6 +47,10 @@ $colorContentBorders: #dfe6ec;
 // desaturate(lighten($colorZUV, 69%), 75%);
 $colorContentRegions: #f5f7f9;
 // FAU: lighten($colorZUV, 4%);
+
+$colorShadows:	rgba(135,132,135,1);
+// Color for shadows
+
 
 // Define defaults and variables
 $colorPrimary: $colorZUV;

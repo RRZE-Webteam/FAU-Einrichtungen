@@ -115,46 +115,7 @@ jQuery(document).ready(function($){
 	}
     });
     
-   
 
-   // Limit Main Menu
-   if ($('body').hasClass('nav-menus-php')) {
-	currenteditimenu = $('#nav-menu-meta-object-id').val();
-	titlemain = $("label[for='locations-main-menu']").text();
-	// console.log("title: "+ titlemain);
-	// console.log("current menu: "+currenteditimenu); 
-       
-	mainmenunum = $('#select-menu-to-edit option:contains('+titlemain+')').val();
-	// console.log("mainmenu: "+mainmenunum); 
-       
-       if (currenteditimenu == mainmenunum) {
-	//  console.log("Working on main menu");
-	//   $('#add-custom-links').css("display", "none");
-	   $('.menu-item-custom .menu-item-bar .menu-item-handle').css("background","red");
-	   $('.menu-item-custom .menu-item-bar .menu-item-handle').append("<p><em>Bitte verwenden Sie keine externen Links im Hauptmenü, da dies zu Problemen in der Bedienbarkeit der Website führt.<br> Abhängig von der Konfiguration der Website in den Theme-Options werden externe Links ausgeblendet.</em></p>");
-       
-	
-
-	    $('#nav-menus-frame').on('change click', function(){
-		topmenuel = $('.menu-item-depth-0').length;
-		menlength = 0;
-		$('.menu-item-depth-0').each(function(){
-		    menlength += $(this).find('.menu-item-title').text().length;
-		});
-		if ((topmenuel>7) && (menlength>60)) {
-		    alert("Achtung: Ihr Hauptmenü enthält mehr als 7 Oberpunkte und ist auch zu breit. Bitte reduzieren Sie die Zahl der Oberpunkte, da der Webauftritt ansonsten zu unübersichtlich wird und Teile der Menüpunkte nicht sichtbar sein werden.");
-		} else if (topmenuel>7) {
-		    alert("Achtung: Ihr Hauptmenü enthält mehr als 7 Oberpunkte. Bitte reduzieren Sie die Zahl der Oberpunkte, da der Webauftritt ansonsten zu unübersichtlich wird.");
-		} else if (menlength>60) {
-		    alert("Achtung: Die Oberpunkte des Hauptmenüs enthalten zu viele Zeichen. Dadurch kann es zu Beeinträchtigungen bei der Anzeige der Webseite kommen. Bitte verkürzen Sie die Wortlänge der Oberpunkte.");
-		}
-	    });
-
-
-
-	
-	}   	   
-   }
    
 
 });

@@ -110,6 +110,7 @@ function fau_customizer_settings( $wp_customize ) {
 		    // Gehoert zu einer Section
 		    $title = $desc = $label = $type = '';
 		    $notifplugin = $ifplugin = $ifclassexists = $iffunctionexists = $ifmodvalue = '';
+		    $superadminonly = false;
 		    $optionid = esc_html($field); 
 		    
 		    if (isset($value['title']))
@@ -126,6 +127,8 @@ function fau_customizer_settings( $wp_customize ) {
 			$ifclassexists = $value['ifclass'];
                       if (isset($value['iffunction']))
 			$iffunctionexists = $value['iffunction'];
+		     if (isset($value['ifsuperadmin']))
+			$superadminonly = $value['ifsuperadmin'];
 		   
 			
 		      
@@ -165,7 +168,12 @@ function fau_customizer_settings( $wp_customize ) {
 			    $breakthiscontrol = true;
 			}
                       }
-		     if (isset($value['ifmodvalue']) && isset($value['ifmodname'])) {
+		    if ($superadminonly) {
+			if (! is_super_admin() ) {
+			     $breakthiscontrol = true;
+			}
+                      }  
+		    if (isset($value['ifmodvalue']) && isset($value['ifmodname'])) {
 			$modvalue = $value['ifmodvalue'];
 			$modname = $value['ifmodname'];
 			

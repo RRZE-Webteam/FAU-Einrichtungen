@@ -4,13 +4,11 @@ Mixins File for Wordpress Theme FAU
 
 @mixin box-shadow($shadow) {
     -webkit-box-shadow: $shadow;
-    -moz-box-shadow: $shadow;
     box-shadow: $shadow;
 }
 
 @mixin border-radius($radius) {
     -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
     border-radius: $radius;
     background-clip: padding-box;
 }
@@ -48,7 +46,6 @@ Mixins File for Wordpress Theme FAU
     background-color: $fromColor; /* Fallback Color */
     background-image: -webkit-gradient(linear, left, right, from($fromColor), to($toColor)); /* Saf4+, Chrome */
     background-image: -webkit-linear-gradient(left, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
-    background-image: -moz-linear-gradient(left, $fromColor, $toColor); /* FF3.6 */
     background-image: -ms-linear-gradient(left, $fromColor, $toColor); /* IE10 */
     background-image: -o-linear-gradient(left, $fromColor, $toColor); /* Opera 11.10+ */
     background-image: linear-gradient(left, $fromColor, $toColor);
@@ -57,7 +54,6 @@ Mixins File for Wordpress Theme FAU
     background-color: $fromColor; /* Fallback Color */
     background-image: -webkit-gradient(linear, top, bottom from($fromColor), to($toColor)); /* Saf4+, Chrome */
     background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
-    background-image: -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
     background-image: -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
     background-image: -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
     background-image: linear-gradient(top, $fromColor, $toColor);
@@ -65,7 +61,6 @@ Mixins File for Wordpress Theme FAU
 @mixin linear-gradient-three($fromColor, $toColor, $nextColor) {
     background-color: $fromColor; /* Fallback Color */
     background-image: -webkit-linear-gradient(left, $fromColor, $toColor, $nextColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
-    background-image: -moz-linear-gradient(left, $fromColor, $toColor, $nextColor); /* FF3.6 */
     background-image: -ms-linear-gradient(left, $fromColor, $toColor,$nextColor); /* IE10 */
     background-image: -o-linear-gradient(left, $fromColor, $toColor,$nextColor); /* Opera 11.10+ */
     background-image: linear-gradient(left, $fromColor, $toColor,$nextColor);
@@ -73,7 +68,6 @@ Mixins File for Wordpress Theme FAU
 @mixin linear-top-gradient-three($fromColor, $toColor, $nextColor) {
     background-color: $fromColor; /* Fallback Color */
     background-image: -webkit-linear-gradient(top, $fromColor, $toColor, $nextColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
-    background-image: -moz-linear-gradient(top, $fromColor, $toColor, $nextColor); /* FF3.6 */
     background-image: -ms-linear-gradient(top, $fromColor, $toColor,$nextColor); /* IE10 */
     background-image: -o-linear-gradient(top, $fromColor, $toColor,$nextColor); /* Opera 11.10+ */
     background-image: linear-gradient(top, $fromColor, $toColor,$nextColor);
@@ -81,7 +75,6 @@ Mixins File for Wordpress Theme FAU
 
 @mixin radial-gradient($color2, $color1) {
     background: $color2;
-    background: -moz-radial-gradient(center, ellipse cover, $color1 0%, $color2 100%);
     background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$color1), color-stop(100%,$color2));
     background: -webkit-radial-gradient(center, ellipse cover, $color1 0%,$color2 100%);
     background: -o-radial-gradient(center, ellipse cover, $color1 0%,$color2 100%);
@@ -93,7 +86,6 @@ Mixins File for Wordpress Theme FAU
 @mixin radial-gradient-image($color2, $color1, $image) {
     background-color: $color2;
     background: $image, $color2;
-    background: $image, -moz-radial-gradient(center, ellipse cover, $color1 0%, $color2 100%);
     background: $image, -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$color1), color-stop(100%,$color2));
     background: $image, -webkit-radial-gradient(center, ellipse cover, $color1 0%,$color2 100%);
     background: $image, -o-radial-gradient(center, ellipse cover, $color1 0%,$color2 100%);
@@ -104,19 +96,16 @@ Mixins File for Wordpress Theme FAU
 
 @mixin transition($duration, $params) {
     -webkit-transition: $duration $params;
-    -moz-transition: $duration $params;
     -ms-transition: $duration $params;
     transition: $duration $params;
 }
 @mixin transform-translate($tx, $ty) {
     -webkit-transform: translate($tx, $ty);
-    -moz-transform: translate($tx, $ty);
     -ms-transform: translate($tx, $ty);
     transform: translate($tx, $ty);
 }
 
 @mixin hyphens($value) {
-    -moz-hyphens: $value;
     -o-hyphens: $value;
     -webkit-hyphens: $value;
     -ms-hyphens: $value;
@@ -125,9 +114,6 @@ Mixins File for Wordpress Theme FAU
 
 @mixin placeholder($color) {
     ::-webkit-input-placeholder {
-	    color: $color;
-    }
-    :-moz-placeholder {
 	    color: $color;
     }
     ::-moz-placeholder {
