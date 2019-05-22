@@ -73,9 +73,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    $attr['type'] = 'default';
 	}
 
-	if ($attr['type'] == 'flexslider') {
-	    $gridtype = 'flexslider';
-	} elseif ($attr['type'] != 'default') {
+	if ($attr['type'] != 'default') {
 
 	    $gridclass = 'flexgrid';
 	    $gridtype = 'grid';
@@ -165,77 +163,6 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    }
 	    $output .= '</div>'."\n";
 
-	} elseif ($gridtype=='flexslider') {
-	    // Old Images in gallery function  with flexslider lib
-
-	    $usejslibs['flexslider'] = true;
-
-	    $rand = rand();	    
-	    $output .= "<div id=\"slider-$rand\" class=\"image-gallery-slider\">\n";
-	    $output .= "	<ul class=\"slides\">\n";
-
-	    foreach ($attachments as $id => $attachment) {
-		$img = wp_get_attachment_image_src($id, 'gallery-full');
-		$meta = get_post($id);
-		$img_full = wp_get_attachment_image_src($id, 'full');
-
-		$output .= '<li><img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt="">';
-		$link_origin = get_theme_mod('galery_link_original');
-		if (($link_origin) || ($meta->post_excerpt != '')) {
-		    $output .= '<div class="gallery-image-caption">';
-		    $lightboxattr = '';
-		    if($meta->post_excerpt != '') { 
-			$output .= $meta->post_excerpt; 
-			$lightboxtitle = sanitize_text_field($meta->post_excerpt);
-			if (strlen(trim($lightboxtitle))>1) {
-			    $lightboxattr = ' title="'.$lightboxtitle.'"';
-			}
-		    }
-		    if (($link_origin) && ($attr['link'] != 'none')) {
-			if($meta->post_excerpt != '') { $output .= '<br>'; }
-			$output .= '<span class="linkorigin">(<a href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
-		    }
-		    $output .='</div>';
-		}
-		$output .= "</li>\n";
-	    }
-
-	    $output .= "	</ul>\n";
-	    $output .= "</div>\n";
-
-
-
-	    $output .= "<div id=\"carousel-$rand\" class=\"image-gallery-carousel\">";
-	    $output .= "	<ul class=\"slides\">";
-
-
-
-	    $thumbwidth = 120;
-
-	    if ($defaultoptions['default_gallery_thumb_size'] == 'logo_carousel') {
-		$usesize = 'logo-thumb';
-		$thumbwidth = $defaultoptions['default_logo_carousel_width'];
-		$thumbheight = $defaultoptions['default_logo_carousel_height'];
-		$itemwidth = $thumbwidth + 5;
-	    } else {
-		$usesize = 'gallery-thumb';
-		$thumbwidth = $defaultoptions['default_gallery_thumb_width'];
-		$thumbheight = $defaultoptions['default_gallery_thumb_height'];
-		$itemwidth = $thumbwidth + 5;
-	    }
-
-
-	    foreach ($attachments as $id => $attachment) {
-		$img = wp_get_attachment_image_src($id, $usesize);
-		$output .= '	<li><img src="'.fau_esc_url($img[0]).'" width="'.$thumbwidth.'" height="'.$thumbheight.'" alt=""></li>';
-	    }
-
-	    $output .= "	</ul>";
-	    $output .= "</div>";				
-	    $output .= "<script type=\"text/javascript\"> jQuery(document).ready(function($) {";			
-	    $output .= "$('#carousel-$rand').flexslider({maxItems: ".$attr['columns'].",selector: 'ul > li',animation: 'slide',keyboard:true,multipleKeyboard:true,directionNav:true,controlNav: true,pausePlay: false,slideshow: false,asNavFor: '#slider-$rand',itemWidth: ".$itemwidth.",itemMargin: 5});";
-	    $output .= "$('#slider-$rand').flexslider({selector: 'ul > li',animation: 'slide',keyboard:true,multipleKeyboard:true,directionNav: false,controlNav: false,pausePlay: false,slideshow: false,sync: '#carousel-$rand'});";
-	    $output .= "});</script>";
 
 	} else {
 	    wp_enqueue_script('fau-js-heroslider');
@@ -342,8 +269,6 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		}
 	      }
 	    ]";
-
-
 	    $output .= "});";
 	    $output .= "});</script>";
 	    $output .= "</div>";	

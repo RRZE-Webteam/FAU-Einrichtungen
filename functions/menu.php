@@ -230,7 +230,7 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		if (!fau_empty($pretitle)) {
 		    $output .=  $pretitle.' ';
 		}
-		$output .= get_the_title($this->currentID);
+		$output .= fau_get_the_title($this->currentID);
 		$posttitle = get_theme_mod('menu_aftertitle_portal');
 		if (!fau_empty($posttitle)) {
 		    $output .=  ' '.$posttitle;
@@ -439,7 +439,7 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 		if (!fau_empty($pretitle)) {
 		    $output .=  $pretitle.' ';
 		}
-		$output .= get_the_title($this->currentID);
+		$output .= fau_get_the_title($this->currentID);
 		$posttitle = get_theme_mod('menu_aftertitle_portal');
 		if (!fau_empty($posttitle)) {
 		    $output .=  ' '.$posttitle;
@@ -513,6 +513,17 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 	    }
 
 
+	    if (is_page($item->object_id )) {
+		$titlelangcode = get_post_meta($item->object_id, 'fauval_pagetitle_langcode', true);
+		if (!fau_empty($titlelangcode)) {
+		    $sitelang = fau_get_language_main();
+		    if ($titlelangcode != $sitelang) {
+			$attributes .= ' lang="'.$titlelangcode.'"';
+		    }
+		}
+	    }
+
+	    
 	    $item_output = $args->before;
 	    $item_output .= '<a'. $attributes .'>';
 	    $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
@@ -662,25 +673,29 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
 			$attributes = '';
 			foreach ( $atts as $attr => $value ) {
-				if ( ! empty( $value ) ) {
-					$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
-					$attributes .= ' ' . $attr . '="' . $value . '"';
-				}
+			    if ( ! empty( $value ) ) {
+				    $value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+				    $attributes .= ' ' . $attr . '="' . $value . '"';
+			    }
 			}
-
+			
 			$item_output = $args->before;
 			if($post && $post->post_type == 'imagelink') {
-				$protocol  = get_post_meta( $item->object_id, 'protocol', true );
-				$link  = get_post_meta( $item->object_id, 'link', true );
 				$targeturl = get_post_meta( $item->object_id, 'fauval_imagelink_url', true );
-
-				if (empty($targeturl) && isset($protocol) && isset($link)) {
-				    $targeturl = $protocol.$link;
-				}
 				$externlink = true;
-				$link = '<a class="ext-link" data-wpel-link="internal"  href="'.$targeturl.'">';
+				$link = '<a class="ext-link" data-wpel-link="internal" href="'.$targeturl.'">';
 			} else {
-				$link = '<a'. $attributes .' >';
+			    if ($post->post_type == 'page') {
+				$titlelangcode = get_post_meta($post->ID, 'fauval_pagetitle_langcode', true);
+				if (!fau_empty($titlelangcode)) {
+				    $sitelang = fau_get_language_main();
+				    if ($titlelangcode != $sitelang) {
+					$attributes .= ' lang="'.$titlelangcode.'"';
+				    }
+				}
+			    }
+
+				$link = '<a'. $attributes .'>';
 			}
 
 
@@ -710,22 +725,22 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
 
 				    if ($post_thumbnail_id) {
-				    if($this->thumbnail == 'image-2-col' || $this->thumbnail == 'post-thumb' || $this->thumbnail == 'gallery-full') {
-						$thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  $this->thumbnail);
-				    } else {
-						$thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  'page-thumb');
+					if($this->thumbnail == 'post-thumb' || $this->thumbnail == 'gallery-full') {
+					    $thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  $this->thumbnail);
+					} else {
+					    $thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  'page-thumb');
 					}
 					$imageurl = $thisimage[0];
 					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$thisimage[1].'" height="'.$thisimage[2].'" '.$altattr.'>';
 				    }
 				    if ((!isset($imageurl) || (strlen(trim($imageurl)) <4 )) && (!$this->nothumbnailfallback))  {
-          if($this->thumbnail == 'image-2-col' || $this->thumbnail == 'post-thumb') {
-            $imageurl = $options['default_postthumb_src'];
-            $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_postthumb_width'].'" height="'.$options['default_postthumb_height'].'" '.$altattr.'>';
-          } else {
-            $imageurl = $options['default_submenuthumb_src'];
-            $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" '.$altattr.'>';
-          }
+					if($this->thumbnail == 'post-thumb') {
+					  $imageurl = $options['default_postthumb_src'];
+					  $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_postthumb_width'].'" height="'.$options['default_postthumb_height'].'" '.$altattr.'>';
+					} else {
+					  $imageurl = $options['default_submenuthumb_src'];
+					  $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" '.$altattr.'>';
+					}
 				    }
 				    $item_output .= '</a>';
 				    $item_output .= '</div>';
@@ -737,7 +752,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 				$item_output .= '</a>';
 				$item_output .= '</span>'. $args->link_after;
 			} else {
-				$item_output .= $link;
+				$item_output .= $link;	
 				$item_output .= $args->link_before.apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 				$item_output .= '</a>';
 			}
@@ -855,22 +870,23 @@ function fau_breadcrumb($lasttitle = '') {
 	    echo $before . get_the_title() . $after;
 	}
     } elseif ( is_page() ) {
+
 	if (!$post->post_parent ) {
 	    if ($showcurrent) {
-		echo $before . get_the_title() . $after;
+		echo $before . fau_get_the_title() . $after;
 	    }
 	} else {
 	    $parent_id  = $post->post_parent;
 	    $breadcrumbs = array();
 	    while ($parent_id) {
 		$page = get_page($parent_id);
-		$breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
+		$breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . fau_get_the_title($page->ID) . '</a>';
 		$parent_id  = $page->post_parent;
 	    }
 	    $breadcrumbs = array_reverse($breadcrumbs);
 	    foreach ($breadcrumbs as $crumb) echo $crumb . $delimiter;
 	    if ($showcurrent) {
-		echo $before . get_the_title() . $after;
+		echo $before . fau_get_the_title() . $after;
 	    }
 	}
     } elseif ( is_search() ) {

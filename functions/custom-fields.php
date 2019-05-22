@@ -900,6 +900,11 @@ function fau_do_metabox_page_additional_attributes($object, $box) {
 	$labeltext = __('Sprache im Inhaltsbereich deklarieren','fau');
 	$howtotext = __('Falls die Sprache dieser Seite von anderen Webseiten des Webauftritts abweicht, geben Sie hier bitte die Sprache an, welche verwendet wird. Wenn die Sprache nicht geändert wird, ändern Sie nichts.</p><p class="hinweis">Achtung: Diese Funktion wird vom Workflow-Plugin nicht berücksichtigt.','fau');
 	fau_form_select('fau_metabox_page_langcode', $liste, $prevalue, $labeltext,  $howtotext);
+	
+	$prevalue = get_post_meta($object->ID, 'fauval_pagetitle_langcode', true);
+	$labeltext = __('Sprache des Seitentitels umdefinieren','fau');
+	$howtotext = __('Falls die Sprache der Seitentitels von der allgemeinen Sprache des Webauftritts abweicht, geben Sie hier bitte die Sprache an, welche verwendet wird. Wenn die Sprache nicht geändert wird, ändern Sie nichts.','fau');
+	fau_form_select('fau_metabox_page_title_langcode', $liste, $prevalue, $labeltext,  $howtotext);
     }
     
     
@@ -910,9 +915,7 @@ function fau_do_metabox_page_additional_attributes($object, $box) {
 	fau_form_toggle('fau_metabox_page_hide-in-subnav', $ignoresubnavi, $labeltext, $howtotext);
 	echo '</div>';
     
-	
-	
-	
+
 	
     
     if (get_theme_mod('website_type')==-1) {
@@ -1006,6 +1009,7 @@ function fau_save_metabox_page_additional_attributes( $post_id, $post ) {
     }
     if (get_theme_mod('advanced_activate_page_langcode') == true) {
 	fau_save_standard('fauval_langcode', $_POST['fau_metabox_page_langcode'], $post_id, 'page', 'text');
+	fau_save_standard('fauval_pagetitle_langcode', $_POST['fau_metabox_page_title_langcode'], $post_id, 'page', 'text');
     }
 
     if (get_theme_mod('website_type')==-1) {
