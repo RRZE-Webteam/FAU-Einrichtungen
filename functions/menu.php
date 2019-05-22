@@ -459,7 +459,9 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 	    $level = $this->level;
 	    $iscurrent =0;
 	    $class_names = $value = '';
-	    $classes = array();
+
+	    $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+	    $classes = fau_cleanup_menuclasses($classes);
 	    // Generate Classes. Dont use WordPress default, cause i dont want to
 	    // get all those unused data filled up my html
 
@@ -783,8 +785,17 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 	}
 }
 
-
-
+/*-----------------------------------------------------------------------------------*/
+/* Cleanup Menu Classes from unwanted garbage :) 
+/*-----------------------------------------------------------------------------------*/
+function fau_cleanup_menuclasses($currentarray = array()) {
+    $menugarbage = array(
+	"menu-item-type-post_type",
+	"menu-item-object-page",
+	"menu-item-has-children"
+    );
+    return array_diff($currentarray,$menugarbage);
+}
 /*-----------------------------------------------------------------------------------*/
 /* Create breadcrumb
 /*-----------------------------------------------------------------------------------*/
