@@ -1,0 +1,162 @@
+/*-----------------------------------------------------------------------------------*/
+/* Search in Header 
+/*-----------------------------------------------------------------------------------*/
+
+
+.meta-search {
+	display: block;
+
+	.active-meta-widget & {
+		display: inline;
+
+	}
+
+
+	.searchform {
+		@include transition(0.5s, all);
+		display: none;
+		border: none;
+		margin: 0;
+		padding: 5px 0;
+
+		input[type="text"] {
+			@include border-radius(20px);
+			padding: 5px 35px 5px 10px;
+			width: 220px;
+			background: $colorMeta;
+			border: none;
+			outline: none;
+			color: #fff;
+			height: 30px;
+			display: inline-block;
+			margin-right: -25px;
+			margin-bottom: 0px;
+			&:focus {
+				background-color: $colorMetaHover;
+			}
+
+			@media (min-width: $screen-sm) {
+				width: 160px;
+				padding-left: 35px;
+
+				.active-meta-widget & {
+					width: 150px;
+				}
+
+			}
+			@media (min-width: $screen-lg) {
+				width: 250px;
+				.active-meta-widget & {
+					width: 180px;
+				}
+			}
+
+		}
+
+		input[type="submit"] {
+			@include border-radius(20px);
+			position: relative;
+			z-index: 100;
+			height: 30px;
+			padding: 0 12px;
+			font-weight: bold;
+			border: none;
+			outline: none;
+			color: $colorMeta;
+			background: #fff;
+			display: inline-block;
+
+			&:hover, 
+			&:focus {
+				background: $colorMetaLightest;
+				@include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+
+			}
+		}
+
+		label {
+			@extend .screen-reader-text;
+		}
+		.searchicon {
+			display: inline;
+			@extend .fa;
+			@extend .fa-search;
+			position: relative;
+			margin-right: -30px;
+			color: #fff;
+
+		}
+	}
+	@media (max-width: $screen-sm - 1) {
+		width: 100%;
+
+		.search-toggled & {
+		    width: 100%;
+		    background: $colorMetaBackground;
+		    position: absolute;
+		    top: 40px;
+		    left: 0;
+		    padding: 10px 5px;
+		    
+
+		    .searchform {			
+			display: block;
+			input[type="text"] {
+			    width: calc(100% - 50px);
+			}
+			.searchicon {
+				    display: none;
+			}
+		    }
+		}
+	
+	}
+	@media (min-width: $screen-sm) {
+		.searchform {
+			display: inline-block;
+		}
+	}
+}
+
+
+
+/* New Toogle Button */
+#wrap #search-toggle {
+	position: absolute;
+	left: 0;
+	top: 0;
+	@include px2rem($font-size-mobile-meta);
+	background: transparent;
+	border: none;
+	display: none;
+	z-index: 100;
+	color: $colorMeta;
+
+	.search-toggled &:before {
+	    @extend .fa-search-minus;
+	}
+	@media (max-width: $screen-sm - 1) {
+	    .search-toggled & {
+		top: -40px;
+	    }
+	    
+	    .js & {
+		    display: block;
+	    }
+	}
+
+	span {
+	    @include sr-only();
+	}
+	
+}
+
+#search-toggle:before {
+	@extend .fa;
+	@extend .fa-search;
+
+	&:focus,
+	&:hover {
+		@extend .fa-search-minus;
+	}
+}

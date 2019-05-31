@@ -28,13 +28,12 @@
 				<?php echo fau_get_toplinks(); ?>
 			    </nav>
 			    <div class="meta-tools">
-				<div class="meta-search">
-				    <button id="search-toggle" aria-expanded="false" aria-controls="search-header"><span><?php _e("Suche","fau"); ?></span></button>
-				    <?php get_template_part('template-parts/search', 'header'); ?>
-				</div>
-			    <?php if ( is_active_sidebar( 'language-switcher' ) ) : ?>
-				<?php dynamic_sidebar( 'language-switcher' ); ?>
-			    <?php endif; ?>
+				<?php 
+				get_template_part('template-parts/header', 'search'); 
+				
+				if ( is_active_sidebar( 'language-switcher' ) )  {
+				     dynamic_sidebar( 'language-switcher' ); 
+				 } ?>
 			    </div>
 			</div>
 			<?php if ( is_plugin_active( 'fau-orga-breadcrumb/fau-orga-breadcrumb.php' ) ) { ?>
