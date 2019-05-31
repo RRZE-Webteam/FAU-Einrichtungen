@@ -49,6 +49,8 @@
 }
 
 // Avoid problems by users who follow the hash-link to #content 
+// by https://css-tricks.com/hash-tag-links-padding/
+
 h1#droppoint::before {
   display: block; 
   content: " "; 
