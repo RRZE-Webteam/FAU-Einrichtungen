@@ -18,16 +18,8 @@
 <div id="wrap">
 	<div role="navigation" aria-labelledby="navigation-top-title">
 	    <h1 class="screen-reader-text" id="navigation-top-title"><?php _e('Navigation','fau'); ?></h1>
-	    <nav id="skiplinks" aria-labelledby="skiplinks-title">
-		<h2 class="screen-reader-text" id="skiplinks-title"><?php _e('Skiplinks','fau'); ?></h2>
-		    <ul class="jumplinks">
-			<li><a href="#content" data-target="#content" data-firstchild="0" class="jumplink-content"><?php _e('Zum Inhalt springen','fau'); ?></a></li>
-			<li><a href="#search-header" data-target="#meta .searchform input" data-firstchild="1" class="jumplink-search"><?php _e('Zur Suche springen','fau'); ?></a></li>
-			<li><a href="#hauptnav-anchor" data-target="#hauptnav-anchor" data-firstchild="1" class="jumplink-nav"><?php _e('Zur Hauptnavigation springen','fau'); ?></a></li>
-			<?php if(!is_tax() && !is_category()  && basename( get_page_template() )=='page-subnav.php') { ?>
-			<li><a href="#subnavtitle" data-firstchild="1" class="jumplink-subnav"><?php _e('Zur Bereichsnavigation springen','fau'); ?></a></li><?php } ?>
-		    </ul>
-	    </nav>
+	    <?php get_template_part('template-parts/header', 'skiplinks'); ?>
+
 	    <div id="meta">
 		    <div class="container">
 			<div class="row">

@@ -99,7 +99,9 @@
 	     $classes[] = 'mainnav-forceclick';
     }
     if (('' != get_theme_mod( 'advanced_display_portalmenu_plainview' )) && (true== get_theme_mod( 'advanced_display_portalmenu_plainview' )) ) {
-	     $classes[] = 'mainnav-plainview';
+	$classes[] = 'mainnav-plainview';
+    } else {
+	$classes[] = 'mainnav-defaultview';
     }
     
     if (('' != get_theme_mod( 'advanced_display_header_md-showsitelogo' )) && (true == get_theme_mod( 'advanced_display_header_md-showsitelogo' )) ) {	    
