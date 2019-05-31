@@ -349,7 +349,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	    $typestr .= ' <span class="download">';
 	    $typestr .= ' <a href="'.fau_esc_url($attachment['url']).'">'.__('Download','fau').'</a>'; 
 	    
-	    $typestr .= ' <span class="filesize">(<span class="unsichtbar">';
+	    $typestr .= ' <span class="filesize">(<span class="screen-reader-text">';
 	    $typestr .= __('Größe:', 'fau'). ' </span>'.$filesize; 
 	    $typestr .= ')</span>';	
 	    $typestr .= '</span>';
