@@ -5,110 +5,76 @@
 
 /* Language switcher */
 .cms-workflow-widget {
-	@include border-radius(20px);
-	background: #fff;
-
-	&:hover,
-	&:focus,
-	&:focus-within {
-		background: $colorMetaLightest;
-		@include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
-	}
-}
-
-.mlp_language_box {
-	padding: 0 5px;
-	margin: 0;
+    
+    .mlp_language_box {
 	@include inline-block();
-	z-index: 200;
-	overflow: hidden;
-	height: 30px;
-
-	&:before {
+	
+	
+	ul {
+	    display: flex;
+	    padding: 0;
+	    margin: 0;
+	  
+	    &:before {
 		@extend .fa;
 		@extend .fa-language;
 		@include px2rem(21);
-
-	}
-
-
-	&:hover,
-	&:focus {
-		height: auto;
-		z-index: 202;
-
-		ul {
-			height: auto;
-		}
-	}
-
-	ul {
-		@include no-list;
-		z-index: 201;
 		display: inline;
+		z-index: 10;
+	    }
+	    li {
+		padding: 0;
 		margin: 0;
-
-		@media (min-width: $screen-lg) {
-			margin: 0 5px;
-		}
-
-		li {
-			@include no-list;
-			text-align: left;
-			padding: 5px;
-			display: inline-block;
+		 @include no-list;
+		a {
+		    text-align: left;
+		    text-decoration: none;
+		    text-transform: uppercase;
+		    font-weight: bold;
+		    color: $colorMeta;
+		    display: inline-block;
+		    
+		    @include border-radius(20px);
+		    background: #fff;
+		    height: 30px;
+		    margin-left: -25px;
+		    padding: 0 5px 0 30px;
+		    line-height: 30px;
+		    width: 55px;
+		    overflow: hidden;
+		    
+		    &:before {
 			width: 30px;
-			height: 20px;
-			overflow: hidden;
+			content: attr(hreflang);
+			display: inline;
+			margin-right: 30px;
 			@media (min-width: $screen-lg) {
-				//	    min-width: 60px;
-				width: auto;
-				max-width: 100px;
+				content: "";
+				margin-right: 0px;
+				width: 0;
 			}
-
-			a {
-				text-align: left;
-				text-decoration: none;
-				text-transform: uppercase;
-				font-weight: bold;
-				color: $colorMeta;
-			}
-
-			a::before {
-				width: 30px;
-				content: attr(hreflang);
-				display: inline;
-				margin-right: 30px;
-				@media (min-width: $screen-lg) {
-					content: "";
-					margin-right: 0px;
-					width: 0;
-				}
-			}
-
-
-			a.ext-link {
-				background-image: none;
-			}
-
-			&.current {
-				display: none;
-			}
-
+		    }
+		    &:hover,
+		    &:focus {
+			    background: $colorMetaLightest;
+			    @include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+		    }
+		    
+		    @media (min-width: $screen-lg) {
+			width: auto;
+			max-width: 100px;
+		    }
+		    @media (min-width: $screen-xl) {
+			width: auto;
+			max-width: 180px;
+		    }
+		    
+		    
 		}
-	}
 
-	h2 {
-		@include hideout;
+	    }
 	}
+    }
+    
 }
 
-#wrap .cms-workflow-widget {
-	@media (max-width: $screen-sm - 1) {
-		position: absolute;
-		top: 0;
-		right: 50px;
-		margin: 4px 0;
-		background-color: transparent;
-	}
-}
