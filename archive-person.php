@@ -30,7 +30,7 @@ get_header();
 		    <?php } ?>
 			<div class="col-xs-12">
 			    <main>
-				<h1 class="screen-reader-text"><?php echo __('Index','fau'); ?></h1>
+				<h1 id="droppoint" class="screen-reader-text"><?php echo __('Index','fau'); ?></h1>
 				<?php 
 
 				    while ( have_posts() ) { 

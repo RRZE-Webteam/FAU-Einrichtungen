@@ -23,7 +23,7 @@
 				<div class="startpage-blogroll">
 				   
 			<main<?php echo fau_get_page_langcode($post->ID);?>>	  
-			    <h1 class="screen-reader-text"><?php the_title(); ?></h1>
+			    <h1 id="droppoint" class="screen-reader-text"><?php the_title(); ?></h1>
 		    <?php 
 			wp_reset_postdata();
 			wp_reset_query();

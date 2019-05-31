@@ -47,3 +47,14 @@
     }
 	
 }
+
+// Avoid problems by users who follow the hash-link to #content 
+h1#droppoint::before {
+  display: block; 
+  content: " "; 
+  margin-top: -175px; 
+  height: 175px; 
+  visibility: hidden; 
+  pointer-events: none;
+  
+}

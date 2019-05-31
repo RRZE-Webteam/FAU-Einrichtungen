@@ -33,7 +33,7 @@ if($posttype == 'event') {
 			<?php } else { ?>
 			<main class="col-xs-12">
 			<?php } ?>
-			    <h1 class="screen-reader-text"><?php echo $screenreadertitle; ?></h1>
+			    <h1 id="droppoint" class="screen-reader-text"><?php echo $screenreadertitle; ?></h1>
 			    <?php 
 			    if (($posttype == 'synonym') && (get_theme_mod('index_synonym_listall'))) {					    
 				echo '<h2>'.__('Synonyme','fau')."</h2>\n";					    

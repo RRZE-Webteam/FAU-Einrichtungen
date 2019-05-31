@@ -2519,6 +2519,8 @@ img.aligncenter { display: block; margin: 0 auto 10px auto; }
 .jumplinks li a:active, .jumplinks li a:focus { position: static; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; }
 .jumplinks li a:active, .jumplinks li a:hover, .jumplinks li a:focus { position: absolute; z-index: 100; background: #003366; color: #fff; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); padding: 1.2em 1em; top: -20px; left: 0; right: 0; margin: 0 auto; text-align: center; width: 100%; max-width: 1260px; text-decoration: none; }
 
+h1#droppoint::before { display: block; content: " "; margin-top: -175px; height: 175px; visibility: hidden; pointer-events: none; }
+
 /*-----------------------------------------------------------------------------------*/
 /* CSS Classes for use in several purposes
 /*-----------------------------------------------------------------------------------*/
