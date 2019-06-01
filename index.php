@@ -15,7 +15,7 @@ $screenreadertitle = '';
 if($posttype == 'event') {
 	get_template_part('template-parts/hero', 'events');
 	$screenreadertitle = get_theme_mod('title_hero_events');
-} elseif ($posttype == 'post') {
+} elseif (($posttype == 'post') && (is_archive())) {
 	get_template_part('template-parts/hero', 'category'); 
 	$screenreadertitle = single_cat_title("", false);
 
@@ -29,11 +29,11 @@ if($posttype == 'event') {
 	    <div class="container">
 		    <div class="row">
 			<?php if(get_post_type() == 'post') { ?>
-			<main class="entry-content">
+			<main class="entry-content" id="droppoint">
 			<?php } else { ?>
-			<main class="col-xs-12">
+			<main class="col-xs-12" id="droppoint">
 			<?php } ?>
-			    <h1 id="droppoint" class="screen-reader-text"><?php echo $screenreadertitle; ?></h1>
+			    <h1 class="screen-reader-text"><?php echo $screenreadertitle; ?></h1>
 			    <?php 
 			    if (($posttype == 'synonym') && (get_theme_mod('index_synonym_listall'))) {					    
 				echo '<h2>'.__('Synonyme','fau')."</h2>\n";					    

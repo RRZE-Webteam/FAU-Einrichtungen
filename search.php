@@ -28,7 +28,7 @@ $showhelplinks = 0;
 			    <?php } ?>
 			    
 				    
-				<main>
+				<main id="droppoint">
 				   <h1 class="screen-reader-text"><?php _e('Webauftritt durchsuchen','fau'); ?></h1>
 				 <?php 
 								 
