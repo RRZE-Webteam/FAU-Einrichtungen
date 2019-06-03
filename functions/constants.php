@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 50,
+    'optiontable-version'		=> 51,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -196,8 +196,10 @@ $defaultoptions = array(
     'url_banner-ad-notice'	    => 'http://www.fau.info/werbungfaude',
     'title_banner-ad-notice'	    => __( 'Werbung', 'fau' ),
     
-    'title_hero_post_categories'	=> __( 'FAU aktuell', 'fau' ),
-    'title_hero_post_archive'		=> __( 'FAU aktuell', 'fau' ),
+//    'title_hero_post_categories'	=> __( 'FAU aktuell', 'fau' ),
+    'title_hero_post_categories'	=> '',
+//   'title_hero_post_archive'		=> __( 'FAU aktuell', 'fau' ),
+    'title_hero_post_archive'          => '',
     'title_hero_search'			=> __( 'Webauftritt durchsuchen', 'fau' ),
     'title_hero_events'			=> __( 'Veranstaltungskalender','fau'),
     

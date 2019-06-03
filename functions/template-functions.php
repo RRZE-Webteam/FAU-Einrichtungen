@@ -99,7 +99,9 @@
 	     $classes[] = 'mainnav-forceclick';
     }
     if (('' != get_theme_mod( 'advanced_display_portalmenu_plainview' )) && (true== get_theme_mod( 'advanced_display_portalmenu_plainview' )) ) {
-	     $classes[] = 'mainnav-plainview';
+	$classes[] = 'mainnav-plainview';
+    } else {
+	$classes[] = 'mainnav-defaultview';
     }
     
     if (('' != get_theme_mod( 'advanced_display_header_md-showsitelogo' )) && (true == get_theme_mod( 'advanced_display_header_md-showsitelogo' )) ) {	    
@@ -349,7 +351,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	    $typestr .= ' <span class="download">';
 	    $typestr .= ' <a href="'.fau_esc_url($attachment['url']).'">'.__('Download','fau').'</a>'; 
 	    
-	    $typestr .= ' <span class="filesize">(<span class="unsichtbar">';
+	    $typestr .= ' <span class="filesize">(<span class="screen-reader-text">';
 	    $typestr .= __('Größe:', 'fau'). ' </span>'.$filesize; 
 	    $typestr .= ')</span>';	
 	    $typestr .= '</span>';

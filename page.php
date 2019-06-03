@@ -23,7 +23,7 @@ while ( have_posts() ) :
 		    ?>
 		    <div class="row">
 			<div class="col-xs-12">
-			    <main<?php echo fau_get_page_langcode($post->ID);?>>
+			    <main<?php echo fau_get_page_langcode($post->ID);?> id="droppoint">
 				<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 					<?php 
 					$headline = get_post_meta( $post->ID, 'headline', true );				

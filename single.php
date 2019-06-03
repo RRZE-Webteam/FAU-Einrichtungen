@@ -22,7 +22,7 @@ while ( have_posts() ) : the_post();
 			    <div class="col-xs-12">
 			    <?php } ?>
 				<main>
-				    <h1 class="screen-reader-text"><?php the_title(); ?></h1>
+				    <h1 id="droppoint" class="screen-reader-text"><?php the_title(); ?></h1>
 				    <article class="news-details">
 					    <?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 						<div class="post-image">

@@ -182,10 +182,10 @@ function fau_main_menu_fallback() {
     $output = '';
     $some_pages = get_pages(array('parent' => 0, 'number' => $defaultoptions['default_mainmenu_number'], 'hierarchical' => 0));
     if($some_pages) {
-        foreach($some_pages as $page) {
+         foreach($some_pages as $page) {
             $output .= sprintf('<li class="menu-item level1"><a href="%1$s">%2$s</a></li>', get_permalink($page->ID), $page->post_title);
-        }
-	    $output = sprintf('<div id="nav"><ul class="nav">%s</ul></div>', $output);
+         }
+	$output = sprintf('<div id="nav"><ul class="nav">%s</ul></div>', $output);
     }   
 
     return $output;
@@ -325,11 +325,29 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		$class_names = $value = '';
 		$force_cleanmenu = 0;
 
-		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-		if ($level<2) {
-		    $classes[] = 'menu-item-' . $item->ID;
+		// Generate Classes. Dont use WordPress default, cause i dont want to
+		// get all those unused data filled up my html
+
+		if ($this->level < 2) {
+		    //	$classes[] = 'menu-item-' . $item->ID;
 		    $classes[] = 'level' . $level;
 		}
+		if (in_array("menu-item-has-children",$item->classes)) {
+		    $classes[] = 'has-sub';
+		}
+		if (in_array("current-menu-item",$item->classes)) {
+		    $classes[] = 'current-menu-item';
+		}
+		if (in_array("current-menu-parent",$item->classes)) {
+		    $classes[] = 'current-menu-parent';
+		}
+		if (in_array("current-page-item",$item->classes)) {
+		    $iscurrent = 1;
+		    $classes[] = 'current-page-item';
+		}
+		
+		
+		
 		$rellink = fau_make_link_relative($item->url);
 		if (substr($rellink,0,4) == 'http') {
 		    // absoluter Link auf externe Seite
@@ -365,6 +383,11 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		    $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
 		    $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
 		    $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+		    $item_classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		    $item_classes = fau_cleanup_menuclasses($item_classes);
+		    $item_class = implode( ' ',  $item_classes);
+		    $atts['class']   = ! empty( $item_class )        ? $item_class        : '';
+		    
 		    if ($iscurrent==1) {
 			$atts['aria-current'] = "page";
 		    }
@@ -460,13 +483,11 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 	    $iscurrent =0;
 	    $class_names = $value = '';
 
-	    $classes = empty( $item->classes ) ? array() : (array) $item->classes;
-	    $classes = fau_cleanup_menuclasses($classes);
 	    // Generate Classes. Dont use WordPress default, cause i dont want to
 	    // get all those unused data filled up my html
 
 	    if ($this->level < 2) {
-		$classes[] = 'menu-item-' . $item->ID;
+	//	$classes[] = 'menu-item-' . $item->ID;
 		$classes[] = 'level' . $level;
 	    }
 	    if (in_array("menu-item-has-children",$item->classes)) {
@@ -499,6 +520,13 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 	    $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
 	    $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
 	    $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+	    
+	    $item_classes = empty( $item->classes ) ? array() : (array) $item->classes;
+	    $item_classes = fau_cleanup_menuclasses($item_classes);
+	    $item_class = implode( ' ',  $item_classes);
+	    $atts['class']   = ! empty( $item_class )        ? $item_class        : '';
+	    
+	    
 	    if ($iscurrent==1) {
 		$atts['aria-current'] = "page";
 	    }

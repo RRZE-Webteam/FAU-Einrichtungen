@@ -146,8 +146,8 @@ cite {
 
 // Abbrevations, Acronyms
 
-accronym[title],
-accronym[data-original-title],
+acronym[title],
+acronym[data-original-title],
 abbr[title],
 abbr[data-original-title] {
     font-style: italic;
@@ -160,7 +160,7 @@ abbr[data-original-title] {
 	color: $colorPrimaryContrast;
     }
 }
-accronym.initialism,
+acronym.initialism,
 abbr.initialism {
 	font-size: 90%;
 	text-transform: uppercase;

@@ -110,16 +110,7 @@
 
 }
 
-/*
-.js #header {
-	@media (max-width: $screen-sm - 1) {
-		svg,
-		img {
-			@include hideout();
-		}
-	}
-}
-*/
+
 
 #logo {
 	position: relative;
@@ -134,7 +125,7 @@
 		color: $colorPrimary;
 		margin: 10px 0;
 		max-height: inherit;
-		font-weight: bold;
+	//	font-weight: bold;
 		text-decoration: none;
 		padding: 0 15px;
 
@@ -154,8 +145,7 @@
 			text-decoration: none;
 		}
 
-
-		@include px2rem($font-size-h1-mobilebranding, $font-size-gridbase, $font-size-h1-mobilebranding);
+		@include px2rem($font-size-h1-mobilebranding, $font-size-gridbase, $font-size-h1-mobilebranding + 4);
 		@media (min-width: $screen-sm) {
 			@include px2rem($font-size-h1-desktopbranding, $font-size-gridbase, $font-size-h1-desktopbranding);
 

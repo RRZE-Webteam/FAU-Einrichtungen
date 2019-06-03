@@ -273,6 +273,15 @@
 
 /* Large device */
 @media (min-width: $screen-sm) {
+	.mainnav-defaultview {
+	    .header-menu {
+		.flyout-entries-full {
+		    ul.sub-menu li {
+			 width: 30%;
+		    }
+		}
+	    }
+	}
 	.mainnav-plainview {
 		.nav {
 			ul {

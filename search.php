@@ -20,7 +20,7 @@ $showhelplinks = 0;
 			    <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	
 				$active_sidebar = 1; ?>
 				<div class="search-sidebar">
-				    <h1 class="screen-reader-text"><?php _e('Sidebar','fau'); ?></h1>
+				    <h1 id="droppoint" class="screen-reader-text"><?php _e('Sidebar','fau'); ?></h1>
 					    <?php dynamic_sidebar( 'search-sidebar' ); ?>
 				</div>	
 				<div class="search-resultnested">   
@@ -28,7 +28,7 @@ $showhelplinks = 0;
 			    <?php } ?>
 			    
 				    
-				<main>
+				<main id="droppoint">
 				   <h1 class="screen-reader-text"><?php _e('Webauftritt durchsuchen','fau'); ?></h1>
 				 <?php 
 								 
