@@ -96,10 +96,10 @@ Mixins File for Wordpress Theme FAU
     ::-webkit-input-placeholder {
 	    color: $color;
     }
-    ::-moz-placeholder {
+    :-ms-input-placeholder {
 	    color: $color;
     }
-    :-ms-input-placeholder {
+    ::placeholder {
 	    color: $color;
     }
 }
@@ -240,3 +240,4 @@ Mixins File for Wordpress Theme FAU
     white-space: normal;
   }
 }
+
