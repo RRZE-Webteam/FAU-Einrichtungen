@@ -25,7 +25,8 @@
 	}
 
 	.menu-header {
-		@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
+		@include px2rem($font-size-nav-mainlinks);
+		// @include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
 		margin: 0;
 		border-top: none;
 
@@ -81,8 +82,8 @@
 		> [type=button] {
 			display: block;
 			position: relative;
-			//@include px2rem($font-size-nav-mainlinks-small, $font-size-gridbase, $font-size-nav-mainlinks-small);
-			@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
+		//	@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
+			@include px2rem($font-size-nav-mainlinks);
 			font-weight: bold;
 			padding: 10px 15px;
 
@@ -97,7 +98,7 @@
 			> a,
 			> [type=button] {
 				padding-bottom: 10px;
-				padding-right: 30px;
+				padding-right: 28px;
 				margin-bottom: 0;
 
 				&:before {
@@ -155,8 +156,8 @@
 		background-color: $colorHover;
 		padding: 13px 20px;
 		font-weight: bold;
-		font-size: 18px;
-		line-height: 18px;
+
+		@include px2rem($font-size-nav-mainlinks + 1);
 		@include border-radius(4px);
 
 		&:hover,
