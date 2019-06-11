@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = array(
-    'optiontable-version'		=> 51,
+    'optiontable-version'		=> 53,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -85,7 +85,7 @@ $defaultoptions = array(
     'default_topevent_thumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-140x90.gif',
     'fallback_topevent_image'		=> 0,
     'default_topevent_excerpt_length'	=> 100,
-    
+
     'default_startseite-bannerbild-image_src'	    => get_fau_template_uri().'/img/bannerbild-tafel-1260x182.jpg',
     'startseite_banner_usedefault'		=> false,
     
@@ -243,6 +243,7 @@ $defaultoptions = array(
     'search_display_continue_arrow'			=> true,
     'search_display_excerpt_morestring'		=> '...',
     'search_display_typenote'			=> true,
+    'advanced_display_postthumb_alt-from-desc'	=> false,
     'search_post_types'			    	=> array("page", "post", "attachment"),
     'search_post_types_checked'			=> array("page", "post"),
     'search_allowfilter'				=> true,
@@ -602,6 +603,13 @@ $setoptions = array(
                   'label'   => __( 'Hinweistext zur Abgrenzung zum Inhalt der Kommentare.', 'fau' ),                
                   'default' => $defaultoptions['advanced_comments_disclaimer'],
 		  'parent'  => 'postoptions'
+		), 
+		'advanced_display_postthumb_alt-from-desc'		  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Alternativtext Artikelbild', 'fau' ),
+		    'label'   => __( 'Bei der Darstellung des Artikelbildes wird das ALT-Attribut vom Inhalt der Bildbeschriebung gefüllt, wenn das ALT-Attribut leer ist.', 'fau' ),                
+		    'default' => $defaultoptions['advanced_display_postthumb_alt-from-desc'],
+		    'parent'  => 'postoptions'
 		), 
 	       
 
