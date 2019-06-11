@@ -29,21 +29,26 @@ while ( have_posts() ) : the_post();
 						    <?php 
 						    $bildunterschrift = get_post_meta( $post->ID, 'fauval_overwrite_thumbdesc', true );
 						    $post_thumbnail_id = get_post_thumbnail_id(); 
+						    
+						    
 						    if ($post_thumbnail_id) {
+							$imgdata = fau_get_image_attributs($post_thumbnail_id);
 							$full_image_attributes = wp_get_attachment_image_src( $post_thumbnail_id, 'full');
-
+							$altattr = trim(strip_tags($imgdata['alt']));
+							if ((fau_empty($altattr)) && (get_theme_mod("advanced_display_postthumb_alt-from-desc"))) {
+							    $altattr = trim(strip_tags($imgdata['description']));
+							}
 							echo '<figure>';
 							echo '<a class="lightbox" href="'.fau_esc_url($full_image_attributes[0]).'">';
 
 							$image_attributes = wp_get_attachment_image_src( $post_thumbnail_id, 'post' );							    
 							echo '<img src="'.fau_esc_url($image_attributes[0]).'" class="attachment-post wp-post-image" '
-								. 'width="'.$image_attributes[1].'" height="'.$image_attributes[1].'" alt="">';
+								. 'width="'.$image_attributes[1].'" height="'.$image_attributes[1].'" alt="'.$altattr.'">';
 							echo '</a>';
 							echo '<figcaption class="post-image-caption">';
 							if (isset($bildunterschrift) && strlen($bildunterschrift)>1) {
 							    echo $bildunterschrift;
-							} else {
-							    $imgdata = fau_get_image_attributs($post_thumbnail_id);
+							} else {		  
 							    $info = "";
 							    $credits = '';
 							    if ($imgdata) {
