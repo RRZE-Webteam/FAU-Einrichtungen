@@ -7,6 +7,11 @@
 * @since FAU 1.0
 */
 
+?>
+<div class="meta-search">
+    <button id="search-toggle" aria-expanded="false" aria-controls="search-header"><span><?php _e("Suche","fau"); ?></span></button>
+
+<?php 
 /** Condition statement if plugin is currently active */
 if (is_plugin_active('rrze-search/rrze-search.php')) {
     /** WP function for loading widget's sidebar */
@@ -36,5 +41,6 @@ if (is_plugin_active('rrze-search/rrze-search.php')) {
         ?>
         <input type="submit" value="<?php _e('Finden','fau'); ?>">
     </form>
-<?php }
-echo PHP_EOL;
+<?php } ?>
+</div>
+

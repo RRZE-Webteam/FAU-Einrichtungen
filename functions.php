@@ -6,7 +6,8 @@
  */
 
 load_theme_textdomain( 'fau', get_template_directory() . '/languages' );
-require_once( get_template_directory() . '/functions/relative-urls.php');
+require_once( get_template_directory() . '/functions/template-functions.php' );
+
 require_once( get_template_directory() . '/functions/defaults.php' );
 require_once( get_template_directory() . '/functions/constants.php' );
 require_once( get_template_directory() . '/functions/sanitizer.php' );
@@ -14,10 +15,11 @@ require_once( get_template_directory() . '/functions/customizer.php');
 
 
 $options = fau_initoptions();
-require_once( get_template_directory() . '/functions/plugin-support.php' );
 
+require_once( get_template_directory() . '/functions/plugin-support.php' );
 require_once( get_template_directory() . '/functions/helper-functions.php' );
-require_once( get_template_directory() . '/functions/template-functions.php' );
+require_once( get_template_directory() . '/functions/embeddings.php');
+
 require_once( get_template_directory() . '/functions/shortcodes.php');
 require_once( get_template_directory() . '/functions/shortcode-accordion.php');
 
@@ -26,15 +28,19 @@ require_once( get_template_directory() . '/functions/custom-fields.php' );
 require_once( get_template_directory() . '/functions/posttype_imagelink.php' );
 require_once( get_template_directory() . '/functions/posttype_ad.php' );
 require_once( get_template_directory() . '/functions/widgets.php' );
+require_once( get_template_directory() . '/functions/gallery.php' );
+
 require_once( get_template_directory() . '/functions/posttype-synonym.php');
 require_once( get_template_directory() . '/functions/posttype-glossary.php');
 require_once( get_template_directory() . '/functions/gutenberg.php');
 
+
 function fau_setup() {
 	global $defaultoptions;
 	 
-
 	if ( ! isset( $content_width ) ) $content_width = $defaultoptions['content-width'];
+	
+	    
 	add_editor_style( array( 'css/editor-style.css' ) );
 	add_theme_support( 'html5');
 	add_theme_support('title-tag');
@@ -80,32 +86,13 @@ function fau_setup() {
 	/* Images for gallerys - Name: gallery-full */
 	add_image_size( 'gallery-full', $defaultoptions['default_gallery_full_width'], $defaultoptions['default_gallery_full_height'], $defaultoptions['default_gallery_full_crop']); // 940, 470, false
 	//
-	// Wird bei Default-Galerien verwendet als ANzeige des großen Bildes.
-	add_image_size( 'gallery-thumb', $defaultoptions['default_gallery_thumb_width'], $defaultoptions['default_gallery_thumb_height'], $defaultoptions['default_gallery_thumb_crop']); // 120, 80, true
-
-	/* Grid-Thumbs for gallerys - Name: gallery-grid */
-	add_image_size( 'gallery-grid', $defaultoptions['default_gallery_grid_width'], $defaultoptions['default_gallery_grid_height'], $defaultoptions['default_gallery_grid_crop']); // 145, 120, false
-	
-	/* 2 column Imagelists for gallerys - Name: image-2-col */
-	add_image_size( 'image-2-col', $defaultoptions['default_gallery_grid2col_width'], $defaultoptions['default_gallery_grid2col_height'], $defaultoptions['default_gallery_grid2col_crop']); // 300, 200, true
-	
-	/* 4 column Imagelists for gallerys - Name: image-4-col */
-	add_image_size( 'image-4-col', $defaultoptions['default_gallery_grid4col_width'], $defaultoptions['default_gallery_grid4col_height'], $defaultoptions['default_gallery_grid4col_crop']);	// 140, 70, true
-
+	//
+	if ($defaultoptions['default_gallery_thumb_size'] != 'logo_carousel') {
+	    // Wird bei Default-Galerien verwendet als ANzeige des großen Bildes.
+	    add_image_size( 'gallery-thumb', $defaultoptions['default_gallery_thumb_width'], $defaultoptions['default_gallery_thumb_height'], $defaultoptions['default_gallery_thumb_crop']); // 120, 80, true
+	}
 
 	
-	
-	
-	/* Remove something out of the head */
-	// remove_action( 'wp_head', 'feed_links_extra', 3 ); // Display the links to the extra feeds such as category feeds
-	// remove_action( 'wp_head', 'feed_links', 2 ); // Display the links to the general feeds: Post and Comment Feed	
-	remove_action( 'wp_head', 'post_comments_feed_link ', 2 ); // Display the links to the general feeds: Post and Comment Feed
-	remove_action( 'wp_head', 'rsd_link' ); // Display the link to the Really Simple Discovery service endpoint, EditURI link
-	remove_action( 'wp_head', 'wlwmanifest_link' ); // Display the link to the Windows Live Writer manifest file.
-	// remove_action( 'wp_head', 'index_rel_link' ); // index link
-	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); // prev link
-	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 ); // Display relational links for the posts adjacent to the current post.
-	//remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0);
 
 	
 
@@ -117,6 +104,8 @@ add_action( 'after_setup_theme', 'fau_setup' );
 /* Set extra init values
 /*-----------------------------------------------------------------------------------*/
 function fau_custom_init() {
+        global $defaultoptions;
+
     /* Keine verwirrende Abfrage nach Kommentaren im Page-Editor */
     remove_post_type_support( 'page', 'comments' );
 
@@ -128,6 +117,7 @@ function fau_custom_init() {
     remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
     remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+  
 
 }
 add_action( 'init', 'fau_custom_init' );
@@ -145,24 +135,16 @@ function fau_register_scripts() {
 	// Base Style
     wp_register_script('fau-scripts', $defaultoptions['src-scriptjs'], array('jquery'), $theme_version, true );
 	// Base Scripts
-    wp_register_script('fau-libs-jquery-flexslider', get_fau_template_uri() . '/js/libs/jquery.flexslider.js', array('jquery'), $theme_version, true );
-	// Flexslider für Startseite und für Galerien.     
-    wp_register_script('fau-libs-jquery-caroufredsel', get_fau_template_uri() . '/js/libs/jquery.caroufredsel.js', array('jquery'), $theme_version, true );
-    wp_register_script('fau-js-caroufredsel', get_fau_template_uri() . '/js/usecaroufredsel.min.js', array('jquery','fau-libs-jquery-caroufredsel'), $theme_version, true );
     wp_register_script('fau-js-heroslider', get_fau_template_uri() . '/js/slick.min.js', array('jquery'), $theme_version, true );
    
 	
 }
 add_action('init', 'fau_register_scripts');
 
-
 /*-----------------------------------------------------------------------------------*/
 /* Activate base scripts
 /*-----------------------------------------------------------------------------------*/
 function fau_basescripts_styles() {
-    global $defaultoptions;
-    global $usejslibs;
-    
     wp_enqueue_style( 'fau-style');	
     wp_enqueue_script( 'fau-scripts');
 
@@ -176,19 +158,11 @@ function fau_enqueuefootercripts() {
     global $usejslibs;
    
     
-     if ((isset($usejslibs['flexslider']) && ($usejslibs['flexslider'] == true))) {
-	 // wird bei Gallerien verwendet (und früher bei der Startseite)
-	wp_enqueue_script('fau-libs-jquery-flexslider');	     
-     }	 
      if ((isset($usejslibs['heroslider']) && ($usejslibs['heroslider'] == true))) {
 	 // wird bei Startseite Slider und auch bei gallerien verwendet
 	 wp_enqueue_script('fau-js-heroslider');
      }	 
-     if ((isset($usejslibs['caroufredsel']) && ($usejslibs['caroufredsel'] == true))) {
-	// wird bei Logo-Menus verwendet
-	wp_enqueue_script('fau-libs-jquery-caroufredsel');
-	wp_enqueue_script('fau-js-caroufredsel');
-    }
+     
 }
 
 add_action( 'wp_footer', 'fau_enqueuefootercripts' );
@@ -213,6 +187,15 @@ function fau_admin_header_style() {
 add_action( 'admin_enqueue_scripts', 'fau_admin_header_style' );
 
 
+
+/*-----------------------------------------------------------------------------------*/
+/* Remove type-String from link-reference to follow W3C Validator
+/*-----------------------------------------------------------------------------------*/
+function fau_remove_type_attr($tag, $handle) {
+    return preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
+}
+add_filter('style_loader_tag', 'fau_remove_type_attr', 10, 2);
+add_filter('script_loader_tag', 'fau_remove_type_attr', 10, 2);
 
 /*-----------------------------------------------------------------------------------*/
 /* Change default header
@@ -283,6 +266,34 @@ function fau_dns_prefetch() {
 add_action('wp_head', 'fau_dns_prefetch', 0);
 
 
+/*-----------------------------------------------------------------------------------*/
+/*  Remove something out of the head
+/*-----------------------------------------------------------------------------------*/
+function fau_remove_unwanted_head_actions() {
+	remove_action( 'wp_head', 'post_comments_feed_link ', 2 ); 
+	    // Display the links to the general feeds: Post and Comment Feed
+	remove_action( 'wp_head', 'rsd_link' ); 
+	    // Display the link to the Really Simple Discovery service endpoint, EditURI link
+	remove_action( 'wp_head', 'wlwmanifest_link' ); 
+	    // Display the link to the Windows Live Writer manifest file.
+	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); 
+	    // remove prev link
+	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 ); 
+	    // remove Display relational links for the posts adjacent to the current post.
+	remove_action( 'wp_head', 'wp_oembed_add_discovery_links'         ); 
+	    // remove oEmbed discovery links in the website 
+	
+	remove_action('wp_head', '_admin_bar_bump_cb');
+	    // remove Inline CSS to display WordPress Admin Bar
+	    // we move this into our CSS-file - see: css/sass/backend/wordpress 	
+	if (!is_user_logged_in()) {
+	    // remove admin settings in footer if not logged in
+	    remove_action( 'wp_footer', 'wp_admin_bar_render', 1000 );
+	    add_filter( 'show_admin_bar', '__return_false' );
+	}
+
+}
+add_action('wp_head', 'fau_remove_unwanted_head_actions', 0);
 /*-----------------------------------------------------------------------------------*/
 /* Change default title
 /*-----------------------------------------------------------------------------------*/

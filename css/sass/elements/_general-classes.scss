@@ -36,7 +36,6 @@
 	width: 100%;
 	min-height: 30px;
 	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
@@ -61,7 +60,9 @@
 .invisible {
 	visibility: hidden;
 }
-
+.uppercase {
+    text-transform: uppercase;
+}
 
 
 .alignright {
@@ -115,25 +116,7 @@ div.aligncenter {
     }
 }
 
-.unsichtbar {
-  position:absolute;
-  left:-10000px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
-}
-.unsichtbar:focus {
-  position: relative;
-  left: 0;
-  width: auto;
-  height: auto;
-  overflow: auto;
-}
 
-.screen-reader-text {
-    @extend .unsichtbar;
-}
 
 .hide-desktop {
 	display: none;
@@ -144,15 +127,6 @@ div.aligncenter {
 
 .span-small {
 	width: 90px;
-}
-
-
-.oembed {
-	margin: 10px 0 20px 0;
-	
-	#social & {
-		margin: 0;
-	}
 }
 
 
@@ -210,23 +184,26 @@ div.aligncenter {
 }
 
 .bgcol-phil {
-		background-color: $colorPhilFak !important;
+    background-color: $colorPhilFak !important;
 }
 .bgcol-rw {
-		background-color: $colorRwFak !important;
+    background-color: $colorRwFak !important;
 }
 .bgcol-med {
-		background-color: $colorMedFak !important;
+    background-color: $colorMedFak !important;
 }
 .bgcol-nat {
-		background-color: $colorNatFak !important;
+    background-color: $colorNatFak !important;
 }
 .bgcol-tf,
 .bgcol-tech {
-		background-color: $colorTechFak !important;
+    background-color: $colorTechFak !important;
 }
 .bgcol-fau, 
 .bgcol-default {
-		background-color: $colorDefault !important;
+    background-color: $colorDefault !important;
 }
 
+.bgcol-grau {
+    background-color: $colorStandardHellgrau;
+}

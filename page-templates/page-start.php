@@ -19,7 +19,7 @@ get_header();
 			
 			<div class="row">
 				<div class="startpage-blogroll">
-				    <main<?php echo fau_get_page_langcode($post->ID);?>>
+				    <main<?php echo fau_get_page_langcode($post->ID);?> id="droppoint">
 					<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 					
 					<?php
@@ -112,7 +112,8 @@ get_header();
 
 			$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
 			if ($logoliste) { 
-			    $logos = fau_get_imagelinks($logoliste, false);
+			    /* New since 1.10.57 */
+			    $logos = fau_imagelink_get(array('size' => "logo-thumb", 'catid' => $logoliste, "autoplay" => true, "dots" => true));
 			    if ((isset($logos) && (!empty($logos)))) {
 				echo "<hr>\n";
 				echo $logos;

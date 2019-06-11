@@ -1,0 +1,81 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 28.02.2019, 09:46:25
+    Author     : unrz59
+*/
+
+.fau-oembed {
+	margin: 5px 0 20px 0;
+	
+	#social & {
+		margin: 0;
+	}
+}
+.social-media-widget {
+	 .fau-oembed {
+		iframe.defaultwidth {
+		    width: 450px;
+		    height: 300px;
+		}
+	    }
+    }
+
+@media (min-width: 992px) {
+    .fau-theme.page-template-page-subnav {
+	.sidebar-inline .fau-oembed {
+	       iframe.defaultwidth {
+		    width: 200px;
+		    height: 150px;
+		}
+	}
+	.fau-oembed {
+	   iframe.defaultwidth {
+	       width: 617px;
+	       height: 346px;
+	   }
+	   iframe.slideshare.defaultwidth {
+	       height: 401px;
+	   }
+
+	}
+	
+    }
+
+    .fau-theme.page-template-default {
+	.sidebar-inline .fau-oembed {
+	       iframe.defaultwidth {
+		    width: 200px;
+		    height: 150px;
+		}
+	}
+       .fau-oembed {
+	   iframe.defaultwidth {
+	       width: 940px;
+	       height: 528px;
+	   }
+	   iframe.slideshare.defaultwidth {
+	       height: 567px;
+	   }
+       }
+
+    }
+    .page-template-page-portal,
+    .page-template-page-start {
+	.portalpage-sidebar,
+	.startpage-sidebar {
+	    .fau-oembed {
+		iframe.defaultwidth {
+		    width: 293px;
+		    height: 200px;
+		}
+	    }
+	}
+    }
+    
+    
+}
+

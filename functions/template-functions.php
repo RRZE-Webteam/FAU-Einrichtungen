@@ -56,6 +56,8 @@
 	 *  0 und 2 reduziert. D.h.: Immer LInk zur FAU, keine Kooperationen.
 	 *  
 	 */
+    
+    $classes[] = 'fau-theme';
     if ($website_type==-1) {
 	$classes[] = 'fauorg-home';
     } elseif ($website_type==0) {
@@ -97,9 +99,20 @@
 	     $classes[] = 'mainnav-forceclick';
     }
     if (('' != get_theme_mod( 'advanced_display_portalmenu_plainview' )) && (true== get_theme_mod( 'advanced_display_portalmenu_plainview' )) ) {
-	     $classes[] = 'mainnav-plainview';
+	$classes[] = 'mainnav-plainview';
+    } else {
+	$classes[] = 'mainnav-defaultview';
     }
     
+    if (('' != get_theme_mod( 'advanced_display_header_md-showsitelogo' )) && (true == get_theme_mod( 'advanced_display_header_md-showsitelogo' )) ) {	    
+	     $classes[] = 'md-showsitelogo';
+    }
+    
+    
+    
+    if (false== get_theme_mod( 'advanced_activate_quicklinks' )) {
+	 $classes[] = 'no-quicklinks';
+    }
     
     if ($defaultoptions['slider-opacity-text-background'] != get_theme_mod('slider-opacity-text-background' ))  {
 	$num = get_theme_mod('slider-opacity-text-background');
@@ -112,11 +125,7 @@
 	}
 	    
     }
-    
-    
-    
-    
-    
+
     return $classes;
  }
  add_filter( 'body_class', 'fau_body_class' );
@@ -206,15 +215,6 @@ function custom_error_class($classes) {
 }
  
 add_action('wp','custom_error_pages');
-
-/*-----------------------------------------------------------------------------------*/
-/* Surround embeddings with div class
-/*-----------------------------------------------------------------------------------*/
-function add_video_embed_note($html, $url, $attr) {
-	return '<div class="oembed">'.$html.'</div>';
-}
-add_filter('embed_oembed_html', 'add_video_embed_note', 10, 3);
-
 
 
 
@@ -351,7 +351,7 @@ function fau_display_search_resultitem($withsidebar = 1) {
 	    $typestr .= ' <span class="download">';
 	    $typestr .= ' <a href="'.fau_esc_url($attachment['url']).'">'.__('Download','fau').'</a>'; 
 	    
-	    $typestr .= ' <span class="filesize">(<span class="unsichtbar">';
+	    $typestr .= ' <span class="filesize">(<span class="screen-reader-text">';
 	    $typestr .= __('Größe:', 'fau'). ' </span>'.$filesize; 
 	    $typestr .= ')</span>';	
 	    $typestr .= '</span>';
@@ -923,6 +923,8 @@ function fau_get_image_attributs($id=0) {
 /* Get category links for front page
 /*-----------------------------------------------------------------------------------*/
 
+
+
 function fau_get_category_links($cateid = 0) {
     
     if ($cateid==0) {
@@ -946,234 +948,6 @@ function fau_get_category_links($cateid = 0) {
     return $res;
 }
 
-
-
-/*-----------------------------------------------------------------------------------*/
-/* Change output for gallery
-/*-----------------------------------------------------------------------------------*/
-
-add_filter('post_gallery', 'fau_post_gallery', 10, 2);
-function fau_post_gallery($output, $attr) {
-    global $post;
-    global $usejslibs;
-    
-    if (isset($attr['orderby'])) {
-        $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
-        if (!$attr['orderby'])
-            unset($attr['orderby']);
-    }
-
-    extract(shortcode_atts(array(
-        'order' => 'ASC',
-        'orderby' => 'menu_order ID',
-        'id' => $post->ID,
-        'itemtag' => 'dl',
-        'icontag' => 'dt',
-        'captiontag' => 'dd',
-        'columns' => 3,
-        'size' => 'thumbnail',
-        'include' => '',
-        'exclude' => '',
-	'type' => NULL,
-	'lightbox' => FALSE,
-	'captions' => 1,
-	'columns'   => 6,
-	'link'	=> 'file'
-
-    ), $attr));
-
-    $id = intval($id);
-    if ('RAND' == $order) $orderby = 'none';
-
-    if (!empty($include)) {
-        $include = preg_replace('/[^0-9,]+/', '', $include);
-        $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
-
-        $attachments = array();
-        foreach ($_attachments as $key => $val) {
-            $attachments[$val->ID] = $_attachments[$key];
-        }
-    }
-
-    if (empty($attachments)) return '';
-
-	
-    $output = '';
-    if (!isset($attr['captions'])) {
-	$attr['captions'] =1;
-    }
-     if (!isset($attr['columns'])) {
-	$attr['columns'] = 7;
-    }
-    if (!isset($attr['type'])) {
-	$attr['type'] = 'default';
-    }
-    if (!isset($attr['link'])) {
-	$attr['link'] = 'file';
-    }
-    switch($attr['type'])  {
-	    case "grid":
-		    {
-			$rand = rand();
-
-			$output .= "<div class=\"image-gallery-grid clearfix\">\n";
-			$output .= "<ul class=\"grid\">\n";
-
-			    foreach ($attachments as $id => $attachment) {
-				    $img = wp_get_attachment_image_src($id, 'gallery-grid');
-				    $meta = get_post($id);
-				    // $img_full = wp_get_attachment_image_src($id, 'gallery-full');
-				    $img_full = wp_get_attachment_image_src($id, 'full');
-				    $lightboxattr = '';
-				    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
-				    if (strlen(trim($lightboxtitle))>1) {
-					$lightboxattr = ' title="'.$lightboxtitle.'"';
-				    }
-				    if(isset( $attr['captions']) && ($attr['captions']==1) && $meta->post_excerpt) {
-					    $output .= "<li class=\"has-caption\">\n";
-				    } else  {
-					    $output .= "<li>\n";
-				    }
-					$output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox"';
-					$output .= ' rel="lightbox-'.$rand.'"'.$lightboxattr.'>';
-
-				    $output .= '<img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt="">';
-				    $output .= '</a>';
-				    if($meta->post_excerpt) {
-					    $output .= '<div class="caption">'.$meta->post_excerpt.'</div>';
-				    }
-			    $output .= "</li>\n";
-			}
-
-			    $output .= "</ul>\n";
-			$output .= "</div>\n";
-
-			    break;
-		    }
-
-	    case "2cols":
-		    {
-			    $rand = rand();
-
-			    $output .= '<div class="row">'."\n";
-			    $i = 0;
-
-			    foreach ($attachments as $id => $attachment) {
-				    $img = wp_get_attachment_image_src($id, 'image-2-col');
-				    $img_full = wp_get_attachment_image_src($id, 'full');
-				    $meta = get_post($id);
-				     $lightboxattr = '';
-				    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
-				    if (strlen(trim($lightboxtitle))>1) {
-					$lightboxattr = ' title="'.$lightboxtitle.'"';
-				    }
-				    $output .= '<div class="span4">';
-				    $output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';
-				    $output .= '<img class="content-image-cols" src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt=""></a>';
-				    if($attr['captions'] && $meta->post_excerpt) $output .= '<div class="caption">'.$meta->post_excerpt.'</div>';
-				    $output .= '</div>'."\n";
-				    $i++;
-
-				    if($i % 2 == 0) {
-					    $output .= '</div><div class="row">'."\n";
-				    }
-			    }
-
-			    $output .= '</div>'."\n";
-
-			    break;
-		    }
-
-	    case "4cols":
-		    {
-			    $rand = rand();
-
-			    $output .= '<div class="row">'."\n";
-			    $i = 0;
-
-			    foreach ($attachments as $id => $attachment) {
-				    $img = wp_get_attachment_image_src($id, 'image-4-col');
-				    $img_full = wp_get_attachment_image_src($id, 'full');
-				    $meta = get_post($id);
-				    $lightboxattr = '';
-				    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
-				    if (strlen(trim($lightboxtitle))>1) {
-					$lightboxattr = ' title="'.$lightboxtitle.'"';
-				    }
-				    $output .= '<div class="span2">';
-				    $output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';
-				    $output .= '<img class="content-image-cols" src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt=""></a>';
-				    if($attr['captions'] && $meta->post_excerpt) $output .= '<div class="caption">'.$meta->post_excerpt.'</div>';
-				    $output .= '</div>';
-				    $i++;
-
-				    if($i % 4 == 0) {
-					    $output .= '    </div><div class="row">'."\n";
-				    }
-			    }
-
-			    $output .= "</div>\n";
-
-			    break;
-		    }
-
-	    default:
-		    {
-			$usejslibs['flexslider'] = true;
-			$rand = rand();	    
-			$output .= "<div id=\"slider-$rand\" class=\"image-gallery-slider\">\n";
-			$output .= "	<ul class=\"slides\">\n";
-
-			foreach ($attachments as $id => $attachment) {
-			    $img = wp_get_attachment_image_src($id, 'gallery-full');
-			    $meta = get_post($id);
-			    $img_full = wp_get_attachment_image_src($id, 'full');
-
-			    $output .= '<li><img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt="">';
-			    $link_origin = get_theme_mod('galery_link_original');
-			    if (($link_origin) || ($meta->post_excerpt != '')) {
-				$output .= '<div class="gallery-image-caption">';
-				$lightboxattr = '';
-				if($meta->post_excerpt != '') { 
-				    $output .= $meta->post_excerpt; 
-				    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
-				    if (strlen(trim($lightboxtitle))>1) {
-					$lightboxattr = ' title="'.$lightboxtitle.'"';
-				    }
-				}
-				if (($link_origin) && ($attr['link'] != 'none')) {
-				    if($meta->post_excerpt != '') { $output .= '<br>'; }
-				    $output .= '<span class="linkorigin">(<a href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
-				}
-				$output .='</div>';
-			    }
-			    $output .= "</li>\n";
-			}
-
-			$output .= "	</ul>\n";
-			$output .= "</div>\n";
-
-			
-			
-			$output .= "<div id=\"carousel-$rand\" class=\"image-gallery-carousel\">";
-			$output .= "	<ul class=\"slides\">";
-
-			foreach ($attachments as $id => $attachment) {
-			    $img = wp_get_attachment_image_src($id, 'gallery-thumb');
-			    $output .= '	<li><img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt=""></li>';
-			}
-
-			$output .= "	</ul>";
-			$output .= "</div>";				
-			$output .= "<script type=\"text/javascript\"> jQuery(document).ready(function($) {";			
-			$output .= "$('#carousel-$rand').flexslider({maxItems: ".$attr['columns'].",selector: 'ul > li',animation: 'slide',keyboard:true,multipleKeyboard:true,directionNav:true,controlNav: true,pausePlay: false,slideshow: false,asNavFor: '#slider-$rand',itemWidth: 125,itemMargin: 5});";
-			$output .= "$('#slider-$rand').flexslider({selector: 'ul > li',animation: 'slide',keyboard:true,multipleKeyboard:true,directionNav: false,controlNav: false,pausePlay: false,slideshow: false,sync: '#carousel-$rand'});";
-			$output .= "});</script>";
-
-		    }
-    }
-    return $output;
-}
 
 /*-----------------------------------------------------------------------------------*/
 /* Default Linklisten
@@ -1626,6 +1400,111 @@ if ((!isset($posttag)) && (!isset($postcat))) {
     return $out;
  }
  endif;
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Add another esc_url, but also makes URL relative
+/*-----------------------------------------------------------------------------------*/
+ function fau_esc_url( $url) {
+     if (!isset($url)) {
+	 $url = home_url("/");
+     }
+     return fau_make_link_relative(esc_url($url));
+ }
+ 
+ function get_fau_template_uri () {
+     return get_template_directory_uri();
+ }
+ 
+/*-----------------------------------------------------------------------------------*/
+/* Makes absolute URL from relative URL
+/*-----------------------------------------------------------------------------------*/
+
+ function fau_make_absolute_url( $url) {
+    if (!isset($url)) {
+	$url = home_url("/");
+    } else {
+	if (substr($url,0,1)=='/') {
+	    $base = home_url();
+	    return $base.$url;
+	} else {
+	    return $url;
+	}
+    }
+ }
+ 
+/*-----------------------------------------------------------------------------------*/
+/* Rewrite Template redirects for generated urls
+/*-----------------------------------------------------------------------------------*/
+// add_action('template_redirect', 'fau_rw_relative_urls');
+ 
+ // removed, due to problems with other plugins that need absolute urls ;/
+ // WW: 19.09.2018
+ 
+ /* 
+function fau_rw_relative_urls() {
+    // Don't do anything if:
+    // - In feed
+    // - In sitemap by WordPress SEO plugin
+    if (is_admin() || is_feed() || get_query_var('sitemap')) {
+        return;
+    }
+    $filters = array(
+        'post_type_link',
+        'page_link',
+        'post_type_archive_link',
+        'get_pagenum_link',
+        'get_comments_pagenum_link',
+        'term_link',
+        'search_link',
+        'day_link',
+        'month_link',
+        'year_link',
+        'script_loader_src',
+        'style_loader_src',
+    );
+    foreach ($filters as $filter) {
+        add_filter($filter, 'fau_make_link_relative');
+    }
+}
+*/
+/*-----------------------------------------------------------------------------------*/
+/* make urls relative to base url
+/*-----------------------------------------------------------------------------------*/
+function fau_make_link_relative($url) {
+    $current_site_url = get_site_url();   
+	if (!empty($GLOBALS['_wp_switched_stack'])) {
+        $switched_stack = $GLOBALS['_wp_switched_stack'];
+        $blog_id = end($switched_stack);
+        if ($GLOBALS['blog_id'] != $blog_id) {
+            $current_site_url = get_site_url($blog_id);
+        }
+    }
+    $current_host = parse_url($current_site_url, PHP_URL_HOST);
+    $host = parse_url($url, PHP_URL_HOST);
+    if($current_host == $host) {
+        $url = wp_make_link_relative($url);
+    }
+    return $url; 
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Force srcset urls to be relative
+/*-----------------------------------------------------------------------------------*/
+add_filter( 'wp_calculate_image_srcset', function( $sources ) {
+    if(	! is_array( $sources ) )
+       	return $sources;
+
+    foreach( $sources as &$source ) {
+        if( isset( $source['url'] ) )
+            $source['url'] = fau_esc_url( $source['url']);
+    }
+    return $sources;
+
+}, PHP_INT_MAX );
+
+
  
  /*-----------------------------------------------------------------------------------*/
  /* Custom template tags: Functions for templates and output
@@ -1704,6 +1583,32 @@ function fau_get_page_langcode($id = 0) {
 
 	return $output;
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* Add langcode to title if need
+/*-----------------------------------------------------------------------------------*/
+function fau_get_the_title($id = 0) {
+    global $post;
+    if ($id==0) {
+	$id = $post->ID;
+    }
+    
+    if (is_page($id)) {
+	$titlelangcode = get_post_meta($id, 'fauval_pagetitle_langcode', true);
+	if (!fau_empty($titlelangcode)) {
+	    $sitelang = fau_get_language_main();
+	    if ($titlelangcode != $sitelang) {
+		$res = '<span lang="'.$titlelangcode.'">';
+		$res .=get_the_title($id);
+		$res .= '</span>';
+		return $res;
+	    }
+	} 
+    } else {
+	return get_the_title($id);
+    }
+}
 /*-----------------------------------------------------------------------------------*/
 /* This is the end :)
 /*-----------------------------------------------------------------------------------*/
+

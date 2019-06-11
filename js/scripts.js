@@ -1,30 +1,33 @@
 jQuery(document).ready(function ($) {
+        var $html = $('html');
+        var $body = $('body');
+
         // This browser supports JS
-        $('html').removeClass('no-js').addClass('js');
-        //Add JS-enabled class to body
-        $('body').addClass('js-enabled');
+        $html.removeClass('no-js').addClass('js');
+        // Add JS-enabled class to body
+        $body.addClass('js-enabled responsive-large');
 
-
-        var $body = $('body'),
-            sliderFade = $body.hasClass('slider-fade'),
-            sliderAutostart = $body.hasClass('slider-autoplay'),
-            sliderShowDots = $body.hasClass('slider-dots'),
-	    sliderAdaptiveHeight = $body.hasClass('slider-adaptiveHeight'),
-            use_theme_accordion = $body.hasClass('theme-accordion');
-
-
+        var sliderFade = $body.hasClass('slider-fade');
+        var sliderAutostart = $body.hasClass('slider-autoplay');
+        var sliderAdaptiveHeight = $body.hasClass('slider-adaptiveHeight');
+        var useThemeAccordion = $body.hasClass('theme-accordion');
+        var forceClick = $body.hasClass('mainnav-forceclick');
+        var hasLogo = !$body.hasClass('nologo');
+        var swapLogo = !$body.hasClass('md-showsitelogo');
+        var $openflyover = false;
         var breakMD = 768;
+
+        /* Unused
         var breakSM = 480;
         var breakLG = 979;
         var wpAdminBarHeight = 46;
         var wpAdminBarHeightMD = 32;
         var metaBar = 42;
-        var $openflyover = false;
+        */
 
-
-        if (use_theme_accordion) {
-            // Smooth scrolling for anchor-links (excluding accordion-toggles)
-            $('a[href*="#"]:not([href="#"]):not(.accordion-toggle):not(.accordion-tabs-nav-toggle)').click(function () {
+        // Smooth scrolling for anchor-links (excluding accordion-toggles)
+        if (useThemeAccordion) {
+            $('a[href*="#"]:not([href="#"]):not([href="#nav"]):not([href="#hauptnav-anchor"]):not(.accordion-toggle):not(.accordion-tabs-nav-toggle)').click(function () {
                 if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
                     var target = $(this.hash);
                     target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -39,30 +42,16 @@ jQuery(document).ready(function ($) {
         }
 
         //  Slider
-
-        var autostart = false;
-        var pauseOnHovervar = false
-        if (sliderAutostart) {
-            autostart = true;
-            pauseOnHovervar = true;
-        }
+        var autostart = !!sliderAutostart;
+        var pauseOnHovervar = autostart
         var showdots = false;
-        var fadeit = false;
-        if (sliderFade) {
-            fadeit = true;
-        }
-	
-	var adaptiveHeight = false;
-        if (sliderAdaptiveHeight) {
-            adaptiveHeight = true;
-        }
-
+        var fadeit = !!sliderFade;
+        var adaptiveHeight = !!sliderAdaptiveHeight;
         var autoplaySpeedval = 7000;
         var sliderNextHTML = '<button type="button" class="slick-next">Next</button>';
         var sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
         var stopSliderHTML = 'Stop Animation';
         var startSliderHTML = 'Start Animation';
-
 
         if ($('html').attr('lang') == 'de-DE') {
             sliderNextHTML = '<button type="button" class="slick-next">Weiter</button>';
@@ -70,7 +59,6 @@ jQuery(document).ready(function ($) {
             stopSliderHTML = 'Animation stoppen';
             startSliderHTML = 'Animation starten';
         }
-
 
         if ($.fn.slick) {
             $('.featured-slider').slick({
@@ -87,8 +75,7 @@ jQuery(document).ready(function ($) {
                 autoplaySpeed: autoplaySpeedval,
                 nextArrow: sliderNextHTML,
                 prevArrow: sliderPrevHTML,
-		// mobileFirst: true,
-
+                // mobileFirst: true,
                 appendArrows: '.slider-controls',
             });
 
@@ -105,10 +92,8 @@ jQuery(document).ready(function ($) {
             })
         }
 
-
         // Fancybox for lightboxes
         $('a.lightbox').fancybox({ helpers: { title: { type: 'outside' } } });
-
 
         // Assistant tabs
         $('.assistant-tabs-nav a').bind('click', function (event) {
@@ -132,12 +117,10 @@ jQuery(document).ready(function ($) {
         });
 
 
-        if (use_theme_accordion) {
-            // Accordions
-
+        // Accordions
+        if (useThemeAccordion) {
             // Close Accordions on start, except first
             $('.accordion-body').not(".accordion-body.open").not('.accordion-body.stayopen').hide();
-
             $('.accordion-toggle').bind('click', function (event) {
                 event.preventDefault();
                 var accordion = $(this).attr('href');
@@ -158,16 +141,14 @@ jQuery(document).ready(function ($) {
                 }
             });
 
-
             function openAnchorAccordion() {
-                if (window.location.hash) {
-                    var hashstr = window.location.hash;
+                if (window.location.hash && (window.location.hash !== '#nav')) {
                     var identifier = window.location.hash.split('_')[0];
                     var inpagenum = window.location.hash.split('_')[1];
                     if (identifier == '#collapse') {
                         if ($.isNumeric(inpagenum)) {
                             var $findid = 'collapse_' + inpagenum;
-                            var $target = $('body').find('#' + $findid);
+                            var $target = $body.find('#' + $findid);
 
                             if ($target.closest('.accordion').parent().closest('.accordion-group')) {
                                 $upper = $target.closest('.accordion').parent().closest('.accordion-group');
@@ -203,14 +184,12 @@ jQuery(document).ready(function ($) {
                             var $scrolloffset = offset.top - 220;
                             $('html,body').animate({ scrollTop: $scrolloffset }, 'slow');
                         }
-
                     }
                 }
             }
 
             openAnchorAccordion();
         }
-
 
         // Set environmental parameters
         var windowWidth = window.screen.width < window.outerWidth ? window.screen.width : window.outerWidth;
@@ -223,61 +202,33 @@ jQuery(document).ready(function ($) {
         // Responsive tables
         $("#content table").wrap('<div class="table-wrapper" />').wrap('<div class="scrollable" />');
 
-
         // Make #header fixed once scrolled down behind meta or on small screens
         function fixedHeader() {
             if ($(window).scrollTop() > 20) {
-                if (!$('body').hasClass("nav-scrolled")) {
-                    $('body').addClass('nav-scrolled');
+                if (!$body.hasClass("nav-scrolled")) {
+                    $body.addClass('nav-scrolled');
                 }
             } else {
-                if ($('body').hasClass("nav-scrolled")) {
-                    $('body').removeClass('nav-scrolled');
+                if ($body.hasClass("nav-scrolled")) {
+                    $body.removeClass('nav-scrolled');
                 }
             }
             if ($(window).scrollTop() > 200) {
-                if (!$('body').hasClass("toplink-faded")) {
+                if (!$body.hasClass("toplink-faded")) {
                     $('.top-link').fadeIn();
-                    $('body').addClass('toplink-faded');
+                    $body.addClass('toplink-faded');
                 }
             } else {
-                if ($('body').hasClass("toplink-faded")) {
+                if ($body.hasClass("toplink-faded")) {
                     $('.top-link').fadeOut();
-                    $('body').removeClass('toplink-faded');
+                    $body.removeClass('toplink-faded');
                 }
             }
-        };
-        fixedHeader();
-
-        $(window).scroll(function () {
-            fixedHeader();
-        });
-
-        // Equalize image gallery grid heights
-        function equalize() {
-            var height = 0;
-
-            $('.image-gallery-grid li').each(function () {
-                // var imageHeight = $(this).find('img').innerHeight();
-                // if(imageHeight < 92) imageHeight = 92;
-                var imageHeight = 120;
-                var captionHeight = $(this).find('.caption').innerHeight();
-
-                if ((imageHeight + captionHeight) > height) {
-                    height = imageHeight + captionHeight;
-                }
-            });
-
-            $('.image-gallery-grid li').css({
-                'height': height + 'px'
-            });
         }
 
-        equalize();
+        fixedHeader();
 
-        $(window).resize(function () {
-            equalize();
-        });
+        $(window).scroll(fixedHeader); // TODO: Automatically debounced via JQuery?
 
 
         // Add toggle icons to organigram
@@ -295,15 +246,14 @@ jQuery(document).ready(function ($) {
 
 
         // Handling touch devices and laptops with touch window:
-
-        $('#nav > li > a').on('touchstart ontouchstart', function (e) {
+        $('#nav > .nav > li > a').on('touchstart ontouchstart', function (e) {
             if ($(this).parent().hasClass("has-sub")) {
                 if ($(this).hasClass('clicked-once')) {
                     $openflyover = false;
                     return true;
                 } else {
-                    $('#nav > li > a').removeClass('clicked-once');
-                    $('#nav > li').removeClass('focus');
+                    $('#nav > .nav > li > a').removeClass('clicked-once');
+                    $('#nav > .nav > li').removeClass('focus');
                     $(this).addClass('clicked-once');
                     $(this).parent('li').addClass('focus');
                     e.preventDefault();
@@ -315,45 +265,23 @@ jQuery(document).ready(function ($) {
             }
         });
 
-
-        // Off-canvas navigation
-        var navContainer = $('<div id="off-canvas" role="navigation" aria-label="Hamburger Navigation" aria-controls="nav-off-canvas">');
-        // var offcanvaslogo = $('#logo').clone();
-        var nav = $('#nav').clone();
-        nav.attr("id", "nav-off-canvas");
-        var navCloseLabel = $('<a id="off-canvas-close" href="#"><span>Menü schließen</span> <em class="fa fa-times"></em></a>');
-        if ($('html').attr('lang') !== 'de-DE') {
-            $('span', navCloseLabel).text('Close menu');
-        }
-
-        navCloseLabel.appendTo(navContainer);
-        // offcanvaslogo.appendTo(navContainer);
-
-        nav.appendTo(navContainer);
-
-
-        navContainer.appendTo('body');
-        $('<div id="off-canvas-overlay">').appendTo('body');
-
-        nav.on('click', '.menu-item.level1', function (e) {
-            if ($(e.target).parent().hasClass('level1')) {
-                if ($(e.target).parent().hasClass('menu-item-has-children')) {
-                    e.preventDefault();
-                    if (!$(this).hasClass('focus')) {
-                        $('#off-canvas .menu-item.level1').removeClass('focus');
-                    }
-                    $(this).toggleClass('focus');
-                }
-            }
+        // Swap out the main navigation link against a button and create a JavaScript enabled backdrop
+        $('#mainnav-toggle').each(function () {
+            var $toggleButton = $('<button id="mainnav-toggle" type="button" aria-controls="nav" aria-haspopup="true" aria-expanded="false"/>')
+                .append(this.innerHTML)
+                .click(function () {
+                    this._isExpanded = !this._isExpanded;
+                    $(this).attr('aria-expanded', this._isExpanded ? 'true' : 'false');
+                    $('#logo').toggle(!this._isExpanded);
+                });
+            $(this).replaceWith($toggleButton);
+            $backdrop = $('<div id="menu-backdrop" aria-hidden="true"/>').click(function () {
+                $toggleButton.trigger('click');
+            });
+            $('#nav').after($backdrop);
         });
 
-        // Mobile navigation toggle
-        $('#mainnav-toggle').bind('click', function (event) {
-            event.preventDefault();
-            $('body').toggleClass('menu-toggled');
-            $('#mainnav-toggle').attr('aria-expanded', 'true');
-        });
-
+        // Install the search toggle
         var searchToggle = document.getElementById('search-toggle');
         searchToggle._expanded = false;
         searchToggle._toggleSearch = function (onOff) {
@@ -367,92 +295,140 @@ jQuery(document).ready(function ($) {
             this._toggleSearch(!this._expanded);
         });
 
-        $('#off-canvas-overlay, #off-canvas-close').on('click', function (e) {
-            e.preventDefault();
-            $('body').removeClass('menu-toggled');
-            $('#mainnav-toggle').attr('aria-expanded', 'false');
+        // Create and inject alternative toggle buttons for submenus
+        var $topLevelFlyouts = $('.nav > .has-sub > a + .nav-flyout');
+        var toggleFlyout = function () {
+            var toggle = this || null;
+            var isExpanded = false;
+            $('.nav > .has-sub > [type=button]').each(function (i, btn) {
+                btn._isExpanded = (toggle === btn) ? !btn._isExpanded : false;
+                $(btn).attr('aria-expanded', btn._isExpanded ? 'true' : 'false');
+                isExpanded = isExpanded || btn._isExpanded;
+                btn.nextElementSibling.scrollTop = 0;
+            });
+            $html.toggleClass('flyout-scrolling', isExpanded);
+        };
+        $topLevelFlyouts.each(function (index, topLevelFlyout) {
+            var uniqueId = '_' + Math.random().toString(36).substr(2, 9);
+            topLevelFlyout.$_link = $(topLevelFlyout.previousSibling);
+            topLevelFlyout.$_button = $('<button type="button" aria-controls="' + uniqueId + '" aria-haspopup="true" aria-expanded="false" aria-hidden="true"/>')
+                .text(topLevelFlyout.$_link.text())
+                .click(toggleFlyout);
+            $(topLevelFlyout).before(topLevelFlyout.$_button).attr('id', uniqueId);
         });
 
+        /**
+         * Enable / disable the flyout toggle buttons
+         *
+         * @param {Boolean} openOnClick Use a click to open the flyout menus
+         */
+        function updateToggleState(openOnClick) {
+            $topLevelFlyouts.each(function (index, topLevelFlyout) {
+                topLevelFlyout.$_link[openOnClick ? 'hide' : 'show']().attr('aria-hidden', openOnClick ? 'true' : 'false');
+                topLevelFlyout.$_button[openOnClick ? 'show' : 'hide']().attr('aria-hidden', openOnClick ? 'false' : 'true');
+            });
+        }
 
-        //Update responsive positioning of some elements
-        $('body').addClass('responsive-large');
-        // if ($('body').hasClass('page-template-page-start')) {
+        // Update responsive positioning of some elements
+        // $body.addClass('responsive-large');
+        // if ($body.hasClass('page-template-page-start')) {
         //	$('.logos-menu span').addClass('logos-menu-logo');
         // 	$('#content > .container').eq(0).append('<div class="responsive-logos-container" />');
         // }
 
-        var heroNavigation = $('#hero .hero-navigation').clone();
-        heroNavigation.attr("aria-label", "Quicklink Navigation");
+        // Clone the hero navigation into the footer
+        var $heroNavigation = $('#hero .hero-navigation').clone().attr("aria-label", "Quicklink Navigation");
+        $('<div class="cloned-hero-nav"></div>').append($heroNavigation).prependTo('#footer');
 
-        var footerheronav = $('<div class="cloned-hero-nav"></div>');
-        var footermetalinks = $('<div class="cloned-meta-links"></div>');
-        var titleportallinks = $('.meta-links h3').clone();
-        var portallinks = $('.meta-links .meta-nav').clone();
+        // var $footerMetaLinks = $('<div class="cloned-meta-links"></div>');
+        // var $portallinks = $('.meta-links .meta-nav').clone();
+        //
+        // if ($portallinks.length > 0) {
+        //     var $titlePortalLinks = $('.meta-links h3').clone();
+        //     $footerMetaLinks.append($titlePortalLinks).append($portallinks).prependTo('#footer');
+        // }
 
-        footerheronav.append(heroNavigation);
-        footerheronav.prependTo('#footer');
-
-        if (portallinks.length > 0) {
-            footermetalinks.append(titleportallinks);
-            footermetalinks.append(portallinks);
-            footermetalinks.prependTo('#footer');
+        // Find the sidebar navigation (if present)
+        var sidebarNavigation = $('.sidebar-subnav');
+        sidebarNavigation = sidebarNavigation.length ? sidebarNavigation[0] : null;
+        if (sidebarNavigation) {
+            sidebarNavigation._origParentNode = sidebarNavigation.parentNode;
         }
 
+        /**
+         * Move the sidebar navigation
+         *
+         * @param {Boolean} sidebar True sidebar
+         */
+        function moveSidebarNavigation(sidebar) {
+            if (sidebarNavigation) {
+                if (sidebar) {
+                    sidebarNavigation._origParentNode.insertBefore(sidebarNavigation, sidebarNavigation._origParentNode.firstChild);
+                } else {
+                    document.getElementById('nav').appendChild(sidebarNavigation);
+                }
+            }
+        }
+
+        var $metaNavigation = $('ul.meta-nav');
+        var $metaNavigationOrigParent = $metaNavigation.length ? $metaNavigation.parent() : null;
+
+        /**
+         * Move the meta navigation
+         *
+         * @param {Boolean} header Place in header
+         */
+        function moveMetaNavigation(header) {
+            if ($metaNavigation.length) {
+                if (header) {
+                    $('.meta-links').append($metaNavigation.attr({ role: null, 'aria-label': null }));
+                    $metaNavigationOrigParent.append($metaNavigation);
+                } else {
+                    $('#nav').append($metaNavigation.attr({ role: 'navigation', 'aria-label': 'Portal links' }));
+                }
+            }
+        }
+
+        var mobileState = null;
         var updateResponsivePositioning = function () {
-            var body = $('body');
-            var logoalt;
-            if (body.hasClass('nologo')) {
-                logoalt = "";
-            } else {
-                logoalt = $('.branding p.sitetitle img').attr("alt");
+            var newMobileState = (window.innerWidth < breakMD);
+            if (newMobileState !== mobileState) {
+                mobileState = newMobileState;
+
+                // If a logo is shown
+                if (hasLogo && swapLogo) {
+                    // Mobile view
+                    if (newMobileState) {
+                        if (!$body.hasClass('visiblelogo')) {
+                            $body.addClass('visiblelogo');
+                            var logoalt = $body.hasClass('nologo') ? '' : $('.branding p.sitetitle img').attr('alt');
+                            $('.branding p.sitetitle img').after('<span class="visiblelogo">' + logoalt + '</span>');
+                        }
+                        // Desktop view
+                    } else if ($body.hasClass('visiblelogo')) {
+                        $body.removeClass('visiblelogo');
+                        $('.visiblelogo').remove();
+                    }
+                }
+
+                $body[mobileState ? 'removeClass' : 'addClass']('responsive-large')[mobileState ? 'addClass' : 'removeClass']('ismobile');
+
+                // Enable / disable the toggle buttons
+                updateToggleState(forceClick || mobileState);
+
+                // Close all flyouts
+                toggleFlyout();
+
+                // Move the sidebar & meta navigations
+                moveSidebarNavigation(!mobileState);
+                moveMetaNavigation(!mobileState);
             }
-
-            var subNav = $('#subnav').parent();
-            //	var logos = $('.logos-menu-logo');
-
-            var viewportWidth = $(window).width();
-            if (viewportWidth < breakMD) {
-
-                if (!body.hasClass('nologo') && (!body.hasClass('visiblelogo'))) {
-                    body.addClass('visiblelogo');
-                    visibletitle = '<span class="visiblelogo">' + logoalt + '</span>';
-                    $('.branding p.sitetitle img').after(visibletitle);
-                }
-                if (body.hasClass('responsive-large')) {
-                    body.removeClass('responsive-large');
-                    body.addClass('ismobile');
-
-                    subNav.appendTo(navContainer);
-                    //		logos.appendTo('.responsive-logos-container');
-
-                }
-
-            } else {
-                if (body.hasClass('visiblelogo')) {
-                    body.removeClass('visiblelogo');
-                    $(".visiblelogo").remove();
-                }
-                if (body.hasClass('ismobile')) {
-                    body.addClass('responsive-large');
-                    subNav.prependTo('#content .row:first');
-                    //		logos.appendTo('.logos-menu');
-                    body.removeClass('ismobile');
-
-                }
-
-            }
-
-
         };
 
-
-        $(window).on('resize', function () {
-            updateResponsivePositioning();
-        });
+        $(window).on('resize', updateResponsivePositioning);
         updateResponsivePositioning();
 
-
-        //Tablesorter
+        // Tablesorter
         $('.sorttable').tablesorter();
     }
 );
@@ -474,18 +450,18 @@ if (!(window.console && console.log)) {
 
 
 /*
- *
- * TableSorter 2.0 - Client-side table sorting with ease!
- * Version 2.0.5b
- * @requires jQuery v1.2.3
- *
- * Copyright (c) 2007 Christian Bach
- * Examples and docs at: http://tablesorter.com
- * Dual licensed under the MIT and GPL licenses:
- * http://www.opensource.org/licenses/mit-license.php
- * http://www.gnu.org/licenses/gpl.html
- *
- */
+*
+* TableSorter 2.0 - Client-side table sorting with ease!
+* Version 2.0.5b
+* @requires jQuery v1.2.3
+*
+* Copyright (c) 2007 Christian Bach
+* Examples and docs at: http://tablesorter.com
+* Dual licensed under the MIT and GPL licenses:
+* http://www.opensource.org/licenses/mit-license.php
+* http://www.gnu.org/licenses/gpl.html
+*
+*/
 /**
  *
  * @description Create a sortable table with multi-column sorting capabilitys
@@ -786,7 +762,7 @@ if (!(window.console && console.log)) {
                         }
                     }
                 } else {
-                    if (typeof(config.textExtraction) == "function") {
+                    if (typeof (config.textExtraction) == "function") {
                         text = config.textExtraction(node);
                     } else {
                         text = $(node).text();
@@ -910,19 +886,19 @@ if (!(window.console && console.log)) {
                         var rowSpan = c.rowSpan || 1;
                         var colSpan = c.colSpan || 1
                         var firstAvailCol;
-                        if (typeof(matrix[rowIndex]) == "undefined") {
+                        if (typeof (matrix[rowIndex]) == "undefined") {
                             matrix[rowIndex] = [];
                         }
                         // Find first available column in the first row
                         for (var k = 0; k < matrix[rowIndex].length + 1; k++) {
-                            if (typeof(matrix[rowIndex][k]) == "undefined") {
+                            if (typeof (matrix[rowIndex][k]) == "undefined") {
                                 firstAvailCol = k;
                                 break;
                             }
                         }
                         lookup[cellId] = firstAvailCol;
                         for (var k = rowIndex; k < rowIndex + rowSpan; k++) {
-                            if (typeof(matrix[k]) == "undefined") {
+                            if (typeof (matrix[k]) == "undefined") {
                                 matrix[k] = [];
                             }
                             var matrixrow = matrix[k];
@@ -996,7 +972,7 @@ if (!(window.console && console.log)) {
             };
 
             function formatSortingOrder(v) {
-                if (typeof(v) != "Number") {
+                if (typeof (v) != "Number") {
                     return (v.toLowerCase() == "desc") ? 1 : 0;
                 } else {
                     return (v == 1) ? 1 : 0;
@@ -1579,7 +1555,10 @@ if (!(window.console && console.log)) {
                 }
             }
         };
-        return this.on({ "mouseenter.hoverIntent": handleHover, "mouseleave.hoverIntent": handleHover }, cfg.selector)
+        return this.on({
+            "mouseenter.hoverIntent": handleHover,
+            "mouseleave.hoverIntent": handleHover
+        }, cfg.selector)
     }
 })(jQuery);
 
@@ -1655,7 +1634,7 @@ if (!(window.console && console.log)) {
                 wrap: '<div class="fancybox-wrap" tabIndex="-1"><div class="fancybox-skin"><div class="fancybox-outer"><div class="fancybox-inner"></div></div></div></div>',
                 image: '<img class="fancybox-image" src="{href}" alt="" />',
                 iframe: '<iframe id="fancybox-frame{rnd}" name="fancybox-frame{rnd}" class="fancybox-iframe" frameborder="0" vspace="0" hspace="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen' +
-                (I ? ' allowtransparency="true"' : "") + "></iframe>",
+                    (I ? ' allowtransparency="true"' : "") + "></iframe>",
                 error: '<p class="fancybox-error">The requested content cannot be loaded.<br/>Please try again later.</p>',
                 closeBtn: '<a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a>',
                 next: '<a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
@@ -2012,7 +1991,8 @@ if (!(window.console && console.log)) {
             var a = b.getViewport(), d = 0, e = !1, c = !1, e = b.wrap, k = b.skin, g = b.inner, h = b.current,
                 c = h.width, j = h.height, m = h.minWidth, u = h.minHeight, n = h.maxWidth, p = h.maxHeight,
                 s = h.scrolling, q = h.scrollOutside ?
-                h.scrollbarWidth : 0, x = h.margin, y = l(x[1] + x[3]), r = l(x[0] + x[2]), v, z, t, C, A, F, B, D, H;
+                h.scrollbarWidth : 0, x = h.margin, y = l(x[1] + x[3]), r = l(x[0] + x[2]), v, z, t, C, A, F, B, D,
+                H;
             e.add(k).add(g).width("auto").height("auto").removeClass("fancybox-tmp");
             x = l(k.outerWidth(!0) - k.width());
             v = l(k.outerHeight(!0) - k.height());
@@ -2275,7 +2255,11 @@ if (!(window.console && console.log)) {
             d.remove();
             a.fixedPosition = e
         }
-        f.extend(b.defaults, { scrollbarWidth: f.scrollbarWidth(), fixed: f.support.fixedPosition, parent: f("body") });
+        f.extend(b.defaults, {
+            scrollbarWidth: f.scrollbarWidth(),
+            fixed: f.support.fixedPosition,
+            parent: f("body")
+        });
         a = f(r).width();
         J.addClass("fancybox-lock-test");
         d = f(r).width();

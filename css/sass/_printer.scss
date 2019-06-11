@@ -8,7 +8,7 @@
     }
 
     
-       
+   
     abbr[title]:after {
 	content: " (" attr(title) ")";
     }
@@ -52,39 +52,40 @@
 	    display: table-header-group;
 	}
     }
-    th,
-    td,
-    li, 
-    .social,
-    p {
-	
-            a[href]::after {
-                content: " (" attr(href) ")";
-                color: $colorPrintMain;
-                background-color: inherit;
-                font-style: italic;
-                size: 80%;
-            }
-            a[href^="#"]:after {
-                display: none;
-            }
+    main {
+	th,
+	td,
+	li, 
+	.social,
+	p {
 
-            a {
-                text-transform: inherit; 
-                word-wrap: break-word;
-                color: $colorPrintMainLinks;
-            }
-	    .meta-footer,
-	    .person-info,
-	    .event-time,
-	    article {
-		a[href^="#"]:after {
-		    content: "";
+		a[href]::after {
+		    content: " (" attr(href) ")";
+		    color: $colorPrintMain;
+		    background-color: inherit;
+		    font-style: italic;
+		    size: 80%;
 		}
-	    } 
+		a[href^="#"]:after {
+		    display: none;
+		}
 
+		a {
+		    text-transform: inherit; 
+		    word-wrap: break-word;
+		    color: $colorPrintMainLinks;
+		}
+		.meta-footer,
+		.person-info,
+		.event-time,
+		article {
+		    a[href^="#"]:after {
+			content: "";
+		    }
+		} 
+
+	}
     }
-    
     /**
     * Making intergated videos disappear, and removing the iframes' whitespace to zero. 
     */
@@ -146,6 +147,9 @@
 	    display: none;
 	}
     }
+    
+    
+     #wpadminbar,
     .widget_archive,
     .widget widget_nav_menu,
     .widget_categories,
@@ -200,6 +204,10 @@
 	
 	.footer-logo {
 	    margin-top: 10px;
+	}
+	
+	.socialmedia {
+	    display: none;
 	}
     }
     footer:before {

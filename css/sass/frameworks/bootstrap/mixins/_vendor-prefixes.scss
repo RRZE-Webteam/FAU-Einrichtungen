@@ -56,7 +56,6 @@
 
 @mixin backface-visibility($visibility) {
   -webkit-backface-visibility: $visibility;
-     -moz-backface-visibility: $visibility;
           backface-visibility: $visibility;
 }
 
@@ -73,17 +72,14 @@
 // Box sizing
 @mixin box-sizing($boxmodel) {
   -webkit-box-sizing: $boxmodel;
-     -moz-box-sizing: $boxmodel;
           box-sizing: $boxmodel;
 }
 
 // CSS3 Content Columns
 @mixin content-columns($column-count, $column-gap: $grid-gutter-width) {
   -webkit-column-count: $column-count;
-     -moz-column-count: $column-count;
           column-count: $column-count;
   -webkit-column-gap: $column-gap;
-     -moz-column-gap: $column-gap;
           column-gap: $column-gap;
 }
 
@@ -91,7 +87,6 @@
 @mixin hyphens($mode: auto) {
   word-wrap: break-word;
   -webkit-hyphens: $mode;
-     -moz-hyphens: $mode;
       -ms-hyphens: $mode; // IE10+
        -o-hyphens: $mode;
           hyphens: $mode;
@@ -164,7 +159,6 @@
 }
 @mixin perspective($perspective) {
   -webkit-perspective: $perspective;
-     -moz-perspective: $perspective;
           perspective: $perspective;
 }
 @mixin perspective-origin($perspective) {
@@ -174,7 +168,6 @@
 }
 @mixin transform-origin($origin) {
   -webkit-transform-origin: $origin;
-     -moz-transform-origin: $origin;
       -ms-transform-origin: $origin; // IE9 only
           transform-origin: $origin;
 }
@@ -205,7 +198,6 @@
 }
 @mixin transition-transform($transition...) {
   -webkit-transition: -webkit-transform $transition;
-     -moz-transition: -moz-transform $transition;
        -o-transition: -o-transform $transition;
           transition: transform $transition;
 }
@@ -216,7 +208,6 @@
 
 @mixin user-select($select) {
   -webkit-user-select: $select;
-     -moz-user-select: $select;
       -ms-user-select: $select; // IE10+
           user-select: $select;
 }

@@ -5,317 +5,327 @@
 #hero-slides {
 	position: relative;
 	margin: 0 auto -15px auto;
+	display: none;
+	height: auto;
 	background: $colorPrimary;
-	@include box-shadow(0 10px 20px rgba(0,0,0,0.5));
-	
+	@include box-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+
 	.item {
-	    position: relative;
-	    width: 100%;
-	    height: 250px;
-	    overflow: hidden;
-	    
-	    
-	    @media (min-width: $screen-sm) {
-		height: 350px;
-	    }
+		position: relative;
+		width: 100%;
+		height: 250px;
+		overflow: hidden;
 
-	    @media (min-width: 1260px) {
-		width: 1260px;
-		height: 350px;
-	    }
-	    
-	    
-	    
-	    h2,
-	    h3 {
-		    color: #fff;
-		    text-shadow: $slick-opacity-text-shadow;
-		    display: inline;
-		    padding: 3px;
-		    margin: 25px 30px;
-		    @include px2rem($font-size-hero-slider-title);
 
-		    box-decoration-break: clone;
-		    -webkit-box-decoration-break: clone;
-    
-		    @media (min-width: $screen-sm) {
-			margin: 10px 0 15px 0;
-			background: rgba($colorPrimary, $slick-opacity-text-background);
-		    }
-	    
-	    }
-
-	    .slider-text {
-		@extend .col-xs-12;
-		@extend .col-sm-10;
-
-		display: none;   
-		@media (min-width:  $screen-sm) {
-		      display: inline-block;
-		}
-	    }
-
-	    p {
-		    @include px2rem($font-size-hero-slider-text,$font-size-gridbase,$font-size-hero-slider-text * 1.7);
-		    color: #fff;
-		    text-shadow: $slick-opacity-text-shadow;
-		    padding: 3px;
-		    margin: 0;
-		    box-decoration-break: clone;
-		     -webkit-box-decoration-break: clone;
-
-		    @media (min-width: $screen-sm) {
-			    display: inline;
-			    background: rgba($colorPrimary, $slick-opacity-text-background);
-		    }
-
-	    }
-	    p.credits {
-		background: $colorCopyrightBackground;
-		color: $colorCopyright;
-		@include px2rem($font-size-hero-slider-copyright);
-		z-index: 6;
-		margin: 0;
-		padding: 1px 4px;
-		position: absolute;
-		right: 0;
-		bottom: 0;
-	    }
-	    img {
-		vertical-align: middle;
-		z-index: 5;
-		width: auto;
-		min-height: 250px;
-		min-width: 100%; 
-		max-width: inherit;
-		margin-left: 50%;
-		@include transform-translate(-50%,0);	
-		
 		@media (min-width: $screen-sm) {
-		    min-height: 350px;
+			height: 350px;
 		}
 
-		
-	    }
+		@media (min-width: 1260px) {
+			width: 1260px;
+			height: 350px;
+		}
+
+
+		h2,
+		h3 {
+			color: #fff;
+			text-shadow: $slick-opacity-text-shadow;
+			display: inline;
+			padding: 3px;
+			margin: 25px 30px;
+			@include px2rem($font-size-hero-slider-title);
+
+			box-decoration-break: clone;
+			-webkit-box-decoration-break: clone;
+
+			@media (min-width: $screen-sm) {
+				margin: 10px 0 15px 0;
+				background: rgba($colorPrimary, $slick-opacity-text-background);
+			}
+
+		}
+
+		.slider-text {
+			@extend .col-xs-12;
+			@extend .col-sm-10;
+
+			display: none;
+			@media (min-width: $screen-sm) {
+				display: inline-block;
+			}
+		}
+
+		p {
+			@include px2rem($font-size-hero-slider-text, $font-size-gridbase, $font-size-hero-slider-text * 1.7);
+			color: #fff;
+			text-shadow: $slick-opacity-text-shadow;
+			padding: 3px;
+			margin: 0;
+			box-decoration-break: clone;
+			-webkit-box-decoration-break: clone;
+
+			@media (min-width: $screen-sm) {
+				display: inline;
+				background: rgba($colorPrimary, $slick-opacity-text-background);
+			}
+
+		}
+
+		p.credits {
+			background: $colorCopyrightBackground;
+			color: $colorCopyright;
+			@include px2rem($font-size-hero-slider-copyright);
+			z-index: 6;
+			margin: 0;
+			padding: 1px 4px;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+
+		img {
+			vertical-align: middle;
+			z-index: 5;
+			width: auto;
+			min-height: 250px;
+			min-width: 100%;
+			max-width: inherit;
+			margin-left: 50%;
+			@include transform-translate(-50%, 0);
+
+			@media (min-width: $screen-sm) {
+				min-height: 350px;
+			}
+
+
+		}
 	}
+
 	.slider-titel {
-	    @extend .col-xs-12;
-	    
-	    @media (min-width: $screen-sm) {
-		margin-bottom: 5px;
-	    }
+		@extend .col-xs-12;
+
+		@media (min-width: $screen-sm) {
+			margin-bottom: 5px;
+		}
 	}
+
 	.hero-slide-text {
 		z-index: 10;
-		position: absolute;		
+		position: absolute;
 		margin: 0;
 		padding: 0;
 		width: 100%;
 		top: 75%;
-		@include transform-translate(0,-75%);
-		
+		@include transform-translate(0, -75%);
+
 		@media (min-width: $screen-sm) {
-		   bottom: 30px;
-		   top: inherit;
-		   transform: none;
+			bottom: 30px;
+			top: inherit;
+			transform: none;
 		}
-		
+
 	}
+
 	li {
-    		@include no-list;
+		@include no-list;
 		padding: 0;
-	
+
 	}
 
-	display: none;
-	height: auto;
 	@media (min-width: $screen-xxs) {
-	    display: block;
-	    width: 100%;
-	   
-	    .no-js & {
-	    	display: none;
-	    }
+		display: block;
+		width: 100%;
+
+		.no-js & {
+			display: none;
+		}
 	}
+
 	@media (min-width: $screen-xs) {
-	    top: -20px;
-	    max-height: 350px;  
-	}
-	@media (min-width: 1260px) {
-	    width: 1260px;
-	    height: 350px;
+		max-height: 350px;
 	}
 
-
-
-   .slick-prev,
-   .slick-next {
-       position: absolute;
-       display: block;
-       height: 40px;
-       width: 40px;
-       line-height: 0px;
-       font-size: 0px;
-       cursor: pointer;
-       background: transparent;
-       color: transparent;
-   
-       
-       top: 75%; 
-       @include transform-translate(0,-75%);
-       
-       @media (min-width: $screen-xs) {
-	    top: 50%;
-	   @include transform-translate(0,-50%);
-       }
-       
-       padding: 0;
-       border: none;
-       outline: none;
-
-
-       &:hover, 
-       &:focus {
-	   outline: none;
-	   background: transparent;
-	   color: $slick-arrow-color;
-	   &:before {
-	       opacity: $slick-opacity-on-hover;
-	   }
-       }
-       &.slick-disabled:before {
-	   opacity: $slick-opacity-not-active;
-       }
-       &:before {
-	   font-size: 40px;
-	   line-height: 1;
-	   color: $slick-arrow-color;
-	   opacity: $slick-opacity-default;
-	   
-	   -webkit-font-smoothing: antialiased;
-	   -moz-osx-font-smoothing: grayscale;
-	    text-shadow:  $slick-opacity-text-shadow;
-	    @media (min-width: $break-1360) {
-		text-shadow: none;
-	    }
-       }
-       
-   }
-
-   .slick-prev {
-       left: 5px;
-       [dir="rtl"] & {
-	   left: auto;
-	   right: 5px;
-       }
-       
-	@media (min-width: $break-1360) {
-	   left: -50px;
-	    [dir="rtl"] & {
-		left: auto;
-		right: -50px;
-	    }
-	}
-       
-       
-       
-       &:before {	
-	   @extend .fa;
-	   @extend .fa-chevron-left;
-
-	   [dir="rtl"] & {
-	       @extend .fa-chevron-right;
-	   }
-       }
-      
-   }
-
-   .slick-next {
-       right: 5px;
-       [dir="rtl"] & {
-	   left: 5px;
-	   right: auto;
-	}
-	@media (min-width: $break-1360) {
-	    right: -50px;
-	    [dir="rtl"] & {
-		left: -50px;
-		right: auto;
-	     }
-	}
-       
-       
-       &:before {
-	   @extend .fa;
-	   @extend .fa-chevron-right;
-
-	   [dir="rtl"] & {
-	       @extend .fa-chevron-left;
-	   }
-       }
-      
-   }
-
-
-    .slick-startstop {
-       position: absolute;
-       display: block;
-       top: 20px;
-       right: 0px;
-       
-	@media (min-width: $screen-xxs) {
-		top: 0px;
-		// bottom: 0;
-	}
-	@media (min-width: $screen-xs) {
-		top: 20px;
-		bottom: inherit;
-	}
 	@media (min-width: $screen-md) {
-		top: 5px;
+		top: -20px;
 	}
 
-       background: $colorCopyrightBackground;
-       color: $colorCopyright;
-       @include px2rem($font-size-hero-slider-copyright);
-       margin: 0;
-       padding: 1px 4px;
-       border: none;
+	@media (min-width: 1260px) {
+		width: 1260px;
+		height: 350px;
+	}
 
-       &:hover, 
-       &:focus {
-	       color: #fff;
-	       background: #000;
-	       transition-timing-function: ease;
-	       text-decoration: underline;
-       }	   
+	.slick-prev,
+	.slick-next {
+		position: absolute;
+		display: block;
+		height: 40px;
+		width: 40px;
+		line-height: 0px;
+		font-size: 0px;
+		cursor: pointer;
+		background: transparent;
+		color: transparent;
 
-       .no-js & {
-	   display: none;
-       }
-   }
+
+		top: 75%;
+		@include transform-translate(0, -75%);
+
+		@media (min-width: $screen-xs) {
+			top: 50%;
+			@include transform-translate(0, -50%);
+		}
+
+		padding: 0;
+		border: none;
+		outline: none;
+
+
+		&:hover,
+		&:focus {
+			outline: none;
+			background: transparent;
+			color: $slick-arrow-color;
+
+			&:before {
+				opacity: $slick-opacity-on-hover;
+			}
+		}
+
+		&.slick-disabled:before {
+			opacity: $slick-opacity-not-active;
+		}
+
+		&:before {
+			font-size: 40px;
+			line-height: 1;
+			color: $slick-arrow-color;
+			opacity: $slick-opacity-default;
+
+			-webkit-font-smoothing: antialiased;
+			text-shadow: $slick-opacity-text-shadow;
+			@media (min-width: $break-1360) {
+				text-shadow: none;
+			}
+		}
+
+	}
+
+	.slick-prev {
+		left: 5px;
+
+		[dir="rtl"] & {
+			left: auto;
+			right: 5px;
+		}
+
+		@media (min-width: $break-1360) {
+			left: -50px;
+			[dir="rtl"] & {
+				left: auto;
+				right: -50px;
+			}
+		}
+
+
+		&:before {
+			@extend .fa;
+			@extend .fa-chevron-left;
+
+			[dir="rtl"] & {
+				@extend .fa-chevron-right;
+			}
+		}
+
+	}
+
+	.slick-next {
+		right: 5px;
+
+		[dir="rtl"] & {
+			left: 5px;
+			right: auto;
+		}
+
+		@media (min-width: $break-1360) {
+			right: -50px;
+			[dir="rtl"] & {
+				left: -50px;
+				right: auto;
+			}
+		}
+
+
+		&:before {
+			@extend .fa;
+			@extend .fa-chevron-right;
+
+			[dir="rtl"] & {
+				@extend .fa-chevron-left;
+			}
+		}
+
+	}
+
+
+	.slick-startstop {
+		position: absolute;
+		display: block;
+		top: 20px;
+		right: 0px;
+
+		@media (min-width: $screen-xxs) {
+			top: 0px;
+			// bottom: 0;
+		}
+		@media (min-width: $screen-xs) {
+			top: 20px;
+			bottom: inherit;
+		}
+		@media (min-width: $screen-md) {
+			top: 5px;
+		}
+
+		background: $colorCopyrightBackground;
+		color: $colorCopyright;
+		@include px2rem($font-size-hero-slider-copyright);
+		margin: 0;
+		padding: 1px 4px;
+		border: none;
+
+		&:hover,
+		&:focus {
+			color: #fff;
+			background: #000;
+			transition-timing-function: ease;
+			text-decoration: underline;
+		}
+
+		.no-js & {
+			display: none;
+		}
+	}
 }
-
 
 
 .hero-slides-op-0 #hero-slides .item {
 	h2, h3, p {
-	    @media (min-width: $screen-sm) {
-		background: rgba($colorPrimary, 0);
-	    }
+		@media (min-width: $screen-sm) {
+			background: rgba($colorPrimary, 0);
+		}
 	}
 }
 
 $oc-list: 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1;
 @each $current-oc in $oc-list {
-    $i: index($oc-list, $current-oc);
-    .hero-slides-op-#{$i} #hero-slides .item {
-	h2, h3, p {
-	    @media (min-width: $screen-sm) {
-		background: rgba($colorPrimary, $current-oc);
-	    }
+	$i: index($oc-list, $current-oc);
+	.hero-slides-op-#{$i} #hero-slides .item {
+		h2, h3, p {
+			@media (min-width: $screen-sm) {
+				background: rgba($colorPrimary, $current-oc);
+			}
+		}
 	}
-    }
 }
 
 

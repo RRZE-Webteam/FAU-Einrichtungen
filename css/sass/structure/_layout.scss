@@ -19,7 +19,8 @@ body {
 #wrap {
 	min-height: 100%;
 	margin: 0 auto;	
-	background: #fff;
+	background-color: #fff;
+	position: relative;
 }
 
 html, body, button {
@@ -37,11 +38,7 @@ html, body, button {
 
 
  }
- 
 
-
- 
- 
 .sidebar-single,
 .sidebar-subnav {
     @extend .col-xs-12;
@@ -161,7 +158,6 @@ html, body, button {
     }
     
     * {
-	-moz-backface-visibility: inherit;
 	-ms-backface-visibility: inherit;
 	-o-backface-visibility: inherit;
 	backface-visibility: inherit;

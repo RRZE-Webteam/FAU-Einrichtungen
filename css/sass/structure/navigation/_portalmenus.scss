@@ -11,8 +11,8 @@
 .subpages-menu {
 	@include no-list;
 	margin: 20px 0;
-	
-	
+
+
 	li {
 		@include no-list;
 		background-image: none;
@@ -21,15 +21,15 @@
 		position: relative;
 		width: 220px;
 		float: left;
-		
-		
+
+
 		@media (max-width: $screen-xs - 1) {
 		    margin: 0 5px;
 		    width: calc(50% - 10px);
 		}
 		@media (min-width: $screen-xs) and (max-width: $screen-sm - 1) {
 		    margin-left: 25px;
-		    clear: none; 
+		    clear: none;
 		    width: calc(50% - 25px);
 		    &.menu-item:nth-of-type(odd) {
 			clear: left;
@@ -38,38 +38,38 @@
 		}
 		@media (min-width: $screen-sm) and (max-width: $screen-md - 1) {
 		    margin-left: 27px;
-		    clear: none; 
+		    clear: none;
 		    &.menu-item:nth-of-type(3n+1) {
 			clear: left;
 			margin-left: 15px;
 		    }
 		}
-		
+
 		@media (min-width: $screen-md) {
 		    margin-left: 20px;
-		     clear: none; 
+		     clear: none;
 		     &.menu-item:nth-of-type(4n+1) {
-	
+
 			clear: left;
 			margin-left: 15px;
 		    }
 		}
-		
-		
+
+
 		a.image {
 			text-decoration: none;
 			width: 220px;
 			height: 110px;
 			display: table-cell;
-			vertical-align: bottom;			
+			vertical-align: bottom;
 			img {
 			    position: relative;
 			    max-width: none;
 			}
-			
+
 			&.ext-link:after {
 				@extend .fa;
-				content: "\f08e"; 
+				content: "\f08e";
 				position: absolute;
 				top: 0;
 				right: 0px;
@@ -77,17 +77,17 @@
 				height: 20px;
 				width: 20px;
 				background: $colorPrimary;
-				
-				
-				@include px2rem($font-size-linkicon);  
-				color: #fff; 
+
+
+				@include px2rem($font-size-linkicon);
+				color: #fff;
 				font-weight: bolder;
 				text-align: right;
 				padding: 0 2px 0 0;
-				
+
 			}
 		}
-		  
+
 	    ul {
 		@include no-list;
 	       li {
@@ -100,7 +100,7 @@
 		    }
 		    li:before {
 			@extend .fa;
-			@extend .fa-angle-right;	
+			@extend .fa-angle-right;
 			font-weight: bold;
 			display: table-cell;
 			vertical-align: middle;
@@ -112,16 +112,16 @@
 			    text-decoration: none;
 			    display: table-cell;
 			    padding: 5px 12px;
-                            @include px2rem($font-size-link-contentmenu); 
+                            @include px2rem($font-size-link-contentmenu);
 		    }
 
-		    a:hover, 
+		    a:hover,
 		    a:focus {
 			    text-decoration: none;
 			    background-color: $colorLightest;
 		    }
-	    }	
-		
+	    }
+
 	}
         .subpage-item:focus .portaltop,
 	.subpage-item:focus h3 {
@@ -129,31 +129,31 @@
 	}
 }
 
-.subpages-menu, 
+.subpages-menu,
 .helpermenus {
     .portaltop,
     h3 {
         display: block;
-	@include px2rem($font-size-h3-contentmenu);  
+	@include px2rem($font-size-h3-contentmenu);
 	padding: 10px 15px 10px 0;
 	a {
 	    text-decoration: none;
-	    &:hover, 
+	    &:hover,
 	    &:focus {
 		text-decoration: underline;
 	    }
 
 	    &.ext-link:after {
 		    @extend .fa;
-		    content: "\f08e"; 
+		    content: "\f08e";
 		    margin-left: 5px;
 		    margin-top: 0;
-		    @include px2rem($font-size-content-linkicon);  
-		    color: $colorText; 
+		    @include px2rem($font-size-content-linkicon);
+		    color: $colorText;
 		    vertical-align: top;
 
 	    }
-	}	    
+	}
     }
 }
 .helpermenus {
@@ -170,7 +170,7 @@
 
 @media (max-width: $screen-sm - 1) {
     #content {
-	ul.menu, 
+	ul.menu,
 	ul.menu ul {
 		margin-left: 0;
 		margin-right: 0;
@@ -185,3 +185,166 @@
     }
 }
 
+/* START extension for REFRESH */
+#content .contentmenu.no-shadow img {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.contentmenu {
+  &.refresh {
+    .menu-item {
+      > div {
+    	   position: relative;
+      }
+      > div + p, > div + span.portaltop {
+      	position: absolute;
+      	bottom: 0;
+      	padding: 0;
+      	width: 100%;
+      }
+      span.portaltop {
+      	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
+      	width: 100%;
+      	padding: 0;
+      }
+      &:hover span.portaltop {
+      	background-color: rgba(0, 51, 102, 0.875);
+      }
+      span.portaltop a {
+      	color: #fff;
+      	line-height: 1.25;
+      	text-shadow: 1px 1px 3px black;
+      	display: block;
+      	padding: 8px 10px;
+        &:hover {
+        	text-decoration: none;
+        }
+      }
+    }
+    &.skewed {
+      .menu-item {
+        overflow: hidden;
+        &::after {
+          content: "";
+          width: calc(100% + 10px);
+          height: 5%;
+          position: absolute;
+          left: -5px;
+          top: -5%;
+          background: #fff;
+          transform-origin: right top;
+          transform: skewY(-1.75deg);
+          display: block;
+          overflow: hidden;
+        }
+      } // .skewed
+    } // .menu-item
+    &.contentmenutype2 {
+      &.skewed li a.image {
+        height: auto;
+      }
+      .subpages-menu {
+        @media (max-width: $screen-xs - 1){
+          li {
+            max-width: 220px;
+          }
+          li:nth-of-type(2n+1) {
+            clear: both;
+          }
+        }
+        @media (min-width: $screen-xs) and (max-width: $screen-sm - 1){
+          li {
+            max-width: 220px;
+            margin-right: calc(50% - 240px);
+    	     }
+        }
+      }
+    }
+    &.contentmenutype3 {
+      .subpages-menu {
+    	   margin-left: 15px;
+    	   margin-right: 15px;
+    	   overflow: hidden;
+        li {
+          width: 292px;
+          width: 31%;
+          margin-right: 32px;
+          margin-right: 3.333%;
+          margin-left: 0;
+          &.menu-item:nth-of-type(4n+1) {
+          	clear: unset;
+          	margin-left: 0;
+          }
+          &.menu-item:nth-of-type(3n) {
+          	margin-right: 0;
+          }
+          a.image {
+          	width: 100%;
+          	height: 400px;
+          	height: 32vw;
+          	height: 365px;
+          	max-width: 100%;
+          	max-height: 100vw;
+          	display: block;
+            img {
+             width: 100%;
+             height: 100%;
+             max-width: 90vw;
+             max-height: 100vw;
+             object-fit: cover;
+            } // img
+          } // a.image
+        } // li
+        .portaltop {
+        	font-size: 1.375em;
+        }
+        @media (min-width: $screen-xs) and (max-width: $screen-md - 1){
+          li {
+            width: 48.5%;
+            margin-right: 3%;
+            &.menu-item {
+          		clear: unset;
+          		margin-left: 0;
+              &:nth-of-type(2n) {
+            		margin-right: 0;
+            	} // :nth-of-type(2n)
+          	} // .menu-item
+          } // li
+        } // @media
+        @media (min-width: $screen-sm) and (max-width: $screen-md - 1){
+          li a.image {
+        		height: 50vw;
+        	}
+        } // @media
+        @media (min-width: $screen-xs) and (max-width: $screen-sm - 1){
+          li {
+            &.menu-item {
+          		clear: unset;
+          		margin-left: 0;
+          	}
+            a.image {
+          		height: 60vw;
+          	}
+        	}
+        } // @media
+        @media (max-width: $screen-xs){
+          li {
+        		margin-bottom: 20px;
+        		width: 100%;
+        		margin-right: 0;
+            a.image {
+             height: 100vw;
+           }
+          }
+        } // @media
+      }
+    } // .contentmenutype3
+    @media (max-width: $screen-xs){
+      li {
+        margin-bottom: 20px;
+      }
+    }
+  } // .refresh
+} // .contentmenu
+/* END extension for REFRESH */

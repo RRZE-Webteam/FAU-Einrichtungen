@@ -3,45 +3,38 @@ CSS Font File for Wordpress Theme FAU
 */
 
 @font-face {
-    font-family: 'roboto';
-    src: url('#{$font-path-roboto}/Roboto-Bold-webfont.eot');
-    src: url('#{$font-path-roboto}/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('#{$font-path-roboto}/Roboto-Bold-webfont.woff') format('woff'),
-         url('#{$font-path-roboto}/Roboto-Bold-webfont.ttf') format('truetype'),
-         url('#{$font-path-roboto}/Roboto-Bold-webfont.svg#robotobold') format('svg');
+    font-family: 'Roboto';
+    src: 
+	url('#{$font-path-roboto}/Roboto-Bold.woff2') format('woff2'),
+	url('#{$font-path-roboto}/Roboto-Bold-webfont.woff') format('woff'),
+         url('#{$font-path-roboto}/Roboto-Bold-webfont.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }	
 
 @font-face {
-    font-family: 'roboto';
-    src: url('#{$font-path-roboto}/Roboto-BoldItalic-webfont.eot');
-    src: url('#{$font-path-roboto}/Roboto-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('#{$font-path-roboto}/Roboto-BoldItalic-webfont.woff') format('woff'),
-         url('#{$font-path-roboto}/Roboto-BoldItalic-webfont.ttf') format('truetype'),
-         url('#{$font-path-roboto}/Roboto-BoldItalic-webfont.svg#robotobold_italic') format('svg');
+    font-family: 'Roboto';
+    src: url('#{$font-path-roboto}/Roboto-BoldItalic.woff2') format('woff2'),
+	url('#{$font-path-roboto}/Roboto-BoldItalic-webfont.woff') format('woff'),
+         url('#{$font-path-roboto}/Roboto-BoldItalic-webfont.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
 }
 
 @font-face {
-    font-family: 'roboto';
-    src: url('#{$font-path-roboto}/Roboto-Italic-webfont.eot');
-    src: url('#{$font-path-roboto}/Roboto-Italic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('#{$font-path-roboto}/Roboto-Italic-webfont.woff') format('woff'),
-         url('#{$font-path-roboto}/Roboto-Italic-webfont.ttf') format('truetype'),
-         url('#{$font-path-roboto}/Roboto-Italic-webfont.svg#robotoitalic') format('svg');
+    font-family: 'Roboto';
+    src:	url('#{$font-path-roboto}/Roboto-Italic.woff2') format('woff2'),
+	url('#{$font-path-roboto}/Roboto-Italic-webfont.woff') format('woff'),
+         url('#{$font-path-roboto}/Roboto-Italic-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
 }
 
 @font-face {
-    font-family: 'roboto';
-    src: url('#{$font-path-roboto}/Roboto-Regular-webfont.eot');
-    src: url('#{$font-path-roboto}/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('#{$font-path-roboto}/Roboto-Regular-webfont.woff') format('woff'),
-         url('#{$font-path-roboto}/Roboto-Regular-webfont.ttf') format('truetype'),
-         url('#{$font-path-roboto}/Roboto-Regular-webfont.svg#robotoregular') format('svg');
+    font-family: 'Roboto';
+    src: url('#{$font-path-roboto}/Roboto-Regular.woff2') format('woff2'),
+	url('#{$font-path-roboto}/Roboto-Regular-webfont.woff') format('woff'),
+         url('#{$font-path-roboto}/Roboto-Regular-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

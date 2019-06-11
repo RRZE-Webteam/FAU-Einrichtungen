@@ -100,7 +100,7 @@
 	    padding: 10px;
 
 	    input[type="text"] {
-		width: 150px;
+		width: calc(100% - 150px);
 		margin: 0 10px;
 		float: none;
 		display: inline-block;
