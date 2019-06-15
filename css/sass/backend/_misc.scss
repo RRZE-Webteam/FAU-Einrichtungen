@@ -11,8 +11,7 @@ Misc Admin CSS
 	.toggle-switch {
 		position: relative;
 		width: 64px;
-		-webkit-user-select: none;
-		-ms-user-select: none;
+		user-select: none;
 		float: right;
 		
 	    .toggle-switch-checkbox {
