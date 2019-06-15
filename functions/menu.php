@@ -327,8 +327,8 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 
 		// Generate Classes. Dont use WordPress default, cause i dont want to
 		// get all those unused data filled up my html
-
-		if ($this->level < 2) {
+                $classes = array();
+		if ($level < 2) {
 		    //	$classes[] = 'menu-item-' . $item->ID;
 		    $classes[] = 'level' . $level;
 		}
@@ -485,8 +485,8 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 
 	    // Generate Classes. Dont use WordPress default, cause i dont want to
 	    // get all those unused data filled up my html
-
-	    if ($this->level < 2) {
+            $classes = array();
+	    if ($level < 2) {
 	//	$classes[] = 'menu-item-' . $item->ID;
 		$classes[] = 'level' . $level;
 	    }
@@ -508,10 +508,10 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 	        // absoluter Link auf externe Seite
 	        $classes[] = 'external';
 	    }
-
+           
 	    $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 	    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-
+            
 
 	    $output .= '<li' . $value . $class_names .'>';
 
@@ -621,8 +621,8 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 	    $this->nothumbnail          = $noshowthumb;
 	    $this->nothumbnailfallback  = $nothumbnailfallback;
 	    $this->thumbnail  = $thumbnail;
-    }
-    function __destruct( ) {
+        }
+        function __destruct( ) {
 		// $output .= '</ul> <!-- destruct -->';
 	}
 	function start_lvl( &$output, $depth = 0, $args = array() ) {

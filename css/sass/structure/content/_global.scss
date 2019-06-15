@@ -43,3 +43,15 @@
     }
 }
 
+
+// Avoid problems by users who follow the hash-link to #content 
+// by https://css-tricks.com/hash-tag-links-padding/
+
+#droppoint::before {
+  display: block; 
+  content: " "; 
+  margin-top: -165px; 
+  height: 165px; 
+  visibility: hidden; 
+  pointer-events: none;
+}
