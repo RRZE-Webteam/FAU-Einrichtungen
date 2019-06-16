@@ -14,7 +14,7 @@ $defaultoptions = array(
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-    'js-version'			=> '1.12',
+    'js-version'			=> '1.13',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
     
     'website_type'			=> 0,
