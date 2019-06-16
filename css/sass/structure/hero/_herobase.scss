@@ -5,7 +5,7 @@
 #hero {
     position: relative; 
     transition: none;
-    
+    z-index: 10;
     @include placeholder(#fff);	
     @include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% bottom);
    

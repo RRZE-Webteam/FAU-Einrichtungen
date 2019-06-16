@@ -314,6 +314,7 @@ jQuery(document).ready(function ($) {
             topLevelFlyout.$_button = $('<button type="button" aria-controls="' + uniqueId + '" aria-haspopup="true" aria-expanded="false" aria-hidden="true"/>')
                 .text(topLevelFlyout.$_link.text())
                 .click(toggleFlyout);
+            topLevelFlyout.$_button.addClass(topLevelFlyout.$_link.attr('class'));
             $(topLevelFlyout).before(topLevelFlyout.$_button).attr('id', uniqueId);
         });
 
