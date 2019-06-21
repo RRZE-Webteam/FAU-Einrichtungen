@@ -68,9 +68,8 @@ dagegen im Unterverzeichnis ```/css``` abfelegt.
     Eingabequelle:  ```/css/sass/```  
     Ausgabeort:     ```/css```
 
-Mit Compiler-Option soll im prdokutiven Betrieb die erzeigte CSS-Datei kompimiert 
-sein. Außerdem sind Source-Map Dateien nicht benötigt. Die dafür notwendige 
-Compiler-Argumente sind daher ```--style compressed  --sourcemap=none```
+Mit der Compiler-Option ```--style compressed``` sollen die im produktiven Betrieb  
+erzeugten CSS-Dateien komprimiert sein. Source-Map Dateien werden nicht benötigt.
 
 
 ## Hinweis zu Vendor-Prefixes
