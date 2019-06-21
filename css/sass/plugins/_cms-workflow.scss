@@ -71,7 +71,9 @@
 		    
 		    
 		}
-
+		&.lang-current.current {
+		    display: none;
+		}
 	    }
 	}
     }
