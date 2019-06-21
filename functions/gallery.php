@@ -110,25 +110,29 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    }
 
 
-
 	    $i = 0;
-
-	    $usesize = 'post-thumb';
-	    $thumbwidth = $defaultoptions['default_postthumb_width'];
-	    $thumbheight = $defaultoptions['default_postthumb_height'];
 
 
 	    foreach ($attachments as $id => $attachment) {
-		    $img = wp_get_attachment_image_src($id, $usesize);
+		
+		//    $img = wp_get_attachment_image_src($id,  'post-thumb');
+		// use with small picture. This will make problems if images with
+		// sizes like 2:5 are used.
+		// so we make it in full and use css to size it.
+		// srcset will reduce the data transfer
+		
+		    $imgsrcset =  wp_get_attachment_image_srcset($id, 'gallery-full');
+		    $imgsrcsizes = wp_get_attachment_image_sizes($id, 'gallery-full');
+		    $img = wp_get_attachment_image_src($id, 'gallery-full');
+		    $imgmeta = fau_get_image_attributs($id);
 		    $img_full = wp_get_attachment_image_src($id, 'full');
-		    $meta = get_post($id);
 		    $lightboxattr = '';
 		    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
 		    if (strlen(trim($lightboxtitle))>1) {
 			$lightboxattr = ' title="'.$lightboxtitle.'"';
 		    }
 
-		    if(isset( $attr['captions']) && ($attr['captions']==1) && $meta->post_excerpt) {
+		    if(isset( $attr['captions']) && ($attr['captions']==1) &&(!fau_empty($imgmeta['excerpt']))) {
 			$output .= '<figure class="with-caption">';
 		    } else {
 			$output .= '<figure>';
@@ -137,13 +141,21 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 			$output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';		    
 		    }
 
-		    $output .= '<img src="'.fau_esc_url($img[0]).'" width="'.$thumbwidth.'" height="'.$thumbheight.'" alt=""></a>';
+		    $output .= '<img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt="'.$imgmeta['alt'].'"';
+		    if ($imgsrcset) {
+		    $output .= ' srcset="'.$imgsrcset.'"';
+			if ($imgsrcsizes) {
+			     $output .= ' sizes="'.$imgsrcsizes.'"';
+			}
+		    }
+		    $output .= '>';
+		     
 		    if ('none' !== $attr['link'] ) {
 			$output .= '</a>';
 		    }
 
-		    if(isset( $attr['captions']) && ($attr['captions']==1) && $meta->post_excerpt) {
-			$output .= '<figcaption>'.$meta->post_excerpt.'</figcaption>';
+		    if(isset( $attr['captions']) && ($attr['captions']==1) && (!fau_empty($imgmeta['excerpt']))) {
+			$output .= '<figcaption>'.$imgmeta['excerpt'].'</figcaption>';
 		    }
 		    $output .= '</figure>'."\n";
 		    $i++;
