@@ -8,7 +8,7 @@
 $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
-$defaultoptions = ['optiontable-version'		=> 55,
+$defaultoptions = ['optiontable-version'		=> 56,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -228,6 +228,7 @@ $defaultoptions = ['optiontable-version'		=> 55,
     'advanced_topevent'			=> true,
     'advanced_activateads'		=> false,
     'galery_link_original'		=> true,
+    'galery_force_caption_onslick'  => true,
 
     'advanced_post_active_subtitle'	=> true,
 
@@ -699,11 +700,11 @@ $setoptions = array(
 	     
 	    
 	       
-	       'slider'  => array(
+	    'slider'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Slider', 'fau' ),    
 		  'desc'    => __( 'Einstellungen für die wechselnden Bilder auf Startseiten.', 'fau' ),
-              ),
+             ),
               
 	     'start_header_count'=> array(
                   'type'    => 'range-value',
@@ -818,6 +819,30 @@ $setoptions = array(
 		    'default' => $defaultoptions['breadcrumb_withtitle_parent_page'],
 		    'parent'  => 'breadcrumb'
 		),   	
+	       
+	       
+		'galery'  => array(
+		    'type'    => 'section',
+		    'title'   => __( 'Galerien', 'fau' ),    
+		    'desc'    => __( 'Einstellungen für Bildergalerien', 'fau' ),
+		),
+	        
+	         'galery_link_original'	  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Verlinke Galeriebilder', 'fau' ),
+		    'label'   => __( 'Bei der Anzeige einer Defaultgalerie unter der Bildunterschrift eine Verlinkung auf das Originalbild einschalten', 'fau' ),                
+		    'default' => $defaultoptions['galery_link_original'],
+		    'parent'  => 'galery'
+		),   
+	         'galery_force_caption_onslick'	  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Bildbeschriftung bei Galerien erzwingen', 'fau' ),
+		    'label'   => __( 'Bei der Darstellung von Bildergalerien mit dem Slider werden die Bildbeschriftungen immer unterhalb des aktiven Bildes angezeigt.', 'fau' ),                
+		    'default' => $defaultoptions['galery_force_caption_onslick'],
+		    'parent'  => 'galery'
+		),   
+
+	  
 	       
 	       
 	        'header'  => array(
@@ -1362,15 +1387,7 @@ $setoptions = array(
 		    'parent'  => 'inhalte'
               ),  
    
-		   'galery_link_original'	  => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Verlinke Galeriebilder', 'fau' ),
-                  'label'   => __( 'Bei der Anzeige einer Defaultgalerie unter der Bildunterschrift eine Verlinkung auf das Originalbild einschalten', 'fau' ),                
-                  'default' => $defaultoptions['galery_link_original'],
-		  'parent'  => 'inhalte'
-		),   
-	      
-	       
+		
 	       
 	       
 	    ),    

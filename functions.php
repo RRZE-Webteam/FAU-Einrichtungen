@@ -61,7 +61,7 @@ function fau_setup() {
 	/* Default Thumbnails: 300:150:false - 2:1 */
 	set_post_thumbnail_size( $defaultoptions['default_thumb_width'], $defaultoptions['default_thumb_height'], $defaultoptions['default_thumb_crop'] ); 
 	
-	/* Thumb for Image Menus in Content - Name: page-thumb: 2:1 */
+	/* Thumb for Image Menus in Content - Name: page-thumb: 220:110, true - 2:1 */
 	add_image_size( 'page-thumb', $defaultoptions['default_submenuthumb_width'], $defaultoptions['default_submenuthumb_height'],  $defaultoptions['default_submenuthumb_crop']); // 220:110, true
 	
 	
