@@ -207,7 +207,7 @@
 	    display: block;
 	    width: 100%;
 	    padding: 0;
-	    margin: 5px auto 15px auto;
+	    margin: 15px auto 20px auto;
 	    list-style: none;
 	    text-align: center;
 	    li {
@@ -269,10 +269,11 @@
 	
 	.slick-item {
 	    width: 152px;
-	    height: 152px;
+	    height: auto;
 	    margin: 10px;
 	    display: inline-block;
 	    border: 1px solid transparent;
+	    overflow: hidden;
 	    
 	    &:active,
 	    &:focus-within,
@@ -295,6 +296,7 @@
 		max-width: inherit; 
 		display: inline-block;
 		margin: auto;
+		
 	    }
 	    &.rounded {
 		border-width: 2px;
@@ -327,6 +329,7 @@
 	.post-thumbnails .slick-item {
 	    width: 302px;
 	    height: 302px;
+	    margin: 10px 2px;
 	    a {
 		height: 300px;
 	    }

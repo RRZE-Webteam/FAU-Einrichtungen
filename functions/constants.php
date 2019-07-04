@@ -8,8 +8,7 @@
 $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
-$defaultoptions = array(
-    'optiontable-version'		=> 53,
+$defaultoptions = ['optiontable-version'		=> 55,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -107,6 +106,14 @@ $defaultoptions = array(
     'default_startseite-bannerbild-image_height'    => 182,
     'default_startseite-bannerbild-image_crop'	    => true,
     
+    
+    /* Small 3:2 size for images - Name: rwd */
+    'default_rwdimage_typname'	    => 'rwd-480-3-2',
+    'default_rwdimage_width'	    => 480,
+    'default_rwdimage_height'	    => 320,    
+    'default_rwdimage_crop'	    => false,
+     
+    
    
     /* Thumb for Image Menus in Content - Name: page-thumb */
     'default_submenuthumb_width'	    => 220,
@@ -117,6 +124,8 @@ $defaultoptions = array(
     
     
     /* Thumb of Topevent in Sidebar - Name: topevent-thumb */
+    	// TODO: Replace with default_rwdimage_typname and use CSS/SRCSET to scale
+
     'default_topevent_thumb_width'	    => 140,
     'default_topevent_thumb_height'	    => 90,
     'default_topevent_thumb_crop'	    => true,  
@@ -127,15 +136,21 @@ $defaultoptions = array(
     'default_logo_carousel_crop'	    => false,   
 
     /* Thumb for Posts in Lists - Name: post-thumb */
+    	// TODO: Replace with default_rwdimage_typname and use CSS/SRCSET to scale
+
     'default_postthumb_width'		    => 220,
     'default_postthumb_height'		    => 147,
     'default_postthumb_crop'		    => false,
    
-     /* Thumb for Posts, displayed in post/page single display - Name: post */
+     /* Thumb for Posts, displayed in post/page single display - Name: post */    
+	// TODO: Replace with default_rwdimage_typname and use CSS/SRCSET to scale
+    
     'default_post_width'		    => 300,
     'default_post_height'		    => 200,
     'default_post_crop'			    => false, 
 
+    
+    
     'default_gallery_thumb_size'	    => 'logo_carousel',
 
     /* Images for gallerys - Name: gallery-full */
@@ -144,6 +159,8 @@ $defaultoptions = array(
     'default_gallery_full_crop'		    => false,     
     
     /* Thumbs for gallerys - Name: gallery-thumb */
+    	// TODO: Replace with default_rwdimage_typname and use CSS/SRCSET to scale
+
     'default_gallery_thumb_width'	    => 120,
     'default_gallery_thumb_height'	    => 80,
     'default_gallery_thumb_crop'	    => true,     
@@ -292,7 +309,7 @@ $defaultoptions = array(
     'advanced_display_header_md-showsitelogo'	=> false,
 	// Zeigt bei der mobilen Ansicht statt dem Logo der Website das 
 	// CI Logo der FAU anstelle des Logos der Website
-); 
+	]; 
 
  $content_width =$defaultoptions['content-width'];
 
@@ -306,9 +323,11 @@ function fau_initoptions() {
     global $OPTIONS_NAME;
     
     
-    $oldoptions = get_option($OPTIONS_NAME);
+ //   $oldoptions = get_option($OPTIONS_NAME);
+    $oldoptions = '';
     $themeopt = get_theme_mods();
     $theme = get_option( 'stylesheet' );
+    $newoptions = array();
    
     // This part is for old installations.
     // will be removed soon
@@ -336,7 +355,6 @@ function fau_initoptions() {
 	
     } else {
         $newoptions = $defaultoptions;
-	
     }       
     // end old part
     

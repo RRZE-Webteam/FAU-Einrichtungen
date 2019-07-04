@@ -57,40 +57,63 @@ function fau_setup() {
 	 * "standard" posts and pages.
 	 */
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( $defaultoptions['default_thumb_width'], $defaultoptions['default_thumb_height'], $defaultoptions['default_thumb_crop'] ); // 300:150:false
 	
-	/* Image Sizes for Slider, Name: hero */
-	add_image_size( 'hero', $defaultoptions['slider-image-width'], $defaultoptions['slider-image-height'], $defaultoptions['slider-image-crop']);	// 1260:350
+	/* Default Thumbnails: 300:150:false - 2:1 */
+	set_post_thumbnail_size( $defaultoptions['default_thumb_width'], $defaultoptions['default_thumb_height'], $defaultoptions['default_thumb_crop'] ); 
 	
-	/* Banner fuer Startseiten */
-	add_image_size( 'herobanner', $defaultoptions['default_startseite-bannerbild-image_width'], $defaultoptions['default_startseite-bannerbild-image_height'], $defaultoptions['default_startseite-bannerbild-image_crop']);	// 1260:182
-    
-	/* Thumb for Posts in Lists - Name: post-thumb */
-	add_image_size( 'post-thumb', $defaultoptions['default_postthumb_width'], $defaultoptions['default_postthumb_height'], $defaultoptions['default_postthumb_crop']); // 3:2  220:147, false
-	
-	/* Thumb of Topevent in Sidebar - Name: topevent-thumb */
-	add_image_size( 'topevent-thumb', $defaultoptions['default_topevent_thumb_width'], $defaultoptions['default_topevent_thumb_height'], $defaultoptions['default_topevent_thumb_crop']); // 140:90, true
-	
-	/* Thumb for Image Menus in Content - Name: page-thumb */
+	/* Thumb for Image Menus in Content - Name: page-thumb: 2:1 */
 	add_image_size( 'page-thumb', $defaultoptions['default_submenuthumb_width'], $defaultoptions['default_submenuthumb_height'],  $defaultoptions['default_submenuthumb_crop']); // 220:110, true
 	
-	/* Thumb for Posts, displayed in post/page single display - Name: post */
-	add_image_size( 'post', $defaultoptions['default_post_width'], $defaultoptions['default_post_height'], $defaultoptions['default_post_crop']);  // 300:200  false
+	
+	
+	/* Image Sizes for Slider, Name: hero - 1260:350, true */
+	add_image_size( 'hero', $defaultoptions['slider-image-width'], $defaultoptions['slider-image-height'], $defaultoptions['slider-image-crop']);	
+	
+	/* Banner fuer Startseiten, Name: herobanner -  1260:182, true */
+	add_image_size( 'herobanner', $defaultoptions['default_startseite-bannerbild-image_width'], $defaultoptions['default_startseite-bannerbild-image_height'], $defaultoptions['default_startseite-bannerbild-image_crop']);	
+    
+
+
 	
 	/* Thumb for Logos (used in carousel) - Name: logo-thumb */
 	add_image_size( 'logo-thumb', $defaultoptions['default_logo_carousel_width'], $defaultoptions['default_logo_carousel_height'], $defaultoptions['default_logo_carousel_crop']);   // 140:110, true
 
+
+
+	/* RWD-Bildauflösung: 480x320. , 3:2 Proportion. No Crop */
+	add_image_size( $defaultoptions['default_rwdimage_typname'], $defaultoptions['default_rwdimage_width'], $defaultoptions['default_rwdimage_height'], $defaultoptions['default_rwdimage_crop']);   // 140:110, true
+	
+	
+	/* 
+	 * TODO: REMOVE SIZES:
+	 * Replace with $defaultoptions['default_rwdimage_typname'] ( = 'rwd-480-3-2')
+	 */
+	
+	add_image_size( 'topevent-thumb', $defaultoptions['default_topevent_thumb_width'], $defaultoptions['default_topevent_thumb_height'], $defaultoptions['default_topevent_thumb_crop']); // 140:90, true
+	    /* Thumb of Topevent in Sidebar - Name: topevent-thumb */
+	
+	add_image_size( 'post-thumb', $defaultoptions['default_postthumb_width'], $defaultoptions['default_postthumb_height'], $defaultoptions['default_postthumb_crop']); // 3:2  220:147, false
+	    /* Thumb for Posts in Lists - Name: post-thumb */
+	
+	add_image_size( 'post', $defaultoptions['default_post_width'], $defaultoptions['default_post_height'], $defaultoptions['default_post_crop']);  // 300:200  false
+	    /* Thumb for Posts, displayed in post/page single display - Name: post */
+	
+	if ($defaultoptions['default_gallery_thumb_size'] != 'logo_carousel') {
+	    // Wird bei Default-Galerien verwendet als ANzeige des großen Bildes.
+	    add_image_size( 'gallery-thumb', $defaultoptions['default_gallery_thumb_width'], $defaultoptions['default_gallery_thumb_height'], $defaultoptions['default_gallery_thumb_crop']); // 120, 80, true
+	}
+
+
+	
 	/* 
 	 * Größen für Bildergalerien: 
 	 */
 	/* Images for gallerys - Name: gallery-full */
 	add_image_size( 'gallery-full', $defaultoptions['default_gallery_full_width'], $defaultoptions['default_gallery_full_height'], $defaultoptions['default_gallery_full_crop']); // 940, 470, false
-	//
-	//
-	if ($defaultoptions['default_gallery_thumb_size'] != 'logo_carousel') {
-	    // Wird bei Default-Galerien verwendet als ANzeige des großen Bildes.
-	    add_image_size( 'gallery-thumb', $defaultoptions['default_gallery_thumb_width'], $defaultoptions['default_gallery_thumb_height'], $defaultoptions['default_gallery_thumb_crop']); // 120, 80, true
-	}
+	
+
+
+	
 
 	
 
