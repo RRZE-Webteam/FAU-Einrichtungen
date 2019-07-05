@@ -228,6 +228,7 @@ function fau_save_post_teaser($post_id, $post) {
  
 /* Display Options for pages */
 function fau_do_metabox_post_topevent($object, $box) { 
+    global $defaultoptions;
     wp_nonce_field( basename( __FILE__ ), 'fau_metabox_post_topevent_nonce' );
 
     if (!current_user_can('edit_post', $object->ID)) {
@@ -301,8 +302,9 @@ function fau_do_metabox_post_topevent($object, $box) {
 
         $image = '';
         $imagehtml = '';
+
         if (isset($topevent_image) && ($topevent_image>0)) {
-            $image = wp_get_attachment_image_src($topevent_image, 'topevent-thumb'); 
+            $image = wp_get_attachment_image_src($topevent_image, $defaultoptions['default_rwdimage_typname']);
             if (isset($image)) {
                 $imagehtml = '<img class="image_show_topevent_image" src="'.$image[0].'" width="'.get_theme_mod('default_topevent_thumb_width').'" height="'.get_theme_mod('default_topevent_thumb_height').'" alt="">';
             }

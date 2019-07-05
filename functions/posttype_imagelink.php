@@ -159,7 +159,7 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
     function fau_imagelink_get( $atts = array()) {
 	global $defaultoptions;
 	
-	$allowedsizes = array("logo-thumb", "page-thumb", "post-thumbnails", "thumbnail");
+	$allowedsizes = array("logo-thumb", "post-thumbnails", "thumbnail", "x120", "x240", "x360", "x480");
 	$dots =   (( isset($atts['dots'])  && ($atts['dots']==true)) ?  'true'  : 'false' );
 	$autoplay =   (( isset($atts['autoplay'])  && ($atts['autoplay']==true)) ?  'true'  : 'false' );
 	$slidesToShow = ( isset($atts['slidesToShow'] ) ? intval( $atts['slidesToShow'] ) : 4 );
@@ -174,7 +174,7 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 	$type = ( isset($atts['type'] ) ? esc_attr( $atts['type'] ) : 'slide' );
 
 	if (!in_array($size, $allowedsizes)) {
-	    $size = 'logo-thumb';
+	    $size = 'thumbnail';
 	}
 
 // $size = 'gallery-full';

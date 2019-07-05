@@ -311,6 +311,41 @@
 		border-color: $colorHover;
 	    }
 	}
+
+	.x120 .slick-item {
+	    width: 120;
+	    height: 120px;
+
+	    a {
+		height: 118px;	
+	    }
+	}
+	
+	.x240 .slick-item {
+	    width: 240px;
+	    height: 240px;
+
+	    a {
+		height: 238px;	
+	    }
+	}
+	.x360 .slick-item {
+	    width: 360px;
+	    height: 360px;
+
+	    a {
+		height: 358px;	
+	    }
+	}
+	.x480 .slick-item {
+	    width: 480px;
+	    height: 480px;
+
+	    a {
+		height: 478px;	
+	    }
+	}
+
 	.logo-thumb .slick-item {
 	    width: 142px;
 	    height: 142px;
@@ -319,13 +354,7 @@
 		height: 140px;	
 	    }
 	}
-	.page-thumb .slick-item {
-	    width: 222px;
-	    height: 222px;
-	    a {
-		height: 220px;
-	    }
-	}
+	
 	.post-thumbnails .slick-item {
 	    width: 302px;
 	    height: 302px;

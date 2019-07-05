@@ -8,7 +8,7 @@
 $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
-$defaultoptions = ['optiontable-version'		=> 56,
+$defaultoptions = ['optiontable-version'		=> 57,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -121,19 +121,6 @@ $defaultoptions = ['optiontable-version'		=> 56,
     'default_submenuthumb_crop'	    => false,
     
     
-    
-    
-    /* Thumb of Topevent in Sidebar - Name: topevent-thumb */
-    	// TODO: Replace with default_rwdimage_typname and use CSS/SRCSET to scale
-
-    'default_topevent_thumb_width'	    => 140,
-    'default_topevent_thumb_height'	    => 90,
-    'default_topevent_thumb_crop'	    => true,  
-
-    /* Thumb for Logos (used in carousel) - Name: logo-thumb */
-    'default_logo_carousel_width'	    => 140,
-    'default_logo_carousel_height'	    => 110,
-    'default_logo_carousel_crop'	    => false,   
 
     /* Thumb for Posts in Lists - Name: post-thumb */
     	// TODO: Replace with default_rwdimage_typname and use CSS/SRCSET to scale
@@ -149,22 +136,13 @@ $defaultoptions = ['optiontable-version'		=> 56,
     'default_post_height'		    => 200,
     'default_post_crop'			    => false, 
 
-    
-    
-    'default_gallery_thumb_size'	    => 'logo_carousel',
+   
 
     /* Images for gallerys - Name: gallery-full */
     'default_gallery_full_width'	    => 940,
     'default_gallery_full_height'	    => 470,
     'default_gallery_full_crop'		    => false,     
     
-    /* Thumbs for gallerys - Name: gallery-thumb */
-    	// TODO: Replace with default_rwdimage_typname and use CSS/SRCSET to scale
-
-    'default_gallery_thumb_width'	    => 120,
-    'default_gallery_thumb_height'	    => 80,
-    'default_gallery_thumb_crop'	    => true,     
-
    
     
    

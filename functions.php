@@ -75,12 +75,6 @@ function fau_setup() {
     
 
 
-	
-	/* Thumb for Logos (used in carousel) - Name: logo-thumb */
-	add_image_size( 'logo-thumb', $defaultoptions['default_logo_carousel_width'], $defaultoptions['default_logo_carousel_height'], $defaultoptions['default_logo_carousel_crop']);   // 140:110, true
-
-
-
 	/* RWD-Bildauflösung: 480x320. , 3:2 Proportion. No Crop */
 	add_image_size( $defaultoptions['default_rwdimage_typname'], $defaultoptions['default_rwdimage_width'], $defaultoptions['default_rwdimage_height'], $defaultoptions['default_rwdimage_crop']);   // 140:110, true
 	
@@ -90,20 +84,13 @@ function fau_setup() {
 	 * Replace with $defaultoptions['default_rwdimage_typname'] ( = 'rwd-480-3-2')
 	 */
 	
-	add_image_size( 'topevent-thumb', $defaultoptions['default_topevent_thumb_width'], $defaultoptions['default_topevent_thumb_height'], $defaultoptions['default_topevent_thumb_crop']); // 140:90, true
-	    /* Thumb of Topevent in Sidebar - Name: topevent-thumb */
-	
+
 	add_image_size( 'post-thumb', $defaultoptions['default_postthumb_width'], $defaultoptions['default_postthumb_height'], $defaultoptions['default_postthumb_crop']); // 3:2  220:147, false
 	    /* Thumb for Posts in Lists - Name: post-thumb */
 	
 	add_image_size( 'post', $defaultoptions['default_post_width'], $defaultoptions['default_post_height'], $defaultoptions['default_post_crop']);  // 300:200  false
 	    /* Thumb for Posts, displayed in post/page single display - Name: post */
 	
-	if ($defaultoptions['default_gallery_thumb_size'] != 'logo_carousel') {
-	    // Wird bei Default-Galerien verwendet als ANzeige des großen Bildes.
-	    add_image_size( 'gallery-thumb', $defaultoptions['default_gallery_thumb_width'], $defaultoptions['default_gallery_thumb_height'], $defaultoptions['default_gallery_thumb_crop']); // 120, 80, true
-	}
-
 
 	
 	/* 
