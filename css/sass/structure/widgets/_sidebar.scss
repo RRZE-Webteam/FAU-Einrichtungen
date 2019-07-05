@@ -5,9 +5,6 @@
 
 /* Sidebar: Inline */
 .sidebar-inline {
-	float: right;
-	min-width: 220px;	
-	width: 100%;
 	border-top: 2px solid $colorLightest;
 	margin: 10px 0;
 	padding-top: 10px;
@@ -31,21 +28,14 @@
 	
 	@media (min-width: $screen-sm) {
 	    border-top: none;
-	    width: 220px;
 	    margin-top: 0;
 	    margin-left: $fau-gutter-width;
-	    margin-right: - ceil(($fau-gutter-width / 2));
 	    padding-top: 0;
 	    padding-left: ceil(($fau-gutter-width / 2));	
 	    border-left: 2px solid $colorLightest;
 	}
 
-	
-	.page-template-page-subnav & {
-	    @media (min-width: $screen-lg ) {
-		width: 220px;
-	    }
-	}
+
 
 }
 

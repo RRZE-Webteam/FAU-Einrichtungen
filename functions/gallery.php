@@ -285,8 +285,9 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	      {
 		breakpoint: 480,
 		settings: {
-		  arrows: false,
-		  slidesToShow: 1
+		  arrows: true,
+		  slidesToShow: 2,
+		  dots: false
 		}
 	      }
 	    ]";

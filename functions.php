@@ -15,6 +15,7 @@ require_once( get_template_directory() . '/functions/customizer.php');
 
 
 $options = fau_initoptions();
+$is_sidebar_active = false;
 
 require_once( get_template_directory() . '/functions/plugin-support.php' );
 require_once( get_template_directory() . '/functions/helper-functions.php' );

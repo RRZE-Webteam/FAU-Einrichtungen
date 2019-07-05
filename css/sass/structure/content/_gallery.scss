@@ -4,7 +4,10 @@
 
 #content
 .image-gallery {
-    margin: 10px 0 20px 0;
+    margin: 10px -15px 20px -15px;
+    @media (min-width: $screen-sm-min) {
+	 margin: 10px 0 20px 0;
+    }
     clear: both;
     
     figure {
@@ -93,6 +96,7 @@
 		height: auto;
 		margin: 5px;
 		overflow: hidden;
+	
 		
 	
 	    }
@@ -140,20 +144,33 @@
 	    }
 	}
 	.slider-nav-width {
+	   width: 90%;
 	   width: calc(100% - 100px);
 	   margin: 20px auto 10px;
 	
 	    .slick-slide {
 		cursor: pointer;
-		max-height: 120px;
+		max-height: 150px;
 		overflow: hidden;
 		margin-left: 5px;
 		margin-right: 5px;
-	//	width: calc((100% - 100px) / 5);
-		height: calc((100% - 100px) / 15 * 2);
+		height: auto;
 		    
+		.page-template-page-subnav & {
+		    max-height: 80px;
+		}
+		
 		img {
-		     object-fit: fill;
+		    object-fit: fill;
+		    min-width: 200px;
+		    min-height: 150px;
+		    
+		    .page-template-page-subnav & {
+			min-width: 120px;
+			min-height: 80px;
+		    }
+		  
+		    
 		}
 	    
 		

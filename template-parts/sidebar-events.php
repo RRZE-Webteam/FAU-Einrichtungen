@@ -52,6 +52,8 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
      }
  }
  if ($show==true) {
+    fau_use_sidebar(true);
+    
     $maxnum = get_theme_mod('start_topevents_max');
     $args =  array(
 	'post_type'	    => 'post',

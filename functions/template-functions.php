@@ -11,6 +11,8 @@
     global $default_fau_orga_data;
     global $default_fau_orga_faculty;
 	 // Additional body classes for Meta WIdget (once only language switcher)
+    global $is_sidebar_active;
+    
     if (is_workflow_translation_active()) {
 	 if ( is_active_sidebar( 'language-switcher'  )) {
 		 $classes[] = 'active-meta-widget';
@@ -126,6 +128,11 @@
 	    
     }
 
+    if ($is_sidebar_active) {
+	 $classes[] = 'with-sidebar';
+    }
+    
+    
     return $classes;
  }
  add_filter( 'body_class', 'fau_body_class' );
@@ -139,7 +146,19 @@
 	return $classes;
 }
 add_filter('page_css_class', 'fau_protected_attribute', 10, 3);
+/*-----------------------------------------------------------------------------------*/
+/* Mark sidebar as used. This will add the class with-sidebar in the body class
+/*-----------------------------------------------------------------------------------*/
+function fau_use_sidebar($activate) {
+    global $is_sidebar_active;
+    if ($activate) {
+	$is_sidebar_active = 1;
+    } else {
+	$is_sidebar_active = 0;
+    }
 
+    return $is_sidebar_active;
+}
 /*-----------------------------------------------------------------------------------*/
 /* Define errorpages 401 and 403
 /*-----------------------------------------------------------------------------------*/
