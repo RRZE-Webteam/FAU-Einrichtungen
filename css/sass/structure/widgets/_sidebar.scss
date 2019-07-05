@@ -27,14 +27,16 @@
 	}
 	
 	@media (min-width: $screen-sm) {
-	    border-top: none;
 	    margin-top: 0;
-	    margin-left: $fau-gutter-width;
 	    padding-top: 0;
 	    padding-left: ceil(($fau-gutter-width / 2));	
-	    border-left: 2px solid $colorLightest;
+	    
 	}
-
+	@media (min-width: $screen-md) {
+	    border-left: 2px solid $colorLightest;
+	    margin-left: $fau-gutter-width;
+	    border-top: none;
+	}
 
 
 }

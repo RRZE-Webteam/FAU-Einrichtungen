@@ -149,6 +149,7 @@ html, body, button {
 	    order: 2;
 	    display: block;
 	    width: 100%;
+	    
 	}
 	.content-inline {
 	    order: 1;
@@ -172,8 +173,8 @@ html, body, button {
 		width: 100%;
 	
 		&.with-sidebar {
-		    flex: 0 0 calc(100% - 237px);
-
+	//	    flex: 0 0 calc(100% - 237px);
+		    width: calc(100% - 237px);
 		}
 	    }
 	    .sidebar-inline {
