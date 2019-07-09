@@ -614,8 +614,8 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 	private $element;
 	private $showsub = 1;
 
-
-	function __construct($menu,$showsub=1,$maxsecondlevel=6,$noshowthumb=0,$nothumbnailfallback=0,$thumbnail='page-thumb') {
+	// function __construct($menu,$showsub=1,$maxsecondlevel=6,$noshowthumb=0,$nothumbnailfallback=0,$thumbnail='page-thumb') {
+	function __construct($menu,$showsub=1,$maxsecondlevel=6,$noshowthumb=0,$nothumbnailfallback=0,$thumbnail='rwd-480-2-1') {
 	    $this->showsub              = $showsub;
 	    $this->maxsecondlevel       = $maxsecondlevel;
 	    $this->nothumbnail          = $noshowthumb;
@@ -731,7 +731,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
 			if($this->level == 1) {
 				if (!$this->nothumbnail) {
-				    $item_output .= '<div role="presentation" aria-hidden="true" tabindex="-1">';
+				    $item_output .= '<div class="thumb" role="presentation" aria-hidden="true" tabindex="-1">';
 				    $item_output .= '<a ';
 
 				    if ($externlink) {
@@ -742,7 +742,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 					 $item_output .= ' ext-link';
 				    }
 				    $item_output .= '" href="'.$targeturl.'">';
-				    $post_thumbnail_id = get_post_thumbnail_id( $item->object_id, 'page-thumb' );
+				    $post_thumbnail_id = get_post_thumbnail_id( $item->object_id);
 				    $imagehtml = '';
 				    $imageurl = '';
 
@@ -752,25 +752,14 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 				    $alttext = $pretitle.apply_filters( 'the_title', $item->title, $item->ID ).$posttitle;
 				    $alttext = esc_html($alttext);
 				    $altattr = 'alt="'.$alttext.'"';
-
+				    
 
 				    if ($post_thumbnail_id) {
-					if($this->thumbnail == 'post-thumb' || $this->thumbnail == 'gallery-full') {
-					    $thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  $this->thumbnail);
-					} else {
-					    $thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  'page-thumb');
-					}
-					$imageurl = $thisimage[0];
-					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$thisimage[1].'" height="'.$thisimage[2].'" '.$altattr.'>';
+					$imagehtml = fau_get_image_htmlcode($post_thumbnail_id, $this->thumbnail, $alttext);
+					 $item_output .= $imagehtml;
 				    }
-				    if ((!isset($imageurl) || (strlen(trim($imageurl)) <4 )) && (!$this->nothumbnailfallback))  {
-					if($this->thumbnail == 'post-thumb') {
-					  $imageurl = $options['default_postthumb_src'];
-					  $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_postthumb_width'].'" height="'.$options['default_postthumb_height'].'" '.$altattr.'>';
-					} else {
-					  $imageurl = $options['default_submenuthumb_src'];
-					  $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" '.$altattr.'>';
-					}
+				    if ((fau_empty($imagehtml)) && (!$this->nothumbnailfallback))  {
+					$item_output .= fau_get_image_fallback_htmlcode($this->thumbnail,$alttext);
 				    }
 				    $item_output .= '</a>';
 				    $item_output .= '</div>';

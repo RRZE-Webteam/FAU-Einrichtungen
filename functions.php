@@ -76,7 +76,7 @@ function fau_setup() {
 
 
 	/* RWD-Bildauflösung: 480x320. , 3:2 Proportion. No Crop */
-	add_image_size( $defaultoptions['default_rwdimage_typname'], $defaultoptions['default_rwdimage_width'], $defaultoptions['default_rwdimage_height'], $defaultoptions['default_rwdimage_crop']);   // 140:110, true
+	add_image_size( $defaultoptions['default_rwdimage_typname'], $defaultoptions['default_rwdimage_width'], $defaultoptions['default_rwdimage_height'], $defaultoptions['default_rwdimage_crop']);
 	
 	
 	/* 

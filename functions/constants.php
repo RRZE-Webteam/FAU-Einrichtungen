@@ -8,7 +8,7 @@
 $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
-$defaultoptions = ['optiontable-version'		=> 57,
+$defaultoptions = ['optiontable-version'		=> 59,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -72,7 +72,7 @@ $defaultoptions = ['optiontable-version'		=> 57,
     'default_postthumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-220x147.gif',
     'default_postthumb_always'		=> 1,
     'default_postthumb_image'		=> 0,
-    'default_submenuthumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-220x110.gif',
+    
     'default_submenu_spalten'		=> 4,
     'default_submenu_entries'		=> 5,
     'menu_fallbackquote_show_excerpt'	=> 1,
@@ -107,18 +107,31 @@ $defaultoptions = ['optiontable-version'		=> 57,
     'default_startseite-bannerbild-image_crop'	    => true,
     
     
-    /* Small 3:2 size for images - Name: rwd */
-    'default_rwdimage_typname'	    => 'rwd-480-3-2',
-    'default_rwdimage_width'	    => 480,
-    'default_rwdimage_height'	    => 320,    
-    'default_rwdimage_crop'	    => false,
-     
     
-   
+   /* Small 2:1 size for image */
+    'default_rwdimage_2-1_typname'	    => 'rwd-480-2-1',
+    'default_rwdimage_2-1_width'	    => 480,
+    'default_rwdimage_2-1_height'	    => 240,    
+    'default_rwdimage_2-1_crop'	    => false,
+    'default_rwdimage_2-1_src'	    => get_fau_template_uri().'/img/thumbnail-siegel-480x240.gif',
+    
+    
+    
     /* Thumb for Image Menus in Content - Name: page-thumb */
     'default_submenuthumb_width'	    => 220,
     'default_submenuthumb_height'	    => 110,    
     'default_submenuthumb_crop'	    => false,
+    'default_submenuthumb_src'	    => get_fau_template_uri().'/img/thumbnail-siegel-220x110.gif',
+    
+  
+    
+    /* Small 3:2 size for images - Name: rwd-480-3-2 */
+    'default_rwdimage_typname'	    => 'rwd-480-3-2',
+    'default_rwdimage_width'	    => 480,
+    'default_rwdimage_height'	    => 320,    
+    'default_rwdimage_crop'	    => false,
+    'default_rwdimage_src'		    => get_fau_template_uri().'/img/thumbnail-siegel-480x320.gif',
+     
     
     
 

@@ -163,6 +163,7 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 		    $imgwidth = $thisimage[1];
 		    $imgheight = $thisimage[2];
 		    $imgsrcset =  wp_get_attachment_image_srcset($fallback, $defaultoptions['default_rwdimage_typname']);
+		    $imgsrcsizes = wp_get_attachment_image_sizes($fallback, $defaultoptions['default_rwdimage_typname']);
 		//     $imgsrcset =  wp_get_attachment_image_srcset($fallback, 'topevent-thumb'); 
 		} else {	   
 		    $imageurl = fau_esc_url($defaultoptions['default_topevent_thumb_src']);
@@ -171,6 +172,9 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 		$imagehtml = '<img itemprop="thumbnailUrl" src="'.$imageurl.'" width="'.$imgwidth.'" height="'.$imgheight.'" alt="'.$alttext.'"';
 		if ($imgsrcset) {
 		    $imagehtml .= ' srcset="'.$imgsrcset.'"';
+		    if ($imgsrcsizes) {
+			 $imagehtml .= ' sizes="'.$imgsrcsizes.'"';
+		    }
 		}
 		$imagehtml .= ">";
 
