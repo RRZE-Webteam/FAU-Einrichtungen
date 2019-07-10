@@ -64,7 +64,10 @@ if($posttype == 'event') {
 					<?php if(has_post_thumbnail( $post->ID )) { ?>
 					 <div class="row">
 					    <div class="span3">
-						<?php the_post_thumbnail('post-thumb'); ?>
+						<?php 
+						$post_thumbnail_id = get_post_thumbnail_id( $post->ID); 
+						echo fau_get_image_htmlcode($post_thumbnail_id);  
+						?>
 					    </div>
 					     <div class="span5">
 					<?php }  

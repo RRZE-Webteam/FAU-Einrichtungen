@@ -2,9 +2,12 @@
 /* Gallery in content 
 /*-----------------------------------------------------------------------------------*/
 
-
+#content
 .image-gallery {
-    margin: 10px 0 20px 0;
+    margin: 10px -15px 20px -15px;
+    @media (min-width: $screen-sm-min) {
+	 margin: 10px 0 20px 0;
+    }
     clear: both;
     
     figure {
@@ -12,26 +15,54 @@
 	    width: 100%;
 	    height: auto;	    
 	}
-   
 	figcaption {
 	    @include px2rem($font-size-image-caption);
 	    color: $PalettonDunkler;
 	    padding: 5px;
 	}
     }
+    figure:not(.with-caption) {
+	img {  
+	    object-fit: cover;
+	    
+	     // Workaround for browsers, that dont know about object-fit yet
+		    min-height: 100%;
+		    min-width: 100%;
+		    width: 100%;
+		    height: auto;
+		    max-width: none;
+		    max-height: none;
+		    display: block;
+		    position: relative;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%); 
+	    
+	}
+
+    }
+    
+    
     .grid {
 	.two, 
 	.three,
-	.four {
+	.four, 
+	.five {
 	    .row {
 		display: flex;
 		flex-wrap: wrap;
+		margin-left: 0;
+		margin-right: 0;
+	    }
+	    figure {
+		padding: 5px;
+	
 	    }
 	}
-	.two {
-	    
+	.two {	    
 	    figure {
 		@extend .col-xs-6;
+		
 	    }
 	}
 	.three {
@@ -45,6 +76,14 @@
 		@extend .col-sm-3;
 	    }
 	}
+	.five {
+	    figure {
+		@extend .col-xs-6;
+		@media (min-width: $screen-sm-min) {
+		    width: 20%;
+		}
+	    }
+	}
 	.flexgrid {
 	    display: flex; 
 	    flex-wrap: wrap; 
@@ -53,19 +92,40 @@
 	    figure { 
 		border: 1px solid #e9edf2;
 		text-align: center;
-		width: 160px; 
+		width: 195px; 
+		height: auto;
 		margin: 5px;
+		overflow: hidden;
+	
+		
+	
+	    }
+	    figure:not(.with-caption) { 
+		height: 130px;
 		overflow: hidden;
 		
 		img {
 		    transition: transform 1s;
+		    object-fit: cover;		    
+		    // Workaround for browsers, that dont know about object-fit yet
+		    min-height: 100%;
+		    min-width: 100%;
+		    width: 100%;
+		    height: auto;
+		    max-width: none;
+		    max-height: none;
+		    display: block;
+		    position: relative;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);     
 		}
 		:hover {
 		    img {
-			transform: scale(1.2);
+			transform: translate(-50%, -50%) scale(1.2);
 		    }
 		}
-	    }	
+	    }
 
 	    
 	}
@@ -84,19 +144,45 @@
 	    }
 	}
 	.slider-nav-width {
+	   width: 90%;
 	   width: calc(100% - 100px);
-	   margin: 20px auto 0;
+	   margin: 20px auto 10px;
 	
 	    .slick-slide {
 		cursor: pointer;
-		max-height: 110px;
+		max-height: 150px;
 		overflow: hidden;
 		margin-left: 5px;
 		margin-right: 5px;
+		height: auto;
+		    
+		.page-template-page-subnav & {
+		    max-height: 80px;
+		}
 		
+		img {
+		    object-fit: fill;
+		    min-width: 200px;
+		    min-height: 150px;
+		    
+		    .page-template-page-subnav & {
+			min-width: 120px;
+			min-height: 80px;
+		    }
+		  
+		    
+		}
+	    
 		
 	    }
+	   
+	    
+	    
 	}
+	.slider-nav-width.slick-dotted {
+	    margin-bottom: 30px;
+	}
+	
 	.slick-prev,
 	.slick-next {
 		position: absolute;
@@ -143,8 +229,6 @@
 			line-height: 1;
 			color: $colorPrimary;
 			opacity: $slick-opacity-default;
-
-			-webkit-font-smoothing: antialiased;
 
 		}
 
@@ -252,7 +336,7 @@
 	    display: block;
 	    width: 100%;
 	    padding: 0;
-	    margin: 5px auto 15px auto;
+	    margin: 15px auto 15px auto;
 	    list-style: none;
 	    text-align: center;
 	    li {

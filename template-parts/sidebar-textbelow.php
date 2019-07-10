@@ -20,6 +20,8 @@
 	}
 
 	if (!empty($output)) {
+	        fau_use_sidebar(true);
+
 	    echo '<div class="widget">'."\n";
 	    echo $output;
 	    echo "</div>\n";

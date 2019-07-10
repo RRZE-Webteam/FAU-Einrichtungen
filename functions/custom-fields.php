@@ -228,6 +228,7 @@ function fau_save_post_teaser($post_id, $post) {
  
 /* Display Options for pages */
 function fau_do_metabox_post_topevent($object, $box) { 
+    global $defaultoptions;
     wp_nonce_field( basename( __FILE__ ), 'fau_metabox_post_topevent_nonce' );
 
     if (!current_user_can('edit_post', $object->ID)) {
@@ -301,10 +302,11 @@ function fau_do_metabox_post_topevent($object, $box) {
 
         $image = '';
         $imagehtml = '';
+
         if (isset($topevent_image) && ($topevent_image>0)) {
-            $image = wp_get_attachment_image_src($topevent_image, 'topevent-thumb'); 
+            $image = wp_get_attachment_image_src($topevent_image, $defaultoptions['default_rwdimage_typname']);
             if (isset($image)) {
-                $imagehtml = '<img class="image_show_topevent_image" src="'.$image[0].'" width="'.get_theme_mod('default_topevent_thumb_width').'" height="'.get_theme_mod('default_topevent_thumb_height').'" alt="">';
+                $imagehtml = '<img class="image_show_topevent_image" src="'.$image[0].'" width="'.get_theme_mod('default_rwdimage_width').'" height="'.get_theme_mod('default_rwdimage_height').'" alt="">';
             }
         }
 
@@ -312,7 +314,7 @@ function fau_do_metabox_post_topevent($object, $box) {
         if (!empty($imagehtml)) {  
             echo $imagehtml;
         } else {
-            $imagehtml = '<img src="'.fau_esc_url(get_theme_mod('default_topevent_thumb_src')).'" width="'.get_theme_mod('default_topevent_thumb_width').'" height="'.get_theme_mod('default_topevent_thumb_height').'" alt="">';			    
+            $imagehtml = '<img src="'.fau_esc_url(get_theme_mod('default_topevent_thumb_src')).'" width="'.get_theme_mod('default_rwdimage_width').'" height="'.get_theme_mod('default_rwdimage_height').'" alt="">';			    
             echo $imagehtml;
             echo "<br>";
             _e('Kein Bild ausgewählt. Ersatzbild wird gezeigt.', 'fau');
@@ -331,7 +333,7 @@ function fau_do_metabox_post_topevent($object, $box) {
             jQuery('#image_button_topevent_image').click(function()  {
                 wp.media.editor.send.attachment = function(props, attachment) {
                     jQuery('#fauval_topevent_image').val(attachment.id);
-                    htmlshow = "<img src=\""+attachment.url + "\" width=\"<?php echo get_theme_mod('default_topevent_thumb_width');?>\" height=\"<?php echo get_theme_mod('default_topevent_thumb_height');?>\"/>";  					   
+                    htmlshow = "<img src=\""+attachment.url + "\" width=\"<?php echo get_theme_mod('default_rwdimage_width');?>\" height=\"<?php echo get_theme_mod('default_rwdimage_height');?>\"/>";  					   
                     jQuery('.showimg_topevent_image').html(htmlshow);
 
                 }

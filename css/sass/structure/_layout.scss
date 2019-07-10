@@ -137,25 +137,53 @@ html, body, button {
 
 
 .inline-box {
-    display: flex;   
-    flex-wrap: wrap;
+    width: 100%;
 
-    .sidebar-inline {
-	order: 2;
-    }
-    .content-inline {
-	order: 1;
-	width: 100%;
-    }
-     @media (min-width: $screen-sm) {
-	 display: block; 
-	 .sidebar-inline,
-	 .content-inline {
-	     display: inline;
-	     
-	 }
-	 
-    }
+    
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+
+
+	.sidebar-inline {
+	    order: 2;
+	    display: block;
+	    width: 100%;
+	    
+	}
+	.content-inline {
+	    order: 1;
+	    display: block;
+	     width: 100%;
+
+	}
+	@media (min-width: $screen-md) {
+	    display: flex;   
+	    width: calc(100% + 50px);
+	    flex-wrap: nowrap;
+	    flex-direction: row;
+	    align-items: flex-start;
+
+	    .sidebar-inline,
+	    .content-inline {
+		 display: inline-block;
+
+	    }
+	    .content-inline {
+		width: 100%;
+	
+		&.with-sidebar {
+	//	    flex: 0 0 calc(100% - 237px);
+		    width: calc(100% - 237px);
+		}
+	    }
+	    .sidebar-inline {
+		flex: 0 0 237px;
+		margin-right: -50px; 
+		margin-left: 15px;
+	    }
+
+	}
     
     * {
 	backface-visibility: inherit;
