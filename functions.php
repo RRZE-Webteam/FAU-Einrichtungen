@@ -57,22 +57,20 @@ function fau_setup() {
 	 * This theme uses a custom image size for featured images, displayed on
 	 * "standard" posts and pages.
 	 */
-	add_theme_support( 'post-thumbnails' );
-	
-	/* Default Thumbnails: 300:150:false - 2:1 */
-	set_post_thumbnail_size( $defaultoptions['default_thumb_width'], $defaultoptions['default_thumb_height'], $defaultoptions['default_thumb_crop'] ); 
-	
-	/* Thumb for Image Menus in Content - Name: page-thumb: 220:110, true - 2:1 */
-	add_image_size( 'page-thumb', $defaultoptions['default_submenuthumb_width'], $defaultoptions['default_submenuthumb_height'],  $defaultoptions['default_submenuthumb_crop']); // 220:110, true
-	
-	
+		
 	
 	/* Image Sizes for Slider, Name: hero - 1260:350, true */
 	add_image_size( 'hero', $defaultoptions['slider-image-width'], $defaultoptions['slider-image-height'], $defaultoptions['slider-image-crop']);	
 	
 	/* Banner fuer Startseiten, Name: herobanner -  1260:182, true */
 	add_image_size( 'herobanner', $defaultoptions['default_startseite-bannerbild-image_width'], $defaultoptions['default_startseite-bannerbild-image_height'], $defaultoptions['default_startseite-bannerbild-image_crop']);	
-    
+
+	
+	/* RWD-Bildauflösung: 480x240. , 2:1 Proportion. No Crop */
+	add_image_size( 'rwd-480-2-1', $defaultoptions[ 'default_rwdimage_2-1_width'], $defaultoptions['default_rwdimage_2-1_height'], $defaultoptions['default_rwdimage_2-1_crop']);
+	    
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size($defaultoptions[ 'default_rwdimage_2-1_width'], $defaultoptions['default_rwdimage_2-1_height'], $defaultoptions['default_rwdimage_2-1_crop'] ); 
 
 
 	/* RWD-Bildauflösung: 480x320. , 3:2 Proportion. No Crop */
@@ -80,17 +78,18 @@ function fau_setup() {
 	
 	
 	/* 
-	 * TODO: REMOVE SIZES:
+	 * TODO: REMOVEd SIZES since 1.11.7
 	 * Replace with $defaultoptions['default_rwdimage_typname'] ( = 'rwd-480-3-2')
 	 */
 	
+	 //   add_image_size( 'post-thumb', $defaultoptions['default_postthumb_width'], $defaultoptions['default_postthumb_height'], $defaultoptions['default_postthumb_crop']); // 3:2  220:147, false
+		/* Thumb for Posts in Lists - Name: post-thumb */
 
-	add_image_size( 'post-thumb', $defaultoptions['default_postthumb_width'], $defaultoptions['default_postthumb_height'], $defaultoptions['default_postthumb_crop']); // 3:2  220:147, false
-	    /* Thumb for Posts in Lists - Name: post-thumb */
-	
-	add_image_size( 'post', $defaultoptions['default_post_width'], $defaultoptions['default_post_height'], $defaultoptions['default_post_crop']);  // 300:200  false
-	    /* Thumb for Posts, displayed in post/page single display - Name: post */
-	
+	    //add_image_size( 'post', $defaultoptions['default_post_width'], $defaultoptions['default_post_height'], $defaultoptions['default_post_crop']);  // 300:200  false
+		/* Thumb for Posts, displayed in post/page single display - Name: post */
+	    /* Thumb for Image Menus in Content - Name: page-thumb: 220:110, true - 2:1 */
+//	    add_image_size( 'page-thumb', $defaultoptions['default_submenuthumb_width'], $defaultoptions['default_submenuthumb_height'],  $defaultoptions['default_submenuthumb_crop']); // 220:110, true
+
 
 	
 	/* 
@@ -100,12 +99,6 @@ function fau_setup() {
 	add_image_size( 'gallery-full', $defaultoptions['default_gallery_full_width'], $defaultoptions['default_gallery_full_height'], $defaultoptions['default_gallery_full_crop']); // 940, 470, false
 	
 
-
-	
-
-	
-
-	
 
 }
 add_action( 'after_setup_theme', 'fau_setup' );

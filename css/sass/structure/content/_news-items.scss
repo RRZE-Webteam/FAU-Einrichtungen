@@ -10,6 +10,7 @@
         }
 	.post-image {
 	    margin-top: 0px;
+	    max-width: 300px;
 	}
 	.subtitle {
 	    padding-top: 0;
@@ -51,7 +52,7 @@
              width: 100%;
              height: auto;
 	     
-             @media (min-width: $screen-sm) {
+             @media (min-width: $screen-xs) {
 		 max-height: 147px;
 		 width: auto;
 	    }

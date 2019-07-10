@@ -242,18 +242,8 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 	    }
 
 	    $id = get_post_thumbnail_id( $item->ID ); 
-	    $imgsrcset =  wp_get_attachment_image_srcset($id, $defaultoptions['default_rwdimage_typname']);
-	    $imgsrcsizes = wp_get_attachment_image_sizes($id, $defaultoptions['default_rwdimage_typname']);
-	    $img = wp_get_attachment_image_src($id, $defaultoptions['default_rwdimage_typname']);
+	    $item_output .= fau_get_image_htmlcode($id, 'rwd-480-3-2', $alttext);
 	    
-	    $item_output .= '<img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt="'.$alttext.'"';
-	    if ($imgsrcset) {
-	    $item_output .= ' srcset="'.$imgsrcset.'"';
-		if ($imgsrcsizes) {
-		     $item_output .= ' sizes="'.$imgsrcsizes.'"';
-		}
-	    }
-	    $item_output .= '>';    
 	    $item_output .= '</a>';
 	    $item_output .= '</div>';
 	}

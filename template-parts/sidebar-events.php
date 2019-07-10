@@ -131,8 +131,8 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 	    $alttext = $pretitle.$titel.$posttitle;
 	    $alttext = esc_html($alttext);
 
-	    $imgwidth = $defaultoptions['default_topevent_thumb_width'];
-	    $imgheight = $defaultoptions['default_topevent_thumb_height'];
+	    $imgwidth = $defaultoptions['default_rwdimage_width'];
+	    $imgheight = $defaultoptions['default_rwdimage_height'];
 	    $imgsrcset = '';
 
 	    if (isset($imageid) && ($imageid>0)) {

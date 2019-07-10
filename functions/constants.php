@@ -83,6 +83,7 @@ $defaultoptions = ['optiontable-version'		=> 59,
     'topevents_templates'			=> array(1), 
     'default_topevent_thumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-140x90.gif',
     'fallback_topevent_image'		=> 0,
+    'fallback_submenu_image'		=> 0,
     'default_topevent_excerpt_length'	=> 100,
 
     'default_startseite-bannerbild-image_src'	    => get_fau_template_uri().'/img/bannerbild-tafel-1260x182.jpg',
@@ -115,15 +116,7 @@ $defaultoptions = ['optiontable-version'		=> 59,
     'default_rwdimage_2-1_crop'	    => false,
     'default_rwdimage_2-1_src'	    => get_fau_template_uri().'/img/thumbnail-siegel-480x240.gif',
     
-    
-    
-    /* Thumb for Image Menus in Content - Name: page-thumb */
-    'default_submenuthumb_width'	    => 220,
-    'default_submenuthumb_height'	    => 110,    
-    'default_submenuthumb_crop'	    => false,
-    'default_submenuthumb_src'	    => get_fau_template_uri().'/img/thumbnail-siegel-220x110.gif',
-    
-  
+
     
     /* Small 3:2 size for images - Name: rwd-480-3-2 */
     'default_rwdimage_typname'	    => 'rwd-480-3-2',
@@ -133,22 +126,6 @@ $defaultoptions = ['optiontable-version'		=> 59,
     'default_rwdimage_src'		    => get_fau_template_uri().'/img/thumbnail-siegel-480x320.gif',
      
     
-    
-
-    /* Thumb for Posts in Lists - Name: post-thumb */
-    	// TODO: Replace with default_rwdimage_typname and use CSS/SRCSET to scale
-
-    'default_postthumb_width'		    => 220,
-    'default_postthumb_height'		    => 147,
-    'default_postthumb_crop'		    => false,
-   
-     /* Thumb for Posts, displayed in post/page single display - Name: post */    
-	// TODO: Replace with default_rwdimage_typname and use CSS/SRCSET to scale
-    
-    'default_post_width'		    => 300,
-    'default_post_height'		    => 200,
-    'default_post_crop'			    => false, 
-
    
 
     /* Images for gallerys - Name: gallery-full */
@@ -955,8 +932,8 @@ $setoptions = array(
 
 	    'default_postthumb_image' => array(
 		    'type'    => 'image',
-		    'maxwidth'	=> $defaultoptions['default_postthumb_width'],
-		    'maxheight'	=> $defaultoptions['default_postthumb_height'],
+		    'maxwidth'	=> $defaultoptions['default_rwdimage_width'], 
+		    'maxheight'	=> $defaultoptions['default_rwdimage_height'],
 		    'title'   => __( 'Thumbnail Ersatzbild', 'fau' ),
 		    'label'   => __( 'Ersatzbild für den Fall, daß ein Artikel kein eigenes Artikelbild definiert hat.', 'fau' ),               
 		    'parent'  => 'newsbereich'
@@ -1000,11 +977,11 @@ $setoptions = array(
 	       
 	      'fallback_topevent_image' => array(
 		    'type'    => 'image',
-		    'maxwidth'	=> $defaultoptions['default_topevent_thumb_width'], 
-		    'maxheight'	=> $defaultoptions['default_topevent_thumb_height'],
+		    'maxwidth'	=> $defaultoptions['default_rwdimage_width'], 
+		    'maxheight'	=> $defaultoptions['default_rwdimage_height'],
 		    'title'   => __( 'Thumbnail Ersatzbild', 'fau' ),
 		    'default' => $defaultoptions['fallback_topevent_image'],
-		    'label'   => __( 'Ersatzbild für den Fall, daßfür den Eventeintrag kein eigenes Bild definiert wurde.', 'fau' ),               
+		    'label'   => __( 'Ersatzbild für den Fall, daß für den Eventeintrag kein eigenes Bild definiert wurde.', 'fau' ),               
 		    'parent'  => 'topevents'
 		),  
 	          
@@ -1251,6 +1228,18 @@ $setoptions = array(
 		  'parent'  => 'contentmenus'
 		),   
               
+	         'fallback_submenu_image' => array(
+		    'type'    => 'image',
+		    'maxwidth'	=> $defaultoptions['default_rwdimage_2-1_width'],
+		    'maxheight'	=> $defaultoptions['default_rwdimage_2-1_height'],
+		    'title'   => __( 'Thumbnail Ersatzbild', 'fau' ),
+		    'label'   => __( 'Ersatzbild für den Fall, daß eine verlinkte Seite kein eigenes Artikelbild definiert hat.', 'fau' ),               
+		    'parent'  => 'contentmenus',
+		    'default' => $defaultoptions['fallback_submenu_image'],
+		),  
+	       
+	       
+
 	       
 	       'sidebaropt'  => array(
 		    'type'	=> 'section',

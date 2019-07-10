@@ -16,21 +16,16 @@ $use_bannerdefault = get_theme_mod("startseite_banner_usedefault");
 $startseite_banner_image_id = get_theme_mod("startseite_banner_image_id"); 
 
 if (isset($banner) && ($banner > 0)) {
-    $imagedata = wp_get_attachment_image_src( $banner, 'herobanner' );
-    $slidersrcset =  wp_get_attachment_image_srcset($banner,'herobanner');
 
-    if ($imagedata) {
-	$image = '<img src="'.fau_esc_url($imagedata[0]).'" width="'.$imagedata[1].'" height="'.$imagedata[2].'" alt=""';
-	if ($slidersrcset) {
-	    $image .= 'srcset="'.$slidersrcset.'"';
-	}
-	$image .= '>';
-
-    }
+    $image = fau_get_image_htmlcode($banner, 'herobanner', '');
+    
     $imgdata = fau_get_image_attributs($banner);
     $copyright = trim(strip_tags( $imgdata['credits'] ));
 } elseif (isset($startseite_banner_image_id) && ($startseite_banner_image_id>0)) {
     /* Diese Bedingung dient der Abwärtscompatibilität; Früher haben wir die Option-Table statt theme_mods verwendet */
+    
+    $image = fau_get_image_htmlcode($startseite_banner_image_id, 'herobanner', '');
+    /*
     $imagedata = wp_get_attachment_image_src( $startseite_banner_image_id, 'herobanner' );
     $slidersrcset =  wp_get_attachment_image_srcset($startseite_banner_image_id,'herobanner');
 
@@ -42,6 +37,7 @@ if (isset($banner) && ($banner > 0)) {
 	$image .= '>';
 
     }
+    */
     $imgdata = fau_get_image_attributs($startseite_banner_image_id);
     $copyright = trim(strip_tags( $imgdata['credits'] ));
 } elseif ($use_bannerdefault) {
@@ -55,6 +51,11 @@ if (isset($banner) && ($banner > 0)) {
     $image = '';
 }
 
+if ((filter_var($copyright, FILTER_VALIDATE_URL)) && (preg_match('/\/cropped\-/',$copyright))) {
+    // if Image is cropped image, then copyright text contains the url of the cropped image. 
+    // this is not a copyright text we want
+    $copyright = '';
+}
 ?>
 
     <div id="hero" class="hero-banner">

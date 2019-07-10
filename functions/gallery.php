@@ -115,16 +115,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 
 
 	    foreach ($attachments as $id => $attachment) {
-		
-		//    $img = wp_get_attachment_image_src($id,  'post-thumb');
-		// use with small picture. This will make problems if images with
-		// sizes like 2:5 are used.
-		// so we make it in full and use css to size it.
-		// srcset will reduce the data transfer
-		
-		    $imgsrcset =  wp_get_attachment_image_srcset($id, 'gallery-full');
-		    $imgsrcsizes = wp_get_attachment_image_sizes($id, 'gallery-full');
-		    $img = wp_get_attachment_image_src($id, 'gallery-full');
+
 		    $imgmeta = fau_get_image_attributs($id);
 		    $img_full = wp_get_attachment_image_src($id, 'full');
 		    $lightboxattr = '';
@@ -141,16 +132,8 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    if ('none' !== $attr['link'] ) {
 			$output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';		    
 		    }
-
-		    $output .= '<img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt="'.$imgmeta['alt'].'"';
-		    if ($imgsrcset) {
-		    $output .= ' srcset="'.$imgsrcset.'"';
-			if ($imgsrcsizes) {
-			     $output .= ' sizes="'.$imgsrcsizes.'"';
-			}
-		    }
-		    $output .= '>';
-		     
+		    $output .= fau_get_image_htmlcode($id, 'gallery-full', $imgmeta['alt']);
+		    
 		    if ('none' !== $attr['link'] ) {
 			$output .= '</a>';
 		    }
@@ -188,24 +171,11 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    $output .= "<div class=\"slider-for-$rand\">\n";
 
 	    foreach ($attachments as $id => $attachment) {
-		$img = wp_get_attachment_image_src($id, 'gallery-full');
 		$img_full = wp_get_attachment_image_src($id, 'full');
 		$imgmeta = fau_get_image_attributs($id);
-		$imgsrcset =  wp_get_attachment_image_srcset($id, 'gallery-full');
-		$imgsrcsizes = wp_get_attachment_image_sizes($id, 'gallery-full');
 
-
-		$output .= '<div class="item">';
-		$output .= '<img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt=""';
-
-		if ($imgsrcset) {
-		    $output .= ' srcset="'.$imgsrcset.'"';
-		    if ($imgsrcsizes) {
-			 $output .= ' sizes="'.$imgsrcsizes.'"';
-		    }
-		}
-		$output .= ' role="presentation">';
-
+		$output .= '<div class="item">';	
+		$output .= fau_get_image_htmlcode($id, 'gallery-full', '','',array('role' => 'presentation'));
 
 		$link_origin = get_theme_mod('galery_link_original');
 		
@@ -237,22 +207,10 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 
 
 	    foreach ($attachments as $id => $attachment) {
-		
-		
 		$output .= '<div>';
-		$imgsrcset =  wp_get_attachment_image_srcset($id, $defaultoptions['default_rwdimage_typname']);
-		$imgsrcsizes = wp_get_attachment_image_sizes($id, $defaultoptions['default_rwdimage_typname']);
-		$img = wp_get_attachment_image_src($id, $defaultoptions['default_rwdimage_typname']);
 		$imgmeta = fau_get_image_attributs($id);
 		$alttext = sanitize_text_field($imgmeta['excerpt']);
-		$output .= '<img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt="'.$alttext.'"';
-		if ($imgsrcset) {
-		    $output .= ' srcset="'.$imgsrcset.'"';
-		    if ($imgsrcsizes) {
-			 $output .= ' sizes="'.$imgsrcsizes.'"';
-		    }
-		}
-		$output .= '>';    	
+		$output .= fau_get_image_htmlcode($id, 'rwd-480-3-2', $alttext);
 		$output .= '</div>';
 	    }
 
