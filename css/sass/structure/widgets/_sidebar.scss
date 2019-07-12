@@ -25,6 +25,9 @@
 	.content-portal & {
 		margin-top: 22px;
 	}
+	.page-template-page-portalindex & {
+	    float: right;
+	}
 	
 	@media (min-width: $screen-sm) {
 	    margin-top: 0;
