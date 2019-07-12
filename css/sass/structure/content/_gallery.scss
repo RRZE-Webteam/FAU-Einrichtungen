@@ -56,13 +56,13 @@
 	}
 	.two {	    
 	    figure {
-		width: 50%;
+		width: calc(50% - 1px);
 		
 	    }
 	}
 	.three {
 	    figure {
-		width: 33%;
+		width: calc(33% - 1px);
 	    }
 	}
 	.four {
