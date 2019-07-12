@@ -77,33 +77,7 @@ html, body, button {
     @extend .col-sm-5;
 }
 
-.search-sidebar {
-    @extend .col-sm-4;
-}
-.search-resultnested {
-     @extend .col-sm-8;
-} 
-.search-error-notice {
-    @extend .col-sm-6;
-    @extend .col-sm-offset-1;
-}
-.search-error-image {
-    @extend .col-sm-5;
-}
-.search-results {
-    article {
-	@extend .col-sm-12;
-    }
-    .searchresult-image {
-	@extend .col-xs-4;
-	@extend .col-sm-3;
-	text-align: right;
-    } 
-    .searchresult-imagetext {
-	@extend .col-xs-8;
-	@extend .col-sm-9
-    }
-}
+
 
 .portalpage-content,
 .startpage-blogroll {

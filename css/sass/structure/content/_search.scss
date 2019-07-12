@@ -1,8 +1,13 @@
 /*-----------------------------------------------------------------------------------*/
 /* Search page
 /*-----------------------------------------------------------------------------------*/
+.search-sidebar {
+    @extend .col-sm-4;
+}
+
 
 .search-resultnested {
+    @extend .col-sm-8;
     .row {
 	margin: 0;
     }
@@ -12,7 +17,26 @@
 }
 .search-result {
 	margin-bottom: 11px;
-
+	article {
+	    @extend .col-sm-12;
+	}
+	.searchresult-image {
+	    @extend .col-xs-4;
+	    @extend .col-sm-3;
+	    text-align: right;
+	    
+	    img {
+		width: 100%;	    
+		height: auto;
+		max-height: 147px;
+		box-shadow: none;
+	    }
+	    
+	} 
+	.searchresult-imagetext {
+	    @extend .col-xs-8;
+	    @extend .col-sm-9
+	}
 	.search-meta {
 		padding: 5px 0;
 		margin-top: 0px;
@@ -89,7 +113,14 @@
 	}
 	
 }
+.search-error-notice {
+    @extend .col-sm-6;
+    @extend .col-sm-offset-1;
+}
+
+
 .search-error-image {
+    @extend .col-sm-5;
     background-image: url($errorimage);
     background-position: bottom center;  
     background-repeat: no-repeat; 
