@@ -2,7 +2,7 @@
 /* Gallery in content 
 /*-----------------------------------------------------------------------------------*/
 
-#content
+
 .image-gallery {
     margin: 10px -15px 20px -15px;
     @media (min-width: $screen-sm-min) {
@@ -25,18 +25,13 @@
 	img {  
 	    object-fit: cover;
 	    
-	     // Workaround for browsers, that dont know about object-fit yet
 		    min-height: 100%;
 		    min-width: 100%;
 		    width: 100%;
 		    height: auto;
 		    max-width: none;
 		    max-height: none;
-		    display: block;
-		    position: relative;
-		    top: 50%;
-		    left: 50%;
-		    transform: translate(-50%, -50%); 
+
 	    
 	}
 
@@ -61,26 +56,31 @@
 	}
 	.two {	    
 	    figure {
-		@extend .col-xs-6;
+		width: 50%;
 		
 	    }
 	}
 	.three {
 	    figure {
-		@extend .col-xs-4;
+		width: 33%;
 	    }
 	}
 	.four {
 	    figure {
 		@extend .col-xs-6;
-		@extend .col-sm-3;
+		@media (min-width: $screen-sm-min) {
+		    width: calc(25% - 1px);
+		    // Rundungsfehler auschliessen: 
+		    // Hintergurnd: 666 / 4 = 166,5; würde auf 167 aufgerundet werden 
+		    // und dann leider dazu führen, dass der grid doch umbricht.
+		}
 	    }
 	}
 	.five {
 	    figure {
 		@extend .col-xs-6;
 		@media (min-width: $screen-sm-min) {
-		    width: 20%;
+		    width: calc(20% - 1px);
 		}
 	    }
 	}
@@ -107,28 +107,25 @@
 		img {
 		    transition: transform 1s;
 		    object-fit: cover;		    
-		    // Workaround for browsers, that dont know about object-fit yet
 		    min-height: 100%;
 		    min-width: 100%;
 		    width: 100%;
 		    height: auto;
 		    max-width: none;
 		    max-height: none;
-		    display: block;
-		    position: relative;
-		    top: 50%;
-		    left: 50%;
-		    transform: translate(-50%, -50%);     
+
 		}
 		:hover {
 		    img {
-			transform: translate(-50%, -50%) scale(1.2);
+			transform: scale(1.2);
 		    }
 		}
 	    }
 
 	    
 	}
+	
+	
     }
     .gallery-slick {
 	figure,
@@ -389,6 +386,15 @@
 		 &.slick-active button:before {
 		     opacity: 1;
 		 }
+	    }
+	}
+    }
+    &.nospace .grid {
+	.flexgrid, .one, .two, .three, .four, .five {
+	    figure {
+		padding: 0;
+		margin: 0;
+		border: none;
 	    }
 	}
     }
