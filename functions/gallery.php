@@ -40,13 +40,15 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		// file = direkt zur mediendatei
 		// none = nirgendwohin
 		// NULL = anhang seite
+	    'class'	=> '', 
+		
 	    'nodots'		=> 0,
 
 	), $attr));
 
 	$id = intval($id);
 	if ('RAND' == $order) $orderby = 'none';
-
+	$class = sanitize_text_field( $class );
 	if (!empty($include)) {
 	    $include = preg_replace('/[^0-9,]+/', '', $include);
 	    $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
@@ -61,8 +63,12 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 
 	$gridtype = 'default';
 
-	$output = '<div class="image-gallery">';
-
+	$output = '<div class="image-gallery';
+	if (!empty($class)) {
+	    $output .= ' '.$class;
+	}
+	$output .= '">';
+	    
 	$attr['captions'] = filter_var( $attr['captions'], FILTER_VALIDATE_BOOLEAN );
 	
 	
@@ -101,7 +107,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    $rand = rand();
 	    $usesameheight = '';
 
-	    $output .= '<div class="grid">'."\n";
+	    $output .= '<div class="grid" aria-hidden="true" role="presentation">'."\n";
 
 	    if ($gridclass=='flexgrid') {
 		$output .= '<div class="flexgrid">'."\n";
@@ -123,7 +129,15 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    if (strlen(trim($lightboxtitle))>1) {
 			$lightboxattr = ' title="'.$lightboxtitle.'"';
 		    }
-
+		    $linkalt = $imgmeta['alt'];
+		    if (fau_empty( $imgmeta['alt'])) {
+			if (!fau_empty($imgmeta['title'])) {
+			    $linkalt = __('Bild ','fau').$imgmeta['title'].' '.__('aufrufen','fau');
+			} else {
+	    		   $linkalt = __('Bild aufrufen','fau');
+			}
+		    }
+		    
 		    if(isset( $attr['captions']) && ($attr['captions']==1) &&(!fau_empty($imgmeta['excerpt']))) {
 			$output .= '<figure class="with-caption">';
 		    } else {
@@ -132,7 +146,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    if ('none' !== $attr['link'] ) {
 			$output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';		    
 		    }
-		    $output .= fau_get_image_htmlcode($id, 'gallery-full', $imgmeta['alt']);
+		    $output .= fau_get_image_htmlcode($id, 'gallery-full', $linkalt);
 		    
 		    if ('none' !== $attr['link'] ) {
 			$output .= '</a>';

@@ -117,6 +117,15 @@ label {
 img.imgurl {
     display: block;
 }
+.previewimage.showimg_topevent_image {
+    img {
+	max-height: 90px;
+	max-width: 140px;
+	width: auto;
+	height: auto;
+    }
+    
+}
 .previewimage img {
     max-width: 900px;
     height: auto;
