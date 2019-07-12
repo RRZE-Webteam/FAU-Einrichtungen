@@ -3,6 +3,7 @@
 /*  (since 1.10.56, replaces navigation/_logos-menu.scss)
 /*-----------------------------------------------------------------------------------*/
 
+/*
 #content .imagelink .slick-item {
     img  {
 	@include box-shadow(none);
@@ -11,7 +12,7 @@
 	 @include box-shadow(2px 2px 5px $colorShadows);
     }
 }
-
+*/
 .imagelink {    
     width: calc(100% - 100px);
     margin: 20px auto 0;
@@ -52,19 +53,21 @@
 	    a {
 		height: 150px;		
 		display: flex;
-		margin: auto;
-		vertical-align: middle;
-		text-align: center;
-		
+		margin: auto;		
 	    }
 	    
 	    
 	    
 	    img {
 		box-shadow: none;
-		max-width: inherit; 
-		display: block;
+		display: flex; 
+		flex-grow: 0;
+		flex-shrink: 0;
 		margin: auto;
+		height: auto;
+		width: 100%;
+		object-fit: contain;    
+		    
 	    }
 	}
 	.logo-thumb .slick-slide {
@@ -269,7 +272,7 @@
 	
 	.slick-item {
 	    width: 152px;
-	    height: auto;
+	    height: 152px;
 	    margin: 10px;
 	    display: inline-block;
 	    border: 1px solid transparent;
@@ -296,14 +299,16 @@
 		max-width: 100%; 
 		display: inline-block;
 		margin: auto;
+		object-fit: contain;
 		
+		height: auto;
+		width: 100%;
+
 	    }
 	    &.rounded {
 		border-width: 2px;
 		border-color: $colorContentBorders;
-		a {
-		    display: flex;
-		}
+
 	    }
 	    &.rounded:hover, 
 	    &.rounded:focus, 
