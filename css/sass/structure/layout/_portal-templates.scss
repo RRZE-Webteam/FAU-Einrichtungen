@@ -1,6 +1,21 @@
 /*-----------------------------------------------------------------------------------*/
-/* Page Template definitions
+/* Template: Portal and Startpage
 /*-----------------------------------------------------------------------------------*/
+
+
+.portalpage-content,
+.startpage-blogroll {
+    @extend .col-xs-12;
+    @extend .col-sm-8;
+    @extend .col-xxl-9;
+}
+.portalpage-sidebar,
+.startpage-sidebar {
+    @extend .col-xs-12;
+    @extend .col-sm-4;
+    @extend .col-xxl-3;
+}
+
 
 
 // Portal Pages
@@ -14,6 +29,10 @@
 }
 
 .startpage-sidebar {
+    .row {
+	margin-left: 0;
+	margin-right: 0;
+    }
     @media (max-width: $screen-sm - 1) {
 	@include linear-gradient-three(transparent 0%,$colorStandardHellgrau 50%,transparent 100%);  
     }
