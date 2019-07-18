@@ -41,10 +41,7 @@
 	    display: block;
 	    padding: 5px 0;
 	    margin: 0 0 14px 0;
-	    @media (min-width: $screen-xs) {
-		 margintop: -14px;
-	    }
-	    
+    
 	    color: $colorPrimary;
 	    font-family: $fontStack;
 	    @include px2rem($font-size-content-meta);

@@ -71,7 +71,12 @@
 	margin-top: 159px;
     }
     
-
+    .search-title {
+	@extend .col-sm-4;
+    }
+    .search-input {
+	@extend .col-sm-8;
+    }
 
 }
 

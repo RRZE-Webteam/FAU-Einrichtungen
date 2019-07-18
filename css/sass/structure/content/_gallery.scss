@@ -56,13 +56,13 @@
 	}
 	.two {	    
 	    figure {
-		width: 50%;
+		width: calc(50% - 1px);
 		
 	    }
 	}
 	.three {
 	    figure {
-		width: 33%;
+		width: calc(33% - 1px);
 	    }
 	}
 	.four {
@@ -92,16 +92,14 @@
 	    figure { 
 		border: 1px solid #e9edf2;
 		text-align: center;
-		width: 195px; 
 		height: auto;
 		margin: 5px;
 		overflow: hidden;
-	
+		flex: 1 1 190px;
 		
 	
 	    }
 	    figure:not(.with-caption) { 
-		height: 130px;
 		overflow: hidden;
 		
 		img {
