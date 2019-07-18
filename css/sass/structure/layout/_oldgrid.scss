@@ -3,10 +3,13 @@
 /*-----------------------------------------------------------------------------------*/
 
 
-[class*="span"] {
-	float: left;
-	min-height: 1px;
-	margin-left: 20px;
+[class*="span"],
+.span-sm-4,
+.span-sm-8, 
+.span-sm-8 .span9 {
+	margin-left: 0;
+	float: none;
+	width: auto;
 }
 
 .span12 {
@@ -107,8 +110,8 @@
 
 
 
-
-@media (min-width: $breakMD) and (max-width: $breakLG) {
+// @media (min-width: $screen-sm) and (max-width: $breakLG) {
+@media (min-width: $screen-sm)  {
 
 	[class*="span"] {
 		float: left;
@@ -200,24 +203,6 @@
 		margin-left: 0;
 	}
 
-}
-
-@media (max-width: $breakMD) {
-	body {
-		padding-right: 20px;
-		padding-left: 20px;
-	}
-	
-
-	[class*="span"],
-	.span-sm-4,
-	.span-sm-8, 
-	.span-sm-8 .span9 {
-		margin-left: 0;
-		float: none;
-		width: auto;
-	}
-	
 }
 
 
