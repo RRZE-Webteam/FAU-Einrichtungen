@@ -92,7 +92,6 @@ if ( ! function_exists( 'fau_imagelink_metabox' ) ) {
 }
 if ( ! function_exists( 'fau_imagelink_metabox_content' ) ) {
     function fau_imagelink_metabox_content( $object, $box ) { 
-	global $defaultoptions;
 	global $post;
 
 
@@ -159,16 +158,17 @@ add_action( 'save_post', 'fau_imagelink_metabox_content_save' );
 if ( ! function_exists( 'fau_imagelink_get' ) ) {
     function fau_imagelink_get( $atts = array()) {
 	global $defaultoptions;
-
-	$allowedsizes = array("logo-thumb", "page-thumb", "post-thumbnails", "thumbnail");
-	$slides = ( isset($atts['slides'] ) ? intval( $atts['slides'] ) : 5 );
+	
+	$allowedsizes = array("logo-thumb", "post-thumbnails", "thumbnail", "x120", "x240", "x360", "x480");
 	$dots =   (( isset($atts['dots'])  && ($atts['dots']==true)) ?  'true'  : 'false' );
 	$autoplay =   (( isset($atts['autoplay'])  && ($atts['autoplay']==true)) ?  'true'  : 'false' );
-
+	$slidesToShow = ( isset($atts['slidesToShow'] ) ? intval( $atts['slidesToShow'] ) : 4 );
 	$catid = ( isset($atts['catid'] ) ? intval( $atts['catid'] ) : 0 );
+	$cat = ( isset($atts['cat'] ) ? esc_attr( $atts['cat'] ) : '' );
 	$order = ( isset($atts['order'] ) ? esc_attr( $atts['order'] ) : 'ASC' );
 	$size = ( isset($atts['size'] ) ? esc_attr( $atts['size'] ) : 'logo-thumb' );
 	$navtitle = sanitize_text_field( $atts['navtitle'] );
+
 
 	$class = sanitize_text_field( $atts['class'] );
 	$type = ( isset($atts['type'] ) ? esc_attr( $atts['type'] ) : 'slide' );
@@ -177,14 +177,14 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 	    $size = 'thumbnail';
 	}
 
-
+// $size = 'gallery-full';
 	if ( isset($catid) && $catid >0) {
 	    $args = array(
-	       'post_type'	=> 'imagelink',
-	       'nopaging'	=> 1,
-	       'orderby'	=> 'name', 
-	       'order'	=> $order,
-	       'tax_query'	=> array(
+	       'post_type'  => 'imagelink',
+	       'nopaging'   => 1,
+	       'orderby'    => 'name', 
+	       'order'	    => $order,
+	       'tax_query'  => array(
 			array(
 			   'taxonomy' => 'imagelinks_category',
 			   'field' => 'id', // can be slug or id - a CPT-onomy term's ID is the same as its post ID
@@ -193,6 +193,21 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 		       )
 	       )
 	    );	 
+	} elseif (!empty($cat)) {
+	     $args = array(
+	       'post_type'  => 'imagelink',
+	       'nopaging'	  => 1,
+	       'orderby'	  => 'name', 
+	       'order'	  => $order,
+	       'tax_query'  => array(
+			array(
+			   'taxonomy' => 'imagelinks_category',
+			   'field' => 'slug', // can be slug or id - a CPT-onomy term's ID is the same as its post ID
+			   'terms' => $cat,
+
+		       )
+	       )
+	    );	
 	} else {
 	    $args = array(
 	       'post_type'	=> 'imagelink',
@@ -225,12 +240,10 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 	    if (empty($alttext)) {
 		$alttext = __("Zum Webauftritt: ", 'fau').$currenturl;
 	    }
-	    $altattr = 'alt="'.$alttext.'"';
 
-	    $post_thumbnail_id = get_post_thumbnail_id( $item->ID ); 
-	    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id, $size );
-
-	    $item_output .= '<img src="'.fau_esc_url($sliderimage[0]).'" '.$altattr.' width="'.$sliderimage[1].'" height="'.$sliderimage[2].'">';
+	    $id = get_post_thumbnail_id( $item->ID ); 
+	    $item_output .= fau_get_image_htmlcode($id, 'rwd-480-3-2', $alttext);
+	    
 	    $item_output .= '</a>';
 	    $item_output .= '</div>';
 	}
@@ -238,9 +251,6 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 	if ($number>0) {
 	    $output .= '<nav aria-label="'.$navtitle.'" class="imagelink';
 
-	    if ($slides > $number) {
-		$slides = $number;
-	    }
 	    if (isset($type) && ($type == 'list')) {
 		$output .= " list";
 	    } elseif ($dots) {
@@ -253,13 +263,13 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 
 	    $output .= $item_output;
 	    $output .= '</div>';
-	    $output .= "</nav>\n";
+	    $output .= "</nav>";
 	    if (isset($type) && ($type == 'slide')) {
 		$output .= "<script type=\"text/javascript\"> jQuery(document).ready(function($) {";		
-		$output .= "$('.slider-for-$rand').slick({ variableWidth: true, slidesToScroll: 1, focusOnSelect: true";
-		if ($slides > 1) {
-		    $output .= ", slidesToShow: $slides";
-		}
+		$output .= "$('.slider-for-$rand').slick({ slidesToScroll: 1, focusOnSelect: true";
+		$output .= ", variableWidth: true";		
+		$output .= ", slidesToShow: $slidesToShow";
+	//	$output .= ", centerMode: true";
 		$output .= ", dots: $dots";
 		$output .= ", autoplay: $autoplay";
 		$output .= ", responsive: [{
@@ -301,11 +311,12 @@ if ( ! function_exists( 'fau_imagelink_shortcode' ) ) {
 
 	$args = shortcode_atts( array(
 	    'catid'		=> 0,
+	    'cat'		=> '',
 	    'echo'		=> false, 
 	    'order'		=> 'ASC', 
 	    'dots'		=> true, 
-	    'slides'	    	=> 5, 
-	    'autoplay'	=> true, 
+	    'autoplay'		=> true, 
+	    'slidesToShow'	=> 4, 
 	    'class'		=> '', 
 	    'type'		=> 'slide', 
 	    'size'		=> 'thumbnail',

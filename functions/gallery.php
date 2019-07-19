@@ -27,26 +27,28 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	}
 
 	extract(shortcode_atts(array(
-	    'order'		=> 'ASC',
+	    'order'	=> 'ASC',
 	    'orderby'	=> 'menu_order ID',
 	    'id'		=> $post->ID,
-	    'columns'	=> 3,
+	    'columns'	=> 0,
 	    'include'	=> '',
 	    'exclude'	=> '',
-	    'type'		=> 'default',
-	    'captions'	=> 1,
-	    'link'		=> 'file',
+	    'type'	=> 'default',
+	    'captions'	=> 0,
+	    'link'	=> 'file',
 		// aus Wizard:
 		// file = direkt zur mediendatei
 		// none = nirgendwohin
 		// NULL = anhang seite
+	    'class'	=> '', 
+		
 	    'nodots'		=> 0,
 
 	), $attr));
 
 	$id = intval($id);
 	if ('RAND' == $order) $orderby = 'none';
-
+	$class = sanitize_text_field( $class );
 	if (!empty($include)) {
 	    $include = preg_replace('/[^0-9,]+/', '', $include);
 	    $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
@@ -61,14 +63,15 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 
 	$gridtype = 'default';
 
-	$output = '<div class="image-gallery">';
-	if (!isset($attr['captions'])) {
-	    $attr['captions'] =1;
+	$output = '<div class="image-gallery';
+	if (!empty($class)) {
+	    $output .= ' '.$class;
 	}
-
-	if (!isset($attr['columns'])) {
-	    $attr['columns'] = 7;
-	}
+	$output .= '">';
+	    
+	$attr['captions'] = filter_var( $attr['captions'], FILTER_VALIDATE_BOOLEAN );
+	
+	
 	if (!isset($attr['type'])) {
 	    $attr['type'] = 'default';
 	}
@@ -83,8 +86,10 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		$gridclass = 'three';
 	    } elseif ($attr['columns']==4) {
 		$gridclass = 'four';
+	    } elseif ($attr['columns']==5) {
+		$gridclass = 'five';
+	
 	    }
-
 	    // Overwrite by type
 	    if ($attr['type'] == '2cols') {
 		$gridclass = 'two';
@@ -100,7 +105,9 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    // Images in grid view
 
 	    $rand = rand();
-	    $output .= '<div class="grid">'."\n";
+	    $usesameheight = '';
+
+	    $output .= '<div class="grid" aria-hidden="true" role="presentation">'."\n";
 
 	    if ($gridclass=='flexgrid') {
 		$output .= '<div class="flexgrid">'."\n";
@@ -114,16 +121,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 
 
 	    foreach ($attachments as $id => $attachment) {
-		
-		//    $img = wp_get_attachment_image_src($id,  'post-thumb');
-		// use with small picture. This will make problems if images with
-		// sizes like 2:5 are used.
-		// so we make it in full and use css to size it.
-		// srcset will reduce the data transfer
-		
-		    $imgsrcset =  wp_get_attachment_image_srcset($id, 'gallery-full');
-		    $imgsrcsizes = wp_get_attachment_image_sizes($id, 'gallery-full');
-		    $img = wp_get_attachment_image_src($id, 'gallery-full');
+
 		    $imgmeta = fau_get_image_attributs($id);
 		    $img_full = wp_get_attachment_image_src($id, 'full');
 		    $lightboxattr = '';
@@ -131,7 +129,15 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    if (strlen(trim($lightboxtitle))>1) {
 			$lightboxattr = ' title="'.$lightboxtitle.'"';
 		    }
-
+		    $linkalt = $imgmeta['alt'];
+		    if (fau_empty( $imgmeta['alt'])) {
+			if (!fau_empty($imgmeta['title'])) {
+			    $linkalt = __('Bild ','fau').$imgmeta['title'].' '.__('aufrufen','fau');
+			} else {
+	    		   $linkalt = __('Bild aufrufen','fau');
+			}
+		    }
+		    
 		    if(isset( $attr['captions']) && ($attr['captions']==1) &&(!fau_empty($imgmeta['excerpt']))) {
 			$output .= '<figure class="with-caption">';
 		    } else {
@@ -140,16 +146,8 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    if ('none' !== $attr['link'] ) {
 			$output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';		    
 		    }
-
-		    $output .= '<img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt="'.$imgmeta['alt'].'"';
-		    if ($imgsrcset) {
-		    $output .= ' srcset="'.$imgsrcset.'"';
-			if ($imgsrcsizes) {
-			     $output .= ' sizes="'.$imgsrcsizes.'"';
-			}
-		    }
-		    $output .= '>';
-		     
+		    $output .= fau_get_image_htmlcode($id, 'gallery-full', $linkalt);
+		    
 		    if ('none' !== $attr['link'] ) {
 			$output .= '</a>';
 		    }
@@ -177,6 +175,9 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 
 
 	} else {
+	    if ((!$attr['captions']) && (get_theme_mod('galery_force_caption_onslick'))) {
+		$attr['captions'] = 1;
+	    }
 	    wp_enqueue_script('fau-js-heroslider');
 
 	    $rand = rand();	    
@@ -184,42 +185,31 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    $output .= "<div class=\"slider-for-$rand\">\n";
 
 	    foreach ($attachments as $id => $attachment) {
-		$img = wp_get_attachment_image_src($id, 'gallery-full');
-		$meta = get_post($id);
 		$img_full = wp_get_attachment_image_src($id, 'full');
+		$imgmeta = fau_get_image_attributs($id);
 
-		$imgsrcset =  wp_get_attachment_image_srcset($id, 'gallery-full');
-		$imgsrcsizes = wp_get_attachment_image_sizes($id, 'gallery-full');
-
-
-		$output .= '<div class="item">';
-		$output .= '<img src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt=""';
-
-		if ($imgsrcset) {
-		    $output .= ' srcset="'.$imgsrcset.'"';
-		    if ($imgsrcsizes) {
-			 $output .= ' sizes="'.$imgsrcsizes.'"';
-		    }
-		}
-		$output .= ' role="presentation">';
-
+		$output .= '<div class="item">';	
+		$output .= fau_get_image_htmlcode($id, 'gallery-full', '','',array('role' => 'presentation'));
 
 		$link_origin = get_theme_mod('galery_link_original');
-		if (($link_origin) || ($meta->post_excerpt != '')) {
-		    $output .= '<div class="gallery-image-caption">';
+		
+		if (($link_origin) || ($attr['captions'])) {
+		    $output .= '<figcaption class="gallery-image-caption">';
 			$lightboxattr = '';
-			if($meta->post_excerpt != '') { 
-			    $output .= $meta->post_excerpt; 
-			    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
+			if (($attr['captions']) && (!fau_empty($imgmeta['excerpt']))) {
+			    $output .= $imgmeta['excerpt']; 
+			    $lightboxtitle = sanitize_text_field($imgmeta['excerpt']);
 			    if (strlen(trim($lightboxtitle))>1) {
 				$lightboxattr = ' title="'.$lightboxtitle.'"';
 			    }
 			}
 			if (($link_origin) && ($attr['link'] != 'none')) {
-			    if($meta->post_excerpt != '') { $output .= '<br>'; }
+			    if (!fau_empty($imgmeta['excerpt'])) { 
+				$output .= '<br>'; 			
+			    }
 			    $output .= '<span class="linkorigin">(<a href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
 			}
-		    $output .='</div>';
+		    $output .='</figcaption>';
 		}
 
 		$output .='</div>';
@@ -230,28 +220,19 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    $output .= "<div class=\"slider-nav-width slider-nav-$rand\">\n";
 
 
-	    $thumbwidth = 120;
-
-	    if ($defaultoptions['default_gallery_thumb_size'] == 'logo_carousel') {
-		$usesize = 'logo-thumb';
-		$thumbwidth = $defaultoptions['default_logo_carousel_width'];
-		$thumbheight = $defaultoptions['default_logo_carousel_height'];
-	    } else {
-		$usesize = 'gallery-thumb';
-		$thumbwidth = $defaultoptions['default_gallery_thumb_width'];
-		$thumbheight = $defaultoptions['default_gallery_thumb_height'];
-	    }
-
 	    foreach ($attachments as $id => $attachment) {
-		$img = wp_get_attachment_image_src($id, $usesize);
-		$output .= '	<div><img src="'.fau_esc_url($img[0]).'" width="'.$thumbwidth.'" height="'.$thumbheight.'" alt=""></div>';
+		$output .= '<div>';
+		$imgmeta = fau_get_image_attributs($id);
+		$alttext = sanitize_text_field($imgmeta['excerpt']);
+		$output .= fau_get_image_htmlcode($id, 'rwd-480-3-2', $alttext);
+		$output .= '</div>';
 	    }
 
 	    $output .= "</div>\n";	
 	    $output .= "<script type=\"text/javascript\"> jQuery(document).ready(function($) {";	
 	    $output .= "$('.slider-for-$rand').slick({slidesToShow: 1,slidesToScroll: 1, arrows: false, fade: true,adaptiveHeight: true,asNavFor: '.slider-nav-$rand' });";
 
-	    $output .= "$('.slider-nav-$rand').slick({ slidesToShow: 4,  slidesToScroll: 1, adaptiveHeight: true,  asNavFor: '.slider-for-$rand', centerMode: true,focusOnSelect: true, centerPadding: 5";
+	    $output .= "$('.slider-nav-$rand').slick({ slidesToShow: 4,  slidesToScroll: 1,   asNavFor: '.slider-for-$rand', centerMode: true,focusOnSelect: true, centerPadding: 5";
 	    if ((isset($attr['nodots']) && $attr['nodots']==true)) {
 		$output .= ", dots: false";
 	    } else {
@@ -276,8 +257,9 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	      {
 		breakpoint: 480,
 		settings: {
-		  arrows: false,
-		  slidesToShow: 1
+		  arrows: true,
+		  slidesToShow: 2,
+		  dots: false
 		}
 	      }
 	    ]";

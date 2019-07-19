@@ -60,7 +60,9 @@
     }
 
 
-    if ($sidebarfilled>0) { ?>
+    if ($sidebarfilled>0) { 
+	fau_use_sidebar(true);
+	?>
 	<aside class="sidebar-inline" aria-label="Sidebar">
 	    <?php 		
 	    get_template_part('template-parts/sidebar', 'events'); 	

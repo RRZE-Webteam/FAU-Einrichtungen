@@ -55,39 +55,43 @@
 		    }
 		}
 
-
-		a.image {
-			text-decoration: none;
-			width: 220px;
-			height: 110px;
-			display: table-cell;
-			vertical-align: bottom;
-			img {
-			    position: relative;
-			    max-width: none;
-			}
-
-			&.ext-link:after {
-				@extend .fa;
-				content: "\f08e";
+		.thumb {
+		    overflow: hidden;
+		    position: relative;
+		    @include box-shadow(0 1px 2px rgba(0,0,0,0.3));
+		    a {
+			    text-decoration: none;
+			    width: 220px;
+			    height: 110px;
+			    display: block;
+			    
+			    img {
 				position: absolute;
-				top: 0;
-				right: 0px;
-				z-index: 10;
-				height: 20px;
-				width: 20px;
-				background: $colorPrimary;
+				bottom: 0;
+				box-shadow: none;
+			    }
+
+			    &.ext-link:after {
+				    @extend .fa;
+				    content: "\f08e";
+				    position: absolute;
+				    top: 0;
+				    right: 0px;
+				    z-index: 10;
+				    height: 20px;
+				    width: 20px;
+				    background: $colorPrimary;
 
 
-				@include px2rem($font-size-linkicon);
-				color: #fff;
-				font-weight: bolder;
-				text-align: right;
-				padding: 0 2px 0 0;
+				    @include px2rem($font-size-linkicon);
+				    color: #fff;
+				    font-weight: bolder;
+				    text-align: right;
+				    padding: 0 2px 0 0;
 
-			}
+			    }
+		    }
 		}
-
 	    ul {
 		@include no-list;
 	       li {
@@ -209,7 +213,9 @@
       	padding: 0;
       }
       &:hover span.portaltop {
-      	background-color: rgba(0, 51, 102, 0.875);
+//      	background-color: rgba(0, 51, 102, 0.875);
+// Wo kommt diese Farbdefinition her?! 
+	background-color: $PalettonDunkelste;
       }
       span.portaltop a {
       	color: #fff;
@@ -241,9 +247,7 @@
       } // .skewed
     } // .menu-item
     &.contentmenutype2 {
-      &.skewed li a.image {
-        height: auto;
-      }
+
       .subpages-menu {
         @media (max-width: $screen-xs - 1){
           li {

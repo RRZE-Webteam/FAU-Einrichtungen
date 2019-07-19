@@ -1,0 +1,208 @@
+/*-----------------------------------------------------------------------------------*/
+/* Old Grid definitions for former bootstrap 2.3
+/*-----------------------------------------------------------------------------------*/
+
+
+[class*="span"],
+.span-sm-4,
+.span-sm-8, 
+.span-sm-8 .span9 {
+	margin-left: 0;
+	float: none;
+	width: auto;
+}
+
+.span12 {
+	width: 940px;
+}
+
+.span11 {
+	width: 860px;
+}
+
+.span10 {
+	width: 780px;
+}
+
+.span9 {
+	width: 700px;
+}
+
+.span8 {
+	width: 620px;
+}
+
+.span7 {
+	width: 540px;
+}
+
+.span6 {
+	width: 460px;
+}
+
+.span5 {
+	width: 380px;
+}
+
+.span4 {
+	width: 300px;
+}
+
+.span3 {
+	width: 220px;
+}
+
+.span2 {
+	width: 140px;
+}
+
+.span1 {
+	width: 60px;
+}
+
+.offset12 {
+	margin-left: 980px;
+}
+
+.offset11 {
+	margin-left: 900px;
+}
+
+.offset10 {
+	margin-left: 820px;
+}
+
+.offset9 {
+	margin-left: 740px;
+}
+
+.offset8 {
+	margin-left: 660px;
+}
+
+.offset7 {
+	margin-left: 580px;
+}
+
+.offset6 {
+	margin-left: 500px;
+}
+
+.offset5 {
+	margin-left: 420px;
+}
+
+.offset4 {
+	margin-left: 340px;
+}
+
+.offset3 {
+	margin-left: 260px;
+}
+
+.offset2 {
+	margin-left: 180px;
+}
+
+.offset1 {
+	margin-left: 100px;
+}
+
+
+
+// @media (min-width: $screen-sm) and (max-width: $breakLG) {
+@media (min-width: $screen-sm)  {
+
+	[class*="span"] {
+		float: left;
+		min-height: 1px;
+		margin-left: 20px;
+	}
+
+	.span12 {
+		width: 724px;
+	}
+	.span11 {
+		width: 662px;
+	}
+	.span10 {
+		width: 600px;
+	}
+	.span9 {
+		width: 538px;
+	}
+	.span8 {
+		width: 476px;
+	}
+	.span7 {
+		width: 414px;
+	}
+	.span6 {
+		width: 352px;
+	}
+	.span5 {
+		width: 290px;
+	}
+	.span4 {
+		width: 228px;
+	}
+	.span3 {
+		width: 166px;
+	}
+	.span2 {
+		width: 104px;
+	}
+	.span1 {
+		width: 42px;
+	}
+	.span-sm-4 {
+		width: 220px;
+	}
+	.span-sm-8, 
+	.span-sm-8 .span9 {
+		width: 484px;
+	}
+	.offset12 {
+		margin-left: 764px;
+	}
+	.offset11 {
+		margin-left: 702px;
+	}
+	.offset10 {
+		margin-left: 640px;
+	}
+	.offset9 {
+		margin-left: 578px;
+	}
+	.offset8 {
+		margin-left: 516px;
+	}
+	.offset7 {
+		margin-left: 454px;
+	}
+	.offset6 {
+		margin-left: 392px;
+	}
+	.offset5 {
+		margin-left: 330px;
+	}
+	.offset4 {
+		margin-left: 268px;
+	}
+	.offset3 {
+		margin-left: 206px;
+	}
+	.offset2 {
+		margin-left: 144px;
+	}
+	.offset1 {
+		margin-left: 82px;
+	}
+	input,
+	textarea {
+		margin-left: 0;
+	}
+
+}
+
+

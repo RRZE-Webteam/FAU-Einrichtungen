@@ -4,7 +4,10 @@
 
 
 .image-gallery {
-    margin: 10px 0 20px 0;
+    margin: 10px -15px 20px -15px;
+    @media (min-width: $screen-sm-min) {
+	 margin: 10px 0 20px 0;
+    }
     clear: both;
     
     figure {
@@ -12,37 +15,73 @@
 	    width: 100%;
 	    height: auto;	    
 	}
-   
 	figcaption {
 	    @include px2rem($font-size-image-caption);
 	    color: $PalettonDunkler;
 	    padding: 5px;
 	}
     }
+    figure:not(.with-caption) {
+	img {  
+	    object-fit: cover;
+	    
+		    min-height: 100%;
+		    min-width: 100%;
+		    width: 100%;
+		    height: auto;
+		    max-width: none;
+		    max-height: none;
+
+	    
+	}
+
+    }
+    
+    
     .grid {
 	.two, 
 	.three,
-	.four {
+	.four, 
+	.five {
 	    .row {
 		display: flex;
 		flex-wrap: wrap;
+		margin-left: 0;
+		margin-right: 0;
+	    }
+	    figure {
+		padding: 5px;
+	
 	    }
 	}
-	.two {
-	    
+	.two {	    
 	    figure {
-		@extend .col-xs-6;
+		width: calc(50% - 1px);
+		
 	    }
 	}
 	.three {
 	    figure {
-		@extend .col-xs-4;
+		width: calc(33% - 1px);
 	    }
 	}
 	.four {
 	    figure {
 		@extend .col-xs-6;
-		@extend .col-sm-3;
+		@media (min-width: $screen-sm-min) {
+		    width: calc(25% - 1px);
+		    // Rundungsfehler auschliessen: 
+		    // Hintergurnd: 666 / 4 = 166,5; würde auf 167 aufgerundet werden 
+		    // und dann leider dazu führen, dass der grid doch umbricht.
+		}
+	    }
+	}
+	.five {
+	    figure {
+		@extend .col-xs-6;
+		@media (min-width: $screen-sm-min) {
+		    width: calc(20% - 1px);
+		}
 	    }
 	}
 	.flexgrid {
@@ -53,22 +92,38 @@
 	    figure { 
 		border: 1px solid #e9edf2;
 		text-align: center;
-		width: 160px; 
+		height: auto;
 		margin: 5px;
+		overflow: hidden;
+		flex: 1 1 190px;
+		
+	
+	    }
+	    figure:not(.with-caption) { 
 		overflow: hidden;
 		
 		img {
 		    transition: transform 1s;
+		    object-fit: cover;		    
+		    min-height: 100%;
+		    min-width: 100%;
+		    width: 100%;
+		    height: auto;
+		    max-width: none;
+		    max-height: none;
+
 		}
 		:hover {
 		    img {
 			transform: scale(1.2);
 		    }
 		}
-	    }	
+	    }
 
 	    
 	}
+	
+	
     }
     .gallery-slick {
 	figure,
@@ -84,19 +139,45 @@
 	    }
 	}
 	.slider-nav-width {
+	   width: 90%;
 	   width: calc(100% - 100px);
-	   margin: 20px auto 0;
+	   margin: 20px auto 10px;
 	
 	    .slick-slide {
 		cursor: pointer;
-		max-height: 110px;
+		max-height: 150px;
 		overflow: hidden;
 		margin-left: 5px;
 		margin-right: 5px;
+		height: auto;
+		    
+		.page-template-page-subnav & {
+		    max-height: 80px;
+		}
 		
+		img {
+		    object-fit: fill;
+		    min-width: 200px;
+		    min-height: 150px;
+		    
+		    .page-template-page-subnav & {
+			min-width: 120px;
+			min-height: 80px;
+		    }
+		  
+		    
+		}
+	    
 		
 	    }
+	   
+	    
+	    
 	}
+	.slider-nav-width.slick-dotted {
+	    margin-bottom: 30px;
+	}
+	
 	.slick-prev,
 	.slick-next {
 		position: absolute;
@@ -143,8 +224,6 @@
 			line-height: 1;
 			color: $colorPrimary;
 			opacity: $slick-opacity-default;
-
-			-webkit-font-smoothing: antialiased;
 
 		}
 
@@ -252,7 +331,7 @@
 	    display: block;
 	    width: 100%;
 	    padding: 0;
-	    margin: 5px auto 15px auto;
+	    margin: 15px auto 15px auto;
 	    list-style: none;
 	    text-align: center;
 	    li {
@@ -305,6 +384,15 @@
 		 &.slick-active button:before {
 		     opacity: 1;
 		 }
+	    }
+	}
+    }
+    &.nospace .grid {
+	.flexgrid, .one, .two, .three, .four, .five {
+	    figure {
+		padding: 0;
+		margin: 0;
+		border: none;
 	    }
 	}
     }

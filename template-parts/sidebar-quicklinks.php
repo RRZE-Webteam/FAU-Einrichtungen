@@ -103,6 +103,8 @@ if ($linkblock2_number > 0) {
 $output = '';
 if ((strlen(trim($list1))>0) || (strlen(trim($list2))>0)) {
     // Es gibt eine Liste
+    fau_use_sidebar(true);
+
     $output .= '<aside class="widget quicklinks" aria-label='.__('Links','fau').'>'."\n";
    
      if (  (strlen(trim($titleblock2))>0) || (strlen(trim($titleblock1)>0))) {

@@ -72,7 +72,7 @@ class FAUShortcodes {
         /*-----------------------------------------------------------------------------------*/
         /* Portalmenus als Shortcode
         /*-----------------------------------------------------------------------------------*/
-				function fau_portalmenu( $atts, $content = null) {
+	function fau_portalmenu( $atts, $content = null) {
             extract(shortcode_atts(array(
                 'menu'          => '',
                 'showsubs'	=> true,
@@ -94,34 +94,35 @@ class FAUShortcodes {
                 if ($term===false) {
                     $out = $error;
                 } else {
-                    $slug = $term->slug;
-                    $subentries = get_theme_mod('default_submenu_entries');
-                    $spalte = get_theme_mod('default_submenu_spalten');
+		    $slug = $term->slug;
+		    $subentries = get_theme_mod('default_submenu_entries');
+		    $spalte = get_theme_mod('default_submenu_spalten');
 
-                    $a_contentmenuclasses[] = 'contentmenu';
-                    $thumbnail = '';
-            				$type = intval($type);
-                    switch ($type) {
+		    $a_contentmenuclasses[] = 'contentmenu';
+		    $thumbnail = 'rwd-480-2-1';
+		    $type = intval($type);
+                   
+		    switch ($type) {
                     	case 1:
+				$thumbnail = 'rwd-480-2-1';
                     		break;
                     	case 2:
                     		$showsubs = false;
                     		$a_contentmenuclasses[] = 'refresh';
                     		$a_contentmenuclasses[] = 'no-shadow';
-//                    		$thumbnail = 'post-thumb';
-                    		$thumbnail = 'image-2-col';
+                   		$thumbnail = 'rwd-480-3-2';
                     		break;
                     	case 3:
                     		$showsubs = false;
                     		$a_contentmenuclasses[] = 'refresh';
-                    		//$a_contentmenuclasses[] = 'gallery-full';
                     		$a_contentmenuclasses[] = 'no-shadow';
                     		$thumbnail = 'gallery-full';
                     		break;
                     	default:
+				$thumbnail = 'rwd-480-2-1';
                     		$type = 1;
                     		break;
-                    }
+		    }
                     $a_contentmenuclasses[] = 'contentmenutype' . $type;
 
                     if($skewed) {

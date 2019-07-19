@@ -11,6 +11,8 @@
     global $default_fau_orga_data;
     global $default_fau_orga_faculty;
 	 // Additional body classes for Meta WIdget (once only language switcher)
+    global $is_sidebar_active;
+    
     if (is_workflow_translation_active()) {
 	 if ( is_active_sidebar( 'language-switcher'  )) {
 		 $classes[] = 'active-meta-widget';
@@ -126,6 +128,11 @@
 	    
     }
 
+    if ($is_sidebar_active) {
+	 $classes[] = 'with-sidebar';
+    }
+    
+    
     return $classes;
  }
  add_filter( 'body_class', 'fau_body_class' );
@@ -139,7 +146,19 @@
 	return $classes;
 }
 add_filter('page_css_class', 'fau_protected_attribute', 10, 3);
+/*-----------------------------------------------------------------------------------*/
+/* Mark sidebar as used. This will add the class with-sidebar in the body class
+/*-----------------------------------------------------------------------------------*/
+function fau_use_sidebar($activate) {
+    global $is_sidebar_active;
+    if ($activate) {
+	$is_sidebar_active = 1;
+    } else {
+	$is_sidebar_active = 0;
+    }
 
+    return $is_sidebar_active;
+}
 /*-----------------------------------------------------------------------------------*/
 /* Define errorpages 401 and 403
 /*-----------------------------------------------------------------------------------*/
@@ -391,27 +410,14 @@ function fau_display_search_resultitem($withsidebar = 1) {
 		}
 		$output .= '">';
 
-		$post_thumbnail_id = get_post_thumbnail_id( $post->ID, 'post-thumb' ); 
-		$imagehtml = '';
-		$imgsrcset = $imgsrc_sizes = '';
-		if ($post_thumbnail_id) {
-		    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id,  'post-thumb');
-        	    $imgsrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'post-thumb');
-                    $imgsrc_sizes =  wp_get_attachment_image_sizes($post_thumbnail_id, 'post-thumb');
-		    $imageurl = $sliderimage[0]; 	
+				
+		$post_thumbnail_id = get_post_thumbnail_id( $post->ID); 
+		
+		$imagehtml = fau_get_image_htmlcode( $post_thumbnail_id, 'rwd-480-3-2', '' );
+		if (fau_empty($imagehtml)) {
+		    $imagehtml = fau_get_image_fallback_htmlcode('rwd-480-3-2', '');
 		}
-		if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
-		    $imageurl = get_theme_mod('default_postthumb_src');
-		}
-		$output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$defaultoptions['default_postthumb_width'].'" height="'.$defaultoptions['default_postthumb_height'].'" alt=""';
-		if ($imgsrcset) {
-		    $output .= ' srcset="'.$imgsrcset.'"';
-                    
-                    if ($imgsrc_sizes) {
-                         $output .= ' sizes="'.$imgsrc_sizes.'"';
-                    }
-		}
-		$output .= '>';
+		$output .= $imagehtml;
 		$output .= '</a>';
 
 		$output .= "\t\t".'</div>'."\n"; 
@@ -468,26 +474,14 @@ function fau_display_search_resultitem($withsidebar = 1) {
 		}
 		$output .= '">';
 
-		$post_thumbnail_id = get_post_thumbnail_id( $post->ID, 'post-thumb' ); 
-		$imagehtml = '';
-		$imgsrcset = $imgsrc_sizes = '';
-		if ($post_thumbnail_id) {
-		    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id,  'post-thumb');
-        	    $imgsrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'post-thumb');
-                    $imgsrc_sizes=  wp_get_attachment_image_sizes($post_thumbnail_id, 'post-thumb');
-		    $imageurl = $sliderimage[0]; 	
+		
+		$post_thumbnail_id = get_post_thumbnail_id( $post->ID); 
+		
+		$imagehtml = fau_get_image_htmlcode( $post_thumbnail_id, 'rwd-480-3-2', '' );
+		if (fau_empty($imagehtml)) {
+		    $imagehtml = fau_get_image_fallback_htmlcode('rwd-480-3-2', '');
 		}
-		if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
-		    $imageurl = get_theme_mod('default_postthumb_src');
-		}
-		$output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$defaultoptions['default_postthumb_width'].'" height="'.$defaultoptions['default_postthumb_height'].'" alt=""';
-		if ($imgsrcset) {
-		    $output .= ' srcset="'.$imgsrcset.'"';
-                    if ($imgsrc_sizes) {
-                        $output .= ' sizes="'.$imgsrc_sizes.'"';
-                    }
-		}
-		$output .= '>';
+		$output .= $imagehtml;
 		$output .= '</a>';
 
 		$output .= "\t\t".'</div>'."\n"; 
@@ -596,35 +590,10 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	    }
 	    $output .= '">';
 
-	    $post_thumbnail_id = get_post_thumbnail_id( $post->ID, 'post-thumb' ); 
-	    $imagehtml = '';
-	    $imgwidth = get_theme_mod('default_postthumb_width');
-	    $imgheight = get_theme_mod('default_postthumb_height');
-	    $imgsrcset = $imgsrc_sizes = '';
-	    if ($post_thumbnail_id) {
-		$sliderimage = wp_get_attachment_image_src( $post_thumbnail_id,  'post-thumb');
-		$imageurl = $sliderimage[0]; 	
-		$imgwidth = $sliderimage[1];
-		$imgheight = $sliderimage[2];
-		$imgsrcset =  wp_get_attachment_image_srcset($post_thumbnail_id, 'post-thumb');
-		$imgsrc_sizes=  wp_get_attachment_image_sizes($post_thumbnail_id, 'post-thumb');
-	    }
-	    if (!isset($imageurl) || (strlen(trim($imageurl)) <4 )) {
-		$default_postthumb_image = get_theme_mod('default_postthumb_image');
-		if ($default_postthumb_image) {
-		    $thisimage = wp_get_attachment_image_src( $default_postthumb_image,  'post-thumb');
-		    $imageurl = $thisimage[0]; 	
-		    $imgwidth = $thisimage[1];
-		    $imgheight = $thisimage[2];
-		    $imgsrcset =  wp_get_attachment_image_srcset($default_postthumb_image, 'post-thumb'); 
-                    $imgsrc_sizes=  wp_get_attachment_image_sizes($default_postthumb_image, 'post-thumb');
-		} else {
-		    // Abwaertskompatibilitaet zu 1.9
-		    $imageurl = get_theme_mod('default_postthumb_src');
-		}
-
-	    }
-	    $output .= '<img itemprop="thumbnailUrl" src="'.fau_esc_url($imageurl).'" width="'.$imgwidth.'" height="'.$imgheight.'"';
+	    // $size =  'post-thumb';
+	    $size =  'rwd-480-3-2';
+	    
+	    $post_thumbnail_id = get_post_thumbnail_id( $post->ID); 
 	    
 	    
 	    $pretitle = get_theme_mod('advanced_blogroll_thumblink_alt_pretitle');
@@ -632,15 +601,13 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	    $alttext = $pretitle.get_the_title($post->ID).$posttitle;
 	    $alttext = esc_html($alttext);
 	
-	    $output .= ' alt="'.$alttext.'"';
-	    
-	    if ($imgsrcset) {
-		$output .= ' srcset="'.$imgsrcset.'"';
-                if ($imgsrc_sizes) {
-                    $output .= ' sizes="'.$imgsrc_sizes.'"';
-                }
+	    $imagehtml = fau_get_image_htmlcode($post_thumbnail_id,'rwd-480-3-2',$alttext,'',array('itemprop' => 'thumbnailUrl'));
+	    if (fau_empty($imagehtml)) {
+		$imagehtml = fau_get_image_fallback_htmlcode('post-thumb',$alttext,'',array('itemprop' => 'thumbnailUrl'));
 	    }
-	    $output .= '></a>';
+	    
+	    $output .= $imagehtml;
+	    $output .= '</a>';
 	    $output .= '<meta itemprop="url" content="'.fau_make_absolute_url($imageurl).'">';
 	    $output .= '<meta itemprop="width" content="'.$imgwidth.'">';
 	    $output .= '<meta itemprop="height" content="'.$imgheight.'">';		    
@@ -728,7 +695,7 @@ function fau_custom_excerpt($id = 0, $length = 0, $withp = true, $class = '', $w
 }
 
 /*-----------------------------------------------------------------------------------*/
-/*  Create String for Publisher Info, used by Scema.org Microformat Data
+/*  Create String for Publisher Info, used by Schema.org Microformat Data
 /*-----------------------------------------------------------------------------------*/
 function fau_create_schema_publisher($withrahmen = true) {
     $out = '';
@@ -922,9 +889,6 @@ function fau_get_image_attributs($id=0) {
 /*-----------------------------------------------------------------------------------*/
 /* Get category links for front page
 /*-----------------------------------------------------------------------------------*/
-
-
-
 function fau_get_category_links($cateid = 0) {
     
     if ($cateid==0) {
@@ -1608,7 +1572,176 @@ function fau_get_the_title($id = 0) {
 	return get_the_title($id);
     }
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* create HTML for image with srcset-codes
+/*-----------------------------------------------------------------------------------*/
+function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array()) {
+    if ($id==0) {
+	return;
+    }
+
+    $img = wp_get_attachment_image_src($id, $size);
+    if ($img) {
+	
+	$attributes = '';
+	if (!empty($atts)) {
+	    foreach ( $atts as $attr => $value ) {
+		 if ( ! empty( $value ) ) {
+			$attributes .= ' ' . $attr . '="' . $value . '"';
+		}
+	    }
+	}
+        
+	$widthstr = '';
+	if ((isset($img[1])) && ($img[1] > 0)) {
+           $widthstr = ' width="'.$img[1].'"';
+        }
+        $heightstr = '';
+	if ((isset($img[2])) && ($img[2] > 0)) {
+           $heightstr = ' height="'.$img[2].'"';
+        }
+        // In case of svg images, width and height are empty
+	
+	$imgsrcset =  wp_get_attachment_image_srcset($id, $size);
+	$imgsrcsizes = wp_get_attachment_image_sizes($id, $size);
+	$alttext = esc_html($alttext);
+	if (!isset($alttext)) {
+	    $imgmeta = fau_get_image_attributs($id);
+	    $alttext = $imgmeta['alt'];
+	}
+	$item_output = '';
+	$item_output .= '<img src="'.fau_esc_url($img[0]).'"'.$widthstr.$heightstr.' alt="'.$alttext.'"';
+	if ($imgsrcset) {
+	    $item_output .= ' srcset="'.$imgsrcset.'"';
+	    if ($imgsrcsizes) {
+		 $item_output .= ' sizes="'.$imgsrcsizes.'"';
+	    }
+	}
+	if ($classes) {
+	     $item_output .= ' class="'.$classes.'"';
+	}
+	if ($attributes) {
+	     $item_output .= $attributes;
+	}
+	$item_output .= '>';
+	return $item_output;
+    }
+    return;
+}
+/*-----------------------------------------------------------------------------------*/
+/* get fallback image by size
+/*-----------------------------------------------------------------------------------*/
+function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array()) {
+   global $options;
+   global $defaultoptions;
+   
+    $imgsrc =  $imgsrcset = $imgsrcsizes = '';
+    $alttext = esc_html($alttext);
+    $width = $height = 0;
+    
+    switch ($size) {
+
+	case 'topevent_thumb':
+	    $imgsrc = $options['default_rwdimage_src'];
+	    $width = $defaultoptions['default_rwdimage_width'];
+	    $height = $defaultoptions['default_rwdimage_height'];
+	    
+	    $fallback = get_theme_mod('fallback_topevent_image');
+	    if ($fallback) {
+		$thisimage = wp_get_attachment_image_src( $fallback,  'rwd-480-3-2');
+		$imgsrc = $thisimage[0]; 	
+		$width = $thisimage[1];
+		$height = $thisimage[2];
+		$imgsrcset =  wp_get_attachment_image_srcset($fallback, 'rwd-480-3-2');
+		$imgsrcsizes = wp_get_attachment_image_sizes($fallback, 'rwd-480-3-2');
+	    }
+
+	    break; 
+	
+	case 'post-thumb':
+	    $imgsrc = $options['default_rwdimage_src'];
+	    $width = $defaultoptions['default_rwdimage_width'];
+	    $height = $defaultoptions['default_rwdimage_height'];
+	    $fallback = get_theme_mod('default_postthumb_image');
+	    if ($fallback) {
+		$thisimage = wp_get_attachment_image_src( $fallback, 'rwd-480-3-2');
+		$imgsrc = $thisimage[0]; 	
+		$width = $thisimage[1];
+		$height = $thisimage[2];
+		$imgsrcset =  wp_get_attachment_image_srcset($fallback, 'rwd-480-3-2');
+		$imgsrcsizes = wp_get_attachment_image_sizes($fallback,'rwd-480-3-2');
+	    }
+ 
+	    break;
+	    
+	case 'fallback_submenu_image':
+	    $imgsrc = $options['default_rwdimage_2-1_src'];
+	    $width = $options['default_rwdimage_2-1_width'];
+	    $height = $options['default_rwdimage_2-1_height']; 
+	    $fallback = get_theme_mod('fallback_submenu_image');
+	    if ($fallback) {
+		$thisimage = wp_get_attachment_image_src( $fallback,  'rwd-480-2-1');
+		$imgsrc = $thisimage[0]; 	
+		$width = $thisimage[1];
+		$height = $thisimage[2];
+		$imgsrcset =  wp_get_attachment_image_srcset($fallback, 'rwd-480-2-1');
+		$imgsrcsizes = wp_get_attachment_image_sizes($fallback, 'rwd-480-2-1');
+	    }
+	    
+	    
+	    break;
+	    
+
+	case 'rwd-480-2-1':
+	case 'page-thumb':
+	    $imgsrc = $options['default_rwdimage_2-1_src'];
+	    $width = $options['default_rwdimage_2-1_width'];
+	    $height = $options['default_rwdimage_2-1_height']; 
+	    break;
+	case 'rwd-480-3-2':
+	    $imgsrc = $options['default_rwdimage_src'];
+	    $width = $options['default_rwdimage_width'];
+	    $height = $options['default_rwdimage_height']; 
+	    break;
+
+	default:
+	    $imgsrc = $options['default_rwdimage_src'];
+	    $width = $options['default_rwdimage_width'];
+	    $height = $options['default_rwdimage_height']; 
+	    break;
+    }
+    if ($imgsrc) {
+	$attributes = '';
+	if (!empty($atts)) {
+	    foreach ( $atts as $attr => $value ) {
+		 if ( ! empty( $value ) ) {
+			$attributes .= ' ' . $attr . '="' . $value . '"';
+		}
+	    }
+	}
+	$item_output = '';
+	$item_output .= '<img src="'.fau_esc_url($imgsrc).'" width="'.$width.'" height="'.$height.'" alt="'.$alttext.'"';
+	if ($imgsrcset) {
+	    $item_output .= ' srcset="'.$imgsrcset.'"';
+	    if ($imgsrcsizes) {
+		 $item_output .= ' sizes="'.$imgsrcsizes.'"';
+	    }
+	}
+	if ($classes) {
+	     $item_output .= ' class="'.$classes.'"';
+	}
+	if ($attributes) {
+	     $item_output .= $attributes;
+	}
+	$item_output .= '>';
+	return $item_output;
+    
+    }
+
+    return;
+}
 /*-----------------------------------------------------------------------------------*/
 /* This is the end :)
 /*-----------------------------------------------------------------------------------*/
-
+		

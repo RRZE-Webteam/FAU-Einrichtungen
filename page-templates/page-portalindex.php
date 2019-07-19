@@ -65,6 +65,7 @@ get_header(); ?>
 			}
 			?>
 		    </main>
+		    
 		     <?php echo fau_get_ad('werbebanner_unten',false); ?>
 		</div>
 	    </div>

@@ -205,7 +205,7 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		if ($nothumbnail==1) {
 		    $thumbregion = '';
 		} else {
-		    $thumbregion = get_the_post_thumbnail($this->currentID,'post');
+		    $thumbnail_id = get_post_thumbnail_id($this->currentID);
 		}
 		$quote  = get_post_meta( $this->currentID, 'zitat_text', true );
 		$author =  get_post_meta( $this->currentID, 'zitat_autor', true );
@@ -213,7 +213,7 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 
 		$output .= $indent.'<div class="nav-flyout"><div class="container"><div class="row">';
 
-		if (empty($thumbregion) && fau_empty($quote)) {
+		if (!isset($thumbnail_id) && fau_empty($quote)) {
 		    $output .= '<div class="flyout-entries-full"><ul class="sub-menu level'.$level.'">';
 		}  else {
 		    $output .= '<div class="flyout-entries"><ul class="sub-menu level'.$level.'">';
@@ -248,12 +248,8 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 
 
 		    if ($thumbnail_id) {
-			$image_attributes = wp_get_attachment_image_src( $thumbnail_id, 'post' );
-
-
 			$thumbregion .= '<figure>';
-			$thumbregion .= '<img src="'.fau_esc_url($image_attributes[0]).'" width="'.$image_attributes[1].'" height="'.$image_attributes[1].'" alt="">';
-
+			$thumbregion .= fau_get_image_htmlcode($thumbnail_id,'rwd-480-3-2','');
 			$imgdata = fau_get_image_attributs($thumbnail_id);
 			$displaycredits = get_theme_mod("advanced_display_portalmenu_thumb_credits");
 			$info = "";
@@ -270,47 +266,48 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 			$thumbregion .= '</figure>';
 		    }
 		}
-	        $quote  = get_post_meta( $this->currentID, 'zitat_text', true );
-	        $author =  get_post_meta( $this->currentID, 'zitat_autor', true );
-		$val  = get_post_meta( $this->currentID, 'menuquote_texttype', true );
-		$texttype = ( isset( $val ) ? intval( $val ) : 0 );
+		
+		$quote  = get_post_meta( $this->currentID, 'zitat_text', true );
+		$author =  get_post_meta( $this->currentID, 'zitat_autor', true );
+		$textpart = '';
+		
+		if($quote) {
+		    $val  = get_post_meta( $this->currentID, 'menuquote_texttype', true );
+		    $texttype = ( isset( $val ) ? intval( $val ) : 0 );
 
-		if (empty($thumbregion) && fau_empty($quote)) {
+		    if ($texttype==0) {
+			$textpart .= '<blockquote>';
+			$textpart .= '<p>'.$quote.'</p>';
+			if($author) $textpart .= '<cite>'.$author.'</cite>';
+			$textpart .= '</blockquote>';
+
+		    } elseif ($texttype==1) {
+			 $textpart .= '<p>'.$quote.'</p>';
+		    }
+
+		}
+			
+		
+		if (empty($thumbregion) && fau_empty($textpart)) {
 		    // keine spalten
 		} else {
-		    if (!empty($thumbregion)) {
+		    if  ((!empty($thumbregion)) && (!empty($textpart))) {
+			// Text und Grafik gesetzt
 			$output .= '<div class="hide-mobile introtext">';
-			if($quote) {
-			    if ($texttype==0) {
-				$output .= '<blockquote>';
-				$output .= '<p>'.$quote.'</p>';
-				if($author) $output .= '<cite>'.$author.'</cite>';
-				$output .= '</blockquote>';
-
-			    } elseif ($texttype==1) {
-				 $output .= '<p>'.$quote.'</p>';
-			    }
-
-			}
+			$output .= $textpart;
 			$output .= '</div>';
 			$output .= '<div class="hide-mobile introthumb">';
 			$output .= $thumbregion;
 			$output .= '</div>';
-		    } else {
+		    } elseif(empty($thumbregion)) {	
+			// Nur Text
 			$output .= '<div class="hide-mobile introtext-full">';
-
-			 if($quote) {
-			    if ($texttype==0) {
-				$output .= '<blockquote>';
-				$output .= '<p>'.$quote.'</p>';
-				 if($author) $output .= '<cite>'.$author.'</cite>';
-				$output .= '</blockquote>';
-
-			    } elseif ($texttype==1) {
-				 $output .= '<p>'.$quote.'</p>';
-			    }
-
-			}
+			$output .= $textpart;
+			$output .= '</div>';
+		    } else {
+			// Nur die Grafik
+			$output .= '<div class="hide-mobile introtext-full">';
+			$output .= $thumbregion;
 			$output .= '</div>';
 
 		    }
@@ -614,8 +611,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 	private $element;
 	private $showsub = 1;
 
-
-	function __construct($menu,$showsub=1,$maxsecondlevel=6,$noshowthumb=0,$nothumbnailfallback=0,$thumbnail='page-thumb') {
+	function __construct($menu,$showsub=1,$maxsecondlevel=6,$noshowthumb=0,$nothumbnailfallback=0,$thumbnail='rwd-480-2-1') {
 	    $this->showsub              = $showsub;
 	    $this->maxsecondlevel       = $maxsecondlevel;
 	    $this->nothumbnail          = $noshowthumb;
@@ -731,7 +727,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
 			if($this->level == 1) {
 				if (!$this->nothumbnail) {
-				    $item_output .= '<div role="presentation" aria-hidden="true" tabindex="-1">';
+				    $item_output .= '<div class="thumb" role="presentation" aria-hidden="true" tabindex="-1">';
 				    $item_output .= '<a ';
 
 				    if ($externlink) {
@@ -742,7 +738,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 					 $item_output .= ' ext-link';
 				    }
 				    $item_output .= '" href="'.$targeturl.'">';
-				    $post_thumbnail_id = get_post_thumbnail_id( $item->object_id, 'page-thumb' );
+				    $post_thumbnail_id = get_post_thumbnail_id( $item->object_id);
 				    $imagehtml = '';
 				    $imageurl = '';
 
@@ -752,29 +748,18 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 				    $alttext = $pretitle.apply_filters( 'the_title', $item->title, $item->ID ).$posttitle;
 				    $alttext = esc_html($alttext);
 				    $altattr = 'alt="'.$alttext.'"';
-
+				    
 
 				    if ($post_thumbnail_id) {
-					if($this->thumbnail == 'post-thumb' || $this->thumbnail == 'gallery-full') {
-					    $thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  $this->thumbnail);
-					} else {
-					    $thisimage = wp_get_attachment_image_src( $post_thumbnail_id,  'page-thumb');
-					}
-					$imageurl = $thisimage[0];
-					$item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$thisimage[1].'" height="'.$thisimage[2].'" '.$altattr.'>';
+					$imagehtml = fau_get_image_htmlcode($post_thumbnail_id, $this->thumbnail, $alttext);
+					 $item_output .= $imagehtml;
 				    }
-				    if ((!isset($imageurl) || (strlen(trim($imageurl)) <4 )) && (!$this->nothumbnailfallback))  {
-					if($this->thumbnail == 'post-thumb') {
-					  $imageurl = $options['default_postthumb_src'];
-					  $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_postthumb_width'].'" height="'.$options['default_postthumb_height'].'" '.$altattr.'>';
-					} else {
-					  $imageurl = $options['default_submenuthumb_src'];
-					  $item_output .= '<img src="'.fau_esc_url($imageurl).'" width="'.$options['default_submenuthumb_width'].'" height="'.$options['default_submenuthumb_height'].'" '.$altattr.'>';
-					}
+				    if ((fau_empty($imagehtml)) && (!$this->nothumbnailfallback))  {
+								
+					$item_output .= fau_get_image_fallback_htmlcode('fallback_submenu_image',$alttext);
 				    }
 				    $item_output .= '</a>';
 				    $item_output .= '</div>';
-				    // Anmerkung: Leeres alt="", da dieses ansonsten redundant wäre zum darunter stehenden Titel.
 				}
 				$item_output .= $args->link_before.'<span class="portaltop">';
 				$item_output .= $link;

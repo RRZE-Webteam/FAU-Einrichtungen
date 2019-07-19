@@ -5,9 +5,6 @@
 
 /* Sidebar: Inline */
 .sidebar-inline {
-	float: right;
-	min-width: 220px;	
-	width: 100%;
 	border-top: 2px solid $colorLightest;
 	margin: 10px 0;
 	padding-top: 10px;
@@ -15,43 +12,37 @@
 	.widget {
 		margin-bottom: 22px;
 		margin-top: 22px;
+                
+                @media (min-width: $screen-md) {
+                    h2:first-child {
+                        padding-top: 0;
+                    }
+                }
 	}
 	
 	.widget:last-child {
-		margin-bottom: 0 !important;
+		margin-bottom: 0;
 	}
-	
 	.widget:first-child {
-		margin-top: 0 !important;
+		margin-top: 0;
 	}
 	
 	.content-portal & {
 		margin-top: 22px;
 	}
+	.page-template-page-portalindex & {
+	    float: right;
+	}
 	
-	@media (min-width: $screen-sm) {
-	    border-top: none;
-	    width: 220px;
-	    margin-top: 0;
-	    margin-left: $fau-gutter-width;
-	    margin-right: - ceil(($fau-gutter-width / 2));
-	    padding-top: 0;
-	    padding-left: ceil(($fau-gutter-width / 2));	
+
+	@media (min-width: $screen-md) {
 	    border-left: 2px solid $colorLightest;
+	    margin-left: $fau-gutter-width;
+	    border-top: none;
+            padding-left: ceil(($fau-gutter-width / 2));	
+            margin-top: 0;
+            padding-top: 0;
 	}
 
-	
-	.page-template-page-subnav & {
-	    @media (min-width: $screen-lg ) {
-		width: 220px;
-	    }
-	}
 
-}
-
-.startpage-sidebar {
-    .row {
-	margin-left: 0;
-	margin-right: 0;
-    }
 }

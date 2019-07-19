@@ -7,6 +7,8 @@
 	
 	
 	if(isset($sidebar_personen) && !empty($sidebar_personen))  { 
+            fau_use_sidebar(true);
+
 	   $persons = $sidebar_personen;
 	   if (!fau_empty($sidebar_title_personen)) {
 		echo '<h2 class="widget-title">'.$sidebar_title_personen.'</h2>';

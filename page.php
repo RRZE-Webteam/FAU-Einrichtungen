@@ -8,6 +8,8 @@
 
 global $pagebreakargs;
 global $defaultoptions;
+global $is_sidebar_active;
+
 get_header(); 
 
 $content_width =$defaultoptions['content-width-fullpage'];
@@ -32,10 +34,15 @@ while ( have_posts() ) :
 					} ?>
 					
 					<div class="inline-box">			    
-					    <?php get_template_part('template-parts/sidebar', 'inline'); ?>
-					    <div class="content-inline">
-					    <?php the_content(); ?>					
-					    </div>
+					    <?php get_template_part('template-parts/sidebar', 'inline');  
+					    if ($is_sidebar_active) {
+						echo '<div class="content-inline with-sidebar">';
+					    } else {
+						echo '<div class="content-inline">';
+					    }
+					    the_content(); 
+					    echo '</div>';
+					    ?>
 					</div>    
 					<?php echo wp_link_pages($pagebreakargs); ?>    
 			    </main>

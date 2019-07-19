@@ -3,6 +3,7 @@
 /*  (since 1.10.56, replaces navigation/_logos-menu.scss)
 /*-----------------------------------------------------------------------------------*/
 
+/*
 #content .imagelink .slick-item {
     img  {
 	@include box-shadow(none);
@@ -11,7 +12,7 @@
 	 @include box-shadow(2px 2px 5px $colorShadows);
     }
 }
-
+*/
 .imagelink {    
     width: calc(100% - 100px);
     margin: 20px auto 0;
@@ -52,19 +53,21 @@
 	    a {
 		height: 150px;		
 		display: flex;
-		margin: auto;
-		vertical-align: middle;
-		text-align: center;
-		
+		margin: auto;		
 	    }
 	    
 	    
 	    
 	    img {
 		box-shadow: none;
-		max-width: inherit; 
-		display: block;
+		display: flex; 
+		flex-grow: 0;
+		flex-shrink: 0;
 		margin: auto;
+		height: auto;
+		width: 100%;
+		object-fit: contain;    
+		    
 	    }
 	}
 	.logo-thumb .slick-slide {
@@ -207,7 +210,7 @@
 	    display: block;
 	    width: 100%;
 	    padding: 0;
-	    margin: 5px auto 15px auto;
+	    margin: 15px auto 20px auto;
 	    list-style: none;
 	    text-align: center;
 	    li {
@@ -273,6 +276,7 @@
 	    margin: 10px;
 	    display: inline-block;
 	    border: 1px solid transparent;
+	    overflow: hidden;
 	    
 	    &:active,
 	    &:focus-within,
@@ -292,16 +296,19 @@
 	    
 	    img {
 		box-shadow: none;
-		max-width: inherit; 
+		max-width: 100%; 
 		display: inline-block;
 		margin: auto;
+		object-fit: contain;
+		
+		height: auto;
+		width: 100%;
+
 	    }
 	    &.rounded {
 		border-width: 2px;
 		border-color: $colorContentBorders;
-		a {
-		    display: flex;
-		}
+
 	    }
 	    &.rounded:hover, 
 	    &.rounded:focus, 
@@ -309,6 +316,41 @@
 		border-color: $colorHover;
 	    }
 	}
+
+	.x120 .slick-item {
+	    width: 120;
+	    height: 120px;
+
+	    a {
+		height: 118px;	
+	    }
+	}
+	
+	.x240 .slick-item {
+	    width: 240px;
+	    height: 240px;
+
+	    a {
+		height: 238px;	
+	    }
+	}
+	.x360 .slick-item {
+	    width: 360px;
+	    height: 360px;
+
+	    a {
+		height: 358px;	
+	    }
+	}
+	.x480 .slick-item {
+	    width: 480px;
+	    height: 480px;
+
+	    a {
+		height: 478px;	
+	    }
+	}
+
 	.logo-thumb .slick-item {
 	    width: 142px;
 	    height: 142px;
@@ -317,16 +359,11 @@
 		height: 140px;	
 	    }
 	}
-	.page-thumb .slick-item {
-	    width: 222px;
-	    height: 222px;
-	    a {
-		height: 220px;
-	    }
-	}
+	
 	.post-thumbnails .slick-item {
 	    width: 302px;
 	    height: 302px;
+	    margin: 10px 2px;
 	    a {
 		height: 300px;
 	    }
