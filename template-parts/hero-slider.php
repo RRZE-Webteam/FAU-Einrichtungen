@@ -84,7 +84,16 @@
 		    }
 
 
-		    $slidersrc = '<img src="'.fau_esc_url($sliderimage[0]).'" width="'.$sliderimage[1].'" height="'.$sliderimage[2].'" alt=""';
+		    $slidersrc = '<img src="'.fau_esc_url($sliderimage[0]).'"'; 
+		    // In case of SVG-Images, width and height are empty
+		    if ($sliderimage[1] > 1) {
+			$slidersrc .= ' width="'.$sliderimage[1].'"';
+		    }
+		    if ($sliderimage[2] > 1) {
+			$slidersrc .= ' height="'.$sliderimage[2].'"';
+		    }
+		    $slidersrc .= ' alt=""';
+			
 		    if ($slidersrcset) {
 			$slidersrc .= ' srcset="'.$slidersrcset.'"';
 			if ($slidersrcsizes) {
