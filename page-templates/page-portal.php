@@ -35,11 +35,10 @@ get_header(); ?>
 			?>
 		    </main> 
 		</div>
-		<div class="portalpage-sidebar">
-		    <?php
+		<div class="portalpage-sidebar"><?php
 		    get_template_part('template-parts/sidebar', 'events'); 	
-		    get_template_part('template-parts/sidebar'); ?>
-		</div>
+		    get_template_part('template-parts/sidebar'); 
+		    ?></div>
 	    </div>
 		
 	    <?php  
