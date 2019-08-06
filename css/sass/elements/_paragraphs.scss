@@ -58,10 +58,7 @@ p {
 	
 }
 
-#content .accordion p:empty,
-.accordion p:empty {
-    display: none;
-}
+
 p.presentationtitle {
     font-weight: bold;
     @include px2rem($font-size-h1,  $font-size-base, $font-size-h1 * 1.3);

@@ -227,6 +227,20 @@ button.expand-all {
     }
 }
 
+#content .accordion p:empty,
+.accordion p:empty {
+    display: none;
+}
+.accordion {
+    br {
+	 display: none;
+    }
+     .accordion-group br {
+	 display: inherit;
+     }
+}
+
+
 /*-----------------------------------------------------------------------------------*/
 /* Absatzklassen
 /*-----------------------------------------------------------------------------------*/
