@@ -65,7 +65,8 @@
 			color: $colorMeta;
 			background: #fff;
 			display: inline-block;
-
+			margin: 0;
+			
 			&:hover, 
 			&:focus {
 				background: $colorMetaLightest;
