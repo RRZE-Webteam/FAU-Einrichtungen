@@ -25,14 +25,24 @@ input[type="url"],
 input[type="search"], 
 input[type="tel"], 
 input[type="color"] {
-	width: 290px;
+	width: 100%;
 	padding: 5px 10px;
 	@include px2rem($font-size-base);
 	height: auto;
 }
 
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="date"], 
+input[type="month"], 
+input[type="time"], 
+input[type="week"], 
+input[type="number"] {
+    width: 10em;
+}
 textarea {
 	min-height: 100px;
+	width: 100%;
 }
 
 form {	
@@ -62,16 +72,23 @@ label {
 	@include px2rem($font-size-base);
 }
 
+input[type=text]:focus,
+textarea:focus {
+	box-shadow: 0 0 5px $colorPrimary;
+	border: 1px solid $colorPrimary;
+}  
+
 
 
 
 
 input[type="submit"] {
 	@include inline-block;
-	border: none;
+	border: 3px solid $colorPrimary;
 	height: 30px;
 	line-height: 30px;
-	padding: 5px 20px;
+	margin: 10px 0;
+	padding: 4px 18px;
 	box-sizing: content-box;
 	@include border-radius(20px);
 	background: $colorPrimary;
@@ -80,8 +97,10 @@ input[type="submit"] {
 	
 	clear: left;
 	
-	&:hover, &:focus {
-		background: $colorHover;
+	&:hover, 
+	&:focus {
+		background: #fff;
+		color: $colorPrimary;
 	}
 	
 	&:active {

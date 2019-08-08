@@ -608,9 +608,12 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	    
 	    $output .= $imagehtml;
 	    $output .= '</a>';
-	    $output .= '<meta itemprop="url" content="'.fau_make_absolute_url($imageurl).'">';
-	    $output .= '<meta itemprop="width" content="'.$imgwidth.'">';
-	    $output .= '<meta itemprop="height" content="'.$imgheight.'">';		    
+	    $imgmeta = wp_get_attachment_image_src($post_thumbnail_id, 'rwd-480-3-2');
+	    $output .= '<meta itemprop="url" content="'.fau_make_absolute_url($imgmeta[0]).'">';
+	    
+	    global $defaultoptions;
+	    $output .= '<meta itemprop="width" content="'.$defaultoptions['default_rwdimage_width'].'">';
+	    $output .= '<meta itemprop="height" content="'.$defaultoptions['default_rwdimage_height'].'">';		    
 	    $output .= '</div>'; 
 	    $output .= '</div>'; 
 	    $output .= '<div class="teaserregion">'; 

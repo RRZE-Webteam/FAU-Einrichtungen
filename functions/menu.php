@@ -711,7 +711,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 				$externlink = true;
 				$link = '<a class="ext-link" data-wpel-link="internal" href="'.$targeturl.'">';
 			} else {
-			    if ($post->post_type == 'page') {
+			    if ($post && $post->post_type == 'page') {
 				$titlelangcode = get_post_meta($post->ID, 'fauval_pagetitle_langcode', true);
 				if (!fau_empty($titlelangcode)) {
 				    $sitelang = fau_get_language_main();

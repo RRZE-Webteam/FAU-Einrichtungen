@@ -68,9 +68,12 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    $output .= ' '.$class;
 	}
 	$output .= '">';
-	    
-	$attr['captions'] = filter_var( $attr['captions'], FILTER_VALIDATE_BOOLEAN );
 	
+	if (isset( $attr['captions'])) {
+	    $attr['captions'] = filter_var( $attr['captions'], FILTER_VALIDATE_BOOLEAN );
+	} else {
+	    $attr['captions'] = '';
+	}
 	
 	if (!isset($attr['type'])) {
 	    $attr['type'] = 'default';
@@ -80,15 +83,16 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 
 	    $gridclass = 'flexgrid';
 	    $gridtype = 'grid';
-	    if ($attr['columns']==2) {
-		$gridclass = 'two';
-	    } elseif ($attr['columns']==3) {
-		$gridclass = 'three';
-	    } elseif ($attr['columns']==4) {
-		$gridclass = 'four';
-	    } elseif ($attr['columns']==5) {
-		$gridclass = 'five';
-	
+	    if (isset($attr['columns'])) {
+		if ($attr['columns']==2) {
+		    $gridclass = 'two';
+		} elseif ($attr['columns']==3) {
+		    $gridclass = 'three';
+		} elseif ($attr['columns']==4) {
+		    $gridclass = 'four';
+		} elseif ($attr['columns']==5) {
+		    $gridclass = 'five';
+		}
 	    }
 	    // Overwrite by type
 	    if ($attr['type'] == '2cols') {
@@ -125,7 +129,9 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    $imgmeta = fau_get_image_attributs($id);
 		    $img_full = wp_get_attachment_image_src($id, 'full');
 		    $lightboxattr = '';
-		    $lightboxtitle = sanitize_text_field($meta->post_excerpt);
+		    
+		    $lightboxtitle = ( isset($imgmeta->post_excerpt) ? sanitize_text_field( $imgmeta->post_excerpt ) : '' );
+		    
 		    if (strlen(trim($lightboxtitle))>1) {
 			$lightboxattr = ' title="'.$lightboxtitle.'"';
 		    }
@@ -143,12 +149,12 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    } else {
 			$output .= '<figure>';
 		    }
-		    if ('none' !== $attr['link'] ) {
+		    if ((isset($attr['link'])) && ('none' !== $attr['link'] )) {
 			$output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';		    
 		    }
 		    $output .= fau_get_image_htmlcode($id, 'gallery-full', $linkalt);
 		    
-		    if ('none' !== $attr['link'] ) {
+		    if ((isset($attr['link'])) && ('none' !== $attr['link'] )) {
 			$output .= '</a>';
 		    }
 
