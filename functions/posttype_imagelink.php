@@ -161,16 +161,17 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 	
 	$allowedsizes = array("logo-thumb", "post-thumbnails", "thumbnail", "x120", "x240", "x360", "x480");
 	$dots =   (( isset($atts['dots'])  && ($atts['dots']==true)) ?  'true'  : 'false' );
+	$echo =   (( isset($atts['echo'])  && ($atts['echo']==true)) ?  'true'  : 'false' );
 	$autoplay =   (( isset($atts['autoplay'])  && ($atts['autoplay']==true)) ?  'true'  : 'false' );
 	$slidesToShow = ( isset($atts['slidesToShow'] ) ? intval( $atts['slidesToShow'] ) : 4 );
 	$catid = ( isset($atts['catid'] ) ? intval( $atts['catid'] ) : 0 );
 	$cat = ( isset($atts['cat'] ) ? esc_attr( $atts['cat'] ) : '' );
 	$order = ( isset($atts['order'] ) ? esc_attr( $atts['order'] ) : 'ASC' );
 	$size = ( isset($atts['size'] ) ? esc_attr( $atts['size'] ) : 'logo-thumb' );
-	$navtitle = sanitize_text_field( $atts['navtitle'] );
 
+	$navtitle = ( isset($atts['navtitle'] ) ? sanitize_text_field( $atts['navtitle'] ) : '' );
+	$class = ( isset($atts['class'] ) ? sanitize_text_field( $atts['class'] ) : '' );
 
-	$class = sanitize_text_field( $atts['class'] );
 	$type = ( isset($atts['type'] ) ? esc_attr( $atts['type'] ) : 'slide' );
 
 	if (!in_array($size, $allowedsizes)) {
@@ -221,7 +222,7 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 
 	$imagelist = get_posts($args); 
 	$number =0;
-	$item_output = $output = '';
+	$item_output = $output = $mainclass = '';
 	$rand = rand();	    
 
 
