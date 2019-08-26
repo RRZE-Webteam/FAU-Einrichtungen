@@ -7,7 +7,12 @@
  * @since FAU 1.0
  */
 
-get_header(); 
+if (isset($_GET['format']) && $_GET['format'] == 'embedded') {
+    get_template_part('template-parts/index', 'embedded');
+    return;
+}
+
+get_header();
 
 $posttype = get_post_type();
 $screenreadertitle = '';
@@ -16,11 +21,11 @@ if($posttype == 'event') {
 	get_template_part('template-parts/hero', 'events');
 	$screenreadertitle = get_theme_mod('title_hero_events');
 } elseif (($posttype == 'post') && (is_archive())) {
-	get_template_part('template-parts/hero', 'category'); 
+	get_template_part('template-parts/hero', 'category');
 	$screenreadertitle = single_cat_title("", false);
 
 } else {
-    get_template_part('template-parts/hero', 'index'); 
+    get_template_part('template-parts/hero', 'index');
     $screenreadertitle = __('Index','fau');
 }
 ?>
