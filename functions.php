@@ -576,6 +576,16 @@ function fau_addlightboxrel ($content) {
 /*-----------------------------------------------------------------------------------*/
 require get_template_directory() . '/functions/comments.php';
 
+/*-----------------------------------------------------------------------------------*/
+/* Limit Number of Posts for embedded format
+/*-----------------------------------------------------------------------------------*/
+add_action( 'pre_get_posts', 'fau_embedded_posts' );
+function fau_embedded_posts( $query ) {
+    if (isset($_GET['format']) && $_GET['format'] == 'embedded') {
+        $query->set( 'numberposts', 3 );
+        $query->set( 'posts_per_page', 3 );
+    }
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* This is the end of the code as we know it

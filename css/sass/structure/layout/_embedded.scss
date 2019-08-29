@@ -1,0 +1,25 @@
+/*
+ * Embedded-Format für Public Displays: Header etc ausblenden
+ */
+body.embedded {
+    width: 1210px;
+    height: 790px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    #content {
+        width: 1210px;
+        height: 790px;
+        padding: 0;
+    }
+    .entry-content {
+        width: 100%;
+    }
+    .news-item {
+        h2 {
+            padding-bottom: 0;
+        }
+        .news-meta {
+            margin-bottom: 0;
+        }
+    }
+}
