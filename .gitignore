@@ -3,3 +3,6 @@ nbproject/project.properties
 /nbproject/private/
 nbproject/project.xml
 img/logos/Browse.plb
+
+.idea*
+.sass-cache*

@@ -17,5 +17,8 @@
 // Error Templates
 @import "error-templates";
 
-// Old grid from bootstrap 2.3, cause span classes are still needed in some places  
+// Old grid from bootstrap 2.3, cause span classes are still needed in some places
 @import "oldgrid";
+
+// Embedded-Format für Public Displays: Header etc ausblenden
+@import "embedded";
