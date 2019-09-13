@@ -128,6 +128,9 @@ jQuery(document).ready(function ($) {
                 $(this).closest('.accordion').find('.accordion-body').not(accordion).not('.accordion-body.stayopen').slideUp();
                 $(this).toggleClass('active');
                 $(accordion).slideToggle();
+                if ( $('div').hasClass( 'slick-slider' ) ) {
+                  $('.slick-slider').slick('setPosition');
+                }                
             });
 
             // Keyboard navigation for accordions
