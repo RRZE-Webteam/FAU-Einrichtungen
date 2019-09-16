@@ -101,5 +101,25 @@ html, body, button {
 
 }
 
-
-
+/* START full width image */
+.outside-the-box-full-width {
+	left: 50%;
+	margin-left: calc(-#{$fau-gutter-width} / 2);
+	margin-right: calc(-#{$fau-gutter-width} / 2);
+	max-width: $max-width-hero;
+	right: 50%;
+	width: 100vw;
+	@media (min-width: $screen-sm-min) {
+		margin-left: calc(-100vw / 2 + (#{$container-sm} - #{$grid-gutter-width}) / 2);
+		margin-right: calc(-100vw / 2 + (#{$container-sm} - #{$grid-gutter-width}) / 2);
+	}
+	@media (min-width: $screen-md-min) {
+		margin-left: calc(-100vw / 2 + (#{$container-md} - #{$grid-gutter-width}) / 2);
+		margin-right: calc(-100vw / 2 + (#{$container-md} - #{$grid-gutter-width}) / 2);
+	}
+	@media (min-width: $max-width-hero) {
+		margin-left: calc((-#{$max-width-hero} + (#{$container-md} - #{$grid-gutter-width})) / 2);
+		margin-right: calc((-#{$max-width-hero} + (#{$container-md} - #{$grid-gutter-width})) / 2);
+	}
+}
+/* END full width image */
