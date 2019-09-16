@@ -200,6 +200,18 @@
     .menu-item {
       > div {
     	   position: relative;
+         width: 100%;
+         height: 100%;
+         a.image {
+           width:100%;
+           height:100%;
+           display:block;
+           img {
+             width:100%;
+             height:100%;
+             object-fit:cover;
+           }
+         }
       }
       > div + p, > div + span.portaltop {
       	position: absolute;
@@ -215,6 +227,7 @@
       &:hover span.portaltop {
 //      	background-color: rgba(0, 51, 102, 0.875);
 // Wo kommt diese Farbdefinition her?! 
+// Die Farbdefinition stammte aus dem ILI-Plugin (https://refresh2018.cms.rrze.uni-erlangen.de/wp-content/plugins/ili-fau-templates/assets/css/main.css => .ilifautpl-topic-box-image:hover .ilifautpl-h3-layer)
 	background-color: $PalettonDunkelste;
       }
       span.portaltop a {
@@ -247,8 +260,17 @@
       } // .skewed
     } // .menu-item
     &.contentmenutype2 {
-
       .subpages-menu {
+        li {
+          width:calc(50% - 10px);
+          height:calc((50vw - 10px) / 300 * 200)
+        }
+        @media (min-width: $screen-xs){
+          li {
+            width:220px;
+            height:147px;
+          }
+        }
         @media (max-width: $screen-xs - 1){
           li {
             max-width: 220px;
@@ -271,9 +293,8 @@
     	   margin-right: 15px;
     	   overflow: hidden;
         li {
-          width: 292px;
           width: 31%;
-          margin-right: 32px;
+          height: 366.617px;
           margin-right: 3.333%;
           margin-left: 0;
           &.menu-item:nth-of-type(4n+1) {
@@ -283,22 +304,6 @@
           &.menu-item:nth-of-type(3n) {
           	margin-right: 0;
           }
-          a.image {
-          	width: 100%;
-          	height: 400px;
-          	height: 32vw;
-          	height: 365px;
-          	max-width: 100%;
-          	max-height: 100vw;
-          	display: block;
-            img {
-             width: 100%;
-             height: 100%;
-             max-width: 90vw;
-             max-height: 100vw;
-             object-fit: cover;
-            } // img
-          } // a.image
         } // li
         .portaltop {
         	font-size: 1.375em;
@@ -306,20 +311,20 @@
         @media (min-width: $screen-xs) and (max-width: $screen-md - 1){
           li {
             width: 48.5%;
+            height:365px;
+            height: calc(48.5vw / 293.3 * 335);
             margin-right: 3%;
             &.menu-item {
           		clear: unset;
           		margin-left: 0;
+              &:nth-of-type(3n) {
+            		margin-right: 3%;
+            	} // :nth-of-type(2n)
               &:nth-of-type(2n) {
             		margin-right: 0;
             	} // :nth-of-type(2n)
           	} // .menu-item
           } // li
-        } // @media
-        @media (min-width: $screen-sm) and (max-width: $screen-md - 1){
-          li a.image {
-        		height: 50vw;
-        	}
         } // @media
         @media (min-width: $screen-xs) and (max-width: $screen-sm - 1){
           li {
@@ -327,19 +332,14 @@
           		clear: unset;
           		margin-left: 0;
           	}
-            a.image {
-          		height: 60vw;
-          	}
         	}
         } // @media
         @media (max-width: $screen-xs){
           li {
         		margin-bottom: 20px;
         		width: 100%;
+            height: calc(100vw / 293.3 * 335);
         		margin-right: 0;
-            a.image {
-             height: 100vw;
-           }
           }
         } // @media
       }
@@ -351,4 +351,25 @@
     }
   } // .refresh
 } // .contentmenu
+@media (min-width: $screen-sm){
+  nav.sidebar-subnav+div.entry-content .contentmenu.refresh {
+    &.contentmenutype2 li.menu-item {
+      clear:unset;
+  		margin-left:27px;
+      &:nth-of-type(2n+1) {
+        clear:left;
+        margin-left:15px;
+      } // :nth-of-type(2n+1)
+    } // .contentmenutype2 li.menu-item
+    &.contentmenutype3 li.menu-item {
+      width:48.5%;
+      margin-right:3%;
+      clear:unset;
+      margin-left:0;
+      &:nth-of-type(2n) {
+        margin-right:0;
+      }
+    }
+  }
+} // @media (min-width: $screen-sm)
 /* END extension for REFRESH */
