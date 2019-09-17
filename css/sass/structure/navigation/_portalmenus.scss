@@ -61,13 +61,21 @@
 		    @include box-shadow(0 1px 2px rgba(0,0,0,0.3));
 		    a {
 			    text-decoration: none;
+			  
+			    display: block;
+			    position: relative;
 			    width: 220px;
 			    height: 110px;
-			    display: block;
-			    
+			    @media (min-width: $screen-xs) and (max-width: $screen-sm - 1) {
+				width: calc(50vw - 25px);
+				height: calc( (50vw - 25px) / 2);
+			    }
 			    img {
 				position: absolute;
-				bottom: 0;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				object-fit: contain;
 				box-shadow: none;
 			    }
 
