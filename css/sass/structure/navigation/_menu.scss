@@ -354,17 +354,22 @@
 	span {
 		@include hideout();
 	}
-
-	&:before {
-		@extend .fa;
-		@extend .fa-bars;
-	}
-
-	&[aria-expanded=true]:before {
-		@extend .fa-close;
-	}
 }
 
+// Wegen Probleme mit SASS-Compiler ist dies ausserhalb der Schleife gezogen worden.
+// Ggf. nachgehen, warum das   &:before {} oben nicht interpretiert wurde und
+// prüfen ob es wietere Vorkommnisse derart gibt
+
+#mainnav-toggle:before {
+	@extend .fa;
+	@extend .fa-bars;
+}
+#mainnav-toggle[aria-expanded=true]:before {
+	@extend .fa-close;
+}
+
+
+	
 /* Very small device */
 @media (max-width: $screen-xs - 1) {
 	.no-js {
