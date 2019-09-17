@@ -153,7 +153,9 @@
 	.button-portal {
 		@include inline-block;
 		color: $colorMainMenu;
-		background-color: $colorHover;
+		background-color: $colorHover; // $colorOverlayLight; // $colorHover;
+
+		
 		padding: 13px 20px;
 		font-weight: bold;
 
@@ -162,7 +164,7 @@
 
 		&:hover,
 		&:focus {
-			background: lighten($colorHover, 5%);
+			background: $colorPrimary; // lighten($colorHover, 5%); // $colorOverlayDark; 
 		}
 	}
 
@@ -184,7 +186,7 @@
 			&:hover,
 			&:focus {
 				text-decoration: none;
-				background-color: $colorHover;
+				background-color:  $colorOverlayDark; // $colorHover;
 			}
 		}
 	}
@@ -198,7 +200,7 @@
 			}
 
 			> a {
-				border-bottom: 1px solid $colorHover;
+				border-bottom: 1px solid $colorOverlayLight; // $colorHover;
 
 				&:before {
 					@extend .fa;
@@ -354,17 +356,17 @@
 	span {
 		@include hideout();
 	}
-
-	&:before {
-		@extend .fa;
-		@extend .fa-bars;
-	}
-
-	&[aria-expanded=true]:before {
-		@extend .fa-close;
-	}
+}
+#mainnav-toggle:before {
+	@extend .fa;
+	@extend .fa-bars;
+}
+#mainnav-toggle[aria-expanded=true]:before {
+	@extend .fa-close;
 }
 
+
+	
 /* Very small device */
 @media (max-width: $screen-xs - 1) {
 	.no-js {
@@ -390,9 +392,17 @@
 		}
 
 		> li {
-			border-top: 1px solid #ccc;
+			border-top: 1px solid $colorOverlayDark; // #ccc;
 
 			&.level1 {
+				&:hover, &:focus {
+					border-top: 1px solid $colorHover;
+					+ li {
+						border-top: 1px solid $colorHover;
+					}
+				}
+			    
+			    
 				> a,
 				> [type=button] {
 					&[aria-expanded=true] {

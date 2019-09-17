@@ -247,8 +247,11 @@ button.expand-all {
 	padding-top: 7px;
     }
      p {
-	font-size: 1.1rem;
+	
 	padding: 5px 0;  
+    }
+    &.alert-danger p {
+	font-size: 1.1rem;
     }
 }
 
