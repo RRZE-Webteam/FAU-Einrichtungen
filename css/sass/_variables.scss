@@ -203,6 +203,10 @@ $colorCopyrightBackground: rgba(0, 0, 0, 0.6);
 // Abbrevations, Acronyms
 $colorAbbr: #000;
 
+// Semi-transparent overlays
+$overlayLight: rgba(255, 255, 255, 0.15);
+$overlayDark: rgba(0, 0, 0, 0.15);
+
 // Font sizes
 $font-size-rembase: 93.75%;
 $font-size-gridbase: 15;

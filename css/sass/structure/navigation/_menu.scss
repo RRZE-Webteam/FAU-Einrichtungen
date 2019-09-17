@@ -153,7 +153,7 @@
 	.button-portal {
 		@include inline-block;
 		color: $colorMainMenu;
-		background-color: $colorHover;
+		background-color: $overlayLight; // $colorHover;
 		padding: 13px 20px;
 		font-weight: bold;
 
@@ -162,7 +162,7 @@
 
 		&:hover,
 		&:focus {
-			background: lighten($colorHover, 5%);
+			background: $overlayDark; // lighten($colorHover, 5%);
 		}
 	}
 
@@ -184,7 +184,7 @@
 			&:hover,
 			&:focus {
 				text-decoration: none;
-				background-color: $colorHover;
+				background-color: $overlayDark; // $colorHover;
 			}
 		}
 	}
@@ -198,7 +198,7 @@
 			}
 
 			> a {
-				border-bottom: 1px solid $colorHover;
+				border-bottom: 1px solid $overlayLight; // $colorHover;
 
 				&:before {
 					@extend .fa;
@@ -390,9 +390,15 @@
 		}
 
 		> li {
-			border-top: 1px solid #ccc;
+			border-top: 1px solid $overlayDark; // #ccc;
 
 			&.level1 {
+				&:hover, &:focus {
+					border-top: 1px solid $colorHover;
+					+ li {
+						border-top: 1px solid $colorHover;
+					}
+				}
 				> a,
 				> [type=button] {
 					&[aria-expanded=true] {
