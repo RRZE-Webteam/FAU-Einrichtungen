@@ -296,7 +296,7 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 			$output .= '<div class="hide-mobile introtext">';
 			$output .= $textpart;
 			$output .= '</div>';
-			$output .= '<div class="hide-mobile introthumb">';
+			$output .= '<div class="hide-mobile introthumb" role="presentation">';
 			$output .= $thumbregion;
 			$output .= '</div>';
 		    } elseif(empty($thumbregion)) {	
@@ -306,7 +306,7 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 			$output .= '</div>';
 		    } else {
 			// Nur die Grafik
-			$output .= '<div class="hide-mobile introtext-full">';
+			$output .= '<div class="hide-mobile introtext-full" role="presentation">';
 			$output .= $thumbregion;
 			$output .= '</div>';
 
@@ -357,9 +357,9 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		}
 		$forceclean_externlink = get_theme_mod('advanced_forceclean_externlink');
 		$forceclean_homelink =    get_theme_mod('advanced_forceclean_homelink');
-		if (($forceclean_homelink==true) && ($force_cleanmenu==2)) {
+		if (($forceclean_homelink===true) && ($force_cleanmenu==2)) {
 		    // Ignore homelink
-		} elseif (($forceclean_externlink==true) && ($force_cleanmenu==1)) {
+		} elseif (($forceclean_externlink===true) && ($force_cleanmenu==1)) {
 		    // Ignore external link in Main menu
 		} else {
 
@@ -422,9 +422,9 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 	    }
 	    $forceclean_externlink = get_theme_mod('advanced_forceclean_externlink');
 	    $forceclean_homelink =    get_theme_mod('advanced_forceclean_homelink');
-	    if (($forceclean_homelink==true) && ($force_cleanmenu==2)) {
+	    if (($forceclean_homelink===true) && ($force_cleanmenu==2)) {
 		// Ignore homelink
-	    } elseif (($forceclean_externlink==true) && ($force_cleanmenu==1)) {
+	    } elseif (($forceclean_externlink===true) && ($force_cleanmenu==1)) {
 		// Ignore external link in Main menu
 	    } else {
 		 $output .= "</li>";
