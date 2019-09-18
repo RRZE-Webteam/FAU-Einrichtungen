@@ -173,9 +173,6 @@
 	cursor: pointer;
 	vertical-align: middle;
 	text-align: center;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
 	user-select: none;
 
 	/* Support: IE <= 11 */
@@ -580,7 +577,6 @@ button.ui-button::-moz-focus-inner {
 	cursor: move;
 }
 .ui-draggable-handle {
-	-ms-touch-action: none;
 	touch-action: none;
 }
 .ui-resizable {
@@ -590,7 +586,6 @@ button.ui-button::-moz-focus-inner {
 	position: absolute;
 	font-size: 0.1px;
 	display: block;
-	-ms-touch-action: none;
 	touch-action: none;
 }
 .ui-resizable-disabled .ui-resizable-handle,
@@ -672,7 +667,6 @@ button.ui-button::-moz-focus-inner {
 	background-image: none;
 }
 .ui-selectable {
-	-ms-touch-action: none;
 	touch-action: none;
 }
 .ui-selectable-helper {
@@ -730,7 +724,6 @@ button.ui-button::-moz-focus-inner {
 	width: 1.2em;
 	height: 1.2em;
 	cursor: default;
-	-ms-touch-action: none;
 	touch-action: none;
 }
 .ui-slider .ui-slider-range {
@@ -786,7 +779,6 @@ button.ui-button::-moz-focus-inner {
 	top: 0;
 }
 .ui-sortable-handle {
-	-ms-touch-action: none;
 	touch-action: none;
 }
 .ui-spinner {
@@ -1307,6 +1299,5 @@ a.ui-button:active,
 	filter: Alpha(Opacity=30); /* support: IE8 */
 }
 .ui-widget-shadow {
-	-webkit-box-shadow: 0px 0px 5px #666666;
 	box-shadow: 0px 0px 5px #666666;
 }

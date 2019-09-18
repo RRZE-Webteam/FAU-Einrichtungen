@@ -100,7 +100,6 @@
 			vertical-align: bottom;
 			display: none;
 			box-decoration-break: clone;
-			-webkit-box-decoration-break: clone;
 			
 			@media (min-width: $screen-sm) {
 			    display: inline;
@@ -120,7 +119,6 @@
 			padding: 0 7px 1px 7px;
 			margin: 10px 0 0 0;
 			box-decoration-break: clone;
-			-webkit-box-decoration-break: clone;
 			
 			@media (min-width: $screen-xs) { 
 			   @include inline-block;

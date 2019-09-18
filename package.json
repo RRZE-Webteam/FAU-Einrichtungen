@@ -1,0 +1,54 @@
+{
+  "name": "FAU-Einrichtungen",
+  "textdomain": "fau",
+  "version": "1.11.31",
+  "keywords": [
+    "WordPress",
+    "Theme",
+    "FAU",
+    "RRZE"
+  ],
+  "author": "RRZE-Webteam <webmaster@fau.de> (https://www.rrze.fau.de)",
+  "homepage": "https://www.wordpress.rrze.fau.de",
+  "description": "WordPress Theme der Friedrich-Alexander-Universität Elangen-Nürnberg",
+  "licence": "GPL",
+  "bugs": {
+    "url": "https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RRZE-Webteam/FAU-Einrichtungen.git"
+  },
+  "browserslist": [
+    "last 3 years"
+  ],
+  "contributors": [],
+  "dependencies": {},
+  "main": "index.php",
+  "scripts": {
+    "start": "gulp",
+    "dev": "gulp dev",
+    "maps": "gulp devmaps",
+    "build": "gulp build",
+    "pot": "gulp pot"
+  },
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/register": "^7.6.0",
+    "autoprefixer": "^9.6.1",
+    "gulp": "^4.0.2",
+    "gulp-bump": "^3.1.3",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-if": "^3.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-wp-pot": "^2.3.5",
+    "semver": "^6.3.0",
+    "yargs": "^14.0.0"
+  }
+}

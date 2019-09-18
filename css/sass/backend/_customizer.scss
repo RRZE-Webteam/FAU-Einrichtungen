@@ -82,7 +82,6 @@ $color_customizer_buttons: #0085ba;
 	}
 
 	.range-slider__range {
-	    -webkit-appearance: none;
 	    width: calc(100% - (95px));
 	    height: 10px;
 	    border-radius: 5px;
@@ -93,14 +92,12 @@ $color_customizer_buttons: #0085ba;
 	}
 
 	.range-slider__range::-webkit-slider-thumb {
-	    -webkit-appearance: none;
 	    appearance: none;
 	    width: 20px;
 	    height: 20px;
 	    border-radius: 50%;
 	    background: $color_customizer_buttons;
 	    cursor: pointer;
-	    -webkit-transition: background .15s ease-in-out;
 	    transition: background .15s ease-in-out;
 	}
 
@@ -119,7 +116,6 @@ $color_customizer_buttons: #0085ba;
 	    border-radius: 50%;
 	    background: $color_customizer_buttons;
 	    cursor: pointer;
-	    -webkit-transition: background .15s ease-in-out;
 	    transition: background .15s ease-in-out;
 	}
 

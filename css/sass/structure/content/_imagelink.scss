@@ -141,8 +141,6 @@
 			line-height: 1;
 			color: $colorPrimary;
 			opacity: $slick-opacity-default;
-			-webkit-font-smoothing: antialiased;
-
 		}
 
 	}
@@ -247,7 +245,6 @@
 			text-align: center;
 			opacity: .25;
 			color: $colorPrimary;
-			-webkit-font-smoothing: antialiased;
 		    }
 		    
 		     &:hover, &:focus {
@@ -372,6 +369,6 @@
     }
     
     &.dots {
-	 margin: 20px auto;
+	 margin: 20px auto 40px auto;
     }
 }

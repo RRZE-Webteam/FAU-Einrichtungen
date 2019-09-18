@@ -16,7 +16,6 @@ code {
 	white-space: pre-line; 
 	@include border-radius(3px);
 	box-decoration-break: clone;
-	-webkit-box-decoration-break: clone;
 }
 
 pre {

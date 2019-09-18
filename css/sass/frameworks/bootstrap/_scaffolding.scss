@@ -22,8 +22,6 @@
 
 html {
 	font-size: 10px;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
 	/* Large device */
 	@media (min-width: $screen-md) {
 		&.flyout-scrolling {
