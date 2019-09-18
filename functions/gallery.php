@@ -137,12 +137,28 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    }
 
 		    $linkalt = $imgmeta['alt'];
-		    if (fau_empty( $imgmeta['alt'])) {
-			if (!fau_empty($imgmeta['title'])) {
-			    $linkalt = __('Bild ','fau').$imgmeta['title'].' '.__('aufrufen','fau');
+		    if ('none' !== $attr['link']) {
+			    // Bei Bildern, die als Link fungieren beschreibt der alt das Linkziel, nicht das Bild.
+			    if (!fau_empty($imgmeta['title'])) {
+				$linkalt = __('Bild ','fau').$imgmeta['title'].' '.__('aufrufen','fau');
+			    } else {
+			       $linkalt = __('Bild aufrufen','fau');
+			    }
+			
+		    } elseif (fau_empty( $imgmeta['alt'])) {
+			// Kein Link aber Bild-Alt trotzdem leer. Nehme einen der 
+			// optionalen anderen Felder der Bildmeta
+			if (!fau_empty($imgmeta['description'])) {
+			    $linkalt =  sanitize_text_field($imgmeta['description']);	
+			} elseif (!fau_empty($imgmeta['title'])) {
+			    $linkalt =  sanitize_text_field($imgmeta['title']);
+			} elseif (!fau_empty($imgmeta['excerpt'])) {
+			    $linkalt =  sanitize_text_field($imgmeta['excerpt']);
+					    
 			} else {
-	    		   $linkalt = __('Bild aufrufen','fau');
+			    $linkalt = '';
 			}
+			
 		    }
 		    
 		    if(isset( $attr['captions']) && ($attr['captions']==1) &&(!fau_empty($imgmeta['excerpt']))) {
