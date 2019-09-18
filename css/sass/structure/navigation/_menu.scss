@@ -392,9 +392,11 @@
 			padding-top: 0;
 		}
 
-		> li:not(:first-child) {
+		> li {
 			border-top: 1px solid $overlayDark; // #ccc;
-
+			&:first-child {
+				border-top: 1px solid $colorPrimary;
+			}
 			&.level1 {
 				&:hover, &:focus {
 					border-top: 1px solid $colorHover;

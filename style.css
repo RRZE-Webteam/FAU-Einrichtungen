@@ -5553,18 +5553,20 @@ li.fauhome img {
 
   .nav .nav-flyout {
     padding-top: 0; }
-  .nav > li:not(:first-child) {
+  .nav > li {
     border-top: 1px solid rgba(0, 0, 0, 0.15); }
-    .nav > li:not(:first-child).level1:hover, .nav > li:not(:first-child).level1:focus {
+    .nav > li:first-child {
+      border-top: 1px solid #003366; }
+    .nav > li.level1:hover, .nav > li.level1:focus {
       border-top: 1px solid #1f4c7a; }
-      .nav > li:not(:first-child).level1:hover + li, .nav > li:not(:first-child).level1:focus + li {
+      .nav > li.level1:hover + li, .nav > li.level1:focus + li {
         border-top: 1px solid #1f4c7a; }
-    .nav > li:not(:first-child).level1 > a[aria-expanded=true],
-    .nav > li:not(:first-child).level1 > [type=button][aria-expanded=true] {
+    .nav > li.level1 > a[aria-expanded=true],
+    .nav > li.level1 > [type=button][aria-expanded=true] {
       background-color: #003366; }
-    .nav > li:not(:first-child).level1 > a:hover, .nav > li:not(:first-child).level1 > a:focus,
-    .nav > li:not(:first-child).level1 > [type=button]:hover,
-    .nav > li:not(:first-child).level1 > [type=button]:focus {
+    .nav > li.level1 > a:hover, .nav > li.level1 > a:focus,
+    .nav > li.level1 > [type=button]:hover,
+    .nav > li.level1 > [type=button]:focus {
       background-color: #1f4c7a; }
 
   .flyout-entries {
