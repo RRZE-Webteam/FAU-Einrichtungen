@@ -35,14 +35,14 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    'exclude'	=> '',
 	    'type'	=> 'default',
 	    'captions'	=> 0,
-	    'link'	=> 'file',
+	    'link'	=> 'post',
 		// aus Wizard:
 		// file = direkt zur mediendatei
+		// post = null = Anhang Seite   (Im WordPress Wizzard ist dies der Default!)
 		// none = nirgendwohin
-		// NULL = anhang seite
+
 	    'class'	=> '', 
-		
-	    'nodots'		=> 0,
+	    'nodots'	> 0,
 
 	), $attr));
 
@@ -135,13 +135,30 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    if (strlen(trim($lightboxtitle))>1) {
 			$lightboxattr = ' title="'.$lightboxtitle.'"';
 		    }
+
 		    $linkalt = $imgmeta['alt'];
-		    if (fau_empty( $imgmeta['alt'])) {
-			if (!fau_empty($imgmeta['title'])) {
-			    $linkalt = __('Bild ','fau').$imgmeta['title'].' '.__('aufrufen','fau');
+		    if ('none' !== $attr['link']) {
+			    // Bei Bildern, die als Link fungieren beschreibt der alt das Linkziel, nicht das Bild.
+			    if (!fau_empty($imgmeta['title'])) {
+				$linkalt = __('Bild ','fau').$imgmeta['title'].' '.__('aufrufen','fau');
+			    } else {
+			       $linkalt = __('Bild aufrufen','fau');
+			    }
+			
+		    } elseif (fau_empty( $imgmeta['alt'])) {
+			// Kein Link aber Bild-Alt trotzdem leer. Nehme einen der 
+			// optionalen anderen Felder der Bildmeta
+			if (!fau_empty($imgmeta['description'])) {
+			    $linkalt =  sanitize_text_field($imgmeta['description']);	
+			} elseif (!fau_empty($imgmeta['title'])) {
+			    $linkalt =  sanitize_text_field($imgmeta['title']);
+			} elseif (!fau_empty($imgmeta['excerpt'])) {
+			    $linkalt =  sanitize_text_field($imgmeta['excerpt']);
+					    
 			} else {
-	    		   $linkalt = __('Bild aufrufen','fau');
+			    $linkalt = '';
 			}
+			
 		    }
 		    
 		    if(isset( $attr['captions']) && ($attr['captions']==1) &&(!fau_empty($imgmeta['excerpt']))) {
@@ -149,12 +166,19 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    } else {
 			$output .= '<figure>';
 		    }
-		    if ((isset($attr['link'])) && ('none' !== $attr['link'] )) {
-			$output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';		    
+		    if ('none' !== $attr['link']) {
+			if ($attr['link']=='post') {
+			    // Anhang Seite
+			    $output .= '<a href="'.get_attachment_link( $id ).'">';		  
+			} else {
+			    // File
+			    $output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';		  
+			}
 		    }
+
 		    $output .= fau_get_image_htmlcode($id, 'gallery-full', $linkalt);
 		    
-		    if ((isset($attr['link'])) && ('none' !== $attr['link'] )) {
+		    if ('none' !== $attr['link']) {
 			$output .= '</a>';
 		    }
 
