@@ -160,8 +160,8 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 	global $defaultoptions;
 	
 	$allowedsizes = array("logo-thumb", "post-thumbnails", "thumbnail", "x120", "x240", "x360", "x480");
-	$dots =   (( isset($atts['dots'])  && ($atts['dots']==true)) ?  'true'  : 'false' );
-	$echo =   (( isset($atts['echo'])  && ($atts['echo']==true)) ?  'true'  : 'false' );
+	$dots =   (( isset($atts['dots'])  && ($atts['dots']===true)) ?  'true'  : 'false' );
+	$echo =   (( isset($atts['echo'])  && ($atts['echo']===true)) ?  'true'  : 'false' );
 	$autoplay =   (( isset($atts['autoplay'])  && ($atts['autoplay']==true)) ?  'true'  : 'false' );
 	$slidesToShow = ( isset($atts['slidesToShow'] ) ? intval( $atts['slidesToShow'] ) : 4 );
 	$catid = ( isset($atts['catid'] ) ? intval( $atts['catid'] ) : 0 );
@@ -294,7 +294,7 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 
 		wp_enqueue_script('fau-js-heroslider');
 	    }
-	    if ($echo==true) {
+	    if ($echo === true) {
 		echo $output;
 		return;
 	    } else {
