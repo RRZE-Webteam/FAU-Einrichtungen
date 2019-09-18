@@ -1,9 +1,8 @@
 /* 
  * Gulp Builder for WordPress Theme FAU-Einrichtungen
- * Since Version 1.11.24
  */
 
-import { src, dest, series } from 'gulp';
+import { src, dest, series  } from 'gulp';
 import yargs from 'yargs';
 import sass from 'gulp-sass';
 import cleanCss from 'gulp-clean-css';
@@ -14,6 +13,9 @@ import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'autoprefixer';
 import info from "./package.json";
 import wpPot from "gulp-wp-pot";
+import bump from "gulp-bump";
+import semver from "semver";
+import replace from "gulp-replace";
 
 // const PRODUCTION = yargs.argv.prod;
 
@@ -73,8 +75,49 @@ export const pot = () => {
   .pipe(dest(`languages/${info.textdomain}.pot`));
 };
 
+/*
+ * Update Version on Patch-Level
+ *  (All other levels we are doing manually; This level has to update automatically on each build)
+ */
 
+export const upversionpatch = () => {
+  var newVer = semver.inc(info.version, 'patch');
+    
+  return src(['./package.json'])
+    .pipe(bump({version: newVer}))
+    .pipe(dest('./'));
+};
+
+export const upthemeversion = () => {
+   var newVer = semver.inc(info.version, 'patch');
+    
+  return src(['style.css'])
+    .pipe(bump({version: newVer}))
+    .pipe(dest('./'));
+};
+
+/*
+ * Update Version Number in Variables File.
+ * DANGER ZONE!
+ * If you run this job, this may force potential IDE watcher to recompile
+ * the SASS files and so overwriting our styles again! In worst case,
+ * style css will be written in the same time by two jobs.
+ * Better do this manually at first part, before compiling SASS files anew.
+ * 
+ * Would be better if we remove the version number from the file later.
+ */
+export const upthemesassvarversion = () => {
+  var newVer = semver.inc(info.version, 'patch');
+    
+  return src(['css/sass/_variables.scss'])
+    .pipe(replace(/\$version: '(.*)'/g, '$version: \''+newVer+'\''))
+    .pipe(dest('css/sass/'));
+    
+};
+
+
+export const versionup = series(upversionpatch,upthemeversion);
 export const devmaps = series(stylessourcemaps, copystyle);
-export const dev = series(autoprefix, copystyle);
-export const build = series(buildstyles, copystyle);
+export const dev = series(autoprefix, copystyle, pot);
+export const build = series(buildstyles, copystyle,upversionpatch,upthemeversion);
 export default dev;
