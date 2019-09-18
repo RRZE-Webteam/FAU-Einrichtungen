@@ -74,8 +74,6 @@ $slick-opacity-not-active: 0.25 !default;
     background: transparent;
     color: transparent;
     top: 50%;
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     padding: 0;
     border: none;
@@ -97,7 +95,6 @@ $slick-opacity-not-active: 0.25 !default;
         line-height: 1;
         color: $slick-arrow-color;
         opacity: $slick-opacity-default;
-        -webkit-font-smoothing: antialiased;
     }
 }
 

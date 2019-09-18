@@ -68,8 +68,6 @@ Mixins File for Wordpress Theme FAU
 }
 
 @mixin hyphens($value) {
-    -webkit-hyphens: $value;
-    -ms-hyphens: $value;
     hyphens: $value;
 }
 

@@ -37,7 +37,6 @@
 			@include px2rem($font-size-hero-slider-title);
 
 			box-decoration-break: clone;
-			-webkit-box-decoration-break: clone;
 
 			@media (min-width: $screen-sm) {
 				margin: 10px 0 15px 0;
@@ -63,7 +62,6 @@
 			padding: 3px;
 			margin: 0;
 			box-decoration-break: clone;
-			-webkit-box-decoration-break: clone;
 
 			@media (min-width: $screen-sm) {
 				display: inline;
@@ -201,8 +199,6 @@
 			line-height: 1;
 			color: $slick-arrow-color;
 			opacity: $slick-opacity-default;
-
-			-webkit-font-smoothing: antialiased;
 			text-shadow: $slick-opacity-text-shadow;
 			@media (min-width: $break-1360) {
 				text-shadow: none;

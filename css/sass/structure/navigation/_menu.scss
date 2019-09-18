@@ -194,7 +194,6 @@
 	.level2 {
 		> li {
 			&.has-sub {
-				-webkit-column-break-inside: avoid;
 				page-break-inside: avoid;
 				break-inside: avoid;
 			}
