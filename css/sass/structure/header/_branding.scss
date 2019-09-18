@@ -190,3 +190,23 @@
 		height: auto;
 	}
 }
+
+// Todo: better option => relayout #header
+@media (max-width: $screen-sm - 1) {
+	#header {
+		height: 0;
+		overflow: hidden;
+	}
+	li.fauhome {
+		img {
+			filter: brightness(100);
+		}
+		&:hover {
+			background: none;
+		}
+	}
+}
+
+li.fauhome img {
+	height: 17px;
+}

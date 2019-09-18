@@ -95,7 +95,7 @@
 		    width: 100%;
 		    background: $colorMetaBackground;
 		    position: absolute;
-		    top: 40px;
+		    top: 38px;
 		    left: 0;
 		    padding: 10px 5px;
 		    
@@ -124,21 +124,22 @@
 /* New Toogle Button */
 #wrap #search-toggle {
 	position: absolute;
-	left: 0;
+	left: 2px;
 	top: 0;
 	@include px2rem($font-size-mobile-meta);
 	background: transparent;
 	border: none;
 	display: none;
 	z-index: 100;
-	color: $colorMeta;
+	color: $colorPrimaryContrast; // $colorMeta;
+	font-size: 1.5rem;
 
 	.search-toggled &:before {
 	    @extend .fa-search-minus;
 	}
 	@media (max-width: $screen-sm - 1) {
 	    .search-toggled & {
-		top: -40px;
+				top: -38px;
 	    }
 	    
 	    .js & {

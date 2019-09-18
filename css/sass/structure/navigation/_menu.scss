@@ -342,12 +342,12 @@
 #mainnav-toggle {
 	position: absolute;
 	right: 5px;
-	top: 0;
+	top: 1px;
 	@include px2rem($font-size-mobile-meta);
 	background-color: transparent;
 	border: none;
 	z-index: 100;
-	color: $colorMeta;
+	color: $colorPrimaryContrast; // $colorMeta;
 	padding: 1px 6px;
 	display: none;
 
@@ -360,8 +360,11 @@
 		@extend .fa-bars;
 	}
 
-	&[aria-expanded=true]:before {
-		@extend .fa-close;
+	&[aria-expanded=true] {
+		top: 0;
+		&:before {
+			@extend .fa-close;
+		}
 	}
 }
 
@@ -389,7 +392,7 @@
 			padding-top: 0;
 		}
 
-		> li {
+		> li:not(:first-child) {
 			border-top: 1px solid $overlayDark; // #ccc;
 
 			&.level1 {

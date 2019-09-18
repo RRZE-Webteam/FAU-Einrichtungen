@@ -5053,6 +5053,18 @@ body.embedded {
     width: auto;
     height: auto; }
 
+@media (max-width: 767px) {
+  #header {
+    height: 0;
+    overflow: hidden; }
+
+  li.fauhome img {
+    filter: brightness(100); }
+  li.fauhome:hover {
+    background: none; } }
+li.fauhome img {
+  height: 17px; }
+
 /*-----------------------------------------------------------------------------------*/
 /* Meta region in top
 /*-----------------------------------------------------------------------------------*/
@@ -5072,6 +5084,9 @@ body.embedded {
     line-height: 18.98px;
     font-size: 0.8666666667rem;
     line-height: 1.2653333333rem; }
+  @media (max-width: 767px) {
+    #meta {
+      background: #003366; } }
   @media (min-width: 768px) {
     #meta {
       z-index: 110;
@@ -5086,7 +5101,6 @@ body.embedded {
     display: none; }
 
 .meta-links {
-  padding: 1px 0;
   min-height: 20px; }
   .meta-links .ext-link {
     padding-right: 0 !important;
@@ -5098,17 +5112,22 @@ body.embedded {
     .meta-links {
       height: 40px;
       overflow: hidden;
-      padding: 1px 15px 0 15px; } }
+      padding: 0 15px; } }
 
 .meta-tools {
-  text-align: right;
+  text-align: center;
   position: static; }
   @media (max-width: 767px) {
-    .active-meta-widget .meta-tools {
+    .meta-tools {
       position: absolute;
       top: 0;
       left: 0;
-      right: 0; } }
+      width: 100%; }
+      .active-meta-widget .meta-tools {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0; } }
 
 .meta-widget {
   display: inline-block;
@@ -5192,7 +5211,7 @@ body.embedded {
         width: 100%;
         background: #e9edf2;
         position: absolute;
-        top: 40px;
+        top: 38px;
         left: 0;
         padding: 10px 5px; }
         .search-toggled .meta-search .searchform {
@@ -5208,7 +5227,7 @@ body.embedded {
 /* New Toogle Button */
 #wrap #search-toggle {
   position: absolute;
-  left: 0;
+  left: 2px;
   top: 0;
   font-size: 24px;
   line-height: 35.04px;
@@ -5218,10 +5237,11 @@ body.embedded {
   border: none;
   display: none;
   z-index: 100;
-  color: #003366; }
+  color: #fff;
+  font-size: 1.5rem; }
   @media (max-width: 767px) {
     .search-toggled #wrap #search-toggle {
-      top: -40px; }
+      top: -38px; }
     .js #wrap #search-toggle {
       display: block; } }
   #wrap #search-toggle span {
@@ -5498,7 +5518,7 @@ body.embedded {
 #mainnav-toggle {
   position: absolute;
   right: 5px;
-  top: 0;
+  top: 1px;
   font-size: 24px;
   line-height: 35.04px;
   font-size: 1.6rem;
@@ -5506,7 +5526,7 @@ body.embedded {
   background-color: transparent;
   border: none;
   z-index: 100;
-  color: #003366;
+  color: #fff;
   padding: 1px 6px;
   display: none; }
   #mainnav-toggle span {
@@ -5516,6 +5536,8 @@ body.embedded {
     width: 1px;
     height: 1px;
     overflow: hidden; }
+  #mainnav-toggle[aria-expanded=true] {
+    top: 0; }
 
 /* Very small device */
 @media (max-width: 479px) {
@@ -5531,18 +5553,18 @@ body.embedded {
 
   .nav .nav-flyout {
     padding-top: 0; }
-  .nav > li {
+  .nav > li:not(:first-child) {
     border-top: 1px solid rgba(0, 0, 0, 0.15); }
-    .nav > li.level1:hover, .nav > li.level1:focus {
+    .nav > li:not(:first-child).level1:hover, .nav > li:not(:first-child).level1:focus {
       border-top: 1px solid #1f4c7a; }
-      .nav > li.level1:hover + li, .nav > li.level1:focus + li {
+      .nav > li:not(:first-child).level1:hover + li, .nav > li:not(:first-child).level1:focus + li {
         border-top: 1px solid #1f4c7a; }
-    .nav > li.level1 > a[aria-expanded=true],
-    .nav > li.level1 > [type=button][aria-expanded=true] {
+    .nav > li:not(:first-child).level1 > a[aria-expanded=true],
+    .nav > li:not(:first-child).level1 > [type=button][aria-expanded=true] {
       background-color: #003366; }
-    .nav > li.level1 > a:hover, .nav > li.level1 > a:focus,
-    .nav > li.level1 > [type=button]:hover,
-    .nav > li.level1 > [type=button]:focus {
+    .nav > li:not(:first-child).level1 > a:hover, .nav > li:not(:first-child).level1 > a:focus,
+    .nav > li:not(:first-child).level1 > [type=button]:hover,
+    .nav > li:not(:first-child).level1 > [type=button]:focus {
       background-color: #1f4c7a; }
 
   .flyout-entries {
@@ -5780,7 +5802,7 @@ body.embedded {
   .orgalist li.fauhome:focus,
   .orgalist li.facultyhome:hover,
   .orgalist li.facultyhome:focus {
-    background: #d4d4d4;
+    background: transparent;
     transition: background 0.1s; }
   .md-showsitelogo .orgalist {
     text-align: left; }

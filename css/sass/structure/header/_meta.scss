@@ -16,7 +16,9 @@
 	li {
 		@include px2rem($font-size-meta);
 	}
-
+	@media (max-width: $screen-sm - 1) {
+		background: $colorPrimary;
+	}
 	@media (min-width: $screen-sm) {
 		z-index: 110; // Änderung notwendig, damit das Such-Flyout nicht unter dem #header liegt
 		margin-top: 0;
@@ -43,7 +45,6 @@
 	.active-meta-widget & {
 		@extend .col-sm-7;
 	}
-	padding: 1px 0;
 	min-height: 20px;
 
 	.ext-link {
@@ -59,7 +60,7 @@
 	@media (min-width: $screen-sm) {
 		height: 40px;
 		overflow: hidden;
-		padding: 1px 15px 0 15px;
+		padding: 0 15px;
 	}
 }
 
@@ -68,10 +69,14 @@
 	.active-meta-widget & {
 		@extend .col-sm-5;
 	}
-	text-align: right;
+	text-align: center;
 	position: static;
 
 	@media (max-width: $screen-sm - 1) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
 		.active-meta-widget & {
 			position: absolute;
 			top: 0;

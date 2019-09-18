@@ -137,7 +137,7 @@
 	li.fauhome:focus,
 	li.facultyhome:hover, 
 	li.facultyhome:focus {
-		background: $colorMetaFAUHomeBackground;
+		background: transparent; // $colorMetaFAUHomeBackground;
 		@include transition(background, 0.1s);
 	}
 	
