@@ -9,48 +9,53 @@ $show =false;
 	3 => __('Suche und Fehlerseiten','fau'),
 	4 => __('Inhaltsseite mit Navi','fau'),
 	5 => __('Standard Seiten','fau'),
-	6 => __('Beiträge','fau'),       
+	6 => __('Beiträge','fau'),
+	7 => __('Landing Pages', 'fau'),     
+ -1 => __('Auf allen Seiten', 'fau'),     
 */
 
 
 $start_topevents_active = get_theme_mod("start_topevents_active");
 
-
  if ((isset($start_topevents_active)) && ($start_topevents_active==true)) {
-    $start_topevents_templates = get_theme_mod("topevents_templates");
+	$start_topevents_templates = get_theme_mod("active_socialmedia_footer");
 
-    $template = get_page_template();
-
-     foreach ($start_topevents_templates as $key) {
-	if (($key==1) && (is_page_template( 'page-templates/page-start.php' ))) {
-	    $show = true;
-	    break;
-	} elseif (($key==1) && (is_page_template( 'page-templates/page-start-sub.php' ))) {
-	    $show = true;
-	    break;
-	} elseif (($key==2) && (is_page_template( 'page-templates/page-portal.php')))  {
-	    $show = true;
-	    break;
-	} elseif (($key==3) && (is_search() || is_404() ))  {
-	    $show = true;
-	    break;
-	} elseif (($key==4) && (is_page_template( 'page-templates/page-subnav.php')))  {
-	    $show = true;
-	    break;
-	} elseif (($key==5) && (is_page()))  {
-	    $show = true;
-	    break;
-	} elseif (($key==6) && (is_single()))  {	 
-	    $show = true;
-	    break;
-	} elseif ( ( in_array( 7, $start_topevents_templates ) ) && ( is_page_template('templates/template-landing-page.php') ) ) {
-	    $show = true;
-	    break;
+	if( in_array( -1, $start_topevents_templates ) ) {
+		$show = true;
 	} else {
-    //	echo "<!-- PAGE TEMPLATE: $template -->";
+		$template = get_page_template();
+
+		foreach ($start_topevents_templates as $key) {
+			if (($key==1) && (is_page_template( 'page-templates/page-start.php' ))) {
+					$show = true;
+					break;
+			} elseif (($key==1) && (is_page_template( 'page-templates/page-start-sub.php' ))) {
+					$show = true;
+					break;
+			} elseif (($key==2) && (is_page_template( 'page-templates/page-portal.php')))  {
+					$show = true;
+					break;
+			} elseif (($key==3) && (is_search() || is_404() ))  {
+					$show = true;
+					break;
+			} elseif (($key==4) && (is_page_template( 'page-templates/page-subnav.php')))  {
+					$show = true;
+					break;
+			} elseif (($key==5) && (is_page()))  {
+					$show = true;
+					break;
+			} elseif (($key==6) && (is_single()))  {	 
+					$show = true;
+					break;
+			} elseif ( in_array( '7', $start_topevents_templates ) && ( is_plugin_active('ili-fau-templates/ili-fau-templates-master.php' ) ) && ( is_page_template('templates/template-landing-page.php') ) ) {
+					$show = true;
+					break;
+			} else {
+				//	echo "<!-- PAGE TEMPLATE: $template -->";
+			}
+		}
 	}
-     }
- }
+}
  if ($show==true) {
     fau_use_sidebar(true);
     
