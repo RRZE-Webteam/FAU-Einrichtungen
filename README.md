@@ -11,19 +11,9 @@ GITHub-Repo: https://github.com/RRZE-Webteam/FAU-Einrichtungen
 ## Autor 
 RRZE-Webteam , http://www.rrze.fau.de
 
-## Copryright
+## Copyright
 
 GNU General Public License (GPL) Version 3
-
-
-## Verwendete Libraries und Sourcen
-
-* Font Awesome 4.7 by Dave Gandy - http://fontawesome.io. 
-  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
-* Font Roboto, https://www.fontsquirrel.com/license/roboto
-  Apache License, Version 2.0, January 2004
-* Slick Slider v1.9
-* Bootstrap 3.3.7, http://getbootstrap.com/
 
 
 
@@ -37,7 +27,7 @@ or send an email to
 
 ## Dokumentation
 
-Eine Dokumentation des THemes und dessen Funktionen findet sich unter der Adresse https://wordpress.rrze.fau.de  
+Eine Dokumentation des Themes und dessen Funktionen findet sich unter der Adresse https://wordpress.rrze.fau.de  
 
 
 ## Entwickler-Hinweise

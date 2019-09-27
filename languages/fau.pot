@@ -1841,19 +1841,19 @@ msgstr ""
 msgid "Drei Ebenen"
 msgstr ""
 
-#: functions/gallery.php:141
+#: functions/gallery.php:143
 msgid "Bild "
 msgstr ""
 
-#: functions/gallery.php:141
+#: functions/gallery.php:143
 msgid "aufrufen"
 msgstr ""
 
-#: functions/gallery.php:143
+#: functions/gallery.php:145
 msgid "Bild aufrufen"
 msgstr ""
 
-#: functions/gallery.php:216
+#: functions/gallery.php:240
 msgid "Vergrößern"
 msgstr ""
 
