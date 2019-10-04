@@ -13,11 +13,11 @@ get_header();
 while ( have_posts() ) : the_post(); ?>
 
 	<?php get_template_part('template-parts/hero', 'small'); ?>
-	<section id="content">
+	<div id="content">
 		<div class="container">
 			<div class="row">
 					
-			    <article>
+			    <main id="droppoint">
 				<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 				    <?php 
 
@@ -98,10 +98,10 @@ while ( have_posts() ) : the_post(); ?>
 					    ?>
 
 					</table>
-			    </article>
+			    </main>
 			</div>
 		</div>
-	</section>
+	</div>
 	
 <?php endwhile; ?>
 <?php get_template_part('template-parts/footer', 'social'); ?>	
