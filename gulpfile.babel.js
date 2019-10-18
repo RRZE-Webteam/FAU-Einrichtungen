@@ -5,7 +5,6 @@
 import { src, dest, series  } from 'gulp';
 import yargs from 'yargs';
 import sass from 'gulp-sass';
-import cleanCss from 'gulp-clean-css';
 import gulpif from 'gulp-if';
 import rename from 'gulp-rename';
 import postcss from 'gulp-postcss';
@@ -16,40 +15,77 @@ import wpPot from "gulp-wp-pot";
 import bump from "gulp-bump";
 import semver from "semver";
 import replace from "gulp-replace";
+import concat from "gulp-concat";
+import cssnano from "cssnano";
+import header from 'gulp-header';
 
 // const PRODUCTION = yargs.argv.prod;
 
-    
-/* 
- * Compile all styles with SASS and make sourcemaps. Without postfix
+/**
+ * Template for banner to add to file headers
  */
-export const stylessourcemaps = () => {
+
+var banner = [
+    '/*!',
+    'Theme Name: <%= info.name %>',
+    'Version: <%= info.version %>',
+    'Description: <%= info.description %>',
+    'Theme URI: <%= info.repository.url %>',
+    'GitHub Theme URI: <%= info.repository.url %>',
+    'GitHub Issue URL: <%= info.repository.issues %>',
+    'Author: <%= info.author.name %>',
+    'Author URI: <%= info.author.url %>',
+    'License: <%= info.license %>',
+    'License URI: <%= info.licenseurl %>',
+    'Tags: <%= info.tags %>',
+    'Text Domain: <%= info.textdomain %>',
+    '*/'].join('\n');
+
+
+/* 
+ * SASS and Autoprefix CSS Files, without clean
+ */
+export const sassautoprefix = () => {
+    var plugins = [
+        autoprefixer()
+    ];
+  return src(['css/sass/base.scss', 'css/sass/admin.scss', 'css/sass/editor-style.scss', 'css/sass/gutenberg.scss'])
+    .pipe(header(banner, { info : info }))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss(plugins))
+    .pipe(dest('css'));
+}
+
+
+/* 
+ *SASS and Autoprefix CSS Files, without clean and make sourcemaps. 
+ */
+export const sassautoprefixmaps = () => {
+     var plugins = [
+        autoprefixer()
+    ];
   return src(['css/sass/base.scss', 'css/sass/admin.scss', 'css/sass/editor-style.scss', 'css/sass/gutenberg.scss'])
     .pipe(sourcemaps.init())
+    .pipe(header(banner, { info : info }))
     .pipe(sass().on('error', sass.logError))
+    .pipe(postcss(plugins))
     .pipe(sourcemaps.write())
     .pipe(dest('css'));
 }
 
-/* 
- * Only SASS and Autoprefix style.css File; Need for debugging
- */
-export const autoprefix = () => {
-  return src('css/sass/base.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([ autoprefixer ]))
-  //  .pipe(cleanCss({compatibility:'ie9'}))
-    .pipe(dest('css'));
-}
 
 /* 
- * Compile all styles with SASS and also make the autoprefixer run on them without sourcemaps
+ * Compile all styles with SASS and clean them up 
  */
 export const buildstyles = () => {
+    var plugins = [
+        autoprefixer(),
+        cssnano()
+    ];
   return src(['css/sass/base.scss', 'css/sass/admin.scss', 'css/sass/editor-style.scss', 'css/sass/gutenberg.scss'])
+   .pipe(header(banner, { info : info }))
     .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([ autoprefixer ]))
-    .pipe(cleanCss({compatibility:'ie9'}))
+    .pipe(postcss(plugins))
     .pipe(dest('css'));
 }
 
@@ -83,41 +119,33 @@ export const pot = () => {
 export const upversionpatch = () => {
   var newVer = semver.inc(info.version, 'patch');
     
-  return src(['./package.json'])
+  return src(['./package.json','./style.css'])
     .pipe(bump({version: newVer}))
     .pipe(dest('./'));
 };
 
-export const upthemeversion = () => {
-   var newVer = semver.inc(info.version, 'patch');
-    
-  return src(['style.css'])
-    .pipe(bump({version: newVer}))
-    .pipe(dest('./'));
-};
+
 
 /*
- * Update Version Number in Variables File.
- * DANGER ZONE!
- * If you run this job, this may force potential IDE watcher to recompile
- * the SASS files and so overwriting our styles again! In worst case,
- * style css will be written in the same time by two jobs.
- * Better do this manually at first part, before compiling SASS files anew.
- * 
- * Would be better if we remove the version number from the file later.
+ * Update DEV Version on prerelease level.
+ *  Reason: in the Theme function, we will recognise the prerelease version by its syntax. 
+ *  This will allow the theme automatically switch to the non-minified-files instead of
+ *   the minified versions.
+ *   In other words: If we use dev, the theme wil load script files without ".min.".  
  */
-export const upthemesassvarversion = () => {
-  var newVer = semver.inc(info.version, 'patch');
+export const devversion = () => {
+   var newVer = semver.inc(info.version, 'prerelease');
     
-  return src(['css/sass/_variables.scss'])
-    .pipe(replace(/\$version: '(.*)'/g, '$version: \''+newVer+'\''))
-    .pipe(dest('css/sass/'));
-    
+  return src(['./package.json','./style.css'])
+    .pipe(bump({version: newVer}))
+    .pipe(dest('./'));
 };
 
 
-export const versionup = series(upversionpatch,upthemeversion);
-export const devmaps = series(stylessourcemaps, copystyle);
-export const dev = series(autoprefix, copystyle, pot);
-export const build = series(buildstyles, copystyle,upversionpatch,upthemeversion);
+
+
+export const versionup = series(upversionpatch);
+export const devmaps = series(sassautoprefixmaps, copystyle, devversion);
+export const dev = series(sassautoprefix, copystyle, devversion);
+export const build = series(buildstyles, copystyle,upversionpatch);
 export default dev;
