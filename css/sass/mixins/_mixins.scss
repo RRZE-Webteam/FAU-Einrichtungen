@@ -122,8 +122,6 @@ Mixins File for Wordpress Theme FAU
 
 @mixin inline-block() {
     display: inline-block; 
-    *display:inline; 
-    *zoom:1;
 }
 @mixin hideout() {
     position:absolute;
