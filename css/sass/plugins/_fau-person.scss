@@ -430,3 +430,24 @@ span[itemprop="honorificSuffix"] {
 	   }
 	}
 }
+
+
+// Personen-Page - 
+//  Entweder via SHortcode format="page" oder bei AUfruf des Endpoints aus single-person.php
+.person {
+    .person-meta {
+	display: flex;	
+	.person-image {
+	    flex: 1 1 200px;
+	    order: 2;
+	    
+	    
+	}
+	.person-info {
+	    order: 1;
+	    flex: 1 0 220px;
+	    margin-right: 10px;
+	}
+	
+    }
+}

@@ -7396,7 +7396,6 @@ ul.assistant-tabs-nav {
   .search-result .searchresult-image {
     text-align: right; }
     .search-result .searchresult-image img {
-      width: 100%;
       height: auto;
       max-height: 147px;
       box-shadow: none; }
@@ -10080,97 +10079,49 @@ span[itemprop="honorificSuffix"] {
   margin: 0 0 10px 25px; }
 
 /* Strukturen Personenshortcode Content */
-.startpage-sidebar .person-thumb,
-.startpage-sidebar .person-default,
-.startpage-sidebar .person-default-thumb,
-.portalpage-content .person-thumb,
-.portalpage-content .person-default,
-.portalpage-content .person-default-thumb,
-.startpage-blogroll .person-thumb,
-.startpage-blogroll .person-default,
-.startpage-blogroll .person-default-thumb,
-.content-inline .person-thumb,
-.content-inline .person-default,
-.content-inline .person-default-thumb {
-  float: left;
-  min-height: 1px;
-  margin-left: 20px; }
-.startpage-sidebar .span1,
-.startpage-sidebar .person-thumb,
-.portalpage-content .span1,
-.portalpage-content .person-thumb,
-.startpage-blogroll .span1,
-.startpage-blogroll .person-thumb,
-.content-inline .span1,
-.content-inline .person-thumb {
-  width: 90px; }
-.startpage-sidebar .span3,
-.startpage-sidebar .person-default-more,
-.startpage-sidebar .person-default-thumb,
-.portalpage-content .span3,
-.portalpage-content .person-default-more,
-.portalpage-content .person-default-thumb,
-.startpage-blogroll .span3,
-.startpage-blogroll .person-default-more,
-.startpage-blogroll .person-default-thumb,
-.content-inline .span3,
-.content-inline .person-default-more,
-.content-inline .person-default-thumb {
-  width: 220px; }
-  .startpage-sidebar .span3.person-nomoreinfo,
-  .startpage-sidebar .person-default-more.person-nomoreinfo,
-  .startpage-sidebar .person-default-thumb.person-nomoreinfo,
-  .portalpage-content .span3.person-nomoreinfo,
-  .portalpage-content .person-default-more.person-nomoreinfo,
-  .portalpage-content .person-default-thumb.person-nomoreinfo,
-  .startpage-blogroll .span3.person-nomoreinfo,
-  .startpage-blogroll .person-default-more.person-nomoreinfo,
-  .startpage-blogroll .person-default-thumb.person-nomoreinfo,
-  .content-inline .span3.person-nomoreinfo,
-  .content-inline .person-default-more.person-nomoreinfo,
-  .content-inline .person-default-thumb.person-nomoreinfo {
-    width: auto; }
-.startpage-sidebar .span4,
-.startpage-sidebar .person-default,
-.portalpage-content .span4,
-.portalpage-content .person-default,
-.startpage-blogroll .span4,
-.startpage-blogroll .person-default,
-.content-inline .span4,
-.content-inline .person-default {
-  width: 300px; }
-  .startpage-sidebar .span4.person-nomoreinfo,
-  .startpage-sidebar .person-default.person-nomoreinfo,
-  .portalpage-content .span4.person-nomoreinfo,
-  .portalpage-content .person-default.person-nomoreinfo,
-  .startpage-blogroll .span4.person-nomoreinfo,
-  .startpage-blogroll .person-default.person-nomoreinfo,
-  .content-inline .span4.person-nomoreinfo,
-  .content-inline .person-default.person-nomoreinfo {
-    width: auto; }
-.startpage-sidebar .person-default-more .person-info,
-.portalpage-content .person-default-more .person-info,
-.startpage-blogroll .person-default-more .person-info,
-.content-inline .person-default-more .person-info {
-  margin-top: 22px;
-  margin-top: 1.46rem; }
-.startpage-sidebar .person-default-more,
-.startpage-sidebar .person-default-thumb,
-.startpage-sidebar .person-default,
-.startpage-sidebar .person-default-more,
-.portalpage-content .person-default-more,
-.portalpage-content .person-default-thumb,
-.portalpage-content .person-default,
-.portalpage-content .person-default-more,
-.startpage-blogroll .person-default-more,
-.startpage-blogroll .person-default-thumb,
-.startpage-blogroll .person-default,
-.startpage-blogroll .person-default-more,
-.content-inline .person-default-more,
-.content-inline .person-default-thumb,
-.content-inline .person-default,
-.content-inline .person-default-more {
-  max-width: calc(100% - 20px); }
+.startpage-sidebar .person .row, .startpage-sidebar .person .contentmenu,
+.portalpage-content .person .row,
+.portalpage-content .person .contentmenu,
+.startpage-blogroll .person .row,
+.startpage-blogroll .person .contentmenu,
+.content-inline .person .row,
+.content-inline .person .contentmenu {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start; }
+  .startpage-sidebar .person .row .person-thumb, .startpage-sidebar .person .contentmenu .person-thumb,
+  .portalpage-content .person .row .person-thumb,
+  .portalpage-content .person .contentmenu .person-thumb,
+  .startpage-blogroll .person .row .person-thumb,
+  .startpage-blogroll .person .contentmenu .person-thumb,
+  .content-inline .person .row .person-thumb,
+  .content-inline .person .contentmenu .person-thumb {
+    flex: 0 0 100px;
+    float: none;
+    order: 1;
+    margin: 0; }
+  .startpage-sidebar .person .row .person-default-thumb, .startpage-sidebar .person .contentmenu .person-default-thumb,
+  .portalpage-content .person .row .person-default-thumb,
+  .portalpage-content .person .contentmenu .person-default-thumb,
+  .startpage-blogroll .person .row .person-default-thumb,
+  .startpage-blogroll .person .contentmenu .person-default-thumb,
+  .content-inline .person .row .person-default-thumb,
+  .content-inline .person .contentmenu .person-default-thumb {
+    flex: 1 0 200px;
+    float: none;
+    order: 2;
+    max-width: inherit;
+    width: inherit; }
+  .startpage-sidebar .person .row .person-default-more, .startpage-sidebar .person .contentmenu .person-default-more,
+  .portalpage-content .person .row .person-default-more,
+  .portalpage-content .person .contentmenu .person-default-more,
+  .startpage-blogroll .person .row .person-default-more,
+  .startpage-blogroll .person .contentmenu .person-default-more,
+  .content-inline .person .row .person-default-more,
+  .content-inline .person .contentmenu .person-default-more {
+    float: none;
+    flex: 1 0 200px;
+    order: 3; }
 
 /* Sidebar: Inline */
 .startpage-sidebar ul.person-info li,
@@ -10330,6 +10281,16 @@ span[itemprop="honorificSuffix"] {
     width: 100%; }
     .archive .person .span6 .person-info-description {
       padding-top: 15px; } }
+.person .person-meta {
+  display: flex; }
+  .person .person-meta .person-image {
+    flex: 1 1 200px;
+    order: 2; }
+  .person .person-meta .person-info {
+    order: 1;
+    flex: 1 0 220px;
+    margin-right: 10px; }
+
 .flex-direction-nav {
   list-style: none;
   margin: 0;
