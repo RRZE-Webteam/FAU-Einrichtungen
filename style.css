@@ -26,15 +26,6 @@ audio:not([controls]) {
 template {
   display: none; }
 
-a:focus {
-  outline: thin dotted #333;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px; }
-
-a:hover,
-a:active {
-  outline: 0; }
-
 sub,
 sup {
   position: relative;
@@ -86,15 +77,6 @@ textarea {
 body {
   color: #333333;
   background-color: #ffffff; }
-
-a {
-  color: #0088cc;
-  text-decoration: none; }
-
-align,
-a:focus {
-  color: #005580;
-  text-decoration: underline; }
 
 small {
   font-size: 85%; }
@@ -317,14 +299,6 @@ select:focus:invalid:focus {
 *:after {
   box-sizing: border-box; }
 
-html {
-  font-size: 10px;
-  /* Large device */ }
-  @media (min-width: 992px) {
-    html.flyout-scrolling {
-      height: 100%;
-      overflow-y: hidden; } }
-
 body {
   font-family: "Roboto", sans-serif;
   font-size: 15px;
@@ -336,9 +310,7 @@ input,
 button,
 select,
 textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit; }
+  font-size: inherit; }
 
 a {
   color: #337ab7;
@@ -378,12 +350,6 @@ img {
 .img-circle {
   border-radius: 50%; }
 
-hr {
-  margin-top: 21;
-  margin-bottom: 21;
-  border: 0;
-  border-top: 1px solid #eeeeee; }
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -404,92 +370,6 @@ hr {
 
 [role="button"] {
   cursor: pointer; }
-
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: inherit;
-  font-weight: 500;
-  line-height: 1.1;
-  color: inherit; }
-  h1 small,
-  h1 .small, h2 small,
-  h2 .small, h3 small,
-  h3 .small, h4 small,
-  h4 .small, h5 small,
-  h5 .small, h6 small,
-  h6 .small,
-  .h1 small,
-  .h1 .small, .h2 small,
-  .h2 .small, .h3 small,
-  .h3 .small, .h4 small,
-  .h4 .small, .h5 small,
-  .h5 .small, .h6 small,
-  .h6 .small {
-    font-weight: normal;
-    line-height: 1;
-    color: #777777; }
-
-h1, .h1,
-h2, .h2,
-h3, .h3 {
-  margin-top: 21;
-  margin-bottom: 10.5; }
-  h1 small,
-  h1 .small, .h1 small,
-  .h1 .small,
-  h2 small,
-  h2 .small, .h2 small,
-  .h2 .small,
-  h3 small,
-  h3 .small, .h3 small,
-  .h3 .small {
-    font-size: 65%; }
-
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-  margin-top: 10.5;
-  margin-bottom: 10.5; }
-  h4 small,
-  h4 .small, .h4 small,
-  .h4 .small,
-  h5 small,
-  h5 .small, .h5 small,
-  .h5 .small,
-  h6 small,
-  h6 .small, .h6 small,
-  .h6 .small {
-    font-size: 75%; }
-
-h1, .h1 {
-  font-size: 32; }
-
-h2, .h2 {
-  font-size: 24; }
-
-h3, .h3 {
-  font-size: 19; }
-
-h4, .h4 {
-  font-size: 17; }
-
-h5, .h5 {
-  font-size: 16; }
-
-h6, .h6 {
-  font-size: 15; }
-
-p {
-  margin: 0 0 10.5; }
-
-.lead {
-  margin-bottom: 21;
-  font-size: 17;
-  font-weight: 300;
-  line-height: 1.4; }
-  @media (min-width: 768px) {
-    .lead {
-      font-size: 22.5; } }
 
 small,
 .small {
@@ -605,29 +485,6 @@ a.bg-danger:focus {
   margin: 42 0 21;
   border-bottom: 1px solid #eeeeee; }
 
-ul,
-ol {
-  margin-top: 0;
-  margin-bottom: 10.5; }
-  ul ul,
-  ul ol,
-  ol ul,
-  ol ol {
-    margin-bottom: 0; }
-
-.list-unstyled {
-  padding-left: 0;
-  list-style: none; }
-
-.list-inline {
-  padding-left: 0;
-  list-style: none;
-  margin-left: -5px; }
-  .list-inline > li {
-    display: inline-block;
-    padding-left: 5px;
-    padding-right: 5px; }
-
 dl {
   margin-top: 0;
   margin-bottom: 21; }
@@ -667,26 +524,21 @@ abbr[data-original-title] {
 .initialism {
   font-size: 90%; }
 
-blockquote {
-  padding: 10.5 21;
-  margin: 0 0 21;
-  font-size: 18.75;
-  border-left: 5px solid #eeeeee; }
-  blockquote p:last-child,
-  blockquote ul:last-child,
-  blockquote ol:last-child {
-    margin-bottom: 0; }
-  blockquote footer,
-  blockquote small,
-  blockquote .small {
-    display: block;
-    font-size: 80%;
-    line-height: 1.428571429;
-    color: #777777; }
-    blockquote footer:before,
-    blockquote small:before,
-    blockquote .small:before {
-      content: '\2014 \00A0'; }
+blockquote p:last-child,
+blockquote ul:last-child,
+blockquote ol:last-child {
+  margin-bottom: 0; }
+blockquote footer,
+blockquote small,
+blockquote .small {
+  display: block;
+  font-size: 80%;
+  line-height: 1.428571429;
+  color: #777777; }
+  blockquote footer:before,
+  blockquote small:before,
+  blockquote .small:before {
+    content: '\2014 \00A0'; }
 
 .blockquote-reverse,
 blockquote.pull-right {
@@ -711,22 +563,12 @@ blockquote.pull-right {
     content: '\00A0 \2014'; }
 
 address {
-  margin-bottom: 21;
   font-style: normal;
   line-height: 1.428571429; }
 
-code,
 kbd,
-pre,
 samp {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace; }
-
-code {
-  padding: 2px 4px;
-  font-size: 90%;
-  color: #c7254e;
-  background-color: #f9f2f4;
-  border-radius: 4px; }
 
 kbd {
   padding: 2px 4px;
@@ -740,26 +582,6 @@ kbd {
     font-size: 100%;
     font-weight: bold;
     box-shadow: none; }
-
-pre {
-  display: block;
-  padding: 10;
-  margin: 0 0 10.5;
-  font-size: 14;
-  line-height: 1.428571429;
-  word-break: break-all;
-  word-wrap: break-word;
-  color: #333333;
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 4px; }
-  pre code {
-    padding: 0;
-    font-size: inherit;
-    color: inherit;
-    white-space: pre-wrap;
-    background-color: transparent;
-    border-radius: 0; }
 
 .pre-scrollable {
   max-height: 340px;
@@ -8816,8 +8638,15 @@ p.presentationtitle {
 /*-----------------------------------------------------------------------------------*/
 a {
   color: #003366; }
-  a:hover, a:focus {
-    color: #1f4c7a; }
+  a:hover, a:active {
+    outline: 0; }
+  a:active, a:hover, a:focus {
+    color: #1f4c7a;
+    text-decoration: underline; }
+  a:focus {
+    outline: thin dotted #333;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px; }
   p a, li a, table a, .accordion-inner a {
     text-decoration: underline; }
   li.search-result a {

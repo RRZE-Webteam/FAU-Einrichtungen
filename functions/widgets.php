@@ -73,7 +73,7 @@ if (function_exists('get_field'))
 });
 
 /*-----------------------------------------------------------------------------------*/
-/* Walker für eine bessere Tagcloud
+/* Tagcloud Walker
 /*-----------------------------------------------------------------------------------*/
 class Walker_Tagcloud_Menu extends Walker_Nav_Menu {
 	
@@ -148,7 +148,7 @@ class Walker_Tagcloud_Menu extends Walker_Nav_Menu {
 }
 
 /*-----------------------------------------------------------------------------------*/
-/* Auswahl des Menus für eine Tagcloud als Widget
+/* Widget: Tagcloud Menu 
 /*-----------------------------------------------------------------------------------*/
 class FAUMenuTagcloudWidget extends WP_Widget {
 	public function __construct() {
@@ -178,7 +178,7 @@ class FAUMenuTagcloudWidget extends WP_Widget {
 		echo '</p>';
 		
 		echo '<p>';
-			echo '<label for="'.$this->get_field_id('menu-slug').'">' . __('Menü', 'fau') . ': ';
+			echo '<label for="'.$this->get_field_id('menu-slug').'">' . __('Menu', 'fau') . ': ';
 				echo '<select id="'.$this->get_field_id('menu-slug').'" name="'.$this->get_field_name('menu-slug').'">';
 					foreach($menus as $item)
 					{

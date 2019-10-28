@@ -31,16 +31,7 @@ template {
 }
 
 
-a:focus {
-	outline: thin dotted #333;
-	outline: 5px auto -webkit-focus-ring-color;
-	outline-offset: -2px;
-}
 
-a:hover,
-a:active {
-	outline: 0;
-}
 
 sub,
 sup {
@@ -107,16 +98,8 @@ body {
 	background-color: #ffffff;
 }
 
-a {
-	color: #0088cc;
-	text-decoration: none;
-}
 
-align,
-a:focus {
-	color: #005580;
-	text-decoration: underline;
-}
+
 
 small {
 	font-size: 85%;

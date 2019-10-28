@@ -1,3 +1,18 @@
+@charset "UTF-8";
+/*!
+Theme Name: FAU-Einrichtungen
+Version: 1.11.34-3
+Description: WordPress Theme der Friedrich-Alexander-Universität Elangen-Nürnberg
+Theme URI: https://github.com/RRZE-Webteam/FAU-Einrichtungen
+GitHub Theme URI: https://github.com/RRZE-Webteam/FAU-Einrichtungen
+GitHub Issue URL: https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues
+Author: RRZE-Webteam <webmaster@fau.de> (https://www.rrze.fau.de)
+Author URI: https://www.wordpress.rrze.fau.de
+License: GNU General Public License v3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Tags: three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images
+Text Domain: fau
+*/
 /*-----------------------------------------------------------------------------------*/
 /* Backend CSS
 /*-----------------------------------------------------------------------------------*/
@@ -164,7 +179,10 @@
   cursor: pointer;
   vertical-align: middle;
   text-align: center;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   /* Support: IE <= 11 */
   overflow: visible; }
 
@@ -261,7 +279,7 @@ button.ui-button::-moz-focus-inner {
 .ui-controlgroup-vertical .ui-spinner-input {
   /* Support: IE8 only, Android < 4.4 only */
   width: 75%;
-  width: calc( 100% - 2.4em ); }
+  width: calc( 100% - 2.4em); }
 
 .ui-controlgroup-vertical .ui-spinner .ui-spinner-up {
   border-top-style: solid; }
@@ -714,7 +732,8 @@ button.ui-button::-moz-focus-inner {
 /* support: IE8 - See #6727 */
 .ui-slider.ui-state-disabled .ui-slider-handle,
 .ui-slider.ui-state-disabled .ui-slider-range {
-  filter: inherit; }
+  -webkit-filter: inherit;
+          filter: inherit; }
 
 .ui-slider-horizontal {
   height: .8em; }
@@ -1639,6 +1658,7 @@ html {
   src: url("../fonts/fontawesome//fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../fonts/fontawesome//fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../fonts/fontawesome//fontawesome-webfont.ttf?v=4.7.0") format("truetype");
   font-weight: normal;
   font-style: normal; }
+
 .fa, #customize-theme-controls #accordion-panel-superadmin .accordion-section-title:before, #customize-theme-controls #accordion-panel-website .accordion-section-title:before, #customize-theme-controls #accordion-panel-allgemeines .accordion-section-title:before, #customize-theme-controls #accordion-panel-templates .accordion-section-title:before, #customize-theme-controls #accordion-panel-advanced .accordion-section-title:before {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
@@ -1716,23 +1736,25 @@ html {
   margin-left: .3em; }
 
 .fa-spin {
-  animation: fa-spin 2s infinite linear; }
+  -webkit-animation: fa-spin 2s infinite linear;
+          animation: fa-spin 2s infinite linear; }
 
 .fa-pulse {
-  animation: fa-spin 1s infinite steps(8); }
+  -webkit-animation: fa-spin 1s infinite steps(8);
+          animation: fa-spin 1s infinite steps(8); }
 
 @-webkit-keyframes fa-spin {
   0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg); }
   100% {
     transform: rotate(359deg); } }
+
 @keyframes fa-spin {
   0% {
     transform: rotate(0deg); }
   100% {
-    -webkit-transform: rotate(359deg);
     transform: rotate(359deg); } }
+
 .fa-rotate-90 {
   transform: rotate(90deg); }
 
@@ -1749,7 +1771,8 @@ html {
   transform: scale(1, -1); }
 
 :root .fa-rotate-90, :root .fa-rotate-180, :root .fa-rotate-270, :root .fa-flip-horizontal, :root .fa-flip-vertical {
-  filter: none; }
+  -webkit-filter: none;
+          filter: none; }
 
 .fa-stack {
   position: relative;
@@ -3826,21 +3849,25 @@ CSS Font File for Wordpress Theme FAU
   src: url("../fonts/roboto//Roboto-Bold.woff2") format("woff2"), url("../fonts/roboto//Roboto-Bold-webfont.woff") format("woff"), url("../fonts/roboto//Roboto-Bold-webfont.ttf") format("truetype");
   font-weight: bold;
   font-style: normal; }
+
 @font-face {
   font-family: 'Roboto';
   src: url("../fonts/roboto//Roboto-BoldItalic.woff2") format("woff2"), url("../fonts/roboto//Roboto-BoldItalic-webfont.woff") format("woff"), url("../fonts/roboto//Roboto-BoldItalic-webfont.ttf") format("truetype");
   font-weight: bold;
   font-style: italic; }
+
 @font-face {
   font-family: 'Roboto';
   src: url("../fonts/roboto//Roboto-Italic.woff2") format("woff2"), url("../fonts/roboto//Roboto-Italic-webfont.woff") format("woff"), url("../fonts/roboto//Roboto-Italic-webfont.ttf") format("truetype");
   font-weight: normal;
   font-style: italic; }
+
 @font-face {
   font-family: 'Roboto';
   src: url("../fonts/roboto//Roboto-Regular.woff2") format("woff2"), url("../fonts/roboto//Roboto-Regular-webfont.woff") format("woff"), url("../fonts/roboto//Roboto-Regular-webfont.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
+
 /*-----------------------------------------------------------------------------------*/
 /* Backend CSS
 /*-----------------------------------------------------------------------------------*/
@@ -3853,7 +3880,10 @@ Misc Admin CSS
 .toggle-switch {
   position: relative;
   width: 64px;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   float: right; }
   .toggle-switch .toggle-switch-checkbox {
     display: none; }
@@ -3982,14 +4012,18 @@ label.tile {
   padding: 0 2px;
   margin: 5px;
   border: 3px solid transparent; }
+
 label.tile:hover {
   background-color: #eee; }
+
 label.tile img {
   margin: 0;
   padding: 0; }
+
 label.checked, label.tile:hover, label.tile:focus {
   border-color: orange;
   background: orange; }
+
 label.plakattile {
   width: 160px;
   height: 250px;
@@ -3997,8 +4031,10 @@ label.plakattile {
   border: 1px solid #ccc;
   padding: 1px;
   margin: 5px; }
+
 label.plakattile:hover {
   background-color: #eee; }
+
 label.description {
   display: block; }
 
@@ -4032,6 +4068,7 @@ img.imgurl {
   line-height: 1.5;
   margin-bottom: 5px;
   font-weight: bold; }
+
 #fau_metabox_page_sidebar .linkauswahl {
   padding-left: 2em; }
   #fau_metabox_page_sidebar .linkauswahl p {
@@ -4060,6 +4097,7 @@ table.wp-list-table .column-revealid_id {
   .postbox-container .toggle-switch .toggle-switch-label,
   .edit-post-sidebar .toggle-switch .toggle-switch-label {
     box-sizing: border-box; }
+
 .postbox-container .customize-control-title,
 .edit-post-sidebar .customize-control-title {
   font-weight: bold; }
@@ -4079,28 +4117,37 @@ table.wp-list-table .column-revealid_id {
 #customize-theme-controls #accordion-panel-templates .accordion-section-title,
 #customize-theme-controls #accordion-panel-advanced .accordion-section-title {
   border-left-color: #003366; }
+
 #customize-theme-controls #accordion-panel-superadmin .accordion-section-title {
   border-left-color: red;
   color: red; }
   #customize-theme-controls #accordion-panel-superadmin .accordion-section-title:before {
     color: red;
     width: 18px; }
+
 #customize-theme-controls #accordion-panel-website .accordion-section-title:before {
   width: 18px; }
+
 #customize-theme-controls #accordion-panel-allgemeines .accordion-section-title:before {
   width: 18px; }
+
 #customize-theme-controls #accordion-panel-templates .accordion-section-title:before {
   width: 18px; }
+
 #customize-theme-controls #accordion-panel-advanced .accordion-section-title:before {
   width: 18px; }
+
 #customize-theme-controls .customize-control-multiple-select option:checked,
 #customize-theme-controls .customize-control-multiple-select option[selected] {
   background: #e9edf2; }
+
 #customize-theme-controls .customize-control-multiple-select select[multiple]:focus option:checked {
   background: #0085ba;
   color: #fff; }
+
 #customize-theme-controls .customize-control-range-value .range-slider {
   width: 100%; }
+
 #customize-theme-controls .customize-control-range-value .range-slider__range {
   width: calc(100% - (95px));
   height: 10px;
@@ -4109,18 +4156,23 @@ table.wp-list-table .column-revealid_id {
   outline: none;
   padding: 0;
   margin: 0; }
+
 #customize-theme-controls .customize-control-range-value .range-slider__range::-webkit-slider-thumb {
-  appearance: none;
+  -webkit-appearance: none;
+          appearance: none;
   width: 20px;
   height: 20px;
   border-radius: 50%;
   background: #0085ba;
   cursor: pointer;
   transition: background .15s ease-in-out; }
+
 #customize-theme-controls .customize-control-range-value .range-slider__range::-webkit-slider-thumb:hover {
   background: #0085ba; }
+
 #customize-theme-controls .customize-control-range-value .range-slider__range:active::-webkit-slider-thumb {
   background: #0085ba; }
+
 #customize-theme-controls .customize-control-range-value .range-slider__range::-moz-range-thumb {
   width: 20px;
   height: 20px;
@@ -4129,10 +4181,13 @@ table.wp-list-table .column-revealid_id {
   background: #0085ba;
   cursor: pointer;
   transition: background .15s ease-in-out; }
+
 #customize-theme-controls .customize-control-range-value .range-slider__range::-moz-range-thumb:hover {
   background: #0085ba; }
+
 #customize-theme-controls .customize-control-range-value .range-slider__range:active::-moz-range-thumb {
   background: #0085ba; }
+
 #customize-theme-controls .customize-control-range-value .range-slider__value {
   display: inline-block;
   position: relative;
@@ -4144,9 +4199,11 @@ table.wp-list-table .column-revealid_id {
   background: #0085ba;
   padding: 2px 5px;
   margin-left: 8px; }
+
 #customize-theme-controls .customize-control-range-value ::-moz-range-track {
   background: #d7dcdf;
   border: 0; }
+
 #customize-theme-controls .customize-control-range-value input::-moz-focus-inner, #customize-theme-controls .customize-control-range-value input::-moz-focus-outer {
   border: 0; }
 
