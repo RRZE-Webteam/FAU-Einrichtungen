@@ -25,9 +25,10 @@
 	    li {
 		padding: 0;
 		margin: 0;
-		 @include no-list;
+		@include no-list();
+		
 		a {
-		    text-align: left;
+		    text-align: center;
 		    text-decoration: none;
 		    text-transform: uppercase;
 		    font-weight: bold;
@@ -35,23 +36,30 @@
 		    display: inline-block;
 		    
 		    @include border-radius(20px);
-		    background: #fff;
 		    height: 30px;
-		    margin-left: -25px;
-		    padding: 0 5px 0 30px;
+		    padding: 0 4px;
 		    line-height: 30px;
-		    width: 55px;
 		    overflow: hidden;
+		    width: 38px;
+		   
+		    @media (min-width: $screen-lg) {
+			min-width: 40px;
+			width: auto;
+			background: #fff;
+			padding: 0 5px;
+			margin-right: 5px;
+		    }
 		    
 		    &:before {
-			width: 30px;
 			content: attr(hreflang);
-			display: inline;
-			margin-right: 30px;
+			display: inline-block;
+
 			@media (min-width: $screen-lg) {
 				content: "";
 				margin-right: 0px;
-				width: 0;
+				display: none;
+				
+				
 			}
 		    }
 		    &:hover,
@@ -59,20 +67,21 @@
 			    background: $colorMetaLightest;
 			    @include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
 		    }
-		    
-		    @media (min-width: $screen-lg) {
-			width: auto;
-			max-width: 100px;
-		    }
-		    @media (min-width: $screen-xl) {
-			width: auto;
-			max-width: 180px;
-		    }
-		    
-		    
+ 
 		}
 		&.lang-current.current {
 		    display: none;
+		}
+		
+		&:nth-child(1) {
+		    @media (min-width: $screen-lg) {
+			margin-left: -25px;
+
+			a {
+			    padding-left: 30px;
+			    padding-right: 10px;
+			}
+		    }
 		}
 	    }
 	}

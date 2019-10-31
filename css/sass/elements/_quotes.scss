@@ -14,7 +14,10 @@ blockquote {
 	@include px2rem($font-size-quotes);
 	
 	
-	p {
+
+
+	p { 
+		margin-bottom: 0;
 		font-family: $fontStackSerifs;
 		@include px2rem($font-size-quotes);
 		font-weight: 400;
@@ -43,7 +46,7 @@ blockquote {
 		
 		
 	}
-	
+
 	#content .sidebar-inline & {
 	    margin: 10px;
 	}
@@ -136,12 +139,14 @@ blockquote {
 cite {
     color: $colorPrimaryHeroLight; 
     font-weight: normal;
-    
+    font-style: normal;
     
     &.text {
 	color: inherit;
     }
 }
+
+
 
 
 // Abbrevations, Acronyms

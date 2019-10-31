@@ -281,51 +281,37 @@ span[itemprop="honorificSuffix"] {
 .portalpage-content,
 .startpage-blogroll,
 .content-inline {
-    
-    .person-thumb,
-    .person-default, 
-    .person-default-thumb {
-	float: left;
-	min-height: 1px;
-	margin-left: 20px;
-    }
-    
-    .span1,
-    .person-thumb {
-	width: 90px;
-	
-    }
-    .span3,
-    .person-default-more,
-    .person-default-thumb {
-	width: 220px;
+   
+	.person .row {
+	    display: flex;
+	    flex-wrap: wrap; 
+	    align-content: flex-start;
+	    
+	    .person-thumb {
+		flex: 0 0 100px;
+		float: none;
+		order: 1;
+		margin: 0;
+	    }
+	    .person-default-thumb {
+		flex: 1 0 200px;
+		float: none;
+		order: 2;
+		max-width: inherit;
+		width: inherit;
+	    } 
+	    
+	    .person-default-more {
+		 float: none;
+		 flex: 1 0 200px;
+		 order: 3;
 
-	&.person-nomoreinfo {
-	   width: auto;
+	    }
+
 	}
-    }
     
-    .span4, 
-    .person-default {
-	width: 300px;
-	
-	&.person-nomoreinfo {
-	     width: auto;
-	}
-    }
-    .person-default-more {
-	.person-info {
-	    margin-top: 22px;
-	    margin-top: 1.46rem;
-	}
-    }
     
-    .person-default-more,
-    .person-default-thumb, 
-    .person-default, 
-    .person-default-more {
-	max-width: calc(100% - 20px);
-    }
+    
 }
 
 /* Sidebar: Inline */
@@ -443,4 +429,25 @@ span[itemprop="honorificSuffix"] {
 	       padding-top: 15px;
 	   }
 	}
+}
+
+
+// Personen-Page - 
+//  Entweder via SHortcode format="page" oder bei AUfruf des Endpoints aus single-person.php
+.person {
+    .person-meta {
+	display: flex;	
+	.person-image {
+	    flex: 1 1 200px;
+	    order: 2;
+	    
+	    
+	}
+	.person-info {
+	    order: 1;
+	    flex: 1 0 220px;
+	    margin-right: 10px;
+	}
+	
+    }
 }

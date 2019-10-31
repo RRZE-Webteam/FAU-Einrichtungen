@@ -33,7 +33,7 @@
 
 	.fau-orga-breadcrumb {
 		display: none;
-		// an dieser STelle müssen die Anweisungen zur FAU ORGA Breadcrumb kommen.
+		// an dieser Stelle müssen die Anweisungen zur FAU ORGA Breadcrumb kommen.
 		// ggf. müssen auch Änderungen an der _branding.scss gemacht werden.
 	}
 }
@@ -59,7 +59,7 @@
 	@media (min-width: $screen-sm) {
 		height: 40px;
 		overflow: hidden;
-		padding: 1px 15px 0 15px;
+		padding: 1px 0 0 15px;
 	}
 }
 
@@ -67,18 +67,24 @@
 	@extend .col-sm-4;
 	.active-meta-widget & {
 		@extend .col-sm-5;
+		@media (min-width: $screen-sm) {
+		     padding-left: 0;
+		     padding-right: 0;
+		}
 	}
 	text-align: right;
 	position: static;
 
 	@media (max-width: $screen-sm - 1) {
 		.active-meta-widget & {
+		    
 			position: absolute;
 			top: 0;
 			left: 0;
 			right: 0;
 		}
 	}
+
 }
 
 .meta-widget {
