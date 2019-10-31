@@ -70,7 +70,9 @@
 
 		&:hover, &:focus, &[aria-expanded=true] {
 			color: $colorPrimaryContrast;
+			text-decoration: none;
 		}
+		
 	}
 
 	/* First-level items */

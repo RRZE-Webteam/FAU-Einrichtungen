@@ -4,7 +4,9 @@
 
 a {
 	color: $colorPrimary;
-
+	text-decoration: none;
+	
+	
 	&:hover,
 	&:active {
 		outline: 0;

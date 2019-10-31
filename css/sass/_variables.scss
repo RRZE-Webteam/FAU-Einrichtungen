@@ -68,12 +68,7 @@ $colorPrintMainLinks: $colorText;
 	$PalettonDunkler: #026480;
 	$PalettonDunkelste: #014e63;
 	$siegelurl: './img/siegel-medfak-schnitt.png';
-//
-//	$stylecomment_themename: 'FAU-Medfak';
-//	$stylecomment_themeuri: 'https://github.com/RRZE-Webteam/FAU-Medfak';
-//	$stylecomment_themeversion: $version;
-//	$stylecomment_description: 'Wordpress-Theme für die Medizinische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';
-//	
+	
 
 } @else if $farbfamilie == 'phil' {
 	$colorPrimary: $colorPhilFak;
@@ -83,10 +78,6 @@ $colorPrintMainLinks: $colorText;
 	$PalettonDunkelste: #553500;
 	$siegelurl: './img/siegel-philfak-schnitt.png';
 
-//	$stylecomment_themename: 'FAU-Philfak';
-//	$stylecomment_themeuri: 'https://github.com/RRZE-Webteam/FAU-Philfak';
-//	$stylecomment_themeversion: $version;
-//	$stylecomment_description: 'Wordpress-Theme für die Philosophische Fakultät und den Fachbereich Theologie der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';
 
 } @else if $farbfamilie == 'nat' {
 	$colorPrimary: $colorNatFak;
@@ -96,10 +87,6 @@ $colorPrintMainLinks: $colorText;
 	$PalettonDunkelste: #00533f;
 	$siegelurl: './img/siegel-natfak-schnitt.png';
 
-//	$stylecomment_themename: 'FAU-Natfak';
-//	$stylecomment_themeuri: 'https://github.com/RRZE-Webteam/FAU-Natfak';
-//	$stylecomment_themeversion: $version;
-//	$stylecomment_description: 'Wordpress-Theme für die Naturwissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';
 
 } @else if $farbfamilie == 'rw' {
 	$colorPrimary: $colorRwFak;
@@ -108,11 +95,6 @@ $colorPrintMainLinks: $colorText;
 	$PalettonDunkler: #690013;
 	$PalettonDunkelste: #42000c;
 	$siegelurl: './img/siegel-rwfak-schnitt.png';
-
-//	$stylecomment_themename: 'FAU-RWFak';
-//	$stylecomment_themeuri: 'https://github.com/RRZE-Webteam/FAU-RWFak';
-//	$stylecomment_themeversion: $version;
-//	$stylecomment_description: 'Wordpress-Theme für die Rechts- und Wirtschaftswissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';
 
 
 } @else if $farbfamilie == 'tf' {
@@ -123,11 +105,6 @@ $colorPrintMainLinks: $colorText;
 	$PalettonDunkelste: #3b4956;
 	$siegelurl: './img/siegel-techfak-schnitt.png';
 
-//	$stylecomment_themename: 'FAU-Techfak';
-//	$stylecomment_themeuri: 'https://github.com/RRZE-Webteam/FAU-Techfak';
-//	$stylecomment_themeversion: $version;
-//	$stylecomment_description: 'Wordpress-Theme für die Technische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)';
-
 
 } @else if $farbfamilie == 'zuv' {
 	$colorPrimary: $colorZUV;
@@ -136,7 +113,6 @@ $colorPrintMainLinks: $colorText;
 	$PalettonDunkler: #24598f;
 	$PalettonDunkelste: #1f4c7a;
 	$siegelurl: './img/siegel-zuv-schnitt.png';
-
 
 }
 
