@@ -36,17 +36,20 @@ a {
 	    }
 	    
 	}
+
+	
 	
 	table &:hover, 
-	table &:focus {
-		text-decoration: none;
-	}
-	
+	table &:focus,
+	&.tag-cloud-link,
 	#hero & {
 		text-decoration: none;
 	}
 	
-	#hero &:hover, #hero &:focus {
+	&.tag-cloud-link:hover,
+	&.tag-cloud-link:focus,
+	#hero &:hover, 
+	#hero &:focus {
 		text-decoration: underline;
 	}
 }
