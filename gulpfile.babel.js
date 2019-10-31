@@ -2,9 +2,10 @@
  * Gulp Builder for WordPress Theme FAU-Einrichtungen
  */
 
-import { src, dest, series  } from 'gulp';
+import { src, dest, series, parallel  } from 'gulp';
 import yargs from 'yargs';
-import sass from 'gulp-sass';
+// import sass from 'gulp-sass';
+import sass from 'gulp-dart-sass';
 import rename from 'gulp-rename';
 import postcss from 'gulp-postcss';
 import sourcemaps from 'gulp-sourcemaps';
@@ -17,6 +18,8 @@ import replace from "gulp-replace";
 import concat from "gulp-concat";
 import cssnano from "cssnano";
 import header from 'gulp-header';
+import touch from 'gulp-touch-cmd';
+
 
 
 const clonetarget = yargs.argv.target;
@@ -99,81 +102,15 @@ function cloneTheme(cb) {
     var variablesfile =  sassdir + '_variables.scss';
     var constfile = targetdir + 'functions/constants.php';
 
-   
-   
-    // Copy files 
-    function copyprocess() {
-	return new Promise(function(resolve,reject) {
-	    console.log(`Starting copy files to ${targetdir}`);
-	
-	    src(['**/*', 
-		"!.git{,/**}",
-		"!node_modules{,/**}",
-		"!.babelrc",
-		"!.DS_Store",
-		"!.gitignore",
-		"!gulpfile.babel.js",
-		"!package-lock.json"
-	    ])
-	    .on('error', reject)
-	    .pipe(dest(targetdir))
-	    .on('end', resolve);
-    })};
-    
-    // Update color family in variables.scss 
-    
-    function setcolorfamily() {
-	return new Promise(function(resolve, reject) {
-	    src([variablesfile])
-		    .pipe(replace(/farbfamilie: '(.*)'/g, 'farbfamilie: \''+farbfamilie+'\''))
-		    .on('error', reject)
-		    .pipe(dest(sassdir))
-		    .on('end', resolve);
+    var helpercssbanner = [
+    '/*!',
+    '* Backend-CSS for Theme:',
+    '* Theme Name: <%= info.themeClones.'+farbfamilie+'.name %>',
+    '* Version: <%= info.version %>',
+    '* GitHub Issue URL: <%= info.repository.issues %>',
+    '*/'].join('\n');
 
-	    console.log(`  - Updatet color family in ${variablesfile} to ${farbfamilie}`);	
-	});
-    }
-    
-    // Update theme config to the theme type
-    function setwebsite_usefaculty() {
-	// find this entry and change it:
-	// 'website_usefaculty'		=> '',
-	// phil, med, nat, rw, tf
-
-	return new Promise(function(resolve, reject) {
-	    src([constfile])
-		    .pipe(replace(/'website_usefaculty'\s*=>\s*'(.*)'/g, '\'website_usefaculty\' => \''+farbfamilie+'\''))
-		    .on('error', reject)
-		    .pipe(dest(targetdir + 'functions/'))
-		    .on('end', resolve);
-
-	    console.log(`  - Updatet constfile family ${constfile} to ${farbfamilie}`);	
-	});
-    }
-    
-    // Copy theme screenshot in the new base directory
-    function copyscreenshot() {
-	var screenshot = targetdir + 'img/screenshots/screenshot-' + farbfamilie + '.png';
-	
-	
-	return new Promise(function(resolve, reject) {
-	    src([screenshot])
-		    .pipe(rename("screenshot.png"))
-		    .pipe(dest(targetdir))
-		    .on('end', resolve);
-
-	    console.log(`  - Copy screenshot ${screenshot} to ${targetdir}`);	
-	});
-    }
-    
-     // compile sass, use autoprefixer and minify results
-    function buildproductivestyles() {
-	return new Promise(function(resolve, reject) {
-	    var plugins = [
-		autoprefixer(),
-		cssnano()
-	    ];
-	   var themebanner = [
+    var themebanner = [
     '/*!',
     'Theme Name: <%= info.themeClones.'+farbfamilie+'.name %>',
     'Version: <%= info.version %>',
@@ -189,56 +126,93 @@ function cloneTheme(cb) {
     'Text Domain: <%= info.textdomain %>',
     '*/'].join('\n');
 
-    var helpercssbanner = [
-    '/*!',
-    '* Backend-CSS for Theme:',
-    '* Theme Name: <%= info.themeClones.'+farbfamilie+'.name %>',
-    '* Version: <%= info.version %>',
-    '* GitHub Issue URL: <%= info.repository.issues %>',
-    '*/'].join('\n');
-	    
-	  src([targetdir +'css/sass/admin.scss', targetdir +'css/sass/editor-style.scss', targetdir +'css/sass/gutenberg.scss'])
-	    .on('error', reject)
+
+    // Copy files 
+    const copyprocess = () => {
+	    console.log(`Starting copy files to ${targetdir}`);
+	   return src(['**/*', 
+		"!.git{,/**}",
+		"!node_modules{,/**}",
+		"!.babelrc",
+		"!.DS_Store",
+		"!.gitignore",
+		"!README.md",
+		"!package.json",
+		"!gulpfile.babel.js",
+		"!package-lock.json"
+	    ])
+	    .pipe(dest(targetdir));
+    };
+    
+    // Update color family in variables.scss 
+    const setcolorfamily = () => {
+	console.log(`  - Update color family in ${variablesfile} to ${farbfamilie}`);	
+	return src([variablesfile])
+		    .pipe(replace(/farbfamilie: '(.*)'/g, 'farbfamilie: \''+farbfamilie+'\''))
+		    .pipe(dest(sassdir));  
+    }
+    
+    // Update theme config to the theme type
+    const setwebsite_usefaculty = () => {
+	// find this entry and change it:
+	// 'website_usefaculty'		=> '',
+	// phil, med, nat, rw, tf
+	console.log(`  - Update constfile family ${constfile} to ${farbfamilie}`);	
+	return src([constfile])
+		    .pipe(replace(/'website_usefaculty'\s*=>\s*'(.*)'/g, '\'website_usefaculty\' => \''+farbfamilie+'\''))
+		    .pipe(dest(targetdir + 'functions/'));
+    }
+    
+    // Copy theme screenshot in the new base directory
+    const copyscreenshot = () => {
+	var screenshot = targetdir + 'img/screenshots/screenshot-' + farbfamilie + '.png';
+	console.log(`  - Copy screenshot ${screenshot} to ${targetdir}`);	
+	
+	return src([screenshot])
+		    .pipe(rename("screenshot.png"))
+		    .pipe(dest(targetdir));
+    
+    }
+
+    
+    // compile sass, use autoprefixer and minify results
+    const  buildbackendstyles = () => {
+	  return src([targetdir +'css/sass/admin.scss', targetdir +'css/sass/editor-style.scss', targetdir +'css/sass/gutenberg.scss'])
 	    .pipe(header(helpercssbanner, { info : info }))
 	    .pipe(sass().on('error',  sass.logError))
-	    .pipe(postcss(plugins))
+	    .pipe(postcss([
+		autoprefixer(),
+		cssnano()
+	    ]))
 	    .pipe(dest(targetdir + 'css/' ))
-	    .on('end', resolve);	
-    
-    
-     console.log(`  - Styles created in ${targetdir}css`);	
-     
-     
-     src([targetdir + 'css/sass/base.scss'])
-	    .on('error', reject)
-	    .pipe(header(themebanner, { info : info }))
-	    .pipe(sass().on('error',  sass.logError))
-	    .pipe(postcss(plugins))
-	    .pipe(rename("style.css"))
-	    .pipe(dest(targetdir))
-	    .on('end', resolve);	
-    
-	    console.log(`  - style.css created in ${targetdir}`);	
-	});
+    	    .pipe(touch());
+
+	    console.log(`  - Backend styles created in ${targetdir}css`);	
+
     }
     
     
-    copyprocess()
-    .then(function() {
-	setcolorfamily();
-	setwebsite_usefaculty();
-	copyscreenshot();
-	return;
-    }).then(function() {
-	buildproductivestyles();
-	return;
-    }).catch(function(error) {
-	console.log(error);
-    }).then(function() {
-	console.log(`Create new theme ${farbfamilie}, Version ${info.version} in ${targetdir}`);
-    });
-    
-    	
+     // compile sass, use autoprefixer and minify results
+    const buildproductivestyle = () => {
+	
+	var inputscss = targetdir + 'css/sass/base.scss';
+	console.log(`  - Creating new CSS from SCSS-File ${inputscss} in ${targetdir}style.css`);	
+	return src([inputscss])
+	    .pipe(header(themebanner, { info : info }))
+	    .pipe(sass().on('error',  sass.logError))
+	    .pipe(postcss([
+		autoprefixer(),
+		cssnano()
+	    ]))
+	    .pipe(rename("style.css"))
+	    .pipe(dest(targetdir))
+    	    .pipe(touch());
+
+    }
+     
+   
+    const dothis = series(copyprocess,parallel(setcolorfamily,setwebsite_usefaculty,copyscreenshot),buildbackendstyles,buildproductivestyle);	
+    dothis();
     cb();
     return;
 }
@@ -250,58 +224,73 @@ function cloneTheme(cb) {
 /* 
  * SASS and Autoprefix CSS Files, without clean
  */
-export const sassautoprefix = () => {
+export const sassautoprefixhelperfiles = () => {
     var plugins = [
         autoprefixer()
     ];
-  return src(['css/sass/base.scss', 'css/sass/admin.scss', 'css/sass/editor-style.scss', 'css/sass/gutenberg.scss'])
-    .pipe(header(banner, { info : info }))
+  return src(['css/sass/admin.scss', 'css/sass/editor-style.scss', 'css/sass/gutenberg.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
-    .pipe(dest('./css'));
+    .pipe(dest('./css'))
+    .pipe(touch());
+    
+   
 }
 
 
 /* 
- *SASS and Autoprefix CSS Files, without clean and make sourcemaps. 
+ * SASS and Autoprefix CSS Files, without clean
  */
-export const sassautoprefixmaps = () => {
-     var plugins = [
+export const sassautoprefixmainstyle = () => {
+    var plugins = [
         autoprefixer()
     ];
-  return src(['css/sass/base.scss', 'css/sass/admin.scss', 'css/sass/editor-style.scss', 'css/sass/gutenberg.scss'])
-    .pipe(sourcemaps.init())
+  return src(['css/sass/base.scss'])
     .pipe(header(banner, { info : info }))
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
-    .pipe(sourcemaps.write())
-    .pipe(dest('./css'));
+    .pipe(rename('style.css'))
+    .pipe(dest('./'))
+    .pipe(touch());
+}
+
+
+
+
+/* 
+ * Compile all styles with SASS and clean them up 
+ */
+export const buildhelperstyles = () => {
+    var plugins = [
+        autoprefixer(),
+        cssnano()
+    ];
+  return src(['css/sass/admin.scss', 'css/sass/editor-style.scss', 'css/sass/gutenberg.scss'])
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss(plugins))
+    .pipe(dest('./css'))
+    .pipe(touch());
 }
 
 
 /* 
  * Compile all styles with SASS and clean them up 
  */
-export const buildstyles = () => {
+export const buildmainstyle = () => {
     var plugins = [
         autoprefixer(),
         cssnano()
     ];
-  return src(['css/sass/base.scss', 'css/sass/admin.scss', 'css/sass/editor-style.scss', 'css/sass/gutenberg.scss'])
+  return src(['css/sass/base.scss'])
    .pipe(header(banner, { info : info }))
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
-    .pipe(dest('./css'));
+    .pipe(rename('style.css'))
+    .pipe(dest('./'))
+    .pipe(touch());
 }
 
-/*
- * Copy style.css to the theme root
- */
-export const copystyle = () => {
-  return src('css/base.css')
-    .pipe(rename('style.css'))
-    .pipe(dest('./'));
-}
+
 
 export const pot = () => {
   return src("**/*.php")
@@ -326,7 +315,8 @@ export const upversionpatch = () => {
     
   return src(['./package.json','./style.css'])
     .pipe(bump({version: newVer}))
-    .pipe(dest('./'));
+    .pipe(dest('./'))
+    .pipe(touch());
 };
 
 
@@ -349,7 +339,6 @@ export const devversion = () => {
 
 
 export const clone = cloneTheme;
-export const maps = series(sassautoprefixmaps, copystyle, devversion);
-export const dev = series(sassautoprefix, copystyle, devversion);
-export const build = series(buildstyles, copystyle,upversionpatch);
+export const dev = series(sassautoprefixhelperfiles, sassautoprefixmainstyle, devversion);
+export const build = series(buildhelperstyles, buildmainstyle, upversionpatch);
 export default dev;

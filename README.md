@@ -9,6 +9,7 @@ GITHub-Repo: https://github.com/RRZE-Webteam/FAU-Einrichtungen
 
 
 ## Autor 
+
 RRZE-Webteam , http://www.rrze.fau.de
 
 ## Copyright
@@ -19,10 +20,10 @@ GNU General Public License (GPL) Version 3
 
 ## Feedback
 
-Please use github for submitting new features or bugs:
+Bitte verwenden Sie GitHub um Issues oder Feedback zu geben:
  https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues
 
-or send an email to 
+Alternativ können Sie auch eine E-Mail senden an: 
  webmaster@rrze.fau.de
 
 ## Dokumentation
@@ -32,7 +33,7 @@ Eine Dokumentation des Themes und dessen Funktionen findet sich unter der Adress
 
 ## Entwickler-Hinweise
 
-## Testportal
+### Testportal
 
 Testseiten und Hinweise zur Neuentwicklung finden sich auf dem Testportal https://www.beta.wordpress.rrze.fau.de/ Dort finden sich auch weitere Hinweise zur Entwicklung.
 
@@ -41,7 +42,7 @@ Testseiten und Hinweise zur Neuentwicklung finden sich auf dem Testportal https:
 Im Projekt befindet sich eine ```package.json``` und ein Gulpskript ```gulpfile.babel.js```.
 Durch Ausführung mit NodeJS können 
 - die SASS-Dateien zu den notwendigen CSS compiliert werden. 
-- Vendor-Prefixes in den CSS-Dateien ergönzt werden,
+- Vendor-Prefixes in den CSS-Dateien ergänzt werden,
 - CSS-Dateien minifiziert werden,
 - die zentrale Sprachdatei fau.pot aktualisiert werden,
 - die Versionsnummer des Projektes (automatisch) erhöht werden,
@@ -49,8 +50,9 @@ sowie weitere Tasks ausgeführt weren.
 
 Übliche Startprozesse sind:
 
-```node run (option)```
-mit (option)=
+```gulp [option]```
+
+mit [option]:
 
 - "dev" (Erstellung der CSS Dateien aus SASS plus Autoprefixer; Zusätzlich wird die POT-File in /languages aktualisiert.)
 - "maps" (Erstellung der CSS Dateien aus SASS plus SourceMap, ohne Autoprefixer)
@@ -62,7 +64,6 @@ mit (option)=
 ### SASS-Compiler
 
 ZUr Compilierung der SASS Dateien befindet sich ein Gulp-Skript im Basisordner. Dieses Skript compiliert die CSS-Dateien aus den SASS, ergänzt notwendige Vendor-Prefixes und minifiziert die Ausgaben.
-
 Es ist jedoch abseits des Gulp-Skriptes möglich, SASS auch mit einer eigenen IDE zu compilieren. Hierzu können die folgenden Parameter verwendet werden:
 
 Im Verzeichnis  ```/css/sass/``` wurden alle notwendigen SASS und SCSS Dateien abgelegt.
@@ -83,10 +84,9 @@ Einstellungen für eigene Watcher:
 Mit der Compiler-Option ```--style compressed``` sollen die im produktiven Betrieb erzeugten CSS-Dateien komprimiert sein. 
 
 
-## Hinweis zu Vendor-Prefixes
+### Hinweis zu Vendor-Prefixes
 
 In den SASS-Dateien befinden sich teilweise noch Vendor-Prefixes. Diese wurde in älteren Versionen in das Theme eingestellt, als es noch keinen Autoprefixer
 gab. Diese Vendor-Prefixes sollen in den nächsten Versionen des Themes entfernt werden.
 
 Neue Vendor-Prefixes sollen  -sofern sie noch benötigt werden- nur noch durch einen Autoprefixer auf das style.css ergänzt werden. 
-Das beigelegte Gulp-Skript mit den darin befindlichen Modules ergänzt die CSS-Dateien um Vendor-Prefixes.
