@@ -328,7 +328,7 @@ $default_fau_page_langcodes = array(
 	"en" => __('Englisch','fau'),
 	"es" => __('Spanisch','fau'),
 	"fr" => __('Französisch','fau'),
-	"cn" => __('Chinesisch','fau'),
+	"zh" => __('Chinesisch','fau'),
 	"ru" => __('Russisch','fau'),
     );
 

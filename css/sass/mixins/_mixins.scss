@@ -34,19 +34,19 @@ Mixins File for Wordpress Theme FAU
 
 @mixin linear-gradient($fromColor, $toColor) {
     background-color: $fromColor; /* Fallback Color */
-    background-image: linear-gradient(left, $fromColor, $toColor);
+    background-image: linear-gradient(to right, $fromColor, $toColor);
 }
 @mixin linear-top-gradient($fromColor, $toColor) {
     background-color: $fromColor; /* Fallback Color */
-    background-image: linear-gradient(top, $fromColor, $toColor);
+    background-image: linear-gradient(to bottom, $fromColor, $toColor);
 }
 @mixin linear-gradient-three($fromColor, $toColor, $nextColor) {
     background-color: $fromColor; /* Fallback Color */
-    background-image: linear-gradient(left, $fromColor, $toColor,$nextColor);
+      background-image: linear-gradient(to right, $fromColor, $toColor,$nextColor);
 }
 @mixin linear-top-gradient-three($fromColor, $toColor, $nextColor) {
     background-color: $fromColor; /* Fallback Color */
-    background-image: linear-gradient(top, $fromColor, $toColor,$nextColor);
+    background-image: linear-gradient(to bottom, $fromColor, $toColor,$nextColor);
 }
 
 @mixin radial-gradient($color2, $color1) {
@@ -122,8 +122,6 @@ Mixins File for Wordpress Theme FAU
 
 @mixin inline-block() {
     display: inline-block; 
-    *display:inline; 
-    *zoom:1;
 }
 @mixin hideout() {
     position:absolute;
@@ -172,12 +170,26 @@ Mixins File for Wordpress Theme FAU
 }
 
 
-//
-// Mixins from Bootstrap 4.3.1
-// Cause we dont update from Bootstrao 3 to Bootstrap 4 yet and dont want to insert all
-// sass files in a template folder, we just get here what we need
-// 
+// Set Font Style
 
+@mixin fontFace($family,$src,$weight: normal,$style: normal,$withlocal: true) {   
+  @font-face {
+    font-family: $family;
+     @if $withlocal {
+	src: local($family), 
+	url('#{$src}.woff2') format('woff2'), 
+	url('#{$src}.woff') format('woff'),
+	url('#{$src}.ttf') format('truetype');
+     } @else {
+	src: url('#{$src}.woff2') format('woff2'), 
+	url('#{$src}.woff') format('woff'),
+	url('#{$src}.ttf') format('truetype');
+     }
+
+    font-style: $style;
+    font-weight: $weight;
+  }
+}
 
 
 // Only display content to screen readers

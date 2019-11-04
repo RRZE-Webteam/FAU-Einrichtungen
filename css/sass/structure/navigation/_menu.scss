@@ -70,7 +70,9 @@
 
 		&:hover, &:focus, &[aria-expanded=true] {
 			color: $colorPrimaryContrast;
+			text-decoration: none;
 		}
+		
 	}
 
 	/* First-level items */
@@ -153,7 +155,7 @@
 	.button-portal {
 		@include inline-block;
 		color: $colorMainMenu;
-		background-color: $colorHover; // $colorOverlayLight; // $colorHover;
+		background-color: $colorHover; 
 
 		
 		padding: 13px 20px;
@@ -164,7 +166,7 @@
 
 		&:hover,
 		&:focus {
-			background: $colorPrimary; // lighten($colorHover, 5%); // $colorOverlayDark; 
+			background: lighten($colorHover, 5%);
 		}
 	}
 
@@ -186,7 +188,7 @@
 			&:hover,
 			&:focus {
 				text-decoration: none;
-				background-color:  $colorOverlayDark; // $colorHover;
+				background-color:  $colorHover;  
 			}
 		}
 	}
@@ -199,7 +201,7 @@
 			}
 
 			> a {
-				border-bottom: 1px solid $colorOverlayLight; // $colorHover;
+				border-bottom: 1px solid $colorHover;
 
 				&:before {
 					@extend .fa;

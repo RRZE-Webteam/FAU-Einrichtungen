@@ -20,36 +20,18 @@ audio,
 canvas,
 video {
 	display: inline-block;
-	*display: inline;
-	*zoom: 1;
 }
 
 audio:not([controls]) {
 	display: none;
 }
-
-
-//
-// Address `[hidden]` styling not present in IE 8/9/10.
-// Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
-//
-
 [hidden],
 template {
   display: none;
 }
 
 
-a:focus {
-	outline: thin dotted #333;
-	outline: 5px auto -webkit-focus-ring-color;
-	outline-offset: -2px;
-}
 
-a:hover,
-a:active {
-	outline: 0;
-}
 
 sub,
 sup {
@@ -80,7 +62,6 @@ textarea {
 
 button,
 input {
-	*overflow: visible;
 	line-height: normal;
 }
 
@@ -117,24 +98,8 @@ body {
 	background-color: #ffffff;
 }
 
-a {
-	color: #0088cc;
-	text-decoration: none;
-}
-
-align,
-a:focus {
-	color: #005580;
-	text-decoration: underline;
-}
 
 
-p {
-	margin: 10px 0 5px 0;
-	color: #444;
-	font-size: 14px;
-	line-height: 22px;
-}
 
 small {
 	font-size: 85%;
@@ -146,10 +111,6 @@ strong {
 
 em {
 	font-style: italic;
-}
-
-cite {
-	font-style: normal;
 }
 
 h1,
@@ -181,29 +142,6 @@ dd {
 	margin-left: 10px;
 }
 
-
-blockquote {
-	padding: 0 0 0 15px;
-	margin: 0 0 20px;
-	border-left: 5px solid #eeeeee;
-}
-
-blockquote p {
-	margin-bottom: 0;
-	font-size: 17.5px;
-	font-weight: 300;
-	line-height: 1.25;
-}
-
-blockquote small {
-	display: block;
-	line-height: 20px;
-	color: #999999;
-}
-
-blockquote small:before {
-	content: '\2014 \00A0';
-}
 
 blockquote.pull-right {
 	float: right;
@@ -332,8 +270,6 @@ input[type="color"] {
 input[type="radio"],
 input[type="checkbox"] {
 	margin: 4px 0 0;
-	margin-top: 1px \9;
-	*margin-top: 0;
 	line-height: normal;
 }
 
@@ -350,11 +286,6 @@ input[type="checkbox"] {
 select,
 input[type="file"] {
 	height: 30px;
-	/* In IE7, the height of the select element cannot be changed by height, only font-size */
-
-	*margin-top: 4px;
-	/* For IE7, add top margin to align select with labels */
-
 	line-height: 30px;
 }
 

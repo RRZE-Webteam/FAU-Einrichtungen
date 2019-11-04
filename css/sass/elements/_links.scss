@@ -4,12 +4,24 @@
 
 a {
 	color: $colorPrimary;
+	text-decoration: none;
 	
+	
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+	&:active,
 	&:hover, 
 	&:focus {
 		color: $colorHover;
+		text-decoration: underline;
 	}
-	
+	&:focus {	 
+	    outline: thin dotted #333;
+	    outline: 5px auto -webkit-focus-ring-color;
+	    outline-offset: -2px;
+	}
 	p &, 
 	li &, 
 	table &, 
@@ -26,17 +38,20 @@ a {
 	    }
 	    
 	}
+
+	
 	
 	table &:hover, 
-	table &:focus {
-		text-decoration: none;
-	}
-	
+	table &:focus,
+	&.tag-cloud-link,
 	#hero & {
 		text-decoration: none;
 	}
 	
-	#hero &:hover, #hero &:focus {
+	&.tag-cloud-link:hover,
+	&.tag-cloud-link:focus,
+	#hero &:hover, 
+	#hero &:focus {
 		text-decoration: underline;
 	}
 }
