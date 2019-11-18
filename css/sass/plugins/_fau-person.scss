@@ -51,6 +51,14 @@
 	    }
 	    
 	} 
+	
+    span[itemprop="honorificPrefix"], 
+    span[itemprop="honorificSuffix"] {
+	white-space: nowrap;
+    }
+    .fullname {
+	@include hyphens(none);
+    }
 
 }
 
@@ -58,7 +66,7 @@
 
 
 .content-person {
-	margin: 0 15px;
+	margin: 0;
 	padding: 0;
 	border: none;
 	display: block;
@@ -242,29 +250,26 @@
 
 
 
-span[itemprop="honorificPrefix"], 
-span[itemprop="honorificSuffix"] {
-    white-space: nowrap;
-}
-.fullname {
-    @include hyphens(none);
-  //  white-space: nowrap;
-  //  erstmal wieder raus, da es bei langen Titeln Probleme gibt; #403   
-}
+
 
 .widget .person {
     ul.person-info ul {
 	margin: 0 0 10px 25px;
     }   
+    li.person-info-address,
     li.person-info-description,
     li.person-info-office {
 	display: inline-block;
 	margin-top: 10px;
     }
+    li.person-info-address {
+	margin-bottom: 5px;
+    }
 }
 
 /* Strukturen Personenshortcode Content */
 
+.sidebar-inline,
 .startpage-sidebar,
 .portalpage-content,
 .startpage-blogroll,
@@ -277,11 +282,12 @@ span[itemprop="honorificSuffix"] {
 	    margin-left: 0;
 	    margin-right: 0;
 	    
-	    .person-compact-thumb,
+	
 	    .person-default-thumb,
 	    .person-default {
 		margin-left: 5px;
 		margin-right: 5px;
+		padding: 5px;	
 	    }
 	    .person-thumb {
 		flex: 0 0 90px;
@@ -298,15 +304,20 @@ span[itemprop="honorificSuffix"] {
 		order: 2;
 		max-width: inherit;
 		width: inherit;
-		padding: 5px;
 	    } 
-	    
+
 
 	    .person-compact-thumb {
-		flex: 1 0 350px;
+		margin-left: 5px;
+		margin-right: 5px;
+		flex: 1 0 200px;
+		@media (min-width: $screen-sm) {
+		    flex-basis: 350px; 
+		    padding: 5px;	
+		}
 		order: 1;
 		width: inherit;
-		padding: 5px;		
+			
 	    }
 	    .person-default-more {
 		 float: none;
