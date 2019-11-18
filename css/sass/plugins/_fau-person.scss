@@ -125,13 +125,6 @@
 		background-position: left 5px;
 	}
 	
-	.person-info-description {
-		padding-top: 8px;
-		
-		@media(max-width: $screen-sm - 1) {
-			margin-left: 0 !important;
-		}
-	}
 	
 	
 	.image-placeholder {
@@ -259,7 +252,7 @@
     li.person-info-address,
     li.person-info-description,
     li.person-info-office {
-	display: inline-block;
+	display: block;
 	margin-top: 10px;
     }
     li.person-info-address {
@@ -381,12 +374,6 @@
 	margin: 0;
 	padding: 0;
 	
-	.span-small {
-	    width: 60px;
-	}
-	.span6 {
-	    width: 220px;
-	}
     }
 }
 
@@ -397,38 +384,6 @@
     padding-top: 0;
 }
 
-
-@media (max-width: $screen-sm -1) {
-    .widget_faupersonwidget,
-	.content-person {
-	    border: none;
-	    .span1 {
-		margin-left: 20px;
-	    }
-	    .person,
-	    .compactindex {
-		.person-thumb, 
-		.span1 {
-		    width: 90px;
-		    float: left;
-		    margin-right: 10px;
-		}
-		.span3 {
-		    width: 100%;
-		}
-		.span6 {
-		    padding: 0;
-		}
-	    }	
-	}
-	.archive .person .span6 {
-	   width: 100%;
-	   
-	   .person-info-description {
-	       padding-top: 15px;
-	   }
-	}
-}
 
 
 // Personen-Page - 
