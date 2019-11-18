@@ -51,24 +51,9 @@
 	    }
 	    
 	} 
-	
-	.side {
-	    margin: 0 15px;
-	    @media (min-width: $screen-sm) {
-		 margin: 0;
-	    }
-	}
-	
-	
-	
+
 }
-.compactindex {
-    
-    @media (min-width: $screen-sm) {
-		 margin-left: -5px;
-    }
-   
-}
+
 
 
 
@@ -202,15 +187,10 @@
 			}
 		    }
 		}
-		
+
 	}
 	
 	
-	/*
-	li.person-info:before {
-		@extend .fa;
-		width: 20px;
-	} */
 	
 	.person-info-phone:before { 
 	    @extend .fa;
@@ -247,6 +227,7 @@
 	.person-info-position {
 	    font-weight: bold;
 	}
+	
 	.person-info-address {
 	    margin-top: 10px;
 	    padding-left: 0px;
@@ -271,8 +252,15 @@ span[itemprop="honorificSuffix"] {
   //  erstmal wieder raus, da es bei langen Titeln Probleme gibt; #403   
 }
 
-.widget .person ul.person-info ul {
-    margin: 0 0 10px 25px;
+.widget .person {
+    ul.person-info ul {
+	margin: 0 0 10px 25px;
+    }   
+    li.person-info-description,
+    li.person-info-office {
+	display: inline-block;
+	margin-top: 10px;
+    }
 }
 
 /* Strukturen Personenshortcode Content */
@@ -281,35 +269,66 @@ span[itemprop="honorificSuffix"] {
 .portalpage-content,
 .startpage-blogroll,
 .content-inline {
-   
+	
 	.person .row {
 	    display: flex;
 	    flex-wrap: wrap; 
 	    align-content: flex-start;
+	    margin-left: 0;
+	    margin-right: 0;
 	    
+	    .person-compact-thumb,
+	    .person-default-thumb,
+	    .person-default {
+		margin-left: 5px;
+		margin-right: 5px;
+	    }
 	    .person-thumb {
-		flex: 0 0 100px;
+		flex: 0 0 90px;
 		float: none;
 		order: 1;
 		margin: 0;
+		padding: 5px;
 	    }
+	    .person-default,
+	    .person-sidebar,
 	    .person-default-thumb {
 		flex: 1 0 200px;
 		float: none;
 		order: 2;
 		max-width: inherit;
 		width: inherit;
+		padding: 5px;
 	    } 
 	    
+
+	    .person-compact-thumb {
+		flex: 1 0 350px;
+		order: 1;
+		width: inherit;
+		padding: 5px;		
+	    }
 	    .person-default-more {
 		 float: none;
-		 flex: 1 0 200px;
+		 flex: 1 1 200px;
 		 order: 3;
-
+		 padding: 5px;
 	    }
-
+	    
+	    // removing old Bootstrap3 definitons
+	    .span1,
+	    .span3,
+	    .span6,
+	    .span4 {
+		float: none;
+		width: auto;
+		margin-left: inherit;
+		margin-right: inherit;
+	    }
 	}
-    
+	.compactindex  .row .person-thumb {
+		order: 2;
+	 }
     
     
 }
@@ -338,37 +357,6 @@ span[itemprop="honorificSuffix"] {
 	}
     }
 }
-.portalpage-sidebar,
-.startpage-sidebar,
-.sidebar-inline {   
-    .person,
-    .widget_faupersonwidget {
-	margin-top: 0;
-	.row {
-	    display: block;
-	//     display: inline-block;
-	    margin: 0;
-	    
-	    .person-default,
-	    .span3, 
-	    .span4 {
-		display: block;
-		float: none;
-		margin: 0;
-		width: auto;
-	    }
-	    
-	    
-	    .person-thumb,
-	    .span1 {
-		display: inline;
-		float: left;
-		margin: 0 20px 0 0;
-	    }
-	}
-    }
-}
-
 
 .sidebar-outline {
     ul.person-info li {
