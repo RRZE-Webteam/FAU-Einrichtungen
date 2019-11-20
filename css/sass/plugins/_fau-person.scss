@@ -74,7 +74,7 @@
 	@media (min-width: $screen-sm) {
 	    border: 1px solid $colorStandardHellgrau;
 	    margin: 0 0 10px 0;
-	    padding: 5px;
+	    padding: 0 5px;
         }
 	&.noborder {
 	    border: none;
@@ -280,7 +280,7 @@
 	    .person-default {
 		margin-left: 5px;
 		margin-right: 5px;
-		padding: 5px;	
+		padding: 0 5px;	
 	    }
 	    .person-thumb {
 		flex: 0 0 90px;

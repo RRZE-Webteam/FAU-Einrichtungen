@@ -54,12 +54,6 @@
   // [converter] extracted a& to a.btn
 }
 
-a.btn {
-  &.disabled,
-  fieldset[disabled] & {
-    pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
-  }
-}
 
 
 // Alternate buttons

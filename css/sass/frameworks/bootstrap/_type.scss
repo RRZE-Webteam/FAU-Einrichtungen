@@ -66,22 +66,11 @@ mark,
 @include bg-variant('.bg-danger', $state-danger-bg);
 
 
-// Page header
-// -------------------------
-
-.page-header {
-  padding-bottom: (($line-height-computed / 2) - 1);
-  margin: ($line-height-computed * 2) 0 $line-height-computed;
-  border-bottom: 1px solid $page-header-border-color;
-}
-
-
 
 
 // Description Lists
 dl {
   margin-top: 0; // Remove browser default
-  margin-bottom: $line-height-computed;
 }
 dt,
 dd {
