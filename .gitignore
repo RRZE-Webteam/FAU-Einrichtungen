@@ -7,3 +7,4 @@ node_modules
 .idea*
 .sass-cache*
 /package-lock.json
+tmp
