@@ -34,13 +34,12 @@ get_header(); ?>
 				if ($is_sidebar_active) {
 				    echo '<div class="content-inline with-sidebar">';
 				} else {
-				     echo '<div class="content-inline">';
+				    echo '<div class="content-inline">';
 				}
 				the_content(); 
-				
-
+				echo '</div>';
 				?>
-				
+	
 			    </div>
 			    <?php echo wp_link_pages($pagebreakargs); ?>
 			</main>    
