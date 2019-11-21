@@ -155,15 +155,8 @@ acronym[title],
 acronym[data-original-title],
 abbr[title],
 abbr[data-original-title] {
-    font-style: italic;
     cursor: help;
-    border-bottom: 1px dotted $colorPrimary;
     text-decoration: none; 
-    
-    &:hover, &:focus {
-	background: $colorPrimary;
-	color: $colorPrimaryContrast;
-    }
 }
 acronym.initialism,
 abbr.initialism {
