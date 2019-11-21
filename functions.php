@@ -565,8 +565,8 @@ function categories_postcount_filter ($variable) {
 add_filter('the_content', 'fau_addlightboxrel');
 function fau_addlightboxrel ($content) {
     global $post;
-    $pattern = "/<a(.*?)href=('|\")(.*?).(bmp|gif|jpeg|jpg|png)('|\")(.*?)>/i";
-    $replacement = '<a$1class="lightbox" href=$2$3.$4$5$6</a>';
+    $pattern = '/<a href=\"([^\"]+)\.(bmp|gif|jpeg|jpg|png)(?![\w.\-_])\">/i';
+    $replacement = '<a class="lightbox" href="$1.$2">';
     $content = preg_replace($pattern, $replacement, $content);
     return $content;
 }
