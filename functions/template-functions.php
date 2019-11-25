@@ -583,8 +583,8 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	if ((has_post_thumbnail( $post->ID )) || ($show_thumbs==true))  {
 	    
 	    $output .= '<div class="thumbnailregion">'; 
-	    $output .= '<div aria-hidden="true" role="presentation" tabindex="-1" class="passpartout" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">'; 
-	    $output .= '<a href="'.$link.'" class="news-image';
+	    $output .= '<div aria-hidden="true" role="presentation" class="passpartout" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">'; 
+	    $output .= '<a href="'.$link.'" tabindex="-1" class="news-image';
 	    if ($external) {
 		$output .= ' ext-link';
 	    }
