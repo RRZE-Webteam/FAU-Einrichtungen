@@ -76,6 +76,10 @@ table {
 		border-bottom: 1px solid $colorContentBorders;
 		text-align: left;
 		
+		h1, h2, h3, h4, h5, h6 {
+		    color: $PalettonDunkler;
+		}
+		
 
 	}
 	&.sorttable th.header {
@@ -100,6 +104,11 @@ table {
 	tr:nth-child(odd) td {
 		color:  $colorLightestContrast;
 		background: $colorStandardHellgrau;
+		
+		h1, h2, h3, h4, h5, h6 {
+		    color: $PalettonDunkler;
+		}
+		
 		
 		ul {
 		    li {

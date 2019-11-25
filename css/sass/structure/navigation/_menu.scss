@@ -84,7 +84,6 @@
 		> [type=button] {
 			display: block;
 			position: relative;
-		//	@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
 			@include px2rem($font-size-nav-mainlinks);
 			font-weight: bold;
 			padding: 10px 15px;
@@ -216,6 +215,12 @@
 		}
 	}
 
+	.introtext, .introtext-full, .introthumb {
+	    display: none;
+	    @media (min-width: $screen-sm) {
+		display: block;
+	    }
+	}
 	.introtext-full,
 	.introtext {
 		p {
@@ -223,7 +228,7 @@
 			padding: 20px;
 			margin: 0;
 			color: #fff;
-			opacity: .7;
+			opacity: .8;
 			font-style: normal;
 			font-weight: normal;
 		}
@@ -261,7 +266,7 @@
 
 	figcaption {
 		color: #fff;
-		opacity: 0.7;
+		opacity: 0.8;
 		@include px2rem($font-size-nav-blockquote-cite);
 	}
 
@@ -327,7 +332,9 @@
 			}
 
 			.nav-flyout {
-				background: url("./img/siegel-zuv-schnitt.png") no-repeat 95% bottom, linear-gradient(to top, #005599 0%, #036 100%);
+
+				background: url($siegelurl) no-repeat 95% bottom, linear-gradient(to top, $colorPrimaryHeroLight 0%, $colorPrimaryHero 100%);
+
 				@media (min-width: $screen-sm) {
 					min-height: 199px;
 				}
