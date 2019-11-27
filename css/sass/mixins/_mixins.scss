@@ -42,7 +42,7 @@ Mixins File for Wordpress Theme FAU
 }
 @mixin linear-gradient-three($fromColor, $toColor, $nextColor) {
     background-color: $fromColor; /* Fallback Color */
-      background-image: linear-gradient(to right, $fromColor, $toColor,$nextColor);
+    background-image: linear-gradient(to right, $fromColor, $toColor,$nextColor);
 }
 @mixin linear-top-gradient-three($fromColor, $toColor, $nextColor) {
     background-color: $fromColor; /* Fallback Color */
@@ -156,6 +156,7 @@ Mixins File for Wordpress Theme FAU
 	@include border-radius(3px);
 	@include px2rem($font-size-textbuttons);
 	
+	color: $colorButton;
 	background: $colorButtonBackground;
 	padding: 6px 10px;
 	text-decoration: none;
@@ -168,6 +169,7 @@ Mixins File for Wordpress Theme FAU
     }
 
 }
+
 
 
 // Set Font Style

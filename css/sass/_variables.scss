@@ -111,7 +111,7 @@ $colorPrintMainLinks: $colorText;
 	$PalettonHellste: #dde5f0;
 	$PalettonHeller: #8fb1ef;
 	$PalettonDunkler: #24598f;
-	$PalettonDunkelste: #1f4c7a;
+	$PalettonDunkelste: #1f4b7a;
 	$siegelurl: './img/siegel-zuv-schnitt.png';
 
 }
@@ -141,9 +141,11 @@ $colorOverlayDark: rgba(0, 0, 0, 0.15);
 // Vorschlag von https://github.com/SebastianHonert/FAU-Einrichtungen/commit/762a7ab636090006af98d4fc502e8e12359c711e#diff-0cecaa3634e3ebf71c0b473a183dff42
 // Mit passenden Variablennamen versehen.
 
-$colorButton: desaturate(lighten($colorPrimary, 5%), 40%); // $PalettonDunkelste;
-$colorButtonBackground: $colorLightest;
-$colorButtonBackgroundHover: darken($colorButtonBackground, 5%);
+
+$colorButtonBackground: $colorPrimary;
+$colorButton: #fff;
+$colorButtonBackgroundHover: $PalettonDunkler;
+
 
 $colorSearchPlaceholder: #111;
 $colorSearchInput: #000;

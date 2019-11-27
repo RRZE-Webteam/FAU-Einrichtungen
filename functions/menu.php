@@ -293,20 +293,20 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 		} else {
 		    if  ((!empty($thumbregion)) && (!empty($textpart))) {
 			// Text und Grafik gesetzt
-			$output .= '<div class="hide-mobile introtext">';
+			$output .= '<div class="introtext" role="presentation">';
 			$output .= $textpart;
 			$output .= '</div>';
-			$output .= '<div class="hide-mobile introthumb" role="presentation">';
+			$output .= '<div class="introthumb" role="presentation">';
 			$output .= $thumbregion;
 			$output .= '</div>';
 		    } elseif(empty($thumbregion)) {	
 			// Nur Text
-			$output .= '<div class="hide-mobile introtext-full">';
+			$output .= '<div class="introtext-full" role="presentation">';
 			$output .= $textpart;
 			$output .= '</div>';
 		    } else {
 			// Nur die Grafik
-			$output .= '<div class="hide-mobile introtext-full" role="presentation">';
+			$output .= '<div class="introtext-full" role="presentation">';
 			$output .= $thumbregion;
 			$output .= '</div>';
 
@@ -728,7 +728,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 			if($this->level == 1) {
 				if (!$this->nothumbnail) {
 				    $item_output .= '<div class="thumb" role="presentation" aria-hidden="true" tabindex="-1">';
-				    $item_output .= '<a ';
+				    $item_output .= '<a tabindex="-1" ';
 
 				    if ($externlink) {
 					 $item_output .= 'data-wpel-link="internal" ';

@@ -336,9 +336,35 @@ export const devversion = () => {
     .pipe(dest('./'));
 };
 
+/* 
+ * CSS Validator
+ */
+import cssvalidate from 'gulp-w3c-css';
+import map from 'map-stream';
+
+
+export const validatecss = () => { 
+  return src(['./style.css'])
+    .pipe(cssvalidate())
+    .pipe(map(function(file, done) {
+      if (file.contents.length == 0) {
+        console.log('Success: ' + file.path);
+        console.log('No errors or warnings\n');
+      } else {
+        var results = JSON.parse(file.contents.toString());
+        results.errors.forEach(function(error) {
+	    console.log('Error: ' + error.errorType + ', line ' + error.line);
+	    console.log('  Kontext: ' + error.context);
+	    console.log('  ' + error.message);
+        });
+       
+      }
+      done(null, file);
+    }));
+};
 
 
 export const clone = cloneTheme;
-export const dev = series(sassautoprefixhelperfiles, sassautoprefixmainstyle, devversion);
+export const dev = series(sassautoprefixhelperfiles, sassautoprefixmainstyle, devversion, validatecss);
 export const build = series(buildhelperstyles, buildmainstyle, upversionpatch);
 export default dev;

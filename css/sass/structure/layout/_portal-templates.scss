@@ -34,7 +34,7 @@
 	margin-right: 0;
     }
     @media (max-width: $screen-sm - 1) {
-	@include linear-gradient-three(transparent 0%,$colorStandardHellgrau 50%,transparent 100%);  
+	@include linear-gradient-three(transparent,$colorStandardHellgrau 50%,transparent);  
     }
 }
 

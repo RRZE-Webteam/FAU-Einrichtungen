@@ -1,12 +1,16 @@
 <?php 
 global $options;
 
+?>
+<h2 id="comments-title"><?php _e("Kommentare", 'fau'); ?></h2>
+
+<?php
 if ( post_password_required() ) : ?>
     <p><?php _e("Dieser Eintrag ist mit einem Passwort geschützt. Bitte geben Sie das Passwort ein, um ihn freizuschalten.", 'fau'); ?></p>
     <?php return;
 endif; 
 if ( have_comments() ) : ?>
-    <h2 id="comments-title"><?php _e("Kommentare", 'fau'); ?></h2>
+   
     
     <?php if (isset($options['advanced_comments_disclaimer'])) {
 	echo '<p class="attention">'.$options['advanced_comments_disclaimer'] .'</p>'."\n";

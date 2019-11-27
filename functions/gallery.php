@@ -233,7 +233,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 				$lightboxattr = ' title="'.$lightboxtitle.'"';
 			    }
 			}
-			if (($link_origin) && ($attr['link'] != 'none')) {
+			if (($link_origin) && isset($attr['link']) && ($attr['link'] != 'none')) {
 			    if (!fau_empty($imgmeta['excerpt'])) { 
 				$output .= '<br>'; 			
 			    }
