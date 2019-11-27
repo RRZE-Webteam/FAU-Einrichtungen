@@ -139,9 +139,9 @@ while ( have_posts() ) : the_post();
 				    </article>
 				</main>
 				<?php if ((get_post_type() == 'post') && (get_theme_mod('advanced_activate_post_comments'))) { ?>
-				     <div class="post-comments" id="comments"> 
+				     <aside class="post-comments" id="comments"  aria-labelledby="comments-title"> 
 					<?php  comments_template(); ?>
-				     </div>
+				     </aside>
 				<?php } ?>
 			    </div>
 			    <?php if(get_post_type() == 'post') { get_template_part('template-parts/sidebar', 'news'); } ?>

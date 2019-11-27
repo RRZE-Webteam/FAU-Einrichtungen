@@ -13,17 +13,15 @@
     
 ?>
 
-	<div id="content">
-		<div class="container">
-			<?php 
-			    echo fau_get_ad('werbebanner_seitlich',false);
-			 ?>
-			
-			<div class="row">
-				<div class="startpage-blogroll">
-				   
-			<main<?php echo fau_get_page_langcode($post->ID);?> id="droppoint">	  
-			    <h1 class="screen-reader-text"><?php the_title(); ?></h1>
+    <div id="content">
+	<div class="container">
+	    <?php 
+		echo fau_get_ad('werbebanner_seitlich',false);
+	     ?>
+	    <div class="row">
+		<div class="startpage-blogroll">
+		    <main<?php echo fau_get_page_langcode($post->ID);?> id="droppoint">	  
+			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 		    <?php 
 			wp_reset_postdata();
 			wp_reset_query();
@@ -92,13 +90,13 @@
 			}    
 			?>
 			</main>	
-				</div>
-				<div class="startpage-sidebar">
-					<?php
-					get_template_part('template-parts/sidebar', 'events'); 					
-					get_template_part('template-parts/sidebar');
-					?>
-				</div>
+		    </div>
+		    <aside class="startpage-sidebar">
+			    <?php
+			    get_template_part('template-parts/sidebar', 'events'); 					
+			    get_template_part('template-parts/sidebar');
+			    ?>
+		    </aside>
 			</div> <!-- /row -->
 			<?php  
 			
@@ -131,10 +129,8 @@
 			    }
 			   
 			} ?>
-		</div> <!-- /container -->
-		
-		
-	</div> <!-- /content -->
+	</div>
+    </div>  
 <?php get_template_part('template-parts/footer', 'social'); ?>	
 <?php 
 get_footer(); 
