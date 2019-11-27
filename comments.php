@@ -6,7 +6,7 @@ if ( post_password_required() ) : ?>
     <?php return;
 endif; 
 if ( have_comments() ) : ?>
-    <h2 id="comments-title"><?php _e("Kommentare", 'fau'); ?></h2>
+    <h2><?php _e("Kommentare", 'fau'); ?></h2>
     
     <?php if (isset($options['advanced_comments_disclaimer'])) {
 	echo '<p class="attention">'.$options['advanced_comments_disclaimer'] .'</p>'."\n";

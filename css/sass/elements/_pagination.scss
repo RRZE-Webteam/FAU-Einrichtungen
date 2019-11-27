@@ -33,7 +33,7 @@
 		}
 		.number {
 		   
-		   
+		    color: $colorButton;
 		    background: $colorButtonBackground;
 		    border: 1px solid $colorButtonBackground;
 		
@@ -45,7 +45,7 @@
 		border: 1px solid $colorContentBorders;
 		padding: 6px 10px;
 		text-decoration: none;
-		color: $colorButton;
+		// color: $colorButton;
 		@include border-radius(3px);
 		@include px2rem($font-size-textbuttons);
 		

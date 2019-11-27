@@ -22,9 +22,6 @@ while ( have_posts() ) : the_post(); ?>
 				    <?php 
 
 				    echo wp_get_attachment_image( $post->ID, 'full' );
-				    echo '<p class="auszug">';
-				    the_excerpt();
-				    echo "</p>\n";
 				    the_content();
 
 				    $imgdata = fau_get_image_attributs($post->ID);
