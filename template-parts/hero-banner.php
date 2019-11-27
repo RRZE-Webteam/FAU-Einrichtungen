@@ -58,7 +58,8 @@ if ((filter_var($copyright, FILTER_VALIDATE_URL)) && (preg_match('/\/cropped\-/'
 }
 ?>
 
-    <div id="hero" class="hero-banner">
+    <section id="hero" class="hero-banner" aria-labelledby="banner-aria-title">
+	<h2 id="banner-aria-title" class="screen-reader-text"><?php echo __('Titel','fau'); ?></h2>
 	<div class="banner" aria-hidden="true" role="presentation">
 	    <div class="introimg">
 		<?php 
@@ -106,4 +107,4 @@ if ((filter_var($copyright, FILTER_VALIDATE_URL)) && (preg_match('/\/cropped\-/'
 		 </div>    
 	    </div>
 	</div>
-    </div>
+    </section>
