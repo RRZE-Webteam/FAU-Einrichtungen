@@ -91,44 +91,44 @@
 			?>
 			</main>	
 		    </div>
-		    <aside class="startpage-sidebar">
+		    <aside class="startpage-sidebar" aria-label="<?php echo __('Sidebar','fau');?>">
 			    <?php
 			    get_template_part('template-parts/sidebar', 'events'); 					
 			    get_template_part('template-parts/sidebar');
 			    ?>
 		    </aside>
-			</div> <!-- /row -->
-			<?php  
-			
-		
-			 $menuslug = get_post_meta( $post->ID, 'portalmenu-slug', true );	
-			 if ($menuslug) { ?>	
-			    <hr>
-			    <?php 			
-				$nosub  = get_post_meta( $post->ID, 'fauval_portalmenu_nosub', true );
-				if ($nosub==1) {
-				    $displaysub =0;
-				} else {
-				    $displaysub =1;
-				}
-				$nofallbackthumbs  = get_post_meta( $post->ID, 'fauval_portalmenu_nofallbackthumb', true );
-				$nothumbnails  = get_post_meta( $post->ID, 'fauval_portalmenu_thumbnailson', true ); 
+		</div> 
+		<?php  
 
-				fau_get_contentmenu($menuslug,$displaysub,0,$nothumbnails,$nofallbackthumbs);
-	
-			 }
-			 
-			echo fau_get_ad('werbebanner_unten',true);			
-			$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );
-			if ($logoliste) { 
-			    /* New since 1.10.57 */
-			    $logos = fau_imagelink_get(array('size' => "logo-thumb", 'catid' => $logoliste, "autoplay" => true, "dots" => true));
-			    if ((isset($logos) && (!empty($logos)))) {
-				echo "<hr>\n";
-				echo $logos;
-			    }
-			   
-			} ?>
+
+		 $menuslug = get_post_meta( $post->ID, 'portalmenu-slug', true );	
+		 if ($menuslug) { ?>	
+		    <hr>
+		    <?php 			
+			$nosub  = get_post_meta( $post->ID, 'fauval_portalmenu_nosub', true );
+			if ($nosub==1) {
+			    $displaysub =0;
+			} else {
+			    $displaysub =1;
+			}
+			$nofallbackthumbs  = get_post_meta( $post->ID, 'fauval_portalmenu_nofallbackthumb', true );
+			$nothumbnails  = get_post_meta( $post->ID, 'fauval_portalmenu_thumbnailson', true ); 
+
+			fau_get_contentmenu($menuslug,$displaysub,0,$nothumbnails,$nofallbackthumbs);
+
+		 }
+
+		echo fau_get_ad('werbebanner_unten',true);			
+		$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );
+		if ($logoliste) { 
+		    /* New since 1.10.57 */
+		    $logos = fau_imagelink_get(array('size' => "logo-thumb", 'catid' => $logoliste, "autoplay" => true, "dots" => true));
+		    if ((isset($logos) && (!empty($logos)))) {
+			echo "<hr>\n";
+			echo $logos;
+		    }
+
+		} ?>
 	</div>
     </div>  
 <?php get_template_part('template-parts/footer', 'social'); ?>	
