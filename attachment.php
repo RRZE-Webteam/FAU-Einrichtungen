@@ -22,9 +22,6 @@ while ( have_posts() ) : the_post(); ?>
 				    <?php 
 
 				    echo wp_get_attachment_image( $post->ID, 'full' );
-				    echo '<p class="auszug">';
-				    the_excerpt();
-				    echo "</p>\n";
 				    the_content();
 
 				    $imgdata = fau_get_image_attributs($post->ID);
@@ -33,7 +30,7 @@ while ( have_posts() ) : the_post(); ?>
 
 				    if ( is_user_logged_in() ) {
 					echo '<p class="attention">'.__('Die folgenden Informationen werden nur für angemeldete Benutzer des CMS angezeigt:','fau').'</p>';
-					echo "<h3>Attribute</h3>";
+					echo "<h2>Attribute</h2>";
 
 					echo fau_array2table($imgdata);
 
@@ -41,10 +38,10 @@ while ( have_posts() ) : the_post(); ?>
 					if (isset($meta) && isset($meta['_wp_attachment_metadata']) && is_array($meta['_wp_attachment_metadata'])) { 
 					    $data = unserialize($meta['_wp_attachment_metadata'][0]);
 					    if (isset($data['image_meta'])) {    
-						echo "<h3>Metadaten</h3>";
+						echo "<h2>Metadaten</h2>";
 						echo fau_array2table($data['image_meta']);
 					    }
-					    echo "<h3>Verfügbare Auflösungen</h3>\n";
+					    echo "<h2>Verfügbare Auflösungen</h2>\n";
 					    echo fau_array2table($data['sizes']);
 					}
 
@@ -52,7 +49,7 @@ while ( have_posts() ) : the_post(); ?>
 				    }
 				    ?>
 
-					<h3>Daten zum Bild</h3>
+					<h2>Daten zum Bild</h2>
 
 					<table>
 					    <tr>
