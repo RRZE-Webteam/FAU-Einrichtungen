@@ -988,54 +988,7 @@ function fau_save_metabox_page_additional_attributes( $post_id, $post ) {
     $newval = isset($_POST['fau_metabox_page_imagelinks_catid']) ? absint($_POST['fau_metabox_page_imagelinks_catid']) : 0;
     fau_save_standard('fauval_imagelink_catid', $newval, $post_id, 'post', 'int');
 
-	
-    if (get_theme_mod('advanced_activateads') == true) {	
-	$newval = isset($_POST['werbebanner_seitlich']) ? (array) $_POST['werbebanner_seitlich'] : [];
-	$oldval = get_post_meta($post_id, 'werbebanner_seitlich', true);
-	$remove = 0;
-	$found = 0;
 
-	foreach ($newval as $i) {
-	    if ($i == -1) {
-		$remove = 1;
-	    } elseif ($i > 0) {
-		$found = 1;
-	    }
-	}
-
-	if (($remove == 1) || ($found == 0)) {
-	    delete_post_meta($post_id, 'werbebanner_seitlich');
-	} else {
-	    if (!empty($oldval)) {
-		update_post_meta($post_id, 'werbebanner_seitlich', $newval);
-	    } else {
-		add_post_meta($post_id, 'werbebanner_seitlich', $newval, true);
-	    }
-	}
-
-	$newval = isset($_POST['werbebanner_unten']) ? (array) $_POST['werbebanner_unten'] : [];
-	$oldval = get_post_meta($post_id, 'werbebanner_unten', true);
-	$remove = 0;
-	$found = 0;
-
-	foreach ($newval as $i) {
-	    if ($i == -1) {
-		$remove = 1;
-	    } elseif ($i > 0) {
-		$found = 1;
-	    }
-	}
-
-	if (($remove == 1) || ($found == 0)) {
-	    delete_post_meta($post_id, 'werbebanner_unten');
-	} else {
-	    if (!empty($oldval)) {
-		update_post_meta($post_id, 'werbebanner_unten', $newval);
-	    } else {
-		add_post_meta($post_id, 'werbebanner_unten', $newval, true);
-	    }
-	}
-    }
 }
 /*-----------------------------------------------------------------------------------*/
 /* Ersetzt das wpLink-Skript durch ein benutzerdefiniertes Skript.
