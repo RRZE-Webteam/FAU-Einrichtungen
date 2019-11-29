@@ -14,13 +14,12 @@ get_header(); ?>
     <?php get_template_part('template-parts/hero', 'small'); ?>
 
     <div id="content" class="content-portal">
-	<div class="container">
-		
+	<div class="container">	
 	    <?php 
-	       echo fau_get_ad('werbebanner_seitlich',false);
+		if (function_exists( 'fau_get_ad' ) ) : 
+		    echo fau_get_ad('werbebanner_seitlich',false);
+		endif;
 	     ?>
-		
-		
 	    <div class="row">
 		<div class="col-xs-12">
 		    <main<?php echo fau_get_page_langcode($post->ID);?> id="droppoint">
@@ -65,8 +64,11 @@ get_header(); ?>
 			}
 			?>
 		    </main>
-		    
-		     <?php echo fau_get_ad('werbebanner_unten',false); ?>
+		    <?php
+		    if (function_exists( 'fau_get_ad' ) ) : 
+			echo fau_get_ad('werbebanner_unten',false); 
+		    endif;
+		    ?>
 		</div>
 	    </div>
 

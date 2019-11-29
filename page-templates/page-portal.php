@@ -16,7 +16,9 @@ get_header(); ?>
     <div id="content" class="content-portal">
 	<div class="container">		
 	    <?php 
-	       echo fau_get_ad('werbebanner_seitlich',false);
+		if (function_exists( 'fau_get_ad' ) ) : 
+		    echo fau_get_ad('werbebanner_seitlich',false);
+		endif;
 	     ?>
 		
 	   
@@ -45,10 +47,8 @@ get_header(); ?>
 	    <?php  
 
 	    $menuslug = get_post_meta( $post->ID, 'portalmenu-slug', true );	
-	    if ($menuslug) { ?>	
-		<hr>
-		<?php 
-		
+	    if ($menuslug) { 	
+		echo "<hr>";
 		$nosub  = get_post_meta( $post->ID, 'fauval_portalmenu_nosub', true );
 		if ($nosub==1) {
 		    $displaysub =0;
@@ -72,7 +72,11 @@ get_header(); ?>
 	      
 	    ?>
 	    
-	    <?php echo fau_get_ad('werbebanner_unten',false); ?>
+	    <?php 
+	    if (function_exists( 'fau_get_ad' ) ) : 
+		echo fau_get_ad('werbebanner_unten',false);
+	    endif; 
+	    ?>
 	</div>
 	
 	

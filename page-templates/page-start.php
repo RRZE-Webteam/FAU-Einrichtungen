@@ -15,8 +15,11 @@ get_header();
 	</div>
 	<div id="content">
 		<div class="container">
-			<?php  echo fau_get_ad('werbebanner_seitlich',false); ?>
-			
+			<?php  
+			if (function_exists( 'fau_get_ad' ) ) :  
+			    echo fau_get_ad('werbebanner_seitlich',false);
+			    endif;
+			?>
 			<div class="row">
 				<div class="startpage-blogroll">
 				    <main<?php echo fau_get_page_langcode($post->ID);?> id="droppoint">
@@ -92,24 +95,24 @@ get_header();
 			<?php  
 			
 			 $menuslug = get_post_meta( $post->ID, 'portalmenu-slug', true );	
-			 if ($menuslug) { ?>	
-			    <hr>
-			    <?php 			
-				$nosub  = get_post_meta( $post->ID, 'fauval_portalmenu_nosub', true );
-				if ($nosub==1) {
-				    $displaysub =0;
-				} else {
-				    $displaysub =1;
-				}
-				$nofallbackthumbs  = get_post_meta( $post->ID, 'fauval_portalmenu_nofallbackthumb', true );
-				$nothumbnails  = get_post_meta( $post->ID, 'fauval_portalmenu_thumbnailson', true ); 
+			 if ($menuslug) { 	
+			    echo "<hr>";		    			
+			    $nosub  = get_post_meta( $post->ID, 'fauval_portalmenu_nosub', true );
+			    if ($nosub==1) {
+				$displaysub =0;
+			    } else {
+				$displaysub =1;
+			    }
+			    $nofallbackthumbs  = get_post_meta( $post->ID, 'fauval_portalmenu_nofallbackthumb', true );
+			    $nothumbnails  = get_post_meta( $post->ID, 'fauval_portalmenu_thumbnailson', true ); 
 
-				fau_get_contentmenu($menuslug,$displaysub,0,$nothumbnails,$nofallbackthumbs);
+			    fau_get_contentmenu($menuslug,$displaysub,0,$nothumbnails,$nofallbackthumbs);
 	
 			 }
-			 
-			echo fau_get_ad('werbebanner_unten',true);
-
+			if (function_exists( 'fau_get_ad' ) ) :  
+			    echo fau_get_ad('werbebanner_unten',true);
+			endif;
+			
 			$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
 			if ($logoliste) { 
 			    /* New since 1.10.57 */
