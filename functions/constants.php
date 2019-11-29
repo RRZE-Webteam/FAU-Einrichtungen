@@ -194,7 +194,6 @@ $defaultoptions = ['optiontable-version'		=> 59,
     
     'advanced_beitragsoptionen'		=> true,
     'advanced_topevent'			=> true,
-    'advanced_activateads'		=> false,
     'galery_link_original'		=> true,
     'galery_force_caption_onslick'  => true,
 
@@ -1096,13 +1095,7 @@ $setoptions = array(
                   'default' => $defaultoptions['advanced_topevent'],
 		  'parent'  => 'bedienung'
               ),   
-	      'advanced_activateads' => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Werbebanner', 'fau' ),
-                  'label'   => __( 'Aktiviert die Möglichkeit, Werbebanner zu verwalten.', 'fau' ),                
-                  'default' => $defaultoptions['advanced_activateads'],
-		  'parent'  => 'bedienung'
-              ),   
+	      
 	       'advanced_activate_synonyms'  => array(
                   'type'    => 'toggle',
                   'title'   => __( 'Synonyme', 'fau' ),

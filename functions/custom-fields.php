@@ -955,44 +955,7 @@ function fau_do_metabox_page_additional_attributes($object, $box) {
 	echo '</div>';
 	
     }
-    if (get_theme_mod('advanced_activateads') == true) {
-	$allads = get_posts(array('post_type' => 'ad', 'posts_per_page' => -1));
-	if ($allads) {
-	    
-	    echo '<h3>'.__('Werbebanner anzeigen','fau').'</h3>';
-	    echo '<div class="subsetting">';
-	    $sidebarads = array('-1' => __('Keine (Deaktivieren)', 'fau'));
-	    $bottomads = array('-1' => __('Keine (Deaktivieren)', 'fau'));
-
-	    foreach ($allads as $ad) {
-		$title = get_the_title($ad->ID);
-		$position = get_post_meta($ad->ID, 'fauval_ad_position', true);
-		if ($position == 1) {
-		    // Nur in der Sidebar
-		    $sidebarads[$ad->ID] = $title;
-		} elseif ($position == 2) {
-		    // Nur Unten
-		    $bottomads[$ad->ID] = $title;
-		} else {
-		    // Beide Bereiceh oder unedefiniert
-		    $sidebarads[$ad->ID] = $title;
-		    $bottomads[$ad->ID] = $title;
-		}
-	    }
-	    wp_reset_postdata();
-	    $listseite = get_post_meta($object->ID, 'werbebanner_seitlich', true);
-	    if (is_array($listseite)) {
-		$listseite = $listseite[0];
-	    }
-	    $listunten = get_post_meta($object->ID, 'werbebanner_unten', true);
-	    if (is_array($listunten)) {
-		$listunten = $listunten[0];
-	    }
-	    fau_form_select('werbebanner_seitlich', $sidebarads, $listseite, __('Sidebar', 'fau'), __('Wählen Sie die Werbung, die in der Sidebar erscheinen soll.', 'fau'), 0, '', false);
-	    fau_form_select('werbebanner_unten', $bottomads, $listunten, __('Inhaltsbereich', 'fau'), __('Wählen Sie die Werbung, die unterhalb des Inhalts erscheinen soll.', 'fau'), 0, '', false);
-	     echo '</div>';
-	}
-    }
+   
     
     
 }
