@@ -4,14 +4,21 @@
 
 #hero.hero-banner {
 	    @include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat left 95% bottom);
-	   height: auto;
+	    height: auto;
 	    margin-bottom: 30px;
 	    padding: 0;   
 	    
 	    @media (min-width: $screen-sm) {
 		 height: 142px;
 	    }
+	    
+	    .fauorg-kooperation & {
+		@include radial-gradient($colorPrimaryHero, $colorPrimaryHeroLight);
+	    }
 }
+
+
+
 .banner {
 	    position: relative;
 	    top: 0px;

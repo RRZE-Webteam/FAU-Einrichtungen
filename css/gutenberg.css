@@ -24,11 +24,6 @@ and open the template in the editor.
   box-sizing: border-box;
 }
 
-small,
-.small {
-  font-size: 86%;
-}
-
 mark,
 .mark {
   background-color: #fcf8e3;
@@ -204,12 +199,6 @@ dd {
   }
 }
 
-abbr[title],
-abbr[data-original-title] {
-  cursor: help;
-  border-bottom: 1px dotted #777777;
-}
-
 .initialism {
   font-size: 90%;
 }
@@ -256,11 +245,6 @@ blockquote.pull-right footer:after,
 blockquote.pull-right small:after,
 blockquote.pull-right .small:after {
   content: " —";
-}
-
-address {
-  font-style: normal;
-  line-height: 1.428571429;
 }
 
 kbd,

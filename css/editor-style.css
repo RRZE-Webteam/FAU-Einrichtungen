@@ -27,11 +27,6 @@ and open the template in the editor.
   box-sizing: border-box;
 }
 
-small,
-.small {
-  font-size: 86%;
-}
-
 mark,
 .mark {
   background-color: #fcf8e3;
@@ -207,12 +202,6 @@ dd {
   }
 }
 
-abbr[title],
-abbr[data-original-title] {
-  cursor: help;
-  border-bottom: 1px dotted #777777;
-}
-
 .initialism {
   font-size: 90%;
 }
@@ -259,11 +248,6 @@ blockquote.pull-right footer:after,
 blockquote.pull-right small:after,
 blockquote.pull-right .small:after {
   content: " —";
-}
-
-address {
-  font-style: normal;
-  line-height: 1.428571429;
 }
 
 kbd,
@@ -5432,10 +5416,6 @@ form {
   padding: 20px;
   margin: 0;
   display: inline-block;
-  border: 1px solid #dde5f0;
-}
-form.noborder {
-  border: none;
 }
 form legend {
   margin: 0;
@@ -5446,6 +5426,12 @@ form legend {
   line-height: 1.8493333333rem;
   color: #003366;
   font-weight: bold;
+}
+#content form {
+  border: 1px solid #dde5f0;
+}
+#content form.noborder {
+  border: none;
 }
 
 label {

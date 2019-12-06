@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 1.11.54-7
+Version: 1.11.54-9
 Description: WordPress-Theme der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)
 Theme URI: https://github.com/RRZE-Webteam/FAU-Einrichtungen
 GitHub Theme URI: https://github.com/RRZE-Webteam/FAU-Einrichtungen
@@ -364,11 +364,6 @@ and open the template in the editor.
   box-sizing: border-box;
 }
 
-small,
-.small {
-  font-size: 86%;
-}
-
 mark,
 .mark {
   background-color: #fcf8e3;
@@ -544,12 +539,6 @@ dd {
   }
 }
 
-abbr[title],
-abbr[data-original-title] {
-  cursor: help;
-  border-bottom: 1px dotted #777777;
-}
-
 .initialism {
   font-size: 90%;
 }
@@ -596,11 +585,6 @@ blockquote.pull-right footer:after,
 blockquote.pull-right small:after,
 blockquote.pull-right .small:after {
   content: " —";
-}
-
-address {
-  font-style: normal;
-  line-height: 1.428571429;
 }
 
 kbd,
@@ -6671,6 +6655,9 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   .mainnav-plainview .nav .nav-flyout {
     background: url("./img/siegel-zuv-schnitt.png") no-repeat 95% bottom, linear-gradient(to top, #0059b3 0%, #003366 100%);
   }
+  .fauorg-kooperation .mainnav-plainview .nav .nav-flyout {
+    background: linear-gradient(to top, #0059b3 0%, #003366 100%);
+  }
 }
 @media (min-width: 768px) and (min-width: 768px) {
   .mainnav-plainview .nav .nav-flyout {
@@ -7820,6 +7807,10 @@ body.mainnav-forceclick .nav > li > [type=button]:focus {
 #hero ::placeholder {
   color: #fff;
 }
+.fauorg-kooperation #hero {
+  background: #003366;
+  background: radial-gradient(ellipse at center, #0059b3 0%, #003366 100%);
+}
 #hero h1, #hero h2, #hero h3, #hero h4, #hero p {
   font-weight: normal;
   color: #fff;
@@ -8365,6 +8356,10 @@ body.mainnav-forceclick .nav > li > [type=button]:focus {
     height: 142px;
   }
 }
+.fauorg-kooperation #hero.hero-banner {
+  background: #003366;
+  background: radial-gradient(ellipse at center, #0059b3 0%, #003366 100%);
+}
 
 .banner {
   position: relative;
@@ -8543,6 +8538,10 @@ body.mainnav-forceclick .nav > li > [type=button]:focus {
 #hero.hero-small h1 {
     padding: 30px 0 10px 0;
   }
+}
+.fauorg-kooperation #hero.hero-small {
+  background: #003366;
+  background: radial-gradient(ellipse at center, #0059b3 0%, #003366 100%);
 }
 
 .hero-meta-portal {
@@ -11444,10 +11443,6 @@ form {
   padding: 20px;
   margin: 0;
   display: inline-block;
-  border: 1px solid #dde5f0;
-}
-form.noborder {
-  border: none;
 }
 form legend {
   margin: 0;
@@ -11458,6 +11453,12 @@ form legend {
   line-height: 1.8493333333rem;
   color: #003366;
   font-weight: bold;
+}
+#content form {
+  border: 1px solid #dde5f0;
+}
+#content form.noborder {
+  border: none;
 }
 
 label {

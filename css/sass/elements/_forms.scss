@@ -49,18 +49,20 @@ form {
 	padding: 20px;
 	margin: 0;
 	display: inline-block;
-	border: 1px solid $colorLightest;
-	 
-	&.noborder {
-	    border: none;
-	}
-	
+
 	legend {
 	    margin: 0;
 	    padding: 0 0 11px 0;
 	    @include px2rem($font-size-h3);
 	    color: $colorPrimary;
 	    font-weight: bold;
+	}
+	
+	#content & {
+	    border: 1px solid $colorLightest;
+	}
+	#content &.noborder {
+	    border: none;
 	}
 }
 
