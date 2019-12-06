@@ -65,19 +65,14 @@ input {
 	line-height: normal;
 }
 
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	cursor: pointer;
-}
-
 label,
 select,
 button,
-input[type="button"],
+[role="button"],
+html input[type="button"],
 input[type="reset"],
-input[type="submit"],
+input[type="submit"], 
+input[type="button"],
 input[type="radio"],
 input[type="checkbox"] {
 	cursor: pointer;
