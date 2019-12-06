@@ -46,9 +46,9 @@ textarea {
 }
 
 form {	
-	padding: 20px;
 	margin: 0;
 	display: inline-block;
+	border: none;
 
 	legend {
 	    margin: 0;
@@ -59,7 +59,11 @@ form {
 	}
 	
 	#content & {
-	    border: 1px solid $colorLightest;
+	    padding: 0;
+	    @media (min-width: $screen-sm) {
+		border: 1px solid $colorLightest;
+		padding: 20px;
+	    }
 	}
 	#content &.noborder {
 	    border: none;
@@ -135,19 +139,5 @@ fieldset {
 	}
 }
 
-
-@media (max-width: $breakMD) {
-    	input[type="checkbox"],
-	input[type="radio"] {
-		border: 1px solid #ccc;
-	}
-
-    #content {
-	 form {
-		border: none;
-		padding: 0;
-	    }
-    }
-}
 
 

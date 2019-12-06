@@ -6109,9 +6109,7 @@ div.alignright {
   display: inline !important;
 }
 
-.link-all-videos {
-  padding-top: 10px;
-}
+
 
 @media (max-width: 767px) {
   .hide-mobile {
