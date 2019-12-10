@@ -955,44 +955,7 @@ function fau_do_metabox_page_additional_attributes($object, $box) {
 	echo '</div>';
 	
     }
-    if (get_theme_mod('advanced_activateads') == true) {
-	$allads = get_posts(array('post_type' => 'ad', 'posts_per_page' => -1));
-	if ($allads) {
-	    
-	    echo '<h3>'.__('Werbebanner anzeigen','fau').'</h3>';
-	    echo '<div class="subsetting">';
-	    $sidebarads = array('-1' => __('Keine (Deaktivieren)', 'fau'));
-	    $bottomads = array('-1' => __('Keine (Deaktivieren)', 'fau'));
-
-	    foreach ($allads as $ad) {
-		$title = get_the_title($ad->ID);
-		$position = get_post_meta($ad->ID, 'fauval_ad_position', true);
-		if ($position == 1) {
-		    // Nur in der Sidebar
-		    $sidebarads[$ad->ID] = $title;
-		} elseif ($position == 2) {
-		    // Nur Unten
-		    $bottomads[$ad->ID] = $title;
-		} else {
-		    // Beide Bereiceh oder unedefiniert
-		    $sidebarads[$ad->ID] = $title;
-		    $bottomads[$ad->ID] = $title;
-		}
-	    }
-	    wp_reset_postdata();
-	    $listseite = get_post_meta($object->ID, 'werbebanner_seitlich', true);
-	    if (is_array($listseite)) {
-		$listseite = $listseite[0];
-	    }
-	    $listunten = get_post_meta($object->ID, 'werbebanner_unten', true);
-	    if (is_array($listunten)) {
-		$listunten = $listunten[0];
-	    }
-	    fau_form_select('werbebanner_seitlich', $sidebarads, $listseite, __('Sidebar', 'fau'), __('Wählen Sie die Werbung, die in der Sidebar erscheinen soll.', 'fau'), 0, '', false);
-	    fau_form_select('werbebanner_unten', $bottomads, $listunten, __('Inhaltsbereich', 'fau'), __('Wählen Sie die Werbung, die unterhalb des Inhalts erscheinen soll.', 'fau'), 0, '', false);
-	     echo '</div>';
-	}
-    }
+   
     
     
 }
@@ -1025,54 +988,7 @@ function fau_save_metabox_page_additional_attributes( $post_id, $post ) {
     $newval = isset($_POST['fau_metabox_page_imagelinks_catid']) ? absint($_POST['fau_metabox_page_imagelinks_catid']) : 0;
     fau_save_standard('fauval_imagelink_catid', $newval, $post_id, 'post', 'int');
 
-	
-    if (get_theme_mod('advanced_activateads') == true) {	
-	$newval = isset($_POST['werbebanner_seitlich']) ? (array) $_POST['werbebanner_seitlich'] : [];
-	$oldval = get_post_meta($post_id, 'werbebanner_seitlich', true);
-	$remove = 0;
-	$found = 0;
 
-	foreach ($newval as $i) {
-	    if ($i == -1) {
-		$remove = 1;
-	    } elseif ($i > 0) {
-		$found = 1;
-	    }
-	}
-
-	if (($remove == 1) || ($found == 0)) {
-	    delete_post_meta($post_id, 'werbebanner_seitlich');
-	} else {
-	    if (!empty($oldval)) {
-		update_post_meta($post_id, 'werbebanner_seitlich', $newval);
-	    } else {
-		add_post_meta($post_id, 'werbebanner_seitlich', $newval, true);
-	    }
-	}
-
-	$newval = isset($_POST['werbebanner_unten']) ? (array) $_POST['werbebanner_unten'] : [];
-	$oldval = get_post_meta($post_id, 'werbebanner_unten', true);
-	$remove = 0;
-	$found = 0;
-
-	foreach ($newval as $i) {
-	    if ($i == -1) {
-		$remove = 1;
-	    } elseif ($i > 0) {
-		$found = 1;
-	    }
-	}
-
-	if (($remove == 1) || ($found == 0)) {
-	    delete_post_meta($post_id, 'werbebanner_unten');
-	} else {
-	    if (!empty($oldval)) {
-		update_post_meta($post_id, 'werbebanner_unten', $newval);
-	    } else {
-		add_post_meta($post_id, 'werbebanner_unten', $newval, true);
-	    }
-	}
-    }
 }
 /*-----------------------------------------------------------------------------------*/
 /* Ersetzt das wpLink-Skript durch ein benutzerdefiniertes Skript.

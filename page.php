@@ -21,7 +21,10 @@ while ( have_posts() ) :
 	<div id="content">
 		<div class="container">
 		    <?php 
-		        echo fau_get_ad('werbebanner_seitlich',false);
+		     if (function_exists( 'fau_get_ad' ) ) : 
+			echo fau_get_ad('werbebanner_seitlich',false);
+		    endif; 
+		    
 		    ?>
 		    <div class="row">
 			<div class="col-xs-12">
@@ -48,7 +51,9 @@ while ( have_posts() ) :
 			    </main>
 			    
 			     <?php  
-				    echo fau_get_ad('werbebanner_unten',true); 		
+			      if (function_exists( 'fau_get_ad' ) ) : 
+				    echo fau_get_ad('werbebanner_unten',true); 	
+			      endif;
 				    $logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );		
 				    if ($logoliste) { 
 					/* New since 1.10.57 */

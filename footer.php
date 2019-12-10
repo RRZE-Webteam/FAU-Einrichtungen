@@ -11,21 +11,29 @@
  */
 ?>
 
-	</div> <!-- /wrap -->
-
+	</div> 
 	<footer id="footer">
 	    <div class="container">
 		<div class="row">
+		    <?php 
+		    $website_type = get_theme_mod('website_type');
+		    ?>
 		    <div class="footer-logo">
-			<p><img src="<?php echo get_fau_template_uri(); ?>/img/logo-fau-inverse.png" width="185" height="35" alt="<?php _e("Friedrich-Alexander-Universität Erlangen-Nürnberg","fau"); ?>"></p>
+			<?php if (($website_type ==3 ) &&  ( is_active_sidebar( 'footer-block1' ) )) {  
+			    dynamic_sidebar( 'footer-block1' );
+			} else { ?>
+			<p><img src="<?php echo get_fau_template_uri(); ?>/img/logo-fau-inverse.png" width="185" height="35" alt="<?php _e("Friedrich-Alexander-Universität Erlangen-Nürnberg","fau"); ?>"></p>			
+			<?php } ?>
 		    </div>
 		    <div class="footer-address">
 			<?php 
-			$display_address = get_theme_mod("advanced_footer_display_address");
-			if ($display_address) { ?>
+			if (($website_type ==3 ) &&  ( is_active_sidebar( 'footer-block2' ) )) {  
+			     dynamic_sidebar( 'footer-block2' );
+			} else {
+			    $display_address = get_theme_mod("advanced_footer_display_address");
+			    if ($display_address) { ?>
 			<address itemscope itemtype="http://schema.org/PostalAddress">
 			    <?php
-
 			    $contact_address_name = get_theme_mod("contact_address_name");
 			    $contact_address_name2 = get_theme_mod("contact_address_name2");
 			    $contact_address_street = get_theme_mod("contact_address_street");
@@ -42,7 +50,8 @@
 			       <span itemprop="addressCountry"><?php echo $contact_address_country; ?></span>
 			    <?php } ?>   
 		       </address>
-		     <?php } ?>   
+			<?php } 
+			} ?>   
 		    </div>
 		    <div class="footer-meta">
 			<nav aria-labelledby="footer-nav-title">

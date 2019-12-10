@@ -86,7 +86,7 @@ if ($show) {
 				    
 				    $socialmedia_buttons_title = get_theme_mod('socialmedia_buttons_title');
 				    if (!fau_empty($socialmedia_buttons_title)) {
-					echo '<h2 class="small">'.$socialmedia_buttons_title.'</h2>';
+					echo '<h2>'.$socialmedia_buttons_title.'</h2>';
 				    }
 
 				    global $default_socialmedia_liste;
@@ -111,17 +111,7 @@ if ($show) {
 						dynamic_sidebar( 'startpage-socialmediainfo' ); 
 					    }  ?>
 					</div>
-					<?php 
-					$showlink_videoportal = get_theme_mod("start_link_videoportal_socialmedia");
-					$urlvideoportal  = esc_url(get_theme_mod("start_title_videoportal_url"));
-					$linktitlevideportal = esc_attr(get_theme_mod("start_title_videoportal_socialmedia"));
 
-					if ($showlink_videoportal) { ?>
-					<div class="pull-right link-all-videos">
-					    <a href="<?php echo $urlvideoportal; ?>"><?php echo $linktitlevideportal; ?></a>
-					</div>
-					<?php } ?>
-					    
 				<?php } ?>
 
 				</div>						

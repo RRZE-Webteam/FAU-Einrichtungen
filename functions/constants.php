@@ -8,7 +8,7 @@
 $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
-$defaultoptions = ['optiontable-version'		=> 59,
+$defaultoptions = ['optiontable-version'		=> 60,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -65,9 +65,7 @@ $defaultoptions = ['optiontable-version'		=> 59,
     'start_link_news_cat'			=> 0,    
     'start_link_news_show'			=> 1,
     'start_link_news_linktitle'		=> __('Mehr Meldungen','fau'),
-    'start_link_videoportal_socialmedia'    => false,
-    'start_title_videoportal_socialmedia'   => __('Videoportal','fau'),
-    'start_title_videoportal_url'		=> 'https://video.fau.de',
+
 
     'default_postthumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-220x147.gif',
     'default_postthumb_always'		=> 1,
@@ -194,7 +192,6 @@ $defaultoptions = ['optiontable-version'		=> 59,
     
     'advanced_beitragsoptionen'		=> true,
     'advanced_topevent'			=> true,
-    'advanced_activateads'		=> false,
     'galery_link_original'		=> true,
     'galery_force_caption_onslick'  => true,
 
@@ -640,30 +637,7 @@ $setoptions = array(
   
 		),        
 	      
-	     'start_link_videoportal_socialmedia'  => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Verlinke Videoportal', 'fau' ),
-                  'label'   => __( 'Verlinke Videoportal auf dem Social Media Widget', 'fau' ),
-                  'default' => $defaultoptions['start_link_videoportal_socialmedia'],
-		 'parent'  => 'socialmediafooter',
-              ),     
-	      'start_title_videoportal_socialmedia' => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Verlinkungstext Videoportal', 'fau' ),
-                  'label'   => __( 'Text mit der auf das Videoportal im Social Media Widget verlinkt wird.', 'fau' ),               
-                  'default' => $defaultoptions['start_title_videoportal_socialmedia'],
-		  'parent'  => 'socialmediafooter',
-              ), 
-	       
-	       'start_title_videoportal_url' => array(
-                  'type'    => 'url',
-                  'title'   => __( 'URL Videoportal', 'fau' ),
-                  'label'   => __( 'URL zum Videoportal. Diese sollte normalerweise auf <code>video.fau.de</code> bleiben. Manchmal nutzt man aber vielleicht ein anderes Portal, so dass man hier die URL ändern kann.', 'fau' ),               
-                  'default' => $defaultoptions['start_title_videoportal_url'],
-		   'parent'  => 'socialmediafooter',
-              ), 
-	       
-
+	    
 	    
 	     
 	    
@@ -1096,13 +1070,7 @@ $setoptions = array(
                   'default' => $defaultoptions['advanced_topevent'],
 		  'parent'  => 'bedienung'
               ),   
-	      'advanced_activateads' => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Werbebanner', 'fau' ),
-                  'label'   => __( 'Aktiviert die Möglichkeit, Werbebanner zu verwalten.', 'fau' ),                
-                  'default' => $defaultoptions['advanced_activateads'],
-		  'parent'  => 'bedienung'
-              ),   
+	      
 	       'advanced_activate_synonyms'  => array(
                   'type'    => 'toggle',
                   'title'   => __( 'Synonyme', 'fau' ),
