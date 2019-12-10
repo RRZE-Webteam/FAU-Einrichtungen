@@ -7,11 +7,10 @@
  * @since FAU 1.0
  */
 
-get_header(); ?>
+get_header(); 
+while ( have_posts() ) : the_post(); 
 
-<?php while ( have_posts() ) : the_post(); ?>
-
-    <?php get_template_part('template-parts/hero', 'small'); ?>
+    get_template_part('template-parts/hero', 'small'); ?>
 
     <div id="content" class="content-portal">
 	<div class="container">	
@@ -28,11 +27,19 @@ get_header(); ?>
 			$headline = get_post_meta( $post->ID, 'headline', true );				
 			if (!fau_empty($headline)) {
 			      echo '<h2 class="subtitle">'.$headline."</h2>\n";  
-			}
-			
-			
-			get_template_part('template-parts/sidebar', 'inline'); 
-			the_content(); 
+			} ?>
+			<div class="inline-box">			    
+			    <?php get_template_part('template-parts/sidebar', 'inline');  
+			    if ($is_sidebar_active) {
+				echo '<div class="content-inline with-sidebar">';
+			    } else {
+				echo '<div class="content-inline">';
+			    }
+			    the_content(); 
+			    echo '</div>';
+			    ?>
+			</div>    
+			<?php 
 			$displayedicons = 0;
 			$menuslug = get_post_meta( $post->ID, 'portalmenu-slug', true );	
 			if ($menuslug) { 
@@ -75,7 +82,6 @@ get_header(); ?>
 	</div>
 	
     </div>
-<?php endwhile; ?>
-<?php get_template_part('template-parts/footer', 'social'); ?>	
-<?php 
+<?php endwhile; 
+get_template_part('template-parts/footer', 'social');
 get_footer();

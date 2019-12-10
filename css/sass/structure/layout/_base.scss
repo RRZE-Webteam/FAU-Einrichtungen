@@ -28,18 +28,6 @@ html, body, button {
 	font-kerning:  none;
 }
 
- @if $debugmode == 'true' {
-    .container {
-	border: 1px solid #ff8800;
-    }
-    .entry-content {
-       border: 1px solid red;
-    }
-
-
- }
-
-
 .flyout-entries,
 .introthumb,
 .introtext {

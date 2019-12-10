@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 1.11.54-9
+Version: 1.11.54-10
 Description: WordPress-Theme der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)
 Theme URI: https://github.com/RRZE-Webteam/FAU-Einrichtungen
 GitHub Theme URI: https://github.com/RRZE-Webteam/FAU-Einrichtungen
@@ -10444,12 +10444,10 @@ main .three-columns-one.gray.lighten {
 }
 #social .textwidget,
 #social p,
-#social h2.small,
 #social h2 {
   color: #003366;
   padding-top: 0;
 }
-#social h2.small,
 #social h2 {
   font-size: 18px;
   line-height: 26.28px;
@@ -10465,12 +10463,6 @@ main .three-columns-one.gray.lighten {
 #social a:hover, #social a:focus {
   text-decoration: underline;
   color: #003366;
-}
-#social .link-all-videos {
-  font-size: 13px;
-  line-height: 18.98px;
-  font-size: 0.8666666667rem;
-  line-height: 1.2653333333rem;
 }
 @media (min-width: 768px) {
   #social {
@@ -11440,9 +11432,9 @@ textarea {
 }
 
 form {
-  padding: 20px;
   margin: 0;
   display: inline-block;
+  border: none;
 }
 form legend {
   margin: 0;
@@ -11455,7 +11447,13 @@ form legend {
   font-weight: bold;
 }
 #content form {
-  border: 1px solid #dde5f0;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  #content form {
+    border: 1px solid #dde5f0;
+    padding: 20px;
+  }
 }
 #content form.noborder {
   border: none;
@@ -11521,17 +11519,6 @@ fieldset {
   margin-top: 5px;
 }
 
-@media (max-width: 767px) {
-  input[type=checkbox],
-input[type=radio] {
-    border: 1px solid #ccc;
-  }
-
-  #content form {
-    border: none;
-    padding: 0;
-  }
-}
 /*-----------------------------------------------------------------------------------*/
 /* Tables
 /*-----------------------------------------------------------------------------------*/
@@ -12139,10 +12126,6 @@ div.alignright {
 .mtli_attachment {
   background-position: left center !important;
   display: inline !important;
-}
-
-.link-all-videos {
-  padding-top: 10px;
 }
 
 @media (max-width: 767px) {
@@ -14329,7 +14312,6 @@ ins {
 .widget_categories,
 .widget_tag_cloud,
 .contentmenu,
-.link-all-videos,
 .events-more-links,
 .flex-direction-nav,
 .widget_search,

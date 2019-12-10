@@ -5413,9 +5413,9 @@ textarea {
 }
 
 form {
-  padding: 20px;
   margin: 0;
   display: inline-block;
+  border: none;
 }
 form legend {
   margin: 0;
@@ -5428,7 +5428,13 @@ form legend {
   font-weight: bold;
 }
 #content form {
-  border: 1px solid #dde5f0;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  #content form {
+    border: 1px solid #dde5f0;
+    padding: 20px;
+  }
 }
 #content form.noborder {
   border: none;
@@ -5494,17 +5500,6 @@ fieldset {
   margin-top: 5px;
 }
 
-@media (max-width: 767px) {
-  input[type=checkbox],
-input[type=radio] {
-    border: 1px solid #ccc;
-  }
-
-  #content form {
-    border: none;
-    padding: 0;
-  }
-}
 /*-----------------------------------------------------------------------------------*/
 /* Tables
 /*-----------------------------------------------------------------------------------*/
@@ -6108,8 +6103,6 @@ div.alignright {
   background-position: left center !important;
   display: inline !important;
 }
-
-
 
 @media (max-width: 767px) {
   .hide-mobile {
