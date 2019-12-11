@@ -788,7 +788,7 @@ $setoptions = array(
 	        'advanced_footer_display_socialmedia'	  => array(
 		    'type'    => 'toggle',
 		    'title'   => __( 'Social Media', 'fau' ),
-		    'label'   => __( 'Zeigt die Social Media Icons im Footerbereich untrehalb des technischen Menüs an', 'fau' ),                
+		    'label'   => __( 'Zeigt die Social Media Icons im Footerbereich unterhalb des technischen Menüs an', 'fau' ),                
 		    'default' => $defaultoptions['advanced_footer_display_socialmedia'],
 		    'parent'  => 'footer'
 		), 

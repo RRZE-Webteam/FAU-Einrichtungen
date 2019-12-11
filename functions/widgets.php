@@ -70,7 +70,7 @@ function fau_sidebars_init() {
 	    register_sidebar( array(
 		'name' => __( 'Footer Logo Bereich Position 2', 'fau' ),
 		'id' => 'footer-block2',
-		'description' => __( 'Erster Widgetbereich im Footer, links unten. ', 'fau' ),
+		'description' => __( 'Zweiter Widgetbereich im Footer, links unten. ', 'fau' ),
 		'before_title' => '<h3 class="screen-reader-text">',
 		'after_title' => '</h3>',
 		'before_widget' => '<div class="footer-block2">',
