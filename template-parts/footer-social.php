@@ -70,17 +70,9 @@ if ($show) {
 	<section id="social" aria-labelledby="contentfooter">
 	    <h1 class="screen-reader-text" id="contentfooter"><?php _e("Weitere Hinweise zum Webauftritt","fau"); ?></h1>	
 		<div class="container">
-			<div class="row">
+			<div class="flex-four-widgets">
 				<?php 
-				if ((($showicons==true) && ($showsocialsidebar==false)) 
-				    || (($showicons==false) && ($showsocialsidebar==true)) )  { ?>
-				    <div class="col-xs-12">
-				<?php     
-				} else { 
-				?>
-				    <div class="col-xs-12 col-sm-3">					
-				<?php 
-				}
+
 				if ($showicons==true) {
 				    echo '<nav class="socialmedia" aria-label="'.__('Social Media','fau').'">';
 				    
@@ -97,24 +89,11 @@ if ($show) {
 				    echo fau_get_socialmedia_menu($defaultoptions['socialmedia_menu_name'],'social',true);
 				    echo '</div>';
 				    echo '</nav>';
-
-
-				    if ($showsocialsidebar==true) {
-					 echo '</div>'; 
-					 echo '<div class="col-xs-12 col-sm-9">';
-				    }
 				}
-				if ($showsocialsidebar==true) { ?>
-					<div class="row">
-					<?php 
-					    if ( is_active_sidebar( 'startpage-socialmediainfo' ) ) { 
-						dynamic_sidebar( 'startpage-socialmediainfo' ); 
-					    }  ?>
-					</div>
-
-				<?php } ?>
-
-				</div>						
+				if (($showsocialsidebar==true) && is_active_sidebar( 'startpage-socialmediainfo' ) ) { 
+				    dynamic_sidebar( 'startpage-socialmediainfo' ); 
+				}  ?>
+					
 			</div>
 		</div>
 	</section> <!-- /social -->	
