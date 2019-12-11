@@ -65,37 +65,36 @@ $show =false;
  }
  
 if ($show) {
-?>
-    	    
+?>    
 	<section id="social" aria-labelledby="contentfooter">
 	    <h1 class="screen-reader-text" id="contentfooter"><?php _e("Weitere Hinweise zum Webauftritt","fau"); ?></h1>	
-		<div class="container">
-			<div class="flex-four-widgets">
-				<?php 
+	    <div class="container">
+		<div class="flex-four-widgets">
+		    <?php 
 
-				if ($showicons==true) {
-				    echo '<nav class="socialmedia" aria-label="'.__('Social Media','fau').'">';
-				    
-				    $socialmedia_buttons_title = get_theme_mod('socialmedia_buttons_title');
-				    if (!fau_empty($socialmedia_buttons_title)) {
-					echo '<h2>'.$socialmedia_buttons_title.'</h2>';
-				    }
+		    if ($showicons==true) {
+			echo '<nav class="socialmedia" aria-label="'.__('Social Media','fau').'">';
 
-				    global $default_socialmedia_liste;
+			$socialmedia_buttons_title = get_theme_mod('socialmedia_buttons_title');
+			if (!fau_empty($socialmedia_buttons_title)) {
+			    echo '<h2>'.$socialmedia_buttons_title.'</h2>';
+			}
 
-				    
-				    echo '<div itemscope itemtype="http://schema.org/Organization">';
-				    echo fau_create_schema_publisher(false);		
-				    echo fau_get_socialmedia_menu($defaultoptions['socialmedia_menu_name'],'social',true);
-				    echo '</div>';
-				    echo '</nav>';
-				}
-				if (($showsocialsidebar==true) && is_active_sidebar( 'startpage-socialmediainfo' ) ) { 
-				    dynamic_sidebar( 'startpage-socialmediainfo' ); 
-				}  ?>
-					
-			</div>
+			global $default_socialmedia_liste;
+
+
+			echo '<div itemscope itemtype="http://schema.org/Organization">';
+			echo fau_create_schema_publisher(false);		
+			echo fau_get_socialmedia_menu($defaultoptions['socialmedia_menu_name'],'social',true);
+			echo '</div>';
+			echo '</nav>';
+		    }
+		    if (($showsocialsidebar==true) && is_active_sidebar( 'startpage-socialmediainfo' ) ) { 
+			dynamic_sidebar( 'startpage-socialmediainfo' ); 
+		    }  ?>
+
 		</div>
-	</section> <!-- /social -->	
+	    </div>
+	</section> 
 <?php
 }

@@ -106,15 +106,7 @@ if ( ! function_exists( 'fau_imagelink_metabox_content' ) ) {
 	$targeturl = get_post_meta( $object->ID, 'fauval_imagelink_url', true );
 	$desc  = get_post_meta( $object->ID, 'portal_description', true );
 
-	/* Old - deprecated since 1.7
-
-		$protocol  = get_post_meta( $object->ID, 'protocol', true );
-		$link  = get_post_meta( $object->ID, 'link', true );
-
-		if (empty($targeturl) && isset($protocol) && isset($link)) {
-		    $targeturl = $protocol.$link;
-		}
-	*/			
+			
 	fau_form_url('fau_imagelink_url', $targeturl, __('Webadresse','fau'), '', $placeholder='https://');   
 	fau_form_text('fau_imagelink_desc', $desc, __('Kurzbeschreibung','fau'));
 
@@ -178,7 +170,7 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 	    $size = 'thumbnail';
 	}
 
-// $size = 'gallery-full';
+
 	if ( isset($catid) && $catid >0) {
 	    $args = array(
 	       'post_type'  => 'imagelink',
@@ -270,7 +262,6 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 		$output .= "$('.slider-for-$rand').slick({ slidesToScroll: 1, focusOnSelect: true";
 		$output .= ", variableWidth: true";		
 		$output .= ", slidesToShow: $slidesToShow";
-	//	$output .= ", centerMode: true";
 		$output .= ", dots: $dots";
 		$output .= ", autoplay: $autoplay";
 		$output .= ", responsive: [{
@@ -287,8 +278,6 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 			slidesToShow: 1
 		      }
 		    }]";
-
-
 		$output .= "});";
 		$output .= "});</script>";
 
