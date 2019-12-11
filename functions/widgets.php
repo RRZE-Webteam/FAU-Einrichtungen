@@ -35,12 +35,12 @@ function fau_sidebars_init() {
 		'after_title' => '</h2>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Social Media Infobereich (Footer)', 'fau' ),
+		'name' => __( 'Footer Sidebar', 'fau' ),
 		'id' => 'startpage-socialmediainfo',
-		'description' => __( 'Widgetbereich neben den Social Media Icons im Footer.', 'fau' ),
+		'description' => __( 'Widgetbereich oberhalb des Seitenendes (Footer).', 'fau' ),
 		'before_widget' => '<div class="social-media-widget">',
 		'after_widget' => '</div>',
-		'before_title' => '<h2 class="small">',
+		'before_title' => '<h2>',
 		'after_title' => '</h2>',
 	) );
 	

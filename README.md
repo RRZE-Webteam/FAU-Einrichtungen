@@ -84,9 +84,3 @@ Einstellungen für eigene Watcher:
 Mit der Compiler-Option ```--style compressed``` sollen die im produktiven Betrieb erzeugten CSS-Dateien komprimiert sein. 
 
 
-### Hinweis zu Vendor-Prefixes
-
-In den SASS-Dateien befinden sich teilweise noch Vendor-Prefixes. Diese wurde in älteren Versionen in das Theme eingestellt, als es noch keinen Autoprefixer
-gab. Diese Vendor-Prefixes sollen in den nächsten Versionen des Themes entfernt werden.
-
-Neue Vendor-Prefixes sollen  -sofern sie noch benötigt werden- nur noch durch einen Autoprefixer auf das style.css ergänzt werden. 
