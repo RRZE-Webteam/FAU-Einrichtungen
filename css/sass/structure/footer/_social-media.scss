@@ -9,13 +9,11 @@
 	    
 	.textwidget, 
 	p, 
-	h2.small,
 	h2  {
 		color: $colorSocial;
 		padding-top: 0;
 	}
 	
-	h2.small,
 	h2 {
 	    @include px2rem($font-size-h2-socialmedia);
 	    padding: 0;
@@ -30,9 +28,7 @@
 	    }
 	    
 	}
-	.link-all-videos {
-	    @include px2rem($font-size-socialmedia-morelink); 
-	}
+
 	
 	
      @media (min-width: $screen-sm) {
@@ -42,8 +38,4 @@
     }
 }
 
-.social-media-widget {
-    @extend .col-xs-12;
-    @extend .col-sm-4;
-}
 

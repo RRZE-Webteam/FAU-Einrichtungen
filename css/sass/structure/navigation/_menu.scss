@@ -332,8 +332,11 @@
 			}
 
 			.nav-flyout {
-
-				background: url($siegelurl) no-repeat 95% bottom, linear-gradient(to top, $colorPrimaryHeroLight 0%, $colorPrimaryHero 100%);
+			    background: url($siegelurl) no-repeat 95% bottom, linear-gradient(to top, $colorPrimaryHeroLight 0%, $colorPrimaryHero 100%);
+			     .fauorg-kooperation & {
+				background: linear-gradient(to top, $colorPrimaryHeroLight 0%, $colorPrimaryHero 100%);
+			     }
+				
 
 				@media (min-width: $screen-sm) {
 					min-height: 199px;

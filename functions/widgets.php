@@ -35,12 +35,12 @@ function fau_sidebars_init() {
 		'after_title' => '</h2>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Social Media Infobereich (Footer)', 'fau' ),
+		'name' => __( 'Footer Sidebar', 'fau' ),
 		'id' => 'startpage-socialmediainfo',
-		'description' => __( 'Widgetbereich neben den Social Media Icons im Footer.', 'fau' ),
+		'description' => __( 'Widgetbereich oberhalb des Seitenendes (Footer).', 'fau' ),
 		'before_widget' => '<div class="social-media-widget">',
 		'after_widget' => '</div>',
-		'before_title' => '<h2 class="small">',
+		'before_title' => '<h2>',
 		'after_title' => '</h2>',
 	) );
 	
@@ -56,6 +56,29 @@ function fau_sidebars_init() {
 		    'after_title' => '</h3>',
 	    ) );
 	}
+	$website_type = get_theme_mod('website_type');
+	if ($website_type==3) {
+	    register_sidebar( array(
+		'name' => __( 'Footer Logo Bereich Position 1', 'fau' ),
+		'id' => 'footer-block1',
+		'description' => __( 'Erster Widgetbereich im Footer, links unten.', 'fau' ),
+		'before_title' => '<h3 class="screen-reader-text">',
+		'after_title' => '</h3>',
+		'before_widget' => '<div class="footer-block1">',
+		'after_widget' => '</div>',
+	    ) );
+	    register_sidebar( array(
+		'name' => __( 'Footer Logo Bereich Position 2', 'fau' ),
+		'id' => 'footer-block2',
+		'description' => __( 'Zweiter Widgetbereich im Footer, links unten. ', 'fau' ),
+		'before_title' => '<h3 class="screen-reader-text">',
+		'after_title' => '</h3>',
+		'before_widget' => '<div class="footer-block2">',
+		'after_widget' => '</div>',
+	    ) );
+	}
+	
+	
 	
 }
 add_action( 'widgets_init', 'fau_sidebars_init' );

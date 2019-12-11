@@ -44,8 +44,8 @@
 
 
 
-/* Widget: Categories */
-.widget_categories {
+/* Widget: Nav Menus in Sidebar */
+.widget_nav_menu {
 	ul {
 		@include no-list;
 
@@ -137,11 +137,11 @@
 	}
 }
 
-/* Widget: Nav Menu */
-.widget_nav_menu {
-	@extend .widget_categories;
+/* Widget: Old Category display 
+.widget_categories {
+	@extend .widget_nav_menu;
 }
-
+*/
 
 @media (max-width: $screen-sm - 1) {
     .textwidget {

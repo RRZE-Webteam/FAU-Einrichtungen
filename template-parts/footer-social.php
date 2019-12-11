@@ -65,68 +65,36 @@ $show =false;
  }
  
 if ($show) {
-?>
-    	    
+?>    
 	<section id="social" aria-labelledby="contentfooter">
 	    <h1 class="screen-reader-text" id="contentfooter"><?php _e("Weitere Hinweise zum Webauftritt","fau"); ?></h1>	
-		<div class="container">
-			<div class="row">
-				<?php 
-				if ((($showicons==true) && ($showsocialsidebar==false)) 
-				    || (($showicons==false) && ($showsocialsidebar==true)) )  { ?>
-				    <div class="col-xs-12">
-				<?php     
-				} else { 
-				?>
-				    <div class="col-xs-12 col-sm-3">					
-				<?php 
-				}
-				if ($showicons==true) {
-				    echo '<nav class="socialmedia" aria-label="'.__('Social Media','fau').'">';
-				    
-				    $socialmedia_buttons_title = get_theme_mod('socialmedia_buttons_title');
-				    if (!fau_empty($socialmedia_buttons_title)) {
-					echo '<h2 class="small">'.$socialmedia_buttons_title.'</h2>';
-				    }
+	    <div class="container">
+		<div class="flex-four-widgets">
+		    <?php 
 
-				    global $default_socialmedia_liste;
+		    if ($showicons==true) {
+			echo '<nav class="socialmedia" aria-label="'.__('Social Media','fau').'">';
 
-				    
-				    echo '<div itemscope itemtype="http://schema.org/Organization">';
-				    echo fau_create_schema_publisher(false);		
-				    echo fau_get_socialmedia_menu($defaultoptions['socialmedia_menu_name'],'social',true);
-				    echo '</div>';
-				    echo '</nav>';
+			$socialmedia_buttons_title = get_theme_mod('socialmedia_buttons_title');
+			if (!fau_empty($socialmedia_buttons_title)) {
+			    echo '<h2>'.$socialmedia_buttons_title.'</h2>';
+			}
+
+			global $default_socialmedia_liste;
 
 
-				    if ($showsocialsidebar==true) {
-					 echo '</div>'; 
-					 echo '<div class="col-xs-12 col-sm-9">';
-				    }
-				}
-				if ($showsocialsidebar==true) { ?>
-					<div class="row">
-					<?php 
-					    if ( is_active_sidebar( 'startpage-socialmediainfo' ) ) { 
-						dynamic_sidebar( 'startpage-socialmediainfo' ); 
-					    }  ?>
-					</div>
-					<?php 
-					$showlink_videoportal = get_theme_mod("start_link_videoportal_socialmedia");
-					$urlvideoportal  = esc_url(get_theme_mod("start_title_videoportal_url"));
-					$linktitlevideportal = esc_attr(get_theme_mod("start_title_videoportal_socialmedia"));
+			echo '<div itemscope itemtype="http://schema.org/Organization">';
+			echo fau_create_schema_publisher(false);		
+			echo fau_get_socialmedia_menu($defaultoptions['socialmedia_menu_name'],'social',true);
+			echo '</div>';
+			echo '</nav>';
+		    }
+		    if (($showsocialsidebar==true) && is_active_sidebar( 'startpage-socialmediainfo' ) ) { 
+			dynamic_sidebar( 'startpage-socialmediainfo' ); 
+		    }  ?>
 
-					if ($showlink_videoportal) { ?>
-					<div class="pull-right link-all-videos">
-					    <a href="<?php echo $urlvideoportal; ?>"><?php echo $linktitlevideportal; ?></a>
-					</div>
-					<?php } ?>
-					    
-				<?php } ?>
-
-				</div>						
-			</div>
 		</div>
-	</section> <!-- /social -->	
+	    </div>
+	</section> 
 <?php
 }

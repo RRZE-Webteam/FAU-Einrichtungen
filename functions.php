@@ -27,7 +27,6 @@ require_once( get_template_directory() . '/functions/shortcode-accordion.php');
 require_once( get_template_directory() . '/functions/menu.php');
 require_once( get_template_directory() . '/functions/custom-fields.php' );
 require_once( get_template_directory() . '/functions/posttype_imagelink.php' );
-require_once( get_template_directory() . '/functions/posttype_ad.php' );
 require_once( get_template_directory() . '/functions/widgets.php' );
 require_once( get_template_directory() . '/functions/gallery.php' );
 
@@ -512,19 +511,19 @@ add_filter( 'wp_link_query_args', 'fau_wp_link_query_args' );
 /*-----------------------------------------------------------------------------------*/
 /*  display ids for pages columns and custom types
 /*-----------------------------------------------------------------------------------*/
-function revealid_add_id_column( $columns ) {
+function fau_revealid_add_id_column( $columns ) {
    $columns['revealid_id'] = 'ID';
    return $columns;
 }
 
-function revealid_id_column_content( $column, $id ) {
+function fau_revealid_id_column_content( $column, $id ) {
   if( 'revealid_id' == $column ) {
     echo $id;
   }
 }
 if (get_theme_mod('advanced_reveal_pages_id')) {
-    add_filter( 'manage_pages_columns', 'revealid_add_id_column', 5 );
-    add_action( 'manage_pages_custom_column', 'revealid_id_column_content', 5, 2 );
+    add_filter( 'manage_pages_columns', 'fau_revealid_add_id_column', 5 );
+    add_action( 'manage_pages_custom_column', 'fau_revealid_id_column_content', 5, 2 );
 }
 
 /*-----------------------------------------------------------------------------------*/

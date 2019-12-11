@@ -8,7 +8,10 @@
     z-index: 10;
     @include placeholder(#fff);	
     @include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% bottom);
-   
+
+    .fauorg-kooperation & {
+		@include radial-gradient($colorPrimaryHero, $colorPrimaryHeroLight);
+     }
 	
 	h1, h2, h3, h4, p {
 		font-weight: normal;

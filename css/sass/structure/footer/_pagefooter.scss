@@ -1,0 +1,145 @@
+/*-----------------------------------------------------------------------------------*/
+/* Pagefooter
+/*-----------------------------------------------------------------------------------*/
+
+#footer {
+	background: $colorPrimaryHero;
+	color: #fff;
+	padding: 0 0 20px 0;
+	
+
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+	
+	li {
+		@include px2rem($font-size-footer);
+	}
+	
+	a:hover, a:focus {
+		text-decoration: underline;
+	}
+	@media (min-width: $screen-sm) {
+	    padding: 20px 0;
+	}
+	
+	.socialmedia {
+	    margin-top: 1rem;
+	    
+	    li {		
+		display: inline;
+		
+		a {
+		    padding:0;
+		    margin: 0 4px;
+		    display: inline-block;
+		    width: 26px;
+		    height: 26px;
+		    overflow: hidden;
+		    max-width: 26px;
+		    
+		    &:before {			
+			border: 1px solid #fff;
+			box-shadow: 0px 0px 1px #fff;
+			// macht die ganze Sache etwas "runder"
+		    }
+		   
+		    
+		}
+		a:hover,
+		a:focus {
+		    &:before {
+			background: #fff;
+			color: $colorPrimaryHero;
+		    }
+    		}
+		
+		
+	    }
+	}
+}
+
+
+.footer-logo {
+    @extend .col-xs-6;
+    @extend .col-sm-4;
+    @extend .col-md-3;
+}
+.footer-address {
+    @extend .col-xs-6;
+    @extend .col-sm-4;
+    @extend .col-md-3;
+}
+.footer-meta {
+    @extend .col-xs-10;
+    @extend .col-sm-4;
+    @extend .col-md-6;
+
+}
+
+
+
+
+/* Footer Navigation */
+#footer-nav {
+	@include no-list;
+	text-align: left;
+	
+	@media (min-width: $screen-sm) {
+	    text-align: right;
+	}
+	
+	li {
+		@include no-list;
+		display: inline;
+		margin-left: 8px;
+		background: none;
+	}
+}
+
+@media (max-width: $screen-xs - 1) {
+    .footer-logo {
+	width: 100%;
+	padding-top: 10px;
+    }
+    .footer-address {
+	width: 100%;
+    }
+    #footer-nav li {
+	margin-left: 0px;
+    }
+}
+
+@media (min-width: $screen-xs) {
+ #footer {
+	li {
+	    line-height: 15px;
+	}
+	.span4,
+	.span3 {
+	    width: 48%;
+	    width: calc(50% - 10px);
+	    float: left;
+	    margin: 2px;
+
+	}
+	.span5,
+	.span6 {
+	    width: 100%;
+	    margin: 0;
+	    float: none;
+	}
+
+    }
+    .footer-logo {
+	padding-right: 0;
+	min-width: 200px;
+    }
+    .footer-address {
+	max-width: calc(100% - 215px);
+    }
+    .footer-meta {
+	text-align: right;
+    }
+}

@@ -20,6 +20,9 @@
 	    }
 	}
     }
+    .fauorg-kooperation &.hero-small {
+		@include radial-gradient($colorPrimaryHero, $colorPrimaryHeroLight);
+     }
     
 }
 

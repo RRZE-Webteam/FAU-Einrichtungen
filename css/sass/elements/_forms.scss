@@ -46,21 +46,27 @@ textarea {
 }
 
 form {	
-	padding: 20px;
 	margin: 0;
 	display: inline-block;
-	border: 1px solid $colorLightest;
-	 
-	&.noborder {
-	    border: none;
-	}
-	
+	border: none;
+
 	legend {
 	    margin: 0;
 	    padding: 0 0 11px 0;
 	    @include px2rem($font-size-h3);
 	    color: $colorPrimary;
 	    font-weight: bold;
+	}
+	
+	#content & {
+	    padding: 0;
+	    @media (min-width: $screen-sm) {
+		border: 1px solid $colorLightest;
+		padding: 20px;
+	    }
+	}
+	#content &.noborder {
+	    border: none;
 	}
 }
 
@@ -133,19 +139,5 @@ fieldset {
 	}
 }
 
-
-@media (max-width: $breakMD) {
-    	input[type="checkbox"],
-	input[type="radio"] {
-		border: 1px solid #ccc;
-	}
-
-    #content {
-	 form {
-		border: none;
-		padding: 0;
-	    }
-    }
-}
 
 
