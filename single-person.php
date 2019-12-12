@@ -13,13 +13,6 @@ get_header(); ?>
 
 	<div id="content">
 		<div class="container">
-			
-		<?php 
-		 if (function_exists( 'fau_get_ad' ) ) : 
-		    echo fau_get_ad('werbebanner_seitlich',false);
-		 endif;
-		?>
-
 			<div class="row">
 				<div class="col-xs-12">
 				    <main id="droppoint">

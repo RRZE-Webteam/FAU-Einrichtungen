@@ -14,11 +14,6 @@ while ( have_posts() ) : the_post();
 
     <div id="content" class="content-portal">
 	<div class="container">	
-	    <?php 
-		if (function_exists( 'fau_get_ad' ) ) : 
-		    echo fau_get_ad('werbebanner_seitlich',false);
-		endif;
-	     ?>
 	    <div class="row">
 		<div class="col-xs-12">
 		    <main<?php echo fau_get_page_langcode($post->ID);?> id="droppoint">
@@ -71,11 +66,6 @@ while ( have_posts() ) : the_post();
 			}
 			?>
 		    </main>
-		    <?php
-		    if (function_exists( 'fau_get_ad' ) ) : 
-			echo fau_get_ad('werbebanner_unten',false); 
-		    endif;
-		    ?>
 		</div>
 	    </div>
 

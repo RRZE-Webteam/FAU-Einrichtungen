@@ -33,6 +33,7 @@ require_once( get_template_directory() . '/functions/gallery.php' );
 require_once( get_template_directory() . '/functions/posttype-synonym.php');
 require_once( get_template_directory() . '/functions/posttype-glossary.php');
 require_once( get_template_directory() . '/functions/gutenberg.php');
+require_once( get_template_directory() . '/functions/deprecated.php');
 
 
 function fau_setup() {
