@@ -15,11 +15,6 @@ get_header();
 	</div>
 	<div id="content">
 		<div class="container">
-			<?php  
-			if (function_exists( 'fau_get_ad' ) ) :  
-			    echo fau_get_ad('werbebanner_seitlich',false);
-			    endif;
-			?>
 			<div class="row">
 				<div class="startpage-blogroll">
 				    <main<?php echo fau_get_page_langcode($post->ID);?> id="droppoint">
@@ -109,10 +104,7 @@ get_header();
 			    fau_get_contentmenu($menuslug,$displaysub,0,$nothumbnails,$nofallbackthumbs);
 	
 			 }
-			if (function_exists( 'fau_get_ad' ) ) :  
-			    echo fau_get_ad('werbebanner_unten',true);
-			endif;
-			
+
 			$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
 			if ($logoliste) { 
 			    /* New since 1.10.57 */
