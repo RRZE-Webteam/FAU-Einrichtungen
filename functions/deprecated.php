@@ -9,7 +9,7 @@ function fau_get_ad() {
  global $wp;
     $slug = add_query_arg([], $wp->request);
     $out = '';
-    if (defined('WP_DEBUG') && WP_DEBUG ==false) {
+    if (defined('WP_DEBUG') && WP_DEBUG) {
 	   $debug = print_r(debug_backtrace(), true);
 	   $out = ': ['. $debug. ']';
     }
