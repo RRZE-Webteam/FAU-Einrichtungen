@@ -754,7 +754,6 @@ function fau_create_readmore($url,$linktitle = '',$external = false, $ariahide =
 /*-----------------------------------------------------------------------------------*/
 /* Array als Table ausgeben
 /*-----------------------------------------------------------------------------------*/
-
 function fau_array2table($array, $table = true) {
     $out = '';
     $tableHeader = '';
@@ -1576,7 +1575,51 @@ function fau_get_the_title($id = 0) {
 	return get_the_title($id);
     }
 }
-
+/*-----------------------------------------------------------------------------------*/
+/* create HTML for image figcaption
+/*-----------------------------------------------------------------------------------*/
+function fau_get_image_figcaption($atts = array(), $type = 'post-image', $class = 'post-image-caption') {
+    // $type:
+    //    'post-image': Standard Post Image
+    
+    
+    $out = '';
+    if (!empty($atts)) {
+	$caption_content = '';
+	
+	// Fill with default behaviour; Will be overwritten by cases
+	if ($atts['excerpt'] &&  !fau_empty($atts['excerpt'])) {
+	    $caption_content = trim(strip_tags( $atts['excerpt'] ));	
+	} elseif (isset($atts['description'])) {
+	    // Fallback to description, if avaible
+	    $caption_content = trim(strip_tags( $atts['description'] ));	
+	} elseif (isset($atts['title'])) {
+	    // Fallback to title, if avaible  
+	    $caption_content = trim(strip_tags( $atts['title'] ));	
+	}
+	
+	if ($type == 'post-image') {
+	    // Default Post Image in Post Display
+	    if (isset($atts['fauval_overwrite_thumbdesc'])) {
+		$caption_content = $atts['fauval_overwrite_thumbdesc'];
+	    } else {
+		
+		$displaycredits = get_theme_mod("advanced_display_postthumb_credits");
+		if (($displaycredits==true) && (!fau_empty($atts['credits']))) {
+		    $caption_content .= '<span class="copyright">'.trim(strip_tags(  $atts['credits'])).'</span>';    
+		}	    
+	    }
+	    
+	}
+	
+	if (!fau_empty($caption_content)) {
+	    $out = '<figcaption class="'.$class.'">';
+	    $out .= $caption_content;
+	    $out .= '</figcaption>';
+	}
+    } 
+    return $out;  
+}
 /*-----------------------------------------------------------------------------------*/
 /* create HTML for image with srcset-codes
 /*-----------------------------------------------------------------------------------*/
