@@ -29,11 +29,6 @@ $default_socialmedia_liste = array(
 	'content'  => 'https://twitter.com/UniFAU',
 	'active' => 1,
     ),
-    'gplus' => array(
-	'name' => 'Google Plus',
-	'content'  => '',
-	'active' => 0,
-    ),
     
     'flickr' => array(
 	'name' => 'Flickr',
@@ -199,9 +194,13 @@ $default_link_liste = array(
 	    ),
 	    'link2'  => array(
 		'name'	    => __('UnivIS', 'fau' ),
-		'content'  => 'http://univis.fau.de/',
+		'content'  => 'https://univis.fau.de/',
 	    ),
 	    'link3'  => array(
+		'name'	    => __('Stellenangebote', 'fau' ),
+		'content'  => 'https://jobs.fau.de/',
+	    ),
+	    'link4'  => array(
 		'name'	    => __('Lageplan', 'fau' ),
 		'content'  => 'https://karte.fau.de/',
 	    ),
@@ -210,7 +209,7 @@ $default_link_liste = array(
 	'techmenu' => array(    
 	    'link1'  => array(
 		'name'	    => __('Stellenangebote', 'fau' ),
-		'content'  => 'https://www.fau.de/universitaet/stellen-praktika-und-jobs/',
+		'content'  => 'https://www.jobs.fau.de/',
 	    ),
 	    'link2'  => array(
 		'name'	    => __('Presse', 'fau' ),

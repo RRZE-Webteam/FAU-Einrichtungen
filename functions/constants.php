@@ -8,12 +8,13 @@
 $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
-$defaultoptions = ['optiontable-version'		=> 60,
+$defaultoptions = [
+    'optiontable-version'	=> 62,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-    'js-version'			=> '1.13',
+    'js-version'				=> '1.13',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
     
     'website_type'			=> 0,
@@ -24,7 +25,7 @@ $defaultoptions = ['optiontable-version'		=> 60,
 	//  3 = Kooperationen 
 	// -1 = fau.de Portal (4 Spalter in Bühne, kein Link zur FAU. 
 
-    'website_usefaculty'		=> '',
+    'website_usefaculty'			=> '',
 	// phil, med, nat, rw, tf
 	// Setzt fest die Fakultät bei Wahl des Website-Types    
 
@@ -91,13 +92,13 @@ $defaultoptions = ['optiontable-version'		=> 60,
     /* Image Sizes */
     
     /* Default Thumb Size */
-    'default_thumb_width'		=> 300,
-    'default_thumb_height'		=> 150,
-    'default_thumb_crop'		=> false,
+    'default_thumb_width'			=> 300,
+    'default_thumb_height'			=> 150,
+    'default_thumb_crop'			=> false,
     
     /* Image Sizes for Slider, Name: hero */
-    'slider-image-width'		=> 1260,
-    'slider-image-height'		=> 350,    
+    'slider-image-width'			=> 1260,
+    'slider-image-height'			=> 350,    
     'slider-image-crop'			=> true,
     
     /* Hero Banner - Name: herobanner */
@@ -105,35 +106,26 @@ $defaultoptions = ['optiontable-version'		=> 60,
     'default_startseite-bannerbild-image_height'    => 182,
     'default_startseite-bannerbild-image_crop'	    => true,
     
-    
-    
    /* Small 2:1 size for image */
-    'default_rwdimage_2-1_typname'	    => 'rwd-480-2-1',
-    'default_rwdimage_2-1_width'	    => 480,
-    'default_rwdimage_2-1_height'	    => 240,    
-    'default_rwdimage_2-1_crop'	    => false,
-    'default_rwdimage_2-1_src'	    => get_fau_template_uri().'/img/thumbnail-siegel-480x240.gif',
-    
+    'default_rwdimage_2-1_typname'		=> 'rwd-480-2-1',
+    'default_rwdimage_2-1_width'		=> 480,
+    'default_rwdimage_2-1_height'		=> 240,    
+    'default_rwdimage_2-1_crop'		=> false,
+    'default_rwdimage_2-1_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-480x240.gif',
 
-    
     /* Small 3:2 size for images - Name: rwd-480-3-2 */
-    'default_rwdimage_typname'	    => 'rwd-480-3-2',
-    'default_rwdimage_width'	    => 480,
-    'default_rwdimage_height'	    => 320,    
-    'default_rwdimage_crop'	    => false,
-    'default_rwdimage_src'		    => get_fau_template_uri().'/img/thumbnail-siegel-480x320.gif',
+    'default_rwdimage_typname'		=> 'rwd-480-3-2',
+    'default_rwdimage_width'		=> 480,
+    'default_rwdimage_height'		=> 320,    
+    'default_rwdimage_crop'		=> false,
+    'default_rwdimage_src'			=> get_fau_template_uri().'/img/thumbnail-siegel-480x320.gif',
      
-    
-   
-
     /* Images for gallerys - Name: gallery-full */
-    'default_gallery_full_width'	    => 940,
-    'default_gallery_full_height'	    => 470,
+    'default_gallery_full_width'		=> 940,
+    'default_gallery_full_height'		=> 470,
     'default_gallery_full_crop'		    => false,     
     
-   
-    
-   
+
     'breadcrumb_root'			=> __('Startseite', 'fau'),
     'breadcrumb_delimiter'			=> ' <span>/</span>',
     'breadcrumb_beforehtml'		=> '<span class="active" aria-current="page">', // '<span class="current">'; // tag before the current crumb
@@ -148,7 +140,7 @@ $defaultoptions = ['optiontable-version'		=> 60,
     
     'socialmedia'				=> 0,
     'active_socialmedia_footer'		=> array(0),  
-    'socialmedia_buttons_title'		=> __('FAUSocial','fau'),
+    'socialmedia_buttons_title'		=> __('Social Media','fau'),
     
     'socialmedia_menu_name'		=> __( 'Social Media Menu', 'fau' ),
     'socialmedia_menu_position'		=> 'FAU_SocialMedia_Menu_Footer',
@@ -157,32 +149,25 @@ $defaultoptions = ['optiontable-version'		=> 60,
     'menu_pretitle_portal'			=> __('Portal', 'fau'),
     'menu_aftertitle_portal'		=> '',
     
-   'contact_address_name'	    => __('Friedrich-Alexander-Universität', 'fau'),
-   'contact_address_name2'	    => __('Erlangen-Nürnberg', 'fau'),
-   'contact_address_street'	    => __('Schlossplatz 4', 'fau'),
-   'contact_address_plz'	    => __('91054', 'fau'),
-   'contact_address_ort'	    => __('Erlangen', 'fau'),
+   'contact_address_name'			=> __('Friedrich-Alexander-Universität', 'fau'),
+   'contact_address_name2'			=> __('Erlangen-Nürnberg', 'fau'),
+   'contact_address_street'		=> __('Schlossplatz 4', 'fau'),
+   'contact_address_plz'			=> __('91054', 'fau'),
+   'contact_address_ort'			=> __('Erlangen', 'fau'),
    
-    'contact_address_country'	    => '',
-    'google-site-verification'	    => '',
-    'default_mainmenu_number'	    => 4,
+    'contact_address_country'		=> '',
+    'google-site-verification'		=> '',
+    'default_mainmenu_number'		=> 4,
    
 
-    'default_excerpt_morestring'    => '...',
-    'default_excerpt_length'	    => 50,
-    'default_anleser_excerpt_length'=> 300,
-    'default_search_excerpt_length' => 300,
+    'default_excerpt_morestring'		=> '...',
+    'default_excerpt_length'		=> 50,
+    'default_anleser_excerpt_length'	=> 300,
+    'default_search_excerpt_length'		=> 300,
     
-
-
-    'custom_excerpt_allowtags'	    => 'br',
-    'url_banner-ad-notice'	    => 'http://www.fau.info/werbungfaude',
-    'title_banner-ad-notice'	    => __( 'Werbung', 'fau' ),
-    
-//    'title_hero_post_categories'	=> __( 'FAU aktuell', 'fau' ),
-    'title_hero_post_categories'	=> '',
-//   'title_hero_post_archive'		=> __( 'FAU aktuell', 'fau' ),
-    'title_hero_post_archive'          => '',
+    'custom_excerpt_allowtags'		=> 'br',
+    'title_hero_post_categories'		=> '',
+    'title_hero_post_archive'		=> '',
     'title_hero_search'			=> __( 'Webauftritt durchsuchen', 'fau' ),
     'title_hero_events'			=> __( 'Veranstaltungskalender','fau'),
     
@@ -192,10 +177,10 @@ $defaultoptions = ['optiontable-version'		=> 60,
     
     'advanced_beitragsoptionen'		=> true,
     'advanced_topevent'			=> true,
-    'galery_link_original'		=> true,
-    'galery_force_caption_onslick'  => true,
+    'galery_link_original'			=> true,
+    'galery_force_caption_onslick'		=> true,
 
-    'advanced_post_active_subtitle'	=> true,
+    'advanced_post_active_subtitle'		=> true,
 
     'advanced_page_sidebar_titleabove'	=> true,
     'advanced_page_sidebar_titlebelow'	=> true,    
@@ -211,7 +196,7 @@ $defaultoptions = ['optiontable-version'		=> 60,
 	// 0 = Kontakte, Links
 	// 1 = Links, Kontakte
     'advanced_activate_post_comments'		=> false,
-    'advanced_comments_notes_before'		=> __( 'Ihre E-Mail-Adresse wird nicht angezeigt. Verpflichtende Felder werden mit dem folgenden Zeichen markiert: <span class="required">*</span>', 'fau' ),
+    'advanced_comments_notes_before'		=> __('Ihre E-Mail-Adresse wird nicht angezeigt. Verpflichtende Felder werden mit dem folgenden Zeichen markiert: <span class="required">*</span>', 'fau' ),
     'advanced_comments_disclaimer'			=> __('Hinweis: Die Kommentare wurden von Lesern geschrieben und spiegeln deren persönliche Meinung wieder. Sie müssen nicht die Meinung der Universität oder der Fakultät repräsentieren.', 'fau' ),
     'advanced_comments_avatar'			=> false,
     'advanced_activate_synonyms'			=> false,
@@ -1310,21 +1295,8 @@ $setoptions = array(
                   'default' => $defaultoptions['google-site-verification'],
 		     'parent'  => 'inhalte'
               ),  
-	      'url_banner-ad-notice'	 => array(
-                  'type'    => 'url',
-                  'title'   => __( 'Werbebanner Infolink', 'fau' ),
-                  'label'   => __( 'URL zu einer Seite, die bei einem Klick auf den Hinweis zur Werbung aufgerufen wird.', 'fau' ),               
-                  'default' => $defaultoptions['url_banner-ad-notice'],
-		   'parent'  => 'inhalte'
-              ),  
-	       'title_banner-ad-notice'	 => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Hinweistitel für Werbebanner', 'fau' ),
-                  'label'   => __( 'Aus gesetzlichen Gründen muss vor Werbebannern ein Hinweis stehen, daß es sich um eben solche Werbung handelt. Üblicherweise reicht ein Titel "Werbung" o.ä.. Dieser Titel kann hier angegeben oder geändert werden.', 'fau' ),               
-                  'default' => $defaultoptions['title_banner-ad-notice'],
-		    'parent'  => 'inhalte'
-              ),  
-   
+
+	   
 		
 	       
 	       
