@@ -9,7 +9,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 61,
+    'optiontable-version'	=> 62,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -140,7 +140,7 @@ $defaultoptions = [
     
     'socialmedia'				=> 0,
     'active_socialmedia_footer'		=> array(0),  
-    'socialmedia_buttons_title'		=> __('FAUSocial','fau'),
+    'socialmedia_buttons_title'		=> __('Social Media','fau'),
     
     'socialmedia_menu_name'		=> __( 'Social Media Menu', 'fau' ),
     'socialmedia_menu_position'		=> 'FAU_SocialMedia_Menu_Footer',
