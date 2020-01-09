@@ -51,7 +51,6 @@
 		
 	
 		
-		li.social-gplus a:before {  @extend .fa;  @extend .fa-google-plus;}
 		li.social-diaspora a:before { @extend .fa; content: '*'; font-size: 20px; font-weight: bold;}
 		li.social-pinterest a:before { @extend .fa; @extend .fa-pinterest-p; @extend .fa-lg; line-height: 1.0em;}
 		li.social-instagram a:before { @extend .fa; @extend .fa-instagram; line-height: 1.0em;}
@@ -95,10 +94,6 @@
 			    @extend .fa-rss;
 			}
 
-			&[href*="flattr.com"] {
-			    @extend .fa-refresh;
-			}
-
 			&[href*="flickr.com"] {
 			    @extend .fa-flickr;
 			}
@@ -106,10 +101,6 @@
 			&[href*="google.com"] {
 			    @extend .fa-google; 
 			}
-
-			&[href*="plus.google.com"] {
-			    @extend .fa-google-plus; 
-			}  
 
 			&[href*="github.com"] {
 			    @extend .fa-github;
