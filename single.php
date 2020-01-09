@@ -27,11 +27,10 @@ while ( have_posts() ) : the_post();
 					    <?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 						<div class="post-image">
 						    <?php 
-						    $bildunterschrift = get_post_meta( $post->ID, 'fauval_overwrite_thumbdesc', true );
-						    $post_thumbnail_id = get_post_thumbnail_id(); 
 						    
-						    
+						    $post_thumbnail_id = get_post_thumbnail_id(); 						    						    
 						    if ($post_thumbnail_id) {
+							
 							$imgdata = fau_get_image_attributs($post_thumbnail_id);
 							$full_image_attributes = wp_get_attachment_image_src( $post_thumbnail_id, 'full');
 							$altattr = trim(strip_tags($imgdata['alt']));
@@ -40,41 +39,14 @@ while ( have_posts() ) : the_post();
 							}
 							echo '<figure>';
 							echo '<a class="lightbox" href="'.fau_esc_url($full_image_attributes[0]).'">';							
-							$imagehtml = fau_get_image_htmlcode($post_thumbnail_id, 'rwd-480-3-2', $altattr);
-							echo $imagehtml;
+							echo fau_get_image_htmlcode($post_thumbnail_id, 'rwd-480-3-2', $altattr);
 							echo '</a>';
-							echo '<figcaption class="post-image-caption">';
-							if (isset($bildunterschrift) && strlen($bildunterschrift)>1) {
-							    echo $bildunterschrift;
-							} else {		  
-							    $info = "";
-							    $credits = '';
-							    if ($imgdata) {
-								if ($imgdata['excerpt'] &&  !fau_empty($imgdata['excerpt'])) {
-								    $info = trim(strip_tags( $imgdata['excerpt'] ));	
-								}
-
-								$displaycredits = get_theme_mod("advanced_display_postthumb_credits");
-								if ($displaycredits==true) {
-								    $credits = trim(strip_tags(  $imgdata['credits']));    
-								}
-							    }
-
-							    if (  (!empty($info)) || (!empty($credits)) ) {
-								if (!empty($info)) {
-								    echo $info;
-								}
-								if (!empty($credits)) {
-								    if ((!empty($info)) && ($credits != $info)) {
-									echo "<br>";
-									echo $credits;
-								    } elseif (empty($info)) {
-									echo $credits;
-								    }
-								}
-							    } 
-							} 
-							echo '</figcaption>';
+							
+							$bildunterschrift = get_post_meta( $post->ID, 'fauval_overwrite_thumbdesc', true );
+							if (isset($bildunterschrift) && strlen($bildunterschrift)>1) { 
+							    $imgdata['fauval_overwrite_thumbdesc'] = $bildunterschrift;
+							}
+							echo fau_get_image_figcaption($imgdata);
 							echo '</figure>';
 						    }
 

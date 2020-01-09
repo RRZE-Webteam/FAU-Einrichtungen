@@ -56,15 +56,10 @@ while ( have_posts() ) : the_post(); ?>
 						<th>Titel</th>
 						<td><?php echo $imgdata['title']; ?></td>
 					    </tr>
-					    <?php if(!empty($imgdata['caption'])) { ?>
-					    <tr>
-						<th>Bildunterschrift</th>
-						<td><?php echo $imgdata['caption']; ?></td>
-					    </tr>
-					    <?php } ?>
+					   
 					    <?php if(!empty($imgdata['excerpt'])) { ?>
 					    <tr>
-						<th>Auszug</th>
+						<th>Beschriftung</th>
 						<td><?php echo $imgdata['excerpt']; ?></td>
 					    </tr>
 					    <?php } ?>

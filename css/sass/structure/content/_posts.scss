@@ -4,37 +4,40 @@
 
 .post-image {
     text-align: center;
-    margin: 0;
     float: none;
+    margin: 0 -15px;
+
+
+    @media (min-width: $screen-xs) {
+	float: right;
+	margin: 20px 0 10px 20px;
+    }
     
+    figure {
+	width: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	
+    }
     .post-image-caption {
 	    @include px2rem($font-size-image-caption);
 	    padding: 5px 0 10px 0;
-	    width: 300px;
 	    text-align: left;
-	    
-	    
 	    margin: 0 15px;
 	    
 	    @media (min-width: $screen-sm) {
 		margin: 0;
 		padding: 10px 0;
 	    }
-    }
-    @media (max-width: $screen-xs - 1) {
-	margin-left: -15px;
-	margin-right: -15px;
-	
-	img {
-	    width: 100%;
-	    height: auto;
 	    
-	}
+	    .copyright {
+		display: block;
+	    }
+ 
     }
-    @media (min-width: $screen-xs) {
-	float: right;
-	margin: 20px 0 10px 20px;
-    }
+
+
     
 }
 .post-meta {
@@ -67,10 +70,6 @@
 			a {
 				@include inline-block;
 				text-decoration: none;
-			}
-			
-			a:hover, a:focus {
-				
 			}
 		}
 	}	
