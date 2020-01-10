@@ -226,7 +226,7 @@ $defaultoptions = [
     'advanced_images_info_credits'			=> 0,
     'advanced_display_hero_credits'			=> true,   
     'advanced_display_postthumb_credits'		=> true,
-    
+	// Zeigt das Copyright-Feld as der EXIF-Meta von Bildern an
     'advanced_forceclean_homelink'			=> true,
 	// Links auf die Startseite werden aus dem Hauptmenu entfernt
     'advanced_forceclean_externlink'		=> true,
