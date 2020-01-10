@@ -1605,8 +1605,8 @@ function fau_get_image_figcaption($atts = array(), $type = 'post-image', $class 
 	    } else {
 		
 		$displaycredits = get_theme_mod("advanced_display_postthumb_credits");
-		if (($displaycredits==true) && (!fau_empty($atts['credits']))) {
-		    $caption_content .= '<span class="copyright">'.trim(strip_tags(  $atts['credits'])).'</span>';    
+		if (($displaycredits==true) && (!fau_empty($atts['copyright'])) && ($caption_content !== trim(strip_tags(  $atts['copyright'])))) {
+		    $caption_content .= '<span class="copyright">'.trim(strip_tags(  $atts['copyright'])).'</span>';    
 		}	    
 	    }
 	    
