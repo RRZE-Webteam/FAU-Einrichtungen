@@ -17,6 +17,9 @@
 		}
     }
 	h3 {
+	    @include px2rem($font-size-h3-small);
+
+	
 		padding-bottom: 0;
 		padding-top: 5px;
 	}
@@ -258,6 +261,11 @@
     li.person-info-address {
 	margin-bottom: 5px;
     }
+    
+    div[itemprop="contactPoint"] {
+	margin-top: 10px;
+    }
+    
 }
 
 /* Strukturen Personenshortcode Content */
