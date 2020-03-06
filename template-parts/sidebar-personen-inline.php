@@ -14,7 +14,7 @@
 		echo '<h2 class="widget-title">'.$sidebar_title_personen.'</h2>';
 	   }
 	   foreach($persons as $person) {
-		the_widget('FAUPersonWidget', array('id' => $person, 'bild' => 0)); 		   
+		the_widget('FAUPersonWidget', array('id' => $person)); 		   
 	   } 
        } 
  endif;
