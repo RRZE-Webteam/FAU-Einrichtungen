@@ -57,7 +57,12 @@ p {
 	}
 	
 }
-
+address {
+	#content .startpage-sidebar .widget &,
+	#content .sidebar-inline .widget & {
+	    @include px2rem($font-size-sidebar);
+	}
+}
 
 p.presentationtitle {
     font-weight: bold;

@@ -121,12 +121,7 @@ h3 {
 		padding: 0 0 22px 0;
 	}
 	
-	
-	
-	.person & {
-	    @include px2rem($font-size-h3-small);
-	}
-	
+
 	.subpages-menu & {
 		font-weight: normal;
 	}
@@ -174,7 +169,7 @@ h4 {
 	    @include px2rem($font-size-h4-sidebar);
 	}
 	table & {
-	     @include px2rem($font-size-h4-table);
+	    @include px2rem($font-size-h4-table);
 	}
 
 }
