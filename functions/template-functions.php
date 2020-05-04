@@ -1440,8 +1440,9 @@ function fau_rw_relative_urls() {
 /* make urls relative to base url
 /*-----------------------------------------------------------------------------------*/
 function fau_make_link_relative($url) {
+    $orig = $url;
     $current_site_url = get_site_url();   
-	if (!empty($GLOBALS['_wp_switched_stack'])) {
+    if (!empty($GLOBALS['_wp_switched_stack'])) {
         $switched_stack = $GLOBALS['_wp_switched_stack'];
         $blog_id = end($switched_stack);
         if ($GLOBALS['blog_id'] != $blog_id) {
@@ -1453,7 +1454,7 @@ function fau_make_link_relative($url) {
     if($current_host == $host) {
         $url = wp_make_link_relative($url);
     }
-    return $url; 
+    return apply_filters('fau_relative_link',$url, $orig); 
 }
 
 /*-----------------------------------------------------------------------------------*/
