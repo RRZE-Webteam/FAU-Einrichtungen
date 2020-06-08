@@ -25,8 +25,9 @@
     
 
     if ((! is_plugin_active( 'rrze-elements/rrze-elements.php' ) )
-	&& (! is_plugin_active( 'rrze-faq/rrze-faq.php' ) )) {
-	$classes[] = 'theme-accordion';
+	// && (! is_plugin_active( 'rrze-faq/rrze-faq.php' ) )) {
+	&& (! is_plugin_active( 'rrze-glossary/rrze-glossary.php' ) )) {
+		$classes[] = 'theme-accordion';
     }
     
     

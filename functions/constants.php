@@ -1059,8 +1059,9 @@ $setoptions = array(
                   'title'   => __( 'Glossar', 'fau' ),
                   'label'   => __( 'Aktiviert die Verwaltung von Glossareinträgen.', 'fau' ),                
                   'default' => $defaultoptions['advanced_activate_glossary'],
-		  'notifplugin' => 'rrze-faq/rrze-faq.php',
-		  'parent'  => 'bedienung'
+				//   'notifplugin' => 'rrze-faq/rrze-faq.php',
+				  'notifplugin' => 'rrze-glossary/rrze-glossary.php',
+				  'parent'  => 'bedienung'
 		),  
 
 	       'advanced_post_active_subtitle'	=> array(
