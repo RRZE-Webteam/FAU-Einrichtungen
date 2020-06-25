@@ -4,6 +4,7 @@
  * Default Constants and values 
  */
 
+global $OPTIONS_NAME, $defaultoptions, $setoptions;
 
 $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
