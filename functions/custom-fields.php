@@ -624,28 +624,32 @@ function fau_do_metabox_page_sidebar($object, $box) {
         fau_form_select('fauval_sidebar_order_personlinks', array(0 => __('Zuerst Kontake, dann Linklisten', 'fau'), 1 => __('Zuerst Linklisten, dann Kontakte', 'fau')), $fauval_sidebar_order_personlinks, __('Reihenfolge Kontakte und Linklisten', 'fau'), __('Hier kann die Reihenfolge von Kontakte und Linklisten geändert werden, wie sie auf der Seite präsentiert werden.', 'fau'), 0);
     }
 
-    $personen = get_posts(array('post_type' => 'person', 'post_status' => 'publish', 'posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC', 'suppress_filters' => false));
-    if ($personen) {
-        $auswahl = array('-1' => __('Keine (Deaktivieren)', 'fau'));
-        $found = 0;
-        foreach ($personen as $current) {
-            $title = get_the_title($current->ID);
-            $auswahl[$current->ID] = $title;
-            $found = 1;
-        }
-        
-        wp_reset_postdata();
-        
-        if ($found == 1) {
-            $sidebar_personen = get_post_meta($object->ID, 'sidebar_personen', true);
-            $sidebar_title_personen = get_post_meta($object->ID, 'sidebar_title_personen', true);
-            fau_form_text('sidebar_title_personen', $sidebar_title_personen, get_theme_mod('advanced_page_sidebar_personen_title'), __('Titel über Ansprechpartner', 'fau'));
-            fau_form_multiselect('sidebar_personen', $auswahl, $sidebar_personen, __('Auswahl Ansprechpartner', 'fau'), __('Wählen Sie die Personen oder Ansprechpartner, die in der Sidebar erscheinen sollen. Es kann mehr als ein Eintrag gewählt werden.', 'fau'), 0);
-        } else {
-            echo __('Derzeit sind noch Persoen oder Kontakte eingetragen, die man verlinken könnte.', 'fau');
-        }
-    }
+    
+    if ( is_plugin_active( 'fau-person/fau-person.php' ) ) {
+	
+	$listpersonen = FAU_Person\Data::get_contact_list();
+	$auswahl = array('-1' => __('Keine (Deaktivieren)', 'fau'));
+	    $found = 0;
+	    foreach ($listpersonen as $id => $val) {
+		$title = $val;
+		if ((empty($title))) {
+		    $title = get_the_title($id);
+		}
+		$auswahl[$id] = $title;
+		$found = 1;
+	    }
+	    wp_reset_postdata();
+	    if ($found == 1) {
+		$sidebar_personen = get_post_meta($object->ID, 'sidebar_personen', true);
+		$sidebar_title_personen = get_post_meta($object->ID, 'sidebar_title_personen', true);
+		fau_form_text('sidebar_title_personen', $sidebar_title_personen, get_theme_mod('advanced_page_sidebar_personen_title'), __('Titel über Ansprechpartner', 'fau'));
+		fau_form_multiselect('sidebar_personen', $auswahl, $sidebar_personen, __('Auswahl Ansprechpartner', 'fau'), __('Wählen Sie die Personen oder Ansprechpartner, die in der Sidebar erscheinen sollen. Es kann mehr als ein Eintrag gewählt werden.', 'fau'), 0);
 
+	    } else {
+		echo __('Derzeit sind noch Personen oder Kontakte eingetragen, die man verlinken könnte.', 'fau');
+	    }
+    }
+   
     if (get_theme_mod('advanced_page_sidebar_linkblock1_number') > 0) {
         $block_title = get_post_meta($object->ID, 'fauval_sidebar_title_linkblock1', true);
 
