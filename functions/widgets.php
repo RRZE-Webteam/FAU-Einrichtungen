@@ -7,7 +7,7 @@
 
 
 /* Tagcloud Menu Widget */
-global $options;
+global $wp_embed, $options;
 
 
 /*-----------------------------------------------------------------------------------*/

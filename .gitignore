@@ -8,3 +8,5 @@ node_modules
 .sass-cache*
 /package-lock.json
 tmp
+.vscode/sftp.json
+*.map

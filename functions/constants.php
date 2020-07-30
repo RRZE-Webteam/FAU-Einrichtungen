@@ -4,6 +4,7 @@
  * Default Constants and values 
  */
 
+global $OPTIONS_NAME, $defaultoptions, $setoptions;
 
 $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
@@ -1059,8 +1060,9 @@ $setoptions = array(
                   'title'   => __( 'Glossar', 'fau' ),
                   'label'   => __( 'Aktiviert die Verwaltung von Glossareinträgen.', 'fau' ),                
                   'default' => $defaultoptions['advanced_activate_glossary'],
-		  'notifplugin' => 'rrze-faq/rrze-faq.php',
-		  'parent'  => 'bedienung'
+				//   'notifplugin' => 'rrze-faq/rrze-faq.php',
+				  'notifplugin' => 'rrze-glossary/rrze-glossary.php',
+				  'parent'  => 'bedienung'
 		),  
 
 	       'advanced_post_active_subtitle'	=> array(

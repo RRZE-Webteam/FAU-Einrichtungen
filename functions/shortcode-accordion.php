@@ -37,7 +37,8 @@ if  (! function_exists( 'fau_collapsibles' ) ) {
 	$defaults = array();
 	extract( shortcode_atts( $defaults, $atts ) );
 
-	$output = '';
+	$output = '<div class="alert alert-warning">Hinweis: Diese Accordion-Funktion ist Teil des Themes und veraltet. Sie wird bald entfernt. Um weiterhin Accordions zu verwenden, aktivieren Sie bitte das Elements-Plugin.</div>';
+
 	$output .= '<div class="accordion" id="accordion-' . $GLOBALS['collapsibles_count'] . '">';
 	$output .= do_shortcode( $content );
 	$output .= '</div>';
@@ -73,8 +74,10 @@ if  (! function_exists( 'fau_collapse' ) ) {
 
 	$id = intval($id) ? intval($id) : 0;
 
-
 	$output = getAccordionbyTheme($id,$title,$color,$load,$name,$content);
+	
+
+	
 	return $output;
     }
 }
