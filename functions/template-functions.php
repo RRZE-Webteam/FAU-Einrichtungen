@@ -1539,7 +1539,6 @@ function fau_get_page_langcode($id = 0) {
 	    }
 	    $id = $GLOBALS['current_collapse'];
 	}
-
 	$output = '<div class="accordion-group' . $color . '">';
 	$output .= '<h3 class="accordion-heading"><button class="accordion-toggle" data-toggle="collapse" href="#collapse_' . $id . '">' . $title . '</button></h3>';
 	$output .= '<div id="collapse_' . $id . '" class="accordion-body' . $addclass . '"' . $name . '>';
