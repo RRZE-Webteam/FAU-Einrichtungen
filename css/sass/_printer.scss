@@ -2,89 +2,80 @@
 // Anpassungen für Media Print
 //-----------------------------------------------------------------------------------*/
 @media print {
-    @page { 
-	size:landscape; 
-	margin: 1cm;
+@page {
+    size:landscape;
+		margin: 1cm;
     }
 
-    
-   
     abbr[title]:after {
-	content: " (" attr(title) ")";
+		content: " (" attr(title) ")";
     }
   
     /* Defining all page breaks */
     a {
-	page-break-inside:avoid
+		page-break-inside:avoid
     }
     blockquote {
-	page-break-inside: avoid;
+		page-break-inside: avoid;
     }
     h1, h2, h3, h4, h5, h6 { 
-	page-break-after:avoid; 
-	page-break-inside:avoid;
+		page-break-after:avoid;
+		page-break-inside:avoid;
     }
     img { 
-	page-break-inside:avoid; 
-	page-break-after:avoid;
+		page-break-inside:avoid;
+		page-break-after:avoid;
     }
     table, pre { 
-	page-break-inside:avoid;
-	border: none;
+		page-break-inside:avoid;
+		border: none;
     }
     ul, ol, dl  { 
-	page-break-before:avoid; 
+		page-break-before:avoid;
     }
     .topevent-description,
     .widget, 
     #content .startpage-sidebar .widget p,
     ul, li, td, tr, th, p, span, div {
-	@include px2rem($font-size-print-base);
+		@include px2rem($font-size-print-base);
     }
     
     main {
-        position: relative;
-        display: block; 
-        
-        
-
-	thead {
-	    display: table-header-group;
-	}
-    }
-    main {
-	th,
-	td,
-	li, 
-	.social,
-	p {
-
-		a[href]::after {
-		    content: " (" attr(href) ")";
-		    color: $colorPrintMain;
-		    background-color: inherit;
-		    font-style: italic;
-		    font-size: 80%;
+		position: relative;
+		display: block;
+		max-width: 97%;
+		thead {
+			display: table-header-group;
 		}
-		a[href^="#"]:after {
-		    display: none;
+    	th,
+		td,
+		li,
+		.social,
+		p {
+			a[href]::after {
+				content: " (" attr(href) ")";
+				color: $colorPrintMain;
+				background-color: inherit;
+				font-style: italic;
+				font-size: 80%;
+			}
+			a[href^="#"]:after {
+				display: none;
+			}
+			a {
+				text-transform: inherit;
+				word-wrap: break-word;
+				color: $colorPrintMainLinks;
+			}
+			.meta-footer,
+			.person-info,
+			.event-time,
+			article {
+				a[href^="#"]:after {
+				content: "";
+				}
+			}
 		}
-
-		a {
-		    text-transform: inherit; 
-		    word-wrap: break-word;
-		    color: $colorPrintMainLinks;
-		}
-		.meta-footer,
-		.person-info,
-		.event-time,
-		article {
-		    a[href^="#"]:after {
-			content: "";
-		    }
-		} 
-
-	}
     }
     /**
     * Making intergated videos disappear, and removing the iframes' whitespace to zero. 
@@ -92,12 +83,12 @@
     .rrze-video,
     .entry iframe, 
     ins {
-	display: none;
-	width: 0 !important;
-	height: 0 !important;
-	overflow: hidden !important;
-	line-height: 0pt !important;
-	white-space: nowrap;
+		display: none;
+		width: 0 !important;
+		height: 0 !important;
+		overflow: hidden !important;
+		line-height: 0pt !important;
+		white-space: nowrap;
     }
     .embed-youtube, .embed-responsive {
       position: absolute;
@@ -108,45 +99,39 @@
     
     
     #social {
-
-	.col-xs-3,
-	.col-xs-9 {
-	    width: 100%;
-	}
-	
-	ul.social li {
-	    max-width: none;
-	    
-	}
-
+		.col-xs-3,
+		.col-xs-9 {
+			width: 100%;
+		}
+		ul.social li {
+			max-width: none;
+		}
     }
     
     .sidebar-subnav {
-	display: none;
+		display: none;
     }
     .entry-content {
-	width: 100%;
+		width: 100%;
     }
     
     #hero {
-	display: none;
-	
-	&.hero-small {	
-	    margin:0;
-	    position: relative;
-	    display: block;
-	    
-	    .col-xs-12,
-	    .col-sm-8 {
-		width: 100%;
-	    }
-	    
+		display: none;
+		&.hero-small {
+			margin:0;
+			position: relative;
+			display: block;
+			.col-xs-12,
+			.col-sm-8 {
+				width: 100%;
+			}
+
+		}
+		.hero-meta-portal,
+		.breadcrumbs {
+			display: none;
+		}
 	}
-	.hero-meta-portal,
-	.breadcrumbs {
-	    display: none;
-	}
-    }
     
     
      #wpadminbar,
@@ -166,17 +151,17 @@
     #footer-nav,
     #header .row .header-menu,
     .fau-werbung {
-	display: none;
+		display: none;
     }
     .admin-bar #header,
     #header {
-	position: relative;
-	top: 0;
+		position: relative;
+		top: 0;
     }
     
     hr {
-	height: 20px;
-	box-shadow: none;
+		height: 20px;
+		box-shadow: none;
     }
     
 
@@ -199,29 +184,28 @@
     
        
     footer {
-	margin-top: 70px;
-	
-	.footer-logo {
-	    margin-top: 10px;
-	}
-	
-	.socialmedia {
-	    display: none;
-	}
+		margin-top: 70px;
+		position: relative;
+		.footer-logo {
+			margin-top: 10px;
+		}
+		.socialmedia {
+			display: none;
+		}
     }
     footer:before {
-	content: 'Hinweis: Interaktive Teile der Webseite sind im Druck nicht sichbar. Bitte schonen Sie die Umwelt und vermeiden unnötige Ausdrücke.';
-	color: #777;
-	white-space: pre;
-	display: block;
-	margin-top: -40px;
-	text-align: right;
-	right: 0;
-	position: absolute;
-	font-style: italic;
-	@include px2rem($font-size-print-base-small);
+		content: 'Hinweis: Interaktive Teile der Webseite sind im Druck nicht sichbar. Bitte schonen Sie die Umwelt und vermeiden unnötige Ausdrucke.';
+		color: #777;
+		white-space: pre;
+		display: block;
+		margin-top: -40px;
+		text-align: right;
+		right: 0;
+		position: absolute;
+		font-style: italic;
+		@include px2rem($font-size-print-base-small);
     }
     :lang(en) footer:before {
-	content: 'Notice: Dynamic parts of the websites are hidden in print. Please consider the environment before printing.';
+		content: 'Notice: Dynamic parts of the websites are hidden in print. Please consider the environment before printing.';
     }
 }

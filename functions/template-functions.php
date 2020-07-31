@@ -25,8 +25,9 @@
     
 
     if ((! is_plugin_active( 'rrze-elements/rrze-elements.php' ) )
-	&& (! is_plugin_active( 'rrze-faq/rrze-faq.php' ) )) {
-	$classes[] = 'theme-accordion';
+	// && (! is_plugin_active( 'rrze-faq/rrze-faq.php' ) )) {
+	&& (! is_plugin_active( 'rrze-glossary/rrze-glossary.php' ) )) {
+		$classes[] = 'theme-accordion';
     }
     
     
@@ -568,13 +569,13 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 		$output .= '<span class="news-meta-date" itemprop="datePublished" content="'. esc_attr( get_post_time('c') ).'"> '.get_the_date('',$post->ID)."</span>";
 		$output .= '</div>';
 	    } else {
-		$output .= '<meta itemprop="datePublished" content="'. esc_attr( get_post_time('c') ).'">';
+		$output .= '<div><meta itemprop="datePublished" content="'. esc_attr( get_post_time('c') ).'"></div>';
 	    }
 	}
-	$output .= '<meta itemprop="dateModified" content="'. esc_attr( get_the_modified_time('c') ).'">';
+	$output .= '<div><meta itemprop="dateModified" content="'. esc_attr( get_the_modified_time('c') ).'">';
 
 	$schemaauthor = get_theme_mod('contact_address_name')." ".get_theme_mod('contact_address_name2'); 
-	$output .= '<meta itemprop="author" content="'. esc_attr( $schemaauthor ).'">';
+	$output .= '<meta itemprop="author" content="'. esc_attr( $schemaauthor ).'"></div>';
 					
 	
 	$output .= '<div class="row">';  	
@@ -1440,8 +1441,9 @@ function fau_rw_relative_urls() {
 /* make urls relative to base url
 /*-----------------------------------------------------------------------------------*/
 function fau_make_link_relative($url) {
+    $orig = $url;
     $current_site_url = get_site_url();   
-	if (!empty($GLOBALS['_wp_switched_stack'])) {
+    if (!empty($GLOBALS['_wp_switched_stack'])) {
         $switched_stack = $GLOBALS['_wp_switched_stack'];
         $blog_id = end($switched_stack);
         if ($GLOBALS['blog_id'] != $blog_id) {
@@ -1453,7 +1455,7 @@ function fau_make_link_relative($url) {
     if($current_host == $host) {
         $url = wp_make_link_relative($url);
     }
-    return $url; 
+    return apply_filters('fau_relative_link',$url, $orig); 
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -1537,7 +1539,6 @@ function fau_get_page_langcode($id = 0) {
 	    }
 	    $id = $GLOBALS['current_collapse'];
 	}
-
 	$output = '<div class="accordion-group' . $color . '">';
 	$output .= '<h3 class="accordion-heading"><button class="accordion-toggle" data-toggle="collapse" href="#collapse_' . $id . '">' . $title . '</button></h3>';
 	$output .= '<div id="collapse_' . $id . '" class="accordion-body' . $addclass . '"' . $name . '>';

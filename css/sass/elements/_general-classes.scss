@@ -170,10 +170,15 @@ div.aligncenter {
 .textcol-default {
 		color: $colorDefault !important;
 }
+.textcol-white {
+    color: white !important;
+}
+
 
 .bgcol-phil {
     background-color: $colorPhilFak !important;
 }
+.bgcol-alert,
 .bgcol-rw {
     background-color: $colorRwFak !important;
 }
@@ -195,6 +200,11 @@ div.aligncenter {
 .bgcol-grau {
     background-color: $colorStandardHellgrau;
 }
+.bgcol-white {
+    background-color: white;
+}
+
+
 
 
 /* Rahmen */

@@ -333,7 +333,8 @@ export const devversion = () => {
     
   return src(['./package.json','./style.css'])
     .pipe(bump({version: newVer}))
-    .pipe(dest('./'));
+    .pipe(dest('./'))
+    .pipe(touch());
 };
 
 /* 

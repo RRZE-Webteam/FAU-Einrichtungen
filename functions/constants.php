@@ -4,6 +4,7 @@
  * Default Constants and values 
  */
 
+global $OPTIONS_NAME, $defaultoptions, $setoptions;
 
 $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
@@ -1045,7 +1046,8 @@ $setoptions = array(
                   'default' => $defaultoptions['advanced_topevent'],
 		  'parent'  => 'bedienung'
               ),   
-	      
+	/*      
+	 * Auskommentiert am 31.07.2020 als nächster Schritt um es los zu werden.
 	       'advanced_activate_synonyms'  => array(
                   'type'    => 'toggle',
                   'title'   => __( 'Synonyme', 'fau' ),
@@ -1059,10 +1061,11 @@ $setoptions = array(
                   'title'   => __( 'Glossar', 'fau' ),
                   'label'   => __( 'Aktiviert die Verwaltung von Glossareinträgen.', 'fau' ),                
                   'default' => $defaultoptions['advanced_activate_glossary'],
-		  'notifplugin' => 'rrze-faq/rrze-faq.php',
-		  'parent'  => 'bedienung'
+				//   'notifplugin' => 'rrze-faq/rrze-faq.php',
+				  'notifplugin' => 'rrze-glossary/rrze-glossary.php',
+				  'parent'  => 'bedienung'
 		),  
-
+*/
 	       'advanced_post_active_subtitle'	=> array(
                   'type'    => 'toggle',
                   'title'   => __( 'Untertitel (Beiträge)', 'fau' ),
@@ -1138,9 +1141,9 @@ $setoptions = array(
 		    'title'   => __( 'Menü erfordert Klick', 'fau' ),
 		    'label'   => __( 'Die Unterpunkte des Menüs öffnen sich nur bei einem Klick auf den jeweiligen Menüpunkt.', 'fau' ),                
 		    'default' => $defaultoptions['advanced_display_portalmenu_forceclick'],
-		    'ifmodvalue'    => -1,
-		    'ifmodname'	=> 'website_type',
-		    'ifsuperadmin'   => true,
+	//	    'ifmodvalue'    => -1,
+	//	    'ifmodname'	=> 'website_type',
+	    //	    'ifsuperadmin'   => true,
 		    'parent'  => 'topmenulinks'
 		), 
 	       'advanced_display_portalmenu_plainview'	  => array(
@@ -1148,9 +1151,9 @@ $setoptions = array(
 		    'title'   => __( 'Unterpunkte stilfrei', 'fau' ),
 		    'label'   => __( 'Die Unterpunkte des Menüs werden ohne Zitat oder Bilder der Portalseite angezeigt.', 'fau' ),                
 		    'default' => $defaultoptions['advanced_display_portalmenu_plainview'],
-		    'ifmodvalue'    => -1,
-		    'ifmodname'	=> 'website_type',
-		    'ifsuperadmin'   => true,
+		//    'ifmodvalue'    => -1,
+		//    'ifmodname'	=> 'website_type',
+		//    'ifsuperadmin'   => true,
 		    'parent'  => 'topmenulinks'
 		), 
 	       

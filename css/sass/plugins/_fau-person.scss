@@ -9,14 +9,20 @@
 
 .person {
     h3, h4, h5 {
-	&:hover, &:focus {
+	a {
+	     text-decoration: none;
+	     &:hover, 
+	    &:focus {
 		    text-decoration: underline;
 		}
-		a {
-		     text-decoration: none;
-		}
+	}
+	
+
     }
 	h3 {
+	    @include px2rem($font-size-h3-small);
+
+	
 		padding-bottom: 0;
 		padding-top: 5px;
 	}
@@ -258,10 +264,15 @@
     li.person-info-address {
 	margin-bottom: 5px;
     }
+    
+    div[itemprop="contactPoint"] {
+	margin-top: 10px;
+    }
+    
 }
 
 /* Strukturen Personenshortcode Content */
-
+.sidebar-single,
 .sidebar-inline,
 .startpage-sidebar,
 .portalpage-content,

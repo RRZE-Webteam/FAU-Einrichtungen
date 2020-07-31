@@ -5,6 +5,8 @@
  * @since FAU 1.1
  */
 
+global $defaultoptions, $default_fau_orga_data;
+
 load_theme_textdomain( 'fau', get_template_directory() . '/languages' );
 require_once( get_template_directory() . '/functions/template-functions.php' );
 

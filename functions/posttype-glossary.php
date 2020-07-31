@@ -4,9 +4,11 @@
 /*--------------------------------------------------------------------*/
 $activated_theme_glossary = get_theme_mod('advanced_activate_glossary');
 $plugin_there = false;
-if ( is_plugin_active( 'rrze-faq/rrze-faq.php' ) ) {
-    $plugin_there = true;
+// if ( is_plugin_active( 'rrze-faq/rrze-faq.php' ) ) {
+if ( is_plugin_active( 'rrze-glossary/rrze-glossary.php' ) ) {
+		$plugin_there = true;
 }
+
 if  ( (isset($activated_theme_glossary)) && ($activated_theme_glossary == true) && ($plugin_there == false)) {
     if  (! function_exists( 'fau_glossary_taxonomy' ) ) {
 	function fau_glossary_taxonomy() {
