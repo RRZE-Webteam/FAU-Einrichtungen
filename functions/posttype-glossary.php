@@ -8,6 +8,7 @@ $plugin_there = false;
 if ( is_plugin_active( 'rrze-glossary/rrze-glossary.php' ) ) {
 		$plugin_there = true;
 }
+
 if  ( (isset($activated_theme_glossary)) && ($activated_theme_glossary == true) && ($plugin_there == false)) {
     if  (! function_exists( 'fau_glossary_taxonomy' ) ) {
 	function fau_glossary_taxonomy() {
