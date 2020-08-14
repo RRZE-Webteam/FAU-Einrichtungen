@@ -8,18 +8,17 @@ import yargs from 'yargs';
 import sass from 'gulp-dart-sass';
 import rename from 'gulp-rename';
 import postcss from 'gulp-postcss';
-import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'autoprefixer';
 import info from "./package.json";
 import wpPot from "gulp-wp-pot";
 import bump from "gulp-bump";
 import semver from "semver";
 import replace from "gulp-replace";
-import concat from "gulp-concat";
 import cssnano from "cssnano";
 import header from 'gulp-header';
 import touch from 'gulp-touch-cmd';
-
+import babel from 'gulp-babel';
+import uglify from 'gulp-uglify';
 
 
 const clonetarget = yargs.argv.target;
@@ -290,6 +289,16 @@ export const buildmainstyle = () => {
     .pipe(touch());
 }
 
+export const js = () => {
+    return src(['./src/js/*.js','!./src/js/**/*.min.js'])
+	.pipe(babel({
+            presets: ['@babel/env']
+	}))
+	.pipe(uglify())
+	.pipe(rename({ suffix: '.min' }))
+	.pipe(dest(info.jsdir))
+	.pipe(touch());
+}
 
 
 export const pot = () => {
