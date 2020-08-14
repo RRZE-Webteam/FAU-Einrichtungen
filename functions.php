@@ -24,7 +24,6 @@ require_once( get_template_directory() . '/functions/helper-functions.php' );
 require_once( get_template_directory() . '/functions/embeddings.php');
 
 require_once( get_template_directory() . '/functions/shortcodes.php');
-require_once( get_template_directory() . '/functions/shortcode-accordion.php');
 
 require_once( get_template_directory() . '/functions/menu.php');
 require_once( get_template_directory() . '/functions/custom-fields.php' );

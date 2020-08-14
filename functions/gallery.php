@@ -137,7 +137,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    }
 
 		    $linkalt = $imgmeta['alt'];
-		    if ('none' !== $attr['link']) {
+		    if (isset($attr['link']) && ('none' !== $attr['link'])) {
 			    // Bei Bildern, die als Link fungieren beschreibt der alt das Linkziel, nicht das Bild.
 			    if (!fau_empty($imgmeta['title'])) {
 				$linkalt = __('Bild ','fau').$imgmeta['title'].' '.__('aufrufen','fau');
@@ -166,7 +166,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    } else {
 			$output .= '<figure>';
 		    }
-		    if ('none' !== $attr['link']) {
+		    if (isset($attr['link']) && ('none' !== $attr['link'])) {
 			if ($attr['link']=='post') {
 			    // Anhang Seite
 			    $output .= '<a href="'.get_attachment_link( $id ).'">';		  
