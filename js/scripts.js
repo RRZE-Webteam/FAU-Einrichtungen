@@ -24,21 +24,7 @@ jQuery(document).ready(function ($) {
         var metaBar = 42;
         */
 
-        // Smooth scrolling for anchor-links (excluding accordion-toggles)
-        if (useThemeAccordion) {
-            $('a[href*="#"]:not([href="#"]):not([href="#nav"]):not([href="#hauptnav-anchor"]):not(.accordion-toggle):not(.accordion-tabs-nav-toggle)').click(function () {
-                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-                    var target = $(this.hash);
-                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                    if (target.length) {
-                        $('html,body').animate({
-                            scrollTop: target.offset().top - 185
-                        }, 1000);
-                        return false;
-                    }
-                }
-            });
-        }
+      
 
         //  Slider
         var autostart = !!sliderAutostart;
