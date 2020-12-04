@@ -41,7 +41,7 @@ function fau_setup() {
 	if ( ! isset( $content_width ) ) $content_width = $defaultoptions['content-width'];
 	
 	    
-	add_editor_style( array( 'css/editor-style.css' ) );
+	add_editor_style( array( 'css/fau-theme-editor-style.css' ) );
 	add_theme_support( 'html5');
 	add_theme_support('title-tag');
 
@@ -173,7 +173,7 @@ add_action( 'wp_footer', 'fau_enqueuefootercripts' );
 /*-----------------------------------------------------------------------------------*/
 function fau_admin_header_style() {
     global $defaultoptions;
-    wp_register_style( 'themeadminstyle', get_fau_template_uri().'/css/admin.css' );	   
+    wp_register_style( 'themeadminstyle', get_fau_template_uri().'/css/fau-theme-admin.css' );	   
     wp_enqueue_style( 'themeadminstyle' );	
     wp_enqueue_style( 'dashicons' );
     wp_enqueue_media();

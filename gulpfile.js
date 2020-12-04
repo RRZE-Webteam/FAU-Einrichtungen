@@ -181,9 +181,9 @@ function cloneTheme(cb) {
     
     // compile sass, use autoprefixer and minify results
     function buildbackendstyles() {
-	  return src([targetdir + info.source.sass + 'admin.scss', 
-	      targetdir + info.source.sass + 'editor-style.scss', 
-	      targetdir + info.source.sass + 'gutenberg.scss'])
+	  return src([targetdir + info.source.sass + 'fau-theme-admin.scss', 
+	      targetdir + info.source.sass + 'fau-theme-editor-style.scss', 
+	      targetdir + info.source.sass + 'fau-theme-gutenberg.scss'])
 	    .pipe(header(helpercssbanner, { info : info }))
 	    .pipe(sass().on('error',  sass.logError))
 	    .pipe(postcss([
@@ -201,7 +201,7 @@ function cloneTheme(cb) {
      // compile sass, use autoprefixer and minify results
     function buildproductivestyle() {
 	
-	var inputscss = targetdir + info.source.sass + 'base.scss';
+	var inputscss = targetdir + info.source.sass + 'fau-theme-style.scss';
 	console.log(`  - Creating new CSS from SCSS-File ${inputscss} in ${targetdir}style.css`);	
 	return src([inputscss])
 	    .pipe(header(themebanner, { info : info }))
@@ -234,9 +234,9 @@ function sassautoprefixhelperfiles() {
     var plugins = [
         autoprefixer()
     ];
-  return src([info.source.sass + 'admin.scss', 
-      info.source.sass + 'editor-style.scss', 
-      info.source.sass + 'gutenberg.scss'])
+  return src([info.source.sass + 'fau-theme-admin.scss', 
+      info.source.sass + 'fau-theme-editor-style.scss', 
+      info.source.sass + 'fau-theme-gutenberg.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
     .pipe(dest('./css'))
@@ -253,7 +253,7 @@ function sassautoprefixmainstyle() {
     var plugins = [
         autoprefixer()
     ];
-  return src([info.source.sass + 'base.scss'])
+  return src([info.source.sass + 'fau-theme-style.scss'])
     .pipe(header(banner, { info : info }))
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
@@ -273,7 +273,9 @@ function buildhelperstyles() {
         autoprefixer(),
         cssnano()
     ];
-  return src(['css/sass/admin.scss', 'css/sass/editor-style.scss', 'css/sass/gutenberg.scss'])
+  return src([info.source.sass + 'fau-theme-admin.scss',
+      info.source.sass + 'fau-theme-editor-style.scss',
+      info.source.sass + 'fau-theme-gutenberg.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
     .pipe(dest('./css'))
@@ -289,7 +291,7 @@ function buildmainstyle() {
         autoprefixer(),
         cssnano()
     ];
-  return src([info.source.sass + 'base.scss'])
+  return src([info.source.sass + 'fau-theme-style.scss'])
    .pipe(header(banner, { info : info }))
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
