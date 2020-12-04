@@ -38,7 +38,12 @@ $defaultoptions = [
     'content-width-fullpage'		=> 940,
     'src-fallback-slider-image'		=> get_fau_template_uri().'/img/slider-fallback.jpg',
     'slider-catid'			=> 0,    
-    'src-scriptjs'			=> get_fau_template_uri() . '/js/scripts.min.js',
+    'src-scriptjs'			=> get_fau_template_uri() . '/js/fau-theme.min.js',
+    'src-sliderjs'			=> get_fau_template_uri() . '/js/fau-theme-slick.min.js',
+    'src-adminjs'			=> get_fau_template_uri() . '/js/fau-theme-admin.min.js',
+    'src-admin-customizer-js'		=> get_fau_template_uri() . '/js/fau-theme-customizer-range-value-control.min.js',
+    'src-admin-wplinkjs'		=> get_fau_template_uri() . '/js/fau-theme-wplink.min.js',
+
     'default_slider_excerpt_length'		=> 240,
     'slider-autoplay'			=> true,
     'slider-animation'			=> 'fade',
@@ -200,29 +205,24 @@ $defaultoptions = [
     'advanced_comments_notes_before'		=> __('Ihre E-Mail-Adresse wird nicht angezeigt. Verpflichtende Felder werden mit dem folgenden Zeichen markiert: <span class="required">*</span>', 'fau' ),
     'advanced_comments_disclaimer'			=> __('Hinweis: Die Kommentare wurden von Lesern geschrieben und spiegeln deren persönliche Meinung wieder. Sie müssen nicht die Meinung der Universität oder der Fakultät repräsentieren.', 'fau' ),
     'advanced_comments_avatar'			=> false,
-    'advanced_activate_synonyms'			=> false,
-    'advanced_activate_glossary'			=> false,
     'advanced_activate_quicklinks'			=> true,
     
     
     'post_display_category_below'			=> true,
-    'post_display_tags_below'		    	=> true,
-    'search_display_post_thumbnails'		=> true,
-    'search_display_post_cats'			=> true,
+    'post_display_tags_below'			    => true,
+    'search_display_post_thumbnails'		    => true,
+    'search_display_post_cats'			    => true,
     'search_display_continue_arrow'			=> true,
-    'search_display_excerpt_morestring'		=> '...',
-    'search_display_typenote'			=> true,
-    'advanced_display_postthumb_alt-from-desc'	=> false,
-    'search_post_types'			    	=> array("page", "post", "attachment"),
-    'search_post_types_checked'			=> array("page", "post"),
+    'search_display_excerpt_morestring'		    => '...',
+    'search_display_typenote'			    => true,
+    'advanced_display_postthumb_alt-from-desc'	    => false,
+    'search_post_types'				    => array("page", "post", "attachment"),
+    'search_post_types_checked'			    => array("page", "post"),
     'search_allowfilter'				=> true,
     'search_notice_searchregion'			=> __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie bitte die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.','fau'),
 
-    
-    'index_synonym_listall'			=> true,
-    'index_glossary_listall'			=> true,
-    
-    'advanced_reveal_pages_id'			=> false,
+        
+    'advanced_reveal_pages_id'			    => false,
 	// Zeigt Page-ID im Backend der Seitebearbeitung
     'advanced_images_info_credits'			=> 0,
     'advanced_display_hero_credits'			=> true,   
@@ -237,7 +237,7 @@ $defaultoptions = [
     'advanced_blogroll_thumblink_alt_pretitle'	=> __('Zum Artikel "','fau'), 
 	// Alternativer Tag wird mit dem Tiotel des verlinkten Beitrags gefüllt. 
 	// Hier kann davor noch ein Vortitel stehen.
-    'advanced_blogroll_thumblink_alt_posttitle'	=> __('"','fau'), 
+    'advanced_blogroll_thumblink_alt_posttitle'	=> '"', 
 	// Alternativer Tag wird mit dem Tiotel des verlinkten Beitrags gefüllt. 
 	// Hier kann davor noch ein teil dahinter stehen. 
     'advanced_contentmenu_thumblink_alt_pretitle'	=> __('Zur Seite "','fau'), 
@@ -249,7 +249,7 @@ $defaultoptions = [
     'advanced_topevent_thumblink_alt_pretitle'	=> __('Zum Artikel "','fau'), 
 	// Alternativer Tag wird mit dem Tiotel des verlinkten Beitrags gefüllt. 
 	// Hier kann davor noch ein Vortitel stehen.
-    'advanced_topevent_thumblink_alt_posttitle'	=> __('"','fau'), 
+    'advanced_topevent_thumblink_alt_posttitle'	=> '"', 
 	// Alternativer Tag wird mit dem Tiotel des verlinkten Beitrags gefüllt. 
 	// Hier kann davor noch ein teil dahinter stehen.     
     'advanced_display_portalmenu_thumb_credits'	=> false,
@@ -1046,26 +1046,7 @@ $setoptions = array(
                   'default' => $defaultoptions['advanced_topevent'],
 		  'parent'  => 'bedienung'
               ),   
-	/*      
-	 * Auskommentiert am 31.07.2020 als nächster Schritt um es los zu werden.
-	       'advanced_activate_synonyms'  => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Synonyme', 'fau' ),
-                  'label'   => __( 'Aktiviert die Verwaltung von Synonymen.', 'fau' ),                
-                  'default' => $defaultoptions['advanced_activate_synonyms'],
-		  'notifplugin'    => 'rrze-synonym/rrze-synonym.php',
-		  'parent'  => 'bedienung'
-              ),   
-		'advanced_activate_glossary'  => array(
-                  'type'    => 'toggle',
-                  'title'   => __( 'Glossar', 'fau' ),
-                  'label'   => __( 'Aktiviert die Verwaltung von Glossareinträgen.', 'fau' ),                
-                  'default' => $defaultoptions['advanced_activate_glossary'],
-				//   'notifplugin' => 'rrze-faq/rrze-faq.php',
-				  'notifplugin' => 'rrze-glossary/rrze-glossary.php',
-				  'parent'  => 'bedienung'
-		),  
-*/
+	
 	       'advanced_post_active_subtitle'	=> array(
                   'type'    => 'toggle',
                   'title'   => __( 'Untertitel (Beiträge)', 'fau' ),

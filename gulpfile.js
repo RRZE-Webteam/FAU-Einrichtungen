@@ -1,24 +1,29 @@
+'use strict';
 /* 
  * Gulp Builder for WordPress Theme FAU-Einrichtungen
  */
+const
+    {src, dest, watch, series, parallel} = require('gulp'),
+    sass = require('gulp-sass'),
+    postcss = require('gulp-postcss'),
+    autoprefixer = require('autoprefixer'),
+    uglify = require('gulp-uglify'),
+    babel = require('gulp-babel'),
+    bump = require('gulp-bump'),
+    semver = require('semver'),
+    info = require('./package.json'),
+    wpPot = require('gulp-wp-pot'),
+    touch = require('gulp-touch-cmd'),
+    header = require('gulp-header'),
+    cssnano = require('cssnano'),
+    concat = require('gulp-concat'),
+    replace = require('gulp-replace'),
+    rename = require('gulp-rename'),
+    yargs = require('yargs'),
+    cssvalidate = require('gulp-w3c-css'),
+    map  = require('map-stream')
+;
 
-import { src, dest, series, parallel  } from 'gulp';
-import yargs from 'yargs';
-// import sass from 'gulp-sass';
-import sass from 'gulp-dart-sass';
-import rename from 'gulp-rename';
-import postcss from 'gulp-postcss';
-import autoprefixer from 'autoprefixer';
-import info from "./package.json";
-import wpPot from "gulp-wp-pot";
-import bump from "gulp-bump";
-import semver from "semver";
-import replace from "gulp-replace";
-import cssnano from "cssnano";
-import header from 'gulp-header';
-import touch from 'gulp-touch-cmd';
-import babel from 'gulp-babel';
-import uglify from 'gulp-uglify';
 
 
 const clonetarget = yargs.argv.target;
@@ -97,7 +102,7 @@ function cloneTheme(cb) {
     console.log(`   Target directory: ${targetdir}`);
     console.log(`   Color: ${farbfamilie}`);
    
-    var sassdir = targetdir + 'css/sass/';
+    var sassdir = targetdir + info.source.sass;
     var variablesfile =  sassdir + '_variables.scss';
     var constfile = targetdir + 'functions/constants.php';
 
@@ -127,7 +132,7 @@ function cloneTheme(cb) {
 
 
     // Copy files 
-    const copyprocess = () => {
+    function copyprocess() {
 	    console.log(`Starting copy files to ${targetdir}`);
 	   return src(['**/*', 
 		"!.git{,/**}",
@@ -144,7 +149,7 @@ function cloneTheme(cb) {
     };
     
     // Update color family in variables.scss 
-    const setcolorfamily = () => {
+    function setcolorfamily() {
 	console.log(`  - Update color family in ${variablesfile} to ${farbfamilie}`);	
 	return src([variablesfile])
 		    .pipe(replace(/farbfamilie: '(.*)'/g, 'farbfamilie: \''+farbfamilie+'\''))
@@ -152,7 +157,7 @@ function cloneTheme(cb) {
     }
     
     // Update theme config to the theme type
-    const setwebsite_usefaculty = () => {
+    function setwebsite_usefaculty() {
 	// find this entry and change it:
 	// 'website_usefaculty'		=> '',
 	// phil, med, nat, rw, tf
@@ -163,7 +168,7 @@ function cloneTheme(cb) {
     }
     
     // Copy theme screenshot in the new base directory
-    const copyscreenshot = () => {
+    function copyscreenshot() {
 	var screenshot = targetdir + 'img/screenshots/screenshot-' + farbfamilie + '.png';
 	console.log(`  - Copy screenshot ${screenshot} to ${targetdir}`);	
 	
@@ -175,8 +180,10 @@ function cloneTheme(cb) {
 
     
     // compile sass, use autoprefixer and minify results
-    const  buildbackendstyles = () => {
-	  return src([targetdir +'css/sass/admin.scss', targetdir +'css/sass/editor-style.scss', targetdir +'css/sass/gutenberg.scss'])
+    function buildbackendstyles() {
+	  return src([targetdir + info.source.sass + 'fau-theme-admin.scss', 
+	      targetdir + info.source.sass + 'fau-theme-editor-style.scss', 
+	      targetdir + info.source.sass + 'fau-theme-gutenberg.scss'])
 	    .pipe(header(helpercssbanner, { info : info }))
 	    .pipe(sass().on('error',  sass.logError))
 	    .pipe(postcss([
@@ -192,9 +199,9 @@ function cloneTheme(cb) {
     
     
      // compile sass, use autoprefixer and minify results
-    const buildproductivestyle = () => {
+    function buildproductivestyle() {
 	
-	var inputscss = targetdir + 'css/sass/base.scss';
+	var inputscss = targetdir + info.source.sass + 'fau-theme-style.scss';
 	console.log(`  - Creating new CSS from SCSS-File ${inputscss} in ${targetdir}style.css`);	
 	return src([inputscss])
 	    .pipe(header(themebanner, { info : info }))
@@ -203,7 +210,7 @@ function cloneTheme(cb) {
 		autoprefixer(),
 		cssnano()
 	    ]))
-	    .pipe(rename("style.css"))
+	    .pipe(rename(info.maincss))
 	    .pipe(dest(targetdir))
     	    .pipe(touch());
 
@@ -223,11 +230,13 @@ function cloneTheme(cb) {
 /* 
  * SASS and Autoprefix CSS Files, without clean
  */
-export const sassautoprefixhelperfiles = () => {
+function sassautoprefixhelperfiles() {
     var plugins = [
         autoprefixer()
     ];
-  return src(['css/sass/admin.scss', 'css/sass/editor-style.scss', 'css/sass/gutenberg.scss'])
+  return src([info.source.sass + 'fau-theme-admin.scss', 
+      info.source.sass + 'fau-theme-editor-style.scss', 
+      info.source.sass + 'fau-theme-gutenberg.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
     .pipe(dest('./css'))
@@ -240,15 +249,15 @@ export const sassautoprefixhelperfiles = () => {
 /* 
  * SASS and Autoprefix CSS Files, without clean
  */
-export const sassautoprefixmainstyle = () => {
+function sassautoprefixmainstyle() {
     var plugins = [
         autoprefixer()
     ];
-  return src(['css/sass/base.scss'])
+  return src([info.source.sass + 'fau-theme-style.scss'])
     .pipe(header(banner, { info : info }))
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
-    .pipe(rename('style.css'))
+    .pipe(rename(info.maincss))
     .pipe(dest('./'))
     .pipe(touch());
 }
@@ -259,12 +268,14 @@ export const sassautoprefixmainstyle = () => {
 /* 
  * Compile all styles with SASS and clean them up 
  */
-export const buildhelperstyles = () => {
+function buildhelperstyles() {
     var plugins = [
         autoprefixer(),
         cssnano()
     ];
-  return src(['css/sass/admin.scss', 'css/sass/editor-style.scss', 'css/sass/gutenberg.scss'])
+  return src([info.source.sass + 'fau-theme-admin.scss',
+      info.source.sass + 'fau-theme-editor-style.scss',
+      info.source.sass + 'fau-theme-gutenberg.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
     .pipe(dest('./css'))
@@ -275,43 +286,82 @@ export const buildhelperstyles = () => {
 /* 
  * Compile all styles with SASS and clean them up 
  */
-export const buildmainstyle = () => {
+function buildmainstyle() {
     var plugins = [
         autoprefixer(),
         cssnano()
     ];
-  return src(['css/sass/base.scss'])
+  return src([info.source.sass + 'fau-theme-style.scss'])
    .pipe(header(banner, { info : info }))
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
-    .pipe(rename('style.css'))
+    .pipe(rename(info.maincss))
     .pipe(dest('./'))
     .pipe(touch());
 }
 
-export const js = () => {
-    return src(['./src/js/*.js','!./src/js/**/*.min.js'])
-	.pipe(babel({
-            presets: ['@babel/env']
-	}))
-	.pipe(uglify())
-	.pipe(rename({ suffix: '.min' }))
-	.pipe(dest(info.jsdir))
-	.pipe(touch());
+
+function bundleadminjs() {
+    return src([info.source.js + 'admin/admin.js'])
+    .pipe(concat(info.adminjs))
+    .pipe(uglify())
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
 }
 
+// we depart customizerjs from admin js, due to js conflicts
+function makecustomizerjs() {
+    return src([info.source.js + 'admin/customizer-range-value-control.js'])
+    .pipe(uglify())
+    .pipe(rename("fau-theme-customizer-range-value-control.min.js"))
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
+}
+// we depart wplink from admin js, due to needed extra vals
+function makewplinkjs() {
+    return src([info.source.js + 'admin/rrze-wplink.js'])
+    .pipe(uglify())
+    .pipe(rename("fau-theme-wplink.min.js"))
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
+}
+function bundlemainjs() {
+    return src([info.source.js + 'main/jquery.fancybox.js', 
+	    //    info.source.js + 'main/jquery.hoverIntent.min.js', 
+		// we remove hoverIntent, cause its already provider from wordpress
+	    info.source.js + 'main/jquery.tablesorter.min.js',
+	    //  info.source.js + 'main/slick.js',
+		// we remove slick from the main js to reduce the data transfered
+		// in default situations. slick we only use on special pages, where we 
+		// can call it additional
+	    info.source.js + 'main/console-errors.js',
+	    info.source.js + 'main/main.js'])
+    .pipe(concat(info.mainjs))
+    .pipe(uglify())
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
+}
+function makeslickjs() {
+    return src([info.source.js + 'main/slick.js'])
+    .pipe(uglify())
+    .pipe(rename("fau-theme-slick.min.js"))
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
+}
 
-export const pot = () => {
-  return src("**/*.php")
+function updatepot()  {
+  return src(['**/*.php', '!vendor/**/*.php'])
   .pipe(
       wpPot({
         domain: info.textdomain,
         package: info.name,
-	team: info.author
- 
+	team: info.author,
+ 	bugReport: info.repository.issues,
+	ignoreTemplateNameHeader: true
       })
     )
-  .pipe(dest(`languages/${info.textdomain}.pot`));
+  .pipe(dest(`languages/${info.textdomain}.pot`))
+  .pipe(touch());;
 };
 
 /*
@@ -319,15 +369,16 @@ export const pot = () => {
  *  (All other levels we are doing manually; This level has to update automatically on each build)
  */
 
-export const upversionpatch = () => {
-  var newVer = semver.inc(info.version, 'patch');
-    
-  return src(['./package.json','./style.css'])
-    .pipe(bump({version: newVer}))
-    .pipe(dest('./'))
-    .pipe(touch());
-};
 
+function upversionpatch() {
+    var newVer = semver.inc(info.version, 'patch');
+    return src(['./package.json', './' + info.maincss])
+        .pipe(bump({
+            version: newVer
+        }))
+        .pipe(dest('./'))
+	.pipe(touch());
+};
 
 
 /*
@@ -337,24 +388,25 @@ export const upversionpatch = () => {
  *   the minified versions.
  *   In other words: If we use dev, the theme wil load script files without ".min.".  
  */
-export const devversion = () => {
-   var newVer = semver.inc(info.version, 'prerelease');
-    
-  return src(['./package.json','./style.css'])
-    .pipe(bump({version: newVer}))
-    .pipe(dest('./'))
-    .pipe(touch());
+function devversion() {
+    var newVer = semver.inc(info.version, 'prerelease');
+    return src(['./package.json', './' + info.maincss])
+        .pipe(bump({
+            version: newVer
+        }))
+	.pipe(dest('./'))
+	.pipe(touch());;
 };
+
+
 
 /* 
  * CSS Validator
  */
-import cssvalidate from 'gulp-w3c-css';
-import map from 'map-stream';
 
 
-export const validatecss = () => { 
-  return src(['./style.css'])
+function validatecss() { 
+  return src(['./'+info.maincss])
     .pipe(cssvalidate())
     .pipe(map(function(file, done) {
       if (file.contents.length == 0) {
@@ -374,7 +426,23 @@ export const validatecss = () => {
 };
 
 
-export const clone = cloneTheme;
-export const dev = series(sassautoprefixhelperfiles, sassautoprefixmainstyle, devversion, validatecss);
-export const build = series(buildhelperstyles, buildmainstyle, upversionpatch);
-export default dev;
+exports.pot = updatepot;
+exports.devversion = devversion;
+exports.validatecss = validatecss;
+exports.bundlemainjs = bundlemainjs;
+exports.bundleadminjs = bundleadminjs;
+exports.makeslickjs = makeslickjs;
+exports.makecustomizerjs = makecustomizerjs;
+exports.makewplinkjs = makewplinkjs;
+exports.clone = cloneTheme;
+exports.buildmainstyle = buildmainstyle;
+
+var js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, makewplinkjs);
+var dev = series(sassautoprefixhelperfiles, sassautoprefixmainstyle, js, devversion, validatecss);
+
+exports.js = js;
+exports.dev = dev;
+exports.build = series(buildhelperstyles, buildmainstyle, js, upversionpatch);
+
+exports.default = dev;
+
