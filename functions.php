@@ -172,6 +172,7 @@ add_action( 'wp_footer', 'fau_enqueuefootercripts' );
 /* Activate scripts and style for backend use
 /*-----------------------------------------------------------------------------------*/
 function fau_admin_header_style() {
+    global $defaultoptions;
     wp_register_style( 'themeadminstyle', get_fau_template_uri().'/css/admin.css' );	   
     wp_enqueue_style( 'themeadminstyle' );	
     wp_enqueue_style( 'dashicons' );

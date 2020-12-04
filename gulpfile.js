@@ -296,9 +296,7 @@ function buildmainstyle() {
 
 
 function bundleadminjs() {
-    return src([
-	    info.source.js + 'admin/rrze-wplink.js',
-	    info.source.js + 'admin/admin.js'])
+    return src([info.source.js + 'admin/admin.js'])
     .pipe(concat(info.adminjs))
     .pipe(uglify())
     .pipe(dest(info.jsdir))
@@ -310,6 +308,14 @@ function makecustomizerjs() {
     return src([info.source.js + 'admin/customizer-range-value-control.js'])
     .pipe(uglify())
     .pipe(rename("fau-theme-customizer-range-value-control.min.js"))
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
+}
+// we depart wplink from admin js, due to needed extra vals
+function makewplinkjs() {
+    return src([info.source.js + 'admin/rrze-wplink.js'])
+    .pipe(uglify())
+    .pipe(rename("fau-theme-wplink.min.js"))
     .pipe(dest(info.jsdir))
     .pipe(touch());
 }
@@ -421,11 +427,12 @@ exports.bundlemainjs = bundlemainjs;
 exports.bundleadminjs = bundleadminjs;
 exports.makeslickjs = makeslickjs;
 exports.makecustomizerjs = makecustomizerjs;
+exports.makewplinkjs = makewplinkjs;
 exports.clone = cloneTheme;
-exports.js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs);
+var js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, makewplinkjs);
+var dev = series(sassautoprefixhelperfiles, sassautoprefixmainstyle, js, devversion, validatecss);
 
-
-var dev = series(sassautoprefixhelperfiles, sassautoprefixmainstyle, bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, devversion, validatecss);
+exports.js = js;
 exports.dev = dev;
 exports.build = series(buildhelperstyles, buildmainstyle, bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, upversionpatch);
 

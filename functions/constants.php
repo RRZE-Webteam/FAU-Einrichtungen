@@ -42,6 +42,8 @@ $defaultoptions = [
     'src-sliderjs'			=> get_fau_template_uri() . '/js/fau-theme-slick.min.js',
     'src-adminjs'			=> get_fau_template_uri() . '/js/fau-theme-admin.min.js',
     'src-admin-customizer-js'		=> get_fau_template_uri() . '/js/fau-theme-customizer-range-value-control.min.js',
+    'src-admin-wplinkjs'		=> get_fau_template_uri() . '/js/fau-theme-wplink.min.js',
+
     'default_slider_excerpt_length'		=> 240,
     'slider-autoplay'			=> true,
     'slider-animation'			=> 'fade',

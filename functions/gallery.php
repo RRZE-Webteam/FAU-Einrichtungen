@@ -178,7 +178,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 
 		    $output .= fau_get_image_htmlcode($id, 'gallery-full', $linkalt);
 		    
-		    if ('none' !== $attr['link']) {
+		    if (isset($attr['link']) && ('none' !== $attr['link'])) {
 			$output .= '</a>';
 		    }
 
