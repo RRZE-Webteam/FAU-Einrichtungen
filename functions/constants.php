@@ -209,20 +209,20 @@ $defaultoptions = [
     
     
     'post_display_category_below'			=> true,
-    'post_display_tags_below'		    	=> true,
-    'search_display_post_thumbnails'		=> true,
-    'search_display_post_cats'			=> true,
+    'post_display_tags_below'			    => true,
+    'search_display_post_thumbnails'		    => true,
+    'search_display_post_cats'			    => true,
     'search_display_continue_arrow'			=> true,
-    'search_display_excerpt_morestring'		=> '...',
-    'search_display_typenote'			=> true,
-    'advanced_display_postthumb_alt-from-desc'	=> false,
-    'search_post_types'			    	=> array("page", "post", "attachment"),
-    'search_post_types_checked'			=> array("page", "post"),
+    'search_display_excerpt_morestring'		    => '...',
+    'search_display_typenote'			    => true,
+    'advanced_display_postthumb_alt-from-desc'	    => false,
+    'search_post_types'				    => array("page", "post", "attachment"),
+    'search_post_types_checked'			    => array("page", "post"),
     'search_allowfilter'				=> true,
     'search_notice_searchregion'			=> __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie bitte die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.','fau'),
 
         
-    'advanced_reveal_pages_id'			=> false,
+    'advanced_reveal_pages_id'			    => false,
 	// Zeigt Page-ID im Backend der Seitebearbeitung
     'advanced_images_info_credits'			=> 0,
     'advanced_display_hero_credits'			=> true,   
@@ -237,7 +237,7 @@ $defaultoptions = [
     'advanced_blogroll_thumblink_alt_pretitle'	=> __('Zum Artikel "','fau'), 
 	// Alternativer Tag wird mit dem Tiotel des verlinkten Beitrags gefüllt. 
 	// Hier kann davor noch ein Vortitel stehen.
-    'advanced_blogroll_thumblink_alt_posttitle'	=> __('"','fau'), 
+    'advanced_blogroll_thumblink_alt_posttitle'	=> '"', 
 	// Alternativer Tag wird mit dem Tiotel des verlinkten Beitrags gefüllt. 
 	// Hier kann davor noch ein teil dahinter stehen. 
     'advanced_contentmenu_thumblink_alt_pretitle'	=> __('Zur Seite "','fau'), 
@@ -249,7 +249,7 @@ $defaultoptions = [
     'advanced_topevent_thumblink_alt_pretitle'	=> __('Zum Artikel "','fau'), 
 	// Alternativer Tag wird mit dem Tiotel des verlinkten Beitrags gefüllt. 
 	// Hier kann davor noch ein Vortitel stehen.
-    'advanced_topevent_thumblink_alt_posttitle'	=> __('"','fau'), 
+    'advanced_topevent_thumblink_alt_posttitle'	=> '"', 
 	// Alternativer Tag wird mit dem Tiotel des verlinkten Beitrags gefüllt. 
 	// Hier kann davor noch ein teil dahinter stehen.     
     'advanced_display_portalmenu_thumb_credits'	=> false,

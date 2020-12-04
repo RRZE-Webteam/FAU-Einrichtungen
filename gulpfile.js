@@ -102,7 +102,7 @@ function cloneTheme(cb) {
     console.log(`   Target directory: ${targetdir}`);
     console.log(`   Color: ${farbfamilie}`);
    
-    var sassdir = targetdir + 'css/sass/';
+    var sassdir = targetdir + info.source.sass;
     var variablesfile =  sassdir + '_variables.scss';
     var constfile = targetdir + 'functions/constants.php';
 
@@ -181,7 +181,9 @@ function cloneTheme(cb) {
     
     // compile sass, use autoprefixer and minify results
     function buildbackendstyles() {
-	  return src([targetdir +'css/sass/admin.scss', targetdir +'css/sass/editor-style.scss', targetdir +'css/sass/gutenberg.scss'])
+	  return src([targetdir + info.source.sass + 'admin.scss', 
+	      targetdir + info.source.sass + 'editor-style.scss', 
+	      targetdir + info.source.sass + 'gutenberg.scss'])
 	    .pipe(header(helpercssbanner, { info : info }))
 	    .pipe(sass().on('error',  sass.logError))
 	    .pipe(postcss([
@@ -199,7 +201,7 @@ function cloneTheme(cb) {
      // compile sass, use autoprefixer and minify results
     function buildproductivestyle() {
 	
-	var inputscss = targetdir + 'css/sass/base.scss';
+	var inputscss = targetdir + info.source.sass + 'base.scss';
 	console.log(`  - Creating new CSS from SCSS-File ${inputscss} in ${targetdir}style.css`);	
 	return src([inputscss])
 	    .pipe(header(themebanner, { info : info }))
@@ -208,7 +210,7 @@ function cloneTheme(cb) {
 		autoprefixer(),
 		cssnano()
 	    ]))
-	    .pipe(rename("style.css"))
+	    .pipe(rename(info.maincss))
 	    .pipe(dest(targetdir))
     	    .pipe(touch());
 
@@ -232,7 +234,9 @@ function sassautoprefixhelperfiles() {
     var plugins = [
         autoprefixer()
     ];
-  return src(['css/sass/admin.scss', 'css/sass/editor-style.scss', 'css/sass/gutenberg.scss'])
+  return src([info.source.sass + 'admin.scss', 
+      info.source.sass + 'editor-style.scss', 
+      info.source.sass + 'gutenberg.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
     .pipe(dest('./css'))
@@ -249,11 +253,11 @@ function sassautoprefixmainstyle() {
     var plugins = [
         autoprefixer()
     ];
-  return src(['css/sass/base.scss'])
+  return src([info.source.sass + 'base.scss'])
     .pipe(header(banner, { info : info }))
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
-    .pipe(rename('style.css'))
+    .pipe(rename(info.maincss))
     .pipe(dest('./'))
     .pipe(touch());
 }
@@ -285,11 +289,11 @@ function buildmainstyle() {
         autoprefixer(),
         cssnano()
     ];
-  return src(['css/sass/base.scss'])
+  return src([info.source.sass + 'base.scss'])
    .pipe(header(banner, { info : info }))
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
-    .pipe(rename('style.css'))
+    .pipe(rename(info.maincss))
     .pipe(dest('./'))
     .pipe(touch());
 }
@@ -400,7 +404,7 @@ function devversion() {
 
 
 function validatecss() { 
-  return src(['./style.css'])
+  return src(['./'+info.maincss])
     .pipe(cssvalidate())
     .pipe(map(function(file, done) {
       if (file.contents.length == 0) {
@@ -429,12 +433,14 @@ exports.makeslickjs = makeslickjs;
 exports.makecustomizerjs = makecustomizerjs;
 exports.makewplinkjs = makewplinkjs;
 exports.clone = cloneTheme;
+exports.buildmainstyle = buildmainstyle;
+
 var js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, makewplinkjs);
 var dev = series(sassautoprefixhelperfiles, sassautoprefixmainstyle, js, devversion, validatecss);
 
 exports.js = js;
 exports.dev = dev;
-exports.build = series(buildhelperstyles, buildmainstyle, bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, upversionpatch);
+exports.build = series(buildhelperstyles, buildmainstyle, js, upversionpatch);
 
 exports.default = dev;
 
