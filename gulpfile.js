@@ -16,6 +16,7 @@ const
     touch = require('gulp-touch-cmd'),
     header = require('gulp-header'),
     cssnano = require('cssnano'),
+    concat = require('gulp-concat'),
     replace = require('gulp-replace'),
     rename = require('gulp-rename'),
     yargs = require('yargs'),
@@ -293,17 +294,48 @@ function buildmainstyle() {
     .pipe(touch());
 }
 
-function js() {
-    return src(['./src/js/*.js','!./src/js/**/*.min.js'])
-	.pipe(babel({
-            presets: ['@babel/env']
-	}))
-	.pipe(uglify())
-	.pipe(rename({ suffix: '.min' }))
-	.pipe(dest(info.jsdir))
-	.pipe(touch());
+
+function bundleadminjs() {
+    return src([
+	    info.source.js + 'admin/rrze-wplink.js',
+	    info.source.js + 'admin/admin.js'])
+    .pipe(concat(info.adminjs))
+    .pipe(uglify())
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
 }
 
+// we depart customizerjs from admin js, due to js conflicts
+function makecustomizerjs() {
+    return src([info.source.js + 'admin/customizer-range-value-control.js'])
+    .pipe(uglify())
+    .pipe(rename("fau-theme-customizer-range-value-control.min.js"))
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
+}
+function bundlemainjs() {
+    return src([info.source.js + 'main/jquery.fancybox.js', 
+	    //    info.source.js + 'main/jquery.hoverIntent.min.js', 
+		// we remove hoverIntent, cause its already provider from wordpress
+	    info.source.js + 'main/jquery.tablesorter.min.js',
+	    //  info.source.js + 'main/slick.js',
+		// we remove slick from the main js to reduce the data transfered
+		// in default situations. slick we only use on special pages, where we 
+		// can call it additional
+	    info.source.js + 'main/console-errors.js',
+	    info.source.js + 'main/main.js'])
+    .pipe(concat(info.mainjs))
+    .pipe(uglify())
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
+}
+function makeslickjs() {
+    return src([info.source.js + 'main/slick.js'])
+    .pipe(uglify())
+    .pipe(rename("fau-theme-slick.min.js"))
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
+}
 
 function updatepot()  {
   return src(['**/*.php', '!vendor/**/*.php'])
@@ -382,16 +414,20 @@ function validatecss() {
 };
 
 
-exports.js = js;
 exports.pot = updatepot;
 exports.devversion = devversion;
 exports.validatecss = validatecss;
-
-
+exports.bundlemainjs = bundlemainjs;
+exports.bundleadminjs = bundleadminjs;
+exports.makeslickjs = makeslickjs;
+exports.makecustomizerjs = makecustomizerjs;
 exports.clone = cloneTheme;
-var dev = series(sassautoprefixhelperfiles, sassautoprefixmainstyle, devversion, validatecss);
+exports.js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs);
+
+
+var dev = series(sassautoprefixhelperfiles, sassautoprefixmainstyle, bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, devversion, validatecss);
 exports.dev = dev;
-exports.build = series(buildhelperstyles, buildmainstyle, upversionpatch);
+exports.build = series(buildhelperstyles, buildmainstyle, bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, upversionpatch);
 
 exports.default = dev;
 

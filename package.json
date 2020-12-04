@@ -1,7 +1,7 @@
 {
   "name": "FAU-Einrichtungen",
   "textdomain": "fau",
-  "version": "1.12.19",
+  "version": "1.12.20-2",
   "keywords": [
     "WordPress",
     "Theme",
@@ -62,12 +62,18 @@
   "dependencies": {},
   "main": "index.php",
   "maincss": "style.css",
+  "mainjs": "fau-theme.min.js",
+  "adminjs": "fau-theme-admin.min.js",  
   "scripts": {
     "start": "gulp",
     "dev": "gulp dev",
     "build": "gulp build",
     "pot": "gulp pot",
     "clone": "gulp clone"
+  },
+  "source": {
+      "js": "./src/js/"
+	
   },
   "jsdir": "./js/",
   "cssdir": "./css/",
@@ -80,6 +86,7 @@
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-bump": "^3.2.0",
+    "gulp-concat": "^2.6.1",
     "gulp-dart-sass": "^0.9.1",
     "gulp-header": "^2.0.9",
     "gulp-postcss": "^8.0.0",

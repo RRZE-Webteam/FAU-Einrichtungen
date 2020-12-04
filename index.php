@@ -40,53 +40,43 @@ if($posttype == 'event') {
 			<?php } ?>
 			    <h1 class="screen-reader-text"><?php echo $screenreadertitle; ?></h1>
 			    <?php 
-			    if (($posttype == 'synonym') && (get_theme_mod('index_synonym_listall'))) {					    
-				echo '<h2>'.__('Synonyme','fau')."</h2>\n";					    
-				echo fau_get_synonym();
-			    } elseif (($posttype == 'glossary') && (get_theme_mod('index_glossary_listall'))) {    
-				echo '<h2>'.__('Glossar','fau')."</h2>\n";					    
-				echo fau_get_glossar();					    					    
-			    } else {	
-				$line=0;
-				while ( have_posts() ) { 
-				    the_post();  
+			    
+			    $line=0;
+			    while ( have_posts() ) { 
+				the_post();  
 
-				    $line++;
-				    if( $posttype == 'event') {
-					get_template_part( 'post', 'event' ); 
-				    } elseif($posttype == 'synonym') { 	
-					echo fau_get_synonym($post->ID);
-				    } elseif($posttype == 'glossary') { 	
-					echo fau_get_glossar($post->ID);
-				    } elseif ($posttype == 'person')  { 	
-					echo FAU_Person_Shortcodes::fau_person(array("id"=> $post->ID, 'format' => 'kompakt', 'showlink' => 0, 'showlist' => 1 )); 				    
-				    } elseif($posttype == 'post') { 
-					  echo fau_display_news_teaser($post->ID,true);
-				     } else { ?>
+				$line++;
+				if( $posttype == 'event') {
+				    get_template_part( 'post', 'event' ); 
+				} elseif ($posttype == 'person')  { 	
+				    echo FAU_Person_Shortcodes::fau_person(array("id"=> $post->ID, 'format' => 'kompakt', 'showlink' => 0, 'showlist' => 1 )); 				    
+				} elseif($posttype == 'post') { 
+				      echo fau_display_news_teaser($post->ID,true);
+				 } else { ?>
 
-					<h2 class="small"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+				    <h2 class="small"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-					<?php if(has_post_thumbnail( $post->ID )) { ?>
-					 <div class="row">
-					    <div class="span3">
-						<?php 
-						$post_thumbnail_id = get_post_thumbnail_id( $post->ID); 
-						echo fau_get_image_htmlcode($post_thumbnail_id);  
-						?>
-					    </div>
-					     <div class="span5">
-					<?php }  
-					the_content(); 
-					if(has_post_thumbnail( $post->ID )) { ?>
-					    </div>
+				    <?php if(has_post_thumbnail( $post->ID )) { ?>
+				     <div class="row">
+					<div class="span3">
+					    <?php 
+					    $post_thumbnail_id = get_post_thumbnail_id( $post->ID); 
+					    echo fau_get_image_htmlcode($post_thumbnail_id);  
+					    ?>
 					</div>
-					<?php } 
+					 <div class="span5">
+				    <?php }  
+				    the_content(); 
+				    if(has_post_thumbnail( $post->ID )) { ?>
+					</div>
+				    </div>
+				    <?php } 
 
-				     }
-				} 
+				 }
+				
 
 
-				if (($posttype=='glossary') || ($posttype=='person')) { ?>
+				if  ($posttype=='person') { ?>
 				    <nav class="navigation">
 					<div class="nav-previous"><?php previous_posts_link(__('<span class="meta-nav">&laquo;</span> Vorherige Einträge', 'fau')); ?></div>
 					<div class="nav-next"><?php next_posts_link(__('Weitere Einträge <span class="meta-nav">&raquo;</span>', 'fau'), '' ); ?></div>

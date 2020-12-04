@@ -31,8 +31,6 @@ require_once( get_template_directory() . '/functions/posttype_imagelink.php' );
 require_once( get_template_directory() . '/functions/widgets.php' );
 require_once( get_template_directory() . '/functions/gallery.php' );
 
-require_once( get_template_directory() . '/functions/posttype-synonym.php');
-require_once( get_template_directory() . '/functions/posttype-glossary.php');
 require_once( get_template_directory() . '/functions/gutenberg.php');
 require_once( get_template_directory() . '/functions/deprecated.php');
 
@@ -140,9 +138,9 @@ function fau_register_scripts() {
     wp_register_style('fau-style',  get_stylesheet_uri(), array(), $theme_version);
 	// Base Style
     wp_register_script('fau-scripts', $defaultoptions['src-scriptjs'], array('jquery'), $theme_version, true );
-	// Base Scripts
-    wp_register_script('fau-js-heroslider', get_fau_template_uri() . '/js/slick.min.js', array('jquery'), $theme_version, true );
-   
+	// Base FAU Scripts
+    wp_register_script('fau-js-heroslider', $defaultoptions['src-sliderjs'], array('jquery'), $theme_version, true );
+	// Slider JS
 	
 }
 add_action('init', 'fau_register_scripts');
@@ -162,15 +160,12 @@ add_action( 'wp_enqueue_scripts', 'fau_basescripts_styles' );
 /*-----------------------------------------------------------------------------------*/
 function fau_enqueuefootercripts() {
     global $usejslibs;
-   
-    
+     
      if ((isset($usejslibs['heroslider']) && ($usejslibs['heroslider'] == true))) {
 	 // wird bei Startseite Slider und auch bei gallerien verwendet
 	 wp_enqueue_script('fau-js-heroslider');
-     }	 
-     
+     }	   
 }
-
 add_action( 'wp_footer', 'fau_enqueuefootercripts' );
 
 /*-----------------------------------------------------------------------------------*/
@@ -183,11 +178,9 @@ function fau_admin_header_style() {
     wp_enqueue_media();
     wp_enqueue_script('jquery-ui-datepicker');
     
-//    wp_register_script('bootstrap', get_fau_template_uri().'/js/bootstrap/bootstrap.min.js', array('jquery'));    
-//    wp_enqueue_script('bootstrap');	   
-//  Later - for Gutenberg hacks :)
-    
-    wp_register_script('themeadminscripts', get_fau_template_uri().'/js/admin.min.js', array('jquery'));    
+    $theme_data = wp_get_theme();
+    $theme_version = $theme_data->Version;
+    wp_register_script('themeadminscripts', $defaultoptions['src-adminjs'], array('jquery'),$theme_version);    
     wp_enqueue_script('themeadminscripts');	   
 }
 add_action( 'admin_enqueue_scripts', 'fau_admin_header_style' );
