@@ -440,6 +440,7 @@ exports.buildmainstyle = buildmainstyle;
 var js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, makewplinkjs);
 var dev = series(sassautoprefixhelperfiles, sassautoprefixmainstyle, js, devversion, validatecss);
 
+exports.cssdev = series(sassautoprefixhelperfiles, sassautoprefixmainstyle, validatecss);
 exports.js = js;
 exports.dev = dev;
 exports.build = series(buildhelperstyles, buildmainstyle, js, upversionpatch);
