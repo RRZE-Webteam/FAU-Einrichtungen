@@ -95,39 +95,51 @@
 
 
 #logo {
-	position: relative;
+	position: absolute;
+	top: 0;
+	
+	@media (min-width: $screen-sm) {
+	    position: relative;
+	}
 	z-index: 11;
 
 	.sitetitle {
 		padding: 0;
+		margin: 5px auto;
+		text-align: center;
 	}
 
+	h1 {
+	    margin: 10px 0;
+	}
 	.sitetitle,
 	h1 {
-		color: $colorPrimary;
-		margin: 10px 0;
+		
 		max-height: inherit;
 		text-decoration: none;
-		padding: 0 15px;
+		padding: 0;
 
 		@media (min-width: $screen-sm) {
 			max-height: 65px;
 			margin-top: 0px;
-			padding: 0;
+			
 		}
 
 		a, span {
-			display: table-cell;
-			vertical-align: bottom;
+			display: inline-block;
 		}
 
 		a {
-			color: $colorPrimary;
-			text-decoration: none;
+		    color: #fff;
+		    text-decoration: none;
 		}
 
+
 		@include px2rem($font-size-h1-mobilebranding, $font-size-gridbase, $font-size-h1-mobilebranding + 4);
+		
+		color: #fff;
 		@media (min-width: $screen-sm) {
+			color: $colorPrimary;
 			@include px2rem($font-size-h1-desktopbranding, $font-size-gridbase, $font-size-h1-desktopbranding);
 
 			.nologo.longtitle & {
@@ -135,17 +147,18 @@
 
 				hyphens: auto;
 			}
-		}
-
-		@media (max-width: $screen-sm - 1) {
-			color: #fff;
 			a {
-				color: #fff;
+			    color: $colorPrimary;
+			    vertical-align: bottom;
 			}
 		}
+
 	}
 
 	.nologo &.branding {
+		position: relative;
+		top: inherit;
+		
 		padding: 0 0 3px 15px;
 
 		.sitetitle,
@@ -162,12 +175,16 @@
 			}
 		}
 	}
-
-	svg,
-	img {
-		max-width: 240px;
-		max-height: 65px;
-		width: auto;
-		height: auto;
+	svg, img {
+		    max-height: 40px;
+		    width: auto;
+		    height: auto;	    
+	}
+	@media (min-width: $screen-sm) {
+	    svg,
+	    img {
+		    max-width: 240px;
+		    max-height: 65px;
+	    }
 	}
 }

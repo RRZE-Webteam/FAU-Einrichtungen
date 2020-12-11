@@ -6,17 +6,19 @@
 #headerwrap {
     background-color: #fff;
     color: $colorPrimary;
-    
+    position: sticky;
+    top: 0;
+    z-index: 100;
+     
     @media (min-width: $screen-sm) {
-	    z-index: 100;
+	   
 	    margin: 0;
 	    padding: 0;
 	    background-color: #fff;
 	    color: $colorPrimary;
 	    @include transition(0.5s, all);
 
-	    position: sticky;
-	    top: 0;
+	   
 	    .admin-bar & {
 		top: $wordpress-adminbar-bigheight;
 	    }

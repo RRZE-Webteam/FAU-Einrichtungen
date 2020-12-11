@@ -102,6 +102,8 @@
 
 		    .searchform {			
 			display: block;
+			width: 100%;
+			
 			input[type="text"] {
 			    width: calc(100% - 50px);
 			}
@@ -124,8 +126,8 @@
 /* New Toogle Button */
 #headerwrap #search-toggle {
 	position: absolute;
-	left: 0;
-	top: 0;
+	left: 5px;
+	top: 5px;
 	@include px2rem($font-size-mobile-meta);
 	background: transparent;
 	border: none;
@@ -138,7 +140,7 @@
 	}
 	@media (max-width: $screen-sm - 1) {
 	    .search-toggled & {
-		top: -40px;
+		top: -35px;
 	    }
 	    
 	    .js & {

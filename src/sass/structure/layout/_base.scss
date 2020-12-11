@@ -38,10 +38,11 @@ html, body, button {
 	    // normal
 	}
 	#hero {
-	    flex: 1;
+	    flex: 0 1;
 	}
 	#content {
-	    flex: 2;
+	    flex: 1;
+	    width: 100%;
 	}
 	footer {
 	    margin-top: auto;
@@ -84,8 +85,8 @@ html, body, button {
 
 @media (max-width: $screen-sm - 1) {
 	body {
-	    overflow: hidden;
-		padding: 0;
+	//    overflow: hidden;
+	    padding: 0;
 	}
 }
 @media (max-width: $breakLG) {

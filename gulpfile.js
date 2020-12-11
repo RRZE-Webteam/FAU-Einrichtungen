@@ -246,24 +246,6 @@ function sassautoprefixhelperfiles() {
 }
 
 
-/* 
- * SASS and Autoprefix CSS Files, without clean
- */
-function sassautoprefixmainstyle() {
-    var plugins = [
-        autoprefixer()
-    ];
-  return src([info.source.sass + 'fau-theme-style.scss'])
-    .pipe(header(banner, { info : info }))
-    .pipe(sass().on('error', sass.logError))
-    .pipe(postcss(plugins))
-    .pipe(rename(info.maincss))
-    .pipe(dest('./'))
-    .pipe(touch());
-}
-
-
-
 
 /* 
  * Compile all styles with SASS and clean them up 
@@ -300,6 +282,21 @@ function buildmainstyle() {
     .pipe(touch());
 }
 
+/* 
+ * Compile main style for dev without minifying
+ */
+function devbuildmainstyle() {
+    var plugins = [
+        autoprefixer()
+    ];
+  return src([info.source.sass + 'fau-theme-style.scss'])
+   .pipe(header(banner, { info : info }))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss(plugins))
+    .pipe(rename(info.maincss))
+    .pipe(dest('./'))
+    .pipe(touch());
+}
 
 function bundleadminjs() {
     return src([info.source.js + 'admin/admin.js'])
@@ -438,9 +435,9 @@ exports.clone = cloneTheme;
 exports.buildmainstyle = buildmainstyle;
 
 var js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, makewplinkjs);
-var dev = series(sassautoprefixhelperfiles, sassautoprefixmainstyle, js, devversion, validatecss);
+var dev = series(sassautoprefixhelperfiles, devbuildmainstyle, js, devversion, validatecss);
 
-exports.cssdev = series(sassautoprefixhelperfiles, sassautoprefixmainstyle, validatecss);
+exports.cssdev = series(sassautoprefixhelperfiles, devbuildmainstyle, validatecss);
 exports.js = js;
 exports.dev = dev;
 exports.build = series(buildhelperstyles, buildmainstyle, js, upversionpatch);

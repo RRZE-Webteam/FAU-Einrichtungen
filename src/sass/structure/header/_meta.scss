@@ -6,7 +6,9 @@
 	@include placeholder(#fff);
 	background: $colorMetaBackground;
 	z-index: 100;
-
+	height: 50px;
+	padding: 5px 0;
+	
 	input,
 	li {
 		@include px2rem($font-size-meta);
@@ -14,14 +16,10 @@
 
 	@media (min-width: $screen-sm) {
 		z-index: 110; // Änderung notwendig, damit das Such-Flyout nicht unter dem #header liegt
+		height: auto;
+		padding: inherit;
 	}
 
-
-	.fau-orga-breadcrumb {
-		display: none;
-		// an dieser Stelle müssen die Anweisungen zur FAU ORGA Breadcrumb kommen.
-		// ggf. müssen auch Änderungen an der _branding.scss gemacht werden.
-	}
 }
 
 .meta-links {
