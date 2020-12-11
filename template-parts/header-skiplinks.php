@@ -8,8 +8,7 @@
  * @since FAU 1.10
  */
 ?>
-	    <nav id="skiplinks" aria-labelledby="skiplinks-title">
-		<h2 class="screen-reader-text" id="skiplinks-title"><?php _e('Skiplinks','fau'); ?></h2>
+	    <nav id="skiplinks" aria-label="<?php _e('Sprunglinks','fau'); ?>">
 		<ul class="jumplinks">
 		    <li><a href="#droppoint"><?php _e('Zum Inhalt springen','fau'); ?></a></li>
 		    <?php if(!is_tax() && !is_category()  && basename( get_page_template() )=='page-subnav.php') { ?>

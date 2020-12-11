@@ -11,7 +11,7 @@
  */
 ?>
 
-	</div> 
+
 	<footer id="footer">
 	    <div class="container">
 		<div class="row">
@@ -81,9 +81,9 @@
 		    </div>
 		</div>
 	    </div>
-	    <a href="#wrap" class="top-link"><span class="screen-reader-text"><?php echo __('Nach oben','fau'); ?></span></a>
+	    <a href="#headerwrap" class="top-link"><span class="screen-reader-text"><?php echo __('Nach oben','fau'); ?></span></a>
 	</footer>
-	
+    </div> 
 	<?php wp_footer(); ?>
 </body>
 </html>

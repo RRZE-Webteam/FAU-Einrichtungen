@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------------*/
-/* Branding 
+/* Branding und Hauptmenu
 /*-----------------------------------------------------------------------------------*/
 
 #header {
@@ -27,25 +27,11 @@
 	}
 
 	@media (min-width: $screen-sm) {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		z-index: 100;
-		margin-top: 40px;
 		padding: 20px 0 10px 0;
 		background-color: #fff;
 		color: $colorPrimary;
-		@include transition(0.5s, all);
+	
 
-		.admin-bar & {
-			margin-top: 40px + $wordpress-adminbar-bigheight;
-		}
-
-
-		.nav-scrolled & {
-			@include box-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
-		}
 		.page-template-page-start-sub & {
 			padding: 20px 0 0 0;
 		}
@@ -79,11 +65,7 @@
 		}
 	}
 
-	@media (min-width: $wordpress-adminbar-break) {
-		.admin-bar & {
-			margin-top: 40px + $wordpress-adminbar-smallheight;
-		}
-	}
+	
 
 	@media (min-width: $screen-md) {
 		.row {
@@ -125,7 +107,6 @@
 		color: $colorPrimary;
 		margin: 10px 0;
 		max-height: inherit;
-	//	font-weight: bold;
 		text-decoration: none;
 		padding: 0 15px;
 

@@ -3,10 +3,6 @@
 /*-----------------------------------------------------------------------------------*/
 
 
-body, html {
-	overflow-x: hidden;
-}
-
 body {
 	margin: 0;
 	color: $colorText;	
@@ -15,18 +11,48 @@ body {
 	line-height: 1.35;
 }
 
-/* Wrap content in white */
-#wrap {
-	min-height: 100%;
-	margin: 0 auto;	
-	background-color: #fff;
-	position: relative;
-}
+
 
 html, body, button {
 	font-family: $fontStack;
 	font-kerning:  none;
 }
+
+
+/* Main surrounding grid */
+/* Wrap content in white */
+#pagewrapper {
+	min-height: 100%;
+	margin: 0 auto;	
+	background-color: #fff;
+	position: relative;
+	
+	display: flex;
+	flex-wrap: wrap; 
+	flex-direction: column;
+	min-height: 100vh;
+	
+	
+	#headerwrap, 
+	footer {
+	    // normal
+	}
+	#hero {
+	    flex: 1;
+	}
+	#content {
+	    flex: 2;
+	}
+	footer {
+	    margin-top: auto;
+	}
+
+}
+
+
+
+
+
 
 .flyout-entries,
 .introthumb,
@@ -42,26 +68,6 @@ html, body, button {
      @extend .col-xs-12;
 }
 
-
-@media (min-height: 480px) {
-	#wrap { min-height: 480px;}
-}
-
-@media (min-height: 900px) {
-	#wrap { min-height: 700px;}
-}
-
-@media (min-height: 1000px) {
-	#wrap { min-height: 800px;}
-}
-
-@media (min-height: 1100px) {
-	#wrap { min-height: 870px;}
-}
-
-@media (min-height: 1200px) {
-	#wrap { min-height: 970px;}
-}
 
 
 @media (max-width: $screen-xs - 1) {

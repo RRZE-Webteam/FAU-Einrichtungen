@@ -105,7 +105,7 @@ jQuery(document).ready(function ($) {
 
         // Make #header fixed once scrolled down behind meta or on small screens
         var fixedHeader = function() {
-            if ($(window).scrollTop() > 20) {
+            if ($(window).scrollTop() > 0) {
                 if (!$body.hasClass("nav-scrolled")) {
                     $body.addClass('nav-scrolled');
                 }
@@ -125,6 +125,16 @@ jQuery(document).ready(function ($) {
                     $body.removeClass('toplink-faded');
                 }
             }
+	    if ($(window).scrollTop() > 400) {
+                if (!$body.hasClass("breakpoint-header")) {
+                    $body.addClass('breakpoint-header');
+                }
+            } else {
+                if ($body.hasClass("breakpoint-header")) {
+                    $body.removeClass('breakpoint-header');
+                }
+            }
+		
         };
 
         fixedHeader();

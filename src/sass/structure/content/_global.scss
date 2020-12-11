@@ -5,7 +5,10 @@
 
 #content {
     padding: 20px 0 0 0;	
-
+    position: relative;
+    display: block;
+    
+    
     @media (min-width: $screen-sm) {
 	padding: 40px 0 30px 0;
     }
@@ -40,6 +43,13 @@
 	@media (min-width: $screen-sm) {
 	    top: 440px;
 	}
+    }
+    .admin-bar & {
+	top: $wordpress-adminbar-bigheight;
+	
+	@media (min-width: $screen-md) and (min-width: $wordpress-adminbar-break) {
+	   top: $wordpress-adminbar-smallheight;
+	} 
     }
 }
 
