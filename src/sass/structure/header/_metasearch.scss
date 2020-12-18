@@ -95,10 +95,10 @@
 		    width: 100%;
 		    background: $colorMetaBackground;
 		    position: absolute;
-		    top: 40px;
+		    top: 50px;
 		    left: 0;
-		    padding: 10px 5px;
-		    
+		    padding: 10px 15px;
+		    z-index: 100;
 
 		    .searchform {			
 			display: block;
@@ -140,7 +140,7 @@
 	}
 	@media (max-width: $screen-sm - 1) {
 	    .search-toggled & {
-		top: -35px;
+		top: -45px;
 	    }
 	    
 	    .js & {
@@ -162,4 +162,21 @@
 	&:hover {
 		@extend .fa-search-minus;
 	}
+}
+.search-toggled {
+    #search-backdrop {
+	top: 50px;
+    }
+    .search-static-links-column {
+	margin-bottom: 10px;
+    }
+    
+}
+.admin-bar {
+     #search-backdrop {
+	top: 50 + $wordpress-adminbar-bigheight;
+	@media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
+	    top: 50 + $wordpress-adminbar-smallheight;
+	}
+    }
 }

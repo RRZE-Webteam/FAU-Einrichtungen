@@ -15,16 +15,75 @@
 		}
 	}
 
-	@media (max-width: $screen-sm - 1) {
-		.js body:not(.md-showsitelogo) & {
-			background-color: $colorPrimary;
+	
+	.branding {
+	    
+	    .sitetitle {
+		
+		top: 0;
+		position: absolute;
+		color: $colorPrimary;	
+		left: 95px;
+		right: 0;
+		padding: 5px 45px 5px 0;
+		height: auto;
+		text-align: left;
+		font-weight: bold;
+		margin: 0;
+		@include px2rem($font-size-mobile-sitetitle, $font-size-gridbase, $font-size-mobile-sitetitlelineheight);
 
-			img,
-			svg {
-				@include hideout;
+		@media (min-width: $screen-sm) {
+		    padding: 0;
+		
+		    position: relative;
+		    top: inherit;
+		    left: inherit;
+		    right: inherit;
+		    text-align: center;
+		}
+		@media (min-width: $screen-md) {
+		    margin: 10px 0;
+		    text-align: left;
+		}
+		
+		a, h1 {
+		    color: $colorPrimary;	
+		}
+		img,
+		svg {
+			display: none;
+			@media (min-width: $screen-sm) {
+			    display: inline-block;
 			}
 		}
+		span.visiblelogo {
+		    display: table-cell;
+		    vertical-align: middle;
+		    height: 40px;
+		    background: $colorMetaBackground;
+		    @media (min-width: $screen-sm) {
+			   display: none;
+			   background: inherit;
+		    }
+		}
+
+	    }
 	}
+	.md-showsitelogo & .branding .sitetitle {
+	    text-align: center;
+	    img,
+	    svg {
+		display: inline-block;
+	    }
+	    span.visiblelogo {
+		display: none;
+	    }
+	}
+	.fauorg-kooperation:not(.md-showsitelogo) & .branding .sitetitle {
+	    left: 50px;
+	}
+	
+
 
 	@media (min-width: $screen-sm) {
 		padding: 20px 0 10px 0;
@@ -59,10 +118,8 @@
 				}
 			}
 		}
-
-		.visiblelogo {
-			display: none;
-		}
+		
+		
 	}
 
 	
@@ -130,16 +187,13 @@
 		}
 
 		a {
-		    color: #fff;
 		    text-decoration: none;
 		}
 
 
 		@include px2rem($font-size-h1-mobilebranding, $font-size-gridbase, $font-size-h1-mobilebranding + 4);
 		
-		color: #fff;
 		@media (min-width: $screen-sm) {
-			color: $colorPrimary;
 			@include px2rem($font-size-h1-desktopbranding, $font-size-gridbase, $font-size-h1-desktopbranding);
 
 			.nologo.longtitle & {
@@ -148,7 +202,6 @@
 				hyphens: auto;
 			}
 			a {
-			    color: $colorPrimary;
 			    vertical-align: bottom;
 			}
 		}

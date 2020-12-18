@@ -26,8 +26,13 @@
 }
 
 
+#wpadminbar  {
+    @media (max-width:  $screen-sm) {
+	position: fixed;
+    }
+}
 
-@media (max-width: $breakSM) {
+@media (max-width:  $screen-sm) {
   .wp-caption-text {
 	padding: 0;
     }
