@@ -2,9 +2,9 @@
 // Anpassungen für Media Print
 //-----------------------------------------------------------------------------------*/
 @media print {
-@page {
-    size:landscape;
-		margin: 1cm;
+    @page {
+	size: landscape;
+	margin: 1cm;
     }
 
     abbr[title]:after {

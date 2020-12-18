@@ -28,10 +28,15 @@
 		padding: 5px 45px 5px 0;
 		height: auto;
 		text-align: left;
+		text-decoration: none;
 		font-weight: bold;
 		margin: 0;
 		@include px2rem($font-size-mobile-sitetitle, $font-size-gridbase, $font-size-mobile-sitetitlelineheight);
 
+		.longtitle & {
+		    @include px2rem($font-size-mobile-sitetitle - 2, $font-size-gridbase, $font-size-mobile-sitetitlelineheight - 2);
+		}
+		
 		@media (min-width: $screen-sm) {
 		    padding: 0;
 		
@@ -40,30 +45,71 @@
 		    left: inherit;
 		    right: inherit;
 		    text-align: center;
+		    @include px2rem($font-size-h1-desktopbranding, $font-size-gridbase, $font-size-h1-desktopbranding);
+		    
+		    .nologo & {
+			 text-align: left;
+		    }
+		    .nologo.longtitle & {
+				@include px2rem($font-size-h1-desktopbranding - 2, $font-size-gridbase, $font-size-h1-desktopbranding - 1);
+		    }
+			
+		    a {
+			    vertical-align: bottom;
+		    }
 		}
 		@media (min-width: $screen-md) {
 		    margin: 10px 0;
 		    text-align: left;
 		}
-		
+		h1 {
+		    margin: 10px 0;
+		}
 		a, h1 {
 		    color: $colorPrimary;	
+		    
+		}
+		a {
+		     text-decoration: none;
 		}
 		img,
 		svg {
+		   max-height: 40px;
+		    width: auto;
+		    height: auto;
 			display: none;
 			@media (min-width: $screen-sm) {
 			    display: inline-block;
+			    max-width: 240px;
+			    max-height: 65px;
 			}
 		}
-		span.visiblelogo {
+		span {
 		    display: table-cell;
 		    vertical-align: middle;
 		    height: 40px;
 		    background: $colorMetaBackground;
+		    hyphens: auto;
+		    @media (min-width: $screen-sm) {
+			height: 65px;
+			background: inherit;
+			hyphens: manual;
+			padding-bottom: 5px;
+			
+			.nologo.longtitle & {
+			    hyphens: auto;
+			}
+		    }
+		    @media (min-width: $screen-md) {
+			vertical-align: bottom;
+		    }
+		}
+		
+		
+		
+		.visiblelogo {
 		    @media (min-width: $screen-sm) {
 			   display: none;
-			   background: inherit;
 		    }
 		}
 
@@ -133,10 +179,6 @@
 				float: none;
 				width: 240px;
 				vertical-align: bottom;
-
-				.nologo.longtitle & {
-					width: 300px;
-				}
 			}
 
 			.header-menu {
@@ -160,84 +202,18 @@
 	}
 	z-index: 11;
 
-	.sitetitle {
-		padding: 0;
-		margin: 5px auto;
-		text-align: center;
-	}
-
-	h1 {
-	    margin: 10px 0;
-	}
 	.sitetitle,
 	h1 {
 		
 		max-height: inherit;
-		text-decoration: none;
-		padding: 0;
-
 		@media (min-width: $screen-sm) {
 			max-height: 65px;
 			margin-top: 0px;
 			
 		}
 
-		a, span {
-			display: inline-block;
-		}
-
-		a {
-		    text-decoration: none;
-		}
-
-
-		@include px2rem($font-size-h1-mobilebranding, $font-size-gridbase, $font-size-h1-mobilebranding + 4);
-		
-		@media (min-width: $screen-sm) {
-			@include px2rem($font-size-h1-desktopbranding, $font-size-gridbase, $font-size-h1-desktopbranding);
-
-			.nologo.longtitle & {
-				@include px2rem($font-size-h1-desktopbranding-longtitle, $font-size-gridbase, $font-size-h1-desktopbranding-longtitle + 2);
-
-				hyphens: auto;
-			}
-			a {
-			    vertical-align: bottom;
-			}
-		}
-
 	}
 
-	.nologo &.branding {
-		position: relative;
-		top: inherit;
-		
-		padding: 0 0 3px 15px;
-
-		.sitetitle,
-		h1 {
-			padding: 0;
-			margin: 7px 0;
-
-			@media (min-width: $screen-sm) {
-				padding: 15px 0;
-			}
-
-			@media (min-width: $screen-md) {
-				padding: 0;
-			}
-		}
-	}
-	svg, img {
-		    max-height: 40px;
-		    width: auto;
-		    height: auto;	    
-	}
-	@media (min-width: $screen-sm) {
-	    svg,
-	    img {
-		    max-width: 240px;
-		    max-height: 65px;
-	    }
-	}
+	
+	
 }
