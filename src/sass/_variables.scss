@@ -154,6 +154,7 @@ $colorMeta: $colorDefault;
 $colorMetaBackground: $colorStandardHellgrau;
 $colorMetaFAUHomeBackground: desaturate(darken($colorStandardHellgrau, 10%), 90%); // #d0d3d8;
 $colorMetaHover: desaturate(lighten($colorDefault, 10%), 40%);
+$colorMetaText: #fff;
 $colorMetaLight: desaturate(lighten($colorDefault, 69%), 75%);
 $colorMetaLightest: desaturate(lighten($colorDefault, 73%), 75%);
 

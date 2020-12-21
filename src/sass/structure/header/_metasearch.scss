@@ -126,8 +126,12 @@
 /* New Toogle Button */
 #headerwrap #search-toggle {
 	position: absolute;
-	left: 5px;
+	left: 0;
 	top: 5px;
+	
+	@media (min-width: $screen-xs) {
+	    left: 5px;
+	}
 	@include px2rem($font-size-mobile-meta);
 	background: transparent;
 	border: none;

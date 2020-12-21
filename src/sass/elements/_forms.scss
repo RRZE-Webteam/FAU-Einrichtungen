@@ -68,6 +68,10 @@ form {
 	#content &.noborder {
 	    border: none;
 	}
+	#content .content-inline.with-sidebar & {
+	    display: block;
+	    border: none; 
+	}
 }
 
 label {
