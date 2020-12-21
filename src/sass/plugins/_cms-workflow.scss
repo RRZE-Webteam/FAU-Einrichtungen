@@ -5,26 +5,50 @@
 
 /* Language switcher */
 .cms-workflow-widget {
-    
     .mlp_language_box {
 	@include inline-block();
 	
+	position: absolute;
+	top: 50px;	
+	left: 0;
+	background: $colorMetaBackground;
+	
+
+	@media (min-width: $screen-sm) {
+	    position: relative;
+	    top: inherit;
+	    left: inherit;
+	    background: inherit;
+	    border: none;
+	}
+	
 	
 	ul {
-	    display: flex;
+	    display: block;
+	     @media (min-width: $screen-sm) {
+		display: flex;
+	    }
 	    padding: 0;
 	    margin: 0;
-	  
+	   
+	   
 	    &:before {
-		@extend .fa;
-		@extend .fa-language;
-		@include px2rem(21);
-		display: inline;
-		z-index: 10;
+			@extend .fa;
+			@extend .fa-language;
+			@include px2rem(21);
+			display: none;
+			z-index: 10;	
 	    }
+	  
 	    li {
 		padding: 0;
 		margin: 0;
+		border: 1px solid $colorContentBorders;
+		border-left: none;
+		@media (min-width: $screen-sm) {
+		    border: none;
+		}
+		
 		@include no-list();
 		
 		a {
@@ -50,7 +74,7 @@
 			margin-right: 5px;
 		    }
 		    
-		    &:before {
+		    &::before {
 			content: attr(hreflang);
 			display: inline-block;
 
@@ -58,17 +82,23 @@
 				content: "";
 				margin-right: 0px;
 				display: none;
-				
-				
 			}
 		    }
+		    
+		    
+		    
 		    &:hover,
 		    &:focus {
-			    background: $colorMetaLightest;
+			    background: $colorMetaHover; // $colorMetaLightest;
+			    color: $colorMetaText;
 			    @include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+			    
+			    
 		    }
- 
+	
+
 		}
+		
 		&.lang-current.current {
 		    display: none;
 		}
@@ -83,9 +113,41 @@
 			}
 		    }
 		}
+	    
+	    } // end li
+	   
+
+	}
+	@media (max-width: $screen-sm - 1) {
+	     li:hover {
+		background: $colorMetaHover; // $colorMetaLightest;
+		color: $colorMetaText;
+		a::before,
+		a {
+		    color: $colorMetaText;
+		}
+		
+	    }
+	}
+	 @media (min-width: $screen-sm) {
+	     ul:before {
+		 display: inherit;
+	     }
+	    
+	 }
+    }
+    /*
+    .admin-bar & {
+	.mlp_language_box {
+	    top: 60 + $wordpress-adminbar-bigheight;
+	    @media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
+		top: 60 + $wordpress-adminbar-smallheight;
+	    }
+	    @media (min-width: $screen-sm) {
+		top: inherit;
 	    }
 	}
     }
-    
+    */
 }
 

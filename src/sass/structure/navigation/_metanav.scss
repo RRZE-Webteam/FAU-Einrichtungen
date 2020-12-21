@@ -101,9 +101,15 @@
 
 .orgalist {
 	display: block;
-	margin: 0 auto;
-	text-align: center;
+	text-align: left;
+	margin-left: 20px;
 
+	
+	@media (min-width: $screen-sm) {
+	    margin: 0 auto;
+	    text-align: center;
+	}
+	
 	li.fauhome {
 		padding-right: 5px;
 		margin-right: 10px;
@@ -136,9 +142,6 @@
 		@include transition(background, 0.1s);
 	}
 	
-	.md-showsitelogo & {
-	    text-align: left;
-	}
 	
 	
 	@media (max-width: $screen-sm - 1) {
@@ -149,6 +152,8 @@
 		li.facultyhome {
 			display: none;
 		}
+		
+		
 	}
 
 	@media (min-width: $screen-sm) {

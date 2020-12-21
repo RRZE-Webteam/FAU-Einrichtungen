@@ -1,10 +1,13 @@
 /*-----------------------------------------------------------------------------------*/
 /* Slider im Hero-Teil
 /*-----------------------------------------------------------------------------------*/
+#hero.sliderpage {	
+    margin-bottom: 0;	    
+}
 
 #hero-slides {
 	position: relative;
-	margin: 0 auto -15px auto;
+	
 	display: none;
 	height: auto;
 	background: $colorPrimary;
@@ -145,7 +148,7 @@
 	}
 
 	@media (min-width: $screen-md) {
-		top: -20px;
+		margin: -20px auto 0;
 	}
 
 	@media (min-width: 1260px) {

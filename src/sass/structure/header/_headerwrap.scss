@@ -1,0 +1,36 @@
+/*
+    Headerwrap
+    Contains Meta above and Logo with Main Menu-Section below
+*/
+
+#headerwrap {
+    background-color: #fff;
+    color: $colorPrimary;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    
+    .admin-bar & {
+	top: $wordpress-adminbar-bigheight;
+    } 
+    @media (min-width: $screen-sm) {
+	   
+	    margin: 0;
+	    padding: 0;
+	    background-color: #fff;
+	    color: $colorPrimary;
+	    @include transition(0.5s, all);
+
+	    .nav-scrolled & {
+		    @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+	    }	
+    }
+
+    @media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
+	.admin-bar &  {
+	    top: $wordpress-adminbar-smallheight;
+	}
+    }
+	
+}
+

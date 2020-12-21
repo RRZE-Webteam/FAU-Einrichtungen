@@ -6,6 +6,16 @@
     position: relative; 
     transition: none;
     z-index: 10;
+    width: 100%;
+    margin: 0 auto; 
+    padding-top: 0;
+    
+
+    @media (min-width: $screen-sm) {
+	padding-bottom: 10px;
+	 margin: 20px auto;
+    }
+
     @include placeholder(#fff);	
     @include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% bottom);
 
@@ -38,9 +48,7 @@
 		opacity: 0.3;
 	}
 
-  
-    
-    
+
     .no-js & {
 	margin-top: 0;
 	transition: none;
@@ -60,20 +68,8 @@
     }
     
     
-    margin-top: 0;
-    padding-top: 0;
-    
 
-    
-    @media (min-width: $screen-sm) {
-	padding-bottom: 10px;
-	margin-top: 181px;
-	
-    }
-    @media (min-width: $screen-md) {
-	margin-top: 159px;
-    }
-    
+
     .search-title {
 	@extend .col-sm-4;
     }
@@ -81,7 +77,18 @@
 	@extend .col-sm-8;
     }
 
+  
+
+    .admin-bar & {
+	top: $wordpress-adminbar-bigheight;
+	
+	@media (min-width: $screen-md) and (min-width: $wordpress-adminbar-break) {
+	   top: $wordpress-adminbar-smallheight;
+	} 
+    }
+  
 }
+
 
 
 

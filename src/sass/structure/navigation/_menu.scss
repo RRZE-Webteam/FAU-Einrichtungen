@@ -355,7 +355,7 @@
 #mainnav-toggle {
 	position: absolute;
 	right: 5px;
-	top: 0;
+	top: 5px;
 	@include px2rem($font-size-mobile-meta);
 	background-color: transparent;
 	border: none;
@@ -556,7 +556,7 @@
 			z-index: 30;
 			left: 0;
 			right: 0;
-			top: 130px;
+	 		top: 172px;
 			@include box-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
 		}
 	}
@@ -566,21 +566,31 @@
 @media (min-width: $screen-md) {
 	.nav {
 		.nav-flyout {
-			top: 90px;
+			top: 135px;
 			max-height: calc(100vh - 162px);
 			overflow-y: auto;
 		}
 	}
+
 }
+
+
 
 #menu-backdrop {
 	display: none;
 	position: fixed;
-	top: 0;
+	top: 50px;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	background-color: rgba(0, 51, 102, .7);
-	z-index: 10;
+	z-index: 1;
+	
+	
+	.admin-bar & {
+	    top: 50 + $wordpress-adminbar-bigheight;
+	    @media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
+		top: 50 + $wordpress-adminbar-smallheight;
+	    }
+	}
 }
-

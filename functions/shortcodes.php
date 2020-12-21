@@ -19,11 +19,6 @@ class FAUShortcodes {
             // Paragraphes and content regions
             add_shortcode('hr', array( $this, 'fau_hr'));
 
-            // Ported and adapted by old bootstrap code
-            add_shortcode('code', array( $this, 'bs_code' ));
-            add_shortcode('span', array( $this, 'bs_span' ));
-            add_shortcode('row', array( $this, 'bs_row' ));
-            add_shortcode('table', array( $this, 'bs_table' ));
 
             // Blogroll und Artikellisten
             add_shortcode('blogroll', array( $this, 'fau_shortcode_blogroll'));
@@ -32,40 +27,7 @@ class FAUShortcodes {
             // Portalmenu
             add_shortcode( 'portalmenu', array( $this, 'fau_portalmenu'));
 
-            add_shortcode('notice', array( $this, 'fau_notice' ));
 
-            if ( !is_plugin_active( 'rrze-elements/rrze-elements.php' ) ) {
-
-                add_shortcode('button', array( $this, 'bs_button' ));
-
-                // Old Shortcodes for downwards compatibility
-                add_shortcode('alert', array( $this, 'absatzklasse_attention' ));
-                add_shortcode('attention', array( $this, 'absatzklasse_attention' ));
-                add_shortcode('hinweis', array( $this, 'absatzklasse_hinweis' ));
-                add_shortcode('baustelle', array( $this, 'absatzklasse_baustelle' ));
-                add_shortcode('plus', array( $this, 'absatzklasse_plus' ));
-                add_shortcode('minus', array( $this, 'absatzklasse_minus' ));
-                add_shortcode('question', array( $this, 'absatzklasse_question' ));
-                // New Shortcodes in defined syntax
-                add_shortcode('notice-alert', array( $this, 'absatzklasse_attention' ));
-                add_shortcode('notice-attention', array( $this, 'absatzklasse_attention' ));
-                add_shortcode('notice-hinweis', array( $this, 'absatzklasse_hinweis' ));
-                add_shortcode('notice-baustelle', array( $this, 'absatzklasse_baustelle' ));
-                add_shortcode('notice-plus', array( $this, 'absatzklasse_plus' ));
-                add_shortcode('notice-minus', array( $this, 'absatzklasse_minus' ));
-                add_shortcode('notice-question', array( $this, 'absatzklasse_question' ));
-                add_shortcode('notice-tipp', array( $this, 'absatzklasse_tipp' ));
-                add_shortcode('notice-video', array( $this, 'absatzklasse_video' ));
-                add_shortcode('notice-audio', array( $this, 'absatzklasse_audio' ));
-                add_shortcode('notice-download', array( $this, 'absatzklasse_download' ));
-                add_shortcode('notice-faubox', array( $this, 'absatzklasse_faubox' ));
-
-                // Spalten
-                add_shortcode( 'two_columns_one', array( $this, 'fau_shortcode_two_columns_one'));
-                add_shortcode( 'two_columns_one_last', array( $this, 'fau_shortcode_two_columns_one_last'));
-                add_shortcode( 'three_columns_one', array( $this, 'fau_shortcode_three_columns_one'));
-                add_shortcode( 'three_columns_one_last', array( $this, 'fau_shortcode_three_columns_one_last' ));
-            }
 	}
 
 
@@ -249,339 +211,67 @@ class FAUShortcodes {
 	    return $return;
 	}
 
+	/*-----------------------------------------------------------------------------------*/
+      /* Shortcodes to display default blogroll
+      /*-----------------------------------------------------------------------------------*/
+      function fau_shortcode_blogroll( $atts, $content = null ) {
+	  extract(shortcode_atts(array(
+	  'cat'	=> '',
+	  'tag'	=> '',
+	  'num'	=> '',
+	  'divclass'	=> '',
+	  'hidemeta'	=> false,
+	  'hstart'	=> 2,
+	  ), $atts));
 
-      function bs_button($atts, $content = null) {
-	 extract(shortcode_atts(array(
-	    "type" => false,
-	    "size" => false,
-	    "link" => '',
-	    "xclass" => false
-	 ), $atts));
+	  $cat = ($cat) ? $cat : '';
+	  $tag = ($tag) ? $tag : '';
+	  $num = ($num) ? intval($num) : 4;
+	  $hstart = ($hstart) ? intval($hstart) : 2;
+	  $divclass = $divclass ? esc_attr( $divclass ) : '';
 
-	 $return  =  '<a href="' . $link . '" class="btn';
-	 $return .= ($type) ? ' btn-' . $type : '';
-	 $return .= ($size) ? ' btn-' . $size : '';
-	 $return .= ($xclass) ? ' ' . $xclass : '';
-	 $return .= '">' . do_shortcode( $content ) . '</a>';
 
-	 return $return;
+	  if (!is_page()) {
+	      $out =  '<p class="attention">'.__("Der Shortcode darf nur auf Seiten verwendet werden.",'fau').'</p>';
+	      return $out;
+	  }
+
+	  $out = fau_blogroll($tag, $cat, $num, $divclass, $hstart,$hidemeta);
+
+	  if (empty($out)) {
+	      $out =  '<p class="attention">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';
+	  }
+	  return $out;
       }
+      /*-----------------------------------------------------------------------------------*/
+      /* Shortcodes to display articlelist
+      /*-----------------------------------------------------------------------------------*/
+      function fau_shortcode_articlelist( $atts, $content = null ) {
+	  extract(shortcode_atts(array(
+	  'cat'	=> '',
+	  'tag'	=> '',
+	  'num'	=> '',
+	  'class'     => '',
+	  'title'	=> '',
+	  ), $atts));
+	  $title =  esc_attr($title);
+	  $cat = ($cat) ? $cat : '';
+	  $tag = ($tag) ? $tag : '';
+	  $num = ($num) ? intval($num) : 5;
+	  $class = ($class) ? $class : '';
 
-      function bs_code($atts, $content = null) {
-	 extract(shortcode_atts(array(
-	    "type" => '',
-	    "size" => '',
-	    "link" => ''
-	 ), $atts));
-	 return '<pre><code>' . $content . '</code></pre>';
+	  if (!is_page()) {
+	      $out =  '<p class="attention">'.__("Der Shortcode darf nur auf Seiten verwendet werden.",'fau').'</p>';
+	      return $out;
+	  }
+
+	  $out = fau_articlelist($tag, $cat, $num,$class, $title);
+
+	  if (empty($out)) {
+	      $out = '<p class="attention">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';
+	  }
+	  return $out;
       }
-
-
-      function bs_span( $atts, $content = null ) {
-	extract(shortcode_atts(array(
-	  "size" => 'size'
-	), $atts));
-	$size = $size ? ' ' . esc_attr( $size ) : '';
-	return '<div class="span' . $size . '">' . do_shortcode( $content ) . '</div>';
-      }
-
-
-      function bs_row( $atts, $content = null ) {
-	return '<div class="row">' . do_shortcode( $content ) . '</div>';
-      }
-
-
-
-      function bs_table( $atts ) {
-	  extract( shortcode_atts( array(
-	      'cols' => 'none',
-	      'data' => 'none',
-	      'type' => 'type'
-	  ), $atts ) );
-	  $cols = explode(',',$cols);
-	  $data = explode(',',$data);
-	  $total = count($cols);
-	  $output = '';
-	  $output .= '<table class="table table-'. $type .' table-bordered"><tr>';
-	  foreach($cols as $col):
-	      $output .= '<th>'.$col.'</th>';
-	  endforeach;
-	  $output .= '</tr><tr>';
-	  $counter = 1;
-	  foreach($data as $datum):
-	      $output .= '<td>'.$datum.'</td>';
-	      if($counter%$total==0):
-		  $output .= '</tr>';
-	      endif;
-	      $counter++;
-	  endforeach;
-	      $output .= '</table>';
-	  return $output;
-      }
-
-
-
-
-      /*
-       * Not for productive use yet
-       */
-    function fau_notice($atts, $content = null) {
-	 extract(shortcode_atts(array(
-	    "type" => 'hinweis',
-	    "block" => ''
-	 ), $atts));
-
-
-	$block = $block ? esc_attr( $block ) : 'p';
-	$type = $type ? 'notice-'.$type  : 'notice-hinweis';
-
-	$return  =  '<p ';
-	$return .= 'class="'.$type.'"';
-	$return .= '>' . do_shortcode( $content ) . '</p>';
-
-	return $return;
-      }
-
-    /*
-     * Absatzklasse attention
-     */
-      function absatzklasse_attention($atts, $content = null) {
-	 extract(shortcode_atts(array(), $atts));
-	 return '<p class="notice-attention">' . do_shortcode( $content ) . '</p>';
-      }
-
-      /*
-       * Absatzklasse hinweis
-       */
-      function absatzklasse_hinweis($atts, $content = null) {
-	 extract(shortcode_atts(array(), $atts));
-	 return '<p class="notice-hinweis">' . do_shortcode( $content ) . '</p>';
-      }
-
-      /*
-       * Absatzklasse baustelle
-       */
-      function absatzklasse_baustelle($atts, $content = null) {
-	 extract(shortcode_atts(array(), $atts));
-	 return '<p class="notice-baustelle">' . do_shortcode( $content ) . '</p>';
-      }
-
-      /*
-       * Absatzklasse question
-       */
-      function absatzklasse_question($atts, $content = null) {
-	 extract(shortcode_atts(array(), $atts));
-	 return '<p class="notice-question">' . do_shortcode( $content ) . '</p>';
-      }
-
-      /*
-       * Absatzklasse plus
-       */
-      function absatzklasse_plus($atts, $content = null) {
-	 extract(shortcode_atts(array(), $atts));
-	 return '<p class="notice-plus">' . do_shortcode( $content ) . '</p>';
-      }
-      /*
-       * Absatzklasse minus
-       */
-      function absatzklasse_minus($atts, $content = null) {
-	 extract(shortcode_atts(array(), $atts));
-	 return '<p class="notice-minus">' . do_shortcode( $content ) . '</p>';
-      }
-
-      /*
-       * Absatzklasse tipp
-       */
-      function absatzklasse_tipp($atts, $content = null) {
-	 extract(shortcode_atts(array(), $atts));
-	 return '<p class="notice-tipp">' . do_shortcode( $content ) . '</p>';
-      }
-      /*
-       * Absatzklasse faubox
-       */
-      function absatzklasse_faubox($atts, $content = null) {
-	 extract(shortcode_atts(array(), $atts));
-	 return '<p class="notice-faubox">' . do_shortcode( $content ) . '</p>';
-      }
-       /*
-       * Absatzklasse video
-       */
-      function absatzklasse_video($atts, $content = null) {
-	 extract(shortcode_atts(array(), $atts));
-	 return '<p class="notice-video">' . do_shortcode( $content ) . '</p>';
-      }
-        /*
-       * Absatzklasse audio
-       */
-      function absatzklasse_audio($atts, $content = null) {
-	 extract(shortcode_atts(array(), $atts));
-	 return '<p class="notice-audio">' . do_shortcode( $content ) . '</p>';
-      }
-        /*
-       * Absatzklasse download
-       */
-      function absatzklasse_download($atts, $content = null) {
-	 extract(shortcode_atts(array(), $atts));
-	 return '<p class="notice-download">' . do_shortcode( $content ) . '</p>';
-      }
-
-
-
-  /*-----------------------------------------------------------------------------------*/
-/* Shortcodes to display default blogroll
-/*-----------------------------------------------------------------------------------*/
-function fau_shortcode_blogroll( $atts, $content = null ) {
-    extract(shortcode_atts(array(
-    'cat'	=> '',
-    'tag'	=> '',
-    'num'	=> '',
-    'divclass'	=> '',
-    'hidemeta'	=> false,
-    'hstart'	=> 2,
-    ), $atts));
-
-    $cat = ($cat) ? $cat : '';
-    $tag = ($tag) ? $tag : '';
-    $num = ($num) ? intval($num) : 4;
-    $hstart = ($hstart) ? intval($hstart) : 2;
-    $divclass = $divclass ? esc_attr( $divclass ) : '';
-
-
-    if (!is_page()) {
-	$out =  '<p class="attention">'.__("Der Shortcode darf nur auf Seiten verwendet werden.",'fau').'</p>';
-	return $out;
-    }
-
-    $out = fau_blogroll($tag, $cat, $num, $divclass, $hstart,$hidemeta);
-
-    if (empty($out)) {
-	$out =  '<p class="attention">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';
-    }
-    return $out;
-}
-/*-----------------------------------------------------------------------------------*/
-/* Shortcodes to display articlelist
-/*-----------------------------------------------------------------------------------*/
-function fau_shortcode_articlelist( $atts, $content = null ) {
-    extract(shortcode_atts(array(
-    'cat'	=> '',
-    'tag'	=> '',
-    'num'	=> '',
-    'class'     => '',
-    'title'	=> '',
-    ), $atts));
-    $title =  esc_attr($title);
-    $cat = ($cat) ? $cat : '';
-    $tag = ($tag) ? $tag : '';
-    $num = ($num) ? intval($num) : 5;
-    $class = ($class) ? $class : '';
-
-    if (!is_page()) {
-	$out =  '<p class="attention">'.__("Der Shortcode darf nur auf Seiten verwendet werden.",'fau').'</p>';
-	return $out;
-    }
-
-    $out = fau_articlelist($tag, $cat, $num,$class, $title);
-
-    if (empty($out)) {
-	$out = '<p class="attention">'.__("Es konnten keine Artikel gefunden werden",'fau').'</p>';
-    }
-    return $out;
-}
-/*-----------------------------------------------------------------------------------*/
-/* Multi Columns Shortcodes
-/* Don't forget to add "_last" behind the shortcode if it is the last column.
-/*-----------------------------------------------------------------------------------*/
-
-// Two Columns
-function fau_shortcode_two_columns_one( $atts, $content = null ) {
-    extract(shortcode_atts(array(
-	'color'	=> '',
-	'lighten'   => '',
-    ), $atts));
-    $addclass = '';
-    if (isset($color)) {
-
-	$setlighten = '';
-	if ($lighten) {
-	    $setlighten = ' lighten';
-	}
-
-	$color = fau_columns_checkcolor($color);
-	if (!empty($color)) {
-	    $addclass=' '.$color;
-	    $addclass .= $setlighten;
-	}
-    }
-    return '<div class="two-columns-one'.$addclass.'">' . do_shortcode( ($content) ) . '</div>';
-}
-
-function fau_shortcode_two_columns_one_last( $atts, $content = null ) {
-    extract(shortcode_atts(array(
-	'color'	=> '',
-	'lighten'   => '',
-    ), $atts));
-    $addclass = '';
-    if (isset($color)) {
-	$setlighten = '';
-	if ($lighten) {
-	    $setlighten = ' lighten';
-	}
-
-	$color = fau_columns_checkcolor($color);
-	if (!empty($color)) {
-	    $addclass=' '.$color;
-	    $addclass .= $setlighten;
-	}
-    }
-   return '<div class="two-columns-one'.$addclass.' last">' . do_shortcode( ($content) ) . '</div>';
-}
-
-// Three Columns
-function fau_shortcode_three_columns_one($atts, $content = null) {
-    extract(shortcode_atts(array(
-	'color'	=> '',
-	'lighten'   => '',
-    ), $atts));
-    $addclass = '';
-    if (isset($color)) {
-	$setlighten = '';
-	if ($lighten) {
-	    $setlighten = ' lighten';
-	}
-
-	$color = fau_columns_checkcolor($color);
-	if (!empty($color)) {
-	    $addclass=' '.$color;
-	    $addclass .= $setlighten;
-	}
-    }
-    return '<div class="three-columns-one'.$addclass.'">' . do_shortcode( ($content) ) . '</div>';
-}
-
-function fau_shortcode_three_columns_one_last($atts, $content = null) {
-    extract(shortcode_atts(array(
-	'color'	=> '',
-	'lighten'   => '',
-    ), $atts));
-    $addclass = '';
-    if (isset($color)) {
-	$setlighten = '';
-	if ($lighten) {
-	    $setlighten = ' lighten';
-	}
-
-	$color = fau_columns_checkcolor($color);
-	if (!empty($color)) {
-	    $addclass=' '.$color;
-	    $addclass .= $setlighten;
-	}
-    }
-   return '<div class="three-columns-one'.$addclass.' last">' . do_shortcode( ($content) ) . '</div>';
-}
-
-
-
 
 }
 new FAUShortcodes();

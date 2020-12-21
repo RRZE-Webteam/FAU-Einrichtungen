@@ -17,6 +17,8 @@
 /*-----------------------------------------------------------------------------------*/
 
 .jumplinks {	
+    margin: 0;
+    
     li {
 	@include no-list;
 	a {
@@ -27,21 +29,21 @@
 	    &:hover, 
 	    &:focus {
 		position: absolute;
-		z-index: 100;
+		z-index: 110;
 		background: $colorPrimary;
 		color: $colorPrimaryContrast;
 		@include box-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
-		padding: 1.2em 1em;
-		top: -20px;
+		padding: 1.5em;
+		top: 0px;
 		left: 0;
 		right: 0;
 		margin: 0 auto;
 		text-align: center;
 		
 		width: 100%;
-		max-width: 1260px;
 		text-decoration: none;
-
+		@include px2rem($font-size-large);
+		
 	    }
 	}
     }

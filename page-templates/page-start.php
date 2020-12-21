@@ -8,11 +8,9 @@
  */
 
 get_header();
+get_template_part('template-parts/hero', 'sliderpage');
 ?>
-	<div id="hero">
-	<?php get_template_part('template-parts/hero', 'slider'); ?>
-	<?php get_template_part('template-parts/hero', 'jumplinks'); ?>
-	</div>
+
 	<div id="content">
 		<div class="container">
 			<div class="row">

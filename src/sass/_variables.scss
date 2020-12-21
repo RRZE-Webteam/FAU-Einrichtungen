@@ -154,6 +154,7 @@ $colorMeta: $colorDefault;
 $colorMetaBackground: $colorStandardHellgrau;
 $colorMetaFAUHomeBackground: desaturate(darken($colorStandardHellgrau, 10%), 90%); // #d0d3d8;
 $colorMetaHover: desaturate(lighten($colorDefault, 10%), 40%);
+$colorMetaText: #fff;
 $colorMetaLight: desaturate(lighten($colorDefault, 69%), 75%);
 $colorMetaLightest: desaturate(lighten($colorDefault, 73%), 75%);
 
@@ -268,6 +269,8 @@ $font-size-pagination-links: $font-size-content-meta;
 
 
 $font-size-mobile-meta: 24;
+$font-size-mobile-sitetitle: 16;
+$font-size-mobile-sitetitlelineheight: 19;
 
 
 $font-size-print-base: 11;

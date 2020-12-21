@@ -5,13 +5,10 @@
 #meta {
 	@include placeholder(#fff);
 	background: $colorMetaBackground;
-	position: relative;
-	top: 0;
-	left: 0;
-	right: 0;
 	z-index: 100;
-	margin-top: -10px;
-
+	height: 50px;
+	padding: 5px 0;
+	
 	input,
 	li {
 		@include px2rem($font-size-meta);
@@ -19,23 +16,10 @@
 
 	@media (min-width: $screen-sm) {
 		z-index: 110; // Änderung notwendig, damit das Such-Flyout nicht unter dem #header liegt
-		margin-top: 0;
-		position: fixed;
-		.admin-bar & {
-			top: $wordpress-adminbar-bigheight;
-		}
-	}
-	@media (min-width: $wordpress-adminbar-break) {
-		.admin-bar & {
-			top: $wordpress-adminbar-smallheight;
-		}
+		height: auto;
+		padding: inherit;
 	}
 
-	.fau-orga-breadcrumb {
-		display: none;
-		// an dieser Stelle müssen die Anweisungen zur FAU ORGA Breadcrumb kommen.
-		// ggf. müssen auch Änderungen an der _branding.scss gemacht werden.
-	}
 }
 
 .meta-links {
