@@ -40,8 +40,8 @@ function fau_sidebars_init() {
 		'description' => __( 'Widgetbereich oberhalb des Seitenendes (Footer).', 'fau' ),
 		'before_widget' => '<div class="social-media-widget">',
 		'after_widget' => '</div>',
-		'before_title' => '<h2>',
-		'after_title' => '</h2>',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>',
 	) );
 	
     // Wenn CMS-Workflow vorhanden und aktiviert ist
