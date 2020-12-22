@@ -11,8 +11,7 @@
 ?>
 
 
-    <section id="hero-slides" aria-labelledby="slider-aria-title">
-	<h2 id="slider-aria-title" class="screen-reader-text"><?php echo __('Slider','fau'); ?></h2>
+    <section id="hero-slides" role="region" aria-roledescription="carousel"  aria-label="<?php echo __('Bedeutende Artikel','fau'); ?>">
 	<?php	
 	global $usejslibs;
 	global $defaultoptions;
@@ -35,10 +34,10 @@
 	}
 	?>
 	
-	   <div class="slick-slider featured-slider cf">
+	   <div class="slick-slider featured-slider cf" id="mainslider">
 	       <?php
 		foreach($hero_posts as $hero): 
-		    echo '<div class="item">';
+		    echo '<div class="item" aria-roledescription="slide" role="group" aria-labelledby="label-'.$hero->ID.'">';
 
 		    $sliderimage = $copyright = $slidersrc = $slidersrcset = $slidersrcsizes = '';
 
@@ -113,7 +112,7 @@
 				<div class="slider-titel">
 				    <?php
 					
-					echo '<h3><a href="';
+					echo '<header id="label-'.$hero->ID.'"><a href="';
 
 					$link = get_post_meta( $hero->ID, 'external_link', true );
 					$external = 0;
@@ -123,7 +122,7 @@
 					    $link = fau_esc_url(get_permalink($hero->ID));
 					}
 					echo $link;
-					echo '">'.get_the_title($hero->ID).'</a></h3>'."\n";					
+					echo '">'.get_the_title($hero->ID).'</a></header>'."\n";					
 					?>
 				    </div>
 				</div>
@@ -147,7 +146,7 @@
 		wp_reset_query();
 		?>
 	    </div>
-	    <div class="slider-controls">
+	    <div class="slider-controls" aria-controls="mainslider" >
 		<?php 
 		
   
@@ -159,7 +158,7 @@
 		    $buttontext = $defaultoptions['slider-starttext'];
 		} ?>
 
-		<button type="button" class="slick-startstop<?php echo $startstopclass;?>">
+		<button type="button"  class="slick-startstop<?php echo $startstopclass;?>">
 		    <?php echo $buttontext;?>
 		</button>
 	    </div>

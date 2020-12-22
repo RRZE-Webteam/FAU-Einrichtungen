@@ -29,25 +29,30 @@
 			height: 350px;
 		}
 
-
-		h2,
-		h3 {
-			color: #fff;
-			text-shadow: $slick-opacity-text-shadow;
-			display: inline;
-			padding: 3px;
-			margin: 25px 30px;
-			@include px2rem($font-size-hero-slider-title);
-
-			box-decoration-break: clone;
+		.slider-titel {
+			@extend .col-xs-12;
 
 			@media (min-width: $screen-sm) {
-				margin: 10px 0 15px 0;
-				background: rgba($colorPrimary, $slick-opacity-text-background);
+				margin-bottom: 5px;
 			}
+			header {
+				color: #fff;
+				text-shadow: $slick-opacity-text-shadow;
+				display: inline;
+				padding: 3px;
+				margin: 25px 30px;
+				@include px2rem($font-size-hero-slider-title);
 
+				box-decoration-break: clone;
+				background: rgba($colorPrimary, $slick-opacity-text-background);
+				
+				@media (min-width: $screen-sm) {
+					margin: 10px 0 15px 0;
+					
+				}
+
+			}
 		}
-
 		.slider-text {
 			@extend .col-xs-12;
 			@extend .col-sm-10;
@@ -56,23 +61,24 @@
 			@media (min-width: $screen-sm) {
 				display: inline-block;
 			}
-		}
+		
 
-		p {
-			@include px2rem($font-size-hero-slider-text, $font-size-gridbase, $font-size-hero-slider-text * 1.7);
-			color: #fff;
-			text-shadow: $slick-opacity-text-shadow;
-			padding: 3px;
-			margin: 0;
-			box-decoration-break: clone;
-
-			@media (min-width: $screen-sm) {
-				display: inline;
+			p {
+				@include px2rem($font-size-hero-slider-text, $font-size-gridbase, $font-size-hero-slider-text * 1.7);
+				color: #fff;
+				text-shadow: $slick-opacity-text-shadow;
+				padding: 5px 4px 4px 4px;
+				margin: 0;
+				box-decoration-break: clone;
 				background: rgba($colorPrimary, $slick-opacity-text-background);
+				
+				@media (min-width: $screen-sm) {
+					display: inline;
+					
+				}
+
 			}
-
 		}
-
 		p.credits {
 			background: $colorCopyrightBackground;
 			color: $colorCopyright;
@@ -103,13 +109,7 @@
 		}
 	}
 
-	.slider-titel {
-		@extend .col-xs-12;
-
-		@media (min-width: $screen-sm) {
-			margin-bottom: 5px;
-		}
-	}
+	
 
 	.hero-slide-text {
 		z-index: 10;
@@ -270,20 +270,13 @@
 	.slick-startstop {
 		position: absolute;
 		display: block;
-		top: 20px;
+		top: 0px;
 		right: 0px;
 
-		@media (min-width: $screen-xxs) {
-			top: 0px;
-			// bottom: 0;
-		}
 		@media (min-width: $screen-xs) {
-			top: 20px;
 			bottom: inherit;
 		}
-		@media (min-width: $screen-md) {
-			top: 5px;
-		}
+
 
 		background: $colorCopyrightBackground;
 		color: $colorCopyright;
@@ -308,7 +301,7 @@
 
 
 .hero-slides-op-0 #hero-slides .item {
-	h2, h3, p {
+	header, p {
 		@media (min-width: $screen-sm) {
 			background: rgba($colorPrimary, 0);
 		}
@@ -319,7 +312,7 @@ $oc-list: 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1;
 @each $current-oc in $oc-list {
 	$i: index($oc-list, $current-oc);
 	.hero-slides-op-#{$i} #hero-slides .item {
-		h2, h3, p {
+		header, p {
 			@media (min-width: $screen-sm) {
 				background: rgba($colorPrimary, $current-oc);
 			}
