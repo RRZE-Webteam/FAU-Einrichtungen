@@ -818,15 +818,14 @@ function fau_breadcrumb($lasttitle = '') {
   $delimiter	= $defaultoptions['breadcrumb_delimiter'];
   $home		= $defaultoptions['breadcrumb_root'];
   $before	= $defaultoptions['breadcrumb_beforehtml'];
-  $after		= $defaultoptions['breadcrumb_afterhtml'];
+  $after	= $defaultoptions['breadcrumb_afterhtml'];
   $showcurrent	= $defaultoptions['breadcrumb_showcurrent'];
 
   $pretitletextstart   = '<span>';
   $pretitletextend     = '</span>';
 
 
-  echo '<nav aria-labelledby="bc-title" class="breadcrumbs">';
-  echo '<h2 class="screen-reader-text" id="bc-title">'.__('Breadcrumb','fau').'</h2>';
+  echo '<nav aria-label="'.__('Breadcrumb','fau').'" class="breadcrumbs">';
     if (get_theme_mod('breadcrumb_withtitle')) {
 	echo '<p class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo( 'title' ).'</p>';
 	echo "\n";
@@ -1016,9 +1015,9 @@ function fau_get_page_subnav($id) {
     }
 
 
-    $thismenu .= '<h2 id="subnavtitle" class="small menu-header">';
+    $thismenu .= '<header id="subnavtitle" class="small menu-header">';
     $thismenu .= '<span class="screen-reader-text">'.__('Bereichsnavigation:', 'fau').' </span><a href="'.get_permalink($parent->ID).'">'.$parent->post_title.'</a>';
-    $thismenu .= '</h2>';
+    $thismenu .= '</header>';
     $thismenu .= '<ul id="subnav">';
     $thismenu .= wp_list_pages(array(
 	    'child_of'	=> $parent_page,
