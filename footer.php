@@ -54,15 +54,14 @@
 			} ?>   
 		    </div>
 		    <div class="footer-meta">
-			<nav aria-labelledby="footer-nav-title">
-			    <h2 class="screen-reader-text" id="footer-nav-title"><?php echo __('Kontakt, Impressum und Zusatzinformationen','fau'); ?></h2>
-				<?php 
-				if ( has_nav_menu( 'meta-footer' ) ) {
-				    wp_nav_menu( array( 'theme_location' => 'meta-footer', 'container' => false, 'items_wrap' => '<ul id="footer-nav" class="%2$s">%3$s</ul>' ) ); 
-				} else {
-				    echo fau_get_defaultlinks('techmenu', 'menu', 'footer-nav');
-				}
-				?>
+			<nav aria-label="<?php echo __('Kontakt, Impressum und Zusatzinformationen','fau'); ?>">
+			    <?php 
+			    if ( has_nav_menu( 'meta-footer' ) ) {
+				wp_nav_menu( array( 'theme_location' => 'meta-footer', 'container' => false, 'items_wrap' => '<ul id="footer-nav" class="%2$s">%3$s</ul>' ) ); 
+			    } else {
+				echo fau_get_defaultlinks('techmenu', 'menu', 'footer-nav');
+			    }
+			    ?>
 			</nav>
 			<?php 
 			$display_socialmedia_footer = get_theme_mod("advanced_footer_display_socialmedia");

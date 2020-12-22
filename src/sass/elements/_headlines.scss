@@ -74,17 +74,7 @@ h2 {
 	&.subtitle  {
 	    @include px2rem($font-size-h2-small);
 	}
-	 
-	.quicklinks & {  	
-		font-weight: bold;
-		padding-bottom: 11px;
-		padding-top: 0;
-		 
-		&.second {
-		    padding-top: 22px;
-		} 
-	  
-	}
+
 	
 	&.subtitle {
 		padding: 0 0 22px 0;		
@@ -125,10 +115,7 @@ h3 {
 	.subpages-menu & {
 		font-weight: normal;
 	}
-	.quicklinks & {
-	    @include px2rem( $font-size-h3-hero);
-	    padding: 10px 0;
-	}
+	
 	#meta & {
 	    @extend .screen-reader-text;
 	}

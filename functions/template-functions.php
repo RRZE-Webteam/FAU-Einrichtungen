@@ -931,7 +931,7 @@ function fau_get_defaultlinks ($list = 'faculty', $ulclass = '', $ulid = '') {
     
     $result = '';
     if (isset($uselist['_title'])) {
-	$result .= '<h3>'.$uselist['_title'].'</h3>';	
+	$result .= '<p class="headline">'.$uselist['_title'].'</p>';	
 	$result .= "\n";
     }
     $thislist = '';
