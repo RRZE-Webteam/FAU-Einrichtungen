@@ -12,7 +12,7 @@ $uri = str_replace('/', ' ', $uri);
 
 <div class="search-contenttry">
     <p><?php _e('Vielleicht hilft Ihnen die Suche:','fau'); ?></p>
-    <form method="get" action="<?php echo home_url( '/' )?>">
+    <form method="get" action="<?php echo esc_url(home_url( '/' ))?>">
 	<div class="search-text">
 	    <label for="suchmaske-try"><?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:','fau'); ?></label>
 	    <span class="searchicon"> </span>

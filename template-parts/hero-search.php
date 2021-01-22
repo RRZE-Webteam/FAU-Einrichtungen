@@ -20,7 +20,7 @@
 			    <p class="presentationtitle"  aria-hidden="true" role="presentation"><?php echo get_theme_mod('title_hero_search'); ?></p>
 			</div>
 			<div class="search-input">
-			    <form method="get" class="searchform" action="<?php echo home_url( '/' )?>">
+			    <form method="get" class="searchform" action="<?php echo esc_url(home_url( '/' ))?>">
 				<div class="search-text">
 				    <label for="suchmaske-hero"><?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:','fau'); ?></label>
 				    <span class="searchicon"> </span>

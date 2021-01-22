@@ -42,8 +42,9 @@ function fau_setup() {
 	
 	    
 	add_editor_style( array( 'css/fau-theme-editor-style.css' ) );
-	add_theme_support( 'html5');
+	add_theme_support('html5');
 	add_theme_support('title-tag');
+	add_theme_support('automatic-feed-links');
 
 	
 	fau_register_menus();
