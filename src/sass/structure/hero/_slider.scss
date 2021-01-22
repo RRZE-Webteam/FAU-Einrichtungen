@@ -7,7 +7,6 @@
 
 #hero-slides {
 	position: relative;
-	
 	display: none;
 	height: auto;
 	background: $colorPrimary;
@@ -15,18 +14,17 @@
 
 	.item {
 		position: relative;
+		overflow: hidden;
 		width: 100%;
 		height: 250px;
-		overflow: hidden;
-
-
+		
 		@media (min-width: $screen-sm) {
-			height: 350px;
+			height:  $slider-maxheight;
 		}
 
-		@media (min-width: 1260px) {
-			width: 1260px;
-			height: 350px;
+		@media (min-width: $slider-maxwidth) {
+			width: $slider-maxwidth;
+			height: $slider-maxheight;
 		}
 
 		.slider-titel {
@@ -102,7 +100,7 @@
 			@include transform-translate(-50%, 0);
 
 			@media (min-width: $screen-sm) {
-				min-height: 350px;
+				min-height:  $slider-maxheight;
 			}
 
 
@@ -144,16 +142,16 @@
 	}
 
 	@media (min-width: $screen-xs) {
-		max-height: 350px;
+		max-height: $slider-maxheight;
 	}
 
 	@media (min-width: $screen-md) {
-		margin: -20px auto 0;
+		margin: -20px auto;
 	}
 
-	@media (min-width: 1260px) {
-		width: 1260px;
-		height: 350px;
+	@media (min-width: $slider-maxwidth) {
+		width: $slider-maxwidth;
+		height: $slider-maxheight
 	}
 
 	.slick-prev,
