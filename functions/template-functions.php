@@ -1403,41 +1403,6 @@ if ((!isset($posttag)) && (!isset($postcat))) {
  }
  
 /*-----------------------------------------------------------------------------------*/
-/* Rewrite Template redirects for generated urls
-/*-----------------------------------------------------------------------------------*/
-// add_action('template_redirect', 'fau_rw_relative_urls');
- 
- // removed, due to problems with other plugins that need absolute urls ;/
- // WW: 19.09.2018
- 
- /* 
-function fau_rw_relative_urls() {
-    // Don't do anything if:
-    // - In feed
-    // - In sitemap by WordPress SEO plugin
-    if (is_admin() || is_feed() || get_query_var('sitemap')) {
-        return;
-    }
-    $filters = array(
-        'post_type_link',
-        'page_link',
-        'post_type_archive_link',
-        'get_pagenum_link',
-        'get_comments_pagenum_link',
-        'term_link',
-        'search_link',
-        'day_link',
-        'month_link',
-        'year_link',
-        'script_loader_src',
-        'style_loader_src',
-    );
-    foreach ($filters as $filter) {
-        add_filter($filter, 'fau_make_link_relative');
-    }
-}
-*/
-/*-----------------------------------------------------------------------------------*/
 /* make urls relative to base url
 /*-----------------------------------------------------------------------------------*/
 function fau_make_link_relative($url) {
@@ -1691,9 +1656,14 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
     switch ($size) {
 
 	case 'topevent_thumb':
-	    $imgsrc = $options['default_rwdimage_src'];
+	    if (isset($options['default_rwdimage_src'])) {
+		 $imgsrc = $options['default_rwdimage_src'];
+	    } else {
+		 $imgsrc = $defaultoptions['default_rwdimage_src'];
+	    }
 	    $width = $defaultoptions['default_rwdimage_width'];
 	    $height = $defaultoptions['default_rwdimage_height'];
+	    
 	    
 	    $fallback = get_theme_mod('fallback_topevent_image');
 	    if ($fallback) {
@@ -1708,7 +1678,12 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
 	    break; 
 	
 	case 'post-thumb':
-	    $imgsrc = $options['default_rwdimage_src'];
+	    if (isset($options['default_rwdimage_src'])) {
+		 $imgsrc = $options['default_rwdimage_src'];
+	    } else {
+		 $imgsrc = $defaultoptions['default_rwdimage_src'];
+	    }
+	   
 	    $width = $defaultoptions['default_rwdimage_width'];
 	    $height = $defaultoptions['default_rwdimage_height'];
 	    $fallback = get_theme_mod('default_postthumb_image');
