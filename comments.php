@@ -1,6 +1,8 @@
 <?php 
 global $options;
 
+if ( is_singular() ) wp_enqueue_script( "comment-reply" ); 
+
 ?>
 <h2 id="comments-title"><?php _e("Kommentare", 'fau'); ?></h2>
 
