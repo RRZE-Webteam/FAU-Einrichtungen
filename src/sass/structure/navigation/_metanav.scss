@@ -113,6 +113,11 @@
 	li.fauhome {
 		padding-right: 5px;
 		margin-right: 10px;
+		margin-left: 22px;
+		@media (min-width: $screen-sm) {
+		    margin-left: 0;
+		}
+		
 	}
 
 	li.fauhome:before {
