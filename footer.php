@@ -22,7 +22,10 @@
 			<?php if (($website_type ==3 ) &&  ( is_active_sidebar( 'footer-block1' ) )) {  
 			    dynamic_sidebar( 'footer-block1' );
 			} else { ?>
-			<p><img src="<?php echo get_fau_template_uri(); ?>/img/logo-fau-inverse.png" width="185" height="35" alt="<?php _e("Friedrich-Alexander-Universität Erlangen-Nürnberg","fau"); ?>"></p>			
+			
+			
+			<?php fau_get_svg("fau-logo-text",200,60,'fau-logo-footer'); ?>
+		
 			<?php } ?>
 		    </div>
 		    <div class="footer-address">

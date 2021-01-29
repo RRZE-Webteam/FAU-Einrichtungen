@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 1.12.33-2
+Version: 1.12.33-4
 Requires at least: 5.0
 Tested up to: 5.6
 Requires PHP: 7.3
@@ -7978,6 +7978,9 @@ main .three-columns-one {
       #footer .socialmedia li a:focus:before {
         background: #fff;
         color: #003366; }
+  #footer .footer-logo .fau-logo-footer {
+    fill: #fff;
+    color: #fff; }
 
 /* Footer Navigation */
 #footer-nav {
@@ -9562,6 +9565,18 @@ p.has-drop-cap:not(:focus):first-letter {
   margin: 0 .1em 0 0;
   text-transform: uppercase;
   font-style: normal; }
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 29.01.2021, 16:54:27
+    Author     : unrz59
+*/
+svg.origin {
+  display: none; }
 
 /*-----------------------------------------------------------------------------------*/
 /* CSS for plugin adjustments 
