@@ -44,7 +44,7 @@ $defaultoptions = [
     'src-admin-customizer-js'		=> get_fau_template_uri() . '/js/fau-theme-customizer-range-value-control.min.js',
     'src-admin-wplinkjs'		=> get_fau_template_uri() . '/js/fau-theme-wplink.min.js',
 
-    'src-svglib'			=>  '/src/svglib',
+    'src-svglib_dir'			=> get_template_directory().  '/src/svglib/',
     
     'default_slider_excerpt_length'		=> 240,
     'slider-autoplay'			=> true,

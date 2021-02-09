@@ -5,7 +5,7 @@
  * @since FAU 1.1
  */
 
-global $defaultoptions, $default_fau_orga_data;
+global $defaultoptions, $default_fau_orga_data, $fau_used_svgs;
 
 load_theme_textdomain( 'fau', get_template_directory() . '/languages' );
 require_once( get_template_directory() . '/functions/template-functions.php' );
@@ -35,6 +35,9 @@ require_once( get_template_directory() . '/functions/gutenberg.php');
 require_once( get_template_directory() . '/functions/svglib.php');
 
 require_once( get_template_directory() . '/functions/deprecated.php');
+
+fau_read_svg("fau-logo-text", false);
+// Declare Default Symbols from the start
 
 
 function fau_setup() {
