@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 1.12.33-5
+Version: 1.12.33-6
 Requires at least: 5.0
 Tested up to: 5.6
 Requires PHP: 7.3
@@ -9575,7 +9575,7 @@ and open the template in the editor.
     Created on : 29.01.2021, 16:54:27
     Author     : unrz59
 */
-svg.origin {
+svg.fau-svg-definitions {
   display: none; }
 
 /*-----------------------------------------------------------------------------------*/

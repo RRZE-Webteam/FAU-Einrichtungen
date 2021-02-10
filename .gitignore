@@ -10,3 +10,4 @@ node_modules
 tmp
 .vscode/sftp.json
 *.map
+/npm-debug.log

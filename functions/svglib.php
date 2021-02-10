@@ -11,13 +11,13 @@ if ( ! function_exists( 'fau_get_svg' ) ) {
      * Lade eine SVG und füge sie ein (return des Strings), falls sie noch nicht 
      * zuvor eingefügt wurde
      */
-    function fau_get_svg($name = '', $width = 0, $height = 0, $class = '') {
+    function fau_get_svg($name = '', $width = 0, $height = 0, $class = '', $echo = true) {
 	if (empty($name)) {
 	    return;
 	}
 	global $fau_used_svgs;
 	$slug = sanitize_title($name);
-	if (!isset($fau_used_svgs[$slug])) {   
+	if (isset($fau_used_svgs[$slug])) {   
 	
 	   $svgcontent = fau_read_svg($name);
 
@@ -35,8 +35,13 @@ if ( ! function_exists( 'fau_get_svg' ) ) {
 	    }
 	    $res .= '/>';
 	    $res .= '</svg>';
-	    echo $res;
-	    return true;
+            if ($echo) {
+                echo $res;
+                return true;
+            } else {
+                return $res;
+            }
+	   
 	}
 	return false;
     }
@@ -72,16 +77,15 @@ function fau_read_svg($name = '', $echo = true) {
 	     
 	      preg_match_all('/<svg ([^>]+)>(.*)<\/svg>/si', $svgcontent, $matches);
 	      if (isset($matches)) {
-		 
-		      
-		$innerpart = $matches[2];
-		$svgattributs = $matches[1];
+		     
+		$innerpart = $matches[2][0];
+		$svgattributs = $matches[1][0];
 		      
 		// then we insert this in a <symbol> .. </symbol>, if there is no <symbol> in the innerpart
 		 if (!empty($innerpart)) {
 		    preg_match_all('/<symbol ([^>]+)>/i', $innerpart, $output_array);
 		  
-		    if ((empty($output_array[0])) && (2==1)) {
+		    if (empty($output_array[0])) {
 			// no <symbol> found, we generate it
 			// the id-Attribut is the slug
 			
