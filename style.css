@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 1.12.33-6
+Version: 1.12.33-14
 Requires at least: 5.0
 Tested up to: 5.6
 Requires PHP: 7.3
@@ -5938,9 +5938,9 @@ body.embedded {
   width: 100%;
   margin: 0 auto;
   padding-top: 0;
-  background-color: #003366;
-  background: url("./img/siegel-zuv-schnitt.png") no-repeat 95% bottom, #003366;
-  background: url("./img/siegel-zuv-schnitt.png") no-repeat 95% bottom, radial-gradient(ellipse at center, #0059b3 0%, #003366 100%); }
+  overflow: hidden;
+  background: #003366;
+  background: radial-gradient(ellipse at center, #0059b3 0%, #003366 100%); }
   @media (min-width: 768px) {
     #hero {
       margin: 20px auto; } }
@@ -6365,7 +6365,8 @@ body.embedded {
     #hero .hero-navigation {
       display: block;
       margin-top: 20px;
-      margin-bottom: 10px; } }
+      margin-bottom: 10px;
+      z-index: 10; } }
   @media (min-width: 992px) {
     #hero .hero-navigation {
       margin-top: 30px; } }
@@ -6374,10 +6375,10 @@ body.embedded {
 /* Banner im Hero-Teil
 /*-----------------------------------------------------------------------------------*/
 #hero.hero-banner {
-  background-color: #003366;
-  background: url("./img/siegel-zuv-schnitt.png") no-repeat left 95% bottom, #003366;
-  background: url("./img/siegel-zuv-schnitt.png") no-repeat left 95% bottom, radial-gradient(ellipse at center, #0059b3 0%, #003366 100%);
-  height: auto; }
+  height: auto;
+  overflow: inherit;
+  background: #003366;
+  background: radial-gradient(ellipse at center, #0059b3 0%, #003366 100%); }
   @media (min-width: 768px) {
     #hero.hero-banner {
       max-height: 142px; } }
@@ -6515,9 +6516,8 @@ body.embedded {
 /* Breadcrumb
 /*-----------------------------------------------------------------------------------*/
 #hero.hero-small {
-  background-color: #003366;
-  background: url("./img/siegel-zuv-schnitt.png") no-repeat 95% bottom, #003366;
-  background: url("./img/siegel-zuv-schnitt.png") no-repeat 95% bottom, radial-gradient(ellipse at center, #0059b3 0%, #003366 100%);
+  background: #003366;
+  background: radial-gradient(ellipse at center, #0059b3 0%, #003366 100%);
   overflow: hidden; }
   #hero.hero-small p.presentationtitle,
   #hero.hero-small h1 {
@@ -6662,6 +6662,32 @@ h3.breadcrumb_sitetitle {
       display: inline-block; }
     #hero .searchform .filter {
       margin-top: 5px; } }
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 12.02.2021, 13:20:48
+    Author     : xwolf
+*/
+#hero .hero-siegel {
+  fill: #0059b3;
+  color: #0059b3; }
+
+#hero .siegel {
+  display: none; }
+  @media (min-width: 768px) {
+    #hero .siegel {
+      display: block;
+      position: absolute;
+      bottom: -130px;
+      right: 30px;
+      opacity: 0.9;
+      z-index: 1; } }
+  .fauorg-kooperation #hero .siegel {
+    display: none; }
 
 /*-----------------------------------------------------------------------------------*/
 /* Content specials

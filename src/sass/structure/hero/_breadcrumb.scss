@@ -4,8 +4,9 @@
 
 #hero {
     &.hero-small {
-	@include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% bottom);
-	overflow:hidden;
+	// @include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% bottom);
+	@include radial-gradient($colorPrimaryHero, $colorPrimaryHeroLight);
+        overflow:hidden;
 	
 	p.presentationtitle,
 	h1 {

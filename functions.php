@@ -36,9 +36,9 @@ require_once( get_template_directory() . '/functions/svglib.php');
 
 require_once( get_template_directory() . '/functions/deprecated.php');
 
-fau_read_svg("fau-logo-text", false);
 // Declare Default Symbols from the start
-
+fau_read_svg("fau-logo-text", false);
+fau_read_svg("fau-siegel", false);
 
 function fau_setup() {
 	global $defaultoptions;
@@ -81,21 +81,6 @@ function fau_setup() {
 	/* RWD-Bildauflösung: 480x320. , 3:2 Proportion. No Crop */
 	add_image_size( $defaultoptions['default_rwdimage_typname'], $defaultoptions['default_rwdimage_width'], $defaultoptions['default_rwdimage_height'], $defaultoptions['default_rwdimage_crop']);
 	
-	
-	/* 
-	 * TODO: REMOVEd SIZES since 1.11.7
-	 * Replace with $defaultoptions['default_rwdimage_typname'] ( = 'rwd-480-3-2')
-	 */
-	
-	 //   add_image_size( 'post-thumb', $defaultoptions['default_postthumb_width'], $defaultoptions['default_postthumb_height'], $defaultoptions['default_postthumb_crop']); // 3:2  220:147, false
-		/* Thumb for Posts in Lists - Name: post-thumb */
-
-	    //add_image_size( 'post', $defaultoptions['default_post_width'], $defaultoptions['default_post_height'], $defaultoptions['default_post_crop']);  // 300:200  false
-		/* Thumb for Posts, displayed in post/page single display - Name: post */
-	    /* Thumb for Image Menus in Content - Name: page-thumb: 220:110, true - 2:1 */
-//	    add_image_size( 'page-thumb', $defaultoptions['default_submenuthumb_width'], $defaultoptions['default_submenuthumb_height'],  $defaultoptions['default_submenuthumb_crop']); // 220:110, true
-
-
 	
 	/* 
 	 * Größen für Bildergalerien: 

@@ -67,6 +67,11 @@ function fau_read_svg($name = '', $echo = true) {
 	  $file = $defaultoptions['src-svglib_dir'].$slug.".svg";
 	  $svgcontent = file_get_contents($file);
 	  if ($svgcontent) {
+              // first remove tab or spaces at the beginning of lines 
+              $svgcontent = preg_replace("/^[\s\t]+/m", "", $svgcontent);
+               // and we remove line endings
+              $svgcontent = preg_replace("/[\n\r]/", "", $svgcontent);
+              
 	      // Now check the file and transform its content into a symbol-string
 	      
 	      // why not the PHP DOM Functions? Cause all we do are some little RegExps! 
@@ -154,21 +159,22 @@ function fau_get_default_svg_symbol($slug = '') {
     return;
 }
 
-function fau_insert_body_open_svgsymbols() {
+function fau_insert_svgsymbols() {
     global $fau_used_svgs;
      
     if (empty($fau_used_svgs)) {
 	return;
     }
     
-    $out = '<svg class="fau-svg-definitions" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">';
+    $out = "\n".'<svg class="fau-svg-definitions" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">';
     foreach ($fau_used_svgs as $svg => $symbol) {
-	$out .= $symbol; 
+	$out .= "\n\t".$symbol; 
     }
-    $out .= '</svg>';
+    $out .= "\n".'</svg>'."\n";
     
     echo $out;    
     return;
 }
-add_action( 'wp_body_open', 'fau_insert_body_open_svgsymbols' );
+// add_action( 'wp_body_open', 'fau_insert_body_open_svgsymbols' );
+add_action( 'wp_footer', 'fau_insert_svgsymbols' );
 

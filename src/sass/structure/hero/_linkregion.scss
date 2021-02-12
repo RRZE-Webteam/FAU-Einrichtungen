@@ -157,13 +157,16 @@
 }
 #hero .hero-navigation {
     display: none;
+    
 	@media (min-width: $screen-sm) {
 	    display: block;
 	    margin-top: 20px;
 	    margin-bottom: 10px;
+             z-index: 10;
 	}
 	@media (min-width: $screen-md) {
 	    margin-top: 30px;
+           
 	}
 }
 
