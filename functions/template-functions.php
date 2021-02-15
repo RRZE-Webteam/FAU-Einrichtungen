@@ -1139,8 +1139,6 @@ function fau_get_toplinks($args = array()) {
 
     
     if ( has_nav_menu( 'meta' ) ) {
-	// wp_nav_menu( array( 'theme_location' => 'meta', 'container' => false, 'items_wrap' => '<ul id="meta-nav" class="%2$s">%3$s</ul>' ) );
-	
 	 $menu_name = 'meta';
 
 	    if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
@@ -1184,17 +1182,12 @@ function fau_get_toplinks($args = array()) {
 	$result .= $orgalist;
     }
     if (isset($thislist)) {	
-	if (is_array($args) && isset($args['title'])) {
-	    $html = 'h3';
-	    if (isset($args['titletag'])) {
-		 $html = $args['titletag'];
-	    }
-	    $html = esc_attr($html);
-	    
-	    $result .= '<'.$html.'>'.esc_attr($args['title']).'</'.$html.'>';
-	}
 	
-	$result .= '<ul class="meta-nav menu">';
+	$result .= '<ul class="meta-nav menu"';
+	if (is_array($args) && isset($args['title'])) {
+	    $result .= ' aria-label="'.esc_attr($args['title']).'"';
+	}
+	$result .= '>';
 	$result .= $thislist;
 	$result .= '</ul>';	
 	$result .= "\n";	
