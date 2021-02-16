@@ -102,7 +102,7 @@
 .orgalist {
 	display: block;
 	text-align: left;
-	margin-left: 20px;
+	margin-left: 30px;
 
 	
 	@media (min-width: $screen-sm) {
@@ -113,62 +113,63 @@
 	li.fauhome {
 		padding-right: 5px;
 		margin-right: 10px;
-		margin-left: 22px;
-		@media (min-width: $screen-sm) {
-		    margin-left: 0;
-		}
+		margin-left: 0;
+		
 		
 		a {
 		    vertical-align: middle;
 		    display: inline-block;
-		    
+		    padding: 6px 0;
+		     
 		    svg .fau {
 			fill: $colorZUV;
 		    }
 		}
 		
 	}
-
+	
 	li.fauhome:before {
-		@extend .fa;
-		@extend .fa-long-arrow-up;
-		margin-left: 5px;
-		margin-right: 5px;
+	    display: none;
+	    @extend .fa;
+	    @extend .fa-long-arrow-up;
+	    margin-left: 5px;
+	    margin-right: 5px;
 	}
-
 	li.facultyhome {
-		padding-right: 5px;
-		padding-left: 5px;
-		margin-right: 10px;
-		margin-left: -15px;
-	}
-
-	li.fauhome,
-	li.facultyhome {
-		@include transition(background, 0.2s ease-out);
-	}
-
-	li.fauhome:hover, 
-	li.fauhome:focus,
-	li.facultyhome:hover, 
-	li.facultyhome:focus {
-		background: $colorMetaFAUHomeBackground;
-		@include transition(background, 0.1s);
+	    display: none;
+	    padding-right: 5px;
+	    padding-left: 5px;
+	    margin-right: 10px;
+	    margin-left: -15px;
 	}
 	
-	
-	
-	@media (max-width: $screen-sm - 1) {
-		li.fauhome:before {
-			display: none;
-			content: "";
-		}
-		li.facultyhome {
-			display: none;
-		}
+	@media (min-width: $screen-sm) {
+	    li.fauhome:before {
+		display: inline-block;
 		
+	    }
+	    li.facultyhome {
+		display: inline-block;
 		
+	    }
+
+	    li.fauhome,
+	    li.facultyhome {
+		    @include transition(background, 0.2s ease-out);
+	    }
+
+	    li.fauhome:hover, 
+	    li.fauhome:focus,
+	    li.facultyhome:hover, 
+	    li.facultyhome:focus {
+		    background: $colorMetaFAUHomeBackground;
+		    @include transition(background, 0.1s);
+	    }
+	    
+
+	
 	}
+	
 
 	@media (min-width: $screen-sm) {
 		display: inline;

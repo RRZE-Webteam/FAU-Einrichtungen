@@ -84,6 +84,7 @@
 	@extend .col-xs-12;
 	@extend .col-sm-3;
 	
+	z-index: 10;
 	p.headline {
 	    font-weight: normal;
 	    color: #fff;
@@ -110,6 +111,7 @@
 	@extend .col-xs-12;
 	@extend .col-sm-6;
 	
+	z-index: 10;
 	padding-top: 5px;
 	
 	p {

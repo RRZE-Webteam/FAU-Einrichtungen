@@ -4,7 +4,6 @@
 
 #hero {
     &.hero-small {
-	// @include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat 95% bottom);
 	@include radial-gradient($colorPrimaryHero, $colorPrimaryHeroLight);
         overflow:hidden;
 	
@@ -23,11 +22,7 @@
 	    }
 	}
 
-    }
-    .fauorg-kooperation &.hero-small {
-		@include radial-gradient($colorPrimaryHero, $colorPrimaryHeroLight);
-     }
-    
+    }    
 }
 
 

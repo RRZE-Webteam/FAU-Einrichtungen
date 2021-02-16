@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 1.12.33-20
+Version: 1.12.33-32
 Requires at least: 5.0
 Tested up to: 5.6
 Requires PHP: 7.3
@@ -4557,8 +4557,7 @@ body.embedded {
     padding-right: 0 !important;
     background-image: none !important; }
   .meta-links:hover {
-    overflow: visible;
-    height: auto; }
+    overflow: visible; }
   @media (min-width: 768px) {
     .meta-links {
       height: 40px;
@@ -5245,7 +5244,7 @@ body.embedded {
 .orgalist {
   display: block;
   text-align: left;
-  margin-left: 20px; }
+  margin-left: 30px; }
   @media (min-width: 768px) {
     .orgalist {
       margin: 0 auto;
@@ -5253,38 +5252,37 @@ body.embedded {
   .orgalist li.fauhome {
     padding-right: 5px;
     margin-right: 10px;
-    margin-left: 22px; }
-    @media (min-width: 768px) {
-      .orgalist li.fauhome {
-        margin-left: 0; } }
+    margin-left: 0; }
     .orgalist li.fauhome a {
       vertical-align: middle;
-      display: inline-block; }
+      display: inline-block;
+      padding: 6px 0; }
       .orgalist li.fauhome a svg .fau {
         fill: #003366; }
   .orgalist li.fauhome:before {
+    display: none;
     margin-left: 5px;
     margin-right: 5px; }
   .orgalist li.facultyhome {
+    display: none;
     padding-right: 5px;
     padding-left: 5px;
     margin-right: 10px;
     margin-left: -15px; }
-  .orgalist li.fauhome,
-  .orgalist li.facultyhome {
-    transition: background 0.2s ease-out; }
-  .orgalist li.fauhome:hover,
-  .orgalist li.fauhome:focus,
-  .orgalist li.facultyhome:hover,
-  .orgalist li.facultyhome:focus {
-    background: #d4d4d4;
-    transition: background 0.1s; }
-  @media (max-width: 767px) {
+  @media (min-width: 768px) {
     .orgalist li.fauhome:before {
-      display: none;
-      content: ""; }
+      display: inline-block; }
     .orgalist li.facultyhome {
-      display: none; } }
+      display: inline-block; }
+    .orgalist li.fauhome,
+    .orgalist li.facultyhome {
+      transition: background 0.2s ease-out; }
+    .orgalist li.fauhome:hover,
+    .orgalist li.fauhome:focus,
+    .orgalist li.facultyhome:hover,
+    .orgalist li.facultyhome:focus {
+      background: #d4d4d4;
+      transition: background 0.1s; } }
   @media (min-width: 768px) {
     .orgalist {
       display: inline;
@@ -5958,9 +5956,6 @@ body.embedded {
     color: #fff; }
   #hero ::placeholder {
     color: #fff; }
-  .fauorg-kooperation #hero {
-    background: #003366;
-    background: radial-gradient(ellipse at center, #0059b3 0%, #003366 100%); }
   #hero h1, #hero h2, #hero h3, #hero h4, #hero p {
     font-weight: normal;
     color: #fff; }
@@ -6310,24 +6305,26 @@ body.embedded {
   .hero-navigation li.gray {
     border-color: #e9edf2; }
 
-.hero-navigation .quicklinks p.headline {
-  font-weight: normal;
-  color: #fff;
-  font-size: 18px;
-  line-height: 26.28px;
-  font-size: 1.2rem;
-  line-height: 1.752rem;
-  padding: 10px 0; }
-
-.hero-navigation .quicklinks h2 {
-  font-weight: bold;
-  padding-bottom: 11px;
-  padding-top: 0;
-  color: #fff; }
-  .hero-navigation .quicklinks h2.second {
-    padding-top: 22px; }
+.hero-navigation .quicklinks {
+  z-index: 10; }
+  .hero-navigation .quicklinks p.headline {
+    font-weight: normal;
+    color: #fff;
+    font-size: 18px;
+    line-height: 26.28px;
+    font-size: 1.2rem;
+    line-height: 1.752rem;
+    padding: 10px 0; }
+  .hero-navigation .quicklinks h2 {
+    font-weight: bold;
+    padding-bottom: 11px;
+    padding-top: 0;
+    color: #fff; }
+    .hero-navigation .quicklinks h2.second {
+      padding-top: 22px; }
 
 .hero-navigation .infobar {
+  z-index: 10;
   padding-top: 5px; }
   .hero-navigation .infobar p {
     font-weight: normal;
@@ -6391,9 +6388,6 @@ body.embedded {
   @media (min-width: 768px) {
     #hero.hero-banner {
       max-height: 142px; } }
-  .fauorg-kooperation #hero.hero-banner {
-    background: #003366;
-    background: radial-gradient(ellipse at center, #0059b3 0%, #003366 100%); }
 
 .banner {
   position: relative;
@@ -6536,10 +6530,6 @@ body.embedded {
     #hero.hero-small p.presentationtitle,
     #hero.hero-small h1 {
       padding: 30px 0 10px 0; } }
-
-.fauorg-kooperation #hero.hero-small {
-  background: #003366;
-  background: radial-gradient(ellipse at center, #0059b3 0%, #003366 100%); }
 
 .hero-meta-portal {
   position: absolute;
