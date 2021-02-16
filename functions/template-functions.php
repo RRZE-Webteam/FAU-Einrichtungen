@@ -13,10 +13,17 @@
 	 // Additional body classes for Meta WIdget (once only language switcher)
     global $is_sidebar_active;
     
+    // Wenn CMS-Workflow vorhanden und aktiviert ist.
     if (is_workflow_translation_active()) {
-	 if ( is_active_sidebar( 'language-switcher'  )) {
-		 $classes[] = 'active-meta-widget';
-	 }
+        if ( is_active_sidebar( 'language-switcher'  )) {
+            $classes[] = 'active-meta-widget';
+        }
+    }
+    // Wenn das Widget des RRZE-Multilang-Plugins vorhanden ist.
+    elseif (apply_filters('rrze_multilang_widget_enabled', false)) {
+        if ( is_active_sidebar( 'language-switcher'  )) {
+            $classes[] = 'active-meta-widget';
+        }        
     }
 
     if (function_exists( 'wpel_init' )) {

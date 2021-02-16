@@ -44,18 +44,31 @@ function fau_sidebars_init() {
 		'after_title' => '</h3>',
 	) );
 	
-    // Wenn CMS-Workflow vorhanden und aktiviert ist
-	if (is_workflow_translation_active()) {
-	    register_sidebar( array(
-		    'name' => __( 'Sprachwechsler', 'fau' ),
-		    'id' => 'language-switcher',
-		    'description' => __( 'Sprachwechsler im Header der Seite', 'fau' ),
-		    'before_widget' => '<div class="meta-widget cms-workflow-widget">',
-		    'after_widget' => '</div>',
-		    'before_title' => '<h3>',
-		    'after_title' => '</h3>',
-	    ) );
-	}
+    // Wenn CMS-Workflow vorhanden und aktiviert ist.
+    if (is_workflow_translation_active()) {
+        register_sidebar( array(
+            'name' => __( 'Sprachwechsler', 'fau' ),
+            'id' => 'language-switcher',
+            'description' => __( 'Sprachwechsler im Header der Seite', 'fau' ),
+            'before_widget' => '<div class="meta-widget cms-workflow-widget">',
+            'after_widget' => '</div>',
+            'before_title' => '<h3>',
+            'after_title' => '</h3>',
+        ) );
+    }
+    // Wenn das Widget des RRZE-Multilang-Plugins vorhanden ist.
+    elseif (apply_filters('rrze_multilang_widget_enabled', false)) {
+        register_sidebar( array(
+            'name' => __( 'Sprachwechsler', 'fau' ),
+            'id' => 'language-switcher',
+            'description' => __( 'Sprachwechsler im Header der Seite', 'fau' ),
+            'before_widget' => '<div class="meta-widget cms-workflow-widget"> <div class="workflow-language mlp_language_box">',
+            'after_widget' => '</div> </div>',
+            'before_title' => '<h3>',
+            'after_title' => '</h3>',
+        ) );
+    }
+
 	$website_type = get_theme_mod('website_type');
 	if ($website_type==3) {
 	    register_sidebar( array(
