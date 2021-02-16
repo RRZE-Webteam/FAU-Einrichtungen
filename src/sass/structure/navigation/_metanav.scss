@@ -118,6 +118,15 @@
 		    margin-left: 0;
 		}
 		
+		a {
+		    vertical-align: middle;
+		    display: inline-block;
+		    
+		    svg .fau {
+			fill: $colorZUV;
+		    }
+		}
+		
 	}
 
 	li.fauhome:before {

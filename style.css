@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 1.12.33-14
+Version: 1.12.33-17
 Requires at least: 5.0
 Tested up to: 5.6
 Requires PHP: 7.3
@@ -5257,6 +5257,11 @@ body.embedded {
     @media (min-width: 768px) {
       .orgalist li.fauhome {
         margin-left: 0; } }
+    .orgalist li.fauhome a {
+      vertical-align: middle;
+      display: inline-block; }
+      .orgalist li.fauhome a svg .fau {
+        fill: #003366; }
   .orgalist li.fauhome:before {
     margin-left: 5px;
     margin-right: 5px; }
@@ -5991,7 +5996,8 @@ body.embedded {
 /* Slider im Hero-Teil
 /*-----------------------------------------------------------------------------------*/
 #hero.sliderpage {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  overflow: inherit; }
 
 #hero-slides {
   position: relative;
@@ -9593,13 +9599,8 @@ p.has-drop-cap:not(:focus):first-letter {
   font-style: normal; }
 
 /*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/*
-    Created on : 29.01.2021, 16:54:27
-    Author     : unrz59
+Global definitions for meaningful svg images, that are loaded into the html code 
+and not as css-background-images.
 */
 svg.fau-svg-definitions {
   display: none; }

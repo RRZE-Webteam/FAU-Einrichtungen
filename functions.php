@@ -36,9 +36,7 @@ require_once( get_template_directory() . '/functions/svglib.php');
 
 require_once( get_template_directory() . '/functions/deprecated.php');
 
-// Declare Default Symbols from the start
-fau_read_svg("fau-logo-text", false);
-fau_read_svg("fau-siegel", false);
+
 
 function fau_setup() {
 	global $defaultoptions;
@@ -114,8 +112,14 @@ function fau_custom_init() {
   
     remove_filter( 'the_content', 'wpautop' );
 
+    // Declare Default Symbols from the start
+ //   fau_read_svg("fau-logo-text", false);
+ //   fau_read_svg("fau-siegel", false);
+    fau_read_svg("fau-logo", false);
+    
 }
 add_action( 'init', 'fau_custom_init' );
+
 
 /*-----------------------------------------------------------------------------------*/
 /* Enqueues scripts and styles for front end.

@@ -1054,9 +1054,7 @@ function fau_get_orgahomelink() {
 	    $homeurl = $default_fau_orga_data[$homeorga]['homeurl'];
 	}
 	$linkimg = $default_fau_orga_data[$homeorga]['home_imgsrc'];
-	if (isset($default_fau_orga_data[$homeorga]['data-imgmobile'])) {
-	    $linkdataset = $default_fau_orga_data[$homeorga]['data-imgmobile'];
-	}
+	
 
     } else {
 	$linkhome = false;
@@ -1085,12 +1083,10 @@ function fau_get_orgahomelink() {
 	$orgalist .= '<li class="fauhome">';
 	$orgalist .= '<a href="'.$homeurl.'">';
 	    			
-	if ($linkhomeimg) {
-	    $orgalist .= '<img src="'.fau_esc_url($linkimg).'" alt="'.esc_attr($hometitle).'"'; 
-	    if ($linkdataset) {
-		 $orgalist .= ' data-imgmobile="'.fau_esc_url($linkdataset).'"'; 
-	    }
-	    $orgalist .= '>'; 
+	if ($linkhomeimg) {	   
+	   // $orgalist .= '<img src="'.fau_esc_url($linkimg).'" alt="'.esc_attr($hometitle).'"'; 
+	     $orgalist .= fau_get_svg("fau-logo",37,16,'fau',false); 
+	   // $orgalist .= '>'; 
 	} else {
 	    $orgalist .= $shorttitle; 
 	}	
