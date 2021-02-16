@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 1.12.33-17
+Version: 1.12.33-20
 Requires at least: 5.0
 Tested up to: 5.6
 Requires PHP: 7.3
@@ -5457,11 +5457,6 @@ body.embedded {
     #footer .meta-nav li.gray {
       border-color: #e9edf2; }
 
-@media (min-width: 768px) {
-  #footer .cloned-meta-links,
-  #footer .cloned-hero-nav {
-    display: none; } }
-
 #footer .meta-nav {
   padding: 10px 0; }
 
@@ -5482,10 +5477,16 @@ body.embedded {
   #footer .cloned-hero-nav p {
     background: #e9edf2;
     color: #003366; }
+  @media (min-width: 768px) {
+    #footer .cloned-meta-links,
+    #footer .cloned-hero-nav {
+      display: none; } }
 
 #footer .cloned-hero-nav {
   margin-bottom: 10px;
   margin-left: -15px; }
+  #footer .cloned-hero-nav .siegel {
+    display: none; }
 
 /*-----------------------------------------------------------------------------------*/
 /* Subnav in content
@@ -6370,9 +6371,11 @@ body.embedded {
   @media (min-width: 768px) {
     #hero .hero-navigation {
       display: block;
+      position: relative;
       margin-top: 20px;
-      margin-bottom: 10px;
-      z-index: 10; } }
+      padding-bottom: 10px;
+      z-index: 10;
+      overflow: hidden; } }
   @media (min-width: 992px) {
     #hero .hero-navigation {
       margin-top: 30px; } }
@@ -8013,6 +8016,11 @@ main .three-columns-one {
   #footer .footer-logo .fau-logo-footer {
     fill: #fff;
     color: #fff; }
+  #footer .footer-meta {
+    text-align: left; }
+    @media (min-width: 768px) {
+      #footer .footer-meta {
+        text-align: right; } }
 
 /* Footer Navigation */
 #footer-nav {
@@ -8064,9 +8072,7 @@ main .three-columns-one {
     padding-right: 0;
     min-width: 200px; }
   .footer-address {
-    max-width: calc(100% - 215px); }
-  .footer-meta {
-    text-align: right; } }
+    max-width: calc(100% - 215px); } }
 
 /*-----------------------------------------------------------------------------------*/
 /* Social Media Widget

@@ -286,14 +286,6 @@
 
 	}
 
-	.cloned-meta-links,
-	.cloned-hero-nav {
-		@media (min-width: $screen-sm) {
-			display: none;
-		}
-
-	}
-
 	.meta-nav {
 		padding: 10px 0;
 	}
@@ -311,11 +303,19 @@
 			background: $colorMetaBackground;
 			color: $colorMeta;
 		}
+		
+		@media (min-width: $screen-sm) {
+			display: none;
+		}
 	}
 
 	.cloned-hero-nav {
 		margin-bottom: 10px;
 		margin-left: -15px;
+		
+		.siegel {
+		    display: none;
+		}
 	}
 }
 	

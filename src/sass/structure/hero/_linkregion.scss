@@ -160,9 +160,11 @@
     
 	@media (min-width: $screen-sm) {
 	    display: block;
+	    position: relative;
 	    margin-top: 20px;
-	    margin-bottom: 10px;
-             z-index: 10;
+	    padding-bottom: 10px;
+            z-index: 10;
+	    overflow: hidden;
 	}
 	@media (min-width: $screen-md) {
 	    margin-top: 30px;

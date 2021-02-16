@@ -113,8 +113,8 @@ function fau_custom_init() {
     remove_filter( 'the_content', 'wpautop' );
 
     // Declare Default Symbols from the start
- //   fau_read_svg("fau-logo-text", false);
- //   fau_read_svg("fau-siegel", false);
+    fau_read_svg("fau-logo-text", false);
+    fau_read_svg("fau-siegel", false);
     fau_read_svg("fau-logo", false);
     
 }
