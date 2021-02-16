@@ -108,7 +108,9 @@ class FAUShortcodes {
             return $out;
         }
 
-
+	/*-----------------------------------------------------------------------------------*/
+      /* Display a menu as organigram
+      /*-----------------------------------------------------------------------------------*/
 	function fau_organigram( $atts, $content = null) {
 		extract(shortcode_atts(array(
 			"menu" => 'menu'
@@ -117,14 +119,9 @@ class FAUShortcodes {
 		return wp_nav_menu( array('menu' => $menu, 'container' => false, 'menu_id' => 'organigram', 'menu_class' => 'organigram', 'echo' => 0));
 	}
 
-
-
-	function fau_subpages( $atts, $content = null ) {
-		return '<div class="row">' . do_shortcode( $content ) . '</div>';
-	}
-
-
-
+	/*-----------------------------------------------------------------------------------*/
+      /* Special HRs for FAU
+      /*-----------------------------------------------------------------------------------*/
 
 	function fau_hr ( $atts, $content = null) {
 	    extract(shortcode_atts(array(
