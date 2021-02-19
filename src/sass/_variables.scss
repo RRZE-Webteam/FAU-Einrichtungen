@@ -48,8 +48,6 @@ $PalettonHellste: desaturate(lighten($colorPrimary, 73%), 75%);
 $PalettonHeller: desaturate(lighten($colorPrimary, 69%), 75%);
 $PalettonDunkler: desaturate(lighten($colorPrimary, 10%), 90%);
 $PalettonDunkelste: desaturate(lighten($colorPrimary, 10%), 40%);
-$siegelurl: './img/siegel-zuv-schnitt.png';
-$errorimage: './img/friedrich-alexander.gif';
 
 $colorPrimaryHero: $colorPrimary;
 
@@ -63,7 +61,6 @@ $colorPrintMainLinks: $colorText;
 	$PalettonHeller: #bfd6f5; // #08C0E7;
 	$PalettonDunkler: #026480;
 	$PalettonDunkelste: #014e63;
-	$siegelurl: './img/siegel-medfak-schnitt.png';
 	
 
 } @else if $farbfamilie == 'phil' {
@@ -72,7 +69,6 @@ $colorPrintMainLinks: $colorText;
 	$PalettonHeller: #d9c689;
 	$PalettonDunkler: #805000;
 	$PalettonDunkelste: #553500;
-	$siegelurl: './img/siegel-philfak-schnitt.png';
 
 
 } @else if $farbfamilie == 'nat' {
@@ -81,7 +77,6 @@ $colorPrintMainLinks: $colorText;
 	$PalettonHeller: #aacfbd;
 	$PalettonDunkler: #006e53;
 	$PalettonDunkelste: #00533f;
-	$siegelurl: './img/siegel-natfak-schnitt.png';
 
 
 } @else if $farbfamilie == 'rw' {
@@ -90,7 +85,6 @@ $colorPrintMainLinks: $colorText;
 	$PalettonHeller: #c5ac94; // #bd7d8b;
 	$PalettonDunkler: #690013;
 	$PalettonDunkelste: #42000c;
-	$siegelurl: './img/siegel-rwfak-schnitt.png';
 
 
 } @else if $farbfamilie == 'tf' {
@@ -99,7 +93,6 @@ $colorPrintMainLinks: $colorText;
 	$PalettonHeller: #d2d5d7; // #8e949a;
 	$PalettonDunkler: #53606b;
 	$PalettonDunkelste: #3b4956;
-	$siegelurl: './img/siegel-techfak-schnitt.png';
 
 
 } @else if $farbfamilie == 'zuv' {
@@ -108,7 +101,6 @@ $colorPrintMainLinks: $colorText;
 	$PalettonHeller: #8fb1ef;
 	$PalettonDunkler: #24598f;
 	$PalettonDunkelste: #1f4b7a;
-	$siegelurl: './img/siegel-zuv-schnitt.png';
 
 }
 

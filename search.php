@@ -105,24 +105,29 @@ $showhelplinks = 0;
 					    } 
 
 				    } else { ?>
-					<div class="search-error-notice">
-						<p class="attention"><strong><?php _e('Nichts gefunden.','fau'); ?></strong></p>
-						<p><?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?></p>
+					 <div class="error-content">	
+					    <div class="error-notice">
+						    <p class="attention">
+							<strong><?php _e('Nichts gefunden.','fau'); ?>
+						    </strong></p>
+						    <p><?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?></p>
 
+					    </div>
+					    <?php get_template_part('template-parts/error', 'siegel');  ?>
 					</div>
-					<div class="search-error-image"></div>
 					<?php 
 					    $showhelplinks = 1;
 				    } 
 				} else { ?>
-					
-					<div class="search-error-notice">
+				    <div class="error-content">
+					<div class="error-notice">
 					    <p class="attention">
-						    <strong><?php _e('Bitte geben Sie einen Suchbegriff in das Suchfeld ein.','fau'); ?></strong>
+						    <strong><?php _e('Kein Suchbegriff.','fau'); ?></strong>
 					    </p>
+					     <p><?php _e('Bitte geben Sie einen Suchbegriff in das Suchfeld ein.','fau'); ?></p>
 					</div>
-					<div class="search-error-image"></div>
-					
+					<?php get_template_part('template-parts/error', 'siegel');  ?>
+				    </div>
 					
 					<?php
 					$showhelplinks = 1;

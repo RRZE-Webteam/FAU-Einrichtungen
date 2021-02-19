@@ -4,6 +4,7 @@
 #hero {
     .search-input {
 		@include px2rem($font-size-herosearch);
+		z-index: 10;
 		
 		form {
 		    border: none;

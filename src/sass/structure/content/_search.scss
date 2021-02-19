@@ -112,30 +112,7 @@
 	}
 	
 }
-.search-error-notice {
-    @extend .col-sm-6;
-    @extend .col-sm-offset-1;
-}
 
-
-.search-error-image {
-    @extend .col-sm-5;
-    background-image: url($errorimage);
-    background-position: bottom center;  
-    background-repeat: no-repeat; 
-    margin-top: 30px;
-    height: 170px;
-}
-
-
-.search-contenttry {
-	@include px2rem($font-size-herosearch);
-	margin-left: $fau-gutter-width;
-	margin-bottom: 11px;
-	margin-right: - ceil(($fau-gutter-width / 2));
-	padding-left: ceil(($fau-gutter-width / 2));	
-	border-left: 2px solid $colorLightest;
-}
 
 .widget_search,
 .search-contenttry {	

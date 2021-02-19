@@ -9,6 +9,9 @@ svg {
     }
 }
 
+
+// In SVG-background definitions we cannot use hex colors; therefor we
+// have to encode them
 @function encodecolor($string) {
   @if type-of($string) == 'color' and str-index(#{$string}, '#') == 1 {
     $hex: str-slice(ie-hex-str($string), 4);

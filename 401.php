@@ -11,8 +11,6 @@ get_header();
 get_template_part('template-parts/hero', 'error');  
 
 ?>
-
-
 	<section id="content">
 	    <div class="container">
 		<div class="row">
@@ -25,10 +23,11 @@ get_template_part('template-parts/hero', 'error');
 				<?php _e('Leider ist Ihre Anmeldung fehlgeschlagen.','fau'); ?>
 			</p>						
 		    </div>
-		    <div class="error-image"></div>
-		    <div class="error-search">
-			    <?php get_template_part('template-parts/search', 'try');  ?>
-		    </div>
+		    <?php 
+		    get_template_part('template-parts/error', 'siegel');   
+		    get_template_part('template-parts/error', 'trysearch');  
+		    ?>
+
 		</div>
 		<?php get_template_part('template-parts/search', 'helper');  ?>
 
