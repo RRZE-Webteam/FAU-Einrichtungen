@@ -1091,9 +1091,7 @@ function fau_get_orgahomelink() {
 	$orgalist .= '<a href="'.$homeurl.'">';
 	    			
 	if ($linkhomeimg) {	   
-	   // $orgalist .= '<img src="'.fau_esc_url($linkimg).'" alt="'.esc_attr($hometitle).'"'; 
-	     $orgalist .= fau_get_svg("fau-logo",37,16,'fau',false); 
-	   // $orgalist .= '>'; 
+	     $orgalist .= fau_use_svg("fau-logo",37,16,'fau',false); 
 	} else {
 	    $orgalist .= $shorttitle; 
 	}	

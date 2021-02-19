@@ -22,8 +22,7 @@
 			<?php if (($website_type ==3 ) &&  ( is_active_sidebar( 'footer-block1' ) )) {  
 			    dynamic_sidebar( 'footer-block1' );
 			} else { 
-                            fau_get_svg("fau-logo-text",216,42,'fau-logo-footer'); 
-                           
+                            fau_use_svg("fau-logo-text",216,42,'fau-logo-footer'); 
                         } ?>
 		    </div>
 		    <div class="footer-address">

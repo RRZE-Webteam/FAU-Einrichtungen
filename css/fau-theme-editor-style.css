@@ -4856,10 +4856,3 @@ p.has-drop-cap:not(:focus):first-letter {
   margin: 0 .1em 0 0;
   text-transform: uppercase;
   font-style: normal; }
-
-/*
-Global definitions for meaningful svg images, that are loaded into the html code 
-and not as css-background-images.
-*/
-svg.fau-svg-definitions {
-  display: none; }

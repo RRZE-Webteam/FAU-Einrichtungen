@@ -1,13 +1,6 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/*
-    Created on : 12.02.2021, 13:20:48
-    Author     : xwolf
-*/
-
+/*-----------------------------------------------------------------------------------*/
+/* Siegel im Hero
+/*-----------------------------------------------------------------------------------*/
 #hero  {
     .hero-siegel {
         fill: $colorPrimaryHeroLight;
@@ -18,8 +11,8 @@ and open the template in the editor.
         @media (min-width: $screen-sm) {
             display: block;
             position: absolute;
-            bottom: -130px;
-            right: 30px;
+            bottom: -145px;
+	    left: calc(95% - 304px);
             opacity: 0.9;
             z-index: 1;
         }

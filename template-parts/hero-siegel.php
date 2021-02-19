@@ -11,6 +11,6 @@
  if ($website_type != 3) {
  ?>
         <div class="siegel" aria-hidden="true" role="presentation">
-             <?php fau_get_svg("fau-siegel",320,320,"hero-siegel"); ?>
+             <?php fau_use_svg("fau-siegel",320,320,"hero-siegel"); ?>
         </div>
  <?php } ?>
