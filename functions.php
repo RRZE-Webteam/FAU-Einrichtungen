@@ -116,7 +116,8 @@ function fau_custom_init() {
     fau_register_svg_symbol("fau-logo-text", false);
     fau_register_svg_symbol("fau-siegel", false);
     fau_register_svg_symbol("fau-logo", false);
-    
+  //  fau_register_svg_symbol("chevron-up-solid", false);
+
     
 }
 add_action( 'init', 'fau_custom_init' );
