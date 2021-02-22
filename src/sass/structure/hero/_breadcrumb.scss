@@ -11,18 +11,17 @@
 	h1 {
 	    padding: 0;
 	    margin: 20px 0;
-	}
-	
-
-	@media (min-width: $screen-sm ) {
+	   
 	    
-	    p.presentationtitle,
-	    h1 {
+	    @media (min-width: $screen-sm ) {
 		padding: 30px 0 10px 0;
 	    }
 	}
 
     }    
+    .hero-content {
+	 z-index: 10;
+    }
 }
 
 

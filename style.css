@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 1.12.34-3
+Version: 1.12.34-6
 Requires at least: 5.0
 Tested up to: 5.6
 Requires PHP: 7.3
@@ -6542,10 +6542,13 @@ body.embedded {
   #hero.hero-small h1 {
     padding: 0;
     margin: 20px 0; }
-  @media (min-width: 768px) {
-    #hero.hero-small p.presentationtitle,
-    #hero.hero-small h1 {
-      padding: 30px 0 10px 0; } }
+    @media (min-width: 768px) {
+      #hero.hero-small p.presentationtitle,
+      #hero.hero-small h1 {
+        padding: 30px 0 10px 0; } }
+
+#hero .hero-content {
+  z-index: 10; }
 
 .hero-meta-portal {
   position: absolute;
