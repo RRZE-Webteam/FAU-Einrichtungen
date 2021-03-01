@@ -279,7 +279,7 @@ function fau_insert_svg_inlinecss() {
     $out = "\n".'<style type="text/css">';
     
     foreach ($fau_used_svgs as  $name => $value) {
-	    if ($fau_used_svgs[$name]['useinlinecss']) {
+	    if (isset($fau_used_svgs[$name]['useinlinecss']) && ($fau_used_svgs[$name]['useinlinecss'])) {
 		$innerpart = $fau_used_svgs[$name]['symbol'];
 		$viewbox = 'viewBox="'.$fau_used_svgs[$name]['viewBox'].'"';
 		
