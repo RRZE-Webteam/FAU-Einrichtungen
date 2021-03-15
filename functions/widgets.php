@@ -52,8 +52,6 @@ function fau_sidebars_init() {
             'description' => __( 'Sprachwechsler im Header der Seite', 'fau' ),
             'before_widget' => '<div class="meta-widget cms-workflow-widget">',
             'after_widget' => '</div>',
-            'before_title' => '<h3>',
-            'after_title' => '</h3>',
         ) );
     }
     // Wenn das Widget des RRZE-Multilang-Plugins vorhanden ist.
@@ -62,10 +60,9 @@ function fau_sidebars_init() {
             'name' => __( 'Sprachwechsler', 'fau' ),
             'id' => 'language-switcher',
             'description' => __( 'Sprachwechsler im Header der Seite', 'fau' ),
-            'before_widget' => '<div class="meta-widget cms-workflow-widget"> <div class="workflow-language mlp_language_box">',
-            'after_widget' => '</div> </div>',
-            'before_title' => '<h3>',
-            'after_title' => '</h3>',
+            'before_widget' => '<div class="meta-widget rrze-multilang-widget">',
+            'after_widget' => '</div>',
+
         ) );
     }
 

@@ -17,7 +17,7 @@ while ( have_posts() ) : the_post();
 		<div class="container">
 			<div class="row">			    
 			    <?php if(get_post_type() == 'post') { ?>
-			    <div class="entry-content">
+			    <div <?php post_class( 'entry-content' ); ?>>
 			    <?php } else { ?>
 			    <div class="col-xs-12">
 			    <?php } ?>
