@@ -176,3 +176,45 @@ function fau_addlightboxrel ($content) {
     $content = preg_replace($pattern, $replacement, $content);
     return $content;
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* Remove post class, we dont need
+/*-----------------------------------------------------------------------------------*/
+add_filter('post_class', 'fau_remove_default_post_class', 10,3);
+function fau_remove_default_post_class($classes, $class, $post_id) {
+    
+    if (is_admin() ) {
+	// Do not change anything if we are in the backend
+	return $classes;
+    }
+// adapted form https://www.forumming.com/question/21152/remove-extra-classes-from-post-title
+    
+    // Array that holds the undesired classes
+    $removeClasses = array(
+	'hentry',
+	'type-',
+	'post-',
+	'status-',
+        'category-',
+        'tag-',
+	'format'
+    );
+
+
+    $newClasses = array();
+    foreach ($classes as $_class) {
+        $hasClass = FALSE;
+        foreach ($removeClasses as $_removeClass) {
+            if (strpos($_class, $_removeClass) === 0) {
+                $hasClass = TRUE;
+                break;
+            }
+        }
+        if (!$hasClass) {
+            $newClasses[] = $_class;
+        }
+    }
+
+    return ($newClasses);
+
+}
