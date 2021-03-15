@@ -21,9 +21,9 @@
 		    <div class="footer-logo">
 			<?php if (($website_type ==3 ) &&  ( is_active_sidebar( 'footer-block1' ) )) {  
 			    dynamic_sidebar( 'footer-block1' );
-			} else { ?>
-			<p><img src="<?php echo get_fau_template_uri(); ?>/img/logo-fau-inverse.png" width="185" height="35" alt="<?php _e("Friedrich-Alexander-Universität Erlangen-Nürnberg","fau"); ?>"></p>			
-			<?php } ?>
+			} else { 
+                            fau_use_svg("fau-logo-text",216,42,'fau-logo-footer'); 
+                        } ?>
 		    </div>
 		    <div class="footer-address">
 			<?php 
@@ -80,7 +80,10 @@
 		    </div>
 		</div>
 	    </div>
-	    <a href="#headerwrap" class="top-link"><span class="screen-reader-text"><?php echo __('Nach oben','fau'); ?></span></a>
+	    <a href="#pagewrapper" class="top-link">
+		<?php fau_use_svg("chevron-up-solid",38,38); ?>
+		
+		<span class="screen-reader-text"><?php echo __('Nach oben','fau'); ?></span></a>
 	</footer>
     </div> 
 	<?php wp_footer(); ?>

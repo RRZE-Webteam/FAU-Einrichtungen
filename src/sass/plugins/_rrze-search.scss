@@ -1,0 +1,18 @@
+/*-----------------------------------------------------------------------------------*/
+/* CSS Adjustment for WordPress Plugin RRZE-Search 
+/*  https://github.com/RRZE-Webteam/rrze-search
+/*-----------------------------------------------------------------------------------*/
+
+.search-toggled {
+    #search-backdrop {
+	top: $searchbackdrop-offset-top;
+    }
+}
+.admin-bar {
+     #search-backdrop {
+	top: $searchbackdrop-offset-top + $wordpress-adminbar-bigheight;
+	@media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
+	    top: $searchbackdrop-offset-top + $wordpress-adminbar-smallheight;
+	}
+    }
+}

@@ -13,10 +13,17 @@
 	 // Additional body classes for Meta WIdget (once only language switcher)
     global $is_sidebar_active;
     
+    // Wenn CMS-Workflow vorhanden und aktiviert ist.
     if (is_workflow_translation_active()) {
-	 if ( is_active_sidebar( 'language-switcher'  )) {
-		 $classes[] = 'active-meta-widget';
-	 }
+        if ( is_active_sidebar( 'language-switcher'  )) {
+            $classes[] = 'active-meta-widget';
+        }
+    }
+    // Wenn das Widget des RRZE-Multilang-Plugins vorhanden ist.
+    elseif (apply_filters('rrze_multilang_widget_enabled', false)) {
+        if ( is_active_sidebar( 'language-switcher'  )) {
+            $classes[] = 'active-meta-widget';
+        }        
     }
 
     if (function_exists( 'wpel_init' )) {
@@ -528,7 +535,9 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	$arialabelid= "aria-".$post->ID."-".random_int(10000,30000);
 	    // add random key, due to the possible use of blogrolls of the news. The same article can be displayed
 	    // more times on the same page. This would result in an wcag/html error, cause the uniq id would be used more as one time
-	$output .= '<article class="news-item" aria-labelledby="'.$arialabelid.'" itemscope itemtype="http://schema.org/NewsArticle">';
+	$output .= '<article '; // class="news-item" ';
+	$output .= 'class="news-item '.esc_attr( implode( ' ', get_post_class( '', $post->ID ) ) ).'"';
+	$output .= ' aria-labelledby="'.$arialabelid.'" itemscope itemtype="http://schema.org/NewsArticle">';
 	$link = get_post_meta( $post->ID, 'external_link', true );
 	$link = esc_url(trim($link));
 	$external = false;
@@ -1054,9 +1063,7 @@ function fau_get_orgahomelink() {
 	    $homeurl = $default_fau_orga_data[$homeorga]['homeurl'];
 	}
 	$linkimg = $default_fau_orga_data[$homeorga]['home_imgsrc'];
-	if (isset($default_fau_orga_data[$homeorga]['data-imgmobile'])) {
-	    $linkdataset = $default_fau_orga_data[$homeorga]['data-imgmobile'];
-	}
+	
 
     } else {
 	$linkhome = false;
@@ -1085,12 +1092,8 @@ function fau_get_orgahomelink() {
 	$orgalist .= '<li class="fauhome">';
 	$orgalist .= '<a href="'.$homeurl.'">';
 	    			
-	if ($linkhomeimg) {
-	    $orgalist .= '<img src="'.fau_esc_url($linkimg).'" alt="'.esc_attr($hometitle).'"'; 
-	    if ($linkdataset) {
-		 $orgalist .= ' data-imgmobile="'.fau_esc_url($linkdataset).'"'; 
-	    }
-	    $orgalist .= '>'; 
+	if ($linkhomeimg) {	   
+	     $orgalist .= fau_use_svg("fau-logo",37,16,'fau',false); 
 	} else {
 	    $orgalist .= $shorttitle; 
 	}	
@@ -1139,8 +1142,6 @@ function fau_get_toplinks($args = array()) {
 
     
     if ( has_nav_menu( 'meta' ) ) {
-	// wp_nav_menu( array( 'theme_location' => 'meta', 'container' => false, 'items_wrap' => '<ul id="meta-nav" class="%2$s">%3$s</ul>' ) );
-	
 	 $menu_name = 'meta';
 
 	    if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
@@ -1184,17 +1185,12 @@ function fau_get_toplinks($args = array()) {
 	$result .= $orgalist;
     }
     if (isset($thislist)) {	
-	if (is_array($args) && isset($args['title'])) {
-	    $html = 'h3';
-	    if (isset($args['titletag'])) {
-		 $html = $args['titletag'];
-	    }
-	    $html = esc_attr($html);
-	    
-	    $result .= '<'.$html.'>'.esc_attr($args['title']).'</'.$html.'>';
-	}
 	
-	$result .= '<ul class="meta-nav menu">';
+	$result .= '<ul class="meta-nav menu"';
+	if (is_array($args) && isset($args['title'])) {
+	    $result .= ' aria-label="'.esc_attr($args['title']).'"';
+	}
+	$result .= '>';
 	$result .= $thislist;
 	$result .= '</ul>';	
 	$result .= "\n";	

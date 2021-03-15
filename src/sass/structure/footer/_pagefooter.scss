@@ -58,7 +58,22 @@
 		
 	    }
 	}
+	.footer-logo {
+	    .fau-logo-footer {
+		  fill: #fff;
+		  color:  #fff;
+	    }
+	}
+
+
+	.footer-meta {
+	   text-align: left;
+	   @media (min-width: $screen-sm) {
+	       text-align: right;
+	   }
+       }
 }
+
 
 
 .footer-logo {
@@ -111,6 +126,7 @@
     }
 }
 
+
 @media (min-width: $screen-xs) {
  #footer {
 	li {
@@ -139,7 +155,6 @@
     .footer-address {
 	max-width: calc(100% - 215px);
     }
-    .footer-meta {
-	text-align: right;
-    }
+    
+   
 }

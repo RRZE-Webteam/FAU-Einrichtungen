@@ -10,7 +10,7 @@
 ?>
 
 <section id="hero" class="hero-small">
-	<div class="container">
+	<div class="container hero-content">
 		<div class="row">
 			<div class="col-xs-12">
 			    <?php fau_breadcrumb(); ?>
@@ -29,4 +29,5 @@
 			</div>
 		</div>
 	</div>
+     <?php get_template_part('template-parts/hero', 'siegel'); ?>
 </section>

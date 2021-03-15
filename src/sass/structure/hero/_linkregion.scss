@@ -84,6 +84,7 @@
 	@extend .col-xs-12;
 	@extend .col-sm-3;
 	
+	z-index: 10;
 	p.headline {
 	    font-weight: normal;
 	    color: #fff;
@@ -110,6 +111,7 @@
 	@extend .col-xs-12;
 	@extend .col-sm-6;
 	
+	z-index: 10;
 	padding-top: 5px;
 	
 	p {
@@ -157,13 +159,23 @@
 }
 #hero .hero-navigation {
     display: none;
+    
 	@media (min-width: $screen-sm) {
 	    display: block;
+	    position: relative;
 	    margin-top: 20px;
-	    margin-bottom: 10px;
+	    padding-bottom: 10px;
+            z-index: 10;
+	    overflow: hidden;
 	}
 	@media (min-width: $screen-md) {
 	    margin-top: 30px;
+           
+	}
+	
+	.siegel {
+	    bottom: inherit;
+	    top: 10px;
 	}
 }
 

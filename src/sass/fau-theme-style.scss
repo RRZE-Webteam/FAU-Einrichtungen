@@ -8,6 +8,9 @@
 // Framework
 @import "frameworks/frameworks";
 
+// SVG Icons and CI elements
+@import "svg/svg";
+
 // Mixins
 @import "mixins/mixins";
 
@@ -22,6 +25,8 @@
 
 // Plugin-Support
 @import "plugins/plugins";
+
+
 
 // Printer Adjustments
 @import "printer";

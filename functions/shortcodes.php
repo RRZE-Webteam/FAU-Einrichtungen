@@ -13,7 +13,6 @@ class FAUShortcodes {
 	}
 
 	function add_shortcodes() {
-            add_shortcode('assistant', array( $this, 'fau_assistant' ));
             add_shortcode('organigram', array( $this, 'fau_organigram'));
 
             // Paragraphes and content regions
@@ -109,7 +108,9 @@ class FAUShortcodes {
             return $out;
         }
 
-
+	/*-----------------------------------------------------------------------------------*/
+      /* Display a menu as organigram
+      /*-----------------------------------------------------------------------------------*/
 	function fau_organigram( $atts, $content = null) {
 		extract(shortcode_atts(array(
 			"menu" => 'menu'
@@ -118,70 +119,9 @@ class FAUShortcodes {
 		return wp_nav_menu( array('menu' => $menu, 'container' => false, 'menu_id' => 'organigram', 'menu_class' => 'organigram', 'echo' => 0));
 	}
 
-
-
-	function fau_subpages( $atts, $content = null ) {
-		return '<div class="row">' . do_shortcode( $content ) . '</div>';
-	}
-
-
-	function fau_assistant( $atts, $content = null) {
-		extract(shortcode_atts(array(
-			"id" => 'id'
-			), $atts));
-
-		$return = '';
-		$return .= '<div class="accordion">';
-
-		$pages = get_pages(array('sort_order' => 'ASC', 'sort_column' => 'menu_order', 'parent' => $id, 'hierarchical' => 0));
-		$i = 0;
-		foreach($pages as $page) {
-
-		    $inner = '';
-		    $subpages = get_pages(array('sort_order' => 'ASC', 'sort_column' => 'menu_order', 'parent' => $page->ID, 'hierarchical' => 0));
-
-		    if(count($subpages) > 0)  {
-			$inner .= '<div class="assistant-tabs">';
-
-			    $inner .= '<ul class="assistant-tabs-nav">';
-
-			    $j = 0;
-			    foreach($subpages as $subpage) {
-				    if($j == 0) $class = 'active';
-				    else $class = '';
-
-				    $inner .= '<li><a href="#accordion-'.$page->ID.'-'.$i.'-tab-'.$j.'" class="accordion-tabs-nav-toggle '.$class.'">'.$subpage->post_title.'</a></li>';
-				    $j++;
-			    }
-			    $inner .= '</ul>';
-
-			    $j = 0;
-			    foreach($subpages as $subpage) {
-				    if($j == 0) $class = 'assistant-tab-pane-active';
-				    else $class = '';
-				    $inner .= '<div class="assistant-tab-pane '.$class.'" id="accordion-'.$page->ID.'-'.$i.'-tab-'.$j.'">';
-				    $inner .= do_shortcode($subpage->post_content);
-				    $inner .= '</div>';
-				    $j++;
-			    }
-			$inner .= '</div>';
-		    }  else {
-			$inner .= do_shortcode($page->post_content);
-		    }
-
-
-		    $thisid = $page->ID.'000'.$i;
-		    $return .= getAccordionbyTheme($thisid, $page->post_title, '', '','', $inner);
-		    $i++;
-		}
-
-		$return .= '</div>';
-		if ( is_plugin_active( 'rrze-elements/rrze-elements.php' ) ) {
-		    wp_enqueue_script('rrze-accordions');
-		}
-		return $return;
-	}
-
+	/*-----------------------------------------------------------------------------------*/
+      /* Special HRs for FAU
+      /*-----------------------------------------------------------------------------------*/
 
 	function fau_hr ( $atts, $content = null) {
 	    extract(shortcode_atts(array(

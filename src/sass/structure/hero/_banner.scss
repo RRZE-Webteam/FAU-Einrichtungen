@@ -3,16 +3,16 @@
 /*-----------------------------------------------------------------------------------*/
 
 #hero.hero-banner {
-	    @include radial-gradient-image($colorPrimaryHero, $colorPrimaryHeroLight, url($siegelurl) no-repeat left 95% bottom);
 	    height: auto;
-	    
+	    overflow: inherit;
+            
+            @include radial-gradient($colorPrimaryHero, $colorPrimaryHeroLight);
+            
 	    @media (min-width: $screen-sm) {
 		 max-height: 142px;
 	    }
 	    
-	    .fauorg-kooperation & {
-		@include radial-gradient($colorPrimaryHero, $colorPrimaryHeroLight);
-	    }
+
 }
 
 

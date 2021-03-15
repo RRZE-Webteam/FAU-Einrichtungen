@@ -2,7 +2,8 @@
 /* Slider im Hero-Teil
 /*-----------------------------------------------------------------------------------*/
 #hero.sliderpage {	
-    margin-bottom: 0;	    
+    margin-bottom: 0;	  
+    overflow: inherit;
 }
 
 #hero-slides {

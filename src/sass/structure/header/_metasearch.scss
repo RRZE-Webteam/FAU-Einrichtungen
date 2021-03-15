@@ -168,19 +168,8 @@
 	}
 }
 .search-toggled {
-    #search-backdrop {
-	top: 50px;
-    }
     .search-static-links-column {
 	margin-bottom: 10px;
     }
     
-}
-.admin-bar {
-     #search-backdrop {
-	top: 50 + $wordpress-adminbar-bigheight;
-	@media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
-	    top: 50 + $wordpress-adminbar-smallheight;
-	}
-    }
 }

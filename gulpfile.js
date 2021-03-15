@@ -410,7 +410,7 @@ function devversion() {
 
 function validatecss() { 
   return src(['./'+info.maincss])
-    .pipe(cssvalidate())
+    .pipe(cssvalidate({ profile: "css3svg"}))
     .pipe(map(function(file, done) {
       if (file.contents.length == 0) {
         console.log('Success: ' + file.path);

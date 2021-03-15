@@ -1,0 +1,24 @@
+/*
+Global definitions for meaningful svg images, that are loaded into the html code 
+and not as css-background-images.
+*/
+
+svg {
+    &.fau-svg-definitions {
+	display: none;
+    }
+}
+
+
+// In SVG-background definitions we cannot use hex colors; therefor we
+// have to encode them
+@function encodecolor($string) {
+  @if type-of($string) == 'color' and str-index(#{$string}, '#') == 1 {
+    $hex: str-slice(ie-hex-str($string), 4);
+    $string: unquote('#{$hex}');
+
+    @return '%23' + $string;
+  }
+
+  @return $string;
+}
