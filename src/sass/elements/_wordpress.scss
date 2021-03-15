@@ -25,12 +25,25 @@
 	}
 }
 
-
 #wpadminbar  {
     @media (max-width:  $screen-sm) {
 	position: fixed;
     }
 }
+
+@media (max-width: $screen-xs - 1) {
+    
+    .js-enabled {
+	body.admin-bar #wpadminbar {
+	    position: fixed;
+	    top: 0;
+	}
+
+    }
+}
+
+
+
 
 @media (max-width:  $screen-sm) {
   .wp-caption-text {

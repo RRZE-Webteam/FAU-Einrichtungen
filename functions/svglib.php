@@ -183,7 +183,13 @@ function fau_get_default_svg_symbol($slug = '') {
     if (!empty($slug)) {
 	 global $default_fau_svgsymbols;
 	 if (isset($default_fau_svgsymbols[$slug])) {
-	     return $default_fau_svgsymbols[$slug];
+	     preg_match_all('/<svg ([^>]+)>(.*)<\/svg>/si', $default_fau_svgsymbols[$slug], $matches);
+	      if (isset($matches)) {
+		     
+		return $matches[2][0];
+	     
+	     
+	      }
 	 }
     }
     return;

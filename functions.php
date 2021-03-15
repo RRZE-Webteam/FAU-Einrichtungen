@@ -103,7 +103,10 @@ function fau_custom_init() {
     /* Keine verwirrende Abfrage nach Kommentaren im Page-Editor */
     remove_post_type_support( 'page', 'comments' );
 
-    /* Disable Emojis */
+    /* 
+     * isable Emojis and so on... removed out of the theme since 1.12.34, cause 
+     * into rrze settings (plugin domain)
+    
     remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
     remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
     remove_action( 'wp_print_styles', 'print_emoji_styles' );
@@ -111,7 +114,7 @@ function fau_custom_init() {
     remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
     remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-  
+   */
     remove_filter( 'the_content', 'wpautop' );
 
     // Declare Default Symbols from the start
@@ -268,31 +271,35 @@ add_action('wp_head', 'fau_dns_prefetch', 0);
 /*  Remove something out of the head
 /*-----------------------------------------------------------------------------------*/
 function fau_remove_unwanted_head_actions() {
-	remove_action( 'wp_head', 'post_comments_feed_link ', 2 ); 
+	// remove_action( 'wp_head', 'post_comments_feed_link ', 2 ); 
 	    // Display the links to the general feeds: Post and Comment Feed
-	remove_action( 'wp_head', 'rsd_link' ); 
-	    // Display the link to the Really Simple Discovery service endpoint, EditURI link
+	/* Move to rrze settings plugin 
+	 * 
 	remove_action( 'wp_head', 'wlwmanifest_link' ); 
 	    // Display the link to the Windows Live Writer manifest file.
 	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); 
 	    // remove prev link
+	
+	
+	remove_action( 'wp_head', 'rsd_link' ); 
+	    // Display the link to the Really Simple Discovery service endpoint, EditURI link
 	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 ); 
 	    // remove Display relational links for the posts adjacent to the current post.
 	remove_action( 'wp_head', 'wp_oembed_add_discovery_links'         ); 
 	    // remove oEmbed discovery links in the website 
-	
-	remove_action('wp_head', '_admin_bar_bump_cb');
-	    // remove Inline CSS to display WordPress Admin Bar
-	    // we move this into our CSS-file - see: css/sass/backend/wordpress 	
+
+
 	if (!is_user_logged_in()) {
 	    // remove admin settings in footer if not logged in
-	    remove_action( 'wp_footer', 'wp_admin_bar_render', 1000 );
-	    add_filter( 'show_admin_bar', '__return_false' );
+	    remove_action('wp_footer', 'wp_admin_bar_render', 1000 );
+	    remove_action('wp_head', '_admin_bar_bump_cb');
+	    remove_action('wp_head', 'wp_admin_bar_header');
 	}
-
+	*/
 }
-add_action('wp_head', 'fau_remove_unwanted_head_actions', 0);
-
+/* Move to rrze settings plugin 
+// add_action('wp_head', 'fau_remove_unwanted_head_actions', 0);
+*/
 
 /*-----------------------------------------------------------------------------------*/
 /* create array with organisation logos

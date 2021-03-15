@@ -218,3 +218,14 @@ function fau_remove_default_post_class($classes, $class, $post_id) {
     return ($newClasses);
 
 }
+
+
+function fau_hide_admin_bar_from_front_end(){
+ if (!is_user_logged_in()) {
+    return false;
+  }
+  return true;
+}
+add_filter( 'show_admin_bar', 'fau_hide_admin_bar_from_front_end' );
+
+
