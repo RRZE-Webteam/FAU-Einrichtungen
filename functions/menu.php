@@ -971,13 +971,16 @@ function fau_get_socialmedia_menu($name = '', $ulclass = '', $withog = true) {
 		    }
 
 		    $thislist .= '<a data-wpel-link="internal" ';
+		    $attr_title = esc_attr($menu_item->attr_title);
+		    if ($attr_title) {
+			$thislist .= 'title="'.$attr_title.'" ';
+		    }
 		    if ($withog) {
 			 $thislist .= 'itemprop="sameAs" ';
 		    }
 		    $thislist .= 'href="' . $url . '">' . $title . '</a></li>';
 		}
 	 $thislist .= '</ul>';
-
     }
     return $thislist;
 }

@@ -20,11 +20,10 @@
 				@include inline-block;
 				color: $colorSocial;
 				text-decoration: none;
-				height: 20px;
-				line-height: 20px;
 				padding: 5px 0;
 				background: none;
-
+				@include px2rem($font-size-base);
+				
 				&:hover, &:focus {
 					color: $colorPrimary;
 					text-decoration: underline;
