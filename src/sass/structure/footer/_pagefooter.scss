@@ -15,6 +15,8 @@
 	a {
 		color: #fff;
 		text-decoration: none;
+		
+		
 	}
 	
 	
@@ -62,19 +64,22 @@
 	.footer-logo {
 	    .fau-logo-footer {
 		  fill: #fff;
-		  color:  #fff;
+		  color: #fff;
 	    }
 	}
 	.footer-address {
+	    padding-top: 10px;
 	    @media (min-width: $screen-xs) {
-		margin-top: inherit;
+		padding-top: inherit;
 	    }
 	}
 
 	.footer-meta {
 	   text-align: left;
+	   margin-top: 10px;
 	   @media (min-width: $screen-sm) {
 	       text-align: right;
+	       margin-top: inherit;
 	   }
        }
        
@@ -90,8 +95,13 @@
 		li {
 			@include no-list;
 			display: inline;
-			margin-left: 8px;
 			background: none;
+			margin: 0 5px;
+			a {
+			    padding: 5px 0px;
+			}
+			
+			
 		}
 		li:first-child {
 		    margin-left: 0px;
@@ -108,9 +118,9 @@
 	flex: 0 0 240px;
     }
     .footer-address {
-	flex: 0 1 250px;
+	flex: 0 1 210px;
     }
     .footer-meta {
-	flex: 1 1;
+	flex: 1 1 250px;
     }
 }
