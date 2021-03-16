@@ -98,15 +98,12 @@ add_action( 'after_setup_theme', 'fau_setup' );
 /* Set extra init values
 /*-----------------------------------------------------------------------------------*/
 function fau_custom_init() {
-        global $defaultoptions;
-
     /* Keine verwirrende Abfrage nach Kommentaren im Page-Editor */
     remove_post_type_support( 'page', 'comments' );
 
     /* 
-     * isable Emojis and so on... removed out of the theme since 1.12.34, cause 
-     * into rrze settings (plugin domain)
-    
+     * ToDO: Remove this, once the Settings Plugin is capable to do this
+    */
     remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
     remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
     remove_action( 'wp_print_styles', 'print_emoji_styles' );
@@ -114,7 +111,7 @@ function fau_custom_init() {
     remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
     remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-   */
+   
     remove_filter( 'the_content', 'wpautop' );
 
     // Declare Default Symbols from the start
@@ -271,15 +268,13 @@ add_action('wp_head', 'fau_dns_prefetch', 0);
 /*  Remove something out of the head
 /*-----------------------------------------------------------------------------------*/
 function fau_remove_unwanted_head_actions() {
-	// remove_action( 'wp_head', 'post_comments_feed_link ', 2 ); 
+	remove_action( 'wp_head', 'post_comments_feed_link ', 2 ); 
 	    // Display the links to the general feeds: Post and Comment Feed
-	/* Move to rrze settings plugin 
-	 * 
+
 	remove_action( 'wp_head', 'wlwmanifest_link' ); 
 	    // Display the link to the Windows Live Writer manifest file.
 	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); 
 	    // remove prev link
-	
 	
 	remove_action( 'wp_head', 'rsd_link' ); 
 	    // Display the link to the Really Simple Discovery service endpoint, EditURI link
@@ -295,12 +290,12 @@ function fau_remove_unwanted_head_actions() {
 	    remove_action('wp_head', '_admin_bar_bump_cb');
 	    remove_action('wp_head', 'wp_admin_bar_header');
 	}
-	*/
-}
-/* Move to rrze settings plugin 
-// add_action('wp_head', 'fau_remove_unwanted_head_actions', 0);
-*/
 
+}
+add_action('wp_head', 'fau_remove_unwanted_head_actions', 0);
+
+// Todo:
+//  Move to rrze settings plugin , once it is ready to serve this.
 /*-----------------------------------------------------------------------------------*/
 /* create array with organisation logos
 /*-----------------------------------------------------------------------------------*/

@@ -31,8 +31,7 @@
 	right: 120px;
 	text-align: right;
 	color: $colorPrimaryHeroLight; 
-	font-size: 60px;
-	line-height: 50px;
+	@include px2rem($font-size-hero-meta-portal);
 	display: none;
 	opacity: 0.9;
 	
