@@ -14,7 +14,7 @@
 
 	<footer id="footer">
 	    <div class="container">
-		<div class="row">
+		<div class="footer-row">
 		    <?php 
 		    $website_type = get_theme_mod('website_type');
 		    ?>
