@@ -22,7 +22,7 @@
 		<?php get_template_part('template-parts/header', 'skiplinks'); ?>
 		<div id="meta">
 			<div class="container">
-			    <div class="row">
+			    <div class="meta-row">
 				<nav class="meta-links" aria-label="<?php _e('Navigation: Weitere Angebote','fau');?>">
 				    <?php echo fau_get_toplinks(); ?>
 				</nav>
@@ -36,7 +36,7 @@
 				</div>
 			    </div>
 			    <?php if ( is_plugin_active( 'fau-orga-breadcrumb/fau-orga-breadcrumb.php' ) ) { ?>
-			    <div class="row orga">
+			    <div class="meta-row orga">
 				<?php echo do_shortcode('[fauorga]'); ?>
 			    </div>
 			    <?php } ?>

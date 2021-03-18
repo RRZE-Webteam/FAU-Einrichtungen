@@ -4,8 +4,8 @@
 
 
 .meta-search {
-	display: block;
-
+	text-align: right;
+	    
 	.active-meta-widget & {
 		display: inline;
 
@@ -33,6 +33,7 @@
 			margin-bottom: 0px;
 			&:focus {
 				background-color: $colorMetaHover;
+				box-shadow: none;
 			}
 
 			@media (min-width: $screen-sm) {
@@ -42,6 +43,7 @@
 				.active-meta-widget & {
 					width: 150px;
 				}
+			
 
 			}
 			@media (min-width: $screen-lg) {
