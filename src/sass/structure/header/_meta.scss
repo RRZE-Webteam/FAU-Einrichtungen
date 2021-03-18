@@ -22,11 +22,7 @@
 
 }
 
-.meta-links {
-	@extend .col-sm-8;
-	.active-meta-widget & {
-		@extend .col-sm-7;
-	}
+.meta-links {	
 	padding: 1px 0;
 	min-height: 20px;
 
@@ -43,41 +39,24 @@
 	@media (min-width: $screen-sm) {
 		height: 40px;
 		overflow: hidden;
-		padding: 1px 0 0 15px;
 	}
 }
 
-.meta-tools {
-	@extend .col-sm-4;
-	.active-meta-widget & {
-		@extend .col-sm-5;
-		@media (min-width: $screen-sm) {
-		     padding-left: 0;
-		     padding-right: 0;
-		}
-	}
+.meta-tools {	
 	text-align: right;
 	position: static;
 
-	@media (max-width: $screen-sm - 1) {
-		.active-meta-widget & {
-		    
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-		}
-	}
+	
 
 }
 
 .meta-widget {
 	display: inline-block;
-	float: right;
+//	float: right;
 
-	margin: 5px 30px 5px 5px;
+	margin: 5px 30px 5px 20px;
 	height: 30px;
-	max-width: 90px;
+/*	max-width: 90px;
 	
 	@media (min-width: $screen-sm) {
 	    margin-right: 0;
@@ -86,7 +65,50 @@
 	@media (min-width: $screen-md) {
 		max-width: inherit;
 	}
-	
+*/	
 
+}
+
+.meta .container {
+    margin-right: auto;
+    margin-left: auto;
+    @media (min-width: $screen-sm) {
+	padding-left: 15px;
+	padding-right: 15px;
+    }
+}
+.meta-row {
+    display: flex;
+    flex-wrap: nowrap;
+    
+    .meta-links {	
+	flex: 1 0 250px;
+	order: 2;
+	@media (min-width: $screen-sm) {
+	    order: 1;
+	}
+    }
+    .meta-tools {
+	flex: 0 0 40px;
+	order: 1;
+	display: flex;
+	justify-content: flex-end;
+	
+	@media (min-width: $screen-sm) {
+	    order: 2;
+	    flex-grow: 1;
+	    flex-basis: 200px;
+	}
+	
+	
+	@media (max-width: $screen-sm - 1) {
+		
+	}
+	
+	.meta-search {
+	    flex: 1 0 220px;
+	}
+	
+    }
 }
 

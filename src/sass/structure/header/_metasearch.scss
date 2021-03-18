@@ -4,8 +4,8 @@
 
 
 .meta-search {
-	display: block;
-
+	text-align: right;
+	    
 	.active-meta-widget & {
 		display: inline;
 
@@ -33,6 +33,7 @@
 			margin-bottom: 0px;
 			&:focus {
 				background-color: $colorMetaHover;
+				box-shadow: none;
 			}
 
 			@media (min-width: $screen-sm) {
@@ -42,6 +43,7 @@
 				.active-meta-widget & {
 					width: 150px;
 				}
+			
 
 			}
 			@media (min-width: $screen-lg) {
@@ -129,9 +131,6 @@
 	left: 0;
 	top: 5px;
 	
-	@media (min-width: $screen-xs) {
-	    left: 5px;
-	}
 	@include px2rem($font-size-mobile-meta);
 	background: transparent;
 	border: none;

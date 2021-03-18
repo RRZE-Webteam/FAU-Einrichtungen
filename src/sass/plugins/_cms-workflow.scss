@@ -10,14 +10,14 @@
 	
 	position: absolute;
 	top: 50px;	
-	left: 0;
+	right: 0;
 	background: $colorMetaBackground;
 	
 
 	@media (min-width: $screen-sm) {
 	    position: relative;
 	    top: inherit;
-	    left: inherit;
+	    right: inherit;
 	    background: inherit;
 	    border: none;
 	}

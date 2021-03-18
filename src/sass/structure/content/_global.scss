@@ -44,7 +44,8 @@
 	    top: 440px;
 	}
     }
-    .admin-bar & {
+
+/*    .admin-bar & {
 	top: $wordpress-adminbar-bigheight;
 	margin-bottom: $wordpress-adminbar-bigheight + 10px;
 	@media (min-width: $screen-md) and (min-width: $wordpress-adminbar-break) {
@@ -52,6 +53,7 @@
 	   margin-bottom: $wordpress-adminbar-smallheight + 10px;
 	} 
     }
+    */
 }
 
 
