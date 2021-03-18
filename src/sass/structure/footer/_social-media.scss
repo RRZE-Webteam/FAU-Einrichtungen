@@ -4,7 +4,7 @@
 #social {
 	background: $colorSocialBackground;	
 	margin: 0;
-	padding: 20px 15px;
+	padding: 20px 0;
 	    
 	    
 	.textwidget, 
@@ -31,6 +31,12 @@
 		    color: $colorPrimary;
 	    }
 	    
+	}
+	ul.social li {
+	    width: 50%;
+	    @media (min-width: $screen-sm) {
+		 width: 100%;
+	    }
 	}
 
 	

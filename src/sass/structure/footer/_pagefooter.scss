@@ -9,14 +9,15 @@
 	
 	
 	li {
+	    @include px2rem($font-size-base);
+	    @media (min-width: $screen-sm) {
 		@include px2rem($font-size-footer);
+	    }
 	}
 	
 	a {
 		color: #fff;
 		text-decoration: none;
-		
-		
 	}
 	
 	
@@ -29,18 +30,18 @@
 	
 	.socialmedia {
 	    margin-top: 1rem;
-	    
+	    margin-right: 50px;
 	    li {		
 		display: inline;
 		
 		a {
-		    padding:0;
+		    padding: 2px;
 		    margin: 0 4px;
 		    display: inline-block;
-		    width: 26px;
-		    height: 26px;
+		    width: 30px;
+		    height: 30px;
 		    overflow: hidden;
-		    max-width: 26px;
+		    max-width: 34px;
 		    
 		    &:before {			
 			border: 1px solid #fff;
@@ -68,7 +69,7 @@
 	    }
 	}
 	.footer-address {
-	    padding-top: 10px;
+	    padding-top: 20px;
 	    @media (min-width: $screen-xs) {
 		padding-top: inherit;
 	    }
@@ -96,9 +97,9 @@
 			@include no-list;
 			display: inline;
 			background: none;
-			margin: 0 5px;
+			margin: 0;
 			a {
-			    padding: 5px 0px;
+			    padding: 12px 12px 12px 0;
 			}
 			
 			

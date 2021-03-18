@@ -14,7 +14,12 @@ p, address {
     #footer & {
 	color: #fff;
 	background: $colorPrimaryHero;
-	@include px2rem($font-size-footer);
+	
+
+	@media (min-width: $screen-sm) {
+	    @include px2rem($font-size-footer);
+	}
+
     }
 }
 
