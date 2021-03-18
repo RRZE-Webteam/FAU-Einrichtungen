@@ -23,11 +23,8 @@
 		top: 0;
 		position: absolute;
 		color: $colorPrimary;	
-		left: 90px;
+		left: 95px;
 		
-		@media (min-width: $screen-xs) {
-		   left: 95px;
-		}
 		
 		right: 0;
 		padding: 5px 45px 5px 0;

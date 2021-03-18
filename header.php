@@ -21,7 +21,7 @@
 	    <div class="metalinks">
 		<?php get_template_part('template-parts/header', 'skiplinks'); ?>
 		<div id="meta">
-			<div class="container">
+			<div class="meta-container">
 			    <div class="meta-row">
 				<nav class="meta-links" aria-label="<?php _e('Navigation: Weitere Angebote','fau');?>">
 				    <?php echo fau_get_toplinks(); ?>
