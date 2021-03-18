@@ -12,7 +12,6 @@
 	    padding: 0;
 	    margin: 20px 0;
 	   
-	    
 	    @media (min-width: $screen-sm ) {
 		padding: 30px 0 10px 0;
 	    }
@@ -22,6 +21,14 @@
     .hero-content {
 	 z-index: 10;
     }
+    .single-post & p.presentationtitle {
+	display: none;
+	@media (min-width: $screen-sm ) {
+	    display: inline-block;
+	}
+    }
+     
+    
 }
 
 
@@ -54,16 +61,21 @@
 	
 	span {
 		padding: 0 5px;
-	}
+	}	
 	
+	.single-post & .active {
+	    display: none;	  
+	}
 }
 
+
+
 h3.breadcrumb_sitetitle {
-	    font-size: 14px;
-	    font-weight: normal;
-	    line-height: 18px;
-	    margin-bottom: -5px;
-	    color: #fff;
-	}
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 18px;
+	margin-bottom: -5px;
+	color: #fff;
+}
 	
 	

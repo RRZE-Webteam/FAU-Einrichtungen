@@ -23,10 +23,11 @@
     .post-image-caption {
 	    @include px2rem($font-size-image-caption);
 	    padding: 5px 0 10px 0;
-	    text-align: left;
+	    text-align: right;
 	    margin: 0 15px;
 	    
 	    @media (min-width: $screen-sm) {
+		text-align: left;
 		margin: 0;
 		padding: 10px 0;
 	    }
@@ -96,3 +97,16 @@
 	}
 }
 
+.single-post {
+    #content {
+	padding-top: 0;
+    }
+    h1.mobiletitle {
+	margin-top: 0;
+	padding: 10px 0;
+	hyphens: auto;
+	 @media (min-width: $screen-sm) {
+	      @include sr-only();
+	 }
+    }
+}

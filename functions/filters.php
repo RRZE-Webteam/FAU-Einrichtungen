@@ -219,7 +219,9 @@ function fau_remove_default_post_class($classes, $class, $post_id) {
 
 }
 
-
+/*-----------------------------------------------------------------------------------*/
+/* Remove post class, we dont need
+/*-----------------------------------------------------------------------------------*/
 function fau_hide_admin_bar_from_front_end(){
  if (!is_user_logged_in()) {
     return false;
@@ -229,3 +231,25 @@ function fau_hide_admin_bar_from_front_end(){
 add_filter( 'show_admin_bar', 'fau_hide_admin_bar_from_front_end' );
 
 
+/*-----------------------------------------------------------------------------------*/
+/* Defined allowed core block types if theme is used in Gutenberg Block Editor
+/*-----------------------------------------------------------------------------------*/
+function fau_allowed_block_types( $allowed_block_types, $post ) {
+    if ( ($post->post_type === 'post' ) || ( $post->post_type === 'page' )) {
+        return array(
+	    'core/paragraph',
+	    'core/image',
+	    'core/list',
+	    'core/file',
+	    'core/gallery',
+	    'core/heading',
+	    'core/html',
+	    'core/quote',
+	    'core/shortcode',
+	    'core/table'
+        );
+    }
+    return $allowed_block_types;
+}
+
+add_filter( 'allowed_block_types', 'fau_allowed_block_types', 10, 2 );
