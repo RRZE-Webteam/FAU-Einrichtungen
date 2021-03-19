@@ -252,4 +252,14 @@ function fau_allowed_block_types( $allowed_block_types, $post ) {
     return $allowed_block_types;
 }
 
-add_filter( 'allowed_block_types', 'fau_allowed_block_types', 10, 2 );
+// add_filter( 'allowed_block_types', 'fau_allowed_block_types', 10, 2 );
+
+/* 
+ * TODO: 
+ * Wir mussen das andersrum machen, da wir die Liste der erlaubten Typen nicht alle kennen: 
+ * Es können durch Plugins andere hinzukommen, die wir bearbeitbar lassen wollen.
+ * Daher andersUm
+ * Array eingeben der Typen, die wir verbieten wollen.
+ * Diese gegen eine Liste matchen, die alle Typen enthält.
+ * Und von der Gesamatliste eben die verbotenenen Typen abziehen
+ */

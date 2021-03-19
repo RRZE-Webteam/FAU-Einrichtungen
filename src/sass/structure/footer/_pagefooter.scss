@@ -38,13 +38,10 @@
 		display: inline;
 		
 		a {
-		    padding: 2px;
-		    margin: 0 4px;
-		    display: inline-block;
-		    width: 30px;
-		    height: 30px;
+		   
+		    width: 2rem;
+		    height: 2rem;
 		    overflow: hidden;
-		    max-width: 34px;
 		    
 		    &:before {			
 			border: 1px solid #fff;

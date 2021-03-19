@@ -1,0 +1,140 @@
+/*-----------------------------------------------------------------------------------*/
+/* Cloned Nav in Footer
+/*-----------------------------------------------------------------------------------*/
+
+#footer {
+
+	.cloned-meta-links,
+	.cloned-hero-nav,
+	.meta-nav {
+		display: block;
+		padding: 10px;
+
+		li {
+			display: table;
+			padding: 3px 0 4px 4px;
+
+
+			a {
+				display: block;
+				float: none;
+				@include border-radius(0);
+				margin-bottom: 0;
+				padding: 2px 0;
+				color: $colorMeta;
+			}
+
+			&:before {
+				@extend .fa;
+				@extend .fa-angle-right;
+				font-weight: bold;
+				display: table-cell;
+				color: $colorMeta;
+				width: 20px;
+			}
+
+
+			&.zuv, &.phil,
+			&.philfak, &.rw,
+			&.rwfak, &.med,
+			&.medfak, &.nat,
+			&.natfak, &.tf,
+			&.techfak,
+			&.white, &.grau {
+				min-height: 34px;
+				line-height: 34px;
+				border-left: 8px solid transparent;
+				vertical-align: center;
+				@include hyphens(auto);
+
+
+				&:before {
+					display: none;
+					content: "";
+				}
+
+				a {
+					@include inline-block;
+					padding: 2px 0 2px 10px;
+					line-height: 16px;
+					vertical-align: center;
+				}
+			}
+
+			&.zuv {
+				border-color: $colorZUV;
+			}
+
+			&.phil,
+			&.philfak {
+				border-color: $colorPhilFak;
+			}
+
+			&.rw,
+			&.rwfak {
+				border-color: $colorRwFak;
+			}
+
+			&.med,
+			&.medfak {
+				border-color: $colorMedFak;
+			}
+
+			&.nat,
+			&.natfak {
+				border-color: $colorNatFak;
+			}
+
+			&.tf,
+			&.techfak {
+				border-color: $colorTechFak;
+			}
+
+			&.white {
+				border-color: #fff;
+			}
+
+			&.gray {
+				border-color: $colorStandardHellgrau;
+			}
+
+
+		}
+
+
+	}
+
+	.meta-nav {
+		padding: 10px 0;
+	}
+
+	.cloned-meta-links {
+		margin-bottom: 0px;
+	}
+
+	.cloned-meta-links,
+	.cloned-hero-nav {
+		background: $colorMetaBackground;
+		color: $colorMeta;
+
+		li, a, h1, h2, h3, h4, p {
+			background: $colorMetaBackground;
+			color: $colorMeta;
+		}
+		
+		@media (min-width: $screen-sm) {
+			display: none;
+		}
+	}
+
+	.cloned-hero-nav {
+		margin-bottom: 10px;
+		margin-left: -15px;
+		
+		.siegel {
+		    display: none;
+		}
+	}
+}
+	
+

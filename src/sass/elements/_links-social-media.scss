@@ -37,14 +37,14 @@
 			a:before {
 				background: $colorSocial;
 				color: $colorSocialBackground;
-				height: 24px;
-				width: 24px;
-				padding-top: 4px;
-				line-height: 16px;
+				height: 1.5rem;
+				width:  1.5rem;
+				@include px2rem($font-size-base);
+				
 				text-align: center;
-				@include border-radius(50%);
-				font-size: 16px;
 				margin-right: 6px;
+				padding: 4px;
+				@include border-radius(50%);
 			}
 		}
 		
