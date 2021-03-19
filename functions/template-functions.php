@@ -1013,7 +1013,7 @@ function fau_get_orgahomelink() {
 	 */    
     $result = '';
  
-    $website_usefaculty = $defaultoptions['website_usefaculty'];
+    $website_usefaculty = $defaultoptions['website_usefaculty'];   
     $isfaculty = false;
     if ( (isset($website_usefaculty)) && (in_array($website_usefaculty,$default_fau_orga_faculty))) {
 	$isfaculty = true;

@@ -69,14 +69,6 @@
 
 }
 
-.meta .container {
-    margin-right: auto;
-    margin-left: auto;
-    @media (min-width: $screen-sm) {
-	padding-left: 15px;
-	padding-right: 15px;
-    }
-}
 .meta-row {
     display: flex;
     flex-wrap: nowrap;
@@ -96,14 +88,10 @@
 	
 	@media (min-width: $screen-sm) {
 	    order: 2;
-	    flex-grow: 1;
-	    flex-basis: 200px;
+	    flex: 1 1;
 	}
 	
-	
-	@media (max-width: $screen-sm - 1) {
-		
-	}
+
 	
 	.meta-search {
 	    flex: 1 0 220px;
