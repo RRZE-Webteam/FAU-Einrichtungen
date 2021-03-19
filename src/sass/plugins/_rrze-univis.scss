@@ -1,0 +1,15 @@
+/*-----------------------------------------------------------------------------------*/
+/* CSS Definitionen für das Plugin RRZE UnivIS
+/* https://github.com/RRZE-Webteam/rrze-univis
+/*-----------------------------------------------------------------------------------*/
+
+.rrze-univis {
+    h1.mobiletitle {
+	margin-top: 0;
+	padding: 10px 0;
+	hyphens: auto;
+	 @media (min-width: $screen-sm) {
+	      @include sr-only();
+	 }
+    }
+}
