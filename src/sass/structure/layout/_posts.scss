@@ -1,0 +1,42 @@
+/*-----------------------------------------------------------------------------------*/
+/* Post layout
+/*-----------------------------------------------------------------------------------*/
+
+#content {
+    .post-row {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between; 
+
+	
+	margin-left: -15px;
+	margin-right: -15px;
+	
+	@media (min-width: $screen-sm) {
+	     margin-left: 0;
+	    margin-right: 0;
+	}
+
+	.entry-content,
+	.post {
+	    flex: 1 0 480px;
+
+	    .wp-caption {
+		max-width: 100%;
+		@media (min-width: $screen-sm) {
+		    max-width: calc(710px - 330px);
+
+		}
+		 @media (min-width: $screen-md) {
+		     max-width: calc(940px - 330px);
+		 }
+		 @media (min-width: $screen-lg) {
+		     max-width: calc(940px - 330px);
+		 }
+	    }
+	}
+	.sidebar-single {
+	    flex: 0 0 320px;
+	}
+    }
+}

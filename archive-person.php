@@ -29,7 +29,7 @@ get_header();
 				 
 		    <?php } ?>
 			<div class="col-xs-12">
-			    <main id="droppoint">
+			    <main>
 				<h1 class="screen-reader-text"><?php echo __('Index','fau'); ?></h1>
 				<?php 
 

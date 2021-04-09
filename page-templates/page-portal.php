@@ -17,7 +17,7 @@ get_header(); ?>
 	<div class="container">			   
 	    <div class="row">
 		<div class="portalpage-content">
-		     <main<?php echo fau_get_page_langcode($post->ID);?> id="droppoint">
+		     <main<?php echo fau_get_page_langcode($post->ID);?>>
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 		    <?php 
 		   

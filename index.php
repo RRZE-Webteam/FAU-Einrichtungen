@@ -34,9 +34,9 @@ if($posttype == 'event') {
 	    <div class="container">
 		    <div class="row">
 			<?php if(get_post_type() == 'post') { ?>
-			<main class="entry-content" id="droppoint">
+			<main class="entry-content">
 			<?php } else { ?>
-			<main class="col-xs-12" id="droppoint">
+			<main class="col-xs-12">
 			<?php } ?>
 			    <h1 class="screen-reader-text"><?php echo $screenreadertitle; ?></h1>
 			    <?php 

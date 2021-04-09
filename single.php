@@ -15,14 +15,14 @@ while ( have_posts() ) : the_post();
 	get_template_part('template-parts/hero', 'small'); ?>
 	<div id="content">
 		<div class="container">
-			<div class="row">			    
+			<div class="post-row">			    
 			    <?php if(get_post_type() == 'post') { ?>
 			    <div <?php post_class( 'entry-content' ); ?>>
 			    <?php } else { ?>
 			    <div class="col-xs-12">
 			    <?php } ?>
 				<main>
-				    <h1 id="droppoint" class="mobiletitle"><?php the_title(); ?></h1>
+				    <h1 class="mobiletitle"><?php the_title(); ?></h1>
 				    <article class="news-details">
 					    <?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 						<div class="post-image">

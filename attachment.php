@@ -17,7 +17,7 @@ while ( have_posts() ) : the_post(); ?>
 		<div class="container">
 			<div class="row">
 					
-			    <main id="droppoint">
+			    <main>
 				<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 				    <?php 
 
