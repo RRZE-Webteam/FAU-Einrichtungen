@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 1.12.50-25
+Version: 1.12.50-28
 Requires at least: 5.0
 Tested up to: 5.7
 Requires PHP: 7.3
@@ -7001,10 +7001,18 @@ ul.assistant-tabs-nav {
       padding: 5px 3px 10px;
       margin: 0 auto; } }
   .single .wp-caption img {
-    max-width: 100%; }
+    max-width: 100vw; }
     @media (min-width: 768px) {
       .single .wp-caption img {
         max-width: 98.5%; } }
+  .single .wp-caption .wp-caption-text {
+    width: 98.5%;
+    margin-left: 15px;
+    text-align: left; }
+    @media (min-width: 768px) {
+      .single .wp-caption .wp-caption-text {
+        text-align: center;
+        margin-left: 0; } }
 
 /*-----------------------------------------------------------------------------------*/
 /* Top events 
@@ -7352,10 +7360,6 @@ ul.assistant-tabs-nav {
   .search-contenttry .filter .nowrap {
     display: inline-block;
     white-space: nowrap; }
-
-.widget_search form {
-  border: none;
-  padding: 20px 0; }
 
 .widget_search .search-text {
   margin: 0 5px 0 20px; }

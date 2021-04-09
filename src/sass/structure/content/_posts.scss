@@ -123,10 +123,19 @@
 		}
 		
 		 img {
-		     max-width: 100%;
+		     max-width: 100vw;
 		     @media (min-width: $screen-sm) {
 			 max-width: 98.5%;		 
 		     }
+		 }
+		 .wp-caption-text{
+		    width: 98.5%;		 
+		    margin-left: 15px;
+		    text-align: left;
+		    @media (min-width: $screen-sm) {
+			text-align: center;
+			  margin-left: 0;
+		    }
 		 }
 	    }
     
