@@ -229,8 +229,17 @@ function fau_hide_admin_bar_from_front_end(){
   return true;
 }
 add_filter( 'show_admin_bar', 'fau_hide_admin_bar_from_front_end' );
+/*-----------------------------------------------------------------------------------*/
+/* Modify default Tag Cloud
+/*-----------------------------------------------------------------------------------*/
+function fau_widget_tag_cloud_args($args) {
+    $args['largest']  = 4;
+    $args['smallest'] = 0.8;
+    $args['unit']     = 'rem';
 
-
+    return $args;
+}
+add_filter('widget_tag_cloud_args', 'fau_widget_tag_cloud_args', 10, 1 );
 /*-----------------------------------------------------------------------------------*/
 /* Defined allowed core block types if theme is used in Gutenberg Block Editor
 /*-----------------------------------------------------------------------------------*/
