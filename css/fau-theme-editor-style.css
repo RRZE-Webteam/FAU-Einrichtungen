@@ -4120,15 +4120,15 @@ form {
     line-height: 1.9rem;
     color: #003366;
     font-weight: bold; }
-  #content form {
+  main form {
     padding: 0; }
     @media (min-width: 768px) {
-      #content form {
+      main form {
         border: 1px solid #dde5f0;
         padding: 20px; } }
-  #content form.noborder {
+  main form.noborder {
     border: none; }
-  #content .content-inline.with-sidebar form {
+  main .content-inline.with-sidebar form {
     display: block;
     border: none; }
 

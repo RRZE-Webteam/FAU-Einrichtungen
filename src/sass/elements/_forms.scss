@@ -58,17 +58,17 @@ form {
 	    font-weight: bold;
 	}
 	
-	#content & {
+	main & {
 	    padding: 0;
 	    @media (min-width: $screen-sm) {
 		border: 1px solid $colorLightest;
 		padding: 20px;
 	    }
 	}
-	#content &.noborder {
+	main &.noborder {
 	    border: none;
 	}
-	#content .content-inline.with-sidebar & {
+	main .content-inline.with-sidebar & {
 	    display: block;
 	    border: none; 
 	}
