@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 1.12.50-0
+Version: 1.12.50-11
 Requires at least: 5.0
 Tested up to: 5.7
 Requires PHP: 7.3
@@ -4355,6 +4355,40 @@ body.embedded {
     margin-bottom: 0; }
 
 /*-----------------------------------------------------------------------------------*/
+/* Post layout
+/*-----------------------------------------------------------------------------------*/
+#content .post-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-left: -15px;
+  margin-right: -15px; }
+  @media (min-width: 768px) {
+    #content .post-row {
+      margin-left: 0;
+      margin-right: 0; } }
+  #content .post-row .entry-content,
+  #content .post-row .post {
+    flex: 1 0 480px; }
+    #content .post-row .entry-content .wp-caption,
+    #content .post-row .post .wp-caption {
+      max-width: 100%; }
+      @media (min-width: 768px) {
+        #content .post-row .entry-content .wp-caption,
+        #content .post-row .post .wp-caption {
+          max-width: calc(710px - 330px); } }
+      @media (min-width: 992px) {
+        #content .post-row .entry-content .wp-caption,
+        #content .post-row .post .wp-caption {
+          max-width: calc(940px - 330px); } }
+      @media (min-width: 1200px) {
+        #content .post-row .entry-content .wp-caption,
+        #content .post-row .post .wp-caption {
+          max-width: calc(940px - 330px); } }
+  #content .post-row .sidebar-single {
+    flex: 0 0 320px; }
+
+/*-----------------------------------------------------------------------------------*/
 /* Header
 /*-----------------------------------------------------------------------------------*/
 /*
@@ -4617,7 +4651,7 @@ body.embedded {
     @media (min-width: 768px) {
       .meta-row .meta-tools {
         order: 2;
-        flex: 1 1; } }
+        flex: 1 1 250px; } }
     .meta-row .meta-tools .meta-search {
       flex: 1 0 220px; }
 
@@ -6572,10 +6606,10 @@ body.embedded {
 #hero .hero-content {
   z-index: 10; }
 
-.single-post #hero p.presentationtitle {
+.single #hero p.presentationtitle {
   display: none; }
   @media (min-width: 768px) {
-    .single-post #hero p.presentationtitle {
+    .single #hero p.presentationtitle {
       display: inline-block; } }
 
 .hero-meta-portal {
@@ -6608,7 +6642,7 @@ body.embedded {
   line-height: 1.3rem; }
   .breadcrumbs span {
     padding: 0 5px; }
-  .single-post .breadcrumbs .active {
+  .single .breadcrumbs .active {
     display: none; }
 
 h3.breadcrumb_sitetitle {
@@ -6784,7 +6818,7 @@ h3.breadcrumb_sitetitle {
   height: 165px;
   visibility: hidden; }
 
-.single-post #droppoint::before {
+.single #droppoint::before {
   margin-top: inherit;
   height: inherit; }
 

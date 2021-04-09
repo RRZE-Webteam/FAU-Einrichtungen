@@ -21,7 +21,7 @@
     .hero-content {
 	 z-index: 10;
     }
-    .single-post & p.presentationtitle {
+    .single & p.presentationtitle {
 	display: none;
 	@media (min-width: $screen-sm ) {
 	    display: inline-block;
@@ -63,7 +63,7 @@
 		padding: 0 5px;
 	}	
 	
-	.single-post & .active {
+	.single & .active {
 	    display: none;	  
 	}
 }
