@@ -81,8 +81,7 @@
 		</div>
 	    </div>
 	    <a href="#pagewrapper" class="top-link">
-		<?php fau_use_svg("chevron-up-solid",38,38); ?>
-		
+		<?php fau_use_svg("chevron-up-solid",38,38); ?>		
 		<span class="screen-reader-text"><?php echo __('Nach oben','fau'); ?></span></a>
 	</footer>
     </div> 
