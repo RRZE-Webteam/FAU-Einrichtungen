@@ -109,4 +109,26 @@
 	      @include sr-only();
 	 }
     }
+    
+    .wp-caption {
+		max-width: 100vw;
+		padding: 0;
+		margin-left: -15px;
+		margin-right: -15px;
+		
+		@media (min-width: $screen-sm) {
+		    max-width: 100%;
+		    padding: 5px 3px 10px;
+		    margin: 0 auto;
+		}
+		
+		 img {
+		     max-width: 100%;
+		     @media (min-width: $screen-sm) {
+			 max-width: 98.5%;		 
+		     }
+		 }
+	    }
+    
+    
 }
