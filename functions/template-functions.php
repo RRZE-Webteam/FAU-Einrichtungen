@@ -1299,7 +1299,7 @@ function fau_get_tag_ID($tag_name) {
  function fau_articlelist($posttag = '', $postcat = '', $num = 5, $divclass= '', $title = '') {
     $posttag = $posttag ? esc_attr( $posttag ) : '';
     
-if ((!isset($posttag)) && (!isset($postcat))) {
+    if ((!isset($posttag)) && (!isset($postcat))) {
 	// kein wert gesetzt, also nehm ich die letzten Artikel
 	$postcat =0;
     } else {
@@ -1321,11 +1321,11 @@ if ((!isset($posttag)) && (!isset($postcat))) {
         'ignore_sticky_posts'	=> 1,
     );
     $found = 0;
-    if ((isset($posttag)) && ($posttag >= 0)) {
+    if ((isset($posttag)) && ($posttag > 0)) {
 	$parameter['tag_id'] = $posttag;
 	$found =1;
     }
-    if ((isset($postcat)) && ($postcat >= 0)) {
+    if ((isset($postcat)) && ($postcat > 0)) {
 	$parameter['cat'] = $postcat;
 	$found =2;
     }
