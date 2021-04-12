@@ -168,16 +168,15 @@ $colorAbbr: #000;
 $font-size-rembase: 93.75%;
 $font-size-gridbase: 15;
 $font-size-base: 15;
-$font-size-meta: 13;
-$font-size-sidebar: 13;
 
-
+$font-size-meta: ($font-size-base - 2);
+$font-size-sidebar: ($font-size-base - 2);
 $font-size-small: ($font-size-base - 2);
 $font-size-large: ($font-size-base + 4);
 $font-size-larger: ($font-size-base + 8);
 
-$font-size-footer: 13;
-$font-size-breadcrumb: 13;
+$font-size-footer: ($font-size-base - 2);
+$font-size-breadcrumb: ($font-size-base - 2);
 $font-size-herosearch: 16;
 $font-size-header-branding: 19;
 
@@ -194,9 +193,9 @@ $font-size-link-contentmenu: 13;
 
 $font-size-content-linkicon: 10;
 $font-size-content-listitem: $font-size-base;
-$font-size-codepre: 13;
-$font-size-table: 13;
-$font-size-comtentwidgets: 13;
+$font-size-codepre: ($font-size-base - 2);
+$font-size-table: ($font-size-base - 2);
+$font-size-contentwidgets: ($font-size-base - 2);
 
 $font-size-sidebar-listitem: $font-size-sidebar;
 $font-size-sidebar-events: $font-size-sidebar;
@@ -209,6 +208,11 @@ $font-size-nav-blockquote-cite: 14;
 $font-size-nav-introtext: 15;
 $font-size-nav-flyout-items: 15;
 $font-size-nav-mainlinks: 17;
+
+$font-size-subnav-firstlevel: ($font-size-base - 1);
+$font-size-subnav-sublevel: ($font-size-base - 2);
+
+
 
 $font-size-h1: 32;
 $font-size-h1-mobilebranding: 24;

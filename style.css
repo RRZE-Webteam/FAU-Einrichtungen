@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 1.12.50-28
+Version: 1.12.50-29
 Requires at least: 5.0
 Tested up to: 5.7
 Requires PHP: 7.3
@@ -5565,8 +5565,10 @@ body.embedded {
   #subnav a {
     text-decoration: none;
     display: block;
-    line-height: 18px;
     font-size: 14px;
+    line-height: 21px;
+    font-size: 0.93333rem;
+    line-height: 1.4rem;
     padding: 6px 15px;
     color: #1f4b7a;
     background: #dde5f0;
@@ -5599,7 +5601,10 @@ body.embedded {
     padding-left: 25px; }
   #subnav li li li a {
     padding-left: 35px;
-    font-size: 13px; }
+    font-size: 13px;
+    line-height: 19.5px;
+    font-size: 0.86667rem;
+    line-height: 1.3rem; }
   #subnav li li li li a {
     padding-left: 45px; }
     #subnav li li li li a:hover, #subnav li li li li a:focus {
