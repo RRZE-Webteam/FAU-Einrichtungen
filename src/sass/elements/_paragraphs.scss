@@ -30,7 +30,7 @@ p {
 	}
 	
 	#content .textwidget & {
-	    @include px2rem($font-size-comtentwidgets);	
+	    @include px2rem($font-size-contentwidgets);	
 	}
 	
 	&.searchnotice {

@@ -21,8 +21,8 @@
 	a {
 		text-decoration: none;
 		display: block;
-		line-height: 18px;
-		font-size: 14px;
+		@include px2rem($font-size-subnav-firstlevel);
+
 		padding: 6px 15px;
 		color: $colorSubNav;
 		background: $colorSubNavBackground;
@@ -71,7 +71,7 @@
 	
 	li li li a {
 		padding-left: 35px;
-		font-size: 13px;
+		@include px2rem($font-size-subnav-sublevel);
 	}
 	
 	li li li li a {
