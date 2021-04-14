@@ -200,9 +200,9 @@ add_filter('script_loader_tag', 'fau_remove_type_attr', 10, 2);
 /*-----------------------------------------------------------------------------------*/
 function fau_addmetatags() {
 
-    $output = "";
-    $output .= '<meta http-equiv="Content-Type" content="text/html; charset='.get_bloginfo('charset').'">'."\n";
-    $output .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">'."\n";    
+    $output = '';
+   // $output .= '<meta http-equiv="Content-Type" content="text/html; charset='.get_bloginfo('charset').'">'."\n";
+   // $output .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">'."\n";    
 
     $output .= fau_get_rel_alternate();
     
@@ -249,19 +249,22 @@ function fau_dns_prefetch() {
         '//www.fau.de',
         '//www.fau.eu',
     ];
- 
+    $mydomain = parse_url(get_home_url());
+    $prefetchDomains[] = $mydomain['host'];
+	
+	
     $prefetchDomains = array_unique($prefetchDomains);
     $result = '';
  
     foreach ($prefetchDomains as $domain) {
         $domain = esc_url($domain);
-        $result .= '<link rel="dns-prefetch" href="' . $domain . '" crossorigin />';
-        $result .= '<link rel="preconnect" href="' . $domain . '" crossorigin />';
+        $result .= '<link rel="dns-prefetch" href="' . $domain . '" crossorigin />'."\n";
+        $result .= '<link rel="preconnect" href="' . $domain . '" crossorigin />'."\n";
     }
  
     echo $result;
 }
-add_action('wp_head', 'fau_dns_prefetch', 0);
+add_action('wp_head', 'fau_dns_prefetch', 10);
 
 
 /*-----------------------------------------------------------------------------------*/

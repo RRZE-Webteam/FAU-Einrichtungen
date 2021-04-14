@@ -1,12 +1,26 @@
 /*-----------------------------------------------------------------------------------*/
 /* Meta-Navigation
 /*-----------------------------------------------------------------------------------*/
+.meta-links {	
+	.ext-link {
+		padding-right: 0;
+		background-image: none;
+	}
+
+	&:hover {
+		overflow: visible;
+	///´	height: auto;
+	}
+
+	//@media (min-width: $screen-sm) {
+	//	height: 40px;
+	//	overflow: hidden;
+	//}
+}
 .orgalist,
 .meta-nav {
 	@include no-list;
 	padding: 0;
-	overflow: hidden;
-
 
 	li {
 		@include no-list;
@@ -14,12 +28,6 @@
 		margin: 0 4px;
 		background: none;
 		position: relative;
-
-		img {
-			vertical-align: sub;
-			padding: 0;
-			margin: 0 2px;
-		}
 
 		a {
 			@include inline-block;
@@ -91,16 +99,16 @@
 }
 
 .meta-nav {
-	display: none;
-
-	.js & {
-		display: inline;
-	}
-
+    display: none;
+    .js & {
+	display: inline-block;
+    }
+    margin: 0;
+    padding: 0;
+    
 }
-
 .orgalist {
-	display: block;
+	display: inline-block;
 	text-align: left;
 	
 	@media (min-width: $screen-sm) {
@@ -108,28 +116,30 @@
 	    text-align: center;
 	}
 
-	li {
-	    a {
-		padding: 0;
-		margin: 10px 10px 5px 10px;
-	    }
-	}
 	li:first-child a {
 	    margin-left: 0;
 	}
 	 
 	li.fauhome {
 		a {
-		    display: inline-block;
 		    svg {
+			display: inline-block;
 			position: relative;
-			top: 2px;
+			vertical-align: text-top;
 			.fau {
 			    fill: $colorZUV;
 			}
 		    } 
-			
 		}
+		a:focus {
+		    background: $colorMetaFAUHomeBackground;
+		    svg {
+			.fau {
+			    fill: white;
+			}
+		    }
+		}
+
 		a:before {
 		    display: none;
 		    @extend .fa;
@@ -152,7 +162,6 @@
 	}
 	
 	@media (min-width: $screen-sm) {
-	  
 	    li.facultyhome {
 		display: inline-block;
 		
@@ -177,7 +186,6 @@
 	
 
 	@media (min-width: $screen-sm) {
-		display: inline;
 		text-align: left;
 
 		.fauorg-home & .fauhome {
@@ -187,3 +195,4 @@
 		}	
 	}
 }
+
