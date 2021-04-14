@@ -22,32 +22,11 @@
 
 }
 
-.meta-links {	
-	padding: 1px 0;
-	min-height: 20px;
 
-	.ext-link {
-		padding-right: 0 !important;
-		background-image: none !important;
-	}
-
-	&:hover {
-		overflow: visible;
-	///´	height: auto;
-	}
-
-	@media (min-width: $screen-sm) {
-		height: 40px;
-		overflow: hidden;
-	}
-}
 
 .meta-tools {	
 	text-align: right;
 	position: static;
-
-	
-
 }
 
 .meta-widget {
