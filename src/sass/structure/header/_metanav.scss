@@ -116,41 +116,46 @@
 	    text-align: center;
 	}
 
-	li:first-child a {
-	    margin-left: 0;
-	}
-	 
 	li.fauhome {
-		a {
-		    svg {
-			display: inline-block;
-			position: relative;
-			vertical-align: text-top;
-			.fau {
-			    fill: $colorZUV;
-			}
-		    } 
+	    margin-left: 0;
+	    a {
+		padding-right: 5px;
+		
+		svg {
+		    display: inline-block;
+		    position: relative;
+		    vertical-align: text-top;
+		    .fau {
+			fill: $colorZUV;
+		    }
+		} 
+	    }
+	    a::before {
+		display: none;
+		@extend .svg-icon;
+		background-image: svg-arrow-up($colorZUV,16,16);		
+		margin-left: 0;
+		margin-right: 2px;
+		@media (min-width: $screen-sm) {
+		    display: inline-block;
 		}
-		a:focus {
-		    background: $colorMetaFAUHomeBackground;
-		    svg {
-			.fau {
-			    fill: white;
-			}
+	    }
+	    
+	    
+	    a:hover,
+	    a:focus {
+		background: $colorZUV;
+		svg {
+		    .fau {
+			fill: white;
 		    }
 		}
-
-		a:before {
-		    display: none;
-		    @extend .fa;
-		    @extend .fa-long-arrow-up;
-		    margin-left: 5px;
-		    margin-right: 5px;
-		    @media (min-width: $screen-sm) {
-			display: inline-block;
-		    }
+		&::before {
+		    background-image: svg-arrow-up(white,16,16);	
 		}
 		
+	    }
+	
 	}
 	
 	li.facultyhome {

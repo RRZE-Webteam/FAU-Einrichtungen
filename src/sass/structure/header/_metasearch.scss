@@ -81,13 +81,14 @@
 			@extend .screen-reader-text;
 		}
 		.searchicon {
-			display: inline;
-			@extend .fa;
-			@extend .fa-search;
-			position: relative;
+			@extend .svg-icon;
+			@include svg-icon-sizes(1.1rem);
+			background-image: svg-icon-search(#fff,16,16);
 			margin-right: -30px;
-			color: #fff;
-
+			
+			.search-toggled & {
+			    background-image: svg-icon-search-toggled($colorMetaBackground,16,16);
+			}
 		}
 	}
 	@media (max-width: $screen-sm - 1) {
@@ -129,9 +130,7 @@
 #headerwrap #search-toggle {
 	position: absolute;
 	left: 0;
-	top: 5px;
-	
-	@include px2rem($font-size-mobile-meta);
+	top: 10px;
 	background: transparent;
 	border: none;
 	display: none;
@@ -139,11 +138,12 @@
 	color: $colorMeta;
 
 	.search-toggled &:before {
-	    @extend .fa-search-minus;
+	    background-image: svg-icon-search-toggled($colorMeta,16,16);
+	  
 	}
 	@media (max-width: $screen-sm - 1) {
 	    .search-toggled & {
-		top: -45px;
+		top: -40px;
 	    }
 	    
 	    .js & {
@@ -158,12 +158,13 @@
 }
 
 #search-toggle:before {
-	@extend .fa;
-	@extend .fa-search;
+	@extend .svg-icon;
+	@include svg-icon-sizes();
+	background-image: svg-icon-search($colorMeta,16,16);
 
 	&:focus,
 	&:hover {
-		@extend .fa-search-minus;
+		 background-image: svg-icon-search-toggled($colorMeta,16,16);
 	}
 }
 .search-toggled {
