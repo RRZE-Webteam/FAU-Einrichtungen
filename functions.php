@@ -32,6 +32,9 @@ require_once( get_template_directory() . '/functions/widgets.php' );
 require_once( get_template_directory() . '/functions/gallery.php' );
 
 // require_once( get_template_directory() . '/functions/gutenberg.php');
+// deaktiviert wegen Newsletter-Plugin
+// brauchen noch ein andere Lösung
+
 require_once( get_template_directory() . '/functions/svglib.php');
 
 require_once( get_template_directory() . '/functions/deprecated.php');

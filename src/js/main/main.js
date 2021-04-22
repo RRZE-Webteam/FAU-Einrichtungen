@@ -184,12 +184,14 @@ jQuery(document).ready(function ($) {
                     this._isExpanded = !this._isExpanded;
                     $(this).attr('aria-expanded', this._isExpanded ? 'true' : 'false');
                    //  $('#logo').toggle(!this._isExpanded);
+		    $body.toggleClass('nav-toggled', this._isExpanded);
                 });
             $(this).replaceWith($toggleButton);
             $backdrop = $('<div id="menu-backdrop" aria-hidden="true"/>').click(function () {
                 $toggleButton.trigger('click');
             });
-            $('#nav').after($backdrop);
+            $('#nav').after($backdrop);	   
+	   
         });
 
         // Install the search toggle

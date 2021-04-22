@@ -2,216 +2,102 @@
 /* Branding und Hauptmenu
 /*-----------------------------------------------------------------------------------*/
 
-#header {
-	.row {
-		height: auto;
 
-		.branding {
-			width: 100%;
-		}
-
-		.header-menu {
-			display: inline;
-		}
-	}
-
-	
-	.branding {
-	    
-	    .sitetitle {
-		
-		top: 0;
-		position: absolute;
-		color: $colorPrimary;	
-		left: 95px;
-		
-		
-		right: 0;
-		padding: 5px 45px 5px 0;
-		height: auto;
-		text-align: left;
-		text-decoration: none;
-		font-weight: bold;
-		margin: 0;
-		@include px2rem($font-size-mobile-sitetitle, $font-size-gridbase, $font-size-mobile-sitetitlelineheight);
-
-		.longtitle & {
-		    @include px2rem($font-size-mobile-sitetitle - 2, $font-size-gridbase, $font-size-mobile-sitetitlelineheight - 2);
-		}
-		
-		@media (min-width: $screen-sm) {
-		    padding: 0;
-		
-		    position: relative;
-		    top: inherit;
-		    left: inherit;
-		    right: inherit;
-		    text-align: center;
-		    @include px2rem($font-size-h1-desktopbranding, $font-size-gridbase, $font-size-h1-desktopbranding);
-		    
-		    .nologo & {
-			 text-align: left;
-		    }
-		    .nologo.longtitle & {
-				@include px2rem($font-size-h1-desktopbranding - 2, $font-size-gridbase, $font-size-h1-desktopbranding - 1);
-		    }
-			
-		    a {
-			    vertical-align: bottom;
-		    }
-		}
-		@media (min-width: $screen-md) {
-		    margin: 10px 0;
-		    text-align: left;
-		}
-		h1 {
-		    margin: 10px 0;
-		}
-		a, h1 {
-		    color: $colorPrimary;	
-		    
-		}
-		a {
-		     text-decoration: none;
-		}
-		img,
-		svg {
-		   max-height: 40px;
-		    width: auto;
-		    height: auto;
-			display: none;
-			@media (min-width: $screen-sm) {
-			    display: inline-block;
-			    max-width: 240px;
-			    max-height: 65px;
-			}
-		}
-		span {
-		    display: table-cell;
-		    vertical-align: middle;
-		    height: 40px;
-		    background: $colorMetaBackground;
-		    hyphens: auto;
-		    @media (min-width: $screen-sm) {
-			height: 65px;
-			background: inherit;
-			hyphens: manual;
-			padding-bottom: 5px;
-			
-			.nologo.longtitle & {
-			    hyphens: auto;
-			}
-		    }
-		    @media (min-width: $screen-md) {
-			vertical-align: bottom;
-		    }
-		}
-		
-		
-		
-		.visiblelogo {
-		    @media (min-width: $screen-sm) {
-			   display: none;
-		    }
-		}
-
-	    }
-	}
-	.md-showsitelogo & .branding .sitetitle {
+#headerwrap header {
+    .branding {
+	.sitetitle {
+	    display: inline-block;
+	    color: #fff;
+	    background-color: $colorPrimary;
+	    padding: 0;
+	    margin: 0;
+	    height: auto;	
 	    text-align: center;
-	    img,
-	    svg {
-		display: inline-block;
-	    }
-	    span.visiblelogo {
-		display: none;
-	    }
-	}
-	.fauorg-kooperation:not(.md-showsitelogo) & .branding .sitetitle {
-	//    left: 50px;
-	}
-	
+	    text-decoration: none;
+	    font-weight: bold;
 
+	    @include px2rem($font-size-mobile-sitetitle, $font-size-gridbase);
 
-	@media (min-width: $screen-sm) {
-		padding: 20px 0 10px 0;
+	    .longtitle & {
+		@include px2rem($font-size-mobile-sitetitle - 2, $font-size-gridbase);
+	    }
+
+	    @media (min-width: $screen-xs) {		
 		background-color: #fff;
 		color: $colorPrimary;
-	
+		@include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
 
-		.row {
-			height: 112px;
-
-			.branding,
-			.header-menu {
-				padding-left: ($grid-gutter-width / 2);
-			}
-
-			.branding {
-				height: 75px;
-				padding-right: ($grid-gutter-width / 2);
-			}
-
-			.header-menu {
-				padding-right: 0;
-				height: 37px;
-				display: block;
-
-				#nav {
-					margin-left: -10px;
-				}
-			}
-		}
-		
-		
-	}
-
-	
-
-	@media (min-width: $screen-md) {
-		.row {
-			height: 75px;
-
-			.branding {
-				display: table-cell;
-				float: none;
-				width: 240px;
-				vertical-align: bottom;
-			}
-
-			.header-menu {
-				float: none;
-				display: table-cell;
-				vertical-align: bottom;
-			}
-		}
-	}
-
-}
-
-
-
-#logo {
-	position: absolute;
-	top: 0;
-	
-	@media (min-width: $screen-sm) {
-	    position: relative;
-	}
-	z-index: 11;
-
-	.sitetitle,
-	h1 {
-		
-		max-height: inherit;
-		@media (min-width: $screen-sm) {
-			max-height: 65px;
-			margin-top: 0px;
-			
+		.nologo.longtitle & {
+			    @include px2rem($font-size-desktop-sitetitle - 2, $font-size-gridbase);
 		}
 
-	}
+		a {
+			vertical-align: bottom;
+		}
+	    }
+	    @media (min-width: $screen-xs) {
+		margin: 10px 0;
+		text-align: left;
+	    }
+	    a {
+		text-decoration: none;
+		color: #fff;
+		@media (min-width: $screen-xs) {
+		     color: $colorPrimary;
+		}
+	    }
 
-	
-	
+
+	    img,
+	    svg {
+		display: none;
+		@media (min-width: $screen-xs) {
+		    display: inline-block;
+		    max-width: 240px;
+		    max-height: 65px;
+		}
+	    }
+	    span {
+		margin: 10px 15px;
+		display: inline-block;
+		hyphens: auto;
+		@media (min-width: $screen-xs) {
+		    background: inherit;
+		    hyphens: manual;
+		    max-width: 225px;
+		    margin: 10px 15px 0 0;
+		    .nologo.longtitle & {
+			hyphens: auto;
+		    }
+		}
+	    }
+
+	    .visiblelogo {
+		@media (min-width: $screen-xs) {
+		       display: none;
+		}
+	    }
+
+	}
+    }
+    @media (max-width: $screen-xs) {
+	.md-showsitelogo & .branding {
+
+	    width: 100%;
+	    text-align: center;
+	    .sitetitle {	   
+		margin: 10px auto;
+		background-color: #fff;
+		img,
+		svg {
+
+		    display: inline-block;
+		}
+		span.visiblelogo {
+		    display: none;
+		}
+	    }
+	}
+    }
+
 }

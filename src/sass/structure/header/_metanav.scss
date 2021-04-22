@@ -9,13 +9,8 @@
 
 	&:hover {
 		overflow: visible;
-	///´	height: auto;
 	}
 
-	//@media (min-width: $screen-sm) {
-	//	height: 40px;
-	//	overflow: hidden;
-	//}
 }
 .orgalist,
 .meta-nav {
@@ -110,11 +105,7 @@
 .orgalist {
 	display: inline-block;
 	text-align: left;
-	
-	@media (min-width: $screen-sm) {
-	    margin: 0 auto;
-	    text-align: center;
-	}
+
 
 	li.fauhome {
 	    margin-left: 0;

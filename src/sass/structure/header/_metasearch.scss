@@ -8,7 +8,6 @@
 	    
 	.active-meta-widget & {
 		display: inline;
-
 	}
 
 
@@ -92,29 +91,29 @@
 		}
 	}
 	@media (max-width: $screen-sm - 1) {
-		width: 100%;
+	    width: 50px;
+	    .search-toggled & {
 
-		.search-toggled & {
+
+	       z-index: 100;
+
+		.searchform {	
+		     background: $colorMetaBackground;
+		    display: block;
 		    width: 100%;
-		    background: $colorMetaBackground;
 		    position: absolute;
 		    top: 50px;
 		    left: 0;
 		    padding: 10px 15px;
-		    z-index: 100;
 
-		    .searchform {			
-			display: block;
-			width: 100%;
-			
-			input[type="text"] {
-			    width: calc(100% - 50px);
-			}
-			.searchicon {
-				    display: none;
-			}
+		    input[type="text"] {
+			width: calc(100% - 50px);
+		    }
+		    .searchicon {
+				display: none;
 		    }
 		}
+	    }
 	
 	}
 	@media (min-width: $screen-sm) {
@@ -128,9 +127,6 @@
 
 /* New Toogle Button */
 #headerwrap #search-toggle {
-	position: absolute;
-	left: 0;
-	top: 10px;
 	background: transparent;
 	border: none;
 	display: none;
@@ -139,13 +135,10 @@
 
 	.search-toggled &:before {
 	    background-image: svg-icon-search-toggled($colorMeta,16,16);
-	  
 	}
+	
+	
 	@media (max-width: $screen-sm - 1) {
-	    .search-toggled & {
-		top: -40px;
-	    }
-	    
 	    .js & {
 		    display: block;
 	    }
@@ -154,7 +147,7 @@
 	span {
 	    @include sr-only();
 	}
-	
+
 }
 
 #search-toggle:before {
@@ -164,9 +157,10 @@
 
 	&:focus,
 	&:hover {
-		 background-image: svg-icon-search-toggled($colorMeta,16,16);
+		 background-image: svg-icon-search-toggled(red,16,16);
 	}
 }
+
 .search-toggled {
     .search-static-links-column {
 	margin-bottom: 10px;

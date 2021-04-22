@@ -1,0 +1,122 @@
+/*-----------------------------------------------------------------------------------*/
+/* Grid in Header
+/*-----------------------------------------------------------------------------------*/
+#headerwrap {
+    background-color: #fff;
+    color: $colorPrimary;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    
+    .admin-bar & {
+	top: $wordpress-adminbar-bigheight;
+    } 
+    .nav-toggled & {
+	position: relative;
+    }
+    .admin-bar.nav-toggled & { 
+	top: 0;
+    }
+    
+    @media (min-width: $screen-sm) {
+	   
+	    margin: 0;
+	    padding: 0;
+	    background-color: #fff;
+	    color: $colorPrimary;
+	    @include transition(0.5s, all);
+
+	    .nav-scrolled & {
+		    @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+	    }	
+    }
+
+    @media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
+	.admin-bar &  {
+	    top: $wordpress-adminbar-smallheight;
+	}
+    }
+    
+    
+  
+	
+}
+
+.header-container {
+    margin-right: auto;
+    margin-left: auto;
+    width: auto;
+
+    @media (min-width: $screen-sm-min) {
+	width: $container-sm;
+    }
+    @media (min-width: $screen-md-min) {
+	width: $container-md;
+	padding-left:  floor(($grid-gutter-width / 2));
+	padding-right: ceil(($grid-gutter-width / 2));
+    }
+    @media (min-width: $screen-lg-min) {
+	width: $container-lg;
+    }
+}
+
+
+.header-row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+   
+    align-items: center;
+    @media (min-width: $screen-xs-min) {
+	align-items: flex-end;
+    }
+    
+    #meta & {
+	justify-content: flex-start;
+	@media (min-width: $screen-sm-min) {
+	   justify-content: space-between;
+	}
+    }
+    
+    
+    .meta-links {	
+	order: 2;
+	width: calc(100vw - 100px);
+	
+	.active-meta-widget & {
+	    width: calc(100vw - 200px);
+	}
+	
+	text-align: center;
+	@media (min-width: $screen-sm-min) {
+	    order: 1;
+	    text-align: left;
+	    width: auto;
+	}
+    }
+    .meta-tools {
+	min-width: 50px;
+	display: flex;
+	order: 1;
+	align-items: center;
+	@media (min-width: $screen-sm-min) {
+	    order: 2;
+	}
+    }
+    
+    
+    header & {	
+	align-items: flex-end;
+	@media (min-width: $screen-xs-min) {
+	    padding: 20px 0 10px;
+	}
+	.branding {
+	    min-width: 240px;
+	}
+	.header-menu {
+		
+	}
+    }
+}
+
+

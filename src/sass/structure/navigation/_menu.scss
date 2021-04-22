@@ -26,7 +26,6 @@
 
 	.menu-header {
 		@include px2rem($font-size-nav-mainlinks);
-		// @include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
 		margin: 0;
 		border-top: none;
 
@@ -393,7 +392,6 @@
 	/* If there's no JavaScript available */
 	#nav {
 		display: none;
-		//border-top: 1px solid $PalettonHellste;
 	}
 
 	.nav {
@@ -463,6 +461,7 @@
 			position: absolute;
 			width: 100%;
 			z-index: 11;
+			right: 0;
 		}
 
 		.nav > li.level1 {
@@ -555,7 +554,7 @@
 			z-index: 30;
 			left: 0;
 			right: 0;
-	 		top: 172px;
+	 		// top: 172px;
 			@include box-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
 		}
 	}
@@ -565,7 +564,7 @@
 @media (min-width: $screen-md) {
 	.nav {
 		.nav-flyout {
-			top: 135px;
+		//	top: 135px;
 			max-height: calc(100vh - 162px);
 			overflow-y: auto;
 		}
@@ -574,22 +573,23 @@
 }
 
 
-
 #menu-backdrop {
 	display: none;
 	position: fixed;
-	top: 50px;
+	top: 135px;
 	left: 0;
 	right: 0;
 	bottom: 0;
+ 
 	background-color: rgba(0, 51, 102, .7);
 	z-index: 1;
 	
-	
+
 	.admin-bar & {
-	    top: 50 + $wordpress-adminbar-bigheight;
+	    top: 135 + $wordpress-adminbar-bigheight;
 	    @media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
-		top: 50 + $wordpress-adminbar-smallheight;
+		top: 135 + $wordpress-adminbar-smallheight;
 	    }
 	}
+
 }

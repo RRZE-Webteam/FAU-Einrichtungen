@@ -16,3 +16,17 @@
 	}
     }
 }
+
+.meta-search .searchform .search-settings label {
+    @media (max-width: $screen-xs - 1)  {
+	white-space: normal;
+	
+	a {
+	    text-decoration: underline;
+	    font-weight: normal;
+	}
+	a::after {
+	    display: none;
+	}
+    }
+}

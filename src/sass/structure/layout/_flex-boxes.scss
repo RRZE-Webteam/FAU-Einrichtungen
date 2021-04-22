@@ -29,22 +29,3 @@
     
     
 }
-
-.meta-container {
-
-  margin-right: auto;
-  margin-left: auto;
-  width: auto;
-
-  @media (min-width: $screen-sm-min) {
-	width: $container-sm;
-     }
-     @media (min-width: $screen-md-min) {
-       width: $container-md;
-       padding-left:  floor(($grid-gutter-width / 2));
-	padding-right: ceil(($grid-gutter-width / 2));
-     }
-     @media (min-width: $screen-lg-min) {
-       width: $container-lg;
-     }
-}
