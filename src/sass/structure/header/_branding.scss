@@ -22,9 +22,13 @@
 		@include px2rem($font-size-mobile-sitetitle - 2, $font-size-gridbase);
 	    }
 
+	    width: 100vw;
+	    
 	    @media (min-width: $screen-sm) {		
 		background-color: #fff;
 		color: $colorPrimary;
+		width: auto;
+		
 		@include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
 
 		.nologo.longtitle & {
