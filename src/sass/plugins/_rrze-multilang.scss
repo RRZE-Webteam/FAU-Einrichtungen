@@ -4,33 +4,26 @@
 /*-----------------------------------------------------------------------------------*/
 .fau-theme .meta-widget.rrze-multilang-widget {
     margin: 0;
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    right: inherit;
+    margin: 0;
     
-    @media (max-width: $screen-xs - 1) {
-	position: relative;
-	top: inherit;
-	left: inherit;
-	right: inherit;
-	margin: 0;
-	
+    @media (max-width: $screen-sm - 1) {
 	ul {
 	    width: auto;
 	}    
 	li a {
 	    width: 50px;
 	}
-	li:focus,
-	li:hover,
-	li a::before:hover,
-	li a::before:focus,
-	li a:focus::before,
-	li a:hover::before,
-	li a:focus,
-	li a:hover {
-		text-decoration: underline;
-	}
-
     }
-     @media (min-width: $screen-xs ) {
+    
+    
+     @media (min-width: $screen-sm ) {
+	position: relative;
+	left: inherit;
+	top: inherit;
 	 ul {
 	     min-width: 100px;
 	     width: max-content;

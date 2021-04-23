@@ -19,11 +19,9 @@
     }
     
     @media (min-width: $screen-sm) {
-	   
 	    margin: 0;
 	    padding: 0;
 	    background-color: #fff;
-	    color: $colorPrimary;
 	    @include transition(0.5s, all);
 
 	    .nav-scrolled & {
@@ -47,11 +45,9 @@
     margin-left: auto;
     width: auto;
 
-    @media (min-width: $screen-sm-min) {
-	width: $container-sm;
-    }
-    @media (min-width: $screen-md-min) {
-	width: $container-md;
+
+    @media (min-width: $screen-xs) {
+	// width: $container-md;
 	padding-left:  floor(($grid-gutter-width / 2));
 	padding-right: ceil(($grid-gutter-width / 2));
     }
@@ -67,13 +63,13 @@
     justify-content: space-between;
    
     align-items: center;
-    @media (min-width: $screen-xs-min) {
+    @media (min-width: $screen-sm) {
 	align-items: flex-end;
     }
     
     #meta & {
 	justify-content: flex-start;
-	@media (min-width: $screen-sm-min) {
+	@media (min-width: $screen-sm) {
 	   justify-content: space-between;
 	}
     }
@@ -83,23 +79,24 @@
 	order: 2;
 	width: calc(100vw - 100px);
 	
-	.active-meta-widget & {
-	    width: calc(100vw - 200px);
-	}
 	
 	text-align: center;
-	@media (min-width: $screen-sm-min) {
+	@media (min-width: $screen-sm) {
 	    order: 1;
 	    text-align: left;
 	    width: auto;
 	}
+	.active-meta-widget & {
+	
+	}
+	
     }
     .meta-tools {
 	min-width: 50px;
 	display: flex;
 	order: 1;
 	align-items: center;
-	@media (min-width: $screen-sm-min) {
+	@media (min-width: $screen-sm) {
 	    order: 2;
 	}
     }
@@ -107,14 +104,11 @@
     
     header & {	
 	align-items: flex-end;
-	@media (min-width: $screen-xs-min) {
+	@media (min-width: $screen-sm) {
 	    padding: 20px 0 10px;
 	}
 	.branding {
 	    min-width: 240px;
-	}
-	.header-menu {
-		
 	}
     }
 }

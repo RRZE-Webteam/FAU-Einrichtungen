@@ -5,24 +5,34 @@
 
 /* Language switcher */
 .cms-workflow-widget {
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    right: inherit;
+    margin: 0;
+    
+        
+    
+     @media (min-width: $screen-sm ) {
+	position: relative;
+	left: inherit;
+	top: inherit;
+	margin-left: 20px;
+	
+	 ul {
+	     min-width: 100px;
+	     width: max-content;
+
+	 }
+     }
+    
+    
     .mlp_language_box {
 	@include inline-block();
-	
-	position: absolute;
-	top: 50px;	
-	right: 0;
 	background: $colorMetaBackground;
 	
 
-	@media (min-width: $screen-sm) {
-	    position: relative;
-	    top: inherit;
-	    right: inherit;
-	    background: inherit;
-	    border: none;
-	}
-	
-	
 	ul {
 	    display: block;
 	     @media (min-width: $screen-sm) {
@@ -45,6 +55,7 @@
 		margin: 0;
 		border: 1px solid $colorContentBorders;
 		border-left: none;
+		
 		@media (min-width: $screen-sm) {
 		    border: none;
 		}
@@ -114,7 +125,7 @@
 		    }
 		}
 	    
-	    } // end li
+	    } 
 	   
 
 	}
@@ -122,6 +133,7 @@
 	     li:hover {
 		background: $colorMetaHover; // $colorMetaLightest;
 		color: $colorMetaText;
+		
 		a::before,
 		a {
 		    color: $colorMetaText;
@@ -136,18 +148,7 @@
 	    
 	 }
     }
-    /*
-    .admin-bar & {
-	.mlp_language_box {
-	    top: 60 + $wordpress-adminbar-bigheight;
-	    @media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
-		top: 60 + $wordpress-adminbar-smallheight;
-	    }
-	    @media (min-width: $screen-sm) {
-		top: inherit;
-	    }
-	}
-    }
-    */
+    
 }
+
 

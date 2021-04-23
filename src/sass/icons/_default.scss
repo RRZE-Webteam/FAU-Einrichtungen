@@ -26,7 +26,7 @@ $svg-icon-color_hover: $colorHover;
 .svg-icon {
     display: inline-block;
     position: relative;
-    vertical-align: bottom;
+    vertical-align: middle;
     content: ' ';
     @include svg-icon-sizes($svg-icon-size);
     background-image: inherit;

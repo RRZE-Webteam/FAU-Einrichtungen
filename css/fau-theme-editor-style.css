@@ -3852,13 +3852,14 @@ ul {
       background: none;
       display: inline-block;
       background: none;
-      margin-right: 2px;
-      color: #ccc; }
+      margin: 0.2rem; }
       ul.letters li:before {
         display: none; }
       ul.letters li a {
-        display: inline-block; }
-      ul.letters li a:hover, ul.letters li a:focus {
+        display: inline-block;
+        text-decoration: none; }
+      ul.letters li a:hover,
+      ul.letters li a:focus {
         text-decoration: underline; }
   ul.files {
     list-style: none;

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 1.12.53-76
+Version: 1.12.53-102
 Requires at least: 5.0
 Tested up to: 5.7
 Requires PHP: 7.3
@@ -1540,7 +1540,7 @@ Icons as functions
 .svg-icon, .orgalist li.fauhome a::before, .meta-search .searchform .searchicon, #search-toggle:before {
   display: inline-block;
   position: relative;
-  vertical-align: bottom;
+  vertical-align: middle;
   content: ' ';
   width: 1.4rem;
   height: 1.4rem;
@@ -4421,7 +4421,6 @@ body.embedded {
       margin: 0;
       padding: 0;
       background-color: #fff;
-      color: #003366;
       transition: 0.5s all; }
       .nav-scrolled #headerwrap {
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); } }
@@ -4433,12 +4432,8 @@ body.embedded {
   margin-right: auto;
   margin-left: auto;
   width: auto; }
-  @media (min-width: 768px) {
+  @media (min-width: 480px) {
     .header-container {
-      width: 750px; } }
-  @media (min-width: 992px) {
-    .header-container {
-      width: 970px;
       padding-left: 15px;
       padding-right: 15px; } }
   @media (min-width: 1200px) {
@@ -4450,7 +4445,7 @@ body.embedded {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center; }
-  @media (min-width: 480px) {
+  @media (min-width: 768px) {
     .header-row {
       align-items: flex-end; } }
   #meta .header-row {
@@ -4462,8 +4457,6 @@ body.embedded {
     order: 2;
     width: calc(100vw - 100px);
     text-align: center; }
-    .active-meta-widget .header-row .meta-links {
-      width: calc(100vw - 200px); }
     @media (min-width: 768px) {
       .header-row .meta-links {
         order: 1;
@@ -4479,7 +4472,7 @@ body.embedded {
         order: 2; } }
   header .header-row {
     align-items: flex-end; }
-    @media (min-width: 480px) {
+    @media (min-width: 768px) {
       header .header-row {
         padding: 20px 0 10px; } }
     header .header-row .branding {
@@ -4503,7 +4496,7 @@ body.embedded {
   .longtitle #headerwrap header .branding .sitetitle {
     font-size: 1.2rem;
     line-height: 1.8rem; }
-  @media (min-width: 480px) {
+  @media (min-width: 768px) {
     #headerwrap header .branding .sitetitle {
       background-color: #fff;
       color: #003366;
@@ -4514,20 +4507,20 @@ body.embedded {
         line-height: 2rem; }
       #headerwrap header .branding .sitetitle a {
         vertical-align: bottom; } }
-  @media (min-width: 480px) {
+  @media (min-width: 768px) {
     #headerwrap header .branding .sitetitle {
       margin: 10px 0;
       text-align: left; } }
   #headerwrap header .branding .sitetitle a {
     text-decoration: none;
     color: #fff; }
-    @media (min-width: 480px) {
+    @media (min-width: 768px) {
       #headerwrap header .branding .sitetitle a {
         color: #003366; } }
   #headerwrap header .branding .sitetitle img,
   #headerwrap header .branding .sitetitle svg {
     display: none; }
-    @media (min-width: 480px) {
+    @media (min-width: 768px) {
       #headerwrap header .branding .sitetitle img,
       #headerwrap header .branding .sitetitle svg {
         display: inline-block;
@@ -4539,7 +4532,7 @@ body.embedded {
     -webkit-hyphens: auto;
         -ms-hyphens: auto;
             hyphens: auto; }
-    @media (min-width: 480px) {
+    @media (min-width: 768px) {
       #headerwrap header .branding .sitetitle span {
         background: inherit;
         -webkit-hyphens: manual;
@@ -4551,11 +4544,11 @@ body.embedded {
           -webkit-hyphens: auto;
               -ms-hyphens: auto;
                   hyphens: auto; } }
-  @media (min-width: 480px) {
+  @media (min-width: 768px) {
     #headerwrap header .branding .sitetitle .visiblelogo {
       display: none; } }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
   .md-showsitelogo #headerwrap header .branding {
     width: 100%;
     text-align: center; }
@@ -4839,20 +4832,19 @@ body.embedded {
   @media (max-width: 767px) {
     .meta-search {
       width: 50px; }
-      .search-toggled .meta-search {
+      .search-toggled .meta-search .searchform {
+        background: #e9edf2;
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        padding: 10px 15px;
         z-index: 100; }
-        .search-toggled .meta-search .searchform {
-          background: #e9edf2;
-          display: block;
-          width: 100%;
-          position: absolute;
-          top: 50px;
-          left: 0;
-          padding: 10px 15px; }
-          .search-toggled .meta-search .searchform input[type="text"] {
-            width: calc(100% - 50px); }
-          .search-toggled .meta-search .searchform .searchicon {
-            display: none; } }
+        .search-toggled .meta-search .searchform input[type="text"] {
+          width: calc(100% - 50px); }
+        .search-toggled .meta-search .searchform .searchicon {
+          display: none; } }
   @media (min-width: 768px) {
     .meta-search .searchform {
       display: inline-block; } }
@@ -5106,7 +5098,7 @@ body.embedded {
     padding: 0;
     margin: 0; }
 
-/* Large device */
+/* Larger device */
 @media (min-width: 768px) {
   .mainnav-defaultview .header-menu .flyout-entries-full ul.sub-menu li {
     width: 30%; }
@@ -8575,13 +8567,14 @@ ul {
       background: none;
       display: inline-block;
       background: none;
-      margin-right: 2px;
-      color: #ccc; }
+      margin: 0.2rem; }
       ul.letters li:before {
         display: none; }
       ul.letters li a {
-        display: inline-block; }
-      ul.letters li a:hover, ul.letters li a:focus {
+        display: inline-block;
+        text-decoration: none; }
+      ul.letters li a:hover,
+      ul.letters li a:focus {
         text-decoration: underline; }
   ul.files {
     list-style: none;
@@ -10602,32 +10595,26 @@ div.wpcf7-response-output {
 /*-----------------------------------------------------------------------------------*/
 /* Language switcher */
 .cms-workflow-widget {
-  /*
-    .admin-bar & {
-	.mlp_language_box {
-	    top: 60 + $wordpress-adminbar-bigheight;
-	    @media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
-		top: 60 + $wordpress-adminbar-smallheight;
-	    }
-	    @media (min-width: $screen-sm) {
-		top: inherit;
-	    }
-	}
-    }
-    */ }
+  margin: 0;
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  right: inherit;
+  margin: 0; }
+  @media (min-width: 768px) {
+    .cms-workflow-widget {
+      position: relative;
+      left: inherit;
+      top: inherit;
+      margin-left: 20px; }
+      .cms-workflow-widget ul {
+        min-width: 100px;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content; } }
   .cms-workflow-widget .mlp_language_box {
     display: inline-block;
-    position: absolute;
-    top: 50px;
-    right: 0;
     background: #e9edf2; }
-    @media (min-width: 768px) {
-      .cms-workflow-widget .mlp_language_box {
-        position: relative;
-        top: inherit;
-        right: inherit;
-        background: inherit;
-        border: none; } }
     .cms-workflow-widget .mlp_language_box ul {
       display: block;
       padding: 0;
@@ -10711,35 +10698,29 @@ div.wpcf7-response-output {
 /* https://github.com/RRZE-Webteam/rrze-multilang
 /*-----------------------------------------------------------------------------------*/
 .fau-theme .meta-widget.rrze-multilang-widget {
+  margin: 0;
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  right: inherit;
   margin: 0; }
-  @media (max-width: 479px) {
+  @media (max-width: 767px) {
+    .fau-theme .meta-widget.rrze-multilang-widget ul {
+      width: auto; }
+    .fau-theme .meta-widget.rrze-multilang-widget li a {
+      width: 50px; } }
+  @media (min-width: 768px) {
     .fau-theme .meta-widget.rrze-multilang-widget {
       position: relative;
-      top: inherit;
       left: inherit;
-      right: inherit;
-      margin: 0; }
+      top: inherit; }
       .fau-theme .meta-widget.rrze-multilang-widget ul {
-        width: auto; }
-      .fau-theme .meta-widget.rrze-multilang-widget li a {
-        width: 50px; }
-      .fau-theme .meta-widget.rrze-multilang-widget li:focus,
-      .fau-theme .meta-widget.rrze-multilang-widget li:hover,
-      .fau-theme .meta-widget.rrze-multilang-widget li a::before:hover,
-      .fau-theme .meta-widget.rrze-multilang-widget li a::before:focus,
-      .fau-theme .meta-widget.rrze-multilang-widget li a:focus::before,
-      .fau-theme .meta-widget.rrze-multilang-widget li a:hover::before,
-      .fau-theme .meta-widget.rrze-multilang-widget li a:focus,
-      .fau-theme .meta-widget.rrze-multilang-widget li a:hover {
-        text-decoration: underline; } }
-  @media (min-width: 480px) {
-    .fau-theme .meta-widget.rrze-multilang-widget ul {
-      min-width: 100px;
-      width: -webkit-max-content;
-      width: -moz-max-content;
-      width: max-content; }
-      .fau-theme .meta-widget.rrze-multilang-widget ul li {
-        white-space: nowrap; } }
+        min-width: 100px;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content; }
+        .fau-theme .meta-widget.rrze-multilang-widget ul li {
+          white-space: nowrap; } }
 
 /*-----------------------------------------------------------------------------------*/
 /* CSS Definitionen für das Plugin RRZE Elements
@@ -10891,11 +10872,6 @@ button.expand-all {
     background: #f5f7f9;
     padding: 15px 20px; }
 
-@media (max-width: 767px) {
-  .accordion-group {
-    margin-left: 15px;
-    margin-right: 15px; } }
-
 #content .accordion p:empty,
 .accordion p:empty {
   display: none; }
@@ -11002,13 +10978,38 @@ button.expand-all {
 .search-toggled #search-backdrop {
   top: 195px; }
 
+@media (min-width: 768px) {
+  .search-toggled.fau-theme .meta-widget.cms-workflow-widget,
+  .search-toggled.fau-theme .meta-widget.rrze-multilang-widget {
+    display: none; } }
+
+.search-toggled .header-row .meta-tools {
+  display: block; }
+
+.search-toggled.active-meta-widget .searchform {
+  padding-left: 15px;
+  padding-right: 15px; }
+  @media (min-width: 768px) {
+    .search-toggled.active-meta-widget .searchform {
+      width: 100%; } }
+
+@media (min-width: 768px) {
+  .search-toggled .meta-search .searchform .searchicon {
+    margin-right: -55px; }
+  .search-toggled .meta-search .searchform input[type="text"] {
+    margin-left: 25px; } }
+
+.search-toggled form[role="search"] header {
+  max-width: 50em;
+  margin: 0 auto; }
+
 .admin-bar #search-backdrop {
   top: 241px; }
   @media (min-width: 768px) and (min-width: 783px) {
     .admin-bar #search-backdrop {
       top: 227px; } }
 
-@media (max-width: 479px) {
+@media (max-width: 767px) {
   .meta-search .searchform .search-settings label {
     white-space: normal; }
     .meta-search .searchform .search-settings label a {
@@ -11016,6 +11017,9 @@ button.expand-all {
       font-weight: normal; }
     .meta-search .searchform .search-settings label a::after {
       display: none; } }
+
+.meta-search .searchform .search-settings label span {
+  white-space: normal; }
 
 /*-----------------------------------------------------------------------------------*/
 /* CSS Definitionen für das Plugin RRZE UnivIS

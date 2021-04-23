@@ -22,7 +22,7 @@
 		@include px2rem($font-size-mobile-sitetitle - 2, $font-size-gridbase);
 	    }
 
-	    @media (min-width: $screen-xs) {		
+	    @media (min-width: $screen-sm) {		
 		background-color: #fff;
 		color: $colorPrimary;
 		@include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
@@ -35,14 +35,14 @@
 			vertical-align: bottom;
 		}
 	    }
-	    @media (min-width: $screen-xs) {
+	    @media (min-width: $screen-sm) {
 		margin: 10px 0;
 		text-align: left;
 	    }
 	    a {
 		text-decoration: none;
 		color: #fff;
-		@media (min-width: $screen-xs) {
+		@media (min-width: $screen-sm) {
 		     color: $colorPrimary;
 		}
 	    }
@@ -51,7 +51,7 @@
 	    img,
 	    svg {
 		display: none;
-		@media (min-width: $screen-xs) {
+		@media (min-width: $screen-sm) {
 		    display: inline-block;
 		    max-width: 240px;
 		    max-height: 65px;
@@ -61,7 +61,7 @@
 		margin: 10px 15px;
 		display: inline-block;
 		hyphens: auto;
-		@media (min-width: $screen-xs) {
+		@media (min-width: $screen-sm) {
 		    background: inherit;
 		    hyphens: manual;
 		    max-width: 225px;
@@ -73,14 +73,14 @@
 	    }
 
 	    .visiblelogo {
-		@media (min-width: $screen-xs) {
+		@media (min-width: $screen-sm) {
 		       display: none;
 		}
 	    }
 
 	}
     }
-    @media (max-width: $screen-xs) {
+    @media (max-width: $screen-sm - 1) {
 	.md-showsitelogo & .branding {
 
 	    width: 100%;

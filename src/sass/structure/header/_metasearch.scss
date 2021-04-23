@@ -42,7 +42,6 @@
 				.active-meta-widget & {
 					width: 150px;
 				}
-			
 
 			}
 			@media (min-width: $screen-lg) {
@@ -93,10 +92,6 @@
 	@media (max-width: $screen-sm - 1) {
 	    width: 50px;
 	    .search-toggled & {
-
-
-	       z-index: 100;
-
 		.searchform {	
 		     background: $colorMetaBackground;
 		    display: block;
@@ -105,7 +100,8 @@
 		    top: 50px;
 		    left: 0;
 		    padding: 10px 15px;
-
+		     z-index: 100;
+		     
 		    input[type="text"] {
 			width: calc(100% - 50px);
 		    }
@@ -165,5 +161,5 @@
     .search-static-links-column {
 	margin-bottom: 10px;
     }
-    
+
 }
