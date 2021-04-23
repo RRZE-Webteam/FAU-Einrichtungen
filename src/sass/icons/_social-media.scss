@@ -2,307 +2,220 @@
 /* Social Media and Portal Icons 
 /*-----------------------------------------------------------------------------------*/
 
-$socialmedia_icon_size: 1.4rem;
-$socialmedia_icon_bgcolor_hover: "black";
-$socialmedia_icon_bgcolor: "white";
+$socialmedia_icon_size: 1.8rem;
+$socialmedia_icon_bgcolor_hover: #fff;
+$socialmedia_icon_color: #fff;
+$socialmedia_icon_color_hover: $colorPrimary;
 
-.fau-person {
-    .socialmedia {
-	margin: 0;
-	
-	
-	li {
-	    display: inline-block;
-	    list-style: none;
-	    overflow: hidden;
-	    margin: 4px;
-	    padding: 0px;
-	    width: $socialmedia_icon_size;
-	    height: $socialmedia_icon_size;
-	    
-	    &::before {
-		content: inherit;
-		display: none;
-	    }
-	    
-	}
-	li:first-child {
-	    margin-left: 0;
-	}
-	span {
-	    a::before {
-		 margin-top: 5px;
-	    }
-	}
-	a {
-	    width: $socialmedia_icon_size;
-	    height: $socialmedia_icon_size;
-	    overflow: hidden;
-	    display: inline-block;
-	    
-	    
-	    &::before {
-		width: $socialmedia_icon_size;
-		height: $socialmedia_icon_size;
-		line-height: $socialmedia_icon_size;
-		font-size: calc(#{$socialmedia_icon_size} / 1.5);
-		background-image: svg-bookmark();
-		background-repeat: no-repeat;
-		display: inline-block;
-		content: ' ';
-		background-size: 70%;
-		background-position: center center;
-	    }
-	    &:focus::before,
-	    &:hover::before {
-		border-radius: 50%;
-		border: 1px solid inherit;
-		background-image: svg-bookmark("white");
-		background-color: black;
-	    }
-	   
-	    	
-	    &[href*="twitter.com"]:before {
-		background-image: svg-twitter();
-	    }
-	    &[href*="twitter.com"]:focus:before,
-	    &[href*="twitter.com"]:hover:before {
-		background-image: svg-twitter("white");
-	    }
-	    &[href*="facebook.com"]:before {
-		background-image: svg-facebook();
-	    }
-	    &[href*="facebook.com"]:focus:before,
-	    &[href*="facebook.com"]:hover:before {
-		background-image: svg-facebook("white");
-	    }
 
-	    &[href*="github.com"]:before {
-		background-image: svg-github();
-	    }
-	    &[href*="github.com"]:focus:before,
-	    &[href*="github.com"]:hover:before {
-		background-image: svg-github("white");
-	    }
+.svg-socialmedia {
+    margin: 0;
+    li {
+	display: inline-block;
+	list-style: none;
+	overflow: hidden;
+	margin: 5px;
+	padding: 0px;
+	width: $socialmedia_icon_size;
+	height: $socialmedia_icon_size;
 
-	    &[href*="instagram.com"]:before {
-		background-image: svg-instagram();
-	    }
-	    &[href*="instagram.com"]:focus:before,
-	    &[href*="instagram.com"]:hover:before {
-		background-image: svg-instagram("white");
-	    }
-	    
-	    &[href*="publons.com"]:before {
-		background-image: svg-publons();
-	    }
-	    &[href*="publons.com"]:focus:before,
-	    &[href*="publons.com"]:hover:before {
-		background-image: svg-publons("white");
-	    }
-
-	    &[href*="linkedin.com"]:before {
-		background-image: svg-linkedin();
-	    }
-	    &[href*="linkedin.com"]:focus:before,
-	    &[href*="linkedin.com"]:hover:before {
-		background-image: svg-linkedin("white");
-	    }
-	    
-	    &[href*="xing.com"]:before {
-		background-image: svg-xing();
-	    }
-	    &[href*="xing.com"]:focus:before,
-	    &[href*="xing.com"]:hover:before {
-		background-image: svg-xing("white");
-	    }
-	    
-	    
-	    &[href*="tiktok.com"]:before {
-		background-image: svg-tiktok();
-	    }
-	    &[href*="tiktok.com"]:focus:before,
-	    &[href*="tiktok.com"]:hover:before {
-		background-image: svg-tiktok("white");
-	    }
-	    
-	    &[href*="youtube.com"]:before {
-		background-image: svg-youtube();
-	    }
-	    &[href*="youtube.com"]:focus:before,
-	    &[href*="youtube.com"]:hover:before {
-		background-image: svg-youtube("white");
-	    }
-	    
-	    &[href*="scopus.com"]:before {
-		background-image: svg-scopus();
-	    }
-	    &[href*="scopus.com"]:focus:before,
-	    &[href*="scopus.com"]:hover:before {
-		background-image: svg-scopus("white");
-	    }
-	    
-	    &[href*="scholar.google.de"]:before {
-		background-image: svg-googlescholar();
-	    }
-	    &[href*="scholar.google.de"]:focus:before,
-	    &[href*="scholar.google.de"]:hover:before {
-		background-image: svg-googlescholar("white");
-	    }
-	    
-	    &[href*="orcid.org"]:before {
-		background-image: svg-orcid();
-	    }
-	    &[href*="orcid.org"]:focus:before,
-	    &[href*="orcid.org"]:hover:before {
-		background-image: svg-orcid("white");
-	    }
-	    
-	    &[href*="researchgate.net"]:before {
-		background-image: svg-researchgate();
-	    }
-	    &[href*="researchgate.net"]:focus:before,
-	    &[href*="researchgate.net"]:hover:before {
-		background-image: svg-researchgate("white");
-	    }
-	  
-	
+	&::before {
+	    content: inherit;
+	    display: none;
 	}
-	 
-	
+
     }
-    &.color-some .socialmedia ,
-    .color-some .socialmedia {
+
+    span {
+	a::before {
+	     margin-top: 5px;
+	}
+    }
+    a {
+	width: $socialmedia_icon_size;
+	height: $socialmedia_icon_size;
+	overflow: hidden;
+	display: inline-block;
+
+
+	&::before {
+	    width: $socialmedia_icon_size;
+	    height: $socialmedia_icon_size;
+	    line-height: $socialmedia_icon_size;
+	    font-size: calc(#{$socialmedia_icon_size} / 1.5);
+	    background-image: svg-bookmark($socialmedia_icon_color);
+	    background-repeat: no-repeat;
+	    display: inline-block;
+	    content: ' ';
+	    background-size: 60%;
+	    background-position: center center;
+
+	}
+	&:focus::before,
+	&:hover::before {
+	    background-image: svg-bookmark($socialmedia_icon_color_hover);
+	}
+
+
+	&[href*="twitter.com"]:before {
+	    background-image: svg-twitter($socialmedia_icon_color);
+	}
+	&[href*="twitter.com"]:focus:before,
+	&[href*="twitter.com"]:hover:before {
+	    background-image: svg-twitter($socialmedia_icon_color_hover);
+	}
+	&[href*="facebook.com"]:before {
+	    background-image: svg-facebook($socialmedia_icon_color);
+	}
+	&[href*="facebook.com"]:focus:before,
+	&[href*="facebook.com"]:hover:before {
+	    background-image: svg-facebook($socialmedia_icon_color_hover);
+	}
+
+	&[href*="github.com"]:before {
+	    background-image: svg-github($socialmedia_icon_color);
+	}
+	&[href*="github.com"]:focus:before,
+	&[href*="github.com"]:hover:before {
+	    background-image: svg-github($socialmedia_icon_color_hover);
+	}
+
+	&[href*="instagram.com"]:before {
+	    background-image: svg-instagram($socialmedia_icon_color);
+	}
+	&[href*="instagram.com"]:focus:before,
+	&[href*="instagram.com"]:hover:before {
+	    background-image: svg-instagram($socialmedia_icon_color_hover);
+	}
+
+	&[href*="publons.com"]:before {
+	    background-image: svg-publons($socialmedia_icon_color);
+	}
+	&[href*="publons.com"]:focus:before,
+	&[href*="publons.com"]:hover:before {
+	    background-image: svg-publons($socialmedia_icon_color_hover);
+	}
+
+	&[href*="linkedin.com"]:before {
+	    background-image: svg-linkedin($socialmedia_icon_color);
+	}
+	&[href*="linkedin.com"]:focus:before,
+	&[href*="linkedin.com"]:hover:before {
+	    background-image: svg-linkedin($socialmedia_icon_color_hover);
+	}
+
+	&[href*="xing.com"]:before {
+	    background-image: svg-xing($socialmedia_icon_color);
+	}
+	&[href*="xing.com"]:focus:before,
+	&[href*="xing.com"]:hover:before {
+	    background-image: svg-xing($socialmedia_icon_color_hover);
+	}
+
+
+	&[href*="tiktok.com"]:before {
+	    background-image: svg-tiktok($socialmedia_icon_color);
+	}
+	&[href*="tiktok.com"]:focus:before,
+	&[href*="tiktok.com"]:hover:before {
+	    background-image: svg-tiktok($socialmedia_icon_color_hover);
+	}
+
+	&[href*="youtube.com"]:before {
+	    background-image: svg-youtube($socialmedia_icon_color);
+	}
+	&[href*="youtube.com"]:focus:before,
+	&[href*="youtube.com"]:hover:before {
+	    background-image: svg-youtube($socialmedia_icon_color_hover);
+	}
+
+	&[href*="scopus.com"]:before {
+	    background-image: svg-scopus($socialmedia_icon_color);
+	}
+	&[href*="scopus.com"]:focus:before,
+	&[href*="scopus.com"]:hover:before {
+	    background-image: svg-scopus($socialmedia_icon_color_hover);
+	}
+
+	&[href*="scholar.google.de"]:before {
+	    background-image: svg-googlescholar($socialmedia_icon_color);
+	}
+	&[href*="scholar.google.de"]:focus:before,
+	&[href*="scholar.google.de"]:hover:before {
+	    background-image: svg-googlescholar($socialmedia_icon_color_hover);
+	}
+
+	&[href*="orcid.org"]:before {
+	    background-image: svg-orcid($socialmedia_icon_color);
+	}
+	&[href*="orcid.org"]:focus:before,
+	&[href*="orcid.org"]:hover:before {
+	    background-image: svg-orcid($socialmedia_icon_color_hover);
+	}
+
+	&[href*="researchgate.net"]:before {
+	    background-image: svg-researchgate($socialmedia_icon_color);
+	}
+	&[href*="researchgate.net"]:focus:before,
+	&[href*="researchgate.net"]:hover:before {
+	    background-image: svg-researchgate($socialmedia_icon_color_hover);
+	}
 	
-	a {
-	    &[href*="twitter.com"]:before {
-		background-image: svg-twitter("DeepSkyBlue");
-	    }
-	    &[href*="twitter.com"]:focus:before,
-	    &[href*="twitter.com"]:hover:before {
-		    background-image: svg-twitter("white");
-		    background-color: DeepSkyBlue;
-	    }
+	&[href*="pinterest."]:before {
+	    background-image: svg-pinterest($socialmedia_icon_color);
+	}
+	&[href*="pinterest."]:focus:before,
+	&[href*="pinterest."]:hover:before {
+	    background-image: svg-pinterest($socialmedia_icon_color_hover);
+	}
+
+	&[href*="mailto:"]:before {
+	    background-image: svg-icon-mail($socialmedia_icon_color);
+	}
+	&[href*="mailto:"]:focus:before,
+	&[href*="mailto:"]:hover:before {
+	    background-image: svg-icon-mail($socialmedia_icon_color_hover);
+	}
+	
+	&[href*="rss"]:before,
+	&[href*="feed"]:before {
+	    background-image: svg-icon-rss($socialmedia_icon_color);
+	}
+	&[href*="rss"]:focus:before,
+	&[href*="rss"]:hover:before,
+	&[href*="feed"]:focus:before,
+	&[href*="feed"]:hover:before {
+	    background-image: svg-icon-rss($socialmedia_icon_color_hover);
+	}
+	
+	&[href*=".ics"]:before,
+	&[href*="ical"]:before {
+	    background-image: svg-icon-calendar($socialmedia_icon_color);
+	}
+	&[href*=".ics"]:focus:before,
+	&[href*=".ics"]:hover:before
+	&[href*="ical"]:focus:before,
+	&[href*="ical"]:hover:before {
+	    background-image: svg-icon-calendar($socialmedia_icon_color_hover);
+	}		
 			
-	    &[href*="facebook.com"]:before {
-		 background-image: svg-facebook("RoyalBlue");
-	    }
-	    &[href*="facebook.com"]:focus:before,
-	    &[href*="facebook.com"]:hover:before {
-		 background-image: svg-facebook("white");
-		 background-color: RoyalBlue;
-	    }
-
-	    &[href*="github.com"]:before {
-		background-image: svg-github();
-	    }
-	    &[href*="github.com"]:focus:before,
-	    &[href*="github.com"]:hover:before {
-		background-image: svg-github("white");
-	    }
-
-	    &[href*="instagram.com"]:before {
-		background-image: svg-instagram("FireBrick");
-	    }
-	    &[href*="instagram.com"]:focus:before,
-	    &[href*="instagram.com"]:hover:before {
-		background-image: svg-instagram("white");
-		background-color: FireBrick;
-	    }
-	    
-	   &[href*="linkedin.com"]:before {
-		background-image: svg-linkedin("SteelBlue");
-		// white
-		// background-color: #0077B5;
-	    }
-	    &[href*="linkedin.com"]:focus:before,
-	    &[href*="linkedin.com"]:hover:before {
-		background-image: svg-linkedin("white");
-		background-color: SteelBlue;
-	    }
-	    
-	    &[href*="xing.com"]:before {
-		background-image: svg-xing("LightSeaGreen");
-	    }
-	    &[href*="xing.com"]:focus:before,
-	    &[href*="xing.com"]:hover:before {
-		background-image: svg-xing("white");
-		background-color: LightSeaGreen;
-	    }
-	    
-	    &[href*="tiktok.com"]:before {
-		background-image: svg-tiktok("Crimson");
-	    }
-	    &[href*="tiktok.com"]:focus:before,
-	    &[href*="tiktok.com"]:hover:before {
-		background-image: svg-tiktok();
-		background-color: Crimson;
-	    }
-	   
-	    
-	    &[href*="youtube.com"]:before {
-		background-image: svg-youtube("Red");
-	    }
-	    &[href*="youtube.com"]:focus:before,
-	    &[href*="youtube.com"]:hover:before {
-		background-image: svg-youtube("white");
-		background-color: red;
-	    }
-	    
-	    &[href*="publons.com"]:before {
-		background-image: svg-publons("DarkSlateBlue");
-		// DarkSlateBlue
-	    }
-	    &[href*="publons.com"]:focus:before,
-	    &[href*="publons.com"]:hover:before {
-		background-image: svg-publons("white");
-		background-color: DarkSlateBlue;
-	    }
-
-	   &[href*="scopus.com"]:before {
-		background-image: svg-scopus("Orange");
-	   }
-	   &[href*="scopus.com"]:focus:before,
-	   &[href*="scopus.com"]:hover:before {
-		background-image: svg-scopus("white");
-		background-color: orange;
-	   }
-	   
-	    &[href*="scholar.google.de"]:before {
-		background-image: svg-googlescholar();
-	    }
-	    &[href*="scholar.google.de"]:focus:before,
-	    &[href*="scholar.google.de"]:hover:before {
-		background-image: svg-googlescholar("white");	
-	    } 
-	    
-	    &[href*="orcid.org"]:before {
-		background-image: svg-orcid("black");
-	    }
-	    &[href*="orcid.org"]:focus::before, 
-	    &[href*="orcid.org"]:hover::before {
-		background-image: svg-orcid("white");
-	    }
-	    
-	    &[href*="researchgate.net"]:before {
-		background-image: svg-researchgate("black");
-	    }
-	    &[href*="researchgate.net"]:focus:before,
-	    &[href*="researchgate.net"]:hover:before {
-		background-image: svg-researchgate("white");
-	    }
 	
-	
-	}
 
-
-	
-	
     }
-    span.socialmedia  {
-	padding-left: 10px;
-	span {
-	    margin-left: 4px;
+    
+    &.round {
+	a::before {
+		border-radius: 50%;
+		border: 1px solid $socialmedia_icon_bgcolor_hover;
+		box-shadow: 0px 0px 1px $socialmedia_icon_bgcolor_hover;
+	}
+    }
+    &.hoverbg {
+	a:focus::before,
+	a:hover::before {
+	    background-color: $socialmedia_icon_bgcolor_hover;
 	}
     }
 }
+
+
