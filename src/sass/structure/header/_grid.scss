@@ -43,11 +43,10 @@
 .header-container {
     margin-right: auto;
     margin-left: auto;
-    width: auto;
+    width: 100%;
 
 
-    @media (min-width: $screen-xs) {
-	// width: $container-md;
+    @media (min-width: $screen-sm) {
 	padding-left:  floor(($grid-gutter-width / 2));
 	padding-right: ceil(($grid-gutter-width / 2));
     }
