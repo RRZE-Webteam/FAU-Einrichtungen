@@ -15,14 +15,15 @@
 	    text-align: center;
 	    text-decoration: none;
 	    font-weight: bold;
-
+	    width: 100vw;
+	    
 	    @include px2rem($font-size-mobile-sitetitle, $font-size-gridbase);
 
 	    .longtitle & {
 		@include px2rem($font-size-mobile-sitetitle - 2, $font-size-gridbase);
 	    }
 
-	    width: 100vw;
+	   
 	    
 	    @media (min-width: $screen-sm) {		
 		background-color: #fff;
