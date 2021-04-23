@@ -104,6 +104,7 @@
     
     header & {	
 	align-items: flex-end;
+	justify-content: flex-start;
 	@media (min-width: $screen-sm) {
 	    padding: 20px 0 10px;
 	}
