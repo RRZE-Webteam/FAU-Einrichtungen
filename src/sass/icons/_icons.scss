@@ -1,14 +1,10 @@
 /*-----------------------------------------------------------------------------------*/
-/* SVG Icons and elements
+/* Icons
 /*-----------------------------------------------------------------------------------*/
 
+@import "functions";
+@import "lib/lib";
+@import "default";
+@import "social-media";
 
-// Global definitions
-@import "global";
 
-
-// CI Elements
-@import "svglib-ci";
-
-// Normal icons
-@import "icons";

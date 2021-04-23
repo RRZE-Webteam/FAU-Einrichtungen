@@ -31,7 +31,10 @@ require_once( get_template_directory() . '/functions/posttype_imagelink.php' );
 require_once( get_template_directory() . '/functions/widgets.php' );
 require_once( get_template_directory() . '/functions/gallery.php' );
 
-require_once( get_template_directory() . '/functions/gutenberg.php');
+// require_once( get_template_directory() . '/functions/gutenberg.php');
+// deaktiviert wegen Newsletter-Plugin
+// brauchen noch ein andere Lösung
+
 require_once( get_template_directory() . '/functions/svglib.php');
 
 require_once( get_template_directory() . '/functions/deprecated.php');
@@ -245,10 +248,7 @@ add_filter( 'wp_resource_hints', 'fau_remove_default_dns_prefetch', 10, 2 );
 
 function fau_dns_prefetch() {
     // List of domains to set prefetching for
-    $prefetchDomains = [
-        '//www.fau.de',
-        '//www.fau.eu',
-    ];
+    $prefetchDomains = [ 'https://www.fau.de'  ];
     $mydomain = parse_url(get_home_url());
     $prefetchDomains[] = $mydomain['host'];
 	
@@ -278,6 +278,9 @@ function fau_remove_unwanted_head_actions() {
 	    // Display the link to the Windows Live Writer manifest file.
 	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); 
 	    // remove prev link
+
+	remove_action( 'wp_head', 'rest_output_link_wp_head');
+	    // removes link <link rel='https://api.w.org/' ..> 
 	
 	remove_action( 'wp_head', 'rsd_link' ); 
 	    // Display the link to the Really Simple Discovery service endpoint, EditURI link

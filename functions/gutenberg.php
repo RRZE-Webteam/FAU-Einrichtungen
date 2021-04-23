@@ -48,7 +48,6 @@ function fau_gutenberg_settings() {
 }
 add_action( 'after_setup_theme', 'fau_gutenberg_settings' );
 
-
 /*-----------------------------------------------------------------------------------*/
 /* Activate scripts and style for backend use of Gutenberg
 /*-----------------------------------------------------------------------------------*/

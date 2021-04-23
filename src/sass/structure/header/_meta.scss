@@ -23,7 +23,6 @@
 }
 
 
-
 .meta-tools {	
 	text-align: right;
 	position: static;
@@ -31,51 +30,8 @@
 
 .meta-widget {
 	display: inline-block;
-//	float: right;
-
 	margin: 5px 30px 5px 20px;
 	height: 30px;
-/*	max-width: 90px;
-	
-	@media (min-width: $screen-sm) {
-	    margin-right: 0;
-	    margin-left: 15px;
-	}
-	@media (min-width: $screen-md) {
-		max-width: inherit;
-	}
-*/	
-
 }
 
-.meta-row {
-    display: flex;
-    flex-wrap: nowrap;
-    
-    .meta-links {	
-	flex: 1 0 250px;
-	order: 2;
-	@media (min-width: $screen-sm) {
-	    order: 1;
-	}
-    }
-    .meta-tools {
-	flex: 0 0 40px;
-	order: 1;
-	display: flex;
-	justify-content: flex-end;
-	
-	@media (min-width: $screen-sm) {
-	    order: 2;
-	    flex: 1 1 250px;
-	}
-	
-
-	
-	.meta-search {
-	    flex: 1 0 220px;
-	}
-	
-    }
-}
 

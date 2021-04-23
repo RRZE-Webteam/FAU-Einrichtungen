@@ -1,0 +1,48 @@
+/*-----------------------------------------------------------------------------------*/
+/* Functions for icons
+/*-----------------------------------------------------------------------------------*/
+
+// Translate colors
+@function encodecolor($string) {
+   @if type-of($string) == 'color' and str-index(#{$string}, '#') == 1 {
+    $hex: str-slice(ie-hex-str($string), 4);
+    $string: unquote('#{$hex}');
+
+    @return '%23' + $string;
+  }
+
+  @return $string;
+}
+
+// Build Background String
+@function svg-buildbackground($path, $viewbox, $farbe: false, $width: 0, $height: 0) {
+    $svgdef: '%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" ' + 'viewBox="' + $viewbox + '"';
+    @if ($width != 0) {
+	  $svgdef: $svgdef + ' width="'+$width+'"';
+    }
+    @if ($height != 0) {
+	  $svgdef: $svgdef + ' height="'+$height+'"';
+    }
+    
+    $svgdef: $svgdef + '%3E';
+    $svg: '';
+    
+    @if ($farbe != false) {
+	$farbe: encodecolor($farbe);
+	$svg: $svgdef + '%3Cpath fill="'+$farbe+'" ' + $path + '/%3E';
+	
+    } @else {
+	$svg: $svgdef + '%3Cpath ' + $path + '/%3E';
+    }
+    $urldef: "data:image/svg+xml;charset=UTF-8," + $svg + "%3C/svg%3E%0A";
+    $url:  url($urldef);
+    @return $url;
+}
+
+
+@mixin svg-icon-sizes($icon-size: $svg-icon-size) {
+    width: $icon-size;
+    height: $icon-size;
+    line-height:$icon-size;
+    font-size: calc(#{$icon-size} / 1.5);
+}

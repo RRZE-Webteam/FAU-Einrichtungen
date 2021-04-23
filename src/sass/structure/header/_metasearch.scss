@@ -8,7 +8,6 @@
 	    
 	.active-meta-widget & {
 		display: inline;
-
 	}
 
 
@@ -43,7 +42,6 @@
 				.active-meta-widget & {
 					width: 150px;
 				}
-			
 
 			}
 			@media (min-width: $screen-lg) {
@@ -81,39 +79,37 @@
 			@extend .screen-reader-text;
 		}
 		.searchicon {
-			display: inline;
-			@extend .fa;
-			@extend .fa-search;
-			position: relative;
+			@extend .svg-icon;
+			@include svg-icon-sizes(1.1rem);
+			background-image: svg-icon-search(#fff,16,16);
 			margin-right: -30px;
-			color: #fff;
-
+			
+			.search-toggled & {
+			    background-image: svg-icon-search-toggled($colorMetaBackground,16,16);
+			}
 		}
 	}
 	@media (max-width: $screen-sm - 1) {
-		width: 100%;
-
-		.search-toggled & {
+	    width: 50px;
+	    .search-toggled & {
+		.searchform {	
+		     background: $colorMetaBackground;
+		    display: block;
 		    width: 100%;
-		    background: $colorMetaBackground;
 		    position: absolute;
 		    top: 50px;
 		    left: 0;
 		    padding: 10px 15px;
-		    z-index: 100;
-
-		    .searchform {			
-			display: block;
-			width: 100%;
-			
-			input[type="text"] {
-			    width: calc(100% - 50px);
-			}
-			.searchicon {
-				    display: none;
-			}
+		     z-index: 100;
+		     
+		    input[type="text"] {
+			width: calc(100% - 50px);
+		    }
+		    .searchicon {
+				display: none;
 		    }
 		}
+	    }
 	
 	}
 	@media (min-width: $screen-sm) {
@@ -127,11 +123,6 @@
 
 /* New Toogle Button */
 #headerwrap #search-toggle {
-	position: absolute;
-	left: 0;
-	top: 5px;
-	
-	@include px2rem($font-size-mobile-meta);
 	background: transparent;
 	border: none;
 	display: none;
@@ -139,13 +130,11 @@
 	color: $colorMeta;
 
 	.search-toggled &:before {
-	    @extend .fa-search-minus;
+	    background-image: svg-icon-search-toggled($colorMeta,16,16);
 	}
+	
+	
 	@media (max-width: $screen-sm - 1) {
-	    .search-toggled & {
-		top: -45px;
-	    }
-	    
 	    .js & {
 		    display: block;
 	    }
@@ -154,21 +143,23 @@
 	span {
 	    @include sr-only();
 	}
-	
+
 }
 
 #search-toggle:before {
-	@extend .fa;
-	@extend .fa-search;
+	@extend .svg-icon;
+	@include svg-icon-sizes();
+	background-image: svg-icon-search($colorMeta,16,16);
 
 	&:focus,
 	&:hover {
-		@extend .fa-search-minus;
+		 background-image: svg-icon-search-toggled(red,16,16);
 	}
 }
+
 .search-toggled {
     .search-static-links-column {
 	margin-bottom: 10px;
     }
-    
+
 }

@@ -1,0 +1,53 @@
+/*
+ * CSS Settings for FAU Glossary
+ */
+
+
+
+.fau-glossar {
+    .letters {
+	text-align: center;
+	
+	li {
+	    border: 1px solid $colorStandardHellgrau;
+	    color: $colorTextLight;
+	    
+	    width: 2rem;
+	    height: 2rem;
+	    margin: 0.2rem;
+	    padding: 0.2rem;
+	    text-align: center;
+	    vertical-align: middle;
+	    @include border-radius(4px);
+	   
+    
+	    &.filled {
+		border-color: $colorPrimary;
+		background: $colorContentBorders;
+		color: $colorPrimary;
+		font-weight: bold;
+		padding: 0;
+		
+		a {
+		     padding: 0.2rem;
+		     text-decoration: none;
+		     width: 100%;
+		}
+		
+		a:hover,
+		a:focus {
+		    text-decoration: underline;
+		    background-color: darken($colorLightest, 3%);
+		    border-color: $colorPrimary;
+		    background: $colorPrimary;
+		    color: #fff;
+		}
+	    }
+	    
+	    
+	}
+	
+    }
+    
+}
+

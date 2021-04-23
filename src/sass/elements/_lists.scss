@@ -53,14 +53,15 @@ ul {
 		    @include no-list;
 		    @include inline-block;
 		    background: none;
-		    margin-right: 2px;
-		    color: #ccc;
+		    margin: 0.2rem;
 
 		    a {
 			    @include inline-block;
+			    text-decoration: none;
 		    }
 
-		    a:hover, a:focus {
+		    a:hover, 
+		    a:focus {
 			    text-decoration: underline;
 		    }
 	    }

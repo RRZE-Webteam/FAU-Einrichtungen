@@ -69,10 +69,10 @@
 				    global $default_socialmedia_liste;
 				    global $defaultoptions;
 				    
-				    echo '<nav class="socialmedia" aria-label="'.__('Social Media','fau').'">';
+				    echo '<nav class="svg-socialmedia round hoverbg" aria-label="'.__('Social Media','fau').'">';
 				    echo '<div itemscope itemtype="http://schema.org/Organization">';
 				    echo fau_create_schema_publisher(false);		
-				    echo fau_get_socialmedia_menu($defaultoptions['socialmedia_menu_name'],'social',true);
+				    echo fau_get_socialmedia_menu($defaultoptions['socialmedia_menu_name'],'',true);
 				    echo '</div>';
 				    echo '</nav>';
 

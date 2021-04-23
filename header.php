@@ -22,8 +22,8 @@
 	    <div class="metalinks">
 		<?php get_template_part('template-parts/header', 'skiplinks'); ?>
 		<div id="meta">
-			<div class="meta-container">
-			    <div class="meta-row">
+			<div class="header-container">
+			    <div class="header-row">
 				<nav class="meta-links" aria-label="<?php _e('Navigation: Weitere Angebote','fau');?>">
 				    <?php echo fau_get_toplinks(); ?>
 				</nav>
@@ -45,8 +45,8 @@
 		</div>
 	    </div>
 	    <header id="header">
-		<div class="container">
-		    <div class="row">
+		<div class="header-container">
+		    <div class="header-row">
 			<div class="branding" id="logo" role="banner" itemscope itemtype="http://schema.org/Organization">
 			    <p class="sitetitle">
 			    <?php if ( ! is_front_page() ) {

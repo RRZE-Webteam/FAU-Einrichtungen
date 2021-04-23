@@ -37,13 +37,12 @@
 			a:before {
 				background: $colorSocial;
 				color: $colorSocialBackground;
-				height: 1.5rem;
-				width:  1.5rem;
-				@include px2rem($font-size-base);
-				
+				height: 1.7rem;
+				width:  1.7rem;
+				line-height: 1.7rem !important;
+				font-size: calc(1.7rem / 1.5) !important;				
 				text-align: center;
-				margin-right: 6px;
-				padding: 4px;
+				margin-right: 1rem;
 				@include border-radius(50%);
 			}
 		}
@@ -72,7 +71,9 @@
 		    a {
 			@extend .fa-star;
 			&::before {
-			   @extend .fa; @extend .fa-star;
+			   @extend .fa; 
+			   @extend .fa-star;
+
 			}
 			
 			
