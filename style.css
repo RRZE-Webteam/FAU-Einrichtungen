@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 1.12.53-66
+Version: 1.12.53-76
 Requires at least: 5.0
 Tested up to: 5.7
 Requires PHP: 7.3
@@ -10325,20 +10325,32 @@ div.wpcf7-response-output {
   text-align: center; }
   .fau-glossar .letters li {
     border: 1px solid #e9edf2;
-    color: #e9edf2;
-    vertical-align: middle;
-    width: 26px;
-    height: 26px;
+    color: #797676;
+    width: 2rem;
+    height: 2rem;
+    margin: 0.2rem;
+    padding: 0.2rem;
     text-align: center;
-    margin: 2px;
+    vertical-align: middle;
     border-radius: 4px;
     background-clip: padding-box; }
     .fau-glossar .letters li.filled {
-      border-color: #dfe6ec;
+      border-color: #003366;
       background: #dfe6ec;
-      color: #003366; }
-    .fau-glossar .letters li.filled:hover {
-      background-color: #d2ddeb; }
+      color: #003366;
+      font-weight: bold;
+      padding: 0; }
+      .fau-glossar .letters li.filled a {
+        padding: 0.2rem;
+        text-decoration: none;
+        width: 100%; }
+      .fau-glossar .letters li.filled a:hover,
+      .fau-glossar .letters li.filled a:focus {
+        text-decoration: underline;
+        background-color: #d2ddeb;
+        border-color: #003366;
+        background: #003366;
+        color: #fff; }
 
 /*-----------------------------------------------------------------------------------*/
 /* CSS Definitionen für das Plugin RRZE Calendar
