@@ -92,7 +92,7 @@
 	    
 		p.sitetitle,
 		h1 {
-			@include px2rem($font-size-h1,  $font-size-base, $font-size-h1 * 1.4);		
+			@include px2rem($font-size-h1,  $font-size-base);		
 			@include hyphens(none);
 			color: #fff;
 			background: rgba($colorPrimary,0.8);
