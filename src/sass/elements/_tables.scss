@@ -64,8 +64,10 @@ table {
 	th, td {
 		padding-left: 15px;
 		padding-right: 15px;
-		@include px2rem($font-size-table);	    	
-		
+		@include px2rem($font-size-table);	
+		p {
+		   @include px2rem($font-size-table);	    	
+		}
 	}
 	
 	th {
@@ -90,10 +92,7 @@ table {
 		border-right: 1px solid #fff;
 		color: $colorText;
 		
-		p {
-		    font-size: 13px;
-		    line-height: 18px;
-		}
+		
 	}
 	
 	tr {
