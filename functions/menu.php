@@ -862,7 +862,7 @@ function fau_breadcrumb($lasttitle = '') {
 	if ( get_post_type() != 'post' ) {
 	    $post_type = get_post_type_object(get_post_type());
 	    $slug = $post_type->rewrite;
-	    echo '<a href="' . $homeLink . $slug['slug'] . '">' . $post_type->labels->singular_name . '</a>' .$delimiter;
+	    echo '<a href="' . $homeLink . $slug['slug'] . '">' . $post_type->labels->name . '</a>' .$delimiter;
 	    if ($showcurrent) {
 		echo $before . get_the_title() . $after;
 	    }
@@ -884,7 +884,7 @@ function fau_breadcrumb($lasttitle = '') {
 	}
     } elseif ( !is_single() && !is_page() && !is_search() && get_post_type() != 'post' && !is_404() ) {
 	$post_type = get_post_type_object(get_post_type());
-	echo $before . $post_type->labels->singular_name . $after;
+	echo $before . $post_type->labels->name . $after;
 
     } elseif ( is_attachment() ) {
 	$parent = get_post($post->post_parent);
