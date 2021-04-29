@@ -15,9 +15,9 @@ get_header();
 	?>
 
 	<div id="content">
-	    <div class="container">
+	    <div class="content-container">
 
-		<div class="row">
+		<div class="content-row">
 		    <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	
 			// add sidebar and nest content in sub-row
 			$active_sidebar = 1; ?>
