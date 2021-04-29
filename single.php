@@ -20,11 +20,7 @@ while ( have_posts() ) : the_post();
 	<div id="content">
 		<div class="content-container">
 			<div class="post-row">			    
-			    <?php if(get_post_type() == 'post') { ?>
 			    <div <?php post_class( 'entry-content' ); ?>>
-			    <?php } else { ?>
-			    <div class="col-xs-12">
-			    <?php } ?>
 				<main>
 				    <h1 class="mobiletitle"><?php the_title(); ?></h1>
 				    <article class="news-details">

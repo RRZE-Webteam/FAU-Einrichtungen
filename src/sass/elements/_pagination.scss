@@ -86,11 +86,11 @@
 	}
 	
 	.current {
-		background: #fff;
+		background: $colorButton;
 		border: 1px solid $colorContentBorders;
 		padding: 6px 10px;
 		text-decoration: none;
-		color: $colorButton;
+		color: $colorButtonBackground;
 	}
 	
 	.prev, 
@@ -99,7 +99,8 @@
 		padding-right: 10px;
 	}
 	
-	a:hover, a:focus {
+	a:hover, 
+	a:focus {
 		background: $colorButtonBackgroundHover;
 		text-decoration: underline;
 		span {

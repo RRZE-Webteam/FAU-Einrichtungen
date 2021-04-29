@@ -139,7 +139,9 @@
     if ($is_sidebar_active) {
 	 $classes[] = 'with-sidebar';
     }
-    
+    if ( is_active_sidebar( 'search-sidebar' ) ) { 	
+	 $classes[] = 'with-search-sidebar';
+    }
     
     return $classes;
  }

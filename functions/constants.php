@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 63,
+    'optiontable-version'	=> 64,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -34,7 +34,7 @@ $defaultoptions = [
 	// Muss in $default_fau_orga_data auf erster Ebene vorhanden sein.	
     'default_faculty_useshorttitle'	=> false,   
     'optionpage-tab-default'		=> 'website',
-    'content-width'			=> 616,
+    'content-width'			=> 620,
     'content-width-fullpage'		=> 940,
     'src-fallback-slider-image'		=> get_fau_template_uri().'/img/slider-fallback.jpg',
     'slider-catid'			=> 0,    
@@ -263,6 +263,8 @@ $defaultoptions = [
     'advanced_display_header_md-showsitelogo'	=> false,
 	// Zeigt bei der mobilen Ansicht statt dem Logo der Website das 
 	// CI Logo der FAU anstelle des Logos der Website
+    'advanced_header_template'	=> '',
+	// Anzeigeform des Heros bei Index- und Kategorieseiten
 	]; 
 
  $content_width =$defaultoptions['content-width'];
@@ -757,6 +759,19 @@ $setoptions = array(
 		    'title'   => __( 'Quicklinks', 'fau' ),
 		    'label'   => __( 'Auf dem Template "Startseite Fakultät" werden unterhalb des Sliders die Quicklinks angezeigt. ', 'fau' ),                
 		    'default' => $defaultoptions['advanced_activate_quicklinks'],
+		    'parent'  => 'header'
+		),   
+	       
+	       'advanced_header_template'	  => array(
+		    'type'    => 'select',
+		    'title'   => __( 'Kopfteil auf Index- und Kategorieseiten', 'fau' ),
+		    'label'   => __( 'Auf Index- und Kategorieseite wird üblicherweise ein Kopfteil wie bei normalen Seiten mit einer Breadcrumb gezeigt. Stattdessen kann man jedoch auch die Darstellung des Banners von Startseiten auswählen.', 'fau' ),                
+		    'liste'     => array(
+			    '' => __('Index in der Standard-Seitenanzeige', 'fau'),
+			    'banner'	 => __( 'Banner', 'fau'),
+			    'slider' 	 => __( 'Slider', 'fau'),
+		    ),
+		    'default'   => $defaultoptions['advanced_header_template'],
 		    'parent'  => 'header'
 		),   
 	       
