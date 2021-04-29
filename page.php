@@ -19,9 +19,8 @@ while ( have_posts() ) :
 	get_template_part('template-parts/hero', 'small');
 	?>
 	<div id="content">
-		<div class="container">
-		    <div class="row">
-			<div class="col-xs-12">
+		<div class="content-container">
+		    <div class="content-row">
 			    <main<?php echo fau_get_page_langcode($post->ID);?>>
 				<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 					<?php 
@@ -54,7 +53,6 @@ while ( have_posts() ) :
 				}
 			    }
 			    ?>	
-			</div>		
 		    </div>
 		</div>
 	    	

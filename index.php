@@ -31,8 +31,8 @@ if($posttype == 'event') {
 ?>
 
     <div id="content">
-	    <div class="container">
-		    <div class="row">
+	    <div class="content-container">
+		    <div class="post-row">
 			<?php if(get_post_type() == 'post') { ?>
 			<main class="entry-content">
 			<?php } else { ?>
@@ -74,7 +74,6 @@ if($posttype == 'event') {
 
 				 }
 				
-
 
 				if  ($posttype=='person') { ?>
 				    <nav class="navigation">

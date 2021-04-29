@@ -90,7 +90,7 @@ html, body, button {
 	left: 50%;
 	margin-left: calc(-#{$fau-gutter-width} / 2);
 	margin-right: calc(-#{$fau-gutter-width} / 2);
-	max-width: $max-width-hero;
+	max-width: calc(100vw - (#{$grid-gutter-width} / 2));
 	right: 50%;
 	width: 100vw;
 	@media (min-width: $screen-sm-min) {
@@ -102,8 +102,34 @@ html, body, button {
 		margin-right: calc(-100vw / 2 + (#{$container-md} - #{$grid-gutter-width}) / 2);
 	}
 	@media (min-width: $max-width-hero) {
+	     max-width: $max-width-hero;
 		margin-left: calc((-#{$max-width-hero} + (#{$container-md} - #{$grid-gutter-width})) / 2);
 		margin-right: calc((-#{$max-width-hero} + (#{$container-md} - #{$grid-gutter-width})) / 2);
+	}
+	
+	.post-row & {
+	   @media (min-width: $screen-sm-min) {
+		margin-left: calc(-100vw / 2 + (#{$container-sm} - (#{$grid-gutter-width} / 2) ) / 2);
+		margin-right: calc(-100vw / 2 + (#{$container-sm} - (#{$grid-gutter-width} / 2) )  / 2);
+	    }
+	    @media (min-width: $screen-md-min) {
+		    margin-left: calc(-100vw / 2 + (#{$container-md} - (#{$grid-gutter-width} / 2) ) / 2);
+		    margin-right: calc(-100vw / 2 + (#{$container-md} - (#{$grid-gutter-width} / 2) ) / 2);
+	    }
+	    @media (min-width: $screen-lg) {
+		    margin-left: calc(-100vw / 2 + (#{$container-lg} - (#{$grid-gutter-width} / 2) ) / 2);
+		    margin-right: calc(-100vw / 2 + (#{$container-lg} - (#{$grid-gutter-width} / 2) ) / 2);
+	    }
+	    @media (min-width: $max-width-hero) {
+		    margin-left: calc((-#{$max-width-hero} + (#{$container-md} - (#{$grid-gutter-width} / 2) )) / 2);
+		    margin-right: calc((-#{$max-width-hero} + (#{$container-md} - (#{$grid-gutter-width} / 2) )) / 2);
+	    }
+	}
+	img {
+	    max-width: calc(100vw - (#{$grid-gutter-width} / 2));
+	    margin: 0;
+	    padding: 0;
+	    display: inline-block;
 	}
 }
 /* END full width image */

@@ -232,9 +232,6 @@
       	padding: 0;
       }
       &:hover span.portaltop {
-//      	background-color: rgba(0, 51, 102, 0.875);
-// Wo kommt diese Farbdefinition her?! 
-// Die Farbdefinition stammte aus dem ILI-Plugin (https://refresh2018.cms.rrze.uni-erlangen.de/wp-content/plugins/ili-fau-templates/assets/css/main.css => .ilifautpl-topic-box-image:hover .ilifautpl-h3-layer)
 	background-color: $PalettonDunkelste;
       }
       span.portaltop a {
@@ -250,7 +247,6 @@
     }
     &.skewed {
       .menu-item {
-        overflow: hidden;
         &::after {
           content: "";
           width: calc(100% + 10px);
@@ -262,7 +258,6 @@
           transform-origin: right top;
           transform: skewY(-1.75deg);
           display: block;
-          overflow: hidden;
         }
       } // .skewed
     } // .menu-item

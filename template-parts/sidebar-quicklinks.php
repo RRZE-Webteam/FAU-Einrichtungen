@@ -109,16 +109,19 @@ if ((strlen(trim($list1))>0) || (strlen(trim($list2))>0)) {
    
      if (  (strlen(trim($titleblock2))>0) || (strlen(trim($titleblock1)>0))) {
 	// Zwei Listen mit zwei Überschriften
-	 
-	$output .= $titleblock1;
-	$output .= '<ul>'."\n";
-	$output .= $list1;
-	$output .= '</ul>'."\n";
-	$output .= $titleblock2;
-	$output .= '<ul>'."\n";
-	$output .= $list2;
-	$output .= '</ul>'."\n"; 
-	 
+
+	if (strlen(trim($list1))>0) {
+	    $output .= $titleblock1;
+	    $output .= '<ul>'."\n";
+	    $output .= $list1;
+	    $output .= '</ul>'."\n";
+	}
+	if (strlen(trim($list2))>0) {
+	    $output .= $titleblock2;
+	    $output .= '<ul>'."\n";
+	    $output .= $list2;
+	    $output .= '</ul>'."\n"; 
+	}	 
 	
     } else {
 	if (strlen(trim($titleblock1))>0)  {

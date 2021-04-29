@@ -37,7 +37,6 @@
 
 	@media (min-width: $screen-md) {
 	    border-left: 2px solid $colorLightest;
-	    margin-left: $fau-gutter-width;
 	    border-top: none;
             padding-left: ceil(($fau-gutter-width / 2));	
             margin-top: 0;

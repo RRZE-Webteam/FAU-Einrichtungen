@@ -9,12 +9,16 @@
  */
 
 global $pagebreakargs;
+if ( is_active_sidebar( 'news-sidebar' ) ) { 
+    fau_use_sidebar(true);    
+}
+
 get_header(); 
 
 while ( have_posts() ) : the_post(); 
 	get_template_part('template-parts/hero', 'small'); ?>
 	<div id="content">
-		<div class="container">
+		<div class="content-container">
 			<div class="post-row">			    
 			    <?php if(get_post_type() == 'post') { ?>
 			    <div <?php post_class( 'entry-content' ); ?>>

@@ -3,16 +3,7 @@
 /*-----------------------------------------------------------------------------------*/
 
 
-#content {
-    padding: 20px 0 0 0;	
-    position: relative;
-    display: block;
-    
-
-    @media (min-width: $screen-md) {
-	padding: 40px 0 30px 0;
-    }
-    
+#content {    
     .container {
 	position: relative;
     }
@@ -36,15 +27,6 @@
 	}
     }
 
-/*    .admin-bar & {
-	top: $wordpress-adminbar-bigheight;
-	margin-bottom: $wordpress-adminbar-bigheight + 10px;
-	@media (min-width: $screen-md) and (min-width: $wordpress-adminbar-break) {
-	   top: $wordpress-adminbar-smallheight;
-	   margin-bottom: $wordpress-adminbar-smallheight + 10px;
-	} 
-    }
-    */
 }
 
 

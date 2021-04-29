@@ -34,10 +34,6 @@
 	    top: $wordpress-adminbar-smallheight;
 	}
     }
-    
-    
-  
-	
 }
 
 .header-container {
@@ -49,6 +45,10 @@
     @media (min-width: $screen-sm) {
 	padding-left:  floor(($grid-gutter-width / 2));
 	padding-right: ceil(($grid-gutter-width / 2));
+	width: $container-sm;
+    }
+     @media (min-width: $screen-md) {
+	width: $container-md;
     }
     @media (min-width: $screen-lg-min) {
 	width: $container-lg;
@@ -109,6 +109,11 @@
 	}
 	.branding {
 	    min-width: 240px;
+	}
+	.header-menu {
+	    @media (min-width: $screen-sm) {
+		padding-left: 15px;
+	    }
 	}
     }
 }

@@ -5,15 +5,6 @@
 // Basis 
 @import "base";
 
-// Portal Templates
-@import "portal-templates";
-
-// Page Templates
-@import "page-templates";
-
-// Page with Subnav Templates
-@import "page-subnav-templates";
-
 
 // Old grid from bootstrap 2.3, cause span classes are still needed in some places
 @import "oldgrid";
@@ -24,8 +15,5 @@
 
 // Embedded-Format für Public Displays: Header etc ausblenden
 @import "embedded";
-
-// Post Types
-@import "posts";
 
 
