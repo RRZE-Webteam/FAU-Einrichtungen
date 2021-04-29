@@ -42,7 +42,7 @@ if ( is_active_sidebar( 'search-sidebar' ) ) {
 						    if ($wp_query->found_posts>1) {
 							echo __("Es wurden",'fau');
 						    } else {
-							echo __("Es wurde ",'fau');
+							echo __("Es wurde",'fau');
 						    }
 						    echo " ".$wp_query->found_posts.' '.__("Treffer gefunden",'fau').":"; ?>
 						</p>
@@ -102,8 +102,7 @@ if ( is_active_sidebar( 'search-sidebar' ) ) {
 					 <div class="error-content">	
 					    <div class="error-notice">
 						    <p class="attention">
-							<strong><?php _e('Nichts gefunden.','fau'); ?>
-						    </strong></p>
+							<strong><?php _e('Nichts gefunden.','fau'); ?></strong></p>
 						    <p><?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?></p>
 
 					    </div>
