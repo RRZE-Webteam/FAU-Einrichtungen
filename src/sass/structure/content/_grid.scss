@@ -135,9 +135,7 @@
                 width: 100%;
                 display: block;
 		
-		.image-gallery {
-		    clear: inherit;
-		}
+		
             }
          }
     }
@@ -163,11 +161,14 @@
 	    padding-left:  floor(($grid-gutter-width / 2));
 	    padding-right: ceil(($grid-gutter-width / 2));
 
-	    
+	    @media (min-width: $screen-sm) {
+		  padding-left: 0;
+		  padding-right: 0;
+	    }
 	    .with-sidebar & {
 		@media (min-width: $screen-sm) {
-		    padding-left: 0;
 		    max-width: calc(#{$container-sm} - #{$sidebar-width-posts} - #{$grid-gutter-width} - 2px);
+		    padding-right: ceil(($grid-gutter-width / 2));
 		}
 		@media (min-width: $screen-md) {
 		    max-width: calc(#{$container-md} - #{$sidebar-width-posts} - #{$grid-gutter-width} - 2px);
