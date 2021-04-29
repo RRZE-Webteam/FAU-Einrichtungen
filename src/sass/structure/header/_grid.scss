@@ -110,6 +110,11 @@
 	.branding {
 	    min-width: 240px;
 	}
+	.header-menu {
+	    @media (min-width: $screen-sm) {
+		padding-left: 15px;
+	    }
+	}
     }
 }
 
