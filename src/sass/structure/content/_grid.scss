@@ -33,8 +33,9 @@
 
 .content-row {
     display: flex;
-   
+    flex-wrap: wrap;
     
+
     .sidebar-subnav {
 	min-width: $subnav-width-sm;
 	@media (min-width: $screen-sm) {
@@ -52,19 +53,57 @@
 	
     }
     .entry-content {
-	min-width: 420px;
+	min-width: $screen-xxs;
 	 @media (min-width: $screen-sm) {
-	     max-width: calc(#{$container-sm} - #{$subnav-width-sm});
+	     max-width: calc(#{$container-sm} - #{$subnav-width-sm} - #{$grid-gutter-width});
 	     padding-left: $grid-gutter-width;
 	 }
 	 @media (min-width: $screen-md) {
-	     max-width: calc(#{$container-md} - #{$subnav-width-md});
+	     max-width: calc(#{$container-md} - #{$subnav-width-md} - #{$grid-gutter-width});
 	 }
 	 @media (min-width: $screen-lg) {
-	     max-width: calc(#{$container-lg} - #{$subnav-width-lg});
+	     max-width: calc(#{$container-lg} - #{$subnav-width-lg} - #{$grid-gutter-width});
 	 }
     }
+    
+    .search-sidebar,  
+    .search-resultnested {
+	max-width: 100%;
+	padding-left:  floor(($grid-gutter-width / 2));
+	padding-right: ceil(($grid-gutter-width / 2));
+
+	
+    }
+    .search-sidebar {
+	@media (min-width: $screen-sm) {
+	     max-width: 33%;   
+	     padding-left: 0;
+	     order: 1;
+	}
+    }
+    .search-resultnested {
+	
+	@media (min-width: $screen-sm) {
+	    padding-right: 0;
+	    padding-left: 0;
+	}
+	.with-search-sidebar & {
+	    @media (min-width: $screen-sm) {
+		max-width: 66%;
+		order: 2;
+		padding-left: floor(($grid-gutter-width / 2));
+	    }
+	}
+	
+	
+	li.search-result {
+	    padding: 0;
+	}
+    }
+    
 }
+
+
 
 
 
@@ -156,7 +195,7 @@
 	.entry-content,
 	.post {
 	    order: 1;
-	    min-width: 480px;	   
+	    min-width: $screen-xxs;	   
 	    width: 100%;  
 	    padding-left:  floor(($grid-gutter-width / 2));
 	    padding-right: ceil(($grid-gutter-width / 2));
@@ -204,13 +243,13 @@
 .startpage-blogroll {
     @extend .col-xs-12;
     @extend .col-sm-8;
-    @extend .col-xxl-9;
+//    @extend .col-xxl-9;
 }
 .portalpage-sidebar,
 .startpage-sidebar {
     @extend .col-xs-12;
     @extend .col-sm-4;
-    @extend .col-xxl-3;
+  //  @extend .col-xxl-3;
 }
 
 

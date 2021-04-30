@@ -20,11 +20,7 @@ while ( have_posts() ) : the_post();
 	<div id="content">
 		<div class="content-container">
 			<div class="post-row">			    
-			    <?php if(get_post_type() == 'post') { ?>
 			    <div <?php post_class( 'entry-content' ); ?>>
-			    <?php } else { ?>
-			    <div class="col-xs-12">
-			    <?php } ?>
 				<main>
 				    <h1 class="mobiletitle"><?php the_title(); ?></h1>
 				    <article class="news-details">
@@ -40,6 +36,11 @@ while ( have_posts() ) : the_post();
 							$altattr = trim(strip_tags($imgdata['alt']));
 							if ((fau_empty($altattr)) && (get_theme_mod("advanced_display_postthumb_alt-from-desc"))) {
 							    $altattr = trim(strip_tags($imgdata['description']));
+							}
+							if (fau_empty($altattr)) {
+							    // falls es noch immer leer ist, geben wir an, dass dieses Bild ein Symbolbild ist und 
+							    // der Klick das Bild größer macht.
+							    $altattr = __('Symbolbild zum Artikel. Der Link öffnet das Bild in einer großen Anzeige.','fau');
 							}
 							echo '<figure>';
 							echo '<a class="lightbox" href="'.fau_esc_url($full_image_attributes[0]).'">';							

@@ -1,20 +1,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Search page
 /*-----------------------------------------------------------------------------------*/
-.search-sidebar {
-    @extend .col-sm-4;
-}
 
-
-.search-resultnested {
-    @extend .col-sm-8;
-    .row {
-	margin: 0;
-    }
-    li.search-result {
-	padding: 0;
-    }
-}
 .search-result {
 	margin-bottom: 11px;
 	article {

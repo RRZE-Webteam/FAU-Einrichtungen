@@ -139,7 +139,9 @@
     if ($is_sidebar_active) {
 	 $classes[] = 'with-sidebar';
     }
-    
+    if ( is_active_sidebar( 'search-sidebar' ) ) { 	
+	 $classes[] = 'with-search-sidebar';
+    }
     
     return $classes;
  }
@@ -525,8 +527,6 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
     $post = get_post($id);
     $output = '';
     if ($post) {
-	
-	
 	if (!is_int($hstart)) {
 	    $hstart = 2;
 	} elseif (($hstart < 1) || ($hstart >6)) {
@@ -587,7 +587,7 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	$output .= '<meta itemprop="author" content="'. esc_attr( $schemaauthor ).'"></div>';
 					
 	
-	$output .= '<div class="row">';  	
+	$output .= '<div class="teaser-row">';  	
 	$show_thumbs = get_theme_mod('default_postthumb_always');
 	
 	if ((has_post_thumbnail( $post->ID )) || ($show_thumbs==true))  {
@@ -599,13 +599,8 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 		$output .= ' ext-link';
 	    }
 	    $output .= '">';
-
-	    // $size =  'post-thumb';
-	    $size =  'rwd-480-3-2';
 	    
 	    $post_thumbnail_id = get_post_thumbnail_id( $post->ID); 
-	    
-	    
 	    $pretitle = get_theme_mod('advanced_blogroll_thumblink_alt_pretitle');
 	    $posttitle = get_theme_mod('advanced_blogroll_thumblink_alt_posttitle');
 	    $alttext = $pretitle.get_the_title($post->ID).$posttitle;
@@ -615,7 +610,6 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	    if (fau_empty($imagehtml)) {
 		$imagehtml = fau_get_image_fallback_htmlcode('post-thumb',$alttext,'',array('itemprop' => 'thumbnailUrl'));
 	    }
-	    
 	    $output .= $imagehtml;
 	    $output .= '</a>';
 	    $imgmeta = wp_get_attachment_image_src($post_thumbnail_id, 'rwd-480-3-2');

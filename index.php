@@ -11,21 +11,39 @@ if (isset($_GET['format']) && $_GET['format'] == 'embedded') {
     get_template_part('template-parts/index', 'embedded');
     return;
 }
-
+if ( is_active_sidebar( 'news-sidebar' ) ) { 
+    fau_use_sidebar(true);    
+}
 get_header();
 
 $posttype = get_post_type();
 $screenreadertitle = '';
-
+$herotype = get_theme_mod('advanced_header_template');
 if($posttype == 'event') {
 	get_template_part('template-parts/hero', 'events');
 	$screenreadertitle = get_theme_mod('title_hero_events');
 } elseif (($posttype == 'post') && (is_archive())) {
+    
+    if ($herotype=='banner') {
+	get_template_part('template-parts/hero', 'banner');
+    } elseif ($herotype=='slider') {	
+	get_template_part('template-parts/hero', 'sliderpage');
+    } else {
 	get_template_part('template-parts/hero', 'category');
-	$screenreadertitle = single_cat_title("", false);
+    }
+	
+    $screenreadertitle = single_cat_title("", false);
 
 } else {
-    get_template_part('template-parts/hero', 'index');
+     if ($herotype=='banner') {
+	get_template_part('template-parts/hero', 'banner');
+    } elseif ($herotype=='slider') {	
+	get_template_part('template-parts/hero', 'sliderpage');
+    } else {
+	get_template_part('template-parts/hero', 'index');
+    }
+	
+   
     $screenreadertitle = __('Index','fau');
 }
 ?>
@@ -37,9 +55,14 @@ if($posttype == 'event') {
 			<main class="entry-content">
 			<?php } else { ?>
 			<main class="col-xs-12">
-			<?php } ?>
+			<?php } 
+			    
+			    if (empty($herotype)) {   ?>
 			    <h1 class="screen-reader-text"><?php echo $screenreadertitle; ?></h1>
-			    <?php 
+			     <?php } else { ?>
+				  <h1><?php echo $screenreadertitle; ?></h1>
+			     <?php }
+			   
 			    
 			    $line=0;
 			    while ( have_posts() ) { 

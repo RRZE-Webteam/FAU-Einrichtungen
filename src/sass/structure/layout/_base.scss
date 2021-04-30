@@ -126,7 +126,10 @@ html, body, button {
 	    }
 	}
 	img {
-	    max-width: calc(100vw - (#{$grid-gutter-width} / 2));
+	    max-width: 100vw;
+	    @media (min-width: $screen-sm-min) {
+		max-width: calc(100vw - (#{$grid-gutter-width} / 2));
+	    }
 	    margin: 0;
 	    padding: 0;
 	    display: inline-block;

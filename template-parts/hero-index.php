@@ -15,7 +15,6 @@
 			<div class="col-xs-12">
 			    <?php fau_breadcrumb(); ?>			     
 			     <p class="presentationtitle"  aria-hidden="true" role="presentation"><?php echo __('Index','fau'); ?></p>
-				
 			</div>
 		</div>
 	</div>
