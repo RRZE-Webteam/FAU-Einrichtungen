@@ -37,6 +37,11 @@ while ( have_posts() ) : the_post();
 							if ((fau_empty($altattr)) && (get_theme_mod("advanced_display_postthumb_alt-from-desc"))) {
 							    $altattr = trim(strip_tags($imgdata['description']));
 							}
+							if (fau_empty($altattr)) {
+							    // falls es noch immer leer ist, geben wir an, dass dieses Bild ein Symbolbild ist und 
+							    // der Klick das Bild größer macht.
+							    $altattr = __('Symbolbild zum Artikel. Der Link öffnet das Bild in einer großen Anzeige.','fau');
+							}
 							echo '<figure>';
 							echo '<a class="lightbox" href="'.fau_esc_url($full_image_attributes[0]).'">';							
 							echo fau_get_image_htmlcode($post_thumbnail_id, 'rwd-480-3-2', $altattr);

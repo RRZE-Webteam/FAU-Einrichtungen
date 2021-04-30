@@ -53,7 +53,7 @@
 	
     }
     .entry-content {
-	min-width: 420px;
+	min-width: $screen-xxs;
 	 @media (min-width: $screen-sm) {
 	     max-width: calc(#{$container-sm} - #{$subnav-width-sm} - #{$grid-gutter-width});
 	     padding-left: $grid-gutter-width;
@@ -195,7 +195,7 @@
 	.entry-content,
 	.post {
 	    order: 1;
-	    min-width: 480px;	   
+	    min-width: $screen-xxs;	   
 	    width: 100%;  
 	    padding-left:  floor(($grid-gutter-width / 2));
 	    padding-right: ceil(($grid-gutter-width / 2));
