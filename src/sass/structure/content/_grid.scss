@@ -117,7 +117,7 @@
         display: block;
         width: 100%;
 	@media (min-width: $screen-sm) {
-	    max-width: calc(#{$sidebar-width-inline} + #{$grid-gutter-width} + 2px);
+	    width: calc(#{$sidebar-width-inline} + #{$grid-gutter-width} + 2px);
 	}
     }
     .content-inline {
@@ -134,13 +134,13 @@
 	&.with-sidebar {
 	    @media (min-width: $screen-sm) {
 		padding-right: ceil(($grid-gutter-width / 2));
-		max-width: calc(#{$container-sm} - #{$sidebar-width-inline} - #{$grid-gutter-width} - 2px);
+		width: calc(#{$container-sm} - #{$sidebar-width-inline} - #{$grid-gutter-width} - 2px);
 	    }
 	    @media (min-width: $screen-md) {
-		max-width: calc(#{$container-md} - #{$sidebar-width-inline} - #{$grid-gutter-width} - 2px);
+		width: calc(#{$container-md} - #{$sidebar-width-inline} - #{$grid-gutter-width} - 2px);
 	    }
 	    @media (min-width: $screen-lg) {
-		max-width: calc(#{$container-lg} - #{$sidebar-width-inline} - #{$grid-gutter-width} - 2px);
+		width: calc(#{$container-lg} - #{$sidebar-width-inline} - #{$grid-gutter-width} - 2px);
 	    }
 	    
 	}
