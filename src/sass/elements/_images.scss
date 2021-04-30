@@ -25,7 +25,10 @@ img {
 	height: auto;
 	vertical-align: middle;
 	border: 0;
-	
+    .wp-caption & {
+	max-width: 100%;
+    }
+    
     #map_canvas &,
     .google-maps & {
 	    max-width: none;
@@ -83,7 +86,9 @@ main {
 			max-width: 100vw;
 		    }
 		}
+		
 	}
+	
 }
 
 @media (max-width: $screen-xs) {

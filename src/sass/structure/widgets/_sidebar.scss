@@ -42,6 +42,12 @@
             margin-top: 0;
             padding-top: 0;
 	}
+	
+	.page-template-default  & {
+	    @media (min-width: $screen-md) {
+		 border-left: none;
+	    }
+	}
 
 
 }

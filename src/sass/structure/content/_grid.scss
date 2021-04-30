@@ -181,6 +181,7 @@
                 float: right;
                 width: $sidebar-width-inline;
                 flex: none; 
+		margin-left: floor(($grid-gutter-width / 2));
             }
             .content-inline {
                 width: 100%;

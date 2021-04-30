@@ -130,6 +130,8 @@ html, body, button {
 		    margin-right: calc((-#{$max-width-hero} + (#{$container-md} - (#{$grid-gutter-width} / 2) )) / 2);
 	    }
 	}
+	
+	main & img,
 	img.aligncenter,
 	img.alignleft,
 	img.alignright,
@@ -139,6 +141,8 @@ html, body, button {
 	    margin: 0 -15px;
 	    padding: 0;
 	    display: inline-block;
+	    box-shadow: none;
+	    border: none;
 	}
 }
 /* END full width image */
