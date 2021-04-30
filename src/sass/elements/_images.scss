@@ -75,6 +75,14 @@ main {
 		    margin: 0 auto;
 		    display: block;
 		}
+		
+		&.size-full, 
+		&.aligncenter {
+		    @media (max-width: $screen-xs) {
+			width: 100%;
+			max-width: 100vw;
+		    }
+		}
 	}
 }
 

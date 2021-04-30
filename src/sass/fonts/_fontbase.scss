@@ -4,5 +4,8 @@
 
 
 html {
-    font-size: $font-size-rembase;
+    font-size: $font-size-rembase-mobile;
+    @media (min-width: $screen-sm) {
+	font-size: $font-size-rembase;
+    }
 } 
