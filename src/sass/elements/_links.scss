@@ -54,7 +54,20 @@ a {
 	#hero &:focus {
 		text-decoration: underline;
 	}
+	
 }
+
+main {
+    a:focus-visible,
+    a:focus {
+	padding: 0.1rem;
+	outline-color: $colorPrimary;
+	outline-style: auto; 
+	outline-offset: 1px; 
+	text-decoration: none;
+    }
+}
+
 
 #footer .ext-link, 
 #hero .ext-link, 
