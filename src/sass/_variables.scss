@@ -166,6 +166,7 @@ $colorAbbr: #000;
 
 // Font sizes
 $font-size-rembase: 93.75%;
+$font-size-rembase-mobile: 100%;
 $font-size-gridbase: 15;
 $font-size-base: 15;
 
@@ -299,6 +300,22 @@ $break-1700: 1760px;
 // for 4k screens (2200px and more)
 $break-2200: 2200px;
 
+
+
+// Extra small screen / phone
+
+$screen-xs:                  480px;
+$screen-xs-min:              $screen-xs;
+
+$screen-sm:                  768px;
+$screen-sm-min:              $screen-sm;
+
+$screen-md:                  992px;
+$screen-md-min:              $screen-md;
+
+$screen-lg:                  1200px;
+$screen-lg-min:              $screen-lg;
+
 $screen-xl: 1760px;
 $screen-xxl: 3200px;
 $screen-xxs: 320px;
@@ -318,8 +335,9 @@ $screen-xl-min: $screen-xl;
 $screen-xl-max: ($screen-xxl - 1);
 $screen-xxl-min: $screen-xxl;
 
-$container-lg: 970px;
-$container-xl: 1000px;
+$container-lg: 1000px;
+// $container-lg: 970px;
+$container-xl: 1100px;
 $container-xxl: 1100px;
 
 // max width of the homepage hero image, used by the plugin "ILI FAU Templates"

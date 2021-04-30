@@ -62,6 +62,7 @@
 		    max-height: 65px;
 		    object-fit: contain;
 		    object-position: left;
+		    @include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
 		}
 	    }
 	    span {
