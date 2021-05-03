@@ -128,8 +128,11 @@
         order: 2;
         display: block;
         width: 100%;
+        padding-left:  floor(($grid-gutter-width / 2));
+	padding-right: ceil(($grid-gutter-width / 2));
 	@media (min-width: $screen-sm) {
 	    width: calc(#{$sidebar-width-inline} + #{$grid-gutter-width} + 2px);
+            padding-right: 0;
 	}
     }
     .content-inline {
