@@ -184,6 +184,7 @@ jQuery(document).ready(function ($) {
                     this._isExpanded = !this._isExpanded;
                     $(this).attr('aria-expanded', this._isExpanded ? 'true' : 'false');
                    //  $('#logo').toggle(!this._isExpanded);
+                    $('html, body').animate({scrollTop: '0px'}, 0);
 		    $body.toggleClass('nav-toggled', this._isExpanded);
                 });
             $(this).replaceWith($toggleButton);

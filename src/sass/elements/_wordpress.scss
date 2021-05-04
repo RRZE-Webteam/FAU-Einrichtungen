@@ -42,33 +42,14 @@ a img.aligncenter {
     margin-left: auto;
     margin-right: auto;
 }
+*/
 
 .wp-caption {
-    padding: 5px 3px 10px;
-    text-align: center;
+    max-width: 100%;
 }
 
-.wp-caption.alignnone {
-    margin: 5px 20px 20px 0;
-}
 
-.wp-caption.alignleft {
-    margin: 5px 20px 20px 0;
-}
 
-.wp-caption.alignright {
-    margin: 5px 0 20px 20px;
-}
-
-.wp-caption img {
-    border: 0 none;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    width: auto;
-}
-
-*/
 .sticky, 
 .gallery-caption, 
 .bypostauthor {

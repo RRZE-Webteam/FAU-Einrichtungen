@@ -64,6 +64,7 @@
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
+	max-width: 100%;
 }
 
 .alignleft {
@@ -88,6 +89,7 @@ div.aligncenter {
 	margin-bottom: 10px;
 	margin-left: auto;
 	margin-right: auto;
+	max-width: 100%;
 }
 
 
@@ -103,7 +105,6 @@ div.aligncenter {
 	padding: 0;
 	display: block;
 	margin: 5px auto;
-	max-width: 100%;
     }
 }
 
