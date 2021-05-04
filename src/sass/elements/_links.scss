@@ -5,23 +5,14 @@
 a {
 	color: $colorPrimary;
 	text-decoration: none;
-	
-	
-	&:hover,
-	&:active {
-		outline: 0;
-	}
+
 	&:active,
 	&:hover, 
 	&:focus {
 		color: $colorHover;
 		text-decoration: underline;
 	}
-	&:focus {	 
-	    outline: thin dotted #333;
-	    outline: 5px auto -webkit-focus-ring-color;
-	    outline-offset: -2px;
-	}
+
 	p &, 
 	li &, 
 	table &, 
@@ -121,9 +112,109 @@ a {
 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  :focus {
-    transition: outline-offset .25s ease;
-    outline-offset: 5px;
-  }
+// Additional link effects for Content
+// based on idea of https://codepen.io/giuliamalaroda/pen/QBOGdG
+main {
+    p, dd, dt, ul, li, td, tr {
+	/*
+	a:not(.media-img) {
+	      text-decoration-color: $colorPrimary;
+		position: relative;
+		z-index: 0;
+		display: inline-block;
+		overflow: hidden;
+		color: $colorPrimary;
+		vertical-align: bottom;
+		transition: color .3s ease-out;
+		text-decoration: none;
+
+	      
+	}
+	a:not(.media-img)::before {
+	       content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		transform: translateY(calc(100% - 2px));
+		width: 100%;
+		height: 100%;
+		background-image: linear-gradient(60deg, $colorPrimary 0%, $PalettonHeller 100%);
+		transition: transform .25s ease-out;
+		
+	}
+	
+	a:not(.media-img):focus,
+	a:not(.media-img):hover { 
+	    color: #fff;
+	}
+	 a:not(.media-img):focus::before,
+	 a:not(.media-img):hover::before {
+	       transform: translateY(0);
+	 }
+	@media (prefers-reduced-motion: no-preference) {
+	    a:not(.media-img):focus::before,
+	    a:not(.media-img):hover::before {
+	       transition: transform .25s ease-out;
+	    }
+	}
+	
+	*/
+	a {
+	    text-decoration: underline;
+	    text-decoration-color: $colorPrimary;  
+	}
+	a:hover,
+	a:focus {
+	    outline-style: solid;
+	    outline-color: $colorPrimary;
+	    outline-width: 2px;
+	    @media (prefers-reduced-motion: no-preference) {
+		transition: outline-offset .25s ease-in-out;
+	    }
+	    outline-offset: 4px;
+	}
+    }
+    a.media-img:hover, 
+    a.media-img:focus {
+	    outline-style: solid;
+	    outline-color: $colorPrimary;
+	    outline-width: 2px;
+	    @media (prefers-reduced-motion: no-preference) {
+		transition: outline-offset .25s ease-in-out;
+	    }
+	    outline-offset: 4px;
+	}
+	
+	a.media-img.alignleft {
+	    float: left;
+	    clear: both;
+	    margin-right: 20px;
+	    margin-bottom: 20px;
+	    img {
+		float: none;
+		margin: 0;
+	    }
+	}
+	a.media-img.alignright {
+	    float: right;
+	    clear: both;
+	    margin-left: 20px;
+	    margin-bottom: 20px;
+	    img {
+		float: none;
+		margin: 0;
+	    }
+	}
+	a.media-img.aligncenter {
+	    display: block;
+	    margin: 0 auto 10px auto;
+	    img {
+		display: inline-block;
+		margin: 0;
+	    }
+	}
 }
+
+
+	

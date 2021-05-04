@@ -166,16 +166,37 @@ function categories_postcount_filter ($variable) {
 }
 
 /*-----------------------------------------------------------------------------------*/
-/* Add rel lightbox to content images
+/* Add css class to linked images and lightbox to content images
 /*-----------------------------------------------------------------------------------*/
-add_filter('the_content', 'fau_addlightboxrel');
-function fau_addlightboxrel ($content) {
-    global $post;
-    $pattern = '/<a href=\"([^\"]+)\.(bmp|gif|jpeg|jpg|png)(?![\w.\-_])\">/i';
-    $replacement = '<a class="lightbox" href="$1.$2">';
-    $content = preg_replace($pattern, $replacement, $content);
+function fau_add_classes_to_linked_images($content) {
+    $classes = 'media-img'; // can do multiple classes, separate with space
+
+    if (preg_match('/<a href=\"([^\"]+)\.(bmp|gif|jpeg|jpg|png)(?![\w.\-_])\"><img/i', $content) ) {
+	// link geht auf die Bilddtaie direkt, ergänze daher die class lightbox, bisher keine class gesetzt
+	$pattern = '/<a href=\"([^\"]+)\.(bmp|gif|jpeg|jpg|png)(?![\w.\-_])\"><img/i';
+	$replacement = '<a class="lightbox" href="$1.$2"><img';
+	$content = preg_replace($pattern, $replacement, $content);
+    }
+
+    $patterns = array();
+    $replacements = array();
+    
+    // matches img tag wrapped in anchor tag where anchor tag where anchor has no existing classes
+    $patterns[0] = '/<a(?![^>]*class)([^>]*)>\s*<img([^>]*)>\s*<\/a>/'; 
+    $replacements[0] = '<a\1 class="' . $classes . '"><img\2></a>';
+
+    // matches img tag wrapped in anchor tag where anchor has existing classes contained in double quotes
+    $patterns[1] = '/<a([^>]*)class="([^"]*)"([^>]*)>\s*<img([^>]*)>\s*<\/a>/'; 
+    $replacements[1] = '<a\1class="' . $classes . ' \2"\3><img\4></a>';
+    $content = preg_replace($patterns, $replacements, $content);  
+    
+    // copy alignment to a class
+    $content = preg_replace('/<a ([^<>]*)\s*class="([^<>"]+)"\s*([^<>]*)><img ([^<>]*)\s*(aligncenter|alignright|alignleft)([^<>]*)>\s*<\/a>/mi', '<a $1 class="$2 $5" $3><img $4 $5 $6></a>', $content);
     return $content;
 }
+add_filter('the_content', 'fau_add_classes_to_linked_images', 10, 1);
+
+
 
 /*-----------------------------------------------------------------------------------*/
 /* Remove post class, we dont need
