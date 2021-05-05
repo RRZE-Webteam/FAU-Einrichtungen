@@ -78,12 +78,7 @@ get_template_part('template-parts/hero', 'sliderpage');
 					?>			    
 				    </main>	
 				</div>
-				<aside class="startpage-sidebar" aria-label="<?php echo __('Sidebar','fau');?>">
-					<?php
-					get_template_part('template-parts/sidebar', 'events'); 	
-					get_template_part('template-parts/sidebar');
-					?>
-				</aside>
+				<?php get_template_part('template-parts/sidebar', 'portal');?>
 			</div> <!-- /row -->
 			<?php  
 			
