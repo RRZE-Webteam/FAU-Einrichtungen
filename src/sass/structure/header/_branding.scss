@@ -89,7 +89,8 @@
 	}
     }
     @media (max-width: $screen-sm - 1) {
-	.md-showsitelogo & .branding {
+	
+	.md-showsitelogo:not(.nologo) & .branding {
 
 	    width: 100%;
 	    text-align: center;
