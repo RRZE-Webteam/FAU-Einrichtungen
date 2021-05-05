@@ -25,7 +25,7 @@
 				    <label for="suchmaske-hero"><?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:','fau'); ?></label>
 				    <span class="searchicon"> </span>
 				    <input id="suchmaske-hero" type="text" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>">
-				    <input type="submit" value="<?php _e('Finden','fau'); ?>">
+				    <input type="submit" enterkeyhint="search" value="<?php _e('Finden','fau'); ?>">
 				</div>
 				<?php
 				if (get_theme_mod('search_allowfilter')) {

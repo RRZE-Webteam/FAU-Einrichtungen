@@ -30,12 +30,9 @@ get_header(); ?>
 			?>
 		    </main> 
 		</div>
+		<?php get_template_part('template-parts/sidebar', 'portal');?>
 		
-		<aside class="portalpage-sidebar" aria-label="<?php echo __('Sidebar','fau');?>">
-		    <?php
-		    get_template_part('template-parts/sidebar', 'events'); 	
-		    get_template_part('template-parts/sidebar');  ?>
-		</aside>
+
 	    </div>
 		
 	    <?php  

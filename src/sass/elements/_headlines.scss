@@ -77,7 +77,10 @@ h2 {
 
 	
 	&.subtitle {
-		padding: 0 0 22px 0;		
+		padding: 0 0 22px 15px;
+		@media (min-width: $screen-sm) {
+		    padding-left: 0;
+		}
 	}
 	
 	&.menu-header {
