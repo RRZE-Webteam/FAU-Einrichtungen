@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 64,
+    'optiontable-version'	=> 65,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -190,11 +190,17 @@ $defaultoptions = [
 
     'advanced_post_active_subtitle'		=> true,
 
-    'advanced_page_sidebar_titleabove'	=> true,
-    'advanced_page_sidebar_titlebelow'	=> true,    
+    'advanced_page_sidebar_titleabove'		=> true,
+    'advanced_page_sidebar_titlebelow'		=> true,    
     'advanced_page_sidebar_useeditor_textabove'	=> false,
     'advanced_page_sidebar_useeditor_textbelow'	=> false,
-
+    
+    'advanced_page_sidebar_wpsidebar'		=> false,
+	// wenn true, wird die Siderbar fuer Pages aktiviert
+    'advanced_page_sidebar_wpsidebar_id'	=> 'page-sidebar',
+	// Sidebar Id
+    
+    
     'advanced_page_sidebar_personen_title'	=> __('Kontakt','fau'), 
     'advanced_page_sidebar_linkblock1_number'	=> 3, 
     'advanced_page_sidebar_linkblock2_number'	=> 3,
@@ -1263,7 +1269,13 @@ $setoptions = array(
 		  'max'   => 10,
 		  'parent'  => 'sidebaropt'
 		), 
-	       
+	        'advanced_page_sidebar_wpsidebar'		  => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Aktiviere Widget-Funktion', 'fau' ),
+                  'label'   => __( 'Widgets die auf allen Seiten angezeigt werden sollen. Sollten Seitenspezifische Inhalte in der Sidebar angegeben worden sein, wird diese Sidebar darunter folgen. Diese Sidebar-Inhalte werden nicht auf Beiträgen gezeigt.', 'fau' ),                
+                  'default' => $defaultoptions['advanced_page_sidebar_wpsidebar'],
+		  'parent'  => 'sidebaropt'
+              ), 
 
 	       
 	       

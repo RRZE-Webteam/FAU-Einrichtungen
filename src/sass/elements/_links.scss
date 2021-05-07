@@ -113,58 +113,21 @@ a {
 }
 
 // Additional link effects for Content
-// based on idea of https://codepen.io/giuliamalaroda/pen/QBOGdG
+
 main {
     p, dd, dt, ul, li, td, tr {
-	/*
-	a:not(.media-img) {
-	      text-decoration-color: $colorPrimary;
-		position: relative;
-		z-index: 0;
-		display: inline-block;
-		overflow: hidden;
-		color: $colorPrimary;
-		vertical-align: bottom;
-		transition: color .3s ease-out;
-		text-decoration: none;
-
-	      
-	}
-	a:not(.media-img)::before {
-	       content: "";
-		position: absolute;
-		z-index: -1;
-		top: 0;
-		left: 0;
-		transform: translateY(calc(100% - 2px));
-		width: 100%;
-		height: 100%;
-		background-image: linear-gradient(60deg, $colorPrimary 0%, $PalettonHeller 100%);
-		transition: transform .25s ease-out;
-		
-	}
 	
-	a:not(.media-img):focus,
-	a:not(.media-img):hover { 
-	    color: #fff;
-	}
-	 a:not(.media-img):focus::before,
-	 a:not(.media-img):hover::before {
-	       transform: translateY(0);
-	 }
-	@media (prefers-reduced-motion: no-preference) {
-	    a:not(.media-img):focus::before,
-	    a:not(.media-img):hover::before {
-	       transition: transform .25s ease-out;
-	    }
-	}
 	
-	*/
 	a {
 	    text-decoration: underline;
-	    text-decoration-color: $colorPrimary;  
+	    text-decoration-color: $colorPrimary;
 	}
-	a:hover,
+	a:active,
+	a:focus, 
+	a:hover {
+	   font-weight: bold;
+	}
+
 	a:focus {
 	    outline-style: solid;
 	    outline-color: $colorPrimary;
@@ -174,6 +137,9 @@ main {
 	    }
 	    outline-offset: 4px;
 	}
+	
+	
+	
     }
     a.media-img:hover, 
     a.media-img:focus {
@@ -218,3 +184,65 @@ main {
 
 
 	
+/*
+Not used variants:
+
+:not(.fau-person) a {
+	    text-decoration: none;	    
+	    box-shadow: inset 0 -1px 0 $colorPrimary;
+	    border-bottom: 1px solid $colorPrimary;
+	    transition: box-shadow 0.2s ease-in-out;
+	}
+	:not(.fau-person) a:focus,
+	:not(.fau-person) a:hover {
+	    box-shadow: inset 0 -28px 0 $PalettonHeller;
+	    color: white;
+	}
+	
+
+// or based on idea of https://codepen.io/giuliamalaroda/pen/QBOGdG
+
+
+a:not(.media-img) {
+	      text-decoration-color: $colorPrimary;
+		position: relative;
+		z-index: 0;
+		display: inline-block;
+		overflow: hidden;
+		color: $colorPrimary;
+		vertical-align: bottom;
+		transition: color .3s ease-out;
+		text-decoration: none;
+
+	      
+	}
+	a:not(.media-img)::before {
+	       content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		transform: translateY(calc(100% - 2px));
+		width: 100%;
+		height: 100%;
+		background-image: linear-gradient(60deg, $colorPrimary 0%, $PalettonHeller 100%);
+		transition: transform .25s ease-out;
+		
+	}
+	
+	a:not(.media-img):focus,
+	a:not(.media-img):hover { 
+	    color: #fff;
+	}
+	 a:not(.media-img):focus::before,
+	 a:not(.media-img):hover::before {
+	       transform: translateY(0);
+	 }
+	@media (prefers-reduced-motion: no-preference) {
+	    a:not(.media-img):focus::before,
+	    a:not(.media-img):hover::before {
+	       transition: transform .25s ease-out;
+	    }
+	}
+
+	*/

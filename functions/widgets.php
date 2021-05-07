@@ -14,7 +14,7 @@ global $wp_embed, $options;
 /* Registers our main widget area and the front page widget areas.
 /*-----------------------------------------------------------------------------------*/
 function fau_sidebars_init() {
-
+    global $defaultoptions;
 	register_sidebar( array(
 		'name' => __( 'News Sidebar', 'fau' ),
 		'id' => 'news-sidebar',
@@ -87,7 +87,18 @@ function fau_sidebars_init() {
 		'after_widget' => '</div>',
 	    ) );
 	}
-	
+	$page_sidebar = get_theme_mod('advanced_page_sidebar_wpsidebar');
+	if ($page_sidebar) {
+	    register_sidebar( array(
+		'name' => __( 'Seiten Sidebar', 'fau' ),
+		'id' => $defaultoptions['advanced_page_sidebar_wpsidebar_id'],
+		'description' => __('Widgets die auf allen Seiten angezeigt werden sollen. Sollten Seitenspezifische Inhalte in der Sidebar angegeben worden sein, wird diese Sidebar darunter folgen. Diese Sidebar-Inhalte werden nicht auf Beiträgen gezeigt.', 'fau' ),
+		'before_title' => '<h3>',
+		'after_title' => '</h3>',
+		'before_widget' => '<div class="page-sidebar-widgets">',
+		'after_widget' => '</div>',
+	    ) );
+	}
 	
 	
 }

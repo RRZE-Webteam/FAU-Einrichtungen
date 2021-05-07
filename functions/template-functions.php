@@ -29,8 +29,23 @@
     if (function_exists( 'wpel_init' )) {
 	 $classes[] = 'wp-external-links';
     }
+    $posttype = get_post_type();
     
-
+    
+    $page_sidebar = get_theme_mod('advanced_page_sidebar_wpsidebar');
+    if ( ($posttype == 'page') && $page_sidebar && is_active_sidebar( $defaultoptions['advanced_page_sidebar_wpsidebar_id'] ) ) { 
+	$is_sidebar_active = true;
+	$classes[] = 'page-sidebar';
+    }
+    if (($posttype == 'post') &&  is_active_sidebar( 'news-sidebar' )  ) { 
+	$is_sidebar_active = true;
+	$classes[] = 'post-sidebar';
+    }
+    if ($is_sidebar_active) {
+	 $classes[] = 'with-sidebar';
+    }
+    
+    
     if ((! is_plugin_active( 'rrze-elements/rrze-elements.php' ) )
 	// && (! is_plugin_active( 'rrze-faq/rrze-faq.php' ) )) {
 	&& (! is_plugin_active( 'rrze-glossary/rrze-glossary.php' ) )) {
@@ -136,9 +151,7 @@
 	    
     }
 
-    if ($is_sidebar_active) {
-	 $classes[] = 'with-sidebar';
-    }
+    
     if ( is_active_sidebar( 'search-sidebar' ) ) { 	
 	 $classes[] = 'with-search-sidebar';
     }

@@ -1,0 +1,63 @@
+/*
+    "Outside the box" in verschiedenen Umgebungen
+    Created on : 07.05.2021, 11:51:49
+
+*/
+ .outside-the-box-full-width {
+
+	width: 100vw;
+	max-width: calc(100vw - #{$grid-gutter-width});
+	max-width: -moz-available;
+	
+	.with-sidebar #content .post-row .entry-content &, 
+	.with-sidebar #content .post-row .post & {
+	    max-width: calc(100vw - (#{$grid-gutter-width} / 2 ));
+	}
+	
+	padding: 0;
+	display: inline-block; 
+	margin-left: calc(-#{$grid-gutter-width} / 2);
+        margin-right: calc(-#{$grid-gutter-width} / 2);
+
+	@media (min-width: $screen-sm) {
+		margin-left: calc(-50vw + ( (#{$container-sm} - (#{$grid-gutter-width} / 2)) / 2));
+		margin-right: calc(-50vw + ( (#{$container-sm} - (#{$grid-gutter-width} / 2))  / 2));
+	}
+	@media (min-width: $screen-md) {
+		margin-left: calc(-50vw + ( (#{$container-md} - (#{$grid-gutter-width} / 2)) / 2));
+		margin-right: calc(-50vw + ( (#{$container-md} - (#{$grid-gutter-width} / 2))  / 2));
+	}
+	@media (min-width: $screen-lg) {
+		margin-left: calc(-50vw + ( (#{$container-lg} - (#{$grid-gutter-width} / 2)) / 2));
+		margin-right: calc(-50vw + ( (#{$container-lg} - (#{$grid-gutter-width} / 2))  / 2));
+	}
+
+
+	img {
+	    box-shadow: none;
+            border: none;
+	    margin: 0;
+	  
+	}
+	img.aligncenter {
+	    margin: 0 auto;
+	}
+	img.size-full {
+	    width: 100vw;
+	      float: none;
+	}
+	img.alignright {
+	    width: 50vw;
+	    text-align: right;
+	    margin: 0;
+	}
+	img.alignleft {
+	    width: 50vw;
+	    text-align: left;
+	    margin: 0;
+	}
+
+ 
+ }
+
+
