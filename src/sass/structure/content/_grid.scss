@@ -216,8 +216,7 @@
 	@media (min-width: $screen-lg) {
 		max-width: calc(#{$container-lg} - #{$grid-gutter-width});
 	}
-	.entry-content,
-	.post {
+	.entry-content{
 	    order: 1;
 	    min-width: $screen-xxs;	   
 	    width: 100%;  
