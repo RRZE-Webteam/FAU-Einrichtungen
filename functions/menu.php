@@ -818,15 +818,14 @@ function fau_breadcrumb($lasttitle = '') {
   $delimiter	= $defaultoptions['breadcrumb_delimiter'];
   $home		= $defaultoptions['breadcrumb_root'];
   $before	= $defaultoptions['breadcrumb_beforehtml'];
-  $after		= $defaultoptions['breadcrumb_afterhtml'];
+  $after	= $defaultoptions['breadcrumb_afterhtml'];
   $showcurrent	= $defaultoptions['breadcrumb_showcurrent'];
 
   $pretitletextstart   = '<span>';
   $pretitletextend     = '</span>';
 
 
-  echo '<nav aria-labelledby="bc-title" class="breadcrumbs">';
-  echo '<h2 class="screen-reader-text" id="bc-title">'.__('Breadcrumb','fau').'</h2>';
+  echo '<nav aria-label="'.__('Breadcrumb','fau').'" class="breadcrumbs">';
     if (get_theme_mod('breadcrumb_withtitle')) {
 	echo '<p class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo( 'title' ).'</p>';
 	echo "\n";
@@ -863,7 +862,7 @@ function fau_breadcrumb($lasttitle = '') {
 	if ( get_post_type() != 'post' ) {
 	    $post_type = get_post_type_object(get_post_type());
 	    $slug = $post_type->rewrite;
-	    echo '<a href="' . $homeLink . $slug['slug'] . '">' . $post_type->labels->singular_name . '</a>' .$delimiter;
+	    echo '<a href="' . $homeLink . $slug['slug'] . '">' . $post_type->labels->name . '</a>' .$delimiter;
 	    if ($showcurrent) {
 		echo $before . get_the_title() . $after;
 	    }
@@ -885,7 +884,7 @@ function fau_breadcrumb($lasttitle = '') {
 	}
     } elseif ( !is_single() && !is_page() && !is_search() && get_post_type() != 'post' && !is_404() ) {
 	$post_type = get_post_type_object(get_post_type());
-	echo $before . $post_type->labels->singular_name . $after;
+	echo $before . $post_type->labels->name . $after;
 
     } elseif ( is_attachment() ) {
 	$parent = get_post($post->post_parent);
@@ -972,13 +971,16 @@ function fau_get_socialmedia_menu($name = '', $ulclass = '', $withog = true) {
 		    }
 
 		    $thislist .= '<a data-wpel-link="internal" ';
+		    $attr_title = esc_attr($menu_item->attr_title);
+		    if ($attr_title) {
+			$thislist .= 'title="'.$attr_title.'" ';
+		    }
 		    if ($withog) {
 			 $thislist .= 'itemprop="sameAs" ';
 		    }
 		    $thislist .= 'href="' . $url . '">' . $title . '</a></li>';
 		}
 	 $thislist .= '</ul>';
-
     }
     return $thislist;
 }
@@ -1016,9 +1018,9 @@ function fau_get_page_subnav($id) {
     }
 
 
-    $thismenu .= '<h2 id="subnavtitle" class="small menu-header">';
+    $thismenu .= '<header id="subnavtitle" class="small menu-header">';
     $thismenu .= '<span class="screen-reader-text">'.__('Bereichsnavigation:', 'fau').' </span><a href="'.get_permalink($parent->ID).'">'.$parent->post_title.'</a>';
-    $thismenu .= '</h2>';
+    $thismenu .= '</header>';
     $thismenu .= '<ul id="subnav">';
     $thismenu .= wp_list_pages(array(
 	    'child_of'	=> $parent_page,

@@ -15,24 +15,28 @@ get_template_part('template-parts/hero', 'error');
 	<section id="content">
 		<div class="container">
 			<div class="row">
-			    <h1 class="screen-reader-text"><?php echo __('Seite nicht gefunden','fau'); ?></h1>
-			    
-			    <div class="error-notice">
-				<p class="hinweis">
-					<strong><?php _e('Es tut uns leid.','fau'); ?></strong>
-				</p>
-				<p>
-					<?php _e('Die von Ihnen aufgerufene Seite existiert nicht oder ihre Adresse hat sich durch Änderungen an der Seitenstruktur geändert.','fau'); ?>
-				</p>
+			    <div class="col-xs-12">
+			    <main<?php echo fau_get_page_langcode($post->ID);?> id="droppoint" class="error-content">
+				<h1 class="screen-reader-text"><?php echo __('Seite nicht gefunden','fau'); ?></h1>
 
-			    </div>
-			    <div class="error-image"></div>
-			    <div class="error-search">
-				    <?php get_template_part('template-parts/search', 'try');  ?>
-			    </div>
+				<div class="error-notice">
+				    <p class="hinweis">
+					    <strong><?php _e('Es tut uns leid.','fau'); ?></strong>
+				    </p>
+				    <p>
+					    <?php _e('Die von Ihnen aufgerufene Seite existiert nicht oder ihre Adresse hat sich durch Änderungen an der Seitenstruktur geändert.','fau'); ?>
+				    </p>
+
+				</div>
+				<?php 
+				get_template_part('template-parts/error', 'siegel');   
+				get_template_part('template-parts/error', 'trysearch');  
+				?>
+    
+			    </main>
 			</div>
 			<?php get_template_part('template-parts/search', 'helper');  ?>
-
+		    </div>
 		</div>
     		
 	</section>

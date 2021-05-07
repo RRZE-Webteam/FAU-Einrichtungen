@@ -1,0 +1,108 @@
+/*-----------------------------------------------------------------------------------*/
+/* Images
+/*-----------------------------------------------------------------------------------*/
+
+
+.img-rounded {
+	@include border-radius(6px);
+}
+
+.img-polaroid {
+	padding: 4px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	@include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+}
+
+.img-circle {
+	@include border-radius(500px);
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+    .wp-caption & {
+	max-width: 100%;
+    }
+    
+    #map_canvas &,
+    .google-maps & {
+	    max-width: none;
+    } 
+    
+    &.alignleft{
+	float: left;
+	clear: both;
+	margin-right: 20px;
+	margin-bottom: 20px;
+    }
+    &.alignright {
+	float: right;
+	clear: both;
+	margin-left: 20px;
+	margin-bottom: 20px;
+    }
+    &.aligncenter {
+	display: block;
+	margin: 0 auto 10px auto;
+    }
+
+}
+
+
+main {	
+	img {
+		@include box-shadow(none);
+		@media (min-width: $screen-sm) {
+		    @include box-shadow(0 1px 2px rgba(0,0,0,0.3));
+		}
+		&.shadow {
+		    @include box-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
+		}
+		&.thickborder {
+		    border: 1px solid black;
+		    @include border-radius(2px);
+		}
+                &.borderless {
+		    border: none;
+		}
+                &.noshadow {
+		   box-shadow: none;
+		}
+		&.error-siegel {
+		    @include box-shadow(none);
+		    margin: 0 auto;
+		    display: block;
+		}
+		
+		&.size-full, 
+		&.aligncenter {
+		    @media (max-width: $screen-xs) {
+			width: 100%;
+			max-width: 100vw;
+		    }
+		}
+		
+		
+		
+		
+            
+	}
+	
+}
+
+@media (max-width: $screen-xs) {
+    img.alignleft, 
+    img.alignright {
+	float: none;
+	padding: 0;
+	display: block;
+	margin: 5px auto;
+	max-width: $screen-xs;
+    }
+}
+

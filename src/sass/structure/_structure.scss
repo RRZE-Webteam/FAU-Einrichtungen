@@ -1,0 +1,31 @@
+/*-----------------------------------------------------------------------------------*/
+/* Structural 
+/*-----------------------------------------------------------------------------------*/
+
+// Add grid extention
+// @import "grid-extention";
+
+
+// Layout - Rahmen, grundlegende Struktur gesamte Website
+@import "layout/layout";
+
+// Header Region
+@import "header/header";
+
+// Navigation
+@import "navigation/navigation";
+
+// Hero
+@import "hero/hero";
+
+
+// Content specials
+@import "content/content";
+
+
+// Widgets
+@import "widgets/widgets";
+
+// Footer
+@import "footer/footer";
+

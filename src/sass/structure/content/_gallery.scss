@@ -1,0 +1,399 @@
+/*-----------------------------------------------------------------------------------*/
+/* Gallery in content 
+/*-----------------------------------------------------------------------------------*/
+
+
+.image-gallery {
+    margin: 10px -15px 20px -15px;
+    @media (min-width: $screen-sm-min) {
+	 margin: 10px 0 20px 0;
+    }
+    clear: both;
+    
+    figure {
+	img {
+	    width: 100%;
+	    height: auto;	
+	    box-shadow: none;
+	}
+	figcaption {
+	    @include px2rem($font-size-image-caption);
+	    color: $PalettonDunkler;
+	    padding: 5px;
+	}
+    }
+    figure:not(.with-caption) {
+	img {  
+	    object-fit: cover;
+	    
+		    min-height: 100%;
+		    min-width: 100%;
+		    width: 100%;
+		    height: auto;
+		    max-width: none;
+		    max-height: none;
+
+	    
+	}
+
+    }
+    
+    
+    .grid {
+	.two, 
+	.three,
+	.four, 
+	.five {
+	    .row {
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: 0;
+		margin-right: 0;
+	    }
+	    figure {
+		padding: 5px;
+	
+	    }
+	}
+	.two {	    
+	    figure {
+		width: calc(50% - 1px);
+		
+	    }
+	}
+	.three {
+	    figure {
+		width: calc(33% - 1px);
+	    }
+	}
+	.four {
+	    figure {
+		@extend .col-xs-6;
+		@media (min-width: $screen-sm-min) {
+		    width: calc(25% - 1px);
+		    // Rundungsfehler auschliessen: 
+		    // Hintergurnd: 666 / 4 = 166,5; würde auf 167 aufgerundet werden 
+		    // und dann leider dazu führen, dass der grid doch umbricht.
+		}
+	    }
+	}
+	.five {
+	    figure {
+		@extend .col-xs-6;
+		@media (min-width: $screen-sm-min) {
+		    width: calc(20% - 1px);
+		}
+	    }
+	}
+	.flexgrid {
+	    display: flex; 
+	    flex-wrap: wrap; 
+	    
+	    
+	    figure { 
+		border: 1px solid #e9edf2;
+		text-align: center;
+		height: auto;
+		margin: 5px;
+		overflow: hidden;
+		flex: 1 1 190px;
+		
+	
+	    }
+	    figure:not(.with-caption) { 
+		overflow: hidden;
+		
+		img {
+		    transition: transform 1s;
+		    object-fit: cover;		    
+		    min-height: 100%;
+		    min-width: 100%;
+		    width: 100%;
+		    height: auto;
+		    max-width: none;
+		    max-height: none;
+
+		}
+		:hover {
+		    img {
+			transform: scale(1.2);
+		    }
+		}
+	    }
+
+	    
+	}
+	
+	
+    }
+    .gallery-slick {
+	figure,
+	.gallery-image-caption {
+	    text-align: center;
+	    @include px2rem($font-size-image-caption);
+	    color: $PalettonDunkler;
+	    padding: 5px;
+	}
+	.slick-slider {
+	    img {
+		margin: 0 auto;
+	    }
+	}
+	.slider-nav-width {
+	   width: 90%;
+	   width: calc(100% - 100px);
+	   margin: 20px auto 10px;
+	
+	    .slick-slide {
+		cursor: pointer;
+		max-height: 150px;
+		overflow: hidden;
+		margin-left: 5px;
+		margin-right: 5px;
+		height: auto;
+		    
+		.page-template-page-subnav & {
+		    max-height: 80px;
+		}
+		
+		img {
+		    object-fit: fill;
+		    min-width: 200px;
+		    min-height: 150px;
+		    
+		    .page-template-page-subnav & {
+			min-width: 120px;
+			min-height: 80px;
+		    }
+		  
+		    
+		}
+	    
+		
+	    }
+	   
+	    
+	    
+	}
+	.slider-nav-width.slick-dotted {
+	    margin-bottom: 30px;
+	}
+	
+	.slick-prev,
+	.slick-next {
+		position: absolute;
+		display: block;
+		height: 40px;
+		width: 40px;
+		line-height: 0px;
+		font-size: 0px;
+		cursor: pointer;
+		background: transparent;
+		color: transparent;
+
+
+		top: 75%;
+		@include transform-translate(0, -75%);
+
+		@media (min-width: $screen-xs) {
+			top: 50%;
+			@include transform-translate(0, -50%);
+		}
+
+		padding: 0;
+		border: none;
+		outline: none;
+
+
+		&:hover,
+		&:focus {
+			outline: none;
+			background: transparent;
+			color: $slick-arrow-color;
+
+			&:before {
+				opacity: $slick-opacity-on-hover;
+			}
+		}
+
+		&.slick-disabled:before {
+			opacity: $slick-opacity-not-active;
+		}
+
+		&:before {
+			font-size: 40px;
+			line-height: 1;
+			color: $colorPrimary;
+			opacity: $slick-opacity-default;
+
+		}
+
+	}
+
+	.slick-prev {
+		left: -40px;
+
+		[dir="rtl"] & {
+			left: auto;
+			right: -40px;
+		}
+
+		@media (min-width: $break-1360) {
+			left: -50px;
+			[dir="rtl"] & {
+				left: auto;
+				right: -50px;
+			}
+		}
+
+
+		&:before {
+			@extend .fa;
+			@extend .fa-chevron-left;
+
+			[dir="rtl"] & {
+				@extend .fa-chevron-right;
+			}
+		}
+
+	}
+
+	.slick-next {
+		right: -40px;
+
+		[dir="rtl"] & {
+			left: -40px;
+			right: auto;
+		}
+
+		@media (min-width: $break-1360) {
+			right: -50px;
+			[dir="rtl"] & {
+				left: -50px;
+				right: auto;
+			}
+		}
+
+
+		&:before {
+			@extend .fa;
+			@extend .fa-chevron-right;
+
+			[dir="rtl"] & {
+				@extend .fa-chevron-left;
+			}
+		}
+
+	}
+
+
+	.slick-startstop {
+		position: absolute;
+		display: block;
+		top: 20px;
+		right: 0px;
+
+		@media (min-width: $screen-xxs) {
+			top: 0px;
+			// bottom: 0;
+		}
+		@media (min-width: $screen-xs) {
+			top: 20px;
+			bottom: inherit;
+		}
+		@media (min-width: $screen-md) {
+			top: 5px;
+		}
+
+		background: $colorCopyrightBackground;
+		color: $colorCopyright;
+		@include px2rem($font-size-hero-slider-copyright);
+		margin: 0;
+		padding: 1px 4px;
+		border: none;
+
+		&:hover,
+		&:focus {
+			color: #fff;
+			background: #000;
+			transition-timing-function: ease;
+			text-decoration: underline;
+		}
+
+		.no-js & {
+			display: none;
+		}
+	}
+	
+	
+	
+	.slick-dots {
+	    position: absolute;
+	    display: block;
+	    width: 100%;
+	    padding: 0;
+	    margin: 15px auto 15px auto;
+	    list-style: none;
+	    text-align: center;
+	    li {
+
+		position: relative;
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		margin: 0 5px;
+		padding: 0;
+		cursor: pointer;
+		
+		button {
+		    
+		    display: block;
+		    width: 20px;
+		    height: 20px;
+		    padding: 5px;
+		    cursor: pointer;
+		    color: transparent;
+		    border: 0;
+		    outline: none;
+		    background: transparent;
+
+		    &:before {
+			@extend .fa;
+			content: "\f111";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 20px;
+			height: 20px;
+		
+			text-align: center;
+			opacity: .25;
+			color: $colorPrimary;
+
+		    }
+		    
+		     &:hover, &:focus {
+			    outline: none;
+			    &:before {
+				opacity: 1;
+			    }
+			}
+  
+		}
+		 &.slick-active button:before {
+		     opacity: 1;
+		 }
+	    }
+	}
+    }
+    &.nospace .grid {
+	.flexgrid, .one, .two, .three, .four, .five {
+	    figure {
+		padding: 0;
+		margin: 0;
+		border: none;
+	    }
+	}
+    }
+    
+}

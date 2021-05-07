@@ -1,0 +1,248 @@
+/*-----------------------------------------------------------------------------------*/
+/* Links
+/*-----------------------------------------------------------------------------------*/
+
+a {
+	color: $colorPrimary;
+	text-decoration: none;
+
+	&:active,
+	&:hover, 
+	&:focus {
+		color: $colorHover;
+		text-decoration: underline;
+	}
+
+	p &, 
+	li &, 
+	table &, 
+	.accordion-inner & {
+		text-decoration: underline;
+	}
+	
+	li.search-result & {
+	    text-decoration: none;
+
+	    &:hover, 
+	    &:focus {
+		text-decoration: underline;
+	    }
+	    
+	}
+
+	
+	
+	table &:hover, 
+	table &:focus,
+	&.tag-cloud-link,
+	#hero & {
+		text-decoration: none;
+	}
+	
+	&.tag-cloud-link:hover,
+	&.tag-cloud-link:focus,
+	#hero &:hover, 
+	#hero &:focus {
+		text-decoration: underline;
+	}
+}
+
+#footer .ext-link, 
+#hero .ext-link, 
+#nav .ext-link {
+	padding-right: 0 !important;
+	background-image: none !important;
+}
+
+
+
+.news-more-links {
+	padding: 20px 0;
+	text-align: left;
+	
+	a {
+		@include inline-block;
+		margin-right: 15px;
+	}
+
+	.news-rss:before {
+		@extend .fa;
+		@extend .fa-lg;
+		@extend .fa-rss-square;
+		padding-right: 5px;
+	}
+	
+	.news-more {
+		color: $colorButton;
+		background: $colorButtonBackground;
+		padding: 6px 10px;
+		text-decoration: none;
+		@include border-radius(3px);
+		@include px2rem($font-size-textbuttons);
+		
+		
+		&:hover, &:focus {
+			background: $colorButtonBackgroundHover;
+		}
+	}
+}
+
+
+//Special Links
+
+.top-link {
+	position: fixed;
+	bottom: 20px; 
+	right: 20px;
+
+	background: $colorPrimary;
+	
+	
+	color: #fff;
+	padding: 7px;
+	@include border-radius(4px);
+	
+	&:hover, 
+	    &:focus {
+		color: #fff;
+		background: $colorHover;
+	}
+	
+	display: none;
+
+}
+
+// Additional link effects for Content
+
+main {
+    p, dd, dt, ul, li, td, tr {
+	
+	
+	a {
+	    text-decoration: underline;
+	    text-decoration-color: $colorPrimary;
+	}
+	a:active,
+	a:focus, 
+	a:hover {
+	   font-weight: bold;
+	}
+
+	a:focus {
+	    outline-style: solid;
+	    outline-color: $colorPrimary;
+	    outline-width: 2px;
+	    @media (prefers-reduced-motion: no-preference) {
+		transition: outline-offset .25s ease-in-out;
+	    }
+	    outline-offset: 4px;
+	}
+	
+	
+	
+    }
+    a.media-img:hover, 
+    a.media-img:focus {
+	    outline-style: solid;
+	    outline-color: $colorPrimary;
+	    outline-width: 2px;
+	    @media (prefers-reduced-motion: no-preference) {
+		transition: outline-offset .25s ease-in-out;
+	    }
+	    outline-offset: 4px;
+	}
+	
+	a.media-img.alignleft {
+	    float: left;
+	    clear: both;
+	    margin-right: 20px;
+	    margin-bottom: 20px;
+	    img {
+		float: none;
+		margin: 0;
+	    }
+	}
+	a.media-img.alignright {
+	    float: right;
+	    clear: both;
+	    margin-left: 20px;
+	    margin-bottom: 20px;
+	    img {
+		float: none;
+		margin: 0;
+	    }
+	}
+	a.media-img.aligncenter {
+	    display: block;
+	    margin: 0 auto 10px auto;
+	    img {
+		display: inline-block;
+		margin: 0;
+	    }
+	}
+}
+
+
+	
+/*
+Not used variants:
+
+:not(.fau-person) a {
+	    text-decoration: none;	    
+	    box-shadow: inset 0 -1px 0 $colorPrimary;
+	    border-bottom: 1px solid $colorPrimary;
+	    transition: box-shadow 0.2s ease-in-out;
+	}
+	:not(.fau-person) a:focus,
+	:not(.fau-person) a:hover {
+	    box-shadow: inset 0 -28px 0 $PalettonHeller;
+	    color: white;
+	}
+	
+
+// or based on idea of https://codepen.io/giuliamalaroda/pen/QBOGdG
+
+
+a:not(.media-img) {
+	      text-decoration-color: $colorPrimary;
+		position: relative;
+		z-index: 0;
+		display: inline-block;
+		overflow: hidden;
+		color: $colorPrimary;
+		vertical-align: bottom;
+		transition: color .3s ease-out;
+		text-decoration: none;
+
+	      
+	}
+	a:not(.media-img)::before {
+	       content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		transform: translateY(calc(100% - 2px));
+		width: 100%;
+		height: 100%;
+		background-image: linear-gradient(60deg, $colorPrimary 0%, $PalettonHeller 100%);
+		transition: transform .25s ease-out;
+		
+	}
+	
+	a:not(.media-img):focus,
+	a:not(.media-img):hover { 
+	    color: #fff;
+	}
+	 a:not(.media-img):focus::before,
+	 a:not(.media-img):hover::before {
+	       transform: translateY(0);
+	 }
+	@media (prefers-reduced-motion: no-preference) {
+	    a:not(.media-img):focus::before,
+	    a:not(.media-img):hover::before {
+	       transition: transform .25s ease-out;
+	    }
+	}
+
+	*/

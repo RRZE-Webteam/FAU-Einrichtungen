@@ -336,3 +336,16 @@ $default_fau_page_menuuebenen = array(
     "2"	=> __('Zwei Ebenen','fau'),
     "3"	=> __('Drei Ebenen','fau'),
 );
+
+
+$default_fau_svgsymbols = array(
+    "arrow-down"	=> '<svg><symbol id="bi-arrow-down" viewBox="0 0 16 16"><title>'.__('Pfeil nach unten','fau').'</title><path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/></symbol></svg>',
+    "arrow-left"	=> '<svg><symbol id="bi-arrow-left" viewBox="0 0 16 16"><title>'.__('Pfeil nach links','fau').'</title><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/></symbol></svg>',
+    "arrow-right"	=> '<svg><symbol id="bi-arrow-right" viewBox="0 0 16 16"><title>'.__('Pfeil nach rechts','fau').'</title><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></symbol></svg>',
+    "arrow-up"		=> '<svg><symbol id="bi-arrow-up" viewBox="0 0 16 16"><title>'.__('Pfeil nach oben','fau').'</title><path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/></symbol></svg>',
+    "caret-down-fill"	=> '<svg><symbol id="bi-caret-down-fill" viewBox="0 0 16 16"><title>'.__('Dreickspfeil nach unten','fau').'</title><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></symbol></svg>',
+    "caret-right-fill"	=> '<svg><symbol id="bi-caret-right-fill" viewBox="0 0 16 16"><title>'.__('Dreickspfeil nach rechts','fau').'</title><path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></symbol></svg>',
+    "caret-left-fill"	=> '<svg><symbol id="bi-caret-left-fill" viewBox="0 0 16 16"><title>'.__('Dreickspfeil nach links','fau').'</title><path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/></symbol></svg>',
+    "caret-up-fill"	=> '<svg><symbol id="bi-caret-up-fill" viewBox="0 0 16 16"><title>'.__('Dreickspfeil nach oben','fau').'</title><path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/></symbol></svg>',
+);
+

@@ -8,7 +8,7 @@
 */
 
 ?>
-<div class="meta-search">
+<div class="meta-search" aria-label="<?php echo get_theme_mod('title_hero_search'); ?>">
     <button id="search-toggle" aria-expanded="false" aria-controls="search-header"><span><?php _e("Suche","fau"); ?></span></button>
 
 <?php 
@@ -20,7 +20,6 @@ if (is_plugin_active('rrze-search/rrze-search.php')) {
     /** Original Snippet from WP Theme */
     ?>
     <form id="search-header" role="search" method="get" class="searchform" action="<?php echo fau_esc_url(home_url( '/' ))?>">
-        <h2 class="screen-reader-text"><?php echo get_theme_mod('title_hero_search'); ?></h2>
         <label for="headsearchinput">
             <?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:','fau'); ?>
         </label>
@@ -39,7 +38,7 @@ if (is_plugin_active('rrze-search/rrze-search.php')) {
             }
         }
         ?>
-        <input type="submit" value="<?php _e('Finden','fau'); ?>">
+        <input type="submit" enterkeyhint="search" value="<?php _e('Finden','fau'); ?>">
     </form>
 <?php } ?>
 </div>

@@ -1,0 +1,360 @@
+//-----------------------------------------------------------------------------------*/
+// Konstanten fuer das Design
+//-----------------------------------------------------------------------------------*/
+$farbfamilie: 'zuv';
+// med, phil, nat, rw, tf, zuv
+
+// Define fonts
+$fontStack: 'Roboto', sans-serif;
+$fontStackSerifs: Georgia, serif;
+$font-family-base: $fontStack;
+$font-path-awesome: './fonts/fontawesome/';
+$font-path-roboto: './fonts/roboto/';
+
+
+// Define colors
+$colorText: #444;
+$colorTextLight: #797676;
+
+// Define notice colors
+$colorNotice: #a71c18;
+
+// Define colors of each faculty
+$colorPhilFak: #A36B0D;
+$colorRwFak: #8d1429;
+$colorMedFak: #0381A2;
+$colorNatFak: #048767;
+$colorTechFak: #6E7881;
+$colorZUV: #003366;
+$colorDefault: #003366;
+
+$colorStandardHellgrau: #e9edf2;
+// FAU: colorlightest:
+// desaturate(lighten($colorZUV, 73%), 75%);
+$colorContentBorders: #dfe6ec;
+// FAU: colorlight
+// desaturate(lighten($colorZUV, 69%), 75%);
+$colorContentRegions: #f5f7f9;
+// FAU: lighten($colorZUV, 4%);
+
+$colorShadows:	rgba(135,132,135,1);
+// Color for shadows
+
+
+// Define defaults and variables
+$colorPrimary: $colorZUV;
+$colorPrimaryContrast: #fff;
+$PalettonHellste: desaturate(lighten($colorPrimary, 73%), 75%);
+$PalettonHeller: desaturate(lighten($colorPrimary, 69%), 75%);
+$PalettonDunkler: desaturate(lighten($colorPrimary, 10%), 90%);
+$PalettonDunkelste: desaturate(lighten($colorPrimary, 10%), 40%);
+
+$colorPrimaryHero: $colorPrimary;
+
+$colorPrintMain: #000;
+$colorPrintMainLinks: $colorText;
+
+
+@if $farbfamilie == 'med' {
+	$colorPrimary: $colorMedFak;
+	$PalettonHellste: #eaf3fc; // #35C0DA;
+	$PalettonHeller: #bfd6f5; // #08C0E7;
+	$PalettonDunkler: #026480;
+	$PalettonDunkelste: #014e63;
+	
+
+} @else if $farbfamilie == 'phil' {
+	$colorPrimary: $colorPhilFak;
+	$PalettonHellste: #f3eedf;
+	$PalettonHeller: #d9c689;
+	$PalettonDunkler: #805000;
+	$PalettonDunkelste: #553500;
+
+
+} @else if $farbfamilie == 'nat' {
+	$colorPrimary: $colorNatFak;
+	$PalettonHellste: #e5efea;
+	$PalettonHeller: #aacfbd;
+	$PalettonDunkler: #006e53;
+	$PalettonDunkelste: #00533f;
+
+
+} @else if $farbfamilie == 'rw' {
+	$colorPrimary: $colorRwFak;
+	$PalettonHellste: #ede7de; // #C9A8AF;
+	$PalettonHeller: #c5ac94; // #bd7d8b;
+	$PalettonDunkler: #690013;
+	$PalettonDunkelste: #42000c;
+
+
+} @else if $farbfamilie == 'tf' {
+	$colorPrimary: $colorTechFak;
+	$PalettonHellste: #ebecee; // #bfc2c5;
+	$PalettonHeller: #d2d5d7; // #8e949a;
+	$PalettonDunkler: #53606b;
+	$PalettonDunkelste: #3b4956;
+
+
+} @else if $farbfamilie == 'zuv' {
+	$colorPrimary: $colorZUV;
+	$PalettonHellste: #dde5f0;
+	$PalettonHeller: #8fb1ef;
+	$PalettonDunkler: #24598f;
+	$PalettonDunkelste: #1f4b7a;
+
+}
+
+
+$colorHover: $PalettonDunkelste;
+$colorLight: $PalettonHeller;
+$colorLightContrast: #fff;
+$colorLightest: $PalettonHellste;
+$colorLightestContrast: $PalettonDunkelste;
+$colorPrimaryHero: $colorPrimary;
+$colorPrimaryHeroLight: lighten($colorPrimary, 15%);
+
+
+$colorSubNavCurrent: #fff;
+$colorSubNavCurrentBackground: $PalettonDunkler;
+$colorSubNavCurrentHover: #fff;
+$colorSubNavCurrentHoverBackground: $colorHover;
+$colorSubNav: $PalettonDunkelste;
+$colorSubNavBackground: $colorLightest;
+$colorSubNavBackgroundHover: $PalettonDunkler; // darken($colorSubNavBackground, 5%);
+$colorMainMenu: #fff;
+
+
+$colorOverlayLight: rgba(255, 255, 255, 0.15);
+$colorOverlayDark: rgba(0, 0, 0, 0.15);
+// Vorschlag von https://github.com/SebastianHonert/FAU-Einrichtungen/commit/762a7ab636090006af98d4fc502e8e12359c711e#diff-0cecaa3634e3ebf71c0b473a183dff42
+// Mit passenden Variablennamen versehen.
+
+
+$colorButtonBackground: $colorPrimary;
+$colorButton: #fff;
+$colorButtonBackgroundHover: $PalettonDunkler;
+
+
+$colorSearchPlaceholder: #111;
+$colorSearchInput: #000;
+$colorSearchInputBackground: $colorLightest;
+$colorSearchInputBackgroundFocus: #fff;
+
+// Meta Menu
+$colorMeta: $colorDefault;
+// Define Background-Color for Meta Menu at top
+$colorMetaBackground: $colorStandardHellgrau;
+$colorMetaFAUHomeBackground: desaturate(darken($colorStandardHellgrau, 10%), 90%); // #d0d3d8;
+$colorMetaHover: desaturate(lighten($colorDefault, 10%), 40%);
+$colorMetaText: #fff;
+$colorMetaLight: desaturate(lighten($colorDefault, 69%), 75%);
+$colorMetaLightest: desaturate(lighten($colorDefault, 73%), 75%);
+
+$colorPasspartoutBackground: $colorStandardHellgrau;
+
+// Social Bar Startseite
+$colorSocial: $colorPrimary; // $colorDefault;
+$colorSocialBackground: $colorMetaBackground;
+
+
+// CopyrightInfos auf Slider und Banner
+$colorCopyright: #fff;
+$colorCopyrightBackground: rgba(0, 0, 0, 0.6);
+
+// Abbrevations, Acronyms
+$colorAbbr: #000;
+
+// Font sizes
+$font-size-rembase: 93.75%;
+$font-size-rembase-mobile: 100%;
+$font-size-gridbase: 15;
+$font-size-base: 15;
+
+$font-size-meta: ($font-size-base - 2);
+$font-size-sidebar: ($font-size-base - 2);
+$font-size-small: ($font-size-base - 2);
+$font-size-large: ($font-size-base + 4);
+$font-size-larger: ($font-size-base + 8);
+
+$font-size-footer: ($font-size-base - 2);
+$font-size-breadcrumb: ($font-size-base - 2);
+$font-size-herosearch: 16;
+$font-size-header-branding: 19;
+
+$font-size-hero-slider-title: 25;
+$font-size-hero-slider-text: 18;
+$font-size-hero-slider-copyright: 14;
+$font-size-hero-meta-portal: 40;
+
+$font-size-textbuttons: 14;
+$font-size-linkicon: 13;
+$font-size-hero-links: 13;
+$font-size-hero-bannertext: 18;
+$font-size-link-contentmenu: 13;
+
+$font-size-content-linkicon: 10;
+$font-size-content-listitem: $font-size-base;
+$font-size-codepre: ($font-size-base - 2);
+$font-size-table: ($font-size-base - 2);
+$font-size-contentwidgets: ($font-size-base - 2);
+
+$font-size-sidebar-listitem: $font-size-sidebar;
+$font-size-sidebar-events: $font-size-sidebar;
+$font-size-sidebar-events-month: 10;
+$font-size-sidebar-events-day: 20;
+
+$font-size-socialmedia-morelink: $font-size-sidebar;
+$font-size-nav-blockquote: 16;
+$font-size-nav-blockquote-cite: 14;
+$font-size-nav-introtext: 15;
+$font-size-nav-flyout-items: 15;
+$font-size-nav-mainlinks: 17;
+
+$font-size-subnav-firstlevel: ($font-size-base - 1);
+$font-size-subnav-sublevel: ($font-size-base - 2);
+
+
+
+$font-size-h1: 32;
+$font-size-h1-mobilebranding: 24;
+$font-size-h1-banner: 28;
+$font-size-h1-sidebar: 22;
+$font-size-h1-table: 22;
+$font-size-h1-small: 24;
+
+
+$font-size-h2: 24;
+$font-size-h2-small: 22;
+$font-size-h2-socialmedia: 18;
+$font-size-h2-sidebar: 18;
+$font-size-h2-table: 18;
+
+$font-size-h3: 19; // 18
+$font-size-h3-small: 18;
+$font-size-h3-hero: 18;
+$font-size-h3-sidebar: 16;
+$font-size-h3-contentmenu: 15;
+$font-size-h3-table: 15;
+
+
+$font-size-h4: 17; // 15
+$font-size-h4-small: 16;
+$font-size-h4-sidebar: 14;
+$font-size-h4-table: 14;
+
+
+$font-size-h5: 16; // 15
+$font-size-h5-sidebar: 13;
+$font-size-h5-table: 13;
+
+
+$font-size-h6: $font-size-base;
+$font-size-h6-sidebar: 13;
+$font-size-h6-table: 13;
+
+
+$font-size-quotes: 18;
+$font-size-quotes-cites: ($font-size-quotes - 1);
+
+$font-size-content-meta: 14;
+
+$font-size-image-caption: 13;
+
+
+$font-size-pagination-h3: $font-size-content-meta;
+$font-size-pagination-links: $font-size-content-meta;
+
+
+$font-size-mobile-meta: 24;
+$font-size-mobile-sitetitle: 20;
+$font-size-desktop-sitetitle: 22;
+
+$font-size-print-base: 11;
+$font-size-print-base-small: 9;
+
+
+// Slider
+$slick-arrow-color: white !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
+
+$slick-opacity-text-background: 0.7;
+$slick-opacity-text-shadow: 0px 0px 4px #000;
+// Define breakpoints
+
+// iPhone 3G
+$breakXS: 320px;
+// M8, Google, small others
+$breakSM: 480px;
+// iPad
+$breakMD: 767px;
+// iPad
+$breakLG: 992px; // 979px;
+// for small desktop up to 1200 pc or 1280 macbook air
+$break-1060: 1060px;
+// for larger desktop up to 1400 or macbook pro 1440
+$break-1360: 1360px;
+// for larger screen up to 1800px
+$break-1700: 1760px;
+// for 4k screens (2200px and more)
+$break-2200: 2200px;
+
+
+
+// Extra small screen / phone
+
+$screen-xs:                  480px;
+$screen-xs-min:              $screen-xs;
+
+$screen-sm:                  768px;
+$screen-sm-min:              $screen-sm;
+
+$screen-md:                  992px;
+$screen-md-min:              $screen-md;
+
+$screen-lg:                  1200px;
+$screen-lg-min:              $screen-lg;
+
+$screen-xl: 1760px;
+$screen-xxl: 3200px;
+$screen-xxs: 320px;
+
+$slider-maxwidth: 1260px;
+$slider-maxheight: 350px;
+
+$wordpress-adminbar-break: 783px;
+// WordPress Adminbar breaks to small
+$wordpress-adminbar-smallheight: 32px;
+// WordPress Adminbar small
+$wordpress-adminbar-bigheight: 46px;
+// WordPress Adminbar big
+
+
+$screen-xl-min: $screen-xl;
+$screen-xl-max: ($screen-xxl - 1);
+$screen-xxl-min: $screen-xxl;
+
+$container-lg: 1024px;
+// $container-lg: 970px;
+$container-xl: 1100px;
+$container-xxl: 1100px;
+
+// max width of the homepage hero image, used by the plugin "ILI FAU Templates"
+$max-width-hero: 1920px;
+
+// Bootstrap Adjustments
+$fau-gutter-width: 30px;
+
+$grid-gutter-width: $fau-gutter-width;
+
+
+$searchbackdrop-offset-top: 195px;
+
+$subnav-width-sm: 260px;
+$subnav-width-md: 275px;
+$subnav-width-lg: 290px;
+
+$sidebar-width-inline: 235px;
+$sidebar-width-portal: 33%;
+$sidebar-width-posts: 33%;

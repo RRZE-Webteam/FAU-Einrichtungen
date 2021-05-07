@@ -1,0 +1,112 @@
+/*-----------------------------------------------------------------------------------*/
+/* Branding und Hauptmenu
+/*-----------------------------------------------------------------------------------*/
+
+
+#headerwrap header {
+    .branding {
+	.sitetitle {
+	    display: inline-block;
+	    color: #fff;
+	    background-color: $colorPrimary;
+	    padding: 0;
+	    margin: 0;
+	    height: auto;	
+	    text-align: center;
+	    text-decoration: none;
+	    font-weight: bold;
+	    width: 100vw;
+	    
+	    @include px2rem($font-size-mobile-sitetitle, $font-size-gridbase);
+
+	    .longtitle & {
+		@include px2rem($font-size-mobile-sitetitle - 2, $font-size-gridbase);
+	    }
+
+	   
+	    
+	    @media (min-width: $screen-sm) {		
+		background-color: #fff;
+		color: $colorPrimary;
+		width: auto;
+		
+		@include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
+
+		.nologo.longtitle & {
+			    @include px2rem($font-size-desktop-sitetitle - 2, $font-size-gridbase);
+		}
+
+		a {
+			vertical-align: bottom;
+		}
+	    }
+	    @media (min-width: $screen-sm) {
+		margin: 10px 0;
+		text-align: left;
+	    }
+	    a {
+		text-decoration: none;
+		color: #fff;
+		@media (min-width: $screen-sm) {
+		     color: $colorPrimary;
+		}
+	    }
+
+
+	    img,
+	    svg {
+		display: none;
+		@media (min-width: $screen-sm) {
+		    display: inline-block;
+		    max-width: 240px;
+		    max-height: 65px;
+		    object-fit: contain;
+		    object-position: left;
+		    @include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
+		}
+	    }
+	    span {
+		margin: 10px 15px;
+		display: inline-block;
+		hyphens: auto;
+		@media (min-width: $screen-sm) {
+		    background: inherit;
+		    hyphens: manual;
+		    max-width: 225px;
+		    margin: 10px 15px 0 0;
+		    .nologo.longtitle & {
+			hyphens: auto;
+		    }
+		}
+	    }
+
+	    .visiblelogo {
+		@media (min-width: $screen-sm) {
+		       display: none;
+		}
+	    }
+
+	}
+    }
+    @media (max-width: $screen-sm - 1) {
+	
+	.md-showsitelogo:not(.nologo) & .branding {
+
+	    width: 100%;
+	    text-align: center;
+	    .sitetitle {	   
+		margin: 10px auto;
+		background-color: #fff;
+		img,
+		svg {
+
+		    display: inline-block;
+		}
+		span.visiblelogo {
+		    display: none;
+		}
+	    }
+	}
+    }
+
+}

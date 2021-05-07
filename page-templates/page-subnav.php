@@ -14,11 +14,11 @@ get_header(); ?>
 	<?php get_template_part('template-parts/hero', 'small'); ?>
 
 	<div id="content">
-	    <div class="container">			
-		<div class="row">	
+	    <div class="content-container">			
+		<div class="content-row">	
 		    <?php echo fau_get_page_subnav($post->ID); ?>		
 		    <div class="entry-content">
-			<main<?php echo fau_get_page_langcode($post->ID);?> id="droppoint">
+			<main<?php echo fau_get_page_langcode($post->ID);?>>
 			    <h1 class="screen-reader-text"><?php the_title(); ?></h1>
 			    <?php 
 			    $headline = get_post_meta( $post->ID, 'headline', true );									

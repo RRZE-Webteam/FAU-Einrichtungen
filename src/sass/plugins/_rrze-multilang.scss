@@ -1,0 +1,35 @@
+/*-----------------------------------------------------------------------------------*/
+/* CSS Definitionen für das Plugin RRZE Multilang
+/* https://github.com/RRZE-Webteam/rrze-multilang
+/*-----------------------------------------------------------------------------------*/
+.fau-theme .meta-widget.rrze-multilang-widget {
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    right: inherit;
+    margin: 0;
+    
+    @media (max-width: $screen-sm - 1) {
+	ul {
+	    width: auto;
+	}    
+	li a {
+	    width: 50px;
+	}
+    }
+    
+    
+     @media (min-width: $screen-sm ) {
+	position: relative;
+	left: inherit;
+	top: inherit;
+	 ul {
+	     min-width: 100px;
+	     width: max-content;
+	     li {
+		 white-space: nowrap;
+	     }
+	 }
+     }
+}

@@ -1,0 +1,93 @@
+/*-----------------------------------------------------------------------------------*/
+/* CSS Adjustment for WordPress Plugin RRZE-Search 
+/*  https://github.com/RRZE-Webteam/rrze-search
+/*-----------------------------------------------------------------------------------*/
+
+.search-toggled {
+    #search-backdrop {
+	top: $searchbackdrop-offset-top;
+    }
+    &.fau-theme .meta-widget.cms-workflow-widget,
+    &.fau-theme .meta-widget.rrze-multilang-widget {
+	 @media (min-width: $screen-sm) {
+	    display: none;
+	 }
+    }
+    .header-row .meta-tools {
+	display: block;
+    }
+    &.active-meta-widget {
+
+	.searchform {
+	    padding-left: 15px;
+	    padding-right: 15px;
+	    @media (min-width: $screen-sm) {
+		width: 100%;
+	    }
+	}
+    }
+    
+    @media (min-width: $screen-sm) {
+	.meta-search .searchform .searchicon {
+	    margin-right: -55px;
+	}
+	.meta-search .searchform input[type="text"] {
+	    margin-left: 25px;
+	}
+    }
+    form[role="search"] header {
+	max-width: 50em;
+	margin: 0 auto;
+    }
+}
+.admin-bar {
+     #search-backdrop {
+	top: $searchbackdrop-offset-top + $wordpress-adminbar-bigheight;
+	@media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
+	    top: $searchbackdrop-offset-top + $wordpress-adminbar-smallheight;
+	}
+    }
+}
+
+.meta-search .searchform .search-settings label {
+    
+    @media (max-width: $screen-sm - 1)  {
+	white-space: normal;
+	
+	a {
+	    text-decoration: underline;
+	    font-weight: normal;
+	}
+	a::after {
+	    display: none;
+	}
+    }
+    span {
+	white-space: normal;
+    }
+}
+
+.sidebar-single .rrze_search {
+    dialog {
+	border: none;
+    }
+    form[role="search"] header {
+	flex-wrap: wrap;
+    }	
+    label {
+	min-width: inherit;
+	@include px2rem($font-size-sidebar);
+    }
+    #headsearchinput {
+	max-width: 12rem;
+	margin: 5px 0;
+	padding: 19px 25px 19px 10px;
+	line-height: 1.5rem;
+	font-size: 1rem;
+	height: 30px;
+	border: 3px solid $colorMetaBackground;
+    }
+    input[type="submit"] {
+	margin-left: -20px;
+    }
+}

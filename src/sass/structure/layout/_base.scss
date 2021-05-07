@@ -1,0 +1,86 @@
+/*-----------------------------------------------------------------------------------*/
+/* Layout: Base Structure
+/*-----------------------------------------------------------------------------------*/
+
+
+body {
+	margin: 0;
+	color: $colorText;	
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.35;
+}
+
+
+
+html, body, button {
+	font-family: $fontStack;
+	font-kerning:  none;
+}
+
+
+/* Main surrounding grid */
+/* Wrap content in white */
+#pagewrapper {
+	min-height: 100%;
+	margin: 0 auto;	
+	background-color: #fff;
+	position: relative;
+	
+	display: flex;
+	flex-wrap: wrap; 
+	flex-direction: column;
+	min-height: 100vh;
+	
+	
+	#headerwrap, 
+	footer {
+	    // normal
+	}
+	#hero {
+	    flex: 0 1;
+	}
+	#content {
+	    flex: 1;
+	    width: 100%;
+	}
+	footer {
+	    margin-top: auto;
+	}
+
+}
+
+
+
+
+
+
+.flyout-entries,
+.introthumb,
+.introtext {
+    @extend .col-xs-12;
+    @extend .col-sm-4;
+}
+.introtext-full {
+    @extend .col-xs-12;
+    @extend .col-sm-8;
+}
+.flyout-entries-full {
+     @extend .col-xs-12;
+}
+
+
+
+
+@media (max-width: $screen-sm - 1) {
+	body {
+	//    overflow: hidden;
+	    padding: 0;
+	}
+}
+@media (max-width: $breakLG) {
+	body {
+		padding-top: 0;
+	}
+
+}

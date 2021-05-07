@@ -1,13 +1,18 @@
 {
   "name": "FAU-Einrichtungen",
   "textdomain": "fau",
-  "version": "1.12.18",
+  "version": "1.12.81",
   "keywords": [
     "WordPress",
     "Theme",
     "FAU",
     "RRZE"
   ],
+  "compatibility": {
+    "wprequires": "5.0",
+    "wptestedup": "5.7",
+    "phprequires": "7.3"
+  },
   "author": {
     "name": "RRZE-Webteam <webmaster@fau.de> (https://www.rrze.fau.de)",
     "url": "https://www.wordpress.rrze.fau.de"
@@ -15,7 +20,7 @@
   "description": "WordPress-Theme der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
   "license": "GNU General Public License v3 or later",
   "licenseurl": "http://www.gnu.org/licenses/gpl-3.0.html",
-  "tags": "three-columns, two-columns, one-column, right-sidebar, responsive-layout, featured-images",
+  "tags": "three-columns, two-columns, one-column, right-sidebar, featured-images",
   "repository": {
     "type": "git",
     "url": "https://github.com/RRZE-Webteam/FAU-Einrichtungen",
@@ -59,8 +64,13 @@
     }
   },
   "contributors": [],
-  "dependencies": {},
+  "dependencies": {
+    "postcss": "^8.2.4"
+  },
   "main": "index.php",
+  "maincss": "style.css",
+  "mainjs": "fau-theme.min.js",
+  "adminjs": "fau-theme-admin.min.js",
   "scripts": {
     "start": "gulp",
     "dev": "gulp dev",
@@ -68,28 +78,34 @@
     "pot": "gulp pot",
     "clone": "gulp clone"
   },
+  "source": {
+    "js": "./src/js/",
+    "sass": "./src/sass/"
+  },
   "jsdir": "./js/",
   "cssdir": "./css/",
   "devDependencies": {
-    "@babel/core": "^7.11.5",
-    "@babel/preset-env": "^7.11.5",
-    "@babel/register": "^7.11.5",
-    "autoprefixer": "^9.8.6",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/register": "^7.12.10",
+    "autoprefixer": "^10.2.3",
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-bump": "^3.2.0",
-    "gulp-dart-sass": "^0.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-dart-sass": "^1.0.2",
     "gulp-header": "^2.0.9",
-    "gulp-postcss": "^8.0.0",
-    "gulp-rename": "^1.4.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.1.0",
     "gulp-touch-cmd": "0.0.1",
     "gulp-uglify": "^3.0.2",
     "gulp-w3c-css": "^2.0.0",
-    "gulp-wp-pot": "^2.4.3",
+    "gulp-wp-pot": "^2.5.0",
     "map-stream": "0.0.7",
-    "semver": "^6.3.0",
-    "yargs": "^14.2.3"
+    "semver": "^7.3.4",
+    "yargs": "^16.2.0"
   }
 }

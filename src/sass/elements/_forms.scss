@@ -1,0 +1,147 @@
+/*-----------------------------------------------------------------------------------*/
+/* Forms
+/*-----------------------------------------------------------------------------------*/
+
+
+textarea, input, select {
+	font-family: $fontStack;
+}
+
+
+
+select, 
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="date"], 
+input[type="month"], 
+input[type="time"], 
+input[type="week"], 
+input[type="number"], 
+input[type="email"], 
+input[type="url"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="color"] {
+	width: 100%;
+	padding: 5px 10px;
+	@include px2rem($font-size-base);
+	height: auto;
+}
+
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="date"], 
+input[type="month"], 
+input[type="time"], 
+input[type="week"], 
+input[type="number"] {
+    width: 10em;
+}
+textarea {
+	min-height: 100px;
+	width: 100%;
+}
+
+form {	
+	margin: 0;
+	display: inline-block;
+	border: none;
+
+	legend {
+	    margin: 0;
+	    padding: 0 0 11px 0;
+	    @include px2rem($font-size-h3);
+	    color: $colorPrimary;
+	    font-weight: bold;
+	}
+	
+	main & {
+	    padding: 0;
+	    @media (min-width: $screen-sm) {
+		border: 1px solid $colorLightest;
+		padding: 20px;
+	    }
+	}
+	main &.noborder {
+	    border: none;
+	}
+	main .content-inline.with-sidebar & {
+	    display: block;
+	    border: none; 
+	}
+}
+
+label {
+	padding-top: 5px;
+	margin-right: 20px;
+	display: inline-block;
+	min-width: 300px;
+	@include px2rem($font-size-base);
+}
+
+input[type=text]:focus,
+textarea:focus {
+	box-shadow: 0 0 5px $colorPrimary;
+	border: 1px solid $colorPrimary;
+}  
+
+
+
+
+
+input[type="submit"] {
+	@include inline-block;
+	border: 3px solid $colorPrimary;
+	height: 30px;
+	line-height: 30px;
+	margin: 10px 0;
+	padding: 4px 18px;
+	box-sizing: content-box;
+	@include border-radius(20px);
+	background: $colorPrimary;
+	color: #fff;
+	font-weight: bold;
+	
+	clear: left;
+	
+	&:hover, 
+	&:focus {
+		background: #fff;
+		color: $colorPrimary;
+	}
+	
+	&:active {
+		background: $colorHover;
+	}
+	
+	
+}
+
+
+
+input[type="radio"] {
+    margin: -5px 10px 0 0;
+}
+
+fieldset {
+    margin: 10px 0;
+    @include border-radius(4px);
+}
+/* Login/Passwords Form */
+.post-password-form {
+	label {
+		float: none;
+		color: $colorPrimary;
+	}
+	
+	input[type="password"] {
+		width: 220px;
+		margin-top: 5px;
+	}
+}
+
+
+

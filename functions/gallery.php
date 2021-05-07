@@ -169,16 +169,16 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    if (isset($attr['link']) && ('none' !== $attr['link'])) {
 			if ($attr['link']=='post') {
 			    // Anhang Seite
-			    $output .= '<a href="'.get_attachment_link( $id ).'">';		  
+			    $output .= '<a tabindex="-1" href="'.get_attachment_link( $id ).'">';		  
 			} else {
 			    // File
-			    $output .= '<a href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';		  
+			    $output .= '<a tabindex="-1" href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';		  
 			}
 		    }
 
 		    $output .= fau_get_image_htmlcode($id, 'gallery-full', $linkalt);
 		    
-		    if ('none' !== $attr['link']) {
+		    if (isset($attr['link']) && ('none' !== $attr['link'])) {
 			$output .= '</a>';
 		    }
 

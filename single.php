@@ -9,50 +9,52 @@
  */
 
 global $pagebreakargs;
+if ( is_active_sidebar( 'news-sidebar' ) ) { 
+    fau_use_sidebar(true);    
+}
+
 get_header(); 
 
 while ( have_posts() ) : the_post(); 
 	get_template_part('template-parts/hero', 'small'); ?>
 	<div id="content">
-		<div class="container">
-			<div class="row">			    
-			    <?php if(get_post_type() == 'post') { ?>
-			    <div class="entry-content">
-			    <?php } else { ?>
-			    <div class="col-xs-12">
-			    <?php } ?>
+		<div class="content-container">
+			<div class="post-row">			    
+			    <div <?php post_class( 'entry-content' ); ?>>
 				<main>
-				    <h1 id="droppoint" class="screen-reader-text"><?php the_title(); ?></h1>
+				    <h1 class="mobiletitle"><?php the_title(); ?></h1>
 				    <article class="news-details">
-					    <?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
-						<div class="post-image">
-						    <?php 
-						    
-						    $post_thumbnail_id = get_post_thumbnail_id(); 						    						    
-						    if ($post_thumbnail_id) {
-							
-							$imgdata = fau_get_image_attributs($post_thumbnail_id);
-							$full_image_attributes = wp_get_attachment_image_src( $post_thumbnail_id, 'full');
+					    <?php if ( has_post_thumbnail() && ! post_password_required() ) {     
+						$post_thumbnail_id = get_post_thumbnail_id(); 						    						    
+						if ($post_thumbnail_id) {
+						    $imgdata = fau_get_image_attributs($post_thumbnail_id);
+						    $full_image_attributes = wp_get_attachment_image_src( $post_thumbnail_id, 'full');
+						    if ($full_image_attributes) {
 							$altattr = trim(strip_tags($imgdata['alt']));
 							if ((fau_empty($altattr)) && (get_theme_mod("advanced_display_postthumb_alt-from-desc"))) {
 							    $altattr = trim(strip_tags($imgdata['description']));
 							}
+							if (fau_empty($altattr)) {
+							    // falls es noch immer leer ist, geben wir an, dass dieses Bild ein Symbolbild ist und 
+							    // der Klick das Bild größer macht.
+							    $altattr = __('Symbolbild zum Artikel. Der Link öffnet das Bild in einer großen Anzeige.','fau');
+							}
+							echo '<div class="post-image">';
 							echo '<figure>';
 							echo '<a class="lightbox" href="'.fau_esc_url($full_image_attributes[0]).'">';							
 							echo fau_get_image_htmlcode($post_thumbnail_id, 'rwd-480-3-2', $altattr);
 							echo '</a>';
-							
+
 							$bildunterschrift = get_post_meta( $post->ID, 'fauval_overwrite_thumbdesc', true );
 							if (isset($bildunterschrift) && strlen($bildunterschrift)>1) { 
 							    $imgdata['fauval_overwrite_thumbdesc'] = $bildunterschrift;
 							}
 							echo fau_get_image_figcaption($imgdata);
 							echo '</figure>';
+							echo '</div>';
 						    }
-
-						    ?>
-						</div>
-					    <?php endif; 
+						}
+					    }
 
 					    $output = '<div class="post-meta">';
 					    $output .= '<span class="post-meta-date"> '.get_the_date('',$post->ID)."</span>";
@@ -116,7 +118,7 @@ while ( have_posts() ) : the_post();
 				     </aside>
 				<?php } ?>
 			    </div>
-			    <?php if(get_post_type() == 'post') { get_template_part('template-parts/sidebar', 'news'); } ?>
+			    <?php if(get_post_type() == 'post') { get_template_part('template-parts/sidebar', 'posts'); } ?>
 			</div>
 		</div>	
 	</div>

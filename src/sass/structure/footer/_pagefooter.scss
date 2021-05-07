@@ -1,0 +1,107 @@
+/*-----------------------------------------------------------------------------------*/
+/* Pagefooter
+/*-----------------------------------------------------------------------------------*/
+
+#footer {
+	background: $colorPrimaryHero;
+	color: #fff;
+	padding: 0 0 20px 0;
+	
+	
+	li {
+	    @include px2rem($font-size-base);
+	    @media (min-width: $screen-sm) {
+		@include px2rem($font-size-footer);
+	    }
+	}
+	
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+	
+	
+	a:hover, a:focus {
+	    text-decoration: underline;
+	}
+	@media (min-width: $screen-sm) {
+	    padding: 20px 0;
+	}
+	
+	
+	
+	.footer-logo {
+	    .fau-logo-footer {
+		  fill: #fff;
+		  color: #fff;
+	    }
+	}
+	.footer-address {
+	    padding-top: 20px;
+	    @media (min-width: $screen-xs) {
+		padding-top: inherit;
+	    }
+	}
+
+	.footer-meta {
+	   text-align: left;
+	   margin-top: 10px;
+	   @media (min-width: $screen-sm) {
+	       text-align: right;
+	       margin-top: inherit;
+	   }
+	   
+	   .svg-socialmedia {
+	       margin: 1rem 60px 0 0;
+	       @media (min-width: $screen-sm) {
+		    margin: 1rem;
+	       }
+	       ul {
+		   margin: 0;
+	       }
+	   }
+	   
+       }
+       
+       /* Footer Navigation */
+	#footer-nav {
+		@include no-list;
+		text-align: left;
+
+		@media (min-width: $screen-sm) {
+		    text-align: right;
+		}
+
+		li {
+			@include no-list;
+			display: inline;
+			background: none;
+			margin: 0;
+			a {
+			    padding: 12px 12px 12px 0;
+			}
+			
+			
+		}
+		li:first-child {
+		    margin-left: 0px;
+		}
+	}
+       
+}
+
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 5px;
+    
+    .footer-logo {
+	flex: 0 0 240px;
+    }
+    .footer-address {
+	flex: 0 1 210px;
+    }
+    .footer-meta {
+	flex: 1 1 250px;
+    }
+}

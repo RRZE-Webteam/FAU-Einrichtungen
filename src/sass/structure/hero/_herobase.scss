@@ -1,0 +1,82 @@
+/*-----------------------------------------------------------------------------------*/
+/* Hero: Design header for website header
+/*-----------------------------------------------------------------------------------*/
+
+#hero {
+    position: relative; 
+    transition: none;
+    z-index: 10;
+    width: 100%;
+    margin: 0 auto; 
+    padding-top: 0;
+    overflow: hidden;
+
+    @media (min-width: $screen-sm) {
+	margin: 20px auto;
+    }
+
+    @include placeholder(#fff);	
+    @include radial-gradient($colorPrimaryHero, $colorPrimaryHeroLight);
+
+	
+	h1, h2, h3, h4, p {
+		font-weight: normal;
+		color: #fff;
+		
+	}
+	h1 {
+	    position: relative;
+	    z-index: 10;
+	    padding-top: 0px;
+	}
+
+	
+	
+	a {
+		color: #fff;
+	}
+	
+	
+	.container {
+		position: relative;
+	}
+	.flyout-toggled & {
+		opacity: 0.3;
+	}
+
+
+    .no-js & {
+	margin-top: 0;
+	transition: none;
+	padding-top: 10px;
+	position: relative;
+	.container {
+	    display: table;
+	}
+	.span6 {
+	    display: table-cell;
+	    width: 90%;
+	}
+	.span3 {
+	    display: table-cell;
+	    width: 45%;
+	}
+    }
+    
+    
+
+
+    .search-title {
+	@extend .col-sm-4;
+    }
+    .search-input {
+	@extend .col-sm-8;
+    }
+
+
+   
+}
+
+
+
+

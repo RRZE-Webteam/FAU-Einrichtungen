@@ -48,12 +48,11 @@ function fau_gutenberg_settings() {
 }
 add_action( 'after_setup_theme', 'fau_gutenberg_settings' );
 
-
 /*-----------------------------------------------------------------------------------*/
 /* Activate scripts and style for backend use of Gutenberg
 /*-----------------------------------------------------------------------------------*/
 function fau_add_gutenberg_assets() {
 	// Load the theme styles within Gutenberg.
-	wp_enqueue_style( 'fau-gutenberg', get_theme_file_uri( '/css/gutenberg.css' ), false );
+	wp_enqueue_style( 'fau-gutenberg', get_theme_file_uri( '/css/fau-theme-gutenberg.css' ), false );
 }
 add_action( 'enqueue_block_editor_assets', 'fau_add_gutenberg_assets' );

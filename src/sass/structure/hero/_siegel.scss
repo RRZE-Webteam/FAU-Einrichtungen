@@ -1,0 +1,23 @@
+/*-----------------------------------------------------------------------------------*/
+/* Siegel im Hero
+/*-----------------------------------------------------------------------------------*/
+#hero  {
+    .hero-siegel {
+        fill: $colorPrimaryHeroLight;
+        color:  $colorPrimaryHeroLight;
+    }
+    .siegel {
+        display: none;
+        @media (min-width: $screen-sm) {
+            display: block;
+            position: absolute;
+            bottom: -145px;
+	    left: calc(95% - 304px);
+            opacity: 0.9;
+            z-index: 1;
+        }
+        .fauorg-kooperation & {
+            display: none;
+        }
+    }
+}

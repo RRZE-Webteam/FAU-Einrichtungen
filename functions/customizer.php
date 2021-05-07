@@ -554,7 +554,7 @@ if (class_exists('WP_Customize_Control')) {
 				array(
 				    'name'              => '_customize-dropdown-categories-' . $this->id,
 				    'echo'              => 0,
-				    'show_option_none'  => __( '&mdash; Select &mdash;' ),
+				    'show_option_none'  => __( '&mdash; Select &mdash;', 'fau' ),
 				    'option_none_value' => '0',
 				    'selected'          => $this->value(),
 				)
@@ -578,11 +578,14 @@ if (class_exists('WP_Customize_Control')) {
 /*-----------------------------------------------------------------------------------*/
 if (class_exists('WP_Customize_Control')) {
     class WP_Customize_Range_Value_Control extends WP_Customize_Control {
+	
 	public $type = 'range-value';
 
 	public function enqueue() {
-		wp_enqueue_script( 'customizer-range-value-control', get_stylesheet_directory_uri() . '/js/customizer-range-value-control.js', array( 'jquery' ), rand(), true );
+	    global $defaultoptions;
+	    wp_enqueue_script( 'customizer-range-value-control', $defaultoptions['src-admin-customizer-js'], array( 'jquery' ), rand(), true );
 	}
+	// wird in dem admin js gebundelt
 	public function render_content() {
 		?>
 		<label>

@@ -25,19 +25,6 @@ if (isset($banner) && ($banner > 0)) {
     /* Diese Bedingung dient der Abwärtscompatibilität; Früher haben wir die Option-Table statt theme_mods verwendet */
     
     $image = fau_get_image_htmlcode($startseite_banner_image_id, 'herobanner', '');
-    /*
-    $imagedata = wp_get_attachment_image_src( $startseite_banner_image_id, 'herobanner' );
-    $slidersrcset =  wp_get_attachment_image_srcset($startseite_banner_image_id,'herobanner');
-
-    if ($imagedata) {
-	$image = '<img src="'.fau_esc_url($imagedata[0]).'" width="'.$imagedata[1].'" height="'.$imagedata[2].'" alt=""';
-	if ($slidersrcset) {
-	    $image .= 'srcset="'.$slidersrcset.'"';
-	}
-	$image .= '>';
-
-    }
-    */
     $imgdata = fau_get_image_attributs($startseite_banner_image_id);
     $copyright = trim(strip_tags( $imgdata['credits'] ));
 } elseif ($use_bannerdefault) {
@@ -58,8 +45,7 @@ if ((filter_var($copyright, FILTER_VALIDATE_URL)) && (preg_match('/\/cropped\-/'
 }
 ?>
 
-    <section id="hero" class="hero-banner" aria-labelledby="banner-aria-title">
-	<h2 id="banner-aria-title" class="screen-reader-text"><?php echo __('Titel','fau'); ?></h2>
+    <section id="hero" class="hero-banner">
 	<div class="banner" aria-hidden="true" role="presentation">
 	    <div class="introimg">
 		<?php 

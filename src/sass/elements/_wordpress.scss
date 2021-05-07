@@ -1,0 +1,130 @@
+/*-----------------------------------------------------------------------------------*/
+/* WordPress required classes
+/*-----------------------------------------------------------------------------------*/
+
+/*
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+*/
+
+.wp-caption {
+    max-width: 100%;
+}
+
+
+
+.sticky, 
+.gallery-caption, 
+.bypostauthor {
+    @include px2rem($font-size-base);
+}
+
+.wp-caption-text {
+	@include px2rem($font-size-image-caption);
+	padding: 5px 0 5px 0;
+}
+
+
+.wp-video {
+	width: auto;
+	max-width: 100%;
+}
+
+
+#wpadminbar  {
+    @media (max-width:  $screen-sm) {
+	position: fixed;
+    }
+}
+
+@media (max-width: $screen-xs - 1) {
+    
+    .js-enabled {
+	body.admin-bar #wpadminbar {
+	    position: fixed;
+	    top: 0;
+	}
+
+    }
+}
+
+
+
+
+@media (max-width:  $screen-sm) {
+  .wp-caption-text {
+	padding: 0;
+    }
+}
+
+
+// Settings for Gutenberg / WordPress 5.
+
+// Small Font size
+.has-small-font-size {
+     @include px2rem($font-size-small);
+}
+// Regular Font size
+.has-regular-font-size {
+     @include px2rem($font-size-base);
+}
+
+// Large Font size
+.has-large-font-size {
+     @include px2rem($font-size-large);
+}
+
+// Larger Font size
+.has-huge-font-size,
+.has-larger-font-size {
+     @include px2rem($font-size-larger);
+}
+
+p.has-drop-cap {
+    &:not(:focus):first-letter {
+	float:left;
+	@include px2rem($font-size-larger * 3, $font-size-gridbase, $font-size-larger * 3);
+	font-weight: 100;
+	margin: 0 .1em 0 0;
+	text-transform:uppercase;
+	font-style:normal;
+    }
+}
+

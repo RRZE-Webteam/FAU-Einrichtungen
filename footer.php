@@ -11,19 +11,19 @@
  */
 ?>
 
-	</div> 
+
 	<footer id="footer">
 	    <div class="container">
-		<div class="row">
+		<div class="footer-row">
 		    <?php 
 		    $website_type = get_theme_mod('website_type');
 		    ?>
 		    <div class="footer-logo">
 			<?php if (($website_type ==3 ) &&  ( is_active_sidebar( 'footer-block1' ) )) {  
 			    dynamic_sidebar( 'footer-block1' );
-			} else { ?>
-			<p><img src="<?php echo get_fau_template_uri(); ?>/img/logo-fau-inverse.png" width="185" height="35" alt="<?php _e("Friedrich-Alexander-Universität Erlangen-Nürnberg","fau"); ?>"></p>			
-			<?php } ?>
+			} else { 
+                            fau_use_svg("fau-logo-text",216,42,'fau-logo-footer'); 
+                        } ?>
 		    </div>
 		    <div class="footer-address">
 			<?php 
@@ -54,15 +54,14 @@
 			} ?>   
 		    </div>
 		    <div class="footer-meta">
-			<nav aria-labelledby="footer-nav-title">
-			    <h2 class="screen-reader-text" id="footer-nav-title"><?php echo __('Kontakt, Impressum und Zusatzinformationen','fau'); ?></h2>
-				<?php 
-				if ( has_nav_menu( 'meta-footer' ) ) {
-				    wp_nav_menu( array( 'theme_location' => 'meta-footer', 'container' => false, 'items_wrap' => '<ul id="footer-nav" class="%2$s">%3$s</ul>' ) ); 
-				} else {
-				    echo fau_get_defaultlinks('techmenu', 'menu', 'footer-nav');
-				}
-				?>
+			<nav aria-label="<?php echo __('Kontakt, Impressum und Zusatzinformationen','fau'); ?>">
+			    <?php 
+			    if ( has_nav_menu( 'meta-footer' ) ) {
+				wp_nav_menu( array( 'theme_location' => 'meta-footer', 'container' => false, 'items_wrap' => '<ul id="footer-nav" class="%2$s">%3$s</ul>' ) ); 
+			    } else {
+				echo fau_get_defaultlinks('techmenu', 'menu', 'footer-nav');
+			    }
+			    ?>
 			</nav>
 			<?php 
 			$display_socialmedia_footer = get_theme_mod("advanced_footer_display_socialmedia");
@@ -70,10 +69,10 @@
 				    global $default_socialmedia_liste;
 				    global $defaultoptions;
 				    
-				    echo '<nav class="socialmedia" aria-label="'.__('Social Media','fau').'">';
+				    echo '<nav class="svg-socialmedia round hoverbg" aria-label="'.__('Social Media','fau').'">';
 				    echo '<div itemscope itemtype="http://schema.org/Organization">';
 				    echo fau_create_schema_publisher(false);		
-				    echo fau_get_socialmedia_menu($defaultoptions['socialmedia_menu_name'],'social',true);
+				    echo fau_get_socialmedia_menu($defaultoptions['socialmedia_menu_name'],'',true);
 				    echo '</div>';
 				    echo '</nav>';
 
@@ -81,9 +80,11 @@
 		    </div>
 		</div>
 	    </div>
-	    <a href="#wrap" class="top-link"><span class="screen-reader-text"><?php echo __('Nach oben','fau'); ?></span></a>
+	    <a href="#pagewrapper" class="top-link">
+		<?php fau_use_svg("chevron-up-solid",38,38); ?>		
+		<span class="screen-reader-text"><?php echo __('Nach oben','fau'); ?></span></a>
 	</footer>
-	
+    </div> 
 	<?php wp_footer(); ?>
 </body>
 </html>

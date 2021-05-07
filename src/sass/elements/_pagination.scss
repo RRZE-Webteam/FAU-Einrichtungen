@@ -1,0 +1,112 @@
+/*-----------------------------------------------------------------------------------*/
+/* Pagination: Vor/Zurück-Navigation für mehrseitige Artikel und Seiten
+/*-----------------------------------------------------------------------------------*/
+
+
+.pagination {
+    text-align: center;
+    padding: 20px 0 10px 0;
+    
+    &.pagebreaks {
+	text-align: left;
+	margin: 0;
+
+	p {
+	    @include inline-block();
+	}
+
+	.subpages {
+	    @include px2rem($font-size-pagination-links);
+	    margin: 10px;
+	     @include inline-block();
+	     
+	     
+	     
+	    a {
+		:hover, 
+		:focus {
+			text-decoration: underline;
+			
+			.number {
+			    background: $colorButtonBackgroundHover;
+			}
+		}
+		.number {
+		   
+		    color: $colorButton;
+		    background: $colorButtonBackground;
+		    border: 1px solid $colorButtonBackground;
+		
+		}
+	    }
+	    .number {
+		
+		background: #fff;
+		border: 1px solid $colorContentBorders;
+		padding: 6px 10px;
+		text-decoration: none;
+		// color: $colorButton;
+		@include border-radius(3px);
+		@include px2rem($font-size-textbuttons);
+		
+	    }
+	     
+
+		
+	    
+	}
+
+    }
+}
+
+
+.nav-links {
+	margin: 20px 0;
+	@include inline-block();
+
+	span, a {
+		@include px2rem($font-size-pagination-links);
+		padding: 6px 10px;
+		text-align: center;
+		margin-right: 4px;
+		@include border-radius(3px);
+		
+		background: $colorButtonBackground;
+		border: 1px solid $colorButtonBackground;
+		padding: 6px 10px;
+		text-decoration: none;
+		color: $colorButton;
+		
+		span {
+		    background-color: transparent;
+		    padding: 0;
+		    margin: 0;
+		    border: none;
+		}
+	}
+	
+	.current {
+		background: $colorButton;
+		border: 1px solid $colorContentBorders;
+		padding: 6px 10px;
+		text-decoration: none;
+		color: $colorButtonBackground;
+	}
+	
+	.prev, 
+	.next {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	a:hover, 
+	a:focus {
+		background: $colorButtonBackgroundHover;
+		text-decoration: underline;
+		span {
+		    text-decoration: underline;
+		}
+		
+		
+	}
+}

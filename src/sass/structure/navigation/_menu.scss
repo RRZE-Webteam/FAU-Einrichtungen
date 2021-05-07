@@ -1,0 +1,595 @@
+/*-----------------------------------------------------------------------------------*/
+/* Main menu
+/*-----------------------------------------------------------------------------------*/
+
+#nav {
+	background-color: $colorStandardHellgrau;
+
+	.meta-nav {
+		border-top: 1px solid #ccc;
+		color: $colorPrimary;
+		display: block;
+		padding: 15px 11px;
+		margin-bottom: 0;
+	}
+
+	.sidebar-subnav {
+		border-top: 1px solid #ccc;
+		float: none;
+		padding: 15px 0 0;
+		background-color: darken($colorSubNavBackground, 5%);
+
+		a {
+			background-color: darken($colorSubNavBackground, 5%);
+		}
+	}
+
+	.menu-header {
+		@include px2rem($font-size-nav-mainlinks);
+		margin: 0;
+		border-top: none;
+
+		&, & a {
+			color: $colorPrimary;
+		}
+
+		.screen-reader-text {
+			position: static;
+		}
+	}
+
+	#subnav {
+		font-size: 1rem;
+
+		li {
+			border-bottom: none;
+			border-top: 1px solid #fff;
+		}
+
+		.current_page_item a {
+			background-color: $colorPrimary;
+		}
+
+		a, .current_page_item a {
+			&:hover, &:focus {
+				background-color: $colorHover;
+			}
+		}
+	}
+}
+
+/* Primary Navigation */
+.nav {
+	@include no-list;
+
+	/* All links & buttons */
+	a, [type=button] {
+		text-decoration: none;
+		color: $colorPrimary;
+
+		&:hover, &:focus, &[aria-expanded=true] {
+			color: $colorPrimaryContrast;
+			text-decoration: none;
+		}
+		
+	}
+
+	/* First-level items */
+	> li {
+		@include no-list;
+
+		/* Primary navigation toggle links / buttons */
+		> a,
+		> [type=button] {
+			display: block;
+			position: relative;
+			@include px2rem($font-size-nav-mainlinks);
+			font-weight: bold;
+			padding: 10px 15px;
+
+			/* Necessary for force-click toggle buttons */
+			border: none;
+			background-color: transparent;
+			text-align: left;
+			width: 100%;
+		}
+
+		&.has-sub {
+			> a,
+			> [type=button] {
+				padding-bottom: 10px;
+				padding-right: 28px;
+				margin-bottom: 0;
+
+				&:before {
+					@extend .fa;
+					@extend .fa-caret-down;
+					position: absolute;
+					top: 11px;
+					right: 15px;
+					display: none;
+					transition: transform .2s ease-in-out;
+				}
+			}
+
+			&:hover {
+				> a {
+					@include border-bottom-radius(0);
+				}
+			}
+
+			body:not(.mainnav-forceclick):not(.ismobile) & {
+				> a:focus ~ .nav-flyout,
+				> [type=button]:focus ~ .nav-flyout,
+				&:hover .nav-flyout {
+					display: block;
+				}
+			}
+
+			/* Must be an extra selector as IE / Edge doesn't support :focus-within and considers this invalid */
+			body:not(.mainnav-forceclick):not(.ismobile) &:focus-within .nav-flyout {
+				display: block;
+			}
+
+			> [type=button][aria-expanded=true] {
+				&:before {
+					transform: rotate(-180deg);
+				}
+
+				~ .nav-flyout {
+					display: block;
+				}
+			}
+		}
+	}
+
+	/* Fly-Out / secondary navigation */
+	.nav-flyout {
+		background-color: $colorPrimary;
+		padding: 20px 0;
+	}
+
+	/* Portal buttons */
+	.button-portal {
+		@include inline-block;
+		color: $colorMainMenu;
+		background-color: $colorHover; 
+
+		
+		padding: 13px 20px;
+		font-weight: bold;
+
+		@include px2rem($font-size-nav-mainlinks + 1);
+		@include border-radius(4px);
+
+		&:hover,
+		&:focus {
+			background: lighten($colorHover, 5%);
+		}
+	}
+
+	ul {
+		@include no-list;
+		margin: 0 0 15px 0;
+
+		li {
+			@include no-list; /* Necessary because there's a global style setting this to "disc" */
+			padding: 0;
+		}
+
+		a {
+			display: inline-block;
+			padding: 7px 20px 7px 15px;
+			color: #fff;
+			width: 100%;
+
+			&:hover,
+			&:focus {
+				text-decoration: none;
+				background-color:  $colorHover;  
+			}
+		}
+	}
+
+	.level2 {
+		> li {
+			&.has-sub {
+				page-break-inside: avoid;
+				break-inside: avoid;
+			}
+
+			> a {
+				border-bottom: 1px solid $colorHover;
+
+				&:before {
+					@extend .fa;
+					@extend .fa-angle-right;
+					font-weight: bold;
+					width: 15px;
+					display: inline-block;
+					margin-left: -15px;
+					padding-left: 2px;
+				}
+			}
+		}
+	}
+
+	.introtext, .introtext-full, .introthumb {
+	    display: none;
+	    @media (min-width: $screen-sm) {
+		display: block;
+	    }
+	}
+	.introtext-full,
+	.introtext {
+		p {
+			@include px2rem($font-size-nav-introtext, $font-size-nav-introtext, 24);
+			padding: 20px;
+			margin: 0;
+			color: #fff;
+			opacity: .8;
+			font-style: normal;
+			font-weight: normal;
+		}
+
+		blockquote {
+			padding: 20px 20px 20px 70px;
+			min-height: 40px;
+
+			p {
+				@include px2rem($font-size-nav-blockquote, $font-size-nav-blockquote, 24);
+				padding: 0;
+				font-style: italic;
+			}
+
+			cite {
+				padding: 10px 0;
+				text-align: right;
+				color: #fff;
+				opacity: 0.7;
+				@include px2rem($font-size-nav-blockquote-cite);
+			}
+
+			&:before {
+				color: $colorHover;
+				top: 40px;
+				font-style: normal;
+				font-size: 90px;
+			}
+		}
+	}
+
+	.introthumb {
+		padding-top: 7px;
+	}
+
+	figcaption {
+		color: #fff;
+		opacity: 0.8;
+		@include px2rem($font-size-nav-blockquote-cite);
+	}
+
+	p.nav-excerpt {
+		color: $colorLightest;
+		font-size: 15px;
+		line-height: 24px;
+		font-style: normal;
+		padding: 0;
+		margin: 0;
+	}
+}
+
+/* Larger device */
+@media (min-width: $screen-sm) {
+	.mainnav-defaultview {
+	    .header-menu {
+		.flyout-entries-full {
+		    ul.sub-menu li {
+			 width: 30%;
+		    }
+		}
+	    }
+	}
+	.mainnav-plainview {
+		.nav {
+			ul {
+				margin-bottom: 0;
+
+				&.level2 > li {
+					margin-bottom: 15px;
+
+					&:not(.has-sub) {
+						> a {
+							border-bottom: none;
+						}
+					}
+
+					> a {
+						font-weight: bold;
+						border-bottom-color: $PalettonDunkler;
+						padding-left: $padding-base-horizontal;
+
+						&:before {
+							display: none;
+						}
+					}
+				}
+
+				&.level3 a {
+					color: $PalettonHellste;
+					padding-left: $padding-base-horizontal;
+				}
+			}
+
+			.flyout-entries-full {
+				column-count: 3;
+				column-gap: 30px;
+
+				@media (max-width: $screen-md - 1) {
+					column-count: 2;
+				}
+			}
+
+			.nav-flyout {
+				background: svg-ci-siegel($colorPrimaryHeroLight, 320, 320) no-repeat 95% 10px, linear-gradient(to top, $colorPrimaryHeroLight 0%, $colorPrimaryHero 100%);
+				.fauorg-kooperation & {
+				   background: linear-gradient(to top, $colorPrimaryHeroLight 0%, $colorPrimaryHero 100%);
+				}
+
+				@media (min-width: $screen-sm) {
+					min-height: 199px;
+				}
+			}
+
+			.container {
+				padding-left:  floor(($grid-gutter-width / 2) - $padding-base-horizontal);
+				padding-right: ceil(($grid-gutter-width / 2) - $padding-base-horizontal);
+			}
+
+		}
+	}
+}
+
+#mainnav-toggle {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	@include px2rem($font-size-mobile-meta);
+	background-color: transparent;
+	border: none;
+	z-index: 100;
+	color: $colorMeta;
+	padding: 1px 6px;
+	display: none;
+
+	span {
+		@include hideout();
+	}
+}
+#mainnav-toggle:before {
+	@extend .fa;
+	@extend .fa-bars;
+}
+#mainnav-toggle[aria-expanded=true]:before {
+	@extend .fa-close;
+}
+
+
+	
+/* Very small device */
+@media (max-width: $screen-xs - 1) {
+	.no-js {
+		.hide-mobile {
+			display: none;
+			top: 0;
+			position: relative;
+		}
+	}
+}
+
+/* Medium sized device */
+@media (max-width: $screen-sm - 1) {
+	/* If there's no JavaScript available */
+	#nav {
+		display: none;
+	}
+
+	.nav {
+		.nav-flyout {
+			padding-top: 0;
+		}
+
+		> li {
+			border-top: 1px solid $colorOverlayDark; // #ccc;
+
+			&.level1 {
+				&:hover, &:focus {
+					border-top: 1px solid $colorHover;
+					+ li {
+						border-top: 1px solid $colorHover;
+					}
+				}
+			    
+			    
+				> a,
+				> [type=button] {
+					&[aria-expanded=true] {
+						background-color: $colorPrimary;
+					}
+
+					&:hover, &:focus {
+						background-color: $colorHover;
+					}
+				}
+			}
+		}
+	}
+
+	.flyout-entries {
+		padding: 0;
+
+		ul a {
+			padding-left: 30px;
+			padding-right: 35px;
+		}
+
+		.button-portal {
+			margin-left: 15px;
+		}
+	}
+
+	.level2 {
+		border-top: 1px solid #1f4c7a;
+	}
+
+	.no-js #nav:target,
+	[aria-expanded=true] ~ #nav {
+		display: block;
+	}
+
+	.no-js #nav:target ~ #menu-backdrop,
+	[aria-expanded=true] ~ #menu-backdrop {
+		display: block;
+	}
+
+	.js {
+		.nav-flyout {
+			display: none;
+		}
+
+		#nav {
+			position: absolute;
+			width: 100%;
+			z-index: 11;
+			right: 0;
+		}
+
+		.nav > li.level1 {
+			> a,
+			> [type=button] {
+				//@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
+
+				&:before {
+					display: block;
+				}
+			}
+		}
+	}
+
+	#mainnav-toggle {
+		display: block;
+	}
+}
+
+/* Large device */
+@media (min-width: $screen-sm) {
+	#nav {
+		background-color: transparent;
+	}
+
+	.nav {
+		/* All links & buttons */
+		a, [type=button] {
+			color: $colorPrimary;
+		}
+
+		> li {
+			float: left;
+
+			> a,
+			> [type=button] {
+				padding: 10px;
+				//@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
+				@include border-radius(4px);
+			}
+
+			&.has-sub {
+				> a,
+				> [type=button] {
+					&:before {
+						display: block;
+						right: 11px;
+					}
+				}
+			}
+
+			/* Hover & focus states */
+			&.has-sub:hover > a,
+			&.has-sub:hover > [type=button],
+			> a:hover,
+			> a:focus,
+			> [type=button][aria-expanded=true],
+			> [type=button]:hover,
+			> [type=button]:focus {
+				color: $colorMainMenu;
+				background-color: $colorPrimary;
+			}
+
+			/* Must be an extra selector as IE / Edge doesn't support :focus-within and considers this invalid */
+			&.has-sub:focus-within > a,
+			&.has-sub:focus-within > [type=button] {
+				color: $colorMainMenu;
+				background-color: $colorPrimary;
+			}
+
+			body.mainnav-forceclick & {
+				> a:hover,
+				> a:focus,
+				> [type=button]:hover,
+				> [type=button]:focus {
+					background-color: $colorHover;
+				}
+
+				// Overwrite for "active" button
+				> [type=button][aria-expanded=true] {
+					background-color: $colorPrimary;
+				}
+			}
+		}
+
+		/* Fly-Out / secondary navigation */
+		.nav-flyout {
+			display: none;
+			position: absolute;
+			z-index: 30;
+			left: 0;
+			right: 0;
+	 		// top: 172px;
+			@include box-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
+		}
+	}
+}
+
+/* Large device */
+@media (min-width: $screen-md) {
+	.nav {
+		.nav-flyout {
+		//	top: 135px;
+			max-height: calc(100vh - 162px);
+			overflow-y: auto;
+		}
+	}
+
+}
+
+
+#menu-backdrop {
+	display: none;
+	position: fixed;
+	top: 135px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+ 
+	background-color: rgba(0, 51, 102, .7);
+	z-index: 1;
+	
+
+	.admin-bar & {
+	    top: 135 + $wordpress-adminbar-bigheight;
+	    @media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
+		top: 135 + $wordpress-adminbar-smallheight;
+	    }
+	}
+
+}

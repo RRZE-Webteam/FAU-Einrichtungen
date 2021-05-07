@@ -1,0 +1,316 @@
+/*-----------------------------------------------------------------------------------*/
+/* Grid in Content
+/*-----------------------------------------------------------------------------------*/
+#content {
+    padding: 20px 0 0 0;	
+    position: relative;
+    display: block;
+    
+
+    @media (min-width: $screen-md) {
+	padding: 40px 0 30px 0;
+    }
+    
+}
+.content-container {
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 15px;
+    width: 100%;
+
+    @media (min-width: $screen-sm) {
+	padding-left:  floor(($grid-gutter-width / 2));
+	padding-right: ceil(($grid-gutter-width / 2));
+	width: $container-sm;
+    }
+     @media (min-width: $screen-md) {
+	width: $container-md;
+    }
+    @media (min-width: $screen-lg-min) {
+	width: $container-lg;
+    }
+}
+
+
+.content-row {
+    display: flex;
+    flex-wrap: wrap;
+    
+
+    .sidebar-subnav {
+	min-width: $subnav-width-sm;
+	@media (min-width: $screen-sm) {
+	    min-width: $subnav-width-sm;
+	    max-width: $subnav-width-sm;
+	}
+	@media (min-width: $screen-md) {
+	    min-width: $subnav-width-md;
+	    max-width: $subnav-width-md;
+	}
+	@media (min-width: $screen-lg) {
+	    min-width: $subnav-width-lg;
+	    max-width: $subnav-width-lg;
+	}
+	
+    }
+    .entry-content {
+	min-width: $screen-xxs;
+	 @media (min-width: $screen-sm) {
+	     max-width: calc(#{$container-sm} - #{$subnav-width-sm} - #{$grid-gutter-width});
+	     padding-left: $grid-gutter-width;
+	 }
+	 @media (min-width: $screen-md) {
+	     max-width: calc(#{$container-md} - #{$subnav-width-md} - #{$grid-gutter-width});
+	 }
+	 @media (min-width: $screen-lg) {
+	     max-width: calc(#{$container-lg} - #{$subnav-width-lg} - #{$grid-gutter-width});
+	 }
+    }
+    
+    .search-sidebar,  
+    .search-resultnested {
+	max-width: 100%;
+	padding-left:  floor(($grid-gutter-width / 2));
+	padding-right: ceil(($grid-gutter-width / 2));
+
+	
+    }
+    .search-sidebar {
+	@media (min-width: $screen-sm) {
+	     max-width: 33%;   
+	     padding-left: 0;
+	     order: 1;
+	}
+    }
+    .search-resultnested {
+	
+	@media (min-width: $screen-sm) {
+	    padding-right: 0;
+	    padding-left: 0;
+	}
+	.with-search-sidebar & {
+	    @media (min-width: $screen-sm) {
+		max-width: 66%;
+		order: 2;
+		padding-left: floor(($grid-gutter-width / 2));
+	    }
+	}
+	
+	
+	li.search-result {
+	    padding: 0;
+	}
+    }
+    
+}
+
+
+
+
+
+
+.inline-box {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    @media (min-width: $screen-sm) {
+	max-width: calc(#{$container-sm} - #{$grid-gutter-width});
+    }
+    @media (min-width: $screen-md) {
+	max-width: calc(#{$container-md} - #{$grid-gutter-width});
+    }
+    @media (min-width: $screen-lg) {
+	max-width: calc(#{$container-lg} - #{$grid-gutter-width});
+    }
+
+
+	
+    .sidebar-inline {
+        order: 2;
+        display: block;
+        width: 100%;
+        padding-left:  floor(($grid-gutter-width / 2));
+	padding-right: ceil(($grid-gutter-width / 2));
+	@media (min-width: $screen-sm) {
+	    width: calc(#{$sidebar-width-inline} + #{$grid-gutter-width} + 2px);
+            padding-right: 0;
+	}
+    }
+    .content-inline {
+	order: 1;
+        display: block;
+        width: 100%;
+	padding-left:  floor(($grid-gutter-width / 2));
+	padding-right: ceil(($grid-gutter-width / 2));
+	@media (min-width: $screen-sm) {
+	     padding-left: 0;
+	     padding-right: 0;
+	}
+	
+	&.with-sidebar {
+	    @media (min-width: $screen-sm) {
+		padding-right: ceil(($grid-gutter-width / 2));
+		width: calc(#{$container-sm} - #{$grid-gutter-width} - #{$sidebar-width-inline} - #{$grid-gutter-width} - 2px);
+	    }
+	    @media (min-width: $screen-md) {
+		width: calc(#{$container-md} - #{$grid-gutter-width} - #{$sidebar-width-inline} - #{$grid-gutter-width} - 2px);
+	    }
+	    @media (min-width: $screen-lg) {
+		width: calc(#{$container-lg} - #{$grid-gutter-width} - #{$sidebar-width-inline} - #{$grid-gutter-width} - 2px);
+	    }
+	    
+	}
+    }
+}
+/*-----------------------------------------------------------------------------------*/
+/* Default container in content for plugin and custom types
+/*-----------------------------------------------------------------------------------*/
+#content {
+    .container {
+	padding-left: 0;
+	padding-right: 0;
+    }
+}
+/*-----------------------------------------------------------------------------------*/
+/* Template: Page with Subnav
+/*-----------------------------------------------------------------------------------*/
+.page-template-page-subnav {
+    
+    @media (min-width: $screen-md) {
+        .inline-box {
+            display: inline-block;
+       
+            .sidebar-inline {
+                display: inline-block;
+                float: right;
+                width: $sidebar-width-inline;
+                flex: none; 
+		margin-left: floor(($grid-gutter-width / 2));
+            }
+            .content-inline {
+                width: 100%;
+                display: block;
+		
+		
+            }
+         }
+    }
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Post layout
+/*-----------------------------------------------------------------------------------*/
+
+#content {
+    .post-row {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+	@media (min-width: $screen-sm) {
+		max-width: calc(#{$container-sm} - #{$grid-gutter-width});
+	    }
+	@media (min-width: $screen-md) {
+		max-width: calc(#{$container-md} - #{$grid-gutter-width});
+	    }
+	@media (min-width: $screen-lg) {
+		max-width: calc(#{$container-lg} - #{$grid-gutter-width});
+	}
+	.entry-content{
+	    order: 1;
+	    min-width: $screen-xxs;	   
+	    width: 100%;  
+	    padding-left:  floor(($grid-gutter-width / 2));
+	    padding-right: ceil(($grid-gutter-width / 2));
+	    
+	    @media (min-width: $screen-sm) {
+		  padding-left: 0;
+		  padding-right: 0;
+	    }
+	    .with-sidebar & {
+		@media (min-width: $screen-sm) {
+		    max-width: calc(#{$container-sm} - #{$sidebar-width-posts} - #{$grid-gutter-width} - 2px);
+		    padding-right: ceil(($grid-gutter-width / 2));
+		}
+		@media (min-width: $screen-md) {
+		    max-width: calc(#{$container-md} - #{$sidebar-width-posts} - #{$grid-gutter-width} - 2px);
+		}
+		@media (min-width: $screen-lg) {
+		    max-width: calc(#{$container-lg} - #{$sidebar-width-posts} - #{$grid-gutter-width} - 2px);
+		}
+	    
+	    }
+	}
+	.sidebar-single {
+	    order: 2;
+	    padding-left:  floor(($grid-gutter-width / 2));
+	    padding-right: ceil(($grid-gutter-width / 2));
+	    width: 100%;
+	    @media (min-width: $screen-sm) {
+		padding-right: 0;
+		max-width: calc(#{$sidebar-width-posts} + 2px);
+	    }
+	}
+	
+    }
+    .row {
+	margin-left: 0;
+	margin-right: 0;
+    }
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Template: Portal and Startpage
+/*-----------------------------------------------------------------------------------*/
+.portalpage-content,
+.startpage-blogroll {
+    @extend .col-xs-12;
+    @extend .col-sm-8;
+//    @extend .col-xxl-9;
+}
+.portalpage-sidebar,
+.startpage-sidebar {
+    @extend .col-xs-12;
+    @extend .col-sm-4;
+  //  @extend .col-xxl-3;
+}
+
+
+
+// Portal Pages
+.page-template-page-portal {
+    .portalpage-content {
+	main {
+	    padding-top: 10px;
+	}
+    }
+    
+}
+
+.startpage-sidebar {
+    .row {
+	margin-left: 0;
+	margin-right: 0;
+    }
+    @media (max-width: $screen-sm - 1) {
+	@include linear-gradient-three(transparent,$colorStandardHellgrau 50%,transparent);  
+    }
+}
+
+
+// Portalindex
+//   POrtal Page with floating inline Sidebar
+
+
+@media (max-width: $screen-xs - 1) {
+    .page-template-page-start {
+	
+	
+	#content .news-image {
+	    text-align: center;
+	    float: none;
+	}
+
+	
+    } 
+}

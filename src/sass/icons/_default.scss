@@ -1,0 +1,41 @@
+/*-----------------------------------------------------------------------------------*/
+/* Default SVG Icons
+/*-----------------------------------------------------------------------------------*/
+
+$svg-icon-size: 1.4rem;
+$svg-icon-color: $colorPrimary;
+$svg-icon-color_hover: $colorHover;
+
+
+// Default icon width for use in :before
+.svg-placeholder {
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.6rem;
+
+    background-image: svg-bookmark();
+    background-repeat: no-repeat;
+    display: inline-block;
+    content: ' ';
+    background-size: 100%;
+    background-position: center center;
+    
+    margin-right: 0.5rem;
+}
+.svg-icon {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    content: ' ';
+    @include svg-icon-sizes($svg-icon-size);
+    background-image: inherit;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center center;
+}
+
+.fau-svg-definitions {
+    display: none;
+}
+

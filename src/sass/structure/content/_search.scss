@@ -1,0 +1,203 @@
+/*-----------------------------------------------------------------------------------*/
+/* Search page
+/*-----------------------------------------------------------------------------------*/
+
+.search-result {
+	margin-bottom: 11px;
+	article {
+	    @extend .col-sm-12;
+	}
+	.searchresult-image {
+	    @extend .col-xs-4;
+	    @extend .col-sm-3;
+	    text-align: right;
+	    
+	    img {
+		height: auto;
+		max-height: 147px;
+		box-shadow: none;
+	    }
+	    
+	} 
+	.searchresult-imagetext {
+	    @extend .col-xs-8;
+	    @extend .col-sm-9
+	}
+	.search-meta {
+		padding: 5px 0;
+		margin-top: 0px;
+		margin-bottom: 10px;
+		color: $colorText;
+		display: block;
+		font-family: $fontStack;
+		
+		.post-meta-category:before {
+		    @extend .fa;
+		    @extend .fa-tag;
+		}
+		.post-meta-date:before {
+		    @extend .fa;
+		    @extend .fa-calendar;
+		}
+		.post-meta-event:before {
+		    @extend .fa;
+		    @extend .fa-calendar-o;
+		}
+		.post-meta-kontakt:before {
+		    @extend .fa;
+		    @extend .fa-user;
+		}
+		.post-meta-defaulttype:before {
+		    @extend .fa;
+		    @extend .fa-bookmark;
+		}
+		.post-meta-news:before {
+		    @extend .fa;
+		    @extend .fa-newspaper-o;
+		}
+		.post-meta-news-external:before {
+		    @extend .fa;
+		    @extend .fa-link;
+		}
+		
+		.post-meta-attachment:before {
+		    @extend .fa;
+		    @extend .fa-file;
+		}
+		
+		.download:before {
+		    @extend .fa;
+		    @extend .fa-download;
+		}
+		.dateityp {
+		    text-transform: uppercase;
+		}
+	}
+	h3 .ext-link,  
+	h2 .ext-link {
+		@include inline-block;
+		padding-right: 15px;
+		
+		&:hover, &:focus {
+			text-decoration: underline;
+		}
+		
+	}
+
+	.download,
+	.post-meta-date,
+	.post-meta-attachment,
+	.post-meta-news,
+	.post-meta-news-external,
+	.post-meta-category,
+	.post-meta-defaulttype, 
+	.post-meta-kontakt {
+	    margin-right: 10px;
+	}
+	.content-person {
+	    border: none;
+	}
+	
+}
+
+
+.widget_search,
+.search-contenttry {	
+	form {
+	    border: none;
+	    .sidebar-single & {
+		padding: 20px 0;
+	    }
+	}
+	.search-text {
+	     margin: 0 20px;
+	     @include placeholder(#fff);
+
+	    label {
+		@extend .screen-reader-text;
+	    }
+	    input {
+		@include border-radius(20px);
+		padding: 0 15px;
+	    }
+	    input[type="text"] {
+		@include px2rem($font-size-herosearch);
+		border: 1px solid $colorMeta;
+		width: 80%;
+		padding: 5px 10px 5px 30px;
+		height: inherit;
+		margin: 0;
+		background: $colorMeta; // $colorSearchInputBackground;
+		color: #fff; // $colorSearchInput;
+
+		&:focus, &:hover {
+			background-color: $colorMetaHover; // $colorSearchInputBackgroundFocus;
+			border: 1px solid $colorMetaHover;
+		}
+	    }
+
+	    input[type="submit"] {
+		@include px2rem($font-size-herosearch);
+		    border: 1px solid $colorSearchInputBackground;
+		    background: $colorSearchInputBackgroundFocus;
+		    color: $colorSearchInput;
+		    padding: 5px 10px;
+		    height: inherit;
+		    margin-left: -30px;
+		    
+		    &:focus, &:hover {
+			    background-color: $colorSearchInputBackground;
+		    }
+	    }
+	    .searchicon {
+		@extend .fa;
+		@extend .fa-search;
+		position: relative;
+		margin-right: -30px;
+		color: #fff;
+	    }
+	}
+
+	.search-radio-label {
+		float: left;
+		margin-right: 20px;
+
+		input {
+			margin-top: -4px;
+			margin-right: 3px;
+		}
+	}
+	.filter {
+	   display: block;
+	   margin: 20px;
+	    label {
+		@include inline-block();
+		width: auto;
+		float: none;
+		margin: 0 10px 0 5px;
+		padding: 0;
+	    }
+	    input[type="checkbox"] {
+		margin: 0;
+		width: 17px;
+		height:17px;
+		border: 1px solid #bbb;
+		box-shadow: inset 0 1px 1px 0 rgba(0,0,0,.1);
+	    }
+	    .nowrap {
+		@include inline-block();
+		white-space: nowrap;
+	    }
+	}
+
+}
+
+.widget_search {
+
+    .search-text {
+	margin: 0 5px 0 20px;
+        input[type="text"], input[type="submit"] {
+	    @include px2rem($font-size-sidebar);
+	}
+    }
+}

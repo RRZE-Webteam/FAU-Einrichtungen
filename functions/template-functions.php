@@ -13,17 +13,39 @@
 	 // Additional body classes for Meta WIdget (once only language switcher)
     global $is_sidebar_active;
     
+    // Wenn CMS-Workflow vorhanden und aktiviert ist.
     if (is_workflow_translation_active()) {
-	 if ( is_active_sidebar( 'language-switcher'  )) {
-		 $classes[] = 'active-meta-widget';
-	 }
+        if ( is_active_sidebar( 'language-switcher'  )) {
+            $classes[] = 'active-meta-widget';
+        }
+    }
+    // Wenn das Widget des RRZE-Multilang-Plugins vorhanden ist.
+    elseif (apply_filters('rrze_multilang_widget_enabled', false)) {
+        if ( is_active_sidebar( 'language-switcher'  )) {
+            $classes[] = 'active-meta-widget';
+        }        
     }
 
     if (function_exists( 'wpel_init' )) {
 	 $classes[] = 'wp-external-links';
     }
+    $posttype = get_post_type();
     
-
+    
+    $page_sidebar = get_theme_mod('advanced_page_sidebar_wpsidebar');
+    if ( ($posttype == 'page') && $page_sidebar && is_active_sidebar( $defaultoptions['advanced_page_sidebar_wpsidebar_id'] ) ) { 
+	$is_sidebar_active = true;
+	$classes[] = 'page-sidebar';
+    }
+    if (($posttype == 'post') &&  is_active_sidebar( 'news-sidebar' )  ) { 
+	$is_sidebar_active = true;
+	$classes[] = 'post-sidebar';
+    }
+    if ($is_sidebar_active) {
+	 $classes[] = 'with-sidebar';
+    }
+    
+    
     if ((! is_plugin_active( 'rrze-elements/rrze-elements.php' ) )
 	// && (! is_plugin_active( 'rrze-faq/rrze-faq.php' ) )) {
 	&& (! is_plugin_active( 'rrze-glossary/rrze-glossary.php' ) )) {
@@ -129,10 +151,10 @@
 	    
     }
 
-    if ($is_sidebar_active) {
-	 $classes[] = 'with-sidebar';
-    }
     
+    if ( is_active_sidebar( 'search-sidebar' ) ) { 	
+	 $classes[] = 'with-search-sidebar';
+    }
     
     return $classes;
  }
@@ -518,8 +540,6 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
     $post = get_post($id);
     $output = '';
     if ($post) {
-	
-	
 	if (!is_int($hstart)) {
 	    $hstart = 2;
 	} elseif (($hstart < 1) || ($hstart >6)) {
@@ -528,7 +548,9 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	$arialabelid= "aria-".$post->ID."-".random_int(10000,30000);
 	    // add random key, due to the possible use of blogrolls of the news. The same article can be displayed
 	    // more times on the same page. This would result in an wcag/html error, cause the uniq id would be used more as one time
-	$output .= '<article class="news-item" aria-labelledby="'.$arialabelid.'" itemscope itemtype="http://schema.org/NewsArticle">';
+	$output .= '<article '; // class="news-item" ';
+	$output .= 'class="news-item '.esc_attr( implode( ' ', get_post_class( '', $post->ID ) ) ).'"';
+	$output .= ' aria-labelledby="'.$arialabelid.'" itemscope itemtype="http://schema.org/NewsArticle">';
 	$link = get_post_meta( $post->ID, 'external_link', true );
 	$link = esc_url(trim($link));
 	$external = false;
@@ -578,7 +600,7 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	$output .= '<meta itemprop="author" content="'. esc_attr( $schemaauthor ).'"></div>';
 					
 	
-	$output .= '<div class="row">';  	
+	$output .= '<div class="teaser-row">';  	
 	$show_thumbs = get_theme_mod('default_postthumb_always');
 	
 	if ((has_post_thumbnail( $post->ID )) || ($show_thumbs==true))  {
@@ -590,13 +612,8 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 		$output .= ' ext-link';
 	    }
 	    $output .= '">';
-
-	    // $size =  'post-thumb';
-	    $size =  'rwd-480-3-2';
 	    
 	    $post_thumbnail_id = get_post_thumbnail_id( $post->ID); 
-	    
-	    
 	    $pretitle = get_theme_mod('advanced_blogroll_thumblink_alt_pretitle');
 	    $posttitle = get_theme_mod('advanced_blogroll_thumblink_alt_posttitle');
 	    $alttext = $pretitle.get_the_title($post->ID).$posttitle;
@@ -606,7 +623,6 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 	    if (fau_empty($imagehtml)) {
 		$imagehtml = fau_get_image_fallback_htmlcode('post-thumb',$alttext,'',array('itemprop' => 'thumbnailUrl'));
 	    }
-	    
 	    $output .= $imagehtml;
 	    $output .= '</a>';
 	    $imgmeta = wp_get_attachment_image_src($post_thumbnail_id, 'rwd-480-3-2');
@@ -931,7 +947,7 @@ function fau_get_defaultlinks ($list = 'faculty', $ulclass = '', $ulid = '') {
     
     $result = '';
     if (isset($uselist['_title'])) {
-	$result .= '<h3>'.$uselist['_title'].'</h3>';	
+	$result .= '<p class="headline">'.$uselist['_title'].'</p>';	
 	$result .= "\n";
     }
     $thislist = '';
@@ -1004,7 +1020,7 @@ function fau_get_orgahomelink() {
 	 */    
     $result = '';
  
-    $website_usefaculty = $defaultoptions['website_usefaculty'];
+    $website_usefaculty = $defaultoptions['website_usefaculty'];   
     $isfaculty = false;
     if ( (isset($website_usefaculty)) && (in_array($website_usefaculty,$default_fau_orga_faculty))) {
 	$isfaculty = true;
@@ -1054,9 +1070,7 @@ function fau_get_orgahomelink() {
 	    $homeurl = $default_fau_orga_data[$homeorga]['homeurl'];
 	}
 	$linkimg = $default_fau_orga_data[$homeorga]['home_imgsrc'];
-	if (isset($default_fau_orga_data[$homeorga]['data-imgmobile'])) {
-	    $linkdataset = $default_fau_orga_data[$homeorga]['data-imgmobile'];
-	}
+	
 
     } else {
 	$linkhome = false;
@@ -1085,12 +1099,8 @@ function fau_get_orgahomelink() {
 	$orgalist .= '<li class="fauhome">';
 	$orgalist .= '<a href="'.$homeurl.'">';
 	    			
-	if ($linkhomeimg) {
-	    $orgalist .= '<img src="'.fau_esc_url($linkimg).'" alt="'.esc_attr($hometitle).'"'; 
-	    if ($linkdataset) {
-		 $orgalist .= ' data-imgmobile="'.fau_esc_url($linkdataset).'"'; 
-	    }
-	    $orgalist .= '>'; 
+	if ($linkhomeimg) {	   
+	     $orgalist .= fau_use_svg("fau-logo",37,16,'fau',false,['title' => 'FAU', 'desc' => __('Zur zentralen FAU Website','fau'), 'role' => 'img']); 
 	} else {
 	    $orgalist .= $shorttitle; 
 	}	
@@ -1139,8 +1149,6 @@ function fau_get_toplinks($args = array()) {
 
     
     if ( has_nav_menu( 'meta' ) ) {
-	// wp_nav_menu( array( 'theme_location' => 'meta', 'container' => false, 'items_wrap' => '<ul id="meta-nav" class="%2$s">%3$s</ul>' ) );
-	
 	 $menu_name = 'meta';
 
 	    if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
@@ -1184,17 +1192,12 @@ function fau_get_toplinks($args = array()) {
 	$result .= $orgalist;
     }
     if (isset($thislist)) {	
-	if (is_array($args) && isset($args['title'])) {
-	    $html = 'h3';
-	    if (isset($args['titletag'])) {
-		 $html = $args['titletag'];
-	    }
-	    $html = esc_attr($html);
-	    
-	    $result .= '<'.$html.'>'.esc_attr($args['title']).'</'.$html.'>';
-	}
 	
-	$result .= '<ul class="meta-nav menu">';
+	$result .= '<ul class="meta-nav menu"';
+	if (is_array($args) && isset($args['title'])) {
+	    $result .= ' aria-label="'.esc_attr($args['title']).'"';
+	}
+	$result .= '>';
 	$result .= $thislist;
 	$result .= '</ul>';	
 	$result .= "\n";	
@@ -1303,7 +1306,7 @@ function fau_get_tag_ID($tag_name) {
  function fau_articlelist($posttag = '', $postcat = '', $num = 5, $divclass= '', $title = '') {
     $posttag = $posttag ? esc_attr( $posttag ) : '';
     
-if ((!isset($posttag)) && (!isset($postcat))) {
+    if ((!isset($posttag)) && (!isset($postcat))) {
 	// kein wert gesetzt, also nehm ich die letzten Artikel
 	$postcat =0;
     } else {
@@ -1325,11 +1328,11 @@ if ((!isset($posttag)) && (!isset($postcat))) {
         'ignore_sticky_posts'	=> 1,
     );
     $found = 0;
-    if ((isset($posttag)) && ($posttag >= 0)) {
+    if ((isset($posttag)) && ($posttag > 0)) {
 	$parameter['tag_id'] = $posttag;
 	$found =1;
     }
-    if ((isset($postcat)) && ($postcat >= 0)) {
+    if ((isset($postcat)) && ($postcat > 0)) {
 	$parameter['cat'] = $postcat;
 	$found =2;
     }
@@ -1402,41 +1405,6 @@ if ((!isset($posttag)) && (!isset($postcat))) {
     }
  }
  
-/*-----------------------------------------------------------------------------------*/
-/* Rewrite Template redirects for generated urls
-/*-----------------------------------------------------------------------------------*/
-// add_action('template_redirect', 'fau_rw_relative_urls');
- 
- // removed, due to problems with other plugins that need absolute urls ;/
- // WW: 19.09.2018
- 
- /* 
-function fau_rw_relative_urls() {
-    // Don't do anything if:
-    // - In feed
-    // - In sitemap by WordPress SEO plugin
-    if (is_admin() || is_feed() || get_query_var('sitemap')) {
-        return;
-    }
-    $filters = array(
-        'post_type_link',
-        'page_link',
-        'post_type_archive_link',
-        'get_pagenum_link',
-        'get_comments_pagenum_link',
-        'term_link',
-        'search_link',
-        'day_link',
-        'month_link',
-        'year_link',
-        'script_loader_src',
-        'style_loader_src',
-    );
-    foreach ($filters as $filter) {
-        add_filter($filter, 'fau_make_link_relative');
-    }
-}
-*/
 /*-----------------------------------------------------------------------------------*/
 /* make urls relative to base url
 /*-----------------------------------------------------------------------------------*/
@@ -1606,7 +1574,7 @@ function fau_get_image_figcaption($atts = array(), $type = 'post-image', $class 
 	    } else {
 		
 		$displaycredits = get_theme_mod("advanced_display_postthumb_credits");
-		if (($displaycredits==true) && (!fau_empty($atts['copyright'])) && ($caption_content !== trim(strip_tags(  $atts['copyright'])))) {
+		if (($displaycredits==true) && isset($atts['copyright']) && (!fau_empty($atts['copyright'])) && ($caption_content !== trim(strip_tags(  $atts['copyright'])))) {
 		    $caption_content .= '<span class="copyright">'.trim(strip_tags(  $atts['copyright'])).'</span>';    
 		}	    
 	    }
@@ -1691,9 +1659,14 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
     switch ($size) {
 
 	case 'topevent_thumb':
-	    $imgsrc = $options['default_rwdimage_src'];
+	    if (isset($options['default_rwdimage_src'])) {
+		 $imgsrc = $options['default_rwdimage_src'];
+	    } else {
+		 $imgsrc = $defaultoptions['default_rwdimage_src'];
+	    }
 	    $width = $defaultoptions['default_rwdimage_width'];
 	    $height = $defaultoptions['default_rwdimage_height'];
+	    
 	    
 	    $fallback = get_theme_mod('fallback_topevent_image');
 	    if ($fallback) {
@@ -1708,7 +1681,12 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
 	    break; 
 	
 	case 'post-thumb':
-	    $imgsrc = $options['default_rwdimage_src'];
+	    if (isset($options['default_rwdimage_src'])) {
+		 $imgsrc = $options['default_rwdimage_src'];
+	    } else {
+		 $imgsrc = $defaultoptions['default_rwdimage_src'];
+	    }
+	   
 	    $width = $defaultoptions['default_rwdimage_width'];
 	    $height = $defaultoptions['default_rwdimage_height'];
 	    $fallback = get_theme_mod('default_postthumb_image');

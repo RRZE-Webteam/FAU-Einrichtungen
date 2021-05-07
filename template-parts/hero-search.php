@@ -9,7 +9,7 @@
 ?>
 
 <div id="hero" class="hero-small">
-	<div class="container">
+	<div class="container hero-content">
 		<div class="row">
 			<div class="col-xs-12">
 			    <?php fau_breadcrumb(); ?>
@@ -20,12 +20,12 @@
 			    <p class="presentationtitle"  aria-hidden="true" role="presentation"><?php echo get_theme_mod('title_hero_search'); ?></p>
 			</div>
 			<div class="search-input">
-			    <form method="get" class="searchform" action="<?php echo home_url( '/' )?>">
+			    <form method="get" class="searchform" action="<?php echo esc_url(home_url( '/' ))?>">
 				<div class="search-text">
 				    <label for="suchmaske-hero"><?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:','fau'); ?></label>
 				    <span class="searchicon"> </span>
 				    <input id="suchmaske-hero" type="text" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>">
-				    <input type="submit" value="<?php _e('Finden','fau'); ?>">
+				    <input type="submit" enterkeyhint="search" value="<?php _e('Finden','fau'); ?>">
 				</div>
 				<?php
 				if (get_theme_mod('search_allowfilter')) {
@@ -61,4 +61,5 @@
 			</div>
 		</div>
 	</div>
+     <?php get_template_part('template-parts/hero', 'siegel'); ?>
 </div>

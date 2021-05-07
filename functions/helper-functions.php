@@ -552,3 +552,24 @@ if ( ! function_exists( 'fau_save_standard' ) ) :
 
  endif;    
 
+ if ( ! function_exists( 'get_html_var_dump' ) ) :
+    function get_html_var_dump($input) {
+	$out = get_var_dump($input);
+	
+	$out = preg_replace("/=>[\r\n\s]+/", ' => ', $out);
+	$out = preg_replace("/\s+bool\(true\)/", ' <span style="color:green">TRUE</span>,', $out);
+	$out = preg_replace("/\s+bool\(false\)/", ' <span style="color:red">FALSE</span>,', $out);
+	$out = preg_replace("/,([\r\n\s]+})/", "$1", $out);
+	$out = preg_replace("/\s+string\(\d+\)/", '', $out);
+	$out = preg_replace("/\[\"([a-z\-_0-9]+)\"\]/i", "[\"<span style=\"color:#dd8800\">$1</span>\"]", $out);
+	
+	return '<pre>'.$out.'</pre>';
+    }
+    endif;
+   if ( ! function_exists( 'get_var_dump' ) ) :  
+    function get_var_dump($input) {
+	ob_start(); 
+	var_dump($input);
+	return "\n" . ob_get_clean();
+    }
+endif;

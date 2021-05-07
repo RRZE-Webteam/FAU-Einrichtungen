@@ -11,24 +11,18 @@ get_header();
 get_template_part('template-parts/hero', 'search'); 
 $active_sidebar = 0;
 $showhelplinks = 0;
+if ( is_active_sidebar( 'search-sidebar' ) ) { 	
+    $active_sidebar = 1;
+}
 ?>
-	
-	<div id="content">
-		<div class="container">
-			<div class="row">
-			    
-			    <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	
-				$active_sidebar = 1; ?>
-				<div class="search-sidebar">
-				    <h1 id="droppoint" class="screen-reader-text"><?php _e('Sidebar','fau'); ?></h1>
-					    <?php dynamic_sidebar( 'search-sidebar' ); ?>
-				</div>	
-				<div class="search-resultnested">   
-				    <div class="row">
-			    <?php } ?>
-			    
+    <div id="content">
+	<div class="content-container">
+	    <div class="content-row">
+		    <div class="search-resultnested">   
+			
+
 				    
-				<main id="droppoint">
+				<main>
 				   <h1 class="screen-reader-text"><?php _e('Webauftritt durchsuchen','fau'); ?></h1>
 				 <?php 
 								 
@@ -48,7 +42,7 @@ $showhelplinks = 0;
 						    if ($wp_query->found_posts>1) {
 							echo __("Es wurden",'fau');
 						    } else {
-							echo __("Es wurde ",'fau');
+							echo __("Es wurde",'fau');
 						    }
 						    echo " ".$wp_query->found_posts.' '.__("Treffer gefunden",'fau').":"; ?>
 						</p>
@@ -105,46 +99,51 @@ $showhelplinks = 0;
 					    } 
 
 				    } else { ?>
-					<div class="search-error-notice">
-						<p class="attention"><strong><?php _e('Nichts gefunden.','fau'); ?></strong></p>
-						<p><?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?></p>
+					 <div class="error-content">	
+					    <div class="error-notice">
+						    <p class="attention">
+							<strong><?php _e('Nichts gefunden.','fau'); ?></strong></p>
+						    <p><?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?></p>
 
+					    </div>
+					    <?php get_template_part('template-parts/error', 'siegel');  ?>
 					</div>
-					<div class="search-error-image"></div>
 					<?php 
 					    $showhelplinks = 1;
 				    } 
 				} else { ?>
-					
-					<div class="search-error-notice">
+				    <div class="error-content">
+					<div class="error-notice">
 					    <p class="attention">
-						    <strong><?php _e('Bitte geben Sie einen Suchbegriff in das Suchfeld ein.','fau'); ?></strong>
+						    <strong><?php _e('Kein Suchbegriff.','fau'); ?></strong>
 					    </p>
+					     <p><?php _e('Bitte geben Sie einen Suchbegriff in das Suchfeld ein.','fau'); ?></p>
 					</div>
-					<div class="search-error-image"></div>
-					
+					<?php get_template_part('template-parts/error', 'siegel');  ?>
+				    </div>
 					
 					<?php
 					$showhelplinks = 1;
 				} ?>
-				</main>
-					
-				 <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	?>
-				    </div>
-				 </div>
-				 <?php  } ?>
-					
-				
+				</main>	
+			
+				<?php
+				if ($showhelplinks==1) {
+					get_template_part('template-parts/search', 'helper'); 
+				}
+				?>
 			</div>
 		    
-			<?php
-			if ($showhelplinks==1) {
-				get_template_part('template-parts/search', 'helper'); 
-			}
-			?>
+		  <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	?>
+		    <div class="search-sidebar">
+			<?php dynamic_sidebar( 'search-sidebar' ); ?>
+		    </div>	
+		    <?php } ?>
 
-		</div>
+	    </div>
 	</div>
+    </div>
+
 
 <?php 
 get_footer(); 

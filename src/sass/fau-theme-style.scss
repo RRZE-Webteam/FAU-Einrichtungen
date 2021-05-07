@@ -1,0 +1,33 @@
+// Import FAU variables
+@import "variables";
+
+
+// Reset Base styles
+@import "reset";
+
+// Framework
+@import "frameworks/frameworks";
+
+// SVG Icons and CI elements
+@import "icons/icons";
+
+
+// Mixins
+@import "mixins/mixins";
+
+// Fonts
+@import "fonts/fonts";
+
+// Structure
+@import "structure/structure";
+
+// Element Styles
+@import "elements/elements"; 
+
+// Plugin-Support
+@import "plugins/plugins";
+
+
+
+// Printer Adjustments
+@import "printer";

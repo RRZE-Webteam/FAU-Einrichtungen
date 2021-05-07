@@ -1,0 +1,173 @@
+/*-----------------------------------------------------------------------------------*/
+/* Tables
+/*-----------------------------------------------------------------------------------*/
+
+table {
+	max-width: 100%;
+	background-color: transparent;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+table td[class*="span"],
+table th[class*="span"] {
+	display: table-cell;
+	float: none;
+	margin-left: 0;
+}
+
+
+
+	
+.table-wrapper {
+	position: relative;
+	overflow: hidden;
+	margin: 0;
+	border-right: 1px solid $colorContentBorders;
+	
+	
+	@media (min-width: $screen-sm) {
+	    border-right: none;
+	}
+	.scrollable {
+	    overflow-x: auto;
+	    overflow-y: hidden;
+	}
+
+}
+	
+
+table {
+	border: 0;
+	background: transparent;
+	
+	border-top: 1px solid $colorContentBorders;
+	border-bottom: 1px solid $colorContentBorders;
+	margin: 0;
+	width: 100%;
+
+	
+	@media (min-width: $screen-sm) {
+	    margin: 5px 0 20px 0;
+	    
+	    th, td {
+		padding: 7px 10px;		
+	    }
+	    
+	}
+	
+	
+	tbody, tr, th, td {
+		border: 0;
+	}
+	
+	th, td {
+		padding-left: 15px;
+		padding-right: 15px;
+		@include px2rem($font-size-table);	
+		p {
+		   @include px2rem($font-size-table);	    	
+		}
+	}
+	
+	th {
+		color: $colorText;
+		background: $colorContentBorders;
+		font-weight: bold;
+		border-top: 1px solid $colorContentBorders;
+		border-bottom: 1px solid $colorContentBorders;
+		text-align: left;
+		
+		h1, h2, h3, h4, h5, h6 {
+		    color: $PalettonDunkler;
+		}
+		
+
+	}
+	&.sorttable th.header {
+	    cursor: pointer;
+	}
+	
+	td {
+		border-right: 1px solid #fff;
+		color: $colorText;
+		
+		
+	}
+	
+	tr {
+		border-left: 1px solid $colorStandardHellgrau;
+		border-right: 1px solid $colorStandardHellgrau;
+	}
+	
+	tr:nth-child(odd) td {
+		color:  $colorLightestContrast;
+		background: $colorStandardHellgrau;
+		
+		h1, h2, h3, h4, h5, h6 {
+		    color: $PalettonDunkler;
+		}
+		
+		
+		ul {
+		    li {
+			color:  $colorLightestContrast;
+		    }
+		}
+	}
+	
+	ul {
+		li {
+			color: $colorPrimary;
+			@include px2rem($font-size-table);	    
+			background-position: left 5px;
+		}
+	}
+	
+	&.nooddcolor {
+	    tr:nth-child(odd) td {
+		color:  $colorText;
+		background: transparent;
+		
+		ul {
+		    li {
+			color:  $colorText;
+		    }
+		}
+	    }
+	}
+	&.nobackground {
+	    border-top: none;
+	    border-bottom: none;
+	    th {
+		background: transparent;
+		border-top: none;
+		border-bottom: none;
+	    }
+	    tr {
+		border-left: none;
+		border-right: none;
+	    }
+	    tr:nth-child(odd) td {
+		background: transparent;
+		color: $colorText;
+		li {
+		    color: $colorText;
+		}
+	    }
+	}
+	
+}
+.sorttable {
+	    th::after {
+		@extend .fa;
+		margin-left: 5px;
+		content: "\f0dc";
+		
+	    }
+	}
+
+	
+.tablesorter-header-inner {
+    display: inline-block;
+}

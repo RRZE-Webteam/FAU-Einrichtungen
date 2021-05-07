@@ -10,7 +10,7 @@
 ?>
 
     <div id="hero" class="hero-small">
-	<div class="container">
+	<div class="container hero-content">
 		<div class="row">
 		    <div class="col-xs-12">
 			<?php 
@@ -38,9 +38,10 @@
 		    </div>
 		</div>
 		<div class="row" aria-hidden="true" role="presentation">
-		    <div class="col-xs-12 col-sm-8">
+		    <div class="col-xs-12">
 			<p class="presentationtitle" <?php echo fau_get_page_langcode($post->ID);?>><?php the_title(); ?></p>
 		    </div>
 		</div>
 	</div>
+       <?php get_template_part('template-parts/hero', 'siegel'); ?>
     </div>

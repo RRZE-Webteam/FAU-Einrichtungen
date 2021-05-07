@@ -1,0 +1,178 @@
+/*-----------------------------------------------------------------------------------*/
+/* Banner im Hero-Teil
+/*-----------------------------------------------------------------------------------*/
+
+#hero.hero-banner {
+	    height: auto;
+	    overflow: inherit;
+            
+            @include radial-gradient($colorPrimaryHero, $colorPrimaryHeroLight);
+            
+	    @media (min-width: $screen-sm) {
+		 max-height: 142px;
+	    }
+	    
+
+}
+
+
+
+.banner {
+	    position: relative;
+	    top: 0px;
+	    margin: 0 auto;
+	    height: auto;
+	    background: $colorPrimary;
+	    max-width: 1260px;
+	    overflow: hidden;
+	    @include box-shadow(0 10px 20px rgba(0,0,0,0.5));
+	    
+	    
+	    @media (min-width: $screen-sm) {
+		height: 182px;
+	    }
+	    @media (min-width: $screen-md) {
+		top: -20px;
+	    }
+	    
+	    .introimg {
+		overflow: hidden;
+
+		img {
+		    width: auto;
+		    max-width: none;
+		    height: 100px;
+		    @media (max-width: $screen-xs - 1) {
+			height: 120px;
+			margin-left: -30%;
+		    }
+		    @media (min-width: $screen-xs) {
+			height: auto;
+			width: 100%;
+			max-width: 1260px;
+		    }
+		    @media (min-width: $screen-sm) {
+			min-height: 182px;
+			width: 1260px;
+			height: auto;
+		    }
+		    @media (min-width: $screen-md) {
+			width: 1260px;
+			height: auto;
+			
+		    }
+		}
+		p.credits {
+		    background: $colorCopyrightBackground;
+		    color: $colorCopyright;
+		    font-size: 14px;
+		    line-height: 18px;
+		    position: absolute;
+		    bottom: 0;
+		    right: 0;
+		    z-index: 6;
+		    margin: 0;
+		    padding: 1px 4px;
+		}
+	    }
+	    .banner-text {
+		position: absolute;
+		top: 20px;
+		bottom: 20px;
+		left: 0;
+		right: 0;
+		width: 100%;
+		padding: 0px;
+		display: none;
+		
+		@media (min-width: $screen-xs) {
+		    height: 142px;
+		    display: block;
+		}
+	    
+		p.sitetitle,
+		h1 {
+			@include px2rem($font-size-h1,  $font-size-base);		
+			@include hyphens(none);
+			color: #fff;
+			background: rgba($colorPrimary,0.8);
+			margin: 0;
+			padding: 0 7px 1px 7px;
+			position: relative;
+			z-index: 10;
+			max-height: 130px;
+			overflow: hidden;
+			vertical-align: bottom;
+			display: none;
+			box-decoration-break: clone;
+			
+			@media (min-width: $screen-sm) {
+			    display: inline;
+			}
+		}
+		.slogan {
+		    display: block;
+		    margin-top: 15px;
+		}
+		
+		p.description {
+			font-weight: normal;
+			color: #fff;
+			@include px2rem($font-size-hero-bannertext);
+			display: none;
+			background: rgba($colorPrimary,0.8);
+			padding: 0 7px 1px 7px;
+			margin: 10px 0 0 0;
+			box-decoration-break: clone;
+			
+			@media (min-width: $screen-xs) { 
+			   @include inline-block;
+			}
+			@media (min-width: $screen-sm) {
+			   display: inline;
+			} 
+
+		}
+
+	    }
+	    
+}
+
+
+@media (max-width: $screen-xs - 1) {
+    .page-template-page-start-sub  {
+	&.js-enabled #hero {
+	    .banner {
+		top: 0;
+		bottom: 0;
+	    }
+	}
+    }
+
+}
+
+@media (min-width: $screen-md) {
+    .page-template-page-start.no-quicklinks  {
+	#hero {
+	    height: 310px;
+	}
+    }
+
+}
+
+
+
+.infobar {
+    @extend .col-xs-12;
+    @extend .col-sm-8;
+    
+    display: none;
+    @media (min-width: $screen-xs) {
+        display: inline-block;
+    }
+    &.fullsize {
+	 @extend .col-sm-12;
+    }
+    
+}
+

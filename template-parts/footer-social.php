@@ -66,18 +66,20 @@ $show =false;
  
 if ($show) {
 ?>    
-	<section id="social" aria-labelledby="contentfooter">
-	    <h1 class="screen-reader-text" id="contentfooter"><?php _e("Weitere Hinweise zum Webauftritt","fau"); ?></h1>	
+	<aside id="social" aria-labelledby="socialbartitle">
 	    <div class="container">
 		<div class="flex-four-widgets">
+		    <h2 id="socialbartitle" class="screen-reader-text"><?php _e("Weitere Hinweise zum Webauftritt","fau"); ?></h2>
 		    <?php 
-
+		  
 		    if ($showicons==true) {
-			echo '<nav class="socialmedia" aria-label="'.__('Social Media','fau').'">';
-
 			$socialmedia_buttons_title = get_theme_mod('socialmedia_buttons_title');
+			
 			if (!fau_empty($socialmedia_buttons_title)) {
-			    echo '<h2>'.$socialmedia_buttons_title.'</h2>';
+			    echo '<nav class="socialmedia" aria-labelledby="socialmediatitle">';
+			    echo '<h3 id="socialmediatitle">'.$socialmedia_buttons_title.'</h3>';
+			} else {
+			    echo '<nav class="socialmedia" aria-label="'.__('Social Media','fau').'">';
 			}
 
 			global $default_socialmedia_liste;
@@ -95,6 +97,6 @@ if ($show) {
 
 		</div>
 	    </div>
-	</section> 
+	</aside> 
 <?php
 }
