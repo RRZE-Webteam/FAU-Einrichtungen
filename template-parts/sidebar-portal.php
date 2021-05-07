@@ -73,8 +73,6 @@
     <aside class="startpage-sidebar" aria-label="<?php echo __('Sidebar','fau');?>">
 	<?php
 	get_template_part('template-parts/sidebar', 'events'); 	
-
-
 	get_template_part('template-parts/sidebar', 'textabove');  
 
 	$order = get_post_meta($post->ID, 'fauval_sidebar_order_personlinks', true );
