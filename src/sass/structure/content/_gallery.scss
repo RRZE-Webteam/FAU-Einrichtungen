@@ -13,7 +13,8 @@
     figure {
 	img {
 	    width: 100%;
-	    height: auto;	    
+	    height: auto;	
+	    box-shadow: none;
 	}
 	figcaption {
 	    @include px2rem($font-size-image-caption);

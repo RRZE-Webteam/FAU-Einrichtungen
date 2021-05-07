@@ -118,7 +118,7 @@ while ( have_posts() ) : the_post();
 				     </aside>
 				<?php } ?>
 			    </div>
-			    <?php if(get_post_type() == 'post') { get_template_part('template-parts/sidebar', 'news'); } ?>
+			    <?php if(get_post_type() == 'post') { get_template_part('template-parts/sidebar', 'posts'); } ?>
 			</div>
 		</div>	
 	</div>

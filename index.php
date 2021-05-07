@@ -115,7 +115,7 @@ if($posttype == 'event') {
 
 			<?php 
 			if($posttype=='post') {
-			     get_template_part('template-parts/sidebar', 'news');
+			     get_template_part('template-parts/sidebar', 'posts');
 			}
 			?>
 		    </div>    

@@ -8,13 +8,20 @@
  * @since FAU 1.0
  */
 
+    global $defaultoptions;
 
     $sidebarfilled =0;
     $titleup = get_post_meta( $post->ID, 'sidebar_title_above', true );
     $textup = get_post_meta( $post->ID, 'sidebar_text_above', true );
     $titledown = get_post_meta( $post->ID, 'sidebar_title_below', true );
     $textdown = get_post_meta( $post->ID, 'sidebar_text_below', true );
+   
+    $page_sidebar = get_theme_mod('advanced_page_sidebar_wpsidebar');
+    if ( $page_sidebar && is_active_sidebar( $defaultoptions['advanced_page_sidebar_wpsidebar_id'] ) ) { 
+	$sidebarfilled = true;
+    }
 
+    
     if ($titleup || $titledown || $textup || $textdown) {
 	$sidebarfilled =1;
     } else {
@@ -81,6 +88,11 @@
 	}
 
 	get_template_part('template-parts/sidebar', 'textbelow'); 
+	if ( $page_sidebar && is_active_sidebar( $defaultoptions['advanced_page_sidebar_wpsidebar_id'] ) ) { 
+	    dynamic_sidebar( $defaultoptions['advanced_page_sidebar_wpsidebar_id'] ); 
+	}	
+
+
 	?>
     </aside>
     <?php }	?>

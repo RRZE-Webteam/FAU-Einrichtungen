@@ -29,7 +29,11 @@
     if (function_exists( 'wpel_init' )) {
 	 $classes[] = 'wp-external-links';
     }
-    
+
+    $page_sidebar = get_theme_mod('advanced_page_sidebar_wpsidebar');
+ if ( $page_sidebar && is_active_sidebar( $defaultoptions['advanced_page_sidebar_wpsidebar_id'] ) ) { 
+	$is_sidebar_active = true;
+    }
 
     if ((! is_plugin_active( 'rrze-elements/rrze-elements.php' ) )
 	// && (! is_plugin_active( 'rrze-faq/rrze-faq.php' ) )) {
