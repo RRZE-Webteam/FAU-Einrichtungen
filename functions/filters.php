@@ -261,6 +261,7 @@ function fau_widget_tag_cloud_args($args) {
     return $args;
 }
 add_filter('widget_tag_cloud_args', 'fau_widget_tag_cloud_args', 10, 1 );
+
 /*-----------------------------------------------------------------------------------*/
 /* Defined allowed core block types if theme is used in Gutenberg Block Editor
 /*-----------------------------------------------------------------------------------*/
