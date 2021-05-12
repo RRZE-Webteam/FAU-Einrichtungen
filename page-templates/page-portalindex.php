@@ -15,7 +15,6 @@ while ( have_posts() ) : the_post();
     <div id="content" class="content-portal">
 	<div class="container">	
 	    <div class="row">
-		<div class="col-xs-12">
 		    <main<?php echo fau_get_page_langcode($post->ID);?>>
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 		    <?php 
@@ -66,7 +65,6 @@ while ( have_posts() ) : the_post();
 			}
 			?>
 		    </main>
-		</div>
 	    </div>
 
 	</div>
