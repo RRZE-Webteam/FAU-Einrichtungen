@@ -36,7 +36,9 @@
     display: flex;
     flex-wrap: wrap;
     
-
+    main {
+	flex-grow: 1;
+    }
     .sidebar-subnav {
 	min-width: $subnav-width-sm;
 	@media (min-width: $screen-sm) {
@@ -55,6 +57,7 @@
     }
     .entry-content {
 	min-width: $screen-xxs;
+	flex-grow: 1;
 	 @media (min-width: $screen-sm) {
 	     max-width: calc(#{$container-sm} - #{$subnav-width-sm} - #{$grid-gutter-width});
 	     padding-left: $grid-gutter-width;
@@ -218,6 +221,7 @@
 	}
 	.entry-content{
 	    order: 1;
+	    flex-grow: 1;
 	    min-width: $screen-xxs;	   
 	    width: 100%;  
 	    padding-left:  floor(($grid-gutter-width / 2));
