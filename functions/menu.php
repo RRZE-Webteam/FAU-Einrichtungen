@@ -225,17 +225,21 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
 	function end_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat("\t", $depth);
 		$output .= $indent.'</ul>';
-		$output .= '<a href="'.get_permalink($this->currentID).'" class="button-portal">';
-		$pretitle = get_theme_mod('menu_pretitle_portal');
-		if (!fau_empty($pretitle)) {
-		    $output .=  $pretitle.' ';
+		$currenttitle = fau_get_the_title($this->currentID);
+		
+		if (!empty($currenttitle)) {
+		    $output .= '<a href="'.get_permalink($this->currentID).'" class="button-portal">';
+		    $pretitle = get_theme_mod('menu_pretitle_portal');
+		    if (!fau_empty($pretitle)) {
+			$output .=  $pretitle.' ';
+		    }
+		    $output .= $currenttitle;
+		    $posttitle = get_theme_mod('menu_aftertitle_portal');
+		    if (!fau_empty($posttitle)) {
+			$output .=  ' '.$posttitle;
+		    }
+		    $output .= '</a>';
 		}
-		$output .= fau_get_the_title($this->currentID);
-		$posttitle = get_theme_mod('menu_aftertitle_portal');
-		if (!fau_empty($posttitle)) {
-		    $output .=  ' '.$posttitle;
-		}
-		$output .= '</a>';
 		$output .= '</div>';
 
 		$nothumbnail  = get_post_meta( $this->currentID, 'menuquote_nothumbnail', true );
@@ -452,19 +456,21 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 
 	function end_lvl( &$output, $depth = 0, $args = array() ) {
               if ($this->level == 2) {
-                  $output .= '</ul>';
-
-		$output .= '<a href="'.get_permalink($this->currentID).'" class="button-portal">';
-		$pretitle = get_theme_mod('menu_pretitle_portal');
-		if (!fau_empty($pretitle)) {
-		    $output .=  $pretitle.' ';
+                $output .= '</ul>';
+		$currenttitle =   fau_get_the_title($this->currentID);
+		if (!empty($currenttitle)) {
+		    $output .= '<a href="'.get_permalink($this->currentID).'" class="button-portal">';
+		    $pretitle = get_theme_mod('menu_pretitle_portal');
+		    if (!fau_empty($pretitle)) {
+			$output .=  $pretitle.' ';
+		    }
+		    $output .= $currenttitle;
+		    $posttitle = get_theme_mod('menu_aftertitle_portal');
+		    if (!fau_empty($posttitle)) {
+			$output .=  ' '.$posttitle;
+		    }
+		    $output .= '</a>';
 		}
-		$output .= fau_get_the_title($this->currentID);
-		$posttitle = get_theme_mod('menu_aftertitle_portal');
-		if (!fau_empty($posttitle)) {
-		    $output .=  ' '.$posttitle;
-		}
-		$output .= '</a>';
 
 		$output .= '</div>';
 		$output .= '</div></div></div>';
