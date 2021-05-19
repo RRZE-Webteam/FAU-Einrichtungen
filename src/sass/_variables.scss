@@ -50,7 +50,7 @@ $PalettonDunkler: desaturate(lighten($colorPrimary, 10%), 90%);
 $PalettonDunkelste: desaturate(lighten($colorPrimary, 10%), 40%);
 
 $colorPrimaryHero: $colorPrimary;
-
+$HeroSiegelColor: $colorPrimary;
 $colorPrintMain: #000;
 $colorPrintMainLinks: $colorText;
 
@@ -61,7 +61,7 @@ $colorPrintMainLinks: $colorText;
 	$PalettonHeller: #bfd6f5; // #08C0E7;
 	$PalettonDunkler: #026480;
 	$PalettonDunkelste: #014e63;
-	
+	$HeroSiegelColor: $colorPrimary;
 
 } @else if $farbfamilie == 'phil' {
 	$colorPrimary: $colorPhilFak;
@@ -69,7 +69,7 @@ $colorPrintMainLinks: $colorText;
 	$PalettonHeller: #d9c689;
 	$PalettonDunkler: #805000;
 	$PalettonDunkelste: #553500;
-
+	$HeroSiegelColor: $PalettonDunkler;
 
 } @else if $farbfamilie == 'nat' {
 	$colorPrimary: $colorNatFak;
@@ -77,6 +77,7 @@ $colorPrintMainLinks: $colorText;
 	$PalettonHeller: #aacfbd;
 	$PalettonDunkler: #006e53;
 	$PalettonDunkelste: #00533f;
+	$HeroSiegelColor: $colorPrimary;
 
 
 } @else if $farbfamilie == 'rw' {
@@ -85,7 +86,7 @@ $colorPrintMainLinks: $colorText;
 	$PalettonHeller: #c5ac94; // #bd7d8b;
 	$PalettonDunkler: #690013;
 	$PalettonDunkelste: #42000c;
-
+	$HeroSiegelColor: $colorPrimary;
 
 } @else if $farbfamilie == 'tf' {
 	$colorPrimary: $colorTechFak;
@@ -93,6 +94,7 @@ $colorPrintMainLinks: $colorText;
 	$PalettonHeller: #d2d5d7; // #8e949a;
 	$PalettonDunkler: #53606b;
 	$PalettonDunkelste: #3b4956;
+	$HeroSiegelColor: $PalettonDunkler;
 
 
 } @else if $farbfamilie == 'zuv' {
@@ -101,6 +103,7 @@ $colorPrintMainLinks: $colorText;
 	$PalettonHeller: #8fb1ef;
 	$PalettonDunkler: #24598f;
 	$PalettonDunkelste: #1f4b7a;
+	$HeroSiegelColor: lighten($colorPrimary, 15%);
 
 }
 
@@ -357,4 +360,4 @@ $subnav-width-lg: 290px;
 
 $sidebar-width-inline: 235px;
 $sidebar-width-portal: 33%;
-$sidebar-width-posts: 33%;
+$sidebar-width-posts: 330px;

@@ -269,6 +269,10 @@
 	margin-top: 10px;
     }
     
+    h2, h3 {
+	padding-top: 11px;
+    }
+    
 }
 
 /* Strukturen Personenshortcode Content */
@@ -417,3 +421,18 @@
     }
 }
 
+.single-person .entry-content {
+    width: 100%;
+    padding-left:  floor(($grid-gutter-width / 2));
+    padding-right: ceil(($grid-gutter-width / 2));
+    
+    @media (min-width: $screen-sm) {
+	width: $container-sm;
+    }
+     @media (min-width: $screen-md) {
+	width: $container-md;
+    }
+    @media (min-width: $screen-lg-min) {
+	width: $container-lg;
+    }
+}

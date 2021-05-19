@@ -143,16 +143,22 @@ main {
     }
     a.media-img {
 	display: inline-block;
+	overflow: hidden;
+		
+	img {
+	    @media (prefers-reduced-motion: no-preference) {
+		  transition: transform 1s;
+	    }
+	    object-fit: cover;		    
+	}
+	
     }
     a.media-img:hover, 
     a.media-img:focus {
-	    outline-style: solid;
-	    outline-color: $colorPrimary;
-	    outline-width: 2px;
-	    @media (prefers-reduced-motion: no-preference) {
-		transition: outline-offset .25s ease-in-out;
+	    img {
+		
+		transform: scale(1.2);
 	    }
-	    outline-offset: 4px;
 	}
 	
 	a.media-img.alignleft {

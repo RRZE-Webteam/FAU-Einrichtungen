@@ -63,7 +63,7 @@
    
     align-items: center;
     @media (min-width: $screen-sm) {
-	align-items: flex-end;
+	align-items: flex-start;
     }
     
     #meta & {
