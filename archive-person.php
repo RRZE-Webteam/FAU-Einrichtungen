@@ -23,10 +23,11 @@ $active_sidebar = false;
 				$post_type = get_post_type_object(get_post_type());
 				echo $post_type->labels->name;
 				?></h1>
+			    
 			    <?php 
 				while ( have_posts() ) { 
 				    the_post();  
-				    echo FAU_Person_Shortcodes::fau_person(array("id"=> $post->ID, 'format' => 'kompakt', 'showlink' => 1)); 
+				    echo FAU_Person_Shortcodes::fau_person(array("id"=> $post->ID, 'format' => 'kompakt', 'showlink' => 1, 'hstart' => 2)); 
 				} ?>
 
 				<nav class="navigation">

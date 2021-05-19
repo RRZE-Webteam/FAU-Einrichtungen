@@ -161,6 +161,7 @@
 .person-info {
 	@include no-list;
 	margin-bottom: 10px;
+	overflow-wrap: break-word;
 	
 	li {
 		@include no-list;
@@ -219,13 +220,7 @@
 	    width: 20px; 
 	    @extend .fa-envelope; 
 	}
-	/*
-	li.person-info-institution:before { 
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-building; 
-	}
-	*/
+
 	.person-info-www:before { 
 	    @extend .fa;
 	    width: 20px; 
@@ -243,6 +238,11 @@
 	.person-info-description {
 	    margin-top: 10px;
 	    padding-left: 20px;
+	}
+	
+	a[itemprop="url"],
+	a[itemprop="email"] {
+	    overflow-wrap: anywhere;
 	}
 
 }
