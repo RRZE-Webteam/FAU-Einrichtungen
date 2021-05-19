@@ -304,6 +304,6 @@ button.expand-all {
 /* Timeline
 /*-----------------------------------------------------------------------------------*/
 
-.content [id^="timeline"] .issues li p:not(.wp-caption-text) {
+#content [id^="timeline"] .issues li p:not(.wp-caption-text) {
     @include px2rem($font-size-base);
 }
