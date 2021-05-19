@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 1.13.11-8
+Version: 1.13.11-9
 Requires at least: 5.0
 Tested up to: 5.7
 Requires PHP: 7.3
@@ -7941,6 +7941,7 @@ main .three-columns-one {
 /*-----------------------------------------------------------------------------------*/
 .widget {
   margin-bottom: 10px;
+  overflow-wrap: break-word;
   font-size: 0.866rem;
   line-height: 1.3rem; }
   .widget ul {
@@ -9787,13 +9788,7 @@ p.has-drop-cap:not(:focus):first-letter {
   padding: 0;
   background: none;
   margin-bottom: 10px;
-  /*
-	li.person-info-institution:before { 
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-building; 
-	}
-	*/ }
+  overflow-wrap: break-word; }
   .person-info:before {
     display: none; }
   .person-info li {
@@ -9837,6 +9832,9 @@ p.has-drop-cap:not(:focus):first-letter {
   .person-info .person-info-description {
     margin-top: 10px;
     padding-left: 20px; }
+  .person-info a[itemprop="url"],
+  .person-info a[itemprop="email"] {
+    overflow-wrap: anywhere; }
 
 .widget .person ul.person-info ul {
   margin: 0 0 10px 25px; }
@@ -10916,8 +10914,9 @@ button.expand-all {
         color: #003366;
         border-radius: 4px;
         background-clip: padding-box;
+        font-size: 1.066rem;
+        line-height: 1.6rem;
         text-decoration: none;
-        font-size: 16px;
         padding: 8px 35px 8px 10px;
         position: relative; }
         .accordion .accordion-group .accordion-heading .accordion-toggle:before {
@@ -10988,7 +10987,8 @@ button.expand-all {
     border-radius: 4px;
     background-clip: padding-box;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1.066rem;
+    line-height: 1.6rem;
     padding: 8px 35px 8px 10px;
     position: relative; }
     .accordionbox header h2 {
@@ -11109,6 +11109,13 @@ button.expand-all {
   .faculty-tf .notice-hinweis h3 + ul,
   .faculty-tf .notice-hinweis h3 + ol {
     color: #444; }
+
+/*-----------------------------------------------------------------------------------*/
+/* Timeline
+/*-----------------------------------------------------------------------------------*/
+.content [id^="timeline"] .issues li p:not(.wp-caption-text) {
+  font-size: 1rem;
+  line-height: 1.5rem; }
 
 /*-----------------------------------------------------------------------------------*/
 /* CSS Adjustment for WordPress Plugin RRZE-Search 
