@@ -12,7 +12,7 @@
 	color: $colorText;
 	font-family: $fontStack;
 	padding-top: 0;
-	 
+	width: 100%;
 	
 	.sidebar-inline {
 	    @include px2rem($font-size-sidebar);

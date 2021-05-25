@@ -70,8 +70,8 @@ button.expand-all {
                 background: $colorContentBorders;
                 color: $colorDefault; // $colorPrimary;
                 @include border-radius(4px);
+		@include px2rem($font-size-content-toggle);
                 text-decoration: none;
-                font-size: 16px;
                 padding: 8px 35px 8px 10px;
                 position: relative;
 
@@ -185,7 +185,7 @@ button.expand-all {
         color: $colorDefault; // $colorPrimary;
         @include border-radius(4px);
         text-decoration: none;
-        font-size: 16px;
+        @include px2rem($font-size-content-toggle);
         padding: 8px 35px 8px 10px;
         position: relative;
 
@@ -299,4 +299,11 @@ button.expand-all {
             color: $colorText;
         }
     }
+}
+/*-----------------------------------------------------------------------------------*/
+/* Timeline
+/*-----------------------------------------------------------------------------------*/
+
+#content [id^="timeline"] .issues li p:not(.wp-caption-text) {
+    @include px2rem($font-size-base);
 }

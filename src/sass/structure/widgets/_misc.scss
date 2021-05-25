@@ -4,6 +4,7 @@
 
 .widget {
 	margin-bottom: 10px;
+	overflow-wrap: break-word;
 	@include px2rem($font-size-sidebar);
 	ul {
 	    margin: 0;

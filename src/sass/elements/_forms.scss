@@ -59,6 +59,7 @@ form {
 	}
 	
 	main & {
+	    max-width: 98%;
 	    padding: 0;
 	    @media (min-width: $screen-sm) {
 		border: 1px solid $colorLightest;
