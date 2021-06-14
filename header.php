@@ -62,11 +62,11 @@
 				} else {
 				    $srcset ='';
 				}
-				echo '<img src="'.$header_image.'" width="'.get_custom_header()->width.'" height="'.get_custom_header()->height.'" alt="'.esc_attr(get_bloginfo( 'title' )).'"';
+				echo '<img class="custom-logo" src="'.$header_image.'" width="'.get_custom_header()->width.'" height="'.get_custom_header()->height.'" alt="'.esc_attr(get_bloginfo( 'title' )).'"';
 				if ($srcset) {
 				    echo ' srcset="'.$srcset.'"';
 				}
-				echo ">";
+				echo ">"; 
 
 			    } else {
 				echo "<span>".get_bloginfo( 'title' )."</span>";
