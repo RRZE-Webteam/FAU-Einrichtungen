@@ -65,7 +65,7 @@ if($posttype == 'event') {
 			   
 			    
 			    $line=0;
-			    while ( have_posts() ) { 
+			    while ( have_posts() )  {
 				the_post();  
 
 				$line++;
@@ -97,7 +97,7 @@ if($posttype == 'event') {
 
 				 }
 				
-
+				 }
 				if  ($posttype=='person') { ?>
 				    <nav class="navigation">
 					<div class="nav-previous"><?php previous_posts_link(__('<span class="meta-nav">&laquo;</span> Vorherige Einträge', 'fau')); ?></div>
@@ -110,9 +110,8 @@ if($posttype == 'event') {
 					<div class="nav-next"><?php next_posts_link(__('Ältere Beiträge <span class="meta-nav">&raquo;</span>', 'fau'), '' ); ?></div>
 				</nav>
 				<?php }
-			    } ?>
+			     ?>
 			</main>
-
 			<?php 
 			if($posttype=='post') {
 			     get_template_part('template-parts/sidebar', 'posts');
