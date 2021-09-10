@@ -18,25 +18,25 @@
 			
 			a {
 				@include inline-block;
-				color: $colorSocial;
+				color: var(--color-primary-basis);
 				text-decoration: none;
 				padding: 5px 0;
 				background: none;
 				@include px2rem($font-size-base);
 				
 				&:hover, &:focus {
-					color: $colorPrimary;
+					color: var(--color-primary-basis);
 					text-decoration: underline;
 					
 					&:before {
-						background: $colorPrimary;
+						background: var(--color-primary-basis);
 					}
 				}
 			}
 			
 			a:before {
-				background: $colorSocial;
-				color: $colorSocialBackground;
+				background: var(--color-primary-basis);
+				color: var(--color-StandardHellgrau);
 				height: 1.7rem;
 				width:  1.7rem;
 				line-height: 1.7rem !important;

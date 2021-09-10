@@ -46,7 +46,7 @@
 	.toggle-icon {
 		@extend .fa;
 		@extend .fa-plus-square;
-		color: $colorPrimary;
+		color: var(--color-primary-basis);
 		margin-right: 5px;
 		cursor: pointer;
 	}

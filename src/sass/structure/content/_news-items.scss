@@ -69,7 +69,7 @@
 	@media (min-width: $screen-xs) {
 	    @include box-shadow(0 1px 2px rgba(0,0,0,0.3));
 	    padding: 4px;
-	    background: $colorStandardHellgrau;
+	    background: var(--color-StandardHellgrau);
 	    margin: 5px auto;
 	}
 
@@ -197,7 +197,7 @@
 			
 			a:hover, a:focus {
 				color: #fff;
-				background: $colorPrimary;
+				background: var(--color-primary-basis);
 			}
 		}
 	}	

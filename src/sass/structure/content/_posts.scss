@@ -46,7 +46,7 @@
 	    padding: 5px 0;
 	    margin: 0 0 14px 0;
     
-	    color: $colorPrimary;
+	    color: var(--color-primary-basis);
 	    font-family: $fontStack;
 	    @include px2rem($font-size-content-meta);
 }

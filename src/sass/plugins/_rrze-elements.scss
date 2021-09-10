@@ -118,31 +118,31 @@ button.expand-all {
     .phil .accordion-heading .accordion-toggle,
     .philfak .accordion-heading .accordion-toggle,
     .gold .accordion-heading .accordion-toggle {
-        border-color: $colorPhilFak;
+        border-color: var(--color-phil-basis);
     }
     .rw .accordion-heading .accordion-toggle,
     .rwfak .accordion-heading .accordion-toggle,
     .red .accordion-heading .accordion-toggle {
-        border-color: $colorRwFak;
+        border-color: var(--color-rw-basis);
     }
     .med .accordion-heading .accordion-toggle,
     .medfak .accordion-heading .accordion-toggle,
     .blue .accordion-heading .accordion-toggle {
-        border-color: $colorMedFak;
+        border-color: var(--color-med-basis);
     }
     .nat .accordion-heading .accordion-toggle,
     .natfak .accordion-heading .accordion-toggle,
     .green .accordion-heading .accordion-toggle {
-        border-color: $colorNatFak;
+        border-color: var(--color-nat-basis);
     }
     .tf .accordion-heading .accordion-toggle,
     .techfak .accordion-heading .accordion-toggle,
     .grey .accordion-heading .accordion-toggle {
-        border-color: $colorTechFak;
+        border-color: var(--color-tf-basis);
     }
     .fau .accordion-heading .accordion-toggle,
     .default .accordion-heading .accordion-toggle {
-        border-color: $colorDefault;
+        border-color: var(--color-Default);
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -195,28 +195,28 @@ button.expand-all {
         }
         &.phil,
         &.philfak {
-            border-color: $colorPhilFak;
+            border-color: var(--color-phil-basis);
         }
         &.rw,
         &.rwfak {
-            border-color: $colorRwFak;
+            border-color: var(--color-rw-basis);
         }
         &.med,
         &.medfak {
-            border-color: $colorMedFak;
+            border-color: var(--color-med-basis);
         }
         &.nat,
         &.natfak {
-            border-color: $colorNatFak;
+            border-color: var(--color-nat-basis);
         }
         &.tf,
         &.techfak {
-            border-color: $colorTechFak;
+            border-color: var(--color-tf-basis);
         }
 
         &.fau,
         &.default {
-            border-color: $colorDefault;
+            border-color: var(--color-Default);
         }
     }
     .body {
@@ -266,19 +266,19 @@ button.expand-all {
 .notice-audio:before,
 .notice-video:before {
     .faculty-phil & {
-        color: $colorPhilFak;
+        color: var(--color-phil-basis);
     }
     .faculty-rw & {
-        color: $colorRwFak;
+        color: var(--color-rw-basis);
     }
     .faculty-med & {
-        color: $colorMedFak;
+        color: var(--color-med-basis);
     }
     .faculty-nat & {
-        color: $colorNatFak;
+        color: var(--color-nat-basis);
     }
     .faculty-tf & {
-        color: $colorTechFak;
+        color: var(--color-tf-basis);
     }
 }
 
@@ -289,14 +289,14 @@ button.expand-all {
 .faculty-nat,
 .faculty-tf {
     .notice-hinweis {
-         color: $colorPrimary;
+         color: var(--color-primary-basis);
          h3, p {
-            color: $colorPrimary;
+            color: var(--color-primary-basis);
 	}
 	h3+p, 
 	h3+ul, 
 	h3+ol {
-            color: $colorText;
+            color: var(--color-Text);
         }
     }
 }

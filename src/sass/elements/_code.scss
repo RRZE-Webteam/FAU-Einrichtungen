@@ -8,7 +8,7 @@ pre {
 	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 	@include px2rem($font-size-codepre);
 	color: $colorText;
-	background-color: $colorStandardHellgrau;
+	background-color: var(--color-StandardHellgrau);
 }
 
 code {

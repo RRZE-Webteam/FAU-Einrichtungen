@@ -22,7 +22,7 @@
 	    top: 0px;
 	    margin: 0 auto;
 	    height: auto;
-	    background: $colorPrimary;
+	    background: var(--color-primary-basis);
 	    max-width: 1260px;
 	    overflow: hidden;
 	    @include box-shadow(0 10px 20px rgba(0,0,0,0.5));

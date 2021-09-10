@@ -139,7 +139,7 @@
 		&:before {
 			font-size: 40px;
 			line-height: 1;
-			color: $colorPrimary;
+			color: var(--color-primary-basis);
 			opacity: $slick-opacity-default;
 		}
 
@@ -244,7 +244,7 @@
 		
 			text-align: center;
 			opacity: .25;
-			color: $colorPrimary;
+			color: var(--color-primary-basis);
 		    }
 		    
 		     &:hover, &:focus {

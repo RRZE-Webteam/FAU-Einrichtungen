@@ -54,7 +54,7 @@
 		p {
 			a[href]::after {
 				content: " (" attr(href) ")";
-				color: $colorPrintMain;
+				color: var(--color-PrintMain);
 				background-color: inherit;
 				font-style: italic;
 				font-size: 80%;
@@ -65,7 +65,7 @@
 			a {
 				text-transform: inherit;
 				word-wrap: break-word;
-				color: $colorPrintMainLinks;
+				color: var(--color-Text);
 			}
 			.meta-footer,
 			.person-info,

@@ -8,7 +8,7 @@
 	.sitetitle {
 	    display: inline-block;
 	    color: #fff;
-	    background-color: $colorPrimary;
+	    background-color: var(--color-primary-basis);
 	    padding: 0;
 	    margin: 0;
 	    height: auto;	
@@ -27,7 +27,7 @@
 	    
 	    @media (min-width: $screen-sm) {		
 		background-color: #fff;
-		color: $colorPrimary;
+		color: var(--color-primary-basis);
 		width: auto;
 		
 		@include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
@@ -48,7 +48,7 @@
 		text-decoration: none;
 		color: #fff;
 		@media (min-width: $screen-sm) {
-		     color: $colorPrimary;
+		     color: var(--color-primary-basis);
 		}
 	    }
 

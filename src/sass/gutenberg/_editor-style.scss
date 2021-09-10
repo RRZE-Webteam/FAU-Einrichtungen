@@ -8,7 +8,7 @@
     h5,
     h6 {
 	&.mce-content-body {
-	    color: $colorPrimary;
+	    color: var(--color-primary-basis);
 	    font-weight: bold;
 
 	    em {
@@ -135,7 +135,7 @@
 	    &.lead-in {
 		    margin: 0;
 		    padding: 0;
-		    color: $colorPrimary;
+		    color: var(--color-primary-basis);
 		    font-weight: 300;
 		    font-style: italic;
 		    @include px2rem($font-size-quotes);

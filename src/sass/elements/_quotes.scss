@@ -41,7 +41,7 @@ blockquote {
 		}
 		
 		p {
-		    color: $colorPrimary;
+		    color: var(--color-primary-basis);
 		}
 		
 		
@@ -99,7 +99,7 @@ blockquote {
 	    
         }
 	#content &::before {
-	    color: $colorPrimary;
+	    color: var(--color-primary-basis);
 	    left: 0px;
 	    
 	    @media (min-width: $screen-sm) {

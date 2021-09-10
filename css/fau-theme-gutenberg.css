@@ -3307,7 +3307,7 @@ CSS Font File for Wordpress Theme FAU
 .edit-post-visual-editor .editor-block-list__block h4.mce-content-body,
 .edit-post-visual-editor .editor-block-list__block h5.mce-content-body,
 .edit-post-visual-editor .editor-block-list__block h6.mce-content-body {
-  color: #003366;
+  color: var(--color-primary-basis);
   font-weight: bold; }
   .edit-post-visual-editor .editor-block-list__block h1.mce-content-body em,
   .edit-post-visual-editor .editor-block-list__block h2.mce-content-body em,
@@ -3414,7 +3414,7 @@ CSS Font File for Wordpress Theme FAU
   .edit-post-visual-editor .editor-block-list__block p.lead-in {
     margin: 0;
     padding: 0;
-    color: #003366;
+    color: var(--color-primary-basis);
     font-weight: 300;
     font-style: italic;
     font-size: 1.2rem;

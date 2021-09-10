@@ -48,33 +48,33 @@
 	    }
 	}
 	&.zuv {
-			border-color: $colorZUV;
+			border-color: var(--color-Default);
 	}
 	&.phil,
 	&.philfak {
-		border-color: $colorPhilFak;
+		border-color: var(--color-phil-basis);
 	}
 	&.rw,
 	&.rwfak {
-		border-color: $colorRwFak;
+		border-color: var(--color-rw-basis);
 	}
 	&.med,
 	&.medfak {
-		border-color: $colorMedFak;
+		border-color: var(--color-med-basis);
 	}
 	&.nat,
 	&.natfak  {
-		border-color: $colorNatFak;
+		border-color: var(--color-nat-basis);
 	}
 	&.tf,
 	&.techfak {
-		border-color: $colorTechFak;
+		border-color: var(--color-tf-basis);
 	}	
 	&.white {
 		border-color: #fff;
 	}
 	&.gray {
-		border-color: $colorStandardHellgrau;
+		border-color: var(--color-StandardHellgrau);
 	}
     }
     

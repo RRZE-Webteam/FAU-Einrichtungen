@@ -54,7 +54,7 @@ form {
 	    margin: 0;
 	    padding: 0 0 11px 0;
 	    @include px2rem($font-size-h3);
-	    color: $colorPrimary;
+	    color: var(--color-primary-basis);
 	    font-weight: bold;
 	}
 	
@@ -102,16 +102,16 @@ input[type="submit"] {
 	padding: 4px 18px;
 	box-sizing: content-box;
 	@include border-radius(20px);
-	background: $colorPrimary;
-	color: #fff;
+	background: var(--color-primary-basis);
+	color: $colorMainBackground;
 	font-weight: bold;
 	
 	clear: left;
 	
 	&:hover, 
 	&:focus {
-		background: #fff;
-		color: $colorPrimary;
+		background: $colorMainBackground;
+		color: var(--color-primary-basis);
 	}
 	
 	&:active {
@@ -135,7 +135,7 @@ fieldset {
 .post-password-form {
 	label {
 		float: none;
-		color: $colorPrimary;
+		color: var(--color-primary-basis);
 	}
 	
 	input[type="password"] {

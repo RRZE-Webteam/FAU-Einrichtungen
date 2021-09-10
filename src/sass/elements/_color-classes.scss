@@ -1,0 +1,47 @@
+
+/* Color Definitions */
+
+
+.textcol-fau, 
+.textcol-default {
+		color: var(--color-Default) !important;
+}
+.textcol-white {
+    color: var(--color-white) !important;
+}
+.bgcol-white {
+    background-color: var(--color-white);
+}
+
+.bgcol-fau, 
+.bgcol-default {
+    background-color: var(--color-Default) !important;
+}
+
+.bgcol-grau {
+    background-color: var(--color-StandardHellgrau);
+}
+
+
+
+@each $farbtyp, $map in $colormaps {	   
+
+    .textcol-#{$farbtyp} {
+	color:  var(--color-#{$farbtyp}-basis) !important;
+    }
+    .bgcol-#{$farbtyp} {
+	background-color: var(--color-#{$farbtyp}-basis) !important;
+    }
+
+    @each $variante, $colorcode in $map {
+
+	.textcolor-#{$farbtyp}-#{$variante} {
+		color: var(--color-#{$farbtyp}-#{$variante});
+	}
+	.bgcolor-#{$farbtyp}-#{$variante} {
+	    background-color: var(--color-#{$farbtyp}-#{$variante});
+	}
+
+
+   }
+}

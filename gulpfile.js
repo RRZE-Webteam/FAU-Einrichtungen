@@ -441,9 +441,9 @@ exports.clone = cloneTheme;
 exports.buildmainstyle = buildmainstyle;
 
 var js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, makewplinkjs);
-var dev = series(sassautoprefixhelperfiles, devbuildmainstyle, js, devversion, validatecss);
+var dev = series(sassautoprefixhelperfiles, devbuildmainstyle, js, devversion);
 
-exports.cssdev = series(sassautoprefixhelperfiles, devbuildmainstyle, validatecss);
+exports.cssdev = series(sassautoprefixhelperfiles, devbuildmainstyle);
 exports.js = js;
 exports.dev = dev;
 exports.build = series(buildhelperstyles, buildmainstyle, js, upversionpatch);

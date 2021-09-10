@@ -59,8 +59,8 @@
 .event-date {
 	float: left;
 	display: block;
-	background: $colorPrimary;
-	color: #fff;
+	background: var(--color-primary-basis);
+	color: $colorMainBackground;
 	padding: 5px;
 	width: 45px;
 	text-align: center;
@@ -93,42 +93,42 @@
 
 .event-time, 
 .event-location {
-	color: $colorPrimary;
+	color: var(--color-primary-basis);
 }
 
 
 .event-info {
 	a, .event-time {
-		color: $colorText;
+		color: var(--color-Text);
 	}
 }
 
 .event-category-fau .event-date {
-	background: $colorZUV;
+	background: var(--color-ZUV);
     
 }
 .event-category-einrichtungen .event-date {
-	background: $colorDefault;
+	background: var(--color-Default);
 }
 
 .event-category-techfak .event-date {
-	background: $colorTechFak;
+	background: var(--color-tf-basis);;
 }
 
 .event-category-rwfak .event-date {
-	background: $colorRwFak;
+	background: var(--color-rw-basis);
 }
 
 .event-category-philfak .event-date {
-	background: $colorPhilFak;
+	background: var(--color-phil-basis);
 }
 
 .event-category-natfak .event-date {
-	background: $colorNatFak;
+	background: var(--color-nat-basis);
 }
 
 .event-category-medfak .event-date {
-	background: $colorMedFak;
+	background: var(--color-med-basis);
 }
 
 .widget_event_widget a {

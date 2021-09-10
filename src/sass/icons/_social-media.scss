@@ -5,7 +5,7 @@
 $socialmedia_icon_size: 1.8rem;
 $socialmedia_icon_bgcolor_hover: #fff;
 $socialmedia_icon_color: #fff;
-$socialmedia_icon_color_hover: $colorPrimary;
+$socialmedia_icon_color_hover: var(--color-primary-basis);
 
 
 .svg-socialmedia {

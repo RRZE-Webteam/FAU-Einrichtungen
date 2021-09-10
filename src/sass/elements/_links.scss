@@ -3,7 +3,7 @@
 /*-----------------------------------------------------------------------------------*/
 
 a {
-	color: $colorPrimary;
+	color: var(--color-primary-basis);
 	text-decoration: none;
 
 	&:active,
@@ -95,7 +95,7 @@ a {
 	bottom: 20px; 
 	right: 20px;
 
-	background: $colorPrimary;
+	background: var(--color-primary-basis);
 	
 	
 	color: #fff;
@@ -120,7 +120,7 @@ main {
 	
 	a {
 	    text-decoration: underline;
-	    text-decoration-color: $colorPrimary;
+	    text-decoration-color: var(--color-primary-basis);
 	}
 	a:active,
 	a:focus, 
@@ -130,7 +130,7 @@ main {
 
 	a:focus {
 	    outline-style: solid;
-	    outline-color: $colorPrimary;
+	    outline-color: var(--color-primary-basis);
 	    outline-width: 2px;
 	    @media (prefers-reduced-motion: no-preference) {
 		transition: outline-offset .25s ease-in-out;
@@ -213,12 +213,12 @@ Not used variants:
 
 
 a:not(.media-img) {
-	      text-decoration-color: $colorPrimary;
+	      text-decoration-color: var(--color-primary-basis);;
 		position: relative;
 		z-index: 0;
 		display: inline-block;
 		overflow: hidden;
-		color: $colorPrimary;
+		color: var(--color-primary-basis);;
 		vertical-align: bottom;
 		transition: color .3s ease-out;
 		text-decoration: none;

@@ -3,11 +3,11 @@
 /*-----------------------------------------------------------------------------------*/
 
 #nav {
-	background-color: $colorStandardHellgrau;
+	background-color: var(--color-StandardHellgrau);
 
 	.meta-nav {
 		border-top: 1px solid #ccc;
-		color: $colorPrimary;
+		color: var(--color-primary-basis);
 		display: block;
 		padding: 15px 11px;
 		margin-bottom: 0;
@@ -30,7 +30,7 @@
 		border-top: none;
 
 		&, & a {
-			color: $colorPrimary;
+			color: var(--color-primary-basis);
 		}
 
 		.screen-reader-text {
@@ -47,7 +47,7 @@
 		}
 
 		.current_page_item a {
-			background-color: $colorPrimary;
+			background-color: var(--color-primary-basis);
 		}
 
 		a, .current_page_item a {
@@ -65,7 +65,7 @@
 	/* All links & buttons */
 	a, [type=button] {
 		text-decoration: none;
-		color: $colorPrimary;
+		color: var(--color-primary-basis);
 
 		&:hover, &:focus, &[aria-expanded=true] {
 			color: $colorPrimaryContrast;
@@ -145,7 +145,7 @@
 
 	/* Fly-Out / secondary navigation */
 	.nav-flyout {
-		background-color: $colorPrimary;
+		background-color: var(--color-primary-basis);
 		padding: 20px 0;
 	}
 
@@ -414,7 +414,7 @@
 				> a,
 				> [type=button] {
 					&[aria-expanded=true] {
-						background-color: $colorPrimary;
+						background-color: var(--color-primary-basis);
 					}
 
 					&:hover, &:focus {
@@ -490,7 +490,7 @@
 	.nav {
 		/* All links & buttons */
 		a, [type=button] {
-			color: $colorPrimary;
+			color: var(--color-primary-basis);
 		}
 
 		> li {
@@ -522,14 +522,14 @@
 			> [type=button]:hover,
 			> [type=button]:focus {
 				color: $colorMainMenu;
-				background-color: $colorPrimary;
+				background-color: var(--color-primary-basis);
 			}
 
 			/* Must be an extra selector as IE / Edge doesn't support :focus-within and considers this invalid */
 			&.has-sub:focus-within > a,
 			&.has-sub:focus-within > [type=button] {
 				color: $colorMainMenu;
-				background-color: $colorPrimary;
+				background-color: var(--color-primary-basis);
 			}
 
 			body.mainnav-forceclick & {
@@ -542,7 +542,7 @@
 
 				// Overwrite for "active" button
 				> [type=button][aria-expanded=true] {
-					background-color: $colorPrimary;
+					background-color: var(--color-primary-basis);
 				}
 			}
 		}

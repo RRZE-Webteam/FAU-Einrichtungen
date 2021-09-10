@@ -10,7 +10,7 @@
 	position: relative;
 	display: none;
 	height: auto;
-	background: $colorPrimary;
+	background: var(--color-primary-basis);
 	@include box-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
 
 	.item {

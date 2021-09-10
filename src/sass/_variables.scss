@@ -13,99 +13,71 @@ $font-path-roboto: './fonts/roboto/';
 
 
 // Define colors
-$colorText: #444;
-$colorTextLight: #797676;
+$colormap-misc: ("Text": #444, 
+		 "TextLight": #797676, 
+		 "Notice": #a71c18, 
+		 "Alert": #c5ac94,
+		 "ZUV": #003366, 
+		 "Default": #003366, 
+		 "MainBackground":  #fff, 
+		 "StandardHellgrau": #e9edf2,	// desaturate(lighten($colorZUV, 73%), 75%);
+		 "ContentBorders": #dfe6ec,	// desaturate(lighten($colorZUV, 69%), 75%);
+		 "ContentRegions": #f5f7f9,        // FAU: lighten($colorZUV, 4%);
+		 "white":   #fff,
+		 "black":   #000,
+		 "PrintMain": #000
+		 );
 
-// Define notice colors
-$colorNotice: #a71c18;
+ 
+$colormap-zentral: ("basis": #003366, "heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #24598f, "dunkelste": #1f4b7a);
+$colormap-primary: $colormap-zentral;
+$colormap-phil: ("basis": #A36B0D, "heller": #d9c689, "hellste": #f3eedf, "dunkler": #805000, "dunkelste": #553500);
+$colormap-med: ("basis": #0381A2, "heller": #bfd6f5, "hellste": #eaf3fc, "dunkler": #026480, "dunkelste": #014e63);
+$colormap-nat: ("basis": #048767, "heller": #aacfbd, "hellste": #e5efea, "dunkler": #006e53, "dunkelste": #00533f);
+$colormap-rw: ("basis": #8d1429, "heller": #c5ac94, "hellste": #ede7de, "dunkler": #690013, "dunkelste": #42000c);
+$colormap-tf: ("basis": #6E7881, "heller": #d2d5d7, "hellste": #ebecee, "dunkler": #53606b, "dunkelste": #3b4956);
 
-// Define colors of each faculty
-$colorPhilFak: #A36B0D;
-$colorRwFak: #8d1429;
-$colorMedFak: #0381A2;
-$colorNatFak: #048767;
-$colorTechFak: #6E7881;
-$colorZUV: #003366;
-$colorDefault: #003366;
 
-$colorStandardHellgrau: #e9edf2;
-// FAU: colorlightest:
-// desaturate(lighten($colorZUV, 73%), 75%);
-$colorContentBorders: #dfe6ec;
-// FAU: colorlight
-// desaturate(lighten($colorZUV, 69%), 75%);
-$colorContentRegions: #f5f7f9;
-// FAU: lighten($colorZUV, 4%);
+@if $farbfamilie == 'med' {
+	$colormap-primary: $colormap-med;
+} @else if $farbfamilie == 'phil' {
+	$colormap-primary: $colormap-phil;
+} @else if $farbfamilie == 'nat' {
+	$colormap-primary: $colormap-nat;
+} @else if $farbfamilie == 'rw' {
+	$colormap-primary: $colormap-rw;
+} @else if $farbfamilie == 'tf' {
+	$colormap-primary: $colormap-tf;
+} @else if $farbfamilie == 'zuv' {
+	$colormap-primary: $colormap-zentral;
+}
+
+$colorPrimary:		map-get($colormap-primary, "basis");
+$PalettonHellste:	map-get($colormap-primary, "hellste");
+$PalettonHeller:	map-get($colormap-primary, "heller");
+$PalettonDunkler:	map-get($colormap-primary, "dunkler");
+$PalettonDunkelste:	map-get($colormap-primary, "dunkelste");
+
+$colormaps: ("primary": $colormap-primary, "zentral": $colormap-zentral, "phil": $colormap-phil, "med": $colormap-med, "nat": $colormap-nat, "rw": $colormap-rw, "tf": $colormap-tf);
+
+$colorPrimaryContrast: #fff;
+$colorPrimaryHero: $colorPrimary;
+$HeroSiegelColor: $colorPrimary;
+
+		 
+$colorText:		map-get($colormap-misc, "Text"); 
+$colorTextLight:	map-get($colormap-misc, "TextLight"); 
+$colorNotice:		map-get($colormap-misc, "Notice"); 	
+$colorZUV:		map-get($colormap-misc, "ZUV"); 
+$colorDefault:		map-get($colormap-misc, "Default"); 
+$colorStandardHellgrau: map-get($colormap-misc, "StandardHellgrau"); 
+$colorContentBorders:	map-get($colormap-misc, "ContentBorders"); 
+$colorContentRegions:	map-get($colormap-misc, "ContentRegions"); 
+$colorMainBackground:	map-get($colormap-misc, "MainBackground"); 
 
 $colorShadows:	rgba(135,132,135,1);
 // Color for shadows
 
-
-// Define defaults and variables
-$colorPrimary: $colorZUV;
-$colorPrimaryContrast: #fff;
-$PalettonHellste: desaturate(lighten($colorPrimary, 73%), 75%);
-$PalettonHeller: desaturate(lighten($colorPrimary, 69%), 75%);
-$PalettonDunkler: desaturate(lighten($colorPrimary, 10%), 90%);
-$PalettonDunkelste: desaturate(lighten($colorPrimary, 10%), 40%);
-
-$colorPrimaryHero: $colorPrimary;
-$HeroSiegelColor: $colorPrimary;
-$colorPrintMain: #000;
-$colorPrintMainLinks: $colorText;
-
-
-@if $farbfamilie == 'med' {
-	$colorPrimary: $colorMedFak;
-	$PalettonHellste: #eaf3fc; // #35C0DA;
-	$PalettonHeller: #bfd6f5; // #08C0E7;
-	$PalettonDunkler: #026480;
-	$PalettonDunkelste: #014e63;
-	$HeroSiegelColor: $colorPrimary;
-
-} @else if $farbfamilie == 'phil' {
-	$colorPrimary: $colorPhilFak;
-	$PalettonHellste: #f3eedf;
-	$PalettonHeller: #d9c689;
-	$PalettonDunkler: #805000;
-	$PalettonDunkelste: #553500;
-	$HeroSiegelColor: $PalettonDunkler;
-
-} @else if $farbfamilie == 'nat' {
-	$colorPrimary: $colorNatFak;
-	$PalettonHellste: #e5efea;
-	$PalettonHeller: #aacfbd;
-	$PalettonDunkler: #006e53;
-	$PalettonDunkelste: #00533f;
-	$HeroSiegelColor: $colorPrimary;
-
-
-} @else if $farbfamilie == 'rw' {
-	$colorPrimary: $colorRwFak;
-	$PalettonHellste: #ede7de; // #C9A8AF;
-	$PalettonHeller: #c5ac94; // #bd7d8b;
-	$PalettonDunkler: #690013;
-	$PalettonDunkelste: #42000c;
-	$HeroSiegelColor: $colorPrimary;
-
-} @else if $farbfamilie == 'tf' {
-	$colorPrimary: $colorTechFak;
-	$PalettonHellste: #ebecee; // #bfc2c5;
-	$PalettonHeller: #d2d5d7; // #8e949a;
-	$PalettonDunkler: #53606b;
-	$PalettonDunkelste: #3b4956;
-	$HeroSiegelColor: $PalettonDunkler;
-
-
-} @else if $farbfamilie == 'zuv' {
-	$colorPrimary: $colorZUV;
-	$PalettonHellste: #dde5f0;
-	$PalettonHeller: #8fb1ef;
-	$PalettonDunkler: #24598f;
-	$PalettonDunkelste: #1f4b7a;
-	$HeroSiegelColor: lighten($colorPrimary, 15%);
-
-}
 
 
 $colorHover: $PalettonDunkelste;
@@ -153,11 +125,6 @@ $colorMetaText: #fff;
 $colorMetaLight: desaturate(lighten($colorDefault, 69%), 75%);
 $colorMetaLightest: desaturate(lighten($colorDefault, 73%), 75%);
 
-$colorPasspartoutBackground: $colorStandardHellgrau;
-
-// Social Bar Startseite
-$colorSocial: $colorPrimary; // $colorDefault;
-$colorSocialBackground: $colorMetaBackground;
 
 
 // CopyrightInfos auf Slider und Banner

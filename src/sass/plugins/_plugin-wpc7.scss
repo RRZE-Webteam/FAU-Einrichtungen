@@ -6,7 +6,7 @@
 .wpcf7-undostyle {
     border: none !important;;
     background: inherit;
-    color: $colorPrimary !important;
+    color: var(--color-primary-basis) !important;
     display: block;
 
 }

@@ -67,11 +67,11 @@ $color_customizer_buttons: #0085ba;
     .customize-control-multiple-select {
 	option:checked, 
 	option[selected] {
-	    background: $colorStandardHellgrau;
+	    background: var(--color-StandardHellgrau);
 	}
 	select[multiple]:focus option:checked {
 	  background: $color_customizer_buttons;
-	  color: #fff;
+	  color: $colorMainBackground;
 	}
     }
     
@@ -131,7 +131,7 @@ $color_customizer_buttons: #0085ba;
 	    display: inline-block;
 	    position: relative;
 	    width: 30px;
-	    color: #fff;
+	    color: $colorMainBackground;
 	    line-height: 20px;
 	    text-align: center;
 	    border-radius: 3px;

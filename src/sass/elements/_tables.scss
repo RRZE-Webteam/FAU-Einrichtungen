@@ -96,13 +96,13 @@ table {
 	}
 	
 	tr {
-		border-left: 1px solid $colorStandardHellgrau;
-		border-right: 1px solid $colorStandardHellgrau;
+		border-left: 1px solid var(--color-StandardHellgrau);
+		border-right: 1px solid var(--color-StandardHellgrau);
 	}
 	
 	tr:nth-child(odd) td {
 		color:  $colorLightestContrast;
-		background: $colorStandardHellgrau;
+		background: var(--color-StandardHellgrau);
 		
 		h1, h2, h3, h4, h5, h6 {
 		    color: $PalettonDunkler;
@@ -118,7 +118,7 @@ table {
 	
 	ul {
 		li {
-			color: $colorPrimary;
+			color: var(--color-primary-basis);
 			@include px2rem($font-size-table);	    
 			background-position: left 5px;
 		}

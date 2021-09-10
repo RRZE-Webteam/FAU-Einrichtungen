@@ -11,6 +11,8 @@ $font-path-awesome:	'../fonts/fontawesome/';
 $font-path-roboto:	'../fonts/roboto/';
 // da admin.css unter /css muss der pfad angepasst werden
 
+// Custom Properties
+@import "custom-properties";
 
 @import "frameworks/frameworks";
 // Mixins

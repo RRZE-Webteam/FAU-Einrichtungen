@@ -30,7 +30,7 @@
 	    &:focus {
 		position: absolute;
 		z-index: 110;
-		background: $colorPrimary;
+		background: var(--color-primary-basis);
 		color: $colorPrimaryContrast;
 		@include box-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
 		padding: 1.5em;

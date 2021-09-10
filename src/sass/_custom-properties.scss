@@ -1,0 +1,16 @@
+/*-----------------------------------------------------------------------------------*/
+/* CSS Custom Properties
+/*-----------------------------------------------------------------------------------*/
+
+:root {
+    @each $farbtyp, $map in $colormaps {	    
+	@each $variante, $colorcode in $map {
+	   --color-#{$farbtyp}-#{$variante}: #{$colorcode};
+       }
+    }
+    
+     @each $variante, $colorcode  in $colormap-misc {	    
+	 --color-#{$variante}: #{$colorcode};
+     }
+}
+

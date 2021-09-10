@@ -9,7 +9,7 @@
 	text-align: center;
 	
 	li {
-	    border: 1px solid $colorStandardHellgrau;
+	    border: 1px solid var(--color-StandardHellgrau);
 	    color: $colorTextLight;
 	    
 	    width: 2rem;
@@ -22,9 +22,9 @@
 	   
     
 	    &.filled {
-		border-color: $colorPrimary;
+		border-color: var(--color-primary-basis);
 		background: $colorContentBorders;
-		color: $colorPrimary;
+		color: var(--color-primary-basis);
 		font-weight: bold;
 		padding: 0;
 		
@@ -38,9 +38,9 @@
 		a:focus {
 		    text-decoration: underline;
 		    background-color: darken($colorLightest, 3%);
-		    border-color: $colorPrimary;
-		    background: $colorPrimary;
-		    color: #fff;
+		    border-color: var(--color-primary-basis);
+		    background: var(--color-primary-basis);
+		    color: $colorMainBackground;
 		}
 	    }
 	    

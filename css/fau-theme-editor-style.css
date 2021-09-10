@@ -3,6 +3,59 @@
 /* Editor Style CSS
 /*-----------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------*/
+/* CSS Custom Properties
+/*-----------------------------------------------------------------------------------*/
+:root {
+  --color-primary-basis: #003366;
+  --color-primary-heller: #8fb1ef;
+  --color-primary-hellste: #dde5f0;
+  --color-primary-dunkler: #24598f;
+  --color-primary-dunkelste: #1f4b7a;
+  --color-zentral-basis: #003366;
+  --color-zentral-heller: #8fb1ef;
+  --color-zentral-hellste: #dde5f0;
+  --color-zentral-dunkler: #24598f;
+  --color-zentral-dunkelste: #1f4b7a;
+  --color-phil-basis: #A36B0D;
+  --color-phil-heller: #d9c689;
+  --color-phil-hellste: #f3eedf;
+  --color-phil-dunkler: #805000;
+  --color-phil-dunkelste: #553500;
+  --color-med-basis: #0381A2;
+  --color-med-heller: #bfd6f5;
+  --color-med-hellste: #eaf3fc;
+  --color-med-dunkler: #026480;
+  --color-med-dunkelste: #014e63;
+  --color-nat-basis: #048767;
+  --color-nat-heller: #aacfbd;
+  --color-nat-hellste: #e5efea;
+  --color-nat-dunkler: #006e53;
+  --color-nat-dunkelste: #00533f;
+  --color-rw-basis: #8d1429;
+  --color-rw-heller: #c5ac94;
+  --color-rw-hellste: #ede7de;
+  --color-rw-dunkler: #690013;
+  --color-rw-dunkelste: #42000c;
+  --color-tf-basis: #6E7881;
+  --color-tf-heller: #d2d5d7;
+  --color-tf-hellste: #ebecee;
+  --color-tf-dunkler: #53606b;
+  --color-tf-dunkelste: #3b4956;
+  --color-Text: #444;
+  --color-TextLight: #797676;
+  --color-Notice: #a71c18;
+  --color-Alert: #c5ac94;
+  --color-ZUV: #003366;
+  --color-Default: #003366;
+  --color-MainBackground: #fff;
+  --color-StandardHellgrau: #e9edf2;
+  --color-ContentBorders: #dfe6ec;
+  --color-ContentRegions: #f5f7f9;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-PrintMain: #000; }
+
+/*-----------------------------------------------------------------------------------*/
 /* Frameworks
 /*-----------------------------------------------------------------------------------*/
 /*
@@ -3384,7 +3437,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #003366;
+  color: var(--color-primary-basis);
   font-weight: bold; }
   h1 em,
   h2 em,
@@ -3573,7 +3626,7 @@ pre {
   font-size: 0.866rem;
   line-height: 1.3rem;
   color: #444;
-  background-color: #e9edf2; }
+  background-color: var(--color-StandardHellgrau); }
 
 code {
   padding: 2px 4px;
@@ -3642,7 +3695,7 @@ p.searchnotice {
 p.lead-in {
   margin: 0;
   padding: 0;
-  color: #003366;
+  color: var(--color-primary-basis);
   font-weight: 300;
   font-style: italic;
   font-size: 1.2rem;
@@ -3675,7 +3728,7 @@ p.presentationtitle {
 /* Links
 /*-----------------------------------------------------------------------------------*/
 a {
-  color: #003366;
+  color: var(--color-primary-basis);
   text-decoration: none; }
   a:active, a:hover, a:focus {
     color: #1f4b7a;
@@ -3728,7 +3781,7 @@ a {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #003366;
+  background: var(--color-primary-basis);
   color: #fff;
   padding: 7px;
   border-radius: 4px;
@@ -3740,8 +3793,8 @@ a {
 
 main p a, main dd a, main dt a, main ul a, main li a, main td a, main tr a {
   text-decoration: underline;
-  -webkit-text-decoration-color: #003366;
-          text-decoration-color: #003366; }
+  -webkit-text-decoration-color: var(--color-primary-basis);
+          text-decoration-color: var(--color-primary-basis); }
 
 main p a:active,
 main p a:focus,
@@ -3762,7 +3815,7 @@ main tr a:hover {
 
 main p a:focus, main dd a:focus, main dt a:focus, main ul a:focus, main li a:focus, main td a:focus, main tr a:focus {
   outline-style: solid;
-  outline-color: #003366;
+  outline-color: var(--color-primary-basis);
   outline-width: 2px;
   outline-offset: 4px; }
   @media (prefers-reduced-motion: no-preference) {
@@ -3827,12 +3880,12 @@ Not used variants:
 
 
 a:not(.media-img) {
-	      text-decoration-color: $colorPrimary;
+	      text-decoration-color: var(--color-primary-basis);;
 		position: relative;
 		z-index: 0;
 		display: inline-block;
 		overflow: hidden;
-		color: $colorPrimary;
+		color: var(--color-primary-basis);;
 		vertical-align: bottom;
 		transition: color .3s ease-out;
 		text-decoration: none;
@@ -3893,20 +3946,20 @@ ul.social {
       display: none; }
     ul.social li a {
       display: inline-block;
-      color: #003366;
+      color: var(--color-primary-basis);
       text-decoration: none;
       padding: 5px 0;
       background: none;
       font-size: 1rem;
       line-height: 1.5rem; }
       ul.social li a:hover, ul.social li a:focus {
-        color: #003366;
+        color: var(--color-primary-basis);
         text-decoration: underline; }
         ul.social li a:hover:before, ul.social li a:focus:before {
-          background: #003366; }
+          background: var(--color-primary-basis); }
     ul.social li a:before {
-      background: #003366;
-      color: #e9edf2;
+      background: var(--color-primary-basis);
+      color: var(--color-StandardHellgrau);
       height: 1.7rem;
       width: 1.7rem;
       line-height: 1.7rem !important;
@@ -4167,7 +4220,7 @@ form {
     padding: 0 0 11px 0;
     font-size: 1.266rem;
     line-height: 1.9rem;
-    color: #003366;
+    color: var(--color-primary-basis);
     font-weight: bold; }
   main form {
     max-width: 98%;
@@ -4205,13 +4258,13 @@ input[type="submit"] {
   box-sizing: content-box;
   border-radius: 20px;
   background-clip: padding-box;
-  background: #003366;
+  background: var(--color-primary-basis);
   color: #fff;
   font-weight: bold;
   clear: left; }
   input[type="submit"]:hover, input[type="submit"]:focus {
     background: #fff;
-    color: #003366; }
+    color: var(--color-primary-basis); }
   input[type="submit"]:active {
     background: #1f4b7a; }
 
@@ -4226,7 +4279,7 @@ fieldset {
 /* Login/Passwords Form */
 .post-password-form label {
   float: none;
-  color: #003366; }
+  color: var(--color-primary-basis); }
 
 .post-password-form input[type="password"] {
   width: 220px;
@@ -4296,17 +4349,17 @@ table {
     border-right: 1px solid #fff;
     color: #444; }
   table tr {
-    border-left: 1px solid #e9edf2;
-    border-right: 1px solid #e9edf2; }
+    border-left: 1px solid var(--color-StandardHellgrau);
+    border-right: 1px solid var(--color-StandardHellgrau); }
   table tr:nth-child(odd) td {
     color: #1f4b7a;
-    background: #e9edf2; }
+    background: var(--color-StandardHellgrau); }
     table tr:nth-child(odd) td h1, table tr:nth-child(odd) td h2, table tr:nth-child(odd) td h3, table tr:nth-child(odd) td h4, table tr:nth-child(odd) td h5, table tr:nth-child(odd) td h6 {
       color: #24598f; }
     table tr:nth-child(odd) td ul li {
       color: #1f4b7a; }
   table ul li {
-    color: #003366;
+    color: var(--color-primary-basis);
     font-size: 0.866rem;
     line-height: 1.3rem;
     background-position: left 5px; }
@@ -4387,7 +4440,7 @@ blockquote {
         padding-left: 65px; } }
     #tinymce blockquote p,
     #content blockquote p {
-      color: #003366; }
+      color: var(--color-primary-basis); }
   #content .sidebar-inline blockquote {
     margin: 10px; }
   blockquote small,
@@ -4427,7 +4480,7 @@ blockquote {
     left: 10px;
     top: 10px; }
   #content blockquote::before {
-    color: #003366;
+    color: var(--color-primary-basis);
     left: 0px; }
     @media (min-width: 768px) {
       #content blockquote::before {
@@ -4638,7 +4691,7 @@ main img {
       .jumplinks li a:active, .jumplinks li a:hover, .jumplinks li a:focus {
         position: absolute;
         z-index: 110;
-        background: #003366;
+        background: var(--color-primary-basis);
         color: #fff;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
         padding: 1.5em;
@@ -4651,6 +4704,276 @@ main img {
         text-decoration: none;
         font-size: 1.266rem;
         line-height: 1.9rem; }
+
+/* Color Definitions */
+.textcol-fau,
+.textcol-default {
+  color: var(--color-Default) !important; }
+
+.textcol-white {
+  color: var(--color-white) !important; }
+
+.bgcol-white {
+  background-color: var(--color-white); }
+
+.bgcol-fau,
+.bgcol-default {
+  background-color: var(--color-Default) !important; }
+
+.bgcol-grau {
+  background-color: var(--color-StandardHellgrau); }
+
+.textcol-primary {
+  color: var(--color-primary-basis) !important; }
+
+.bgcol-primary {
+  background-color: var(--color-primary-basis) !important; }
+
+.textcolor-primary-basis {
+  color: var(--color-primary-basis); }
+
+.bgcolor-primary-basis {
+  background-color: var(--color-primary-basis); }
+
+.textcolor-primary-heller {
+  color: var(--color-primary-heller); }
+
+.bgcolor-primary-heller {
+  background-color: var(--color-primary-heller); }
+
+.textcolor-primary-hellste {
+  color: var(--color-primary-hellste); }
+
+.bgcolor-primary-hellste {
+  background-color: var(--color-primary-hellste); }
+
+.textcolor-primary-dunkler {
+  color: var(--color-primary-dunkler); }
+
+.bgcolor-primary-dunkler {
+  background-color: var(--color-primary-dunkler); }
+
+.textcolor-primary-dunkelste {
+  color: var(--color-primary-dunkelste); }
+
+.bgcolor-primary-dunkelste {
+  background-color: var(--color-primary-dunkelste); }
+
+.textcol-zentral {
+  color: var(--color-zentral-basis) !important; }
+
+.bgcol-zentral {
+  background-color: var(--color-zentral-basis) !important; }
+
+.textcolor-zentral-basis {
+  color: var(--color-zentral-basis); }
+
+.bgcolor-zentral-basis {
+  background-color: var(--color-zentral-basis); }
+
+.textcolor-zentral-heller {
+  color: var(--color-zentral-heller); }
+
+.bgcolor-zentral-heller {
+  background-color: var(--color-zentral-heller); }
+
+.textcolor-zentral-hellste {
+  color: var(--color-zentral-hellste); }
+
+.bgcolor-zentral-hellste {
+  background-color: var(--color-zentral-hellste); }
+
+.textcolor-zentral-dunkler {
+  color: var(--color-zentral-dunkler); }
+
+.bgcolor-zentral-dunkler {
+  background-color: var(--color-zentral-dunkler); }
+
+.textcolor-zentral-dunkelste {
+  color: var(--color-zentral-dunkelste); }
+
+.bgcolor-zentral-dunkelste {
+  background-color: var(--color-zentral-dunkelste); }
+
+.textcol-phil {
+  color: var(--color-phil-basis) !important; }
+
+.bgcol-phil {
+  background-color: var(--color-phil-basis) !important; }
+
+.textcolor-phil-basis {
+  color: var(--color-phil-basis); }
+
+.bgcolor-phil-basis {
+  background-color: var(--color-phil-basis); }
+
+.textcolor-phil-heller {
+  color: var(--color-phil-heller); }
+
+.bgcolor-phil-heller {
+  background-color: var(--color-phil-heller); }
+
+.textcolor-phil-hellste {
+  color: var(--color-phil-hellste); }
+
+.bgcolor-phil-hellste {
+  background-color: var(--color-phil-hellste); }
+
+.textcolor-phil-dunkler {
+  color: var(--color-phil-dunkler); }
+
+.bgcolor-phil-dunkler {
+  background-color: var(--color-phil-dunkler); }
+
+.textcolor-phil-dunkelste {
+  color: var(--color-phil-dunkelste); }
+
+.bgcolor-phil-dunkelste {
+  background-color: var(--color-phil-dunkelste); }
+
+.textcol-med {
+  color: var(--color-med-basis) !important; }
+
+.bgcol-med {
+  background-color: var(--color-med-basis) !important; }
+
+.textcolor-med-basis {
+  color: var(--color-med-basis); }
+
+.bgcolor-med-basis {
+  background-color: var(--color-med-basis); }
+
+.textcolor-med-heller {
+  color: var(--color-med-heller); }
+
+.bgcolor-med-heller {
+  background-color: var(--color-med-heller); }
+
+.textcolor-med-hellste {
+  color: var(--color-med-hellste); }
+
+.bgcolor-med-hellste {
+  background-color: var(--color-med-hellste); }
+
+.textcolor-med-dunkler {
+  color: var(--color-med-dunkler); }
+
+.bgcolor-med-dunkler {
+  background-color: var(--color-med-dunkler); }
+
+.textcolor-med-dunkelste {
+  color: var(--color-med-dunkelste); }
+
+.bgcolor-med-dunkelste {
+  background-color: var(--color-med-dunkelste); }
+
+.textcol-nat {
+  color: var(--color-nat-basis) !important; }
+
+.bgcol-nat {
+  background-color: var(--color-nat-basis) !important; }
+
+.textcolor-nat-basis {
+  color: var(--color-nat-basis); }
+
+.bgcolor-nat-basis {
+  background-color: var(--color-nat-basis); }
+
+.textcolor-nat-heller {
+  color: var(--color-nat-heller); }
+
+.bgcolor-nat-heller {
+  background-color: var(--color-nat-heller); }
+
+.textcolor-nat-hellste {
+  color: var(--color-nat-hellste); }
+
+.bgcolor-nat-hellste {
+  background-color: var(--color-nat-hellste); }
+
+.textcolor-nat-dunkler {
+  color: var(--color-nat-dunkler); }
+
+.bgcolor-nat-dunkler {
+  background-color: var(--color-nat-dunkler); }
+
+.textcolor-nat-dunkelste {
+  color: var(--color-nat-dunkelste); }
+
+.bgcolor-nat-dunkelste {
+  background-color: var(--color-nat-dunkelste); }
+
+.textcol-rw {
+  color: var(--color-rw-basis) !important; }
+
+.bgcol-rw {
+  background-color: var(--color-rw-basis) !important; }
+
+.textcolor-rw-basis {
+  color: var(--color-rw-basis); }
+
+.bgcolor-rw-basis {
+  background-color: var(--color-rw-basis); }
+
+.textcolor-rw-heller {
+  color: var(--color-rw-heller); }
+
+.bgcolor-rw-heller {
+  background-color: var(--color-rw-heller); }
+
+.textcolor-rw-hellste {
+  color: var(--color-rw-hellste); }
+
+.bgcolor-rw-hellste {
+  background-color: var(--color-rw-hellste); }
+
+.textcolor-rw-dunkler {
+  color: var(--color-rw-dunkler); }
+
+.bgcolor-rw-dunkler {
+  background-color: var(--color-rw-dunkler); }
+
+.textcolor-rw-dunkelste {
+  color: var(--color-rw-dunkelste); }
+
+.bgcolor-rw-dunkelste {
+  background-color: var(--color-rw-dunkelste); }
+
+.textcol-tf {
+  color: var(--color-tf-basis) !important; }
+
+.bgcol-tf {
+  background-color: var(--color-tf-basis) !important; }
+
+.textcolor-tf-basis {
+  color: var(--color-tf-basis); }
+
+.bgcolor-tf-basis {
+  background-color: var(--color-tf-basis); }
+
+.textcolor-tf-heller {
+  color: var(--color-tf-heller); }
+
+.bgcolor-tf-heller {
+  background-color: var(--color-tf-heller); }
+
+.textcolor-tf-hellste {
+  color: var(--color-tf-hellste); }
+
+.bgcolor-tf-hellste {
+  background-color: var(--color-tf-hellste); }
+
+.textcolor-tf-dunkler {
+  color: var(--color-tf-dunkler); }
+
+.bgcolor-tf-dunkler {
+  background-color: var(--color-tf-dunkler); }
+
+.textcolor-tf-dunkelste {
+  color: var(--color-tf-dunkelste); }
+
+.bgcolor-tf-dunkelste {
+  background-color: var(--color-tf-dunkelste); }
 
 /*-----------------------------------------------------------------------------------*/
 /* CSS Classes for use in several purposes
@@ -4759,57 +5082,6 @@ div.aligncenter {
     display: none; }
   .hide-desktop {
     display: block; } }
-
-/* Additional CSS Definitons, that may overwrite prior definitions */
-.textcol-phil {
-  color: #A36B0D !important; }
-
-.textcol-rw {
-  color: #8d1429 !important; }
-
-.textcol-med {
-  color: #0381A2 !important; }
-
-.textcol-nat {
-  color: #048767 !important; }
-
-.textcol-tf,
-.textcol-tech {
-  color: #6E7881 !important; }
-
-.textcol-fau,
-.textcol-default {
-  color: #003366 !important; }
-
-.textcol-white {
-  color: white !important; }
-
-.bgcol-phil {
-  background-color: #A36B0D !important; }
-
-.bgcol-alert,
-.bgcol-rw {
-  background-color: #8d1429 !important; }
-
-.bgcol-med {
-  background-color: #0381A2 !important; }
-
-.bgcol-nat {
-  background-color: #048767 !important; }
-
-.bgcol-tf,
-.bgcol-tech {
-  background-color: #6E7881 !important; }
-
-.bgcol-fau,
-.bgcol-default {
-  background-color: #003366 !important; }
-
-.bgcol-grau {
-  background-color: #e9edf2; }
-
-.bgcol-white {
-  background-color: white; }
 
 /* Rahmen */
 .example {

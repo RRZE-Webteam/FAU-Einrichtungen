@@ -78,7 +78,7 @@
 	display: block;
 	
 	@media (min-width: $screen-sm) {
-	    border: 1px solid $colorStandardHellgrau;
+	    border: 1px solid var(--color-StandardHellgrau);
 	    margin: 0 0 10px 0;
 	    padding: 0 5px;
         }
@@ -92,34 +92,34 @@
 	    }
 	}
 	&.background-grau {
-	    background: $colorStandardHellgrau;
+	    background: var(--color-StandardHellgrau);
 	}
 	&.background-phil {
-	    background: $colorPhilFak;
+	    background: var(--color-phil-basis);
 	    a, li, p {
 		color: #fff;
 	    }
 	}
 	&.background-med {
-	    background: $colorMedFak;
+	    background: var(--color-med-basis);
 	     a, li, p {
 		color: #fff;
 	    }
 	}
 	&.background-nat {
-	    background: $colorNatFak;
+	    background: var(--color-nat-basis);
 	     a, li, p {
 		color: #fff;
 	    }
 	}
 	&.background-tf {
-	    background: $colorTechFak;  
+	    background: var(--color-tf-basis);
 	     a, li, p {
 		color: #fff;
 	    }
 	}
 	&.background-rw {
-	    background: $colorRwFak;  
+	    background: var(--color-rw-basis);
 	    a, li, p {
 		color: #fff;
 	    }

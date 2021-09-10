@@ -88,7 +88,7 @@
 				    z-index: 10;
 				    height: 20px;
 				    width: 20px;
-				    background: $colorPrimary;
+				    background: var(--color-primary-basis);
 
 
 				    @include px2rem($font-size-linkicon);
