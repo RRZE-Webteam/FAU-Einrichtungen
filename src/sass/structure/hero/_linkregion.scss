@@ -149,7 +149,7 @@
 	}
 
 	>*, h1, h2, h3 {
-			color: $colorMeta;
+			color:  var(--color-Default);
 	}
 
     }

@@ -23,15 +23,15 @@
 		    }
 		    input[type="text"] {
 			@include px2rem($font-size-herosearch);
-			border: 1px solid $colorMeta;
+			border: 1px solid  var(--color-Default);
 			padding: 5px 10px 5px 30px;
 			height: inherit;
 			margin: 0;
-			background: $colorMeta; // $colorSearchInputBackground;
+			background:  var(--color-Default); 
 			color: #fff; // $colorSearchInput;
 			width: calc(100% - 100px);
 			&:focus, &:hover {
-				background-color: $colorMetaHover; // $colorSearchInputBackgroundFocus;
+				background-color: $colorMetaHover; 
 				border: 1px solid $colorMetaHover;
 			}
 		    }
@@ -45,7 +45,7 @@
 			    margin-left: -30px;
 			    border: none;
 			    &:focus, &:hover {
-				    background-color: $colorSearchInputBackground;
+				    background-color: var(--color-primary-hellste);
 			    }
 		    }
 		    .searchicon {
@@ -75,7 +75,7 @@
 			float: none;
 			margin: 0 10px 0 5px;
 			padding: 0;
-			color: $colorSearchInputBackground;
+			color: var(--color-primary-hellste);
 		    }
 		    input[type="checkbox"] {
 		        margin: 0;

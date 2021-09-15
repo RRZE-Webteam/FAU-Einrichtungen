@@ -41,7 +41,7 @@
 	    &:focus-within,
 	    &:hover, 
 	    &:focus {
-		border: 1px solid $colorHover;
+		border: 1px solid var(--color-primary-dunkelste);
 	    }
 	    
 	}
@@ -279,7 +279,7 @@
 	    &:focus-within,
 	    &:hover, 
 	    &:focus {
-		border-color: $colorHover;
+		border-color: var(--color-primary-dunkelste);
 	    }
 		
 	    a {
@@ -310,7 +310,7 @@
 	    &.rounded:hover, 
 	    &.rounded:focus, 
 	    &.rounded:active  {
-		border-color: $colorHover;
+		border-color: var(--color-primary-dunkelste);
 	    }
 	}
 

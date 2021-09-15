@@ -16,7 +16,7 @@
     }
 
     @include placeholder(#fff);	
-    @include radial-gradient($colorPrimaryHero, $colorPrimaryHeroLight);
+    @include radial-gradient(var(--color-primary-basis), $colorPrimaryHeroLight);
 
 	
 	h1, h2, h3, h4, p {

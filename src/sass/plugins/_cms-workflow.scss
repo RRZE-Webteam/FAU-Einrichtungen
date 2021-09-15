@@ -30,7 +30,7 @@
     
     .mlp_language_box {
 	@include inline-block();
-	background: $colorMetaBackground;
+	background: var(--color-StandardHellgrau);
 	
 
 	ul {
@@ -67,7 +67,7 @@
 		    text-decoration: none;
 		    text-transform: uppercase;
 		    font-weight: bold;
-		    color: $colorMeta;
+		    color:  var(--color-Default);
 		    display: inline-block;
 		    
 		    @include border-radius(20px);

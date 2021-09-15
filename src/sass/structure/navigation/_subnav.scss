@@ -6,7 +6,7 @@
     header {
 	padding: 11px 15px;
 	margin-top: 0px;
-	border-top: 1px solid $colorLightest;
+	border-top: 1px solid var(--color-primary-hellste);
 	@include px2rem($font-size-h3);
 	font-weight: bold;
     }
@@ -24,13 +24,13 @@
 		@include px2rem($font-size-subnav-firstlevel);
 
 		padding: 6px 15px;
-		color: $colorSubNav;
-		background: $colorSubNavBackground;
+		color: var(--color-primary-dunkelste);
+		background: var(--color-primary-hellste);
 		padding-left: 15px;
 		padding-right: 15px; 
 
 		&:hover, &:focus {
-			background-color: $colorSubNavCurrentBackground;
+			background-color: var(--color-primary-dunkler);
 			color: $colorSubNavCurrent;
 		}
 	}
@@ -47,11 +47,11 @@
 	.current_page_ancestor {
 		a {
 			color: $colorSubNavCurrent;
-			background-color: $colorSubNavCurrentBackground; 
+			background-color: var(--color-primary-dunkler); 
 			border: none;
 			
 			&:hover, &:focus {        
-				background-color: $colorSubNavCurrentHoverBackground; 
+				background-color: var(--color-primary-dunkelste); 
 				color: $colorSubNavCurrentHover; 
 			}
 		}
@@ -78,35 +78,32 @@
 		padding-left: 45px;
 		
 		&:hover, &:focus {
-			background: $colorSubNavBackgroundHover; 
-			color: $colorSubNav; 
+			background: var(--color-primary-dunkler);  
+			color: var(--color-primary-dunkelste);
 		}
 	}
 	
 	li .current_page_item,
 	li .current_page_ancestor {
 		a {
-			background: $colorSubNavCurrentBackground; 
+			background: var(--color-primary-dunkler); 
 		}
 		
 		li {
 			a:hover, a:focus {
-				background: $colorSubNavCurrentHoverBackground; 
+				background: var(--color-primary-dunkelste); 
 			}
 		}
 	}
 	
-	li .current_page_ancestor .current_page_item a {
-		background: $colorSubNavCurrentHoverBackground;
-	}
-	
+	li .current_page_ancestor .current_page_item a,
 	li li .current_page_ancestor a {
-		background: $colorSubNavCurrentHoverBackground;
+		background: var(--color-primary-dunkelste); 
 	}
 	
 	li li li li a,
 	li li li li.current_page_item a {
-		background: $colorSubNavBackgroundHover; 
+		background: var(--color-primary-dunkler); 
 		color: $colorSubNavCurrent;
 	}
 	

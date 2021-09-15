@@ -62,7 +62,7 @@ form {
 	    max-width: 98%;
 	    padding: 0;
 	    @media (min-width: $screen-sm) {
-		border: 1px solid $colorLightest;
+		border: 1px solid var(--color-primary-hellste);
 		padding: 20px;
 	    }
 	}
@@ -115,7 +115,7 @@ input[type="submit"] {
 	}
 	
 	&:active {
-		background: $colorHover;
+		background: var(--color-primary-dunkelste);
 	}
 	
 	

@@ -92,7 +92,7 @@ Mixins File for Wordpress Theme FAU
     @include no-list;
     background: none;
     display: table;
-    border-bottom: 1px solid $colorLightest;
+    border-bottom: 1px solid var(--color-primary-hellste);
     width: 100%;
 			
 
@@ -102,7 +102,7 @@ Mixins File for Wordpress Theme FAU
 	font-weight: bold;
 	display: table-cell;
 	vertical-align: middle;
-	color: $colorDefault;
+	color:  var(--color-Default);
 	width: 5px;
     }
 		
@@ -116,7 +116,7 @@ Mixins File for Wordpress Theme FAU
 
     a:hover, a:focus {
 	    text-decoration: none;
-	    background-color: $colorLightest;
+	    background-color: var(--color-primary-hellste);
     }
 }
 
@@ -157,13 +157,13 @@ Mixins File for Wordpress Theme FAU
 	@include px2rem($font-size-textbuttons);
 	
 	color: $colorButton;
-	background: $colorButtonBackground;
+	background: var(--color-primary-basis);
 	padding: 6px 10px;
 	text-decoration: none;
 
 	
 	&:hover, &:focus {
-		background: $colorButtonBackgroundHover;
+		background: var(--color-primary-dunkler);
 		text-decoration: none;
 	}
     }

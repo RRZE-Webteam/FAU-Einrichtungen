@@ -9,7 +9,7 @@ a {
 	&:active,
 	&:hover, 
 	&:focus {
-		color: $colorHover;
+		color: var(--color-primary-dunkelste);
 		text-decoration: underline;
 	}
 
@@ -74,7 +74,7 @@ a {
 	
 	.news-more {
 		color: $colorButton;
-		background: $colorButtonBackground;
+		background: var(--color-primary-basis);
 		padding: 6px 10px;
 		text-decoration: none;
 		@include border-radius(3px);
@@ -82,7 +82,7 @@ a {
 		
 		
 		&:hover, &:focus {
-			background: $colorButtonBackgroundHover;
+			background: var(--color-primary-dunkler);
 		}
 	}
 }
@@ -105,7 +105,7 @@ a {
 	&:hover, 
 	    &:focus {
 		color: #fff;
-		background: $colorHover;
+		background: var(--color-primary-dunkelste);
 	}
 	
 	display: none;
@@ -204,7 +204,7 @@ Not used variants:
 	}
 	:not(.fau-person) a:focus,
 	:not(.fau-person) a:hover {
-	    box-shadow: inset 0 -28px 0 $PalettonHeller;
+	    box-shadow: inset 0 -28px 0 var(--color-primary-heller);
 	    color: white;
 	}
 	
@@ -234,7 +234,7 @@ a:not(.media-img) {
 		transform: translateY(calc(100% - 2px));
 		width: 100%;
 		height: 100%;
-		background-image: linear-gradient(60deg, $colorPrimary 0%, $PalettonHeller 100%);
+		background-image: linear-gradient(60deg, $colorPrimary 0%, var(--color-primary-heller) 100%);
 		transition: transform .25s ease-out;
 		
 	}

@@ -2498,7 +2498,7 @@ table.wp-list-table .column-revealid_id {
 #customize-theme-controls #accordion-panel-allgemeines .accordion-section-title,
 #customize-theme-controls #accordion-panel-templates .accordion-section-title,
 #customize-theme-controls #accordion-panel-advanced .accordion-section-title {
-  border-left-color: #003366; }
+  border-left-color: var(--color-Default); }
 
 #customize-theme-controls #accordion-panel-superadmin .accordion-section-title {
   border-left-color: red;

@@ -13,7 +13,7 @@ p, address {
     
     #footer & {
 	color: #fff;
-	background: $colorPrimaryHero;
+	background: var(--color-primary-basis);
 	
 
 	@media (min-width: $screen-sm) {
@@ -57,7 +57,7 @@ p {
 	
 	#footer & {
 		color: #fff;
-		background: $colorPrimaryHero;
+		background: var(--color-primary-basis);
 		@include px2rem($font-size-footer);
 	}
 	

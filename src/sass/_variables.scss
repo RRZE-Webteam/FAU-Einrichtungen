@@ -61,7 +61,6 @@ $PalettonDunkelste:	map-get($colormap-primary, "dunkelste");
 $colormaps: ("primary": $colormap-primary, "zentral": $colormap-zentral, "phil": $colormap-phil, "med": $colormap-med, "nat": $colormap-nat, "rw": $colormap-rw, "tf": $colormap-tf);
 
 $colorPrimaryContrast: #fff;
-$colorPrimaryHero: $colorPrimary;
 $HeroSiegelColor: $colorPrimary;
 
 		 
@@ -80,22 +79,11 @@ $colorShadows:	rgba(135,132,135,1);
 
 
 
-$colorHover: $PalettonDunkelste;
-$colorLight: $PalettonHeller;
-$colorLightContrast: #fff;
-$colorLightest: $PalettonHellste;
-$colorLightestContrast: $PalettonDunkelste;
-$colorPrimaryHero: $colorPrimary;
-$colorPrimaryHeroLight: lighten($colorPrimary, 15%);
+$colorPrimaryHeroLight: lighten($colorPrimary, 15%);  // hellere Farbe
 
 
 $colorSubNavCurrent: #fff;
-$colorSubNavCurrentBackground: $PalettonDunkler;
 $colorSubNavCurrentHover: #fff;
-$colorSubNavCurrentHoverBackground: $colorHover;
-$colorSubNav: $PalettonDunkelste;
-$colorSubNavBackground: $colorLightest;
-$colorSubNavBackgroundHover: $PalettonDunkler; // darken($colorSubNavBackground, 5%);
 $colorMainMenu: #fff;
 
 
@@ -105,20 +93,13 @@ $colorOverlayDark: rgba(0, 0, 0, 0.15);
 // Mit passenden Variablennamen versehen.
 
 
-$colorButtonBackground: $colorPrimary;
 $colorButton: #fff;
-$colorButtonBackgroundHover: $PalettonDunkler;
-
-
 $colorSearchPlaceholder: #111;
 $colorSearchInput: #000;
-$colorSearchInputBackground: $colorLightest;
 $colorSearchInputBackgroundFocus: #fff;
 
 // Meta Menu
-$colorMeta: $colorDefault;
 // Define Background-Color for Meta Menu at top
-$colorMetaBackground: $colorStandardHellgrau;
 $colorMetaFAUHomeBackground: desaturate(darken($colorStandardHellgrau, 10%), 90%); // #d0d3d8;
 $colorMetaHover: desaturate(lighten($colorDefault, 10%), 40%);
 $colorMetaText: #fff;

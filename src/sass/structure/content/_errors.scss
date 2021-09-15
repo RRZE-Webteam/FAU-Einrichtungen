@@ -43,7 +43,7 @@
     
     .error-image {    
 	.error-siegel {
-	    fill: $colorPrimaryHeroLight;
+	    fill: var(--color-primary-heller);
 	    --siegel-display-beschriftung: none;
 	    --siegel-display-kreise: none;
 	}

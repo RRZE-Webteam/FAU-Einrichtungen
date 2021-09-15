@@ -136,7 +136,7 @@
 	.image-placeholder {
 		width: 90px;
 		height: 120px;
-		background: $colorLightest;
+		background: var(--color-primary-hellste);
 		position: relative;
 		text-align: center;
 	
@@ -146,7 +146,7 @@
 			@extend .fa-4x;
 			@extend .fa-user;
 			line-height: 120px;	
-			color: $colorLight;
+			color: var(--color-primary-heller);
 		}
 	}
 	

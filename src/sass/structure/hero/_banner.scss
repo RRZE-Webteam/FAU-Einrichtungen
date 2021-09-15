@@ -6,7 +6,7 @@
 	    height: auto;
 	    overflow: inherit;
             
-            @include radial-gradient($colorPrimaryHero, $colorPrimaryHeroLight);
+            @include radial-gradient(var(--color-primary-basis), $colorPrimaryHeroLight);
             
 	    @media (min-width: $screen-sm) {
 		 max-height: 142px;

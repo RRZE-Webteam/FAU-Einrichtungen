@@ -28,14 +28,14 @@
 			text-decoration: underline;
 			
 			.number {
-			    background: $colorButtonBackgroundHover;
+			    background: var(--color-primary-dunkler);
 			}
 		}
 		.number {
 		   
 		    color: $colorButton;
-		    background: $colorButtonBackground;
-		    border: 1px solid $colorButtonBackground;
+		    background: var(--color-primary-basis);
+		    border: 1px solid var(--color-primary-basis);
 		
 		}
 	    }
@@ -71,8 +71,8 @@
 		margin-right: 4px;
 		@include border-radius(3px);
 		
-		background: $colorButtonBackground;
-		border: 1px solid $colorButtonBackground;
+		background: var(--color-primary-basis);
+		border: 1px solid var(--color-primary-basis);
 		padding: 6px 10px;
 		text-decoration: none;
 		color: $colorButton;
@@ -90,7 +90,7 @@
 		border: 1px solid $colorContentBorders;
 		padding: 6px 10px;
 		text-decoration: none;
-		color: $colorButtonBackground;
+		color: var(--color-primary-basis);
 	}
 	
 	.prev, 
@@ -101,7 +101,7 @@
 	
 	a:hover, 
 	a:focus {
-		background: $colorButtonBackgroundHover;
+		background: var(--color-primary-dunkler);
 		text-decoration: underline;
 		span {
 		    text-decoration: underline;

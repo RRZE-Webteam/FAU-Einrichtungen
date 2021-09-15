@@ -17,10 +17,10 @@
 		border-top: 1px solid #ccc;
 		float: none;
 		padding: 15px 0 0;
-		background-color: darken($colorSubNavBackground, 5%);
+		background-color: darken($PalettonHellste, 5%);
 
 		a {
-			background-color: darken($colorSubNavBackground, 5%);
+			background-color: darken($PalettonHellste, 5%);
 		}
 	}
 
@@ -52,7 +52,7 @@
 
 		a, .current_page_item a {
 			&:hover, &:focus {
-				background-color: $colorHover;
+				background-color: var(--color-primary-dunkelste);
 			}
 		}
 	}
@@ -153,7 +153,7 @@
 	.button-portal {
 		@include inline-block;
 		color: $colorMainMenu;
-		background-color: $colorHover; 
+		background-color: var(--color-primary-dunkelste); 
 
 		
 		padding: 13px 20px;
@@ -164,7 +164,7 @@
 
 		&:hover,
 		&:focus {
-			background: lighten($colorHover, 5%);
+			background: var(--color-primary-dunkler);
 		}
 	}
 
@@ -186,7 +186,7 @@
 			&:hover,
 			&:focus {
 				text-decoration: none;
-				background-color:  $colorHover;  
+				background-color:  var(--color-primary-dunkelste);
 			}
 		}
 	}
@@ -199,7 +199,7 @@
 			}
 
 			> a {
-				border-bottom: 1px solid $colorHover;
+				border-bottom: 1px solid var(--color-primary-dunkelste);
 
 				&:before {
 					@extend .fa;
@@ -251,7 +251,7 @@
 			}
 
 			&:before {
-				color: $colorHover;
+				color: var(--color-primary-dunkelste);
 				top: 40px;
 				font-style: normal;
 				font-size: 90px;
@@ -270,7 +270,7 @@
 	}
 
 	p.nav-excerpt {
-		color: $colorLightest;
+		color: var(--color-primary-hellste);
 		font-size: 15px;
 		line-height: 24px;
 		font-style: normal;
@@ -316,7 +316,7 @@
 				}
 
 				&.level3 a {
-					color: $PalettonHellste;
+					color: var(--color-primary-hellste);
 					padding-left: $padding-base-horizontal;
 				}
 			}
@@ -331,9 +331,9 @@
 			}
 
 			.nav-flyout {
-				background: svg-ci-siegel($colorPrimaryHeroLight, 320, 320) no-repeat 95% 10px, linear-gradient(to top, $colorPrimaryHeroLight 0%, $colorPrimaryHero 100%);
+				background: svg-ci-siegel($colorPrimaryHeroLight, 320, 320) no-repeat 95% 10px, linear-gradient(to top, $colorPrimaryHeroLight 0%, var(--color-primary-basis) 100%);
 				.fauorg-kooperation & {
-				   background: linear-gradient(to top, $colorPrimaryHeroLight 0%, $colorPrimaryHero 100%);
+				   background: linear-gradient(to top, $colorPrimaryHeroLight 0%, var(--color-primary-basis) 100%);
 				}
 
 				@media (min-width: $screen-sm) {
@@ -358,7 +358,7 @@
 	background-color: transparent;
 	border: none;
 	z-index: 100;
-	color: $colorMeta;
+	color:  var(--color-Default);
 	padding: 1px 6px;
 	display: none;
 
@@ -404,9 +404,9 @@
 
 			&.level1 {
 				&:hover, &:focus {
-					border-top: 1px solid $colorHover;
+					border-top: 1px solid var(--color-primary-dunkelste);
 					+ li {
-						border-top: 1px solid $colorHover;
+						border-top: 1px solid var(--color-primary-dunkelste);
 					}
 				}
 			    
@@ -418,7 +418,7 @@
 					}
 
 					&:hover, &:focus {
-						background-color: $colorHover;
+						background-color: var(--color-primary-dunkelste);
 					}
 				}
 			}
@@ -537,7 +537,7 @@
 				> a:focus,
 				> [type=button]:hover,
 				> [type=button]:focus {
-					background-color: $colorHover;
+					background-color: var(--color-primary-dunkelste);
 				}
 
 				// Overwrite for "active" button

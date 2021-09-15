@@ -4,7 +4,7 @@
 
 #hero {
     &.hero-small {
-	@include radial-gradient($colorPrimaryHero, $colorPrimaryHeroLight);
+	@include radial-gradient(var(--color-primary-basis), $colorPrimaryHeroLight);
         overflow:hidden;
 	
 	p.presentationtitle,

@@ -36,7 +36,7 @@
 	    @extend .fa;
 	    @extend .fa-angle-right;	
 	    font-weight: bold;
-	    color: $colorDefault; 
+	    color:  var(--color-Default);
 	    width: 15px;
 	    display: table-cell;
 	}

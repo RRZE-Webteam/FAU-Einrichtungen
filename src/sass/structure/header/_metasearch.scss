@@ -23,7 +23,7 @@
 			@include border-radius(20px);
 			padding: 5px 35px 5px 10px;
 			width: 220px;
-			background: $colorMeta;
+			background:  var(--color-Default);
 			border: none;
 			outline: none;
 			color: #fff;
@@ -63,7 +63,7 @@
 			font-weight: bold;
 			border: none;
 			outline: none;
-			color: $colorMeta;
+			color:  var(--color-Default);
 			background: #fff;
 			display: inline-block;
 			margin: 0;
@@ -86,7 +86,7 @@
 			margin-right: -30px;
 			
 			.search-toggled & {
-			    background-image: svg-icon-search-toggled($colorMetaBackground,16,16);
+			    background-image: svg-icon-search-toggled(var(--color-StandardHellgrau),16,16);
 			}
 		}
 	}
@@ -94,7 +94,7 @@
 	    width: 50px;
 	    .search-toggled & {
 		.searchform {	
-		     background: $colorMetaBackground;
+		     background: var(--color-StandardHellgrau);
 		    display: block;
 		    width: 100%;
 		    position: absolute;
@@ -128,10 +128,10 @@
 	border: none;
 	display: none;
 	z-index: 100;
-	color: $colorMeta;
+	color:  var(--color-Default);
 
 	.search-toggled &:before {
-	    background-image: svg-icon-search-toggled($colorMeta,16,16);
+	    background-image: svg-icon-search-toggled( var(--color-Default),16,16);
 	}
 	
 	
@@ -150,7 +150,7 @@
 #search-toggle:before {
 	@extend .svg-icon;
 	@include svg-icon-sizes();
-	background-image: svg-icon-search($colorMeta,16,16);
+	background-image: svg-icon-search( var(--color-Default),16,16);
 
 	&:focus,
 	&:hover {

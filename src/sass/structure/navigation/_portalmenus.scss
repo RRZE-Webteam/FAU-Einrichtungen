@@ -106,7 +106,7 @@
 			    @include no-list;
 			    background: none;
 			    display: table;
-			    border-bottom: 1px solid $colorLightest;
+			    border-bottom: 1px solid var(--color-primary-hellste);
 			    width: 100%;
 
 		    }
@@ -116,7 +116,7 @@
 			font-weight: bold;
 			display: table-cell;
 			vertical-align: middle;
-			color: $colorDefault;
+			color:  var(--color-Default);
 			width: 5px;
 		    }
 
@@ -130,14 +130,14 @@
 		    a:hover,
 		    a:focus {
 			    text-decoration: none;
-			    background-color: $colorLightest;
+			    background-color: var(--color-primary-hellste);
 		    }
 	    }
 
 	}
         .subpage-item:focus .portaltop,
 	.subpage-item:focus h3 {
-		background-color: $colorLightest;
+		background-color: var(--color-primary-hellste);
 	}
 }
 
