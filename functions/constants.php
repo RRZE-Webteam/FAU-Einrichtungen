@@ -140,7 +140,6 @@ $defaultoptions = [
     'breadcrumb_afterhtml'			=> '</span>',
     'breadcrumb_uselastcat'		=> true,
     'breadcrumb_withtitle'			=> false,
-    'breadcrumb_withtitle_parent_page'	=> true,
     'breadcrumb_showcurrent'		=> true,
     'default_logo_src'			=> get_fau_template_uri().'/img/logos/logo-fau-240x65.svg',
     'default_logo_height'			=> 65,
@@ -175,7 +174,6 @@ $defaultoptions = [
     
     'custom_excerpt_allowtags'		=> 'br',
     'title_hero_post_categories'		=> '',
-    'title_hero_post_archive'		=> '',
     'title_hero_search'			=> __( 'Webauftritt durchsuchen', 'fau' ),
     'title_hero_events'			=> __( 'Veranstaltungskalender','fau'),
     
@@ -554,13 +552,6 @@ $setoptions = array(
 		    'default' => $defaultoptions['title_hero_post_categories'],
 		    'parent'  => 'postoptions'
 		), 
-	       'title_hero_post_archive'	 => array(
-		    'type'    => 'text',
-		    'title'   => __( 'Bühnentitel Beiträge', 'fau' ),
-		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Archivseiten von Nachrichten hinterlegt werden.', 'fau' ),               
-		    'default' => $defaultoptions['title_hero_post_archive'],
-		     'parent'  => 'breadcrumb'
-		), 
 	       'advanced_activate_post_comments'		  => array(
                   'type'    => 'toggle',
                   'title'   => __( 'Kommentarfunktion', 'fau' ),
@@ -712,13 +703,7 @@ $setoptions = array(
 		),  
 	       
 	       
-	       'breadcrumb_withtitle_parent_page'	  => array(
-		    'type'    => 'toggle',
-		    'title'   => __( 'Bühnentitel Oberseite', 'fau' ),
-		    'label'   => __( 'Zeige bei Seiten den Titel der hierarchisch nächsthöheren Seite in der Bühne an', 'fau' ),                
-		    'default' => $defaultoptions['breadcrumb_withtitle_parent_page'],
-		    'parent'  => 'breadcrumb'
-		),   	
+	     
 	       
 	       
 		'galery'  => array(

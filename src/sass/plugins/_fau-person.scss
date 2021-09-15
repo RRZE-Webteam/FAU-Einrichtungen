@@ -357,7 +357,7 @@
 .sidebar-inline {
 	
     ul.person-info li {
-	    color: $colorText;
+	    color: var(--color-Text);
     }
     li.person-info-address {
 	white-space: pre-line;
@@ -379,7 +379,7 @@
 
 .sidebar-outline {
     ul.person-info li {
-	    color: $colorText;
+	    color: var(--color-Text);
     }
     li.person-info-address {
 		white-space: pre;

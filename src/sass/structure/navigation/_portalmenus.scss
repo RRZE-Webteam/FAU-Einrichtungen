@@ -161,7 +161,7 @@
 		    margin-left: 5px;
 		    margin-top: 0;
 		    @include px2rem($font-size-content-linkicon);
-		    color: $colorText;
+		    color: var(--color-Text);
 		    vertical-align: top;
 
 	    }

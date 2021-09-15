@@ -9,7 +9,7 @@
     }
     main {
 	@include px2rem($font-size-base);
-	color: $colorText;
+	color: var(--color-Text);
 	font-family: $fontStack;
 	padding-top: 0;
 	width: 100%;

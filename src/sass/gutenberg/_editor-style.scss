@@ -124,7 +124,7 @@
 	padding: 0 0 11px 0;
 
 	@include px2rem($font-size-base);
-	color: $colorText;
+	color: var(--color-Text);
 	font-family: $fontStack; 
 
     }
@@ -166,7 +166,7 @@
     li {
 	padding: 3px 0 4px 4px;
 	@include px2rem($font-size-content-listitem);  
-	color: $colorText;
+	color: var(--color-Text);
     }
 
 

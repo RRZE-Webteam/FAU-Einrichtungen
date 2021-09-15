@@ -7,7 +7,7 @@ p, address {
     padding: 0 0 11px 0;
 
     @include px2rem($font-size-base);
-    color: $colorText;
+    color: var(--color-Text);
     font-family: $fontStack; 
     font-style: normal;
     

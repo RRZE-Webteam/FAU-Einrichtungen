@@ -146,7 +146,7 @@ button.expand-all {
     }
 
     h1, h2, h3, h4, h5, h6 {
-        color: $colorText;
+        color: var(--color-Text);
     }
     hr {
         &::after,

@@ -7,25 +7,16 @@
     flex-direction: row;
     align-items: stretch;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     @media (min-width: $screen-sm) {
 	    flex-wrap: nowrap;
     }
     
     .error-notice {
 	min-width: 230px;
-	 
+	max-width: 480px; 
     }
-    .error-image {
-	display: none;
-	 @media (min-width: $screen-sm) {
-	     display: block;
-	     min-width: 170px;
-	 }
-	  @media (min-width: $screen-md) {
-	     max-width: 300px;
-	 }
-    }
+   
     .error-search {
 	min-width: 320px;
 	@media (min-width: $screen-md) {
@@ -37,20 +28,6 @@
 	}
     } 
 
-    
-    
 
-    
-    .error-image {    
-	.error-siegel {
-	    fill: var(--color-primary-heller);
-	    --siegel-display-beschriftung: none;
-	    --siegel-display-kreise: none;
-	}
-	svg {
-	    max-width: 100%;
-	    height: auto;
-	}
-    }
 
 }

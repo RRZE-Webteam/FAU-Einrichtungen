@@ -71,7 +71,7 @@ table {
 	}
 	
 	th {
-		color: $colorText;
+		color: var(--color-Text);
 		background: $colorContentBorders;
 		font-weight: bold;
 		border-top: 1px solid $colorContentBorders;
@@ -90,7 +90,7 @@ table {
 	
 	td {
 		border-right: 1px solid #fff;
-		color: $colorText;
+		color: var(--color-Text);
 		
 		
 	}
@@ -126,12 +126,12 @@ table {
 	
 	&.nooddcolor {
 	    tr:nth-child(odd) td {
-		color:  $colorText;
+		color: var(--color-Text);
 		background: transparent;
 		
 		ul {
 		    li {
-			color:  $colorText;
+			color: var(--color-Text);
 		    }
 		}
 	    }
@@ -150,9 +150,9 @@ table {
 	    }
 	    tr:nth-child(odd) td {
 		background: transparent;
-		color: $colorText;
+		color: var(--color-Text);
 		li {
-		    color: $colorText;
+		    color: var(--color-Text);
 		}
 	    }
 	}

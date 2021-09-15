@@ -7,7 +7,7 @@ pre {
 	padding: 0 3px 2px;
 	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 	@include px2rem($font-size-codepre);
-	color: $colorText;
+	color: var(--color-Text);
 	background-color: var(--color-StandardHellgrau);
 }
 

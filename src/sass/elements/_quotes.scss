@@ -55,7 +55,7 @@ blockquote {
 	    display: block; 
 	    text-align: right;
 	    @include px2rem($font-size-quotes-cites);
-	    color: $colorTextLight;
+	    color: var(--color-TextLight);
 	    &:before { content: '\2014 \00A0'; }
 
 	}
@@ -75,7 +75,7 @@ blockquote {
 		font-family: Georgia, serif;
 		font-size: 70px;
 		font-weight: bold;
-		color: $colorTextLight; //lighten($color-text,50%); 
+		color: var(--color-TextLight);
 
 		position: absolute;
 		right: 10px;
@@ -90,7 +90,7 @@ blockquote {
             font-family: Georgia, serif;
             font-size: 70px;
             font-weight: bold;
-            color: $colorTextLight; //lighten($color-text,50%); 
+            color: var(--color-TextLight);
 
             position: absolute;
             left: 10px;

@@ -3404,7 +3404,7 @@ CSS Font File for Wordpress Theme FAU
   padding: 0 0 11px 0;
   font-size: 1rem;
   line-height: 1.5rem;
-  color: #444;
+  color: var(--color-Text);
   font-family: "Roboto", sans-serif; }
 
 .edit-post-visual-editor .editor-block-list__block p {
@@ -3439,7 +3439,7 @@ CSS Font File for Wordpress Theme FAU
   padding: 3px 0 4px 4px;
   font-size: 1rem;
   line-height: 1.5rem;
-  color: #444; }
+  color: var(--color-Text); }
 
 .edit-post-visual-editor .editor-block-list__block ul {
   /* Lists without list points */ }

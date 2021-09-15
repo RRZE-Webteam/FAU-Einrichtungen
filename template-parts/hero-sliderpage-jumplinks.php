@@ -62,5 +62,5 @@ if (('' != get_theme_mod( 'advanced_activate_quicklinks' )) && (true== get_theme
 		    </div>
 	    </div>
 	</div>
-	<?php 	get_template_part('template-parts/hero', 'siegel'); } ?>
+	<?php  } ?>
     </nav>

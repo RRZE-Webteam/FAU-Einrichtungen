@@ -3625,7 +3625,7 @@ pre {
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
   font-size: 0.866rem;
   line-height: 1.3rem;
-  color: #444;
+  color: var(--color-Text);
   background-color: var(--color-StandardHellgrau); }
 
 code {
@@ -3667,7 +3667,7 @@ p, address {
   padding: 0 0 11px 0;
   font-size: 1rem;
   line-height: 1.5rem;
-  color: #444;
+  color: var(--color-Text);
   font-family: "Roboto", sans-serif;
   font-style: normal; }
   #footer p, #footer address {
@@ -4003,7 +4003,7 @@ li {
   padding: 3px 0 4px 4px;
   font-size: 1rem;
   line-height: 1.5rem;
-  color: #444; }
+  color: var(--color-Text); }
   .sidebar-inline li {
     padding: 3px 0 4px 20px;
     font-size: 0.866rem;
@@ -4335,7 +4335,7 @@ table {
       font-size: 0.866rem;
       line-height: 1.3rem; }
   table th {
-    color: #444;
+    color: var(--color-Text);
     background: #dfe6ec;
     font-weight: bold;
     border-top: 1px solid #dfe6ec;
@@ -4347,7 +4347,7 @@ table {
     cursor: pointer; }
   table td {
     border-right: 1px solid #fff;
-    color: #444; }
+    color: var(--color-Text); }
   table tr {
     border-left: 1px solid var(--color-StandardHellgrau);
     border-right: 1px solid var(--color-StandardHellgrau); }
@@ -4364,10 +4364,10 @@ table {
     line-height: 1.3rem;
     background-position: left 5px; }
   table.nooddcolor tr:nth-child(odd) td {
-    color: #444;
+    color: var(--color-Text);
     background: transparent; }
     table.nooddcolor tr:nth-child(odd) td ul li {
-      color: #444; }
+      color: var(--color-Text); }
   table.nobackground {
     border-top: none;
     border-bottom: none; }
@@ -4380,9 +4380,9 @@ table {
       border-right: none; }
     table.nobackground tr:nth-child(odd) td {
       background: transparent;
-      color: #444; }
+      color: var(--color-Text); }
       table.nobackground tr:nth-child(odd) td li {
-        color: #444; }
+        color: var(--color-Text); }
   table thead td {
     background: #dfe6ec; }
   table th.small,
@@ -4449,7 +4449,7 @@ blockquote {
     text-align: right;
     font-size: 1.133rem;
     line-height: 1.7rem;
-    color: #797676; }
+    color: var(--color-TextLight); }
     blockquote small:before,
     blockquote cite:before {
       content: '\2014 \00A0'; }
@@ -4466,7 +4466,7 @@ blockquote {
       font-family: Georgia, serif;
       font-size: 70px;
       font-weight: bold;
-      color: #797676;
+      color: var(--color-TextLight);
       position: absolute;
       right: 10px;
       top: 10px; }
@@ -4475,7 +4475,7 @@ blockquote {
     font-family: Georgia, serif;
     font-size: 70px;
     font-weight: bold;
-    color: #797676;
+    color: var(--color-TextLight);
     position: absolute;
     left: 10px;
     top: 10px; }

@@ -29,7 +29,6 @@ get_template_part('template-parts/hero', 'error');
 
 				</div>
 				<?php 
-				get_template_part('template-parts/error', 'siegel');   
 				get_template_part('template-parts/error', 'trysearch');  
 				?>
     
