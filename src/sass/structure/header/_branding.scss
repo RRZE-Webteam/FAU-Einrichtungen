@@ -7,7 +7,7 @@
     .branding {
 	.sitetitle {
 	    display: inline-block;
-	    color: #fff;
+	    color:  var(--color-primary-basis-kontrast);
 	    background-color: var(--color-primary-basis);
 	    padding: 0;
 	    margin: 0;
@@ -26,7 +26,7 @@
 	   
 	    
 	    @media (min-width: $screen-sm) {		
-		background-color: #fff;
+		background-color:  var(--color-primary-basis-kontrast);
 		color: var(--color-primary-basis);
 		width: auto;
 		
@@ -46,7 +46,7 @@
 	    }
 	    a {
 		text-decoration: none;
-		color: #fff;
+		color: var(--color-primary-basis-kontrast);
 		@media (min-width: $screen-sm) {
 		     color: var(--color-primary-basis);
 		}
@@ -96,7 +96,7 @@
 	    text-align: center;
 	    .sitetitle {	   
 		margin: 10px auto;
-		background-color: #fff;
+		background-color:  var(--color-primary-basis-kontrast);
 		img,
 		svg {
 

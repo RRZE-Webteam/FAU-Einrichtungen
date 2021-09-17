@@ -23,7 +23,7 @@ table th[class*="span"] {
 	position: relative;
 	overflow: hidden;
 	margin: 0;
-	border-right: 1px solid $colorContentBorders;
+	border-right: 1px solid var(--color-ContentBorders);
 	
 	
 	@media (min-width: $screen-sm) {
@@ -41,8 +41,8 @@ table {
 	border: 0;
 	background: transparent;
 	
-	border-top: 1px solid $colorContentBorders;
-	border-bottom: 1px solid $colorContentBorders;
+	border-top: 1px solid var(--color-ContentBorders);
+	border-bottom: 1px solid var(--color-ContentBorders);
 	margin: 0;
 	width: 100%;
 
@@ -72,10 +72,10 @@ table {
 	
 	th {
 		color: var(--color-Text);
-		background: $colorContentBorders;
+		background: var(--color-ContentBorders);
 		font-weight: bold;
-		border-top: 1px solid $colorContentBorders;
-		border-bottom: 1px solid $colorContentBorders;
+		border-top: 1px solid var(--color-ContentBorders);
+		border-bottom: 1px solid var(--color-ContentBorders);
 		text-align: left;
 		
 		h1, h2, h3, h4, h5, h6 {
@@ -159,7 +159,7 @@ table {
 	
 	thead {
 	    td {
-		background: $colorContentBorders;
+		background: var(--color-ContentBorders);
 	    }
 	}
 	

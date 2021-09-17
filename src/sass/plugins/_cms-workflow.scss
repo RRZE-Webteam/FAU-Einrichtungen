@@ -53,7 +53,7 @@
 	    li {
 		padding: 0;
 		margin: 0;
-		border: 1px solid $colorContentBorders;
+		border: 1px solid var(--color-ContentBorders);
 		border-left: none;
 		
 		@media (min-width: $screen-sm) {
@@ -100,8 +100,8 @@
 		    
 		    &:hover,
 		    &:focus {
-			    background: $colorMetaHover; // $colorMetaLightest;
-			    color: $colorMetaText;
+			    background: var(--color-MetaHover); 
+			    color: var(--color-MetaText);
 			    @include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
 			    
 			    
@@ -131,12 +131,12 @@
 	}
 	@media (max-width: $screen-sm - 1) {
 	     li:hover {
-		background: $colorMetaHover; // $colorMetaLightest;
-		color: $colorMetaText;
+		background: var(--color-MetaHover); 
+		color: var(--color-MetaText);
 		
 		a::before,
 		a {
-		    color: $colorMetaText;
+		    color: var(--color-MetaText);
 		}
 		
 	    }

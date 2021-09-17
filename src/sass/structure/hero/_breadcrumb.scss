@@ -4,7 +4,7 @@
 
 #hero {
     &.hero-small {
-	@include radial-gradient(var(--color-primary-basis), $colorPrimaryHeroLight);
+	@include radial-gradient(var(--color-primary-basis), var(--color-primary-basis-lighten15));
         overflow:hidden;
 	
 	p.presentationtitle,
@@ -35,7 +35,7 @@
 
 
 .breadcrumbs {
-	color: #fff;
+	color: var(--color-primary-basis-kontrast);
 	padding: 10px 0;
 	position: relative;
 	z-index: 10;
@@ -58,7 +58,7 @@ h3.breadcrumb_sitetitle {
 	font-weight: normal;
 	line-height: 18px;
 	margin-bottom: -5px;
-	color: #fff;
+	color: var(--color-primary-basis-kontrast);
 }
 	
 	

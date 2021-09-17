@@ -12,7 +12,7 @@ p, address {
     font-style: normal;
     
     #footer & {
-	color: #fff;
+	color: var(--color-primary-basis-kontrast);
 	background: var(--color-primary-basis);
 	
 
@@ -56,7 +56,7 @@ p {
 	}
 	
 	#footer & {
-		color: #fff;
+		color: var(--color-primary-basis-kontrast);
 		background: var(--color-primary-basis);
 		@include px2rem($font-size-footer);
 	}

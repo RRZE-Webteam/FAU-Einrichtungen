@@ -15,7 +15,7 @@
 	}
 	
 	.events-more {
-		color: $colorButton;
+		color: var(--color-primary-basis-kontrast);
 		background: var(--color-primary-basis);
 		padding: 8px 10px;
 		text-decoration: none;

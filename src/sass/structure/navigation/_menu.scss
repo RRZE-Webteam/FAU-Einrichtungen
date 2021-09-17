@@ -68,7 +68,7 @@
 		color: var(--color-primary-basis);
 
 		&:hover, &:focus, &[aria-expanded=true] {
-			color: $colorPrimaryContrast;
+			color: var(--color-primary-basis-kontrast);
 			text-decoration: none;
 		}
 		
@@ -152,7 +152,7 @@
 	/* Portal buttons */
 	.button-portal {
 		@include inline-block;
-		color: $colorMainMenu;
+		color: var(--color-primary-basis-kontrast); 
 		background-color: var(--color-primary-dunkelste); 
 
 		
@@ -180,7 +180,7 @@
 		a {
 			display: inline-block;
 			padding: 7px 20px 7px 15px;
-			color: #fff;
+			color: var(--color-primary-basis-kontrast);
 			width: 100%;
 
 			&:hover,
@@ -226,7 +226,7 @@
 			@include px2rem($font-size-nav-introtext, $font-size-nav-introtext, 24);
 			padding: 20px;
 			margin: 0;
-			color: #fff;
+			color: var(--color-primary-basis-kontrast);
 			opacity: .8;
 			font-style: normal;
 			font-weight: normal;
@@ -245,7 +245,7 @@
 			cite {
 				padding: 10px 0;
 				text-align: right;
-				color: #fff;
+				color: var(--color-primary-basis-kontrast);
 				opacity: 0.7;
 				@include px2rem($font-size-nav-blockquote-cite);
 			}
@@ -264,7 +264,7 @@
 	}
 
 	figcaption {
-		color: #fff;
+		color: var(--color-primary-basis-kontrast);
 		opacity: 0.8;
 		@include px2rem($font-size-nav-blockquote-cite);
 	}
@@ -331,7 +331,7 @@
 			}
 
 			.nav-flyout {
-				background: linear-gradient(to top, $colorPrimaryHeroLight 0%, var(--color-primary-basis) 100%);
+				background: linear-gradient(to top, var(--color-primary-basis-lighten15) 0%, var(--color-primary-basis) 100%);
 
 				@media (min-width: $screen-sm) {
 					min-height: 199px;
@@ -518,14 +518,14 @@
 			> [type=button][aria-expanded=true],
 			> [type=button]:hover,
 			> [type=button]:focus {
-				color: $colorMainMenu;
+				color: var(--color-primary-basis-kontrast); 
 				background-color: var(--color-primary-basis);
 			}
 
 			/* Must be an extra selector as IE / Edge doesn't support :focus-within and considers this invalid */
 			&.has-sub:focus-within > a,
 			&.has-sub:focus-within > [type=button] {
-				color: $colorMainMenu;
+				color: var(--color-primary-basis-kontrast); 
 				background-color: var(--color-primary-basis);
 			}
 

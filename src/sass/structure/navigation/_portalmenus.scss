@@ -92,7 +92,7 @@
 
 
 				    @include px2rem($font-size-linkicon);
-				    color: #fff;
+				    color: var(--color-primary-basis-kontrast);
 				    font-weight: bolder;
 				    text-align: right;
 				    padding: 0 2px 0 0;
@@ -235,7 +235,7 @@
 	background-color: $PalettonDunkelste;
       }
       span.portaltop a {
-      	color: #fff;
+      	color: var(--color-primary-basis-kontrast);
       	line-height: 1.25;
       	text-shadow: 1px 1px 3px black;
       	display: block;

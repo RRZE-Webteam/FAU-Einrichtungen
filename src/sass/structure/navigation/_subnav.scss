@@ -31,7 +31,7 @@
 
 		&:hover, &:focus {
 			background-color: var(--color-primary-dunkler);
-			color: $colorSubNavCurrent;
+			color: var(--color-primary-basis-kontrast);
 		}
 	}
 	
@@ -46,13 +46,13 @@
 	.current_page_item, 
 	.current_page_ancestor {
 		a {
-			color: $colorSubNavCurrent;
+			color: var(--color-primary-basis-kontrast);
 			background-color: var(--color-primary-dunkler); 
 			border: none;
 			
-			&:hover, &:focus {        
+			&:hover, 
+			&:focus {        
 				background-color: var(--color-primary-dunkelste); 
-				color: $colorSubNavCurrentHover; 
 			}
 		}
 		
@@ -104,7 +104,7 @@
 	li li li li a,
 	li li li li.current_page_item a {
 		background: var(--color-primary-dunkler); 
-		color: $colorSubNavCurrent;
+		color: var(--color-primary-basis-kontrast);
 	}
 	
 	li.protected-page a {

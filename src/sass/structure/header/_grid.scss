@@ -2,7 +2,7 @@
 /* Grid in Header
 /*-----------------------------------------------------------------------------------*/
 #headerwrap {
-    background-color: #fff;
+    background-color: var(--color-primary-basis-kontrast);
     color: var(--color-primary-basis);
     position: sticky;
     top: 0;
@@ -22,7 +22,7 @@
     @media (min-width: $screen-sm) {
 	    margin: 0;
 	    padding: 0;
-	    background-color: #fff;
+	    background-color:  var(--color-primary-basis-kontrast);
 	    @include transition(0.5s, all);
 
 	    .nav-scrolled & {

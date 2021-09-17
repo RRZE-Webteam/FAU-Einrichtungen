@@ -27,12 +27,12 @@
 		}
 	    }
 	    &.border {
-		border: 1px solid $colorContentBorders;
+		border: 1px solid var(--color-ContentBorders);
 	    }
 	    
 	    &.rounded {
-		border: 1px solid $colorContentBorders;
-		@include box-shadow(0 0 1px $colorContentBorders);
+		border: 1px solid var(--color-ContentBorders);
+		@include box-shadow(0 0 1px var(--color-ContentBorders));
 		overflow: hidden;
 		border-radius: 50%;
 	    }
@@ -304,7 +304,7 @@
 	    }
 	    &.rounded {
 		border-width: 2px;
-		border-color: $colorContentBorders;
+		border-color: var(--color-ContentBorders);
 
 	    }
 	    &.rounded:hover, 

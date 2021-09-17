@@ -10,36 +10,43 @@
   --color-primary-hellste: #dde5f0;
   --color-primary-dunkler: #24598f;
   --color-primary-dunkelste: #1f4b7a;
+  --color-primary-basis-kontrast: #fff;
   --color-zentral-basis: #003366;
   --color-zentral-heller: #8fb1ef;
   --color-zentral-hellste: #dde5f0;
   --color-zentral-dunkler: #24598f;
   --color-zentral-dunkelste: #1f4b7a;
+  --color-zentral-basis-kontrast: #fff;
   --color-phil-basis: #A36B0D;
   --color-phil-heller: #d9c689;
   --color-phil-hellste: #f3eedf;
   --color-phil-dunkler: #805000;
   --color-phil-dunkelste: #553500;
+  --color-phil-basis-kontrast: #fff;
   --color-med-basis: #0381A2;
   --color-med-heller: #bfd6f5;
   --color-med-hellste: #eaf3fc;
   --color-med-dunkler: #026480;
   --color-med-dunkelste: #014e63;
+  --color-med-basis-kontrast: #fff;
   --color-nat-basis: #048767;
   --color-nat-heller: #aacfbd;
   --color-nat-hellste: #e5efea;
   --color-nat-dunkler: #006e53;
   --color-nat-dunkelste: #00533f;
+  --color-nat-basis-kontrast: #fff;
   --color-rw-basis: #8d1429;
   --color-rw-heller: #c5ac94;
   --color-rw-hellste: #ede7de;
   --color-rw-dunkler: #690013;
   --color-rw-dunkelste: #42000c;
+  --color-rw-basis-kontrast: #fff;
   --color-tf-basis: #6E7881;
   --color-tf-heller: #d2d5d7;
   --color-tf-hellste: #ebecee;
   --color-tf-dunkler: #53606b;
   --color-tf-dunkelste: #3b4956;
+  --color-tf-basis-kontrast: #fff;
   --color-Text: #444;
   --color-TextLight: #797676;
   --color-Notice: #a71c18;
@@ -52,7 +59,13 @@
   --color-ContentRegions: #f5f7f9;
   --color-white: #fff;
   --color-black: #000;
-  --color-PrintMain: #000; }
+  --color-PrintMain: #000;
+  /* Calculated Values */
+  --color-primary-basis-lighten15: #0059b3;
+  --color-MetaHomeBackground: #d4d4d4;
+  --color-MetaHover: #1f4d7a;
+  --color-MetaText: #fff;
+  --color-MetaBackgroundLight: #e9edf2; }
 
 /*
 Mixins File for Wordpress Theme FAU

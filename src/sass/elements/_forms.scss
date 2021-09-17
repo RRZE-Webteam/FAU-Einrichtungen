@@ -95,7 +95,7 @@ textarea:focus {
 
 input[type="submit"] {
 	@include inline-block;
-	border: 3px solid $colorPrimary;
+	border: 3px solid var(--color-primary-basis);
 	height: 30px;
 	line-height: 30px;
 	margin: 10px 0;
@@ -103,14 +103,14 @@ input[type="submit"] {
 	box-sizing: content-box;
 	@include border-radius(20px);
 	background: var(--color-primary-basis);
-	color: $colorMainBackground;
+	color: var(--color-MainBackground);
 	font-weight: bold;
 	
 	clear: left;
 	
 	&:hover, 
 	&:focus {
-		background: $colorMainBackground;
+		background: var(--color-MainBackground);
 		color: var(--color-primary-basis);
 	}
 	

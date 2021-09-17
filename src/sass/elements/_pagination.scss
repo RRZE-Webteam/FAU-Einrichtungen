@@ -33,7 +33,7 @@
 		}
 		.number {
 		   
-		    color: $colorButton;
+		    color: var(--color-primary-basis-kontrast);
 		    background: var(--color-primary-basis);
 		    border: 1px solid var(--color-primary-basis);
 		
@@ -42,10 +42,9 @@
 	    .number {
 		
 		background: $colorMainBackground;
-		border: 1px solid $colorContentBorders;
+		border: 1px solid var(--color-ContentBorders);
 		padding: 6px 10px;
 		text-decoration: none;
-		// color: $colorButton;
 		@include border-radius(3px);
 		@include px2rem($font-size-textbuttons);
 		
@@ -75,7 +74,7 @@
 		border: 1px solid var(--color-primary-basis);
 		padding: 6px 10px;
 		text-decoration: none;
-		color: $colorButton;
+		color: var(--color-primary-basis-kontrast);
 		
 		span {
 		    background-color: transparent;
@@ -86,8 +85,8 @@
 	}
 	
 	.current {
-		background: $colorButton;
-		border: 1px solid $colorContentBorders;
+		background: var(--color-primary-basis-kontrast);
+		border: 1px solid var(--color-ContentBorders);
 		padding: 6px 10px;
 		text-decoration: none;
 		color: var(--color-primary-basis);

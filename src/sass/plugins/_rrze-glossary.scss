@@ -23,7 +23,7 @@
     
 	    &.filled {
 		border-color: var(--color-primary-basis);
-		background: $colorContentBorders;
+		background: var(--color-ContentBorders);
 		color: var(--color-primary-basis);
 		font-weight: bold;
 		padding: 0;

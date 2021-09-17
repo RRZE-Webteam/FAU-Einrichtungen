@@ -12,5 +12,11 @@
      @each $variante, $colorcode  in $colormap-misc {	    
 	 --color-#{$variante}: #{$colorcode};
      }
+     /* Calculated Values */
+     --color-primary-basis-lighten15: #{$colorPrimaryHeroLight}; // lighten primary basis by 15%
+     --color-MetaHomeBackground: #{$colorMetaFAUHomeBackground}; // lighten primary basis by 15%
+     --color-MetaHover: #{$colorMetaHover};
+     --color-MetaText: #fff;
+     --color-MetaBackgroundLight: #{$colorMetaLightest};
 }
 

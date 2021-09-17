@@ -26,13 +26,13 @@
 			background:  var(--color-Default);
 			border: none;
 			outline: none;
-			color: #fff;
+			color: var(--color-MainBackground);
 			height: 30px;
 			display: inline-block;
 			margin-right: -25px;
 			margin-bottom: 0px;
 			&:focus {
-				background-color: $colorMetaHover;
+				background-color: var(--color-MetaHover);
 				box-shadow: none;
 			}
 
@@ -64,13 +64,13 @@
 			border: none;
 			outline: none;
 			color:  var(--color-Default);
-			background: #fff;
+			background: var(--color-MainBackground);
 			display: inline-block;
 			margin: 0;
 			
 			&:hover, 
 			&:focus {
-				background: $colorMetaLightest;
+				background: var(--color-MetaBackgroundLight);
 				@include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
 
 			}
@@ -86,7 +86,7 @@
 			margin-right: -30px;
 			
 			.search-toggled & {
-			    background-image: svg-icon-search-toggled(var(--color-StandardHellgrau),16,16);
+			    background-image: svg-icon-search-toggled($colorStandardHellgrau,16,16);
 			}
 		}
 	}
@@ -131,7 +131,7 @@
 	color:  var(--color-Default);
 
 	.search-toggled &:before {
-	    background-image: svg-icon-search-toggled( var(--color-Default),16,16);
+	    background-image: svg-icon-search-toggled( $colorDefault,16,16);
 	}
 	
 	
@@ -150,7 +150,7 @@
 #search-toggle:before {
 	@extend .svg-icon;
 	@include svg-icon-sizes();
-	background-image: svg-icon-search( var(--color-Default),16,16);
+	background-image: svg-icon-search( $colorDefault,16,16);
 
 	&:focus,
 	&:hover {

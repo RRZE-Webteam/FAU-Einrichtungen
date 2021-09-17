@@ -6,7 +6,7 @@
 	    height: auto;
 	    overflow: inherit;
             
-            @include radial-gradient(var(--color-primary-basis), $colorPrimaryHeroLight);
+            @include radial-gradient(var(--color-primary-basis), var(--color-primary-basis-lighten15));
             
 	    @media (min-width: $screen-sm) {
 		 max-height: 142px;
@@ -94,7 +94,7 @@
 		h1 {
 			@include px2rem($font-size-h1,  $font-size-base);		
 			@include hyphens(none);
-			color: #fff;
+			color: var(--color-primary-basis-kontrast);
 			background: rgba($colorPrimary,0.8);
 			margin: 0;
 			padding: 0 7px 1px 7px;
@@ -117,7 +117,7 @@
 		
 		p.description {
 			font-weight: normal;
-			color: #fff;
+			color: var(--color-primary-basis-kontrast);
 			@include px2rem($font-size-hero-bannertext);
 			display: none;
 			background: rgba($colorPrimary,0.8);

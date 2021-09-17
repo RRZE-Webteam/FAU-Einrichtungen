@@ -4,7 +4,7 @@
 
 #footer {
 	background: var(--color-primary-basis);
-	color: #fff;
+	color: var(--color-primary-basis-kontrast);
 	padding: 0 0 20px 0;
 	
 	
@@ -34,6 +34,10 @@
 	    .fau-logo-footer {
 		  fill: #fff;
 		  color: #fff;
+		  --fau-logo-display-name: none;
+	    }
+	    &.fau {
+		overflow: hidden;
 	    }
 	}
 	.footer-address {

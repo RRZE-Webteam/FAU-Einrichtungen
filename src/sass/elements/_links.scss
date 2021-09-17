@@ -73,7 +73,7 @@ a {
 	}
 	
 	.news-more {
-		color: $colorButton;
+		color: var(--color-primary-basis-kontrast);
 		background: var(--color-primary-basis);
 		padding: 6px 10px;
 		text-decoration: none;
@@ -96,15 +96,12 @@ a {
 	right: 20px;
 
 	background: var(--color-primary-basis);
-	
-	
-	color: #fff;
+	color: var(--color-primary-basis-kontrast);
 	padding: 7px;
 	@include border-radius(4px);
 	
 	&:hover, 
-	    &:focus {
-		color: #fff;
+	&:focus {
 		background: var(--color-primary-dunkelste);
 	}
 	

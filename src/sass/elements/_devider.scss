@@ -4,7 +4,7 @@
 hr {
 	position: relative;
 	clear: both;
-	background: $colorMainBackground;
+	background: var(--color-MainBackground);
 	border: none;
 	outline: none;
 	display: none;
@@ -29,11 +29,11 @@ hr {
 		margin-bottom: 10px
 	    }
 	}
-	@include box-shadow(0 10px 10px -10px $colorStandardHellgrau inset);
+	@include box-shadow(0 10px 10px -10px var(--color-StandardHellgrau) inset);
 	
 	&.line {
 	    height: 1px;
-	    @include linear-gradient-three(transparent,$colorStandardHellgrau 50%,transparent);  
+	    @include linear-gradient-three(transparent,var(--color-StandardHellgrau) 50%,transparent);  
 	}
 	&.line.big {
 	     margin-bottom: 60px
@@ -42,5 +42,5 @@ hr {
 .page-template-page-start hr::after,
 .home hr::after {
     top: 30px;
-    @include box-shadow(0 0 30px $colorStandardHellgrau);
+    @include box-shadow(0 0 30px var(--color-StandardHellgrau));
 }

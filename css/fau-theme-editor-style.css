@@ -11,36 +11,43 @@
   --color-primary-hellste: #dde5f0;
   --color-primary-dunkler: #24598f;
   --color-primary-dunkelste: #1f4b7a;
+  --color-primary-basis-kontrast: #fff;
   --color-zentral-basis: #003366;
   --color-zentral-heller: #8fb1ef;
   --color-zentral-hellste: #dde5f0;
   --color-zentral-dunkler: #24598f;
   --color-zentral-dunkelste: #1f4b7a;
+  --color-zentral-basis-kontrast: #fff;
   --color-phil-basis: #A36B0D;
   --color-phil-heller: #d9c689;
   --color-phil-hellste: #f3eedf;
   --color-phil-dunkler: #805000;
   --color-phil-dunkelste: #553500;
+  --color-phil-basis-kontrast: #fff;
   --color-med-basis: #0381A2;
   --color-med-heller: #bfd6f5;
   --color-med-hellste: #eaf3fc;
   --color-med-dunkler: #026480;
   --color-med-dunkelste: #014e63;
+  --color-med-basis-kontrast: #fff;
   --color-nat-basis: #048767;
   --color-nat-heller: #aacfbd;
   --color-nat-hellste: #e5efea;
   --color-nat-dunkler: #006e53;
   --color-nat-dunkelste: #00533f;
+  --color-nat-basis-kontrast: #fff;
   --color-rw-basis: #8d1429;
   --color-rw-heller: #c5ac94;
   --color-rw-hellste: #ede7de;
   --color-rw-dunkler: #690013;
   --color-rw-dunkelste: #42000c;
+  --color-rw-basis-kontrast: #fff;
   --color-tf-basis: #6E7881;
   --color-tf-heller: #d2d5d7;
   --color-tf-hellste: #ebecee;
   --color-tf-dunkler: #53606b;
   --color-tf-dunkelste: #3b4956;
+  --color-tf-basis-kontrast: #fff;
   --color-Text: #444;
   --color-TextLight: #797676;
   --color-Notice: #a71c18;
@@ -53,7 +60,13 @@
   --color-ContentRegions: #f5f7f9;
   --color-white: #fff;
   --color-black: #000;
-  --color-PrintMain: #000; }
+  --color-PrintMain: #000;
+  /* Calculated Values */
+  --color-primary-basis-lighten15: #0059b3;
+  --color-MetaHomeBackground: #d4d4d4;
+  --color-MetaHover: #1f4d7a;
+  --color-MetaText: #fff;
+  --color-MetaBackgroundLight: #e9edf2; }
 
 /*-----------------------------------------------------------------------------------*/
 /* Frameworks
@@ -3532,7 +3545,7 @@ h3 {
   #off-canvas h3 {
     font-size: 1.2rem;
     line-height: 1.8rem;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--color-StandardHellgrau);
     margin: 20px 0 0 0;
     padding: 0 10px; }
   .sidebar-inline h3,
@@ -3644,7 +3657,7 @@ pre {
   word-wrap: break-word;
   white-space: pre;
   white-space: pre-wrap;
-  border: 1px solid #dfe6ec;
+  border: 1px solid var(--color-ContentBorders);
   border-radius: 4px;
   background-clip: padding-box; }
 
@@ -3671,7 +3684,7 @@ p, address {
   font-family: "Roboto", sans-serif;
   font-style: normal; }
   #footer p, #footer address {
-    color: #fff;
+    color: var(--color-primary-basis-kontrast);
     background: var(--color-primary-basis); }
     @media (min-width: 768px) {
       #footer p, #footer address {
@@ -3708,7 +3721,7 @@ p.lead-in {
   line-height: 1.3rem; }
 
 #footer p {
-  color: #fff;
+  color: var(--color-primary-basis-kontrast);
   background: var(--color-primary-basis);
   font-size: 0.866rem;
   line-height: 1.3rem; }
@@ -3766,7 +3779,7 @@ a {
   .news-more-links .news-rss:before {
     padding-right: 5px; }
   .news-more-links .news-more {
-    color: #fff;
+    color: var(--color-primary-basis-kontrast);
     background: var(--color-primary-basis);
     padding: 6px 10px;
     text-decoration: none;
@@ -3782,13 +3795,12 @@ a {
   bottom: 20px;
   right: 20px;
   background: var(--color-primary-basis);
-  color: #fff;
+  color: var(--color-primary-basis-kontrast);
   padding: 7px;
   border-radius: 4px;
   background-clip: padding-box;
   display: none; }
   .top-link:hover, .top-link:focus {
-    color: #fff;
     background: var(--color-primary-dunkelste); }
 
 main p a, main dd a, main dt a, main ul a, main li a, main td a, main tr a {
@@ -4118,12 +4130,12 @@ ol li {
         .pagination.pagebreaks .subpages a :focus .number {
           background: var(--color-primary-dunkler); }
       .pagination.pagebreaks .subpages a .number {
-        color: #fff;
+        color: var(--color-primary-basis-kontrast);
         background: var(--color-primary-basis);
         border: 1px solid var(--color-primary-basis); }
       .pagination.pagebreaks .subpages .number {
         background: #fff;
-        border: 1px solid #dfe6ec;
+        border: 1px solid var(--color-ContentBorders);
         padding: 6px 10px;
         text-decoration: none;
         border-radius: 3px;
@@ -4146,15 +4158,15 @@ ol li {
     border: 1px solid var(--color-primary-basis);
     padding: 6px 10px;
     text-decoration: none;
-    color: #fff; }
+    color: var(--color-primary-basis-kontrast); }
     .nav-links span span, .nav-links a span {
       background-color: transparent;
       padding: 0;
       margin: 0;
       border: none; }
   .nav-links .current {
-    background: #fff;
-    border: 1px solid #dfe6ec;
+    background: var(--color-primary-basis-kontrast);
+    border: 1px solid var(--color-ContentBorders);
     padding: 6px 10px;
     text-decoration: none;
     color: var(--color-primary-basis); }
@@ -4250,7 +4262,7 @@ textarea:focus {
 
 input[type="submit"] {
   display: inline-block;
-  border: 3px solid #003366;
+  border: 3px solid var(--color-primary-basis);
   height: 30px;
   line-height: 30px;
   margin: 10px 0;
@@ -4259,11 +4271,11 @@ input[type="submit"] {
   border-radius: 20px;
   background-clip: padding-box;
   background: var(--color-primary-basis);
-  color: #fff;
+  color: var(--color-MainBackground);
   font-weight: bold;
   clear: left; }
   input[type="submit"]:hover, input[type="submit"]:focus {
-    background: #fff;
+    background: var(--color-MainBackground);
     color: var(--color-primary-basis); }
   input[type="submit"]:active {
     background: var(--color-primary-dunkelste); }
@@ -4304,7 +4316,7 @@ table th[class*="span"] {
   position: relative;
   overflow: hidden;
   margin: 0;
-  border-right: 1px solid #dfe6ec; }
+  border-right: 1px solid var(--color-ContentBorders); }
   @media (min-width: 768px) {
     .table-wrapper {
       border-right: none; } }
@@ -4315,8 +4327,8 @@ table th[class*="span"] {
 table {
   border: 0;
   background: transparent;
-  border-top: 1px solid #dfe6ec;
-  border-bottom: 1px solid #dfe6ec;
+  border-top: 1px solid var(--color-ContentBorders);
+  border-bottom: 1px solid var(--color-ContentBorders);
   margin: 0;
   width: 100%; }
   @media (min-width: 768px) {
@@ -4336,10 +4348,10 @@ table {
       line-height: 1.3rem; }
   table th {
     color: var(--color-Text);
-    background: #dfe6ec;
+    background: var(--color-ContentBorders);
     font-weight: bold;
-    border-top: 1px solid #dfe6ec;
-    border-bottom: 1px solid #dfe6ec;
+    border-top: 1px solid var(--color-ContentBorders);
+    border-bottom: 1px solid var(--color-ContentBorders);
     text-align: left; }
     table th h1, table th h2, table th h3, table th h4, table th h5, table th h6 {
       color: #24598f; }
@@ -4384,7 +4396,7 @@ table {
       table.nobackground tr:nth-child(odd) td li {
         color: var(--color-Text); }
   table thead td {
-    background: #dfe6ec; }
+    background: var(--color-ContentBorders); }
   table th.small,
   table td.small {
     font-size: 0.8rem; }
@@ -4531,13 +4543,13 @@ abbr.initialism {
 hr {
   position: relative;
   clear: both;
-  background: #fff;
+  background: var(--color-MainBackground);
   border: none;
   outline: none;
   display: none;
   height: 20px;
   margin: 10px 10px 30px;
-  box-shadow: 0 10px 10px -10px #e9edf2 inset; }
+  box-shadow: 0 10px 10px -10px var(--color-StandardHellgrau) inset; }
   @media (min-width: 320px) {
     hr {
       display: block;
@@ -4553,14 +4565,14 @@ hr {
     height: 1px;
     background-color: transparent;
     /* Fallback Color */
-    background-image: linear-gradient(to right, transparent, #e9edf2 50%, transparent); }
+    background-image: linear-gradient(to right, transparent, var(--color-StandardHellgrau) 50%, transparent); }
   hr.line.big {
     margin-bottom: 60px; }
 
 .page-template-page-start hr::after,
 .home hr::after {
   top: 30px;
-  box-shadow: 0 0 30px #e9edf2; }
+  box-shadow: 0 0 30px var(--color-StandardHellgrau); }
 
 /*-----------------------------------------------------------------------------------*/
 /* Images
@@ -4571,7 +4583,7 @@ hr {
 
 .img-polaroid {
   padding: 4px;
-  background-color: #fff;
+  background-color: var(--color-MainBackground);
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
@@ -4692,7 +4704,7 @@ main img {
         position: absolute;
         z-index: 110;
         background: var(--color-primary-basis);
-        color: #fff;
+        color: var(--color-primary-basis-kontrast);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
         padding: 1.5em;
         top: 0px;
@@ -4759,6 +4771,12 @@ main img {
 .bgcolor-primary-dunkelste {
   background-color: var(--color-primary-dunkelste); }
 
+.textcolor-primary-basis-kontrast {
+  color: var(--color-primary-basis-kontrast); }
+
+.bgcolor-primary-basis-kontrast {
+  background-color: var(--color-primary-basis-kontrast); }
+
 .textcol-zentral {
   color: var(--color-zentral-basis) !important; }
 
@@ -4794,6 +4812,12 @@ main img {
 
 .bgcolor-zentral-dunkelste {
   background-color: var(--color-zentral-dunkelste); }
+
+.textcolor-zentral-basis-kontrast {
+  color: var(--color-zentral-basis-kontrast); }
+
+.bgcolor-zentral-basis-kontrast {
+  background-color: var(--color-zentral-basis-kontrast); }
 
 .textcol-phil {
   color: var(--color-phil-basis) !important; }
@@ -4831,6 +4855,12 @@ main img {
 .bgcolor-phil-dunkelste {
   background-color: var(--color-phil-dunkelste); }
 
+.textcolor-phil-basis-kontrast {
+  color: var(--color-phil-basis-kontrast); }
+
+.bgcolor-phil-basis-kontrast {
+  background-color: var(--color-phil-basis-kontrast); }
+
 .textcol-med {
   color: var(--color-med-basis) !important; }
 
@@ -4866,6 +4896,12 @@ main img {
 
 .bgcolor-med-dunkelste {
   background-color: var(--color-med-dunkelste); }
+
+.textcolor-med-basis-kontrast {
+  color: var(--color-med-basis-kontrast); }
+
+.bgcolor-med-basis-kontrast {
+  background-color: var(--color-med-basis-kontrast); }
 
 .textcol-nat {
   color: var(--color-nat-basis) !important; }
@@ -4903,6 +4939,12 @@ main img {
 .bgcolor-nat-dunkelste {
   background-color: var(--color-nat-dunkelste); }
 
+.textcolor-nat-basis-kontrast {
+  color: var(--color-nat-basis-kontrast); }
+
+.bgcolor-nat-basis-kontrast {
+  background-color: var(--color-nat-basis-kontrast); }
+
 .textcol-rw {
   color: var(--color-rw-basis) !important; }
 
@@ -4939,6 +4981,12 @@ main img {
 .bgcolor-rw-dunkelste {
   background-color: var(--color-rw-dunkelste); }
 
+.textcolor-rw-basis-kontrast {
+  color: var(--color-rw-basis-kontrast); }
+
+.bgcolor-rw-basis-kontrast {
+  background-color: var(--color-rw-basis-kontrast); }
+
 .textcol-tf {
   color: var(--color-tf-basis) !important; }
 
@@ -4974,6 +5022,12 @@ main img {
 
 .bgcolor-tf-dunkelste {
   background-color: var(--color-tf-dunkelste); }
+
+.textcolor-tf-basis-kontrast {
+  color: var(--color-tf-basis-kontrast); }
+
+.bgcolor-tf-basis-kontrast {
+  background-color: var(--color-tf-basis-kontrast); }
 
 /*-----------------------------------------------------------------------------------*/
 /* CSS Classes for use in several purposes
@@ -5097,14 +5151,14 @@ div.aligncenter {
   left: -10px;
   right: -10px;
   bottom: -10px;
-  border: 1px dashed #777;
+  border: 1px dashed var(--color-StandardHellgrau);
   border-radius: 3px; }
 
 .example::after {
   content: "Beispiel";
   font-family: sans-serif;
   text-transform: uppercase;
-  color: #666;
+  color: var(--color-Text);
   font-weight: 700;
   top: -1.7rem;
   right: 10px;
@@ -5113,7 +5167,7 @@ div.aligncenter {
   position: absolute;
   z-index: 1;
   background: white;
-  border: 1px dashed #777; }
+  border: 1px dashed var(--color-StandardHellgrau); }
 
 :lang(en) .example:after {
   content: 'Example'; }

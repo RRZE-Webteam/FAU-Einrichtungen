@@ -31,7 +31,7 @@
 		position: absolute;
 		z-index: 110;
 		background: var(--color-primary-basis);
-		color: $colorPrimaryContrast;
+		color: var(--color-primary-basis-kontrast);
 		@include box-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
 		padding: 1.5em;
 		top: 0px;

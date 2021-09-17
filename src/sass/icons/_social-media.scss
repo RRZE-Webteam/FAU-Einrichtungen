@@ -3,9 +3,6 @@
 /*-----------------------------------------------------------------------------------*/
 
 $socialmedia_icon_size: 1.8rem;
-$socialmedia_icon_bgcolor_hover: #fff;
-$socialmedia_icon_color: #fff;
-$socialmedia_icon_color_hover: var(--color-primary-basis);
 
 
 .svg-socialmedia {
@@ -193,7 +190,7 @@ $socialmedia_icon_color_hover: var(--color-primary-basis);
 	    background-image: svg-icon-calendar($socialmedia_icon_color);
 	}
 	&[href*=".ics"]:focus:before,
-	&[href*=".ics"]:hover:before
+	&[href*=".ics"]:hover:before,
 	&[href*="ical"]:focus:before,
 	&[href*="ical"]:hover:before {
 	    background-image: svg-icon-calendar($socialmedia_icon_color_hover);

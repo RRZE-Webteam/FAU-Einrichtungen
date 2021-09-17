@@ -66,8 +66,8 @@ button.expand-all {
             overflow: hidden;
 
             .accordion-toggle {
-                border-left: 10px solid $colorPrimary;
-                background: $colorContentBorders;
+                border-left: 10px solid var(--color-primary-basis);
+                background: var(--color-ContentBorders);
                 color:  var(--color-Default);
                 @include border-radius(4px);
 		@include px2rem($font-size-content-toggle);
@@ -181,7 +181,7 @@ button.expand-all {
 
     header {
         border-left: 10px solid $colorPrimary;
-        background: $colorContentBorders;
+        background: var(--color-ContentBorders);
         color:  var(--color-Default);
         @include border-radius(4px);
         text-decoration: none;

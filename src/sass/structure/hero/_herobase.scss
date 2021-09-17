@@ -15,13 +15,13 @@
 	margin: 20px auto;
     }
 
-    @include placeholder(#fff);	
-    @include radial-gradient(var(--color-primary-basis), $colorPrimaryHeroLight);
+    @include placeholder(var(--color-primary-basis-kontrast));	
+    @include radial-gradient(var(--color-primary-basis), var(--color-primary-basis-lighten15));
 
 	
 	h1, h2, h3, h4, p {
 		font-weight: normal;
-		color: #fff;
+		color: var(--color-primary-basis-kontrast);
 		
 	}
 	h1 {
@@ -33,7 +33,7 @@
 	
 	
 	a {
-		color: #fff;
+		color: var(--color-primary-basis-kontrast);
 	}
 	
 	

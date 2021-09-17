@@ -64,7 +64,7 @@
 		position: absolute;
 		top: 35px;
 		left: -10px;
-		background: $colorMetaLightest;
+		background: var(--color-MetaBackgroundLight);
 		width: 180px;
 		@include box-shadow(0 3px 3px rgba(0, 0, 0, 0.2));
 
@@ -170,7 +170,7 @@
 	    li.fauhome:focus,
 	    li.facultyhome:hover, 
 	    li.facultyhome:focus {
-		    background: $colorMetaFAUHomeBackground;
+		    background: var(--color-MetaHomeBackground);
 		    @include transition(background, 0.1s);
 	    }
 	    
