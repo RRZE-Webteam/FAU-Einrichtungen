@@ -62,9 +62,17 @@
 		    max-height: 65px;
 		    object-fit: contain;
 		    object-position: left;
+		 
 		    @include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
 		}
 	    }
+	    svg {
+		@media (min-width: $screen-sm) {
+		   width: auto;
+		   height: auto;
+		}
+	    }
+	    
 	    span {
 		margin: 10px 15px;
 		display: inline-block;

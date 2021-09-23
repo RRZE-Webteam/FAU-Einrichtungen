@@ -6,13 +6,13 @@
 /* CSS Custom Properties
 /*-----------------------------------------------------------------------------------*/
 :root {
-  --color-primary-basis: #003366;
+  --color-primary-basis: #002F6C;
   --color-primary-heller: #8fb1ef;
   --color-primary-hellste: #dde5f0;
   --color-primary-dunkler: #24598f;
   --color-primary-dunkelste: #1f4b7a;
   --color-primary-basis-kontrast: #fff;
-  --color-zentral-basis: #003366;
+  --color-zentral-basis: #002F6C;
   --color-zentral-heller: #8fb1ef;
   --color-zentral-hellste: #dde5f0;
   --color-zentral-dunkler: #24598f;
@@ -42,7 +42,7 @@
   --color-rw-dunkler: #690013;
   --color-rw-dunkelste: #42000c;
   --color-rw-basis-kontrast: #fff;
-  --color-tf-basis: #6E7881;
+  --color-tf-basis: #4D5B65;
   --color-tf-heller: #d2d5d7;
   --color-tf-hellste: #ebecee;
   --color-tf-dunkler: #53606b;
@@ -52,8 +52,8 @@
   --color-TextLight: #797676;
   --color-Notice: #a71c18;
   --color-Alert: #c5ac94;
-  --color-ZUV: #003366;
-  --color-Default: #003366;
+  --color-ZUV: #002F6C;
+  --color-Default: #002F6C;
   --color-MainBackground: #fff;
   --color-StandardHellgrau: #e9edf2;
   --color-ContentBorders: #dfe6ec;
@@ -62,11 +62,11 @@
   --color-black: #000;
   --color-PrintMain: #000;
   /* Calculated Values */
-  --color-primary-basis-lighten15: #0059b3;
+  --color-primary-basis-lighten15: #0050b9;
   --color-MetaHomeBackground: #d4d4d4;
-  --color-MetaHover: #1f4d7a;
+  --color-MetaHover: #20497f;
   --color-MetaText: #fff;
-  --color-MetaBackgroundLight: #e9edf2;
+  --color-MetaBackgroundLight: #ecf0f4;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -5558,8 +5558,8 @@ label {
 
 input[type=text]:focus,
 textarea:focus {
-  box-shadow: 0 0 5px #003366;
-  border: 1px solid #003366;
+  box-shadow: 0 0 5px #002F6C;
+  border: 1px solid #002F6C;
 }
 
 input[type=submit] {

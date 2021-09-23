@@ -18,8 +18,8 @@ $colormap-misc: ("Text": #444,
 		 "TextLight": #797676, 
 		 "Notice": #a71c18, 
 		 "Alert": #c5ac94,
-		 "ZUV": #003366, 
-		 "Default": #003366, 
+		 "ZUV": #002F6C, // #003366, 
+		 "Default": #002F6C, // #003366, 
 		 "MainBackground":  #fff, 
 		 "StandardHellgrau": #e9edf2,	// desaturate(lighten($colorZUV, 73%), 75%);
 		 "ContentBorders": #dfe6ec,	// desaturate(lighten($colorZUV, 69%), 75%);
@@ -30,18 +30,21 @@ $colormap-misc: ("Text": #444,
 		 );
 
  
-$colormap-zentral: ("basis": #003366, "heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #24598f, "dunkelste": #1f4b7a, "basis-kontrast": #fff);
+// $colormap-zentral: ("basis": #003366, "heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #24598f, "dunkelste": #1f4b7a, "basis-kontrast": #fff);
 // alt, 2015
 
-// $colormap-zentral: ("basis": #002F6C, "heller": #5E9CEE, "hellste": #B7D5FA, "dunkler": #00234F, "dunkelste": #00122A, "basis-kontrast": #fff);
-// neu 13.09
+$colormap-zentral: ("basis": #002F6C, "heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #24598f, "dunkelste": #1f4b7a, "basis-kontrast": #fff);
+// neu 23.09
 
 $colormap-primary: $colormap-zentral;
 $colormap-phil: ("basis": #A36B0D, "heller": #d9c689, "hellste": #f3eedf, "dunkler": #805000, "dunkelste": #553500, "basis-kontrast": #fff);
 $colormap-med: ("basis": #0381A2, "heller": #bfd6f5, "hellste": #eaf3fc, "dunkler": #026480, "dunkelste": #014e63, "basis-kontrast": #fff);
 $colormap-nat: ("basis": #048767, "heller": #aacfbd, "hellste": #e5efea, "dunkler": #006e53, "dunkelste": #00533f, "basis-kontrast": #fff);
 $colormap-rw: ("basis": #8d1429, "heller": #c5ac94, "hellste": #ede7de, "dunkler": #690013, "dunkelste": #42000c, "basis-kontrast": #fff);
-$colormap-tf: ("basis": #6E7881, "heller": #d2d5d7, "hellste": #ebecee, "dunkler": #53606b, "dunkelste": #3b4956, "basis-kontrast": #fff);
+// $colormap-tf: ("basis": #6E7881, "heller": #d2d5d7, "hellste": #ebecee, "dunkler": #53606b, "dunkelste": #3b4956, "basis-kontrast": #fff);
+// alt
+$colormap-tf: ("basis": #4D5B65, "heller": #d2d5d7, "hellste": #ebecee, "dunkler": #53606b, "dunkelste": #3b4956, "basis-kontrast": #fff);
+// neu 23.09
 
 
 @if $farbfamilie == 'med' {

@@ -1100,7 +1100,9 @@ function fau_get_orgahomelink() {
 	$orgalist .= '<a href="'.$homeurl.'">';
 	    			
 	if ($linkhomeimg) {	   
-	     $orgalist .= fau_use_svg("fau-logo",37,16,'fau',false,['title' => 'FAU', 'desc' => __('Zur zentralen FAU Website','fau'), 'role' => 'img']); 
+	     // $orgalist .= fau_use_svg("fau-logo",37,16,'fau',false,['title' => 'FAU', 'desc' => __('Zur zentralen FAU Website','fau'), 'role' => 'img']); 
+		 
+	     $orgalist .= fau_use_svg("fau-logo-text-2021",110,16,'fau',false,['title' => 'FAU', 'desc' => __('Zur zentralen FAU Website','fau'), 'role' => 'img']); 
 	} else {
 	    $orgalist .= $shorttitle; 
 	}	
