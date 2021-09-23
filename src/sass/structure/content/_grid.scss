@@ -1,6 +1,8 @@
 /*-----------------------------------------------------------------------------------*/
 /* Grid in Content
 /*-----------------------------------------------------------------------------------*/
+@use "sass:math";
+
 #content {
     padding: 20px 0 0 0;	
     position: relative;
@@ -19,8 +21,8 @@
     width: 100%;
 
     @media (min-width: $screen-sm) {
-	padding-left:  floor(($grid-gutter-width / 2));
-	padding-right: ceil(($grid-gutter-width / 2));
+	padding-left:  floor(math.div($grid-gutter-width, 2));
+	padding-right: ceil(math.div($grid-gutter-width,  2));
 	width: $container-sm;
     }
      @media (min-width: $screen-md) {
@@ -74,8 +76,8 @@
     .search-sidebar,  
     .search-resultnested {
 	max-width: 100%;
-	padding-left:  floor(($grid-gutter-width / 2));
-	padding-right: ceil(($grid-gutter-width / 2));
+	padding-left:  floor(math.div($grid-gutter-width, 2));
+	padding-right: ceil(math.div($grid-gutter-width, 2));
 
 	
     }
@@ -96,7 +98,7 @@
 	    @media (min-width: $screen-sm) {
 		max-width: 66%;
 		order: 2;
-		padding-left: floor(($grid-gutter-width / 2));
+		padding-left: floor(math.div($grid-gutter-width, 2));
 	    }
 	}
 	
@@ -127,22 +129,22 @@
         order: 2;
         display: block;
         width: 100%;
-        padding-left:  floor(($grid-gutter-width / 2));
-	padding-right: ceil(($grid-gutter-width / 2));
+        padding-left:  floor(math.div($grid-gutter-width, 2));
+	padding-right: ceil(math.div($grid-gutter-width, 2));
 	@media (min-width: $screen-sm) {
 	    width: $sidebar-width-inline + $grid-gutter-width; // calc(#{$sidebar-width-inline} + #{$grid-gutter-width} + 2px);
             padding-right: 0;
 	    float: right;
-	    margin-left: floor(($grid-gutter-width / 2));
-	    margin-bottom: floor(($grid-gutter-width / 2));
+	    margin-left: floor(math.div($grid-gutter-width, 2));
+	    margin-bottom: floor(math.div($grid-gutter-width, 2));
 	}
     }
     .content-inline {
 	order: 1;
         display: block;
         width: 100%;
-	padding-left:  floor(($grid-gutter-width / 2));
-	padding-right: ceil(($grid-gutter-width / 2));
+	padding-left:  floor(math.div($grid-gutter-width, 2));
+	padding-right: ceil(math.div($grid-gutter-width, 2));
 	@media (min-width: $screen-sm) {
 	     padding-left: 0;
 	     padding-right: 0;
@@ -150,7 +152,7 @@
 	
 	&.with-sidebar {
 	    @media (min-width: $screen-sm) {
-		padding-right: ceil(($grid-gutter-width / 2));
+		padding-right: ceil(math.div($grid-gutter-width, 2));
 		width: 100%;
 	    }
 	    
@@ -182,7 +184,7 @@
                 float: right;
                 width: $sidebar-width-inline;
                 flex: none; 
-		margin-left: floor(($grid-gutter-width / 2));
+		margin-left: floor(math.div($grid-gutter-width, 2));
             }
             .content-inline {
                 width: 100%;
@@ -218,8 +220,8 @@
 	    flex-grow: 1;
 	    min-width: $screen-xxs;	   
 	    width: 100%;  
-	    padding-left:  floor(($grid-gutter-width / 2));
-	    padding-right: ceil(($grid-gutter-width / 2));
+	    padding-left:  floor(math.div($grid-gutter-width, 2));
+	    padding-right: ceil(math.div($grid-gutter-width, 2));
 	    
 	    @media (min-width: $screen-sm) {
 		  padding-left: 0;
@@ -228,7 +230,7 @@
 	    .with-sidebar & {
 		@media (min-width: $screen-sm) {
 		    max-width: $container-sm - $sidebar-width-posts - $grid-gutter-width;
-		    padding-right: ceil(($grid-gutter-width / 2));
+		    padding-right: ceil(math.div($grid-gutter-width, 2));
 		}
 		@media (min-width: $screen-md) {
 		    max-width: $container-md - $sidebar-width-posts - $grid-gutter-width;
@@ -241,8 +243,8 @@
 	}
 	.sidebar-single {
 	    order: 2;
-	    padding-left:  floor(($grid-gutter-width / 2));
-	    padding-right: ceil(($grid-gutter-width / 2));
+	    padding-left:  floor(math.div($grid-gutter-width, 2));
+	    padding-right: ceil(math.div($grid-gutter-width, 2));
 	    width: 100%;
 	    @media (min-width: $screen-sm) {
 		padding-right: 0;

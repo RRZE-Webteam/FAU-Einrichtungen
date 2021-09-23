@@ -2,6 +2,8 @@
 /* CSS Definitionen für das Plugin FAU_Person
 /* https://github.com/RRZE-Webteam/fau-person/
 /*-----------------------------------------------------------------------------------*/
+@use "sass:math";
+
 
 .person-info-more {
 	@include morelink();
@@ -423,8 +425,8 @@
 
 .single-person .entry-content {
     width: 100%;
-    padding-left:  floor(($grid-gutter-width / 2));
-    padding-right: ceil(($grid-gutter-width / 2));
+    padding-left:  floor(math.div($grid-gutter-width, 2));
+    padding-right: ceil(math.div($grid-gutter-width, 2));
     
     @media (min-width: $screen-sm) {
 	width: $container-sm;

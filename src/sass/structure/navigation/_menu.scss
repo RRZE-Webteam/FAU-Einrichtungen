@@ -1,6 +1,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Main menu
 /*-----------------------------------------------------------------------------------*/
+@use "sass:math";
 
 #nav {
 	background-color: var(--color-StandardHellgrau);
@@ -339,8 +340,8 @@
 			}
 
 			.container {
-				padding-left:  floor(($grid-gutter-width / 2) - $padding-base-horizontal);
-				padding-right: ceil(($grid-gutter-width / 2) - $padding-base-horizontal);
+				padding-left:  floor(math.div($grid-gutter-width, 2) - $padding-base-horizontal);
+				padding-right: ceil(math.div($grid-gutter-width, 2) - $padding-base-horizontal);
 			}
 
 		}

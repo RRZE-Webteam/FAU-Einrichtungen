@@ -40,6 +40,13 @@
 		@include px2rem($font-size-print-base);
     }
     
+    .entry-content,
+    .content-row .entry-content {
+	max-width: 100%;
+	padding-left: 0;
+    }
+    
+    
     main {
 		position: relative;
 		display: block;
@@ -99,10 +106,6 @@
     
     
     #social {
-		.col-xs-3,
-		.col-xs-9 {
-			width: 100%;
-		}
 		ul.social li {
 			max-width: none;
 		}
@@ -111,9 +114,7 @@
     .sidebar-subnav {
 		display: none;
     }
-    .entry-content {
-		width: 100%;
-    }
+    
     
     #hero {
 		display: none;
@@ -148,10 +149,12 @@
     .logos-menu-settings,
    .sorttable th::after, 
     #meta,
-    #footer-nav,
-    #header .row .header-menu,
-    .fau-werbung {
+    #social,
+    #header .header-menu {
 		display: none;
+    }
+    .admin-bar #headerwrap {
+	top: 0;
     }
     .admin-bar #header,
     #header {
@@ -163,7 +166,7 @@
 		height: 20px;
 		box-shadow: none;
     }
-    
+   
 
     .accordion {
 	.accordion-body, 
@@ -189,13 +192,15 @@
 		.footer-logo {
 			margin-top: 10px;
 		}
+		 #footer-nav,
+		.svg-socialmedia,
 		.socialmedia {
 			display: none;
 		}
     }
     footer:before {
-		content: 'Hinweis: Interaktive Teile der Webseite sind im Druck nicht sichbar. Bitte schonen Sie die Umwelt und vermeiden unnötige Ausdrucke.';
-		color: #777;
+		content: 'Hinweis: Interaktive Teile der Webseite sind im Druck nicht sichtbar. Bitte schonen Sie die Umwelt und vermeiden unnötige Ausdrucke.';
+		color: var(--color-Text);
 		white-space: pre;
 		display: block;
 		margin-top: -40px;

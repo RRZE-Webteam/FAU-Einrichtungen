@@ -1,6 +1,8 @@
 /*-----------------------------------------------------------------------------------*/
 /* Grid in Header
 /*-----------------------------------------------------------------------------------*/
+@use "sass:math";
+
 #headerwrap {
     background-color: var(--color-primary-basis-kontrast);
     color: var(--color-primary-basis);
@@ -44,8 +46,8 @@
 
 
     @media (min-width: $screen-sm) {
-	padding-left:  floor(($grid-gutter-width / 2));
-	padding-right: ceil(($grid-gutter-width / 2));
+	padding-left:  floor(math.div($grid-gutter-width, 2));
+	padding-right: ceil(math.div($grid-gutter-width, 2));
 	width: $container-sm;
     }
      @media (min-width: $screen-md) {

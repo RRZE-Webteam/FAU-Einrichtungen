@@ -1,6 +1,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Sidebar 
 /*-----------------------------------------------------------------------------------*/
+@use "sass:math";
 
 
 /* Sidebar: Inline */
@@ -44,7 +45,7 @@
 	@media (min-width: $screen-md) {
 	    border-left: 2px solid var(--color-primary-hellste);
 	    border-top: none;
-            padding-left: ceil(($fau-gutter-width / 2));	
+            padding-left: ceil(math.div($fau-gutter-width, 2));	
             margin-top: 0;
             padding-top: 0;
 	}
