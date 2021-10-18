@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.1-49
+Version: 2.0.1-54
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -15,6 +15,22 @@ License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: three-columns, two-columns, one-column, right-sidebar, featured-images
 Text Domain: fau
+*/
+/*
+*  TODO:
+* Gradient für Hero:
+   background: rgb(255,184,28);
+   background: linear-gradient(342deg, rgba(255,184,28,1) 0%, rgba(232,119,34,1) 80%, rgba(163,107,13,1) 100%);
+ (beispiel phil)
+
+  0%: Koch hell
+  80%: Koch dunkle
+  100% Basisfarbe
+  WUkel ca 340 Grad
+
+bei ZUV: 100% = 80%
+
+
 */
 /*-----------------------------------------------------------------------------------*/
 /* CSS Custom Properties

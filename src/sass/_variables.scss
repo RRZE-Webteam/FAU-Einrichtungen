@@ -37,6 +37,10 @@ $colormap-zentral: ("basis": #002F6C, "heller": #8fb1ef, "hellste": #dde5f0, "du
 // neu 23.09
 
 $colormap-primary: $colormap-zentral;
+
+
+// $colormap-phil: ("basis": #B65D1A, "heller": #d9c689, "hellste": #f3eedf, "dunkler": #805000, "dunkelste": #553500, "basis-kontrast": #fff);
+
 $colormap-phil: ("basis": #A36B0D, "heller": #d9c689, "hellste": #f3eedf, "dunkler": #805000, "dunkelste": #553500, "basis-kontrast": #fff);
 $colormap-med: ("basis": #0381A2, "heller": #bfd6f5, "hellste": #eaf3fc, "dunkler": #026480, "dunkelste": #014e63, "basis-kontrast": #fff);
 $colormap-nat: ("basis": #048767, "heller": #aacfbd, "hellste": #e5efea, "dunkler": #006e53, "dunkelste": #00533f, "basis-kontrast": #fff);
@@ -89,6 +93,27 @@ $socialmedia_icon_color_hover: $colorPrimary;
 
 
 $colorPrimaryHeroLight: lighten($colorPrimary, 15%);  // hellere Farbe
+
+/*
+*  TODO:
+* Gradient für Hero:
+   background: rgb(255,184,28);
+   background: linear-gradient(342deg, rgba(255,184,28,1) 0%, rgba(232,119,34,1) 80%, rgba(163,107,13,1) 100%);
+ (beispiel phil)
+
+  0%: Koch hell
+  80%: Koch dunkle
+  100% Basisfarbe
+  WUkel ca 340 Grad
+
+bei ZUV: 100% = 80%
+
+
+*/
+
+
+
+
 $colorOverlayLight: rgba(255, 255, 255, 0.15);
 $colorOverlayDark: rgba(0, 0, 0, 0.15);
 // Vorschlag von https://github.com/SebastianHonert/FAU-Einrichtungen/commit/762a7ab636090006af98d4fc502e8e12359c711e#diff-0cecaa3634e3ebf71c0b473a183dff42
