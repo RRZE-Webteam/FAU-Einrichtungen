@@ -3,8 +3,8 @@
 /*-----------------------------------------------------------------------------------*/
 
 #footer {
-	background: var(--color-primary-basis);
-	color: var(--color-primary-basis-kontrast);
+	background: var(--color-footer-bg);
+	color: var(--color-footer-text);
 	padding: 0 0 20px 0;
 	
 	
@@ -29,11 +29,17 @@
 	}
 	
 	
-	
+	p, address {
+	    color: var(--color-footer-text);
+	    @media (min-width: $screen-sm) {
+		@include px2rem($font-size-footer);
+	    }
+
+	}
 	.footer-logo {
 	    .fau-logo-footer {
-		  fill: #fff;
-		  color: #fff;
+		  fill: $color-footer-text;
+		  color: $color-footer-text;
 		  --fau-logo-display-name: none;
 	    }
 	    &.fau {
@@ -83,6 +89,8 @@
 			margin: 0;
 			a {
 			    padding: 12px 12px 12px 0;
+			    color: var(--color-footer-text);
+			    
 			}
 			
 			

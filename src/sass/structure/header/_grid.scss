@@ -56,6 +56,9 @@
     @media (min-width: $screen-lg-min) {
 	width: $container-lg;
     }
+    @media (min-width: $screen-xl-min) {
+	width: $container-xl;
+    }
 }
 
 
@@ -63,8 +66,8 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-   
     align-items: center;
+    
     @media (min-width: $screen-sm) {
 	align-items: flex-start;
     }
@@ -105,8 +108,8 @@
     
     
     header & {	
-	align-items: flex-end;
-	justify-content: flex-start;
+	align-items: center;
+	justify-content: space-between;
 	@media (min-width: $screen-sm) {
 	    padding: 20px 0 10px;
 	}

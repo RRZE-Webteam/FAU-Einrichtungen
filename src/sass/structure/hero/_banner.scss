@@ -2,12 +2,15 @@
 /* Banner im Hero-Teil
 /*-----------------------------------------------------------------------------------*/
 
+	
 #hero.hero-banner {
 	    height: auto;
 	    overflow: inherit;
-            
-            @include radial-gradient(var(--color-primary-basis), var(--color-primary-basis-lighten15));
-            
+            @if $colorstyle == '2021' {
+		background: var(--color-hero-bg);
+            } @else {
+		@include radial-gradient(var(--color-hero-bg), var(--color-primary-basis-lighten15));
+	    }
 	    @media (min-width: $screen-sm) {
 		 max-height: 142px;
 	    }
@@ -22,7 +25,7 @@
 	    top: 0px;
 	    margin: 0 auto;
 	    height: auto;
-	    background: var(--color-primary-basis);
+	    background: var(--color-hero-bg);
 	    max-width: 1260px;
 	    overflow: hidden;
 	    @include box-shadow(0 10px 20px rgba(0,0,0,0.5));
@@ -94,8 +97,8 @@
 		h1 {
 			@include px2rem($font-size-h1,  $font-size-base);		
 			@include hyphens(none);
-			color: var(--color-primary-basis-kontrast);
-			background: rgba($colorPrimary,0.8);
+			color: var(--color-hero-text);
+			background: rgba(var(--color-hero-text),0.8);
 			margin: 0;
 			padding: 0 7px 1px 7px;
 			position: relative;
@@ -117,10 +120,10 @@
 		
 		p.description {
 			font-weight: normal;
-			color: var(--color-primary-basis-kontrast);
+			color: var(--color-hero-text);
 			@include px2rem($font-size-hero-bannertext);
 			display: none;
-			background: rgba($colorPrimary,0.8);
+			background: rgba(var(--color-hero-bg),0.8);
 			padding: 0 7px 1px 7px;
 			margin: 10px 0 0 0;
 			box-decoration-break: clone;

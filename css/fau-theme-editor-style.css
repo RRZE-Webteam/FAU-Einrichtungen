@@ -2,32 +2,23 @@
 /*-----------------------------------------------------------------------------------*/
 /* Editor Style CSS
 /*-----------------------------------------------------------------------------------*/
-/*
-*  TODO:
-* Gradient für Hero:
-   background: rgb(255,184,28);
-   background: linear-gradient(342deg, rgba(255,184,28,1) 0%, rgba(232,119,34,1) 80%, rgba(163,107,13,1) 100%);
- (beispiel phil)
-
-  0%: Koch hell
-  80%: Koch dunkle
-  100% Basisfarbe
-  WUkel ca 340 Grad
-
-bei ZUV: 100% = 80%
-
-
-*/
 /*-----------------------------------------------------------------------------------*/
 /* CSS Custom Properties
 /*-----------------------------------------------------------------------------------*/
 :root {
-  --color-primary-basis: #002F6C;
-  --color-primary-heller: #8fb1ef;
-  --color-primary-hellste: #dde5f0;
-  --color-primary-dunkler: #24598f;
-  --color-primary-dunkelste: #1f4b7a;
+  --color-primary-basis: #A36B0D;
+  --color-primary-heller: #d9c689;
+  --color-primary-hellste: #f3eedf;
+  --color-primary-dunkler: #805000;
+  --color-primary-dunkler-kontrast: #fff;
+  --color-primary-dunkelste: #553500;
   --color-primary-basis-kontrast: #fff;
+  --color-primary-ci-hell: #ffb81c;
+  --color-primary-ci-hell-kontrast: #000;
+  --color-primary-ci-dunkel: #e87722;
+  --color-primary-ci-dunkel-kontrast: #000;
+  --color-primary-ci-hell2: #ffe4a8;
+  --color-primary-ci-hell2-kontrast: #333;
   --color-zentral-basis: #002F6C;
   --color-zentral-heller: #8fb1ef;
   --color-zentral-hellste: #dde5f0;
@@ -38,8 +29,15 @@ bei ZUV: 100% = 80%
   --color-phil-heller: #d9c689;
   --color-phil-hellste: #f3eedf;
   --color-phil-dunkler: #805000;
+  --color-phil-dunkler-kontrast: #fff;
   --color-phil-dunkelste: #553500;
   --color-phil-basis-kontrast: #fff;
+  --color-phil-ci-hell: #ffb81c;
+  --color-phil-ci-hell-kontrast: #000;
+  --color-phil-ci-dunkel: #e87722;
+  --color-phil-ci-dunkel-kontrast: #000;
+  --color-phil-ci-hell2: #ffe4a8;
+  --color-phil-ci-hell2-kontrast: #333;
   --color-med-basis: #0381A2;
   --color-med-heller: #bfd6f5;
   --color-med-hellste: #eaf3fc;
@@ -77,12 +75,42 @@ bei ZUV: 100% = 80%
   --color-white: #fff;
   --color-black: #000;
   --color-PrintMain: #000;
+  --color-KontrastHell: #fff;
+  --color-KontrastDunkel: #333;
   /* Calculated Values */
-  --color-primary-basis-lighten15: #0050b9;
+  --color-primary-basis-lighten15: #ffb81c;
   --color-MetaHomeBackground: #d4d4d4;
   --color-MetaHover: #20497f;
   --color-MetaText: #fff;
   --color-MetaBackgroundLight: #ecf0f4;
+  --color-footer-bg: #ffb81c;
+  --color-footer-text: #000;
+  --color-hero-bg: #ffb81c;
+  --color-hero-text: #000;
+  --color-mainmenu-toplevel-bg: #fff;
+  --color-mainmenu-toplevel-text: #444;
+  --color-mainmenu-toplevel-hover-text: #000;
+  --color-mainmenu-toplevel-hover-bg: #ffb81c;
+  --color-mainmenu-sublevel-bg: #ffb81c;
+  --color-mainmenu-sublevel-text: #000;
+  --color-mainmenu-sublevel-hover-text: #fff;
+  --color-mainmenu-sublevel-hover-bg: #805000;
+  --color-mainmenu-sublevel-button-text: #fff;
+  --color-mainmenu-sublevel-button-bg: #805000;
+  --color-mainmenu-sublevel-button-hover-text: #fff;
+  --color-mainmenu-sublevel-button-hover-bg: #553500;
+  --color-submenu-toplevel-bg: #fff;
+  --color-submenu-toplevel-text: #444;
+  --color-submenu-toplevel-hover-text: #000;
+  --color-submenu-toplevel-hover-bg: #ffb81c;
+  --color-submenu-active-bg: #ffb81c;
+  --color-submenu-active-text: #000;
+  --color-submenu-hover-text: #fff;
+  --color-submenu-hover-bg: #805000;
+  --color-submenu-currentlevel-text: #333;
+  --color-submenu-currentlevel-bg: #ffe4a8;
+  --color-submenu-sublevel-text: #000;
+  --color-submenu-sublevel-bg: #ffb81c;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -1748,7 +1776,7 @@ html {
 }
 @media (min-width: 768px) {
   html {
-    font-size: 93.75%;
+    font-size: 100%;
   }
 }
 
@@ -4684,32 +4712,32 @@ h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.133rem;
-  line-height: 2.774rem;
+  font-size: 2rem;
+  line-height: 2.6rem;
 }
 .sidebar-inline + h1 {
   margin-top: 0;
 }
 .banner-text h1 {
-  font-size: 1.866rem;
-  line-height: 2.8rem;
+  font-size: 1.75rem;
+  line-height: 2.625rem;
 }
 .sidebar-inline h1, .search-sidebar h1, .sidebar-outline h1, .widget h1 {
-  font-size: 1.466rem;
-  line-height: 2.2rem;
+  font-size: 1.375rem;
+  line-height: 2.063rem;
 }
 table h1 {
-  font-size: 1.466rem;
-  line-height: 2.2rem;
+  font-size: 1.375rem;
+  line-height: 2.063rem;
 }
 h1.small {
-  font-size: 1.6rem;
-  line-height: 2.08rem;
+  font-size: 1.5rem;
+  line-height: 1.951rem;
 }
 
 h2 {
-  font-size: 1.6rem;
-  line-height: 2.08rem;
+  font-size: 1.5rem;
+  line-height: 1.951rem;
   margin: 0;
   padding: 22px 0;
 }
@@ -4720,8 +4748,8 @@ h2 {
   padding-top: 8px;
 }
 h2.small, h2.subtitle {
-  font-size: 1.466rem;
-  line-height: 2.2rem;
+  font-size: 1.375rem;
+  line-height: 2.063rem;
 }
 h2.subtitle {
   padding: 0 0 22px 15px;
@@ -4740,19 +4768,19 @@ h2.menu-header {
   padding-top: 4px;
 }
 h2.widget-title, .sidebar-inline h2, .search-sidebar h2, .sidebar-outline h2, .widget h2 {
-  font-size: 1.2rem;
-  line-height: 1.8rem;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
 }
 table h2 {
-  font-size: 1.2rem;
-  line-height: 1.8rem;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
 }
 
 h3 {
   margin: 0;
   padding: 11px 0;
-  font-size: 1.266rem;
-  line-height: 1.9rem;
+  font-size: 1.187rem;
+  line-height: 1.782rem;
 }
 h3.abstract {
   padding: 0 0 22px 0;
@@ -4761,53 +4789,53 @@ h3.abstract {
   font-weight: normal;
 }
 #off-canvas h3 {
-  font-size: 1.2rem;
-  line-height: 1.8rem;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
   border-bottom: 1px solid var(--color-StandardHellgrau);
   margin: 20px 0 0 0;
   padding: 0 10px;
 }
 .sidebar-inline h3, .search-sidebar h3, .sidebar-outline h3, .widget h3 {
-  font-size: 1.066rem;
-  line-height: 1.6rem;
-}
-table h3 {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+table h3 {
+  font-size: 0.937rem;
+  line-height: 1.407rem;
 }
 
 h4 {
   margin: 0;
   padding: 11px 0 11px 0;
-  font-size: 1.133rem;
-  line-height: 1.7rem;
+  font-size: 1.062rem;
+  line-height: 1.594rem;
 }
 .person h4, .span3 h4, .span4 h4 {
-  font-size: 1.066rem;
-  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .sidebar-inline h4, .search-sidebar h4, .sidebar-outline h4, .widget h4 {
-  font-size: 0.933rem;
-  line-height: 1.4rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 table h4 {
-  font-size: 0.933rem;
-  line-height: 1.4rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 
 h5 {
   margin: 0;
   padding: 11px 0 11px 0;
-  font-size: 1.066rem;
-  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .sidebar-inline h5, .search-sidebar h5, .sidebar-outline h5, .widget h5 {
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.812rem;
+  line-height: 1.219rem;
 }
 table h5 {
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.812rem;
+  line-height: 1.219rem;
 }
 
 h6 {
@@ -4815,12 +4843,12 @@ h6 {
   line-height: 1.5rem;
 }
 .sidebar-inline h6, .search-sidebar h6, .sidebar-outline h6, .widget h6 {
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.812rem;
+  line-height: 1.219rem;
 }
 table h6 {
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.812rem;
+  line-height: 1.219rem;
 }
 
 @media (max-width: 480px) {
@@ -4856,8 +4884,8 @@ code,
 pre {
   padding: 0 3px 2px;
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
   color: var(--color-Text);
   background-color: var(--color-StandardHellgrau);
 }
@@ -4909,16 +4937,6 @@ p, address {
   font-family: "Roboto", sans-serif;
   font-style: normal;
 }
-#footer p, #footer address {
-  color: var(--color-primary-basis-kontrast);
-  background: var(--color-primary-basis);
-}
-@media (min-width: 768px) {
-  #footer p, #footer address {
-    font-size: 0.866rem;
-    line-height: 1.3rem;
-  }
-}
 
 #content p {
   -webkit-hyphens: auto;
@@ -4926,8 +4944,8 @@ p, address {
           hyphens: auto;
 }
 #content .textwidget p {
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 p.searchnotice {
   font-size: 24px;
@@ -4940,29 +4958,29 @@ p.lead-in {
   color: var(--color-primary-basis);
   font-weight: 300;
   font-style: italic;
-  font-size: 1.2rem;
-  line-height: 1.8rem;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
 }
 #content .span4 .widget p, #content .startpage-sidebar .widget p, #content .sidebar-inline .widget p {
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 #footer p {
   color: var(--color-primary-basis-kontrast);
   background: var(--color-primary-basis);
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 
 #content .startpage-sidebar .widget address, #content .sidebar-inline .widget address {
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 
 p.presentationtitle {
   font-weight: bold;
-  font-size: 2.133rem;
-  line-height: 3.2rem;
+  font-size: 2rem;
+  line-height: 3rem;
   margin: 20px 0 20px 0;
 }
 
@@ -5018,8 +5036,8 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   text-decoration: none;
   border-radius: 3px;
   background-clip: padding-box;
-  font-size: 0.933rem;
-  line-height: 1.4rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 .news-more-links .news-more:hover, .news-more-links .news-more:focus {
   background: var(--color-primary-dunkler);
@@ -5280,8 +5298,8 @@ li {
 }
 .sidebar-inline li {
   padding: 3px 0 4px 20px;
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 
 ul {
@@ -5412,8 +5430,8 @@ ol li ul li {
   display: inline-block;
 }
 .pagination.pagebreaks .subpages {
-  font-size: 0.933rem;
-  line-height: 1.4rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
   margin: 10px;
   display: inline-block;
 }
@@ -5437,8 +5455,8 @@ ol li ul li {
   text-decoration: none;
   border-radius: 3px;
   background-clip: padding-box;
-  font-size: 0.933rem;
-  line-height: 1.4rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 
 .nav-links {
@@ -5446,8 +5464,8 @@ ol li ul li {
   display: inline-block;
 }
 .nav-links span, .nav-links a {
-  font-size: 0.933rem;
-  line-height: 1.4rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
   padding: 6px 10px;
   text-align: center;
   margin-right: 4px;
@@ -5540,8 +5558,8 @@ form {
 form legend {
   margin: 0;
   padding: 0 0 11px 0;
-  font-size: 1.266rem;
-  line-height: 1.9rem;
+  font-size: 1.187rem;
+  line-height: 1.782rem;
   color: var(--color-primary-basis);
   font-weight: bold;
 }
@@ -5574,8 +5592,8 @@ label {
 
 input[type=text]:focus,
 textarea:focus {
-  box-shadow: 0 0 5px #002F6C;
-  border: 1px solid #002F6C;
+  box-shadow: 0 0 5px #A36B0D;
+  border: 1px solid #A36B0D;
 }
 
 input[type=submit] {
@@ -5676,12 +5694,12 @@ table tbody, table tr, table th, table td {
 table th, table td {
   padding-left: 15px;
   padding-right: 15px;
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 table th p, table td p {
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 table th {
   color: var(--color-Text);
@@ -5692,7 +5710,7 @@ table th {
   text-align: left;
 }
 table th h1, table th h2, table th h3, table th h4, table th h5, table th h6 {
-  color: #24598f;
+  color: #805000;
 }
 table.sorttable th.header {
   cursor: pointer;
@@ -5710,15 +5728,15 @@ table tr:nth-child(odd) td {
   background: var(--color-StandardHellgrau);
 }
 table tr:nth-child(odd) td h1, table tr:nth-child(odd) td h2, table tr:nth-child(odd) td h3, table tr:nth-child(odd) td h4, table tr:nth-child(odd) td h5, table tr:nth-child(odd) td h6 {
-  color: #24598f;
+  color: #805000;
 }
 table tr:nth-child(odd) td ul li {
   color: var(--color-primary-dunkelste);
 }
 table ul li {
   color: var(--color-primary-basis);
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
   background-position: left 5px;
 }
 table.nooddcolor tr:nth-child(odd) td {
@@ -5789,14 +5807,14 @@ blockquote {
   font-family: Georgia, serif;
   font-style: italic;
   position: relative;
-  font-size: 1.2rem;
-  line-height: 1.8rem;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
 }
 blockquote p {
   margin-bottom: 0;
   font-family: Georgia, serif;
-  font-size: 1.2rem;
-  line-height: 1.8rem;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
   font-weight: 400;
   font-style: italic;
 }
@@ -5806,32 +5824,39 @@ blockquote p strong {
 #tinymce blockquote, #content blockquote {
   font-style: italic;
   margin: 10px;
-  padding-left: 50px;
+  padding: 20px;
   min-height: 50px;
+  border-left: 10px solid var(--color-primary-ci-hell);
+  background: var(--color-ContentRegions);
+  display: inline-block;
 }
 @media (min-width: 768px) {
   #tinymce blockquote, #content blockquote {
     margin: 10px 50px;
-    padding-left: 65px;
+    padding: 20px 40px;
   }
 }
-#tinymce blockquote p, #content blockquote p {
-  color: var(--color-primary-basis);
+#tinymce blockquote p, #tinymce blockquote h1, #tinymce blockquote h2, #tinymce blockquote h3, #tinymce blockquote h4, #tinymce blockquote h5, #tinymce blockquote h6, #content blockquote p, #content blockquote h1, #content blockquote h2, #content blockquote h3, #content blockquote h4, #content blockquote h5, #content blockquote h6 {
+  color: var(--color-Text);
 }
 #content .sidebar-inline blockquote {
   margin: 10px;
+  padding: 10px;
 }
 blockquote small,
 blockquote cite {
   display: block;
   text-align: right;
-  font-size: 1.133rem;
-  line-height: 1.7rem;
-  color: var(--color-TextLight);
+  font-size: 1.062rem;
+  line-height: 1.594rem;
+  color: var(--color-Text);
 }
 blockquote small:before,
 blockquote cite:before {
   content: "— ";
+}
+blockquote cite {
+  margin-top: 10px;
 }
 #content blockquote img {
   box-shadow: none;
@@ -5839,62 +5864,29 @@ blockquote cite:before {
 }
 blockquote.pull-right {
   border-right: none;
-  padding-right: 50px;
-}
-blockquote.pull-right::before {
-  content: "";
-}
-blockquote.pull-right::after {
-  content: "“";
-  font-family: Georgia, serif;
-  font-size: 70px;
-  font-weight: bold;
-  color: var(--color-TextLight);
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-blockquote::before {
-  content: "“";
-  font-family: Georgia, serif;
-  font-size: 70px;
-  font-weight: bold;
-  color: var(--color-TextLight);
-  position: absolute;
-  left: 10px;
-  top: 10px;
-}
-#content blockquote::before {
-  color: var(--color-primary-basis);
-  left: 0px;
-}
-@media (min-width: 768px) {
-  #content blockquote::before {
-    left: 10px;
-  }
-}
-blockquote::after {
-  content: "";
+  padding-right: 40px;
+  padding-left: 15px;
 }
 #content .sidebar-inline blockquote, #tinymce blockquote.noquote, #content blockquote.noquote {
   background: inherit;
   padding-left: 0;
   padding-right: 0;
+  border: none;
 }
 #content .sidebar-inline blockquote::after, #content .sidebar-inline blockquote::before, #tinymce blockquote.noquote::after, #tinymce blockquote.noquote::before, #content blockquote.noquote::after, #content blockquote.noquote::before {
   content: "";
 }
 #content .sidebar-inline blockquote {
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 #content .sidebar-inline blockquote p {
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 
 cite {
-  color: var(--color-primary-heller);
+  color: var(--color-primary-dunkler);
   font-weight: normal;
   font-style: normal;
 }
@@ -6125,8 +6117,8 @@ img.alignright {
   text-align: center;
   width: 100%;
   text-decoration: none;
-  font-size: 1.266rem;
-  line-height: 1.9rem;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
 }
 
 /* Color Definitions */
@@ -6192,6 +6184,14 @@ img.alignright {
   background-color: var(--color-primary-dunkler);
 }
 
+.textcolor-primary-dunkler-kontrast {
+  color: var(--color-primary-dunkler-kontrast);
+}
+
+.bgcolor-primary-dunkler-kontrast {
+  background-color: var(--color-primary-dunkler-kontrast);
+}
+
 .textcolor-primary-dunkelste {
   color: var(--color-primary-dunkelste);
 }
@@ -6206,6 +6206,54 @@ img.alignright {
 
 .bgcolor-primary-basis-kontrast {
   background-color: var(--color-primary-basis-kontrast);
+}
+
+.textcolor-primary-ci-hell {
+  color: var(--color-primary-ci-hell);
+}
+
+.bgcolor-primary-ci-hell {
+  background-color: var(--color-primary-ci-hell);
+}
+
+.textcolor-primary-ci-hell-kontrast {
+  color: var(--color-primary-ci-hell-kontrast);
+}
+
+.bgcolor-primary-ci-hell-kontrast {
+  background-color: var(--color-primary-ci-hell-kontrast);
+}
+
+.textcolor-primary-ci-dunkel {
+  color: var(--color-primary-ci-dunkel);
+}
+
+.bgcolor-primary-ci-dunkel {
+  background-color: var(--color-primary-ci-dunkel);
+}
+
+.textcolor-primary-ci-dunkel-kontrast {
+  color: var(--color-primary-ci-dunkel-kontrast);
+}
+
+.bgcolor-primary-ci-dunkel-kontrast {
+  background-color: var(--color-primary-ci-dunkel-kontrast);
+}
+
+.textcolor-primary-ci-hell2 {
+  color: var(--color-primary-ci-hell2);
+}
+
+.bgcolor-primary-ci-hell2 {
+  background-color: var(--color-primary-ci-hell2);
+}
+
+.textcolor-primary-ci-hell2-kontrast {
+  color: var(--color-primary-ci-hell2-kontrast);
+}
+
+.bgcolor-primary-ci-hell2-kontrast {
+  background-color: var(--color-primary-ci-hell2-kontrast);
 }
 
 .textcol-zentral {
@@ -6304,6 +6352,14 @@ img.alignright {
   background-color: var(--color-phil-dunkler);
 }
 
+.textcolor-phil-dunkler-kontrast {
+  color: var(--color-phil-dunkler-kontrast);
+}
+
+.bgcolor-phil-dunkler-kontrast {
+  background-color: var(--color-phil-dunkler-kontrast);
+}
+
 .textcolor-phil-dunkelste {
   color: var(--color-phil-dunkelste);
 }
@@ -6318,6 +6374,54 @@ img.alignright {
 
 .bgcolor-phil-basis-kontrast {
   background-color: var(--color-phil-basis-kontrast);
+}
+
+.textcolor-phil-ci-hell {
+  color: var(--color-phil-ci-hell);
+}
+
+.bgcolor-phil-ci-hell {
+  background-color: var(--color-phil-ci-hell);
+}
+
+.textcolor-phil-ci-hell-kontrast {
+  color: var(--color-phil-ci-hell-kontrast);
+}
+
+.bgcolor-phil-ci-hell-kontrast {
+  background-color: var(--color-phil-ci-hell-kontrast);
+}
+
+.textcolor-phil-ci-dunkel {
+  color: var(--color-phil-ci-dunkel);
+}
+
+.bgcolor-phil-ci-dunkel {
+  background-color: var(--color-phil-ci-dunkel);
+}
+
+.textcolor-phil-ci-dunkel-kontrast {
+  color: var(--color-phil-ci-dunkel-kontrast);
+}
+
+.bgcolor-phil-ci-dunkel-kontrast {
+  background-color: var(--color-phil-ci-dunkel-kontrast);
+}
+
+.textcolor-phil-ci-hell2 {
+  color: var(--color-phil-ci-hell2);
+}
+
+.bgcolor-phil-ci-hell2 {
+  background-color: var(--color-phil-ci-hell2);
+}
+
+.textcolor-phil-ci-hell2-kontrast {
+  color: var(--color-phil-ci-hell2-kontrast);
+}
+
+.bgcolor-phil-ci-hell2-kontrast {
+  background-color: var(--color-phil-ci-hell2-kontrast);
 }
 
 .textcol-med {
@@ -6802,8 +6906,8 @@ a img.aligncenter {
 }
 
 .wp-caption-text {
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.812rem;
+  line-height: 1.219rem;
   padding: 5px 0 5px 0;
 }
 
@@ -6830,8 +6934,8 @@ a img.aligncenter {
   }
 }
 .has-small-font-size {
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 
 .has-regular-font-size {
@@ -6840,20 +6944,20 @@ a img.aligncenter {
 }
 
 .has-large-font-size {
-  font-size: 1.266rem;
-  line-height: 1.9rem;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
 }
 
 .has-huge-font-size,
 .has-larger-font-size {
-  font-size: 1.533rem;
-  line-height: 2.3rem;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
 }
 
 p.has-drop-cap:not(:focus):first-letter {
   float: left;
-  font-size: 4.6rem;
-  line-height: 4.6rem;
+  font-size: 4.5rem;
+  line-height: 4.5rem;
   font-weight: 100;
   margin: 0 0.1em 0 0;
   text-transform: uppercase;

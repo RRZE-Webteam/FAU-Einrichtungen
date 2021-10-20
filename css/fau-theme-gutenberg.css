@@ -3,22 +3,6 @@
 /*  Stylings for Gutenberg Editor
 /*----------------------------------------------------------------------------*/
 /*
-*  TODO:
-* Gradient für Hero:
-   background: rgb(255,184,28);
-   background: linear-gradient(342deg, rgba(255,184,28,1) 0%, rgba(232,119,34,1) 80%, rgba(163,107,13,1) 100%);
- (beispiel phil)
-
-  0%: Koch hell
-  80%: Koch dunkle
-  100% Basisfarbe
-  WUkel ca 340 Grad
-
-bei ZUV: 100% = 80%
-
-
-*/
-/*
  * Modified Bootstrap v3.3.7 (http://getbootstrap.com)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
@@ -1591,7 +1575,7 @@ html {
 }
 @media (min-width: 768px) {
   html {
-    font-size: 93.75%;
+    font-size: 100%;
   }
 }
 
@@ -4521,20 +4505,20 @@ CSS Font File for Wordpress Theme FAU
           hyphens: auto;
 }
 .edit-post-visual-editor .editor-block-list__block h1.mce-content-body {
-  font-size: 2.133rem;
-  line-height: 2.774rem;
+  font-size: 2rem;
+  line-height: 2.6rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h1.mce-content-body {
-  font-size: 1.466rem;
-  line-height: 2.2rem;
+  font-size: 1.375rem;
+  line-height: 2.063rem;
 }
 .edit-post-visual-editor .editor-block-list__block h1.mce-content-body.small {
-  font-size: 1.6rem;
-  line-height: 2.08rem;
+  font-size: 1.5rem;
+  line-height: 1.951rem;
 }
 .edit-post-visual-editor .editor-block-list__block h2.mce-content-body {
-  font-size: 1.6rem;
-  line-height: 2.08rem;
+  font-size: 1.5rem;
+  line-height: 1.951rem;
   margin: 0;
   padding: 22px 0;
 }
@@ -4545,56 +4529,56 @@ table .edit-post-visual-editor .editor-block-list__block h1.mce-content-body {
   padding-top: 8px;
 }
 .edit-post-visual-editor .editor-block-list__block h2.mce-content-body.small, .edit-post-visual-editor .editor-block-list__block h2.mce-content-body.subtitle {
-  font-size: 1.466rem;
-  line-height: 2.2rem;
+  font-size: 1.375rem;
+  line-height: 2.063rem;
 }
 .edit-post-visual-editor .editor-block-list__block h2.mce-content-body.subtitle {
   padding: 0 0 22px 0;
 }
 table .edit-post-visual-editor .editor-block-list__block h2.mce-content-body {
-  font-size: 1.2rem;
-  line-height: 1.8rem;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
 }
 .edit-post-visual-editor .editor-block-list__block h3.mce-content-body {
   margin: 0;
   padding: 11px 0;
-  font-size: 1.266rem;
-  line-height: 1.9rem;
+  font-size: 1.187rem;
+  line-height: 1.782rem;
 }
 .edit-post-visual-editor .editor-block-list__block h3.mce-content-body.abstract {
   padding: 0 0 22px 0;
 }
 table .edit-post-visual-editor .editor-block-list__block h3.mce-content-body {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 0.937rem;
+  line-height: 1.407rem;
 }
 .edit-post-visual-editor .editor-block-list__block h4.mce-content-body {
   margin: 0;
   padding: 11px 0 11px 0;
-  font-size: 1.133rem;
-  line-height: 1.7rem;
+  font-size: 1.062rem;
+  line-height: 1.594rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h4.mce-content-body {
-  font-size: 0.933rem;
-  line-height: 1.4rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 .edit-post-visual-editor .editor-block-list__block h5.mce-content-body {
   margin: 0;
   padding: 11px 0 11px 0;
-  font-size: 1.066rem;
-  line-height: 1.6rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h5.mce-content-body {
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.812rem;
+  line-height: 1.219rem;
 }
 .edit-post-visual-editor .editor-block-list__block h6 {
   font-size: 1rem;
   line-height: 1.5rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h6 {
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.812rem;
+  line-height: 1.219rem;
 }
 .edit-post-visual-editor .editor-block-list__block p, .edit-post-visual-editor .editor-block-list__block address {
   margin: 0;
@@ -4615,13 +4599,13 @@ table .edit-post-visual-editor .editor-block-list__block h6 {
   color: var(--color-primary-basis);
   font-weight: 300;
   font-style: italic;
-  font-size: 1.2rem;
-  line-height: 1.8rem;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
 }
 .edit-post-visual-editor .editor-block-list__block p.presentationtitle {
   font-weight: bold;
-  font-size: 2.133rem;
-  line-height: 2.774rem;
+  font-size: 2rem;
+  line-height: 2.6rem;
   margin: 20px 0 20px 0;
 }
 .edit-post-visual-editor .editor-block-list__block ul,
@@ -4686,26 +4670,26 @@ table .edit-post-visual-editor .editor-block-list__block h6 {
   list-style-type: circle;
 }
 .edit-post-visual-editor .editor-block-list__block .has-small-font-size {
-  font-size: 0.866rem;
-  line-height: 1.3rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 .edit-post-visual-editor .editor-block-list__block .has-regular-font-size {
   font-size: 1rem;
   line-height: 1.5rem;
 }
 .edit-post-visual-editor .editor-block-list__block .has-large-font-size {
-  font-size: 1.266rem;
-  line-height: 1.9rem;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
 }
 .edit-post-visual-editor .editor-block-list__block .has-huge-font-size,
 .edit-post-visual-editor .editor-block-list__block .has-larger-font-size {
-  font-size: 1.533rem;
-  line-height: 2.3rem;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
 }
 .edit-post-visual-editor .editor-block-list__block p.has-drop-cap:not(:focus):first-letter {
   float: left;
-  font-size: 4.6rem;
-  line-height: 4.6rem;
+  font-size: 4.5rem;
+  line-height: 4.5rem;
   font-weight: 100;
   margin: 0 0.1em 0 0;
   text-transform: uppercase;

@@ -18,5 +18,39 @@
      --color-MetaHover: #{$colorMetaHover};
      --color-MetaText: #fff;
      --color-MetaBackgroundLight: #{$colorMetaLightest};
+
+    --color-footer-bg: #{$color-footer-bg};
+    --color-footer-text: #{$color-footer-text};
+    --color-hero-bg: #{$color-hero-bg};
+    --color-hero-text: #{$color-hero-text};
+    
+    --color-mainmenu-toplevel-bg: #{$color-mainmenu-toplevel-bg};
+    --color-mainmenu-toplevel-text: #{$color-mainmenu-toplevel-text};
+    --color-mainmenu-toplevel-hover-text: #{$color-mainmenu-toplevel-hover-text};
+    --color-mainmenu-toplevel-hover-bg: #{$color-mainmenu-toplevel-hover-bg};
+    --color-mainmenu-sublevel-bg: #{$color-mainmenu-sublevel-bg};
+    --color-mainmenu-sublevel-text: #{$color-mainmenu-sublevel-text};
+    --color-mainmenu-sublevel-hover-text: #{$color-mainmenu-sublevel-hover-text};
+    --color-mainmenu-sublevel-hover-bg: #{$color-mainmenu-sublevel-hover-bg};
+    --color-mainmenu-sublevel-button-text: #{$color-mainmenu-sublevel-button-text};
+    --color-mainmenu-sublevel-button-bg: #{$color-mainmenu-sublevel-button-bg};
+    --color-mainmenu-sublevel-button-hover-text: #{$color-mainmenu-sublevel-button-hover-text};
+    --color-mainmenu-sublevel-button-hover-bg: #{$color-mainmenu-sublevel-button-hover-bg};
+    
+    --color-submenu-toplevel-bg: #{$color-submenu-toplevel-bg};
+    --color-submenu-toplevel-text: #{$color-submenu-toplevel-text};
+    --color-submenu-toplevel-hover-text: #{$color-submenu-toplevel-hover-text};
+    --color-submenu-toplevel-hover-bg: #{$color-submenu-toplevel-hover-bg};
+    --color-submenu-active-bg: #{$color-submenu-active-bg};
+    --color-submenu-active-text: #{$color-submenu-active-text};
+    --color-submenu-hover-text: #{$color-submenu-hover-text};
+    --color-submenu-hover-bg: #{$color-submenu-hover-bg};
+    --color-submenu-currentlevel-text: #{$color-submenu-currentlevel-text};
+    --color-submenu-currentlevel-bg: #{$color-submenu-currentlevel-bg};
+    --color-submenu-sublevel-text: #{$color-submenu-sublevel-text};
+    --color-submenu-sublevel-bg: #{$color-submenu-sublevel-bg};
+     
+
+
 }
 

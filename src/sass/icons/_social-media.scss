@@ -204,7 +204,7 @@ $socialmedia_icon_size: 1.8rem;
 	a::before {
 		border-radius: 50%;
 		border: 1px solid $socialmedia_icon_bgcolor_hover;
-		box-shadow: 0px 0px 1px $socialmedia_icon_bgcolor_hover;
+	//	box-shadow: 0px 0px 1px $socialmedia_icon_bgcolor_hover;
 	}
     }
     &.hoverbg {

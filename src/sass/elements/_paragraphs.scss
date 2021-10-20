@@ -11,16 +11,7 @@ p, address {
     font-family: $fontStack; 
     font-style: normal;
     
-    #footer & {
-	color: var(--color-primary-basis-kontrast);
-	background: var(--color-primary-basis);
-	
-
-	@media (min-width: $screen-sm) {
-	    @include px2rem($font-size-footer);
-	}
-
-    }
+    
 }
 
 

@@ -12,7 +12,7 @@
 		}
 		.search-text {
 		     margin: 0 20px;
-		     @include placeholder(var(--color-primary-basis-kontrast));
+		     @include placeholder(var(--color-hero-text));
 		     
 		    label {
 			@extend .screen-reader-text;
@@ -77,7 +77,7 @@
 			float: none;
 			margin: 0 10px 0 5px;
 			padding: 0;
-			color: var(--color-primary-hellste);
+			color: var(--color-hero-text);
 		    }
 		    
 		    
@@ -125,7 +125,7 @@
 			z-index: 10;
 		      }
 		      [type="checkbox"]:checked + label:before {
-			background-color: var(--color-primary-basis);
+			background-color: var(--color-hero-bg);
 		      }
 		      [type="checkbox"]:checked + label:after {
 			margin: 0 0 0 20px;

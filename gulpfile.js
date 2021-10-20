@@ -444,6 +444,7 @@ var js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, make
 var dev = series(sassautoprefixhelperfiles, devbuildmainstyle, js, devversion);
 
 exports.cssdev = series(sassautoprefixhelperfiles, devbuildmainstyle);
+exports.css = series(sassautoprefixhelperfiles, devbuildmainstyle);
 exports.js = js;
 exports.dev = dev;
 exports.build = series(buildhelperstyles, buildmainstyle, js, upversionpatch);

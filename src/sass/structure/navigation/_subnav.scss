@@ -6,7 +6,10 @@
     header {
 	padding: 11px 15px;
 	margin-top: 0px;
-	border-top: 1px solid var(--color-primary-hellste);
+	border-top: 1px solid var(--color-primary-ci-hell);
+	@if $colorstyle == '2015' {
+	    border-top: 1px solid var(--color-primary-hellste);
+	}
 	@include px2rem($font-size-h3);
 	font-weight: bold;
     }
@@ -24,14 +27,15 @@
 		@include px2rem($font-size-subnav-firstlevel);
 
 		padding: 6px 15px;
-		color: var(--color-primary-dunkelste);
-		background: var(--color-primary-hellste);
+		color: var(--color-submenu-currentlevel-text);
+		background: var(--color-submenu-currentlevel-bg);
 		padding-left: 15px;
 		padding-right: 15px; 
 
-		&:hover, &:focus {
-			background-color: var(--color-primary-dunkler);
-			color: var(--color-primary-basis-kontrast);
+		&:hover, 
+		&:focus {
+			background-color: var(--color-submenu-hover-bg);
+			color: var(--color-submenu-hover-text);
 		}
 	}
 	
@@ -78,19 +82,24 @@
 		padding-left: 45px;
 		
 		&:hover, &:focus {
-			background: var(--color-primary-dunkler);  
-			color: var(--color-primary-dunkelste);
+		    background-color: var(--color-submenu-hover-bg);
+		    color: var(--color-submenu-hover-text);
+		    
+		//	background: var(--color-primary-dunkler);  
+		//	color: var(--color-primary-dunkelste);
 		}
 	}
 	
 	li .current_page_item,
 	li .current_page_ancestor {
 		a {
-			background: var(--color-primary-dunkler); 
+		    color:  var(--color-submenu-active-text); 
+		    background: var(--color-submenu-active-bg); 
 		}
 		
 		li {
-			a:hover, a:focus {
+			a:hover, 
+			a:focus {
 				background: var(--color-primary-dunkelste); 
 			}
 		}

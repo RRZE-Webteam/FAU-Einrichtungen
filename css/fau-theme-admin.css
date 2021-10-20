@@ -1,33 +1,23 @@
-@charset "UTF-8";
 /*-----------------------------------------------------------------------------------*/
 /* Backend CSS
 /*-----------------------------------------------------------------------------------*/
-/*
-*  TODO:
-* Gradient für Hero:
-   background: rgb(255,184,28);
-   background: linear-gradient(342deg, rgba(255,184,28,1) 0%, rgba(232,119,34,1) 80%, rgba(163,107,13,1) 100%);
- (beispiel phil)
-
-  0%: Koch hell
-  80%: Koch dunkle
-  100% Basisfarbe
-  WUkel ca 340 Grad
-
-bei ZUV: 100% = 80%
-
-
-*/
 /*-----------------------------------------------------------------------------------*/
 /* CSS Custom Properties
 /*-----------------------------------------------------------------------------------*/
 :root {
-  --color-primary-basis: #002F6C;
-  --color-primary-heller: #8fb1ef;
-  --color-primary-hellste: #dde5f0;
-  --color-primary-dunkler: #24598f;
-  --color-primary-dunkelste: #1f4b7a;
+  --color-primary-basis: #A36B0D;
+  --color-primary-heller: #d9c689;
+  --color-primary-hellste: #f3eedf;
+  --color-primary-dunkler: #805000;
+  --color-primary-dunkler-kontrast: #fff;
+  --color-primary-dunkelste: #553500;
   --color-primary-basis-kontrast: #fff;
+  --color-primary-ci-hell: #ffb81c;
+  --color-primary-ci-hell-kontrast: #000;
+  --color-primary-ci-dunkel: #e87722;
+  --color-primary-ci-dunkel-kontrast: #000;
+  --color-primary-ci-hell2: #ffe4a8;
+  --color-primary-ci-hell2-kontrast: #333;
   --color-zentral-basis: #002F6C;
   --color-zentral-heller: #8fb1ef;
   --color-zentral-hellste: #dde5f0;
@@ -38,8 +28,15 @@ bei ZUV: 100% = 80%
   --color-phil-heller: #d9c689;
   --color-phil-hellste: #f3eedf;
   --color-phil-dunkler: #805000;
+  --color-phil-dunkler-kontrast: #fff;
   --color-phil-dunkelste: #553500;
   --color-phil-basis-kontrast: #fff;
+  --color-phil-ci-hell: #ffb81c;
+  --color-phil-ci-hell-kontrast: #000;
+  --color-phil-ci-dunkel: #e87722;
+  --color-phil-ci-dunkel-kontrast: #000;
+  --color-phil-ci-hell2: #ffe4a8;
+  --color-phil-ci-hell2-kontrast: #333;
   --color-med-basis: #0381A2;
   --color-med-heller: #bfd6f5;
   --color-med-hellste: #eaf3fc;
@@ -77,12 +74,42 @@ bei ZUV: 100% = 80%
   --color-white: #fff;
   --color-black: #000;
   --color-PrintMain: #000;
+  --color-KontrastHell: #fff;
+  --color-KontrastDunkel: #333;
   /* Calculated Values */
-  --color-primary-basis-lighten15: #0050b9;
+  --color-primary-basis-lighten15: #ffb81c;
   --color-MetaHomeBackground: #d4d4d4;
   --color-MetaHover: #20497f;
   --color-MetaText: #fff;
   --color-MetaBackgroundLight: #ecf0f4;
+  --color-footer-bg: #ffb81c;
+  --color-footer-text: #000;
+  --color-hero-bg: #ffb81c;
+  --color-hero-text: #000;
+  --color-mainmenu-toplevel-bg: #fff;
+  --color-mainmenu-toplevel-text: #444;
+  --color-mainmenu-toplevel-hover-text: #000;
+  --color-mainmenu-toplevel-hover-bg: #ffb81c;
+  --color-mainmenu-sublevel-bg: #ffb81c;
+  --color-mainmenu-sublevel-text: #000;
+  --color-mainmenu-sublevel-hover-text: #fff;
+  --color-mainmenu-sublevel-hover-bg: #805000;
+  --color-mainmenu-sublevel-button-text: #fff;
+  --color-mainmenu-sublevel-button-bg: #805000;
+  --color-mainmenu-sublevel-button-hover-text: #fff;
+  --color-mainmenu-sublevel-button-hover-bg: #553500;
+  --color-submenu-toplevel-bg: #fff;
+  --color-submenu-toplevel-text: #444;
+  --color-submenu-toplevel-hover-text: #000;
+  --color-submenu-toplevel-hover-bg: #ffb81c;
+  --color-submenu-active-bg: #ffb81c;
+  --color-submenu-active-text: #000;
+  --color-submenu-hover-text: #fff;
+  --color-submenu-hover-bg: #805000;
+  --color-submenu-currentlevel-text: #333;
+  --color-submenu-currentlevel-bg: #ffe4a8;
+  --color-submenu-sublevel-text: #000;
+  --color-submenu-sublevel-bg: #ffb81c;
 }
 
 /*
@@ -99,7 +126,7 @@ html {
 }
 @media (min-width: 768px) {
   html {
-    font-size: 93.75%;
+    font-size: 100%;
   }
 }
 

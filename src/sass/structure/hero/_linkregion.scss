@@ -10,7 +10,7 @@
     li {
 	display: table;
 	padding-left: 0;
-	color: var(--color-primary-basis-kontrast);
+	color: var(--color-hero-text);
 	
 	@include px2rem($font-size-hero-links);
 
@@ -19,7 +19,7 @@
 	    @extend .fa-angle-right;	
 	    font-weight: bold;
 	    display: table-cell;
-	    color: var(--color-primary-basis-kontrast);
+	    color: var(--color-hero-text);
 	    width: 20px;
 	} 
 	
@@ -87,7 +87,7 @@
 	z-index: 10;
 	p.headline {
 	    font-weight: normal;
-	    color: #fff;
+	    color: var(--color-hero-text);
 	    @include px2rem( $font-size-h3-hero);
 	    padding: 10px 0;
 	}
@@ -95,7 +95,7 @@
 		font-weight: bold;
 		padding-bottom: 11px;
 		padding-top: 0; 
-		color: #fff;
+		color: var(--color-hero-text);
 		
 		&.second {
 		    padding-top: 22px;
