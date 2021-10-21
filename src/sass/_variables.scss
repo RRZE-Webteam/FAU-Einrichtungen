@@ -2,7 +2,7 @@
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
 
-$farbfamilie: 'phil';
+$farbfamilie: 'med';
 // med, phil, nat, rw, tf, zuv
 $colorstyle: '2021';
 
@@ -37,18 +37,16 @@ $colormap-misc: ("Text": #444,
 // $colormap-zentral: ("basis": #003366, "heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #24598f, "dunkelste": #1f4b7a, "basis-kontrast": #fff);
 // alt, 2015
 
-$colormap-zentral: ("basis": #002F6C, "heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #24598f, "dunkelste": #1f4b7a, "basis-kontrast": #fff);
+$colormap-zentral: ("basis": #002F6C, "heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #24598f, "dunkler-kontrast": #fff, "dunkelste": #1f4b7a, "basis-kontrast": #fff, "ci-hell": #002f6c, "ci-hell-kontrast": #fff, "ci-hell2": #B7D5FA, "ci-hell2-kontrast": #333);
 // neu 23.09
 
 $colormap-primary: $colormap-zentral;
 
-$colormap-phil: ("basis": #A36B0D, "heller": #d9c689, "hellste": #f3eedf, "dunkler": #805000, "dunkler-kontrast": #fff, "dunkelste": #553500, "basis-kontrast": #fff, "ci-hell": #ffb81c, "ci-hell-kontrast": #000, "ci-dunkel": #e87722, "ci-dunkel-kontrast": #000, "ci-hell2": #ffe4a8, "ci-hell2-kontrast": #333);
-$colormap-med: ("basis": #0381A2, "heller": #bfd6f5, "hellste": #eaf3fc, "dunkler": #026480, "dunkelste": #014e63, "basis-kontrast": #fff);
-$colormap-nat: ("basis": #048767, "heller": #aacfbd, "hellste": #e5efea, "dunkler": #006e53, "dunkelste": #00533f, "basis-kontrast": #fff);
-$colormap-rw: ("basis": #8d1429, "heller": #c5ac94, "hellste": #ede7de, "dunkler": #690013, "dunkelste": #42000c, "basis-kontrast": #fff);
-// $colormap-tf: ("basis": #6E7881, "heller": #d2d5d7, "hellste": #ebecee, "dunkler": #53606b, "dunkelste": #3b4956, "basis-kontrast": #fff);
-// alt
-$colormap-tf: ("basis": #4D5B65, "heller": #d2d5d7, "hellste": #ebecee, "dunkler": #53606b, "dunkelste": #3b4956, "basis-kontrast": #fff);
+$colormap-phil: ("basis": #A36B0D, "heller": #d9c689, "hellste": #f3eedf, "dunkler": #805000, "dunkler-kontrast": #fff, "dunkelste": #553500, "basis-kontrast": #fff, "ci-hell": #ffb81c, "ci-hell-kontrast": #000, "ci-hell2": #fbedcd, "ci-hell2-kontrast": #333);
+$colormap-med: ("basis": #0381A2, "heller": #bfd6f5, "hellste": #eaf3fc, "dunkler": #026480, "dunkler-kontrast": #fff, "dunkelste": #014e63, "basis-kontrast": #fff, "ci-hell": #0bb6f7, "ci-hell-kontrast": #000, "ci-hell2": #C8EFFE, "ci-hell2-kontrast": #333);
+$colormap-nat: ("basis": #048767, "heller": #aacfbd, "hellste": #e5efea, "dunkler": #006e53, "dunkler-kontrast": #fff, "dunkelste": #00533f, "basis-kontrast": #fff, "ci-hell": #43b02a, "ci-hell-kontrast": #000, "ci-hell2": #CFF1C3, "ci-hell2-kontrast": #333);
+$colormap-rw: ("basis": #8d1429, "heller": #c5ac94, "hellste": #ede7de, "dunkler": #690013, "dunkler-kontrast": #fff, "dunkelste": #42000c, "basis-kontrast": #fff, "ci-hell": #971b2f, "ci-hell-kontrast": #fff, "ci-hell2": #f2eae9, "ci-hell2-kontrast": #333);
+$colormap-tf: ("basis": #4D5B65, "heller": #d2d5d7, "hellste": #ebecee, "dunkler": #53606b, "dunkler-kontrast": #fff, "dunkelste": #3b4956, "basis-kontrast": #fff, "ci-hell": #779fb5, "ci-hell-kontrast": #000, "ci-hell2": #E2E7EB, "ci-hell2-kontrast": #333);
 // neu 23.09
 
 
@@ -147,6 +145,8 @@ $color-submenu-sublevel-bg:	    map-get($colormap-primary, "ci-hell");
     $color-submenu-active-bg:	    map-get($colormap-primary, "dunkler"); 
     $color-submenu-active-text:	    #fff;
     
+    $color-submenu-sublevel-text:	map-get($colormap-primary, "ci-hell-kontrast");
+    $color-submenu-sublevel-bg:	    map-get($colormap-primary, "ci-hell");
 }
 
 
