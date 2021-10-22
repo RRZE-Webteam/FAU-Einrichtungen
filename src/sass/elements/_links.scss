@@ -3,13 +3,18 @@
 /*-----------------------------------------------------------------------------------*/
 
 a {
-	color: var(--color-primary-basis);
+	color: var(--color-links);
+	
+	main &,
+	aside & {
+	    color: var(--color-content-links);
+	}
+	
 	text-decoration: none;
 
 	&:active,
 	&:hover, 
 	&:focus {
-		color: var(--color-primary-dunkelste);
 		text-decoration: underline;
 	}
 
@@ -45,6 +50,9 @@ a {
 	#hero &:focus {
 		text-decoration: underline;
 	}
+	
+	
+	
 }
 
 #footer .ext-link, 
@@ -73,6 +81,9 @@ a {
 	}
 	
 	.news-more {
+	    
+	    @include buttonstyle();
+	    /*
 		color: var(--color-primary-basis-kontrast);
 		background: var(--color-primary-basis);
 		padding: 6px 10px;
@@ -84,8 +95,10 @@ a {
 		&:hover, &:focus {
 			background: var(--color-primary-dunkler);
 		}
+		*/
 	}
 }
+
 
 
 //Special Links
@@ -95,6 +108,8 @@ a {
 	bottom: 20px; 
 	right: 20px;
 
+	 @include buttonstyle(4px);
+	 /*
 	background: var(--color-primary-basis);
 	color: var(--color-primary-basis-kontrast);
 	padding: 7px;
@@ -104,7 +119,7 @@ a {
 	&:focus {
 		background: var(--color-primary-dunkelste);
 	}
-	
+	*/
 	display: none;
 
 }

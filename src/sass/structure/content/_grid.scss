@@ -66,7 +66,7 @@
 	min-width: $screen-xxs;
 	flex-grow: 1;
 	 @media (min-width: $screen-sm) {
-	     max-width: $container-sm - $subnav-width-sm - $grid-gutter-width; // calc(#{$container-sm} - #{$subnav-width-sm} - #{$grid-gutter-width});
+	     max-width: $container-sm - $subnav-width-sm - $grid-gutter-width; 
 	     padding-left: $grid-gutter-width;
 	 }
 	 @media (min-width: $screen-md) {
@@ -126,7 +126,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
 	display: inline-block;
     }
 
@@ -138,13 +138,18 @@
         width: 100%;
         padding-left:  floor(math.div($grid-gutter-width, 2));
 	padding-right: ceil(math.div($grid-gutter-width, 2));
-	@media (min-width: $screen-sm) {
-	    width: $sidebar-width-inline + $grid-gutter-width; // calc(#{$sidebar-width-inline} + #{$grid-gutter-width} + 2px);
+	flex: 0 0 $sidebar-width-inline + $grid-gutter-width;
+	
+	@media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
+	    // bei kleinen Desktopauflösungen tun wir die Sidebar als Floating in den Content rein...
+	    // Nicht schön, zu diskutieren
+	    width: $sidebar-width-inline + $grid-gutter-width;  
             padding-right: 0;
 	    float: right;
 	    margin-left: floor(math.div($grid-gutter-width, 2));
 	    margin-bottom: floor(math.div($grid-gutter-width, 2));
 	}
+	
     }
     .content-inline {
 	order: 1;
@@ -152,15 +157,19 @@
         width: 100%;
 	padding-left:  floor(math.div($grid-gutter-width, 2));
 	padding-right: ceil(math.div($grid-gutter-width, 2));
-	@media (min-width: $screen-sm) {
+	flex: 1 0 $screen-sm;
+	@media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
 	     padding-left: 0;
 	     padding-right: 0;
 	}
-	
+
 	&.with-sidebar {
-	    @media (min-width: $screen-sm) {
+	    @media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
 		padding-right: ceil(math.div($grid-gutter-width, 2));
-		width: 100%;
+	    }
+	    @media (min-width: $screen-xl) {
+		max-width: calc(100% - $sidebar-width-inline - $grid-gutter-width);
+		width:  calc(100% - $sidebar-width-inline - $grid-gutter-width);
 	    }
 	    
 	}
@@ -182,7 +191,7 @@
 /*-----------------------------------------------------------------------------------*/
 .page-template-page-subnav {
     
-    @media (min-width: $screen-md) {
+    @media (min-width: $screen-md) and (max-width: $screen-xl - 1) {
         .inline-box {
             display: inline-block;
        
@@ -196,8 +205,6 @@
             .content-inline {
                 width: 100%;
                 display: block;
-		
-		
             }
          }
     }
@@ -273,32 +280,40 @@
 }
 
 /*-----------------------------------------------------------------------------------*/
-/* Template: Portal and Startpage
+/* Template: Template Portalseite/Portalindex
 /*-----------------------------------------------------------------------------------*/
-.portalpage-content,
+.page-template-page-portal {
+    .portalpage-content {
+	min-width: $screen-xs;
+	flex: 1 1;
+	main {
+	    padding-top: 10px;
+	}
+    }
+    
+    .portalpage-sidebar {
+	min-width: $screen-xs;	
+	flex: 1 0 33%;
+	max-width: 33%;
+    }
+   
+}
+/*-----------------------------------------------------------------------------------*/
+/* Template: Template Startseiten
+/*-----------------------------------------------------------------------------------*/
+
 .startpage-blogroll {
     @extend .col-xs-12;
     @extend .col-sm-8;
 //    @extend .col-xxl-9;
 }
-.portalpage-sidebar,
+
 .startpage-sidebar {
     @extend .col-xs-12;
     @extend .col-sm-4;
   //  @extend .col-xxl-3;
 }
 
-
-
-// Portal Pages
-.page-template-page-portal {
-    .portalpage-content {
-	main {
-	    padding-top: 10px;
-	}
-    }
-    
-}
 
 .startpage-sidebar {
     .row {
@@ -309,11 +324,6 @@
 	@include linear-gradient-three(transparent,$colorStandardHellgrau 50%,transparent);  
     }
 }
-
-
-// Portalindex
-//   POrtal Page with floating inline Sidebar
-
 
 @media (max-width: $screen-xs - 1) {
     .page-template-page-start {

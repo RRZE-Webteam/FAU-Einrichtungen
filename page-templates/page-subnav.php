@@ -13,7 +13,7 @@ get_header(); ?>
 
 	<?php get_template_part('template-parts/hero', 'small'); ?>
 
-	<div id="content">
+	<div id="content" class="subnav">
 	    <div class="content-container">			
 		<div class="content-row">	
 		    <?php echo fau_get_page_subnav($post->ID); ?>		

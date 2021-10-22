@@ -14,11 +14,15 @@
      }
      /* Calculated Values */
      --color-primary-basis-lighten15: #{$colorPrimaryHeroLight}; // lighten primary basis by 15%
-     --color-MetaHomeBackground: #{$colorMetaFAUHomeBackground}; // lighten primary basis by 15%
+     --color-MetaHomeBackground: #{$colorMetaFAUHomeBackground}; 
      --color-MetaHover: #{$colorMetaHover};
      --color-MetaText: #fff;
      --color-MetaBackgroundLight: #{$colorMetaLightest};
 
+     --color-content-headlines: #{$color-content-headlines};
+     --color-links: #{$color-links};
+     --color-content-links: #{$color-content-links};
+     
     --color-footer-bg: #{$color-footer-bg};
     --color-footer-text: #{$color-footer-text};
     --color-hero-bg: #{$color-hero-bg};

@@ -89,7 +89,7 @@ table {
 	}
 	
 	td {
-		border-right: 1px solid #fff;
+		border-right: 1px solid var(--color-StandardHellgrau);
 		color: var(--color-Text);
 		
 		
@@ -101,24 +101,11 @@ table {
 	}
 	
 	tr:nth-child(odd) td {
-		color:  var(--color-primary-dunkelste);
 		background: var(--color-StandardHellgrau);
-		
-		h1, h2, h3, h4, h5, h6 {
-		    color: $PalettonDunkler;
-		}
-		
-		
-		ul {
-		    li {
-			color:  var(--color-primary-dunkelste);
-		    }
-		}
 	}
 	
 	ul {
 		li {
-			color: var(--color-primary-basis);
 			@include px2rem($font-size-table);	    
 			background-position: left 5px;
 		}
@@ -126,14 +113,7 @@ table {
 	
 	&.nooddcolor {
 	    tr:nth-child(odd) td {
-		color: var(--color-Text);
 		background: transparent;
-		
-		ul {
-		    li {
-			color: var(--color-Text);
-		    }
-		}
 	    }
 	}
 	&.nobackground {
@@ -150,10 +130,6 @@ table {
 	    }
 	    tr:nth-child(odd) td {
 		background: transparent;
-		color: var(--color-Text);
-		li {
-		    color: var(--color-Text);
-		}
 	    }
 	}
 	

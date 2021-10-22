@@ -5,16 +5,16 @@
 /* CSS Custom Properties
 /*-----------------------------------------------------------------------------------*/
 :root {
-  --color-primary-basis: #0381A2;
-  --color-primary-heller: #bfd6f5;
-  --color-primary-hellste: #eaf3fc;
-  --color-primary-dunkler: #026480;
+  --color-primary-basis: #002F6C;
+  --color-primary-heller: #8fb1ef;
+  --color-primary-hellste: #dde5f0;
+  --color-primary-dunkler: #24598f;
   --color-primary-dunkler-kontrast: #fff;
-  --color-primary-dunkelste: #014e63;
+  --color-primary-dunkelste: #1f4b7a;
   --color-primary-basis-kontrast: #fff;
-  --color-primary-ci-hell: #0bb6f7;
-  --color-primary-ci-hell-kontrast: #000;
-  --color-primary-ci-hell2: #C8EFFE;
+  --color-primary-ci-hell: #002f6c;
+  --color-primary-ci-hell-kontrast: #fff;
+  --color-primary-ci-hell2: #B7D5FA;
   --color-primary-ci-hell2-kontrast: #333;
   --color-zentral-basis: #002F6C;
   --color-zentral-heller: #8fb1ef;
@@ -98,39 +98,42 @@
   --color-KontrastHell: #fff;
   --color-KontrastDunkel: #333;
   /* Calculated Values */
-  --color-primary-basis-lighten15: #0bb6f7;
+  --color-primary-basis-lighten15: #002f6c;
   --color-MetaHomeBackground: #d4d4d4;
   --color-MetaHover: #20497f;
   --color-MetaText: #fff;
   --color-MetaBackgroundLight: #ecf0f4;
-  --color-footer-bg: #0bb6f7;
-  --color-footer-text: #000;
-  --color-hero-bg: #0bb6f7;
-  --color-hero-text: #000;
+  --color-content-headlines: #444;
+  --color-links: #002F6C;
+  --color-content-links: #444;
+  --color-footer-bg: #002f6c;
+  --color-footer-text: #fff;
+  --color-hero-bg: #002f6c;
+  --color-hero-text: #fff;
   --color-mainmenu-toplevel-bg: #fff;
   --color-mainmenu-toplevel-text: #444;
-  --color-mainmenu-toplevel-hover-text: #000;
-  --color-mainmenu-toplevel-hover-bg: #0bb6f7;
-  --color-mainmenu-sublevel-bg: #0bb6f7;
-  --color-mainmenu-sublevel-text: #000;
+  --color-mainmenu-toplevel-hover-text: #fff;
+  --color-mainmenu-toplevel-hover-bg: #002f6c;
+  --color-mainmenu-sublevel-bg: #002f6c;
+  --color-mainmenu-sublevel-text: #fff;
   --color-mainmenu-sublevel-hover-text: #fff;
-  --color-mainmenu-sublevel-hover-bg: #026480;
+  --color-mainmenu-sublevel-hover-bg: #24598f;
   --color-mainmenu-sublevel-button-text: #fff;
-  --color-mainmenu-sublevel-button-bg: #026480;
+  --color-mainmenu-sublevel-button-bg: #24598f;
   --color-mainmenu-sublevel-button-hover-text: #fff;
-  --color-mainmenu-sublevel-button-hover-bg: #014e63;
+  --color-mainmenu-sublevel-button-hover-bg: #1f4b7a;
   --color-submenu-toplevel-bg: #fff;
   --color-submenu-toplevel-text: #444;
-  --color-submenu-toplevel-hover-text: #000;
-  --color-submenu-toplevel-hover-bg: #0bb6f7;
-  --color-submenu-active-bg: #0bb6f7;
-  --color-submenu-active-text: #000;
+  --color-submenu-toplevel-hover-text: #fff;
+  --color-submenu-toplevel-hover-bg: #002f6c;
+  --color-submenu-active-bg: #002f6c;
+  --color-submenu-active-text: #fff;
   --color-submenu-hover-text: #fff;
-  --color-submenu-hover-bg: #026480;
+  --color-submenu-hover-bg: #24598f;
   --color-submenu-currentlevel-text: #333;
-  --color-submenu-currentlevel-bg: #C8EFFE;
-  --color-submenu-sublevel-text: #000;
-  --color-submenu-sublevel-bg: #0bb6f7;
+  --color-submenu-currentlevel-bg: #B7D5FA;
+  --color-submenu-sublevel-text: #fff;
+  --color-submenu-sublevel-bg: #002f6c;
 }
 
 /*

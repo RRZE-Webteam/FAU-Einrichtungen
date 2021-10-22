@@ -4505,20 +4505,20 @@ CSS Font File for Wordpress Theme FAU
           hyphens: auto;
 }
 .edit-post-visual-editor .editor-block-list__block h1.mce-content-body {
-  font-size: 2rem;
-  line-height: 2.6rem;
+  font-size: 1.875rem;
+  line-height: 2.438rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h1.mce-content-body {
-  font-size: 1.375rem;
-  line-height: 2.063rem;
+  font-size: 1.75rem;
+  line-height: 2.625rem;
 }
 .edit-post-visual-editor .editor-block-list__block h1.mce-content-body.small {
-  font-size: 1.5rem;
-  line-height: 1.951rem;
+  font-size: 1.75rem;
+  line-height: 2.275rem;
 }
 .edit-post-visual-editor .editor-block-list__block h2.mce-content-body {
-  font-size: 1.5rem;
-  line-height: 1.951rem;
+  font-size: 1.625rem;
+  line-height: 2.113rem;
   margin: 0;
   padding: 22px 0;
 }
@@ -4529,56 +4529,56 @@ table .edit-post-visual-editor .editor-block-list__block h1.mce-content-body {
   padding-top: 8px;
 }
 .edit-post-visual-editor .editor-block-list__block h2.mce-content-body.small, .edit-post-visual-editor .editor-block-list__block h2.mce-content-body.subtitle {
-  font-size: 1.375rem;
-  line-height: 2.063rem;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
 }
 .edit-post-visual-editor .editor-block-list__block h2.mce-content-body.subtitle {
   padding: 0 0 22px 0;
 }
 table .edit-post-visual-editor .editor-block-list__block h2.mce-content-body {
-  font-size: 1.125rem;
-  line-height: 1.688rem;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
 }
 .edit-post-visual-editor .editor-block-list__block h3.mce-content-body {
   margin: 0;
   padding: 11px 0;
-  font-size: 1.187rem;
-  line-height: 1.782rem;
+  font-size: 1.375rem;
+  line-height: 2.063rem;
 }
 .edit-post-visual-editor .editor-block-list__block h3.mce-content-body.abstract {
   padding: 0 0 22px 0;
 }
 table .edit-post-visual-editor .editor-block-list__block h3.mce-content-body {
-  font-size: 0.937rem;
-  line-height: 1.407rem;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
 }
 .edit-post-visual-editor .editor-block-list__block h4.mce-content-body {
   margin: 0;
   padding: 11px 0 11px 0;
-  font-size: 1.062rem;
-  line-height: 1.594rem;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h4.mce-content-body {
-  font-size: 0.875rem;
-  line-height: 1.313rem;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
 }
 .edit-post-visual-editor .editor-block-list__block h5.mce-content-body {
   margin: 0;
   padding: 11px 0 11px 0;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h5.mce-content-body {
-  font-size: 0.812rem;
-  line-height: 1.219rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .edit-post-visual-editor .editor-block-list__block h6 {
   font-size: 1rem;
   line-height: 1.5rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h6 {
-  font-size: 0.812rem;
-  line-height: 1.219rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
 }
 .edit-post-visual-editor .editor-block-list__block p, .edit-post-visual-editor .editor-block-list__block address {
   margin: 0;
@@ -4599,13 +4599,13 @@ table .edit-post-visual-editor .editor-block-list__block h6 {
   color: var(--color-primary-basis);
   font-weight: 300;
   font-style: italic;
-  font-size: 1.125rem;
-  line-height: 1.688rem;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
 }
 .edit-post-visual-editor .editor-block-list__block p.presentationtitle {
   font-weight: bold;
-  font-size: 2rem;
-  line-height: 2.6rem;
+  font-size: 1.875rem;
+  line-height: 2.438rem;
   margin: 20px 0 20px 0;
 }
 .edit-post-visual-editor .editor-block-list__block ul,

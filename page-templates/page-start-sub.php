@@ -13,7 +13,7 @@
     
 ?>
 
-    <div id="content">
+    <div id="content" class="start-sub">
 	<div class="container">
 	    <div class="row">
 		<div class="startpage-blogroll">
@@ -88,7 +88,7 @@
 			?>
 			</main>	
 		    </div>
-		    <?php get_template_part('template-parts/sidebar', 'portal');?>
+		    <?php get_template_part('template-parts/sidebar', 'start');?>
 		</div> 
 		<?php  
 

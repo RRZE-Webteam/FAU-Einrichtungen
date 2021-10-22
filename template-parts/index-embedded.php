@@ -16,7 +16,7 @@
     </head>
     <body <?php body_class('embedded'); ?>>
          <div id="content">
-            <main class="entry-content" id="droppoint">
+            <main class="entry-content">
                 <?php
                 while ( have_posts() ) {
                     the_post();

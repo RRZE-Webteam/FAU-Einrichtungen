@@ -11,7 +11,7 @@ get_header();
 get_template_part('template-parts/hero', 'sliderpage');
 ?>
 
-	<div id="content">
+	<div id="content" class="start">
 		<div class="container">
 			<div class="row">
 				<div class="startpage-blogroll">
@@ -78,7 +78,7 @@ get_template_part('template-parts/hero', 'sliderpage');
 					?>			    
 				    </main>	
 				</div>
-				<?php get_template_part('template-parts/sidebar', 'portal');?>
+				<?php get_template_part('template-parts/sidebar', 'start');?>
 			</div> <!-- /row -->
 			<?php  
 			

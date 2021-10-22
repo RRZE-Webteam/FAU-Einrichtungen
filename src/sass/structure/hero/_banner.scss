@@ -98,7 +98,7 @@
 			@include px2rem($font-size-h1,  $font-size-base);		
 			@include hyphens(none);
 			color: var(--color-hero-text);
-			background: rgba(var(--color-hero-text),0.8);
+			background: var(--color-hero-bg);
 			margin: 0;
 			padding: 0 7px 1px 7px;
 			position: relative;
@@ -123,7 +123,7 @@
 			color: var(--color-hero-text);
 			@include px2rem($font-size-hero-bannertext);
 			display: none;
-			background: rgba(var(--color-hero-bg),0.8);
+			background: var(--color-hero-bg);
 			padding: 0 7px 1px 7px;
 			margin: 10px 0 0 0;
 			box-decoration-break: clone;

@@ -2,7 +2,7 @@
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
 
-$farbfamilie: 'med';
+$farbfamilie: 'zuv';
 // med, phil, nat, rw, tf, zuv
 $colorstyle: '2021';
 
@@ -73,6 +73,11 @@ $PalettonDunkelste:	map-get($colormap-primary, "dunkelste");
 
 $colormaps: ("primary": $colormap-primary, "zentral": $colormap-zentral, "phil": $colormap-phil, "med": $colormap-med, "nat": $colormap-nat, "rw": $colormap-rw, "tf": $colormap-tf);
 
+// Content
+$color-content-headlines:   map-get($colormap-misc, "Text");
+$color-links:		    map-get($colormap-primary, "basis");
+$color-content-links:	    map-get($colormap-misc, "Text");
+
 
 // Footer
 $color-footer-bg:	map-get($colormap-primary, "ci-hell");
@@ -84,32 +89,24 @@ $color-hero-text:	map-get($colormap-primary, "ci-hell-kontrast");
 $colorPrimaryHeroLight: map-get($colormap-primary, "ci-hell");
 
 // Main Menu
-
 $color-mainmenu-toplevel-bg:	    map-get($colormap-misc, "MainBackground");
 $color-mainmenu-toplevel-text:	    map-get($colormap-misc, "Text");
 $color-mainmenu-toplevel-hover-text:	map-get($colormap-primary, "ci-hell-kontrast");
 $color-mainmenu-toplevel-hover-bg:	map-get($colormap-primary, "ci-hell");
-
 $color-mainmenu-sublevel-bg:	    map-get($colormap-primary, "ci-hell");
 $color-mainmenu-sublevel-text:	    map-get($colormap-primary, "ci-hell-kontrast");
 $color-mainmenu-sublevel-hover-text:	map-get($colormap-primary, "dunkler-kontrast");
 $color-mainmenu-sublevel-hover-bg:	map-get($colormap-primary, "dunkler");
-
 $color-mainmenu-sublevel-button-text:	map-get($colormap-primary, "dunkler-kontrast");
 $color-mainmenu-sublevel-button-bg:	map-get($colormap-primary, "dunkler");
 $color-mainmenu-sublevel-button-hover-text:	map-get($colormap-primary, "dunkler-kontrast");
 $color-mainmenu-sublevel-button-hover-bg:	map-get($colormap-primary, "dunkelste");
 
-
-
-
 // Submenu (= Subnav links)
-
 $color-submenu-toplevel-bg:	    map-get($colormap-misc, "MainBackground");
 $color-submenu-toplevel-text:	    map-get($colormap-misc, "Text");
 $color-submenu-toplevel-hover-text:	map-get($colormap-primary, "ci-hell-kontrast");
 $color-submenu-toplevel-hover-bg:	map-get($colormap-primary, "ci-hell");
-
 $color-submenu-active-bg:	    map-get($colormap-primary, "ci-hell");
 $color-submenu-active-text:	    map-get($colormap-primary, "ci-hell-kontrast");
 $color-submenu-hover-text:	map-get($colormap-primary, "dunkler-kontrast");
@@ -147,6 +144,11 @@ $color-submenu-sublevel-bg:	    map-get($colormap-primary, "ci-hell");
     
     $color-submenu-sublevel-text:	map-get($colormap-primary, "ci-hell-kontrast");
     $color-submenu-sublevel-bg:	    map-get($colormap-primary, "ci-hell");
+    
+    // Content
+    $color-content-headlines:   map-get($colormap-primary, "basis");
+    $color-links:		map-get($colormap-primary, "basis");
+    $color-content-links:	map-get($colormap-primary, "basis");
 }
 
 
@@ -244,50 +246,49 @@ $font-size-subnav-sublevel: ($font-size-base - 2);
 
 
 
-$font-size-h1: 32;
+$font-size-h1: ($font-size-base + 14);
 $font-size-h1-mobilebranding: 24;
 $font-size-h1-banner: 28;
-$font-size-h1-sidebar: 22;
-$font-size-h1-table: 22;
-$font-size-h1-small: 24;
+$font-size-h1-sidebar: ($font-size-h1 - 2);
+$font-size-h1-table: ($font-size-h1 - 2);
+$font-size-h1-small: ($font-size-h1 - 2);
 
 
-$font-size-h2: 24;
-$font-size-h2-small: 22;
-$font-size-h2-socialmedia: 18;
-$font-size-h2-sidebar: 18;
-$font-size-h2-table: 18;
+$font-size-h2: ($font-size-base + 10);
+$font-size-h2-small: ($font-size-h2 - 2);
+$font-size-h2-socialmedia: ($font-size-h2 - 2);
+$font-size-h2-sidebar: ($font-size-h2 - 2);
+$font-size-h2-table: ($font-size-h2 - 2);
 
-$font-size-h3: 19; // 18
-$font-size-h3-small: 18;
-$font-size-h3-hero: 18;
-$font-size-h3-sidebar: 16;
-$font-size-h3-contentmenu: 15;
-$font-size-h3-table: 15;
-
-
-$font-size-h4: 17; // 15
-$font-size-h4-small: 16;
-$font-size-h4-sidebar: 14;
-$font-size-h4-table: 14;
+$font-size-h3: ($font-size-base + 6);
+$font-size-h3-small: ($font-size-h3 - 2);
+$font-size-h3-hero: ($font-size-h3 - 2);
+$font-size-h3-sidebar: ($font-size-h3 - 2);
+$font-size-h3-contentmenu: ($font-size-h3 - 2);
+$font-size-h3-table: ($font-size-h3 - 2);
 
 
-$font-size-h5: 16; // 15
-$font-size-h5-sidebar: 13;
-$font-size-h5-table: 13;
+$font-size-h4: ($font-size-base + 4);
+$font-size-h4-small: ($font-size-h4 - 2);
+$font-size-h4-sidebar: ($font-size-h4 - 2);
+$font-size-h4-table: ($font-size-h4 - 2);
+
+
+$font-size-h5: ($font-size-base + 2);
+$font-size-h5-sidebar: ($font-size-h5 - 2);
+$font-size-h5-table: ($font-size-h5 - 2);
 
 
 $font-size-h6: $font-size-base;
-$font-size-h6-sidebar: 13;
-$font-size-h6-table: 13;
+$font-size-h6-sidebar: ($font-size-h6 - 2);
+$font-size-h6-table: ($font-size-h6 - 2);
 
 
-$font-size-quotes: 18;
+$font-size-quotes: ($font-size-base + 4);
 $font-size-quotes-cites: ($font-size-quotes - 1);
 
-$font-size-content-meta: 14;
-
-$font-size-image-caption: 13;
+$font-size-content-meta: $font-size-small;
+$font-size-image-caption: $font-size-small;
 
 $font-size-content-toggle: 16;
 
@@ -299,8 +300,8 @@ $font-size-mobile-meta: 24;
 $font-size-mobile-sitetitle: 20;
 $font-size-desktop-sitetitle: 22;
 
-$font-size-print-base: 14;
-$font-size-print-base-small: 12;
+$font-size-print-base: 16;
+$font-size-print-base-small: 13;
 
 
 // Slider

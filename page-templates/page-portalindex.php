@@ -12,9 +12,9 @@ while ( have_posts() ) : the_post();
 
     get_template_part('template-parts/hero', 'small'); ?>
 
-    <div id="content" class="content-portal">
-	<div class="container">	
-	    <div class="row">
+    <div id="content">
+	<div class="content-container">	   
+	    <div class="content-row">
 		    <main<?php echo fau_get_page_langcode($post->ID);?>>
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 		    <?php 
