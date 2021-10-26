@@ -47,7 +47,8 @@
 			@extend .fa-language;
 			@include px2rem(21);
 			display: none;
-			z-index: 10;	
+			z-index: 10;
+			color: var(--color-MetaTextDefault);
 	    }
 	  
 	    li {
@@ -100,8 +101,8 @@
 		    
 		    &:hover,
 		    &:focus {
-			    background: var(--color-MetaHover); 
-			    color: var(--color-MetaText);
+			    background: var(--color-MetaBackgroundLight);
+		//	    color: var(--color-MetaText);
 			    @include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
 			    
 			    
