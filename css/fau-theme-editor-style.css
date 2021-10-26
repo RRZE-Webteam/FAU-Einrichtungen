@@ -85,6 +85,7 @@
   --color-tf-ci-hell2-kontrast: #333;
   --color-Text: #444;
   --color-TextLight: #797676;
+  --color-MetaTextDefault: #444;
   --color-Notice: #a71c18;
   --color-Alert: #c5ac94;
   --color-ZUV: #002F6C;
@@ -103,10 +104,14 @@
   --color-MetaHomeBackground: #d4d4d4;
   --color-MetaHover: #20497f;
   --color-MetaText: #fff;
+  --color-MetaTextDefault: #444;
   --color-MetaBackgroundLight: #ecf0f4;
+  --color-FAU: #002F6C;
   --color-content-headlines: #444;
   --color-links: #002F6C;
   --color-content-links: #444;
+  --color-content-links-underline: #002F6C;
+  --color-content-links-hover: #fff;
   --color-footer-bg: #002f6c;
   --color-footer-text: #fff;
   --color-hero-bg: #002f6c;
@@ -5063,25 +5068,12 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
-  font-size: 0.875rem;
-  line-height: 1.313rem;
+  font-size: 0.937rem;
+  line-height: 1.407rem;
   color: var(--color-primary-basis-kontrast);
   background: var(--color-primary-basis);
   padding: 6px 10px;
   text-decoration: none;
-  /*
-  color: var(--color-primary-basis-kontrast);
-  background: var(--color-primary-basis);
-  padding: 6px 10px;
-  text-decoration: none;
-  @include border-radius(3px);
-  @include px2rem($font-size-textbuttons);
-
-
-  &:hover, &:focus {
-  	background: var(--color-primary-dunkler);
-  }
-  */
 }
 .news-more-links .news-more:hover, .news-more-links .news-more:focus {
   background: var(--color-primary-dunkler);
@@ -5095,23 +5087,12 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   display: inline-block;
   border-radius: 4px;
   background-clip: padding-box;
-  font-size: 0.875rem;
-  line-height: 1.313rem;
+  font-size: 0.937rem;
+  line-height: 1.407rem;
   color: var(--color-primary-basis-kontrast);
   background: var(--color-primary-basis);
   padding: 6px 10px;
   text-decoration: none;
-  /*
-  background: var(--color-primary-basis);
-  color: var(--color-primary-basis-kontrast);
-  padding: 7px;
-  @include border-radius(4px);
-
-  &:hover, 
-  &:focus {
-  	background: var(--color-primary-dunkelste);
-  }
-  */
   display: none;
 }
 .top-link:hover, .top-link:focus {
@@ -5119,146 +5100,79 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   text-decoration: none;
 }
 
-main p a, main dd a, main dt a, main ul a, main li a, main td a, main tr a {
-  text-decoration: underline;
-  -webkit-text-decoration-color: var(--color-primary-basis);
-          text-decoration-color: var(--color-primary-basis);
+.portalpage-content p a,
+.content-inline p a {
+  cursor: pointer;
+  word-wrap: break-word;
+  color: var(--color-content-links);
+  box-shadow: inset 0 -2px 0 var(--color-content-links-underline);
+  transition: box-shadow 0.3s ease-in-out;
+  text-decoration: none;
+  padding: 3px 1px;
 }
-main p a:active,
-main p a:focus,
-main p a:hover, main dd a:active,
-main dd a:focus,
-main dd a:hover, main dt a:active,
-main dt a:focus,
-main dt a:hover, main ul a:active,
-main ul a:focus,
-main ul a:hover, main li a:active,
-main li a:focus,
-main li a:hover, main td a:active,
-main td a:focus,
-main td a:hover, main tr a:active,
-main tr a:focus,
-main tr a:hover {
-  font-weight: bold;
+.portalpage-content p a:focus, .portalpage-content p a:hover,
+.content-inline p a:focus,
+.content-inline p a:hover {
+  text-decoration: none;
+  color: var(--color-content-links-hover);
+  box-shadow: inset 0 -28px 0 var(--color-content-links-underline);
 }
-main p a:focus, main dd a:focus, main dt a:focus, main ul a:focus, main li a:focus, main td a:focus, main tr a:focus {
-  outline-style: solid;
-  outline-color: var(--color-primary-basis);
-  outline-width: 2px;
-  outline-offset: 4px;
-}
-@media (prefers-reduced-motion: no-preference) {
-  main p a:focus, main dd a:focus, main dt a:focus, main ul a:focus, main li a:focus, main td a:focus, main tr a:focus {
-    transition: outline-offset 0.25s ease-in-out;
-  }
-}
-main a.media-img {
+.portalpage-content a.media-img,
+.content-inline a.media-img {
   display: inline-block;
   overflow: hidden;
 }
-main a.media-img img {
+.portalpage-content a.media-img img,
+.content-inline a.media-img img {
   object-fit: cover;
 }
 @media (prefers-reduced-motion: no-preference) {
-  main a.media-img img {
+  .portalpage-content a.media-img img,
+.content-inline a.media-img img {
     transition: transform 1s;
   }
 }
-main a.media-img:hover img,
-main a.media-img:focus img {
+.portalpage-content a.media-img:hover img,
+.portalpage-content a.media-img:focus img,
+.content-inline a.media-img:hover img,
+.content-inline a.media-img:focus img {
   transform: scale(1.2);
 }
-main a.media-img.alignleft {
+.portalpage-content a.media-img.alignleft,
+.content-inline a.media-img.alignleft {
   float: left;
   clear: both;
   margin-right: 20px;
   margin-bottom: 20px;
 }
-main a.media-img.alignleft img {
+.portalpage-content a.media-img.alignleft img,
+.content-inline a.media-img.alignleft img {
   float: none;
   margin: 0;
 }
-main a.media-img.alignright {
+.portalpage-content a.media-img.alignright,
+.content-inline a.media-img.alignright {
   float: right;
   clear: both;
   margin-left: 20px;
   margin-bottom: 20px;
 }
-main a.media-img.alignright img {
+.portalpage-content a.media-img.alignright img,
+.content-inline a.media-img.alignright img {
   float: none;
   margin: 0;
 }
-main a.media-img.aligncenter {
+.portalpage-content a.media-img.aligncenter,
+.content-inline a.media-img.aligncenter {
   display: block;
   margin: 0 auto 10px auto;
 }
-main a.media-img.aligncenter img {
+.portalpage-content a.media-img.aligncenter img,
+.content-inline a.media-img.aligncenter img {
   display: inline-block;
   margin: 0;
 }
 
-/*
-Not used variants:
-
-:not(.fau-person) a {
-	    text-decoration: none;	    
-	    box-shadow: inset 0 -1px 0 $colorPrimary;
-	    border-bottom: 1px solid $colorPrimary;
-	    transition: box-shadow 0.2s ease-in-out;
-	}
-	:not(.fau-person) a:focus,
-	:not(.fau-person) a:hover {
-	    box-shadow: inset 0 -28px 0 var(--color-primary-heller);
-	    color: white;
-	}
-
-
-// or based on idea of https://codepen.io/giuliamalaroda/pen/QBOGdG
-
-
-a:not(.media-img) {
-	      text-decoration-color: var(--color-primary-basis);;
-		position: relative;
-		z-index: 0;
-		display: inline-block;
-		overflow: hidden;
-		color: var(--color-primary-basis);;
-		vertical-align: bottom;
-		transition: color .3s ease-out;
-		text-decoration: none;
-
-
-	}
-	a:not(.media-img)::before {
-	       content: "";
-		position: absolute;
-		z-index: -1;
-		top: 0;
-		left: 0;
-		transform: translateY(calc(100% - 2px));
-		width: 100%;
-		height: 100%;
-		background-image: linear-gradient(60deg, $colorPrimary 0%, var(--color-primary-heller) 100%);
-		transition: transform .25s ease-out;
-
-	}
-
-	a:not(.media-img):focus,
-	a:not(.media-img):hover { 
-	    color: #fff;
-	}
-	 a:not(.media-img):focus::before,
-	 a:not(.media-img):hover::before {
-	       transform: translateY(0);
-	 }
-	@media (prefers-reduced-motion: no-preference) {
-	    a:not(.media-img):focus::before,
-	    a:not(.media-img):hover::before {
-	       transition: transform .25s ease-out;
-	    }
-	}
-
-	*/
 /*-----------------------------------------------------------------------------------*/
 /* Social Media Links
 /*-----------------------------------------------------------------------------------*/
@@ -5516,8 +5430,8 @@ ol li ul li {
   text-decoration: none;
   border-radius: 3px;
   background-clip: padding-box;
-  font-size: 0.875rem;
-  line-height: 1.313rem;
+  font-size: 0.937rem;
+  line-height: 1.407rem;
 }
 
 .nav-links {
@@ -5869,7 +5783,7 @@ blockquote p strong {
 #tinymce blockquote, #content blockquote {
   font-style: italic;
   margin: 10px;
-  padding: 20px;
+  padding: 31px 20px 20px 20px;
   min-height: 50px;
   border-left: 10px solid var(--color-primary-ci-hell);
   background: var(--color-ContentRegions);
@@ -5878,7 +5792,7 @@ blockquote p strong {
 @media (min-width: 768px) {
   #tinymce blockquote, #content blockquote {
     margin: 10px 50px;
-    padding: 20px 40px;
+    padding: 31px 40px 20px 40px;
   }
 }
 #tinymce blockquote p, #tinymce blockquote h1, #tinymce blockquote h2, #tinymce blockquote h3, #tinymce blockquote h4, #tinymce blockquote h5, #tinymce blockquote h6, #content blockquote p, #content blockquote h1, #content blockquote h2, #content blockquote h3, #content blockquote h4, #content blockquote h5, #content blockquote h6 {
@@ -5933,7 +5847,7 @@ blockquote.pull-right {
 cite {
   color: var(--color-Text);
   font-weight: normal;
-  font-style: normal;
+  font-style: italic;
 }
 cite.text {
   color: inherit;

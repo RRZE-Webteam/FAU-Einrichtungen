@@ -18,6 +18,7 @@ $font-path-roboto: './fonts/roboto/';
 // Define colors
 $colormap-misc: ("Text": #444, 
 		 "TextLight": #797676, 
+		 "MetaTextDefault": #444,
 		 "Notice": #a71c18, 
 		 "Alert": #c5ac94,
 		 "ZUV": #002F6C, // #003366, 
@@ -77,6 +78,8 @@ $colormaps: ("primary": $colormap-primary, "zentral": $colormap-zentral, "phil":
 $color-content-headlines:   map-get($colormap-misc, "Text");
 $color-links:		    map-get($colormap-primary, "basis");
 $color-content-links:	    map-get($colormap-misc, "Text");
+$color-content-links-underline:	    map-get($colormap-primary, "basis");
+$color-content-links-hover: map-get($colormap-primary, "basis-kontrast");
 
 
 // Footer
@@ -87,6 +90,10 @@ $color-footer-text:	map-get($colormap-primary, "ci-hell-kontrast");
 $color-hero-bg:		map-get($colormap-primary, "ci-hell");
 $color-hero-text:	map-get($colormap-primary, "ci-hell-kontrast");
 $colorPrimaryHeroLight: map-get($colormap-primary, "ci-hell");
+
+
+// Meta
+$colorMetaTextDefault:  map-get($colormap-misc, "MetaTextDefault");
 
 // Main Menu
 $color-mainmenu-toplevel-bg:	    map-get($colormap-misc, "MainBackground");
@@ -209,19 +216,19 @@ $font-size-larger: ($font-size-base + 8);
 
 $font-size-footer: ($font-size-base - 2);
 $font-size-breadcrumb: ($font-size-base - 2);
-$font-size-herosearch: 16;
-$font-size-header-branding: 19;
+$font-size-herosearch: $font-size-base;
+$font-size-header-branding: ($font-size-base + 4);
 
 $font-size-hero-slider-title: 25;
-$font-size-hero-slider-text: 18;
-$font-size-hero-slider-copyright: 14;
+$font-size-hero-slider-text: $font-size-large;
+$font-size-hero-slider-copyright: ($font-size-base - 1);
 $font-size-hero-meta-portal: 40;
 
-$font-size-textbuttons: 14;
-$font-size-linkicon: 13;
-$font-size-hero-links: 13;
-$font-size-hero-bannertext: 18;
-$font-size-link-contentmenu: 13;
+$font-size-textbuttons: ($font-size-base - 1);
+$font-size-linkicon: ($font-size-base - 2);
+$font-size-hero-links: ($font-size-base - 2);
+$font-size-hero-bannertext: $font-size-large;
+$font-size-link-contentmenu: ($font-size-base - 2);
 
 $font-size-content-linkicon: 10;
 $font-size-content-listitem: $font-size-base;
@@ -290,7 +297,7 @@ $font-size-quotes-cites: ($font-size-quotes - 1);
 $font-size-content-meta: $font-size-small;
 $font-size-image-caption: $font-size-small;
 
-$font-size-content-toggle: 16;
+$font-size-content-toggle: $font-size-base;
 
 $font-size-pagination-h3: $font-size-content-meta;
 $font-size-pagination-links: $font-size-content-meta;
@@ -300,8 +307,8 @@ $font-size-mobile-meta: 24;
 $font-size-mobile-sitetitle: 20;
 $font-size-desktop-sitetitle: 22;
 
-$font-size-print-base: 16;
-$font-size-print-base-small: 13;
+$font-size-print-base: $font-size-base;
+$font-size-print-base-small: ($font-size-base - 2);
 
 
 // Slider

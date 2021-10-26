@@ -3,7 +3,21 @@
 /* https://github.com/RRZE-Webteam/rrze-calendar
 /*-----------------------------------------------------------------------------------*/
 
+.sidebar-single,
+.sidebar-inline,
+.startpage-sidebar,
+.portalpage-content,
+.startpage-blogroll,
+.content-inline {
+    .rrze-calendar {
+	p {
+	    a {
+//		@include defaultlinkstyle();
+	    }
 
+	}
+    }
+}
 .events-more-links {
 	padding: 0;
 	text-align: left;
@@ -89,6 +103,9 @@
 
 .event-title {
 	font-weight: bold;
+	a {
+	    
+	}
 }
 
 .event-time, 

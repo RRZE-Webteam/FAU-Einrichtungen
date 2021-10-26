@@ -166,16 +166,12 @@
 
 
 .infobar {
-    @extend .col-xs-12;
-    @extend .col-sm-8;
-    
+
     display: none;
     @media (min-width: $screen-xs) {
         display: inline-block;
     }
-    &.fullsize {
-	 @extend .col-sm-12;
-    }
+
     
 }
 

@@ -5,10 +5,11 @@
 @use "sass:math";
 
 
+
 .person-info-more {
 	@include morelink();
 }
-
+.fau-person,
 .person {
     h3, h4, h5 {
 	a {
@@ -284,7 +285,16 @@
 .portalpage-content,
 .startpage-blogroll,
 .content-inline {
-	
+    .fau-person {
+	p {
+	    a {
+		@include defaultlinkstyle();
+	    }
+
+	}
+    }
+    
+    
 	.person .row {
 	    display: flex;
 	    flex-wrap: wrap; 

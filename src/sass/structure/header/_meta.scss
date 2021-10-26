@@ -5,6 +5,7 @@
 #meta {
 	@include placeholder(#fff);
 	background: var(--color-StandardHellgrau);
+	color: var(--colorMetaTextDefault);
 	z-index: 100;
 	height: 50px;
 	padding: 5px 0;

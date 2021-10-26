@@ -5,8 +5,10 @@
 /* Subpages / Portal Menu */
 .contentmenu {
     @extend .row;
+    a {
+	@include defaultlinkstyle();
+    }
 }
-
 
 .subpages-menu {
 	@include no-list;

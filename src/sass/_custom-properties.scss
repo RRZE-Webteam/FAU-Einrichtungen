@@ -17,11 +17,14 @@
      --color-MetaHomeBackground: #{$colorMetaFAUHomeBackground}; 
      --color-MetaHover: #{$colorMetaHover};
      --color-MetaText: #fff;
+     --color-MetaTextDefault: #{$colorMetaTextDefault};
      --color-MetaBackgroundLight: #{$colorMetaLightest};
-
+     --color-FAU: #{$colorZUV};
      --color-content-headlines: #{$color-content-headlines};
      --color-links: #{$color-links};
      --color-content-links: #{$color-content-links};
+     --color-content-links-underline: #{$color-content-links-underline};
+     --color-content-links-hover: #{$color-content-links-hover};
      
     --color-footer-bg: #{$color-footer-bg};
     --color-footer-text: #{$color-footer-text};

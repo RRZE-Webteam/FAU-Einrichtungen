@@ -84,6 +84,7 @@
   --color-tf-ci-hell2-kontrast: #333;
   --color-Text: #444;
   --color-TextLight: #797676;
+  --color-MetaTextDefault: #444;
   --color-Notice: #a71c18;
   --color-Alert: #c5ac94;
   --color-ZUV: #002F6C;
@@ -102,10 +103,14 @@
   --color-MetaHomeBackground: #d4d4d4;
   --color-MetaHover: #20497f;
   --color-MetaText: #fff;
+  --color-MetaTextDefault: #444;
   --color-MetaBackgroundLight: #ecf0f4;
+  --color-FAU: #002F6C;
   --color-content-headlines: #444;
   --color-links: #002F6C;
   --color-content-links: #444;
+  --color-content-links-underline: #002F6C;
+  --color-content-links-hover: #fff;
   --color-footer-bg: #002f6c;
   --color-footer-text: #fff;
   --color-hero-bg: #002f6c;

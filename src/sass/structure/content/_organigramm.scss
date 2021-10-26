@@ -34,13 +34,10 @@
 	}
 	
 	a {
-		text-decoration: none;
+		@include defaultlinkstyle();
 	}
 	
-	a:hover, a:focus {
-		text-decoration: underline;
-	}
-	
+
 
 	
 	.toggle-icon {

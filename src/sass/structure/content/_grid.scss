@@ -138,7 +138,6 @@
         width: 100%;
         padding-left:  floor(math.div($grid-gutter-width, 2));
 	padding-right: ceil(math.div($grid-gutter-width, 2));
-	flex: 0 0 $sidebar-width-inline + $grid-gutter-width;
 	
 	@media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
 	    // bei kleinen Desktopauflösungen tun wir die Sidebar als Floating in den Content rein...
@@ -149,6 +148,9 @@
 	    margin-left: floor(math.div($grid-gutter-width, 2));
 	    margin-bottom: floor(math.div($grid-gutter-width, 2));
 	}
+	@media (min-width: $screen-xl) {
+	    flex: 0 0 $sidebar-width-inline + $grid-gutter-width;
+	}
 	
     }
     .content-inline {
@@ -157,7 +159,10 @@
         width: 100%;
 	padding-left:  floor(math.div($grid-gutter-width, 2));
 	padding-right: ceil(math.div($grid-gutter-width, 2));
-	flex: 1 0 $screen-sm;
+	flex: 1 0 $screen-xs;
+	@media (min-width: $screen-sm) {
+	    padding-left: 0;
+	}
 	@media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
 	     padding-left: 0;
 	     padding-right: 0;
@@ -285,16 +290,21 @@
 .page-template-page-portal {
     .portalpage-content {
 	min-width: $screen-xs;
-	flex: 1 1;
+	flex: 1 1 $screen-xs;
 	main {
-	    padding-top: 10px;
+	    padding-top: ceil(math.div($grid-gutter-width, 2));
+	}
+	@media (min-width: $screen-sm) {
+	   padding-right: ceil(math.div($grid-gutter-width, 2));
 	}
     }
     
     .portalpage-sidebar {
-	min-width: $screen-xs;	
-	flex: 1 0 33%;
-	max-width: 33%;
+	min-width: $screen-xxs;	
+	flex: 0 0 342px;
+	@media (min-width: $screen-sm) {
+	    padding-left:  floor(math.div($grid-gutter-width, 2));
+	}
     }
    
 }

@@ -102,7 +102,6 @@
 		    &:hover,
 		    &:focus {
 			    background: var(--color-MetaBackgroundLight);
-		//	    color: var(--color-MetaText);
 			    @include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
 			    
 			    

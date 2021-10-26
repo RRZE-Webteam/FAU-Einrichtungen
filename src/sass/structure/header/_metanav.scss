@@ -27,7 +27,7 @@
 		a {
 			@include inline-block;
 			padding: 10px 0;
-			color:  var(--color-Default);
+			color: var(--colorMetaTextDefault);
 			text-decoration: none;
 		}
 
@@ -117,7 +117,7 @@
 		    position: relative;
 		    vertical-align: text-top;
 		    .fau {
-			fill: $colorZUV;
+			fill: var(--color-FAU);
 			--fau-logo-display-name: none;
 			
 		    }
