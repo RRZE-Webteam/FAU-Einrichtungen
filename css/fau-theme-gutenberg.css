@@ -1573,11 +1573,6 @@ Mixins File for Wordpress Theme FAU
 html {
   font-size: 100%;
 }
-@media (min-width: 768px) {
-  html {
-    font-size: 100%;
-  }
-}
 
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -4505,16 +4500,16 @@ CSS Font File for Wordpress Theme FAU
           hyphens: auto;
 }
 .edit-post-visual-editor .editor-block-list__block h1.mce-content-body {
-  font-size: 1.875rem;
-  line-height: 2.438rem;
-}
-table .edit-post-visual-editor .editor-block-list__block h1.mce-content-body {
-  font-size: 1.75rem;
-  line-height: 2.625rem;
-}
-.edit-post-visual-editor .editor-block-list__block h1.mce-content-body.small {
   font-size: 1.75rem;
   line-height: 2.275rem;
+}
+table .edit-post-visual-editor .editor-block-list__block h1.mce-content-body {
+  font-size: 1.625rem;
+  line-height: 2.438rem;
+}
+.edit-post-visual-editor .editor-block-list__block h1.mce-content-body.small {
+  font-size: 1.625rem;
+  line-height: 2.113rem;
 }
 .edit-post-visual-editor .editor-block-list__block h2.mce-content-body {
   font-size: 1.625rem;
@@ -4604,8 +4599,8 @@ table .edit-post-visual-editor .editor-block-list__block h6 {
 }
 .edit-post-visual-editor .editor-block-list__block p.presentationtitle {
   font-weight: bold;
-  font-size: 1.875rem;
-  line-height: 2.438rem;
+  font-size: 1.75rem;
+  line-height: 2.275rem;
   margin: 20px 0 20px 0;
 }
 .edit-post-visual-editor .editor-block-list__block ul,

@@ -389,10 +389,12 @@
 				> [type=button] {
 					&[aria-expanded=true] {
 						background-color: var(--color-primary-basis);
+						color: var(--color-primary-basis-kontrast);
 					}
 
 					&:hover, &:focus {
 						background-color: var(--color-primary-dunkelste);
+						color: var(--color-primary-dunkelste-kontrast);
 					}
 				}
 			}

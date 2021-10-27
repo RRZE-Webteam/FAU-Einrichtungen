@@ -109,7 +109,11 @@
 	
 	li .current_page_ancestor .current_page_item a,
 	li li .current_page_ancestor a {
-		background: var(--color-primary-dunkelste); 
+	//	background: var(--color-primary-dunkelste); 
+	//	color: var(--color-primary-dunkelste-kontrast);
+		background: var(--color-submenu-currentpage-bg); 
+		color: var(--color-submenu-currentpage-text);
+		
 	}
 	
 	li li li li a,

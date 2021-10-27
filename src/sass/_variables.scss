@@ -21,8 +21,8 @@ $colormap-misc: ("Text": #444,
 		 "MetaTextDefault": #444,
 		 "Notice": #a71c18, 
 		 "Alert": #c5ac94,
-		 "ZUV": #002F6C, // #003366, 
-		 "Default": #002F6C, // #003366, 
+		 "ZUV": #04316A, // #003366, 
+		 "Default": #04316A, // #003366, 
 		 "MainBackground":  #fff, 
 		 "StandardHellgrau": #e9edf2,	// desaturate(lighten($colorZUV, 73%), 75%);
 		 "ContentBorders": #dfe6ec,	// desaturate(lighten($colorZUV, 69%), 75%);
@@ -38,17 +38,26 @@ $colormap-misc: ("Text": #444,
 // $colormap-zentral: ("basis": #003366, "heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #24598f, "dunkelste": #1f4b7a, "basis-kontrast": #fff);
 // alt, 2015
 
+
+// Stand 23.09 + Workouts 18.10, 20.10.
 $colormap-zentral: ("basis": #002F6C, "heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #24598f, "dunkler-kontrast": #fff, "dunkelste": #1f4b7a, "basis-kontrast": #fff, "ci-hell": #002f6c, "ci-hell-kontrast": #fff, "ci-hell2": #B7D5FA, "ci-hell2-kontrast": #333);
-// neu 23.09
-
-$colormap-primary: $colormap-zentral;
-
 $colormap-phil: ("basis": #A36B0D, "heller": #d9c689, "hellste": #f3eedf, "dunkler": #805000, "dunkler-kontrast": #fff, "dunkelste": #553500, "basis-kontrast": #fff, "ci-hell": #ffb81c, "ci-hell-kontrast": #000, "ci-hell2": #fbedcd, "ci-hell2-kontrast": #333);
 $colormap-med: ("basis": #0381A2, "heller": #bfd6f5, "hellste": #eaf3fc, "dunkler": #026480, "dunkler-kontrast": #fff, "dunkelste": #014e63, "basis-kontrast": #fff, "ci-hell": #0bb6f7, "ci-hell-kontrast": #000, "ci-hell2": #C8EFFE, "ci-hell2-kontrast": #333);
 $colormap-nat: ("basis": #048767, "heller": #aacfbd, "hellste": #e5efea, "dunkler": #006e53, "dunkler-kontrast": #fff, "dunkelste": #00533f, "basis-kontrast": #fff, "ci-hell": #43b02a, "ci-hell-kontrast": #000, "ci-hell2": #CFF1C3, "ci-hell2-kontrast": #333);
 $colormap-rw: ("basis": #8d1429, "heller": #c5ac94, "hellste": #ede7de, "dunkler": #690013, "dunkler-kontrast": #fff, "dunkelste": #42000c, "basis-kontrast": #fff, "ci-hell": #971b2f, "ci-hell-kontrast": #fff, "ci-hell2": #f2eae9, "ci-hell2-kontrast": #333);
 $colormap-tf: ("basis": #4D5B65, "heller": #d2d5d7, "hellste": #ebecee, "dunkler": #53606b, "dunkler-kontrast": #fff, "dunkelste": #3b4956, "basis-kontrast": #fff, "ci-hell": #779fb5, "ci-hell-kontrast": #000, "ci-hell2": #E2E7EB, "ci-hell2-kontrast": #333);
-// neu 23.09
+
+// Neuer Entwurf 25.10.
+$colormap-zentral: ("basis": #04316A, "basis-kontrast": #fff,"heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #004A9F, "dunkler-kontrast": #fff, "dunkelste": #041E42, "dunkelste-kontrast": #fff, "ci-hell": #04316A, "ci-hell-kontrast": #fff, "ci-hell2": #CED9E7, "ci-hell2-kontrast": #000);
+$colormap-phil: ("basis": #963B2F, "basis-kontrast": #fff,"heller": #d9c689, "hellste": #f3eedf, "dunkler": #E46D41, "dunkler-kontrast": #000, "dunkelste": #963B2F, "dunkelste-kontrast": #fff,  "ci-hell": #FDB735, "ci-hell-kontrast": #000, "ci-hell2": #F4E8CB, "ci-hell2-kontrast": #000);
+$colormap-med: ("basis": #005287,"basis-kontrast": #fff, "heller": #bfd6f5, "hellste": #eaf3fc, "dunkler": #005287, "dunkler-kontrast": #fff, "dunkelste": #003E61, "dunkelste-kontrast": #fff,  "ci-hell": #18B4F1, "ci-hell-kontrast": #000, "ci-hell2": #B9D9EC, "ci-hell2-kontrast": #000);
+$colormap-nat: ("basis": #266141, "basis-kontrast": #fff,"heller": #aacfbd, "hellste": #e5efea, "dunkler": #266141, "dunkler-kontrast": #fff, "dunkelste": #14462D, "dunkelste-kontrast": #fff,  "ci-hell": #65AB0F, "ci-hell-kontrast": #000, "ci-hell2": #CFE0D8, "ci-hell2-kontrast": #000);
+$colormap-rw: ("basis": #971B2F, "basis-kontrast": #fff,"heller": #c5ac94, "hellste": #ede7de, "dunkler": #971B2F, "dunkler-kontrast": #fff, "dunkelste": #662938, "dunkelste-kontrast": #fff,  "ci-hell": #C50F3C, "ci-hell-kontrast": #fff, "ci-hell2": #ECD6C5, "ci-hell2-kontrast": #000);
+$colormap-tf: ("basis": #2F586E, "basis-kontrast": #fff,"heller": #d2d5d7, "hellste": #ebecee, "dunkler": #2F586E, "dunkler-kontrast": #fff, "dunkelste": #204251, "dunkelste-kontrast": #fff,  "ci-hell": #8C9FB1, "ci-hell-kontrast": #000, "ci-hell2": #D3DDE6, "ci-hell2-kontrast": #000);
+
+
+
+$colormap-primary: $colormap-zentral;
 
 
 @if $farbfamilie == 'med' {
@@ -77,7 +86,7 @@ $colormaps: ("primary": $colormap-primary, "zentral": $colormap-zentral, "phil":
 // Content
 $color-content-headlines:   map-get($colormap-misc, "Text");
 $color-links:		    map-get($colormap-primary, "basis");
-$color-content-links:	    map-get($colormap-misc, "Text");
+$color-content-links:	    map-get($colormap-primary, "basis");// map-get($colormap-misc, "Text");
 $color-content-links-underline:	    map-get($colormap-primary, "basis");
 $color-content-links-hover: map-get($colormap-primary, "basis-kontrast");
 
@@ -106,7 +115,7 @@ $color-mainmenu-sublevel-hover-text:	map-get($colormap-primary, "dunkler-kontras
 $color-mainmenu-sublevel-hover-bg:	map-get($colormap-primary, "dunkler");
 $color-mainmenu-sublevel-button-text:	map-get($colormap-primary, "dunkler-kontrast");
 $color-mainmenu-sublevel-button-bg:	map-get($colormap-primary, "dunkler");
-$color-mainmenu-sublevel-button-hover-text:	map-get($colormap-primary, "dunkler-kontrast");
+$color-mainmenu-sublevel-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
 $color-mainmenu-sublevel-button-hover-bg:	map-get($colormap-primary, "dunkelste");
 
 // Submenu (= Subnav links)
@@ -122,6 +131,9 @@ $color-submenu-currentlevel-text:	map-get($colormap-primary, "ci-hell2-kontrast"
 $color-submenu-currentlevel-bg:	    map-get($colormap-primary, "ci-hell2");
 $color-submenu-sublevel-text:	map-get($colormap-primary, "ci-hell-kontrast");
 $color-submenu-sublevel-bg:	    map-get($colormap-primary, "ci-hell");
+
+$color-submenu-currentpage-bg:	map-get($colormap-primary, "dunkelste");
+$color-submenu-currentpage-text:map-get($colormap-primary, "dunkelste-kontrast");
 
 @if $colorstyle == '2015' {
     $color-footer-bg:	map-get($colormap-primary, "basis");
@@ -203,8 +215,7 @@ $colorCopyrightBackground: rgba(0, 0, 0, 0.6);
 
 
 // Font sizes
-$font-size-rembase: 100%; // 93.75%;
-$font-size-rembase-mobile: 100%;
+$font-size-rembase: 100%; 
 $font-size-gridbase: 16;
 $font-size-base: 16;
 
@@ -242,20 +253,20 @@ $font-size-sidebar-events-month: 10;
 $font-size-sidebar-events-day: 20;
 
 $font-size-socialmedia-morelink: $font-size-sidebar;
-$font-size-nav-blockquote: 16;
-$font-size-nav-blockquote-cite: 14;
-$font-size-nav-introtext: 15;
-$font-size-nav-flyout-items: 15;
-$font-size-nav-mainlinks: 17;
+$font-size-nav-blockquote: ($font-size-base + 1);
+$font-size-nav-blockquote-cite: ($font-size-base - 1);
+$font-size-nav-introtext: $font-size-base;
+$font-size-nav-flyout-items: $font-size-base;
+$font-size-nav-mainlinks: ($font-size-base + 2);
 
 $font-size-subnav-firstlevel: ($font-size-base - 1);
 $font-size-subnav-sublevel: ($font-size-base - 2);
 
 
 
-$font-size-h1: ($font-size-base + 14);
-$font-size-h1-mobilebranding: 24;
-$font-size-h1-banner: 28;
+$font-size-h1: ($font-size-base + 12);
+$font-size-h1-mobilebranding: ($font-size-base + 10);
+$font-size-h1-banner: ($font-size-base + 12);
 $font-size-h1-sidebar: ($font-size-h1 - 2);
 $font-size-h1-table: ($font-size-h1 - 2);
 $font-size-h1-small: ($font-size-h1 - 2);

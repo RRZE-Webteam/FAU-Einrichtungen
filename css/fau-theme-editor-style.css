@@ -6,90 +6,97 @@
 /* CSS Custom Properties
 /*-----------------------------------------------------------------------------------*/
 :root {
-  --color-primary-basis: #002F6C;
-  --color-primary-heller: #8fb1ef;
-  --color-primary-hellste: #dde5f0;
-  --color-primary-dunkler: #24598f;
-  --color-primary-dunkler-kontrast: #fff;
-  --color-primary-dunkelste: #1f4b7a;
+  --color-primary-basis: #005287;
   --color-primary-basis-kontrast: #fff;
-  --color-primary-ci-hell: #002f6c;
-  --color-primary-ci-hell-kontrast: #fff;
-  --color-primary-ci-hell2: #B7D5FA;
-  --color-primary-ci-hell2-kontrast: #333;
-  --color-zentral-basis: #002F6C;
+  --color-primary-heller: #bfd6f5;
+  --color-primary-hellste: #eaf3fc;
+  --color-primary-dunkler: #005287;
+  --color-primary-dunkler-kontrast: #fff;
+  --color-primary-dunkelste: #003E61;
+  --color-primary-dunkelste-kontrast: #fff;
+  --color-primary-ci-hell: #18B4F1;
+  --color-primary-ci-hell-kontrast: #000;
+  --color-primary-ci-hell2: #B9D9EC;
+  --color-primary-ci-hell2-kontrast: #000;
+  --color-zentral-basis: #04316A;
+  --color-zentral-basis-kontrast: #fff;
   --color-zentral-heller: #8fb1ef;
   --color-zentral-hellste: #dde5f0;
-  --color-zentral-dunkler: #24598f;
+  --color-zentral-dunkler: #004A9F;
   --color-zentral-dunkler-kontrast: #fff;
-  --color-zentral-dunkelste: #1f4b7a;
-  --color-zentral-basis-kontrast: #fff;
-  --color-zentral-ci-hell: #002f6c;
+  --color-zentral-dunkelste: #041E42;
+  --color-zentral-dunkelste-kontrast: #fff;
+  --color-zentral-ci-hell: #04316A;
   --color-zentral-ci-hell-kontrast: #fff;
-  --color-zentral-ci-hell2: #B7D5FA;
-  --color-zentral-ci-hell2-kontrast: #333;
-  --color-phil-basis: #A36B0D;
+  --color-zentral-ci-hell2: #CED9E7;
+  --color-zentral-ci-hell2-kontrast: #000;
+  --color-phil-basis: #963B2F;
+  --color-phil-basis-kontrast: #fff;
   --color-phil-heller: #d9c689;
   --color-phil-hellste: #f3eedf;
-  --color-phil-dunkler: #805000;
-  --color-phil-dunkler-kontrast: #fff;
-  --color-phil-dunkelste: #553500;
-  --color-phil-basis-kontrast: #fff;
-  --color-phil-ci-hell: #ffb81c;
+  --color-phil-dunkler: #E46D41;
+  --color-phil-dunkler-kontrast: #000;
+  --color-phil-dunkelste: #963B2F;
+  --color-phil-dunkelste-kontrast: #fff;
+  --color-phil-ci-hell: #FDB735;
   --color-phil-ci-hell-kontrast: #000;
-  --color-phil-ci-hell2: #fbedcd;
-  --color-phil-ci-hell2-kontrast: #333;
-  --color-med-basis: #0381A2;
+  --color-phil-ci-hell2: #F4E8CB;
+  --color-phil-ci-hell2-kontrast: #000;
+  --color-med-basis: #005287;
+  --color-med-basis-kontrast: #fff;
   --color-med-heller: #bfd6f5;
   --color-med-hellste: #eaf3fc;
-  --color-med-dunkler: #026480;
+  --color-med-dunkler: #005287;
   --color-med-dunkler-kontrast: #fff;
-  --color-med-dunkelste: #014e63;
-  --color-med-basis-kontrast: #fff;
-  --color-med-ci-hell: #0bb6f7;
+  --color-med-dunkelste: #003E61;
+  --color-med-dunkelste-kontrast: #fff;
+  --color-med-ci-hell: #18B4F1;
   --color-med-ci-hell-kontrast: #000;
-  --color-med-ci-hell2: #C8EFFE;
-  --color-med-ci-hell2-kontrast: #333;
-  --color-nat-basis: #048767;
+  --color-med-ci-hell2: #B9D9EC;
+  --color-med-ci-hell2-kontrast: #000;
+  --color-nat-basis: #266141;
+  --color-nat-basis-kontrast: #fff;
   --color-nat-heller: #aacfbd;
   --color-nat-hellste: #e5efea;
-  --color-nat-dunkler: #006e53;
+  --color-nat-dunkler: #266141;
   --color-nat-dunkler-kontrast: #fff;
-  --color-nat-dunkelste: #00533f;
-  --color-nat-basis-kontrast: #fff;
-  --color-nat-ci-hell: #43b02a;
+  --color-nat-dunkelste: #14462D;
+  --color-nat-dunkelste-kontrast: #fff;
+  --color-nat-ci-hell: #65AB0F;
   --color-nat-ci-hell-kontrast: #000;
-  --color-nat-ci-hell2: #CFF1C3;
-  --color-nat-ci-hell2-kontrast: #333;
-  --color-rw-basis: #8d1429;
+  --color-nat-ci-hell2: #CFE0D8;
+  --color-nat-ci-hell2-kontrast: #000;
+  --color-rw-basis: #971B2F;
+  --color-rw-basis-kontrast: #fff;
   --color-rw-heller: #c5ac94;
   --color-rw-hellste: #ede7de;
-  --color-rw-dunkler: #690013;
+  --color-rw-dunkler: #971B2F;
   --color-rw-dunkler-kontrast: #fff;
-  --color-rw-dunkelste: #42000c;
-  --color-rw-basis-kontrast: #fff;
-  --color-rw-ci-hell: #971b2f;
+  --color-rw-dunkelste: #662938;
+  --color-rw-dunkelste-kontrast: #fff;
+  --color-rw-ci-hell: #C50F3C;
   --color-rw-ci-hell-kontrast: #fff;
-  --color-rw-ci-hell2: #f2eae9;
-  --color-rw-ci-hell2-kontrast: #333;
-  --color-tf-basis: #4D5B65;
+  --color-rw-ci-hell2: #ECD6C5;
+  --color-rw-ci-hell2-kontrast: #000;
+  --color-tf-basis: #2F586E;
+  --color-tf-basis-kontrast: #fff;
   --color-tf-heller: #d2d5d7;
   --color-tf-hellste: #ebecee;
-  --color-tf-dunkler: #53606b;
+  --color-tf-dunkler: #2F586E;
   --color-tf-dunkler-kontrast: #fff;
-  --color-tf-dunkelste: #3b4956;
-  --color-tf-basis-kontrast: #fff;
-  --color-tf-ci-hell: #779fb5;
+  --color-tf-dunkelste: #204251;
+  --color-tf-dunkelste-kontrast: #fff;
+  --color-tf-ci-hell: #8C9FB1;
   --color-tf-ci-hell-kontrast: #000;
-  --color-tf-ci-hell2: #E2E7EB;
-  --color-tf-ci-hell2-kontrast: #333;
+  --color-tf-ci-hell2: #D3DDE6;
+  --color-tf-ci-hell2-kontrast: #000;
   --color-Text: #444;
   --color-TextLight: #797676;
   --color-MetaTextDefault: #444;
   --color-Notice: #a71c18;
   --color-Alert: #c5ac94;
-  --color-ZUV: #002F6C;
-  --color-Default: #002F6C;
+  --color-ZUV: #04316A;
+  --color-Default: #04316A;
   --color-MainBackground: #fff;
   --color-StandardHellgrau: #e9edf2;
   --color-ContentBorders: #dfe6ec;
@@ -100,46 +107,47 @@
   --color-KontrastHell: #fff;
   --color-KontrastDunkel: #333;
   /* Calculated Values */
-  --color-primary-basis-lighten15: #002f6c;
+  --color-primary-basis-lighten15: #18B4F1;
   --color-MetaHomeBackground: #d4d4d4;
-  --color-MetaHover: #20497f;
+  --color-MetaHover: #264c7b;
   --color-MetaText: #fff;
-  --color-MetaTextDefault: #444;
-  --color-MetaBackgroundLight: #ecf0f4;
-  --color-FAU: #002F6C;
+  --color-MetaBackgroundLight: #eff1f4;
+  --color-FAU: #04316A;
   --color-content-headlines: #444;
-  --color-links: #002F6C;
-  --color-content-links: #444;
-  --color-content-links-underline: #002F6C;
+  --color-links: #005287;
+  --color-content-links: #005287;
+  --color-content-links-underline: #005287;
   --color-content-links-hover: #fff;
-  --color-footer-bg: #002f6c;
-  --color-footer-text: #fff;
-  --color-hero-bg: #002f6c;
-  --color-hero-text: #fff;
+  --color-footer-bg: #18B4F1;
+  --color-footer-text: #000;
+  --color-hero-bg: #18B4F1;
+  --color-hero-text: #000;
   --color-mainmenu-toplevel-bg: #fff;
   --color-mainmenu-toplevel-text: #444;
-  --color-mainmenu-toplevel-hover-text: #fff;
-  --color-mainmenu-toplevel-hover-bg: #002f6c;
-  --color-mainmenu-sublevel-bg: #002f6c;
-  --color-mainmenu-sublevel-text: #fff;
+  --color-mainmenu-toplevel-hover-text: #000;
+  --color-mainmenu-toplevel-hover-bg: #18B4F1;
+  --color-mainmenu-sublevel-bg: #18B4F1;
+  --color-mainmenu-sublevel-text: #000;
   --color-mainmenu-sublevel-hover-text: #fff;
-  --color-mainmenu-sublevel-hover-bg: #24598f;
+  --color-mainmenu-sublevel-hover-bg: #005287;
   --color-mainmenu-sublevel-button-text: #fff;
-  --color-mainmenu-sublevel-button-bg: #24598f;
+  --color-mainmenu-sublevel-button-bg: #005287;
   --color-mainmenu-sublevel-button-hover-text: #fff;
-  --color-mainmenu-sublevel-button-hover-bg: #1f4b7a;
+  --color-mainmenu-sublevel-button-hover-bg: #003E61;
   --color-submenu-toplevel-bg: #fff;
   --color-submenu-toplevel-text: #444;
-  --color-submenu-toplevel-hover-text: #fff;
-  --color-submenu-toplevel-hover-bg: #002f6c;
-  --color-submenu-active-bg: #002f6c;
-  --color-submenu-active-text: #fff;
+  --color-submenu-toplevel-hover-text: #000;
+  --color-submenu-toplevel-hover-bg: #18B4F1;
+  --color-submenu-active-bg: #18B4F1;
+  --color-submenu-active-text: #000;
   --color-submenu-hover-text: #fff;
-  --color-submenu-hover-bg: #24598f;
-  --color-submenu-currentlevel-text: #333;
-  --color-submenu-currentlevel-bg: #B7D5FA;
-  --color-submenu-sublevel-text: #fff;
-  --color-submenu-sublevel-bg: #002f6c;
+  --color-submenu-hover-bg: #005287;
+  --color-submenu-currentlevel-text: #000;
+  --color-submenu-currentlevel-bg: #B9D9EC;
+  --color-submenu-sublevel-text: #000;
+  --color-submenu-sublevel-bg: #18B4F1;
+  --color-submenu-currentpage-bg: #003E61;
+  --color-submenu-currentpage-text: #fff;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -1802,11 +1810,6 @@ Mixins File for Wordpress Theme FAU
 /*-----------------------------------------------------------------------------------*/
 html {
   font-size: 100%;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 100%;
-  }
 }
 
 /*
@@ -4745,8 +4748,8 @@ h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 1.875rem;
-  line-height: 2.438rem;
+  font-size: 1.75rem;
+  line-height: 2.275rem;
 }
 .sidebar-inline + h1 {
   margin-top: 0;
@@ -4756,16 +4759,16 @@ h1 {
   line-height: 2.625rem;
 }
 .sidebar-inline h1, .search-sidebar h1, .sidebar-outline h1, .widget h1 {
-  font-size: 1.75rem;
-  line-height: 2.625rem;
+  font-size: 1.625rem;
+  line-height: 2.438rem;
 }
 table h1 {
-  font-size: 1.75rem;
-  line-height: 2.625rem;
+  font-size: 1.625rem;
+  line-height: 2.438rem;
 }
 h1.small {
-  font-size: 1.75rem;
-  line-height: 2.275rem;
+  font-size: 1.625rem;
+  line-height: 2.113rem;
 }
 
 h2 {
@@ -5012,8 +5015,8 @@ p.lead-in {
 
 p.presentationtitle {
   font-weight: bold;
-  font-size: 1.875rem;
-  line-height: 2.813rem;
+  font-size: 1.75rem;
+  line-height: 2.625rem;
   margin: 20px 0 20px 0;
 }
 
@@ -5100,44 +5103,53 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   text-decoration: none;
 }
 
+.entry-content p a,
 .portalpage-content p a,
 .content-inline p a {
   cursor: pointer;
   word-wrap: break-word;
   color: var(--color-content-links);
   box-shadow: inset 0 -2px 0 var(--color-content-links-underline);
-  transition: box-shadow 0.3s ease-in-out;
+  transition: all 0.3s ease-out;
   text-decoration: none;
   padding: 3px 1px;
 }
-.portalpage-content p a:focus, .portalpage-content p a:hover,
+.entry-content p a:focus, .entry-content p a:hover,
+.portalpage-content p a:focus,
+.portalpage-content p a:hover,
 .content-inline p a:focus,
 .content-inline p a:hover {
   text-decoration: none;
   color: var(--color-content-links-hover);
   box-shadow: inset 0 -28px 0 var(--color-content-links-underline);
 }
+.entry-content a.media-img,
 .portalpage-content a.media-img,
 .content-inline a.media-img {
   display: inline-block;
   overflow: hidden;
 }
+.entry-content a.media-img img,
 .portalpage-content a.media-img img,
 .content-inline a.media-img img {
   object-fit: cover;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .portalpage-content a.media-img img,
+  .entry-content a.media-img img,
+.portalpage-content a.media-img img,
 .content-inline a.media-img img {
     transition: transform 1s;
   }
 }
+.entry-content a.media-img:hover img,
+.entry-content a.media-img:focus img,
 .portalpage-content a.media-img:hover img,
 .portalpage-content a.media-img:focus img,
 .content-inline a.media-img:hover img,
 .content-inline a.media-img:focus img {
   transform: scale(1.2);
 }
+.entry-content a.media-img.alignleft,
 .portalpage-content a.media-img.alignleft,
 .content-inline a.media-img.alignleft {
   float: left;
@@ -5145,11 +5157,13 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   margin-right: 20px;
   margin-bottom: 20px;
 }
+.entry-content a.media-img.alignleft img,
 .portalpage-content a.media-img.alignleft img,
 .content-inline a.media-img.alignleft img {
   float: none;
   margin: 0;
 }
+.entry-content a.media-img.alignright,
 .portalpage-content a.media-img.alignright,
 .content-inline a.media-img.alignright {
   float: right;
@@ -5157,16 +5171,19 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   margin-left: 20px;
   margin-bottom: 20px;
 }
+.entry-content a.media-img.alignright img,
 .portalpage-content a.media-img.alignright img,
 .content-inline a.media-img.alignright img {
   float: none;
   margin: 0;
 }
+.entry-content a.media-img.aligncenter,
 .portalpage-content a.media-img.aligncenter,
 .content-inline a.media-img.aligncenter {
   display: block;
   margin: 0 auto 10px auto;
 }
+.entry-content a.media-img.aligncenter img,
 .portalpage-content a.media-img.aligncenter img,
 .content-inline a.media-img.aligncenter img {
   display: inline-block;
@@ -5567,8 +5584,8 @@ label {
 
 input[type=text]:focus,
 textarea:focus {
-  box-shadow: 0 0 5px #002F6C;
-  border: 1px solid #002F6C;
+  box-shadow: 0 0 5px #005287;
+  border: 1px solid #005287;
 }
 
 input[type=submit] {
@@ -5685,7 +5702,7 @@ table th {
   text-align: left;
 }
 table th h1, table th h2, table th h3, table th h4, table th h5, table th h6 {
-  color: #24598f;
+  color: #005287;
 }
 table.sorttable th.header {
   cursor: pointer;
@@ -6119,6 +6136,14 @@ img.alignright {
   background-color: var(--color-primary-basis);
 }
 
+.textcolor-primary-basis-kontrast {
+  color: var(--color-primary-basis-kontrast);
+}
+
+.bgcolor-primary-basis-kontrast {
+  background-color: var(--color-primary-basis-kontrast);
+}
+
 .textcolor-primary-heller {
   color: var(--color-primary-heller);
 }
@@ -6159,12 +6184,12 @@ img.alignright {
   background-color: var(--color-primary-dunkelste);
 }
 
-.textcolor-primary-basis-kontrast {
-  color: var(--color-primary-basis-kontrast);
+.textcolor-primary-dunkelste-kontrast {
+  color: var(--color-primary-dunkelste-kontrast);
 }
 
-.bgcolor-primary-basis-kontrast {
-  background-color: var(--color-primary-basis-kontrast);
+.bgcolor-primary-dunkelste-kontrast {
+  background-color: var(--color-primary-dunkelste-kontrast);
 }
 
 .textcolor-primary-ci-hell {
@@ -6215,6 +6240,14 @@ img.alignright {
   background-color: var(--color-zentral-basis);
 }
 
+.textcolor-zentral-basis-kontrast {
+  color: var(--color-zentral-basis-kontrast);
+}
+
+.bgcolor-zentral-basis-kontrast {
+  background-color: var(--color-zentral-basis-kontrast);
+}
+
 .textcolor-zentral-heller {
   color: var(--color-zentral-heller);
 }
@@ -6255,12 +6288,12 @@ img.alignright {
   background-color: var(--color-zentral-dunkelste);
 }
 
-.textcolor-zentral-basis-kontrast {
-  color: var(--color-zentral-basis-kontrast);
+.textcolor-zentral-dunkelste-kontrast {
+  color: var(--color-zentral-dunkelste-kontrast);
 }
 
-.bgcolor-zentral-basis-kontrast {
-  background-color: var(--color-zentral-basis-kontrast);
+.bgcolor-zentral-dunkelste-kontrast {
+  background-color: var(--color-zentral-dunkelste-kontrast);
 }
 
 .textcolor-zentral-ci-hell {
@@ -6311,6 +6344,14 @@ img.alignright {
   background-color: var(--color-phil-basis);
 }
 
+.textcolor-phil-basis-kontrast {
+  color: var(--color-phil-basis-kontrast);
+}
+
+.bgcolor-phil-basis-kontrast {
+  background-color: var(--color-phil-basis-kontrast);
+}
+
 .textcolor-phil-heller {
   color: var(--color-phil-heller);
 }
@@ -6351,12 +6392,12 @@ img.alignright {
   background-color: var(--color-phil-dunkelste);
 }
 
-.textcolor-phil-basis-kontrast {
-  color: var(--color-phil-basis-kontrast);
+.textcolor-phil-dunkelste-kontrast {
+  color: var(--color-phil-dunkelste-kontrast);
 }
 
-.bgcolor-phil-basis-kontrast {
-  background-color: var(--color-phil-basis-kontrast);
+.bgcolor-phil-dunkelste-kontrast {
+  background-color: var(--color-phil-dunkelste-kontrast);
 }
 
 .textcolor-phil-ci-hell {
@@ -6407,6 +6448,14 @@ img.alignright {
   background-color: var(--color-med-basis);
 }
 
+.textcolor-med-basis-kontrast {
+  color: var(--color-med-basis-kontrast);
+}
+
+.bgcolor-med-basis-kontrast {
+  background-color: var(--color-med-basis-kontrast);
+}
+
 .textcolor-med-heller {
   color: var(--color-med-heller);
 }
@@ -6447,12 +6496,12 @@ img.alignright {
   background-color: var(--color-med-dunkelste);
 }
 
-.textcolor-med-basis-kontrast {
-  color: var(--color-med-basis-kontrast);
+.textcolor-med-dunkelste-kontrast {
+  color: var(--color-med-dunkelste-kontrast);
 }
 
-.bgcolor-med-basis-kontrast {
-  background-color: var(--color-med-basis-kontrast);
+.bgcolor-med-dunkelste-kontrast {
+  background-color: var(--color-med-dunkelste-kontrast);
 }
 
 .textcolor-med-ci-hell {
@@ -6503,6 +6552,14 @@ img.alignright {
   background-color: var(--color-nat-basis);
 }
 
+.textcolor-nat-basis-kontrast {
+  color: var(--color-nat-basis-kontrast);
+}
+
+.bgcolor-nat-basis-kontrast {
+  background-color: var(--color-nat-basis-kontrast);
+}
+
 .textcolor-nat-heller {
   color: var(--color-nat-heller);
 }
@@ -6543,12 +6600,12 @@ img.alignright {
   background-color: var(--color-nat-dunkelste);
 }
 
-.textcolor-nat-basis-kontrast {
-  color: var(--color-nat-basis-kontrast);
+.textcolor-nat-dunkelste-kontrast {
+  color: var(--color-nat-dunkelste-kontrast);
 }
 
-.bgcolor-nat-basis-kontrast {
-  background-color: var(--color-nat-basis-kontrast);
+.bgcolor-nat-dunkelste-kontrast {
+  background-color: var(--color-nat-dunkelste-kontrast);
 }
 
 .textcolor-nat-ci-hell {
@@ -6599,6 +6656,14 @@ img.alignright {
   background-color: var(--color-rw-basis);
 }
 
+.textcolor-rw-basis-kontrast {
+  color: var(--color-rw-basis-kontrast);
+}
+
+.bgcolor-rw-basis-kontrast {
+  background-color: var(--color-rw-basis-kontrast);
+}
+
 .textcolor-rw-heller {
   color: var(--color-rw-heller);
 }
@@ -6639,12 +6704,12 @@ img.alignright {
   background-color: var(--color-rw-dunkelste);
 }
 
-.textcolor-rw-basis-kontrast {
-  color: var(--color-rw-basis-kontrast);
+.textcolor-rw-dunkelste-kontrast {
+  color: var(--color-rw-dunkelste-kontrast);
 }
 
-.bgcolor-rw-basis-kontrast {
-  background-color: var(--color-rw-basis-kontrast);
+.bgcolor-rw-dunkelste-kontrast {
+  background-color: var(--color-rw-dunkelste-kontrast);
 }
 
 .textcolor-rw-ci-hell {
@@ -6695,6 +6760,14 @@ img.alignright {
   background-color: var(--color-tf-basis);
 }
 
+.textcolor-tf-basis-kontrast {
+  color: var(--color-tf-basis-kontrast);
+}
+
+.bgcolor-tf-basis-kontrast {
+  background-color: var(--color-tf-basis-kontrast);
+}
+
 .textcolor-tf-heller {
   color: var(--color-tf-heller);
 }
@@ -6735,12 +6808,12 @@ img.alignright {
   background-color: var(--color-tf-dunkelste);
 }
 
-.textcolor-tf-basis-kontrast {
-  color: var(--color-tf-basis-kontrast);
+.textcolor-tf-dunkelste-kontrast {
+  color: var(--color-tf-dunkelste-kontrast);
 }
 
-.bgcolor-tf-basis-kontrast {
-  background-color: var(--color-tf-basis-kontrast);
+.bgcolor-tf-dunkelste-kontrast {
+  background-color: var(--color-tf-dunkelste-kontrast);
 }
 
 .textcolor-tf-ci-hell {
