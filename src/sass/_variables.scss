@@ -39,20 +39,12 @@ $colormap-misc: ("Text": #444,
 // alt, 2015
 
 
-// Stand 23.09 + Workouts 18.10, 20.10.
-$colormap-zentral: ("basis": #002F6C, "heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #24598f, "dunkler-kontrast": #fff, "dunkelste": #1f4b7a, "basis-kontrast": #fff, "ci-hell": #002f6c, "ci-hell-kontrast": #fff, "ci-hell2": #B7D5FA, "ci-hell2-kontrast": #333);
-$colormap-phil: ("basis": #A36B0D, "heller": #d9c689, "hellste": #f3eedf, "dunkler": #805000, "dunkler-kontrast": #fff, "dunkelste": #553500, "basis-kontrast": #fff, "ci-hell": #ffb81c, "ci-hell-kontrast": #000, "ci-hell2": #fbedcd, "ci-hell2-kontrast": #333);
-$colormap-med: ("basis": #0381A2, "heller": #bfd6f5, "hellste": #eaf3fc, "dunkler": #026480, "dunkler-kontrast": #fff, "dunkelste": #014e63, "basis-kontrast": #fff, "ci-hell": #0bb6f7, "ci-hell-kontrast": #000, "ci-hell2": #C8EFFE, "ci-hell2-kontrast": #333);
-$colormap-nat: ("basis": #048767, "heller": #aacfbd, "hellste": #e5efea, "dunkler": #006e53, "dunkler-kontrast": #fff, "dunkelste": #00533f, "basis-kontrast": #fff, "ci-hell": #43b02a, "ci-hell-kontrast": #000, "ci-hell2": #CFF1C3, "ci-hell2-kontrast": #333);
-$colormap-rw: ("basis": #8d1429, "heller": #c5ac94, "hellste": #ede7de, "dunkler": #690013, "dunkler-kontrast": #fff, "dunkelste": #42000c, "basis-kontrast": #fff, "ci-hell": #971b2f, "ci-hell-kontrast": #fff, "ci-hell2": #f2eae9, "ci-hell2-kontrast": #333);
-$colormap-tf: ("basis": #4D5B65, "heller": #d2d5d7, "hellste": #ebecee, "dunkler": #53606b, "dunkler-kontrast": #fff, "dunkelste": #3b4956, "basis-kontrast": #fff, "ci-hell": #779fb5, "ci-hell-kontrast": #000, "ci-hell2": #E2E7EB, "ci-hell2-kontrast": #333);
-
-// Neuer Entwurf 25.10.
+// Neuer Entwurf 28.10.
 $colormap-zentral: ("basis": #04316A, "basis-kontrast": #fff,"heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #004A9F, "dunkler-kontrast": #fff, "dunkelste": #041E42, "dunkelste-kontrast": #fff, "ci-hell": #04316A, "ci-hell-kontrast": #fff, "ci-hell2": #CED9E7, "ci-hell2-kontrast": #000);
 $colormap-phil: ("basis": #963B2F, "basis-kontrast": #fff,"heller": #d9c689, "hellste": #f3eedf, "dunkler": #E46D41, "dunkler-kontrast": #000, "dunkelste": #963B2F, "dunkelste-kontrast": #fff,  "ci-hell": #FDB735, "ci-hell-kontrast": #000, "ci-hell2": #F4E8CB, "ci-hell2-kontrast": #000);
 $colormap-med: ("basis": #005287,"basis-kontrast": #fff, "heller": #bfd6f5, "hellste": #eaf3fc, "dunkler": #005287, "dunkler-kontrast": #fff, "dunkelste": #003E61, "dunkelste-kontrast": #fff,  "ci-hell": #18B4F1, "ci-hell-kontrast": #000, "ci-hell2": #B9D9EC, "ci-hell2-kontrast": #000);
-$colormap-nat: ("basis": #266141, "basis-kontrast": #fff,"heller": #aacfbd, "hellste": #e5efea, "dunkler": #266141, "dunkler-kontrast": #fff, "dunkelste": #14462D, "dunkelste-kontrast": #fff,  "ci-hell": #65AB0F, "ci-hell-kontrast": #000, "ci-hell2": #CFE0D8, "ci-hell2-kontrast": #000);
-$colormap-rw: ("basis": #971B2F, "basis-kontrast": #fff,"heller": #c5ac94, "hellste": #ede7de, "dunkler": #971B2F, "dunkler-kontrast": #fff, "dunkelste": #662938, "dunkelste-kontrast": #fff,  "ci-hell": #C50F3C, "ci-hell-kontrast": #fff, "ci-hell2": #ECD6C5, "ci-hell2-kontrast": #000);
+$colormap-nat: ("basis": #266141, "basis-kontrast": #fff,"heller": #aacfbd, "hellste": #e5efea, "dunkler": #266141, "dunkler-kontrast": #fff, "dunkelste": #14462D, "dunkelste-kontrast": #fff,  "ci-hell": #7BB725, "ci-hell-kontrast": #000, "ci-hell2": #CFE0D8, "ci-hell2-kontrast": #000);
+$colormap-rw: ("basis": #971B2F, "basis-kontrast": #fff,"heller": #c5ac94, "hellste": #F2DED1, "dunkler": #971B2F, "dunkler-kontrast": #fff, "dunkelste": #662938, "dunkelste-kontrast": #fff,  "ci-hell": #C50F3C, "ci-hell-kontrast": #fff, "ci-hell2": #F2DED1, "ci-hell2-kontrast": #000);
 $colormap-tf: ("basis": #2F586E, "basis-kontrast": #fff,"heller": #d2d5d7, "hellste": #ebecee, "dunkler": #2F586E, "dunkler-kontrast": #fff, "dunkelste": #204251, "dunkelste-kontrast": #fff,  "ci-hell": #8C9FB1, "ci-hell-kontrast": #000, "ci-hell2": #D3DDE6, "ci-hell2-kontrast": #000);
 
 
@@ -86,9 +78,9 @@ $colormaps: ("primary": $colormap-primary, "zentral": $colormap-zentral, "phil":
 // Content
 $color-content-headlines:   map-get($colormap-misc, "Text");
 $color-links:		    map-get($colormap-primary, "basis");
-$color-content-links:	    map-get($colormap-primary, "basis");// map-get($colormap-misc, "Text");
-$color-content-links-underline:	    map-get($colormap-primary, "basis");
-$color-content-links-hover: map-get($colormap-primary, "basis-kontrast");
+$color-content-links:	    map-get($colormap-misc, "Text");
+$color-content-links-underline:	    map-get($colormap-primary, "ci-hell");
+$color-content-links-hover: map-get($colormap-primary, "ci-hell-kontrast");
 
 
 // Footer
@@ -264,21 +256,21 @@ $font-size-subnav-sublevel: ($font-size-base - 2);
 
 
 
-$font-size-h1: ($font-size-base + 12);
-$font-size-h1-mobilebranding: ($font-size-base + 10);
-$font-size-h1-banner: ($font-size-base + 12);
+$font-size-h1: ($font-size-base + 21);
+$font-size-h1-mobilebranding: ($font-size-h1 - 2);
+$font-size-h1-banner: $font-size-h1;
 $font-size-h1-sidebar: ($font-size-h1 - 2);
 $font-size-h1-table: ($font-size-h1 - 2);
 $font-size-h1-small: ($font-size-h1 - 2);
 
 
-$font-size-h2: ($font-size-base + 10);
+$font-size-h2: ($font-size-base + 13);
 $font-size-h2-small: ($font-size-h2 - 2);
 $font-size-h2-socialmedia: ($font-size-h2 - 2);
 $font-size-h2-sidebar: ($font-size-h2 - 2);
 $font-size-h2-table: ($font-size-h2 - 2);
 
-$font-size-h3: ($font-size-base + 6);
+$font-size-h3: ($font-size-base + 8);
 $font-size-h3-small: ($font-size-h3 - 2);
 $font-size-h3-hero: ($font-size-h3 - 2);
 $font-size-h3-sidebar: ($font-size-h3 - 2);
@@ -286,18 +278,18 @@ $font-size-h3-contentmenu: ($font-size-h3 - 2);
 $font-size-h3-table: ($font-size-h3 - 2);
 
 
-$font-size-h4: ($font-size-base + 4);
+$font-size-h4: ($font-size-base + 5);
 $font-size-h4-small: ($font-size-h4 - 2);
 $font-size-h4-sidebar: ($font-size-h4 - 2);
 $font-size-h4-table: ($font-size-h4 - 2);
 
 
-$font-size-h5: ($font-size-base + 2);
+$font-size-h5: ($font-size-base + 3);
 $font-size-h5-sidebar: ($font-size-h5 - 2);
 $font-size-h5-table: ($font-size-h5 - 2);
 
 
-$font-size-h6: $font-size-base;
+$font-size-h6: ($font-size-base + 2);
 $font-size-h6-sidebar: ($font-size-h6 - 2);
 $font-size-h6-table: ($font-size-h6 - 2);
 

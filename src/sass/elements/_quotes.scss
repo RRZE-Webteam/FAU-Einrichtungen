@@ -14,8 +14,6 @@ blockquote {
 	
 	@include px2rem($font-size-quotes);
 	
-	
-
 
 	p { 
 		margin-bottom: 0;
@@ -115,6 +113,12 @@ cite {
     &.text {
 	color: inherit;
     }
+    #content .sidebar-inline & {
+	    @include px2rem($font-size-sidebar);  
+	    p {
+		@include px2rem($font-size-sidebar);  
+	    }
+	}
 }
 
 

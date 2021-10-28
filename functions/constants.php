@@ -68,32 +68,31 @@ $defaultoptions = [
     
     
     'start_header_count'			=> 5,
-    'start_max_newscontent'		=> 5,
+    'start_max_newscontent'			=> 5,
     'start_max_newspertag'			=> 1,    
     'start_prefix_tag_newscontent'		=> 'startseite',
     'start_link_news_cat'			=> 0,    
     'start_link_news_show'			=> 1,
-    'start_link_news_linktitle'		=> __('Mehr Meldungen','fau'),
+    'start_link_news_linktitle'			=> __('Mehr Meldungen','fau'),
 
 
-    'default_postthumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-220x147.gif',
-    'default_postthumb_always'		=> 1,
-    'default_postthumb_image'		=> 0,
-    
-    'default_submenu_spalten'		=> 4,
-    'default_submenu_entries'		=> 5,
-    'menu_fallbackquote_show_excerpt'	=> 1,
-    'menu_fallbackquote_excerpt_length'	=> 240,  
+    'default_postthumb_src'			=> get_fau_template_uri().'/img/thumbnail-siegel-220x147.gif',
+    'default_postthumb_always'			=> 1,
+    'default_postthumb_image'			=> 0,
+    'default_submenu_spalten'			=> 4,
+    'default_submenu_entries'			=> 5,
+    'menu_fallbackquote_show_excerpt'		=> 1,
+    'menu_fallbackquote_excerpt_length'		=> 240,  
     'start_topevents_max'			=> 1,
-    'start_topevents_active'		=> true,
+    'start_topevents_active'			=> true,
     'topevent_hideimage'			=> false,
     'topevents_templates'			=> array(1), 
     'default_topevent_thumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-140x90.gif',
-    'fallback_topevent_image'		=> 0,
-    'fallback_submenu_image'		=> 0,
-    'default_topevent_excerpt_length'	=> 100,
+    'fallback_topevent_image'			=> 0,
+    'fallback_submenu_image'			=> 0,
+    'default_topevent_excerpt_length'		=> 100,
 
-    'default_startseite-bannerbild-image_src'	    => get_fau_template_uri().'/img/bannerbild-tafel-1260x182.jpg',
+    'default_startseite-bannerbild-image_src'	=> get_fau_template_uri().'/img/bannerbild-tafel-1260x182.jpg',
     'startseite_banner_usedefault'		=> false,
     
 
@@ -118,32 +117,32 @@ $defaultoptions = [
     'default_rwdimage_2-1_typname'		=> 'rwd-480-2-1',
     'default_rwdimage_2-1_width'		=> 480,
     'default_rwdimage_2-1_height'		=> 240,    
-    'default_rwdimage_2-1_crop'		=> false,
-    'default_rwdimage_2-1_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-480x240.gif',
+    'default_rwdimage_2-1_crop'			=> false,
+    'default_rwdimage_2-1_src'			=> get_fau_template_uri().'/img/thumbnail-siegel-480x240.gif',
 
     /* Small 3:2 size for images - Name: rwd-480-3-2 */
-    'default_rwdimage_typname'		=> 'rwd-480-3-2',
-    'default_rwdimage_width'		=> 480,
-    'default_rwdimage_height'		=> 320,    
-    'default_rwdimage_crop'		=> false,
+    'default_rwdimage_typname'			=> 'rwd-480-3-2',
+    'default_rwdimage_width'			=> 480,
+    'default_rwdimage_height'			=> 320,    
+    'default_rwdimage_crop'			=> false,
     'default_rwdimage_src'			=> get_fau_template_uri().'/img/thumbnail-siegel-480x320.gif',
      
     /* Images for gallerys - Name: gallery-full */
     'default_gallery_full_width'		=> 940,
     'default_gallery_full_height'		=> 470,
-    'default_gallery_full_crop'		    => false,     
+    'default_gallery_full_crop'			=> false,     
     
 
-    'breadcrumb_root'			=> __('Startseite', 'fau'),
+    'breadcrumb_root'				=> __('Startseite', 'fau'),
     'breadcrumb_delimiter'			=> ' <span>/</span>',
-    'breadcrumb_beforehtml'		=> '<span class="active" aria-current="page">', // '<span class="current">'; // tag before the current crumb
+    'breadcrumb_beforehtml'			=> '<span class="active" aria-current="page">', // '<span class="current">'; // tag before the current crumb
     'breadcrumb_afterhtml'			=> '</span>',
-    'breadcrumb_uselastcat'		=> true,
+    'breadcrumb_uselastcat'			=> true,
     'breadcrumb_withtitle'			=> false,
-    'breadcrumb_showcurrent'		=> true,
-    'default_logo_src'			=> get_fau_template_uri().'/img/logos/logo-fau-240x65.svg',
-    'default_logo_height'			=> 65,
-    'default_logo_width'			=> 240,
+    'breadcrumb_showcurrent'			=> true,
+    'default_logo_src'				=> get_fau_template_uri().'/img/logos/logo-fau-240x65.svg',
+    'default_logo_height'			=> 108,
+    'default_logo_width'			=> 400,
     
     'socialmedia'				=> 0,
     'active_socialmedia_footer'		=> array(0),  
