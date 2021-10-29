@@ -1661,7 +1661,7 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
 	    if (isset($options['default_rwdimage_src'])) {
 		 $imgsrc = $options['default_rwdimage_src'];
 	    } else {
-		 $imgsrc = $defaultoptions['default_rwdimage_src'];
+	//	 $imgsrc = $defaultoptions['default_rwdimage_src'];
 	    }
 	    $width = $defaultoptions['default_rwdimage_width'];
 	    $height = $defaultoptions['default_rwdimage_height'];
@@ -1683,7 +1683,7 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
 	    if (isset($options['default_rwdimage_src'])) {
 		 $imgsrc = $options['default_rwdimage_src'];
 	    } else {
-		 $imgsrc = $defaultoptions['default_rwdimage_src'];
+//		 $imgsrc = $defaultoptions['default_rwdimage_src'];
 	    }
 	   
 	    $width = $defaultoptions['default_rwdimage_width'];
@@ -1736,6 +1736,8 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
 	    $height = $options['default_rwdimage_height']; 
 	    break;
     }
+    
+    $imgsrc = '';
     if ($imgsrc) {
 	$attributes = '';
 	if (!empty($atts)) {
@@ -1762,6 +1764,9 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
 	$item_output .= '>';
 	return $item_output;
     
+    } else {
+	$item_output = fau_use_svg("fau-logo-2021", $width, $height, $classes, false); 
+	return $item_output;
     }
 
     return;

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.1-77
+Version: 2.0.1-78
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -12130,6 +12130,12 @@ img.alignright {
 img.aligncenter {
   display: block;
   margin: 0 auto 10px auto;
+}
+
+svg {
+  max-width: 100%;
+  max-height: 100%;
+  fill: var(--color-primary-basis);
 }
 
 main img {
