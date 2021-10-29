@@ -105,7 +105,7 @@ jQuery(document).ready(function ($) {
 
         // Make #header fixed once scrolled down behind meta or on small screens
         var fixedHeader = function() {
-            if ($(window).scrollTop() > 0) {
+            if ($(window).scrollTop() > 1) {
                 if (!$body.hasClass("nav-scrolled")) {
                     $body.addClass('nav-scrolled');
                 }

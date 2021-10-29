@@ -1059,7 +1059,7 @@ function fau_get_orgahomelink() {
     
     $homeorga = 'fau';
     
-    $hometitle = $shorttitle = $homeurl = $linkimg = $linkdataset ='';
+    $hometitle = $shorttitle = $homeurl = $linkdataset ='';
     
     if ((isset($default_fau_orga_data[$homeorga])) && is_array($default_fau_orga_data[$homeorga])) {
 	$hometitle = $default_fau_orga_data[$homeorga]['title'];
@@ -1069,7 +1069,6 @@ function fau_get_orgahomelink() {
 	} else {
 	    $homeurl = $default_fau_orga_data[$homeorga]['homeurl'];
 	}
-	$linkimg = $default_fau_orga_data[$homeorga]['home_imgsrc'];
 	
 
     } else {
@@ -1099,9 +1098,7 @@ function fau_get_orgahomelink() {
 	$orgalist .= '<li class="fauhome">';
 	$orgalist .= '<a href="'.$homeurl.'">';
 	    			
-	if ($linkhomeimg) {	   
-	     // $orgalist .= fau_use_svg("fau-logo",37,16,'fau',false,['title' => 'FAU', 'desc' => __('Zur zentralen FAU Website','fau'), 'role' => 'img']); 
-		 
+	if ($linkhomeimg) {	   		 
 	     $orgalist .= fau_use_svg("fau-logo-2021",42,16,'fau',false,['title' => 'FAU', 'desc' => __('Zur zentralen FAU Website','fau'), 'role' => 'img']); 
 	} else {
 	    $orgalist .= $shorttitle; 

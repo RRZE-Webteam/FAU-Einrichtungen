@@ -184,6 +184,16 @@ function cloneTheme(cb) {
     
     }
 
+    // Copy social media icons in the new base directory
+    function copysocialmedia() {
+	var srcsocialmedia = targetdir + 'src/favicons/' + farbfamilie + '/';
+	var targetsocialmedia = targetdir + 'img/socialmedia/';	
+	console.log(`  - Copy Social Media Icons ${srcsocialmedia} to ${targetsocialmedia}`);	
+	return src([srcsocialmedia])
+		    .pipe(dest(targetsocialmedia));
+    }
+
+
     
     // compile sass, use autoprefixer and minify results
     function buildbackendstyles() {
@@ -223,7 +233,7 @@ function cloneTheme(cb) {
     }
      
    
-    const dothis = series(copyprocess,parallel(setcolorfamily,setwebsite_usefaculty,copyscreenshot),buildbackendstyles,buildproductivestyle);	
+    const dothis = series(copyprocess,parallel(setcolorfamily,setwebsite_usefaculty,copyscreenshot,copysocialmedia),buildbackendstyles,buildproductivestyle);	
     dothis();
     cb();
     return;
