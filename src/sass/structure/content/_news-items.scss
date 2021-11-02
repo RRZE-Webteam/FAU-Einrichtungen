@@ -54,7 +54,7 @@
 	float: none;
 	margin: 10px auto;
 	
-	img {
+	img, svg {
 	    @include box-shadow(none);
              width: 100%;
              height: auto;
@@ -64,6 +64,10 @@
 		 width: auto;
 	    }
 	     
+	}
+	svg {
+	   padding: 17px;
+	    
 	}
 	
 	@media (min-width: $screen-xs) {

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.1-78
+Version: 2.0.1-81
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -7500,6 +7500,9 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   object-fit: contain;
   box-shadow: none;
 }
+.subpages-menu li .thumb a svg {
+  padding: 22px;
+}
 .subpages-menu li .thumb a.ext-link:after {
   content: "\f08e";
   position: absolute;
@@ -9478,16 +9481,19 @@ ul.assistant-tabs-nav li:last-child {
   float: none;
   margin: 10px auto;
 }
-.news-image img {
+.news-image img, .news-image svg {
   box-shadow: none;
   width: 100%;
   height: auto;
 }
 @media (min-width: 480px) {
-  .news-image img {
+  .news-image img, .news-image svg {
     max-height: 147px;
     width: auto;
   }
+}
+.news-image svg {
+  padding: 17px;
 }
 @media (min-width: 480px) {
   .news-image {
@@ -12135,7 +12141,8 @@ img.aligncenter {
 svg {
   max-width: 100%;
   max-height: 100%;
-  fill: var(--color-primary-basis);
+  height: auto;
+  fill: var(--color-FAU);
 }
 
 main img {

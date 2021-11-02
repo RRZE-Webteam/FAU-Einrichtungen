@@ -72,6 +72,7 @@
 				width: calc(50vw - 25px);
 				height: calc( (50vw - 25px) / 2);
 			    }
+			     
 			    img {
 				position: absolute;
 				left: 50%;
@@ -80,6 +81,10 @@
 				object-fit: contain;
 				box-shadow: none;
 			    }
+			    svg {
+				padding: 22px;
+			    }
+			    
 
 			    &.ext-link:after {
 				    @extend .fa;

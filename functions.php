@@ -217,7 +217,7 @@ function fau_addmetatags() {
     if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {    
 	    $output .=  '   <link rel="shortcut icon" href="'.get_fau_template_uri().'/img/socialmedia/favicon.ico">'."\n";
 	    $output .=  '   <link rel="apple-touch-icon" sizes="180x180" href="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
-	    $output .=  '   <link rel="icon" type="image/png" sizes="32x32" href="'.get_fau_template_uri().'/img/socialmedia/favicon-32x32.png">'."\n";
+	//    $output .=  '   <link rel="icon" type="image/png" sizes="32x32" href="'.get_fau_template_uri().'/img/socialmedia/favicon-32x32.png">'."\n";
 	    $output .=  '   <link rel="icon" type="image/png" sizes="180x180" href="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
 	    $output .=  '   <link rel="icon" type="image/svg+xml" href="'.get_fau_template_uri().'/img/socialmedia/favicon.svg" sizes="any">'."\n";
 	    $output .=  '   <link rel="mask-icon" type="image/svg+xml" href="'.get_fau_template_uri().'/img/socialmedia/favicon-mask.svg" color="'.$defaultoptions['default-social-media-color'].'">'."\n";

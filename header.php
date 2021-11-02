@@ -55,6 +55,16 @@
 				echo '<a itemprop="url" rel="home" href="'.fau_esc_url(home_url( '/' ) ).'">';
 			    }
 			    $header_image = get_header_image();
+			    
+			    // Version 2: Check for old Images in theme, that was chosen in customizer, but removed
+			    // from code later. In this case, ignore this entry.
+			    if (! empty( $header_image ) ) {
+				if (preg_match('/\/themes\/FAU\-[a-z]+\/img\/logos\//i', $header_image, $match)) {
+				    $header_image = '';
+				}
+			    }
+			    
+			    
 			    if ( ! empty( $header_image ) ) {
 				$customheader =  get_custom_header();
 				$attachment_id = 0;
@@ -85,6 +95,8 @@
 				echo ">"; 
 
 			    } else {
+				// TODO since V2:
+				//  here we have to add a function to create a new FAU-Logo looking style
 				echo "<span>".get_bloginfo( 'title' )."</span>";
 			    }
 			    if ( ! is_front_page() ) {

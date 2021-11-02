@@ -1658,15 +1658,10 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
     switch ($size) {
 
 	case 'topevent_thumb':
-	    if (isset($options['default_rwdimage_src'])) {
-		 $imgsrc = $options['default_rwdimage_src'];
-	    } else {
-	//	 $imgsrc = $defaultoptions['default_rwdimage_src'];
-	    }
+	   
 	    $width = $defaultoptions['default_rwdimage_width'];
 	    $height = $defaultoptions['default_rwdimage_height'];
-	    
-	    
+	   	    
 	    $fallback = get_theme_mod('fallback_topevent_image');
 	    if ($fallback) {
 		$thisimage = wp_get_attachment_image_src( $fallback,  'rwd-480-3-2');
@@ -1680,12 +1675,7 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
 	    break; 
 	
 	case 'post-thumb':
-	    if (isset($options['default_rwdimage_src'])) {
-		 $imgsrc = $options['default_rwdimage_src'];
-	    } else {
-//		 $imgsrc = $defaultoptions['default_rwdimage_src'];
-	    }
-	   
+
 	    $width = $defaultoptions['default_rwdimage_width'];
 	    $height = $defaultoptions['default_rwdimage_height'];
 	    $fallback = get_theme_mod('default_postthumb_image');
@@ -1701,7 +1691,6 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
 	    break;
 	    
 	case 'fallback_submenu_image':
-	    $imgsrc = $options['default_rwdimage_2-1_src'];
 	    $width = $options['default_rwdimage_2-1_width'];
 	    $height = $options['default_rwdimage_2-1_height']; 
 	    $fallback = get_theme_mod('fallback_submenu_image');
@@ -1720,24 +1709,20 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
 
 	case 'rwd-480-2-1':
 	case 'page-thumb':
-	    $imgsrc = $options['default_rwdimage_2-1_src'];
 	    $width = $options['default_rwdimage_2-1_width'];
 	    $height = $options['default_rwdimage_2-1_height']; 
 	    break;
 	case 'rwd-480-3-2':
-	    $imgsrc = $options['default_rwdimage_src'];
 	    $width = $options['default_rwdimage_width'];
 	    $height = $options['default_rwdimage_height']; 
 	    break;
 
 	default:
-	    $imgsrc = $options['default_rwdimage_src'];
 	    $width = $options['default_rwdimage_width'];
 	    $height = $options['default_rwdimage_height']; 
 	    break;
     }
     
-    $imgsrc = '';
     if ($imgsrc) {
 	$attributes = '';
 	if (!empty($atts)) {
