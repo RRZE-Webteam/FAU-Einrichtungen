@@ -186,7 +186,7 @@ function cloneTheme(cb) {
 
     // Copy social media icons in the new base directory
     function copysocialmedia() {
-	var srcsocialmedia = targetdir + 'src/favicons/' + farbfamilie + '/';
+	var srcsocialmedia = targetdir + 'src/favicons/' + farbfamilie + '/**';
 	var targetsocialmedia = targetdir + 'img/socialmedia/';	
 	console.log(`  - Copy Social Media Icons ${srcsocialmedia} to ${targetsocialmedia}`);	
 	return src([srcsocialmedia])

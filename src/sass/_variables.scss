@@ -127,6 +127,10 @@ $color-submenu-sublevel-bg:	    map-get($colormap-primary, "ci-hell");
 $color-submenu-currentpage-bg:	map-get($colormap-primary, "dunkelste");
 $color-submenu-currentpage-text:map-get($colormap-primary, "dunkelste-kontrast");
 
+$color-menulink-hover-text:	map-get($colormap-primary, "dunkler-kontrast");
+$color-menulink-hover-bg:	map-get($colormap-primary, "dunkler");
+
+
 @if $colorstyle == '2015' {
     $color-footer-bg:	map-get($colormap-primary, "basis");
     $color-footer-text:	map-get($colormap-primary, "basis-kontrast");
@@ -231,7 +235,6 @@ $font-size-textbuttons: ($font-size-base - 1);
 $font-size-linkicon: ($font-size-base - 2);
 $font-size-hero-links: ($font-size-base - 2);
 $font-size-hero-bannertext: $font-size-large;
-$font-size-link-contentmenu: ($font-size-base - 2);
 
 $font-size-content-linkicon: 10;
 $font-size-content-listitem: $font-size-base;
@@ -274,7 +277,7 @@ $font-size-h3: ($font-size-base + 8);
 $font-size-h3-small: ($font-size-h3 - 2);
 $font-size-h3-hero: ($font-size-h3 - 2);
 $font-size-h3-sidebar: ($font-size-h3 - 2);
-$font-size-h3-contentmenu: ($font-size-h3 - 2);
+
 $font-size-h3-table: ($font-size-h3 - 2);
 
 
@@ -301,6 +304,9 @@ $font-size-content-meta: $font-size-small;
 $font-size-image-caption: $font-size-small;
 
 $font-size-content-toggle: $font-size-base;
+
+$font-size-contentmenu-title: ($font-size-base + 2);
+$font-size-contentmenu-link: $font-size-base;
 
 $font-size-pagination-h3: $font-size-content-meta;
 $font-size-pagination-links: $font-size-content-meta;

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.1-81
+Version: 2.0.1-83
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -162,6 +162,8 @@ Text Domain: fau
   --color-submenu-sublevel-bg: #04316A;
   --color-submenu-currentpage-bg: #041E42;
   --color-submenu-currentpage-text: #fff;
+  --color-menulink-hover-text: #fff;
+  --color-menulink-hover-bg: #004A9F;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -2378,10 +2380,8 @@ html {
   font-style: normal;
 }
 .fa, .accordion .accordion-group .accordion-heading .accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul:before, .wpcf7-not-valid-tip:before, .wpcf7-validation-errors:before, .wpcf7-mail-sent-ok:before, .person-info .person-info-www:before, .person-info .person-info-email:before, .person-info .person-info-fax:before, .person-info .person-info-mobile:before, .person-info .person-info-phone:before, .content-person .image-placeholder:before, .sorttable th::after, ul.social li.social-iconbyurl a::before, ul.social li.social-wikipedia a:before, ul.social li.social-itunes a:before, ul.social li.social-youtube a:before, ul.social li.social-vimeo a:before, ul.social li.social-feed a:before, ul.social li.social-flickr a:before, ul.social li.social-delicious a:before, ul.social li.social-tumblr a:before, ul.social li.social-skype a:before, ul.social li.social-github a:before, ul.social li.social-xing a:before, ul.social li.social-twitter a:before, ul.social li.social-facebook a:before, ul.social li.social-instagram a:before, ul.social li.social-pinterest a:before, ul.social li.social-diaspora a:before, .news-more-links .news-rss:before, .widget li:before, .imagelink .slick-dots li button:before, .imagelink .slick-next:before, .imagelink .slick-prev:before, .image-gallery .gallery-slick .slick-dots li button:before, .image-gallery .gallery-slick .slick-next:before, .image-gallery .gallery-slick .slick-prev:before, .widget_search .search-text .searchicon,
-.search-contenttry .search-text .searchicon, .search-result .search-meta .download:before, .search-result .search-meta .post-meta-attachment:before, .search-result .search-meta .post-meta-news-external:before, .search-result .search-meta .post-meta-news:before, .search-result .search-meta .post-meta-defaulttype:before, .search-result .search-meta .post-meta-kontakt:before, .search-result .search-meta .post-meta-event:before, .search-result .search-meta .post-meta-date:before, .search-result .search-meta .post-meta-category:before, .news-item h2 .ext-link::after, .news-item .news-meta .news-meta-date:before, .news-item .news-meta .news-meta-categories:before, .news-details .post-meta-tags:before, .news-details .post-meta-date:before, .news-details .post-meta-categories:before, .read-more-arrow, .organigram .toggle-icon, #hero .search-input .search-text .searchicon, .hero-navigation li:before, #hero-slides .slick-next:before, #hero-slides .slick-prev:before, .helpermenus li:before, .subpages-menu .portaltop a.ext-link:after,
-.subpages-menu h3 a.ext-link:after,
-.helpermenus .portaltop a.ext-link:after,
-.helpermenus h3 a.ext-link:after, .subpages-menu li ul li:before, .subpages-menu li .thumb a.ext-link:after, #footer .cloned-meta-links li:before,
+.search-contenttry .search-text .searchicon, .search-result .search-meta .download:before, .search-result .search-meta .post-meta-attachment:before, .search-result .search-meta .post-meta-news-external:before, .search-result .search-meta .post-meta-news:before, .search-result .search-meta .post-meta-defaulttype:before, .search-result .search-meta .post-meta-kontakt:before, .search-result .search-meta .post-meta-event:before, .search-result .search-meta .post-meta-date:before, .search-result .search-meta .post-meta-category:before, .news-item h2 .ext-link::after, .news-item .news-meta .news-meta-date:before, .news-item .news-meta .news-meta-categories:before, .news-details .post-meta-tags:before, .news-details .post-meta-date:before, .news-details .post-meta-categories:before, .read-more-arrow, .organigram .toggle-icon, #hero .search-input .search-text .searchicon, .hero-navigation li:before, #hero-slides .slick-next:before, #hero-slides .slick-prev:before, .helpermenus li:before, .subpages-menu h3 a.ext-link:after,
+.helpermenus h3 a.ext-link:after, .subpages-menu li ul li:before, .subpages-menu li .portaltop a.ext-link:after, .subpages-menu li .thumb a.ext-link:after, #footer .cloned-meta-links li:before,
 #footer .cloned-hero-nav li:before,
 #footer .meta-nav li:before, #mainnav-toggle:before, .nav .level2 > li > a:before, .nav > li.has-sub > a:before,
 .nav > li.has-sub > [type=button]:before, .orgalist li.has-sub > a:before,
@@ -2456,10 +2456,8 @@ html {
 }
 
 .fa.fa-pull-left, .accordion .accordion-group .accordion-heading .fa-pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul.fa-pull-left:before, .fa-pull-left.wpcf7-not-valid-tip:before, .fa-pull-left.wpcf7-validation-errors:before, .fa-pull-left.wpcf7-mail-sent-ok:before, .person-info .fa-pull-left.person-info-www:before, .person-info .fa-pull-left.person-info-email:before, .person-info .fa-pull-left.person-info-fax:before, .person-info .fa-pull-left.person-info-mobile:before, .person-info .fa-pull-left.person-info-phone:before, .content-person .fa-pull-left.image-placeholder:before, .sorttable th.fa-pull-left::after, ul.social li.social-iconbyurl a.fa-pull-left::before, ul.social li.social-wikipedia a.fa-pull-left:before, ul.social li.social-itunes a.fa-pull-left:before, ul.social li.social-youtube a.fa-pull-left:before, ul.social li.social-vimeo a.fa-pull-left:before, ul.social li.social-feed a.fa-pull-left:before, ul.social li.social-flickr a.fa-pull-left:before, ul.social li.social-delicious a.fa-pull-left:before, ul.social li.social-tumblr a.fa-pull-left:before, ul.social li.social-skype a.fa-pull-left:before, ul.social li.social-github a.fa-pull-left:before, ul.social li.social-xing a.fa-pull-left:before, ul.social li.social-twitter a.fa-pull-left:before, ul.social li.social-facebook a.fa-pull-left:before, ul.social li.social-instagram a.fa-pull-left:before, ul.social li.social-pinterest a.fa-pull-left:before, ul.social li.social-diaspora a.fa-pull-left:before, .news-more-links .fa-pull-left.news-rss:before, .widget li.fa-pull-left:before, .imagelink .slick-dots li button.fa-pull-left:before, .imagelink .fa-pull-left.slick-next:before, .imagelink .fa-pull-left.slick-prev:before, .image-gallery .gallery-slick .slick-dots li button.fa-pull-left:before, .image-gallery .gallery-slick .fa-pull-left.slick-next:before, .image-gallery .gallery-slick .fa-pull-left.slick-prev:before, .widget_search .search-text .fa-pull-left.searchicon,
-.search-contenttry .search-text .fa-pull-left.searchicon, .search-result .search-meta .fa-pull-left.download:before, .search-result .search-meta .fa-pull-left.post-meta-attachment:before, .search-result .search-meta .fa-pull-left.post-meta-news-external:before, .search-result .search-meta .fa-pull-left.post-meta-news:before, .search-result .search-meta .fa-pull-left.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-left.post-meta-kontakt:before, .search-result .search-meta .fa-pull-left.post-meta-event:before, .search-result .search-meta .fa-pull-left.post-meta-date:before, .search-result .search-meta .fa-pull-left.post-meta-category:before, .news-item h2 .fa-pull-left.ext-link::after, .news-item .news-meta .fa-pull-left.news-meta-date:before, .news-item .news-meta .fa-pull-left.news-meta-categories:before, .news-details .fa-pull-left.post-meta-tags:before, .news-details .fa-pull-left.post-meta-date:before, .news-details .fa-pull-left.post-meta-categories:before, .fa-pull-left.read-more-arrow, .organigram .fa-pull-left.toggle-icon, #hero .search-input .search-text .fa-pull-left.searchicon, .hero-navigation li.fa-pull-left:before, #hero-slides .fa-pull-left.slick-next:before, #hero-slides .fa-pull-left.slick-prev:before, .helpermenus li.fa-pull-left:before, .subpages-menu .portaltop a.fa-pull-left.ext-link:after,
-.subpages-menu h3 a.fa-pull-left.ext-link:after,
-.helpermenus .portaltop a.fa-pull-left.ext-link:after,
-.helpermenus h3 a.fa-pull-left.ext-link:after, .subpages-menu li ul li.fa-pull-left:before, .subpages-menu li .thumb a.fa-pull-left.ext-link:after, #footer .cloned-meta-links li.fa-pull-left:before,
+.search-contenttry .search-text .fa-pull-left.searchicon, .search-result .search-meta .fa-pull-left.download:before, .search-result .search-meta .fa-pull-left.post-meta-attachment:before, .search-result .search-meta .fa-pull-left.post-meta-news-external:before, .search-result .search-meta .fa-pull-left.post-meta-news:before, .search-result .search-meta .fa-pull-left.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-left.post-meta-kontakt:before, .search-result .search-meta .fa-pull-left.post-meta-event:before, .search-result .search-meta .fa-pull-left.post-meta-date:before, .search-result .search-meta .fa-pull-left.post-meta-category:before, .news-item h2 .fa-pull-left.ext-link::after, .news-item .news-meta .fa-pull-left.news-meta-date:before, .news-item .news-meta .fa-pull-left.news-meta-categories:before, .news-details .fa-pull-left.post-meta-tags:before, .news-details .fa-pull-left.post-meta-date:before, .news-details .fa-pull-left.post-meta-categories:before, .fa-pull-left.read-more-arrow, .organigram .fa-pull-left.toggle-icon, #hero .search-input .search-text .fa-pull-left.searchicon, .hero-navigation li.fa-pull-left:before, #hero-slides .fa-pull-left.slick-next:before, #hero-slides .fa-pull-left.slick-prev:before, .helpermenus li.fa-pull-left:before, .subpages-menu h3 a.fa-pull-left.ext-link:after,
+.helpermenus h3 a.fa-pull-left.ext-link:after, .subpages-menu li ul li.fa-pull-left:before, .subpages-menu li .portaltop a.fa-pull-left.ext-link:after, .subpages-menu li .thumb a.fa-pull-left.ext-link:after, #footer .cloned-meta-links li.fa-pull-left:before,
 #footer .cloned-hero-nav li.fa-pull-left:before,
 #footer .meta-nav li.fa-pull-left:before, .fa-pull-left#mainnav-toggle:before, .nav .level2 > li > a.fa-pull-left:before, .nav > li.has-sub > a.fa-pull-left:before,
 .nav > li.has-sub > .fa-pull-left[type=button]:before, .orgalist li.has-sub > a.fa-pull-left:before,
@@ -2468,10 +2466,8 @@ html {
 }
 
 .fa.fa-pull-right, .accordion .accordion-group .accordion-heading .fa-pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul.fa-pull-right:before, .fa-pull-right.wpcf7-not-valid-tip:before, .fa-pull-right.wpcf7-validation-errors:before, .fa-pull-right.wpcf7-mail-sent-ok:before, .person-info .fa-pull-right.person-info-www:before, .person-info .fa-pull-right.person-info-email:before, .person-info .fa-pull-right.person-info-fax:before, .person-info .fa-pull-right.person-info-mobile:before, .person-info .fa-pull-right.person-info-phone:before, .content-person .fa-pull-right.image-placeholder:before, .sorttable th.fa-pull-right::after, ul.social li.social-iconbyurl a.fa-pull-right::before, ul.social li.social-wikipedia a.fa-pull-right:before, ul.social li.social-itunes a.fa-pull-right:before, ul.social li.social-youtube a.fa-pull-right:before, ul.social li.social-vimeo a.fa-pull-right:before, ul.social li.social-feed a.fa-pull-right:before, ul.social li.social-flickr a.fa-pull-right:before, ul.social li.social-delicious a.fa-pull-right:before, ul.social li.social-tumblr a.fa-pull-right:before, ul.social li.social-skype a.fa-pull-right:before, ul.social li.social-github a.fa-pull-right:before, ul.social li.social-xing a.fa-pull-right:before, ul.social li.social-twitter a.fa-pull-right:before, ul.social li.social-facebook a.fa-pull-right:before, ul.social li.social-instagram a.fa-pull-right:before, ul.social li.social-pinterest a.fa-pull-right:before, ul.social li.social-diaspora a.fa-pull-right:before, .news-more-links .fa-pull-right.news-rss:before, .widget li.fa-pull-right:before, .imagelink .slick-dots li button.fa-pull-right:before, .imagelink .fa-pull-right.slick-next:before, .imagelink .fa-pull-right.slick-prev:before, .image-gallery .gallery-slick .slick-dots li button.fa-pull-right:before, .image-gallery .gallery-slick .fa-pull-right.slick-next:before, .image-gallery .gallery-slick .fa-pull-right.slick-prev:before, .widget_search .search-text .fa-pull-right.searchicon,
-.search-contenttry .search-text .fa-pull-right.searchicon, .search-result .search-meta .fa-pull-right.download:before, .search-result .search-meta .fa-pull-right.post-meta-attachment:before, .search-result .search-meta .fa-pull-right.post-meta-news-external:before, .search-result .search-meta .fa-pull-right.post-meta-news:before, .search-result .search-meta .fa-pull-right.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-right.post-meta-kontakt:before, .search-result .search-meta .fa-pull-right.post-meta-event:before, .search-result .search-meta .fa-pull-right.post-meta-date:before, .search-result .search-meta .fa-pull-right.post-meta-category:before, .news-item h2 .fa-pull-right.ext-link::after, .news-item .news-meta .fa-pull-right.news-meta-date:before, .news-item .news-meta .fa-pull-right.news-meta-categories:before, .news-details .fa-pull-right.post-meta-tags:before, .news-details .fa-pull-right.post-meta-date:before, .news-details .fa-pull-right.post-meta-categories:before, .fa-pull-right.read-more-arrow, .organigram .fa-pull-right.toggle-icon, #hero .search-input .search-text .fa-pull-right.searchicon, .hero-navigation li.fa-pull-right:before, #hero-slides .fa-pull-right.slick-next:before, #hero-slides .fa-pull-right.slick-prev:before, .helpermenus li.fa-pull-right:before, .subpages-menu .portaltop a.fa-pull-right.ext-link:after,
-.subpages-menu h3 a.fa-pull-right.ext-link:after,
-.helpermenus .portaltop a.fa-pull-right.ext-link:after,
-.helpermenus h3 a.fa-pull-right.ext-link:after, .subpages-menu li ul li.fa-pull-right:before, .subpages-menu li .thumb a.fa-pull-right.ext-link:after, #footer .cloned-meta-links li.fa-pull-right:before,
+.search-contenttry .search-text .fa-pull-right.searchicon, .search-result .search-meta .fa-pull-right.download:before, .search-result .search-meta .fa-pull-right.post-meta-attachment:before, .search-result .search-meta .fa-pull-right.post-meta-news-external:before, .search-result .search-meta .fa-pull-right.post-meta-news:before, .search-result .search-meta .fa-pull-right.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-right.post-meta-kontakt:before, .search-result .search-meta .fa-pull-right.post-meta-event:before, .search-result .search-meta .fa-pull-right.post-meta-date:before, .search-result .search-meta .fa-pull-right.post-meta-category:before, .news-item h2 .fa-pull-right.ext-link::after, .news-item .news-meta .fa-pull-right.news-meta-date:before, .news-item .news-meta .fa-pull-right.news-meta-categories:before, .news-details .fa-pull-right.post-meta-tags:before, .news-details .fa-pull-right.post-meta-date:before, .news-details .fa-pull-right.post-meta-categories:before, .fa-pull-right.read-more-arrow, .organigram .fa-pull-right.toggle-icon, #hero .search-input .search-text .fa-pull-right.searchicon, .hero-navigation li.fa-pull-right:before, #hero-slides .fa-pull-right.slick-next:before, #hero-slides .fa-pull-right.slick-prev:before, .helpermenus li.fa-pull-right:before, .subpages-menu h3 a.fa-pull-right.ext-link:after,
+.helpermenus h3 a.fa-pull-right.ext-link:after, .subpages-menu li ul li.fa-pull-right:before, .subpages-menu li .portaltop a.fa-pull-right.ext-link:after, .subpages-menu li .thumb a.fa-pull-right.ext-link:after, #footer .cloned-meta-links li.fa-pull-right:before,
 #footer .cloned-hero-nav li.fa-pull-right:before,
 #footer .meta-nav li.fa-pull-right:before, .fa-pull-right#mainnav-toggle:before, .nav .level2 > li > a.fa-pull-right:before, .nav > li.has-sub > a.fa-pull-right:before,
 .nav > li.has-sub > .fa-pull-right[type=button]:before, .orgalist li.has-sub > a.fa-pull-right:before,
@@ -2480,10 +2476,8 @@ html {
 }
 
 .fa.pull-left, .accordion .accordion-group .accordion-heading .pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul.pull-left:before, .pull-left.wpcf7-not-valid-tip:before, .pull-left.wpcf7-validation-errors:before, .pull-left.wpcf7-mail-sent-ok:before, .person-info .pull-left.person-info-www:before, .person-info .pull-left.person-info-email:before, .person-info .pull-left.person-info-fax:before, .person-info .pull-left.person-info-mobile:before, .person-info .pull-left.person-info-phone:before, .content-person .pull-left.image-placeholder:before, .sorttable th.pull-left::after, ul.social li.social-iconbyurl a.pull-left::before, ul.social li.social-wikipedia a.pull-left:before, ul.social li.social-itunes a.pull-left:before, ul.social li.social-youtube a.pull-left:before, ul.social li.social-vimeo a.pull-left:before, ul.social li.social-feed a.pull-left:before, ul.social li.social-flickr a.pull-left:before, ul.social li.social-delicious a.pull-left:before, ul.social li.social-tumblr a.pull-left:before, ul.social li.social-skype a.pull-left:before, ul.social li.social-github a.pull-left:before, ul.social li.social-xing a.pull-left:before, ul.social li.social-twitter a.pull-left:before, ul.social li.social-facebook a.pull-left:before, ul.social li.social-instagram a.pull-left:before, ul.social li.social-pinterest a.pull-left:before, ul.social li.social-diaspora a.pull-left:before, .news-more-links .pull-left.news-rss:before, .widget li.pull-left:before, .imagelink .slick-dots li button.pull-left:before, .imagelink .pull-left.slick-next:before, .imagelink .pull-left.slick-prev:before, .image-gallery .gallery-slick .slick-dots li button.pull-left:before, .image-gallery .gallery-slick .pull-left.slick-next:before, .image-gallery .gallery-slick .pull-left.slick-prev:before, .widget_search .search-text .pull-left.searchicon,
-.search-contenttry .search-text .pull-left.searchicon, .search-result .search-meta .pull-left.download:before, .search-result .search-meta .pull-left.post-meta-attachment:before, .search-result .search-meta .pull-left.post-meta-news-external:before, .search-result .search-meta .pull-left.post-meta-news:before, .search-result .search-meta .pull-left.post-meta-defaulttype:before, .search-result .search-meta .pull-left.post-meta-kontakt:before, .search-result .search-meta .pull-left.post-meta-event:before, .search-result .search-meta .pull-left.post-meta-date:before, .search-result .search-meta .pull-left.post-meta-category:before, .news-item h2 .pull-left.ext-link::after, .news-item .news-meta .pull-left.news-meta-date:before, .news-item .news-meta .pull-left.news-meta-categories:before, .news-details .pull-left.post-meta-tags:before, .news-details .pull-left.post-meta-date:before, .news-details .pull-left.post-meta-categories:before, .pull-left.read-more-arrow, .organigram .pull-left.toggle-icon, #hero .search-input .search-text .pull-left.searchicon, .hero-navigation li.pull-left:before, #hero-slides .pull-left.slick-next:before, #hero-slides .pull-left.slick-prev:before, .helpermenus li.pull-left:before, .subpages-menu .portaltop a.pull-left.ext-link:after,
-.subpages-menu h3 a.pull-left.ext-link:after,
-.helpermenus .portaltop a.pull-left.ext-link:after,
-.helpermenus h3 a.pull-left.ext-link:after, .subpages-menu li ul li.pull-left:before, .subpages-menu li .thumb a.pull-left.ext-link:after, #footer .cloned-meta-links li.pull-left:before,
+.search-contenttry .search-text .pull-left.searchicon, .search-result .search-meta .pull-left.download:before, .search-result .search-meta .pull-left.post-meta-attachment:before, .search-result .search-meta .pull-left.post-meta-news-external:before, .search-result .search-meta .pull-left.post-meta-news:before, .search-result .search-meta .pull-left.post-meta-defaulttype:before, .search-result .search-meta .pull-left.post-meta-kontakt:before, .search-result .search-meta .pull-left.post-meta-event:before, .search-result .search-meta .pull-left.post-meta-date:before, .search-result .search-meta .pull-left.post-meta-category:before, .news-item h2 .pull-left.ext-link::after, .news-item .news-meta .pull-left.news-meta-date:before, .news-item .news-meta .pull-left.news-meta-categories:before, .news-details .pull-left.post-meta-tags:before, .news-details .pull-left.post-meta-date:before, .news-details .pull-left.post-meta-categories:before, .pull-left.read-more-arrow, .organigram .pull-left.toggle-icon, #hero .search-input .search-text .pull-left.searchicon, .hero-navigation li.pull-left:before, #hero-slides .pull-left.slick-next:before, #hero-slides .pull-left.slick-prev:before, .helpermenus li.pull-left:before, .subpages-menu h3 a.pull-left.ext-link:after,
+.helpermenus h3 a.pull-left.ext-link:after, .subpages-menu li ul li.pull-left:before, .subpages-menu li .portaltop a.pull-left.ext-link:after, .subpages-menu li .thumb a.pull-left.ext-link:after, #footer .cloned-meta-links li.pull-left:before,
 #footer .cloned-hero-nav li.pull-left:before,
 #footer .meta-nav li.pull-left:before, .pull-left#mainnav-toggle:before, .nav .level2 > li > a.pull-left:before, .nav > li.has-sub > a.pull-left:before,
 .nav > li.has-sub > .pull-left[type=button]:before, .orgalist li.has-sub > a.pull-left:before,
@@ -2492,10 +2486,8 @@ html {
 }
 
 .fa.pull-right, .accordion .accordion-group .accordion-heading .pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul.pull-right:before, .pull-right.wpcf7-not-valid-tip:before, .pull-right.wpcf7-validation-errors:before, .pull-right.wpcf7-mail-sent-ok:before, .person-info .pull-right.person-info-www:before, .person-info .pull-right.person-info-email:before, .person-info .pull-right.person-info-fax:before, .person-info .pull-right.person-info-mobile:before, .person-info .pull-right.person-info-phone:before, .content-person .pull-right.image-placeholder:before, .sorttable th.pull-right::after, ul.social li.social-iconbyurl a.pull-right::before, ul.social li.social-wikipedia a.pull-right:before, ul.social li.social-itunes a.pull-right:before, ul.social li.social-youtube a.pull-right:before, ul.social li.social-vimeo a.pull-right:before, ul.social li.social-feed a.pull-right:before, ul.social li.social-flickr a.pull-right:before, ul.social li.social-delicious a.pull-right:before, ul.social li.social-tumblr a.pull-right:before, ul.social li.social-skype a.pull-right:before, ul.social li.social-github a.pull-right:before, ul.social li.social-xing a.pull-right:before, ul.social li.social-twitter a.pull-right:before, ul.social li.social-facebook a.pull-right:before, ul.social li.social-instagram a.pull-right:before, ul.social li.social-pinterest a.pull-right:before, ul.social li.social-diaspora a.pull-right:before, .news-more-links .pull-right.news-rss:before, .widget li.pull-right:before, .imagelink .slick-dots li button.pull-right:before, .imagelink .pull-right.slick-next:before, .imagelink .pull-right.slick-prev:before, .image-gallery .gallery-slick .slick-dots li button.pull-right:before, .image-gallery .gallery-slick .pull-right.slick-next:before, .image-gallery .gallery-slick .pull-right.slick-prev:before, .widget_search .search-text .pull-right.searchicon,
-.search-contenttry .search-text .pull-right.searchicon, .search-result .search-meta .pull-right.download:before, .search-result .search-meta .pull-right.post-meta-attachment:before, .search-result .search-meta .pull-right.post-meta-news-external:before, .search-result .search-meta .pull-right.post-meta-news:before, .search-result .search-meta .pull-right.post-meta-defaulttype:before, .search-result .search-meta .pull-right.post-meta-kontakt:before, .search-result .search-meta .pull-right.post-meta-event:before, .search-result .search-meta .pull-right.post-meta-date:before, .search-result .search-meta .pull-right.post-meta-category:before, .news-item h2 .pull-right.ext-link::after, .news-item .news-meta .pull-right.news-meta-date:before, .news-item .news-meta .pull-right.news-meta-categories:before, .news-details .pull-right.post-meta-tags:before, .news-details .pull-right.post-meta-date:before, .news-details .pull-right.post-meta-categories:before, .pull-right.read-more-arrow, .organigram .pull-right.toggle-icon, #hero .search-input .search-text .pull-right.searchicon, .hero-navigation li.pull-right:before, #hero-slides .pull-right.slick-next:before, #hero-slides .pull-right.slick-prev:before, .helpermenus li.pull-right:before, .subpages-menu .portaltop a.pull-right.ext-link:after,
-.subpages-menu h3 a.pull-right.ext-link:after,
-.helpermenus .portaltop a.pull-right.ext-link:after,
-.helpermenus h3 a.pull-right.ext-link:after, .subpages-menu li ul li.pull-right:before, .subpages-menu li .thumb a.pull-right.ext-link:after, #footer .cloned-meta-links li.pull-right:before,
+.search-contenttry .search-text .pull-right.searchicon, .search-result .search-meta .pull-right.download:before, .search-result .search-meta .pull-right.post-meta-attachment:before, .search-result .search-meta .pull-right.post-meta-news-external:before, .search-result .search-meta .pull-right.post-meta-news:before, .search-result .search-meta .pull-right.post-meta-defaulttype:before, .search-result .search-meta .pull-right.post-meta-kontakt:before, .search-result .search-meta .pull-right.post-meta-event:before, .search-result .search-meta .pull-right.post-meta-date:before, .search-result .search-meta .pull-right.post-meta-category:before, .news-item h2 .pull-right.ext-link::after, .news-item .news-meta .pull-right.news-meta-date:before, .news-item .news-meta .pull-right.news-meta-categories:before, .news-details .pull-right.post-meta-tags:before, .news-details .pull-right.post-meta-date:before, .news-details .pull-right.post-meta-categories:before, .pull-right.read-more-arrow, .organigram .pull-right.toggle-icon, #hero .search-input .search-text .pull-right.searchicon, .hero-navigation li.pull-right:before, #hero-slides .pull-right.slick-next:before, #hero-slides .pull-right.slick-prev:before, .helpermenus li.pull-right:before, .subpages-menu h3 a.pull-right.ext-link:after,
+.helpermenus h3 a.pull-right.ext-link:after, .subpages-menu li ul li.pull-right:before, .subpages-menu li .portaltop a.pull-right.ext-link:after, .subpages-menu li .thumb a.pull-right.ext-link:after, #footer .cloned-meta-links li.pull-right:before,
 #footer .cloned-hero-nav li.pull-right:before,
 #footer .meta-nav li.pull-right:before, .pull-right#mainnav-toggle:before, .nav .level2 > li > a.pull-right:before, .nav > li.has-sub > a.pull-right:before,
 .nav > li.has-sub > .pull-right[type=button]:before, .orgalist li.has-sub > a.pull-right:before,
@@ -7406,10 +7398,43 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   transition: inherit;
   padding: inherit;
   text-decoration: underline;
+  text-decoration: none;
 }
 .contentmenu a:hover, .contentmenu a:focus {
   font-weight: bold;
   color: inherit;
+  box-shadow: inherit;
+  text-decoration: underline;
+}
+
+.entry-content .contentmenu p a,
+.portalpage-content .contentmenu p a,
+.content-inline .contentmenu p a {
+  box-shadow: inherit;
+  transition: inherit;
+  padding: inherit;
+  text-decoration: underline;
+  text-decoration: none;
+}
+.entry-content .contentmenu p a:hover, .entry-content .contentmenu p a:focus,
+.portalpage-content .contentmenu p a:hover,
+.portalpage-content .contentmenu p a:focus,
+.content-inline .contentmenu p a:hover,
+.content-inline .contentmenu p a:focus {
+  font-weight: bold;
+  color: inherit;
+  box-shadow: inherit;
+  text-decoration: underline;
+}
+.entry-content .contentmenu p a:hover,
+.entry-content .contentmenu p a:focus,
+.portalpage-content .contentmenu p a:hover,
+.portalpage-content .contentmenu p a:focus,
+.content-inline .contentmenu p a:hover,
+.content-inline .contentmenu p a:focus {
+  text-decoration: underline;
+  background-color: var(--color-menulink-hover-bg);
+  color: var(--color-menulink-hover-text);
 }
 
 .subpages-menu {
@@ -7418,6 +7443,11 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   padding: 0;
   background: none;
   margin: 20px 0;
+  display: flex;
+  justify-content: space-evenly;
+  column-gap: 15px;
+  row-gap: 30px;
+  flex-wrap: wrap;
 }
 .subpages-menu:before {
   display: none;
@@ -7427,57 +7457,21 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   margin: 0;
   padding: 0;
   background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-image: none;
-  margin: 0 0 20px 20px;
   padding: 0px;
-  position: relative;
   width: 220px;
-  float: left;
+  box-shadow: 1px 1px 3px var(--color-ContentBorders);
 }
 .subpages-menu li:before {
   display: none;
 }
-@media (max-width: 479px) {
-  .subpages-menu li {
-    margin: 0 5px;
-    width: calc(50% - 10px);
-  }
-}
-@media (min-width: 480px) and (max-width: 767px) {
-  .subpages-menu li {
-    margin-left: 25px;
-    clear: none;
-    width: calc(50% - 25px);
-  }
-  .subpages-menu li.menu-item:nth-of-type(odd) {
-    clear: left;
-    margin-left: 15px;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .subpages-menu li {
-    margin-left: 27px;
-    clear: none;
-  }
-  .subpages-menu li.menu-item:nth-of-type(3n+1) {
-    clear: left;
-    margin-left: 15px;
-  }
-}
-@media (min-width: 992px) {
-  .subpages-menu li {
-    margin-left: 20px;
-    clear: none;
-  }
-  .subpages-menu li.menu-item:nth-of-type(4n+1) {
-    clear: left;
-    margin-left: 15px;
-  }
-}
 .subpages-menu li .thumb {
   overflow: hidden;
   position: relative;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 2px var(--color-ContentBorders);
 }
 .subpages-menu li .thumb a {
   text-decoration: none;
@@ -7519,6 +7513,37 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   text-align: right;
   padding: 0 2px 0 0;
 }
+.subpages-menu li p {
+  padding: 0;
+}
+.subpages-menu li .portaltop {
+  display: block;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
+  width: 220px;
+  font-weight: bold;
+}
+.subpages-menu li .portaltop a {
+  width: 100%;
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
+}
+.subpages-menu li .portaltop a.ext-link:after {
+  content: "\f08e";
+  margin-left: 5px;
+  margin-top: 0;
+  font-size: 0.625rem;
+  line-height: 0.938rem;
+  color: var(--color-Text);
+  vertical-align: top;
+}
+.subpages-menu li .portaltop a:hover,
+.subpages-menu li .portaltop a:focus {
+  text-decoration: underline;
+  background-color: var(--color-menulink-hover-bg);
+  color: var(--color-menulink-hover-text);
+}
 .subpages-menu li ul {
   list-style: none;
   margin: 0;
@@ -7535,8 +7560,9 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   background: none;
   background: none;
   display: table;
-  border-bottom: 1px solid var(--color-primary-hellste);
-  width: 100%;
+  border-bottom: 1px solid var(--color-ContentBorders);
+  width: 210px;
+  box-shadow: none;
 }
 .subpages-menu li ul li:before {
   display: none;
@@ -7548,50 +7574,32 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   color: var(--color-Default);
   width: 5px;
 }
+.subpages-menu li ul li:hover {
+  background-color: var(--color-menulink-hover-bg);
+  color: var(--color-menulink-hover-text);
+}
 .subpages-menu li ul a {
   text-decoration: none;
   display: table-cell;
   padding: 5px 12px;
-  font-size: 0.875rem;
-  line-height: 1.313rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .subpages-menu li ul a:hover,
 .subpages-menu li ul a:focus {
-  text-decoration: none;
-  background-color: var(--color-primary-hellste);
-}
-.subpages-menu .subpage-item:focus .portaltop,
-.subpages-menu .subpage-item:focus h3 {
-  background-color: var(--color-primary-hellste);
+  text-decoration: underline;
+  background-color: var(--color-menulink-hover-bg);
+  color: var(--color-menulink-hover-text);
 }
 
-.subpages-menu .portaltop,
 .subpages-menu h3,
-.helpermenus .portaltop,
 .helpermenus h3 {
   display: block;
-  font-size: 1.375rem;
-  line-height: 2.063rem;
-  padding: 10px 15px 10px 0;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
+  width: 220px;
 }
-.subpages-menu .portaltop a,
-.subpages-menu h3 a,
-.helpermenus .portaltop a,
-.helpermenus h3 a {
-  text-decoration: none;
-}
-.subpages-menu .portaltop a:hover, .subpages-menu .portaltop a:focus,
-.subpages-menu h3 a:hover,
-.subpages-menu h3 a:focus,
-.helpermenus .portaltop a:hover,
-.helpermenus .portaltop a:focus,
-.helpermenus h3 a:hover,
-.helpermenus h3 a:focus {
-  text-decoration: underline;
-}
-.subpages-menu .portaltop a.ext-link:after,
 .subpages-menu h3 a.ext-link:after,
-.helpermenus .portaltop a.ext-link:after,
 .helpermenus h3 a.ext-link:after {
   content: "\f08e";
   margin-left: 5px;
@@ -7600,6 +7608,13 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   line-height: 0.938rem;
   color: var(--color-Text);
   vertical-align: top;
+}
+.subpages-menu h3 a:hover,
+.subpages-menu h3 a:focus,
+.helpermenus h3 a:hover,
+.helpermenus h3 a:focus {
+  background-color: var(--color-menulink-hover-bg);
+  color: var(--color-menulink-hover-text);
 }
 
 .helpermenus ul {
@@ -7733,82 +7748,14 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
     margin-right: calc(50% - 240px);
   }
 }
-.contentmenu.refresh.contentmenutype3 .subpages-menu {
-  margin-left: 15px;
-  margin-right: 15px;
-  overflow: hidden;
-}
 .contentmenu.refresh.contentmenutype3 .subpages-menu li {
-  width: 31%;
-  height: 366.617px;
-  margin-right: 3.333%;
-  margin-left: 0;
-}
-.contentmenu.refresh.contentmenutype3 .subpages-menu li.menu-item:nth-of-type(4n+1) {
-  clear: unset;
-  margin-left: 0;
-}
-.contentmenu.refresh.contentmenutype3 .subpages-menu li.menu-item:nth-of-type(3n) {
-  margin-right: 0;
-}
-.contentmenu.refresh.contentmenutype3 .subpages-menu .portaltop {
-  font-size: 1.375em;
-}
-@media (min-width: 480px) and (max-width: 991px) {
-  .contentmenu.refresh.contentmenutype3 .subpages-menu li {
-    width: 48.5%;
-    height: 365px;
-    height: 55.3954994886vw;
-    margin-right: 3%;
-  }
-  .contentmenu.refresh.contentmenutype3 .subpages-menu li.menu-item {
-    clear: unset;
-    margin-left: 0;
-  }
-  .contentmenu.refresh.contentmenutype3 .subpages-menu li.menu-item:nth-of-type(3n) {
-    margin-right: 3%;
-  }
-  .contentmenu.refresh.contentmenutype3 .subpages-menu li.menu-item:nth-of-type(2n) {
-    margin-right: 0;
-  }
-}
-@media (min-width: 480px) and (max-width: 767px) {
-  .contentmenu.refresh.contentmenutype3 .subpages-menu li.menu-item {
-    clear: unset;
-    margin-left: 0;
-  }
-}
-@media (max-width: 480px) {
-  .contentmenu.refresh.contentmenutype3 .subpages-menu li {
-    margin-bottom: 20px;
-    width: 100%;
-    height: 114.2175247187vw;
-    margin-right: 0;
-  }
-}
-@media (max-width: 480px) {
-  .contentmenu.refresh li {
-    margin-bottom: 20px;
-  }
+  width: 240px;
+  height: auto;
 }
 
 @media (min-width: 768px) {
-  nav.sidebar-subnav + div.entry-content .contentmenu.refresh.contentmenutype2 li.menu-item {
-    clear: unset;
-    margin-left: 27px;
-  }
-  nav.sidebar-subnav + div.entry-content .contentmenu.refresh.contentmenutype2 li.menu-item:nth-of-type(2n+1) {
-    clear: left;
-    margin-left: 15px;
-  }
   nav.sidebar-subnav + div.entry-content .contentmenu.refresh.contentmenutype3 li.menu-item {
-    width: 48.5%;
-    margin-right: 3%;
-    clear: unset;
-    margin-left: 0;
-  }
-  nav.sidebar-subnav + div.entry-content .contentmenu.refresh.contentmenutype3 li.menu-item:nth-of-type(2n) {
-    margin-right: 0;
+    width: 350px;
   }
 }
 /* END extension for REFRESH */
@@ -9231,6 +9178,8 @@ ul.assistant-tabs-nav li:last-child {
 .organigram a:hover, .organigram a:focus {
   font-weight: bold;
   color: inherit;
+  box-shadow: inherit;
+  text-decoration: underline;
 }
 .organigram .toggle-icon {
   color: var(--color-primary-basis);
@@ -13626,6 +13575,8 @@ p.has-drop-cap:not(:focus):first-letter {
 .content-inline .fau-person p a:focus {
   font-weight: bold;
   color: inherit;
+  box-shadow: inherit;
+  text-decoration: underline;
 }
 .sidebar-single .person .row, .sidebar-single .person .contentmenu,
 .sidebar-inline .person .row,

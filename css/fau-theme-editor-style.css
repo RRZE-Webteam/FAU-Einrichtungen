@@ -148,6 +148,8 @@
   --color-submenu-sublevel-bg: #04316A;
   --color-submenu-currentpage-bg: #041E42;
   --color-submenu-currentpage-text: #fff;
+  --color-menulink-hover-text: #fff;
+  --color-menulink-hover-bg: #004A9F;
 }
 
 /*-----------------------------------------------------------------------------------*/

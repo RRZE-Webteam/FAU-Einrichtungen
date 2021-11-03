@@ -1,66 +1,63 @@
 /*-----------------------------------------------------------------------------------*/
 /* Portalmenus
 /*-----------------------------------------------------------------------------------*/
-
+@use "sass:math";
 /* Subpages / Portal Menu */
+
+
 .contentmenu {
     @extend .row;
     a {
 	@include defaultlinkstyle();
+	text-decoration: none;
     }
 }
+
+.entry-content .contentmenu p, 
+.portalpage-content .contentmenu  p, 
+.content-inline .contentmenu  p {
+    
+    a {
+        @include defaultlinkstyle();
+    	text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+        text-decoration: underline;		    
+        background-color: var(--color-menulink-hover-bg);
+        color: var(--color-menulink-hover-text);
+	    
+    }
+   
+}
+    
 
 .subpages-menu {
 	@include no-list;
 	margin: 20px 0;
-
-
+	display: flex;
+	justify-content: space-evenly;
+	column-gap: floor(math.div($grid-gutter-width, 2));
+	row-gap: $grid-gutter-width;   
+	flex-wrap: wrap;
+	
 	li {
 		@include no-list;
+		display: flex; 
+		flex-direction: column;
+		align-items: center;
+		
 		background-image: none;
-		margin: 0 0 20px 20px;
 		padding: 0px;
-		position: relative;
 		width: 220px;
-		float: left;
+		 @include box-shadow(1px 1px 3px var(--color-ContentBorders));
 
-
-		@media (max-width: $screen-xs - 1) {
-		    margin: 0 5px;
-		    width: calc(50% - 10px);
-		}
-		@media (min-width: $screen-xs) and (max-width: $screen-sm - 1) {
-		    margin-left: 25px;
-		    clear: none;
-		    width: calc(50% - 25px);
-		    &.menu-item:nth-of-type(odd) {
-			clear: left;
-			margin-left: 15px;
-		    }
-		}
-		@media (min-width: $screen-sm) and (max-width: $screen-md - 1) {
-		    margin-left: 27px;
-		    clear: none;
-		    &.menu-item:nth-of-type(3n+1) {
-			clear: left;
-			margin-left: 15px;
-		    }
-		}
-
-		@media (min-width: $screen-md) {
-		    margin-left: 20px;
-		     clear: none;
-		     &.menu-item:nth-of-type(4n+1) {
-
-			clear: left;
-			margin-left: 15px;
-		    }
-		}
 
 		.thumb {
 		    overflow: hidden;
 		    position: relative;
-		    @include box-shadow(0 1px 2px rgba(0,0,0,0.3));
+		    @include box-shadow(0 1px 2px var(--color-ContentBorders));
 		    a {
 			    text-decoration: none;
 			  
@@ -107,73 +104,112 @@
 			    }
 		    }
 		}
+		p {
+		    padding: 0;
+		}
+		.portaltop {
+		    display: block;
+		    @include px2rem($font-size-contentmenu-title);
+		    width: 220px;
+		    font-weight: bold; 
+		    a {
+			width: 100%;
+			display: inline-block;
+			padding: 10px;
+			text-align: center;
+		    }
+		    a.ext-link:after {
+		       @extend .fa;
+		       content: "\f08e";
+		       margin-left: 5px;
+		       margin-top: 0;
+		       @include px2rem($font-size-content-linkicon);
+		       color: var(--color-Text);
+		       vertical-align: top;
+		    }
+		    a:hover,
+		    a:focus {
+			text-decoration: underline;		    
+			background-color: var(--color-menulink-hover-bg);
+			color: var(--color-menulink-hover-text);
+
+		    }
+		}
+		
+		
+		
 	    ul {
 		@include no-list;
 	       li {
-			    @include no-list;
-			    background: none;
-			    display: table;
-			    border-bottom: 1px solid var(--color-primary-hellste);
-			    width: 100%;
+		    @include no-list;
+		    background: none;
+		    display: table;
+		    border-bottom: 1px solid var(--color-ContentBorders);
+		    width: 210px;
+		    box-shadow: none;
+		}
+		
+		li:before {
+		    @extend .fa;
+		    @extend .fa-angle-right;
+		    font-weight: bold;
+		    display: table-cell;
+		    vertical-align: middle;
+		    color:  var(--color-Default);
+		    width: 5px;
+		}
+	
+		a {
+		    text-decoration: none;
+		    display: table-cell;
+		    padding: 5px 12px;
+		    @include px2rem($font-size-contentmenu-link);
+		}
 
-		    }
-		    li:before {
-			@extend .fa;
-			@extend .fa-angle-right;
-			font-weight: bold;
-			display: table-cell;
-			vertical-align: middle;
-			color:  var(--color-Default);
-			width: 5px;
-		    }
-
-		    a {
-			    text-decoration: none;
-			    display: table-cell;
-			    padding: 5px 12px;
-                            @include px2rem($font-size-link-contentmenu);
-		    }
-
-		    a:hover,
-		    a:focus {
-			    text-decoration: none;
-			    background-color: var(--color-primary-hellste);
-		    }
+		a:hover,
+		a:focus {
+		    text-decoration: underline;
+		    // background-color: var(--color-primary-hellste);
+		    
+		     background-color: var(--color-menulink-hover-bg);
+		    color: var(--color-menulink-hover-text);
+		    
+		}
 	    }
 
 	}
-        .subpage-item:focus .portaltop,
-	.subpage-item:focus h3 {
-		background-color: var(--color-primary-hellste);
-	}
+
 }
 
 .subpages-menu,
 .helpermenus {
-    .portaltop,
     h3 {
         display: block;
-	@include px2rem($font-size-h3-contentmenu);
-	padding: 10px 15px 10px 0;
+	@include px2rem($font-size-contentmenu-title);
+	width: 220px;
+	
 	a {
-	    text-decoration: none;
-	    &:hover,
-	    &:focus {
-		text-decoration: underline;
-	    }
+	    
+	    
+	    
+	       &.ext-link:after {
+		       @extend .fa;
+		       content: "\f08e";
+		       margin-left: 5px;
+		       margin-top: 0;
+		       @include px2rem($font-size-content-linkicon);
+		       color: var(--color-Text);
+		       vertical-align: top;
 
-	    &.ext-link:after {
-		    @extend .fa;
-		    content: "\f08e";
-		    margin-left: 5px;
-		    margin-top: 0;
-		    @include px2rem($font-size-content-linkicon);
-		    color: var(--color-Text);
-		    vertical-align: top;
-
-	    }
-	}
+	       }
+	   }
+	   a:hover,
+	    a:focus {
+		background-color: var(--color-menulink-hover-bg);
+		    color: var(--color-menulink-hover-text);
+		}
     }
+ 
 }
 .helpermenus {
     ul {
@@ -186,23 +222,6 @@
 
 
 
-
-@media (max-width: $screen-sm - 1) {
-    #content {
-	ul.menu,
-	ul.menu ul {
-		margin-left: 0;
-		margin-right: 0;
-	}
-	.subpages-menu {
-		 a.image {
-		    &.ext-link:after {
-			display: none;
-		    }
-		}
-	}
-    }
-}
 
 /* START extension for REFRESH */
 #content .contentmenu.no-shadow img {
@@ -298,86 +317,22 @@
     }
     &.contentmenutype3 {
       .subpages-menu {
-    	   margin-left: 15px;
-    	   margin-right: 15px;
-    	   overflow: hidden;
         li {
-          width: 31%;
-          height: 366.617px;
-          margin-right: 3.333%;
-          margin-left: 0;
-          &.menu-item:nth-of-type(4n+1) {
-          	clear: unset;
-          	margin-left: 0;
-          }
-          &.menu-item:nth-of-type(3n) {
-          	margin-right: 0;
-          }
-        } // li
-        .portaltop {
-        	font-size: 1.375em;
-        }
-        @media (min-width: $screen-xs) and (max-width: $screen-md - 1){
-          li {
-            width: 48.5%;
-            height:365px;
-            height: calc(48.5vw / 293.3 * 335);
-            margin-right: 3%;
-            &.menu-item {
-          		clear: unset;
-          		margin-left: 0;
-              &:nth-of-type(3n) {
-            		margin-right: 3%;
-            	} // :nth-of-type(2n)
-              &:nth-of-type(2n) {
-            		margin-right: 0;
-            	} // :nth-of-type(2n)
-          	} // .menu-item
-          } // li
-        } // @media
-        @media (min-width: $screen-xs) and (max-width: $screen-sm - 1){
-          li {
-            &.menu-item {
-          		clear: unset;
-          		margin-left: 0;
-          	}
-        	}
-        } // @media
-        @media (max-width: $screen-xs){
-          li {
-        		margin-bottom: 20px;
-        		width: 100%;
-            height: calc(100vw / 293.3 * 335);
-        		margin-right: 0;
-          }
-        } // @media
+          width: 320px;
+          height: auto;
+ 
+        } 
       }
     } // .contentmenutype3
-    @media (max-width: $screen-xs){
-      li {
-        margin-bottom: 20px;
-      }
-    }
+
   } // .refresh
 } // .contentmenu
 @media (min-width: $screen-sm){
   nav.sidebar-subnav+div.entry-content .contentmenu.refresh {
-    &.contentmenutype2 li.menu-item {
-      clear:unset;
-  		margin-left:27px;
-      &:nth-of-type(2n+1) {
-        clear:left;
-        margin-left:15px;
-      } // :nth-of-type(2n+1)
-    } // .contentmenutype2 li.menu-item
+   
     &.contentmenutype3 li.menu-item {
-      width:48.5%;
-      margin-right:3%;
-      clear:unset;
-      margin-left:0;
-      &:nth-of-type(2n) {
-        margin-right:0;
-      }
+      width: 350px;
+      
     }
   }
 } // @media (min-width: $screen-sm)
