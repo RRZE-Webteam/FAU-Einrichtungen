@@ -6,7 +6,7 @@
  * @subpackage FAU
  * @since FAU 1.0
  */
-
+global $defaultoptions;
 ?>
 <!DOCTYPE html>
 <html class="no-js" <?php language_attributes(); ?>>
@@ -62,7 +62,19 @@
 				} else {
 				    $srcset ='';
 				}
-				echo '<img class="custom-logo" src="'.$header_image.'" width="'.get_custom_header()->width.'" height="'.get_custom_header()->height.'" alt="'.esc_attr(get_bloginfo( 'title' )).'"';
+				if ($customheader->width ) {
+				    $width = $customheader->width;
+				} else {
+				    $width = $defaultoptions['default_logo_width'];
+				}
+				if ($customheader->height) {
+				    $height = $customheader->height;
+				} else {
+				    $height =  $defaultoptions['default_logo_height'];
+				}
+				
+				
+				echo '<img class="custom-logo" src="'.$header_image.'" width="'.$width.'" height="'.$height.'" alt="'.esc_attr(get_bloginfo( 'title' )).'"';
 				if ($srcset) {
 				    echo ' srcset="'.$srcset.'"';
 				}
