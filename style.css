@@ -7480,18 +7480,10 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   width: 220px;
   height: 110px;
 }
-@media (min-width: 480px) and (max-width: 767px) {
-  .subpages-menu li .thumb a {
-    width: calc(50vw - 25px);
-    height: calc((50vw - 25px) / 2);
-  }
-}
 .subpages-menu li .thumb a img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  object-fit: contain;
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
   box-shadow: none;
 }
 .subpages-menu li .thumb a svg {
@@ -7574,10 +7566,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   color: var(--color-Default);
   width: 5px;
 }
-.subpages-menu li ul li:hover {
-  background-color: var(--color-menulink-hover-bg);
-  color: var(--color-menulink-hover-text);
-}
 .subpages-menu li ul a {
   text-decoration: none;
   display: table-cell;
@@ -7658,16 +7646,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   background-color: var(--color-primary-hellste);
 }
 
-@media (max-width: 767px) {
-  #content ul.menu,
-#content ul.menu ul {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  #content .subpages-menu a.image.ext-link:after {
-    display: none;
-  }
-}
 /* START extension for REFRESH */
 #content .contentmenu.no-shadow img {
   box-shadow: none;
@@ -7725,31 +7703,11 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   display: block;
 }
 .contentmenu.refresh.contentmenutype2 .subpages-menu li {
-  width: calc(50% - 10px);
-  height: calc((50vw - 10px) / 300 * 200);
-}
-@media (min-width: 480px) {
-  .contentmenu.refresh.contentmenutype2 .subpages-menu li {
-    width: 220px;
-    height: 147px;
-  }
-}
-@media (max-width: 479px) {
-  .contentmenu.refresh.contentmenutype2 .subpages-menu li {
-    max-width: 220px;
-  }
-  .contentmenu.refresh.contentmenutype2 .subpages-menu li:nth-of-type(2n+1) {
-    clear: both;
-  }
-}
-@media (min-width: 480px) and (max-width: 767px) {
-  .contentmenu.refresh.contentmenutype2 .subpages-menu li {
-    max-width: 220px;
-    margin-right: calc(50% - 240px);
-  }
+  width: 300px;
+  height: 150px;
 }
 .contentmenu.refresh.contentmenutype3 .subpages-menu li {
-  width: 240px;
+  width: 480px;
   height: auto;
 }
 
