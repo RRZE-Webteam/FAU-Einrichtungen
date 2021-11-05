@@ -50,7 +50,7 @@
 		
 		background-image: none;
 		padding: 0px;
-		width: 220px;
+		width: $contentmenu-default-width;
 		 @include box-shadow(1px 1px 3px var(--color-ContentBorders));
 
 
@@ -63,13 +63,13 @@
 			  
 			    display: block;
 			    position: relative;
-			    width: 220px;
-			    height: 110px;
+			    width: $contentmenu-default-width;
+			    height: $contentmenu-default-height;
 			    			     
 			    img {
 				height: inherit;
 				width: inherit;
-				object-fit: cover;
+				object-fit: contain;
 				box-shadow: none;
 			    }
 			    svg {
@@ -104,8 +104,9 @@
 		.portaltop {
 		    display: block;
 		    @include px2rem($font-size-contentmenu-title);
-		    width: 220px;
+		    width: $contentmenu-default-width;
 		    font-weight: bold; 
+		    
 		    a {
 			width: 100%;
 			display: inline-block;
@@ -123,7 +124,7 @@
 		    }
 		    a:hover,
 		    a:focus {
-			text-decoration: underline;		    
+			text-decoration: none;		    
 			background-color: var(--color-menulink-hover-bg);
 			color: var(--color-menulink-hover-text);
 
@@ -136,13 +137,23 @@
 		@include no-list;
 	       li {
 		    @include no-list;
+		    padding: 0 10px;
 		    background: none;
 		    display: table;
 		    border-bottom: 1px solid var(--color-ContentBorders);
-		    width: 210px;
+		    width: 100%; //  ($contentmenu-default-width - floor(math.div($grid-gutter-width, 2)));
 		    box-shadow: none;
 		}
-		
+		li:focus,
+		li:hover {
+		     background-color: var(--color-menulink-hover-bg);
+		    color: var(--color-menulink-hover-text);
+		    
+		    &::before,
+		    a {
+			color: var(--color-menulink-hover-text);
+		    }
+		}
 		li:before {
 		    @extend .fa;
 		    @extend .fa-angle-right;
@@ -150,9 +161,8 @@
 		    display: table-cell;
 		    vertical-align: middle;
 		    color:  var(--color-Default);
-		    width: 5px;
 		}
-	
+		
 		a {
 		    text-decoration: none;
 		    display: table-cell;
@@ -162,11 +172,10 @@
 
 		a:hover,
 		a:focus {
-		    text-decoration: underline;
-		    // background-color: var(--color-primary-hellste);
-		    
-		     background-color: var(--color-menulink-hover-bg);
+		   text-decoration: none;
+		    background-color: var(--color-menulink-hover-bg);
 		    color: var(--color-menulink-hover-text);
+		    font-weight: normal;
 		    
 		}
 	    }
@@ -180,12 +189,9 @@
     h3 {
         display: block;
 	@include px2rem($font-size-contentmenu-title);
-	width: 220px;
+	width: $contentmenu-default-width;;
 	
-	a {
-	    
-	    
-	    
+	    a {
 	       &.ext-link:after {
 		       @extend .fa;
 		       content: "\f08e";
@@ -196,12 +202,13 @@
 		       vertical-align: top;
 
 	       }
-	   }
-	   a:hover,
+	    }
+	    a:hover,
 	    a:focus {
+		text-decoration: none;
 		background-color: var(--color-menulink-hover-bg);
-		    color: var(--color-menulink-hover-text);
-		}
+		color: var(--color-menulink-hover-text);
+	    }
     }
  
 }
@@ -225,66 +232,80 @@
 .contentmenu {
   &.refresh {
     .menu-item {
-      > div {
-    	   position: relative;
-         width: 100%;
-         height: 100%;
-         a.image {
-           width:100%;
-           height:100%;
-           display:block;
-           img {
-             width:100%;
-             height:100%;
-             object-fit:cover;
-           }
-         }
-      }
-      > div + p, > div + span.portaltop {
-      	bottom: 0;
-      	padding: 0;
-      	width: 100%;
-      }
-      span.portaltop {
-      //	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
-      	width: 100%;
-      	padding: 0;
-      }
-      &:hover span.portaltop {
-	background-color: $PalettonDunkelste;
-      }
-      span.portaltop a {
-    //  	color: var(--color-primary-basis-kontrast);
-      	line-height: 1.25;
-    //  	text-shadow: 1px 1px 3px black;
-      	display: block;
-      	padding: 8px 10px;
-        &:hover {
-        	text-decoration: none;
-        }
-      }
+	position: relative;
+	
+	> div {
+	      position: relative;
+	      width: 100%;
+	      height: 100%;
+
+	      a.image {
+		  width:100%;
+		  height:100%;
+		  display:block;
+		  img {
+		      width:100%;
+		      height:100%;
+		      object-fit:cover;
+		  }
+	      }
+	}
+	> div + p,
+	> div + span.portaltop {
+	    position: absolute;
+	    bottom: 0;
+	    padding: 0;
+	    width: 100%;
+	}
+	span.portaltop {
+	    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%);
+	    width: 100%;
+	    padding: 0;
+	    
+	}
+	&:focus span.portaltop,
+	&:hover span.portaltop {
+	      background-color: var(--color-menulink-hover-bg);
+	      color: var(--color-menulink-hover-text);
+	}
+	span.portaltop a {
+	      display: block;
+	      padding: 8px 10px;
+	      color: #fff;
+	      text-shadow: 1px 1px 1px #000;
+	      font-weight: normal;
+	      
+	      &:focus,
+	      &:hover {
+		text-decoration: none;
+		background-color: var(--color-menulink-hover-bg);
+		color: var(--color-menulink-hover-text);
+	      }
+	}
     }
     &.skewed {
       .menu-item {
         &::after {
-          content: "";
-          width: calc(100% + 10px);
-          height: 5%;
-          position: absolute;
-          left: -5px;
-          top: -5%;
-          background: #fff;
-          transform-origin: right top;
-          transform: skewY(-1.75deg);
-          display: block;
+	      content: "";
+	      width: 100%;
+	      height: 30px;
+	      position: absolute;
+	      left: 0;
+	      top: -30px;
+	      background: #fff;
+	      transform-origin: right top;
+	      transform: skewY(-1.75deg);
+	      display: block;
         }
       } // .skewed
     } // .menu-item
+    
+    
     &.contentmenutype2 {
       .subpages-menu {
         li {
-          width: 300px;
-          height: 150px;
+          width: $contentmenu-typ2-width;
+          height:$contentmenu-typ2-height;
         }
         
       }
@@ -292,8 +313,8 @@
     &.contentmenutype3 {
       .subpages-menu {
         li {
-          width: 480px;
-          height: auto;
+          width: $contentmenu-typ3-width;
+          height: $contentmenu-typ3-height;
  
         } 
       }
@@ -301,13 +322,4 @@
 
   } // .refresh
 } // .contentmenu
-@media (min-width: $screen-sm){
-  nav.sidebar-subnav+div.entry-content .contentmenu.refresh {
-   
-    &.contentmenutype3 li.menu-item {
-      width: 350px;
-      
-    }
-  }
-} // @media (min-width: $screen-sm)
-/* END extension for REFRESH */
+

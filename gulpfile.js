@@ -303,7 +303,8 @@ function buildmainstyle() {
  */
 function devbuildmainstyle() {
     var plugins = [
-        autoprefixer()
+        autoprefixer(),
+	 cssnano()
     ];
   return src([info.source.sass + 'fau-theme-style.scss'])
    .pipe(header(banner, { info : info }))
@@ -453,8 +454,8 @@ exports.buildmainstyle = buildmainstyle;
 var js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, makewplinkjs);
 var dev = series(sassautoprefixhelperfiles, devbuildmainstyle, js, devversion);
 
-exports.cssdev = series(sassautoprefixhelperfiles, devbuildmainstyle);
-exports.css = series(sassautoprefixhelperfiles, devbuildmainstyle);
+exports.cssdev = devbuildmainstyle;
+exports.css = devbuildmainstyle;
 exports.js = js;
 exports.dev = dev;
 exports.build = series(buildhelperstyles, buildmainstyle, js, upversionpatch);

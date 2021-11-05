@@ -1,6 +1,7 @@
 //-----------------------------------------------------------------------------------*/
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
+@use "sass:math";
 
 $farbfamilie: 'zuv';
 // med, phil, nat, rw, tf, zuv
@@ -305,9 +306,6 @@ $font-size-image-caption: $font-size-small;
 
 $font-size-content-toggle: $font-size-base;
 
-$font-size-contentmenu-title: ($font-size-base + 2);
-$font-size-contentmenu-link: $font-size-base;
-
 $font-size-pagination-h3: $font-size-content-meta;
 $font-size-pagination-links: $font-size-content-meta;
 
@@ -319,6 +317,18 @@ $font-size-desktop-sitetitle: 22;
 $font-size-print-base: $font-size-base;
 $font-size-print-base-small: ($font-size-base - 2);
 
+
+// Contentmenus / Portalmenus im Contentbereich
+
+$font-size-contentmenu-title: ($font-size-base + 2);
+$font-size-contentmenu-link: $font-size-base;
+$contentmenu-default-width: 240px;
+$contentmenu-default-height: floor(math.div($contentmenu-default-width, 3) * 2);
+
+$contentmenu-typ2-width: 300px;
+$contentmenu-typ2-height: auto;
+$contentmenu-typ3-width: 480px;
+$contentmenu-typ3-height: auto;
 
 // Slider
 $slick-arrow-color: white !default;
