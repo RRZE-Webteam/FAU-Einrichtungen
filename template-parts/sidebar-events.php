@@ -197,6 +197,7 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 		echo '<div class="topevent-date" itemprop="startDate" content="'.$topevent_date.'">';
 		echo date_i18n( get_option( 'date_format' ), strtotime( $topevent_date ) );
 		echo "</div>";
+		echo '<meta property="endDate" content="'.$topevent_date.'">';
 	    }
 	    $desc = get_post_meta( $topevent->ID, 'topevent_description', true );
 	    if (strlen(trim($desc))<3) {
