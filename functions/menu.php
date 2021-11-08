@@ -1051,6 +1051,7 @@ function fau_get_page_subnav($id) {
 function fau_add_subnav_css_class($css_class, $page){
     
     if (is_array($css_class)) {
+	$new_class = array();
 	foreach ($css_class as $i => $c) {
 	    if ($c == 'page_item') {
 	//	nope
@@ -1062,7 +1063,6 @@ function fau_add_subnav_css_class($css_class, $page){
 	}
     } else {
 	$css_class = preg_replace("/page\-item\-[0-9]+/", "", $css_class);
-   
 	$new_class = $css_class;
     }
    
