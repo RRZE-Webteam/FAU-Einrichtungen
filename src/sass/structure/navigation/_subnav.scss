@@ -137,7 +137,7 @@
 		background-image: svg-icon-lock($color-submenu-currentpage-text, 16, 16);
 	    }
 	}
-	
+	li.captain-future,
 	li.draft-page {	    
 	    a:after {
 		    @extend .svg-icon;
@@ -153,6 +153,8 @@
 		}
 	    }
 	}
+	li.captain-future.current_page_item,
+	li.captain-future.current_page_ancestor,
 	li.draft-page.current_page_item,
 	li.draft-page.current_page_ancestor {
 	    a:after {

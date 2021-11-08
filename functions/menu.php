@@ -1070,7 +1070,7 @@ function fau_add_subnav_css_class($css_class, $page){
 	$new_class[] = "draft-page";
     }
     if ($page->post_status == 'future') {
-	$new_class[] = "future-page";
+	$new_class[] = "captain-future";
     }
     if ($page->post_status == 'private') {
 	$new_class[] = "private-page";
