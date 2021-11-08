@@ -1028,17 +1028,57 @@ function fau_get_page_subnav($id) {
     $thismenu .= '<span class="screen-reader-text">'.__('Bereichsnavigation:', 'fau').' </span><a href="'.get_permalink($parent->ID).'">'.$parent->post_title.'</a>';
     $thismenu .= '</header>';
     $thismenu .= '<ul id="subnav">';
+    
+    $showstatus = 'publish';
+    if ( is_user_logged_in() ) {
+	   $showstatus = array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private');    
+    }
+
     $thismenu .= wp_list_pages(array(
-	    'child_of'	=> $parent_page,
-	    'title_li'	=> '',
-	    'echo'	=> false,
-	    'exclude'	=> $exclude
-     ));
+	'child_of'	=> $parent_page,
+	'title_li'	=> '',
+	'echo'	=> false,
+	'post_status'   => $showstatus,
+	'exclude'	=> $exclude
+    ));
+
     $thismenu .= '</ul>';
     $thismenu .= '</nav>';
     return $thismenu;
 }
 
+// adds csss classes for menu items and removes unneeded item-classes
+function fau_add_subnav_css_class($css_class, $page){
+    
+    if (is_array($css_class)) {
+	foreach ($css_class as $i => $c) {
+	    if ($c == 'page_item') {
+	//	nope
+	    } elseif (preg_match("/page\-item\-[0-9]+/", $c, $matches)) {
+	//	dont need
+	    } else {
+		$new_class[] = $c;
+	    }
+	}
+    } else {
+	$css_class = preg_replace("/page\-item\-[0-9]+/", "", $css_class);
+   
+	$new_class = $css_class;
+    }
+   
+    if (in_array($page->post_status, ['draft', 'pending', 'auto-draft'])) {
+	$new_class[] = "draft-page";
+    }
+    if ($page->post_status == 'future') {
+	$new_class[] = "future-page";
+    }
+    if ($page->post_status == 'private') {
+	$new_class[] = "private-page";
+    }  
+
+    return $new_class;
+}
+add_filter("page_css_class", "fau_add_subnav_css_class", 10, 2);
 
 /*-----------------------------------------------------------------------------------*/
 /* EOF menu.php

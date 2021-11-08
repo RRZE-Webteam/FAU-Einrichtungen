@@ -7,9 +7,6 @@
 	padding: 11px 15px;
 	margin-top: 0px;
 	border-top: 1px solid var(--color-primary-ci-hell);
-	@if $colorstyle == '2015' {
-	    border-top: 1px solid var(--color-primary-hellste);
-	}
 	@include px2rem($font-size-h3);
 	font-weight: bold;
     }
@@ -85,9 +82,6 @@
 		&:hover, &:focus {
 		    background-color: var(--color-submenu-hover-bg);
 		    color: var(--color-submenu-hover-text);
-		    
-		//	background: var(--color-primary-dunkler);  
-		//	color: var(--color-primary-dunkelste);
 		}
 	}
 	
@@ -109,8 +103,6 @@
 	
 	li .current_page_ancestor .current_page_item a,
 	li li .current_page_ancestor a {
-	//	background: var(--color-primary-dunkelste); 
-	//	color: var(--color-primary-dunkelste-kontrast);
 		background: var(--color-submenu-currentpage-bg); 
 		color: var(--color-submenu-currentpage-text);
 		
@@ -121,13 +113,54 @@
 		background: var(--color-primary-dunkler); 
 		color: var(--color-primary-basis-kontrast);
 	}
-	
-	li.protected-page a {
-		padding-right: 40px;
-		background-image: url('../img/protected-page.png');
-		background-repeat: no-repeat;
-		background-position: right center;
+	li.private-page,
+	li.protected-page {	    
+	    a:after {
+		    @extend .svg-icon;
+		    @include svg-icon-sizes(1.1rem);
+		    background-image: svg-icon-lock($color-submenu-currentlevel-text, 16, 16);
+		    margin-left: 5px;
+		    margin-top: -5px;
+	    }
+	    a:hover,
+	    a:focus {
+		&:after {
+		    background-image: svg-icon-lock($color-submenu-active-text, 16, 16);
+		}
+	    }
 	}
+	li.private-page.current_page_item,
+	li.private-page.current_page_ancestor,
+	li.protected-page.current_page_item,
+	li.protected-page.current_page_ancestor {
+	    a:after {
+		background-image: svg-icon-lock($color-submenu-currentpage-text, 16, 16);
+	    }
+	}
+	
+	li.draft-page {	    
+	    a:after {
+		    @extend .svg-icon;
+		    @include svg-icon-sizes(1.1rem);
+		    background-image: svg-icon-draft($color-submenu-currentlevel-text, 16, 16);
+		    margin-left: 5px;
+		    margin-top: -5px;
+	    }
+	    a:hover,
+	    a:focus {
+		&:after {
+		    background-image: svg-icon-draft($color-submenu-active-text, 16, 16);
+		}
+	    }
+	}
+	li.draft-page.current_page_item,
+	li.draft-page.current_page_ancestor {
+	    a:after {
+		background-image: svg-icon-draft($color-submenu-currentpage-text, 16, 16);
+	    }
+	}
+	
+
 	
 
 }
