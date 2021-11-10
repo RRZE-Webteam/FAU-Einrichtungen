@@ -159,16 +159,7 @@
     return $classes;
  }
  add_filter( 'body_class', 'fau_body_class' );
-/*-----------------------------------------------------------------------------------*/
-/* Add Class for protected pages
-/*-----------------------------------------------------------------------------------*/
- function fau_protected_attribute ($classes, $item) {
-	if($item->post_password != '')	{
-		$classes[] = 'protected-page';
-	}
-	return $classes;
-}
-add_filter('page_css_class', 'fau_protected_attribute', 10, 3);
+
 /*-----------------------------------------------------------------------------------*/
 /* Mark sidebar as used. This will add the class with-sidebar in the body class
 /*-----------------------------------------------------------------------------------*/

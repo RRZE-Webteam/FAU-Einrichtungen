@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 67,
+    'optiontable-version'	=> 68,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -18,7 +18,7 @@ $defaultoptions = [
     'js-version'				=> '2.01',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
     
-    'website_type'			=> 0,
+    'website_type'			=> 1,
 	// website_type: 
 	//  0 = Fakultaetsportal; 
 	//  1 = Lehrstuehle, Departents 
@@ -79,7 +79,6 @@ $defaultoptions = [
     'start_link_news_linktitle'			=> __('Mehr Meldungen','fau'),
 
 
- //   'default_postthumb_src'			=> get_fau_template_uri().'/img/thumbnail-siegel-220x147.gif',
     'default_postthumb_always'			=> 1,
     'default_postthumb_image'			=> 0,
     'default_submenu_spalten'			=> 4,
@@ -90,7 +89,6 @@ $defaultoptions = [
     'start_topevents_active'			=> true,
     'topevent_hideimage'			=> false,
     'topevents_templates'			=> array(1), 
-//    'default_topevent_thumb_src'		=> get_fau_template_uri().'/img/thumbnail-siegel-140x90.gif',
     'fallback_topevent_image'			=> 0,
     'fallback_submenu_image'			=> 0,
     'default_topevent_excerpt_length'		=> 100,
@@ -109,7 +107,7 @@ $defaultoptions = [
     /* Image Sizes for Slider, Name: hero */
     'slider-image-width'			=> 1260,
     'slider-image-height'			=> 350,    
-    'slider-image-crop'			=> true,
+    'slider-image-crop'				=> true,
     
     /* Hero Banner - Name: herobanner */
     'default_startseite-bannerbild-image_width'	    => 1260,
@@ -121,14 +119,12 @@ $defaultoptions = [
     'default_rwdimage_2-1_width'		=> 480,
     'default_rwdimage_2-1_height'		=> 240,    
     'default_rwdimage_2-1_crop'			=> false,
-//    'default_rwdimage_2-1_src'			=> get_fau_template_uri().'/img/thumbnail-siegel-480x240.gif',
 
     /* Small 3:2 size for images - Name: rwd-480-3-2 */
     'default_rwdimage_typname'			=> 'rwd-480-3-2',
     'default_rwdimage_width'			=> 480,
     'default_rwdimage_height'			=> 320,    
     'default_rwdimage_crop'			=> false,
-//    'default_rwdimage_src'			=> get_fau_template_uri().'/img/thumbnail-siegel-480x320.gif',
      
     /* Images for gallerys - Name: gallery-full */
     'default_gallery_full_width'		=> 940,
@@ -143,44 +139,43 @@ $defaultoptions = [
     'breadcrumb_uselastcat'			=> true,
     'breadcrumb_withtitle'			=> false,
     'breadcrumb_showcurrent'			=> true,
-    'default_logo_src'				=> get_fau_template_uri().'/img/logos/logo-fau-240x65.svg',
     'default_logo_height'			=> 108,
     'default_logo_width'			=> 400,
     
     'socialmedia'				=> 0,
-    'active_socialmedia_footer'		=> array(0),  
-    'socialmedia_buttons_title'		=> __('Social Media','fau'),
+    'active_socialmedia_footer'			=> array(0),  
+    'socialmedia_buttons_title'			=> __('Social Media','fau'),
     
-    'socialmedia_menu_name'		=> __( 'Social Media Menu', 'fau' ),
-    'socialmedia_menu_position'		=> 'FAU_SocialMedia_Menu_Footer',
-    'socialmedia_menu_position_title'	=> __( 'Social Media Bereich im Footer', 'fau' ),
+    'socialmedia_menu_name'			=> __( 'Social Media Menu', 'fau' ),
+    'socialmedia_menu_position'			=> 'FAU_SocialMedia_Menu_Footer',
+    'socialmedia_menu_position_title'		=> __( 'Social Media Bereich im Footer', 'fau' ),
     
     'menu_pretitle_portal'			=> __('Portal', 'fau'),
-    'menu_aftertitle_portal'		=> '',
+    'menu_aftertitle_portal'			=> '',
     
    'contact_address_name'			=> __('Friedrich-Alexander-Universität', 'fau'),
    'contact_address_name2'			=> __('Erlangen-Nürnberg', 'fau'),
-   'contact_address_street'		=> __('Schlossplatz 4', 'fau'),
+   'contact_address_street'			=> __('Schlossplatz 4', 'fau'),
    'contact_address_plz'			=> __('91054', 'fau'),
    'contact_address_ort'			=> __('Erlangen', 'fau'),
    
-    'contact_address_country'		=> '',
-    'google-site-verification'		=> '',
-    'default_mainmenu_number'		=> 4,
+    'contact_address_country'			=> '',
+    'google-site-verification'			=> '',
+    'default_mainmenu_number'			=> 4,
    
 
     'default_excerpt_morestring'		=> '...',
-    'default_excerpt_length'		=> 50,
-    'default_anleser_excerpt_length'	=> 300,
+    'default_excerpt_length'			=> 50,
+    'default_anleser_excerpt_length'		=> 300,
     'default_search_excerpt_length'		=> 300,
     
-    'custom_excerpt_allowtags'		=> 'br',
+    'custom_excerpt_allowtags'			=> 'br',
     'title_hero_post_categories'		=> '',
-    'title_hero_search'			=> __( 'Webauftritt durchsuchen', 'fau' ),
-    'title_hero_events'			=> __( 'Veranstaltungskalender','fau'),
+    'title_hero_search'				=> __( 'Webauftritt durchsuchen', 'fau' ),
+    'title_hero_events'				=> __( 'Veranstaltungskalender','fau'),
     
-    'advanced_footer_display_address'	=> true,
-    'advanced_footer_display_socialmedia'   => false,
+    'advanced_footer_display_address'		=> true,
+    'advanced_footer_display_socialmedia'	=> false,
     
     
     'advanced_beitragsoptionen'		=> true,
@@ -418,15 +413,35 @@ function fau_get_searchable_fields() {
 /*--------------------------------------------------------------------*/
 $setoptions = array(
     'fau_theme_options'   => array(
-       
-       'website'   => array(
-           'tabtitle'   => __('Webauftritt', 'fau'),
+	
+	'title_tagline'       => array(
+	    // Default Section
            'fields' => array(
 	       
-	        'webgroup'  => array(
-                  'type'    => 'section',
-                  'title'   => __( 'Daten zum Webauftritt', 'fau' ),     
-                ),
+	        'website_shorttitle' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'Abkürzung', 'fau' ),
+                  'label'   => __( 'Abkürzung für den offiziellen Titel der Website', 'fau' ),               
+                  'default' => '',
+		    'input_attrs' => array(
+			'maxlength' => 10,
+			'size'	=> 8,
+			'style' => 'width: auto;',
+		    ),
+		  'parent'  => 'title_tagline'
+		),
+	       'website_logotitle' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'Titel im Logo', 'fau' ),
+                  'label'   => __( 'Bei EInrichtungen der FAU wird der Titel neben dem FAU-Logo gezeigt. Ist der Titel zu lang um ihn optisch korrekt darzustellen, kann hiermmit ein kürzerer Titel angegeben werden. Wird dieser EIntrag leer gelassen, wird der Titel der Website verwendet.', 'fau' ),               
+                  'default' => '',
+		    'input_attrs' => array(
+			'maxlength' => 80,
+			'size'	=> 15,
+			'style' => 'width: auto;',
+		    ),
+		  'parent'  => 'title_tagline'
+		),
 	       
 	        'website_type'=> array(
 		    'type'    => 'select',
@@ -441,7 +456,7 @@ $setoptions = array(
 				    -1 => __('Zentrales FAU-Portal www.fau.de','fau') 
 			),
 		    'default' => $defaultoptions['website_type'],
-		    'parent'  => 'webgroup'
+		    'parent'  => 'title_tagline'
 		    
 		),  
 		'default_faculty_useshorttitle' => array(
@@ -449,7 +464,7 @@ $setoptions = array(
 		    'title'   => __( 'Fakultätslink', 'fau' ),
 		    'label'   => __( 'Textlink zur Fakultät verkürzen auf Abkürzung. Diese Option ist nur bei Nutzung eines Fakultätsthemes aktiv.', 'fau' ), 
 		    'default' => $defaultoptions['default_faculty_useshorttitle'],
-		    'parent'  => 'webgroup'
+		    'parent'  => 'title_tagline'
 		),      
 	       
 	       
@@ -459,62 +474,15 @@ $setoptions = array(
 		    'maxheight'	=> 182,
 		    'title'   => __( 'Banner Startseite', 'fau' ),
 		    'label'   => __( 'Festes Banner für die Startseite (Template für Lehrstühle und Einrichtungen)', 'fau' ),               
-		    'parent'  => 'webgroup'
+		    'parent'  => 'title_tagline'
 		),  
 	       
 	       
-               'pubadresse'  => array(
-                  'type'    => 'section',
-                  'title'   => __( 'Adressdaten', 'fau' ),                      
-		),
-		'contact_address_name' => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Adressat', 'fau' ),
-                  'label'   => __( 'Erste Zeile der Adresse', 'fau' ),               
-                  'default' => $defaultoptions['contact_address_name'],
-		  'parent'  => 'pubadresse'
-		),  
-	       'contact_address_name2' => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Adressat (Zusatz)', 'fau' ),
-                  'label'   => __( 'Zweite Zeile der Adresse', 'fau' ),               
-                  'default' => $defaultoptions['contact_address_name2'],
-		    'parent'  => 'pubadresse'
-		),  
-		'contact_address_street' => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Strasse', 'fau' ),
-                  'label'   => __( 'Strasse inkl. Hausnummer', 'fau' ),               
-                  'default' => $defaultoptions['contact_address_street'],
-		   'parent'  => 'pubadresse'
-              ),  
-	       'contact_address_plz' => array(
-                  'type'    => 'text',
-                  'title'   => __( 'PLZ', 'fau' ),
-                  'label'   => __( 'Postleitzahl', 'fau' ),               
-                  'default' => $defaultoptions['contact_address_plz'],
-		    'parent'  => 'pubadresse'
-              ),  
-	       'contact_address_ort' => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Ort', 'fau' ),
-                  'label'   => __( 'Ortsname', 'fau' ),               
-                  'default' => $defaultoptions['contact_address_ort'],
-		    'parent'  => 'pubadresse'
-              ),  
-	       'contact_address_country' => array(
-                  'type'    => 'text',
-                  'title'   => __( 'Land', 'fau' ),
-                  'label'   => __( 'Optionale Landesangabe', 'fau' ),               
-                  'default' => $defaultoptions['contact_address_country'],
-		  'parent'  => 'pubadresse'
-              ),  
-	     
-   
-          )
-       ),
+	       
+	    )
+	),
+	       
        
-     
        'allgemeines'   => array(
            'tabtitle'   => __('Anzeigeoptionen', 'fau'),
 	   'user_level'	=> 1,
@@ -774,13 +742,7 @@ $setoptions = array(
 		    'title'   => __( 'Footer', 'fau' ),    
 		    'desc'    => __( 'Einstellungen für den Fußteil des Webauftritts.', 'fau' ),
 		),
-	        'advanced_footer_display_address'	  => array(
-		    'type'    => 'toggle',
-		    'title'   => __( 'Adresse', 'fau' ),
-		    'label'   => __( 'Zeigt die Postadresse an, wie sie bei den Inhaltsdaten des Webauftritts angegeben wurde.', 'fau' ),                
-		    'default' => $defaultoptions['advanced_footer_display_address'],
-		    'parent'  => 'footer'
-		), 
+	       
 	        'advanced_footer_display_socialmedia'	  => array(
 		    'type'    => 'toggle',
 		    'title'   => __( 'Social Media', 'fau' ),
@@ -818,7 +780,59 @@ $setoptions = array(
 		    'label'   => __( 'Titel über den Social Media Icons in der ersten Spalte.', 'fau' ),               
 		    'default' => $defaultoptions['socialmedia_buttons_title'],
 		    'parent'  => 'footer',
-		),        
+		),      
+	       
+	        'advanced_footer_display_address'	  => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Adresse', 'fau' ),
+		    'label'   => __( 'Zeigt die Postadresse an, wie sie bei den Inhaltsdaten des Webauftritts angegeben wurde.', 'fau' ),                
+		    'default' => $defaultoptions['advanced_footer_display_address'],
+		    'parent'  => 'footer'
+		), 
+	       
+	       'contact_address_name' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'Adressat', 'fau' ),
+                  'label'   => __( 'Erste Zeile der Adresse', 'fau' ),               
+                  'default' => $defaultoptions['contact_address_name'],
+		  'parent'  => 'footer'
+		),  
+	       'contact_address_name2' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'Adressat (Zusatz)', 'fau' ),
+                  'label'   => __( 'Zweite Zeile der Adresse', 'fau' ),               
+                  'default' => $defaultoptions['contact_address_name2'],
+		    'parent'  => 'footer'
+		),  
+		'contact_address_street' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'Strasse', 'fau' ),
+                  'label'   => __( 'Strasse inkl. Hausnummer', 'fau' ),               
+                  'default' => $defaultoptions['contact_address_street'],
+		   'parent'  => 'footer'
+              ),  
+	       'contact_address_plz' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'PLZ', 'fau' ),
+                  'label'   => __( 'Postleitzahl', 'fau' ),               
+                  'default' => $defaultoptions['contact_address_plz'],
+		    'parent'  => 'footer'
+              ),  
+	       'contact_address_ort' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'Ort', 'fau' ),
+                  'label'   => __( 'Ortsname', 'fau' ),               
+                  'default' => $defaultoptions['contact_address_ort'],
+		    'parent'  => 'footer'
+              ),  
+	       'contact_address_country' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'Land', 'fau' ),
+                  'label'   => __( 'Optionale Landesangabe', 'fau' ),               
+                  'default' => $defaultoptions['contact_address_country'],
+		  'parent'  => 'footer'
+              ),  
+	       
 
 	       
           )

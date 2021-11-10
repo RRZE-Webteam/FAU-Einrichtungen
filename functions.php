@@ -119,7 +119,7 @@ function fau_custom_init() {
 
     // Declare Default Symbols from the start
     fau_register_svg_symbol("fau-logo-text", false);
-    fau_register_svg_symbol("fau-siegel", false);
+   // fau_register_svg_symbol("fau-siegel", false);
     fau_register_svg_symbol("fau-logo", false);
 
     

@@ -95,6 +95,52 @@
 	    }
 
 	}
+	p.textlogo {
+	    width: 400px;
+	    display: flex;
+	    flex-direction: row;
+	    justify-content: flex-start;
+	    flex-wrap: nowrap;
+	    gap: 15px;
+	    
+	    .baselogo {
+		width: 148px;	
+	    }
+	    .text {
+		width: 237px;
+		font-weight: bold;
+		font-size: 15px;
+		line-height: 20px;
+		
+		.fau-title-place,
+		.fau-title {
+		    display: block;
+		    color: var(--color-FAU);
+		}
+		.visible-title {
+		    &.phil {
+			color: var(--color-phil-basis);
+		    }
+		    &.nat {
+			color: var(--color-nat-basis);
+		    }
+		    &.med {
+			color: var(--color-med-basis);
+		    }
+		    &.rw {
+			color: var(--color-rw-basis);
+		    }
+		    &.tf {
+			color: var(--color-tf-basis);
+		    }
+		}
+		a {
+		    text-decoration: none;
+		}
+		
+	    }
+	    
+	}
     }
     @media (max-width: $screen-sm - 1) {
 	

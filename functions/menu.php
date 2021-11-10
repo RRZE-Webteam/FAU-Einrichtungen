@@ -1046,40 +1046,6 @@ function fau_get_page_subnav($id) {
     $thismenu .= '</nav>';
     return $thismenu;
 }
-
-// adds csss classes for menu items and removes unneeded item-classes
-function fau_add_subnav_css_class($css_class, $page){
-    
-    if (is_array($css_class)) {
-	$new_class = array();
-	foreach ($css_class as $i => $c) {
-	    if ($c == 'page_item') {
-	//	nope
-	    } elseif (preg_match("/page\-item\-[0-9]+/", $c, $matches)) {
-	//	dont need
-	    } else {
-		$new_class[] = $c;
-	    }
-	}
-    } else {
-	$css_class = preg_replace("/page\-item\-[0-9]+/", "", $css_class);
-	$new_class = $css_class;
-    }
-   
-    if (in_array($page->post_status, ['draft', 'pending', 'auto-draft'])) {
-	$new_class[] = "draft-page";
-    }
-    if ($page->post_status == 'future') {
-	$new_class[] = "captain-future";
-    }
-    if ($page->post_status == 'private') {
-	$new_class[] = "private-page";
-    }  
-
-    return $new_class;
-}
-add_filter("page_css_class", "fau_add_subnav_css_class", 10, 2);
-
 /*-----------------------------------------------------------------------------------*/
 /* EOF menu.php
 /*-----------------------------------------------------------------------------------*/

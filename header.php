@@ -50,10 +50,8 @@
 		<div class="header-container">
 		    <div class="header-row">
 			<div class="branding" id="logo" role="banner" itemscope itemtype="http://schema.org/Organization">
-			    <p class="sitetitle">
-			    <?php if ( ! is_front_page() ) {
-				echo '<a itemprop="url" rel="home" href="'.fau_esc_url(home_url( '/' ) ).'">';
-			    }
+			   
+			    <?php 
 			    $header_image = get_header_image();
 			    
 			    // Version 2: Check for old Images in theme, that was chosen in customizer, but removed
@@ -64,8 +62,12 @@
 				}
 			    }
 			    
-			    
 			    if ( ! empty( $header_image ) ) {
+				echo '<p class="sitetitle">';
+				
+				if ( ! is_front_page() ) {
+				    echo '<a itemprop="url" rel="home" href="'.fau_esc_url(home_url( '/' ) ).'">';
+				}
 				$customheader =  get_custom_header();
 				$attachment_id = 0;
 				if (isset($customheader->attachment_id)) {
@@ -93,16 +95,15 @@
 				    echo ' srcset="'.$srcset.'"';
 				}
 				echo ">"; 
-
+				if ( ! is_front_page() ) {
+				    echo "</a>";
+				} 
+				echo '</p>';
 			    } else {
-				// TODO since V2:
-				//  here we have to add a function to create a new FAU-Logo looking style
-				echo "<span>".get_bloginfo( 'title' )."</span>";
+				get_template_part('template-parts/header', 'textlogo'); 
 			    }
-			    if ( ! is_front_page() ) {
-				echo "</a>";
-			    } ?>
-			    </p>
+			   ?>
+			   
 			</div>
 			<nav class="header-menu" aria-label="<?php _e("Hauptnavigation","fau"); ?>">
 			    <a href="#nav" id="mainnav-toggle"><span><?php _e("Menu","fau"); ?></span></a>

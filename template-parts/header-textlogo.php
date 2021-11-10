@@ -1,0 +1,147 @@
+<?php
+
+/* 
+ * Display Title of the webpage as replacement for a logo
+ * 
+ * FAU THeme, since V2.0:
+ *   "Build" Logo together from FAU-Logo + Text
+ */
+
+global $defaultoptions;
+
+
+$faculty = '';
+$website_usefaculty = $defaultoptions['website_usefaculty'];
+if ( (isset($website_usefaculty)) && (in_array($website_usefaculty,$default_fau_orga_faculty))) {
+    $faculty = $website_usefaculty;
+    // 'website_usefaculty' = ( nat | phil | med | tf | rw )
+}
+$website_type = get_theme_mod('website_type');
+    /* 
+	 * website_type: 
+	 *  0 = Fakultaetsportal oder zentrale Einrichtung
+	 *	=> Fakultatslogo 
+	 *  1 = Lehrstuhl oder eine andere Einrichtung die einer Fakultät zugeordnet ist 
+         *	=> FAU Logo mit blauer FAU bezeichnung + Titel in Fakultatsfarbe 
+	 *  2 = Zentrale Einrichtungen  
+	 *	=> FAU Logo mit blauer FAU bezeichnung + Titel in blau 
+	 *  3 = Koopertation mit Externen (neu ab 1.4)
+	 *	=> Kein FAU Logo 
+	 *  -1 = FAU-Portal
+         *	=> FAU Logo mit Schrift 
+	 */
+  
+
+//  Use Default FAU SVG and add HTML-Text beneath
+
+
+
+
+// Ausschlusskriterien für falsche Wahloptionen
+if ((empty($faculty)) && ($website_type==0)) {
+    $website_type = 2;
+}
+
+$faulogo = true;
+$visible_toptitle = 'Friedrich-Alexander-Universität';
+$visible_toptitle_secondline = 'Erlangen-Nürnberg';
+// only useable in FAU Portal
+$visible_shortcut = get_theme_mod('website_shorttitle');
+// if set
+$screenreader_title = get_bloginfo( 'title' );
+
+$visible_title = get_theme_mod('website_logotitle');
+if (empty($visible_title)) {
+    $visible_title = get_bloginfo( 'title' );
+}
+
+$faculty = 'nat';
+
+if ($website_type == 0)  {
+    // Fakultätsportal
+    $visible_toptitle_secondline = '';
+    
+} elseif ($website_type == 1)  {
+    // Einrichtung unterhalb einer Fakultät
+    $visible_toptitle_secondline = '';
+
+} elseif ($website_type == 2)  {
+     // Einrichtungen, die der FAU zugeordnet sind und nicht einer Fakultät
+    $faculty = '';
+    $visible_toptitle_secondline = '';
+    
+} elseif ($website_type == -1)  {
+    // FAU Portal
+    $visible_shortcut = '';
+    $visible_title = '';
+    
+} else {
+    // Websites, die zu externen Kooperationen gehören, bei denen daher 
+    // kein FAU Logo erscheinen soll.
+    $visible_toptitle_secondline = '';
+    $visible_toptitle = '';
+    $faulogo = false;
+
+}
+
+echo '<p class="textlogo">';
+
+    if ($faulogo) {
+	echo '<span class="baselogo">';
+	if ( ! is_front_page() ) {
+	    echo '<a href="'.fau_esc_url(home_url( '/' ) ).'" tabindex="-1" aria-hidden="true">';
+	}	
+	echo fau_use_svg("fau-logo-2021",153,58,'faubaselogo',false, ['hidden' => true, 'labelledby' => 'website-title','role' => 'img']); 
+		
+	if ( ! is_front_page() ) {
+	    echo '</a>';
+	}    
+	echo '</span>';	
+
+    } 
+    echo '<span class="text">';
+    if ($visible_toptitle) {
+	if ((! $visible_title) && ( ! is_front_page() )) {
+	    echo '<a itemprop="url" rel="home" href="'.fau_esc_url(home_url( '/' ) ).'">';
+	}
+	echo '<span class="fau-title"';
+	if ($visible_title) {
+	    echo ' aria-hidden="true"';
+	} else {
+	    echo ' id="website-title"';
+	}
+	echo '>'.$visible_toptitle.'</span>';
+	if ($visible_toptitle_secondline) {
+	    echo '<span class="fau-title-place"';
+	    if ($visible_title) {
+	       echo ' aria-hidden="true"';
+	   }
+	   echo '>'.$visible_toptitle_secondline.'</span>';
+       }
+	
+	if ((! $visible_title) && ( ! is_front_page() )) {
+	    echo '</a>';
+	}
+	
+    }
+   
+
+    if ($visible_title) {
+	if ( ! is_front_page() ) {
+	    echo '<a itemprop="url" rel="home" href="'.fau_esc_url(home_url( '/' ) ).'">';
+	}
+
+
+	echo '<span id="website-title" class="visible-title';
+	if (!empty($faculty)) {
+	    echo ' '.$faculty;
+	}
+
+	echo '">'.$visible_title.'</span>';
+	if ( ! is_front_page() ) {
+	    echo '</a>';
+	}
+    }
+    echo '</span>';
+
+echo '</p>';
