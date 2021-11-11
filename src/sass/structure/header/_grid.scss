@@ -112,17 +112,18 @@
     header & {	
 	align-items: center;
 	justify-content: space-between;
+	
+	padding: floor(math.div($grid-gutter-width, 2));
+	
+	
 	@media (min-width: $screen-sm) {
 	    padding: 20px 0 10px;
 	}
 	.branding {
 	    min-width: 240px;
+	    flex: 0 0 auto;
 	}
-	.header-menu {
-	    @media (min-width: $screen-sm) {
-		padding-left: 15px;
-	    }
-	}
+	
     }
 }
 
