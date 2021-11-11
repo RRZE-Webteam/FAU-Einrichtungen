@@ -101,13 +101,21 @@
 	    flex-direction: row;
 	    justify-content: flex-start;
 	    flex-wrap: nowrap;
-	    gap: 15px;
+	    column-gap: 15px;
+	    row-gap: 0;
+	    
+	    @media (min-width: $screen-sm) and (max-width: $screen-lg) {
+		 flex-wrap: wrap;
+		 width: 240px;
+	    }
+	    
+	    
+	    
 	    
 	    .baselogo {
-		width: 148px;	
+		flex: 0 0 148px;
 	    }
 	    .text {
-		width: 237px;
 		font-weight: bold;
 		font-size: 15px;
 		line-height: 20px;
@@ -117,22 +125,30 @@
 		    display: block;
 		    color: var(--color-FAU);
 		}
+		
+		.zentral {
+		    color: var(--color-FAU);
+		}
+		.phil {
+		    color: var(--color-phil-basis);
+		}
+		.nat {
+		    color: var(--color-nat-basis);
+		}
+		.med {
+		    color: var(--color-med-basis);
+		}
+		.rw {
+		    color: var(--color-rw-basis);
+		}
+		.tf {
+		    color: var(--color-tf-basis);
+		}
+		.website-shortcut::before {
+		    content: "| ";
+		} 
 		.visible-title {
-		    &.phil {
-			color: var(--color-phil-basis);
-		    }
-		    &.nat {
-			color: var(--color-nat-basis);
-		    }
-		    &.med {
-			color: var(--color-med-basis);
-		    }
-		    &.rw {
-			color: var(--color-rw-basis);
-		    }
-		    &.tf {
-			color: var(--color-tf-basis);
-		    }
+		    
 		}
 		a {
 		    text-decoration: none;

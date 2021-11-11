@@ -54,8 +54,12 @@ $visible_title = get_theme_mod('website_logotitle');
 if (empty($visible_title)) {
     $visible_title = get_bloginfo( 'title' );
 }
+$debug_website_fakultaet = get_theme_mod('debug_website_fakultaet');
 
-$faculty = 'nat';
+if (isset($debug_website_fakultaet)) {
+    $faculty = $debug_website_fakultaet;
+}
+
 
 if ($website_type == 0)  {
     // Fakultätsportal
@@ -67,7 +71,7 @@ if ($website_type == 0)  {
 
 } elseif ($website_type == 2)  {
      // Einrichtungen, die der FAU zugeordnet sind und nicht einer Fakultät
-    $faculty = '';
+  //  $faculty = '';
     $visible_toptitle_secondline = '';
     
 } elseif ($website_type == -1)  {
@@ -138,6 +142,16 @@ echo '<p class="textlogo">';
 	}
 
 	echo '">'.$visible_title.'</span>';
+	
+	if ($visible_shortcut) {
+	    echo ' <span class="website-shortcut';
+	    if (!empty($faculty)) {
+		echo ' '.$faculty;
+	    }
+
+	    echo '">'.$visible_shortcut.'</span>';
+	}
+	
 	if ( ! is_front_page() ) {
 	    echo '</a>';
 	}

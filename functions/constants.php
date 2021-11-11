@@ -459,6 +459,27 @@ $setoptions = array(
 		    'parent'  => 'title_tagline'
 		    
 		),  
+	       
+	       'debug_website_fakultaet'=> array(
+		    'type'    => 'select',
+		    'title'   => __( 'DEBUGMODUS ONLY: Fakultät setzen', 'fau' ),
+		    'label'   => __( 'Das Logo kann im Titel eine Farbe bekommen. Diese wird üblicherweise aus dem Theme-Child bestimmt, kann aber mit dieser Variante zu Testzwecken auch überschrieben werden. Diese Funktion wird im produktiven Betrieb nicht zur Verfügung stehen.', 'fau' ),
+		    'liste'   => array(
+				
+				    '' => __('Themefarbe (Default)','fau'), 
+				    'zentral' => __('Zentral','fau'),  
+				    'phil' => __('Phil','fau'),  
+				    'med' => __('Med','fau'),  
+				    'nat' => __('Nat','fau'),  
+				    'rw' => __('RW','fau'),  
+				    'tf' => __('TF','fau'),  
+				    
+			),
+		    'default' => '',
+		    'parent'  => 'title_tagline'
+		    
+		),  
+	       
 		'default_faculty_useshorttitle' => array(
 		    'type'    => 'toggle',
 		    'title'   => __( 'Fakultätslink', 'fau' ),

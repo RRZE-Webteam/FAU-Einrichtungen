@@ -58,6 +58,7 @@
     }
     @media (min-width: $screen-xl-min) {
 	width: $container-xl;
+	margin-bottom: ceil(math.div($grid-gutter-width, 2));
     }
 }
 
@@ -65,6 +66,7 @@
 .header-row {
     display: flex;
     flex-wrap: nowrap;
+    column-gap: floor(math.div($grid-gutter-width, 2));
     justify-content: space-between;
     align-items: center;
     
