@@ -10,11 +10,18 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 68,
+    'optiontable-version'	=> 69,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
+    'debugmode'				=> true,
+	// Der Debugmode erlaubt die Einschaltung von Debug- und Demowerten über den Customizer.
+	// Bei der Compilierung des Themes mit Gulp wird der Debugmode bei
+	//  'gulp build'   auf false gesetzt
+	// Ansonsten kann er manuell über 'gulp nodebug' auf false und
+	//  mit 'gulp debugmode' auf true gesetzt werden
+	// Oder hier von Hand :)
     'js-version'				=> '2.01',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
     
@@ -460,25 +467,7 @@ $setoptions = array(
 		    
 		),  
 	       
-	       'debug_website_fakultaet'=> array(
-		    'type'    => 'select',
-		    'title'   => __( 'DEBUGMODUS ONLY: Fakultät setzen', 'fau' ),
-		    'label'   => __( 'Das Logo kann im Titel eine Farbe bekommen. Diese wird üblicherweise aus dem Theme-Child bestimmt, kann aber mit dieser Variante zu Testzwecken auch überschrieben werden. Diese Funktion wird im produktiven Betrieb nicht zur Verfügung stehen.', 'fau' ),
-		    'liste'   => array(
-				
-				    '' => __('Themefarbe (Default)','fau'), 
-				    'zentral' => __('Zentral','fau'),  
-				    'phil' => __('Phil','fau'),  
-				    'med' => __('Med','fau'),  
-				    'nat' => __('Nat','fau'),  
-				    'rw' => __('RW','fau'),  
-				    'tf' => __('TF','fau'),  
-				    
-			),
-		    'default' => '',
-		    'parent'  => 'title_tagline'
-		    
-		),  
+	       
 	       
 		'default_faculty_useshorttitle' => array(
 		    'type'    => 'toggle',
@@ -1068,6 +1057,9 @@ $setoptions = array(
 	       
           )
        ), 
+	
+	
+	
        'advanced'   => array(
            'tabtitle'   => __('Erweitert', 'fau'),
 	   'user_level'	=> 1,
@@ -1338,6 +1330,78 @@ $setoptions = array(
 	    ),    
 	),    
 
+	
+	
+	'debugmode'   => array(
+           'tabtitle'   => __('Einstellungen im Debugmode', 'fau'),
+	   'user_level'	=> 1,
+	   'capability'    => 'customize',
+           'fields' => array(
+      
+
+	      
+	        'debugorgs'  => array(
+		    'type'    => 'section',
+		    'title'   => __( 'Organisatorisches', 'fau' ),                      
+		),
+	      
+
+	       'debug_website_fakultaet'=> array(
+		    'type'    => 'select',
+		    'title'   => __( 'Fakultät setzen', 'fau' ),
+		    'label'   => __( 'Das Logo kann im Titel eine Farbe bekommen. Diese wird üblicherweise aus dem Theme-Child bestimmt, kann aber mit dieser Variante zu Testzwecken auch überschrieben werden. Diese Funktion wird im produktiven Betrieb nicht zur Verfügung stehen.', 'fau' ),
+		    'liste'   => array(
+				
+				    '' => __('Themefarbe (Default)','fau'), 
+				    'zentral' => __('Zentral','fau'),  
+				    'phil' => __('Phil','fau'),  
+				    'med' => __('Med','fau'),  
+				    'nat' => __('Nat','fau'),  
+				    'rw' => __('RW','fau'),  
+				    'tf' => __('TF','fau'),  
+				    
+			),
+		    'default' => '',
+		    'parent'  => 'debugorgs',
+		    'ifmodvalue'    => true,
+		    'ifmodname'	=> 'debugmode',
+		    
+		),  
+	        'debug_orgabreadcrumb'=> array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Orga Breadcrumb simulieren', 'fau' ),
+		    'label'   => __( 'Es wird eine organisatorische Breadcrumb simuliert und ausgegeben. Diese wird im produktiven Betrieb durch ein Plugin bereit gestellt werden.  Mit dieser Option kann man ohne Installation und Konfiguration des Plugins die Ausgabe mit Pseudodaten simulieren.', 'fau' ),                
+		    'default' => false,
+		    'parent'  => 'debugorgs',
+		    'ifmodvalue'    => true,
+		    'ifmodname'	=> 'debugmode',
+		    
+		),  
+	       
+	       'debugcontent'  => array(
+		    'type'    => 'section',
+		    'title'   => __( 'Plugins und Content', 'fau' ),                      
+		),
+	      
+	       
+	       'debug_sprachschalter'=> array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Sprachschalter simulieren', 'fau' ),
+		    'label'   => __( 'Der Sprachschalter wird im produktiven Betrieb durch eines der Plugins CMS Workflow oder Language Switcher aktiviert. Mit dieser Option kann man ohne Installation und Konfiguration der Plugins den Sprachschalter simulieren - sprich den HTML-Code im Header erzeugen lassen. Falls einer der Plugins vorhanden und aktiv ist, wird diese Debug-Einstellung vorrang haben. ', 'fau' ),                
+		    'default' => false,
+		    'parent'  => 'debugcontent',
+		    'ifmodvalue'    => true,
+		    'ifmodname'	=> 'debugmode',
+		    
+		),  
+	       
+	       
+	     
+
+	    ),    
+	),
+	
+	       
     )
 );
 	       

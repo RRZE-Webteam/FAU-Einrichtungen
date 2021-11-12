@@ -54,10 +54,12 @@ $visible_title = get_theme_mod('website_logotitle');
 if (empty($visible_title)) {
     $visible_title = get_bloginfo( 'title' );
 }
-$debug_website_fakultaet = get_theme_mod('debug_website_fakultaet');
 
-if (isset($debug_website_fakultaet)) {
-    $faculty = $debug_website_fakultaet;
+if ($defaultoptions['debugmode']) {
+    $debug_website_fakultaet = get_theme_mod('debug_website_fakultaet');
+    if (isset($debug_website_fakultaet)) {
+	$faculty = $debug_website_fakultaet;
+    }
 }
 
 

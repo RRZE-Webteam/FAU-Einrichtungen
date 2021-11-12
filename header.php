@@ -32,19 +32,24 @@
 				<div class="meta-tools">
 				    <?php 
 				    get_template_part('template-parts/header', 'search'); 
-
-				    if ( is_active_sidebar( 'language-switcher' ) )  {
+				    
+				    
+				    if ($defaultoptions['debugmode'] && get_theme_mod('debug_sprachschalter')) {
+					 get_template_part('template-parts/debugoutput', 'sprachschalter'); 
+				     } elseif ( is_active_sidebar( 'language-switcher' ) )  {
 					 dynamic_sidebar( 'language-switcher' ); 
-				     } ?>
+				     }  ?>
 				</div>
 			    </div>
-			    <?php if ( is_plugin_active( 'fau-orga-breadcrumb/fau-orga-breadcrumb.php' ) ) { ?>
-			    <div class="meta-row orga">
-				<?php echo do_shortcode('[fauorga]'); ?>
-			    </div>
-			    <?php } ?>
+			   
 			</div>
 		</div>
+		 <?php
+		if ($defaultoptions['debugmode'] && get_theme_mod('debug_orgabreadcrumb')) {
+		    get_template_part('template-parts/debugoutput', 'orga-breadcrumb'); 
+		} elseif ( is_plugin_active( 'fau-orga-breadcrumb/fau-orga-breadcrumb.php' ) ) { ?>
+		    get_template_part('template-parts/header', 'orga-breadcrumb'); 			
+		<?php } ?>
 	    </div>
 	    <header id="header">
 		<div class="header-container">

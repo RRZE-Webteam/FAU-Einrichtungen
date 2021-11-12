@@ -54,6 +54,15 @@
     
     
     $website_usefaculty = $defaultoptions['website_usefaculty'];
+    
+    if ($defaultoptions['debugmode']) {
+	$debug_website_fakultaet = get_theme_mod('debug_website_fakultaet');
+	if (isset($debug_website_fakultaet)) {
+	    $website_usefaculty = $debug_website_fakultaet;
+	}
+    }
+
+    
     if ( (isset($website_usefaculty)) && (in_array($website_usefaculty,$default_fau_orga_faculty))) {
 	 $classes[] = 'faculty-'.$website_usefaculty;
     }
@@ -1012,6 +1021,16 @@ function fau_get_orgahomelink() {
     $result = '';
  
     $website_usefaculty = $defaultoptions['website_usefaculty'];   
+    
+   if ($defaultoptions['debugmode']) {
+	$debug_website_fakultaet = get_theme_mod('debug_website_fakultaet');
+	if (isset($debug_website_fakultaet)) {
+	    $website_usefaculty = $debug_website_fakultaet;
+	}
+    }
+
+    
+    
     $isfaculty = false;
     if ( (isset($website_usefaculty)) && (in_array($website_usefaculty,$default_fau_orga_faculty))) {
 	$isfaculty = true;
