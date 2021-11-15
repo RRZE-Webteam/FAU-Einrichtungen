@@ -6,11 +6,8 @@
 #hero.hero-banner {
 	    height: auto;
 	    overflow: inherit;
-            @if $colorstyle == '2021' {
-		background: var(--color-hero-bg);
-            } @else {
-		@include radial-gradient(var(--color-hero-bg), var(--color-primary-basis-lighten15));
-	    }
+	    background: var(--color-hero-bg);
+
 	    @media (min-width: $screen-sm) {
 		 max-height: 142px;
 	    }

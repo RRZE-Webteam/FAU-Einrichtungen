@@ -3,21 +3,30 @@
 /*-----------------------------------------------------------------------------------*/
 
 :root {
-    @each $farbtyp, $map in $colormaps {	    
-	@each $variante, $colorcode in $map {
-	   --color-#{$farbtyp}-#{$variante}: #{$colorcode};
-       }
+   
+     @each $variante, $colorcode  in $colormap-primary {	    
+	 --color-primary-#{$variante}: #{$colorcode};
+     }
+     @each $farbtyp, $map in $colormaps {		
+	$colorcode: map-get($map, "basis");
+	--color-#{$farbtyp}-basis: #{$colorcode};
+	$colorcode: map-get($map, "basis-kontrast");
+	--color-#{$farbtyp}-basis-kontrast: #{$colorcode};
+	$colorcode: map-get($map, "ci-hell");
+	--color-#{$farbtyp}-ci-hell: #{$colorcode};
+	$colorcode: map-get($map, "ci-hell-kontrast");
+	--color-#{$farbtyp}-ci-hell-kontrast: #{$colorcode};
     }
     
      @each $variante, $colorcode  in $colormap-misc {	    
 	 --color-#{$variante}: #{$colorcode};
      }
      /* Calculated Values */
-     --color-primary-basis-lighten15: #{$colorPrimaryHeroLight}; // lighten primary basis by 15%
      --color-MetaHomeBackground: #{$colorMetaFAUHomeBackground}; 
      --color-MetaHover: #{$colorMetaHover};
      --color-MetaText: #fff;
      --color-MetaBackgroundLight: #{$colorMetaLightest};
+     
      --color-FAU: #{$colorZUV};
      --color-content-headlines: #{$color-content-headlines};
      --color-links: #{$color-links};

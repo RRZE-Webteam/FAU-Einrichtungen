@@ -1038,7 +1038,6 @@ function fau_get_orgahomelink() {
     
     $linkhome = true;
     $linkhomeimg = false;
-    $linkfaculty = false;
 
     
     $website_type = get_theme_mod("website_type");
@@ -1047,17 +1046,9 @@ function fau_get_orgahomelink() {
     // Using if-then-else structure, due to better performance as switch 
     if ($website_type==-1) {
 	$linkhome = true; // wird uber CSS unsichtbar gemacht fuer desktop und bei kleinen aufloesungen gezeigt
-	$linkfaculty = false;
 	$linkhomeimg = true;
     } elseif ($isfaculty) {
 	$linkhomeimg = true;
-	
-	if ($website_type==0) {
-	    //  0 = Fakultaetsportal oder zentrale Einrichtung
-	    $linkfaculty = false;
-	} else {
-	    $linkfaculty = true;
-	}
     } else {
 	$linkhomeimg = true;
 	if ($website_type==3) {
@@ -1084,22 +1075,7 @@ function fau_get_orgahomelink() {
     } else {
 	$linkhome = false;
     }
-   
-    $facultytitle = $facultyshorttitle = $facultyurl = '';
-    if (($linkfaculty) && isset($default_fau_orga_data['_faculty'][$website_usefaculty])) {
-	$facultytitle = $default_fau_orga_data['_faculty'][$website_usefaculty]['title'];
-	$facultyshorttitle = $default_fau_orga_data['_faculty'][$website_usefaculty]['shorttitle'];
-
-	if (isset($default_fau_orga_data['_faculty'][$website_usefaculty]['homeurl_'.$charset])) {
-	    $facultyurl = $default_fau_orga_data['_faculty'][$website_usefaculty]['homeurl_'.$charset];
-	} else {
-	    $facultyurl = $default_fau_orga_data['_faculty'][$website_usefaculty]['homeurl'];
-	}
-	
-	
-    } else {
-	$linkfaculty = false;
-    }
+    
 
     $orgalist = '';
     
@@ -1118,19 +1094,7 @@ function fau_get_orgahomelink() {
     }
     
 
-    if (($linkfaculty) && isset($facultyurl)) {
-	$orgalist .= '<li data-wpel-link="internal" class="facultyhome">';
-	$orgalist .= '<a href="'.$facultyurl.'">';
-	
-	$useshorttitle = get_theme_mod("default_faculty_useshorttitle");
-	if ($useshorttitle) {
-	    $orgalist .= $facultyshorttitle; 
-	} else {
-	    $orgalist .= $facultytitle; 
-	}
-	$orgalist .= '</a>';
-	$orgalist .= '</li>'."\n";	
-    }
+    
     
     if (isset($orgalist)) {	
 	$result .= '<ul class="orgalist">';
@@ -1548,7 +1512,9 @@ function fau_get_the_title($id = 0) {
 		$res .= '</span>';
 		return $res;
 	    }
-	} 
+	} else {
+	    return get_the_title($id);
+	}
     } else {
 	return get_the_title($id);
     }

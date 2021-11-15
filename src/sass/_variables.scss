@@ -5,7 +5,6 @@
 
 $farbfamilie: 'zuv';
 // med, phil, nat, rw, tf, zuv
-$colorstyle: '2021';
 
 
 // Define fonts
@@ -91,11 +90,8 @@ $color-footer-text:	map-get($colormap-primary, "ci-hell-kontrast");
 // Hero
 $color-hero-bg:		map-get($colormap-primary, "ci-hell");
 $color-hero-text:	map-get($colormap-primary, "ci-hell-kontrast");
-$colorPrimaryHeroLight: map-get($colormap-primary, "ci-hell");
 
 
-// Meta
-$colorMetaTextDefault:  map-get($colormap-misc, "MetaTextDefault");
 
 // Main Menu
 $color-mainmenu-toplevel-bg:	    map-get($colormap-misc, "MainBackground");
@@ -132,42 +128,6 @@ $color-menulink-hover-text:	map-get($colormap-primary, "dunkler-kontrast");
 $color-menulink-hover-bg:	map-get($colormap-primary, "dunkler");
 
 
-@if $colorstyle == '2015' {
-    $color-footer-bg:	map-get($colormap-primary, "basis");
-    $color-footer-text:	map-get($colormap-primary, "basis-kontrast");
-    $color-hero-bg:	map-get($colormap-primary, "basis");
-    $color-hero-text:	map-get($colormap-primary, "basis-kontrast");
-    $colorPrimaryHeroLight: lighten(map-get($colormap-primary, "basis"), 15%);  // hellere Farbe
-    
-    $color-mainmenu-toplevel-text: map-get($colormap-primary, "basis");
-    $color-mainmenu-toplevel-hover-text: #fff;
-    $color-mainmenu-toplevel-hover-bg: map-get($colormap-primary, "basis");
-    
-    $color-mainmenu-sublevel-bg: map-get($colormap-primary, "basis");
-    
-    $color-mainmenu-sublevel-button-text: map-get($colormap-primary, "basis-kontrast");
-    $color-mainmenu-sublevel-button-bg: map-get($colormap-primary, "dunkelste");
-    $color-mainmenu-sublevel-button-hover-text: $color-mainmenu-sublevel-button-text;
-    $color-mainmenu-sublevel-button-hover-bg: map-get($colormap-primary, "dunkler");
-    
-    
-    $color-submenu-hover-text:  map-get($colormap-primary, "basis-kontrast");
-    $color-submenu-hover-bg: map-get($colormap-primary, "dunkler");
-    $color-submenu-currentlevel-text: map-get($colormap-primary, "dunkelste");
-    $color-submenu-currentlevel-bg: map-get($colormap-primary, "hellste");
-    $color-submenu-active-bg:	    map-get($colormap-primary, "dunkler"); 
-    $color-submenu-active-text:	    #fff;
-    
-    $color-submenu-sublevel-text:	map-get($colormap-primary, "ci-hell-kontrast");
-    $color-submenu-sublevel-bg:	    map-get($colormap-primary, "ci-hell");
-    
-    // Content
-    $color-content-headlines:   map-get($colormap-primary, "basis");
-    $color-links:		map-get($colormap-primary, "basis");
-    $color-content-links:	map-get($colormap-primary, "basis");
-}
-
-
 
 
 $colorNotice:		map-get($colormap-misc, "Notice"); 	
@@ -185,11 +145,6 @@ $socialmedia_icon_bgcolor_hover: map-get($colormap-primary, "ci-hell-kontrast");
 $socialmedia_icon_color:	map-get($colormap-primary, "ci-hell-kontrast");
 $socialmedia_icon_color_hover:	map-get($colormap-primary, "ci-hell");
 
-@if $colorstyle == '2015' {
-    $socialmedia_icon_bgcolor_hover: $colorPrimaryContrast;
-    $socialmedia_icon_color: $colorPrimaryContrast;
-    $socialmedia_icon_color_hover: $colorPrimary;
-}
 
 
 $colorOverlayLight: rgba(255, 255, 255, 0.15);

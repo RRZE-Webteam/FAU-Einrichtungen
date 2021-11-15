@@ -16,11 +16,8 @@
     }
 
     @include placeholder(var(--color-hero-text));	
-    @if $colorstyle == '2021' {
-		background: var(--color-hero-bg);		
-    } @else {
-		@include radial-gradient(var(--color-hero-bg), var(--color-primary-basis-lighten15));
-    }
+    background: var(--color-hero-bg);		
+
 
 	
 	h1, h2, h3, h4, p {
@@ -76,7 +73,27 @@
     .search-input {
 	@extend .col-sm-8;
     }
+    
+     &.hero-small {
+	background: var(--color-hero-bg);		
+        overflow:hidden;
+	
+	p.presentationtitle,
+	h1 {
+	    padding: 0;
+	    margin: 10px 0 20px 0;
+	}
 
+    }    
+    .hero-content {
+	 z-index: 10;
+    }
+    .single & p.presentationtitle {
+	display: none;
+	@media (min-width: $screen-sm ) {
+	    display: inline-block;
+	}
+    }
 
    
 }

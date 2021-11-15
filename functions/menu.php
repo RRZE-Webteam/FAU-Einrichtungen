@@ -818,7 +818,7 @@ function fau_cleanup_menuclasses($currentarray = array()) {
 /*-----------------------------------------------------------------------------------*/
 /* Create breadcrumb
 /*-----------------------------------------------------------------------------------*/
-function fau_breadcrumb($lasttitle = '') {
+function fau_breadcrumb($lasttitle = '', $echo = true) {
   global $defaultoptions;
 
   $delimiter	= $defaultoptions['breadcrumb_delimiter'];
@@ -831,10 +831,12 @@ function fau_breadcrumb($lasttitle = '') {
   $pretitletextend     = '</span>';
 
 
-  echo '<nav aria-label="'.__('Breadcrumb','fau').'" class="breadcrumbs">';
+  $res = '';
+  
+  $res .= '<nav aria-label="'.__('Breadcrumb','fau').'" class="breadcrumbs">';
     if (get_theme_mod('breadcrumb_withtitle')) {
-	echo '<p class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo( 'title' ).'</p>';
-	echo "\n";
+	$res .= '<p class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo( 'title' ).'</p>';
+	$res .= "\n";
     }
 
   if ( !is_home() && !is_front_page() || is_paged() ) {
@@ -842,7 +844,7 @@ function fau_breadcrumb($lasttitle = '') {
     global $post;
 
     $homeLink = home_url('/');
-    echo '<a href="' . $homeLink . '">' . $home . '</a>' . $delimiter;
+    $res .= '<a href="' . $homeLink . '">' . $home . '</a>' . $delimiter;
 
     if ( is_category() ) {
 	global $wp_query;
@@ -850,27 +852,29 @@ function fau_breadcrumb($lasttitle = '') {
 	$thisCat = $cat_obj->term_id;
 	$thisCat = get_category($thisCat);
 	$parentCat = get_category($thisCat->parent);
-	if ($thisCat->parent != 0)
-	    echo(get_category_parents($parentCat, TRUE, $delimiter ));
-	echo $before . single_cat_title('', false) .  $after;
+	if ($thisCat->parent != 0) {
+	    $res .= get_category_parents($parentCat, TRUE, $delimiter );
+	}
+	    
+	$res .= $before . single_cat_title('', false) .  $after;
 
     } elseif ( is_day() ) {
-	echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>' .$delimiter;
-	echo '<a href="' . get_month_link(get_the_time('Y'),get_the_time('m')) . '">' . get_the_time('F') . '</a>' .$delimiter;
-	echo $before . get_the_time('d') . $after;
+	$res .= '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>' .$delimiter;
+	$res .= '<a href="' . get_month_link(get_the_time('Y'),get_the_time('m')) . '">' . get_the_time('F') . '</a>' .$delimiter;
+	$res .= $before . get_the_time('d') . $after;
     } elseif ( is_month() ) {
-	echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>' . $delimiter;
-	echo $before . get_the_time('F') . $after;
+	$res .= '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>' . $delimiter;
+	$res .= $before . get_the_time('F') . $after;
     } elseif ( is_year() ) {
-	echo $before . get_the_time('Y') . $after;
+	$res .= $before . get_the_time('Y') . $after;
     } elseif ( is_single() && !is_attachment() ) {
 
 	if ( get_post_type() != 'post' ) {
 	    $post_type = get_post_type_object(get_post_type());
 	    $slug = $post_type->rewrite;
-	    echo '<a href="' . $homeLink . $slug['slug'] . '">' . $post_type->labels->name . '</a>' .$delimiter;
+	    $res .= '<a href="' . $homeLink . $slug['slug'] . '">' . $post_type->labels->name . '</a>' .$delimiter;
 	    if ($showcurrent) {
-		echo $before . get_the_title() . $after;
+		$res .= $before . get_the_title() . $after;
 	    }
 	} else {
 
@@ -882,27 +886,27 @@ function fau_breadcrumb($lasttitle = '') {
 	    }
 	    $catid = $last->cat_ID;
 
-	    echo get_category_parents($catid, TRUE,  $delimiter );
+	    $res .= get_category_parents($catid, TRUE,  $delimiter );
 	    if ($showcurrent) {
-		echo $before . get_the_title() . $after;
+		$res .= $before . get_the_title() . $after;
 	    }
 
 	}
     } elseif ( !is_single() && !is_page() && !is_search() && get_post_type() != 'post' && !is_404() ) {
 	$post_type = get_post_type_object(get_post_type());
-	echo $before . $post_type->labels->name . $after;
+	$res .= $before . $post_type->labels->name . $after;
 
     } elseif ( is_attachment() ) {
 	$parent = get_post($post->post_parent);
-	echo '<a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a>'. $delimiter;
+	$res .= '<a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a>'. $delimiter;
 	if ($showcurrent) {
-	    echo $before . get_the_title() . $after;
+	    $res .= $before . get_the_title() . $after;
 	}
     } elseif ( is_page() ) {
 
 	if (!$post->post_parent ) {
 	    if ($showcurrent) {
-		echo $before . fau_get_the_title() . $after;
+		$res .= $before . fau_get_the_title() . $after;
 	    }
 	} else {
 	    $parent_id  = $post->post_parent;
@@ -913,38 +917,44 @@ function fau_breadcrumb($lasttitle = '') {
 		$parent_id  = $page->post_parent;
 	    }
 	    $breadcrumbs = array_reverse($breadcrumbs);
-	    foreach ($breadcrumbs as $crumb) echo $crumb . $delimiter;
+	    foreach ($breadcrumbs as $crumb) {
+		$res .= $crumb . $delimiter;
+	    }
 	    if ($showcurrent) {
-		echo $before . fau_get_the_title() . $after;
+		$res .= $before . fau_get_the_title() . $after;
 	    }
 	}
     } elseif ( is_search() ) {
 
 	    $searchstring = esc_attr(get_search_query());
 	    if (!fau_empty($searchstring)) {
-		 echo $before .$pretitletextstart. __( 'Suche nach', 'fau' ).$pretitletextend.' "' . $searchstring . '"' . $after;
+		 $res .= $before .$pretitletextstart. __( 'Suche nach', 'fau' ).$pretitletextend.' "' . $searchstring . '"' . $after;
 	    } else {
-		 echo $before .$pretitletextstart. __( 'Suche', 'fau' ).$pretitletextend. $after;
+		 $res .= $before .$pretitletextstart. __( 'Suche', 'fau' ).$pretitletextend. $after;
 	    }
 
 
     } elseif ( is_tag() ) {
-	echo $before .$pretitletextstart. __( 'Schlagwort', 'fau' ).$pretitletextend. ' "' . single_tag_title('', false) . '"' . $after;
+	$res .= $before .$pretitletextstart. __( 'Schlagwort', 'fau' ).$pretitletextend. ' "' . single_tag_title('', false) . '"' . $after;
     } elseif ( is_author() ) {
 	global $author;
 	$userdata = get_userdata($author);
-	echo $before .$pretitletextstart. __( 'Beiträge von', 'fau' ).$pretitletextend.' '.$userdata->display_name . $after;
+	$res .= $before .$pretitletextstart. __( 'Beiträge von', 'fau' ).$pretitletextend.' '.$userdata->display_name . $after;
     } elseif ( is_404() ) {
-	echo $before . '404' . $after;
+	$res .= $before . '404' . $after;
     }
 
   } elseif (is_front_page())  {
-	echo $before . $home . $after;
+	$res .= $before . $home . $after;
   } elseif (is_home()) {
-	echo $before . get_the_title(get_option('page_for_posts')) . $after;
+	$res .= $before . get_the_title(get_option('page_for_posts')) . $after;
   }
-   echo '</nav>';
-
+   $res .= '</nav>';
+   
+   if ($echo) {
+	echo $res;
+   }
+   return $res;
 }
 /*-----------------------------------------------------------------------------------*/
 /* Create Social Media Menu

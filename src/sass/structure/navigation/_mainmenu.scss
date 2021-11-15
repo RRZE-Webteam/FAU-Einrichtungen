@@ -283,12 +283,7 @@
 				}
 
 				&.level3 a {
-				  
-				    
-				    @if $colorstyle == '2015' {
-					color: var(--color-primary-hellste);
-				    }
-				//    background-color: transparent;
+
 				    padding-left: $padding-base-horizontal;
 				}
 			}
@@ -304,10 +299,6 @@
 
 			.nav-flyout {
 				background: var(--color-mainmenu-sublevel-bg);
-				
-				@if $colorstyle == '2015' {
-				    background: linear-gradient(to top, var(--color-primary-basis-lighten15) 0%, var(--color-primary-basis) 100%);
-				}
 				
 				
 				@media (min-width: $screen-sm) {

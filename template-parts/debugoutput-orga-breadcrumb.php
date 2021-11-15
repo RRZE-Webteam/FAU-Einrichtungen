@@ -12,11 +12,11 @@
     <div class="header-container">
 	<div class="header-row">
 	    <nav aria-label="<?php _e('Organisatorische Navigation','fau-orga-breadcrumb');?>">
-		<ul>
-		    <li><a href="https://www.fau.de">Friedrich-Alexander-Universität Erlangen-Nürnberg</a></li>
-		    <li><a href="https://www.tf.fau.de/">Technische Fakultät</a></li>
-		    <li><a href="https://www.informatik.uni-erlangen.de">Department Informatik</a></li>
-		</ul>	
+		<ol class="breadcrumblist" itemscope itemtype="https://schema.org/BreadcrumbList">
+		    <li itemprop="itemListElement" itemscope  itemtype="https://schema.org/ListItem"><a itemprop="item" href="https://www.fau.de"><span itemprop="name">Friedrich-Alexander-Universität Erlangen-Nürnberg</span></a><meta itemprop="position" content="1" /></li>
+		    <li itemprop="itemListElement" itemscope  itemtype="https://schema.org/ListItem"><a itemprop="item" href="https://www.tf.fau.de/"><span itemprop="name">Technische Fakultät</span></a><meta itemprop="position" content="2" /></li>
+		    <li itemprop="itemListElement" itemscope  itemtype="https://schema.org/ListItem"><a itemprop="item" href="https://www.informatik.uni-erlangen.de"><span itemprop="name">Department Informatik</span></a><meta itemprop="position" content="3" /></li>
+		</ol>	
 	    </nav>
 	</div>
     </div>

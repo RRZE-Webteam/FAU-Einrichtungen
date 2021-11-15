@@ -149,7 +149,8 @@
 	    margin-bottom: floor(math.div($grid-gutter-width, 2));
 	}
 	@media (min-width: $screen-xl) {
-	    flex: 0 0 $sidebar-width-inline + $grid-gutter-width;
+	    flex: 0 0;
+	    max-width: $sidebar-width-inline + $grid-gutter-width;
 	}
 	
     }
@@ -159,7 +160,7 @@
         width: 100%;
 	padding-left:  floor(math.div($grid-gutter-width, 2));
 	padding-right: ceil(math.div($grid-gutter-width, 2));
-	flex: 1 0 $screen-xs;
+	flex: 1 0;
 	@media (min-width: $screen-sm) {
 	    padding-left: 0;
 	}
