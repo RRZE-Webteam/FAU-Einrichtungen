@@ -14,18 +14,8 @@
 		<div class="row">
 			<div class="col-xs-12">
 			    <?php fau_breadcrumb(); ?>
-				<p class="presentationtitle" aria-hidden="true" role="presentation"><?php single_cat_title(); ?></p>
-				<?php
-                                    $title_presentation = '';
-                                    if(get_post_type() == 'post') {
-                                        $title_presentation = get_theme_mod('title_hero_post_categories');
-				    }
-                                    if (!fau_empty($title_presentation)) {
-                                ?>
-				<div aria-hidden="true" role="presentation" class="hero-meta-portal">
-                                    <?php echo $title_presentation; ?>
-				</div>
-                                <?php } ?>
+				<p class="presentationtitle" aria-hidden="true" role="presentation"><?php echo get_the_archive_title(); ?></p>
+				
 			</div>
 		</div>
 	</div>

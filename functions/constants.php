@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 69,
+    'optiontable-version'	=> 70,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -42,7 +42,6 @@ $defaultoptions = [
     'default-social-media-color'	=> '#04316a',
     'default-sourcecode-notice'		=> true,
     'default-sourcecode-notice-text'	=> __("Wenn Sie dies lesen, sind wir vielleicht was für Sie! \n	    Die FAU sucht immer vielversprechende Talente in allen universitären Bereichen, die bereit sind, sich mit Leidenschaft, Kreativität und Engagement für die FAU einzusetzen: \n	    https://jobs.fau.de",'fau'),
-    'default_faculty_useshorttitle'	=> false,   
     'optionpage-tab-default'		=> 'website',
     'content-width'			=> 620,
     'content-width-fullpage'		=> 940,
@@ -140,10 +139,6 @@ $defaultoptions = [
     
 
     'breadcrumb_root'				=> __('Startseite', 'fau'),
-    'breadcrumb_delimiter'			=> ' <span>/</span>',
-    'breadcrumb_beforehtml'			=> '<span class="active" aria-current="page">', // '<span class="current">'; // tag before the current crumb
-    'breadcrumb_afterhtml'			=> '</span>',
-    'breadcrumb_uselastcat'			=> true,
     'breadcrumb_withtitle'			=> false,
     'breadcrumb_showcurrent'			=> true,
     'default_logo_height'			=> 108,
@@ -467,16 +462,7 @@ $setoptions = array(
 		    
 		),  
 	       
-	       
-	       
-		'default_faculty_useshorttitle' => array(
-		    'type'    => 'toggle',
-		    'title'   => __( 'Fakultätslink', 'fau' ),
-		    'label'   => __( 'Textlink zur Fakultät verkürzen auf Abkürzung. Diese Option ist nur bei Nutzung eines Fakultätsthemes aktiv.', 'fau' ), 
-		    'default' => $defaultoptions['default_faculty_useshorttitle'],
-		    'parent'  => 'title_tagline'
-		),      
-	       
+
 	       
 		'startseite_banner_image' => array(
 		    'type'    => 'image',

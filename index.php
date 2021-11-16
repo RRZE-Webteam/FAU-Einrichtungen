@@ -31,8 +31,11 @@ if($posttype == 'event') {
     } else {
 	get_template_part('template-parts/hero', 'category');
     }
-	
-    $screenreadertitle = single_cat_title("", false);
+    if (is_category()) {
+	$screenreadertitle = single_cat_title("", false);
+    } else {
+	$screenreadertitle = get_the_archive_title();
+    }
 
 } else {
      if ($herotype=='banner') {

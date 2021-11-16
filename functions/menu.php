@@ -820,135 +820,161 @@ function fau_cleanup_menuclasses($currentarray = array()) {
 /*-----------------------------------------------------------------------------------*/
 function fau_breadcrumb($lasttitle = '', $echo = true) {
   global $defaultoptions;
-
-  $delimiter	= $defaultoptions['breadcrumb_delimiter'];
+  global $post;
+ 
   $home		= $defaultoptions['breadcrumb_root'];
-  $before	= $defaultoptions['breadcrumb_beforehtml'];
-  $after	= $defaultoptions['breadcrumb_afterhtml'];
   $showcurrent	= $defaultoptions['breadcrumb_showcurrent'];
-
-  $pretitletextstart   = '<span>';
-  $pretitletextend     = '</span>';
+  $before	= '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
+  $after	= '</li>';
+  $position	= 1;
+ 
 
 
   $res = '';
   
   $res .= '<nav aria-label="'.__('Breadcrumb','fau').'" class="breadcrumbs">';
     if (get_theme_mod('breadcrumb_withtitle')) {
-	$res .= '<p class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo( 'title' ).'</p>';
-	$res .= "\n";
+	$res .= '<p class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo( 'title' ).'</p>'."\n";
     }
 
-  if ( !is_home() && !is_front_page() || is_paged() ) {
-
-    global $post;
+   $res .= '<ol class="breadcrumblist" itemscope itemtype="https://schema.org/BreadcrumbList">';
+   
+   
+   if (is_front_page())  {
+	$res .= $before . '<span class="active" aria-current="page" itemprop="name">'. $home . '</span><meta itemprop="position" content="'.$position.'" />'. $after;
+  } elseif (is_home()) {
+	$res .= $before . '<span class="active" aria-current="page" itemprop="name">'.get_the_title(get_option('page_for_posts')) . '</span><meta itemprop="position" content="'.$position.'" />'. $after;
+  } else {
 
     $homeLink = home_url('/');
-    $res .= '<a href="' . $homeLink . '">' . $home . '</a>' . $delimiter;
-
+    $res .= $before .'<a itemprop="item" href="' . $homeLink . '"><span itemprop="name">' . $home . '</span></a><meta itemprop="position" content="'.$position.'" />'. $after;
+    
+    $position++;
+    
+    
     if ( is_category() ) {
-	global $wp_query;
-	$cat_obj = $wp_query->get_queried_object();
-	$thisCat = $cat_obj->term_id;
-	$thisCat = get_category($thisCat);
-	$parentCat = get_category($thisCat->parent);
-	if ($thisCat->parent != 0) {
-	    $res .= get_category_parents($parentCat, TRUE, $delimiter );
-	}
+	$res .= $before .  '<span class="active" aria-current="page" itemprop="name">'.  single_cat_title('', false) . '</span>';
+	$res .= '<meta itemprop="position" content="'.$position.'" />'. $after;
+	
+    } elseif (is_date()) {
+	
+	if ( is_day() ) {
+	    $res .= $before . '<a itemprop="item" href="' . get_year_link(get_the_time('Y')) . '"><span itemprop="name">' . get_the_time('Y') . '</span></a>';
+	    $res .= '<meta itemprop="position" content="'.$position.'" />'. $after;
+	    $position++;
+		
+	    $res .= $before .'<a itemprop="item" href="' . get_month_link(get_the_time('Y'),get_the_time('m')) . '"><span itemprop="name">' . get_the_time('F') . '</span></a>';
+	    $res .= '<meta itemprop="position" content="'.$position.'" />'. $after;
+	    $position++;
 	    
-	$res .= $before . single_cat_title('', false) .  $after;
+	    $res .= $before .  '<span class="active" aria-current="page" itemprop="name">'. get_the_time('d'). '</span>';
+            $res .= '<meta itemprop="position" content="'.$position.'" />'. $after;
+	    
+	} elseif ( is_month() ) {
+	    $res .= $before . '<a itemprop="item" href="' . get_year_link(get_the_time('Y')) . '"><span itemprop="name">' . get_the_time('Y') . '</span></a>';
+	    $res .= '<meta itemprop="position" content="'.$position.'" />'. $after;
+	    $position++;
+	    
+	    $res .= $before .  '<span class="active" aria-current="page" itemprop="name">'. get_the_time('F') . '</span>';
+	    $res .= '<meta itemprop="position" content="'.$position.'" />'. $after;
+	   
+	} else {
+	    $res .= $before .  '<span class="active" aria-current="page" itemprop="name">'. get_the_time('Y') . '</span>';
+	    $res .= '<meta itemprop="position" content="'.$position.'" />'. $after;
 
-    } elseif ( is_day() ) {
-	$res .= '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>' .$delimiter;
-	$res .= '<a href="' . get_month_link(get_the_time('Y'),get_the_time('m')) . '">' . get_the_time('F') . '</a>' .$delimiter;
-	$res .= $before . get_the_time('d') . $after;
-    } elseif ( is_month() ) {
-	$res .= '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a>' . $delimiter;
-	$res .= $before . get_the_time('F') . $after;
-    } elseif ( is_year() ) {
-	$res .= $before . get_the_time('Y') . $after;
+	}
+	
     } elseif ( is_single() && !is_attachment() ) {
 
 	if ( get_post_type() != 'post' ) {
 	    $post_type = get_post_type_object(get_post_type());
 	    $slug = $post_type->rewrite;
-	    $res .= '<a href="' . $homeLink . $slug['slug'] . '">' . $post_type->labels->name . '</a>' .$delimiter;
+  
+	    $res .= $before . '<a itemprop="item" href="' . $homeLink . $slug['slug'] . '"><span itemprop="name">' . $post_type->labels->name . '</span></a>';
+	    $res .= '<meta itemprop="position" content="'.$position.'" />'. $after;
+	    $position++;
+
 	    if ($showcurrent) {
-		$res .= $before . get_the_title() . $after;
+		$res .= $before .  '<span class="active" aria-current="page" itemprop="name">'.  get_the_title() . '</span>';
+		$res .= '<meta itemprop="position" content="'.$position.'" />'. $after;	
 	    }
-	} else {
-
-	    $cat = get_the_category();
-	    if (get_theme_mod('breadcrumb_uselastcat')) {
-		$last = array_pop($cat);
-	    } else {
-		$last = $cat[0];
-	    }
-	    $catid = $last->cat_ID;
-
-	    $res .= get_category_parents($catid, TRUE,  $delimiter );
-	    if ($showcurrent) {
-		$res .= $before . get_the_title() . $after;
-	    }
-
+	} elseif ($showcurrent) {
+		$res .= $before .  '<span class="active" aria-current="page" itemprop="name">'.  get_the_title() . '</span>';
+		$res .= '<meta itemprop="position" content="'.$position.'" />'. $after;	
 	}
+	
     } elseif ( !is_single() && !is_page() && !is_search() && get_post_type() != 'post' && !is_404() ) {
 	$post_type = get_post_type_object(get_post_type());
-	$res .= $before . $post_type->labels->name . $after;
-
+	$res .= $before .  '<span class="active" aria-current="page" itemprop="name">'. $post_type->labels->name  . '</span>';
+	$res .= '<meta itemprop="position" content="'.$position.'" />'. $after;	
     } elseif ( is_attachment() ) {
 	$parent = get_post($post->post_parent);
-	$res .= '<a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a>'. $delimiter;
+	
+	 $res .= $before . '<a itemprop="item" href="' . get_permalink($parent) . '"><span itemprop="name">' . $parent->post_title . '</span></a>';
+	 $res .= '<meta itemprop="position" content="'.$position.'" />'. $after;
+	 $position++;
+
+
 	if ($showcurrent) {
-	    $res .= $before . get_the_title() . $after;
+	    $res .= $before .  '<span class="active" aria-current="page" itemprop="name">'.  get_the_title() . '</span>';
+	    $res .= '<meta itemprop="position" content="'.$position.'" />'. $after;	
+
 	}
     } elseif ( is_page() ) {
 
-	if (!$post->post_parent ) {
-	    if ($showcurrent) {
-		$res .= $before . fau_get_the_title() . $after;
-	    }
-	} else {
+	if ($post->post_parent ) {
 	    $parent_id  = $post->post_parent;
 	    $breadcrumbs = array();
+	    $thisentry = array();
 	    while ($parent_id) {
-		$page = get_page($parent_id);
-		$breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . fau_get_the_title($page->ID) . '</a>';
+		$page = get_page($parent_id);	
+		$thisentry['url'] = get_permalink($page->ID);
+		$thisentry['title'] = fau_get_the_title($page->ID);
+		$breadcrumbs[] = $thisentry;
 		$parent_id  = $page->post_parent;
 	    }
 	    $breadcrumbs = array_reverse($breadcrumbs);
 	    foreach ($breadcrumbs as $crumb) {
-		$res .= $crumb . $delimiter;
-	    }
-	    if ($showcurrent) {
-		$res .= $before . fau_get_the_title() . $after;
+		$res .= $before . '<a itemprop="item" href="' . $crumb['url'] . '"><span itemprop="name">' . $crumb['title']. '</span></a>';
+		$res .= '<meta itemprop="position" content="'.$position.'" />'. $after;
+		$position++;
 	    }
 	}
+	if ($showcurrent) {
+	    $res .= $before .  '<span class="active" aria-current="page" itemprop="name">'.  fau_get_the_title()  . '</span>';
+	    $res .= '<meta itemprop="position" content="'.$position.'" />'. $after;	
+	}
+	
     } elseif ( is_search() ) {
-
+	    $thistitle = '<span>'. __( 'Suche', 'fau' ).'</span>';
 	    $searchstring = esc_attr(get_search_query());
 	    if (!fau_empty($searchstring)) {
-		 $res .= $before .$pretitletextstart. __( 'Suche nach', 'fau' ).$pretitletextend.' "' . $searchstring . '"' . $after;
-	    } else {
-		 $res .= $before .$pretitletextstart. __( 'Suche', 'fau' ).$pretitletextend. $after;
+		 $thistitle = '<span>'.__( 'Suche nach', 'fau' ).'</span> "' . $searchstring . '"';
 	    }
+	    
+	    $res .= $before .  '<span class="active" aria-current="page" itemprop="name">'.  $thistitle  . '</span>';
+	    $res .= '<meta itemprop="position" content="'.$position.'" />'. $after;	
 
 
     } elseif ( is_tag() ) {
-	$res .= $before .$pretitletextstart. __( 'Schlagwort', 'fau' ).$pretitletextend. ' "' . single_tag_title('', false) . '"' . $after;
+	 $res .= $before .  '<span class="active" aria-current="page" itemprop="name">'.   __( 'Schlagwort', 'fau' ) . ' "' . single_tag_title('', false) . '"' . '</span>';
+	 $res .= '<meta itemprop="position" content="'.$position.'" />'. $after;	
+	
     } elseif ( is_author() ) {
 	global $author;
 	$userdata = get_userdata($author);
-	$res .= $before .$pretitletextstart. __( 'Beiträge von', 'fau' ).$pretitletextend.' '.$userdata->display_name . $after;
+	
+	 $res .= $before .  '<span class="active" aria-current="page" itemprop="name">'.  __( 'Beiträge von', 'fau' ) .' '.$userdata->display_name . '</span>';
+	 $res .= '<meta itemprop="position" content="'.$position.'" />'. $after;	
+	
     } elseif ( is_404() ) {
-	$res .= $before . '404' . $after;
+	 $res .= $before .  '<span class="active" aria-current="page" itemprop="name">'. __('Seite nicht gefunden','fau'). '</span>';
+	 $res .= '<meta itemprop="position" content="'.$position.'" />'. $after;	
+	
     }
 
-  } elseif (is_front_page())  {
-	$res .= $before . $home . $after;
-  } elseif (is_home()) {
-	$res .= $before . get_the_title(get_option('page_for_posts')) . $after;
-  }
+  } 
+    $res .= '</ol>';
    $res .= '</nav>';
    
    if ($echo) {

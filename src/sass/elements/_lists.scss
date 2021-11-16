@@ -24,8 +24,7 @@ ol ul {
 li {
     padding: 3px 0 4px 4px;
     @include px2rem($font-size-content-listitem);  
-    color: var(--color-Text);
-	
+
     .sidebar-inline & {
 	padding: 3px 0 4px 20px;
 	@include px2rem($font-size-sidebar-listitem);	    	

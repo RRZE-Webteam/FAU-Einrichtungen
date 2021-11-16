@@ -22,5 +22,9 @@
 	    .breadcrumb_sitetitle {
 		@include px2rem($font-size-breadcrumb);
 	    }
+	    
+	    span.active {
+		display: none;
+	    }
     }
 }
