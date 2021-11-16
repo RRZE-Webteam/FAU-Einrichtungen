@@ -8,7 +8,7 @@
 */
 
 ?>
-<div class="meta-search" aria-label="<?php echo get_theme_mod('title_hero_search'); ?>">
+<div itemscope itemtype="https://schema.org/WebSite" class="meta-search" aria-label="<?php echo get_theme_mod('title_hero_search'); ?>">
     <button id="search-toggle" aria-expanded="false" aria-controls="search-header"><span><?php _e("Suche","fau"); ?></span></button>
 
 <?php 
@@ -19,12 +19,14 @@ if (is_plugin_active('rrze-search/rrze-search.php')) {
 } else {
     /** Original Snippet from WP Theme */
     ?>
-    <form id="search-header" role="search" method="get" class="searchform" action="<?php echo fau_esc_url(home_url( '/' ))?>">
+    <meta itemprop="url" content="<?php echo home_url( '/' ); ?>">
+    <form itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction" id="search-header" role="search" method="get" class="searchform" action="<?php echo fau_esc_url(home_url( '/' )); ?>">
         <label for="headsearchinput">
             <?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:','fau'); ?>
         </label>
         <span class="searchicon"> </span>
-        <input id="headsearchinput" type="text" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>">
+	<meta itemprop="target" content="<?php echo home_url( '/' )?>?s={s}">
+        <input itemprop="query-input" id="headsearchinput" type="text" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>" required>
         <?php
         if (get_theme_mod('search_allowfilter')) {
             $autosearch_types =  get_theme_mod('search_post_types_checked');

@@ -7,13 +7,6 @@ $farbfamilie: 'zuv';
 // med, phil, nat, rw, tf, zuv
 
 
-// Define fonts
-$fontStack: 'Roboto', sans-serif;
-$fontStackSerifs: Georgia, serif;
-$font-family-base: $fontStack;
-$font-path-awesome: './fonts/fontawesome/';
-$font-path-roboto: './fonts/roboto/';
-
 
 // Define colors
 $colormap-misc: ("Text": #444, 
@@ -165,6 +158,18 @@ $colorCopyright: #fff;
 $colorCopyrightBackground: rgba(0, 0, 0, 0.6);
 
 
+// Define fonts
+
+
+$fontStack: 'Roboto','FAU Chimera', sans-serif;
+// $fontStack: 'Roboto', sans-serif;
+$fontStackSerifs: Georgia, serif;
+$fontStackFAU: 'FAU Chimera', sans-serif;
+
+$font-family-base: $fontStack;
+$font-path-awesome: './fonts/fontawesome/';
+$font-path-roboto: './fonts/roboto/';
+$font-path-fau-chimera: './fonts/fau-chimera/';
 
 // Font sizes
 $font-size-rembase: 100%; 

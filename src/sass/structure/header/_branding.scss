@@ -5,6 +5,8 @@
 
 #headerwrap header {
     .branding {
+	
+	    
 	.sitetitle {
 	    display: inline-block;
 	    color:  var(--color-primary-basis-kontrast);
@@ -14,6 +16,7 @@
 	    height: auto;	
 	    text-align: center;
 	    text-decoration: none;
+	    font-family: $fontStackFAU;
 	    font-weight: bold;
 	    width: 100vw;
 	    
@@ -116,9 +119,12 @@
 		flex: 0 0 148px;
 	    }
 	    .text {
-		font-weight: bold;
+		font-family: $fontStackFAU;
+		font-weight: 500;
 		font-size: 15px;
 		line-height: 20px;
+		letter-spacing: 0.2px;
+		margin-top: -5px;
 		
 		.fau-title-place,
 		.fau-title {

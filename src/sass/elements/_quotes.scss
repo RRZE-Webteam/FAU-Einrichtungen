@@ -21,6 +21,7 @@ blockquote {
 		@include px2rem($font-size-quotes);
 		font-weight: 400;
 		font-style: italic;
+		letter-spacing: 1px;
 		
 		strong {
 		    font-weight: bolder; 
