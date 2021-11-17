@@ -157,6 +157,13 @@ $colorMetaLightest:		desaturate(lighten($colorDefault, 73%), 75%);
 $colorCopyright: #fff;
 $colorCopyrightBackground: rgba(0, 0, 0, 0.6);
 
+// Buttons
+
+$color_button_text:	map-get($colormap-primary, "dunkler-kontrast");
+$color_button_bg:	map-get($colormap-primary, "dunkler");
+$color-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
+$color-button-hover-bg:	map-get($colormap-primary, "dunkelste");
+
 
 // Define fonts
 

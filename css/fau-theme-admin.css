@@ -72,6 +72,10 @@
   --color-content-links: #444;
   --color-content-links-underline: #04316A;
   --color-content-links-hover: #fff;
+  --color-button-text: #fff;
+  --color-button-bg: #004A9F;
+  --color-button-hover-text: #fff;
+  --color-button-hover-bg: #041E42;
   --color-footer-bg: #04316A;
   --color-footer-text: #fff;
   --color-hero-bg: #04316A;
@@ -3087,7 +3091,7 @@ Misc Admin CSS
   padding: 0;
   line-height: 22px;
   font-size: 14px;
-  color: white;
+  color: var(--color-button-text);
   font-family: Trebuchet, Arial, sans-serif;
   font-weight: bold;
   box-sizing: border-box;
@@ -3096,8 +3100,8 @@ Misc Admin CSS
 .toggle-switch-inner:before {
   content: "An";
   padding-left: 8px;
-  background-color: #2885bb;
-  color: #FFFFFF;
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
 }
 
 :lang(en) .toggle-switch-inner:before {
@@ -3120,7 +3124,7 @@ Misc Admin CSS
   display: block;
   width: 16px;
   margin: 3px;
-  background: #FFFFFF;
+  background: var(--color-button-text);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -3365,8 +3369,8 @@ table.wp-list-table .column-revealid_id {
   background: var(--color-StandardHellgrau);
 }
 #customize-theme-controls .customize-control-multiple-select select[multiple]:focus option:checked {
-  background: #0085ba;
-  color: #fff;
+  background: var(--color-button-bg);
+  color: var(--color-MainBackground);
 }
 #customize-theme-controls .customize-control-range-value .range-slider {
   width: 100%;
@@ -3386,42 +3390,38 @@ table.wp-list-table .column-revealid_id {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #0085ba;
+  background: var(--color-button-bg);
   cursor: pointer;
   -webkit-transition: background 0.15s ease-in-out;
   transition: background 0.15s ease-in-out;
 }
-#customize-theme-controls .customize-control-range-value .range-slider__range::-webkit-slider-thumb:hover {
-  background: #0085ba;
-}
+#customize-theme-controls .customize-control-range-value .range-slider__range::-webkit-slider-thumb:hover,
 #customize-theme-controls .customize-control-range-value .range-slider__range:active::-webkit-slider-thumb {
-  background: #0085ba;
+  background: var(--color-button-bg);
 }
 #customize-theme-controls .customize-control-range-value .range-slider__range::-moz-range-thumb {
   width: 20px;
   height: 20px;
   border: 0;
   border-radius: 50%;
-  background: #0085ba;
+  background: var(--color-button-bg);
   cursor: pointer;
   -moz-transition: background 0.15s ease-in-out;
   transition: background 0.15s ease-in-out;
 }
-#customize-theme-controls .customize-control-range-value .range-slider__range::-moz-range-thumb:hover {
-  background: #0085ba;
-}
+#customize-theme-controls .customize-control-range-value .range-slider__range::-moz-range-thumb:hover,
 #customize-theme-controls .customize-control-range-value .range-slider__range:active::-moz-range-thumb {
-  background: #0085ba;
+  background: var(--color-button-bg);
 }
 #customize-theme-controls .customize-control-range-value .range-slider__value {
   display: inline-block;
   position: relative;
   width: 30px;
-  color: #fff;
+  color: var(--color-MainBackground);
   line-height: 20px;
   text-align: center;
   border-radius: 3px;
-  background: #0085ba;
+  background: var(--color-button-bg);
   padding: 2px 5px;
   margin-left: 8px;
 }

@@ -73,6 +73,10 @@
   --color-content-links: #444;
   --color-content-links-underline: #04316A;
   --color-content-links-hover: #fff;
+  --color-button-text: #fff;
+  --color-button-bg: #004A9F;
+  --color-button-hover-text: #fff;
+  --color-button-hover-bg: #041E42;
   --color-footer-bg: #04316A;
   --color-footer-text: #fff;
   --color-hero-bg: #04316A;

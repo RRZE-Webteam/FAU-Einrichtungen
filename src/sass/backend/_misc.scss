@@ -45,7 +45,7 @@ Misc Admin CSS
 		padding: 0;
 		line-height: 22px;
 		font-size: 14px;
-		color: white;
+		color:  var(--color-button-text);
 		font-family: Trebuchet, Arial, sans-serif;
 		font-weight: bold;
 		box-sizing: border-box;
@@ -54,8 +54,8 @@ Misc Admin CSS
 	.toggle-switch-inner:before {
 		content: "An";
 		padding-left: 8px;
-		background-color: #2885bb;
-		color: #FFFFFF;
+		background-color:  var(--color-button-bg);
+		color: var(--color-button-text);
 	}
 	:lang(en) .toggle-switch-inner:before {
 	    content: "ON";
@@ -74,7 +74,7 @@ Misc Admin CSS
 		display: block;
 		width: 16px;
 		margin: 3px;
-		background: #FFFFFF;
+		background:  var(--color-button-text);
 		position: absolute;
 		top: 0;
 		bottom: 0;
