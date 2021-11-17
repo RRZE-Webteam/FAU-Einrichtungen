@@ -4484,15 +4484,15 @@ Hind:
 */
 @font-face {
   font-family: "FAU Chimera";
-  src: local("FAU Chimera"), url("./fonts/fau-chimera//FAU-Chimera-Regular.woff2") format("woff2"), url("./fonts/fau-chimera//FAU-Chimera-Regular.woff") format("woff"), url("./fonts/fau-chimera//FAU-Chimera-Regular.ttf") format("truetype");
-  font-style: normal;
+  src: url("./fonts/fau-chimera//FAU-Chimera-Regular.ttf") format("truetype");
   font-weight: normal;
+  font-style: normal;
 }
 @font-face {
   font-family: "FAU Chimera";
-  src: local("FAU Chimera"), url("./fonts/fau-chimera//FAU-Chimera-Medium.woff2") format("woff2"), url("./fonts/fau-chimera//FAU-Chimera-Medium.woff") format("woff"), url("./fonts/fau-chimera//FAU-Chimera-Medium.ttf") format("truetype");
-  font-style: normal;
+  src: url("./fonts/fau-chimera//FAU-Chimera-Medium.ttf") format("truetype");
   font-weight: medium;
+  font-style: normal;
 }
 /*
 * CSS Settings for Gutenberg Editor

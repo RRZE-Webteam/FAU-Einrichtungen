@@ -90,26 +90,19 @@ if ($website_type == 0)  {
 
 }
 
-echo '<p class="textlogo">';
-
+if ( ! is_front_page() ) {
+    echo '<a itemprop="url" rel="home" class="generated" href="'.fau_esc_url(home_url( '/' ) ).'">';
+}
+echo '<span class="textlogo">';
+    
     if ($faulogo) {
-	echo '<span class="baselogo">';
-	if ( ! is_front_page() ) {
-	    echo '<a href="'.fau_esc_url(home_url( '/' ) ).'" tabindex="-1" aria-hidden="true">';
-	}	
+	echo '<span class="baselogo">';	
 	echo fau_use_svg("fau-logo-2021",153,58,'faubaselogo',false, ['hidden' => true, 'labelledby' => 'website-title','role' => 'img']); 
-		
-	if ( ! is_front_page() ) {
-	    echo '</a>';
-	}    
 	echo '</span>';	
 
     } 
     echo '<span class="text">';
     if ($visible_toptitle) {
-	if ((! $visible_title) && ( ! is_front_page() )) {
-	    echo '<a itemprop="url" rel="home" href="'.fau_esc_url(home_url( '/' ) ).'">';
-	}
 	echo '<span class="fau-title"';
 	if ($visible_title) {
 	    echo ' aria-hidden="true"';
@@ -124,20 +117,11 @@ echo '<p class="textlogo">';
 	   }
 	   echo '>'.$visible_toptitle_secondline.'</span>';
        }
-	
-	if ((! $visible_title) && ( ! is_front_page() )) {
-	    echo '</a>';
-	}
-	
+		
     }
    
 
     if ($visible_title) {
-	if ( ! is_front_page() ) {
-	    echo '<a itemprop="url" rel="home" href="'.fau_esc_url(home_url( '/' ) ).'">';
-	}
-
-
 	echo '<span id="website-title" class="visible-title';
 	if (!empty($faculty)) {
 	    echo ' '.$faculty;
@@ -154,10 +138,10 @@ echo '<p class="textlogo">';
 	    echo '">'.$visible_shortcut.'</span>';
 	}
 	
-	if ( ! is_front_page() ) {
-	    echo '</a>';
-	}
-    }
-    echo '</span>';
 
-echo '</p>';
+    }
+    echo '</span>';   
+echo '</span>';
+if ( ! is_front_page() ) {
+    echo '</a>';
+} 

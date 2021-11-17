@@ -98,7 +98,7 @@
 	    }
 
 	}
-	p.textlogo {
+	.textlogo {
 	    width: 400px;
 	    display: flex;
 	    flex-direction: row;
@@ -112,7 +112,7 @@
 		 width: 240px;
 	    }
 	    
-	    
+	  
 	    
 	    
 	    .baselogo {
@@ -124,7 +124,11 @@
 		font-size: 15px;
 		line-height: 20px;
 		letter-spacing: 0.2px;
-		margin-top: -5px;
+		
+		@media (min-width: $screen-xl) {
+		    margin-top: -5px;
+		    // Schrift soll mit Oberkante des Logos beginnen, wenn es rechts daneben ist :/
+		}
 		
 		.fau-title-place,
 		.fau-title {
@@ -154,12 +158,20 @@
 		    content: "| ";
 		} 
 
-		a {
-		    text-decoration: none;
-		}
+		
 		
 	    }
 	    
+	}
+
+	a {
+	    text-decoration: none;
+	    transition: opacity 1s ease 0s;
+	} 
+	a.generated:focus,
+	a.generated:hover {
+	     filter: grayscale(80%);
+	     text-decoration: underline;
 	}
     }
     @media (max-width: $screen-sm - 1) {

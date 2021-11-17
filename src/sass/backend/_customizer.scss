@@ -62,6 +62,16 @@ $color_customizer_buttons: #0085ba;
 	    width: 18px;
 	}
     }
+    #accordion-panel-debugmode {
+	.accordion-section-title {
+	     border-left-color: var(--color-Notice);
+	}
+	.accordion-section-title:before {
+	    @extend .fa;
+	    @extend .fa-keyboard-o;
+	    width: 18px;
+	}
+    }
     
     
     .customize-control-multiple-select {

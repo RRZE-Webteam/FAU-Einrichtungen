@@ -20,10 +20,16 @@ Hind:
 
 */
 
-@include fontFace('FAU Chimera','#{$font-path-fau-chimera}/FAU-Chimera-Regular',$weight: normal,$style: normal);
-// @include fontFace('FAU Chimera','#{$font-path-fau-chimera}/FAU-Chimera-Italic',$weight: normal,$style: italic);
-// @include fontFace('FAU Chimera','#{$font-path-fau-chimera}/FAU-Chimera-Bold',$weight: bold,$style: normal);
-// @include fontFace('FAU Chimera','#{$font-path-fau-chimera}/FAU-Chimera-Bold-Italic',$weight: bold,$style: italic);
-// @include fontFace('FAU Chimera','#{$font-path-fau-chimera}/FAU-Chimera-Light',$weight: light,$style: normal);
-@include fontFace('FAU Chimera','#{$font-path-fau-chimera}/FAU-Chimera-Medium',$weight: medium,$style: normal);
+@font-face {
+    font-family: 'FAU Chimera';
+    src: url('#{$font-path-fau-chimera}/FAU-Chimera-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'FAU Chimera';
+    src: url('#{$font-path-fau-chimera}/FAU-Chimera-Medium.ttf') format('truetype');
+    font-weight: medium;
+    font-style: normal;
+}
 // benötige für das Logo nur Medium; Anderswo setzten wir die Schrift noch nicht ein.
