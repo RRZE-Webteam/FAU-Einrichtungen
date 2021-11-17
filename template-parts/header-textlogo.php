@@ -8,7 +8,7 @@
  */
 
 global $defaultoptions;
-
+global $default_fau_orga_faculty;
 
 $faculty = '';
 $website_usefaculty = $defaultoptions['website_usefaculty'];
@@ -48,7 +48,6 @@ $visible_toptitle_secondline = 'Erlangen-Nürnberg';
 // only useable in FAU Portal
 $visible_shortcut = get_theme_mod('website_shorttitle');
 // if set
-$screenreader_title = get_bloginfo( 'title' );
 
 $visible_title = get_theme_mod('website_logotitle');
 if (empty($visible_title)) {
@@ -127,7 +126,7 @@ echo '<span class="textlogo">';
 	    echo ' '.$faculty;
 	}
 
-	echo '">'.$visible_title.'</span>';
+	echo '" itemprop="name">'.$visible_title.'</span>';
 	
 	if ($visible_shortcut) {
 	    echo ' <span class="website-shortcut';

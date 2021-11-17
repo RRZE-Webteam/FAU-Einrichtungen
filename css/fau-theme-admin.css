@@ -134,7 +134,8 @@ html {
   font-weight: normal;
   font-style: normal;
 }
-.fa, #customize-theme-controls #accordion-panel-debugmode .accordion-section-title:before, #customize-theme-controls #accordion-panel-advanced .accordion-section-title:before, #customize-theme-controls #accordion-panel-templates .accordion-section-title:before, #customize-theme-controls #accordion-panel-allgemeines .accordion-section-title:before, #customize-theme-controls #accordion-panel-website .accordion-section-title:before, #customize-theme-controls #accordion-panel-superadmin .accordion-section-title:before {
+.fa, #customize-theme-controls #accordion-panel-debugmode .accordion-section-title:before, #customize-theme-controls #accordion-panel-advanced .accordion-section-title:before, #customize-theme-controls #accordion-panel-templates .accordion-section-title:before, #customize-theme-controls #accordion-panel-allgemeines .accordion-section-title:before, #customize-theme-controls #accordion-section-title_tagline .accordion-section-title:before,
+#customize-theme-controls #accordion-panel-website .accordion-section-title:before, #customize-theme-controls #accordion-panel-superadmin .accordion-section-title:before {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -204,19 +205,23 @@ html {
   float: right;
 }
 
-.fa.fa-pull-left, #customize-theme-controls #accordion-panel-debugmode .fa-pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-advanced .fa-pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-templates .fa-pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-allgemeines .fa-pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-website .fa-pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-superadmin .fa-pull-left.accordion-section-title:before {
+.fa.fa-pull-left, #customize-theme-controls #accordion-panel-debugmode .fa-pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-advanced .fa-pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-templates .fa-pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-allgemeines .fa-pull-left.accordion-section-title:before, #customize-theme-controls #accordion-section-title_tagline .fa-pull-left.accordion-section-title:before,
+#customize-theme-controls #accordion-panel-website .fa-pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-superadmin .fa-pull-left.accordion-section-title:before {
   margin-right: 0.3em;
 }
 
-.fa.fa-pull-right, #customize-theme-controls #accordion-panel-debugmode .fa-pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-advanced .fa-pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-templates .fa-pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-allgemeines .fa-pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-website .fa-pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-superadmin .fa-pull-right.accordion-section-title:before {
+.fa.fa-pull-right, #customize-theme-controls #accordion-panel-debugmode .fa-pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-advanced .fa-pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-templates .fa-pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-allgemeines .fa-pull-right.accordion-section-title:before, #customize-theme-controls #accordion-section-title_tagline .fa-pull-right.accordion-section-title:before,
+#customize-theme-controls #accordion-panel-website .fa-pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-superadmin .fa-pull-right.accordion-section-title:before {
   margin-left: 0.3em;
 }
 
-.fa.pull-left, #customize-theme-controls #accordion-panel-debugmode .pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-advanced .pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-templates .pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-allgemeines .pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-website .pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-superadmin .pull-left.accordion-section-title:before {
+.fa.pull-left, #customize-theme-controls #accordion-panel-debugmode .pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-advanced .pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-templates .pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-allgemeines .pull-left.accordion-section-title:before, #customize-theme-controls #accordion-section-title_tagline .pull-left.accordion-section-title:before,
+#customize-theme-controls #accordion-panel-website .pull-left.accordion-section-title:before, #customize-theme-controls #accordion-panel-superadmin .pull-left.accordion-section-title:before {
   margin-right: 0.3em;
 }
 
-.fa.pull-right, #customize-theme-controls #accordion-panel-debugmode .pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-advanced .pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-templates .pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-allgemeines .pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-website .pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-superadmin .pull-right.accordion-section-title:before {
+.fa.pull-right, #customize-theme-controls #accordion-panel-debugmode .pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-advanced .pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-templates .pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-allgemeines .pull-right.accordion-section-title:before, #customize-theme-controls #accordion-section-title_tagline .pull-right.accordion-section-title:before,
+#customize-theme-controls #accordion-panel-website .pull-right.accordion-section-title:before, #customize-theme-controls #accordion-panel-superadmin .pull-right.accordion-section-title:before {
   margin-left: 0.3em;
 }
 
@@ -2975,7 +2980,8 @@ html {
   content: "\f2dd";
 }
 
-.fa-wpexplorer:before, #customize-theme-controls #accordion-panel-website .accordion-section-title:before {
+.fa-wpexplorer:before, #customize-theme-controls #accordion-section-title_tagline .accordion-section-title:before,
+#customize-theme-controls #accordion-panel-website .accordion-section-title:before {
   content: "\f2de";
 }
 
@@ -3331,6 +3337,7 @@ table.wp-list-table .column-revealid_id {
   width: auto;
 }
 
+#customize-theme-controls #accordion-section-title_tagline .accordion-section-title,
 #customize-theme-controls #accordion-panel-website .accordion-section-title,
 #customize-theme-controls #accordion-panel-socialmedia .accordion-section-title,
 #customize-theme-controls #accordion-panel-allgemeines .accordion-section-title,
@@ -3346,6 +3353,7 @@ table.wp-list-table .column-revealid_id {
   color: red;
   width: 18px;
 }
+#customize-theme-controls #accordion-section-title_tagline .accordion-section-title:before,
 #customize-theme-controls #accordion-panel-website .accordion-section-title:before {
   width: 18px;
 }

@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 70,
+    'optiontable-version'	=> 71,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -141,7 +141,7 @@ $defaultoptions = [
     'breadcrumb_root'				=> __('Startseite', 'fau'),
     'breadcrumb_withtitle'			=> false,
     'breadcrumb_showcurrent'			=> true,
-    'default_logo_height'			=> 108,
+    'default_logo_height'			=> 152,
     'default_logo_width'			=> 400,
     
     'socialmedia'				=> 0,
@@ -282,41 +282,11 @@ function fau_initoptions() {
     global $OPTIONS_NAME;
     
     
- //   $oldoptions = get_option($OPTIONS_NAME);
-    $oldoptions = '';
     $themeopt = get_theme_mods();
     $theme = get_option( 'stylesheet' );
-    $newoptions = array();
+    $newoptions = $defaultoptions;
    
-    // This part is for old installations.
-    // will be removed soon
-    if (isset($oldoptions) && (is_array($oldoptions))) {
-        $newoptions = array_merge($defaultoptions,$oldoptions);	  
-	
-	if ((!isset($oldoptions['optiontable-version'])) || ($oldoptions['optiontable-version'] < $defaultoptions['optiontable-version'])) {
-	    // Neue Optionen: Ueberschreibe Default-Optionen, die nicht manuell
-	    // gesetzt werden konnten
-	    $ignoreoptions = array();
-	   
-	    foreach($setoptions[$OPTIONS_NAME] as $tab => $f) {       
-		foreach($setoptions[$OPTIONS_NAME][$tab]['fields'] as $i => $value) {  
-		    $ignoreoptions[$i] = $value;
-		}
-	    }
-	    $defaultlist = '';
-	    foreach($defaultoptions as $i => $value) {       
-		if (!isset($ignoreoptions[$i])) {
-		    $newoptions[$i] = $defaultoptions[$i];		    
-		}
-	    }
-	    update_option( $OPTIONS_NAME, $newoptions );
-	}
-	
-    } else {
-        $newoptions = $defaultoptions;
-    }       
-    // end old part
-    
+        
     $theme_data = wp_get_theme();
     $newoptions['version'] =  $theme_data->Version;
     
@@ -376,13 +346,51 @@ function fau_initoptions() {
 		// only version number
 		set_theme_mod( 'optiontable-version', $defaultoptions['optiontable-version'] ); 
 	    }
+	    
+	    
+	    fau_compatible_header_logo();
+	     // Prüfe: Header-Image zu Custom Logo
     }
     
+   
+
     
     
     return $newoptions;
 }
 
+/*--------------------------------------------------------------------*/
+/* Ab Version 2.0 wurde die Verwaltung des Logos von Header-Image auf Custom Logo umgestellt.
+/* Für Installationen, bei der das Logo jedoch mit Header Ikmage hochgeladen wurden,
+/* soll das Logo dennoch weiterhin angezeigt werden. 
+/*--------------------------------------------------------------------*/
+function fau_compatible_header_logo() {
+    $data = get_theme_mod( 'header_image_data' );
+    if ( $data) {
+	// Es existiert ein Custom Header 
+	
+	if (is_object($data) && ($data->attachment_id)) {
+	    
+	    // ok, there is an id
+	    // now check if we already have an id of a custom logo
+	    $custom_logo_id = get_theme_mod( 'custom_logo' );
+	    
+	    if ($custom_logo_id) {
+		// We already have an id
+	    } else {
+		// Set the image as custom logo and remove it from header mods
+		set_theme_mod( 'custom_logo', $data->attachment_id ); 
+		remove_theme_mod('header_image_data');
+		remove_theme_mod('header_image');
+		// now remove the 'header_image_data' mod.
+	    }
+	    
+	    
+	}
+	
+    }
+    
+}
 /*--------------------------------------------------------------------*/
 /* Suchfelder
 /*--------------------------------------------------------------------*/

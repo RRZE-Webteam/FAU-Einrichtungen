@@ -11,6 +11,7 @@
 }
 
 #customize-theme-controls {
+    #accordion-section-title_tagline,
     #accordion-panel-website,
     #accordion-panel-socialmedia,
     #accordion-panel-allgemeines,
@@ -32,7 +33,7 @@
 	    }
 	}
     }
-    
+    #accordion-section-title_tagline,
     #accordion-panel-website {
 	.accordion-section-title:before {
 	    @extend .fa;

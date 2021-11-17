@@ -310,24 +310,22 @@ function fau_remove_unwanted_head_actions() {
 }
 add_action('wp_head', 'fau_remove_unwanted_head_actions', 0);
 
-
 /*-----------------------------------------------------------------------------------*/
-/* Header setup
+/*Custom Loo setup
 /*-----------------------------------------------------------------------------------*/
-function fau_custom_header_setup() { 
+function fau_custom_logo_setup() {
     global $defaultoptions;
-	$args = array(
-	    'height'			=> $defaultoptions['default_logo_height'],
-	    'width'			=> $defaultoptions['default_logo_width'],
-	    'admin-head-callback'	=> 'fau_admin_header_style',
-	    'header-text'		=> false,
-	    'flex-width'		=> true,
-	    'flex-height'		=> true,
-	);
-	add_theme_support( 'custom-header', $args );
+    $defaults = array(
+        'height'               => $defaultoptions['default_logo_height'],
+        'width'                => $defaultoptions['default_logo_width'],
+        'flex-height'          => true,
+        'flex-width'           => true,
+        'unlink-homepage-logo' => true, 
+    );
+ 
+    add_theme_support( 'custom-logo', $defaults );
 }
-add_action( 'after_setup_theme', 'fau_custom_header_setup' );
-
+add_action( 'after_setup_theme', 'fau_custom_logo_setup' );
 
 /*-----------------------------------------------------------------------------------*/
 /*  Returns language code, without subcode

@@ -57,52 +57,28 @@
 			<div class="branding" id="logo" role="banner" itemscope itemtype="http://schema.org/Organization">
 			   
 			    <?php 
-			    $header_image = get_header_image();
-			    
-			    // Version 2: Check for old Images in theme, that was chosen in customizer, but removed
-			    // from code later. In this case, ignore this entry.
-			    if (! empty( $header_image ) ) {
-				if (preg_match('/\/themes\/FAU\-[a-z]+\/img\/logos\//i', $header_image, $match)) {
-				    $header_image = '';
+	
+			    $show_customlogo = false;
+			    $custom_logo_id = get_theme_mod( 'custom_logo' );
+			    $logo_src = '';
+			    if ($custom_logo_id) {
+				$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+				$logo_src = $logo[0];
+				$show_customlogo = true;
+				if (! empty( $logo_src ) ) {
+				    if (preg_match('/\/themes\/FAU\-[a-z]+\/img\/logos\//i', $logo_src, $match)) {
+					$show_customlogo = false;
+					 // Version 2: Check for old Images in theme, that was chosen in customizer, but removed
+					// from code later. In this case, ignore this entry.
+				    }
 				}
 			    }
-			    
-			    if ( ! empty( $header_image ) ) {
-				echo '<p class="sitetitle">';
-				
-				if ( ! is_front_page() ) {
-				    echo '<a itemprop="url" rel="home" href="'.fau_esc_url(home_url( '/' ) ).'">';
-				}
-				$customheader =  get_custom_header();
-				$attachment_id = 0;
-				if (isset($customheader->attachment_id)) {
-				    $attachment_id = $customheader->attachment_id;
-				    $srcset=  esc_attr(wp_get_attachment_image_srcset( $attachment_id, 'full'));
-				} else {
-				    $srcset ='';
-				}
-
-				
-				if ($customheader->width) {
-				    $width = $customheader->width;
-				} else {
-				    $width = $defaultoptions['default_logo_width'];
-				}
-				if ($customheader->height) {
-				    $height = $customheader->height;
-				} else {
-				    $height =  $defaultoptions['default_logo_height'];
-				}
-				
-				
-				echo '<img class="custom-logo" src="'.$header_image.'" width="'.$width.'" height="'.$height.'" alt="'.esc_attr(get_bloginfo( 'title' )).'"';
-				if ($srcset) {
-				    echo ' srcset="'.$srcset.'"';
-				}
-				echo ">"; 
-				if ( ! is_front_page() ) {
-				    echo "</a>";
-				} 
+			   
+			    if ( $show_customlogo ) {		
+				echo '<p class="sitetitle">';		
+				echo '<meta itemprop="url" content="'.$logo_src.'">';
+				echo '<meta itemprop="name" content="'.get_bloginfo( 'name', 'display' ).'">';
+				echo get_custom_logo();
 				echo '</p>';
 			    } else {
 				get_template_part('template-parts/header', 'textlogo'); 
