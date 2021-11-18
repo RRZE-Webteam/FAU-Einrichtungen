@@ -172,7 +172,6 @@ $defaultoptions = [
     'default_search_excerpt_length'		=> 300,
     
     'custom_excerpt_allowtags'			=> 'br',
-    'title_hero_post_categories'		=> '',
     'title_hero_search'				=> __( 'Webauftritt durchsuchen', 'fau' ),
     'title_hero_events'				=> __( 'Veranstaltungskalender','fau'),
     
@@ -520,13 +519,7 @@ $setoptions = array(
                   'default' => $defaultoptions['advanced_display_postthumb_credits'],
 		  'parent'  => 'postoptions'
               ), 
-	       'title_hero_post_categories'	 => array(
-		    'type'    => 'text',
-		    'title'   => __( 'Bühnentitel Kategorieseiten', 'fau' ),
-		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Kategorieseiten von Nachrichten hinterlegt werden.', 'fau' ),               
-		    'default' => $defaultoptions['title_hero_post_categories'],
-		    'parent'  => 'postoptions'
-		), 
+	       
 	       'advanced_activate_post_comments'		  => array(
                   'type'    => 'toggle',
                   'title'   => __( 'Kommentarfunktion', 'fau' ),
