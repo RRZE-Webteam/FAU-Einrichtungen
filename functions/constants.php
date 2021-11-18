@@ -261,8 +261,9 @@ $defaultoptions = [
 	// Zeige bei optionalen Thumbnails im Hauptmenu auch die Creditinfo, wenn vorhanden
     'advanced_display_portalmenu_forceclick'		=> false,
 	// Hauptmenü öffnet sich nur bei einem Klick
-    'advanced_display_portalmenu_plainview'		=> false,
+    'advanced_display_portalmenu_plainview'		=> true,
 	// Flyover der Untermenüpunkte in der PLainview Ansicht
+	// Ab Version 2.o als Default gesetzt; die alte Sicht wird ggf. vollständig wegfallen (in Abstimmung)
     'advanced_display_header_md-showsitelogo'	=> false,
 	// Zeigt bei der mobilen Ansicht statt dem Logo der Website das 
 	// CI Logo der FAU anstelle des Logos der Website
