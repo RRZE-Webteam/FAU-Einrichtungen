@@ -11,27 +11,27 @@
     left: 50px;
     right: inherit;
     margin: 0;
-    
-        
-    
+
+
+
      @media (min-width: $screen-sm ) {
 	position: relative;
 	left: inherit;
 	top: inherit;
 	margin-left: 20px;
-	
+
 	 ul {
 	     min-width: 100px;
 	     width: max-content;
 
 	 }
      }
-    
-    
+
+
     .mlp_language_box {
 	@include inline-block();
 	background: var(--color-StandardHellgrau);
-	
+
 
 	ul {
 	    display: block;
@@ -40,8 +40,8 @@
 	    }
 	    padding: 0;
 	    margin: 0;
-	   
-	   
+
+
 	    &:before {
 			@extend .fa;
 			@extend .fa-language;
@@ -50,19 +50,19 @@
 			z-index: 10;
 			color: var(--color-MetaTextDefault);
 	    }
-	  
+
 	    li {
 		padding: 0;
 		margin: 0;
 		border: 1px solid var(--color-ContentBorders);
 		border-left: none;
-		
+
 		@media (min-width: $screen-sm) {
 		    border: none;
 		}
-		
+
 		@include no-list();
-		
+
 		a {
 		    text-align: center;
 		    text-decoration: none;
@@ -70,14 +70,14 @@
 		    font-weight: bold;
 		    color:  var(--color-Default);
 		    display: inline-block;
-		    
+
 		    @include border-radius(20px);
-		    height: 30px;
+            height: 1.875rem;
 		    padding: 0 4px;
 		    line-height: 30px;
 		    overflow: hidden;
 		    width: 38px;
-		   
+
 		    @media (min-width: $screen-lg) {
 			min-width: 40px;
 			width: auto;
@@ -85,7 +85,7 @@
 			padding: 0 5px;
 			margin-right: 5px;
 		    }
-		    
+
 		    &::before {
 			content: attr(hreflang);
 			display: inline-block;
@@ -96,24 +96,24 @@
 				display: none;
 			}
 		    }
-		    
-		    
-		    
+
+
+
 		    &:hover,
 		    &:focus {
 			    background: var(--color-MetaBackgroundLight);
 			    @include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
-			    
-			    
+
+
 		    }
-	
+
 
 		}
-		
+
 		&.lang-current.current {
 		    display: none;
 		}
-		
+
 		&:nth-child(1) {
 		    @media (min-width: $screen-lg) {
 			margin-left: -25px;
@@ -124,31 +124,31 @@
 			}
 		    }
 		}
-	    
-	    } 
-	   
+
+	    }
+
 
 	}
 	@media (max-width: $screen-sm - 1) {
 	     li:hover {
-		background: var(--color-MetaHover); 
+		background: var(--color-MetaHover);
 		color: var(--color-MetaText);
-		
+
 		a::before,
 		a {
 		    color: var(--color-MetaText);
 		}
-		
+
 	    }
 	}
 	 @media (min-width: $screen-sm) {
 	     ul:before {
 		 display: inherit;
 	     }
-	    
+
 	 }
     }
-    
+
 }
 
 

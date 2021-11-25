@@ -9,7 +9,7 @@
 	z-index: 100;
 	height: 50px;
 	padding: 5px 0;
-	
+
 	input,
 	li {
 		@include px2rem($font-size-meta);
@@ -24,7 +24,7 @@
 }
 
 
-.meta-tools {	
+.meta-tools {
 	text-align: right;
 	position: static;
 }
@@ -32,7 +32,7 @@
 .meta-widget {
 	display: inline-block;
 	margin: 5px 30px 5px 20px;
-	height: 30px;
+    height: 1.875rem;
 }
 
 
