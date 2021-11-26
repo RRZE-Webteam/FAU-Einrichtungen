@@ -58,7 +58,6 @@
     float: left;
     height: 100%;
     min-height: 1px;
-    font-size: 1rem;
 
     [dir="rtl"] & {
         float: right;
@@ -87,6 +86,10 @@
         display: block;
         height: auto;
         border: 1px solid transparent;
+    }
+
+    .item {
+        font-size: 1rem;
     }
 }
 
