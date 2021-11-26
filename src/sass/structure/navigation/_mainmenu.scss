@@ -11,16 +11,16 @@
 		text-decoration: none;
 		color: var(--color-mainmenu-toplevel-text);
 		background: var(--color-mainmenu-toplevel-bg);
-		
-		&:hover, 
-		&:focus, 
+
+		&:hover,
+		&:focus,
 		&[aria-expanded=true] {
 			color: var(--color-mainmenu-toplevel-hover-text);
 			background: var(--color-mainmenu-toplevel-hover-bg);
 			text-decoration: none;
 		}
 
-		
+
 	}
 
 	/* First-level items */
@@ -91,19 +91,19 @@
 			}
 		}
 	}
-	.level2, 
+	.level2,
 	.level3 {
 	    a {
-		 color: var(--color-mainmenu-sublevel-text); 
-		    background-color: var(--color-mainmenu-sublevel-bg); 
+		 color: var(--color-mainmenu-sublevel-text);
+		    background-color: var(--color-mainmenu-sublevel-bg);
 	    }
-	    
-		a:hover, 
-		a:focus { 
+
+		a:hover,
+		a:focus {
 		    text-decoration: underline;
-		    
-		    color: var(--color-mainmenu-sublevel-hover-text); 
-		    background-color: var(--color-mainmenu-sublevel-hover-bg); 
+
+		    color: var(--color-mainmenu-sublevel-hover-text);
+		    background-color: var(--color-mainmenu-sublevel-hover-bg);
 		}
 	}
 	/* Fly-Out / secondary navigation */
@@ -115,10 +115,10 @@
 	/* Portal buttons */
 	.button-portal {
 		@include inline-block;
-		color: var(--color-mainmenu-sublevel-button-text); 
-		background-color: var(--color-mainmenu-sublevel-button-bg); 
+		color: var(--color-mainmenu-sublevel-button-text);
+		background-color: var(--color-mainmenu-sublevel-button-bg);
 
-		
+
 		padding: 13px 20px;
 		font-weight: bold;
 
@@ -127,8 +127,8 @@
 
 		&:hover,
 		&:focus {
-		    color: var(--color-mainmenu-sublevel-button-hover-text); 
-		    background: var(--color-mainmenu-sublevel-button-hover-bg); 
+		    color: var(--color-mainmenu-sublevel-button-hover-text);
+		    background: var(--color-mainmenu-sublevel-button-hover-bg);
 		}
 	}
 
@@ -155,7 +155,7 @@
 		}
 	}
 
-	
+
 	.level2 {
 		> li {
 			&.has-sub {
@@ -178,7 +178,7 @@
 			}
 		}
 	}
-	
+
 	.introtext, .introtext-full, .introthumb {
 	    display: none;
 	    @media (min-width: $screen-sm) {
@@ -243,8 +243,8 @@
 	}
 }
 
-/* 
-* Larger device 
+/*
+* Larger device
 */
 
 @media (min-width: $screen-sm) {
@@ -299,8 +299,8 @@
 
 			.nav-flyout {
 				background: var(--color-mainmenu-sublevel-bg);
-				
-				
+
+
 				@media (min-width: $screen-sm) {
 					min-height: 199px;
 				}
@@ -340,7 +340,7 @@
 }
 
 
-	
+
 /* Very small device */
 @media (max-width: $screen-xs - 1) {
 	.no-js {
@@ -374,8 +374,8 @@
 						border-top: 1px solid var(--color-primary-dunkelste);
 					}
 				}
-			    
-			    
+
+
 				> a,
 				> [type=button] {
 					&[aria-expanded=true] {
@@ -488,14 +488,14 @@
 			> [type=button][aria-expanded=true],
 			> [type=button]:hover,
 			> [type=button]:focus {
-		//		color: var(--color-primary-basis-kontrast); 
+		//		color: var(--color-primary-basis-kontrast);
 		//		background-color: var(--color-primary-basis);
 			}
 
 			/* Must be an extra selector as IE / Edge doesn't support :focus-within and considers this invalid */
 			&.has-sub:focus-within > a,
 			&.has-sub:focus-within > [type=button] {
-	//			color: var(--color-primary-basis-kontrast); 
+	//			color: var(--color-primary-basis-kontrast);
 	//			background-color: var(--color-primary-basis);
 			}
 
@@ -521,6 +521,7 @@
 			z-index: 30;
 			left: 0;
 			right: 0;
+            overflow: hidden;
 	 		// top: 172px;
 			@include box-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
 		}
@@ -547,10 +548,10 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
- 
+
 	background-color: rgba(0, 51, 102, .7);
 	z-index: 1;
-	
+
 
 	.admin-bar & {
 	    top: 135 + $wordpress-adminbar-bigheight;
