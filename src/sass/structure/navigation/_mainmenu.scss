@@ -295,6 +295,10 @@
 				@media (max-width: $screen-md - 1) {
 					column-count: 2;
 				}
+
+                @media (min-width: $screen-xl) {
+                    column-count: 4;
+                }
 			}
 
 			.nav-flyout {
