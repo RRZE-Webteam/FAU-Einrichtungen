@@ -175,62 +175,6 @@
         }
     }
 
-    .introtext, .introtext-full, .introthumb {
-        display: none;
-        @media (min-width: $screen-sm) {
-            display: block;
-        }
-    }
-
-    .introtext-full,
-    .introtext {
-        p {
-            @include px2rem($font-size-nav-introtext, $font-size-nav-introtext, 24);
-            padding: 20px;
-            margin: 0;
-            color: var(--color-mainmenu-sublevel-text);
-            opacity: .8;
-            font-style: normal;
-            font-weight: normal;
-        }
-
-        blockquote {
-            padding: 20px 20px 20px 70px;
-            min-height: 40px;
-
-            p {
-                @include px2rem($font-size-nav-blockquote, $font-size-nav-blockquote, 24);
-                padding: 0;
-                font-style: italic;
-            }
-
-            cite {
-                padding: 10px 0;
-                text-align: right;
-                color: var(--color-mainmenu-sublevel-text);
-                opacity: 0.7;
-                @include px2rem($font-size-nav-blockquote-cite);
-            }
-
-            &:before {
-                color: var(--color-mainmenu-sublevel-text);
-                top: 40px;
-                font-style: normal;
-                font-size: 90px;
-            }
-        }
-    }
-
-    .introthumb {
-        padding-top: 7px;
-    }
-
-    figcaption {
-        color: var(--color-mainmenu-sublevel-text);
-        opacity: 0.8;
-        @include px2rem($font-size-nav-blockquote-cite);
-    }
-
     p.nav-excerpt {
         color: var(--color-mainmenu-sublevel-text);
         @include px2rem($font-size-small);
@@ -245,15 +189,6 @@
 */
 
 @media (min-width: $screen-sm) {
-    .mainnav-defaultview {
-        .header-menu {
-            .flyout-entries-full {
-                ul.sub-menu li {
-                    width: 30%;
-                }
-            }
-        }
-    }
     .mainnav-plainview {
         .nav {
             ul {
