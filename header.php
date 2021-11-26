@@ -47,9 +47,9 @@
 		 <?php
 		if ($defaultoptions['debugmode'] && get_theme_mod('debug_orgabreadcrumb')) {
 		    get_template_part('template-parts/debugoutput', 'orga-breadcrumb'); 
-		} elseif ( is_plugin_active( 'fau-orga-breadcrumb/fau-orga-breadcrumb.php' ) ) { ?>
+		} elseif ( is_plugin_active( 'fau-orga-breadcrumb/fau-orga-breadcrumb.php' ) ) { 
 		    get_template_part('template-parts/header', 'orga-breadcrumb'); 			
-		<?php } ?>
+		} ?>
 	    </div>
 	    <header id="header">
 		<div class="header-container">
