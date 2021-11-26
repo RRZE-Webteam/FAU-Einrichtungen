@@ -10,17 +10,17 @@
     top: 0;
     z-index: 100;
     width: 100%;
-	
+
     .admin-bar & {
 	top: $wordpress-adminbar-bigheight;
-    } 
+    }
     .nav-toggled & {
 	position: relative;
     }
-    .admin-bar.nav-toggled & { 
+    .admin-bar.nav-toggled & {
 	top: 0;
     }
-    
+
     @media (min-width: $screen-sm) {
 	    margin-bottom: ceil(math.div($grid-gutter-width, 2));
 	    padding: 0;
@@ -29,7 +29,7 @@
 
 	    .nav-scrolled & {
 		    @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
-	    }	
+	    }
     }
 
     @media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
@@ -56,7 +56,7 @@
     @media (min-width: $screen-lg-min) {
 	width: $container-lg;
     }
-    @media (min-width: $screen-xl-min) {
+    @media (min-width: $screen-xl-min + 20) {
 	width: $container-xl;
     }
 }
@@ -68,24 +68,24 @@
     column-gap: floor(math.div($grid-gutter-width, 2));
     justify-content: space-between;
     align-items: center;
-    
+
     @media (min-width: $screen-sm) {
 	align-items: flex-start;
     }
-    
+
     #meta & {
 	justify-content: flex-start;
 	@media (min-width: $screen-sm) {
 	   justify-content: space-between;
 	}
     }
-    
-    
-    .meta-links {	
+
+
+    .meta-links {
 	order: 2;
 	width: calc(100vw - 100px);
-	
-	
+
+
 	text-align: center;
 	@media (min-width: $screen-sm) {
 	    order: 1;
@@ -93,9 +93,9 @@
 	    width: auto;
 	}
 	.active-meta-widget & {
-	
+
 	}
-	
+
     }
     .meta-tools {
 	min-width: 50px;
@@ -106,15 +106,15 @@
 	    order: 2;
 	}
     }
-    
-    
-    header & {	
+
+
+    header & {
 	align-items: center;
 	justify-content: space-between;
-	
+
 	padding: floor(math.div($grid-gutter-width, 2));
-	
-	
+
+
 	@media (min-width: $screen-sm) {
 	    padding: 20px 0 10px;
 	}
@@ -122,7 +122,7 @@
 	    min-width: 240px;
 	    flex: 0 0 auto;
 	}
-	
+
     }
 }
 
