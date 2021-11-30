@@ -917,7 +917,7 @@ function fau_get_category_links($cateid = 0) {
     $link = get_category_link($cateid);
     if (empty($link)){
 	$cat = get_categories(); 
-	if (is_array($cat)  && (!empty($cat))) {
+	if (is_array($cat)  && (!empty($cat)) && isset($cat[0])) {
 	    $cateid = $cat[0]->cat_ID;
 	    $link = get_category_link($cateid);
 	}
