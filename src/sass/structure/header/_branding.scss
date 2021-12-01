@@ -9,8 +9,6 @@
 
         .sitetitle {
             display: inline-block;
-            color: var(--color-primary-basis-kontrast);
-            background-color: var(--color-primary-basis);
             padding: 0;
             margin: 0;
             height: auto;
@@ -18,7 +16,6 @@
             text-decoration: none;
             font-family: $fontStackFAU;
             font-weight: bold;
-            width: 100vw;
 
             @include px2rem($font-size-mobile-sitetitle, $font-size-gridbase);
 
@@ -43,7 +40,6 @@
                 }
             }
             @media (min-width: $screen-sm) {
-                margin: 10px 0;
                 text-align: left;
             }
 
@@ -55,19 +51,15 @@
                 }
             }
 
-
             img,
             svg {
-                display: none;
-                @media (min-width: $screen-sm) {
-                    display: inline-block;
-                    max-width: 400px;
-                    max-height: 158px;
-                    object-fit: contain;
-                    object-position: left;
+                display: inline-block;
+                max-width: 400px;
+                max-height: 158px;
+                object-fit: contain;
+                object-position: left;
 
-                    @include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
-                }
+                @include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
             }
 
             svg {
@@ -78,14 +70,12 @@
             }
 
             span {
-                margin: 10px 15px;
                 display: inline-block;
                 hyphens: auto;
                 @media (min-width: $screen-sm) {
                     background: inherit;
                     hyphens: manual;
                     max-width: 225px;
-                    margin: 10px 15px 0 0;
                     .nologo.longtitle & {
                         hyphens: auto;
                     }
@@ -117,6 +107,10 @@
 
             .baselogo {
                 flex: 0 0 148px;
+
+                svg {
+                    display: block;
+                }
             }
 
             .text {
