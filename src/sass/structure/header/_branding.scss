@@ -5,89 +5,31 @@
 
 #headerwrap header {
     .branding {
-
+        max-width: 100%;
 
         .sitetitle {
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
             padding: 0;
-            margin: 0;
-            height: auto;
-            text-align: center;
-            text-decoration: none;
             font-family: $fontStackFAU;
             font-weight: bold;
+            column-gap: 15px;
+            row-gap: 0.5rem;
 
-            @include px2rem($font-size-mobile-sitetitle, $font-size-gridbase);
+            .custom-logo-link {
 
-            .longtitle & {
-                @include px2rem($font-size-mobile-sitetitle - 2, $font-size-gridbase);
-            }
-
-
-            @media (min-width: $screen-sm) {
-                background-color: var(--color-primary-basis-kontrast);
-                color: var(--color-primary-basis);
-                width: auto;
-
-                @include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
-
-                .nologo.longtitle & {
-                    @include px2rem($font-size-desktop-sitetitle - 2, $font-size-gridbase);
+                svg,
+                img {
+                    max-height: 80px;
+                    max-width: 100%;
+                    width: auto;
                 }
-
-                a {
-                    vertical-align: bottom;
-                }
-            }
-            @media (min-width: $screen-sm) {
-                text-align: left;
             }
 
             a {
                 text-decoration: none;
-                color: var(--color-primary-basis-kontrast);
-                @media (min-width: $screen-sm) {
-                    color: var(--color-primary-basis);
-                }
             }
-
-            img,
-            svg {
-                display: inline-block;
-                max-width: 400px;
-                max-height: 158px;
-                object-fit: contain;
-                object-position: left;
-
-                @include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
-            }
-
-            svg {
-                @media (min-width: $screen-sm) {
-                    width: auto;
-                    height: auto;
-                }
-            }
-
-            span {
-                display: inline-block;
-                hyphens: auto;
-                @media (min-width: $screen-sm) {
-                    background: inherit;
-                    hyphens: manual;
-                    max-width: 225px;
-                    .nologo.longtitle & {
-                        hyphens: auto;
-                    }
-                }
-            }
-
-            .visiblelogo {
-                @media (min-width: $screen-sm) {
-                    display: none;
-                }
-            }
-
         }
 
         .textlogo {
@@ -182,21 +124,6 @@
 
             width: 100%;
             text-align: center;
-
-            .sitetitle {
-                margin: 10px auto;
-                background-color: var(--color-primary-basis-kontrast);
-
-                img,
-                svg {
-
-                    display: inline-block;
-                }
-
-                span.visiblelogo {
-                    display: none;
-                }
-            }
         }
     }
 
