@@ -134,31 +134,6 @@
     display: flex;
     flex-wrap: wrap;
 
-    .sidebar-inline {
-        order: 2;
-        display: block;
-        width: 100%;
-        padding-left: floor(math.div($grid-gutter-width, 2));
-        padding-right: ceil(math.div($grid-gutter-width, 2));
-
-        @media (min-width: $screen-sm) and (max-width: $screen-md) {
-            padding: 0;
-            border-top: 2px solid var(--color-primary-hellste);
-            margin-bottom: floor(math.div($grid-gutter-width, 2));
-            margin-top: 15px;
-        }
-        @media (min-width: $screen-md) {
-            border-top: none;
-            margin-top: 0;
-        }
-        @media (min-width: $screen-xl) {
-            width: $sidebar-width-inline + $grid-gutter-width;
-            flex: 0 0;
-            max-width: $sidebar-width-inline + $grid-gutter-width;
-        }
-
-    }
-
     .content-inline {
         order: 1;
         display: block;
@@ -187,6 +162,45 @@
     }
 }
 
+.inline-box .sidebar-inline,
+.content-row .portalpage-sidebar {
+    order: 2;
+    display: block;
+    padding-top: 15px;
+    border-top: 2px solid var(--color-primary-hellste);
+    margin: 15px auto floor(math.div($grid-gutter-width, 2)) auto;
+    width: calc(100% - 30px);
+
+    .widget h2:first-child {
+        margin-top: 0;
+    }
+}
+
+.content-row .portalpage-sidebar {
+
+    @media (min-width: $screen-sm) {
+        width: $sidebar-width-portal;
+        margin-top: 0;
+        padding-top: 0;
+        padding-left: 15px;
+        border-top: none;
+        border-left: 2px solid var(--color-primary-hellste);
+    }
+}
+
+.inline-box .sidebar-inline {
+
+    @media (min-width: $screen-sm) {
+        width: 100%;
+    }
+
+    @media (min-width: $screen-md) {
+        width: $sidebar-width-inline;
+        border-top: none;
+        margin-top: 0;
+        padding-top: 0;
+    }
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Default container in content for plugin and custom types
@@ -201,27 +215,6 @@
 /*-----------------------------------------------------------------------------------*/
 /* Template: Page with Subnav
 /*-----------------------------------------------------------------------------------*/
-.page-template-page-subnav {
-
-    @media (min-width: $screen-md) and (max-width: $screen-xl - 1) {
-        .inline-box {
-            display: inline-block;
-
-            .sidebar-inline {
-                display: inline-block;
-                float: right;
-                width: $sidebar-width-inline;
-                flex: none;
-                margin-left: floor(math.div($grid-gutter-width, 2));
-            }
-
-            .content-inline {
-                width: 100%;
-                display: block;
-            }
-        }
-    }
-}
 
 /*-----------------------------------------------------------------------------------*/
 /* Post layout
@@ -300,8 +293,9 @@
 /* Template: Template Portalseite/Portalindex
 /*-----------------------------------------------------------------------------------*/
 .page-template-page-portal {
+
     .portalpage-content {
-        min-width: $screen-xs;
+        padding: 0 15px;
         flex: 1 1 $screen-xs;
 
         main {
@@ -312,15 +306,6 @@
             padding-right: ceil(math.div($grid-gutter-width, 2));
         }
     }
-
-    .portalpage-sidebar {
-        min-width: $screen-xxs;
-        flex: 0 0 342px;
-        @media (min-width: $screen-sm) {
-            padding-left: floor(math.div($grid-gutter-width, 2));
-        }
-    }
-
 }
 
 /*-----------------------------------------------------------------------------------*/
