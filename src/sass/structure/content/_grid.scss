@@ -134,6 +134,10 @@
     display: flex;
     flex-wrap: wrap;
 
+    @media (min-width: $screen-md) {
+        flex-wrap: nowrap;
+    }
+
     .content-inline {
         order: 1;
         display: block;
