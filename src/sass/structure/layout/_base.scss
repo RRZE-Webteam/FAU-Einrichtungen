@@ -24,17 +24,17 @@ html, body, button {
 /* Wrap content in white */
 #pagewrapper {
 	min-height: 100%;
-	margin: 0 auto;	
+	margin: 0 auto;
 	background-color: var(--color-MainBackground);
 	position: relative;
-	
+
 	display: flex;
-	flex-wrap: wrap; 
+	flex-wrap: wrap;
 	flex-direction: column;
 	min-height: 100vh;
-	
-	
-	#headerwrap, 
+
+
+	#headerwrap,
 	footer {
 	    // normal
 	}
@@ -73,7 +73,7 @@ html, body, button {
 
 
 
-@media (max-width: $screen-sm - 1) {
+@media (max-width: $screen-sm) {
 	body {
 	//    overflow: hidden;
 	    padding: 0;

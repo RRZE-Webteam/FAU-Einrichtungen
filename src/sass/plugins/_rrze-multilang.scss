@@ -9,17 +9,17 @@
     left: 50px;
     right: inherit;
     margin: 0;
-    
-    @media (max-width: $screen-sm - 1) {
+
+    @media (max-width: $screen-sm) {
 	ul {
 	    width: auto;
-	}    
+	}
 	li a {
 	    width: 50px;
 	}
     }
-    
-    
+
+
      @media (min-width: $screen-sm ) {
 	position: relative;
 	left: inherit;

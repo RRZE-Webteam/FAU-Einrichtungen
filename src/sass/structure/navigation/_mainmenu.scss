@@ -290,7 +290,7 @@
 }
 
 /* Medium sized device */
-@media (max-width: $screen-sm - 1) {
+@media (max-width: $screen-sm) {
     /* If there's no JavaScript available */
     #nav {
         display: none;
@@ -366,6 +366,7 @@
             position: absolute;
             width: 100%;
             z-index: 11;
+            top: 50px;
             right: 0;
         }
 

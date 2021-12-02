@@ -83,7 +83,7 @@ global $defaultoptions;
                                     echo '<meta itemprop="name" content="'.get_bloginfo('name', 'display').'">';
                                     echo get_custom_logo();
                                     if ($custom_logo_title) {
-                                        echo '<span class="custom-logo-title">' . $custom_logo_title . '</span>';
+                                        echo '<span class="custom-logo-title">'.$custom_logo_title.'</span>';
                                     }
                                     echo '</p>';
                                 } else {

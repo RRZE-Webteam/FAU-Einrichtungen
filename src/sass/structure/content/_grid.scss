@@ -4,16 +4,17 @@
 @use "sass:math";
 
 #content {
-    padding: 20px 0 0 0;	
+    padding: 20px 0 0 0;
     position: relative;
     display: block;
-    
+
 
     @media (min-width: $screen-sm) {
-	padding: 40px 0 30px 0;
+        padding: 40px 0 30px 0;
     }
-    
+
 }
+
 .content-container {
     margin-right: auto;
     margin-left: auto;
@@ -21,18 +22,18 @@
     width: 100%;
 
     @media (min-width: $screen-sm) {
-	padding-left:  floor(math.div($grid-gutter-width, 2));
-	padding-right: ceil(math.div($grid-gutter-width,  2));
-	width: $container-sm;
+        padding-left: floor(math.div($grid-gutter-width, 2));
+        padding-right: ceil(math.div($grid-gutter-width, 2));
+        width: $container-sm;
     }
-     @media (min-width: $screen-md) {
-	width: $container-md;
+    @media (min-width: $screen-md) {
+        width: $container-md;
     }
     @media (min-width: $screen-lg-min) {
-	width: $container-lg;
+        width: $container-lg;
     }
-     @media (min-width: $screen-xl-min) {
-	width: $container-xl;
+    @media (min-width: $screen-xl-min) {
+        width: $container-xl;
     }
 }
 
@@ -40,145 +41,144 @@
 .content-row {
     display: flex;
     flex-wrap: wrap;
-    
+
     main {
-	flex-grow: 1;
-	
+        flex-grow: 1;
+
     }
+
     .sidebar-subnav {
-	min-width: $subnav-width-sm;
-	@media (min-width: $screen-sm) {
-	    min-width: $subnav-width-sm;
-	    max-width: $subnav-width-sm;
-	}
-	@media (min-width: $screen-md) {
-	    min-width: $subnav-width-md;
-	    max-width: $subnav-width-md;
-	}
-	@media (min-width: $screen-lg) {
-	    min-width: $subnav-width-lg;
-	    max-width: $subnav-width-lg;
-	}
+        min-width: $subnav-width-sm;
+        @media (min-width: $screen-sm) {
+            min-width: $subnav-width-sm;
+            max-width: $subnav-width-sm;
+        }
+        @media (min-width: $screen-md) {
+            min-width: $subnav-width-md;
+            max-width: $subnav-width-md;
+        }
+        @media (min-width: $screen-lg) {
+            min-width: $subnav-width-lg;
+            max-width: $subnav-width-lg;
+        }
 
-	
+
     }
+
     .entry-content {
-	min-width: $screen-xxs;
-	flex-grow: 1;
-	 @media (min-width: $screen-sm) {
-	     max-width: $container-sm - $subnav-width-sm - $grid-gutter-width; 
-	     padding-left: $grid-gutter-width;
-	 }
-	 @media (min-width: $screen-md) {
-	     max-width: $container-md - $subnav-width-md - $grid-gutter-width;
-	 }
-	 @media (min-width: $screen-lg) {
-	     max-width: $container-lg - $subnav-width-lg - $grid-gutter-width;
-	 }
-	  @media (min-width: $screen-xl) {
-	     max-width: $container-xl - $subnav-width-lg - $grid-gutter-width;
-	 }
+        min-width: $screen-xxs;
+        flex-grow: 1;
+        @media (min-width: $screen-sm) {
+            max-width: $container-sm - $subnav-width-sm - $grid-gutter-width;
+            padding-left: $grid-gutter-width;
+        }
+        @media (min-width: $screen-md) {
+            max-width: $container-md - $subnav-width-md - $grid-gutter-width;
+        }
+        @media (min-width: $screen-lg) {
+            max-width: $container-lg - $subnav-width-lg - $grid-gutter-width;
+        }
+        @media (min-width: $screen-xl) {
+            max-width: $container-xl - $subnav-width-lg - $grid-gutter-width;
+        }
     }
-    
-    .search-sidebar,  
-    .search-resultnested {
-	max-width: 100%;
-	padding-left:  floor(math.div($grid-gutter-width, 2));
-	padding-right: ceil(math.div($grid-gutter-width, 2));
 
-	
+    .search-sidebar,
+    .search-resultnested {
+        max-width: 100%;
+        padding-left: floor(math.div($grid-gutter-width, 2));
+        padding-right: ceil(math.div($grid-gutter-width, 2));
+
+
     }
+
     .search-sidebar {
-	@media (min-width: $screen-sm) {
-	     max-width: 33%;   
-	     padding-left: 0;
-	     order: 1;
-	}
+        @media (min-width: $screen-sm) {
+            max-width: 33%;
+            padding-left: 0;
+            order: 1;
+        }
     }
+
     .search-resultnested {
-	
-	@media (min-width: $screen-sm) {
-	    padding-right: 0;
-	    padding-left: 0;
-	}
-	.with-search-sidebar & {
-	    @media (min-width: $screen-sm) {
-		max-width: 66%;
-		order: 2;
-		padding-left: floor(math.div($grid-gutter-width, 2));
-	    }
-	}
-	
-	
-	li.search-result {
-	    padding: 0;
-	}
+
+        @media (min-width: $screen-sm) {
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .with-search-sidebar & {
+            @media (min-width: $screen-sm) {
+                max-width: 66%;
+                order: 2;
+                padding-left: floor(math.div($grid-gutter-width, 2));
+            }
+        }
+
+
+        li.search-result {
+            padding: 0;
+        }
     }
-    
+
 }
-
-
-
-
 
 
 .inline-box {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    @media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
-	display: inline-block;
-    }
 
-
-	
     .sidebar-inline {
         order: 2;
         display: block;
         width: 100%;
-        padding-left:  floor(math.div($grid-gutter-width, 2));
-	padding-right: ceil(math.div($grid-gutter-width, 2));
-	
-	@media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
-	    // bei kleinen Desktopauflösungen tun wir die Sidebar als Floating in den Content rein...
-	    // Nicht schön, zu diskutieren
-	    width: $sidebar-width-inline + $grid-gutter-width;  
-            padding-right: 0;
-	    float: right;
-	    margin-left: floor(math.div($grid-gutter-width, 2));
-	    margin-bottom: floor(math.div($grid-gutter-width, 2));
-	}
-	@media (min-width: $screen-xl) {
-	    flex: 0 0;
-	    max-width: $sidebar-width-inline + $grid-gutter-width;
-	}
-	
+        padding-left: floor(math.div($grid-gutter-width, 2));
+        padding-right: ceil(math.div($grid-gutter-width, 2));
+
+        @media (min-width: $screen-sm) and (max-width: $screen-md) {
+            padding: 0;
+            border-top: 2px solid var(--color-primary-hellste);
+            margin-bottom: floor(math.div($grid-gutter-width, 2));
+            margin-top: 15px;
+        }
+        @media (min-width: $screen-md) {
+            border-top: none;
+            margin-top: 0;
+        }
+        @media (min-width: $screen-xl) {
+            width: $sidebar-width-inline + $grid-gutter-width;
+            flex: 0 0;
+            max-width: $sidebar-width-inline + $grid-gutter-width;
+        }
+
     }
+
     .content-inline {
-	order: 1;
+        order: 1;
         display: block;
         width: 100%;
-	padding-left:  floor(math.div($grid-gutter-width, 2));
-	padding-right: ceil(math.div($grid-gutter-width, 2));
-	flex: 1 0;
-	@media (min-width: $screen-sm) {
-	    padding-left: 0;
-	}
-	@media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
-	     padding-left: 0;
-	     padding-right: 0;
-	}
+        padding-left: floor(math.div($grid-gutter-width, 2));
+        padding-right: ceil(math.div($grid-gutter-width, 2));
+        flex: 1 0;
+        @media (min-width: $screen-sm) {
+            padding-left: 0;
+        }
+        @media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
+            padding-left: 0;
+            padding-right: 0;
+        }
 
-	&.with-sidebar {
-	    @media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
-		padding-right: ceil(math.div($grid-gutter-width, 2));
-	    }
-	    @media (min-width: $screen-xl) {
-		max-width: calc(100% - $sidebar-width-inline - $grid-gutter-width);
-		width:  calc(100% - $sidebar-width-inline - $grid-gutter-width);
-	    }
-	    
-	}
+        &.with-sidebar {
+            @media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
+                padding-right: ceil(math.div($grid-gutter-width, 2));
+            }
+            @media (min-width: $screen-xl) {
+                max-width: calc(100% - $sidebar-width-inline - $grid-gutter-width);
+                width: calc(100% - $sidebar-width-inline - $grid-gutter-width);
+            }
+
+        }
     }
 }
 
@@ -188,31 +188,33 @@
 /*-----------------------------------------------------------------------------------*/
 #content {
     .container {
-	padding-left: 0;
-	padding-right: 0;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
+
 /*-----------------------------------------------------------------------------------*/
 /* Template: Page with Subnav
 /*-----------------------------------------------------------------------------------*/
 .page-template-page-subnav {
-    
+
     @media (min-width: $screen-md) and (max-width: $screen-xl - 1) {
         .inline-box {
             display: inline-block;
-       
+
             .sidebar-inline {
                 display: inline-block;
                 float: right;
                 width: $sidebar-width-inline;
-                flex: none; 
-		margin-left: floor(math.div($grid-gutter-width, 2));
+                flex: none;
+                margin-left: floor(math.div($grid-gutter-width, 2));
             }
+
             .content-inline {
                 width: 100%;
                 display: block;
             }
-         }
+        }
     }
 }
 
@@ -222,66 +224,70 @@
 
 #content {
     .post-row {
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	width: 100%;
-	@media (min-width: $screen-sm) {
-		max-width: $container-sm - $grid-gutter-width; 
-	    }
-	@media (min-width: $screen-md) {
-		max-width: $container-md - $grid-gutter-width;
-	    }
-	@media (min-width: $screen-lg) {
-		max-width: $container-lg - $grid-gutter-width;
-	}
-	@media (min-width: $screen-xl) {
-		max-width: $container-xl - $grid-gutter-width;
-	}
-	.entry-content{
-	    order: 1;
-	    flex-grow: 1;
-	    min-width: $screen-xxs;	   
-	    width: 100%;  
-	    padding-left:  floor(math.div($grid-gutter-width, 2));
-	    padding-right: ceil(math.div($grid-gutter-width, 2));
-	    
-	    @media (min-width: $screen-sm) {
-		  padding-left: 0;
-		  padding-right: 0;
-	    }
-	    .with-sidebar & {
-		@media (min-width: $screen-sm) {
-		    max-width: $container-sm - $sidebar-width-posts - $grid-gutter-width;
-		    padding-right: ceil(math.div($grid-gutter-width, 2));
-		}
-		@media (min-width: $screen-md) {
-		    max-width: $container-md - $sidebar-width-posts - $grid-gutter-width;
-		}
-		@media (min-width: $screen-lg) {
-		    max-width: $container-lg - $sidebar-width-posts - $grid-gutter-width;
-		}
-		@media (min-width: $screen-xl) {
-		    max-width: $container-xl - $sidebar-width-posts - $grid-gutter-width;
-		}
-	    
-	    }
-	}
-	.sidebar-single {
-	    order: 2;
-	    padding-left:  floor(math.div($grid-gutter-width, 2));
-	    padding-right: ceil(math.div($grid-gutter-width, 2));
-	    width: 100%;
-	    @media (min-width: $screen-sm) {
-		padding-right: 0;
-		max-width: $sidebar-width-posts;
-	    }
-	}
-	
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        @media (min-width: $screen-sm) {
+            max-width: $container-sm - $grid-gutter-width;
+        }
+        @media (min-width: $screen-md) {
+            max-width: $container-md - $grid-gutter-width;
+        }
+        @media (min-width: $screen-lg) {
+            max-width: $container-lg - $grid-gutter-width;
+        }
+        @media (min-width: $screen-xl) {
+            max-width: $container-xl - $grid-gutter-width;
+        }
+
+        .entry-content {
+            order: 1;
+            flex-grow: 1;
+            min-width: $screen-xxs;
+            width: 100%;
+            padding-left: floor(math.div($grid-gutter-width, 2));
+            padding-right: ceil(math.div($grid-gutter-width, 2));
+
+            @media (min-width: $screen-sm) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .with-sidebar & {
+                @media (min-width: $screen-sm) {
+                    max-width: $container-sm - $sidebar-width-posts - $grid-gutter-width;
+                    padding-right: ceil(math.div($grid-gutter-width, 2));
+                }
+                @media (min-width: $screen-md) {
+                    max-width: $container-md - $sidebar-width-posts - $grid-gutter-width;
+                }
+                @media (min-width: $screen-lg) {
+                    max-width: $container-lg - $sidebar-width-posts - $grid-gutter-width;
+                }
+                @media (min-width: $screen-xl) {
+                    max-width: $container-xl - $sidebar-width-posts - $grid-gutter-width;
+                }
+
+            }
+        }
+
+        .sidebar-single {
+            order: 2;
+            padding-left: floor(math.div($grid-gutter-width, 2));
+            padding-right: ceil(math.div($grid-gutter-width, 2));
+            width: 100%;
+            @media (min-width: $screen-sm) {
+                padding-right: 0;
+                max-width: $sidebar-width-posts;
+            }
+        }
+
     }
+
     .row {
-	margin-left: 0;
-	margin-right: 0;
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 
@@ -290,25 +296,28 @@
 /*-----------------------------------------------------------------------------------*/
 .page-template-page-portal {
     .portalpage-content {
-	min-width: $screen-xs;
-	flex: 1 1 $screen-xs;
-	main {
-	    padding-top: ceil(math.div($grid-gutter-width, 2));
-	}
-	@media (min-width: $screen-sm) {
-	   padding-right: ceil(math.div($grid-gutter-width, 2));
-	}
+        min-width: $screen-xs;
+        flex: 1 1 $screen-xs;
+
+        main {
+            padding-top: ceil(math.div($grid-gutter-width, 2));
+        }
+
+        @media (min-width: $screen-sm) {
+            padding-right: ceil(math.div($grid-gutter-width, 2));
+        }
     }
-    
+
     .portalpage-sidebar {
-	min-width: $screen-xxs;	
-	flex: 0 0 342px;
-	@media (min-width: $screen-sm) {
-	    padding-left:  floor(math.div($grid-gutter-width, 2));
-	}
+        min-width: $screen-xxs;
+        flex: 0 0 342px;
+        @media (min-width: $screen-sm) {
+            padding-left: floor(math.div($grid-gutter-width, 2));
+        }
     }
-   
+
 }
+
 /*-----------------------------------------------------------------------------------*/
 /* Template: Template Startseiten
 /*-----------------------------------------------------------------------------------*/
@@ -316,35 +325,36 @@
 .startpage-blogroll {
     @extend .col-xs-12;
     @extend .col-sm-8;
-//    @extend .col-xxl-9;
+    //    @extend .col-xxl-9;
 }
 
 .startpage-sidebar {
     @extend .col-xs-12;
     @extend .col-sm-4;
-  //  @extend .col-xxl-3;
+    //  @extend .col-xxl-3;
 }
 
 
 .startpage-sidebar {
     .row {
-	margin-left: 0;
-	margin-right: 0;
+        margin-left: 0;
+        margin-right: 0;
     }
-    @media (max-width: $screen-sm - 1) {
-	@include linear-gradient-three(transparent,$colorStandardHellgrau 50%,transparent);  
+
+    @media (max-width: $screen-sm) {
+        @include linear-gradient-three(transparent, $colorStandardHellgrau 50%, transparent);
     }
 }
 
 @media (max-width: $screen-xs - 1) {
     .page-template-page-start {
-	
-	
-	#content .news-image {
-	    text-align: center;
-	    float: none;
-	}
 
-	
-    } 
+
+        #content .news-image {
+            text-align: center;
+            float: none;
+        }
+
+
+    }
 }
