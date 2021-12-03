@@ -10,7 +10,6 @@
         position: relative;
         left: inherit;
         top: inherit;
-        margin-left: 20px;
 
         ul {
             min-width: 100px;
@@ -19,37 +18,23 @@
         }
     }
 
-
     .mlp_language_box {
         @include inline-block();
         background: var(--color-StandardHellgrau);
 
-
         ul {
             display: block;
-            @media (min-width: $screen-sm) {
-                display: flex;
-            }
             padding: 0;
             margin: 0;
 
-
-            &:before {
-                @extend .fa;
-                @extend .fa-language;
-                @include px2rem(21);
-                display: none;
-                z-index: 10;
-                color: var(--color-MetaTextDefault);
+            @media (min-width: $screen-sm) {
+                display: flex;
             }
 
             li {
                 padding: 0;
                 margin: 0;
-
-                @media (min-width: $screen-sm) {
-                    border: none;
-                }
+                border: none;
 
                 @include no-list();
 
@@ -60,73 +45,41 @@
                     font-weight: bold;
                     color: var(--color-Default);
                     display: inline-block;
-
-                    @include border-radius(20px);
                     height: 1.875rem;
-                    padding: 0 4px;
                     line-height: 30px;
                     overflow: hidden;
-                    width: 38px;
+                    min-width: 40px;
+                    width: auto;
+                    background: #fff;
+                    padding: 0 5px;
+                    margin-right: 5px;
 
-                    @media (min-width: $screen-lg) {
-                        min-width: 40px;
-                        width: auto;
-                        background: #fff;
-                        padding: 0 5px;
-                        margin-right: 5px;
+                    @include border-radius(20px);
+
+                    &:before {
+                        z-index: 10;
+                        color: var(--color-MetaTextDefault);
+                        vertical-align: middle;
+                        margin-right: 0.25rem;
+
+                        @extend .fa;
+                        @extend .fa-language;
+                        @include px2rem(21);
                     }
-
-                    &::before {
-                        content: attr(hreflang);
-                        display: inline-block;
-
-                        @media (min-width: $screen-lg) {
-                            content: "";
-                            margin-right: 0px;
-                            display: none;
-                        }
-                    }
-
 
                     &:hover,
                     &:focus {
                         background: var(--color-MetaBackgroundLight);
                         @include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
-
-
                     }
-
-
                 }
 
                 &.lang-current.current {
                     display: none;
                 }
-
-                &:nth-child(1) {
-                    @media (min-width: $screen-lg) {
-                        margin-left: -25px;
-
-                        a {
-                            padding-left: 30px;
-                            padding-right: 10px;
-                        }
-                    }
-                }
-
             }
-
-
-        }
-
-        @media (min-width: $screen-sm) {
-            ul:before {
-                display: inherit;
-            }
-
         }
     }
-
 }
 
 

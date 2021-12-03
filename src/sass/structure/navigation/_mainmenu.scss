@@ -368,7 +368,7 @@
     }
 
     .no-js #nav:target .nav,
-    [aria-expanded=true] ~ #nav .nav {
+    #nav [aria-expanded=true] ~ .nav {
         display: block;
     }
 
@@ -379,14 +379,6 @@
     .js {
         .nav-flyout {
             display: none;
-        }
-
-        #nav {
-            position: absolute;
-            width: 100%;
-            z-index: 11;
-            top: 50px;
-            right: 0;
         }
 
         .nav > li.level1 {
