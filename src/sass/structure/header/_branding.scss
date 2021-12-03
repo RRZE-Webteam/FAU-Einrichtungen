@@ -6,6 +6,12 @@
 #headerwrap header {
     .branding {
         max-width: 100%;
+        display: none;
+
+        @media (min-width: $screen-sm) {
+            display: block;
+        }
+
 
         .sitetitle {
             display: flex;

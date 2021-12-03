@@ -20,10 +20,6 @@
 // Meta Orga Breadcrumb
 @import "orga-breadcrumb";
 
-header {
-    display: none;
-
-    @media (min-width: $screen-sm) {
-        display: block;
-    }
+.header-menu {
+    width: 100%;
 }

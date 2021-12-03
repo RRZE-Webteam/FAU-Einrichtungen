@@ -9,6 +9,7 @@
 	z-index: 100;
 	height: 50px;
 	padding: 5px 0;
+    position: relative;
 
 	input,
 	li {
@@ -21,12 +22,15 @@
 		padding: inherit;
 	}
 
-}
+    .header-row {
+        justify-content: space-between;
+        align-items: center;
 
-
-.meta-tools {
-	text-align: right;
-	position: static;
+        &:after {
+            content: '';
+            width: 32px;
+        }
+    }
 }
 
 .meta-widget {

@@ -2,19 +2,28 @@
 /* Orga Breadcrumb (optional)
 /*-----------------------------------------------------------------------------------*/
 @use "sass:math";
+
 #headerwrap {
+
     .orga-breadcrumb {
-	margin-bottom: floor(math.div($grid-gutter-width, 2));
-	
-	li {
-	   color: var(--color-MetaTextDefault);
-	   a {
-	       color: var(--color-MetaTextDefault);
-	       text-decoration: none;
-	   }
-	   a:hover, a:focus {
-	       text-decoration: underline;
-	   }
-	}
+        display: none;
+
+        @media (min-width: $screen-md) {
+            display: block;
+            margin-bottom: floor(math.div($grid-gutter-width, 2));
+
+            li {
+                color: var(--color-MetaTextDefault);
+
+                a {
+                    color: var(--color-MetaTextDefault);
+                    text-decoration: none;
+                }
+
+                a:hover, a:focus {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 }

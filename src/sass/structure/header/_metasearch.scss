@@ -14,7 +14,6 @@
 
     .searchform {
         @include transition(0.5s, all);
-        display: none;
         border: none;
         margin: 0;
         padding: 5px 0;
@@ -148,17 +147,6 @@
         @include sr-only();
     }
 
-}
-
-#search-toggle:before {
-    @extend .svg-icon;
-    @include svg-icon-sizes();
-    background-image: svg-icon-search($colorDefault, 16, 16);
-
-    &:focus,
-    &:hover {
-        background-image: svg-icon-search-toggled(red, 16, 16);
-    }
 }
 
 .search-toggled {

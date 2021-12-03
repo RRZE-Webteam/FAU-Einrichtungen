@@ -134,7 +134,7 @@ jQuery(document).ready(function ($) {
                     $body.removeClass('breakpoint-header');
                 }
             }
-		
+
         };
 
         fixedHeader();
@@ -191,23 +191,8 @@ jQuery(document).ready(function ($) {
             $backdrop = $('<div id="menu-backdrop" aria-hidden="true"/>').click(function () {
                 $toggleButton.trigger('click');
             });
-            $('#nav').after($backdrop);	   
-	   
-        });
+            $('#nav').after($backdrop);
 
-        // Install the search toggle
-        var searchToggle = document.getElementById('search-toggle');
-        searchToggle._expanded = false;
-        searchToggle._toggleSearch = function (onOff) {
-            this._expanded = onOff;
-            $body.toggleClass('search-toggled', this._expanded);
-            this.setAttribute('aria-expanded', this._expanded ? 'true' : 'false');
-            $("#headsearchinput")[this._expanded ? 'focus' : 'blur']();
-        };
-	
-        $(searchToggle).bind('click', function (event) {
-            event.preventDefault();
-            this._toggleSearch(!this._expanded);
         });
 
         // Create and inject alternative toggle buttons for submenus
@@ -273,24 +258,24 @@ jQuery(document).ready(function ($) {
             }
         };
 
-        var $metaNavigation = $('ul.meta-nav');
-        var $metaNavigationOrigParent = $metaNavigation.length ? $metaNavigation.parent() : null;
-
-        /**
-         * Move the meta navigation
-         *
-         * @param {Boolean} header Place in header
-         */
-        var moveMetaNavigation = function(header) {
-            if ($metaNavigation.length) {
-                if (header) {
-                    $('.meta-links').append($metaNavigation.attr({ role: null, 'aria-label': null }));
-                    $metaNavigationOrigParent.append($metaNavigation);
-                } else {
-                    $('#nav').append($metaNavigation.attr({ role: 'navigation', 'aria-label': 'Portal links' }));
-                }
-            }
-        };
+        // var $metaNavigation = $('ul.meta-nav');
+        // var $metaNavigationOrigParent = $metaNavigation.length ? $metaNavigation.parent() : null;
+        //
+        // /**
+        //  * Move the meta navigation
+        //  *
+        //  * @param {Boolean} header Place in header
+        //  */
+        // var moveMetaNavigation = function(header) {
+        //     if ($metaNavigation.length) {
+        //         if (header) {
+        //             $('.meta-links').append($metaNavigation.attr({ role: null, 'aria-label': null }));
+        //             $metaNavigationOrigParent.append($metaNavigation);
+        //         } else {
+        //             $('#nav').append($metaNavigation.attr({ role: 'navigation', 'aria-label': 'Portal links' }));
+        //         }
+        //     }
+        // };
 
         var mobileState = null;
         var updateResponsivePositioning = function () {

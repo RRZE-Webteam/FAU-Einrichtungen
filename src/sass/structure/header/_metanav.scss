@@ -1,194 +1,171 @@
 /*-----------------------------------------------------------------------------------*/
 /* Meta-Navigation
 /*-----------------------------------------------------------------------------------*/
-.meta-links {	
-	.ext-link {
-		padding-right: 0;
-		background-image: none;
-	}
-
-	&:hover {
-		overflow: visible;
-	}
-
-}
-.orgalist,
-.meta-nav {
-	@include no-list;
-	padding: 0;
-
-	li {
-		@include no-list;
-		@include inline-block;
-		margin: 0 4px;
-		background: none;
-		position: relative;
-
-		a {
-			@include inline-block;
-			padding: 10px 0;
-			color: var(--color-MetaTextDefault);
-			text-decoration: none;
-		}
-
-		a:focus,
-		a:hover,
-		&:focus-within a,
-		&:hover a,
-		&:focus a {
-			text-decoration: underline;
-		}
-	}
-
-	li.has-sub {
-		margin-right: 0;
-
-		> a {
-			padding-right: 25px;
-			position: relative;
-		}
-
-		> a:before {
-			@extend .fa;
-			@extend .fa-caret-down;
-			position: absolute;
-			top: 15px;
-			right: 11px;
-		}
-	}
-
-
-	ul.sub-menu {
-		@include no-list;
-		display: none;
-		position: absolute;
-		top: 35px;
-		left: -10px;
-		background: var(--color-MetaBackgroundLight);
-		width: 180px;
-		@include box-shadow(0 3px 3px rgba(0, 0, 0, 0.2));
-
-		li {
-			@include no-list;
-			display: block;
-
-			a {
-				padding: 4px 10px;
-				margin: 0;
-				display: block;
-				text-decoration: none;
-				background: none;
-
-				&:hover, &:focus {
-					background: #fff;
-					text-decoration: none;
-				}
-			}
-		}
-	}
-
-	li:hover ul.sub-menu,
-	li.focus ul.sub-menu {
-		display: block;
-	}
+.meta-links-container {
+    flex-shrink: 0;
 }
 
-.meta-nav {
-    display: none;
-    .js & {
-	display: inline-block;
+#meta-menu:target {
+
+    .meta-links-trigger-open {
+        display: none;
     }
+    .meta-links-trigger-close {
+        display: block;
+    }
+
+    .meta-links {
+        display: block;
+    }
+}
+
+.meta-links-trigger {
+    display: block;
+    margin-left: 5px;
+    padding: 1px 6px;
+    @include px2rem($font-size-mobile-meta);
+
+    .meta-links-trigger-text {
+        @include hideout();
+    }
+
+    .meta-links-trigger-icon {
+        display: flex;
+
+        svg {
+            width: 24px;
+            height: auto;
+        }
+    }
+
+    & .meta-links-trigger-icon-fau {
+        margin-right: -16px;
+
+        svg {
+            width: 40px;
+        }
+    }
+    &.meta-links-trigger-close .meta-links-trigger-icon svg {
+        transform: scale(0.7);
+    }
+}
+.meta-links-trigger-close {
+    display: none;
+}
+
+.meta-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     margin: 0;
-    padding: 0;
-    
-}
-.orgalist {
-	display: inline-block;
-	text-align: left;
+    background-color: var(--color-MetaBackgroundLight);
+    z-index: 100;
+    padding: 15px;
 
+    ul li,
+    ol li {
+        list-style-type: none;
+        padding: 0;
 
-	li.fauhome {
-	    margin-left: 0;
-	    a {
-		padding-right: 5px;
-		
-		svg {
-		    display: inline-block;
-		    position: relative;
-		    vertical-align: text-top;
-		    .fau {
-			fill: var(--color-FAU);
-			--fau-logo-display-name: none;
-			
-		    }
-		} 
-	    }
-	    a::before {
-		display: none;
-		@extend .svg-icon;
-		background-image: svg-arrow-up($colorZUV,16,16);		
-		margin-left: 0;
-		margin-right: 2px;
-		@media (min-width: $screen-sm) {
-		    display: inline-block;
-		}
-	    }
-	    
-	    
-	    a:hover,
-	    a:focus {
-		background: $colorZUV;
-		svg {
-		    .fau {
-			fill: white;
-		    }
-		}
-		&::before {
-		    background-image: svg-arrow-up(white,16,16);	
-		}
-		
-	    }
-	
-	}
-	
-	li.facultyhome {
-	    display: none;
-	    padding-right: 5px;
-	    padding-left: 5px;
-	}
-	
-	@media (min-width: $screen-sm) {
-	    li.facultyhome {
-		display: inline-block;
-		
-	    }
+        a {
+            display: inline-block;
+            padding: 0.15rem 0;
 
-	    li.fauhome,
-	    li.facultyhome {
-		    @include transition(background, 0.2s ease-out);
-	    }
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
 
-	    li.fauhome:hover, 
-	    li.fauhome:focus,
-	    li.facultyhome:hover, 
-	    li.facultyhome:focus {
-		    background: var(--color-MetaHomeBackground);
-		    @include transition(background, 0.1s);
-	    }
-	    
+    .orgalist {
+        margin: 0;
+    }
 
-	
-	}
-	
+    .fauhome {
+        padding: 0;
+    }
 
-	@media (min-width: $screen-sm) {
-		text-align: left;
+    .meta-search {
+        width: 100%;
+        position: relative;
 
-		.fauorg-home & .fauhome {
-			// Zeige auf der FAU-Website selbst den Logolink in der Meta
-			// nicht an, wenn die Darstellung größer gleich als Tablet ist.
-			display: none;
-		}	
-	}
+        .searchform {
+            display: flex;
+            width: 100%;
+            padding: 0;
+            margin: 0.5rem 0;
+            justify-items: center;
+        }
+
+        .searchicon {
+            position: absolute;
+            margin: 0;
+            top: 50%;
+            left: 0.5rem;
+            transform: translateY(-50%);
+        }
+
+        #headsearchinput {
+            width: 100%;
+            padding-left: 2rem;
+        }
+    }
+
+    .cms-workflow-widget {
+        margin: 0;
+
+        .mlp_language_box {
+            background-color: transparent;
+        }
+    }
+
+    .meta-nav.menu {
+        margin: 0;
+    }
 }
 
+.meta-logo {
+    display: flex;
+    max-height: 100%;
+
+    .branding {
+        display: flex;
+        justify-content: center;
+        max-height: 100%;
+    }
+
+    .custom-logo-link {
+
+        img,
+        svg {
+            width: auto;
+            height: 100%;
+        }
+    }
+
+    .textlogo {
+
+        .baselogo {
+            display: none;
+        }
+
+        .fau-title {
+            display: none;
+        }
+
+        .fauorg-kooperation & {
+            .baselogo {
+                display: block;
+            }
+            .text {
+                display: none;
+            }
+        }
+    }
+
+    @media (min-width: $screen-md) {
+        display: none;
+    }
+}

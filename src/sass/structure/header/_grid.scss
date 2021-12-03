@@ -76,40 +76,18 @@
         align-items: flex-start;
     }
 
-    #meta & {
-        justify-content: flex-start;
-        @media (min-width: $screen-sm) {
-            justify-content: space-between;
-        }
-    }
-
-    .meta-links {
-        text-align: center;
-        margin-left: 7px;
-
-        @media (min-width: $screen-sm) {
-            order: 1;
-            text-align: left;
-            width: auto;
-        }
-    }
-
     header & {
-        align-items: center;
-        justify-content: space-between;
 
-        padding: floor(math.div($grid-gutter-width, 2));
-
-
-        @media (min-width: $screen-sm) {
+        @media (min-width: $screen-md) {
+            align-items: center;
+            justify-content: space-between;
             padding: 20px 0 10px;
-        }
 
-        .branding {
-            min-width: 240px;
-            flex: 0 0 auto;
+            .branding {
+                min-width: 240px;
+                flex: 0 0 auto;
+            }
         }
-
     }
 }
 
