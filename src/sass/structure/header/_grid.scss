@@ -72,13 +72,9 @@
     justify-content: space-between;
     align-items: center;
 
-    @media (min-width: $screen-sm) {
-        align-items: flex-start;
-    }
-
     header & {
 
-        @media (min-width: $screen-md) {
+        @media (min-width: $screen-sm) {
             align-items: center;
             justify-content: space-between;
             padding: 20px 0 10px;

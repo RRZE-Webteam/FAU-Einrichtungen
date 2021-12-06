@@ -48,7 +48,8 @@ if ($custom_logo_id) {
                                 <div class="meta-links-container">
                                     <a href="#meta-menu" class="meta-links-trigger meta-links-trigger-open">
                                         <span class="meta-links-trigger-text">Organisationsmenu öffnen</span>
-                                        <span class="meta-links-trigger-icon<?php echo ($website_type !== 3 || $website_type !== -1) ? ' meta-links-trigger-icon-fau' : '' ?>">
+                                        <span
+                                            class="meta-links-trigger-icon<?php echo ($website_type !== 3 || $website_type !== -1) ? ' meta-links-trigger-icon-fau' : '' ?>">
                                             <?php
                                             if ($website_type === 3 || $website_type === -1) {
                                                 echo file_get_contents(get_template_directory().'/svg/icon-organization.svg');
@@ -93,8 +94,11 @@ if ($custom_logo_id) {
                                 ?>
                                 <?php
                                 // Breadcrumb
-                                fau_breadcrumb(null, true, true);
-                                ?>
+                                if ($defaultoptions['debugmode'] && get_theme_mod('debug_orgabreadcrumb')) {
+                                    get_template_part('template-parts/debugoutput', 'orga-breadcrumb');
+                                } elseif (is_plugin_active('fau-orga-breadcrumb/fau-orga-breadcrumb.php')) {
+                                    get_template_part('template-parts/header', 'orga-breadcrumb');
+                                } ?>
                                 <?php
                                 // Search bar
                                 get_template_part('template-parts/header', 'search');
@@ -110,13 +114,13 @@ if ($custom_logo_id) {
                                 ?>
                             </nav>
                         </div>
-                        <?php
-                        if ($defaultoptions['debugmode'] && get_theme_mod('debug_orgabreadcrumb')) {
-                            get_template_part('template-parts/debugoutput', 'orga-breadcrumb');
-                        } elseif (is_plugin_active('fau-orga-breadcrumb/fau-orga-breadcrumb.php')) { ?>
-                            get_template_part('template-parts/header', 'orga-breadcrumb');
-                        <?php } ?>
                     </div>
+                    <?php
+                    if ($defaultoptions['debugmode'] && get_theme_mod('debug_orgabreadcrumb')) {
+                        get_template_part('template-parts/debugoutput', 'orga-breadcrumb');
+                    } elseif (is_plugin_active('fau-orga-breadcrumb/fau-orga-breadcrumb.php')) {
+                        get_template_part('template-parts/header', 'orga-breadcrumb');
+                    } ?>
                     <header id="header">
                         <div class="header-container">
                             <div class="header-row">

@@ -464,5 +464,9 @@
 
     #menu-backdrop {
         display: block;
+
+        @media (min-width: $screen-sm) {
+            display: none;
+        }
     }
 }

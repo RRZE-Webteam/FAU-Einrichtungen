@@ -147,7 +147,7 @@
 	}
 
 	@media (min-width: $screen-md) {
-		margin: -20px auto;
+		margin: 0 auto -20px;
 	}
 
 	@media (min-width: $slider-maxwidth + 20) {
