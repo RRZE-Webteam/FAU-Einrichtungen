@@ -104,7 +104,7 @@ jQuery(document).ready(function ($) {
         $("#content table").wrap('<div class="table-wrapper" />').wrap('<div class="scrollable" />');
 
         // Make #header fixed once scrolled down behind meta or on small screens
-        var fixedHeader = function() {
+        var fixedHeader = function () {
             if ($(window).scrollTop() > 1) {
                 if (!$body.hasClass("nav-scrolled")) {
                     $body.addClass('nav-scrolled');
@@ -125,7 +125,7 @@ jQuery(document).ready(function ($) {
                     $body.removeClass('toplink-faded');
                 }
             }
-	    if ($(window).scrollTop() > 400) {
+            if ($(window).scrollTop() > 400) {
                 if (!$body.hasClass("breakpoint-header")) {
                     $body.addClass('breakpoint-header');
                 }
@@ -183,17 +183,56 @@ jQuery(document).ready(function ($) {
                 .click(function () {
                     this._isExpanded = !this._isExpanded;
                     $(this).attr('aria-expanded', this._isExpanded ? 'true' : 'false');
-                   //  $('#logo').toggle(!this._isExpanded);
-                    $('html, body').animate({scrollTop: '0px'}, 0);
-		    $body.toggleClass('nav-toggled', this._isExpanded);
+                    $('html, body').animate({ scrollTop: '0px' }, 0);
+                    $body.toggleClass('nav-toggled', this._isExpanded);
+
+                    $body.removeClass('meta-links-toggled', this._isExpanded);
+                    $metaNavButton = $('.meta-links-trigger-button');
+                    $metaNavButton[0]._isExpanded = false;
+                    $metaNavButton.find('.meta-links-trigger-text').text($metaNavButton.attr('data-label-open'));
+                    $metaNavButton.attr('aria-expanded', false);
                 });
             $(this).replaceWith($toggleButton);
-            $backdrop = $('<div id="menu-backdrop" aria-hidden="true"/>').click(function () {
-                $toggleButton.trigger('click');
-            });
-            $('#nav').after($backdrop);
-
         });
+
+        // Swap out the meta navigation link against a button and create a JavaScript enabled backdrop
+        $('.meta-links-trigger-open').each(function () {
+            var $toggleButton = $('<button class="meta-links-trigger meta-links-trigger-button" type="button" aria-controls="meta-menu" aria-haspopup="true" aria-expanded="false"/>')
+                .attr('data-label-open', $(this).find('.meta-links-trigger-text').text())
+                .attr('data-label-close', $(this).next('.meta-links-trigger-close').find('.meta-links-trigger-text').text())
+                .append('<span class="meta-links-trigger-text">' + $(this).find('.meta-links-trigger-text').text() + '</span>')
+                .append($(this).find('.meta-links-trigger-icon').addClass('meta-links-trigger-icon-open'))
+                .append($(this).next('.meta-links-trigger-close').find('.meta-links-trigger-icon').addClass('meta-links-trigger-icon-close'))
+                .click(function () {
+                    this._isExpanded = !this._isExpanded;
+                    $(this).attr('aria-expanded', this._isExpanded ? 'true' : 'false');
+                    $('html, body').animate({ scrollTop: '0px' }, 0);
+                    $(this).find('.meta-links-trigger-text').text(this._isExpanded ? $(this).attr('data-label-close') : $(this).attr('data-label-open'));
+                    $body.toggleClass('meta-links-toggled', this._isExpanded);
+
+                    $body.removeClass('nav-toggled', this._isExpanded);
+                    $mainNavButton = $('#mainnav-toggle');
+                    $mainNavButton[0]._isExpanded = false;
+                    $mainNavButton.attr('aria-expanded', false);
+                });
+            $(this).replaceWith($toggleButton);
+        });
+        $('.meta-links-trigger-close').remove();
+
+        // Add backdrop that closes all menus
+        $backdrop = $('<div id="menu-backdrop" aria-hidden="true"/>').click(function () {
+            $body.removeClass('meta-links-toggled', this._isExpanded);
+            $metaNavButton = $('.meta-links-trigger-button');
+            $metaNavButton[0]._isExpanded = false;
+            $metaNavButton.find('.meta-links-trigger-text').text($metaNavButton.attr('data-label-open'));
+            $metaNavButton.attr('aria-expanded', false);
+
+            $body.removeClass('nav-toggled', this._isExpanded);
+            $mainNavButton = $('#mainnav-toggle');
+            $mainNavButton[0]._isExpanded = false;
+            $mainNavButton.attr('aria-expanded', false);
+        });
+        $('.metalinks').after($backdrop);
 
         // Create and inject alternative toggle buttons for submenus
         var $topLevelFlyouts = $('.nav > .has-sub > a + .nav-flyout');
@@ -223,7 +262,7 @@ jQuery(document).ready(function ($) {
          *
          * @param {Boolean} openOnClick Use a click to open the flyout menus
          */
-	var updateToggleState = function(openOnClick) {
+        var updateToggleState = function (openOnClick) {
             $topLevelFlyouts.each(function (index, topLevelFlyout) {
                 topLevelFlyout.$_link[openOnClick ? 'hide' : 'show']().attr('aria-hidden', openOnClick ? 'true' : 'false');
                 topLevelFlyout.$_button[openOnClick ? 'show' : 'hide']().attr('aria-hidden', openOnClick ? 'false' : 'true');
@@ -248,7 +287,7 @@ jQuery(document).ready(function ($) {
          *
          * @param {Boolean} sidebar True sidebar
          */
-        var moveSidebarNavigation = function(sidebar) {
+        var moveSidebarNavigation = function (sidebar) {
             if (sidebarNavigation) {
                 if (sidebar) {
                     sidebarNavigation._origParentNode.insertBefore(sidebarNavigation, sidebarNavigation._origParentNode.firstChild);

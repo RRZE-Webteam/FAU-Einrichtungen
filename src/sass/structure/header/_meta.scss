@@ -7,8 +7,6 @@
 	background: var(--color-StandardHellgrau);
 	color: var(--color-MetaTextDefault);
 	z-index: 100;
-	height: 50px;
-	padding: 5px 0;
     position: relative;
 
 	input,
@@ -25,6 +23,8 @@
     .header-row {
         justify-content: space-between;
         align-items: center;
+        height: 50px;
+        padding: 5px 0;
 
         &:after {
             content: '';
@@ -39,4 +39,7 @@
     height: 1.875rem;
 }
 
-
+.metalinks {
+    position: relative;
+    z-index: 150;
+}

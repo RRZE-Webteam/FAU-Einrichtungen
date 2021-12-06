@@ -44,8 +44,8 @@ if ($custom_logo_id) {
                     <?php get_template_part('template-parts/header', 'skiplinks'); ?>
                     <div id="meta">
                         <div class="header-container">
-                            <div class="header-row">
-                                <div class="meta-links-container" id="meta-menu">
+                            <div class="header-row" id="meta-menu">
+                                <div class="meta-links-container">
                                     <a href="#meta-menu" class="meta-links-trigger meta-links-trigger-open">
                                         <span class="meta-links-trigger-text">Organisationsmenu öffnen</span>
                                         <span class="meta-links-trigger-icon<?php echo ($website_type !== 3 || $website_type !== -1) ? ' meta-links-trigger-icon-fau' : '' ?>">
@@ -68,30 +68,6 @@ if ($custom_logo_id) {
                                             <?php echo file_get_contents(get_template_directory().'/svg/icon-close.svg') ?>
                                         </span>
                                     </a>
-                                    <nav class="meta-links"
-                                         aria-label="<?php _e('Navigation: Weitere Angebote', 'fau'); ?>">
-                                        <?php
-                                        // FAU link
-                                        echo fau_get_toplinks(null, 1, true);
-                                        ?>
-                                        <?php
-                                        // Breadcrumb
-                                        fau_breadcrumb(null, true, true);
-                                        ?>
-                                        <?php
-                                        // Search bar
-                                        get_template_part('template-parts/header', 'search');
-                                        // Language switcher
-                                        if ($defaultoptions['debugmode'] && get_theme_mod('debug_sprachschalter')) {
-                                            get_template_part('template-parts/debugoutput', 'sprachschalter');
-                                        } elseif (is_active_sidebar('language-switcher')) {
-                                            dynamic_sidebar('language-switcher');
-                                        } ?>
-                                        <?php
-                                        // Top links
-                                        echo fau_get_toplinks(null, 2);
-                                        ?>
-                                    </nav>
                                 </div>
                                 <div class="meta-logo">
                                     <div class="branding" id="logo" role="banner" itemscope
@@ -108,8 +84,31 @@ if ($custom_logo_id) {
                                         ?>
                                     </div>
                                 </div>
-
                             </div>
+                            <nav class="meta-links"
+                                 aria-label="<?php _e('Navigation: Weitere Angebote', 'fau'); ?>">
+                                <?php
+                                // FAU link
+                                echo fau_get_toplinks(null, 1, true);
+                                ?>
+                                <?php
+                                // Breadcrumb
+                                fau_breadcrumb(null, true, true);
+                                ?>
+                                <?php
+                                // Search bar
+                                get_template_part('template-parts/header', 'search');
+                                // Language switcher
+                                if ($defaultoptions['debugmode'] && get_theme_mod('debug_sprachschalter')) {
+                                    get_template_part('template-parts/debugoutput', 'sprachschalter');
+                                } elseif (is_active_sidebar('language-switcher')) {
+                                    dynamic_sidebar('language-switcher');
+                                } ?>
+                                <?php
+                                // Top links
+                                echo fau_get_toplinks(null, 2);
+                                ?>
+                            </nav>
                         </div>
                         <?php
                         if ($defaultoptions['debugmode'] && get_theme_mod('debug_orgabreadcrumb')) {
