@@ -258,25 +258,6 @@ jQuery(document).ready(function ($) {
             }
         };
 
-        // var $metaNavigation = $('ul.meta-nav');
-        // var $metaNavigationOrigParent = $metaNavigation.length ? $metaNavigation.parent() : null;
-        //
-        // /**
-        //  * Move the meta navigation
-        //  *
-        //  * @param {Boolean} header Place in header
-        //  */
-        // var moveMetaNavigation = function(header) {
-        //     if ($metaNavigation.length) {
-        //         if (header) {
-        //             $('.meta-links').append($metaNavigation.attr({ role: null, 'aria-label': null }));
-        //             $metaNavigationOrigParent.append($metaNavigation);
-        //         } else {
-        //             $('#nav').append($metaNavigation.attr({ role: 'navigation', 'aria-label': 'Portal links' }));
-        //         }
-        //     }
-        // };
-
         var mobileState = null;
         var updateResponsivePositioning = function () {
             var newMobileState = (window.innerWidth < breakMD);
@@ -309,7 +290,6 @@ jQuery(document).ready(function ($) {
 
                 // Move the sidebar & meta navigations
                 moveSidebarNavigation(!mobileState);
-                moveMetaNavigation(!mobileState);
             }
         };
 
