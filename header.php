@@ -49,9 +49,9 @@ if ($custom_logo_id) {
                                     <a href="#meta-menu" class="meta-links-trigger meta-links-trigger-open">
                                         <span class="meta-links-trigger-text">Organisationsmenu öffnen</span>
                                         <span
-                                            class="meta-links-trigger-icon<?php echo ($website_type !== 3 || $website_type !== -1) ? ' meta-links-trigger-icon-fau' : '' ?>">
+                                            class="meta-links-trigger-icon<?php echo ($website_type !== 3 && $website_type !== -1) ? ' meta-links-trigger-icon-fau' : '' ?>">
                                             <?php
-                                            if ($website_type === 3 || $website_type === -1) {
+                                            if ($website_type == 3 || $website_type == -1) {
                                                 echo file_get_contents(get_template_directory().'/svg/icon-organization.svg');
                                             } else {
                                                 echo fau_use_svg("fau-logo-2021", 153, 58, 'faubaselogo', false, [
