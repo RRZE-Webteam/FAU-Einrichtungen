@@ -39,7 +39,7 @@
     height: 1.875rem;
 }
 
-.metalinks {
+#headerwrapper {
     position: sticky;
     top: 0;
     z-index: 150;
@@ -47,13 +47,14 @@
 
     .admin-bar & {
         top: $wordpress-adminbar-bigheight;
+
+        @media (min-width: $wordpress-adminbar-break) {
+            top: $wordpress-adminbar-smallheight;
+        }
     }
 
     body:not([data-scroll='0']) & {
-        @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
-    }
-
-    @media (min-width: $screen-sm) {
         background-color: var(--color-white);
+        @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
     }
 }
