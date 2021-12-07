@@ -21,7 +21,7 @@
         }
 
         .meta-links-trigger-close {
-            display: block;
+            display: flex;
         }
 
         & + .meta-links {
@@ -49,8 +49,9 @@
         .meta-links-trigger-icon-open {
             display: none;
         }
+
         .meta-links-trigger-icon-close {
-            display: block;
+            display: flex;
         }
     }
 }
@@ -86,6 +87,11 @@
     &.meta-links-trigger-close .meta-links-trigger-icon svg,
     &[aria-expanded="true"] svg {
         transform: scale(0.7);
+    }
+
+    .meta-links-trigger-open,
+    .meta-links-trigger-icon-open {
+        display: flex;
     }
 
     .meta-links-trigger-icon-close {
@@ -156,10 +162,46 @@
 
     .orgalist {
         margin: 0;
+
+        @media (min-width: $screen-sm) {
+            flex-shrink: 0;
+        }
     }
 
     .fauhome {
         padding: 0;
+
+        a {
+            padding: 0.25rem 0.25rem 0.25rem 0;
+
+            @media (min-width: $screen-sm) {
+                display: flex;
+            }
+
+            &:hover {
+                color: var(--color-white);
+                background-color: var(--color-FAU);
+
+                &:before {
+                    background-image: svg-arrow-up(#fff, 16, 16);
+                }
+            }
+
+            &:before {
+                @extend .svg-icon;
+
+                width: 1.2rem;
+                background-image: svg-arrow-up($colorZUV, 16, 16);
+                margin-left: 0;
+                margin-right: 2px;
+                vertical-align: middle;
+            }
+        }
+
+        svg {
+            fill: currentColor;
+            vertical-align: middle;
+        }
     }
 
     .meta-search {
