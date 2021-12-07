@@ -40,6 +40,20 @@
 }
 
 .metalinks {
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 150;
+    transition: box-shadow 0.2s;
+
+    .admin-bar & {
+        top: $wordpress-adminbar-bigheight;
+    }
+
+    body:not([data-scroll='0']) & {
+        @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+    }
+
+    @media (min-width: $screen-sm) {
+        background-color: var(--color-white);
+    }
 }
