@@ -147,29 +147,31 @@ if ($custom_logo_id) {
                                 <a href="#nav" id="mainnav-toggle"><span><?php _e("Menu", "fau"); ?></span></a>
                                 <a href="#top" id="mainnav-toggle-close"><span><?php _e("Menu", "fau"); ?>
                                         schließen</span></a>
-                                <?php
-                                if (has_nav_menu('main-menu') && class_exists('Walker_Main_Menu', false)) {
-                                    if (('' != get_theme_mod('advanced_display_portalmenu_plainview')) && (true == get_theme_mod('advanced_display_portalmenu_plainview'))) {
-                                        wp_nav_menu(array(
-                                            'theme_location' => 'main-menu',
-                                            'container'      => false,
-                                            'items_wrap'     => '<ul class="nav">%3$s</ul>',
-                                            'depth'          => 4,
-                                            'walker'         => new Walker_Main_Menu_Plainview
-                                        ));
-                                    } else {
-                                        wp_nav_menu(array(
-                                            'theme_location' => 'main-menu',
-                                            'container'      => false,
-                                            'items_wrap'     => '<ul class="nav">%3$s</ul>',
-                                            'depth'          => 2,
-                                            'walker'         => new Walker_Main_Menu
-                                        ));
+                                <div id="nav-wrapper">
+                                    <?php
+                                    if (has_nav_menu('main-menu') && class_exists('Walker_Main_Menu', false)) {
+                                        if (('' != get_theme_mod('advanced_display_portalmenu_plainview')) && (true == get_theme_mod('advanced_display_portalmenu_plainview'))) {
+                                            wp_nav_menu(array(
+                                                'theme_location' => 'main-menu',
+                                                'container'      => false,
+                                                'items_wrap'     => '<ul class="nav">%3$s</ul>',
+                                                'depth'          => 4,
+                                                'walker'         => new Walker_Main_Menu_Plainview
+                                            ));
+                                        } else {
+                                            wp_nav_menu(array(
+                                                'theme_location' => 'main-menu',
+                                                'container'      => false,
+                                                'items_wrap'     => '<ul class="nav">%3$s</ul>',
+                                                'depth'          => 2,
+                                                'walker'         => new Walker_Main_Menu
+                                            ));
+                                        }
+                                    } elseif (!has_nav_menu('main-menu')) {
+                                        echo fau_main_menu_fallback();
                                     }
-                                } elseif (!has_nav_menu('main-menu')) {
-                                    echo fau_main_menu_fallback();
-                                }
-                                ?>
+                                    ?>
+                                </div>
                             </nav>
                         </div>
                     </div>

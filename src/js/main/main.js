@@ -292,7 +292,7 @@ jQuery(document).ready(function ($) {
                 if (sidebar) {
                     sidebarNavigation._origParentNode.insertBefore(sidebarNavigation, sidebarNavigation._origParentNode.firstChild);
                 } else {
-                    document.getElementById('nav').appendChild(sidebarNavigation);
+                    document.getElementById('nav-wrapper').appendChild(sidebarNavigation);
                 }
             }
         };
