@@ -90,7 +90,7 @@ if ($custom_logo_id) {
                                  aria-label="<?php _e('Navigation: Weitere Angebote', 'fau'); ?>">
                                 <?php
                                 // FAU link
-                                echo fau_get_toplinks(null, 1, true);
+                                echo fau_get_toplinks(null, 1);
                                 ?>
                                 <?php
                                 // Breadcrumb

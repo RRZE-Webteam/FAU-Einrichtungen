@@ -1042,7 +1042,7 @@ function fau_get_defaultlinks($list = 'faculty', $ulclass = '', $ulid = '')
 /*-----------------------------------------------------------------------------------*/
 /* Erstellt Link zur Home-ORGA in der Meta-Nav
 /*-----------------------------------------------------------------------------------*/
-function fau_get_orgahomelink($no_logo)
+function fau_get_orgahomelink()
 {
     global $defaultoptions;
     global $default_fau_orga_data;
@@ -1136,7 +1136,7 @@ function fau_get_orgahomelink($no_logo)
         $orgalist .= '<li class="fauhome">';
         $orgalist .= '<a href="'.$homeurl.'">';
 
-        if ($linkhomeimg && !$no_logo) {
+        if ($linkhomeimg) {
             $orgalist .= fau_use_svg("fau-logo-2021", 42, 16, 'fau', false,
                 ['title' => 'FAU', 'desc' => __('Zur zentralen FAU Website', 'fau'), 'role' => 'img']);
         } else {
@@ -1167,7 +1167,7 @@ function fau_get_orgahomelink($no_logo)
  * @return string
  */
 /*-----------------------------------------------------------------------------------*/
-function fau_get_toplinks($args = array(), $mode = 0, $no_logo = false)
+function fau_get_toplinks($args = array(), $mode = 0)
 {
     global $default_link_liste;
 
@@ -1175,7 +1175,7 @@ function fau_get_toplinks($args = array(), $mode = 0, $no_logo = false)
     $uselist = $default_link_liste['meta'];
     $result  = '';
 
-    $orgalist = fau_get_orgahomelink($no_logo);
+    $orgalist = fau_get_orgahomelink();
     $thislist = "";
 
 
