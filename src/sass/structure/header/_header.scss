@@ -21,5 +21,8 @@
 @import "orga-breadcrumb";
 
 .header-menu {
-    width: 100%;
+
+    @media (max-width: $screen-sm) {
+        width: 100%;
+    }
 }
