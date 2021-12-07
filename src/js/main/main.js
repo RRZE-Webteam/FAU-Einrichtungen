@@ -103,6 +103,45 @@ jQuery(document).ready(function ($) {
         // Responsive tables
         $("#content table").wrap('<div class="table-wrapper" />').wrap('<div class="scrollable" />');
 
+        // Make #header fixed once scrolled down behind meta or on small screens
+        var fixedHeader = function () {
+            if ($(window).scrollTop() > 1) {
+                if (!$body.hasClass("nav-scrolled")) {
+                    $body.addClass('nav-scrolled');
+                }
+            } else {
+                if ($body.hasClass("nav-scrolled")) {
+                    $body.removeClass('nav-scrolled');
+                }
+            }
+            if ($(window).scrollTop() > 200) {
+                if (!$body.hasClass("toplink-faded")) {
+                    $('.top-link').fadeIn();
+                    $body.addClass('toplink-faded');
+                }
+            } else {
+                if ($body.hasClass("toplink-faded")) {
+                    $('.top-link').fadeOut();
+                    $body.removeClass('toplink-faded');
+                }
+            }
+            if ($(window).scrollTop() > 400) {
+                if (!$body.hasClass("breakpoint-header")) {
+                    $body.addClass('breakpoint-header');
+                }
+            } else {
+                if ($body.hasClass("breakpoint-header")) {
+                    $body.removeClass('breakpoint-header');
+                }
+            }
+
+        };
+
+        fixedHeader();
+
+        $(window).scroll(fixedHeader); // TODO: Automatically debounced via JQuery?
+
+
         // Add toggle icons to organigram
         $('.organigram .has-sub').each(function () {
             $(this).prepend('<span class="toggle-icon"></span>');
@@ -294,8 +333,8 @@ jQuery(document).ready(function ($) {
         };
 
         /*
-         * Add class if page is scrolled down
-         */
+        * Add class if page is scrolled down
+        */
         // The debounce function receives our function as a parameter
         const debounce = (fn) => {
             // This holds the requestAnimationFrame reference, so we can cancel it if we wish
@@ -316,12 +355,15 @@ jQuery(document).ready(function ($) {
         // Reads out the scroll position and stores it in the data attribute
         // so we can use it in our stylesheets
         const storeScroll = () => {
-            document.documentElement.dataset.scroll = window.scrollY;
+            document.body.dataset.scroll = window.scrollY;
         }
         // Listen for new scroll events, here we debounce our `storeScroll` function
         document.addEventListener('scroll', debounce(storeScroll), { passive: true });
         // Update scroll position for first time
         storeScroll();
+
+        $(window).on('resize', updateResponsivePositioning);
+        updateResponsivePositioning();
 
         // Tablesorter
         $('.sorttable').tablesorter();
