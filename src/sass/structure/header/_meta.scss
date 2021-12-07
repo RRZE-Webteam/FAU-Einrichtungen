@@ -40,6 +40,15 @@
 }
 
 .metalinks {
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 150;
+
+    .admin-bar & {
+        top: $wordpress-adminbar-bigheight;
+    }
+
+    @media (min-width: $screen-sm) {
+        background-color: var(--color-white);;
+    }
 }
