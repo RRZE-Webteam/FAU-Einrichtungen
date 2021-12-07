@@ -47,7 +47,7 @@ if ($custom_logo_id) {
                             <div class="header-row" id="meta-menu">
                                 <div class="meta-links-container">
                                     <a href="#meta-menu" class="meta-links-trigger meta-links-trigger-open">
-                                        <span class="meta-links-trigger-text">Organisationsmenu öffnen</span>
+                                        <span class="meta-links-trigger-text"><?php _e("Organisationsmenu öffnen", "fau"); ?></span>
                                         <span
                                             class="meta-links-trigger-icon<?php echo ($website_type !== 3 && $website_type !== -1) ? ' meta-links-trigger-icon-fau' : '' ?>">
                                             <?php
@@ -64,7 +64,7 @@ if ($custom_logo_id) {
                                         </span>
                                     </a>
                                     <a href="#top" class="meta-links-trigger meta-links-trigger-close">
-                                        <span class="meta-links-trigger-text">Organisationsmenu schließen</span>
+                                        <span class="meta-links-trigger-text"><?php _e("Organisationsmenu schließen", "fau"); ?></span>
                                         <span class="meta-links-trigger-icon">
                                             <?php echo file_get_contents(get_template_directory().'/svg/icon-close.svg') ?>
                                         </span>
@@ -129,14 +129,14 @@ if ($custom_logo_id) {
 
                                     <?php
                                     if ($show_customlogo) {
-                                        $custom_logo_title = get_theme_mod('website_logotitle');
+                            //            $custom_logo_title = get_theme_mod('website_logotitle');
                                         echo '<p class="sitetitle">';
                                         echo '<meta itemprop="url" content="'.$logo_src.'">';
                                         echo '<meta itemprop="name" content="'.get_bloginfo('name', 'display').'">';
                                         echo get_custom_logo();
-                                        if ($custom_logo_title) {
-                                            echo '<span class="custom-logo-title">'.$custom_logo_title.'</span>';
-                                        }
+                           //             if ($custom_logo_title) {
+                           //                 echo '<span class="custom-logo-title">'.$custom_logo_title.'</span>';
+                           //             }
                                         echo '</p>';
                                     } else {
                                         get_template_part('template-parts/header', 'textlogo');
@@ -146,8 +146,7 @@ if ($custom_logo_id) {
                                 </div>
                                 <nav class="header-menu" id="nav" aria-label="<?php _e("Hauptnavigation", "fau"); ?>">
                                     <a href="#nav" id="mainnav-toggle"><span><?php _e("Menu", "fau"); ?></span></a>
-                                    <a href="#top" id="mainnav-toggle-close"><span><?php _e("Menu", "fau"); ?>
-                                            schließen</span></a>
+                                    <a href="#top" id="mainnav-toggle-close"><span><?php _e("Menu", "fau"); ?> <?php _e("schließen", "fau");?></span></a>
                                     <?php
                                     if (has_nav_menu('main-menu') && class_exists('Walker_Main_Menu', false)) {
                                         if (('' != get_theme_mod('advanced_display_portalmenu_plainview')) && (true == get_theme_mod('advanced_display_portalmenu_plainview'))) {
