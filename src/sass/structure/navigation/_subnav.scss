@@ -10,14 +10,14 @@
 	@include px2rem($font-size-h3);
 	font-weight: bold;
     }
-} 
+}
 #subnav {
 	@include no-list;
-	
+
 	ul, li {
 		@include no-list;
 	}
-	
+
 	a {
 		text-decoration: none;
 		display: block;
@@ -27,94 +27,94 @@
 		color: var(--color-submenu-currentlevel-text);
 		background: var(--color-submenu-currentlevel-bg);
 		padding-left: 15px;
-		padding-right: 15px; 
+		padding-right: 15px;
 
-		&:hover, 
+		&:hover,
 		&:focus {
 			background-color: var(--color-submenu-hover-bg);
 			color: var(--color-submenu-hover-text);
 		}
 	}
-	
+
 	ul {
 		display: none;
 	}
-	
+
 	> li {
 		border-bottom: 1px solid #fff;
 	}
-	
-	.current_page_item, 
+
+	.current_page_item,
 	.current_page_ancestor {
 		a {
 			color: var(--color-submenu-sublevel-text);
-			background-color: var(--color-submenu-sublevel-bg); 
+			background-color: var(--color-submenu-sublevel-bg);
 			border: none;
-			
-			&:hover, 
-			&:focus {        
+
+			&:hover,
+			&:focus {
 			    background-color: var(--color-submenu-hover-bg);
 			    color: var(--color-submenu-hover-text);
 			}
 		}
-		
+
 		> ul {
 			display: block;
 		}
-		
+
 		> a {
 			font-weight: bold;
 		}
 	}
-	
+
 	li li a {
 		padding-left: 25px;
 	}
-	
+
 	li li li a {
 		padding-left: 35px;
 		@include px2rem($font-size-subnav-sublevel);
 	}
-	
+
 	li li li li a {
 		padding-left: 45px;
-		
+
 		&:hover, &:focus {
 		    background-color: var(--color-submenu-hover-bg);
 		    color: var(--color-submenu-hover-text);
 		}
 	}
-	
+
 	li .current_page_item,
 	li .current_page_ancestor {
 		a {
-		    color:  var(--color-submenu-active-text); 
-		    background: var(--color-submenu-active-bg); 
+		    color:  var(--color-submenu-active-text);
+		    background: var(--color-submenu-active-bg);
 		}
-		
+
 		li {
-			a:hover, 
+			a:hover,
 			a:focus {
 			   background-color: var(--color-submenu-hover-bg);
 			   color: var(--color-submenu-hover-text);
 			}
 		}
 	}
-	
+
 	li .current_page_ancestor .current_page_item a,
 	li li .current_page_ancestor a {
-		background: var(--color-submenu-currentpage-bg); 
+		background: var(--color-submenu-currentpage-bg);
 		color: var(--color-submenu-currentpage-text);
-		
+
 	}
-	
+
 	li li li li a,
 	li li li li.current_page_item a {
-		background: var(--color-primary-dunkler); 
+		background: var(--color-primary-dunkler);
 		color: var(--color-primary-basis-kontrast);
 	}
 	li.private-page,
-	li.protected-page {	    
+	li.protected-page {
 	    a:after {
 		    @extend .svg-icon;
 		    @include svg-icon-sizes(1.1rem);
@@ -138,7 +138,7 @@
 	    }
 	}
 	li.captain-future,
-	li.draft-page {	    
+	li.draft-page {
 	    a:after {
 		    @extend .svg-icon;
 		    @include svg-icon-sizes(1.1rem);
@@ -161,14 +161,14 @@
 		background-image: svg-icon-draft($color-submenu-currentpage-text, 16, 16);
 	    }
 	}
-	
 
-	
+
+
 
 }
 
 
-@media (max-width: $screen-sm - 1) {
+@media (max-width: $screen-sm) {
   	ul.menu {
 		margin-bottom: 10px;
 	}

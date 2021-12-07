@@ -9,21 +9,21 @@ textarea, input, select {
 
 
 
-select, 
+select,
 textarea,
 input[type="text"],
 input[type="password"],
-input[type="datetime"], 
-input[type="datetime-local"], 
-input[type="date"], 
-input[type="month"], 
-input[type="time"], 
-input[type="week"], 
-input[type="number"], 
-input[type="email"], 
-input[type="url"], 
-input[type="search"], 
-input[type="tel"], 
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
 input[type="color"] {
 	width: 100%;
 	padding: 5px 10px;
@@ -31,12 +31,12 @@ input[type="color"] {
 	height: auto;
 }
 
-input[type="datetime"], 
-input[type="datetime-local"], 
-input[type="date"], 
-input[type="month"], 
-input[type="time"], 
-input[type="week"], 
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
 input[type="number"] {
     width: 10em;
 }
@@ -45,7 +45,7 @@ textarea {
 	width: 100%;
 }
 
-form {	
+form {
 	margin: 0;
 	display: inline-block;
 	border: none;
@@ -57,7 +57,7 @@ form {
 	    color: var(--color-primary-basis);
 	    font-weight: bold;
 	}
-	
+
 	main & {
 	    max-width: 98%;
 	    padding: 0;
@@ -71,7 +71,7 @@ form {
 	}
 	main .content-inline.with-sidebar & {
 	    display: block;
-	    border: none; 
+	    border: none;
 	}
 }
 
@@ -87,7 +87,7 @@ input[type=text]:focus,
 textarea:focus {
 	box-shadow: 0 0 5px $colorPrimary;
 	border: 1px solid $colorPrimary;
-}  
+}
 
 
 
@@ -96,8 +96,8 @@ textarea:focus {
 input[type="submit"] {
 	@include inline-block;
 	border: 3px solid var(--color-primary-basis);
-	height: 30px;
-	line-height: 30px;
+    height: 1.875rem;
+    line-height: 30px;
 	margin: 10px 0;
 	padding: 4px 18px;
 	box-sizing: content-box;
@@ -105,20 +105,20 @@ input[type="submit"] {
 	background: var(--color-primary-basis);
 	color: var(--color-MainBackground);
 	font-weight: bold;
-	
+
 	clear: left;
-	
-	&:hover, 
+
+	&:hover,
 	&:focus {
 		background: var(--color-MainBackground);
 		color: var(--color-primary-basis);
 	}
-	
+
 	&:active {
 		background: var(--color-primary-dunkelste);
 	}
-	
-	
+
+
 }
 
 
@@ -137,7 +137,7 @@ fieldset {
 		float: none;
 		color: var(--color-primary-basis);
 	}
-	
+
 	input[type="password"] {
 		width: 220px;
 		margin-top: 5px;

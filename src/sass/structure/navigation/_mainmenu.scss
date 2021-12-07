@@ -4,559 +4,469 @@
 @use "sass:math";
 
 .nav {
-	@include no-list;
+    @include no-list;
 
-	/* All links & buttons */
-	a, [type=button] {
-		text-decoration: none;
-		color: var(--color-mainmenu-toplevel-text);
-		background: var(--color-mainmenu-toplevel-bg);
-		
-		&:hover, 
-		&:focus, 
-		&[aria-expanded=true] {
-			color: var(--color-mainmenu-toplevel-hover-text);
-			background: var(--color-mainmenu-toplevel-hover-bg);
-			text-decoration: none;
-		}
+    /* All links & buttons */
+    a, [type=button] {
+        text-decoration: none;
+        color: var(--color-mainmenu-toplevel-text);
+        background: var(--color-mainmenu-toplevel-bg);
 
-		
-	}
+        &:hover,
+        &:focus,
+        &[aria-expanded=true] {
+            color: var(--color-mainmenu-toplevel-hover-text);
+            background: var(--color-mainmenu-toplevel-hover-bg);
+            text-decoration: none;
+        }
 
-	/* First-level items */
-	> li {
-		@include no-list;
 
-		/* Primary navigation toggle links / buttons */
-		> a,
-		> [type=button] {
-			display: block;
-			position: relative;
-			@include px2rem($font-size-nav-mainlinks);
-			font-weight: bold;
-			padding: 10px 15px;
+    }
 
-			/* Necessary for force-click toggle buttons */
-			border: none;
-			background-color: transparent;
-			text-align: left;
-			width: 100%;
-		}
+    /* First-level items */
+    > li {
+        @include no-list;
 
-		&.has-sub {
-			> a,
-			> [type=button] {
-				padding-bottom: 10px;
-				padding-right: 28px;
-				margin-bottom: 0;
+        /* Primary navigation toggle links / buttons */
+        > a,
+        > [type=button] {
+            display: block;
+            position: relative;
+            @include px2rem($font-size-nav-mainlinks);
+            font-weight: bold;
+            padding: 10px 15px;
 
-				&:before {
-					@extend .fa;
-					@extend .fa-caret-down;
-					position: absolute;
-					top: 11px;
-					right: 15px;
-					display: none;
-					transition: transform .2s ease-in-out;
-				}
-			}
+            /* Necessary for force-click toggle buttons */
+            border: none;
+            background-color: transparent;
+            text-align: left;
+            width: 100%;
+        }
 
-			&:hover {
-				> a {
-					@include border-bottom-radius(0);
-				}
-			}
+        &.has-sub {
+            > a,
+            > [type=button] {
+                padding-bottom: 10px;
+                padding-right: 28px;
+                margin-bottom: 0;
 
-			body:not(.mainnav-forceclick):not(.ismobile) & {
-				> a:focus ~ .nav-flyout,
-				> [type=button]:focus ~ .nav-flyout,
-				&:hover .nav-flyout {
-					display: block;
-				}
-			}
+                &:before {
+                    @extend .fa;
+                    @extend .fa-caret-down;
+                    position: absolute;
+                    top: 11px;
+                    right: 15px;
+                    display: none;
+                    transition: transform .2s ease-in-out;
+                }
+            }
 
-			/* Must be an extra selector as IE / Edge doesn't support :focus-within and considers this invalid */
-			body:not(.mainnav-forceclick):not(.ismobile) &:focus-within .nav-flyout {
-				display: block;
-			}
+            &:hover {
+                > a {
+                    @include border-bottom-radius(0);
+                }
+            }
 
-			> [type=button][aria-expanded=true] {
-				&:before {
-					transform: rotate(-180deg);
-				}
+            body:not(.mainnav-forceclick):not(.ismobile) & {
+                > a:focus ~ .nav-flyout,
+                > [type=button]:focus ~ .nav-flyout,
+                &:hover .nav-flyout {
+                    display: block;
+                }
+            }
 
-				~ .nav-flyout {
-					display: block;
-				}
-			}
-		}
-	}
-	.level2, 
-	.level3 {
-	    a {
-		 color: var(--color-mainmenu-sublevel-text); 
-		    background-color: var(--color-mainmenu-sublevel-bg); 
-	    }
-	    
-		a:hover, 
-		a:focus { 
-		    text-decoration: underline;
-		    
-		    color: var(--color-mainmenu-sublevel-hover-text); 
-		    background-color: var(--color-mainmenu-sublevel-hover-bg); 
-		}
-	}
-	/* Fly-Out / secondary navigation */
-	.nav-flyout {
-		background-color: var(--color-mainmenu-sublevel-bg);
-		padding: 20px 0;
-	}
+            /* Must be an extra selector as IE / Edge doesn't support :focus-within and considers this invalid */
+            body:not(.mainnav-forceclick):not(.ismobile) &:focus-within .nav-flyout {
+                display: block;
+            }
 
-	/* Portal buttons */
-	.button-portal {
-		@include inline-block;
-		color: var(--color-mainmenu-sublevel-button-text); 
-		background-color: var(--color-mainmenu-sublevel-button-bg); 
+            > [type=button][aria-expanded=true] {
+                &:before {
+                    transform: rotate(-180deg);
+                }
 
-		
-		padding: 13px 20px;
-		font-weight: bold;
+                ~ .nav-flyout {
+                    display: block;
+                }
+            }
+        }
+    }
 
-		@include px2rem($font-size-nav-mainlinks + 1);
-		@include border-radius(4px);
+    .level2,
+    .level3 {
+        a {
+            color: var(--color-mainmenu-sublevel-text);
+            background-color: var(--color-mainmenu-sublevel-bg);
+        }
 
-		&:hover,
-		&:focus {
-		    color: var(--color-mainmenu-sublevel-button-hover-text); 
-		    background: var(--color-mainmenu-sublevel-button-hover-bg); 
-		}
-	}
+        a:hover,
+        a:focus {
+            text-decoration: underline;
 
-	ul {
-		@include no-list;
-		margin: 0 0 15px 0;
+            color: var(--color-mainmenu-sublevel-hover-text);
+            background-color: var(--color-mainmenu-sublevel-hover-bg);
+        }
+    }
 
-		li {
-			@include no-list; /* Necessary because there's a global style setting this to "disc" */
-			padding: 0;
-		}
+    /* Fly-Out / secondary navigation */
+    .nav-flyout {
+        background-color: var(--color-mainmenu-sublevel-bg);
+        padding: 20px 0;
+    }
 
-		a {
-			display: inline-block;
-			padding: 7px 20px 7px 15px;
-		//	color: var(--color-primary-basis-kontrast);
-			width: 100%;
+    /* Portal buttons */
+    .button-portal {
+        @include inline-block;
+        color: var(--color-mainmenu-sublevel-button-text);
+        background-color: var(--color-mainmenu-sublevel-button-bg);
 
-			&:hover,
-			&:focus {
-		//		text-decoration: none;
-		//		background-color:  var(--color-primary-dunkelste);
-			}
-		}
-	}
 
-	
-	.level2 {
-		> li {
-			&.has-sub {
-				page-break-inside: avoid;
-				break-inside: avoid;
-			}
+        padding: 13px 20px;
+        font-weight: bold;
 
-			> a {
-				border-bottom: 1px solid var(--color-primary-dunkelste);
-				background-color: transparent;
-				&:before {
-					@extend .fa;
-					@extend .fa-angle-right;
-					font-weight: bold;
-					width: 15px;
-					display: inline-block;
-					margin-left: -15px;
-					padding-left: 2px;
-				}
-			}
-		}
-	}
-	
-	.introtext, .introtext-full, .introthumb {
-	    display: none;
-	    @media (min-width: $screen-sm) {
-		display: block;
-	    }
-	}
-	.introtext-full,
-	.introtext {
-		p {
-			@include px2rem($font-size-nav-introtext, $font-size-nav-introtext, 24);
-			padding: 20px;
-			margin: 0;
-			color: var(--color-mainmenu-sublevel-text);
-			opacity: .8;
-			font-style: normal;
-			font-weight: normal;
-		}
+        @include px2rem($font-size-nav-mainlinks + 1);
+        @include border-radius(4px);
 
-		blockquote {
-			padding: 20px 20px 20px 70px;
-			min-height: 40px;
+        &:hover,
+        &:focus {
+            color: var(--color-mainmenu-sublevel-button-hover-text);
+            background: var(--color-mainmenu-sublevel-button-hover-bg);
+        }
+    }
 
-			p {
-				@include px2rem($font-size-nav-blockquote, $font-size-nav-blockquote, 24);
-				padding: 0;
-				font-style: italic;
-			}
+    ul {
+        @include no-list;
+        margin: 0 0 15px 0;
 
-			cite {
-				padding: 10px 0;
-				text-align: right;
-				color: var(--color-mainmenu-sublevel-text);
-				opacity: 0.7;
-				@include px2rem($font-size-nav-blockquote-cite);
-			}
+        li {
+            @include no-list; /* Necessary because there's a global style setting this to "disc" */
+            padding: 0;
+        }
 
-			&:before {
-				color: var(--color-mainmenu-sublevel-text);
-				top: 40px;
-				font-style: normal;
-				font-size: 90px;
-			}
-		}
-	}
+        a {
+            display: inline-block;
+            padding: 7px 20px 7px 15px;
+            width: 100%;
+        }
+    }
 
-	.introthumb {
-		padding-top: 7px;
-	}
 
-	figcaption {
-		color: var(--color-mainmenu-sublevel-text);
-		opacity: 0.8;
-		@include px2rem($font-size-nav-blockquote-cite);
-	}
+    .level2 {
+        > li {
+            &.has-sub {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
 
-	p.nav-excerpt {
-		color: var(--color-mainmenu-sublevel-text);
-		@include px2rem($font-size-small);
-		font-style: normal;
-		padding: 0;
-		margin: 0;
-	}
+            > a {
+                border-bottom: 1px solid var(--color-primary-dunkelste);
+                background-color: transparent;
+
+                &:before {
+                    @extend .fa;
+                    @extend .fa-angle-right;
+                    font-weight: bold;
+                    width: 15px;
+                    display: inline-block;
+                    margin-left: -15px;
+                    padding-left: 2px;
+                }
+            }
+        }
+    }
+
+    p.nav-excerpt {
+        color: var(--color-mainmenu-sublevel-text);
+        @include px2rem($font-size-small);
+        font-style: normal;
+        padding: 0;
+        margin: 0;
+    }
 }
 
-/* 
-* Larger device 
+/*
+* Larger device
 */
 
 @media (min-width: $screen-sm) {
-	.mainnav-defaultview {
-	    .header-menu {
-		.flyout-entries-full {
-		    ul.sub-menu li {
-			 width: 30%;
-		    }
-		}
-	    }
-	}
-	.mainnav-plainview {
-		.nav {
-			ul {
-				margin-bottom: 0;
+    .mainnav-plainview {
+        .nav {
+            ul {
+                margin-bottom: 0;
 
-				&.level2 > li {
-					margin-bottom: 15px;
+                &.level2 > li {
+                    margin-bottom: 15px;
 
-					&:not(.has-sub) {
-						> a {
-							border-bottom: none;
-						}
-					}
+                    &:not(.has-sub) {
+                        > a {
+                            border-bottom: none;
+                        }
+                    }
 
-					> a {
-						font-weight: bold;
-						border-bottom-color: var(--color-primary-dunkler);;
-						padding-left: $padding-base-horizontal;
+                    > a {
+                        font-weight: bold;
+                        border-bottom-color: var(--color-primary-dunkler);;
+                        padding-left: $padding-base-horizontal;
 
-						&:before {
-							display: none;
-						}
-					}
-				}
+                        &:before {
+                            display: none;
+                        }
+                    }
+                }
 
-				&.level3 a {
+                &.level3 a {
 
-				    padding-left: $padding-base-horizontal;
-				}
-			}
+                    padding-left: $padding-base-horizontal;
+                }
+            }
 
-			.flyout-entries-full {
-				column-count: 3;
-				column-gap: 30px;
+            .flyout-entries-full {
+                column-count: 3;
+                column-gap: 30px;
 
-				@media (max-width: $screen-md - 1) {
-					column-count: 2;
-				}
-			}
+                @media (max-width: $screen-md - 1) {
+                    column-count: 2;
+                }
 
-			.nav-flyout {
-				background: var(--color-mainmenu-sublevel-bg);
-				
-				
-				@media (min-width: $screen-sm) {
-					min-height: 199px;
-				}
-			}
+                @media (min-width: $screen-xl) {
+                    column-count: 4;
+                }
+            }
 
-			.container {
-				padding-left:  floor(math.div($grid-gutter-width, 2) - $padding-base-horizontal);
-				padding-right: ceil(math.div($grid-gutter-width, 2) - $padding-base-horizontal);
-			}
+            .nav-flyout {
+                background: var(--color-mainmenu-sublevel-bg);
 
-		}
-	}
+
+                @media (min-width: $screen-sm) {
+                    min-height: 199px;
+                }
+            }
+
+            .container {
+                padding-left: floor(math.div($grid-gutter-width, 2) - $padding-base-horizontal);
+                padding-right: ceil(math.div($grid-gutter-width, 2) - $padding-base-horizontal);
+            }
+
+        }
+    }
 }
 
-#mainnav-toggle {
-	position: absolute;
-	right: 5px;
-	top: 5px;
-	@include px2rem($font-size-mobile-meta);
-	background-color: transparent;
-	border: none;
-	z-index: 100;
-	color:  var(--color-Default);
-	padding: 1px 6px;
-	display: none;
+#mainnav-toggle,
+#mainnav-toggle-close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    @include px2rem($font-size-mobile-meta);
+    background-color: transparent;
+    border: none;
+    z-index: 100;
+    color: var(--color-Default);
+    padding: 1px 6px;
+    display: none;
 
-	span {
-		@include hideout();
-	}
+    span {
+        @include hideout();
+    }
 }
+
 #mainnav-toggle:before {
-	@extend .fa;
-	@extend .fa-bars;
+    @extend .fa;
+    @extend .fa-bars;
 }
+
+#mainnav-toggle-close:before {
+    @extend .fa;
+    @extend .fa-close;
+}
+
 #mainnav-toggle[aria-expanded=true]:before {
-	@extend .fa-close;
+    @extend .fa-close;
 }
 
 
-	
 /* Very small device */
 @media (max-width: $screen-xs - 1) {
-	.no-js {
-		.hide-mobile {
-			display: none;
-			top: 0;
-			position: relative;
-		}
-	}
+    .no-js {
+        .hide-mobile {
+            display: none;
+            top: 0;
+            position: relative;
+        }
+    }
 }
 
 /* Medium sized device */
-@media (max-width: $screen-sm - 1) {
-	/* If there's no JavaScript available */
-	#nav {
-		display: none;
-	}
+@media (max-width: $screen-sm) {
+    /* If there's no JavaScript available */
+    #mainnav-toggle-close {
+        display: none;
+    }
 
-	.nav {
-		.nav-flyout {
-			padding-top: 0;
-		}
+    #nav .nav {
+        display: none;
+    }
 
-		> li {
-			border-top: 1px solid $colorOverlayDark; // #ccc;
+    .nav {
+        .nav-flyout {
+            padding-top: 0;
+        }
 
-			&.level1 {
-				&:hover, &:focus {
-					border-top: 1px solid var(--color-primary-dunkelste);
-					+ li {
-						border-top: 1px solid var(--color-primary-dunkelste);
-					}
-				}
-			    
-			    
-				> a,
-				> [type=button] {
-					&[aria-expanded=true] {
-						background-color: var(--color-primary-basis);
-						color: var(--color-primary-basis-kontrast);
-					}
+        > li {
+            border-top: 1px solid $colorOverlayDark; // #ccc;
 
-					&:hover, &:focus {
-						background-color: var(--color-primary-dunkelste);
-						color: var(--color-primary-dunkelste-kontrast);
-					}
-				}
-			}
-		}
-	}
+            &.level1 {
+                &:hover, &:focus {
+                    border-top: 1px solid var(--color-primary-dunkelste);
 
-	.flyout-entries {
-		padding: 0;
+                    + li {
+                        border-top: 1px solid var(--color-primary-dunkelste);
+                    }
+                }
 
-		ul a {
-			padding-left: 30px;
-			padding-right: 35px;
-		}
 
-		.button-portal {
-			margin-left: 15px;
-		}
-	}
+                > a,
+                > [type=button] {
+                    &[aria-expanded=true] {
+                        background-color: var(--color-primary-basis);
+                        color: var(--color-primary-basis-kontrast);
+                    }
 
-	.level2 {
-		border-top: 1px solid #1f4c7a;
-	}
+                    &:hover, &:focus {
+                        background-color: var(--color-primary-dunkelste);
+                        color: var(--color-primary-dunkelste-kontrast);
+                    }
+                }
+            }
+        }
+    }
 
-	.no-js #nav:target,
-	[aria-expanded=true] ~ #nav {
-		display: block;
-	}
+    .flyout-entries {
+        padding: 0;
 
-	.no-js #nav:target ~ #menu-backdrop,
-	[aria-expanded=true] ~ #menu-backdrop {
-		display: block;
-	}
+        ul a {
+            padding-left: 30px;
+            padding-right: 35px;
+        }
 
-	.js {
-		.nav-flyout {
-			display: none;
-		}
+        .button-portal {
+            margin-left: 15px;
+        }
+    }
 
-		#nav {
-			position: absolute;
-			width: 100%;
-			z-index: 11;
-			right: 0;
-		}
+    .level2 {
+        border-top: 1px solid #1f4c7a;
+    }
 
-		.nav > li.level1 {
-			> a,
-			> [type=button] {
-				//@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
+    .no-js #nav:target {
 
-				&:before {
-					display: block;
-				}
-			}
-		}
-	}
+        #mainnav-toggle {
+            display: none;
+        }
+        #mainnav-toggle-close {
+            display: block;
+        }
+    }
 
-	#mainnav-toggle {
-		display: block;
-	}
+    .no-js #nav:target .nav,
+    #nav [aria-expanded=true] ~ .nav {
+        display: block;
+    }
+
+    [aria-expanded=true] ~ #menu-backdrop {
+        display: block;
+    }
+
+    .js {
+        .nav-flyout {
+            display: none;
+        }
+
+        .nav > li.level1 {
+            > a,
+            > [type=button] {
+
+                &:before {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    #mainnav-toggle {
+        display: block;
+    }
 }
 
 /* Large device */
 @media (min-width: $screen-sm) {
-	#nav {
-		background-color: transparent;
-	}
+    #nav {
+        background-color: transparent;
+    }
 
-	.nav {
-		/* All links & buttons */
-//		a, [type=button] {
-//			color: var(--color-primary-basis);
-//		}
+    .nav {
+        /* All links & buttons */
+        > li {
+            float: left;
 
-		> li {
-			float: left;
+            > a,
+            > [type=button] {
+                padding: 10px;
+                @include border-radius(4px);
+            }
 
-			> a,
-			> [type=button] {
-				padding: 10px;
-				//@include px2rem($font-size-nav-mainlinks, $font-size-gridbase, $font-size-nav-mainlinks);
-				@include border-radius(4px);
-			}
+            &.has-sub {
+                > a,
+                > [type=button] {
+                    &:before {
+                        display: block;
+                        right: 11px;
+                    }
+                }
+            }
+        }
 
-			&.has-sub {
-				> a,
-				> [type=button] {
-					&:before {
-						display: block;
-						right: 11px;
-					}
-				}
-			}
-
-			/* Hover & focus states */
-			&.has-sub:hover > a,
-			&.has-sub:hover > [type=button],
-			> a:hover,
-			> a:focus,
-			> [type=button][aria-expanded=true],
-			> [type=button]:hover,
-			> [type=button]:focus {
-		//		color: var(--color-primary-basis-kontrast); 
-		//		background-color: var(--color-primary-basis);
-			}
-
-			/* Must be an extra selector as IE / Edge doesn't support :focus-within and considers this invalid */
-			&.has-sub:focus-within > a,
-			&.has-sub:focus-within > [type=button] {
-	//			color: var(--color-primary-basis-kontrast); 
-	//			background-color: var(--color-primary-basis);
-			}
-
-			body.mainnav-forceclick & {
-				> a:hover,
-				> a:focus,
-				> [type=button]:hover,
-				> [type=button]:focus {
-		//			background-color: var(--color-primary-dunkelste);
-				}
-
-				// Overwrite for "active" button
-				> [type=button][aria-expanded=true] {
-		//			background-color: var(--color-primary-basis);
-				}
-			}
-		}
-
-		/* Fly-Out / secondary navigation */
-		.nav-flyout {
-			display: none;
-			position: absolute;
-			z-index: 30;
-			left: 0;
-			right: 0;
-	 		// top: 172px;
-			@include box-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
-		}
-	}
+        /* Fly-Out / secondary navigation */
+        .nav-flyout {
+            display: none;
+            position: absolute;
+            z-index: 30;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+            @include box-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
+        }
+    }
 }
 
 /* Large device */
 @media (min-width: $screen-md) {
-	.nav {
-		.nav-flyout {
-		//	top: 135px;
-			max-height: calc(100vh - 162px);
-			overflow-y: auto;
-		}
-	}
+    .nav {
+        .nav-flyout {
+            max-height: calc(100vh - 162px);
+            overflow-y: auto;
+        }
+    }
 
 }
 
-
 #menu-backdrop {
-	display: none;
-	position: fixed;
-	top: 135px;
-	left: 0;
-	right: 0;
-	bottom: 0;
- 
-	background-color: rgba(0, 51, 102, .7);
-	z-index: 1;
-	
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 51, 102, .7);
+    z-index: 100;
+}
+.meta-links-toggled,
+.nav-toggled {
 
-	.admin-bar & {
-	    top: 135 + $wordpress-adminbar-bigheight;
-	    @media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
-		top: 135 + $wordpress-adminbar-smallheight;
-	    }
-	}
+    #menu-backdrop {
+        display: block;
 
+        @media (min-width: $screen-sm) {
+            display: none;
+        }
+    }
 }

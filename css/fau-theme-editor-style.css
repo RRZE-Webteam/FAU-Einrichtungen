@@ -1717,6 +1717,7 @@ input[type=button].btn-block {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  font-size: 0;
 }
 .slick-track:before, .slick-track:after {
   content: "";
@@ -1754,6 +1755,9 @@ input[type=button].btn-block {
   display: block;
   height: auto;
   border: 1px solid transparent;
+}
+.slick-slide .item {
+  font-size: 1rem;
 }
 
 .slick-arrow.slick-hidden {
@@ -5567,7 +5571,7 @@ textarea:focus {
 input[type=submit] {
   display: inline-block;
   border: 3px solid var(--color-primary-basis);
-  height: 30px;
+  height: 1.875rem;
   line-height: 30px;
   margin: 10px 0;
   padding: 4px 18px;
@@ -5775,6 +5779,8 @@ blockquote p strong {
   font-weight: bolder;
 }
 #tinymce blockquote, #content blockquote {
+  max-width: calc(100% - 40px);
+  width: 100%;
   font-style: italic;
   margin: 10px;
   padding: 31px 20px 20px 20px;
@@ -5782,11 +5788,13 @@ blockquote p strong {
   border-left: 10px solid var(--color-primary-ci-hell);
   background: var(--color-ContentRegions);
   display: inline-block;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
   #tinymce blockquote, #content blockquote {
     margin: 10px 50px;
     padding: 31px 40px 20px 40px;
+    max-width: calc(100% - 80px);
   }
 }
 #tinymce blockquote p, #tinymce blockquote h1, #tinymce blockquote h2, #tinymce blockquote h3, #tinymce blockquote h4, #tinymce blockquote h5, #tinymce blockquote h6, #content blockquote p, #content blockquote h1, #content blockquote h2, #content blockquote h3, #content blockquote h4, #content blockquote h5, #content blockquote h6 {
@@ -5940,6 +5948,7 @@ img {
   border: 0;
 }
 .wp-caption img {
+  overflow: hidden;
   max-width: 100%;
 }
 #map_canvas img, .google-maps img {
@@ -6022,6 +6031,8 @@ img.alignright {
   position: absolute;
   width: 1px;
   height: 1px;
+  min-width: 1px;
+  min-height: 1px;
   padding: 0;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
@@ -6057,6 +6068,8 @@ img.alignright {
   position: absolute;
   width: 1px;
   height: 1px;
+  min-width: 1px;
+  min-height: 1px;
   padding: 0;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
@@ -6966,7 +6979,7 @@ div.alignright {
   display: inline !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px -1) {
   .hide-mobile {
     display: none;
   }

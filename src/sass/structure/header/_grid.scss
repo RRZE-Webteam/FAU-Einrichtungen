@@ -10,32 +10,34 @@
     top: 0;
     z-index: 100;
     width: 100%;
-	
-    .admin-bar & {
-	top: $wordpress-adminbar-bigheight;
-    } 
-    .nav-toggled & {
-	position: relative;
-    }
-    .admin-bar.nav-toggled & { 
-	top: 0;
-    }
-    
-    @media (min-width: $screen-sm) {
-	    margin-bottom: ceil(math.div($grid-gutter-width, 2));
-	    padding: 0;
-	    background-color:  var(--color-primary-basis-kontrast);
-	    @include transition(0.5s, all);
 
-	    .nav-scrolled & {
-		    @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
-	    }	
+    .admin-bar & {
+        top: $wordpress-adminbar-bigheight;
+    }
+
+    .nav-toggled & {
+        position: relative;
+    }
+
+    .admin-bar.nav-toggled & {
+        top: 0;
+    }
+
+    @media (min-width: $screen-sm) {
+        margin-bottom: ceil(math.div($grid-gutter-width, 2));
+        padding: 0;
+        background-color: var(--color-primary-basis-kontrast);
+        @include transition(0.5s, all);
+
+        .nav-scrolled & {
+            @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+        }
     }
 
     @media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
-	.admin-bar &  {
-	    top: $wordpress-adminbar-smallheight;
-	}
+        .admin-bar & {
+            top: $wordpress-adminbar-smallheight;
+        }
     }
 }
 
@@ -43,86 +45,45 @@
     margin-right: auto;
     margin-left: auto;
     width: 100%;
-
+    height: 100%;
 
     @media (min-width: $screen-sm) {
-	padding-left:  floor(math.div($grid-gutter-width, 2));
-	padding-right: ceil(math.div($grid-gutter-width, 2));
-	width: $container-sm;
+        padding-left: floor(math.div($grid-gutter-width, 2));
+        padding-right: ceil(math.div($grid-gutter-width, 2));
+        width: $container-sm;
     }
-     @media (min-width: $screen-md) {
-	width: $container-md;
+    @media (min-width: $screen-md) {
+        width: $container-md;
     }
     @media (min-width: $screen-lg-min) {
-	width: $container-lg;
+        width: $container-lg;
     }
-    @media (min-width: $screen-xl-min) {
-	width: $container-xl;
+    @media (min-width: $screen-xl-min + 20) {
+        width: $container-xl;
     }
 }
 
 
 .header-row {
     display: flex;
+    height: 100%;
     flex-wrap: nowrap;
     column-gap: floor(math.div($grid-gutter-width, 2));
     justify-content: space-between;
     align-items: center;
-    
-    @media (min-width: $screen-sm) {
-	align-items: flex-start;
-    }
-    
-    #meta & {
-	justify-content: flex-start;
-	@media (min-width: $screen-sm) {
-	   justify-content: space-between;
-	}
-    }
-    
-    
-    .meta-links {	
-	order: 2;
-	width: calc(100vw - 100px);
-	
-	
-	text-align: center;
-	@media (min-width: $screen-sm) {
-	    order: 1;
-	    text-align: left;
-	    width: auto;
-	}
-	.active-meta-widget & {
-	
-	}
-	
-    }
-    .meta-tools {
-	min-width: 50px;
-	display: flex;
-	order: 1;
-	align-items: center;
-	@media (min-width: $screen-sm) {
-	    order: 2;
-	}
-    }
-    
-    
-    header & {	
-	align-items: center;
-	justify-content: space-between;
-	
-	padding: floor(math.div($grid-gutter-width, 2));
-	
-	
-	@media (min-width: $screen-sm) {
-	    padding: 20px 0 10px;
-	}
-	.branding {
-	    min-width: 240px;
-	    flex: 0 0 auto;
-	}
-	
+
+    header & {
+
+        @media (min-width: $screen-sm) {
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0 10px;
+
+            .branding {
+                min-width: 240px;
+                flex: 0 0 auto;
+            }
+        }
     }
 }
 

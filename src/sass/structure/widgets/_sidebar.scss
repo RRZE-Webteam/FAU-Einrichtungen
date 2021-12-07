@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------------*/
-/* Sidebar 
+/* Sidebar
 /*-----------------------------------------------------------------------------------*/
 @use "sass:math";
 
@@ -14,47 +14,47 @@
             padding-top: 0;
             margin-top: 0;
         }
-	
-	
+
+
 	.widget {
 		margin-bottom: 22px;
 		margin-top: 22px;
-                
+
                 @media (min-width: $screen-md) {
                     h2:first-child {
                         margin-top: 0;
                     }
                 }
 	}
-	
+
 	.widget:last-child {
 		margin-bottom: 0;
 	}
 	.widget:first-child {
 		margin-top: 0;
 	}
-	
+
 	.content-portal & {
 		margin-top: 22px;
 	}
 	.page-template-page-portalindex & {
 	    float: right;
 	}
-	
+
 
 	@media (min-width: $screen-md) {
 	    border-left: 2px solid var(--color-primary-hellste);
 	    border-top: none;
-            padding-left: ceil(math.div($fau-gutter-width, 2));	
+            padding-left: ceil(math.div($fau-gutter-width, 2));
             margin-top: 0;
             padding-top: 0;
 	}
-	
-	.page-template-default  & {
-	    @media (min-width: $screen-md) {
-		 border-left: none;
-	    }
-	}
+
+	//.page-template-default  & {
+	//    @media (min-width: $screen-md) {
+	//	 border-left: none;
+	//    }
+	//}
 
 
 }

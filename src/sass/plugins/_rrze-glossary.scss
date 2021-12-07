@@ -7,33 +7,33 @@
 .fau-glossar {
     .letters {
 	text-align: center;
-	
+
 	li {
 	    border: 1px solid var(--color-StandardHellgrau);
 	    color: var(--color-TextLight);
-	    
+
 	    width: 2rem;
-	    height: 2rem;
+	    height: 1.875rem;
 	    margin: 0.2rem;
 	    padding: 0.2rem;
 	    text-align: center;
 	    vertical-align: middle;
 	    @include border-radius(4px);
-	   
-    
+
+
 	    &.filled {
 		border-color: var(--color-primary-basis);
 		background: var(--color-ContentBorders);
 		color: var(--color-primary-basis);
 		font-weight: bold;
 		padding: 0;
-		
+
 		a {
 		     padding: 0.2rem;
 		     text-decoration: none;
 		     width: 100%;
 		}
-		
+
 		a:hover,
 		a:focus {
 		    text-decoration: underline;
@@ -43,11 +43,11 @@
 		    color: $colorMainBackground;
 		}
 	    }
-	    
-	    
+
+
 	}
-	
+
     }
-    
+
 }
 

@@ -5,7 +5,7 @@
     .search-input {
 		@include px2rem($font-size-herosearch);
 		z-index: 10;
-		
+
 		form {
 		    border: none;
 		    margin: 0;
@@ -13,7 +13,7 @@
 		.search-text {
 		     margin: 0 20px;
 		     @include placeholder(var(--color-hero-text));
-		     
+
 		    label {
 			@extend .screen-reader-text;
 		    }
@@ -29,7 +29,7 @@
 			margin: 0;
 			background: var(--color-primary-basis);
 			color: var(--color-primary-basis-kontrast);
-		
+
 			width: calc(100% - 100px);
 			&:focus, &:hover {
 			    background-color: var(--color-primary-dunkler);
@@ -42,7 +42,7 @@
 			    border: none;
 			    background: var(--color-primary-basis-kontrast);
 			    color: var(--color-primary-basis);
-			    
+
 			    padding: 5px 10px;
 			    height: inherit;
 			    margin-left: -30px;
@@ -58,11 +58,11 @@
 			color: #fff;
 		    }
 		}
-		
+
 		.search-radio-label {
 			float: left;
 			margin-right: 20px;
-			
+
 			input {
 				margin-top: -4px;
 				margin-right: 3px;
@@ -79,9 +79,9 @@
 			padding: 0;
 			color: var(--color-hero-text);
 		    }
-		    
-		    
-		    
+
+
+
 		    [type="checkbox"] {
 			position: relative;
 			left: 30px;
@@ -130,20 +130,20 @@
 		      [type="checkbox"]:checked + label:after {
 			margin: 0 0 0 20px;
 		      }
-		    
-		    
-		    
+
+
+
 		    .nowrap {
 			@include inline-block();
 			white-space: nowrap;
 		    }
 		}
-		
+
 	}
 }
 
-@media (max-width: $screen-sm - 1) {
-    
+@media (max-width: $screen-sm) {
+
     #hero {
 
 	.searchform {
@@ -160,7 +160,7 @@
 		margin-top: 5px;
 	    }
 	}
-	
+
     }
 
 

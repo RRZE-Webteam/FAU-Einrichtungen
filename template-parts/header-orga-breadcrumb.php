@@ -8,10 +8,6 @@
  * @since FAU 2.0
  */
 ?>
-<div class="orga-breadcrumb">
-    <div class="header-container">
-	<div class="header-row">
-	    <?php echo do_shortcode('[fauorga]'); ?>
-	</div>
-    </div>
-</div>
+<nav class="orga-breadcrumb" aria-label="<?php _e('Organisatorische Navigation', 'fau-orga-breadcrumb'); ?>">
+    <?php echo do_shortcode('[fauorga]'); ?>
+</nav>

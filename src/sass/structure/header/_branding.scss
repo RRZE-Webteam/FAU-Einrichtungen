@@ -5,194 +5,142 @@
 
 #headerwrap header {
     .branding {
-	
-	    
-	.sitetitle {
-	    display: inline-block;
-	    color:  var(--color-primary-basis-kontrast);
-	    background-color: var(--color-primary-basis);
-	    padding: 0;
-	    margin: 0;
-	    height: auto;	
-	    text-align: center;
-	    text-decoration: none;
-	    font-family: $fontStackFAU;
-	    font-weight: bold;
-	    width: 100vw;
-	    
-	    @include px2rem($font-size-mobile-sitetitle, $font-size-gridbase);
+        max-width: 100%;
+        display: none;
 
-	    .longtitle & {
-		@include px2rem($font-size-mobile-sitetitle - 2, $font-size-gridbase);
-	    }
-
-	   
-	    
-	    @media (min-width: $screen-sm) {		
-		background-color:  var(--color-primary-basis-kontrast);
-		color: var(--color-primary-basis);
-		width: auto;
-		
-		@include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
-
-		.nologo.longtitle & {
-			    @include px2rem($font-size-desktop-sitetitle - 2, $font-size-gridbase);
-		}
-
-		a {
-			vertical-align: bottom;
-		}
-	    }
-	    @media (min-width: $screen-sm) {
-		margin: 10px 0;
-		text-align: left;
-	    }
-	    a {
-		text-decoration: none;
-		color: var(--color-primary-basis-kontrast);
-		@media (min-width: $screen-sm) {
-		     color: var(--color-primary-basis);
-		}
-	    }
+        @media (min-width: $screen-sm) {
+            display: block;
+        }
 
 
-	    img,
-	    svg {
-		display: none;
-		@media (min-width: $screen-sm) {
-		    display: inline-block;
-		    max-width: 400px;
-		    max-height: 158px;
-		    object-fit: contain;
-		    object-position: left;
-		 
-		    @include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
-		}
-	    }
-	    svg {
-		@media (min-width: $screen-sm) {
-		   width: auto;
-		   height: auto;
-		}
-	    }
-	    
-	    span {
-		margin: 10px 15px;
-		display: inline-block;
-		hyphens: auto;
-		@media (min-width: $screen-sm) {
-		    background: inherit;
-		    hyphens: manual;
-		    max-width: 225px;
-		    margin: 10px 15px 0 0;
-		    .nologo.longtitle & {
-			hyphens: auto;
-		    }
-		}
-	    }
+        .sitetitle {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0;
+            font-family: $fontStackFAU;
+            font-weight: bold;
+            column-gap: 15px;
+            row-gap: 0.5rem;
 
-	    .visiblelogo {
-		@media (min-width: $screen-sm) {
-		       display: none;
-		}
-	    }
+            .custom-logo-link {
 
-	}
-	.textlogo {
-	    width: 400px;
-	    display: flex;
-	    flex-direction: row;
-	    justify-content: flex-start;
-	    flex-wrap: nowrap;
-	    column-gap: 15px;
-	    row-gap: 0;
-	    
-	    @media (min-width: $screen-sm) and (max-width: $screen-lg) {
-		 flex-wrap: wrap;
-		 width: 240px;
-	    }
-	    
-	  
-	    
-	    
-	    .baselogo {
-		flex: 0 0 148px;
-	    }
-	    .text {
-		font-family: $fontStackFAU;
-		font-weight: 500;
-		font-size: 15px;
-		line-height: 20px;
-		letter-spacing: 0.2px;
-		
-		@media (min-width: $screen-xl) {
-		    margin-top: -5px;
-		    // Schrift soll mit Oberkante des Logos beginnen, wenn es rechts daneben ist :/
-		}
-		
-		.fau-title-place,
-		.fau-title {
-		    display: block;
-		    color: var(--color-FAU);
-		}
-		
-		.zentral {
-		    color: var(--color-FAU);
-		}
-		.phil {
-		    color: var(--color-phil-ci-hell);
-		}
-		.nat {
-		    color: var(--color-nat-ci-hell);
-		}
-		.med {
-		    color: var(--color-med-ci-hell);
-		}
-		.rw {
-		    color: var(--color-rw-ci-hell);
-		}
-		.tf {
-		    color: var(--color-tf-ci-hell);
-		}
-		.website-shortcut::before {
-		    content: "| ";
-		} 
+                svg,
+                img {
+                    max-height: 60px;
+                    max-width: 100%;
+                    width: auto;
+                }
+            }
 
-		
-		
-	    }
-	    
-	}
+            a {
+                text-decoration: none;
+            }
 
-	a {
-	    text-decoration: none;
-	    transition: opacity 1s ease 0s;
-	} 
-	a.generated:focus,
-	a.generated:hover {
-	     filter: grayscale(80%);
-	     text-decoration: underline;
-	}
+            @media (min-width: $screen-sm) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            @media (min-width: $screen-md) {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .textlogo {
+            width: 400px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            column-gap: 15px;
+            row-gap: 0;
+
+            @media (max-width: $screen-xs),
+            (min-width: $screen-sm) and (max-width: $screen-lg) {
+                flex-wrap: wrap;
+                width: 240px;
+            }
+
+            .baselogo {
+                flex: 0 0 148px;
+
+                svg {
+                    display: block;
+                }
+            }
+
+            .text {
+                font-family: $fontStackFAU;
+                font-weight: 500;
+                font-size: 15px;
+                line-height: 20px;
+                letter-spacing: 0.2px;
+
+                @media (min-width: $screen-xl) {
+                    margin-top: -5px;
+                    // Schrift soll mit Oberkante des Logos beginnen, wenn es rechts daneben ist :/
+                }
+
+                .fau-title-place,
+                .fau-title {
+                    display: block;
+                    color: var(--color-FAU);
+                }
+
+                .zentral {
+                    color: var(--color-FAU);
+                }
+
+                .phil {
+                    color: var(--color-phil-ci-hell);
+                }
+
+                .nat {
+                    color: var(--color-nat-ci-hell);
+                }
+
+                .med {
+                    color: var(--color-med-ci-hell);
+                }
+
+                .rw {
+                    color: var(--color-rw-ci-hell);
+                }
+
+                .tf {
+                    color: var(--color-tf-ci-hell);
+                }
+
+                .website-shortcut::before {
+                    content: "| ";
+                }
+
+
+            }
+
+        }
+
+        a {
+            text-decoration: none;
+            transition: opacity 1s ease 0s;
+        }
+
+        a.generated:focus,
+        a.generated:hover {
+            filter: grayscale(80%);
+            text-decoration: underline;
+        }
     }
-    @media (max-width: $screen-sm - 1) {
-	
-	.md-showsitelogo:not(.nologo) & .branding {
 
-	    width: 100%;
-	    text-align: center;
-	    .sitetitle {	   
-		margin: 10px auto;
-		background-color:  var(--color-primary-basis-kontrast);
-		img,
-		svg {
+    @media (max-width: $screen-sm) {
 
-		    display: inline-block;
-		}
-		span.visiblelogo {
-		    display: none;
-		}
-	    }
-	}
+        .md-showsitelogo:not(.nologo) & .branding {
+
+            width: 100%;
+            text-align: center;
+        }
     }
 
 }
