@@ -1147,7 +1147,7 @@ function fau_get_orgahomelink()
     }
 
 
-    if (isset($orgalist)) {
+    if (isset($orgalist) && strlen($orgalist) > 0) {
         $result .= '<ul class="orgalist">';
         $result .= $orgalist;
         $result .= '</ul>';
