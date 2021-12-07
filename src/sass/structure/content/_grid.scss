@@ -192,17 +192,25 @@
     }
 }
 
-.inline-box .sidebar-inline {
+.inline-box {
 
-    @media (min-width: $screen-sm) {
-        width: 100%;
+    .content-inline {
+        @media (min-width: $screen-md) {
+            width: calc(100% - $sidebar-width-inline);
+        }
     }
 
-    @media (min-width: $screen-md) {
-        width: $sidebar-width-inline;
-        border-top: none;
-        margin-top: 0;
-        padding-top: 0;
+    .sidebar-inline {
+        @media (min-width: $screen-sm) {
+            width: 100%;
+        }
+
+        @media (min-width: $screen-md) {
+            width: $sidebar-width-inline;
+            border-top: none;
+            margin-top: 0;
+            padding-top: 0;
+        }
     }
 }
 
