@@ -5,24 +5,9 @@
 
 #nav {
 	background-color: var(--color-StandardHellgrau);
-	// wird das noch gebraucht? pruefen
-	.meta-nav {
-		border-top: 1px solid #ccc;
-		color: var(--color-primary-basis);
-		display: block;
-		padding: 15px 11px;
-		margin-bottom: 0;
-	}
-     // wird das noch gebraucht? pruefen
-	.sidebar-subnav {
-		border-top: 1px solid #ccc;
-		float: none;
-		padding: 15px 0 0;
-		background-color: darken($PalettonHellste, 5%);
 
-		a {
-			background-color: darken($PalettonHellste, 5%);
-		}
+	.sidebar-subnav {
+		background-color: darken($PalettonHellste, 5%);
 	}
 
 	.menu-header {
@@ -32,10 +17,6 @@
 
 		&, & a {
 			color: var(--color-primary-basis);
-		}
-
-		.screen-reader-text {
-			position: static;
 		}
 	}
 

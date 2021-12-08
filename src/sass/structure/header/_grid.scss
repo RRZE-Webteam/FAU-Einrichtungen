@@ -3,38 +3,6 @@
 /*-----------------------------------------------------------------------------------*/
 @use "sass:math";
 
-#headerwrap {
-    background-color: var(--color-primary-basis-kontrast);
-    color: var(--color-primary-basis);
-    z-index: 100;
-    width: 100%;
-
-    .nav-toggled & {
-        position: relative;
-    }
-
-    .admin-bar.nav-toggled & {
-        top: 0;
-    }
-
-    @media (min-width: $screen-sm) {
-        margin-bottom: ceil(math.div($grid-gutter-width, 2));
-        padding: 0;
-        background-color: var(--color-primary-basis-kontrast);
-        @include transition(0.5s, all);
-
-        .nav-scrolled & {
-            @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
-        }
-    }
-
-    @media (min-width: $screen-sm) and (min-width: $wordpress-adminbar-break) {
-        .admin-bar & {
-            top: $wordpress-adminbar-smallheight;
-        }
-    }
-}
-
 .header-container {
     margin-right: auto;
     margin-left: auto;

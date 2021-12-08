@@ -302,7 +302,7 @@
         display: none;
     }
 
-    #nav .nav {
+    #nav-wrapper {
         display: none;
     }
 
@@ -367,8 +367,8 @@
         }
     }
 
-    .no-js #nav:target .nav,
-    #nav [aria-expanded=true] ~ .nav {
+    .no-js #nav:target #nav-wrapper,
+    #nav [aria-expanded=true] ~ #nav-wrapper {
         display: block;
     }
 

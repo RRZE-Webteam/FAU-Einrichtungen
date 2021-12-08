@@ -39,115 +39,115 @@ if ($custom_logo_id) {
     <body id="top" <?php body_class(); ?>>
         <?php wp_body_open(); ?>
         <div id="pagewrapper">
-            <div id="headerwrap">
-                <div class="metalinks">
-                    <?php get_template_part('template-parts/header', 'skiplinks'); ?>
-                    <div id="meta">
-                        <div class="header-container">
-                            <div class="header-row" id="meta-menu">
-                                <div class="meta-links-container">
-                                    <a href="#meta-menu" class="meta-links-trigger meta-links-trigger-open">
-                                        <span class="meta-links-trigger-text">Organisationsmenu öffnen</span>
-                                        <span
-                                            class="meta-links-trigger-icon<?php echo ($website_type != '3' && $website_type !== '-1') ? ' meta-links-trigger-icon-fau' : '' ?>">
-                                            <?php
-                                            if ($website_type === '3' || $website_type === '-1') {
-                                                echo file_get_contents(get_template_directory().'/svg/icon-organization.svg');
-                                            } else {
-                                                echo fau_use_svg("fau-logo-2021", 153, 58, 'faubaselogo', false, [
-                                                    'hidden'     => true,
-                                                    'labelledby' => 'website-title',
-                                                    'role'       => 'img'
-                                                ]);
-                                            }
-                                            ?>
-                                        </span>
-                                    </a>
-                                    <a href="#top" class="meta-links-trigger meta-links-trigger-close">
-                                        <span class="meta-links-trigger-text">Organisationsmenu schließen</span>
-                                        <span class="meta-links-trigger-icon">
-                                            <?php echo file_get_contents(get_template_directory().'/svg/icon-close.svg') ?>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="meta-logo">
-                                    <div class="branding" id="logo" role="banner" itemscope
-                                         itemtype="http://schema.org/Organization">
+            <div id="headerwrapper">
+                <?php get_template_part('template-parts/header', 'skiplinks'); ?>
+                <div id="meta">
+                    <div class="header-container">
+                        <div class="header-row" id="meta-menu">
+                            <div class="meta-links-container">
+                                <a href="#meta-menu" class="meta-links-trigger meta-links-trigger-open">
+                                    <span class="meta-links-trigger-text">Organisationsmenu öffnen</span>
+                                    <span
+                                        class="meta-links-trigger-icon<?php echo ($website_type != '3' && $website_type !== '-1') ? ' meta-links-trigger-icon-fau' : '' ?>">
                                         <?php
-                                        if ($show_customlogo) {
-                                            $custom_logo_title = get_theme_mod('website_logotitle');
-                                            echo '<meta itemprop="url" content="'.$logo_src.'">';
-                                            echo '<meta itemprop="name" content="'.get_bloginfo('name', 'display').'">';
-                                            echo get_custom_logo();
+                                        if ($website_type === '3' || $website_type === '-1') {
+                                            echo file_get_contents(get_template_directory().'/svg/icon-organization.svg');
                                         } else {
-                                            get_template_part('template-parts/header', 'textlogo');
+                                            echo fau_use_svg("fau-logo-2021", 153, 58, 'faubaselogo', false, [
+                                                'hidden'     => true,
+                                                'labelledby' => 'website-title',
+                                                'role'       => 'img'
+                                            ]);
                                         }
                                         ?>
-                                    </div>
-                                </div>
+                                    </span>
+                                </a>
+                                <a href="#top" class="meta-links-trigger meta-links-trigger-close">
+                                    <span class="meta-links-trigger-text">Organisationsmenu schließen</span>
+                                    <span class="meta-links-trigger-icon">
+                                        <?php echo file_get_contents(get_template_directory().'/svg/icon-close.svg') ?>
+                                    </span>
+                                </a>
                             </div>
-                            <nav class="meta-links"
-                                 aria-label="<?php _e('Navigation: Weitere Angebote', 'fau'); ?>">
-                                <?php
-                                // FAU link
-                                echo fau_get_toplinks(null, 1);
-                                ?>
-                                <?php
-                                // Breadcrumb
-                                if ($defaultoptions['debugmode'] && get_theme_mod('debug_orgabreadcrumb')) {
-                                    get_template_part('template-parts/debugoutput', 'orga-breadcrumb');
-                                } elseif (is_plugin_active('fau-orga-breadcrumb/fau-orga-breadcrumb.php')) {
-                                    get_template_part('template-parts/header', 'orga-breadcrumb');
-                                } ?>
-                                <?php
-                                // Search bar
-                                get_template_part('template-parts/header', 'search');
-                                // Language switcher
-                                if ($defaultoptions['debugmode'] && get_theme_mod('debug_sprachschalter')) {
-                                    get_template_part('template-parts/debugoutput', 'sprachschalter');
-                                } elseif (is_active_sidebar('language-switcher')) {
-                                    dynamic_sidebar('language-switcher');
-                                } ?>
-                                <?php
-                                // Top links
-                                echo fau_get_toplinks(null, 2);
-                                ?>
-                            </nav>
-                        </div>
-                    </div>
-                    <?php
-                    if ($defaultoptions['debugmode'] && get_theme_mod('debug_orgabreadcrumb')) {
-                        get_template_part('template-parts/debugoutput', 'orga-breadcrumb');
-                    } elseif (is_plugin_active('fau-orga-breadcrumb/fau-orga-breadcrumb.php')) {
-                        get_template_part('template-parts/header', 'orga-breadcrumb');
-                    } ?>
-                    <header id="header">
-                        <div class="header-container">
-                            <div class="header-row">
+                            <div class="meta-logo">
                                 <div class="branding" id="logo" role="banner" itemscope
                                      itemtype="http://schema.org/Organization">
-
                                     <?php
                                     if ($show_customlogo) {
                                         $custom_logo_title = get_theme_mod('website_logotitle');
-                                        echo '<p class="sitetitle">';
                                         echo '<meta itemprop="url" content="'.$logo_src.'">';
                                         echo '<meta itemprop="name" content="'.get_bloginfo('name', 'display').'">';
                                         echo get_custom_logo();
-                                        if ($custom_logo_title) {
-                                            echo '<span class="custom-logo-title">'.$custom_logo_title.'</span>';
-                                        }
-                                        echo '</p>';
                                     } else {
                                         get_template_part('template-parts/header', 'textlogo');
                                     }
                                     ?>
-
                                 </div>
-                                <nav class="header-menu" id="nav" aria-label="<?php _e("Hauptnavigation", "fau"); ?>">
-                                    <a href="#nav" id="mainnav-toggle"><span><?php _e("Menu", "fau"); ?></span></a>
-                                    <a href="#top" id="mainnav-toggle-close"><span><?php _e("Menu", "fau"); ?>
-                                            schließen</span></a>
+                            </div>
+                        </div>
+                        <nav class="meta-links"
+                             aria-label="<?php _e('Navigation: Weitere Angebote', 'fau'); ?>">
+                            <?php
+                            // FAU link
+                            echo fau_get_toplinks(null, 1);
+                            ?>
+                            <?php
+                            // Breadcrumb
+                            if ($defaultoptions['debugmode'] && get_theme_mod('debug_orgabreadcrumb')) {
+                                get_template_part('template-parts/debugoutput', 'orga-breadcrumb');
+                            } elseif (is_plugin_active('fau-orga-breadcrumb/fau-orga-breadcrumb.php')) {
+                                get_template_part('template-parts/header', 'orga-breadcrumb');
+                            } ?>
+                            <?php
+                            // Search bar
+                            get_template_part('template-parts/header', 'search');
+                            // Language switcher
+                            if ($defaultoptions['debugmode'] && get_theme_mod('debug_sprachschalter')) {
+                                get_template_part('template-parts/debugoutput', 'sprachschalter');
+                            } elseif (is_active_sidebar('language-switcher')) {
+                                dynamic_sidebar('language-switcher');
+                            } ?>
+                            <?php
+                            // Top links
+                            echo fau_get_toplinks(null, 2);
+                            ?>
+                        </nav>
+                    </div>
+                </div>
+                <?php
+                if ($defaultoptions['debugmode'] && get_theme_mod('debug_orgabreadcrumb')) {
+                    get_template_part('template-parts/debugoutput', 'orga-breadcrumb');
+                } elseif (is_plugin_active('fau-orga-breadcrumb/fau-orga-breadcrumb.php')) {
+                    get_template_part('template-parts/header', 'orga-breadcrumb');
+                } ?>
+                <header id="header">
+                    <div class="header-container">
+                        <div class="header-row">
+                            <div class="branding" id="logo" role="banner" itemscope
+                                 itemtype="http://schema.org/Organization">
+
+                                <?php
+                                if ($show_customlogo) {
+                                    $custom_logo_title = get_theme_mod('website_logotitle');
+                                    echo '<p class="sitetitle">';
+                                    echo '<meta itemprop="url" content="'.$logo_src.'">';
+                                    echo '<meta itemprop="name" content="'.get_bloginfo('name', 'display').'">';
+                                    echo get_custom_logo();
+                                    if ($custom_logo_title) {
+                                        echo '<span class="custom-logo-title">'.$custom_logo_title.'</span>';
+                                    }
+                                    echo '</p>';
+                                } else {
+                                    get_template_part('template-parts/header', 'textlogo');
+                                }
+                                ?>
+
+                            </div>
+                            <nav class="header-menu" id="nav" aria-label="<?php _e("Hauptnavigation", "fau"); ?>">
+                                <a href="#nav" id="mainnav-toggle"><span><?php _e("Menu", "fau"); ?></span></a>
+                                <a href="#top" id="mainnav-toggle-close"><span><?php _e("Menu", "fau"); ?>
+                                        schließen</span></a>
+                                <div id="nav-wrapper">
                                     <?php
                                     if (has_nav_menu('main-menu') && class_exists('Walker_Main_Menu', false)) {
                                         if (('' != get_theme_mod('advanced_display_portalmenu_plainview')) && (true == get_theme_mod('advanced_display_portalmenu_plainview'))) {
@@ -171,8 +171,9 @@ if ($custom_logo_id) {
                                         echo fau_main_menu_fallback();
                                     }
                                     ?>
-                                </nav>
-                            </div>
+                                </div>
+                            </nav>
                         </div>
-                    </header>
-                </div>
+                    </div>
+                </header>
+            </div>
