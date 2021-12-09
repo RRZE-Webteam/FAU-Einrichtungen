@@ -8,16 +8,20 @@
  */
 	    
 ?>
-
-<section id="hero" class="hero-small">
-	<div class="container  hero-content">
+    <section id="hero" class="hero-small">
+	<div class="container hero-content">
 		<div class="row">
-			<div class="col-xs-12">		
-			    <?php
-			    fau_breadcrumb();		    
-			      ?>
-				 <p class="presentationtitle" aria-hidden="true" role="presentation"><?php echo get_theme_mod('title_hero_events'); ?></p>
-			</div>
+		    <div class="col-xs-12">
+			<?php 
+			fau_breadcrumb();
+			?>
+			
+		    </div>
+		</div>
+		<div class="row" aria-hidden="true" role="presentation">
+		    <div class="col-xs-12">
+			<p class="presentationtitle"><?php echo get_theme_mod('title_hero_events'); ?></p>
+		    </div>
 		</div>
 	</div>
-</section>
+    </section>

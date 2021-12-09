@@ -9,7 +9,7 @@
  
 ?>
 
-    <div id="hero" class="hero-small">
+    <section id="hero" class="hero-small">
 	<div class="container hero-content">
 		<div class="row">
 		    <div class="col-xs-12">
@@ -25,4 +25,4 @@
 		    </div>
 		</div>
 	</div>
-    </div>
+    </section>

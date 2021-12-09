@@ -171,8 +171,7 @@ add_filter('body_class', 'fau_body_class');
 /*-----------------------------------------------------------------------------------*/
 /* Mark sidebar as used. This will add the class with-sidebar in the body class
 /*-----------------------------------------------------------------------------------*/
-function fau_use_sidebar($activate)
-{
+function fau_use_sidebar($activate) {
     global $is_sidebar_active;
     if ($activate) {
         $is_sidebar_active = 1;
@@ -183,11 +182,8 @@ function fau_use_sidebar($activate)
     return $is_sidebar_active;
 }
 
-/*-----------------------------------------------------------------------------------*/
-/* Define errorpages 401 and 403
-/*-----------------------------------------------------------------------------------*/
-function fau_prefix_custom_site_icon_size($sizes)
-{
+
+function fau_prefix_custom_site_icon_size($sizes) {
     $sizes[] = 64;
     $sizes[] = 120;
 
@@ -196,8 +192,7 @@ function fau_prefix_custom_site_icon_size($sizes)
 
 add_filter('site_icon_image_sizes', 'fau_prefix_custom_site_icon_size');
 
-function fau_prefix_custom_site_icon_tag($meta_tags)
-{
+function fau_prefix_custom_site_icon_tag($meta_tags) {
     $meta_tags[] = sprintf('<link rel="icon" href="%s" sizes="64x64" />', esc_url(get_site_icon_url(null, 64)));
     $meta_tags[] = sprintf('<link rel="icon" href="%s" sizes="120x120" />', esc_url(get_site_icon_url(null, 120)));
 
@@ -208,8 +203,7 @@ add_filter('site_icon_meta_tags', 'fau_prefix_custom_site_icon_tag');
 /*-----------------------------------------------------------------------------------*/
 /* Define errorpages 401 and 403
 /*-----------------------------------------------------------------------------------*/
-function custom_error_pages()
-{
+function custom_error_pages() {
     global $wp_query;
 
     if (isset($_REQUEST['status']) && $_REQUEST['status'] == 403) {
@@ -243,19 +237,18 @@ function custom_error_pages()
     }
 }
 
-function custom_error_title($title = '', $sep = '')
-{
+function custom_error_title($title = '', $sep = '') {
     if (isset($_REQUEST['status']) && $_REQUEST['status'] == 403) {
-        return "Forbidden ".$sep." ".get_bloginfo('name');
+        return __('Zugriff nicht gestattet','fau');
     }
 
     if (isset($_REQUEST['status']) && $_REQUEST['status'] == 401) {
-        return "Unauthorized ".$sep." ".get_bloginfo('name');
+        return __('Anmeldung fehlgeschlagen','fau');
     }
 }
 
-function custom_error_class($classes)
-{
+
+function custom_error_class($classes) {
     if (isset($_REQUEST['status']) && $_REQUEST['status'] == 403) {
         $classes[] = "error403";
 

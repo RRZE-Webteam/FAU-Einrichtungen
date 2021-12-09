@@ -88,13 +88,7 @@ main {
             box-shadow: none;
         }
 
-        &.error-siegel {
-            @include box-shadow(none);
-            margin: 0 auto;
-            display: block;
-        }
-
-        &.size-full,
+         &.size-full,
         &.aligncenter {
             @media (max-width: $screen-xs) {
                 width: 100%;
