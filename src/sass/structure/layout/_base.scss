@@ -54,16 +54,6 @@ html, body, button {
 
 
 
-.flyout-entries,
-.introthumb,
-.introtext {
-    @extend .col-xs-12;
-    @extend .col-sm-4;
-}
-.introtext-full {
-    @extend .col-xs-12;
-    @extend .col-sm-8;
-}
 .flyout-entries-full {
      @extend .col-xs-12;
 }
