@@ -232,10 +232,7 @@ $defaultoptions = [
     'advanced_display_hero_credits'			=> true,   
     'advanced_display_postthumb_credits'		=> true,
 	// Zeigt das Copyright-Feld as der EXIF-Meta von Bildern an
-    'advanced_forceclean_homelink'			=> true,
-	// Links auf die Startseite werden aus dem Hauptmenu entfernt
-    'advanced_forceclean_externlink'		=> true,
-	// Links auf externe Seiten werden aus dem Hauptmenu entfernt
+
     'advanced_activate_page_langcode'		=> false,
 	// Option zur Deklarierung einer anderen Sprache für eine Seite
     'advanced_blogroll_thumblink_alt_pretitle'	=> __('Zum Artikel "','fau'), 
@@ -256,13 +253,9 @@ $defaultoptions = [
     'advanced_topevent_thumblink_alt_posttitle'	=> '"', 
 	// Alternativer Tag wird mit dem Tiotel des verlinkten Beitrags gefüllt. 
 	// Hier kann davor noch ein teil dahinter stehen.     
-    'advanced_display_portalmenu_thumb_credits'	=> false,
-	// Zeige bei optionalen Thumbnails im Hauptmenu auch die Creditinfo, wenn vorhanden
+
     'advanced_display_portalmenu_forceclick'		=> false,
 	// Hauptmenü öffnet sich nur bei einem Klick
-    'advanced_display_portalmenu_plainview'		=> true,
-	// Flyover der Untermenüpunkte in der PLainview Ansicht
-	// Ab Version 2.o als Default gesetzt; die alte Sicht wird ggf. vollständig wegfallen (in Abstimmung)
     'advanced_display_header_md-showsitelogo'	=> false,
 	// Zeigt bei der mobilen Ansicht statt dem Logo der Website das 
 	// CI Logo der FAU anstelle des Logos der Website
@@ -1105,20 +1098,7 @@ $setoptions = array(
 		    'type'    => 'section',
 		    'title'   => __( 'Hauptmenü', 'fau' ),                      
 		),
-	       'advanced_forceclean_homelink'	  => array(
-		    'type'    => 'toggle',
-		    'title'   => __( 'Links auf Startseite', 'fau' ),
-		    'label'   => __( 'Links auf die Startseite werden aus dem Hauptmenu entfernt, da diese unnötig sind (das Logo der Website verlinkt bereits zur Startseite)', 'fau' ),                
-		    'default' => $defaultoptions['advanced_forceclean_homelink'],
-		    'parent'  => 'topmenulinks'
-		),  
-	       'advanced_forceclean_externlink'	  => array(
-		    'type'    => 'toggle',
-		    'title'   => __( 'Externe Links', 'fau' ),
-		    'label'   => __( 'Links auf externe Seiten werden aus dem Hauptmenu entfernt. Im Hauptmenü sollen aus Gründen der Usability nur Links auf Seiten des eigenen Angebots stehen. Externe Links gehören in andere Menüs (z.B. Metanavigation, Footer oder Quicklinks) oder in den Text der Seiten.', 'fau' ),                
-		    'default' => $defaultoptions['advanced_forceclean_externlink'],
-		    'parent'  => 'topmenulinks'
-		),  
+	       
 	    
 	        'menu_pretitle_portal' => array(
                   'type'    => 'text',
@@ -1134,13 +1114,7 @@ $setoptions = array(
                   'default' => $defaultoptions['menu_aftertitle_portal'],
 		    'parent'  => 'topmenulinks'
 		),  
-	       'advanced_display_portalmenu_thumb_credits'	  => array(
-		    'type'    => 'toggle',
-		    'title'   => __( 'Zeige Credits der Menübildern', 'fau' ),
-		    'label'   => __( 'Falls im Hauptmenu bei den Portalseiten Bilder definiert wurden, die im Hauptmenu angezeigt werden sollen, kann hier definiert werden, ob bei deren Ausgabe die Copyright-Info mit ausgegeben werden soll.', 'fau' ),                
-		    'default' => $defaultoptions['advanced_display_portalmenu_thumb_credits'],
-		    'parent'  => 'topmenulinks'
-		), 
+
 	       
 	       'advanced_display_portalmenu_forceclick'	  => array(
 		    'type'    => 'toggle',
@@ -1150,16 +1124,6 @@ $setoptions = array(
 	//	    'ifmodvalue'    => -1,
 	//	    'ifmodname'	=> 'website_type',
 	    //	    'ifsuperadmin'   => true,
-		    'parent'  => 'topmenulinks'
-		), 
-	       'advanced_display_portalmenu_plainview'	  => array(
-		    'type'    => 'toggle',
-		    'title'   => __( 'Unterpunkte stilfrei', 'fau' ),
-		    'label'   => __( 'Die Unterpunkte des Menüs werden ohne Zitat oder Bilder der Portalseite angezeigt.', 'fau' ),                
-		    'default' => $defaultoptions['advanced_display_portalmenu_plainview'],
-		//    'ifmodvalue'    => -1,
-		//    'ifmodname'	=> 'website_type',
-		//    'ifsuperadmin'   => true,
 		    'parent'  => 'topmenulinks'
 		), 
 	       

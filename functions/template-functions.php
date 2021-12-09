@@ -132,11 +132,10 @@ function fau_body_class($classes)
     if (('' != get_theme_mod('advanced_display_portalmenu_forceclick')) && (true == get_theme_mod('advanced_display_portalmenu_forceclick'))) {
         $classes[] = 'mainnav-forceclick';
     }
-    if (('' != get_theme_mod('advanced_display_portalmenu_plainview')) && (true == get_theme_mod('advanced_display_portalmenu_plainview'))) {
-        $classes[] = 'mainnav-plainview';
-    } else {
-        $classes[] = 'mainnav-defaultview';
-    }
+    
+    $classes[] = 'mainnav-plainview';
+
+
 
     if (('' != get_theme_mod('advanced_display_header_md-showsitelogo')) && (true == get_theme_mod('advanced_display_header_md-showsitelogo'))) {
         $classes[] = 'md-showsitelogo';
@@ -917,9 +916,9 @@ function fau_get_image_attributs($id = 0)
     $info_credits = get_theme_mod('advanced_images_info_credits');
     if ($info_credits) {
 
-        if (!empty($result['description'])) {
+        if (isset($result['description']) && (!empty($result['description']))) {
             $result['credits'] = $result['description'];
-        } elseif (!empty($result['copyright'])) {
+        } elseif (isset($result['copyright']) && (!empty($result['copyright']))) {
             $result['credits'] = $precopyright.' '.$result['copyright'];
         } elseif (!empty($result['author'])) {
             $result['credits'] = $precopyright.' '.$result['author'];
@@ -966,7 +965,7 @@ function fau_get_category_links($cateid = 0)
     $link = get_category_link($cateid);
     if (empty($link)) {
         $cat = get_categories();
-        if (is_array($cat) && (!empty($cat))) {
+        if (is_array($cat) && (!empty($cat)) && isset( $cat[0])) {
             $cateid = $cat[0]->cat_ID;
             $link   = get_category_link($cateid);
         }

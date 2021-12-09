@@ -194,28 +194,6 @@ function get_top_parent_page_id($id, $offset = false)
 
 }
 
-/*-----------------------------------------------------------------------------------*/
-/*Fallback, if no main menu is defined yet
-/*-----------------------------------------------------------------------------------*/
-function fau_main_menu_fallback()
-{
-    global $defaultoptions;
-    $output     = '';
-    $some_pages = get_pages(array(
-        'parent'       => 0,
-        'number'       => $defaultoptions['default_mainmenu_number'],
-        'hierarchical' => 0
-    ));
-    if ($some_pages) {
-        foreach ($some_pages as $page) {
-            $output .= sprintf('<li class="menu-item level1"><a href="%1$s">%2$s</a></li>', get_permalink($page->ID),
-                $page->post_title);
-        }
-        $output = sprintf('<div id="nav"><ul class="nav">%s</ul></div>', $output);
-    }
-
-    return $output;
-}
 
 /*-----------------------------------------------------------------------------------*/
 

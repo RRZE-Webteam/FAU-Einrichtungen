@@ -457,19 +457,7 @@ function fau_do_metabox_page_portalmenu($object, $box) {
         return;
     }
 
-    $quote = get_post_meta($object->ID, 'zitat_text', true);
-    $val = get_post_meta($object->ID, 'menuquote_texttype', true);
-    $texttype = ( isset($val) ? intval($val) : 0 );
-    $author = get_post_meta($object->ID, 'zitat_autor', true);
-    $nothumbnail = get_post_meta($object->ID, 'menuquote_nothumbnail', true) ? 1 : 0;
-    echo '<div class="ontemplate_page-portal ontemplate_page-portalindex">';
-    echo '<div id="portalseitenquote">';
-    fau_form_textarea('fau_metabox_menuquote_quote', $quote, __("Zitat (Text)", 'fau'), 40, 3, __('Das Zitat und der Autor erscheint bei Portalseiten oder Menüpunkten der ersten Ebene des Hauptmenüs neben der Auflistung der Untermenüpunkte.', 'fau'));
-    fau_form_text('fau_metabox_menuquote_autor', $author, __("Autor", 'fau'), __('Dieser freie Text kann einen Namen enthalten auf den das Zitat zurückzuführen ist oder andere Informationen hierzu.', 'fau'), '', 20);
-    fau_form_select('fau_metabox_menuquote_texttype', $liste = array(0 => "Zitat", 1 => "Normaler Text", 2 => "Nichts anzeigen"), $texttype, __('Textdarstellung im Hauptmenu', 'fau'), __('Anstelle eines Zitates kann auch ein normaler Text angegeben werden. Diese wird dann nicht wie ein Zitat optisch hervorgehoben. Der Autor-Text wird dann weg gelassen.', 'fau'), 0);
-    fau_form_onoff('fau_metabox_menuquote_nothumbnail', $nothumbnail, __('Artikelbild verbergen', 'fau'), __('Neben dem Text bzw. dem Zitat im Hauptmenü wird eine verkleinerte version des Artikelbildes angezeigt.', 'fau'));
-    echo '</div>';
-
+  
     $currentmenu = get_post_meta($object->ID, 'portalmenu-slug', true);
     $currentmenuid = 0;
     if ($currentmenu == sanitize_key($currentmenu)) {
@@ -560,34 +548,9 @@ function fau_save_metabox_page_portalmenu($post_id, $post) {
         delete_post_meta($post_id, 'fauval_portalmenu_nosub');
     }
 
-    $newval = isset($_POST['fau_metabox_menuquote_quote']) ? sanitize_text_field($_POST['fau_metabox_menuquote_quote']) : '';
-    $oldval = get_post_meta($post_id, 'zitat_text', true);
-
-    if ($newval && !empty($oldval)) {
-        update_post_meta($post_id, 'zitat_text', $newval);
-    } elseif ($newval && empty($oldval)) {
-        add_post_meta($post_id, 'zitat_text', $newval, true);
-    } else {
-        delete_post_meta($post_id, 'zitat_text');
-    }
-
-    $newval = isset($_POST['fau_metabox_menuquote_autor']) ? sanitize_text_field($_POST['fau_metabox_menuquote_autor']) : '';
-    $oldval = get_post_meta($post_id, 'zitat_autor', true);
-
-    if ($newval && !empty($oldval)) {
-        update_post_meta($post_id, 'zitat_autor', $newval);
-    } elseif ($newval && empty($oldval)) {
-        add_post_meta($post_id, 'zitat_autor', $newval, true);
-    } else {
-        delete_post_meta($post_id, 'zitat_autor');
-    }
-
-    $newval = isset($_POST['fau_metabox_menuquote_texttype']) ? absint($_POST['fau_metabox_menuquote_texttype']) : 0;
-    fau_save_standard('menuquote_texttype', $newval, $post_id, '', 'int');
 
 
-    $newval = !empty($_POST['fau_metabox_menuquote_nothumbnail']) ? 1 : 0;
-    fau_save_standard('menuquote_nothumbnail', $newval, $post_id, '', 'int');
+
 }
 
 
