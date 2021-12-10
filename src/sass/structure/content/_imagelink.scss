@@ -125,22 +125,20 @@
 		&:focus {
 			outline: none;
 			background: transparent;
-			color: $slick-arrow-color;
+			color: var(--color-button-bg);
 
 			&:before {
-				opacity: $slick-opacity-on-hover;
+				 color: var(--color-button-hover-bg);
 			}
 		}
 
-		&.slick-disabled:before {
-			opacity: $slick-opacity-not-active;
-		}
-
+		
 		&:before {
 			font-size: 40px;
 			line-height: 1;
-			color: var(--color-primary-basis);
-			opacity: $slick-opacity-default;
+			color: var(--color-button-bg);
+			text-shadow: 0 0 1px var(--color-button-text);
+
 		}
 
 	}
@@ -215,49 +213,37 @@
 
 		position: relative;
 		display: inline-block;
-		width: 20px;
-		height: 20px;
-		margin: 0 5px;
+		width: 1.5rem;
+		height: 1.5rem;
+		margin: 0 0.5rem;
 		padding: 0;
 		cursor: pointer;
 		
 		button {
 		    
 		    display: block;
-		    width: 20px;
-		    height: 20px;
-		    padding: 5px;
+		    width: 1.5rem;
+		    height: 1.5rem;
 		    cursor: pointer;
-		    color: transparent;
+		    border-radius: 50%;
+		    
+		    color: var(--color-primary-ci-hell-kontrast);
+		    background-color: var(--color-primary-ci-hell);
+		    
 		    border: 0;
 		    outline: none;
-		    background: transparent;
 
-		    &:before {
-			@extend .fa;
-			content: "\f111";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 20px;
-			height: 20px;
-		
-			text-align: center;
-			opacity: .25;
-			color: var(--color-primary-basis);
+		    &:hover, 
+		    &:focus {
+			color: var(--color-button-hover-text);
+			background-color: var(--color-button-hover-bg);
 		    }
-		    
-		     &:hover, &:focus {
-			    outline: none;
-			    &:before {
-				opacity: 1;
-			    }
-			}
   
 		}
-		 &.slick-active button:before {
-		     opacity: 1;
-		 }
+		&.slick-active button {
+		    color: var(--color-button-hover-text);
+		    background-color: var(--color-button-hover-bg);
+		}
 	    }
 	}   
 	

@@ -36,8 +36,10 @@
 			
 			a:before {
 				
-				background: var(--color-button-bg);
-			        color: var(--color-button-text);
+				background: var(--color-primary-ci-hell);
+			        color: var(--color-primary-ci-hell-kontrast);
+				// background: var(--color-button-bg);
+			        // color: var(--color-button-text);
 				height: 1.7rem;
 				width:  1.7rem;			
 				text-align: center;
