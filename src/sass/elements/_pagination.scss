@@ -18,10 +18,8 @@
 	.subpages {
 	    @include px2rem($font-size-pagination-links);
 	    margin: 10px;
-	     @include inline-block();
-	     
-	     
-	     
+	    @include inline-block();
+
 	    a {
 		@include defaultlinkstyle();	
 		text-decoration: none;
@@ -34,7 +32,6 @@
 		}
 		.number {
 		    border: 1px solid var(--color-button-bg);
-		
 		}
 	    }
 	    .number {
@@ -53,54 +50,3 @@
     }
 }
 
-
-.nav-links {
-	margin: 20px 0;
-	@include inline-block();
-
-	span, a {
-		@include px2rem($font-size-pagination-links);
-		padding: 6px 10px;
-		text-align: center;
-		margin-right: 4px;
-		@include border-radius(3px);
-		
-		background: var(--color-primary-basis);
-		border: 1px solid var(--color-primary-basis);
-		padding: 6px 10px;
-		text-decoration: none;
-		color: var(--color-primary-basis-kontrast);
-		
-		span {
-		    background-color: transparent;
-		    padding: 0;
-		    margin: 0;
-		    border: none;
-		}
-	}
-	
-	.current {
-		background: var(--color-primary-basis-kontrast);
-		border: 1px solid var(--color-ContentBorders);
-		padding: 6px 10px;
-		text-decoration: none;
-		color: var(--color-primary-basis);
-	}
-	
-	.prev, 
-	.next {
-		padding-left: 10px;
-		padding-right: 10px;
-	}
-	
-	a:hover, 
-	a:focus {
-		background: var(--color-primary-dunkler);
-		text-decoration: underline;
-		span {
-		    text-decoration: underline;
-		}
-		
-		
-	}
-}

@@ -202,3 +202,39 @@
 	}
     }
 }
+
+.search-results {
+ .nav-links {
+	    margin: 20px 0;
+	    @include inline-block();
+
+	    a {
+		
+		@include defaultlinkstyle();	
+		text-decoration: none;
+		@include buttonstyle();
+		@include px2rem($font-size-pagination-links);
+		
+		&:hover, 
+		&:focus {
+			text-decoration: underline;
+		}
+	    }
+
+	    
+	    .dots {
+		@include buttonstyle();
+	    }
+	    .current {
+		@include ghostbutton();
+		@include px2rem($font-size-pagination-links);
+	    }
+
+	    .prev, 
+	    .next {
+		    padding-left: 1rem;
+		    padding-right: 1rem;
+	    }
+
+ }
+}

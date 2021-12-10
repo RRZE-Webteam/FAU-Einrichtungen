@@ -5482,52 +5482,6 @@ ol li ul li {
   text-decoration: none;
 }
 
-.nav-links {
-  margin: 20px 0;
-  display: inline-block;
-}
-.nav-links span, .nav-links a {
-  font-size: 0.875rem;
-  line-height: 1.313rem;
-  padding: 6px 10px;
-  text-align: center;
-  margin-right: 4px;
-  border-radius: 3px;
-  background-clip: padding-box;
-  background: var(--color-primary-basis);
-  border: 1px solid var(--color-primary-basis);
-  padding: 6px 10px;
-  text-decoration: none;
-  color: var(--color-primary-basis-kontrast);
-}
-.nav-links span span, .nav-links a span {
-  background-color: transparent;
-  padding: 0;
-  margin: 0;
-  border: none;
-}
-.nav-links .current {
-  background: var(--color-primary-basis-kontrast);
-  border: 1px solid var(--color-ContentBorders);
-  padding: 6px 10px;
-  text-decoration: none;
-  color: var(--color-primary-basis);
-}
-.nav-links .prev,
-.nav-links .next {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.nav-links a:hover,
-.nav-links a:focus {
-  background: var(--color-primary-dunkler);
-  text-decoration: underline;
-}
-.nav-links a:hover span,
-.nav-links a:focus span {
-  text-decoration: underline;
-}
-
 /*-----------------------------------------------------------------------------------*/
 /* Forms
 /*-----------------------------------------------------------------------------------*/
