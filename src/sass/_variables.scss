@@ -179,9 +179,12 @@ $font-path-roboto: './fonts/roboto/';
 $font-path-fau-chimera: './fonts/fau-chimera/';
 
 // Font sizes
-$font-size-rembase: 100%; 
+$font-size-rembase: 16px; 
+$font-size-rembase-screen-xl: 18px;
+
 $font-size-gridbase: 16;
 $font-size-base: 16;
+
 
 $font-size-meta: ($font-size-base - 2);
 $font-size-sidebar: ($font-size-base - 2);
