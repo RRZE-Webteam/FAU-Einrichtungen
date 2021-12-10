@@ -89,8 +89,7 @@ if ( is_active_sidebar( 'search-sidebar' ) ) {
 						) );
 						?>
 						<?php if ( $links ) { ?>
-						    <nav id="nav-pages" class="navigation paging-navigation" role="navigation">
-							<h3 class="screen-reader-text"><?php _e( 'Weitere Suchergebnisse', 'fau' ); ?></h3>
+						    <nav id="nav-pages" class="navigation paging-navigation" role="navigation" aria-label="<?php _e( 'Weitere Suchergebnisse', 'fau' ); ?>">
 							<div class="nav-links">
 							    <?php echo $links; ?>
 							</div>
@@ -106,7 +105,6 @@ if ( is_active_sidebar( 'search-sidebar' ) ) {
 						    <p><?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?></p>
 
 					    </div>
-					    <?php get_template_part('template-parts/error', 'siegel');  ?>
 					</div>
 					<?php 
 					    $showhelplinks = 1;

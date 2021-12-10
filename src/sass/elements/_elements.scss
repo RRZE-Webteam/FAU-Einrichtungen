@@ -3,6 +3,7 @@
 /*-----------------------------------------------------------------------------------*/
 
 
+
 // Überschriften
 @import "headlines";
 
@@ -46,6 +47,9 @@
 
 // General Classes
 @import "general-classes";
+
+// Global Selectors
+@import "selectors";
 
 // WordPress Required Classes
 @import "wordpress";

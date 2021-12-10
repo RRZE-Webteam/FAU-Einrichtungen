@@ -24,10 +24,9 @@
 	    display: block;
 	}
 	a {
-	    color: var(--color-primary-basis);	    
+	    color: var(--color-Text);	    
 	    &:hover, &:focus {
-		    text-decoration: underline;
-		    color: var(--color-primary-basis);
+		    text-decoration: underline;	  
 	    }
 	    
 	}

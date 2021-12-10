@@ -153,8 +153,7 @@ h4 {
 	@include px2rem($font-size-h4);
 	
 	.person &,
-	.span3 &, 
-	.span4 & {
+	.span3 & {
 		@include px2rem($font-size-h4-small);
 	}
 	.sidebar-inline &,

@@ -148,12 +148,14 @@
     ol li {
         list-style-type: none;
         padding: 0;
-
+	
         a {
+	    color: var(--color-MetaTextDefault);
             display: inline-block;
             padding: 0.15rem 0;
             text-decoration: none;
-
+	    
+	    &:focus,
             &:hover {
                 text-decoration: underline;
             }
@@ -173,7 +175,8 @@
 
         a {
             padding: 0.25rem 0.25rem 0.25rem 0;
-
+	    color: var(--color-FAU);
+	    
             @media (min-width: $screen-sm) {
                 display: flex;
             }
