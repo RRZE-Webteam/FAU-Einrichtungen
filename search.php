@@ -119,7 +119,6 @@ if ( is_active_sidebar( 'search-sidebar' ) ) {
 					    </p>
 					     <p><?php _e('Bitte geben Sie einen Suchbegriff in das Suchfeld ein.','fau'); ?></p>
 					</div>
-					<?php get_template_part('template-parts/error', 'siegel');  ?>
 				    </div>
 					
 					<?php

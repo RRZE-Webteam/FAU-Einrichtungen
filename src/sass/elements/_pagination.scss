@@ -23,35 +23,30 @@
 	     
 	     
 	    a {
+		@include defaultlinkstyle();	
+		text-decoration: none;
+		@include buttoncolor();
+		@include px2rem($font-size-pagination-links);
+		
 		:hover, 
 		:focus {
 			text-decoration: underline;
-			
-			.number {
-			    background: var(--color-primary-dunkler);
-			}
 		}
 		.number {
-		   
-		    color: var(--color-primary-basis-kontrast);
-		    background: var(--color-primary-basis);
-		    border: 1px solid var(--color-primary-basis);
+		    border: 1px solid var(--color-button-bg);
 		
 		}
 	    }
 	    .number {
-		
-		background: $colorMainBackground;
-		border: 1px solid var(--color-ContentBorders);
-		padding: 6px 10px;
+		@include buttoncolor();
+		padding: 0.5rem 0.7rem;
 		text-decoration: none;
 		@include border-radius(3px);
-		@include px2rem($font-size-textbuttons);
-		
 	    }
-	     
-
-		
+	    .current .number {
+		@include ghostbutton();
+		@include px2rem($font-size-pagination-links);
+	    }
 	    
 	}
 

@@ -13,7 +13,7 @@ get_template_part('template-parts/hero', 'error');
  <div id="content">
     <div class="content-container">	   
 	<div class="content-row">
-	    <div class="portalpage-content ">
+	    <div class="errorpage-content ">
 		     <main>
 
 				<h1 class="screen-reader-text"><?php echo __('Anmeldung fehlgeschlagen','fau'); ?></h1>

@@ -88,7 +88,7 @@ main {
             box-shadow: none;
         }
 
-         &.size-full,
+        &.size-full,
         &.aligncenter {
             @media (max-width: $screen-xs) {
                 width: 100%;
@@ -100,6 +100,14 @@ main {
     }
 
 }
+
+figcaption {
+	@include px2rem($font-size-image-caption);
+	padding: 5px 0 5px 0;
+}
+
+
+
 
 @media (max-width: $screen-xs) {
     img.alignleft,

@@ -1774,11 +1774,11 @@ Mixins File for Wordpress Theme FAU
 /* Define font base
 /*-----------------------------------------------------------------------------------*/
 html {
-  font-size: 100%;
+  font-size: 16px;
 }
 @media (min-width: 1400px) {
   html {
-    font-size: 18px;
+    font-size: 17px;
   }
 }
 
@@ -5059,13 +5059,16 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   background-clip: padding-box;
   font-size: 0.937rem;
   line-height: 1.407rem;
-  color: var(--color-primary-basis-kontrast);
-  background: var(--color-primary-basis);
-  padding: 6px 10px;
+  color: var(--color-button-text);
+  background: var(--color-button-bg);
+  padding: 0.5rem 0.7rem;
   text-decoration: none;
 }
 .news-more-links .news-more:hover, .news-more-links .news-more:focus {
-  background: var(--color-primary-dunkler);
+  color: var(--color-button-hover-text);
+  background: var(--color-button-hover-bg);
+}
+.news-more-links .news-more:hover, .news-more-links .news-more:focus {
   text-decoration: none;
 }
 
@@ -5078,14 +5081,17 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   background-clip: padding-box;
   font-size: 0.937rem;
   line-height: 1.407rem;
-  color: var(--color-primary-basis-kontrast);
-  background: var(--color-primary-basis);
-  padding: 6px 10px;
+  color: var(--color-button-text);
+  background: var(--color-button-bg);
+  padding: 0.5rem 0.7rem;
   text-decoration: none;
   display: none;
 }
 .top-link:hover, .top-link:focus {
-  background: var(--color-primary-dunkler);
+  color: var(--color-button-hover-text);
+  background: var(--color-button-hover-bg);
+}
+.top-link:hover, .top-link:focus {
   text-decoration: none;
 }
 
@@ -5412,28 +5418,68 @@ ol li ul li {
   margin: 10px;
   display: inline-block;
 }
+.pagination.pagebreaks .subpages a {
+  box-shadow: inherit;
+  transition: inherit;
+  padding: inherit;
+  text-decoration: underline;
+  text-decoration: none;
+  color: var(--color-button-text);
+  background: var(--color-button-bg);
+  font-size: 0.875rem;
+  line-height: 1.313rem;
+}
+.pagination.pagebreaks .subpages a:hover, .pagination.pagebreaks .subpages a:focus {
+  font-weight: bold;
+  color: inherit;
+  box-shadow: inherit;
+  text-decoration: underline;
+}
+.pagination.pagebreaks .subpages a:hover, .pagination.pagebreaks .subpages a:focus {
+  color: var(--color-button-hover-text);
+  background: var(--color-button-hover-bg);
+}
 .pagination.pagebreaks .subpages a :hover,
 .pagination.pagebreaks .subpages a :focus {
   text-decoration: underline;
 }
-.pagination.pagebreaks .subpages a :hover .number,
-.pagination.pagebreaks .subpages a :focus .number {
-  background: var(--color-primary-dunkler);
-}
 .pagination.pagebreaks .subpages a .number {
-  color: var(--color-primary-basis-kontrast);
-  background: var(--color-primary-basis);
-  border: 1px solid var(--color-primary-basis);
+  border: 1px solid var(--color-button-bg);
 }
 .pagination.pagebreaks .subpages .number {
-  background: #fff;
-  border: 1px solid var(--color-ContentBorders);
-  padding: 6px 10px;
+  color: var(--color-button-text);
+  background: var(--color-button-bg);
+  padding: 0.5rem 0.7rem;
   text-decoration: none;
+  border-radius: 3px;
+  background-clip: padding-box;
+}
+.pagination.pagebreaks .subpages .number:hover, .pagination.pagebreaks .subpages .number:focus {
+  color: var(--color-button-hover-text);
+  background: var(--color-button-hover-bg);
+}
+.pagination.pagebreaks .subpages .current .number {
+  display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
   font-size: 0.937rem;
   line-height: 1.407rem;
+  color: var(--color-button-text);
+  background: var(--color-button-bg);
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
+  border: 1px solid var(--color-ContentBorders);
+  background: transparent;
+  color: var(--color-Text);
+  font-size: 0.875rem;
+  line-height: 1.313rem;
+}
+.pagination.pagebreaks .subpages .current .number:hover, .pagination.pagebreaks .subpages .current .number:focus {
+  color: var(--color-button-hover-text);
+  background: var(--color-button-hover-bg);
+}
+.pagination.pagebreaks .subpages .current .number:hover, .pagination.pagebreaks .subpages .current .number:focus {
+  text-decoration: none;
 }
 
 .nav-links {
@@ -6010,6 +6056,12 @@ main img.noshadow {
     width: 100%;
     max-width: 100vw;
   }
+}
+
+figcaption {
+  font-size: 0.875rem;
+  line-height: 1.313rem;
+  padding: 5px 0 5px 0;
 }
 
 @media (max-width: 480px) {

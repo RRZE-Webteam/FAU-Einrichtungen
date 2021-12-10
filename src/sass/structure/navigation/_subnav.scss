@@ -4,11 +4,24 @@
 
 .sidebar-subnav {
     header {
-	padding: 11px 15px;
+	
 	margin-top: 0px;
 	border-top: 1px solid var(--color-primary-ci-hell);
 	@include px2rem($font-size-h3);
 	font-weight: bold;
+	
+	a {
+	    display: block;
+	    padding: 11px 15px;
+	    color: var(--color-submenu-toplevel-text);
+	    background: var(--color-submenu-toplevel-bg);
+
+	    &:hover,
+	    &:focus {
+	    	background-color: var(--color-submenu-hover-bg);
+		color: var(--color-submenu-hover-text);
+	    }
+	}
     }
 }
 #subnav {

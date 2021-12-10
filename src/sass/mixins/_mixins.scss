@@ -216,22 +216,41 @@ Mixins File for Wordpress Theme FAU
     }
 }
 
+@mixin buttoncolor() {
+    color: var(--color-button-text);
+    background: var(--color-button-bg);
+  
+    &:hover, 
+    &:focus {
+	color: var(--color-button-hover-text);
+        background: var(--color-button-hover-bg);
+    }
+}
+
 @mixin buttonstyle($radius: 3px) {
     @include inline-block;
     @include border-radius($radius);
     @include px2rem($font-size-textbuttons);
-
-    color: var(--color-primary-basis-kontrast);
-    background: var(--color-primary-basis);
-    padding: 6px 10px;
+    @include buttoncolor;
+    
+    padding: 0.5rem 0.7rem;
     text-decoration: none;
 
-
     &:hover, &:focus {
-        background: var(--color-primary-dunkler);
         text-decoration: none;
     }
 }
+
+@mixin ghostbutton($radius: 3px, $border: 1px) {
+    @include buttonstyle($radius);
+    
+    border: $border solid var(--color-ContentBorders);
+    background: transparent;
+    color: var(--color-Text);    
+    
+   
+}
+
 
 // Set Font Style
 
