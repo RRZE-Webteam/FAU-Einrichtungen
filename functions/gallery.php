@@ -29,7 +29,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	extract(shortcode_atts(array(
 	    'order'	=> 'ASC',
 	    'orderby'	=> 'menu_order ID',
-	    'id'		=> $post->ID,
+	    'id'	=> $post->ID,
 	    'columns'	=> 0,
 	    'include'	=> '',
 	    'exclude'	=> '',
