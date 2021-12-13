@@ -8,7 +8,6 @@ blockquote {
     margin: 0;
     border: none;
     font-family: $fontStackSerifs;
-    font-style: italic;
     position: relative;
 
     @include px2rem($font-size-quotes);
@@ -18,7 +17,6 @@ blockquote {
         font-family: $fontStackSerifs;
         @include px2rem($font-size-quotes);
         font-weight: 400;
-        font-style: italic;
         letter-spacing: 1px;
 
         strong {
@@ -30,7 +28,6 @@ blockquote {
     #content & {
         max-width: calc(100% - 40px);
         width: 100%;
-        font-style: italic;
         margin: 10px;
         padding: 31px 20px 20px 20px;
         min-height: 50px;

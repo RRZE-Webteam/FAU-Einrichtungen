@@ -5,21 +5,8 @@
 
 #nav {
 	background-color: var(--color-StandardHellgrau);
-
-	.sidebar-subnav {
-		background-color: darken($PalettonHellste, 5%);
-	}
-
-	.menu-header {
-		@include px2rem($font-size-nav-mainlinks);
-		margin: 0;
-		border-top: none;
-
-		&, & a {
-			color: var(--color-primary-basis);
-		}
-	}
-
+	
+	/* Unused since 1.7 ?
 	#subnav {
 		font-size: 1rem;
 
@@ -38,5 +25,6 @@
 			}
 		}
 	}
+	*/
 }
 

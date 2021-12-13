@@ -4632,8 +4632,8 @@ table .edit-post-visual-editor .editor-block-list__block h6 {
   color: var(--color-primary-basis);
   font-weight: 300;
   font-style: italic;
-  font-size: 1.25rem;
-  line-height: 1.875rem;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
 }
 .edit-post-visual-editor .editor-block-list__block p.presentationtitle {
   font-weight: bold;

@@ -4798,11 +4798,6 @@ h2.subtitle {
     margin-left: 0;
   }
 }
-h2.menu-header {
-  padding: 11px 15px;
-  margin-top: 0px;
-  border-top: 1px solid var(--color-primary-hellste);
-}
 .search h2 {
   margin-top: 4px;
 }
@@ -4980,8 +4975,8 @@ p.lead-in {
   color: var(--color-primary-basis);
   font-weight: 300;
   font-style: italic;
-  font-size: 1.25rem;
-  line-height: 1.875rem;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
 }
 #content .startpage-sidebar .widget p, #content .sidebar-inline .widget p {
   font-size: 0.875rem;
@@ -5820,18 +5815,16 @@ blockquote {
   margin: 0;
   border: none;
   font-family: Georgia, serif;
-  font-style: italic;
   position: relative;
-  font-size: 1.25rem;
-  line-height: 1.875rem;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
 }
 blockquote p {
   margin-bottom: 0;
   font-family: Georgia, serif;
-  font-size: 1.25rem;
-  line-height: 1.875rem;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
   font-weight: 400;
-  font-style: italic;
   letter-spacing: 1px;
 }
 blockquote p strong {
@@ -5840,7 +5833,6 @@ blockquote p strong {
 #tinymce blockquote, #content blockquote {
   max-width: calc(100% - 40px);
   width: 100%;
-  font-style: italic;
   margin: 10px;
   padding: 31px 20px 20px 20px;
   min-height: 50px;
@@ -5867,8 +5859,8 @@ blockquote small,
 blockquote cite {
   display: block;
   text-align: right;
-  font-size: 1.187rem;
-  line-height: 1.782rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   color: var(--color-Text);
 }
 blockquote small:before,
