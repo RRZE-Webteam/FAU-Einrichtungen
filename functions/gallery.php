@@ -237,7 +237,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 			    if (!fau_empty($imgmeta['excerpt'])) { 
 				$output .= '<br>'; 			
 			    }
-			    $output .= '<span class="linkorigin">(<a href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
+			    $output .= '<span class="linkorigin">(<a  tabindex="-1" href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
 			}
 		    $output .='</figcaption>';
 		}
