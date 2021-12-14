@@ -65,15 +65,18 @@
 				// Es gibt weder Bannerbild noch Artikelbild.
 				// Wir nehmen das Fallbackbild aus dem Customizer
 				$sliderimage = wp_get_attachment_image_src( $fallbackid, 'hero' );
-				$slidersrcset =  wp_get_attachment_image_srcset($fallbackid,'hero');
-				$slidersrcsizes = wp_get_attachment_image_sizes($fallbackid,'hero' );
-				$imgdata = fau_get_image_attributs($fallbackid);
-				if (preg_match("/^cropped\-/",$imgdata['title'])) {
-				    $copyright = get_theme_mod("fallback-slider-image-title");			
+				if ($sliderimage !== false) {
+				    $slidersrcset =  wp_get_attachment_image_srcset($fallbackid,'hero');
+				    $slidersrcsizes = wp_get_attachment_image_sizes($fallbackid,'hero' );
+				    $imgdata = fau_get_image_attributs($fallbackid);
+				    if (preg_match("/^cropped\-/",$imgdata['title'])) {
+					$copyright = get_theme_mod("fallback-slider-image-title");			
+				    } else {
+					$copyright = trim(strip_tags( $imgdata['credits'] ));
+				    }
 				} else {
-				    $copyright = trim(strip_tags( $imgdata['credits'] ));
+				    $sliderimage = array($defaultoptions['src-fallback-slider-image'],$defaultoptions['slider-image-width'],$defaultoptions['slider-image-height']);  
 				}
-				
 				
 			    } else {
 				// Kein Fallbackbild definiert, also hardcodiertes Fallback des Themes
@@ -101,6 +104,7 @@
 		    }
 		    $slidersrc .= ' role="presentation">';
 		    echo $slidersrc."\n"; 
+
 
 		    if ((get_theme_mod('advanced_display_hero_credits')==true) && (!empty($copyright))) {
 			echo '<p class="credits">'.$copyright."</p>";
