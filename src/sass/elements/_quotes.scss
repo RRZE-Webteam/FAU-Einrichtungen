@@ -17,7 +17,7 @@ blockquote {
         font-family: $fontStackSerifs;
         @include px2rem($font-size-quotes);
         font-weight: 400;
-        letter-spacing: 1px;
+        letter-spacing: .3px;
 
         strong {
             font-weight: bolder;
