@@ -105,7 +105,7 @@
 
 .meta-links-trigger-button {
     border: none;
-    outline: none;
+    //outline: none;
     font: inherit;
     color: inherit;
     background: none;
@@ -287,6 +287,14 @@
             height: 100%;
         }
     }
+    a {
+        border: 1px dashed transparent;
+        &:hover,
+        &:focus {
+            border-color: var(--color-primary-ci-hell);
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.22);
+        }
+    }
 
     .textlogo {
 
@@ -296,6 +304,12 @@
 
         .fau-title {
             display: none;
+
+        }
+        .fauorg-home & {
+            .fau-title {
+                display: block;
+            }
         }
 
         .fauorg-kooperation & {
@@ -304,7 +318,7 @@
             }
 
             .text {
-                display: none;
+                display: block;
             }
         }
     }
