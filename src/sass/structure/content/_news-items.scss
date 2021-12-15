@@ -50,7 +50,6 @@
 .news-image {
 	display: block;
 	text-align: center;
-	background: none;
 	float: none;
 	margin: 10px auto;
 	
@@ -73,7 +72,6 @@
 	@media (min-width: $screen-xs) {
 	    @include box-shadow(0 1px 2px rgba(0,0,0,0.3));
 	    padding: 4px;
-	    background: var(--color-StandardHellgrau);
 	    margin: 5px auto;
 	}
 

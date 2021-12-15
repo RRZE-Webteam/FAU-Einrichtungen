@@ -548,8 +548,7 @@ function fau_display_search_resultitem($withsidebar = 1)
 /*-----------------------------------------------------------------------------------*/
 /*  Blogroll
 /*-----------------------------------------------------------------------------------*/
-function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidemeta = false)
-{
+function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidemeta = true) {
     if ($id == 0) {
         return;
     }
@@ -585,7 +584,8 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
         $output .= 'href="'.$link.'">'.get_the_title($post->ID).'</a>';
         $output .= "</h".$hstart.">";
 
-        if ($hidemeta == false) {
+
+        if ($hidemeta === false) {
             $categories = get_the_category();
             $separator  = ', ';
             $thiscatstr = '';
@@ -609,7 +609,12 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
                         $post->ID)."</span>";
                 $output .= '</div>';
             } else {
-                $output .= '<div><meta itemprop="datePublished" content="'.esc_attr(get_post_time('c')).'"></div>';
+		 $output .= '<div class="news-meta">';
+		if ($typestr) {
+		     $output .= $typestr;
+		}
+		
+                $output .= '<meta itemprop="datePublished" content="'.esc_attr(get_post_time('c')).'"></div>';
             }
         }
         $output .= '<div><meta itemprop="dateModified" content="'.esc_attr(get_the_modified_time('c')).'">';

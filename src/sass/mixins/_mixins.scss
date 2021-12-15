@@ -165,17 +165,13 @@ Mixins File for Wordpress Theme FAU
         @include inline-block;
         @include border-radius(3px);
         @include px2rem($font-size-textbuttons);
+	@include buttoncolor();
+	
 
-        color: var(--color-primary-basis-kontrast);
-        background: var(--color-primary-basis);
         padding: 6px 10px;
         text-decoration: none;
 
 
-        &:hover, &:focus {
-            background: var(--color-primary-dunkler);
-            text-decoration: none;
-        }
     }
 
 }

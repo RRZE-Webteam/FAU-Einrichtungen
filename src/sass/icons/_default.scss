@@ -3,8 +3,9 @@
 /*-----------------------------------------------------------------------------------*/
 
 $svg-icon-size: 1.4rem;
-$svg-icon-color: map-get($colormap-primary, "basis");;
-$svg-icon-color_hover: map-get($colormap-primary, "dunkelste");
+$svg-icon-color: $color_button_text;
+$svg-icon-color_hover: $color-button-hover-text;
+
 
 
 // Default icon width for use in :before
