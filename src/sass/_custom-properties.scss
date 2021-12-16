@@ -18,19 +18,19 @@
 	--color-#{$farbtyp}-ci-hell-kontrast: #{$colorcode};
 	
 	$colorcode: map-get($map, "ci-hell2");
-	--color-#{$farbtyp}-ci-hell: #{$colorcode};
+	--color-#{$farbtyp}-ci-hell2: #{$colorcode};
 	$colorcode: map-get($map, "ci-hell2-kontrast");
-	--color-#{$farbtyp}-ci-hell-kontrast: #{$colorcode};	
+	--color-#{$farbtyp}-ci-hell2-kontrast: #{$colorcode};	
 	
 	$colorcode: map-get($map, "dunkler");
-	--color-#{$farbtyp}-ci-hell: #{$colorcode};
+	--color-#{$farbtyp}-dunkler: #{$colorcode};
 	$colorcode: map-get($map, "dunkler-kontrast");
-	--color-#{$farbtyp}-ci-hell-kontrast: #{$colorcode};		
+	--color-#{$farbtyp}-dunkler-kontrast: #{$colorcode};		
 	
 	$colorcode: map-get($map, "dunkelste");
-	--color-#{$farbtyp}-ci-hell: #{$colorcode};
+	--color-#{$farbtyp}-dunkelste: #{$colorcode};
 	$colorcode: map-get($map, "dunkelste-kontrast");
-	--color-#{$farbtyp}-ci-hell-kontrast: #{$colorcode};			
+	--color-#{$farbtyp}-dunkelste-kontrast: #{$colorcode};			
     }
     
      @each $variante, $colorcode  in $colormap-misc {	    
