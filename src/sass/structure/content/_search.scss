@@ -102,56 +102,46 @@
 
 
 .widget_search,
-.search-contenttry {	
-	form {
-	    border: none;
-	    .sidebar-single & {
-		padding: 20px 0;
-	    }
-	}
+.searchform-content {	
 	.search-text {
-	     margin: 0 20px;
-	     @include placeholder(var(--color-primary-basis-kontrast));
-
 	    label {
 		@extend .screen-reader-text;
 	    }
-	    input {
-		@include border-radius(20px);
-		padding: 0 15px;
-	    }
 	    input[type="text"] {
+		@include border-radius(20px);
 		@include px2rem($font-size-herosearch);
 		border: 1px solid  var(--color-primary-ci-hell);
-		width: 80%;
-		padding: 5px 10px 5px 30px;
+		max-width: 25rem;
+		padding: 0.5rem 7rem 0.5rem 2rem;
 		height: inherit;
 		margin: 0;
 
-		background: var(--color-primary-ci-hell2);
-		color: var(--color-primary-ci-hell2-kontrast);
+		background: var(--color-primary-ci-hell);
+		color: var(--color-primary-ci-hell-kontrast);
 
-		&:focus, &:hover {
-			background-color: var(--color-primary-dunkler);
-			border: 1px solid var(--color-primary-dunkelste);
+		&:active,
+		&:target,
+		&:focus, 
+		&:hover {
+			background-color: var(--color-primary-ci-hell2);
+			color: var(--color-primary-ci-hell2-kontrast);
 		}
 	    }
 
 	    input[type="submit"] {
+		@include border-radius(20px);
 		@include px2rem($font-size-herosearch);
 		    border: 1px solid var(--color-primary-ci-hell);
 		    @include buttoncolor();
-		    padding: 5px 10px;
+		    padding: 0.5rem 1rem;
 		    height: inherit;
-		    margin-left: -30px;
-
+		    margin-left: -5rem;
 	    }
 	    .searchicon {
-		@extend .fa;
-		@extend .fa-search;
-		position: relative;
-		margin-right: -30px;
-		@include buttoncolor();
+		@extend .svg-icon;
+		@include svg-icon-sizes(1.1rem);
+		background-image: svg-icon-search(#fff, 16, 16);
+		margin-right: -2rem;
 	    }
 	}
 
@@ -164,7 +154,7 @@
 			margin-right: 3px;
 		}
 	}
-	.filter {
+/*	.filter {
 	   display: block;
 	   margin: 20px;
 	    label {
@@ -186,9 +176,45 @@
 		white-space: nowrap;
 	    }
 	}
+	*/
+	.filter {
+	    margin-top: 0.5rem;
+	    display: flex;
+	    flex-wrap: wrap;
+	    justify-content : flex-start;
+	    align-items : center;
+	    
+	    div {
+		@include inline-block();
+		text-align: left;		
+		
+		label {
+		    @include inline-block();
+		    margin: 0 1rem 0 0.5rem;
+		    padding: 0;
+		    min-width: inherit;
+		}
+		input[type="checkbox"] {
+		    margin: 0;
+		    width: 1rem;
+		    height: 1rem;
+		    border: 1px solid #bbb;
+		    box-shadow: inset 0 1px 1px 0 rgba(0,0,0,.1);
+		}
+		
+	    }
+	}
 
 }
-
+.searchpage-content {
+    form {
+	    border: none;
+	    
+	    .sidebar-single & {
+		padding: 20px 0;
+	    }
+	}
+}
 .widget_search {
 
     .search-text {
