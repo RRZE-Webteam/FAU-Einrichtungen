@@ -84,16 +84,17 @@ button.expand-all {
                 }
 
                 &:hover,
-                    &:focus {
-                    background-color: var(--color-primary-hellste);
+                &:focus {
+                    background-color: var(--color-primary-ci-hell);
+		    color: var(--color-primary-ci-hell-kontrast); 
                     text-decoration: none;
                 }
 
                 &.active,
                 &.active:hover,
                     &.active:focus {
-                    background-color: var(--color-primary-hellste);
-                    color: var(--color-primary-dunkelste); // $colorPrimary;
+                    background-color: var(--color-primary-ci-hell);
+                    color: var(--color-primary-ci-hell-kontrast); // $colorPrimary;
 
                     &:before {
                         @extend .fa-caret-up;

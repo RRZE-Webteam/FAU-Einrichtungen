@@ -171,7 +171,7 @@
     order: 2;
     display: block;
     padding-top: 15px;
-    border-top: 2px solid var(--color-primary-hellste);
+    border-top: 2px solid var(--color-primary-ci-hell2);
     margin: 15px auto floor(math.div($grid-gutter-width, 2)) auto;
     width: calc(100% - 30px);
 
@@ -188,7 +188,7 @@
         padding-top: 0;
         padding-left: 15px;
         border-top: none;
-        border-left: 2px solid var(--color-primary-hellste);
+        border-left: 2px solid var(--color-primary-ci-hell2);
     }
 }
 

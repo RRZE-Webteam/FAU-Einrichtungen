@@ -12,7 +12,7 @@
 	
 	ul {
 		margin-bottom: 20px;
-		border-left: 2px solid var(--color-primary-hellste);
+		border-left: 2px solid var(--color-primary-ci-hell);
 		margin-left: 10px;
 	}
 	
@@ -43,7 +43,7 @@
 	.toggle-icon {
 		@extend .fa;
 		@extend .fa-plus-square;
-		color: var(--color-primary-basis);
+		color: var(--color-Text);
 		margin-right: 5px;
 		cursor: pointer;
 	}

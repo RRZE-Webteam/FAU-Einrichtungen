@@ -191,15 +191,16 @@
 
 			a {
 				@include inline-block;
-				background: var(--color-primary-hellste);
+				background: var(--color-primary-ci-hell2);
+				color: var(--color-primary-ci-hell2-kontrast);
 				text-decoration: none;
 				padding: 3px 5px 2px 5px;
 				@include border-radius(3px);
 			}
 			
 			a:hover, a:focus {
-				color: #fff;
-				background: var(--color-primary-basis);
+				background: var(--color-primary-ci-hell);
+				color: var(--color-primary-ci-hell-kontrast);
 			}
 		}
 	}	
