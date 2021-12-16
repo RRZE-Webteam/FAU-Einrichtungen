@@ -16,6 +16,21 @@
 	--color-#{$farbtyp}-ci-hell: #{$colorcode};
 	$colorcode: map-get($map, "ci-hell-kontrast");
 	--color-#{$farbtyp}-ci-hell-kontrast: #{$colorcode};
+	
+	$colorcode: map-get($map, "ci-hell2");
+	--color-#{$farbtyp}-ci-hell: #{$colorcode};
+	$colorcode: map-get($map, "ci-hell2-kontrast");
+	--color-#{$farbtyp}-ci-hell-kontrast: #{$colorcode};	
+	
+	$colorcode: map-get($map, "dunkler");
+	--color-#{$farbtyp}-ci-hell: #{$colorcode};
+	$colorcode: map-get($map, "dunkler-kontrast");
+	--color-#{$farbtyp}-ci-hell-kontrast: #{$colorcode};		
+	
+	$colorcode: map-get($map, "dunkelste");
+	--color-#{$farbtyp}-ci-hell: #{$colorcode};
+	$colorcode: map-get($map, "dunkelste-kontrast");
+	--color-#{$farbtyp}-ci-hell-kontrast: #{$colorcode};			
     }
     
      @each $variante, $colorcode  in $colormap-misc {	    
