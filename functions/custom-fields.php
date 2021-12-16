@@ -57,7 +57,7 @@ function fau_add_metabox_page() {
 	)
     );
     
-    
+
     add_meta_box(
         'fau_metabox_page_portalmenu',			
         esc_html__( 'Optionen für Portalseiten', 'fau' ),		
@@ -490,8 +490,9 @@ function fau_do_metabox_page_portalmenu($object, $box) {
 
     $nosub = get_post_meta($object->ID, 'fauval_portalmenu_nosub', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_nosub', $nosub, __('Unterpunkte verbergen.', 'fau'));
-    echo '</div>';
-}
+
+    
+    }
 
 /* Save the meta box's page metadata. */
 function fau_save_metabox_page_portalmenu($post_id, $post) {
