@@ -103,6 +103,7 @@
 
 .widget_search,
 .searchform-content {	
+  
 	.search-text {
 	    label {
 		@extend .screen-reader-text;
@@ -121,8 +122,7 @@
 
 		&:active,
 		&:target,
-		&:focus, 
-		&:hover {
+		&:focus {
 			background-color: var(--color-primary-ci-hell2);
 			color: var(--color-primary-ci-hell2-kontrast);
 		}
@@ -142,6 +142,7 @@
 		@include svg-icon-sizes(1.1rem);
 		background-image: svg-icon-search(#fff, 16, 16);
 		margin-right: -2rem;
+		margin-left: 1rem;
 	    }
 	}
 
@@ -206,14 +207,22 @@
 	}
 
 }
+.search-contenttry,
 .searchpage-content {
     form {
 	    border: none;
 	    
+	    @include border-radius(4px);
+	    margin: 1rem 0;
+	    padding: 1rem;
 	    .sidebar-single & {
 		padding: 20px 0;
 	    }
+	    &:hover {
+		box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1);
+	    }
 	}
+	
 }
 .widget_search {
 

@@ -229,6 +229,7 @@ Mixins File for Wordpress Theme FAU
     @include px2rem($font-size-textbuttons);
     @include buttoncolor;
     
+    border: none;
     padding: 0.5rem 0.7rem;
     text-decoration: none;
 

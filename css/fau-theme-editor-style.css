@@ -5098,6 +5098,7 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   line-height: 1.407rem;
   color: var(--color-button-text);
   background: var(--color-button-bg);
+  border: none;
   padding: 0.5rem 0.7rem;
   text-decoration: none;
 }
@@ -5120,6 +5121,7 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   line-height: 1.407rem;
   color: var(--color-button-text);
   background: var(--color-button-bg);
+  border: none;
   padding: 0.5rem 0.7rem;
   text-decoration: none;
   display: none;
@@ -5557,6 +5559,7 @@ ol li ul li {
   line-height: 1.407rem;
   color: var(--color-button-text);
   background: var(--color-button-bg);
+  border: none;
   padding: 0.5rem 0.7rem;
   text-decoration: none;
   border: 1px solid var(--color-ContentBorders);
@@ -5576,135 +5579,250 @@ ol li ul li {
 /*-----------------------------------------------------------------------------------*/
 /* Forms
 /*-----------------------------------------------------------------------------------*/
-textarea, input, select {
-  font-family: "Roboto", "FAU Chimera", sans-serif;
+input {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
-
-select,
-textarea,
-input[type=text],
-input[type=password],
-input[type=datetime],
-input[type=datetime-local],
-input[type=date],
-input[type=month],
-input[type=time],
-input[type=week],
-input[type=number],
-input[type=email],
-input[type=url],
-input[type=search],
-input[type=tel],
-input[type=color] {
-  width: 100%;
+input[type=reset], input[type=submit], input[type=button], input[type=radio], input[type=checkbox] {
+  cursor: pointer;
+}
+input[type=search] {
+  box-sizing: content-box;
+}
+input[type=text], input[type=password], input[type=datetime], input[type=datetime-local], input[type=date], input[type=month], input[type=time], input[type=week], input[type=number], input[type=email], input[type=url], input[type=search], input[type=tel], input[type=color] {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--color-Text);
+  border-radius: 4px;
+  border: 1px solid var(--color-ContentBorders);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border linear 0.2s, box-shadow linear 0.2s;
   padding: 5px 10px;
   font-size: 1rem;
   line-height: 1.5rem;
   height: auto;
 }
-
-input[type=datetime],
-input[type=datetime-local],
-input[type=date],
-input[type=month],
-input[type=time],
-input[type=week],
-input[type=number] {
-  width: 10em;
+input[type=radio], input[type=checkbox] {
+  margin: 0 0.5rem 0 0;
+  width: 1rem;
+  height: 1rem;
+}
+input[type=color] {
+  margin: 0 0.5rem 0 0;
+  padding: 0.1rem;
+  width: 4rem;
+  height: 1.5rem;
+}
+input[type=password], input[type=text] {
+  width: 25rem;
+  margin: 0 0 0.5rem 0;
+}
+input[type=datetime], input[type=datetime-local], input[type=date], input[type=month], input[type=time], input[type=week], input[type=number] {
+  width: 10rem;
+}
+input[type=file]:focus, input[type=radio]:focus, input[type=checkbox]:focus {
+  outline: thin dotted var(--color-ContentBorders);
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+input[type=text]:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.075);
+  border: 1px solid var(--color-ContentBorders);
+}
+input[readonly], input[disabled] {
+  cursor: not-allowed;
+  background-color: var(--color-ContentRegions);
+}
+input[type=radio][disabled], input[type=checkbox][disabled], input[type=radio][readonly], input[type=checkbox][readonly] {
+  background-color: transparent;
+}
+input[type=file] {
+  display: inline-block;
+  border-radius: 3px;
+  background-clip: padding-box;
+  font-size: 0.937rem;
+  line-height: 1.407rem;
+  color: var(--color-button-text);
+  background: var(--color-button-bg);
+  border: none;
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
+  border: 1px solid var(--color-ContentBorders);
+  background: transparent;
+  color: var(--color-Text);
+  margin: 0 0 1rem 0;
+}
+input[type=file]:hover, input[type=file]:focus {
+  color: var(--color-button-hover-text);
+  background: var(--color-button-hover-bg);
+}
+input[type=file]:hover, input[type=file]:focus {
+  text-decoration: none;
+}
+input[type=reset], input[type=submit] {
+  display: inline-block;
+  border-radius: 3px;
+  background-clip: padding-box;
+  font-size: 0.937rem;
+  line-height: 1.407rem;
+  color: var(--color-button-text);
+  background: var(--color-button-bg);
+  border: none;
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
+  margin: 0 1rem 1rem 0;
+}
+input[type=reset]:hover, input[type=reset]:focus, input[type=submit]:hover, input[type=submit]:focus {
+  color: var(--color-button-hover-text);
+  background: var(--color-button-hover-bg);
+}
+input[type=reset]:hover, input[type=reset]:focus, input[type=submit]:hover, input[type=submit]:focus {
+  text-decoration: none;
+}
+input:focus:invalid {
+  color: var(--color-Notice);
+  border-color: var(--color-Notice);
+}
+input:focus:invalid:focus {
+  border-color: var(--color-Notice);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.075);
+}
+input:-ms-input-placeholder {
+  color: var(--color-TextLight);
+}
+input::placeholder {
+  color: var(--color-TextLight);
 }
 
 textarea {
-  min-height: 100px;
-  width: 100%;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  display: inline-block;
+  color: var(--color-Text, #555555);
+  border-radius: 4px;
+  overflow: auto;
+  vertical-align: top;
+  border: 1px solid var(--color-ContentBorders);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  width: 25rem;
+  height: auto;
+  min-height: 3rem;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+}
+textarea[disabled], textarea[readonly] {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+}
+textarea:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.075);
+  border: 1px solid var(--color-primary-ci-hell);
+}
+textarea:focus:invalid {
+  color: var(--color-Notice);
+  border-color: var(--color-Notice);
+}
+textarea:focus:invalid:focus {
+  border-color: var(--color-Notice);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.075);
+}
+textarea:-ms-input-placeholder {
+  color: var(--color-TextLight);
+}
+textarea::placeholder {
+  color: var(--color-TextLight);
+}
+
+select {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: var(--color-Text);
+  background-color: var(--color-MainBackground);
+  width: 25rem;
+  height: auto;
+  margin: 0;
+  border: 1px solid var(--color-ContentBorders);
+  padding: 0.5rem 0.7rem;
+}
+select[multiple], select[size] {
+  height: auto;
+}
+select:focus {
+  outline: thin dotted var(--color-ContentBorders);
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+select[disabled], select[readonly] {
+  cursor: not-allowed;
+  background-color: var(--color-ContentRegions);
+}
+select:-ms-input-placeholder {
+  color: var(--color-TextLight);
+}
+select::placeholder {
+  color: var(--color-TextLight);
+}
+select:focus:invalid {
+  color: var(--color-Notice);
+  border-color: var(--color-Notice);
+}
+select:focus:invalid:focus {
+  border-color: var(--color-Notice);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.075);
 }
 
 form {
-  margin: 0;
+  margin: 1rem 0;
+  padding: 0;
   display: inline-block;
   border: none;
 }
-form legend {
-  margin: 0;
-  padding: 0 0 11px 0;
+
+fieldset {
+  padding: 0;
+  border: 0;
+  margin: 1rem 0;
+  border-radius: 4px;
+  background-clip: padding-box;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0 0 1rem 0;
+  font-weight: bold;
   font-size: 1.5rem;
   line-height: 2.25rem;
-  color: var(--color-primary-basis);
-  font-weight: bold;
-}
-main form {
-  max-width: 98%;
-  padding: 0;
-}
-@media (min-width: 768px) {
-  main form {
-    border: 1px solid var(--color-primary-ci-hell);
-    padding: 20px;
-  }
-}
-main form.noborder {
-  border: none;
-}
-main .content-inline.with-sidebar form {
-  display: block;
-  border: none;
 }
 
 label {
   padding-top: 5px;
-  margin-right: 20px;
-  display: inline-block;
-  min-width: 300px;
+  display: block;
   font-size: 1rem;
   line-height: 1.5rem;
 }
-
-input[type=text]:focus,
-textarea:focus {
-  box-shadow: 0 0 5px #04316A;
-  border: 1px solid #04316A;
+label textarea, label[type=password], label[type=text] {
+  display: block;
 }
 
-input[type=submit] {
+select + label,
+input + label {
   display: inline-block;
-  border: 3px solid var(--color-primary-basis);
-  height: 1.875rem;
-  line-height: 30px;
-  margin: 10px 0;
-  padding: 4px 18px;
-  box-sizing: content-box;
-  border-radius: 20px;
-  background-clip: padding-box;
-  background: var(--color-primary-basis);
-  color: var(--color-MainBackground);
-  font-weight: bold;
-  clear: left;
-}
-input[type=submit]:hover, input[type=submit]:focus {
-  background: var(--color-MainBackground);
-  color: var(--color-primary-basis);
-}
-input[type=submit]:active {
-  background: var(--color-primary-dunkelste);
 }
 
-input[type=radio] {
-  margin: -5px 10px 0 0;
-}
-
-fieldset {
-  margin: 10px 0;
-  border-radius: 4px;
-  background-clip: padding-box;
+label + br {
+  display: none;
 }
 
 /* Login/Passwords Form */
 .post-password-form label {
   float: none;
-  color: var(--color-primary-basis);
-}
-.post-password-form input[type=password] {
-  width: 220px;
-  margin-top: 5px;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -7147,6 +7265,39 @@ div.alignright {
   overflow: hidden;
   background-repeat: no-repeat;
   background-image: url("data:image/svg+xml,%3Csvg  xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 122.88 122.88' style='enable-background:new 0 0 122.88 122.88' xml:space='preserve'%3E%3Cstyle type='text/css'%3E.st0%7Bfill-rule:evenodd;clip-rule:evenodd;%7D%3C/style%3E%3Cg%3E%3Cpath class='st0' fill='%23FF4141'  d='M1.63,97.99l36.55-36.55L1.63,24.89c-2.17-2.17-2.17-5.73,0-7.9L16.99,1.63c2.17-2.17,5.73-2.17,7.9,0 l36.55,36.55L97.99,1.63c2.17-2.17,5.73-2.17,7.9,0l15.36,15.36c2.17,2.17,2.17,5.73,0,7.9L84.7,61.44l36.55,36.55 c2.17,2.17,2.17,5.73,0,7.9l-15.36,15.36c-2.17,2.17-5.73,2.17-7.9,0L61.44,84.7l-36.55,36.55c-2.17,2.17-5.73,2.17-7.9,0 L1.63,105.89C-0.54,103.72-0.54,100.16,1.63,97.99L1.63,97.99z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Buttons
+/*-----------------------------------------------------------------------------------*/
+button,
+input[type=button],
+[role=button] {
+  display: inline-block;
+  border-radius: 3px;
+  background-clip: padding-box;
+  font-size: 0.937rem;
+  line-height: 1.407rem;
+  color: var(--color-button-text);
+  background: var(--color-button-bg);
+  border: none;
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
+}
+button:hover, button:focus,
+input[type=button]:hover,
+input[type=button]:focus,
+[role=button]:hover,
+[role=button]:focus {
+  color: var(--color-button-hover-text);
+  background: var(--color-button-hover-bg);
+}
+button:hover, button:focus,
+input[type=button]:hover,
+input[type=button]:focus,
+[role=button]:hover,
+[role=button]:focus {
+  text-decoration: none;
 }
 
 /*-----------------------------------------------------------------------------------*/
