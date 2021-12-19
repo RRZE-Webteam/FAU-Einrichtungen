@@ -4,12 +4,6 @@
 
 a {
 	color: var(--color-links);
-	
-	main &,
-	aside & {
-	    color: var(--color-content-links);
-	}
-	
 	text-decoration: none;
 
 	&:active,
@@ -35,8 +29,7 @@ a {
 	    
 	}
 
-	
-	
+
 	table &:hover, 
 	table &:focus,
 	&.tag-cloud-link,
@@ -101,19 +94,37 @@ a {
 }
 
 // Additional link effects for Content
+
+main,
 .entry-content,
 .portalpage-content,
 .content-inline {
-    p {
-	a{
-	    @include styledcontentlink();
-	    
-	    img {
-		@include defaultlinkstyle();
-	    }
-	}
 
+    a{
+        @include styledcontentlink();
+
+        &.news-image,
+        svg,
+        img {
+            @include defaultlinkstyle();
+        }
+        
     }
+    
+    h1, h2, h3, h4, h5, h6 {
+        a {
+             @include defaultlinkstyle();
+             text-decoration: none;
+
+            &:active,
+            &:hover, 
+            &:focus {
+                    text-decoration: underline;
+            }
+        }
+    }
+   
+
     a.media-img {
 	display: inline-block;
 	overflow: hidden;
