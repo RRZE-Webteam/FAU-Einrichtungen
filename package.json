@@ -1,7 +1,7 @@
 {
   "name": "FAU-Einrichtungen",
   "textdomain": "fau",
-  "version": "2.0.3-17",
+  "version": "2.0.3-19",
   "keywords": [
     "WordPress",
     "Theme",
@@ -89,7 +89,7 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/register": "^7.12.10",
     "autoprefixer": "^10.2.3",
-    "cssnano": "^4.1.10",
+    "cssnano": "^5.0.13",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-bump": "^3.2.0",

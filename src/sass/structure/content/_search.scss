@@ -125,9 +125,17 @@
 		&:focus {
 			background-color: var(--color-primary-ci-hell2);
 			color: var(--color-primary-ci-hell2-kontrast);
+                        
+                       
 		}
+                &:focus::placeholder {
+                    color: var(--color-primary-ci-hell2-kontrast);
+                }
 	    }
-
+            input[type="text"]::placeholder {
+                color: var(--color-primary-ci-hell-kontrast);
+            }
+            
 	    input[type="submit"] {
 		@include border-radius(20px);
 		@include px2rem($font-size-herosearch);
@@ -227,9 +235,17 @@
 .widget_search {
 
     .search-text {
-	margin: 0 5px 0 20px;
-        input[type="text"], input[type="submit"] {
+        input[type="text"], 
+        input[type="submit"] {
 	    @include px2rem($font-size-sidebar);
+	}
+        
+        input[type="text"] {
+            width: 15rem;
+            padding-right: 5rem;
+        }
+         input[type="submit"] {
+	   margin:0 0 0 -4rem;
 	}
     }
 }
