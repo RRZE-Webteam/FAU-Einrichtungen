@@ -710,11 +710,15 @@ function fau_custom_excerpt(
     if (mb_strlen(trim($excerpt)) < 5) {
         $excerpt = get_post_field('post_content', $id);
     }
-
-    $excerpt = preg_replace('/\s+(https?:\/\/www\.youtube[\/a-z0-9\.\-\?&;=_]+)/i', '', $excerpt);
     $excerpt = strip_shortcodes($excerpt);
+	// removes most shortcodes
+    $excerpt = preg_replace('#\[[^\]]+\]#', '',$excerpt);
+	// in case strip_shortcodes doenst remove all	    
+    $excerpt = preg_replace('/\s+(https?:\/\/www\.youtube[\/a-z0-9\.\-\?&;=_]+)/i', '', $excerpt);
+	// remove YT embeds
     $excerpt = strip_tags($excerpt, get_theme_mod('custom_excerpt_allowtags'));
-
+	// remove most tags, but not those who are allowed
+    
     if (mb_strlen($excerpt) < 5) {
         $excerpt = '<!-- '.__('Kein Inhalt', 'fau').' -->';
     }
