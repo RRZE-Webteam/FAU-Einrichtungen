@@ -111,7 +111,7 @@
   --color-MetaBackgroundLight: #eff1f4;
   --color-FAU: #04316A;
   --color-content-headlines: #444;
-  --color-links: #04316A;
+  --color-links: #444;
   --color-content-links: #444;
   --color-content-links-underline: #04316A;
   --color-content-links-hover: #fff;
@@ -1835,14 +1835,14 @@ html {
   font-weight: normal;
   font-style: normal;
 }
-.fa, .sorttable th::after, ul.social li.social-iconbyurl a::before, ul.social li.social-wikipedia a:before, ul.social li.social-itunes a:before, ul.social li.social-youtube a:before, ul.social li.social-vimeo a:before, ul.social li.social-feed a:before, ul.social li.social-flickr a:before, ul.social li.social-delicious a:before, ul.social li.social-tumblr a:before, ul.social li.social-skype a:before, ul.social li.social-github a:before, ul.social li.social-xing a:before, ul.social li.social-twitter a:before, ul.social li.social-facebook a:before, ul.social li.social-instagram a:before, ul.social li.social-pinterest a:before, ul.social li.social-diaspora a:before, .news-more-links .news-rss:before {
+.fa, .sorttable th::after, ul.social li.social-iconbyurl a::before, ul.social li.social-wikipedia a:before, ul.social li.social-itunes a:before, ul.social li.social-youtube a:before, ul.social li.social-vimeo a:before, ul.social li.social-feed a:before, ul.social li.social-flickr a:before, ul.social li.social-delicious a:before, ul.social li.social-tumblr a:before, ul.social li.social-skype a:before, ul.social li.social-github a:before, ul.social li.social-xing a:before, ul.social li.social-twitter a:before, ul.social li.social-facebook a:before, ul.social li.social-instagram a:before, ul.social li.social-pinterest a:before, ul.social li.social-diaspora a:before {
   display: inline-block;
   font: normal normal normal 16px/1.5 FontAwesome;
   font-size: inherit;
 }
 
 /* makes the font 33% larger relative to the icon container */
-.fa-lg, .news-more-links .news-rss:before {
+.fa-lg {
   font-size: 1.33333em;
   line-height: 0.75em;
   vertical-align: -15%;
@@ -1887,7 +1887,7 @@ html {
   text-align: center;
 }
 
-.fa-li.fa-lg, .news-more-links .fa-li.news-rss:before {
+.fa-li.fa-lg {
   left: -1.85714em;
 }
 
@@ -1905,19 +1905,19 @@ html {
   float: right;
 }
 
-.fa.fa-pull-left, .sorttable th.fa-pull-left::after, ul.social li.social-iconbyurl a.fa-pull-left::before, ul.social li.social-wikipedia a.fa-pull-left:before, ul.social li.social-itunes a.fa-pull-left:before, ul.social li.social-youtube a.fa-pull-left:before, ul.social li.social-vimeo a.fa-pull-left:before, ul.social li.social-feed a.fa-pull-left:before, ul.social li.social-flickr a.fa-pull-left:before, ul.social li.social-delicious a.fa-pull-left:before, ul.social li.social-tumblr a.fa-pull-left:before, ul.social li.social-skype a.fa-pull-left:before, ul.social li.social-github a.fa-pull-left:before, ul.social li.social-xing a.fa-pull-left:before, ul.social li.social-twitter a.fa-pull-left:before, ul.social li.social-facebook a.fa-pull-left:before, ul.social li.social-instagram a.fa-pull-left:before, ul.social li.social-pinterest a.fa-pull-left:before, ul.social li.social-diaspora a.fa-pull-left:before, .news-more-links .fa-pull-left.news-rss:before {
+.fa.fa-pull-left, .sorttable th.fa-pull-left::after, ul.social li.social-iconbyurl a.fa-pull-left::before, ul.social li.social-wikipedia a.fa-pull-left:before, ul.social li.social-itunes a.fa-pull-left:before, ul.social li.social-youtube a.fa-pull-left:before, ul.social li.social-vimeo a.fa-pull-left:before, ul.social li.social-feed a.fa-pull-left:before, ul.social li.social-flickr a.fa-pull-left:before, ul.social li.social-delicious a.fa-pull-left:before, ul.social li.social-tumblr a.fa-pull-left:before, ul.social li.social-skype a.fa-pull-left:before, ul.social li.social-github a.fa-pull-left:before, ul.social li.social-xing a.fa-pull-left:before, ul.social li.social-twitter a.fa-pull-left:before, ul.social li.social-facebook a.fa-pull-left:before, ul.social li.social-instagram a.fa-pull-left:before, ul.social li.social-pinterest a.fa-pull-left:before, ul.social li.social-diaspora a.fa-pull-left:before {
   margin-right: 0.3em;
 }
 
-.fa.fa-pull-right, .sorttable th.fa-pull-right::after, ul.social li.social-iconbyurl a.fa-pull-right::before, ul.social li.social-wikipedia a.fa-pull-right:before, ul.social li.social-itunes a.fa-pull-right:before, ul.social li.social-youtube a.fa-pull-right:before, ul.social li.social-vimeo a.fa-pull-right:before, ul.social li.social-feed a.fa-pull-right:before, ul.social li.social-flickr a.fa-pull-right:before, ul.social li.social-delicious a.fa-pull-right:before, ul.social li.social-tumblr a.fa-pull-right:before, ul.social li.social-skype a.fa-pull-right:before, ul.social li.social-github a.fa-pull-right:before, ul.social li.social-xing a.fa-pull-right:before, ul.social li.social-twitter a.fa-pull-right:before, ul.social li.social-facebook a.fa-pull-right:before, ul.social li.social-instagram a.fa-pull-right:before, ul.social li.social-pinterest a.fa-pull-right:before, ul.social li.social-diaspora a.fa-pull-right:before, .news-more-links .fa-pull-right.news-rss:before {
+.fa.fa-pull-right, .sorttable th.fa-pull-right::after, ul.social li.social-iconbyurl a.fa-pull-right::before, ul.social li.social-wikipedia a.fa-pull-right:before, ul.social li.social-itunes a.fa-pull-right:before, ul.social li.social-youtube a.fa-pull-right:before, ul.social li.social-vimeo a.fa-pull-right:before, ul.social li.social-feed a.fa-pull-right:before, ul.social li.social-flickr a.fa-pull-right:before, ul.social li.social-delicious a.fa-pull-right:before, ul.social li.social-tumblr a.fa-pull-right:before, ul.social li.social-skype a.fa-pull-right:before, ul.social li.social-github a.fa-pull-right:before, ul.social li.social-xing a.fa-pull-right:before, ul.social li.social-twitter a.fa-pull-right:before, ul.social li.social-facebook a.fa-pull-right:before, ul.social li.social-instagram a.fa-pull-right:before, ul.social li.social-pinterest a.fa-pull-right:before, ul.social li.social-diaspora a.fa-pull-right:before {
   margin-left: 0.3em;
 }
 
-.fa.pull-left, .sorttable th.pull-left::after, ul.social li.social-iconbyurl a.pull-left::before, ul.social li.social-wikipedia a.pull-left:before, ul.social li.social-itunes a.pull-left:before, ul.social li.social-youtube a.pull-left:before, ul.social li.social-vimeo a.pull-left:before, ul.social li.social-feed a.pull-left:before, ul.social li.social-flickr a.pull-left:before, ul.social li.social-delicious a.pull-left:before, ul.social li.social-tumblr a.pull-left:before, ul.social li.social-skype a.pull-left:before, ul.social li.social-github a.pull-left:before, ul.social li.social-xing a.pull-left:before, ul.social li.social-twitter a.pull-left:before, ul.social li.social-facebook a.pull-left:before, ul.social li.social-instagram a.pull-left:before, ul.social li.social-pinterest a.pull-left:before, ul.social li.social-diaspora a.pull-left:before, .news-more-links .pull-left.news-rss:before {
+.fa.pull-left, .sorttable th.pull-left::after, ul.social li.social-iconbyurl a.pull-left::before, ul.social li.social-wikipedia a.pull-left:before, ul.social li.social-itunes a.pull-left:before, ul.social li.social-youtube a.pull-left:before, ul.social li.social-vimeo a.pull-left:before, ul.social li.social-feed a.pull-left:before, ul.social li.social-flickr a.pull-left:before, ul.social li.social-delicious a.pull-left:before, ul.social li.social-tumblr a.pull-left:before, ul.social li.social-skype a.pull-left:before, ul.social li.social-github a.pull-left:before, ul.social li.social-xing a.pull-left:before, ul.social li.social-twitter a.pull-left:before, ul.social li.social-facebook a.pull-left:before, ul.social li.social-instagram a.pull-left:before, ul.social li.social-pinterest a.pull-left:before, ul.social li.social-diaspora a.pull-left:before {
   margin-right: 0.3em;
 }
 
-.fa.pull-right, .sorttable th.pull-right::after, ul.social li.social-iconbyurl a.pull-right::before, ul.social li.social-wikipedia a.pull-right:before, ul.social li.social-itunes a.pull-right:before, ul.social li.social-youtube a.pull-right:before, ul.social li.social-vimeo a.pull-right:before, ul.social li.social-feed a.pull-right:before, ul.social li.social-flickr a.pull-right:before, ul.social li.social-delicious a.pull-right:before, ul.social li.social-tumblr a.pull-right:before, ul.social li.social-skype a.pull-right:before, ul.social li.social-github a.pull-right:before, ul.social li.social-xing a.pull-right:before, ul.social li.social-twitter a.pull-right:before, ul.social li.social-facebook a.pull-right:before, ul.social li.social-instagram a.pull-right:before, ul.social li.social-pinterest a.pull-right:before, ul.social li.social-diaspora a.pull-right:before, .news-more-links .pull-right.news-rss:before {
+.fa.pull-right, .sorttable th.pull-right::after, ul.social li.social-iconbyurl a.pull-right::before, ul.social li.social-wikipedia a.pull-right:before, ul.social li.social-itunes a.pull-right:before, ul.social li.social-youtube a.pull-right:before, ul.social li.social-vimeo a.pull-right:before, ul.social li.social-feed a.pull-right:before, ul.social li.social-flickr a.pull-right:before, ul.social li.social-delicious a.pull-right:before, ul.social li.social-tumblr a.pull-right:before, ul.social li.social-skype a.pull-right:before, ul.social li.social-github a.pull-right:before, ul.social li.social-xing a.pull-right:before, ul.social li.social-twitter a.pull-right:before, ul.social li.social-facebook a.pull-right:before, ul.social li.social-instagram a.pull-right:before, ul.social li.social-pinterest a.pull-right:before, ul.social li.social-diaspora a.pull-right:before {
   margin-left: 0.3em;
 }
 
@@ -3148,7 +3148,7 @@ html {
   content: "\f142";
 }
 
-.fa-rss-square:before, ul.social li.social-feed a:before, .news-more-links .news-rss:before {
+.fa-rss-square:before, ul.social li.social-feed a:before {
   content: "\f143";
 }
 
@@ -5050,9 +5050,6 @@ a {
   color: var(--color-links);
   text-decoration: none;
 }
-main a, aside a {
-  color: var(--color-content-links);
-}
 a:active, a:hover, a:focus {
   text-decoration: underline;
 }
@@ -5079,37 +5076,6 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   background-image: none !important;
 }
 
-.news-more-links {
-  padding: 20px 0;
-  text-align: left;
-}
-.news-more-links a {
-  display: inline-block;
-  margin-right: 15px;
-}
-.news-more-links .news-rss:before {
-  padding-right: 5px;
-}
-.news-more-links .news-more {
-  display: inline-block;
-  border-radius: 3px;
-  background-clip: padding-box;
-  font-size: 0.937rem;
-  line-height: 1.407rem;
-  color: var(--color-button-text);
-  background: var(--color-button-bg);
-  border: none;
-  padding: 0.5rem 0.7rem;
-  text-decoration: none;
-}
-.news-more-links .news-more:hover, .news-more-links .news-more:focus {
-  color: var(--color-button-hover-text);
-  background: var(--color-button-hover-bg);
-}
-.news-more-links .news-more:hover, .news-more-links .news-more:focus {
-  text-decoration: none;
-}
-
 .top-link {
   position: fixed;
   bottom: 20px;
@@ -5134,9 +5100,10 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   text-decoration: none;
 }
 
-.entry-content p a,
-.portalpage-content p a,
-.content-inline p a {
+main a,
+.entry-content a,
+.portalpage-content a,
+.content-inline a {
   cursor: pointer;
   word-wrap: break-word;
   color: var(--color-content-links);
@@ -5145,51 +5112,207 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   text-decoration: none;
   padding: 3px 1px;
 }
-.entry-content p a:focus, .entry-content p a:hover,
-.portalpage-content p a:focus,
-.portalpage-content p a:hover,
-.content-inline p a:focus,
-.content-inline p a:hover {
+main a:focus, main a:hover,
+.entry-content a:focus,
+.entry-content a:hover,
+.portalpage-content a:focus,
+.portalpage-content a:hover,
+.content-inline a:focus,
+.content-inline a:hover {
   text-decoration: none;
   color: var(--color-content-links-hover);
   box-shadow: inset 0 -28px 0 var(--color-content-links-underline);
 }
-.entry-content p a img,
-.portalpage-content p a img,
-.content-inline p a img {
+main a.news-image,
+main a svg,
+main a img,
+.entry-content a.news-image,
+.entry-content a svg,
+.entry-content a img,
+.portalpage-content a.news-image,
+.portalpage-content a svg,
+.portalpage-content a img,
+.content-inline a.news-image,
+.content-inline a svg,
+.content-inline a img {
   box-shadow: inherit;
   transition: inherit;
   padding: inherit;
   text-decoration: underline;
 }
-.entry-content p a img:hover, .entry-content p a img:focus,
-.portalpage-content p a img:hover,
-.portalpage-content p a img:focus,
-.content-inline p a img:hover,
-.content-inline p a img:focus {
-  font-weight: bold;
+main a.news-image:hover, main a.news-image:focus,
+main a svg:hover,
+main a svg:focus,
+main a img:hover,
+main a img:focus,
+.entry-content a.news-image:hover,
+.entry-content a.news-image:focus,
+.entry-content a svg:hover,
+.entry-content a svg:focus,
+.entry-content a img:hover,
+.entry-content a img:focus,
+.portalpage-content a.news-image:hover,
+.portalpage-content a.news-image:focus,
+.portalpage-content a svg:hover,
+.portalpage-content a svg:focus,
+.portalpage-content a img:hover,
+.portalpage-content a img:focus,
+.content-inline a.news-image:hover,
+.content-inline a.news-image:focus,
+.content-inline a svg:hover,
+.content-inline a svg:focus,
+.content-inline a img:hover,
+.content-inline a img:focus {
   color: inherit;
   box-shadow: inherit;
   text-decoration: underline;
 }
+main h1 a, main h2 a, main h3 a, main h4 a, main h5 a, main h6 a,
+.entry-content h1 a,
+.entry-content h2 a,
+.entry-content h3 a,
+.entry-content h4 a,
+.entry-content h5 a,
+.entry-content h6 a,
+.portalpage-content h1 a,
+.portalpage-content h2 a,
+.portalpage-content h3 a,
+.portalpage-content h4 a,
+.portalpage-content h5 a,
+.portalpage-content h6 a,
+.content-inline h1 a,
+.content-inline h2 a,
+.content-inline h3 a,
+.content-inline h4 a,
+.content-inline h5 a,
+.content-inline h6 a {
+  box-shadow: inherit;
+  transition: inherit;
+  padding: inherit;
+  text-decoration: underline;
+  text-decoration: none;
+}
+main h1 a:hover, main h1 a:focus, main h2 a:hover, main h2 a:focus, main h3 a:hover, main h3 a:focus, main h4 a:hover, main h4 a:focus, main h5 a:hover, main h5 a:focus, main h6 a:hover, main h6 a:focus,
+.entry-content h1 a:hover,
+.entry-content h1 a:focus,
+.entry-content h2 a:hover,
+.entry-content h2 a:focus,
+.entry-content h3 a:hover,
+.entry-content h3 a:focus,
+.entry-content h4 a:hover,
+.entry-content h4 a:focus,
+.entry-content h5 a:hover,
+.entry-content h5 a:focus,
+.entry-content h6 a:hover,
+.entry-content h6 a:focus,
+.portalpage-content h1 a:hover,
+.portalpage-content h1 a:focus,
+.portalpage-content h2 a:hover,
+.portalpage-content h2 a:focus,
+.portalpage-content h3 a:hover,
+.portalpage-content h3 a:focus,
+.portalpage-content h4 a:hover,
+.portalpage-content h4 a:focus,
+.portalpage-content h5 a:hover,
+.portalpage-content h5 a:focus,
+.portalpage-content h6 a:hover,
+.portalpage-content h6 a:focus,
+.content-inline h1 a:hover,
+.content-inline h1 a:focus,
+.content-inline h2 a:hover,
+.content-inline h2 a:focus,
+.content-inline h3 a:hover,
+.content-inline h3 a:focus,
+.content-inline h4 a:hover,
+.content-inline h4 a:focus,
+.content-inline h5 a:hover,
+.content-inline h5 a:focus,
+.content-inline h6 a:hover,
+.content-inline h6 a:focus {
+  color: inherit;
+  box-shadow: inherit;
+  text-decoration: underline;
+}
+main h1 a:active, main h1 a:hover, main h1 a:focus, main h2 a:active, main h2 a:hover, main h2 a:focus, main h3 a:active, main h3 a:hover, main h3 a:focus, main h4 a:active, main h4 a:hover, main h4 a:focus, main h5 a:active, main h5 a:hover, main h5 a:focus, main h6 a:active, main h6 a:hover, main h6 a:focus,
+.entry-content h1 a:active,
+.entry-content h1 a:hover,
+.entry-content h1 a:focus,
+.entry-content h2 a:active,
+.entry-content h2 a:hover,
+.entry-content h2 a:focus,
+.entry-content h3 a:active,
+.entry-content h3 a:hover,
+.entry-content h3 a:focus,
+.entry-content h4 a:active,
+.entry-content h4 a:hover,
+.entry-content h4 a:focus,
+.entry-content h5 a:active,
+.entry-content h5 a:hover,
+.entry-content h5 a:focus,
+.entry-content h6 a:active,
+.entry-content h6 a:hover,
+.entry-content h6 a:focus,
+.portalpage-content h1 a:active,
+.portalpage-content h1 a:hover,
+.portalpage-content h1 a:focus,
+.portalpage-content h2 a:active,
+.portalpage-content h2 a:hover,
+.portalpage-content h2 a:focus,
+.portalpage-content h3 a:active,
+.portalpage-content h3 a:hover,
+.portalpage-content h3 a:focus,
+.portalpage-content h4 a:active,
+.portalpage-content h4 a:hover,
+.portalpage-content h4 a:focus,
+.portalpage-content h5 a:active,
+.portalpage-content h5 a:hover,
+.portalpage-content h5 a:focus,
+.portalpage-content h6 a:active,
+.portalpage-content h6 a:hover,
+.portalpage-content h6 a:focus,
+.content-inline h1 a:active,
+.content-inline h1 a:hover,
+.content-inline h1 a:focus,
+.content-inline h2 a:active,
+.content-inline h2 a:hover,
+.content-inline h2 a:focus,
+.content-inline h3 a:active,
+.content-inline h3 a:hover,
+.content-inline h3 a:focus,
+.content-inline h4 a:active,
+.content-inline h4 a:hover,
+.content-inline h4 a:focus,
+.content-inline h5 a:active,
+.content-inline h5 a:hover,
+.content-inline h5 a:focus,
+.content-inline h6 a:active,
+.content-inline h6 a:hover,
+.content-inline h6 a:focus {
+  text-decoration: underline;
+}
+main a.media-img,
 .entry-content a.media-img,
 .portalpage-content a.media-img,
 .content-inline a.media-img {
   display: inline-block;
   overflow: hidden;
 }
+main a.media-img img,
 .entry-content a.media-img img,
 .portalpage-content a.media-img img,
 .content-inline a.media-img img {
   object-fit: cover;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .entry-content a.media-img img,
+  main a.media-img img,
+.entry-content a.media-img img,
 .portalpage-content a.media-img img,
 .content-inline a.media-img img {
     transition: transform 1s;
   }
 }
+main a.media-img:hover img,
+main a.media-img:focus img,
 .entry-content a.media-img:hover img,
 .entry-content a.media-img:focus img,
 .portalpage-content a.media-img:hover img,
@@ -5198,6 +5321,7 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
 .content-inline a.media-img:focus img {
   transform: scale(1.1);
 }
+main a.media-img.alignleft,
 .entry-content a.media-img.alignleft,
 .portalpage-content a.media-img.alignleft,
 .content-inline a.media-img.alignleft {
@@ -5206,12 +5330,14 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   margin-right: 20px;
   margin-bottom: 20px;
 }
+main a.media-img.alignleft img,
 .entry-content a.media-img.alignleft img,
 .portalpage-content a.media-img.alignleft img,
 .content-inline a.media-img.alignleft img {
   float: none;
   margin: 0;
 }
+main a.media-img.alignright,
 .entry-content a.media-img.alignright,
 .portalpage-content a.media-img.alignright,
 .content-inline a.media-img.alignright {
@@ -5220,18 +5346,21 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   margin-left: 20px;
   margin-bottom: 20px;
 }
+main a.media-img.alignright img,
 .entry-content a.media-img.alignright img,
 .portalpage-content a.media-img.alignright img,
 .content-inline a.media-img.alignright img {
   float: none;
   margin: 0;
 }
+main a.media-img.aligncenter,
 .entry-content a.media-img.aligncenter,
 .portalpage-content a.media-img.aligncenter,
 .content-inline a.media-img.aligncenter {
   display: block;
   margin: 0 auto 10px auto;
 }
+main a.media-img.aligncenter img,
 .entry-content a.media-img.aligncenter img,
 .portalpage-content a.media-img.aligncenter img,
 .content-inline a.media-img.aligncenter img {
@@ -5523,7 +5652,6 @@ ol li ul li {
   line-height: 1.313rem;
 }
 .pagination.pagebreaks .subpages a:hover, .pagination.pagebreaks .subpages a:focus {
-  font-weight: bold;
   color: inherit;
   box-shadow: inherit;
   text-decoration: underline;

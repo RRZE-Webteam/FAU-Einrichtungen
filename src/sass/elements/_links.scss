@@ -57,26 +57,6 @@ a {
 
 
 
-.news-more-links {
-	padding: 20px 0;
-	text-align: left;
-	
-	a {
-		@include inline-block;
-		margin-right: 15px;
-	}
-
-	.news-rss:before {
-		@extend .fa;
-		@extend .fa-lg;
-		@extend .fa-rss-square;
-		padding-right: 5px;
-	}
-	
-	.news-more {
-	    @include buttonstyle();
-	}
-}
 
 
 

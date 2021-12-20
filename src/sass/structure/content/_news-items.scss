@@ -57,15 +57,9 @@
 	    @include box-shadow(none);
              width: 100%;
              height: auto;
-	     
-             @media (min-width: $screen-xs) {
-		 max-height: 147px;
-		 width: auto;
-	    }
-	     
 	}
 	svg {
-	   padding: 17px;
+	   padding: 0 17px;
 	    
 	}
 	
@@ -123,16 +117,14 @@
 		}
 	}
 	
-}
-
-.news-item {
     .teaser-row {
 	display: flex;
 	align-items: flex-start;
 	flex-wrap: wrap;
-	
+
 	@media (min-width: $screen-xs) {
 	    flex-wrap: nowrap;
+	    column-gap: $fau-gutter-width;
 	}
 	.thumbnailregion {
 	    width: 100vw;
@@ -167,12 +159,28 @@
 	    width: 100vw;
 	    
 	    @media (min-width: $screen-xs ) {
-		width: auto;
 		p {
 		    display: inline;
 		}
 	    }
-	   
+	    .continue {
+		margin-top: 0.5rem;
+		text-align: right;
+		
+		.read-more-link {
+		    @include defaultlinkstyle();
+		    @include ghostbutton();
+		    &:after {
+			 @include svg-icon-place();
+			 background-image: svg-angle-right($color-content-links);
+		    }
+		    &:focus:after,
+		    &:hover:after {
+			background-image: svg-angle-right($color-button-hover-text);
+			
+		    }
+		}
+	    }
 	}
 	
 	.fullwidthregion {
@@ -183,7 +191,42 @@
 
 
 
+.news-more-links {
+	padding: 20px 0;
+	text-align: left;
+	
+	a {
+		@include inline-block;
+		@include defaultlinkstyle();
+		margin-right: 15px;
+	}
 
+	.news-rss {
+	    @include ghostbutton();
+	}
+	.news-rss:before {
+	    @include svg-icon-place();
+	    margin-right: 0.5rem;
+	    background-image: svg-icon-rss($color-content-links);
+	}
+	.news-rss:focus:before,
+	.news-rss:hover:before {
+	    background-image: svg-icon-rss($color-button-hover-text);
+	}
+	
+	
+	.news-more {
+	    @include buttonstyle();
+	}
+}
+
+/*
+
+$color_button_text:	map-get($colormap-primary, "dunkler-kontrast");
+$color_button_bg:	map-get($colormap-primary, "dunkler");
+$color-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
+$color-button-hover-bg:	map-get($colormap-primary, "dunkelste");
+*/
 
 .news-meta-categories {
 	@include inline-block;

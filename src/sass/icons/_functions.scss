@@ -46,3 +46,14 @@
     line-height:$icon-size;
     font-size: calc(#{$icon-size} / 1.5);
 }
+@mixin svg-icon-place($icon-size: $svg-icon-size) {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    content: ' ';
+    @include svg-icon-sizes($icon-size);
+    background-image: inherit;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center center;
+}

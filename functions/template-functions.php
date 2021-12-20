@@ -552,7 +552,8 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
     if ($id == 0) {
         return;
     }
-
+    
+    
     $post   = get_post($id);
     $output = '';
     if ($post) {
@@ -670,8 +671,13 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
             $abstract = fau_custom_excerpt($post->ID, get_theme_mod('default_anleser_excerpt_length'), false, '', true);
         }
         $output .= $abstract;
-        $output .= fau_create_readmore($link, get_the_title($post->ID), $external, true);
-        $output .= '</p>';
+	$output .= '</p>';
+	$display_continue_link = get_theme_mod('default_display_continue_link');
+	if ($display_continue_link) {
+	    $output .= '<div class="continue">';
+	    $output .= fau_create_readmore($link, get_the_title($post->ID), $external, true);
+	    $output .= '</div>';
+	}
         $output .= '</div>';
         $output .= "</div>";
         if (!$external) {
@@ -693,8 +699,7 @@ function fau_custom_excerpt(
     $class = '',
     $withmore = false,
     $morestr = '',
-    $continuenextline = false
-) {
+    $continuenextline = false) {
     if ($length == 0) {
         $length = get_theme_mod('default_excerpt_length');
     }
@@ -785,8 +790,7 @@ function fau_create_schema_publisher($withrahmen = true)
 /*-----------------------------------------------------------------------------------*/
 /*  Weiterlesen-Link einheitlich gestalten fuer verschiedene Ausgaben
 /*-----------------------------------------------------------------------------------*/
-function fau_create_readmore($url, $linktitle = '', $external = false, $ariahide = true)
-{
+function fau_create_readmore($url, $linktitle = '', $external = false, $ariahide = true) {
     $output = '';
     if (isset($url)) {
 
@@ -796,16 +800,18 @@ function fau_create_readmore($url, $linktitle = '', $external = false, $ariahide
         if ($ariahide) {
             $output .= ' aria-hidden="true" tabindex="-1"';
         }
+	$class = 'read-more-link';
         if ($external) {
-            $output .= ' class="ext-link"';
+            $class .= ' ext-link';
         }
+	
+	$output .= ' class="'.$class.'"';
         $output .= ' href="'.$link.'"';
         if (!empty($linktitle)) {
             $output .= ' title="'.$linktitle.'"';
         }
         $output .= '>';
-        $output .= '<span class="read-more-arrow">&nbsp;</span>';
-        $output .= '<span class="screen-reader-text">'.__('Weiterlesen', 'fau').'</span>';
+        $output .= __('Weiterlesen', 'fau');
         $output .= '</a>';
     }
 
@@ -849,8 +855,7 @@ function fau_array2table($array, $table = true)
 /*-----------------------------------------------------------------------------------*/
 /* Get Image Attributs / Extends https://codex.wordpress.org/Function_Reference/wp_get_attachment_metadata
 /*-----------------------------------------------------------------------------------*/
-function fau_get_image_attributs($id = 0)
-{
+function fau_get_image_attributs($id = 0) {
     $precopyright = ''; // __('Bild:','fau').' ';
     if ($id == 0) {
         return;
@@ -958,8 +963,8 @@ function fau_get_image_attributs($id = 0)
 /*-----------------------------------------------------------------------------------*/
 /* Get category links for front page
 /*-----------------------------------------------------------------------------------*/
-function fau_get_category_links($cateid = 0)
-{
+function fau_get_category_links($cateid = 0) {
+    global $defaultoptions;
 
     if ($cateid == 0) {
         $cateid = get_theme_mod('start_link_news_cat');
@@ -974,8 +979,12 @@ function fau_get_category_links($cateid = 0)
     }
     $res = '';
     if (!fau_empty($link)) {
+	$linktitle = get_theme_mod('start_link_news_linktitle');
+	if (fau_empty($linktitle)) {
+	    $linktitle = $defaultoptions['start_link_news_linktitle'];
+	}
         $res .= '<div class="news-more-links">'."\n";
-        $res .= "\t".'<a class="news-more" href="'.$link.'">'.get_theme_mod('start_link_news_linktitle').'</a>';
+        $res .= "\t".'<a class="news-more" href="'.$link.'">'.$linktitle.'</a>';
         $res .= '<a class="news-rss" href="'.get_category_feed_link($cateid).'">'.__('RSS', 'fau').'</a>';
         $res .= "</div>\n";
     }
@@ -987,8 +996,7 @@ function fau_get_category_links($cateid = 0)
 /*-----------------------------------------------------------------------------------*/
 /* Default Linklisten
 /*-----------------------------------------------------------------------------------*/
-function fau_get_defaultlinks($list = 'faculty', $ulclass = '', $ulid = '')
-{
+function fau_get_defaultlinks($list = 'faculty', $ulclass = '', $ulid = ''){
     global $default_link_liste;
 
     if (is_array($default_link_liste[$list])) {

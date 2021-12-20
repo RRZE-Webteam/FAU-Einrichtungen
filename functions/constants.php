@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 71,
+    'optiontable-version'	=> 72,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -170,6 +170,7 @@ $defaultoptions = [
     'default_excerpt_length'			=> 50,
     'default_anleser_excerpt_length'		=> 300,
     'default_search_excerpt_length'		=> 300,
+    'default_display_continue_link'		=> true,
     
     'custom_excerpt_allowtags'			=> 'br',
     'title_hero_search'				=> __( 'Webauftritt durchsuchen', 'fau' ),
@@ -903,6 +904,15 @@ $setoptions = array(
 		    'label'   => __( 'Ersatzbild für den Fall, daß ein Artikel kein eigenes Artikelbild definiert hat.', 'fau' ),               
 		    'parent'  => 'newsbereich'
 		),  
+	       
+	       
+	       'default_display_continue_link' => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Weiterlesen Button', 'fau' ),
+		    'label'   => __( 'Zeige den Weiterlesen-Button in der Blogroll hinter jeder Nachricht.', 'fau' ),      
+		    'default' => $defaultoptions['default_display_continue_link'],
+		    'parent'  => 'newsbereich'
+              ), 
 	       
 	        	
 	    'topevents'  => array(
