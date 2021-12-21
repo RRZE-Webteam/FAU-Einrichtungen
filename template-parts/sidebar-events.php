@@ -180,8 +180,8 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 
 	    }
 	    if (($hideimage < 1) && (isset($imagehtml))) {  
-		echo '<div class="event-thumb" aria-hidden="true" role="presentation" tabindex="-1" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';
-		echo '<a href="'.$link.'">'.$imagehtml.'</a>'; 
+		echo '<div class="event-thumb" aria-hidden="true" role="presentation" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';
+		echo '<a href="'.$link.'"  tabindex="-1">'.$imagehtml.'</a>'; 
 		if (isset($imageid) && ($imageid>0)) {
 		    $schema = "";
 		    $bigimage = wp_get_attachment_image_src($imageid, 'full'); 
