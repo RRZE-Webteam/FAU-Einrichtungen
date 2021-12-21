@@ -314,10 +314,7 @@ function fau_do_metabox_post_topevent($object, $box) {
         if (!empty($imagehtml)) {  
             echo $imagehtml;
         } else {
-            $imagehtml = '<img src="'.fau_esc_url(get_theme_mod('default_topevent_thumb_src')).'" width="'.get_theme_mod('default_rwdimage_width').'" height="'.get_theme_mod('default_rwdimage_height').'" alt="">';			    
-            echo $imagehtml;
-            echo "<br>";
-            _e('Kein Bild ausgewählt. Ersatzbild wird gezeigt.', 'fau');
+            _e('Kein Bild ausgewählt.', 'fau');
         }
         echo "</div>\n"; ?>		
 
