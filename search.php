@@ -51,7 +51,7 @@ $notfound = false;
 						echo '<ul class="searchresults">';
 						while ( have_posts() ) { 
 						    the_post(); 
-						    echo fau_display_search_resultitem($active_sidebar);
+						    echo fau_display_search_resultitem();
 						} 
 						echo "</ul>";
 

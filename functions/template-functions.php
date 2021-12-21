@@ -268,7 +268,7 @@ add_action('wp', 'custom_error_pages');
 /*-----------------------------------------------------------------------------------*/
 /*  Anzeige Suchergebnisse
 /*-----------------------------------------------------------------------------------*/
-function fau_display_search_resultitem($withsidebar = 1) {
+function fau_display_search_resultitem() {
     global $post;
     global $defaultoptions;
 

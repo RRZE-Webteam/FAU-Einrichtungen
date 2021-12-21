@@ -8,11 +8,6 @@
  * @since FAU 1.7
  */
 
-?>
-
-
-    <section id="hero-slides" role="region" aria-roledescription="carousel"  aria-label="<?php echo __('Bedeutende Artikel','fau'); ?>">
-	<?php	
 	global $usejslibs;
 	global $defaultoptions;
 	$i= 0;
@@ -32,8 +27,10 @@
 	    );                   
 	    $hero_posts = get_posts($query); 
 	}
-	?>
 	
+	if (count($hero_posts) > 0) { ?>
+<div id="hero" class="sliderpage">
+	<section id="hero-slides" role="region" aria-roledescription="carousel"  aria-label="<?php echo __('Bedeutende Artikel','fau'); ?>">
 	   <div class="slick-slider featured-slider cf" id="mainslider">
 	       <?php
 		foreach($hero_posts as $hero): 
@@ -167,5 +164,13 @@
 		</button>
 	    </div>
 	    
-	</section>
+	</section> 
+    <?php 
+    get_template_part('template-parts/hero', 'sliderpage-jumplinks'); ?>
+	</div>
+    <?php 
+	} else {
+	 get_template_part('template-parts/hero', 'banner'); 
+	
+    } ?>
    

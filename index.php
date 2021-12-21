@@ -27,7 +27,7 @@ if($posttype == 'event') {
     if ($herotype=='banner') {
 	get_template_part('template-parts/hero', 'banner');
     } elseif ($herotype=='slider') {	
-	get_template_part('template-parts/hero', 'sliderpage');
+	get_template_part('template-parts/hero', 'sliderpage-slider');
     } else {
 	get_template_part('template-parts/hero', 'category');
     }
@@ -41,7 +41,7 @@ if($posttype == 'event') {
      if ($herotype=='banner') {
 	get_template_part('template-parts/hero', 'banner');
     } elseif ($herotype=='slider') {	
-	get_template_part('template-parts/hero', 'sliderpage');
+	get_template_part('template-parts/hero', 'sliderpage-slider');
     } else {
 	get_template_part('template-parts/hero', 'index');
     }

@@ -8,7 +8,7 @@
  */
 
 get_header();
-get_template_part('template-parts/hero', 'sliderpage');
+get_template_part('template-parts/hero', 'sliderpage-slider');
 ?>
 
 	<div id="content" class="start">
@@ -71,9 +71,15 @@ get_template_part('template-parts/hero', 'sliderpage');
 						 wp_reset_postdata();
 					    }
 					}
-					$showcatlink = get_theme_mod('start_link_news_show');
-					if (($showcatlink==true) && ($newscat>0)) {
-					    echo fau_get_category_links();
+					if ($number > 0) {
+					    $showcatlink = get_theme_mod('start_link_news_show');
+					    if (($showcatlink==true) && ($newscat>0)) {
+						echo fau_get_category_links();
+					    }
+					} else {
+					    echo '<div class="alert alert-warning">';
+					    echo __('Es konnten keine öffentlichen Beiträge gefunden werden.','fau');
+					   echo '</div>';
 					}
 					?>			    
 				    </main>	
