@@ -472,7 +472,8 @@ $setoptions = array(
 		    'maxheight'	=> 182,
 		    'title'   => __( 'Banner Startseite', 'fau' ),
 		    'label'   => __( 'Festes Banner für die Startseite (Template für Lehrstühle und Einrichtungen)', 'fau' ),               
-		    'parent'  => 'title_tagline'
+		    'parent'  => 'title_tagline',
+		    'default'	=> '',
 		),  
 	       
 	       
