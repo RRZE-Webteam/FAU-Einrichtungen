@@ -80,10 +80,12 @@
 				     wp_reset_postdata();
 				}
 			    }
-
-			    if (get_theme_mod('start_link_news_show')) {
-				echo fau_get_category_links();
-			    }
+			    if ($number > 0) {
+				if (get_theme_mod('start_link_news_show')) {
+				    echo fau_get_category_links();
+				}
+			    } 
+			    
 			}    
 			?>
 			</main>	

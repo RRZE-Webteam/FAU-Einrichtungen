@@ -217,7 +217,7 @@ $default_link_liste = array(
 	    ),
 	    'link3'  => array(
 		'name'	    => __('Intranet', 'fau' ),
-		'content'  => 'https://www.fau.de/intranet/',
+		'content'  => 'https://www.intern.fau.de/',
 	    ),	
 	    'link4'  => array(
 		'name'	    => __('Impressum', 'fau' ),
