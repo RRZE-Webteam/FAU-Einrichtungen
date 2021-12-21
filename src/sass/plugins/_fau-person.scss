@@ -271,7 +271,8 @@
     }
     
     h2, h3 {
-	padding-top: 11px;
+	padding-top: 0;
+	margin-top: 0;
     }
     
 }
@@ -311,24 +312,23 @@
 		flex: 0 0 90px;
 		float: none;
 		order: 1;
-		margin: 0;
-		padding: 5px;
+		margin: 0 15px 0 0;
+		padding: 5px 0;
 	    }
 	    .person-default,
 	    .person-sidebar,
 	    .person-default-thumb {
-		flex: 1 0 200px;
 		float: none;
 		order: 2;
-		max-width: inherit;
-		width: inherit;
+		flex-basis: min-content;
+
 	    } 
 
 
 	    .person-compact-thumb {
 		margin-left: 5px;
 		margin-right: 5px;
-		flex: 1 0 200px;
+		flex: 1 0;
 		@media (min-width: $screen-sm) {
 		    flex-basis: 350px; 
 		    padding: 5px;	
@@ -339,7 +339,7 @@
 	    }
 	    .person-default-more {
 		 float: none;
-		 flex: 1 1 180px;
+		 flex: 1 1;
 		 order: 3;
 		 padding: 5px;
 	    }

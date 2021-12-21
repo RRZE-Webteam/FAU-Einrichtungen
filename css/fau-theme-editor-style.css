@@ -7770,7 +7770,7 @@ div.alignright {
 /*-----------------------------------------------------------------------------------*/
 /* Buttons
 /*-----------------------------------------------------------------------------------*/
-button,
+button:not(.meta-links-trigger-button),
 input[type=button],
 [role=button] {
   display: inline-block;
@@ -7784,7 +7784,7 @@ input[type=button],
   padding: 0.5rem 0.7rem;
   text-decoration: none;
 }
-button:hover, button:focus,
+button:not(.meta-links-trigger-button):hover, button:not(.meta-links-trigger-button):focus,
 input[type=button]:hover,
 input[type=button]:focus,
 [role=button]:hover,
@@ -7792,7 +7792,7 @@ input[type=button]:focus,
   color: var(--color-button-hover-text);
   background: var(--color-button-hover-bg);
 }
-button:hover, button:focus,
+button:not(.meta-links-trigger-button):hover, button:not(.meta-links-trigger-button):focus,
 input[type=button]:hover,
 input[type=button]:focus,
 [role=button]:hover,
