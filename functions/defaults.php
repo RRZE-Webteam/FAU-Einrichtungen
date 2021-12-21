@@ -151,7 +151,7 @@ $default_link_liste = array(
 	    '_title'	=> __('Einrichtungen','fau'),
 	    'link1'  => array(
 		'name'	    => __('Universitätsbibliothek', 'fau' ),
-		'content'  => 'https://www.ub.fau.de/',
+		'content'  => 'https://ub.fau.de/',
 	    ),
 	    'link2'  => array(
 		'name'	    => __('Rechenzentrum', 'fau' ),
@@ -159,7 +159,7 @@ $default_link_liste = array(
 	    ),
 	    'link3'  => array(
 		'name'	    => __('Sprachenzentrum', 'fau' ),
-		'content'  => 'http://www.sz.uni-erlangen.de/',
+		'content'  => 'https://sz.fau.de/',
 	    ),
 	    'link4'  => array(
 		'name'	    => __('Graduiertenschule', 'fau' ),
@@ -181,7 +181,7 @@ $default_link_liste = array(
 	    ),	
 	    'link4'  => array(
 		'name'	    => __('Unternehmen', 'fau' ),
-		'content'  => 'https://www.fau.de/patente-gruendung-wissenstransfer/service-fuer-unternehmen/',
+		'content'  => 'https://www.fau.de/outreach/fau-fuer-unternehmen-und-organisationen/',
 	    ),	
 
 	    	
