@@ -78,6 +78,7 @@
 				    $query->the_post(); 
 				    echo fau_display_news_teaser($post->ID);
 				     wp_reset_postdata();
+				      $number = 1;
 				}
 			    }
 			    if ($number > 0) {
