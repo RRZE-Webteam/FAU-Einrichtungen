@@ -268,8 +268,7 @@ add_action('wp', 'custom_error_pages');
 /*-----------------------------------------------------------------------------------*/
 /*  Anzeige Suchergebnisse
 /*-----------------------------------------------------------------------------------*/
-function fau_display_search_resultitem($withsidebar = 1)
-{
+function fau_display_search_resultitem($withsidebar = 1) {
     global $post;
     global $defaultoptions;
 
@@ -428,9 +427,9 @@ function fau_display_search_resultitem($withsidebar = 1)
 
 
         if (($type == 'person') && (class_exists('FAU_Person_Shortcodes'))) {
-
+	    $output .= '<div class="search-row">'."\n";
             if (($withthumb == true) && (has_post_thumbnail($post->ID))) {
-                $output .= '<div class="row">'."\n";
+               
                 $output .= "\t\t".'<div class="searchresult-image">'."\n";
                 $output .= '<a href="'.$link.'" class="news-image"';
                 if ($external == 1) {
@@ -449,10 +448,8 @@ function fau_display_search_resultitem($withsidebar = 1)
                 $output .= '</a>';
 
                 $output .= "\t\t".'</div>'."\n";
-                $output .= "\t\t".'<div class="searchresult-imagetext">'."\n";
-
             }
-
+	    $output .= "\t\t".'<div class="searchresult-imagetext">'."\n";
             $output .= FAU_Person_Shortcodes::fau_person(array(
                 "id"       => $post->ID,
                 'format'   => 'kompakt',
@@ -460,14 +457,14 @@ function fau_display_search_resultitem($withsidebar = 1)
                 'showlist' => 0,
                 'hide'     => 'bild'
             ));
-            if (($withthumb == true) && (has_post_thumbnail($post->ID))) {
-                $output .= "\t</div> <!-- /row -->\n";
-            }
+            $output .= "\t</div> <!-- /row -->\n";
+
 
 
         } elseif ($type == 'attachment') {
+	    $output .= '<div class="search-row">'."\n";
             if ($withthumb == true) {
-                $output .= '<div class="row">'."\n";
+                
                 $output .= "\t\t".'<div class="searchresult-image">'."\n";
                 if (!empty($attachment['image'])) {
                     $output .= $attachment['image'];
@@ -475,10 +472,8 @@ function fau_display_search_resultitem($withsidebar = 1)
                     $output .= '<img src="'.fau_esc_url($attachment['icon']).'"  alt="">';
                 }
                 $output .= "\t\t".'</div>'."\n";
-
-                $output .= "\t\t".'<div class="searchresult-imagetext">'."\n";
-
             }
+	    $output .= "\t\t".'<div class="searchresult-imagetext">'."\n";
             $output .= "\t\t".'<p><em>'."\n";
             $output .= "\t\t\t".$attachment['caption'];
             $output .= "\t\t".'</em></p>'."\n";
@@ -487,9 +482,9 @@ function fau_display_search_resultitem($withsidebar = 1)
             $output .= "\t\t".'</p>'."\n";
 
 
-            if ($withthumb == true) {
-                $output .= "\t</div> <!-- /row -->\n";
-            }
+
+            $output .= "\t</div> <!-- /row -->\n";
+
         } elseif ($type == 'studienangebot') {
             $output .= "\t\t".'<p>'."\n";
             $output .= fau_custom_excerpt($post->ID, get_theme_mod('default_search_excerpt_length'), false, '', true,
@@ -499,9 +494,9 @@ function fau_display_search_resultitem($withsidebar = 1)
 
 
         } else {
-
+	    $output .= '<div class="search-row">'."\n";
             if (($withthumb == true) && (has_post_thumbnail($post->ID))) {
-                $output .= '<div class="row">'."\n";
+               
                 $output .= "\t\t".'<div class="searchresult-image">'."\n";
                 $output .= '<a href="'.$link.'" class="news-image"';
                 if ($external == 1) {
@@ -520,20 +515,22 @@ function fau_display_search_resultitem($withsidebar = 1)
                 $output .= '</a>';
 
                 $output .= "\t\t".'</div>'."\n";
-                $output .= "\t\t".'<div class="searchresult-imagetext">'."\n";
-
             }
-
+            $output .= "\t\t".'<div class="searchresult-imagetext">'."\n";
             $output .= "\t\t".'<p>'."\n";
             $output .= fau_custom_excerpt($post->ID, get_theme_mod('default_search_excerpt_length'), false, '', true,
                 get_theme_mod('search_display_excerpt_morestring'));
+	    $output .= "\t\t\t".'</p>'."\n";
             if (get_theme_mod('search_display_continue_arrow')) {
-                $output .= fau_create_readmore($link, '', $external, true);
+	
+		$output .= '<div class="continue">';
+		$output .= fau_create_readmore($link, '', $external, true, __('Seite aufrufen','fau'));
+		$output .= '</div>';
+
             }
-            $output .= "\t\t\t".'</p>'."\n";
-            if (($withthumb == true) && (has_post_thumbnail($post->ID))) {
-                $output .= "\t</div> <!-- /row -->\n";
-            }
+
+            $output .= "\t</div> <!-- /row -->\n";
+
 
         }
 
@@ -790,8 +787,12 @@ function fau_create_schema_publisher($withrahmen = true)
 /*-----------------------------------------------------------------------------------*/
 /*  Weiterlesen-Link einheitlich gestalten fuer verschiedene Ausgaben
 /*-----------------------------------------------------------------------------------*/
-function fau_create_readmore($url, $linktitle = '', $external = false, $ariahide = true) {
+function fau_create_readmore($url, $linktitle = '', $external = false, $ariahide = true, $linktext = '') {
     $output = '';
+    
+    if (empty($linktext)) {
+	 $linktext = __('Weiterlesen', 'fau');
+    }
     if (isset($url)) {
 
         $link   = fau_esc_url($url);
@@ -811,7 +812,7 @@ function fau_create_readmore($url, $linktitle = '', $external = false, $ariahide
             $output .= ' title="'.$linktitle.'"';
         }
         $output .= '>';
-        $output .= __('Weiterlesen', 'fau');
+        $output .= $linktext;
         $output .= '</a>';
     }
 

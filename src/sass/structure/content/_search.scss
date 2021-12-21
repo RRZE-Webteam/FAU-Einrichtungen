@@ -4,25 +4,67 @@
 
 .search-result {
 	margin-bottom: 11px;
+	
+	    .search-row {
+		display: flex;
+		align-items: flex-start;
+		flex-wrap: wrap;
+
+		@media (min-width: $screen-xs) {
+		    flex-wrap: nowrap;
+		    column-gap: $fau-gutter-width;
+		}
+		.searchresult-image {
+		    width: 100vw;
+		    text-align: center;
+		    padding: 0;
+		    margin-left: calc(-#{$fau-gutter-width} / 2);
+		    margin-right: calc(-#{$fau-gutter-width} / 2);
+		    // Auf kleinem Display setze die Bilder nahtlos an den Rand
+
+		    @media (min-width: $screen-xs) {
+			width: auto;
+			min-width: 220px;
+			margin-left: 0;
+			margin-right: 0;
+			margin-bottom: 0;		
+		    }
+		    @media (min-width: $screen-xl) {
+			min-width: 320px;
+		    }
+		    img {
+			width: 100%;
+			text-align: center;
+			@media (min-width: $screen-sm) {
+			    width: 220px; 
+			}
+			@media (min-width: $screen-xl) {
+			    width: 320px;
+			}
+		     }  
+		}
+		.searchresult-imagetext {
+		    width: 100%;
+
+		    @media (min-width: $screen-xs ) {
+			p {
+			    display: inline;
+			}
+		    }
+
+		}
+
+		.fullwidthregion {
+		    width: 100%;
+		}
+	    }
+	
+	
 	article {
 	    @extend .col-sm-12;
 	}
-	.searchresult-image {
-	    @extend .col-xs-4;
-	    @extend .col-sm-3;
-	    text-align: right;
-	    
-	    img {
-		height: auto;
-		max-height: 147px;
-		box-shadow: none;
-	    }
-	    
-	} 
-	.searchresult-imagetext {
-	    @extend .col-xs-8;
-	    @extend .col-sm-9
-	}
+
+
 	.search-meta {
 		padding: 5px 0;
 		margin-top: 0px;
@@ -112,11 +154,16 @@
 		@include border-radius(20px);
 		@include px2rem($font-size-herosearch);
 		border: 1px solid  var(--color-primary-ci-hell);
-		max-width: 25rem;
+		max-width: min(25rem, 90%);
 		padding: 0.5rem 7rem 0.5rem 2rem;
 		height: inherit;
 		margin: 0;
-
+		width: 100%;
+		@media (min-width: $screen-xs) {
+		    width: 25rem;
+		}
+		
+		
 		background: var(--color-primary-ci-hell);
 		color: var(--color-primary-ci-hell-kontrast);
 

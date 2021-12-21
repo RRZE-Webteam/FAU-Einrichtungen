@@ -73,6 +73,28 @@ a {
 
 }
 
+// Continue/Weiterlesen Link
+.continue {
+    margin-top: 0.5rem;
+    text-align: right;
+
+    .read-more-link {
+	@include defaultlinkstyle();
+	@include ghostbutton();
+	&:after {
+	   
+	     @include svg-icon-place();
+	     background-image: svg-angle-right($color-content-links);
+	}
+	&:focus:after,
+	&:hover:after {
+	    background-image: svg-angle-right($color-button-hover-text);
+
+	}
+    }
+}
+	    
+	    
 // Additional link effects for Content
 
 main,
@@ -107,6 +129,7 @@ main,
    
 
     a.media-img {
+	@include defaultlinkstyle();
 	display: inline-block;
 	overflow: hidden;
 		
@@ -123,6 +146,7 @@ main,
 	    img {
 		
 		transform: scale(1.1);
+		box-shadow: none;
 	    }
 	}
 	

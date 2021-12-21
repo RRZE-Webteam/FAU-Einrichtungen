@@ -321,13 +321,15 @@ function fau_img_caption_shortcode_filter($val, $attr, $content = null) {
     $capid = '';
     if ( $id ) {
         $id = esc_attr($id);
-        $capid = 'id="figcaption_'. $id . '" ';
-        $id = 'id="' . $id . '" aria-labelledby="figcaption_' . $id . '" ';
+	$targetid =  $id . '-'.rand();
+	  // In case the same image is used more as one time in the website, we need to habe a uniq id, therfor add a rand() value here.
+        $capid = 'id="figcaption_'.$targetid.'" ';
+        $id = 'id="' . $targetid . '" aria-labelledby="figcaption_' . $targetid . '" ';
     }
 
     return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" >'
     . do_shortcode( $content ) . '<figcaption ' . $capid 
-    . 'class="wp-caption-text">' . $caption . '</figcaption></figure>';
+    . '>' . $caption . '</figcaption></figure>';
 }
 add_filter('img_caption_shortcode', 'fau_img_caption_shortcode_filter',10,3);
 /*-----------------------------------------------------------------------------------*/

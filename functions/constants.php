@@ -909,7 +909,7 @@ $setoptions = array(
 	       'default_display_continue_link' => array(
 		    'type'    => 'toggle',
 		    'title'   => __( 'Weiterlesen Button', 'fau' ),
-		    'label'   => __( 'Zeige den Weiterlesen-Button in der Blogroll hinter jeder Nachricht.', 'fau' ),      
+		    'label'   => __( 'Zeige den Weiterlesen-Button hinter jeder Nachricht.', 'fau' ),      
 		    'default' => $defaultoptions['default_display_continue_link'],
 		    'parent'  => 'newsbereich'
               ), 
@@ -984,8 +984,8 @@ $setoptions = array(
 		),   
 		'search_display_continue_arrow' => array(
                   'type'    => 'toggle',
-                  'title'   => __( 'Weiterlesen-Pfeil', 'fau' ),
-                  'label'   => __( 'Zeige verlinkten Pfeil zum Weiterlesen.', 'fau' ),                
+		  'title'   => __( 'Weiterlesen Button', 'fau' ),
+		  'label'   => __( 'Zeige den Weiterlesen-Button hinter jeder Nachricht.', 'fau' ),                  
                   'default' => $defaultoptions['search_display_continue_arrow'],
 		  'parent'  => 'suchergebnisse'
 		),   

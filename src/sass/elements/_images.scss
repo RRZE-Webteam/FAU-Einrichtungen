@@ -98,12 +98,62 @@ main {
 
 
     }
-
+    
 }
 
+
+main, aside, .portalpage-sidebar, .widget {
+    figure {
+
+	&.alignleft,
+	&.alignright,
+	&.alignnone,
+	&.aligncenter {
+	    margin-left: calc(-#{$fau-gutter-width} / 2);
+	    margin-right: calc(-#{$fau-gutter-width} / 2);
+	    width: 100vw;
+	    max-width: 100vw;
+	    
+	    @media (min-width: $screen-xs) {
+		 width: auto;
+		 max-width: 100%;
+		 margin: 1rem;
+	    }
+	    img {
+		width: 100vw;
+		max-width: 100vw;
+		@media (min-width: $screen-xs) {
+		    width: auto;
+		    max-width: 100%;
+		}
+	    }
+	   
+	}
+	&.alignleft {	  
+	    @media (min-width: $screen-xs) {
+		float: left;
+	    }
+	}
+	&.alignright {
+	    @media (min-width: $screen-xs) {
+		float: right;	 
+	    }
+	}
+	&.alignnone,
+	&.aligncenter {
+	    text-align: center;
+	    float: none;
+
+	}
+    }
+}
 figcaption {
 	@include px2rem($font-size-image-caption);
-	padding: 5px 0 5px 0;
+	padding: 0.3rem;
+	
+	 @media (min-width: $screen-xs) {
+	     padding: 0.3rem 0 0.3rem 0;
+	 }
 }
 
 

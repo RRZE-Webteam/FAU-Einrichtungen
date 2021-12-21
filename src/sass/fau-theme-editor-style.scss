@@ -15,6 +15,11 @@ $font-path-roboto:	'../fonts/roboto/';
 @import "custom-properties";
 
 @import "frameworks/frameworks";
+
+// SVG Icons and CI elements
+@import "icons/icons";
+
+
 // Mixins
 @import "mixins/mixins";
 // Fonts
