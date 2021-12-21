@@ -625,27 +625,30 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
         $show_thumbs = get_theme_mod('default_postthumb_always');
 
         if ((has_post_thumbnail($post->ID)) || ($show_thumbs == true)) {
+	    $usefallbackthumb = false;
+	    $post_thumbnail_id = get_post_thumbnail_id($post->ID);
+            $pretitle          = get_theme_mod('advanced_blogroll_thumblink_alt_pretitle');
+            $posttitle         = get_theme_mod('advanced_blogroll_thumblink_alt_posttitle');
+            $alttext           = $pretitle.get_the_title($post->ID).$posttitle;
+            $alttext           = esc_html($alttext);
 
-            $output .= '<div class="thumbnailregion">';
+            $imagehtml = fau_get_image_htmlcode($post_thumbnail_id, 'rwd-480-3-2', $alttext, '', array('itemprop' => 'thumbnailUrl'));
+            if (fau_empty($imagehtml)) {
+                $imagehtml = fau_get_image_fallback_htmlcode('post-thumb', $alttext, '',  array('itemprop' => 'thumbnailUrl'));
+		$usefallbackthumb = true;
+            }
+	    
+            $output .= '<div class="thumbnailregion';
+	    if ($usefallbackthumb) {
+		$output .= ' fallback';
+	    }
+	    $output .= '">';
             $output .= '<div aria-hidden="true" role="presentation" class="passpartout" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';
             $output .= '<a href="'.$link.'" tabindex="-1" class="news-image';
             if ($external) {
                 $output .= ' ext-link';
             }
             $output .= '">';
-
-            $post_thumbnail_id = get_post_thumbnail_id($post->ID);
-            $pretitle          = get_theme_mod('advanced_blogroll_thumblink_alt_pretitle');
-            $posttitle         = get_theme_mod('advanced_blogroll_thumblink_alt_posttitle');
-            $alttext           = $pretitle.get_the_title($post->ID).$posttitle;
-            $alttext           = esc_html($alttext);
-
-            $imagehtml = fau_get_image_htmlcode($post_thumbnail_id, 'rwd-480-3-2', $alttext, '',
-                array('itemprop' => 'thumbnailUrl'));
-            if (fau_empty($imagehtml)) {
-                $imagehtml = fau_get_image_fallback_htmlcode('post-thumb', $alttext, '',
-                    array('itemprop' => 'thumbnailUrl'));
-            }
             $output  .= $imagehtml;
             $output  .= '</a>';
             $imgmeta = wp_get_attachment_image_src($post_thumbnail_id, 'rwd-480-3-2');

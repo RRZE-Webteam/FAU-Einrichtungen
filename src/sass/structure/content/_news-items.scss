@@ -155,6 +155,13 @@
 		}
 	     }  
 	}
+	.thumbnailregion.fallback {
+	    display: none;
+	     @media (min-width: $screen-xs) {
+		 display: block;
+	     }
+	}
+	
 	.teaserregion {
 	    width: 100vw;
 	    
