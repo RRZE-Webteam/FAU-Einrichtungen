@@ -327,8 +327,8 @@
                 > a,
                 > [type=button] {
                     &[aria-expanded=true] {
-                        background-color: var(--color-primary-basis);
-                        color: var(--color-primary-basis-kontrast);
+                        background-color: var(--color-primary-dunkler);
+                        color: var(--color-primary-dunkler-kontrast);
                     }
 
                     &:hover, &:focus {

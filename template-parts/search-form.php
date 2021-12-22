@@ -35,7 +35,7 @@
 			    }
 
 			    echo '<div class="'.$type.'"><input type="checkbox" name="post_type[]" id="label-'.$type.'" value="'.$type.'"';
-			    if (in_array($type, $query_types)) { echo ' checked="checked"'; }
+			    if (is_array($query_types) && in_array($type, $query_types)) { echo ' checked="checked"'; }
 			    echo ">";			
 			    echo '<label for="label-'.$type.'">'.$typestr.'</label></div>';
 			}

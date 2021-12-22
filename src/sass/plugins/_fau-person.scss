@@ -11,6 +11,16 @@
 }
 .fau-person,
 .person {
+    a {
+	   @include defaultlinkstyle();
+             text-decoration: none;
+
+            &:active,
+            &:hover, 
+            &:focus {
+                    text-decoration: underline;
+            }
+    }
     h3, h4, h5 {
 	a {
 	     text-decoration: none;
@@ -89,42 +99,42 @@
 	    border: none;
 	}
 	&.background-fau, &.background-zuv {
-	    background: $colorZUV;
+	    background: var(--color-zentral-ci-hell);
 	     a, li, p {
-		color: #fff;
+		color: var(--color-zentral-ci-hell-kontrast);
 	    }
 	}
 	&.background-grau {
 	    background: var(--color-StandardHellgrau);
 	}
 	&.background-phil {
-	    background: var(--color-phil-basis);
+	    background: var(--color-phil-ci-hell);
 	    a, li, p {
-		color: #fff;
+		color: var(--color-phil-ci-hell-kontrast);
 	    }
 	}
 	&.background-med {
-	    background: var(--color-med-basis);
+	    background: var(--color-med-ci-hell);
 	     a, li, p {
-		color: #fff;
+		color: var(--color-med-ci-hell-kontrast);
 	    }
 	}
 	&.background-nat {
-	    background: var(--color-nat-basis);
+	    background: var(--color-nat-ci-hell);
 	     a, li, p {
-		color: #fff;
+		color: var(--color-nat-ci-hell-kontrast);
 	    }
 	}
 	&.background-tf {
-	    background: var(--color-tf-basis);
+	    background: var(--color-tf-ci-hell);
 	     a, li, p {
-		color: #fff;
+		color: var(--color-phil-tf-hell-kontrast);
 	    }
 	}
 	&.background-rw {
-	    background: var(--color-rw-basis);
+	    background: var(--color-rw-ci-hell);
 	    a, li, p {
-		color: #fff;
+		color: var(--color-rw-ci-hell-kontrast);
 	    }
 	}
 
