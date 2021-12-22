@@ -5225,19 +5225,12 @@ p.searchnotice {
 p.lead-in {
   margin: 0;
   padding: 0;
-  color: var(--color-primary-basis);
   font-weight: 300;
   font-style: italic;
   font-size: 1.125rem;
   line-height: 1.688rem;
 }
 #content .startpage-sidebar .widget p, #content .sidebar-inline .widget p {
-  font-size: 0.875rem;
-  line-height: 1.313rem;
-}
-#footer p {
-  color: var(--color-primary-basis-kontrast);
-  background: var(--color-primary-basis);
   font-size: 0.875rem;
   line-height: 1.313rem;
 }
@@ -5434,9 +5427,11 @@ main a img:focus,
 }
 main .widget a,
 main aside a,
+main .subpages-menu a,
 main h1 a, main h2 a, main h3 a, main h4 a, main h5 a, main h6 a,
 .entry-content .widget a,
 .entry-content aside a,
+.entry-content .subpages-menu a,
 .entry-content h1 a,
 .entry-content h2 a,
 .entry-content h3 a,
@@ -5445,6 +5440,7 @@ main h1 a, main h2 a, main h3 a, main h4 a, main h5 a, main h6 a,
 .entry-content h6 a,
 .portalpage-content .widget a,
 .portalpage-content aside a,
+.portalpage-content .subpages-menu a,
 .portalpage-content h1 a,
 .portalpage-content h2 a,
 .portalpage-content h3 a,
@@ -5453,6 +5449,7 @@ main h1 a, main h2 a, main h3 a, main h4 a, main h5 a, main h6 a,
 .portalpage-content h6 a,
 .content-inline .widget a,
 .content-inline aside a,
+.content-inline .subpages-menu a,
 .content-inline h1 a,
 .content-inline h2 a,
 .content-inline h3 a,
@@ -5468,12 +5465,16 @@ main h1 a, main h2 a, main h3 a, main h4 a, main h5 a, main h6 a,
 main .widget a:hover, main .widget a:focus,
 main aside a:hover,
 main aside a:focus,
+main .subpages-menu a:hover,
+main .subpages-menu a:focus,
 main h1 a:hover,
 main h1 a:focus, main h2 a:hover, main h2 a:focus, main h3 a:hover, main h3 a:focus, main h4 a:hover, main h4 a:focus, main h5 a:hover, main h5 a:focus, main h6 a:hover, main h6 a:focus,
 .entry-content .widget a:hover,
 .entry-content .widget a:focus,
 .entry-content aside a:hover,
 .entry-content aside a:focus,
+.entry-content .subpages-menu a:hover,
+.entry-content .subpages-menu a:focus,
 .entry-content h1 a:hover,
 .entry-content h1 a:focus,
 .entry-content h2 a:hover,
@@ -5490,6 +5491,8 @@ main h1 a:focus, main h2 a:hover, main h2 a:focus, main h3 a:hover, main h3 a:fo
 .portalpage-content .widget a:focus,
 .portalpage-content aside a:hover,
 .portalpage-content aside a:focus,
+.portalpage-content .subpages-menu a:hover,
+.portalpage-content .subpages-menu a:focus,
 .portalpage-content h1 a:hover,
 .portalpage-content h1 a:focus,
 .portalpage-content h2 a:hover,
@@ -5506,6 +5509,8 @@ main h1 a:focus, main h2 a:hover, main h2 a:focus, main h3 a:hover, main h3 a:fo
 .content-inline .widget a:focus,
 .content-inline aside a:hover,
 .content-inline aside a:focus,
+.content-inline .subpages-menu a:hover,
+.content-inline .subpages-menu a:focus,
 .content-inline h1 a:hover,
 .content-inline h1 a:focus,
 .content-inline h2 a:hover,
@@ -5526,6 +5531,9 @@ main .widget a:active, main .widget a:hover, main .widget a:focus,
 main aside a:active,
 main aside a:hover,
 main aside a:focus,
+main .subpages-menu a:active,
+main .subpages-menu a:hover,
+main .subpages-menu a:focus,
 main h1 a:active,
 main h1 a:hover,
 main h1 a:focus, main h2 a:active, main h2 a:hover, main h2 a:focus, main h3 a:active, main h3 a:hover, main h3 a:focus, main h4 a:active, main h4 a:hover, main h4 a:focus, main h5 a:active, main h5 a:hover, main h5 a:focus, main h6 a:active, main h6 a:hover, main h6 a:focus,
@@ -5535,6 +5543,9 @@ main h1 a:focus, main h2 a:active, main h2 a:hover, main h2 a:focus, main h3 a:a
 .entry-content aside a:active,
 .entry-content aside a:hover,
 .entry-content aside a:focus,
+.entry-content .subpages-menu a:active,
+.entry-content .subpages-menu a:hover,
+.entry-content .subpages-menu a:focus,
 .entry-content h1 a:active,
 .entry-content h1 a:hover,
 .entry-content h1 a:focus,
@@ -5559,6 +5570,9 @@ main h1 a:focus, main h2 a:active, main h2 a:hover, main h2 a:focus, main h3 a:a
 .portalpage-content aside a:active,
 .portalpage-content aside a:hover,
 .portalpage-content aside a:focus,
+.portalpage-content .subpages-menu a:active,
+.portalpage-content .subpages-menu a:hover,
+.portalpage-content .subpages-menu a:focus,
 .portalpage-content h1 a:active,
 .portalpage-content h1 a:hover,
 .portalpage-content h1 a:focus,
@@ -5583,6 +5597,9 @@ main h1 a:focus, main h2 a:active, main h2 a:hover, main h2 a:focus, main h3 a:a
 .content-inline aside a:active,
 .content-inline aside a:hover,
 .content-inline aside a:focus,
+.content-inline .subpages-menu a:active,
+.content-inline .subpages-menu a:hover,
+.content-inline .subpages-menu a:focus,
 .content-inline h1 a:active,
 .content-inline h1 a:hover,
 .content-inline h1 a:focus,
@@ -6352,9 +6369,6 @@ table th {
   border-bottom: 1px solid var(--color-ContentBorders);
   text-align: left;
 }
-table th h1, table th h2, table th h3, table th h4, table th h5, table th h6 {
-  color: #004A9F;
-}
 table.sorttable th.header {
   cursor: pointer;
 }
@@ -6764,19 +6778,24 @@ img.alignright {
 /*-----------------------------------------------------------------------------------*/
 /* Skiplinks in top position of page; for keyboard users
 /*-----------------------------------------------------------------------------------*/
-.jumplinks {
+#skiplinks {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+}
+#skiplinks .jumplinks {
   margin: 0;
 }
-.jumplinks li {
+#skiplinks .jumplinks li {
   list-style: none;
   margin: 0;
   padding: 0;
   background: none;
 }
-.jumplinks li:before {
+#skiplinks .jumplinks li:before {
   display: none;
 }
-.jumplinks li a {
+#skiplinks .jumplinks li a {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -6788,7 +6807,7 @@ img.alignright {
   white-space: nowrap;
   border: 0;
 }
-.jumplinks li a:active, .jumplinks li a:focus {
+#skiplinks .jumplinks li a:active, #skiplinks .jumplinks li a:focus {
   position: static;
   width: auto;
   height: auto;
@@ -6796,11 +6815,11 @@ img.alignright {
   clip: auto;
   white-space: normal;
 }
-.jumplinks li a:active, .jumplinks li a:hover, .jumplinks li a:focus {
+#skiplinks .jumplinks li a:active, #skiplinks .jumplinks li a:hover, #skiplinks .jumplinks li a:focus {
   position: absolute;
   z-index: 110;
-  background: var(--color-primary-basis);
-  color: var(--color-primary-basis-kontrast);
+  color: var(--color-button-text);
+  background: var(--color-button-bg);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   padding: 1.5em;
   top: 0px;
@@ -6813,15 +6832,19 @@ img.alignright {
   font-size: 1.25rem;
   line-height: 1.875rem;
 }
+#skiplinks .jumplinks li a:active:hover, #skiplinks .jumplinks li a:active:focus, #skiplinks .jumplinks li a:hover:hover, #skiplinks .jumplinks li a:hover:focus, #skiplinks .jumplinks li a:focus:hover, #skiplinks .jumplinks li a:focus:focus {
+  color: var(--color-button-hover-text);
+  background: var(--color-button-hover-bg);
+}
 
 /* Color Definitions */
 .textcol-fau,
 .textcol-default {
-  color: var(--color-Default) !important;
+  color: var(--color-Default);
 }
 
 .textcol-white {
-  color: var(--color-white) !important;
+  color: var(--color-white);
 }
 
 .bgcol-white {
@@ -6830,7 +6853,7 @@ img.alignright {
 
 .bgcol-fau,
 .bgcol-default {
-  background-color: var(--color-Default) !important;
+  background-color: var(--color-Default);
 }
 
 .bgcol-grau {
@@ -6838,11 +6861,11 @@ img.alignright {
 }
 
 .textcol-primary {
-  color: var(--color-primary-basis) !important;
+  color: var(--color-primary-basis);
 }
 
 .bgcol-primary {
-  background-color: var(--color-primary-basis) !important;
+  background-color: var(--color-primary-basis);
 }
 
 .textcolor-primary-basis {
@@ -6942,11 +6965,11 @@ img.alignright {
 }
 
 .textcol-zentral {
-  color: var(--color-zentral-basis) !important;
+  color: var(--color-zentral-basis);
 }
 
 .bgcol-zentral {
-  background-color: var(--color-zentral-basis) !important;
+  background-color: var(--color-zentral-basis);
 }
 
 .textcolor-zentral-basis {
@@ -7046,11 +7069,11 @@ img.alignright {
 }
 
 .textcol-phil {
-  color: var(--color-phil-basis) !important;
+  color: var(--color-phil-basis);
 }
 
 .bgcol-phil {
-  background-color: var(--color-phil-basis) !important;
+  background-color: var(--color-phil-basis);
 }
 
 .textcolor-phil-basis {
@@ -7150,11 +7173,11 @@ img.alignright {
 }
 
 .textcol-med {
-  color: var(--color-med-basis) !important;
+  color: var(--color-med-basis);
 }
 
 .bgcol-med {
-  background-color: var(--color-med-basis) !important;
+  background-color: var(--color-med-basis);
 }
 
 .textcolor-med-basis {
@@ -7254,11 +7277,11 @@ img.alignright {
 }
 
 .textcol-nat {
-  color: var(--color-nat-basis) !important;
+  color: var(--color-nat-basis);
 }
 
 .bgcol-nat {
-  background-color: var(--color-nat-basis) !important;
+  background-color: var(--color-nat-basis);
 }
 
 .textcolor-nat-basis {
@@ -7358,11 +7381,11 @@ img.alignright {
 }
 
 .textcol-rw {
-  color: var(--color-rw-basis) !important;
+  color: var(--color-rw-basis);
 }
 
 .bgcol-rw {
-  background-color: var(--color-rw-basis) !important;
+  background-color: var(--color-rw-basis);
 }
 
 .textcolor-rw-basis {
@@ -7462,11 +7485,11 @@ img.alignright {
 }
 
 .textcol-tf {
-  color: var(--color-tf-basis) !important;
+  color: var(--color-tf-basis);
 }
 
 .bgcol-tf {
-  background-color: var(--color-tf-basis) !important;
+  background-color: var(--color-tf-basis);
 }
 
 .textcolor-tf-basis {

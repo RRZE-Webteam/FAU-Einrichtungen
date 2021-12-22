@@ -34,7 +34,6 @@ p {
 	&.lead-in {
 		margin: 0;
 		padding: 0;
-		color: var(--color-primary-basis);
 		font-weight: 300;
 		font-style: italic;
 		@include px2rem($font-size-quotes);
@@ -45,11 +44,7 @@ p {
 	    @include px2rem($font-size-sidebar);
 	}
 	
-	#footer & {
-		color: var(--color-primary-basis-kontrast);
-		background: var(--color-primary-basis);
-		@include px2rem($font-size-footer);
-	}
+	
 	
 }
 address {

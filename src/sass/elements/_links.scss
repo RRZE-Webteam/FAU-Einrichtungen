@@ -113,6 +113,7 @@ main,
     }
     .widget,
     aside,
+    .subpages-menu,
     h1, h2, h3, h4, h5, h6 {
         a {
              @include defaultlinkstyle();
@@ -126,7 +127,7 @@ main,
         }
     }
    
-
+   
     a.media-img {
 	@include defaultlinkstyle();
 	display: inline-block;

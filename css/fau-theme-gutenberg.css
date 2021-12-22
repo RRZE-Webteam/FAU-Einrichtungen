@@ -4719,7 +4719,7 @@ Hind:
 .edit-post-visual-editor .editor-block-list__block h4.mce-content-body,
 .edit-post-visual-editor .editor-block-list__block h5.mce-content-body,
 .edit-post-visual-editor .editor-block-list__block h6.mce-content-body {
-  color: var(--color-primary-basis);
+  color: var(--color-Text);
   font-weight: bold;
 }
 .edit-post-visual-editor .editor-block-list__block h1.mce-content-body em,
@@ -4840,7 +4840,7 @@ table .edit-post-visual-editor .editor-block-list__block h6 {
 .edit-post-visual-editor .editor-block-list__block p.lead-in {
   margin: 0;
   padding: 0;
-  color: var(--color-primary-basis);
+  color: var(--color-Text);
   font-weight: 300;
   font-style: italic;
   font-size: 1.125rem;

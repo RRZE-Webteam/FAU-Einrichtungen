@@ -19,6 +19,9 @@ html, body, button {
 	font-kerning:  none;
 }
 
+html {
+    scroll-padding-top: 400px;
+}
 
 /* Main surrounding grid */
 /* Wrap content in white */
@@ -32,7 +35,7 @@ html, body, button {
 	flex-wrap: wrap;
 	flex-direction: column;
 	min-height: 100vh;
-
+	
 	footer {
 	    // normal
 	}
@@ -42,6 +45,8 @@ html, body, button {
 	#content {
 	    flex: 1;
 	    width: 100%;
+	    
+	 
 	}
 	footer {
 	    margin-top: auto;

@@ -19,10 +19,7 @@ get_header();
 $posttype = get_post_type();
 $screenreadertitle = '';
 $herotype = get_theme_mod('advanced_header_template');
-if($posttype == 'event') {
-	get_template_part('template-parts/hero', 'events');
-	$screenreadertitle = get_theme_mod('title_hero_events');
-} elseif (($posttype == 'post') && (is_archive())) {
+if (($posttype == 'post') && (is_archive())) {
     
     if ($herotype=='banner') {
 	get_template_part('template-parts/hero', 'banner');
@@ -72,9 +69,7 @@ if($posttype == 'event') {
 				the_post();  
 
 				$line++;
-				if( $posttype == 'event') {
-				    get_template_part( 'post', 'event' ); 
-				} elseif ($posttype == 'person')  { 	
+				if ($posttype == 'person')  { 	
 				    echo FAU_Person_Shortcodes::fau_person(array("id"=> $post->ID, 'format' => 'kompakt', 'showlink' => 0, 'showlist' => 1 )); 				    
 				} elseif($posttype == 'post') { 
 				      echo fau_display_news_teaser($post->ID,true);

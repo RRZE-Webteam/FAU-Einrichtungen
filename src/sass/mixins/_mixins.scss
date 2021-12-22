@@ -155,7 +155,6 @@ Mixins File for Wordpress Theme FAU
 
 @mixin morelink() {
     margin: 10px 0 0 0;
-    color: var(--color-primary-basis-kontrast);
     padding: 8px 10px;
     text-decoration: none;
     @include border-radius(3px);

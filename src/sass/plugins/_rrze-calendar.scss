@@ -3,43 +3,33 @@
 /* https://github.com/RRZE-Webteam/rrze-calendar
 /*-----------------------------------------------------------------------------------*/
 
-.sidebar-single,
-.sidebar-inline,
-.startpage-sidebar,
-.portalpage-content,
-.startpage-blogroll,
-.content-inline {
+    #rrze-calendar,
     .rrze-calendar {
-	p {
 	    a {
-//		@include defaultlinkstyle();
+		@include defaultlinkstyle();
+		text-decoration: none;
 	    }
-
-	}
+	    
+	    
+	    .kalender .inhalt .monatsansicht .kopfzeile {
+		height: 2rem;
+		
+		.tag {
+		    font-size: 1rem;
+		}
+	    }
+	    
     }
-}
+
 .events-more-links {
 	padding: 0;
 	text-align: left;
 	margin-bottom: 5px;
 
-	a {
-		@include inline-block;
-		margin-left: 0px;
-	}
-
-	.events-more {
-		color: var(--color-primary-basis-kontrast);
-		background: var(--color-primary-basis);
-		padding: 8px 10px;
-		text-decoration: none;
-		@include border-radius(3px);
-		@include px2rem($font-size-textbuttons);
-
-		&:hover, &:focus {
-			background: var(--color-primary-dunkler);
-			text-decoration: none;
-		}
+	
+	a.events-more {
+	    @include defaultlinkstyle();
+	    @include buttonstyle();
 	}
 }
 
@@ -73,79 +63,119 @@
 .event-date {
 	float: left;
 	display: block;
-	background: var(--color-primary-basis);
-	color: $colorMainBackground;
-	padding: 5px;
-	width: 45px;
+        @include buttonstyle();
+	background: var(--color-primary-ci-hell); 
+	color:  var(--color-primary-ci-hell-kontrast); 
+	
+	&:hover,
+	&:focus {
+	    background: var(--color-primary-dunkler); 
+	    color:  var(--color-primary-dunkler-kontrast); 
+	}
+	padding: 0.3rem;
+	width: 3rem;
 	text-align: center;
-}
+	
+	.event-date-month {
+		@include px2rem($font-size-sidebar-events-month);
+		text-transform: uppercase;
+		font-weight: bold;
+	}
 
-.event-date-month {
-	@include px2rem($font-size-sidebar-events-month);
-	text-transform: uppercase;
-	font-weight: bold;
-}
-
-.event-date-day {
-	@include px2rem($font-size-sidebar-events-day);
-	font-weight: bold;
-}
-
-.event-allday {
-    text-transform: uppercase;
-}
-
-.event-info {
-	margin-left: 60px;
-	margin-bottom: 10px;
-	padding-bottom: 5px;
-}
-
-.event-title {
-	font-weight: bold;
-	a {
-
+	.event-date-day {
+		@include px2rem($font-size-sidebar-events-day);
+		font-weight: bold;
 	}
 }
 
-.event-time,
-.event-location {
-	color: var(--color-primary-basis);
-}
-
 
 .event-info {
+    margin-left: 3.8rem;
+	margin-bottom: 0.5rem;
 	a, .event-time {
 		color: var(--color-Text);
 	}
+	.event-location,
+	.event-time {
+	    font-size: 0.8rem;
+	    line-height: 1.5;
+	}
+	.event-title {
+	    font-weight: bold;
+	    margin: 0.2rem 0;
+	}
+	.event-allday {
+	    text-transform: uppercase;
+	}
+
 }
 
-.event-category-fau .event-date {
-	background: var(--color-ZUV);
 
-}
+.event-category-fau .event-date,
 .event-category-einrichtungen .event-date {
-	background: var(--color-Default);
+	background: var(--color-zentral-ci-hell); 
+	color:  var(--color-zentral-ci-hell-kontrast); 
+	
+	&:hover,
+	&:focus {
+	    background: var(--color-zentral-dunkler); 
+	    color:  var(--color-zentral-dunkler-kontrast); 
+	}
 }
 
 .event-category-techfak .event-date {
-	background: var(--color-tf-basis);;
+	background: var(--color-tf-ci-hell); 
+	color:  var(--color-tf-ci-hell-kontrast); 
+	
+	&:hover,
+	&:focus {
+	    background: var(--color-tf-dunkler); 
+	    color:  var(--color-tf-dunkler-kontrast); 
+	}
 }
 
 .event-category-rwfak .event-date {
-	background: var(--color-rw-basis);
+	background: var(--color-rw-ci-hell); 
+	color:  var(--color-rw-ci-hell-kontrast); 
+	
+	&:hover,
+	&:focus {
+	    background: var(--color-rw-dunkler); 
+	    color:  var(--color-rw-dunkler-kontrast); 
+	}
 }
 
 .event-category-philfak .event-date {
-	background: var(--color-phil-basis);
+	background: var(--color-phil-ci-hell); 
+	color:  var(--color-phil-ci-hell-kontrast); 
+	
+	&:hover,
+	&:focus {
+	    background: var(--color-phil-dunkler); 
+	    color:  var(--color-phil-dunkler-kontrast); 
+	}
 }
 
 .event-category-natfak .event-date {
-	background: var(--color-nat-basis);
+	background: var(--color-nat-ci-hell); 
+	color:  var(--color-nat-ci-hell-kontrast); 
+	
+	&:hover,
+	&:focus {
+	    background: var(--color-nat-dunkler); 
+	    color:  var(--color-nat-dunkler-kontrast); 
+	}
 }
 
 .event-category-medfak .event-date {
-	background: var(--color-med-basis);
+	background: var(--color-med-ci-hell); 
+	color:  var(--color-med-ci-hell-kontrast); 
+	
+	&:hover,
+	&:focus {
+	    background: var(--color-med-dunkler); 
+	    color:  var(--color-med-dunkler-kontrast); 
+	}
 }
 
 .widget_event_widget a {

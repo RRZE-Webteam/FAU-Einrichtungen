@@ -146,19 +146,7 @@ function fau_body_class($classes)
         $classes[] = 'no-quicklinks';
     }
 
-    if ($defaultoptions['slider-opacity-text-background'] != get_theme_mod('slider-opacity-text-background')) {
-        $num = get_theme_mod('slider-opacity-text-background');
-        if (isset($num)) {
-            if (isset($defaultoptions['slider-opacity-text-background-array'][$num])) {
-                $thisclass = 'hero-slides-op-'.$num;
-                $classes[] = $thisclass;
-            }
-
-        }
-
-    }
-
-
+   
     if (is_active_sidebar('search-sidebar')) {
         $classes[] = 'with-search-sidebar';
     }

@@ -4,10 +4,10 @@
 
 .textcol-fau, 
 .textcol-default {
-		color: var(--color-Default) !important;
+	color: var(--color-Default);
 }
 .textcol-white {
-    color: var(--color-white) !important;
+    color: var(--color-white);
 }
 .bgcol-white {
     background-color: var(--color-white);
@@ -15,7 +15,7 @@
 
 .bgcol-fau, 
 .bgcol-default {
-    background-color: var(--color-Default) !important;
+    background-color: var(--color-Default);
 }
 
 .bgcol-grau {
@@ -27,10 +27,10 @@
 @each $farbtyp, $map in $colormaps {	   
 
     .textcol-#{$farbtyp} {
-	color:  var(--color-#{$farbtyp}-basis) !important;
+	color:  var(--color-#{$farbtyp}-basis);
     }
     .bgcol-#{$farbtyp} {
-	background-color: var(--color-#{$farbtyp}-basis) !important;
+	background-color: var(--color-#{$farbtyp}-basis);
     }
 
     @each $variante, $colorcode in $map {

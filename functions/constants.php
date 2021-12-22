@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 72,
+    'optiontable-version'	=> 73,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -60,20 +60,7 @@ $defaultoptions = [
     'slider-animation'			=> 'fade',
     'slider-stoptext'			=> __('Animation stoppen','fau'),
     'slider-starttext'			=> __('Animation starten','fau'),
-    'slider-opacity-text-background'	=> 7,
-    'slider-opacity-text-background-array'	=> array(
-	0   => '0',
-	1   => '0.1',
-	2   => '0.2',
-	3   => '0.3',
-	4   => '0.4',
-	5   => '0.5',
-	6   => '0.6',
-	7   => '0.7',
-	8   => '0.8',
-	9   => '0.9',
-	10   => '1',
-    ),
+   
     
     
     'start_header_count'			=> 5,
@@ -174,7 +161,6 @@ $defaultoptions = [
     
     'custom_excerpt_allowtags'			=> 'br',
     'title_hero_search'				=> __( 'Webauftritt durchsuchen', 'fau' ),
-    'title_hero_events'				=> __( 'Veranstaltungskalender','fau'),
     
     'advanced_footer_display_address'		=> true,
     'advanced_footer_display_socialmedia'	=> false,
@@ -478,6 +464,7 @@ $setoptions = array(
 	       
 	       
 	       
+	       
 	    )
 	),
 	       
@@ -625,16 +612,7 @@ $setoptions = array(
 		    'default'   => $defaultoptions['slider-animation'],
 		    'parent'    => 'slider'	    
 		),
-		'slider-opacity-text-background' => array(
-		    'type'	=> 'range',
-		    'title'	=> __( 'Transparenz', 'fau' ),
-		    'label'	=> __( 'Hintergrundfarbe von Titel und Kurztext des Sliders einstellen.', 'fau' ),
-		    'min'	    => 0,
-		    'max'	    => 10,	
-		    'step'	    => 1,
-		    'default'	=> $defaultoptions['slider-opacity-text-background'],
-		    'parent'	=> 'slider'
-		), 
+		
 	       
 	      'breadcrumb'  => array(
                   'type'    => 'section',
@@ -657,15 +635,6 @@ $setoptions = array(
 	
 		
 	     
-	       'title_hero_events'	 => array(
-		    'type'    => 'text',
-		    'title'   => __( 'Bühnentitel Veranstaltungen', 'fau' ),
-		    'label'   => __( 'Im Bühnenteil wird ein Titel großflächig hinterlegt. Dieser kann hier für Seiten zu Veranstaltungen hinterlegt werden.', 'fau' ),               
-		    'default' => $defaultoptions['title_hero_events'],
-		    'parent'  => 'breadcrumb'
-		),  
-	       
-	       
 	     
 	       
 	       
@@ -826,15 +795,6 @@ $setoptions = array(
 		  'parent'  => 'footer'
               ),  
 	       
-
-	       
-          )
-       ),
-        'templates'   => array(
-           'tabtitle'   => __('Inhaltsbereiche', 'fau'),
-	   'user_level'	=> 1,
-           'fields' => array(
-                            
 	      'newsbereich'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Artikelliste (Blogroll)', 'fau' ),        
@@ -1044,12 +1004,10 @@ $setoptions = array(
 		), 
    
 	       
-           
-             
 	       
           )
-       ), 
-	
+       ),
+       
 	
 	
        'advanced'   => array(

@@ -59,10 +59,6 @@ $colormap-primary: $colormap-zentral;
 	$colormap-primary: $colormap-zentral;
 }
 
-$colorPrimary:		map-get($colormap-primary, "basis");
-$colorPrimaryContrast:  map-get($colormap-primary, "basis-kontrast");
-$PalettonDunkler:	map-get($colormap-primary, "dunkler");
-$PalettonDunkelste:	map-get($colormap-primary, "dunkelste");
 
 $colormaps: ("primary": $colormap-primary, "zentral": $colormap-zentral, "phil": $colormap-phil, "med": $colormap-med, "nat": $colormap-nat, "rw": $colormap-rw, "tf": $colormap-tf);
 

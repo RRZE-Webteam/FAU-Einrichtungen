@@ -5,26 +5,5 @@
 
 #nav {
 	background-color: var(--color-StandardHellgrau);
-	
-	/* Unused since 1.7 ?
-	#subnav {
-		font-size: 1rem;
-
-		li {
-			border-bottom: none;
-			border-top: 1px solid #fff;
-		}
-
-		.current_page_item a {
-			background-color: var(--color-primary-basis);
-		}
-
-		a, .current_page_item a {
-			&:hover, &:focus {
-				background-color: var(--color-primary-dunkelste);
-			}
-		}
-	}
-	*/
 }
 

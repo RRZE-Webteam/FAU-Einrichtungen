@@ -94,7 +94,7 @@ button.expand-all {
                 &.active:hover,
                     &.active:focus {
                     background-color: var(--color-primary-ci-hell);
-                    color: var(--color-primary-ci-hell-kontrast); // $colorPrimary;
+                    color: var(--color-primary-ci-hell-kontrast); 
 
                     &:before {
                         @extend .fa-caret-up;
@@ -196,28 +196,28 @@ button.expand-all {
         }
         &.phil,
         &.philfak {
-            border-color: var(--color-phil-basis);
+            border-color: var(--color-phil-ci-hell);
         }
         &.rw,
         &.rwfak {
-            border-color: var(--color-rw-basis);
+            border-color: var(--color-rw-ci-hell);
         }
         &.med,
         &.medfak {
-            border-color: var(--color-med-basis);
+            border-color: var(--color-med-ci-hell);
         }
         &.nat,
         &.natfak {
-            border-color: var(--color-nat-basis);
+            border-color: var(--color-nat-ci-hell);
         }
         &.tf,
         &.techfak {
-            border-color: var(--color-tf-basis);
+            border-color: var(--color-tf-ci-hell);
         }
 
         &.fau,
         &.default {
-            border-color: var(--color-Default);
+            border-color: var(--color-zentral-ci-hell);
         }
     }
     .body {
@@ -257,50 +257,6 @@ button.expand-all {
 }
 
 
-/*-----------------------------------------------------------------------------------*/
-/* Absatzklassen
-/*-----------------------------------------------------------------------------------*/
-
-.notice-question:before,
-.notice-download:before,
-.notice-faubox:before,
-.notice-audio:before,
-.notice-video:before {
-    .faculty-phil & {
-        color: var(--color-phil-basis);
-    }
-    .faculty-rw & {
-        color: var(--color-rw-basis);
-    }
-    .faculty-med & {
-        color: var(--color-med-basis);
-    }
-    .faculty-nat & {
-        color: var(--color-nat-basis);
-    }
-    .faculty-tf & {
-        color: var(--color-tf-basis);
-    }
-}
-
-.fauorg-home,
-.faculty-phil,
-.faculty-rw,
-.faculty-med,
-.faculty-nat,
-.faculty-tf {
-    .notice-hinweis {
-         color: var(--color-primary-basis);
-         h3, p {
-            color: var(--color-primary-basis);
-	}
-	h3+p, 
-	h3+ul, 
-	h3+ol {
-            color: var(--color-Text);
-        }
-    }
-}
 /*-----------------------------------------------------------------------------------*/
 /* Timeline
 /*-----------------------------------------------------------------------------------*/
