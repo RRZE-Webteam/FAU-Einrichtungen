@@ -40,7 +40,8 @@ if (($posttype == 'post') && (is_archive())) {
     } elseif ($herotype=='slider') {	
 	get_template_part('template-parts/hero', 'sliderpage-slider');
     } else {
-	get_template_part('template-parts/hero', 'index');
+      get_template_part('template-parts/hero', 'banner');
+//	get_template_part('template-parts/hero', 'index');
     }
 	
    

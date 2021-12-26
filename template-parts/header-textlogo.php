@@ -110,7 +110,7 @@ echo '<span class="textlogo">';
 	}
 	echo '>'.$visible_toptitle.'</span>';
 	if ($visible_toptitle_secondline) {
-	    echo '<span class="fau-title-place"';
+	    echo ' <span class="fau-title-place"';
 	    if ($visible_title) {
 	       echo ' aria-hidden="true"';
 	   }

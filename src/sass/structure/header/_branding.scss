@@ -77,7 +77,8 @@
                 font-size: 15px;
                 line-height: 20px;
                 letter-spacing: 0.2px;
-
+                color: var(--color-primary-ci-hell);
+                 
                 @media (min-width: $screen-xl) {
                     margin-top: -5px;
                     // Schrift soll mit Oberkante des Logos beginnen, wenn es rechts daneben ist :/
@@ -90,7 +91,7 @@
                 }
 
                 .zentral {
-                    color: var(--color-FAU);
+                    color: var(--color-zentral-ci-hell);
                 }
 
                 .phil {

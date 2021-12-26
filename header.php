@@ -70,7 +70,7 @@ if ($custom_logo_id) {
                                 </a>
                             </div>
                             <div class="meta-logo">
-                                <div class="branding" id="logo" role="banner" itemscope
+                                <div class="branding" role="banner" itemscope
                                      itemtype="http://schema.org/Organization">
                                     <?php
                                     if ($show_customlogo) {
