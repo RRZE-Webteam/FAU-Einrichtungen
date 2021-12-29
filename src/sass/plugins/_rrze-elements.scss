@@ -111,7 +111,7 @@ button.expand-all {
             .accordion-inner {
                 @extend .clearfix;
                 border: none;
-                background: $colorContentRegions;
+                background: var(--color-ContentRegions);
                 padding: 15px 20px;
             }
         }
@@ -119,31 +119,31 @@ button.expand-all {
     .phil .accordion-heading .accordion-toggle,
     .philfak .accordion-heading .accordion-toggle,
     .gold .accordion-heading .accordion-toggle {
-        border-color: var(--color-phil-basis);
+        border-color: var(--color-phil-ci-hell);
     }
     .rw .accordion-heading .accordion-toggle,
     .rwfak .accordion-heading .accordion-toggle,
     .red .accordion-heading .accordion-toggle {
-        border-color: var(--color-rw-basis);
+        border-color: var(--color-rw-ci-hell);
     }
     .med .accordion-heading .accordion-toggle,
     .medfak .accordion-heading .accordion-toggle,
     .blue .accordion-heading .accordion-toggle {
-        border-color: var(--color-med-basis);
+        border-color: var(--color-med-ci-hell);
     }
     .nat .accordion-heading .accordion-toggle,
     .natfak .accordion-heading .accordion-toggle,
     .green .accordion-heading .accordion-toggle {
-        border-color: var(--color-nat-basis);
+        border-color: var(--color-nat-ci-hell);
     }
     .tf .accordion-heading .accordion-toggle,
     .techfak .accordion-heading .accordion-toggle,
     .grey .accordion-heading .accordion-toggle {
-        border-color: var(--color-tf-basis);
+        border-color: var(--color-tf-ci-hell);
     }
     .fau .accordion-heading .accordion-toggle,
     .default .accordion-heading .accordion-toggle {
-        border-color: var(--color-Default);
+        border-color: var(--color-zentral-ci-hell);
     }
 
     h1, h2, h3, h4, h5, h6 {

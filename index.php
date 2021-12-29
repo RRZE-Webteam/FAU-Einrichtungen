@@ -97,14 +97,7 @@ if (($posttype == 'post') && (is_archive())) {
 				 }
 				
 				 }
-				if  ($posttype=='person') { ?>
-				    <nav class="index-navigation">
-					<div class="nav-previous"><?php previous_posts_link(__('<span class="meta-nav">&laquo;</span> Vorherige Einträge', 'fau')); ?></div>
-					<div class="nav-next"><?php next_posts_link(__('Weitere Einträge <span class="meta-nav">&raquo;</span>', 'fau'), '' ); ?></div>
-				    </nav>
-
-				<?php } elseif($posttype=='post') { 
-                                    
+				if  (($posttype=='person') || ($posttype=='post')) {
                                     $next = get_next_posts_link(__('Ältere Beiträge', 'fau'));
                                     $prev = get_previous_posts_link(__('Neuere Beiträge', 'fau'));
                                     
@@ -117,13 +110,7 @@ if (($posttype == 'post') && (is_archive())) {
                                             echo '<div class="next">'.$next.'</div>';
                                         }
                                         echo '</nav>';
-                                   
-                                    ?>
-                                    
-                                    
-				   
-				<?php  } 
-                                
+                                    } 
                                 }
 			     ?>
 			</main>

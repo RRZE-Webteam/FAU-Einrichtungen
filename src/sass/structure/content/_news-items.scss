@@ -122,9 +122,9 @@
 	align-items: flex-start;
 	flex-wrap: wrap;
 
-	@media (min-width: $screen-xs) {
+	@media (min-width: $screen-sm) {
 	    flex-wrap: nowrap;
-	    column-gap: $fau-gutter-width;
+	    column-gap: calc(#{$fau-gutter-width} / 2);
 	}
 	.thumbnailregion {
 	    width: 100vw;
@@ -134,30 +134,34 @@
 	    margin-right: calc(-#{$fau-gutter-width} / 2);
 	    // Auf kleinem Display setze die Bilder nahtlos an den Rand
 	    
-	    @media (min-width: $screen-xs) {
-		width: auto;
-		min-width: 220px;
+	    @media (min-width: $screen-sm) {
+		width: 220px;
+	//	min-width: 220px;
+                max-width: 50%;
 		margin-left: 0;
 		margin-right: 0;
 		margin-bottom: 0;		
 	    }
 	    @media (min-width: $screen-xl) {
-		min-width: 320px;
+	//	min-width: 320px;
+                width: 320px;
 	    }
 	    .passpartout {
 		width: 100%;
 		text-align: center;
+                /*
 		@media (min-width: $screen-sm) {
 		    width: 220px; 
 		}
 		@media (min-width: $screen-xl) {
 		    width: 320px;
 		}
+                */
 	     }  
 	}
 	.thumbnailregion.fallback {
 	    display: none;
-	     @media (min-width: $screen-xs) {
+	     @media (min-width: $screen-sm) {
 		 display: block;
 	     }
 	}
@@ -165,7 +169,8 @@
 	.teaserregion {
 	    width: 100vw;
 	    
-	    @media (min-width: $screen-xs ) {
+	    @media (min-width: $screen-sm ) {
+                width: calc(100% - 220px);
 		p {
 		    display: inline;
 		}
@@ -214,6 +219,7 @@
     width: 100%;
     justify-content: space-between;
     flex-direction: row;
+    gap: 1rem;
     
         .prev,
         .next {
