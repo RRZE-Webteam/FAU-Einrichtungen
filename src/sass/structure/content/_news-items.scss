@@ -204,19 +204,53 @@
 	    background-image: svg-icon-rss($color-button-hover-text);
 	}
 	
-	
 	.news-more {
 	    @include buttonstyle();
-	}
+	} 
 }
+.index-navigation {
+    margin: 1rem 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    
+        .prev,
+        .next {
+            a {
+                @include inline-block;
+		@include defaultlinkstyle();
+                @include buttonstyle();
+            }	   
+	} 
+        .prev a {
+            &:before {
+                @include svg-icon-place();
+                background-image: svg-angle-right($color-button-text);
+                transform: rotate(180deg);
+                transform-origin: 50% 50%;
+            }
+            &:focus:before,
+            &:hover:before {
+                background-image: svg-angle-right($color-button-hover-text);
 
-/*
+            }
+        }
+        .next a {
+            &:after {
+                @include svg-icon-place();
+                background-image: svg-angle-right($color-button-text);
+            }
+            &:focus:after,
+            &:hover:after {
+                background-image: svg-angle-right($color-button-hover-text);
 
-$color_button_text:	map-get($colormap-primary, "dunkler-kontrast");
-$color_button_bg:	map-get($colormap-primary, "dunkler");
-$color-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
-$color-button-hover-bg:	map-get($colormap-primary, "dunkelste");
-*/
+            }
+        }
+        
+        
+        
+}
 
 .news-meta-categories {
 	@include inline-block;
