@@ -52,13 +52,18 @@
         background-image: none;
         padding: 0px;
         width: $contentmenu-default-width;
-        @include box-shadow(1px 1px 3px var(--color-ContentBorders));
+        border: 1px solid  var(--color-ContentBorders);
+        
+         @include box-shadow(1px 3px 10px transparent);
+        &:hover {
+             @include box-shadow(1px 3px 10px var(--color-ContentBorders));
+        }
+       
 
 
         .thumb {
             overflow: hidden;
             position: relative;
-            @include box-shadow(0 1px 2px var(--color-ContentBorders));
 
             a {
                 text-decoration: none;
@@ -71,7 +76,7 @@
                 img {
                     height: inherit;
                     width: inherit;
-                    object-fit: contain;
+                    object-fit: cover;
                     box-shadow: none;
                 }
 
@@ -137,15 +142,22 @@
 
         ul {
             @include no-list;
-
+            width: 100%;
+            
             li {
                 @include no-list;
-                padding: 0 10px;
+                padding: 0;
                 background: none;
                 display: table;
+                border-left: none;
+                border-right: none;
                 border-bottom: 1px solid var(--color-ContentBorders);
                 width: 100%; //  ($contentmenu-default-width - floor(math.div($grid-gutter-width, 2)));
                 box-shadow: none;
+                
+                &:hover {
+                     box-shadow: none;
+                }
             }
 
             li:focus,
@@ -160,18 +172,26 @@
             }
 
             li:before {
-                @extend .fa;
-                @extend .fa-angle-right;
+                @include svg-icon-place();
+                display: table-cell;
+                background-image: svg-angle-right($color-content-links);
+                
                 font-weight: bold;
                 display: table-cell;
                 vertical-align: middle;
                 color: var(--color-Default);
+                
+            }
+            li:focus:before, li:hover:before {
+                @include svg-icon-place();
+                display: table-cell;
+                background-image: svg-angle-right($color-button-hover-text);
             }
 
             a {
                 text-decoration: none;
                 display: table-cell;
-                padding: 5px 12px;
+                padding: 0.4rem 0;
                 @include px2rem($font-size-contentmenu-link);
             }
 
