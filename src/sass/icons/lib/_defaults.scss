@@ -103,3 +103,10 @@
     $viewbox: '0 0 24 24';
     @return svg-buildbackground($path,$viewbox,$farbe,$width,$height);
 }
+
+ // external link
+@function svg-icon-external-link($farbe: false, $width: 0, $height: 0) {
+    $path: 'd="M15.6401 7.02539H12.0186V5.02539H19.0186V12.0254H17.0186V8.4754L12.1046 13.3893L10.6904 11.9751L15.6401 7.02539Z M10.9824 6.97485H4.98242V18.9749H16.9824V12.9749H14.9824V16.9749H6.98242V8.97485H10.9824V6.97485Z"';
+    $viewbox: '0 0 24 24';
+    @return svg-buildbackground($path,$viewbox,$farbe,$width,$height);
+}

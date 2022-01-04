@@ -76,7 +76,7 @@
                 img {
                     height: inherit;
                     width: inherit;
-                    object-fit: cover;
+                    object-fit: contain;
                     box-shadow: none;
                 }
 
@@ -86,18 +86,16 @@
 
 
                 &.ext-link:after {
-                    @extend .fa;
-                    content: "\f08e";
+                    @include svg-icon-place();
+                    background-image: svg-icon-external-link($color-content-links);
+                    color: var(--color-Text);                    
                     position: absolute;
-                    top: 0;
+                    top: 0px;
                     right: 0px;
                     z-index: 10;
-                    height: 20px;
-                    width: 20px;
-                    @include px2rem($font-size-linkicon);
-                    font-weight: bolder;
-                    text-align: right;
-                    padding: 0 2px 0 0;
+                    height: 1.4rem;
+                    width: 1.4rem;
+                   
 
                 }
             }
@@ -119,23 +117,22 @@
                 padding: 10px;
                 text-align: center;
             }
-
-            a.ext-link:after {
-                @extend .fa;
-                content: "\f08e";
-                margin-left: 5px;
-                margin-top: 0;
-                @include px2rem($font-size-content-linkicon);
-                color: var(--color-Text);
-                vertical-align: top;
-            }
-
             a:hover,
             a:focus {
                 text-decoration: none;
                 background-color: var(--color-menulink-hover-bg);
                 color: var(--color-menulink-hover-text);
 
+            }
+            a.ext-link:after {
+                @include svg-icon-place();
+                background-image: svg-icon-external-link($color-content-links);
+                color: var(--color-Text);
+                vertical-align: top;
+            }
+            a.ext-link:hover:after, 
+            a.ext-link:focus:after {
+                 background-image: svg-icon-external-link($color-menulink-hover-text);
             }
         }
 
@@ -203,6 +200,17 @@
                 font-weight: normal;
 
             }
+            a.ext-link:after {
+                @include svg-icon-place();
+                background-image: svg-icon-external-link($color-content-links);
+                color: var(--color-Text);
+                vertical-align: top;
+            }
+            a.ext-link:hover:after, a.ext-link:focus:after {
+                 background-image: svg-icon-external-link($color-menulink-hover-text);
+            }
+            
+            
         }
 
     }

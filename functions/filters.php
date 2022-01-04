@@ -300,6 +300,23 @@ function fau_add_subnav_css_class($css_class, $page){
 add_filter("page_css_class", "fau_add_subnav_css_class", 10, 2);
 
 
+/*-----------------------------------------------------------------------------------*/
+/* Force srcset urls to be relative
+/*-----------------------------------------------------------------------------------*/
+add_filter('wp_calculate_image_srcset', function($sources) {
+    if (!is_array($sources)) {
+        return $sources;
+    }
+
+    foreach ($sources as &$source) {
+        if (isset($source['url'])) {
+            $source['url'] = fau_esc_url($source['url']);
+        }
+    }
+
+    return $sources;
+
+}, PHP_INT_MAX);
 
 
 /*-----------------------------------------------------------------------------------*/

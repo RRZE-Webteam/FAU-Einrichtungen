@@ -245,8 +245,7 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu
         $this->level--;
     }
 
-    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
-    {
+    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
         $level       = $this->level;
         $iscurrent   = 0;
         $class_names = $value = '';
@@ -333,8 +332,7 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu
         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
 
-    function end_el(&$output, $item, $depth = 0, $args = array())
-    {
+    function end_el(&$output, $item, $depth = 0, $args = array())  {
         $output .= "</li>";
     }
 }
@@ -342,12 +340,10 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu
 /*-----------------------------------------------------------------------------------*/
 /* Create submenu icon/grid in content
 /*-----------------------------------------------------------------------------------*/
-function fau_get_contentmenu($menu, $submenu = 1, $subentries = 0, $nothumbs = 0, $nodefthumbs = 0)
-{
+function fau_get_contentmenu($menu, $submenu = 1, $subentries = 0, $nothumbs = 0, $nodefthumbs = 0) {
 
     if (empty($menu)) {
         echo '<!-- no id and empty slug for menu -->';
-
         return;
     }
     if ($menu == sanitize_key($menu)) {
@@ -357,7 +353,6 @@ function fau_get_contentmenu($menu, $submenu = 1, $subentries = 0, $nothumbs = 0
     }
     if ($term === false) {
         echo '<!-- invalid menu -->';
-
         return;
     }
     $slug = $term->slug;
@@ -383,12 +378,9 @@ function fau_get_contentmenu($menu, $submenu = 1, $subentries = 0, $nothumbs = 0
 }
 
 /*-----------------------------------------------------------------------------------*/
-
 /* Walker for subnav
 /*-----------------------------------------------------------------------------------*/
-
-class Walker_Content_Menu extends Walker_Nav_Menu
-{
+class Walker_Content_Menu extends Walker_Nav_Menu {
     private $level = 1;
     private $count = array();
     private $element;
@@ -493,7 +485,15 @@ class Walker_Content_Menu extends Walker_Nav_Menu
             if ($this->level == 1) {
                 $atts['class'] = 'subpage-item';
             }
-
+            
+            if (fau_is_url_external($atts['href'])){      
+                if (isset($atts['class'])) {
+                    $atts['class'] .= ' ext-link';
+                } else {
+                    $atts['class'] = 'ext-link';
+                }
+            }
+            
             $atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args);
 
             $attributes = '';
@@ -616,8 +616,7 @@ function fau_cleanup_menuclasses($currentarray = array())
 /*-----------------------------------------------------------------------------------*/
 /* Create breadcrumb
 /*-----------------------------------------------------------------------------------*/
-function fau_breadcrumb($lasttitle = '', $echo = true, $noNav = false)
-{
+function fau_breadcrumb($lasttitle = '', $echo = true, $noNav = false) {
     global $defaultoptions;
     global $post;
 
@@ -794,8 +793,7 @@ function fau_breadcrumb($lasttitle = '', $echo = true, $noNav = false)
 /*-----------------------------------------------------------------------------------*/
 /* Create Social Media Menu
 /*-----------------------------------------------------------------------------------*/
-function fau_get_socialmedia_menu($name = '', $ulclass = '', $withog = true)
-{
+function fau_get_socialmedia_menu($name = '', $ulclass = '', $withog = true) {
 
     if (!isset($name)) {
         return;
@@ -841,8 +839,7 @@ function fau_get_socialmedia_menu($name = '', $ulclass = '', $withog = true)
 /*-----------------------------------------------------------------------------------*/
 /* Create Page Nav for Template Page with Subnav
 /*-----------------------------------------------------------------------------------*/
-function fau_get_page_subnav($id)
-{
+function fau_get_page_subnav($id) {
     $thismenu = '';
     $thismenu .= '<nav class="sidebar-subnav" aria-labelledby="subnavtitle">';
 

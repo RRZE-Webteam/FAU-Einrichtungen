@@ -1443,15 +1443,12 @@ function get_fau_template_uri()
 /*-----------------------------------------------------------------------------------*/
 /* Makes absolute URL from relative URL
 /*-----------------------------------------------------------------------------------*/
-
-function fau_make_absolute_url($url)
-{
+function fau_make_absolute_url($url){
     if (!isset($url)) {
         $url = home_url("/");
     } else {
         if (substr($url, 0, 1) == '/') {
             $base = home_url();
-
             return $base.$url;
         } else {
             return $url;
@@ -1462,8 +1459,7 @@ function fau_make_absolute_url($url)
 /*-----------------------------------------------------------------------------------*/
 /* make urls relative to base url
 /*-----------------------------------------------------------------------------------*/
-function fau_make_link_relative($url)
-{
+function fau_make_link_relative($url) {
     $orig             = $url;
     $current_site_url = get_site_url();
     if (!empty($GLOBALS['_wp_switched_stack'])) {
@@ -1481,31 +1477,21 @@ function fau_make_link_relative($url)
 
     return apply_filters('fau_relative_link', $url, $orig);
 }
-
 /*-----------------------------------------------------------------------------------*/
-/* Force srcset urls to be relative
+/*is url external
 /*-----------------------------------------------------------------------------------*/
-add_filter('wp_calculate_image_srcset', function($sources) {
-    if (!is_array($sources)) {
-        return $sources;
-    }
-
-    foreach ($sources as &$source) {
-        if (isset($source['url'])) {
-            $source['url'] = fau_esc_url($source['url']);
-        }
-    }
-
-    return $sources;
-
-}, PHP_INT_MAX);
-
+function fau_is_url_external($url) {
+   $rellink = fau_make_link_relative($url);
+   if (substr($rellink, 0, 4) == 'http') {
+       return true;
+   }
+   return false;
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Custom template tags: Functions for templates and output
 /*-----------------------------------------------------------------------------------*/
-function fau_load_template_part($template_name, $part_name = null)
-{
+function fau_load_template_part($template_name, $part_name = null) {
     ob_start();
     get_template_part($template_name, $part_name);
     $var = ob_get_contents();
@@ -1517,8 +1503,7 @@ function fau_load_template_part($template_name, $part_name = null)
 /*-----------------------------------------------------------------------------------*/
 /* Check for langcode and return it
 /*-----------------------------------------------------------------------------------*/
-function fau_get_page_langcode($id = 0)
-{
+function fau_get_page_langcode($id = 0) {
     if ($id == 0) {
         return;
     }
@@ -1538,8 +1523,7 @@ function fau_get_page_langcode($id = 0)
 /*-----------------------------------------------------------------------------------*/
 /* getAccordionbyTheme if RRZE ELement Accordions are not active
 /*-----------------------------------------------------------------------------------*/
-function getAccordionbyTheme($id = 0, $title = '', $color = '', $load = '', $name = '', $content = '')
-{
+function getAccordionbyTheme($id = 0, $title = '', $color = '', $load = '', $name = '', $content = '') {
     $addclass = '';
     $title    = esc_attr($title);
     $color    = $color ? ' '.esc_attr($color) : '';
@@ -1587,8 +1571,7 @@ function getAccordionbyTheme($id = 0, $title = '', $color = '', $load = '', $nam
 /*-----------------------------------------------------------------------------------*/
 /* Add langcode to title if need
 /*-----------------------------------------------------------------------------------*/
-function fau_get_the_title($id = 0)
-{
+function fau_get_the_title($id = 0) {
     global $post;
     if ($id == 0) {
         $id = $post->ID;
