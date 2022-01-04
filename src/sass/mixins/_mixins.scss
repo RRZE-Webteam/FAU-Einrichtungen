@@ -176,17 +176,20 @@ Mixins File for Wordpress Theme FAU
 }
 
 @mixin defaultlinkstyle() {
-    box-shadow: initial;
+    box-shadow: none;
     transition: initial;
-    padding: initial;
+    padding: 0;
     text-decoration: underline;
-
+    color: currentcolor;
+    text-decoration-color:  currentcolor;
+   
     &:hover,
     &:focus {
  //       font-weight: bold;
-        color: initial;
-        box-shadow: initial;
+        box-shadow: none;
         text-decoration: underline;
+        color: currentcolor;
+        text-decoration-color: currentcolor;
     }
 }
 
