@@ -6,9 +6,7 @@
 
 
 
-.person-info-more {
-	@include morelink();
-}
+
 .fau-person,
 .person {
     a {
@@ -21,6 +19,12 @@
                     text-decoration: underline;
             }
     }
+    .person-info-more a.standard-btn {
+	// @include morelink();
+         @include ghostbutton();
+    }
+    
+    
     h3, h4, h5 {
 	a {
 	     text-decoration: none;
@@ -70,14 +74,15 @@
 	    }
 	    
 	} 
-	
-    span[itemprop="honorificPrefix"], 
-    span[itemprop="honorificSuffix"] {
-	white-space: nowrap;
-    }
-    .fullname {
-	@include hyphens(none);
-    }
+        span[itemprop="honorificPrefix"], 
+        span[itemprop="honorificSuffix"] {
+            overflow-wrap: break-word;
+        }
+        /*
+         .fullname,
+
+        Macht probleme bei A11y bei dem Overflow, daher erstmal die Definitionen rausgenommen
+        */
 
 }
 

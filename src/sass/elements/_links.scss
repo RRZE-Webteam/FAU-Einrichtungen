@@ -4,9 +4,9 @@
 
 a {
 	color: var(--color-links);
-	text-decoration: underline;
+	text-decoration: none;
         
-        &:link,
+      
 	&:active,
 	&:hover, 
 	&:focus {
