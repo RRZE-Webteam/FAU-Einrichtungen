@@ -6,3 +6,7 @@ input[type="button"],
 [role="button"] {
     @include buttonstyle();
 }
+
+a.btn, a[role="button"] {
+    @include buttonstyle();
+}
