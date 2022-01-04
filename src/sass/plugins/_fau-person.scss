@@ -20,7 +20,6 @@
             }
     }
     .person-info-more a.standard-btn {
-	// @include morelink();
          @include ghostbutton();
     }
     
