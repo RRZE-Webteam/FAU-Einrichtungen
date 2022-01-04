@@ -5,7 +5,8 @@
 a {
 	color: var(--color-links);
 	text-decoration: underline;
-
+        
+        &:link,
 	&:active,
 	&:hover, 
 	&:focus {

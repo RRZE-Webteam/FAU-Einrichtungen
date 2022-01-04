@@ -5249,7 +5249,7 @@ a {
   color: var(--color-links);
   text-decoration: underline;
 }
-a:active, a:hover, a:focus {
+a:link, a:active, a:hover, a:focus {
   text-decoration: underline;
 }
 p a, li a, table a, .accordion-inner a {
