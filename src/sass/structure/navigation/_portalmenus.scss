@@ -170,7 +170,6 @@
 
             li:before {
                 @include svg-icon-place();
-                display: table-cell;
                 background-image: svg-angle-right($color-content-links);
                 
                 font-weight: bold;

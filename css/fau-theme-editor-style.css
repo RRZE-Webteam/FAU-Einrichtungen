@@ -5304,9 +5304,9 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   text-align: right;
 }
 .continue .read-more-link {
-  box-shadow: inherit;
-  transition: inherit;
-  padding: inherit;
+  box-shadow: initial;
+  transition: initial;
+  padding: initial;
   text-decoration: underline;
   display: inline-block;
   border-radius: 3px;
@@ -5323,8 +5323,8 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   color: var(--color-Text);
 }
 .continue .read-more-link:hover, .continue .read-more-link:focus {
-  color: inherit;
-  box-shadow: inherit;
+  color: initial;
+  box-shadow: initial;
   text-decoration: underline;
 }
 .continue .read-more-link:hover, .continue .read-more-link:focus {
@@ -5392,9 +5392,9 @@ main a img,
 .content-inline a.news-image,
 .content-inline a svg,
 .content-inline a img {
-  box-shadow: inherit;
-  transition: inherit;
-  padding: inherit;
+  box-shadow: initial;
+  transition: initial;
+  padding: initial;
   text-decoration: underline;
 }
 main a.news-image:hover, main a.news-image:focus,
@@ -5420,8 +5420,8 @@ main a img:focus,
 .content-inline a svg:focus,
 .content-inline a img:hover,
 .content-inline a img:focus {
-  color: inherit;
-  box-shadow: inherit;
+  color: initial;
+  box-shadow: initial;
   text-decoration: underline;
 }
 main .widget a,
@@ -5455,9 +5455,9 @@ main h1 a, main h2 a, main h3 a, main h4 a, main h5 a, main h6 a,
 .content-inline h4 a,
 .content-inline h5 a,
 .content-inline h6 a {
-  box-shadow: inherit;
-  transition: inherit;
-  padding: inherit;
+  box-shadow: initial;
+  transition: initial;
+  padding: initial;
   text-decoration: underline;
   text-decoration: none;
 }
@@ -5522,8 +5522,8 @@ main h1 a:focus, main h2 a:hover, main h2 a:focus, main h3 a:hover, main h3 a:fo
 .content-inline h5 a:focus,
 .content-inline h6 a:hover,
 .content-inline h6 a:focus {
-  color: inherit;
-  box-shadow: inherit;
+  color: initial;
+  box-shadow: initial;
   text-decoration: underline;
 }
 main .widget a:active, main .widget a:hover, main .widget a:focus,
@@ -5623,9 +5623,9 @@ main a.media-img,
 .entry-content a.media-img,
 .portalpage-content a.media-img,
 .content-inline a.media-img {
-  box-shadow: inherit;
-  transition: inherit;
-  padding: inherit;
+  box-shadow: initial;
+  transition: initial;
+  padding: initial;
   text-decoration: underline;
   display: inline-block;
   overflow: hidden;
@@ -5637,8 +5637,8 @@ main a.media-img:hover, main a.media-img:focus,
 .portalpage-content a.media-img:focus,
 .content-inline a.media-img:hover,
 .content-inline a.media-img:focus {
-  color: inherit;
-  box-shadow: inherit;
+  color: initial;
+  box-shadow: initial;
   text-decoration: underline;
 }
 main a.media-img img,
@@ -5986,9 +5986,9 @@ ol li ul li {
   display: inline-block;
 }
 .pagination.pagebreaks .subpages a {
-  box-shadow: inherit;
-  transition: inherit;
-  padding: inherit;
+  box-shadow: initial;
+  transition: initial;
+  padding: initial;
   text-decoration: underline;
   text-decoration: none;
   color: var(--color-button-text);
@@ -5997,8 +5997,8 @@ ol li ul li {
   line-height: 1.313rem;
 }
 .pagination.pagebreaks .subpages a:hover, .pagination.pagebreaks .subpages a:focus {
-  color: inherit;
-  box-shadow: inherit;
+  color: initial;
+  box-shadow: initial;
   text-decoration: underline;
 }
 .pagination.pagebreaks .subpages a:hover, .pagination.pagebreaks .subpages a:focus {

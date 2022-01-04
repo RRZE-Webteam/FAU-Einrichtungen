@@ -176,16 +176,16 @@ Mixins File for Wordpress Theme FAU
 }
 
 @mixin defaultlinkstyle() {
-    box-shadow: inherit;
-    transition: inherit;
-    padding: inherit;
+    box-shadow: initial;
+    transition: initial;
+    padding: initial;
     text-decoration: underline;
 
     &:hover,
     &:focus {
  //       font-weight: bold;
-        color: inherit;
-        box-shadow: inherit;
+        color: initial;
+        box-shadow: initial;
         text-decoration: underline;
     }
 }
