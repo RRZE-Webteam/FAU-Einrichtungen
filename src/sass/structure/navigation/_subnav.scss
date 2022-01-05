@@ -131,9 +131,9 @@
 	    a:after {
 		    @extend .svg-icon;
 		    @include svg-icon-sizes(1.1rem);
-		    background-image: svg-icon-lock($color-submenu-currentlevel-text, 16, 16);
+		    background-image: svg-icon-lock($color-submenu-sublevel-text, 16, 16);
 		    margin-left: 5px;
-		    margin-top: -5px;
+		    margin-top: -5px; 
 	    }
 	    a:hover,
 	    a:focus {

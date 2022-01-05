@@ -264,3 +264,11 @@ button.expand-all {
 #content [id^="timeline"] .issues li p:not(.wp-caption-text) {
     @include px2rem($font-size-base);
 }
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Buttons
+/*-----------------------------------------------------------------------------------*/
+.standard-btn {
+    @include defaultlinkstyle();
+}
