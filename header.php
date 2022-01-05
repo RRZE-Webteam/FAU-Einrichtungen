@@ -79,7 +79,7 @@ if ($custom_logo_id) {
                                         echo '<meta itemprop="name" content="'.get_bloginfo('name', 'display').'">';
                                         echo get_custom_logo();
                                     } else {
-                                        get_template_part('template-parts/header', 'textlogo');
+                                        get_template_part('template-parts/header', 'meta-textlogo');
                                     }
                                     ?>
                                 </div>
