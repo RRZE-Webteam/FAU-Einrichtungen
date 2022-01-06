@@ -8,8 +8,7 @@
  */
 
 ?>
-<div itemscope itemtype="https://schema.org/WebSite" class="meta-search"
-     aria-label="<?php echo get_theme_mod('title_hero_search'); ?>">
+<div itemscope itemtype="https://schema.org/WebSite" class="meta-search">
     <?php
     /** Condition statement if plugin is currently active */
     if (is_plugin_active('rrze-search/rrze-search.php')) {
@@ -20,7 +19,7 @@
         ?>
         <meta itemprop="url" content="<?php echo home_url('/'); ?>">
         <form itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction" id="search-header"
-              role="search" method="get" class="searchform" action="<?php echo fau_esc_url(home_url('/')); ?>">
+              role="search" aria-label="<?php echo get_theme_mod('title_hero_search'); ?>" method="get" class="searchform" action="<?php echo fau_esc_url(home_url('/')); ?>">
             <label for="headsearchinput">
                 <?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:', 'fau'); ?>
             </label>
