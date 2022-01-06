@@ -198,7 +198,7 @@ $default_link_liste = array(
 	    ),
 	    'link3'  => array(
 		'name'	    => __('Stellenangebote', 'fau' ),
-		'content'  => 'https://jobs.fau.de/',
+		'content'  => 'https://www.jobs.fau.de/',
 	    ),
 	    'link4'  => array(
 		'name'	    => __('Lageplan', 'fau' ),
@@ -208,21 +208,18 @@ $default_link_liste = array(
 	),
 	'techmenu' => array(    
 	    'link1'  => array(
-		'name'	    => __('Stellenangebote', 'fau' ),
-		'content'  => 'https://www.jobs.fau.de/',
+		'name'	    => __('Impressum', 'fau' ),
+		'content'  => __('/impressum/', 'fau' ),
 	    ),
 	    'link2'  => array(
-		'name'	    => __('Presse', 'fau' ),
-		'content'  => 'https://www.fau.de/presseportal-der-fau/',
+		'name'	    => __('Datenschutz', 'fau' ),
+		'content'  => __('/datenschutz/', 'fau' ),
 	    ),
 	    'link3'  => array(
-		'name'	    => __('Intranet', 'fau' ),
-		'content'  => 'https://www.intern.fau.de/',
+		'name'	    => __('Barrierefreiheit', 'fau' ),
+		'content'  => __('/barrierefreiheit/', 'fau' ),
 	    ),	
-	    'link4'  => array(
-		'name'	    => __('Impressum', 'fau' ),
-		'content'  => 'https://www.fau.de/impressum/',
-	    ),	
+	  
 	),
 );
 

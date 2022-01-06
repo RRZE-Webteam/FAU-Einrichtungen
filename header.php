@@ -70,8 +70,7 @@ if ($custom_logo_id) {
                                 </a>
                             </div>
                             <div class="meta-logo">
-                                <div class="branding" role="banner" itemscope
-                                     itemtype="http://schema.org/Organization">
+                                <div class="branding" itemscope itemtype="http://schema.org/Organization">
                                     <?php
                                     if ($show_customlogo) {
                                         $custom_logo_title = get_theme_mod('website_logotitle');
@@ -123,7 +122,7 @@ if ($custom_logo_id) {
                 <header id="header">
                     <div class="header-container">
                         <div class="header-row">
-                            <div class="branding" id="logo" role="banner" itemscope itemtype="http://schema.org/Organization">
+                            <div class="branding" id="logo" itemscope itemtype="http://schema.org/Organization">
 
                                 <?php
                                 if ($show_customlogo) {

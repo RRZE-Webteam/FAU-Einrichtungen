@@ -23,6 +23,10 @@
          @include ghostbutton();
     }
     
+    &.liste-person a {
+         @include styledcontentlink();
+    }
+    
     
     h3, h4, h5 {
 	a {
@@ -73,9 +77,11 @@
 	    }
 	    
 	} 
+        .fullname,
         span[itemprop="honorificPrefix"], 
         span[itemprop="honorificSuffix"] {
             overflow-wrap: break-word;
+            white-space: normal;
         }
         /*
          .fullname,
