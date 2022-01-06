@@ -9,14 +9,14 @@ hr {
 	outline: none;
 	display: none;
 	
-	height: 20px;
-	margin: 10px 10px 30px;
+	height: 1rem;
+	margin: 1rem 0;
 	
 	
-	@media (min-width: $screen-xxs) {
+	@media (min-width: $screen-sm) {
 	    display: block;
-	    margin: 10px 50px 30px;
-	    height: 20px;	
+	    margin: 1rem 3rem 2rem;
+	    height: 1.5rem;	
 	}
 
 	

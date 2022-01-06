@@ -374,7 +374,7 @@
     }
 
     @media (max-width: $screen-sm) {
-        @include linear-gradient-three(transparent, $colorStandardHellgrau 50%, transparent);
+       background-color: var(--color-StandardHellgrau);
     }
 }
 

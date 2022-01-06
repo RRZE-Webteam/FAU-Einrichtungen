@@ -6309,15 +6309,15 @@ hr {
   border: none;
   outline: none;
   display: none;
-  height: 20px;
-  margin: 10px 10px 30px;
+  height: 1rem;
+  margin: 1rem 0;
   box-shadow: 0 10px 10px -10px var(--color-StandardHellgrau) inset;
 }
-@media (min-width: 320px) {
+@media (min-width: 768px) {
   hr {
     display: block;
-    margin: 10px 50px 30px;
-    height: 20px;
+    margin: 1rem 3rem 2rem;
+    height: 1.5rem;
   }
 }
 @media (min-width: 768px) {
