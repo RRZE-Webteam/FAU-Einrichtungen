@@ -128,23 +128,23 @@ $default_link_liste = array(
 	    '_title'	=> __('Die FAU','fau'),
 	    'link1'  => array(
 		'name'	    => __('Alle Studiengänge', 'fau' ),
-		'content'  => 'https://www.fau.de.de/studium/vor-dem-studium/studiengaenge/alle-studiengaenge/',
+		'content'  => 'https://www.fau.de/education/studienangebot/alle-studiengaenge/',
 	    ),
 	    'link2'  => array(
 		'name'	    => __('Studium A-Z', 'fau' ),
-		'content'  => 'https://www.fau.de/studium/im-studium/studium-a-z/',
+		'content'  => 'https://www.fau.de/education/studienorganisation/studium-a-z/',
 	    ),
 	    'link3'  => array(
 		'name'	    => __('Zahlen, Daten, Fakten', 'fau' ),
-		'content'  => 'https://www.fau.de/universitaet/kennzahlen-und-rankings/',
+		'content'  => 'https://www.fau.de/fau/willkommen-an-der-fau/kennzahlen-und-rankings/',
 	    ),	
 	    'link4'  => array(
-		'name'	    => __('Wissenschaftsschwerpunkte', 'fau' ),
-		'content'  => 'https://www.fau.de/forschung/forschungsprofil/forschungsprofil-und-wissenschaftsschwerpunkte-der-fau/',
+		'name'	    => __('Forschungsprofil', 'fau' ),
+		'content'  => 'https://www.fau.de/research/forschungsprofil/',
 	    ),	
 	    'link5'  => array(
 		'name'	    => __('Stiften und Fördern', 'fau' ),
-		'content'  => 'https://www.fau.de/universitaet/stiften-und-foerdern/',
+		'content'  => 'https://www.fau.de/outreach/stiften-und-foerdern/',
 	    ),	
 	),
 	'centers' => array(    
@@ -161,10 +161,7 @@ $default_link_liste = array(
 		'name'	    => __('Sprachenzentrum', 'fau' ),
 		'content'  => 'https://sz.fau.de/',
 	    ),
-	    'link4'  => array(
-		'name'	    => __('Graduiertenschule', 'fau' ),
-		'content'  => 'http://www.promotion.fau.de/',
-	    ),
+
 	  
 	),
 	
