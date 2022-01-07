@@ -19,3 +19,13 @@ ol.breadcrumblist {
     }
     
 }
+
+// Abwärtscompatabilititaet zu V1.x basierten Plugins
+.breadcrumbs {
+    a::after {
+        content: ' / ';
+    }
+    li a::after {
+        content: '';
+    }
+}

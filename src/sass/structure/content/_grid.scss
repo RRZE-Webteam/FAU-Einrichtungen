@@ -87,45 +87,7 @@
             max-width: $container-xl - $subnav-width-lg - $grid-gutter-width;
         }
     }
-    /*
-    .search-sidebar,
-    .search-resultnested {
-        max-width: 100%;
-        padding-left: floor(math.div($grid-gutter-width, 2));
-        padding-right: ceil(math.div($grid-gutter-width, 2));
-
-
-    }
-
-    .search-sidebar {
-        @media (min-width: $screen-sm) {
-            max-width: 33%;
-            padding-left: 0;
-            order: 1;
-        }
-    }
-
-    .search-resultnested {
-
-        @media (min-width: $screen-sm) {
-            padding-right: 0;
-            padding-left: 0;
-        }
-
-        .with-search-sidebar & {
-            @media (min-width: $screen-sm) {
-                max-width: 66%;
-                order: 2;
-                padding-left: floor(math.div($grid-gutter-width, 2));
-            }
-        }
-
-
-        li.search-result {
-            padding: 0;
-        }
-    }
-    */
+   
 
 }
 
