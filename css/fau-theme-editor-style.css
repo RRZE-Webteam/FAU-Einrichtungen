@@ -6602,11 +6602,13 @@ img.alignright {
 }
 
 .textcol-primary {
-  color: var(--color-primary-basis);
+  color: var(--color-primary-ci-hell);
+  background-color: var(--color-primary-ci-hell-kontrast);
 }
 
 .bgcol-primary {
-  background-color: var(--color-primary-basis);
+  color: var(--color-primary-ci-hell-kontrast);
+  background-color: var(--color-primary-ci-hell);
 }
 
 .textcolor-primary-basis {
@@ -6706,11 +6708,13 @@ img.alignright {
 }
 
 .textcol-zentral {
-  color: var(--color-zentral-basis);
+  color: var(--color-zentral-ci-hell);
+  background-color: var(--color-zentral-ci-hell-kontrast);
 }
 
 .bgcol-zentral {
-  background-color: var(--color-zentral-basis);
+  color: var(--color-zentral-ci-hell-kontrast);
+  background-color: var(--color-zentral-ci-hell);
 }
 
 .textcolor-zentral-basis {
@@ -6810,11 +6814,13 @@ img.alignright {
 }
 
 .textcol-phil {
-  color: var(--color-phil-basis);
+  color: var(--color-phil-ci-hell);
+  background-color: var(--color-phil-ci-hell-kontrast);
 }
 
 .bgcol-phil {
-  background-color: var(--color-phil-basis);
+  color: var(--color-phil-ci-hell-kontrast);
+  background-color: var(--color-phil-ci-hell);
 }
 
 .textcolor-phil-basis {
@@ -6914,11 +6920,13 @@ img.alignright {
 }
 
 .textcol-med {
-  color: var(--color-med-basis);
+  color: var(--color-med-ci-hell);
+  background-color: var(--color-med-ci-hell-kontrast);
 }
 
 .bgcol-med {
-  background-color: var(--color-med-basis);
+  color: var(--color-med-ci-hell-kontrast);
+  background-color: var(--color-med-ci-hell);
 }
 
 .textcolor-med-basis {
@@ -7018,11 +7026,13 @@ img.alignright {
 }
 
 .textcol-nat {
-  color: var(--color-nat-basis);
+  color: var(--color-nat-ci-hell);
+  background-color: var(--color-nat-ci-hell-kontrast);
 }
 
 .bgcol-nat {
-  background-color: var(--color-nat-basis);
+  color: var(--color-nat-ci-hell-kontrast);
+  background-color: var(--color-nat-ci-hell);
 }
 
 .textcolor-nat-basis {
@@ -7122,11 +7132,13 @@ img.alignright {
 }
 
 .textcol-rw {
-  color: var(--color-rw-basis);
+  color: var(--color-rw-ci-hell);
+  background-color: var(--color-rw-ci-hell-kontrast);
 }
 
 .bgcol-rw {
-  background-color: var(--color-rw-basis);
+  color: var(--color-rw-ci-hell-kontrast);
+  background-color: var(--color-rw-ci-hell);
 }
 
 .textcolor-rw-basis {
@@ -7226,11 +7238,13 @@ img.alignright {
 }
 
 .textcol-tf {
-  color: var(--color-tf-basis);
+  color: var(--color-tf-ci-hell);
+  background-color: var(--color-tf-ci-hell-kontrast);
 }
 
 .bgcol-tf {
-  background-color: var(--color-tf-basis);
+  color: var(--color-tf-ci-hell-kontrast);
+  background-color: var(--color-tf-ci-hell);
 }
 
 .textcolor-tf-basis {

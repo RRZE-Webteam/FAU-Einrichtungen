@@ -11,7 +11,11 @@
     a {
         @include defaultlinkstyle();
         text-decoration: none;
+        
+         color: var(--color-Text);
     }
+    
+   
 }
 
 .entry-content .contentmenu p,
@@ -134,8 +138,10 @@
             a.ext-link:focus:after {
                  background-image: svg-icon-external-link($color-menulink-hover-text);
             }
+            
+          
         }
-
+       
 
         ul {
             @include no-list;
@@ -211,7 +217,37 @@
             
             
         }
-
+        
+        &.textcol-phil {
+            .portaltop a {
+                 background-color: var(--color-phil-ci-hell);
+                 color: var(--color-phil-ci-hell-kontrast);
+            }
+        }
+         &.textcol-rw {
+            .portaltop a {
+                 background-color: var(--color-rw-ci-hell);
+                 color: var(--color-rw-ci-hell-kontrast);
+            }
+        }
+         &.textcol-nat {
+            .portaltop a {
+                 background-color: var(--color-nat-ci-hell);
+                 color: var(--color-nat-ci-hell-kontrast);
+            }
+        }
+         &.textcol-tf {
+            .portaltop a {
+                 background-color: var(--color-tf-ci-hell);
+                 color: var(--color-tf-ci-hell-kontrast);
+            }
+        }
+         &.textcol-med {
+            .portaltop a {
+                 background-color: var(--color-med-ci-hell);
+                 color: var(--color-med-ci-hell-kontrast);
+            }
+        }
     }
 
 }

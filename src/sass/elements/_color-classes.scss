@@ -27,10 +27,12 @@
 @each $farbtyp, $map in $colormaps {	   
 
     .textcol-#{$farbtyp} {
-	color:  var(--color-#{$farbtyp}-basis);
+	color:  var(--color-#{$farbtyp}-ci-hell);
+        background-color:  var(--color-#{$farbtyp}-ci-hell-kontrast);
     }
     .bgcol-#{$farbtyp} {
-	background-color: var(--color-#{$farbtyp}-basis);
+        color:  var(--color-#{$farbtyp}-ci-hell-kontrast);
+	background-color: var(--color-#{$farbtyp}-ci-hell);
     }
 
     @each $variante, $colorcode in $map {
