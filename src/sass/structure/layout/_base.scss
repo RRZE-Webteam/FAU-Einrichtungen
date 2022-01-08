@@ -20,7 +20,12 @@ html, body, button {
 }
 
 html {
-    scroll-padding-top: 400px;
+    scroll-padding-top: 175px;
+    
+    @media (min-width: $screen-sm) {
+        scroll-padding-top: 400px;
+    }
+    
 }
 
 /* Main surrounding grid */

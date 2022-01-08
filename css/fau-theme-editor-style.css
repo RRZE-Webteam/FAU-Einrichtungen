@@ -4694,32 +4694,32 @@ h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.312rem;
-  line-height: 3.007rem;
+  font-size: 1.812rem;
+  line-height: 2.357rem;
 }
 .sidebar-inline + h1 {
   margin-top: 0;
 }
 .banner-text h1 {
-  font-size: 2.312rem;
-  line-height: 3.469rem;
+  font-size: 1.812rem;
+  line-height: 2.719rem;
 }
 .sidebar-inline h1, .search-sidebar h1, .sidebar-outline h1, .widget h1 {
-  font-size: 2.187rem;
-  line-height: 3.282rem;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
 }
 table h1 {
-  font-size: 2.187rem;
-  line-height: 3.282rem;
+  font-size: 1.687rem;
+  line-height: 2.532rem;
 }
 h1.small {
-  font-size: 2.187rem;
-  line-height: 2.844rem;
+  font-size: 1.687rem;
+  line-height: 2.194rem;
 }
 
 h2 {
-  font-size: 1.812rem;
-  line-height: 2.357rem;
+  font-size: 1.5rem;
+  line-height: 1.951rem;
 }
 .sidebar-outline h2, .widget h2 {
   margin-bottom: 11px;
@@ -4728,8 +4728,8 @@ h2 {
   margin-top: 8px;
 }
 h2.small, h2.subtitle {
-  font-size: 1.687rem;
-  line-height: 2.532rem;
+  font-size: 1.375rem;
+  line-height: 2.063rem;
 }
 h2.subtitle {
   margin: 0 0 1rem 0;
@@ -4738,19 +4738,19 @@ h2.subtitle {
   margin-top: 4px;
 }
 h2.widget-title, .sidebar-inline h2, .search-sidebar h2, .sidebar-outline h2, .widget h2 {
-  font-size: 1.687rem;
-  line-height: 2.532rem;
+  font-size: 1.312rem;
+  line-height: 1.969rem;
 }
 table h2 {
-  font-size: 1.687rem;
-  line-height: 2.532rem;
+  font-size: 1.375rem;
+  line-height: 2.063rem;
 }
 
 h3 {
   margin: 0;
   padding: 11px 0;
-  font-size: 1.5rem;
-  line-height: 2.25rem;
+  font-size: 1.312rem;
+  line-height: 1.969rem;
 }
 h3.abstract {
   padding: 0 0 22px 0;
@@ -4759,66 +4759,66 @@ h3.abstract {
   font-weight: normal;
 }
 #off-canvas h3 {
-  font-size: 1.375rem;
-  line-height: 2.063rem;
+  font-size: 1.187rem;
+  line-height: 1.782rem;
   border-bottom: 1px solid var(--color-StandardHellgrau);
   margin: 20px 0 0 0;
   padding: 0 10px;
 }
 .sidebar-inline h3, .search-sidebar h3, .sidebar-outline h3, .widget h3 {
-  font-size: 1.375rem;
-  line-height: 2.063rem;
+  font-size: 1.187rem;
+  line-height: 1.782rem;
 }
 table h3 {
-  font-size: 1.375rem;
-  line-height: 2.063rem;
+  font-size: 1.187rem;
+  line-height: 1.782rem;
 }
 
 h4 {
   margin: 0;
   padding: 11px 0 11px 0;
-  font-size: 1.312rem;
-  line-height: 1.969rem;
+  font-size: 1.187rem;
+  line-height: 1.782rem;
 }
 .person h4, .span3 h4 {
-  font-size: 1.187rem;
-  line-height: 1.782rem;
+  font-size: 1.062rem;
+  line-height: 1.594rem;
 }
 .sidebar-inline h4, .search-sidebar h4, .sidebar-outline h4, .widget h4 {
-  font-size: 1.187rem;
-  line-height: 1.782rem;
+  font-size: 1.062rem;
+  line-height: 1.594rem;
 }
 table h4 {
-  font-size: 1.187rem;
-  line-height: 1.782rem;
+  font-size: 1.062rem;
+  line-height: 1.594rem;
 }
 
 h5 {
   margin: 0;
   padding: 11px 0 11px 0;
-  font-size: 1.187rem;
-  line-height: 1.782rem;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
 }
 .sidebar-inline h5, .search-sidebar h5, .sidebar-outline h5, .widget h5 {
   font-size: 1.062rem;
   line-height: 1.594rem;
 }
 table h5 {
-  font-size: 1.062rem;
-  line-height: 1.594rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 h6 {
-  font-size: 1.125rem;
-  line-height: 1.688rem;
+  font-size: 1.062rem;
+  line-height: 1.594rem;
 }
 .sidebar-inline h6, .search-sidebar h6, .sidebar-outline h6, .widget h6 {
   font-size: 1rem;
   line-height: 1.5rem;
 }
 table h6 {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 0.937rem;
+  line-height: 1.407rem;
 }
 
 @media (max-width: 480px) {
@@ -4925,8 +4925,8 @@ p.lead-in {
 
 p.presentationtitle {
   font-weight: bold;
-  font-size: 2.312rem;
-  line-height: 3.469rem;
+  font-size: 1.812rem;
+  line-height: 2.719rem;
   margin: 20px 0 20px 0;
 }
 
@@ -6011,8 +6011,8 @@ legend {
   padding: 0;
   margin-bottom: 0 0 1rem 0;
   font-weight: bold;
-  font-size: 1.5rem;
-  line-height: 2.25rem;
+  font-size: 1.312rem;
+  line-height: 1.969rem;
 }
 
 label {
