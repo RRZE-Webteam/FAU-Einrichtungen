@@ -72,7 +72,9 @@ main {
         }
 
         &.shadow {
-            @include box-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
+       //     @include box-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
+           filter: drop-shadow(2px 2px 7px rgba(0,0,0,0.5));
+           box-shadow: none;
         }
 
         &.thickborder {
