@@ -108,13 +108,13 @@ echo '<span class="textlogo">';
 	} else {
 	    echo ' id="website-title"';
 	}
-	echo '>'.$visible_toptitle.'</span>';
+	echo '>'.$visible_toptitle.'</span> ';
 	if ($visible_toptitle_secondline) {
-	    echo ' <span class="fau-title-place"';
+	    echo '<span class="fau-title-place"';
 	    if ($visible_title) {
 	       echo ' aria-hidden="true"';
 	   }
-	   echo '>'.$visible_toptitle_secondline.'</span>';
+	   echo '>'.$visible_toptitle_secondline.'</span> ';
        }
 		
     }
