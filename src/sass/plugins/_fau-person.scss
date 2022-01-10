@@ -156,21 +156,7 @@
 	
 	
 	
-	.image-placeholder {
-		width: 90px;
-		height: 120px;
-		position: relative;
-		text-align: center;
-	
 		
-		&:before {
-			@extend .fa;
-			@extend .fa-4x;
-			@extend .fa-user;
-			line-height: 120px;	
-		}
-	}
-	
 	.accordion & {
 	    padding: 0;
 	    border: none;
@@ -219,34 +205,8 @@
 
 	}
 	
-	
-	
-	.person-info-phone:before { 
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-phone; 
-	}
-	.person-info-mobile:before { 
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-mobile; 
-	}	
-	.person-info-fax:before {
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-print; 
-	}
-	.person-info-email:before {
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-envelope; 
-	}
 
-	.person-info-www:before { 
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-info-circle; 
-	}
+	
 	.person-info-position {
 	    font-weight: bold;
 	}
