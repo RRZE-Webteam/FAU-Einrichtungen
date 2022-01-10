@@ -1819,6 +1819,60 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
 
     return;
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* Tag List with title-Attribute fot better A11y, see 
+ * https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues/949
+ */
+/*-----------------------------------------------------------------------------------*/
+function fau_get_the_taglist($before = '', $sep = '', $after = '') {
+    $terms = get_the_tags();
+
+    $res = '';
+    
+    
+    
+    if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) { // Check if $terms is OK.
+	
+	if (!empty($before)) {
+	    $res .= $before;
+	}
+	
+	if (empty($sep)) {
+	    // use list
+	    $res .= '<ul>';
+	}
+	
+
+	foreach ( $terms as $term ) {
+	    $link = get_term_link( $term );
+	    if ( is_wp_error( $link ) ) {
+		continue;
+	    }
+	    if (empty($sep)) {
+		// use list
+		$res .= '<li>';
+	    }
+	    $res .= '<a href="' . esc_url( $link ) . '" rel="tag" title="'.__('Schlagwort','fau').' '.$term->name.'">' . $term->name . '</a>';
+	    if (empty($sep)) {
+		// use list
+		$res .= '<li>';
+	    } else {
+		$res .= $sep;
+	    }
+	}
+	if (empty($sep)) {
+	    // use list
+	    $res .= '</ul>';
+	}
+	
+	if (!empty($after)) {
+	    $res .= $after;
+	}
+	
+    }
+    return $res;
+}
 /*-----------------------------------------------------------------------------------*/
 /* This is the end :)
 /*-----------------------------------------------------------------------------------*/
