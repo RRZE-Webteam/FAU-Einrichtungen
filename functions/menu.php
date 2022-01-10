@@ -555,7 +555,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                     }
                     if ((fau_empty($imagehtml)) && (!$this->nothumbnailfallback)) {
 
-                        $item_output .= fau_get_image_fallback_htmlcode('fallback_submenu_image', $alttext);
+                        $item_output .= fau_get_image_fallback_htmlcode('fallback_submenu_image', $alttext, 'fallback');
                     }
                     $item_output .= '</a>';
                     $item_output .= '</div>';

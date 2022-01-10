@@ -18,9 +18,10 @@
    
 }
 
-.entry-content .contentmenu p,
-.portalpage-content .contentmenu p,
-.content-inline .contentmenu p {
+main .subpages-menu,
+.entry-content .contentmenu,
+.portalpage-content .contentmenu,
+.content-inline .contentmenu {
 
     a {
         @include defaultlinkstyle();
@@ -29,14 +30,16 @@
 
     a:hover,
     a:focus {
-        text-decoration: underline;
+        text-decoration: none;
         background-color: var(--color-menulink-hover-bg);
         color: var(--color-menulink-hover-text);
 
+	svg .fallback  {
+	    fill: var(--color-menulink-hover-text);
+	}
     }
 
 }
-
 
 .subpages-menu {
     @include no-list;
@@ -47,6 +50,8 @@
     row-gap: $grid-gutter-width;
     flex-wrap: wrap;
 
+
+
     li {
         @include no-list;
         display: flex;
@@ -55,7 +60,13 @@
 
         background-image: none;
         padding: 0px;
-        width: $contentmenu-default-width;
+	
+	width: $contentmenu-xxs-width;
+	
+	
+	@media (min-width: $screen-sm) {
+	    width: $contentmenu-default-width;
+	}
         border: 1px solid  var(--color-ContentBorders);
         
          @include box-shadow(1px 3px 10px transparent);
@@ -74,18 +85,23 @@
 
                 display: block;
                 position: relative;
-                width: $contentmenu-default-width;
-                height: $contentmenu-default-height;
+		width: 100%;
+		height: $contentmenu-xxs-maxheight;
+		@media (min-width: $screen-sm) {
+		    height: $contentmenu-default-height;
+		}
+
 
                 img {
                     height: inherit;
                     width: inherit;
-                    object-fit: contain;
+                    object-fit: cover;
                     box-shadow: none;
                 }
 
                 svg {
                     padding: 22px;
+		   
                 }
 
 
@@ -112,7 +128,11 @@
         .portaltop {
             display: block;
             @include px2rem($font-size-contentmenu-title);
-            width: $contentmenu-default-width;
+	    
+	    width: $contentmenu-xxs-width;
+	    @media (min-width: $screen-sm) {
+		width: $contentmenu-default-width;
+	    }
             font-weight: bold;
 
             a {
@@ -171,6 +191,7 @@
                 &::before,
                 a {
                     color: var(--color-menulink-hover-text);
+		    
                 }
             }
 

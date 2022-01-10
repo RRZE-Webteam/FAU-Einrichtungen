@@ -290,8 +290,11 @@ $font-size-print-base-small: ($font-size-base - 2);
 
 $font-size-contentmenu-title: ($font-size-base + 2);
 $font-size-contentmenu-link: $font-size-base;
-$contentmenu-default-width: 240px;
-$contentmenu-default-height: floor(math.div($contentmenu-default-width, 3) * 2);
+
+$contentmenu-xxs-width: 182px;
+$contentmenu-default-width: 242px;
+$contentmenu-default-height: floor(math.div(240px, 3) * 2);
+$contentmenu-xxs-maxheight: floor(math.div(180px, 3) * 2);
 
 $contentmenu-typ2-width: 300px;
 $contentmenu-typ2-height: auto;
