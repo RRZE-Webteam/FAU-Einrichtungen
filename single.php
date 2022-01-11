@@ -83,7 +83,7 @@ while ( have_posts() ) : the_post();
 						    $typestr .= ': ';
 
 						    foreach($categories as $category) {
-							$thiscatstr .= '<a href="'.get_category_link( $category->term_id ).'" title="'.__('Kategorie', 'fau').' '.$category->cat_name.'">'.$category->cat_name.'</a>'.$separator;
+							$thiscatstr .= '<a href="'.get_category_link( $category->term_id ).'" aria-label="'.__('Beiträge aus der Kategorie', 'fau').' '.$category->cat_name.' '.__('aufrufen','fau').'">'.$category->cat_name.'</a>'.$separator;
 						    }
 						    $typestr .= trim($thiscatstr, $separator);
 						    $typestr .= '</span> ';

@@ -1853,7 +1853,7 @@ function fau_get_the_taglist($before = '', $sep = '', $after = '') {
 		// use list
 		$res .= '<li>';
 	    }
-	    $res .= '<a href="' . esc_url( $link ) . '" rel="tag" title="'.__('Schlagwort','fau').' '.$term->name.'">' . $term->name . '</a>';
+	    $res .= '<a href="' . esc_url( $link ) . '" rel="tag" aria-label="'.__('Beiträge mit dem Schlagwort','fau').' '.$term->name.' '.__('aufrufen','fau').'">' . $term->name . '</a>';
 	    if (empty($sep)) {
 		// use list
 		$res .= '<li>';
