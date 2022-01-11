@@ -13,10 +13,11 @@
     
 ?>
 
-    <div id="content" class="start-sub">
-	<div class="container">
-	    <div class="row">
-		<div class="startpage-blogroll">
+    <div id="content" class="start-sub">   
+	<div class="content-container">	   
+	    <div class="content-row">
+		<div class="portalpage-content">
+		    
 		    <main<?php echo fau_get_page_langcode($post->ID);?>>	  
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 		    <?php 
@@ -91,7 +92,7 @@
 			?>
 			</main>	
 		    </div>
-		    <?php get_template_part('template-parts/sidebar', 'start');?>
+		    <?php get_template_part('template-parts/sidebar', 'portal');?>
 		</div> 
 		<?php  
 

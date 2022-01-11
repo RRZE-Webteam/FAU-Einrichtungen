@@ -89,12 +89,10 @@ while ( have_posts() ) : the_post();
 						    $typestr .= '</span> ';
 						}
 					    }
+					    $taglist = '';
 					    if (get_theme_mod('post_display_tags_below')) {
 						    $showfooter = true;
-						    $taglist = fau_get_the_taglist('<span class="post-meta-tags"> '.__('Schlagworte', 'fau').': ',', ','</span>');
-						   // if(get_the_tag_list()) {
-						//	$taglist = get_the_tag_list('<span class="post-meta-tags"> '.__('Schlagworte', 'fau').': ',', ','</span>');
-						//    }   
+						    $taglist = fau_get_the_taglist('<span class="post-meta-tags"> '.__('Schlagworte', 'fau').': ',', ','</span>'); 
 					    }
 
 					    if ($showfooter) {   

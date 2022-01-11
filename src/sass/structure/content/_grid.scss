@@ -43,6 +43,7 @@
     display: flex;
     flex-wrap: wrap;
 
+     
     @media (min-width: $screen-xl-min) {
         flex-wrap: nowrap;
     }
@@ -124,10 +125,15 @@
                 max-width: calc(100% - $sidebar-width-inline - $grid-gutter-width);
                 width: calc(100% - $sidebar-width-inline - $grid-gutter-width);
             }
+	     @media (min-width: $screen-lg) {
+                max-width: calc(100% - $sidebar-width-inline-lg - $grid-gutter-width);
+                width: calc(100% - $sidebar-width-inline-lg - $grid-gutter-width);
+            }
 
         }
     }
 }
+
 
 .inline-box .sidebar-inline,
 .content-row .portalpage-sidebar {
@@ -136,27 +142,14 @@
     padding-top: 15px;
     border-top: 2px solid var(--color-primary-ci-hell2);
     margin: 15px auto floor(math.div($grid-gutter-width, 2)) auto;
-    width: calc(100% - 30px);
-
+    width: calc(100% - $grid-gutter-width);
+   
     .widget h2:first-child {
         margin-top: 0;
     }
 }
 
-.content-row .portalpage-sidebar {
-
-    @media (min-width: $screen-sm) {
-        width: $sidebar-width-portal;
-        margin-top: 0;
-        padding-top: 0;
-        padding-left: 15px;
-        border-top: none;
-        border-left: 2px solid var(--color-primary-ci-hell2);
-    }
-}
-
 .inline-box {
-
     .content-inline {
         @media (min-width: $screen-md) {
             width: calc(100% - $sidebar-width-inline);
@@ -174,8 +167,26 @@
             margin-top: 0;
             padding-top: 0;
         }
+	@media (min-width: $screen-lg) {
+	     width: $sidebar-width-inline-lg;
+	}
+
+	
     }
 }
+.content-row .portalpage-sidebar {
+
+    @media (min-width: $screen-sm) {
+        width: $sidebar-width-portal;
+	max-width: $sidebar-maxwidth-portal;
+        margin-top: 0;
+        padding-top: 0;
+        padding-left: floor(math.div($grid-gutter-width, 2));
+        border-top: none;
+        border-left: 2px solid var(--color-primary-ci-hell2);
+    }
+}
+
 
 /*-----------------------------------------------------------------------------------*/
 /* Default container in content for plugin and custom types
@@ -261,22 +272,32 @@
 }
 
 /*-----------------------------------------------------------------------------------*/
-/* Template: Template Portalseite/Portalindex
+/* Template: Templates Portalseite, Portalindex, Startseite, Startseite Sub
 /*-----------------------------------------------------------------------------------*/
-.page-template-page-portal {
 
-    .portalpage-content {
-        padding: 0 15px;
-        flex: 1 1 $screen-xs;
-
-        main {
-            padding-top: ceil(math.div($grid-gutter-width, 2));
-        }
-
-        @media (min-width: $screen-sm) {
-            padding-right: ceil(math.div($grid-gutter-width, 2));
-        }
+.portalpage-content {
+    flex: 1 1;
+    width: 100%;
+    
+    padding: 0 ceil(math.div($grid-gutter-width, 2));
+    @media (min-width: $screen-sm) {
+	padding-left: 0;
+	padding-right: ceil(math.div($grid-gutter-width, 2));
+	margin-right: ceil(math.div($grid-gutter-width, 2));
     }
+    @media (min-width: $screen-lg) {
+	margin-right: $grid-gutter-width;
+    }
+   
+    
+    main {
+	padding-top: ceil(math.div($grid-gutter-width, 2));
+    }
+}
+
+.page-template-page-start-sub .content-row .portalpage-sidebar,
+.page-template-page-start .content-row .portalpage-sidebar {
+    border-color: transparent;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -308,47 +329,5 @@
 
     @media (min-width: $screen-sm) {
 	padding-right: ceil(math.div($grid-gutter-width, 2));
-    }
-}
-
-
-/*-----------------------------------------------------------------------------------*/
-/* Template: Template Startseiten
-/*-----------------------------------------------------------------------------------*/
-
-.startpage-blogroll {
-    @extend .col-xs-12;
-    @extend .col-sm-8;
-    //    @extend .col-xxl-9;
-}
-
-.startpage-sidebar {
-    @extend .col-xs-12;
-    @extend .col-sm-4;
-    //  @extend .col-xxl-3;
-}
-
-
-.startpage-sidebar {
-    .row {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    @media (max-width: $screen-sm) {
-       background-color: var(--color-StandardHellgrau);
-    }
-}
-
-@media (max-width: $screen-xs - 1) {
-    .page-template-page-start {
-
-
-        #content .news-image {
-            text-align: center;
-            float: none;
-        }
-
-
     }
 }
