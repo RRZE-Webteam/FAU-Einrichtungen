@@ -46,7 +46,7 @@ if ($custom_logo_id) {
                         <div class="header-row" id="meta-menu">
                             <div class="meta-links-container">
                                 <a href="#meta-menu" class="meta-links-trigger meta-links-trigger-open">
-                                    <span class="meta-links-trigger-text"><?php _e("Organisationsmenu", "fau"); ?> <?php _e("öffnen", "fau"); ?></span>
+                                    <span class="meta-links-trigger-text"><?php _e("Organisationsmenü", "fau"); ?> <?php _e("öffnen", "fau"); ?></span>
                                     <span
                                         class="meta-links-trigger-icon<?php echo ($website_type != '3' && $website_type !== '-1') ? ' meta-links-trigger-icon-fau' : '' ?>">
                                         <?php
@@ -63,7 +63,7 @@ if ($custom_logo_id) {
                                     </span>
                                 </a>
                                 <a href="#top" class="meta-links-trigger meta-links-trigger-close">
-                                    <span class="meta-links-trigger-text"><?php _e("Organisationsmenu", "fau"); ?> <?php _e("schließen", "fau"); ?></span>
+                                    <span class="meta-links-trigger-text"><?php _e("Organisationsmenü", "fau"); ?> <?php _e("schließen", "fau"); ?></span>
                                     <span class="meta-links-trigger-icon">
                                         <?php echo file_get_contents(get_template_directory().'/svg/icon-close.svg') ?>
                                     </span>
