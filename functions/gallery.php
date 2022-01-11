@@ -116,8 +116,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    if ($gridclass=='flexgrid') {
 		$output .= '<div class="flexgrid">'."\n";
 	    } else {
-		$output .= '<div class="'.$gridclass.'">'."\n";
-		$output .= '<div class="row">'."\n";
+		$output .= '<div class="flexgrid '.$gridclass.'">'."\n";
 	    }
 
 
@@ -188,19 +187,9 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    $output .= '</figure>'."\n";
 		    $i++;
 
-		    if (($gridclass == 'two') && ($i % 2 == 0)) {
-			$output .= '</div><div class="row">'."\n";  
-		    } elseif (($gridclass == 'three') && ($i % 3 == 0)) {
-			$output .= '</div><div class="row">'."\n";
-		    } elseif (($gridclass == 'four') && ($i % 4 == 0)) {
-			$output .= '</div><div class="row">'."\n";
-		    }
+		   
 	    }
 
-	    $output .= '</div>'."\n";
-	    if ($gridclass !='flexgrid') {
-		$output .= '</div>'."\n";
-	    }
 	    $output .= '</div>'."\n";
 
 

@@ -83,11 +83,7 @@
             overflow-wrap: break-word;
             white-space: normal;
         }
-        /*
-         .fullname,
 
-        Macht probleme bei A11y bei dem Overflow, daher erstmal die Definitionen rausgenommen
-        */
 
 }
 
@@ -262,7 +258,6 @@
 .sidebar-inline,
 .startpage-sidebar,
 .portalpage-content,
-.startpage-blogroll,
 .content-inline {
     .fau-person {
 	p {
@@ -340,9 +335,37 @@
     
     
 }
+.fau-person.sidebar.thumb-size-large .row,
+.fau-person.sidebar .row  {
+    justify-content: flex-start;
+    
+    figure {
+	flex: 1 1;
+	
+	min-width: 90px;
+	width: calc(100% - 215px);
+	max-width: 150px;
+	
+	margin-right: ceil(math.div($grid-gutter-width, 2));    
+	padding: 0;
+	img {
+	    width: 100%;
+	    height: auto;
+	}
+    }
+    .person-sidebar {
+	flex: 1 0;
+	max-width: inherit;
+	min-width: 200px;
+	width: inherit;
+    }
+    
+    
+}
+
+
 
 /* Sidebar: Inline */
-.startpage-sidebar,
 .sidebar-inline {
 	
     ul.person-info li {
