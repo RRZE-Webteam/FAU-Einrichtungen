@@ -7,6 +7,9 @@ input[type="button"],
     @include buttonstyle();
 }
 
-a.btn, a[role="button"] {
+a.standard-btn,
+a.btn, 
+a[role="button"] {
+    @include defaultlinkstyle();
     @include buttonstyle();
 }

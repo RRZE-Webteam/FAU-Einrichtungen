@@ -7590,7 +7590,17 @@ input[type=button]:focus,
   text-decoration: none;
 }
 
-a.btn, a[role=button] {
+a.standard-btn,
+a.btn,
+a[role=button] {
+  box-shadow: none;
+  transition: initial;
+  padding: 0;
+  text-decoration: underline;
+  color: currentcolor;
+  -webkit-text-decoration-color: currentcolor;
+          text-decoration-color: currentcolor;
+  box-shadow: none;
   display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
@@ -7602,11 +7612,31 @@ a.btn, a[role=button] {
   padding: 0.5rem 0.7rem;
   text-decoration: none;
 }
-a.btn:hover, a.btn:focus, a[role=button]:hover, a[role=button]:focus {
+a.standard-btn:hover, a.standard-btn:focus,
+a.btn:hover,
+a.btn:focus,
+a[role=button]:hover,
+a[role=button]:focus {
+  box-shadow: none;
+  text-decoration: underline;
+  color: currentcolor;
+  -webkit-text-decoration-color: currentcolor;
+          text-decoration-color: currentcolor;
+  box-shadow: none;
+}
+a.standard-btn:hover, a.standard-btn:focus,
+a.btn:hover,
+a.btn:focus,
+a[role=button]:hover,
+a[role=button]:focus {
   color: var(--color-button-hover-text);
   background: var(--color-button-hover-bg);
 }
-a.btn:hover, a.btn:focus, a[role=button]:hover, a[role=button]:focus {
+a.standard-btn:hover, a.standard-btn:focus,
+a.btn:hover,
+a.btn:focus,
+a[role=button]:hover,
+a[role=button]:focus {
   text-decoration: none;
 }
 
