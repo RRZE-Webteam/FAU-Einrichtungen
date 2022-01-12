@@ -1470,7 +1470,12 @@ Mixins File for Wordpress Theme FAU
 /* Define font base
 /*-----------------------------------------------------------------------------------*/
 html {
-  font-size: 100%;
+  font-size: 90%;
+}
+@media (min-width: 360px) {
+  html {
+    font-size: 100%;
+  }
 }
 @media (min-width: 1400px) {
   html {
