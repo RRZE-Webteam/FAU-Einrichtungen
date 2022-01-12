@@ -5588,12 +5588,12 @@ ol ul {
 }
 
 li {
-  padding: 3px 0 4px 4px;
+  padding: 0.2rem 0 0.2rem 0.2rem;
   font-size: 1rem;
   line-height: 1.5rem;
 }
-.sidebar-inline li {
-  padding: 3px 0 4px 20px;
+.widget.quicklinks li, .portalpage-sidebar li, .sidebar-inline li {
+  padding: 0;
   font-size: 0.875rem;
   line-height: 1.313rem;
 }
