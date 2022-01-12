@@ -19,6 +19,18 @@
 		}
 	    }
 	    
+	    .widget & {
+		li {
+		    a {
+			@include defaultlinkstyle();
+			text-decoration: none;
+		    }
+		    a::before {
+			
+			display: none;
+		    }
+		}
+	    }
     }
 
 .events-more-links {
@@ -223,6 +235,7 @@
 		line-height: 28px;
 	}
 }
+
 
 
 

@@ -295,9 +295,13 @@
     }
 }
 
-.page-template-page-start-sub .content-row .portalpage-sidebar,
-.page-template-page-start .content-row .portalpage-sidebar {
-    border-color: transparent;
+.page-template-template-landing-page,
+.page-template-page-start-sub ,
+.page-template-page-start {
+    .content-row .portalpage-sidebar {
+	border-color: transparent;
+    }
+    
 }
 
 /*-----------------------------------------------------------------------------------*/
