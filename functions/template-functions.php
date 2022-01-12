@@ -137,9 +137,9 @@ function fau_body_class($classes)
 
 
 
-    if (('' != get_theme_mod('advanced_display_header_md-showsitelogo')) && (true == get_theme_mod('advanced_display_header_md-showsitelogo'))) {
-        $classes[] = 'md-showsitelogo';
-    }
+ //   if (('' != get_theme_mod('advanced_display_header_md-showsitelogo')) && (true == get_theme_mod('advanced_display_header_md-showsitelogo'))) {
+ //       $classes[] = 'md-showsitelogo';
+ //   }
 
 
     if (false == get_theme_mod('advanced_activate_quicklinks')) {

@@ -243,7 +243,7 @@ $defaultoptions = [
 
     'advanced_display_portalmenu_forceclick'		=> false,
 	// Hauptmenü öffnet sich nur bei einem Klick
-    'advanced_display_header_md-showsitelogo'	=> false,
+ //   'advanced_display_header_md-showsitelogo'	=> false,
 	// Zeigt bei der mobilen Ansicht statt dem Logo der Website das 
 	// CI Logo der FAU anstelle des Logos der Website
     'advanced_header_template'	=> '',
@@ -667,14 +667,14 @@ $setoptions = array(
 		    'title'   => __( 'Header', 'fau' ),    
 		    'desc'    => __( 'Einstellungen für den Kopfteil des Webauftritts.', 'fau' ),
 		),
-	        'advanced_display_header_md-showsitelogo'		  => array(
-		    'type'    => 'toggle',
-		    'title'   => __( 'Website Logo (Mobil)', 'fau' ),
-		    'label'   => __( 'Zeigt bei der mobilen Ansicht (Darstellung auf kleinen Bildschirmen) das Logo des Webauftritts. Ist dieser Schalter nicht eingeschaltet, wird stattdessen das CI-Logo angezeigt.', 'fau' ),                
-		    'default' => $defaultoptions['advanced_display_header_md-showsitelogo'],
-		    'ifsuperadmin'   => true,
-		    'parent'  => 'header'
-		), 
+	//        'advanced_display_header_md-showsitelogo'		  => array(
+	//	    'type'    => 'toggle',
+	//	    'title'   => __( 'Website Logo (Mobil)', 'fau' ),
+	//	    'label'   => __( 'Zeigt bei der mobilen Ansicht (Darstellung auf kleinen Bildschirmen) das Logo des Webauftritts. Ist dieser Schalter nicht eingeschaltet, wird stattdessen das CI-Logo angezeigt.', 'fau' ),                
+	//	    'default' => $defaultoptions['advanced_display_header_md-showsitelogo'],
+	//	    'ifsuperadmin'   => true,
+	//	    'parent'  => 'header'
+	//	), 
 	       
 	
 		'advanced_activate_quicklinks'	  => array(
