@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Global content definitions
 /*-----------------------------------------------------------------------------------*/
-
+@use "sass:math";
 
 #content {    
     .container {
@@ -16,6 +16,13 @@
 	
 	.sidebar-inline {
 	    @include px2rem($font-size-sidebar);
+	}
+	
+	.subtitle {
+	    margin: 1rem floor(math.div($grid-gutter-width, 2));
+	    @media (min-width: $screen-sm) {
+		margin: 0 0 1rem 0;
+	    }
 	}
     }
    
