@@ -24,11 +24,14 @@
             @include defaultlinkstyle;
             
             img {
-                border: 1px solid transparent;
-                
-                &:hover, &:focus {
-                     border: 1px solid var(--color-content-links);
-                }
+		border: none;
+		@media (min-width: $screen-xs) {
+		    border: 1px solid transparent;
+
+		    &:hover, &:focus {
+			 border: 1px solid var(--color-content-links);
+		    }
+		}
             }
         }
     }
@@ -136,7 +139,9 @@
 
         &.alignleft,
         &.alignright {
-            margin: 0 auto;
+	    @media (min-width: $screen-sm) {
+		margin: 0 auto;
+	    }
         }
     }
 

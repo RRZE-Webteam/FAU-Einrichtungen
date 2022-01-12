@@ -4731,9 +4731,6 @@ h2.small, h2.subtitle {
   font-size: 1.375rem;
   line-height: 2.063rem;
 }
-h2.subtitle {
-  margin: 0 0 1rem 0;
-}
 .search h2 {
   margin-top: 4px;
 }
@@ -4999,6 +4996,7 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
+  box-shadow: none;
   display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
@@ -5019,6 +5017,7 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
+  box-shadow: none;
 }
 .continue .read-more-link:hover, .continue .read-more-link:focus {
   color: var(--color-button-hover-text);
@@ -5096,6 +5095,7 @@ main a img,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
+  box-shadow: none;
 }
 main a.news-image:hover, main a.news-image:focus,
 main a svg:hover,
@@ -5125,6 +5125,7 @@ main a img:focus,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
+  box-shadow: none;
 }
 main .imagelink a,
 main .person-info a,
@@ -5168,6 +5169,7 @@ main h1 a, main h2 a, main h3 a, main h4 a, main h5 a, main h6 a,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
+  box-shadow: none;
   text-decoration: none;
 }
 main .imagelink a:hover, main .imagelink a:focus,
@@ -5244,6 +5246,7 @@ main h1 a:focus, main h2 a:hover, main h2 a:focus, main h3 a:hover, main h3 a:fo
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
+  box-shadow: none;
 }
 main .imagelink a:active, main .imagelink a:hover, main .imagelink a:focus,
 main .person-info a:active,
@@ -5361,6 +5364,7 @@ main a.media-img,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
+  box-shadow: none;
   display: inline-block;
   overflow: hidden;
 }
@@ -5376,6 +5380,7 @@ main a.media-img:hover, main a.media-img:focus,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
+  box-shadow: none;
 }
 main a.media-img img,
 .entry-content a.media-img img,
@@ -5729,6 +5734,7 @@ ol li ul li {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
+  box-shadow: none;
   text-decoration: none;
   color: var(--color-button-text);
   background: var(--color-button-bg);
@@ -5741,6 +5747,7 @@ ol li ul li {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
+  box-shadow: none;
 }
 .pagination.pagebreaks .subpages a:hover, .pagination.pagebreaks .subpages a:focus {
   color: var(--color-button-hover-text);

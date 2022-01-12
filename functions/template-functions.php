@@ -1864,6 +1864,8 @@ function fau_get_the_taglist($before = '', $sep = '', $after = '') {
 	if (empty($sep)) {
 	    // use list
 	    $res .= '</ul>';
+	} else {
+	    $res = trim($res, $sep);
 	}
 	
 	if (!empty($after)) {

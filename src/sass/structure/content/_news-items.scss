@@ -35,8 +35,9 @@
 		    @extend .fa-tags;
 	}
 	.post-meta-tags {
-	   margin-left: 10px;
-	    
+	    @media (min-width: $screen-sm) {
+		margin-left: 10px;
+	    }
 	    
 	}
 	.meta-footer {
