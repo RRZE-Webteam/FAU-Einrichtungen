@@ -191,6 +191,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    }
 
 	    $output .= '</div>'."\n";
+	    $output .= '</div>'."\n";
 
 
 	} else {

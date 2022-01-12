@@ -38,19 +38,31 @@
     
     
     .grid {
-
+	$gapwidth: floor(math.div($grid-gutter-width, 2));
+	$figpadding: 5px;
+	$figwidth2: floor(math.div(($gapwidth + ($figpadding * 2)),2));
+	$figwidth3: floor(math.div((($gapwidth * 2) + ($figpadding * 2)),3));
+	$figwidth4: floor(math.div((($gapwidth * 3) + ($figpadding * 2)),4));
+	$figwidth5: floor(math.div((($gapwidth * 4) + ($figpadding * 2)),5));
+	
 	.flexgrid {
 	    display: flex; 
 	    flex-wrap: wrap; 
-	    gap: floor(math.div($grid-gutter-width, 2));
+	    gap: $gapwidth;
 	    
 	    figure { 
-		border: 1px solid #e9edf2;
+		border: 1px solid var(--color-ContentBorders);
 		text-align: center;
 		height: auto;
 		overflow: hidden;
-		width: 30%;
+		width: calc(33% - $figwidth3);
 		margin: 0;
+		padding: $figpadding;
+		
+		a {
+		    @include defaultlinkstyle();
+		    text-decoration: none;
+		}
 	
 	    }
 	    figure:not(.with-caption) { 
@@ -70,7 +82,8 @@
 		:focus,
 		:hover {
 		    img {
-			transform: scale(1.2);
+			transform: scale(1.1);
+			filter: grayscale(100%);
 		    }
 		}
 	    }
@@ -82,34 +95,35 @@
 	    &.four, 
 	    &.five {
 		figure {
-		    padding: 5px;
+		    padding: $figpadding;
 
 		}
 	    }
 	    &.two {	    
 		figure {
-		    width: calc(50% - 10px);
+		    
+		    width: calc(50% - $figwidth2);
 
 		}
 	    }
 	    &.three {
 		figure {
-		    width: calc(33% - 10px);
+		    width: calc(33% - $figwidth3);
 		}
 	    }
 	    &.four {
 		figure {
-		   width: calc(50% - 10px);
+		   width: calc(50% - $figwidth2);
 		    @media (min-width: $screen-sm) {
-			width: calc(25% - 10px);
+			width: calc(25% - $figwidth4);
 		    }
 		}
 	    }
 	    &.five {
 		figure {
-		    width: calc(50% - 10px);
+		    width: calc(50% - $figwidth2);
 		    @media (min-width: $screen-sm) {
-			width: calc(20% - 10px);
+			width: calc(20% - $figwidth5);
 		    }
 		}
 	    }
@@ -119,6 +133,50 @@
 	
 	
     }
+     &.nospace .grid {
+	.flexgrid {
+	    gap: 0;
+	    figure {
+		padding: 0;
+		width: 33%;
+		border: none;
+	    }
+	}
+	.flexgrid.two {	    
+		figure {
+		    
+		    width: 50%;
+
+		}
+	
+	}
+	.flexgrid.three {
+		figure {
+		    width: 33%;
+		}
+
+	}
+	.flexgrid.four {
+		figure {
+		   width: 50%;
+		    @media (min-width: $screen-sm) {
+			width: 25%;
+		    }
+		}
+
+	}
+	.flexgrid.five {
+		figure {
+		    width: 50%;
+		    @media (min-width: $screen-sm) {
+			width: 20%;
+		    }
+		}
+	
+	}
+    }
+    
+    
     .gallery-slick {
 	figure,
 	.gallery-image-caption {
@@ -362,14 +420,6 @@
 	    }
 	}
     }
-    &.nospace .grid {
-	.flexgrid {
-	    figure {
-		padding: 0;
-		margin: 0;
-		border: none;
-	    }
-	}
-    }
+   
     
 }
