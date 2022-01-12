@@ -163,6 +163,8 @@
 	    display: none;
 	     @media (min-width: $screen-sm) {
 		 display: block;
+		 padding: $fau-gutter-width;
+		 background-color: var(--color-StandardHellgrau);
 	     }
 	}
 	
@@ -185,34 +187,36 @@
 }
 
 
+.content-inline, .entry-content, .portalpage-content, main {
+    .news-more-links {
+	    padding: 20px 0;
+	    text-align: left;
 
-.news-more-links {
-	padding: 20px 0;
-	text-align: left;
-	
-	a {
-		@include inline-block;
-		@include defaultlinkstyle();
-		margin-right: 15px;
-	}
+	    a {
+		    @include inline-block;
+		    @include defaultlinkstyle();
+		    margin-right: 15px;
+	    }
 
-	.news-rss {
-	    @include ghostbutton();
-	}
-	.news-rss:before {
-	    @include svg-icon-place();
-	    margin-right: 0.5rem;
-	    background-image: svg-icon-rss($color-content-links);
-	}
-	.news-rss:focus:before,
-	.news-rss:hover:before {
-	    background-image: svg-icon-rss($color-button-hover-text);
-	}
-	
-	.news-more {
-	    @include buttonstyle();
-	} 
+	    .news-rss {
+		@include ghostbutton();
+	    }
+	    .news-rss:before {
+		@include svg-icon-place();
+		margin-right: 0.5rem;
+		background-image: svg-icon-rss($color-content-links);
+	    }
+	    .news-rss:focus:before,
+	    .news-rss:hover:before {
+		background-image: svg-icon-rss($color-button-hover-text);
+	    }
+
+	    .news-more {
+		@include buttonstyle();
+	    } 
+    }
 }
+
 .index-navigation {
     margin: 1rem 0;
     display: flex;

@@ -182,6 +182,7 @@ Mixins File for Wordpress Theme FAU
     text-decoration: underline;
     color: currentcolor;
     text-decoration-color:  currentcolor;
+    box-shadow: none;
    
     &:hover,
     &:focus {
@@ -189,6 +190,7 @@ Mixins File for Wordpress Theme FAU
         text-decoration: underline;
         color: currentcolor;
         text-decoration-color: currentcolor;
+	box-shadow: none;
     }
 }
 
