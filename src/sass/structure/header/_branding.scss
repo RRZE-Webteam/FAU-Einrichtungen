@@ -131,7 +131,7 @@
             &:focus,
             &:hover {
                 display: inline-block;
-                transition: border-left 0.25s ease-out;
+                transition: border-left 0.25s ease-out, margin-right 0.25s ease-out;
                 border-left: 8px solid var(--color-primary-ci-hell);
                 box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.22);
                 position: relative;
