@@ -14,7 +14,8 @@ get_header(); ?>
     <?php get_template_part('template-parts/hero', 'small'); ?>
 
     <div id="content">
-	<div class="content-container">	   
+	<div class="content-container">	  
+            <?php get_template_part('template-parts/content', 'portalmenu-oben'); ?>
 	    <div class="content-row">
 		<div class="portalpage-content">
 		     <main<?php echo fau_get_page_langcode($post->ID);?>>
@@ -27,22 +28,9 @@ get_header(); ?>
 			     echo '<h2 class="subtitle">'.$headline."</h2>\n";  
 			}
 			the_content(); 
-
-			$menuslug = get_post_meta( $post->ID, 'portalmenu-slug', true );	
-			if ($menuslug) { 	
-			    echo "<hr>";
-			    $nosub  = get_post_meta( $post->ID, 'fauval_portalmenu_nosub', true );
-			    if ($nosub==1) {
-				$displaysub =0;
-			    } else {
-				$displaysub =1;
-			    }
-			    $nofallbackthumbs  = get_post_meta( $post->ID, 'fauval_portalmenu_nofallbackthumb', true );
-			    $nothumbnails  = get_post_meta( $post->ID, 'fauval_portalmenu_thumbnailson', true ); 
-
-			    fau_get_contentmenu($menuslug,$displaysub,0,$nothumbnails,$nofallbackthumbs);
-			  }
-
+                        
+                        get_template_part('template-parts/content', 'portalmenu-unten');
+                        	
 			    $logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
 			    if ($logoliste) { 
 				$logos = fau_imagelink_get(array('size' => "logo-thumb", 'catid' => $logoliste, "autoplay" => true, "dots" => true));
