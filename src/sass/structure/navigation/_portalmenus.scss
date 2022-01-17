@@ -50,32 +50,36 @@ main .subpages-menu,
     margin: 20px 0;
     display: flex;
     justify-content: space-around;
-    column-gap: floor(math.div($grid-gutter-width, 2));
-    row-gap: $grid-gutter-width;
+    column-gap: floor(math.div($grid-gutter-width, 3));
+    row-gap: floor(math.div($grid-gutter-width, 1.5));
     flex-wrap: wrap;
-
+    @media (min-width: $screen-sm) {
+        column-gap: floor(math.div($grid-gutter-width, 2));
+        row-gap: $grid-gutter-width;
+    }
     li {
         @include no-list;
+        flex: 1 0 $contentmenu-xxs-width;
         display: flex;
         flex-direction: column;
         align-items: center;
         background-image: none;
         background: var(--color-ContentRegions);
         padding: 0px;
-        width: $contentmenu-xxs-width;
+        max-width: $contentmenu-default-width;
         @media (min-width: $screen-sm) {
             width: $contentmenu-default-width;
+            flex-grow: 0;
         }
-        border: 1px solid var(--color-ContentBorders);
         @include box-shadow(1px 3px 10px transparent);
-        &:hover {
+        &:hover,
+        &:focus {
             @include box-shadow(1px 3px 10px var(--color-ContentBorders));
         }
 
         .thumb {
             overflow: hidden;
             position: relative;
-            border-bottom: 1px solid var(--color-ContentBorders);
 
             a {
                 text-decoration: none;
@@ -88,12 +92,16 @@ main .subpages-menu,
                     height: $contentmenu-default-height;
                 }
 
-
                 img {
                     height: inherit;
                     width: inherit;
                     object-fit: cover;
                     box-shadow: none;
+                    transition: transform 1s;
+                }
+                &:hover img {
+                    transform: scale(1.05);
+                    filter: grayscale(60%);
                 }
 
                 svg {
@@ -125,6 +133,8 @@ main .subpages-menu,
         .portaltop {
             display: block;
             @include px2rem($font-size-contentmenu-title);
+            border-left: 1px solid var(--color-ContentBorders);
+            border-right: 1px solid var(--color-ContentBorders);
             border-bottom: 1px solid var(--color-ContentBorders);
 
             width: $contentmenu-xxs-width;
@@ -167,6 +177,10 @@ main .subpages-menu,
         ul {
             @include no-list;
             width: 100%;
+            border-left: 1px solid var(--color-ContentBorders);
+            border-right: 1px solid var(--color-ContentBorders);
+            border-bottom: 1px solid var(--color-ContentBorders);
+            flex-grow: 1;
 
             li {
                 @include no-list;

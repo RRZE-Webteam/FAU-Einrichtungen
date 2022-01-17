@@ -6475,7 +6475,11 @@ main figure.alignleft img, main figure.alignright img, main figure.alignnone img
     float: right;
   }
 }
-main figure.alignnone, main figure.aligncenter, aside figure.alignnone, aside figure.aligncenter, .portalpage-sidebar figure.alignnone, .portalpage-sidebar figure.aligncenter, .widget figure.alignnone, .widget figure.aligncenter {
+main figure.alignnone, aside figure.alignnone, .portalpage-sidebar figure.alignnone, .widget figure.alignnone {
+  text-align: left;
+  float: none;
+}
+main figure.aligncenter, aside figure.aligncenter, .portalpage-sidebar figure.aligncenter, .widget figure.aligncenter {
   text-align: center;
   float: none;
 }
