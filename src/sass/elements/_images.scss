@@ -141,7 +141,11 @@ main, aside, .portalpage-sidebar, .widget {
 		float: right;	 
 	    }
 	}
-	&.alignnone,
+	&.alignnone{
+	    text-align: left;
+	    float: none;
+
+	}
 	&.aligncenter {
 	    text-align: center;
 	    float: none;
