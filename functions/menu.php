@@ -384,14 +384,14 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
     private $level = 1;
     private $count = array();
     private $element;
-    private $showsub = 1;
+    private $showsub = true;
 
     function __construct(
         $menu,
-        $showsub = 1,
+        $showsub = true,
         $maxsecondlevel = 6,
-        $noshowthumb = 0,
-        $nothumbnailfallback = 0,
+        $noshowthumb = false,
+        $nothumbnailfallback = false,
         $thumbnail = 'rwd-480-2-1'
     ) {
         $this->showsub             = $showsub;
@@ -401,37 +401,33 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
         $this->thumbnail           = $thumbnail;
     }
 
-    function __destruct()
-    {
+    function __destruct() {
         // $output .= '</ul> <!-- destruct -->';
     }
 
-    function start_lvl(&$output, $depth = 0, $args = array())
-    {
+    function start_lvl(&$output, $depth = 0, $args = array()) {
         $this->level++;
         $this->count[$this->level] = 0;
-        if ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1) {
+        if ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub) {
             $output .= '<ul class="sub-menu">';
         }
     }
 
-    function end_lvl(&$output, $depth = 0, $args = array())
-    {
-        if ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1) {
+    function end_lvl(&$output, $depth = 0, $args = array()) {
+        if ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub) {
             $output .= '</ul>';
-        } elseif (($this->level == 2) && ($this->count[$this->level] == ($this->maxsecondlevel + 1)) && ($this->showsub == 1)) {
+        } elseif (($this->level == 2) && ($this->count[$this->level] == ($this->maxsecondlevel + 1)) && ($this->showsub)) {
             $output .= '<li class="more"><a href="'.$this->element->url.'">'.__('Mehr', 'fau').' ...</a></li>';
             $output .= '</ul>';
 
-        } elseif (($this->level == 2) && ($this->showsub == 1)) {
+        } elseif (($this->level == 2) && ($this->showsub)) {
             $output .= '</ul>';
         }
 
         $this->level--;
     }
 
-    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
-    {
+    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
         global $options;
         $indent = ($depth) ? str_repeat("\t", $depth) : '';
 
@@ -447,7 +443,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
         $item_output = '';
         // Only show elements on the first level and only five on the second level, but only if showdescription == FALSE
         if ($this->level == 1 ||
-            ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1)) {
+            ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub)) {
             $class_names = $value = '';
             $externlink  = false;
             $classes     = empty($item->classes) ? array() : (array)$item->classes;
@@ -576,7 +572,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
             $item_output .= $args->after;
 
 
-            if (!($this->showsub == 1) && ($this->level == 1)) {
+            if (!($this->showsub ) && ($this->level == 1)) {
                 $desc = get_post_meta($item->object_id, 'portal_description', true);
                 // Wird bei Bildlink definiert
                 if ($desc) {
@@ -591,7 +587,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
     {
 
         if ($this->level == 1 ||
-            ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub == 1)) {
+            ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub)) {
             $output .= "</li>";
 
         }

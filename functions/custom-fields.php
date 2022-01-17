@@ -53,7 +53,7 @@ function fau_add_metabox_page() {
         'fau_metabox_page_untertitel',			
         esc_html__( 'Untertitel', 'fau' ),		
         'fau_do_metabox_page_untertitel',		
-        'page','normal','high',
+        'page','normal','low',
 	array(
 	    '__block_editor_compatible_meta_box' => true,
 	)
@@ -64,14 +64,14 @@ function fau_add_metabox_page() {
         'fau_metabox_page_portalmenu',			
         esc_html__( 'Optionen für Portalseiten', 'fau' ),		
         'fau_do_metabox_page_portalmenu',		
-        'page','side','core'
+        'page','side','low'
     );
 
      add_meta_box(
         'fau_metabox_page_portalmenu_oben',			
         esc_html__( 'Portalmenu oben auf Portalseiten', 'fau' ),		
         'fau_do_metabox_page_portalmenu_oben',		
-        'page','side','core'
+        'page','side','low'
     );
 
 
@@ -81,7 +81,7 @@ function fau_add_metabox_page() {
         'fau_metabox_page_sidebar',			
         esc_html__( 'Sidebar', 'fau' ),		
         'fau_do_metabox_page_sidebar',		
-        'page','normal','core'
+        'page','normal','low'
     );
 
     
@@ -89,7 +89,7 @@ function fau_add_metabox_page() {
         'fau_metabox_page_additional_attributes',			
         esc_html__( 'Seiten-Eigenschaften', 'fau' ),		
         'fau_do_metabox_page_additional_attributes',		
-        'page','side','core',
+        'page','side','low',
 	array(
 	    '__block_editor_compatible_meta_box' => true,
 	)

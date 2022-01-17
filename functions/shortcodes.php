@@ -44,10 +44,18 @@ class FAUShortcodes {
             ), $atts));
             
             $out ='';
+	    
             $menu = $menu ?  esc_attr( $menu ) : '';
             $error = '<p>'.__("Es konnte kein Menu unter der angegebenen Bezeichnung gefunden werden",'fau').'</p>';
             $error .= "name=$menu";
             if (! fau_empty($menu)) {
+		
+		$showsubs = filter_var($showsubs, FILTER_VALIDATE_BOOLEAN);
+		$nothumbs = filter_var($nothumbs, FILTER_VALIDATE_BOOLEAN);
+		$nofallback = filter_var($nofallback, FILTER_VALIDATE_BOOLEAN);
+		$skewed = filter_var($skewed, FILTER_VALIDATE_BOOLEAN);
+		
+		
                 if ($menu == sanitize_key($menu)) {
                     $term = get_term_by('id', $menu, 'nav_menu');
                 } else {
@@ -58,10 +66,10 @@ class FAUShortcodes {
                 } else {
 		    $slug = $term->slug;
 		    $subentries = get_theme_mod('default_submenu_entries');
-                    if (!$showsubs) {
+                    if ($showsubs===false) {
                         $subentries = 0;
                     }
-		    $spalte = get_theme_mod('default_submenu_spalten');
+		//    $spalte = get_theme_mod('default_submenu_spalten');
 
 		    $a_contentmenuclasses[] = 'contentmenu';
 		    $thumbnail = 'rwd-480-2-1';
@@ -87,9 +95,8 @@ class FAUShortcodes {
 		    }
                     
                     
-                    
 
-                    if ($skewed==true) {
+                    if ($skewed===true) {
                     	$a_contentmenuclasses[] = 'skewed';
                     }
                     $out .= '<div class="'. implode(' ',$a_contentmenuclasses) . '" role="navigation" aria-label="'.__('Inhaltsmenü','fau').'">';

@@ -45,6 +45,7 @@ if ($menuslug) {
 	 $shortcodeopt .= ' skewed="true"';
     }
     
+    echo "OPT: $shortcodeopt";
     
     echo do_shortcode('[portalmenu '.$shortcodeopt.']'); 
     
