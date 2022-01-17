@@ -489,7 +489,7 @@ function fau_do_metabox_page_portalmenu($object, $box) {
     fau_form_select('fau_metabox_page_portalmenu_id', $thislist, $currentmenuid, __('Portalmenü', 'fau'), __('Bei einer Portalseite wird unter dem Inhalt ein Menu ausgegeben. Bitte wählen Sie hier das Menü aus der Liste. Sollte das Menü noch nicht existieren, kann ein Administrator es anlegen.', 'fau'), 1, __('Kein Portalmenu zeigen', 'fau'));
 
     $nothumbnails = get_post_meta($object->ID, 'fauval_portalmenu_thumbnailson', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_nothumbnails', $nothumbnails, __('Artikelbilder verstecken; Nur Überschriften zeigen.', 'fau'));
+    fau_form_onoff('fau_metabox_page_portalmenu_nothumbnails', $nothumbnails, __('Artikelbilder verbergen', 'fau'));
 
     $nofallbackthumbs = get_post_meta($object->ID, 'fauval_portalmenu_nofallbackthumb', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_nofallbackthumb', $nofallbackthumbs, __('Keine Ersatzbilder zeigen, wenn Artikelbilder nicht gesetzt sind.', 'fau'));
@@ -622,7 +622,7 @@ function fau_do_metabox_page_portalmenu_oben($object, $box) {
     fau_form_select('fau_metabox_page_portalmenu_id_oben', $thislist, $currentmenuid, __('Portalmenü Oben', 'fau'), '', 1, __('Kein Portalmenu zeigen', 'fau'));
 
     $nothumbnails = get_post_meta($object->ID, 'fauval_portalmenu_thumbnailson_oben', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_nothumbnails_oben', $nothumbnails, __('Artikelbilder verstecken; Nur Überschriften zeigen.', 'fau'));
+    fau_form_onoff('fau_metabox_page_portalmenu_nothumbnails_oben', $nothumbnails, __('Artikelbilder verbergen', 'fau'));
 
     $nofallbackthumbs = get_post_meta($object->ID, 'fauval_portalmenu_nofallbackthumb_oben', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_nofallbackthumb_oben', $nofallbackthumbs, __('Keine Ersatzbilder zeigen, wenn Artikelbilder nicht gesetzt sind.', 'fau'));
