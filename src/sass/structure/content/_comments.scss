@@ -56,3 +56,21 @@
     
 }
 
+.widget {
+    #recentcomments {
+	li.recentcomments {
+	   
+	    a {
+		&::before {
+		    display: none;
+		}
+	    }
+	}
+	li.recentcomments:before {
+	     @include svg-icon-place();
+	     background-image: svg-icon-comment();
+	     margin-right: 0.2rem;
+	}
+    }
+    
+}
