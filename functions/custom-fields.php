@@ -504,7 +504,7 @@ function fau_do_metabox_page_portalmenu($object, $box) {
     fau_form_select('fau_metabox_page_portalmenu_type', array(
         1 => __('Bild-Proportion 2:1', 'fau'),
         2 => __('Bild-Proportion 3:2', 'fau'),
-        3 => __('Bild-Proportion 3:4', 'fau')), $portaltype, __('Darstellungstyp', 'fau'), '', 1);
+        3 => __('Bild-Proportion 3:4', 'fau')), $portaltype, __('Bildformat', 'fau'), '', 1);
 }
 
 /* Save the meta box's page metadata. */
@@ -637,7 +637,7 @@ function fau_do_metabox_page_portalmenu_oben($object, $box) {
     fau_form_select('fau_metabox_page_portalmenu_type_oben', array(
         1 => __('Bild-Proportion 2:1', 'fau'),
         2 => __('Bild-Proportion 3:2', 'fau'),
-        3 => __('Bild-Proportion 3:4', 'fau')), $portaltype, __('Darstellungstyp', 'fau'), '', 1);
+        3 => __('Bild-Proportion 3:4', 'fau')), $portaltype, __('Bildformat', 'fau'), '', 1);
 }
 /* Save the meta box's page metadata portalmenu oben. */
 function fau_save_metabox_page_portalmenu_oben($post_id, $post) {
