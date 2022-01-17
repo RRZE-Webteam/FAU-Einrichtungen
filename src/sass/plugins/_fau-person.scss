@@ -23,9 +23,9 @@
          @include ghostbutton();
     }
     
-    &.liste-person a {
-         @include styledcontentlink();
-    }
+   // &.liste-person a {
+   //      @include styledcontentlink();
+   // }
     
     
     h3, h4, h5 {
