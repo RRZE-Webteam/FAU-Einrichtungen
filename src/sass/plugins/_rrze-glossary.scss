@@ -31,6 +31,7 @@
 		     padding: 0.2rem;
 		     text-decoration: none;
 		     width: 100%;
+		     @include defaultlinkstyle();
 		     @include buttoncolor();
 		     @include border-radius(4px);
 		}
