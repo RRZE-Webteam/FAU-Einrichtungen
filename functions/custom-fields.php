@@ -62,7 +62,7 @@ function fau_add_metabox_page() {
 
     add_meta_box(
         'fau_metabox_page_portalmenu',			
-        esc_html__( 'Optionen für Portalseiten', 'fau' ),		
+        esc_html__( 'Portalmenu unten auf Portalseiten', 'fau' ),		
         'fau_do_metabox_page_portalmenu',		
         'page','side','low'
     );
@@ -489,22 +489,22 @@ function fau_do_metabox_page_portalmenu($object, $box) {
     fau_form_select('fau_metabox_page_portalmenu_id', $thislist, $currentmenuid, __('Portalmenü', 'fau'), __('Bei einer Portalseite wird unter dem Inhalt ein Menu ausgegeben. Bitte wählen Sie hier das Menü aus der Liste. Sollte das Menü noch nicht existieren, kann ein Administrator es anlegen.', 'fau'), 1, __('Kein Portalmenu zeigen', 'fau'));
 
     $nothumbnails = get_post_meta($object->ID, 'fauval_portalmenu_thumbnailson', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_nothumbnails', $nothumbnails, __('Artikelbilder verbergen', 'fau'));
+    fau_form_onoff('fau_metabox_page_portalmenu_nothumbnails', $nothumbnails, __('Beitragsbilder verbergen', 'fau'));
 
     $nofallbackthumbs = get_post_meta($object->ID, 'fauval_portalmenu_nofallbackthumb', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_nofallbackthumb', $nofallbackthumbs, __('Keine Ersatzbilder zeigen, wenn Artikelbilder nicht gesetzt sind.', 'fau'));
+    fau_form_onoff('fau_metabox_page_portalmenu_nofallbackthumb', $nofallbackthumbs, __('Kein Ersatzbild zeigen, wenn Beitragsbild nicht gesetzt ist.', 'fau'));
 
     $nosub = get_post_meta($object->ID, 'fauval_portalmenu_nosub', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_nosub', $nosub, __('Unterpunkte verbergen.', 'fau'));
 
     $skewed = get_post_meta($object->ID, 'fauval_portalmenu_skewed', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_skewed', $skewed, __('Bild anschrägen', 'fau'));  
+    fau_form_onoff('fau_metabox_page_portalmenu_skewed', $skewed, __('Beitragsbilder anschrägen', 'fau'));  
     
     $portaltype = get_post_meta($object->ID, 'fauval_portalmenu_type', true);
     fau_form_select('fau_metabox_page_portalmenu_type', array(
-        1 => __('Bild-Proportion 2:1', 'fau'),
-        2 => __('Bild-Proportion 3:2', 'fau'),
-        3 => __('Bild-Proportion 3:4', 'fau')), $portaltype, __('Bildformat', 'fau'), '', 1);
+        1 => __('Format 2:1', 'fau'),
+        2 => __('Format 3:2', 'fau'),
+        3 => __('Format 3:4', 'fau')), $portaltype, __('Bildformat', 'fau'), '', 1);
 }
 
 /* Save the meta box's page metadata. */
@@ -622,22 +622,22 @@ function fau_do_metabox_page_portalmenu_oben($object, $box) {
     fau_form_select('fau_metabox_page_portalmenu_id_oben', $thislist, $currentmenuid, __('Portalmenü Oben', 'fau'), '', 1, __('Kein Portalmenu zeigen', 'fau'));
 
     $nothumbnails = get_post_meta($object->ID, 'fauval_portalmenu_thumbnailson_oben', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_nothumbnails_oben', $nothumbnails, __('Artikelbilder verbergen', 'fau'));
+    fau_form_onoff('fau_metabox_page_portalmenu_nothumbnails_oben', $nothumbnails, __('Beitragsbilder verbergen', 'fau'));
 
     $nofallbackthumbs = get_post_meta($object->ID, 'fauval_portalmenu_nofallbackthumb_oben', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_nofallbackthumb_oben', $nofallbackthumbs, __('Keine Ersatzbilder zeigen, wenn Artikelbilder nicht gesetzt sind.', 'fau'));
+    fau_form_onoff('fau_metabox_page_portalmenu_nofallbackthumb_oben', $nofallbackthumbs, __('Keine Ersatzbild zeigen, wenn Beitragsbild nicht gesetzt ist.', 'fau'));
 
     $nosub = get_post_meta($object->ID, 'fauval_portalmenu_nosub_oben', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_nosub_oben', $nosub, __('Unterpunkte verbergen.', 'fau'));
 
     $skewed = get_post_meta($object->ID, 'fauval_portalmenu_skewed_oben', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_skewed_oben', $skewed, __('Bild anschrägen', 'fau'));  
+    fau_form_onoff('fau_metabox_page_portalmenu_skewed_oben', $skewed, __('Beitragsbilder anschrägen', 'fau'));  
     
     $portaltype = get_post_meta($object->ID, 'fauval_portalmenu_type_oben', true);
     fau_form_select('fau_metabox_page_portalmenu_type_oben', array(
-        1 => __('Bild-Proportion 2:1', 'fau'),
-        2 => __('Bild-Proportion 3:2', 'fau'),
-        3 => __('Bild-Proportion 3:4', 'fau')), $portaltype, __('Bildformat', 'fau'), '', 1);
+        1 => __('Format 2:1', 'fau'),
+        2 => __('Format 3:2', 'fau'),
+        3 => __('Format 3:4', 'fau')), $portaltype, __('Bildformat', 'fau'), '', 1);
 }
 /* Save the meta box's page metadata portalmenu oben. */
 function fau_save_metabox_page_portalmenu_oben($post_id, $post) {
