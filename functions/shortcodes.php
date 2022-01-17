@@ -70,16 +70,15 @@ class FAUShortcodes {
 		    switch ($type) {
                     	case 1:
 				$thumbnail = 'rwd-480-2-1';
+				 $a_contentmenuclasses[] = 'size_2-1';
                     		break;
                     	case 2:
-                    		$a_contentmenuclasses[] = 'refresh';
-                    		$a_contentmenuclasses[] = 'no-shadow';
-                   		$thumbnail = 'rwd-480-3-2';
+				$a_contentmenuclasses[] = 'size_3-2';
+                   		$thumbnail = 'full';
                     		break;
                     	case 3:
-                    		$a_contentmenuclasses[] = 'refresh';
-                    		$a_contentmenuclasses[] = 'no-shadow';
-                    		$thumbnail = 'gallery-full';
+				$a_contentmenuclasses[] = 'size_3-4';
+                    		$thumbnail = 'full';
                     		break;
                     	default:
 				$thumbnail = 'rwd-480-2-1';
@@ -88,7 +87,7 @@ class FAUShortcodes {
 		    }
                     
                     
-                    $a_contentmenuclasses[] = 'contentmenutype' . $type;
+                    
 
                     if ($skewed==true) {
                     	$a_contentmenuclasses[] = 'skewed';

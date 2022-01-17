@@ -11,18 +11,42 @@
 $menuslug = get_post_meta( $post->ID, 'portalmenu-slug', true );	
 if ($menuslug) { 	
     echo "<hr>";
-    $nosub  = get_post_meta( $post->ID, 'fauval_portalmenu_nosub', true );
+    
+    
+    $shortcodeopt = 'menu="'.$menuslug.'"';
+   
+    $nosub  = get_post_meta( $post->ID, 'fauval_portalmenu_nosub', true );  
     if ($nosub==1) {
-        $displaysub =0;
+	$shortcodeopt .= ' showsubs="false"';
     } else {
-        $displaysub =1;
+        $shortcodeopt .= ' showsubs="true"';
     }
+    
+    
     $nofallbackthumbs  = get_post_meta( $post->ID, 'fauval_portalmenu_nofallbackthumb', true );
+    if ($nofallbackthumbs) {
+	 $shortcodeopt .= ' nofallback="true"';
+    }
+    
+    
     $nothumbnails  = get_post_meta( $post->ID, 'fauval_portalmenu_thumbnailson', true ); 
+    if ($nothumbnails) {
+	 $shortcodeopt .= ' nothumbs="true"';
+    }
+    
+    
     $type = get_post_meta($post->ID, 'fauval_portalmenu_type', true);
+    if ($type) {
+	$shortcodeopt .= ' type="'.$type.'"';
+    }
+    
     $skewed = get_post_meta($post->ID, 'fauval_portalmenu_skewed', true);
+    if ($skewed) {
+	 $shortcodeopt .= ' skewed="true"';
+    }
+    
+    
+    echo do_shortcode('[portalmenu '.$shortcodeopt.']'); 
+    
 
-    echo FAUShortcodes::fau_portalmenu(array('menu' => $menuslug, 
-        'showsubs' => $displaysub, 'nothumbs' => $nothumbnails, 
-        'nofallback' => $nofallbackthumbs, 'type' => $type, 'skewed' => $skewed));
   }
