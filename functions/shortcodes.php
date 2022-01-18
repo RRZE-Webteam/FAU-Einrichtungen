@@ -99,6 +99,9 @@ class FAUShortcodes {
                     if ($skewed===true) {
                     	$a_contentmenuclasses[] = 'skewed';
                     }
+                    if ($showsubs===false) {
+                    	$a_contentmenuclasses[] = 'no-sub';
+                    }
                     $out .= '<div class="'. implode(' ',$a_contentmenuclasses) . '" role="navigation" aria-label="'.__('Inhaltsmenü','fau').'">';
                     $out .= '<ul class="subpages-menu">';
                     $outnav = wp_nav_menu( array( 'menu' => $slug,
