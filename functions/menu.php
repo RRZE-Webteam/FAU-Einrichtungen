@@ -29,13 +29,7 @@ function fau_register_menus()
     register_nav_menu('main-menu', __('Haupt-Navigation', 'fau'));
     // Hauptnavigation
 
-    if ($website_type == -1) {
-        // Buehnennavigation Template Portal Startseite mit 4 Spalten
-        register_nav_menu('quicklinks-1', __('Startseite FAU Portal: Bühne Spalte 1', 'fau'));
-        register_nav_menu('quicklinks-2', __('Startseite FAU Portal: Bühne Spalte 2', 'fau'));
-        register_nav_menu('quicklinks-3', __('Startseite FAU Portal: Bühne Spalte 3', 'fau'));
-        register_nav_menu('quicklinks-4', __('Startseite FAU Portal: Bühne Spalte 4', 'fau'));
-    } else {
+    if ($website_type == 0) {
         // Buehnennavigation Template Portal Startseite mit 2 Spalten
         register_nav_menu('quicklinks-3', __('Startseite Fakultät: Bühne Spalte 1', 'fau'));
         register_nav_menu('quicklinks-4', __('Startseite Fakultät: Bühne Spalte 2', 'fau'));
