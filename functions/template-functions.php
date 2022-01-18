@@ -988,15 +988,16 @@ function fau_get_category_links($cateid = 0) {
 /*-----------------------------------------------------------------------------------*/
 /* Default Linklisten
 /*-----------------------------------------------------------------------------------*/
-function fau_get_defaultlinks($list = 'faculty', $ulclass = '', $ulid = ''){
+function fau_get_defaultlinks($list = '', $ulclass = '', $ulid = ''){
     global $default_link_liste;
-
+    
+    $uselist = array();
     if (is_array($default_link_liste[$list])) {
         $uselist = $default_link_liste[$list];
     } else {
-        $uselist = $default_link_liste['faculty'];
+	return;
     }
-
+   
     $result = '';
     if (isset($uselist['_title'])) {
         $result .= '<p class="headline">'.$uselist['_title'].'</p>';
