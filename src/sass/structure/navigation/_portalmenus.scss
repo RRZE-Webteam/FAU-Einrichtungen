@@ -57,8 +57,10 @@ main .subpages-menu,
         column-gap: floor(math.div($grid-gutter-width, 2));
         row-gap: $grid-gutter-width;
     }
+
     li {
         @include no-list;
+        position: relative;
         flex: 1 0 $contentmenu-xxs-width;
         display: flex;
         flex-direction: column;
@@ -69,17 +71,50 @@ main .subpages-menu,
         max-width: $contentmenu-default-width;
         @media (min-width: $screen-sm) {
             width: $contentmenu-default-width;
-            flex-grow: 0;
+            flex: 0 0 $contentmenu-default-width;
         }
         @include box-shadow(1px 3px 10px transparent);
+
         &:hover,
         &:focus {
             @include box-shadow(1px 3px 10px var(--color-ContentBorders));
         }
 
+        .skewed.no-sub & {
+            box-shadow: none;
+            svg .fallback {
+                fill: var(--color-menulink-hover-text);
+            }
+            &:focus,
+            &:hover {
+                a {
+                    background-color: var(--color-menulink-hover-bg);
+                    color: var(--color-menulink-hover-text);
+                }
+                svg .fallback {
+                    fill: var(--color-menulink-hover-text);
+                }
+            }
+        }
+
         .thumb {
             overflow: hidden;
             position: relative;
+            width: 100%;
+            .skewed & {
+                &::after {
+                    content: "";
+                    width: 100%;
+                    height: 1.875rem;
+                    position: absolute;
+                    left: 0;
+                    top: -30px;
+                    background: #fff;
+                    transform-origin: right top;
+                    transform: skewY(-1.75deg);
+                    display: block;
+                }
+            }
 
             a {
                 text-decoration: none;
@@ -87,14 +122,20 @@ main .subpages-menu,
                 display: block;
                 position: relative;
                 width: 100%;
-                height: $contentmenu-xxs-maxheight;
-                @media (min-width: $screen-sm) {
-                    height: $contentmenu-default-height;
+
+                .contentmenu.size_2-1 & {
+                    aspect-ratio: 2 / 1;
+                }
+                .contentmenu.size_3-2 & {
+                    aspect-ratio: 3 / 2;
+                }
+                .contentmenu.size_3-4 & {
+                    aspect-ratio: 3 / 4;
                 }
 
                 img {
-                    height: inherit;
-                    width: inherit;
+                    height: 100%;
+                    width: 100%;
                     object-fit: cover;
                     box-shadow: none;
                     transition: transform 1s;
@@ -102,11 +143,16 @@ main .subpages-menu,
                 &:hover img {
                     transform: scale(1.05);
                     filter: grayscale(60%);
+                    .skewed & {
+                        transform: none;
+                        filter: none;
+                    }
                 }
 
                 svg {
-                    padding: 22px;
-
+                    padding: 8%;
+                    height: 100%;
+                    width: 100%;
                 }
 
 
@@ -136,41 +182,65 @@ main .subpages-menu,
             border-left: 1px solid var(--color-ContentBorders);
             border-right: 1px solid var(--color-ContentBorders);
             border-bottom: 1px solid var(--color-ContentBorders);
-
-            width: $contentmenu-xxs-width;
-            @media (min-width: $screen-sm) {
-                width: $contentmenu-default-width;
-            }
+            width: 100%;
             font-weight: bold;
+
+            .no-sub & {
+                position: absolute;
+                bottom: 0;
+                padding: 0;
+                width: 100%;
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+                border: none;
+            }
+
+            &:hover,
+            &:focus {
+                border-color: var(--color-menulink-hover-bg);
+            }
 
             a {
                 width: 100%;
                 display: inline-block;
                 padding: 10px 10px 8px 10px;
                 text-align: center;
+
+                .no-sub & {
+                    display: block;
+                    padding: 8px 10px;
+                    color: #fff;
+                    text-shadow: 1px 1px 1px #000;
+                    font-weight: normal;
+                    transition: all .4s ease;
+
+                    &:focus,
+                    &:hover {
+                        text-decoration: none;
+                        background-color: var(--color-menulink-hover-bg);
+                        color: var(--color-menulink-hover-text);
+                    }
+                }
+
+                &:hover,
+                &:focus {
+                    text-decoration: none;
+                    background-color: var(--color-menulink-hover-bg);
+                    color: var(--color-menulink-hover-text);
+
+                }
+
+                &.ext-link:after {
+                    @include svg-icon-place();
+                    background-image: svg-icon-external-link($color-content-links);
+                    color: var(--color-Text);
+                    vertical-align: top;
+                }
+
+                &.ext-link:hover:after,
+                &.ext-link:focus:after {
+                    background-image: svg-icon-external-link($color-menulink-hover-text);
+                }
             }
-
-            a:hover,
-            a:focus {
-                text-decoration: none;
-                background-color: var(--color-menulink-hover-bg);
-                color: var(--color-menulink-hover-text);
-
-            }
-
-            a.ext-link:after {
-                @include svg-icon-place();
-                background-image: svg-icon-external-link($color-content-links);
-                color: var(--color-Text);
-                vertical-align: top;
-            }
-
-            a.ext-link:hover:after,
-            a.ext-link:focus:after {
-                background-image: svg-icon-external-link($color-menulink-hover-text);
-            }
-
-
         }
 
 
@@ -191,40 +261,37 @@ main .subpages-menu,
                 width: 100%; //  ($contentmenu-default-width - floor(math.div($grid-gutter-width, 2)));
                 box-shadow: none;
 
+                &:focus,
                 &:hover {
                     box-shadow: none;
-                }
-            }
-
-            li:focus,
-            li:hover {
-                background-color: var(--color-menulink-hover-bg);
-                color: var(--color-menulink-hover-text);
-
-                &::before,
-                a {
+                    background-color: var(--color-menulink-hover-bg);
                     color: var(--color-menulink-hover-text);
 
+                    &::before,
+                    a {
+                        color: var(--color-menulink-hover-text);
+                    }
+                    &:before,
+                    &:before {
+                        @include svg-icon-place();
+                        display: table-cell;
+                        background-image: svg-angle-right($color-button-hover-text);
+                        background-position: 0.4rem .45rem;
+                    }
                 }
-            }
 
-            li:before {
-                @include svg-icon-place();
-                background-image: svg-angle-right($color-content-links);
-                background-position: 0.4rem .45rem;
+                &:before {
+                    @include svg-icon-place();
+                    background-image: svg-angle-right($color-content-links);
+                    background-position: 0.4rem .45rem;
 
-                font-weight: bold;
-                display: table-cell;
-                vertical-align: middle;
-                color: var(--color-Default);
+                    font-weight: bold;
+                    display: table-cell;
+                    vertical-align: middle;
+                    color: var(--color-Default);
 
-            }
+                }
 
-            li:focus:before, li:hover:before {
-                @include svg-icon-place();
-                display: table-cell;
-                background-image: svg-angle-right($color-button-hover-text);
-                background-position: 0.4rem .45rem;
             }
 
             a {
@@ -232,26 +299,26 @@ main .subpages-menu,
                 display: table-cell;
                 padding: 0.4rem !important;
                 @include px2rem($font-size-contentmenu-link);
-            }
 
-            a:hover,
-            a:focus {
-                text-decoration: none;
-                background-color: var(--color-menulink-hover-bg);
-                color: var(--color-menulink-hover-text);
-                font-weight: normal;
+                &:hover,
+                &:focus {
+                    text-decoration: none;
+                    background-color: var(--color-menulink-hover-bg);
+                    color: var(--color-menulink-hover-text);
+                    font-weight: normal;
+                }
 
-            }
+                &.ext-link:after {
+                    @include svg-icon-place();
+                    background-image: svg-icon-external-link($color-content-links);
+                    color: var(--color-Text);
+                    vertical-align: top;
+                }
 
-            a.ext-link:after {
-                @include svg-icon-place();
-                background-image: svg-icon-external-link($color-content-links);
-                color: var(--color-Text);
-                vertical-align: top;
-            }
-
-            a.ext-link:hover:after, a.ext-link:focus:after {
-                background-image: svg-icon-external-link($color-menulink-hover-text);
+                &.ext-link:hover:after,
+                &.ext-link:focus:after {
+                    background-image: svg-icon-external-link($color-menulink-hover-text);
+                }
             }
 
 
@@ -302,113 +369,23 @@ main .subpages-menu,
 }
 
 .contentmenu {
-    &.refresh {
-        .menu-item {
-            position: relative;
+    .menu-item {
+        > div {
 
-            > div {
-                position: relative;
+
+            /*a.image {
                 width: 100%;
                 height: 100%;
+                display: block;
 
-                a.image {
+                img {
                     width: 100%;
                     height: 100%;
-                    display: block;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
+                    object-fit: cover;
                 }
-            }
-
-            > div + p,
-            > div + span.portaltop {
-                position: absolute;
-                bottom: 0;
-                padding: 0;
-                width: 100%;
-            }
-
-            span.portaltop {
-                background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-                width: 100%;
-                padding: 0;
-
-            }
-
-            &:focus span.portaltop,
-            &:hover span.portaltop {
-                background-color: var(--color-menulink-hover-bg);
-                color: var(--color-menulink-hover-text);
-            }
-
-            span.portaltop a {
-                display: block;
-                padding: 8px 10px;
-                color: #fff;
-                text-shadow: 1px 1px 1px #000;
-                font-weight: normal;
-
-                &:focus,
-                &:hover {
-                    text-decoration: none;
-                    background-color: var(--color-menulink-hover-bg);
-                    color: var(--color-menulink-hover-text);
-                }
-            }
+            }*/
         }
-
-        &.skewed {
-            .menu-item {
-                &::after {
-                    content: "";
-                    width: 100%;
-                    height: 1.875rem;
-                    position: absolute;
-                    left: 0;
-                    top: -30px;
-                    background: #fff;
-                    transform-origin: right top;
-                    transform: skewY(-1.75deg);
-                    display: block;
-                }
-            }
-
-            // .skewed
-        }
-
-        // .menu-item
-
-
-        &.contentmenutype2 {
-            .subpages-menu {
-                li {
-                    width: $contentmenu-typ2-width;
-                    height: $contentmenu-typ2-height;
-                }
-
-            }
-        }
-
-        &.contentmenutype3 {
-            .subpages-menu {
-                li {
-                    width: $contentmenu-typ3-width;
-                    height: $contentmenu-typ3-height;
-
-                }
-            }
-        }
-
-        // .contentmenutype3
-
     }
 
-    // .refresh
 }
-
-// .contentmenu
 
