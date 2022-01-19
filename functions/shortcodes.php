@@ -102,6 +102,12 @@ class FAUShortcodes {
                     if ($showsubs===false) {
                     	$a_contentmenuclasses[] = 'no-sub';
                     }
+                    if ($nofallback === true) {
+						$a_contentmenuclasses[] = 'no-fallback';
+					}
+                    if ($nothumbs === true) {
+						$a_contentmenuclasses[] = 'no-thumb';
+					}
                     $out .= '<div class="'. implode(' ',$a_contentmenuclasses) . '" role="navigation" aria-label="'.__('Inhaltsmenü','fau').'">';
                     $out .= '<ul class="subpages-menu">';
                     $outnav = wp_nav_menu( array( 'menu' => $slug,
