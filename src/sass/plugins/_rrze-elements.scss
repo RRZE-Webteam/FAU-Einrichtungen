@@ -287,3 +287,20 @@ button.expand-all {
 .standard-btn {
     @include defaultlinkstyle();
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* News
+/*-----------------------------------------------------------------------------------*/
+
+.rrze-elements-news {
+    .news-item {
+        a.read-more-link {
+            @include defaultlinkstyle();
+            @include ghostbutton();
+            display: block;
+            width: auto;
+            float: right;
+            margin: .6rem 0 0 1.8rem;
+        }
+    }
+}
