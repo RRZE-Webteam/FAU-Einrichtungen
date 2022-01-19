@@ -261,8 +261,23 @@ button.expand-all {
 /* Timeline
 /*-----------------------------------------------------------------------------------*/
 
-#content [id^="timeline"] .issues li p:not(.wp-caption-text) {
-    @include px2rem($font-size-base);
+#content [id^="timeline"]  {
+    .issues li p:not(.wp-caption-text) {
+        @include px2rem($font-size-base);
+    }
+    .timeline-nav a,
+    ul.dates a,
+    a.next,
+    a.prev {
+        @include defaultlinkstyle();
+        text-decoration: none;
+        &:hover,
+        &:focus {
+            color: var(--color-submenu-hover-bg);
+            text-decoration: none;
+        }
+    }
+
 }
 
 
