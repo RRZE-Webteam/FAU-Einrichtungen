@@ -196,7 +196,6 @@ $defaultoptions = [
     'advanced_comments_notes_before'		=> __('Ihre E-Mail-Adresse wird nicht angezeigt. Verpflichtende Felder werden mit dem folgenden Zeichen markiert: <span class="required">*</span>', 'fau' ),
     'advanced_comments_disclaimer'			=> __('Hinweis: Die Kommentare wurden von Lesern geschrieben und spiegeln deren persönliche Meinung wieder. Sie müssen nicht die Meinung der Universität oder der Fakultät repräsentieren.', 'fau' ),
     'advanced_comments_avatar'			=> false,
-    'advanced_activate_quicklinks'			=> true,
     
     
     'post_display_category_below'			=> true,
@@ -677,13 +676,7 @@ $setoptions = array(
 	//	), 
 	       
 	
-		'advanced_activate_quicklinks'	  => array(
-		    'type'    => 'toggle',
-		    'title'   => __( 'Quicklinks', 'fau' ),
-		    'label'   => __( 'Auf dem Template "Startseite Fakultät" werden unterhalb des Sliders die Quicklinks angezeigt. ', 'fau' ),                
-		    'default' => $defaultoptions['advanced_activate_quicklinks'],
-		    'parent'  => 'header'
-		),   
+	
 	       
 	       'advanced_header_template'	  => array(
 		    'type'    => 'select',

@@ -152,8 +152,14 @@
 	}
 
 	@media (min-width: $screen-md) {
-		margin: 0 auto -20px;
+		margin: 0 auto -40px;
 	}
+	.with-infobar &  {
+	    @media (min-width: $screen-md) {
+		margin-bottom: -20px;
+	    }
+	}
+	
 
 	@media (min-width: $slider-maxwidth + 20) {
 		width: $slider-maxwidth;
@@ -295,10 +301,14 @@
 			display: none;
 		}
 	}
+	
+	
 }
 
 #hero-slides {
     @media (min-width: $screen-md) {
         top: -20px;
     }
+    
+    
 }

@@ -8,11 +8,11 @@
  * @since FAU 1.7
  */
 
-if (('' != get_theme_mod( 'advanced_activate_quicklinks' )) && (true== get_theme_mod( 'advanced_activate_quicklinks' )) ) {
+if ((has_nav_menu('quicklinks-3')) || (has_nav_menu('quicklinks-4'))) {
 ?>
     <nav class="hero-navigation" aria-label="<?php echo __('Quicklinks','fau'); ?>">
-	<div class="container">
-	    <div class="row">
+	<div class="content-container">
+	    <div class="content-row">
 
 		    <div role="presentation" class="infobar">				    
 			<?php 
@@ -40,5 +40,7 @@ if (('' != get_theme_mod( 'advanced_activate_quicklinks' )) && (true== get_theme
 		    </div>
 	    </div>
 	</div>
-	<?php  } ?>
+	
     </nav>
+<?php  
+} 

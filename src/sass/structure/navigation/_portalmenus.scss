@@ -6,8 +6,9 @@
 
 
 .contentmenu {
-    @extend .row;
-
+  //  @extend .row;
+    width: 100%;
+    
     a {
         @include defaultlinkstyle();
         text-decoration: none;

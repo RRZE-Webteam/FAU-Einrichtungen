@@ -48,27 +48,27 @@
 	    }
 	}
 	&.zuv {
-			border-color: var(--color-Default);
+			border-color: var(--color-zentral-ci-hell);
 	}
 	&.phil,
 	&.philfak {
-		border-color: var(--color-phil-basis);
+		border-color: var(--color-phil-ci-hell);
 	}
 	&.rw,
 	&.rwfak {
-		border-color: var(--color-rw-basis);
+		border-color: var(--color-rw-ci-hell);
 	}
 	&.med,
 	&.medfak {
-		border-color: var(--color-med-basis);
+		border-color: var(--color-med-ci-hell);
 	}
 	&.nat,
 	&.natfak  {
-		border-color: var(--color-nat-basis);
+		border-color: var(--color-nat-ci-hell);
 	}
 	&.tf,
 	&.techfak {
-		border-color: var(--color-tf-basis);
+		border-color: var(--color-tf-ci-hell);
 	}	
 	&.white {
 		border-color: var(--color-white);
@@ -89,16 +89,16 @@
 	    font-weight: normal;
 	    color: var(--color-hero-text);
 	    @include px2rem( $font-size-h3-hero);
-	    padding: 10px 0;
+	    padding: 0.5rem 0;
 	}
 	h2 {  	
 		font-weight: bold;
-		padding-bottom: 11px;
+		padding-bottom: 0.6rem;
 		padding-top: 0; 
 		color: var(--color-hero-text);
 		
 		&.second {
-		    padding-top: 22px;
+		    padding-top: 1.2rem;
 		} 
 	  
 	}
@@ -112,7 +112,7 @@
 	@extend .col-sm-6;
 	
 	z-index: 10;
-	padding-top: 5px;
+	padding-top: 0.2rem;
 	
 	p {
 	    font-weight: normal;
@@ -124,13 +124,13 @@
 	    @include hyphens(none);
 	    position: relative;
 	    z-index: 10;
-	    padding-top: 0px;
+	    padding-top: 0;
 	}
 
 	p.description {
 	    @include px2rem($font-size-hero-bannertext);
 	    padding: 0;
-	    margin: 10px 0 0 0; 
+	    margin: 1rem 0 2rem 0; 
 	}
     }
     .ismobile & {

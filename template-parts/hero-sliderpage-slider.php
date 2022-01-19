@@ -28,8 +28,14 @@
 	    $hero_posts = get_posts($query); 
 	}
 	
+	$sliderclass = "sliderpage";
+	if ((has_nav_menu('quicklinks-3')) || (has_nav_menu('quicklinks-4'))) {
+	   $sliderclass .= " with-infobar";
+	}
+	
+	
 	if (count($hero_posts) > 0) { ?>
-<div id="hero" class="sliderpage">
+<div id="hero" class="<?php echo $sliderclass; ?>">
 	<section id="hero-slides" role="region" aria-roledescription="carousel"  aria-label="<?php echo __('Bedeutende Artikel','fau'); ?>">
 	   <div class="slick-slider featured-slider cf" id="mainslider">
 	       <?php

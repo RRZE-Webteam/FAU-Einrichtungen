@@ -6,8 +6,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Extends the default WordPress body classes
 /*-----------------------------------------------------------------------------------*/
-function fau_body_class($classes)
-{
+function fau_body_class($classes) {
     global $defaultoptions;
     global $default_fau_orga_data;
     global $default_fau_orga_faculty;
@@ -142,10 +141,7 @@ function fau_body_class($classes)
  //   }
 
 
-    if (false == get_theme_mod('advanced_activate_quicklinks')) {
-        $classes[] = 'no-quicklinks';
-    }
-
+ 
    
     if (is_active_sidebar('search-sidebar')) {
         $classes[] = 'with-search-sidebar';
