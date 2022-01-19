@@ -516,21 +516,10 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
             if ($this->level == 1) {
                 if (!$this->nothumbnail) {
-                    $item_output .= '<div class="thumb" role="presentation" aria-hidden="true" tabindex="-1">';
-                    $item_output .= '<a tabindex="-1" ';
-
-                    if ($externlink) {
-                        $item_output .= 'data-wpel-link="internal" ';
-                    }
-                    $item_output .= 'class="image';
-                    if ($externlink) {
-                        $item_output .= ' ext-link';
-                    }
-                    $item_output       .= '" href="'.$targeturl.'">';
                     $post_thumbnail_id = get_post_thumbnail_id($item->object_id);
-                    $imagehtml         = '';
-                    $imageurl          = '';
-
+                    $imagehtmlout       = '';
+                    $imagehtml          = '';
+                    $imageurl           = '';
 
                     $pretitle  = $options['advanced_contentmenu_thumblink_alt_pretitle'];
                     $posttitle = $options['advanced_contentmenu_thumblink_alt_posttitle'];
@@ -538,17 +527,33 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                     $alttext   = esc_html($alttext);
                     $altattr   = 'alt="'.$alttext.'"';
 
-
                     if ($post_thumbnail_id) {
                         $imagehtml   = fau_get_image_htmlcode($post_thumbnail_id, $this->thumbnail, $alttext);
-                        $item_output .= $imagehtml;
+                        $imagehtmlout .= $imagehtml;
                     }
                     if ((fau_empty($imagehtml)) && (!$this->nothumbnailfallback)) {
-
-                        $item_output .= fau_get_image_fallback_htmlcode('fallback_submenu_image', $alttext, 'fallback');
+                        $imagehtmlout .= fau_get_image_fallback_htmlcode('fallback_submenu_image', $alttext, 'fallback');
                     }
-                    $item_output .= '</a>';
-                    $item_output .= '</div>';
+
+                    if ($imagehtmlout != '') {
+                        $item_output .= '<div class="thumb" role="presentation" aria-hidden="true" tabindex="-1">';
+                        $item_output .= '<a tabindex="-1" ';
+
+                        if ($externlink) {
+                            $item_output .= 'data-wpel-link="internal" ';
+                        }
+                        $item_output .= 'class="image';
+                        if ($externlink) {
+                            $item_output .= ' ext-link';
+                        }
+                        $item_output       .= '" href="'.$targeturl.'">';
+
+                        $item_output .= $imagehtmlout;
+
+                        $item_output .= '</a>';
+                        $item_output .= '</div>';
+                    }
+
                 }
                 $item_output .= $args->link_before.'<span class="portaltop">';
                 $item_output .= $link;
