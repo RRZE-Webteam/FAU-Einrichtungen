@@ -243,16 +243,16 @@ button.expand-all {
 /*-----------------------------------------------------------------------------------*/
 /* Alerts
 /*-----------------------------------------------------------------------------------*/
-.alert {
+#content .alert {
+    padding: 2%;
     h2 {
-	padding-top: 7px;
+	    padding-top: 7px;
     }
-     p {
-	
-	padding: 5px 0;  
+    p {
+        padding: 5px 0;
     }
     &.alert-danger p {
-	font-size: 1.1rem;
+	    font-size: 1.1rem;
     }
 }
 
