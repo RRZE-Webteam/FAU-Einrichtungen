@@ -79,11 +79,11 @@
 	background: var(--color-primary-ci-hell); 
 	color:  var(--color-primary-ci-hell-kontrast); 
 	
-//	&:hover,
-//	&:focus {
-//	    background: var(--color-primary-dunkler); 
-//	    color:  var(--color-primary-dunkler-kontrast); 
-//	}
+	&:hover,
+	&:focus {
+	   background: var(--color-primary-ci-hell); 
+	    color:  var(--color-primary-ci-hell-kontrast); 
+	}
 	padding: 0.3rem;
 	width: 3rem;
 	text-align: center;
@@ -128,66 +128,66 @@
 	background: var(--color-zentral-ci-hell); 
 	color:  var(--color-zentral-ci-hell-kontrast); 
 	
-//	&:hover,
-//	&:focus {
-//	    background: var(--color-zentral-dunkler); 
-//	    color:  var(--color-zentral-dunkler-kontrast); 
-//	}
+	&:hover,
+	&:focus {
+	   background: var(--color-zentral-ci-hell); 
+	    color:  var(--color-zentral-ci-hell-kontrast); 
+	}
 }
 
 .event-category-techfak .event-date {
 	background: var(--color-tf-ci-hell); 
 	color:  var(--color-tf-ci-hell-kontrast); 
 	
-//	&:hover,
-//	&:focus {
-//	    background: var(--color-tf-dunkler); 
-//	    color:  var(--color-tf-dunkler-kontrast); 
-//  }
+	&:hover,
+	&:focus {
+	    background: var(--color-tf-ci-hell); 
+	color:  var(--color-tf-ci-hell-kontrast); 
+  }
 }
 
 .event-category-rwfak .event-date {
 	background: var(--color-rw-ci-hell); 
 	color:  var(--color-rw-ci-hell-kontrast); 
 	
-//	&:hover,
-//	&:focus {
-//	    background: var(--color-rw-dunkler); 
-//	    color:  var(--color-rw-dunkler-kontrast); 
-//	}
+	&:hover,
+	&:focus {
+	   background: var(--color-rw-ci-hell); 
+	color:  var(--color-rw-ci-hell-kontrast); 
+	}
 }
 
 .event-category-philfak .event-date {
 	background: var(--color-phil-ci-hell); 
 	color:  var(--color-phil-ci-hell-kontrast); 
 	
-//	&:hover,
-//	&:focus {
-//	    background: var(--color-phil-dunkler); 
-//	    color:  var(--color-phil-dunkler-kontrast); 
-//	}
+	&:hover,
+	&:focus {
+	   background: var(--color-phil-ci-hell); 
+	color:  var(--color-phil-ci-hell-kontrast); 
+	}
 }
 
 .event-category-natfak .event-date {
 	background: var(--color-nat-ci-hell); 
 	color:  var(--color-nat-ci-hell-kontrast); 
 	
-//	&:hover,
-//	&:focus {
-//	    background: var(--color-nat-dunkler); 
-//	    color:  var(--color-nat-dunkler-kontrast); 
-//	}
+	&:hover,
+	&:focus {
+	    background: var(--color-nat-ci-hell); 
+	    color:  var(--color-nat-ci-hell-kontrast); 
+	}
 }
 
 .event-category-medfak .event-date {
 	background: var(--color-med-ci-hell); 
 	color:  var(--color-med-ci-hell-kontrast); 
 	
-//	&:hover,
-//	&:focus {
-//	    background: var(--color-med-dunkler); 
-//	    color:  var(--color-med-dunkler-kontrast); 
-//	}
+	&:hover,
+	&:focus {
+	    background: var(--color-med-ci-hell); 
+	    color:  var(--color-med-ci-hell-kontrast); 
+	}
 }
 
 .widget_event_widget a {
