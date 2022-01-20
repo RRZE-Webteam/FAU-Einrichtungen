@@ -139,7 +139,7 @@
 .content-row .portalpage-sidebar {
     order: 2;
     display: block;
-    padding-top: 15px;
+    padding-top: 1.5rem;
     border-top: 2px solid var(--color-primary-ci-hell2);
     margin: 15px auto floor(math.div($grid-gutter-width, 2)) auto;
     width: calc(100% - $grid-gutter-width);
@@ -180,7 +180,6 @@
         width: $sidebar-width-portal;
 	max-width: $sidebar-maxwidth-portal;
         margin-top: 0;
-        padding-top: 0;
         padding-left: floor(math.div($grid-gutter-width, 2));
         border-top: none;
         border-left: 2px solid var(--color-primary-ci-hell2);
