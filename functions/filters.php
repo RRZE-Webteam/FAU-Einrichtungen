@@ -334,7 +334,7 @@ function fau_img_caption_shortcode_filter($val, $attr, $content = null) {
 
     if ( 1 > (int) $width || empty($caption) )
         return $val;
-
+    $addmaxw = '';
     $capid = '';
     if ( $id ) {
         $id = esc_attr($id);
@@ -342,9 +342,14 @@ function fau_img_caption_shortcode_filter($val, $attr, $content = null) {
 	  // In case the same image is used more as one time in the website, we need to habe a uniq id, therfor add a rand() value here.
         $capid = 'id="figcaption_'.$targetid.'" ';
         $id = 'id="' . $targetid . '" aria-labelledby="figcaption_' . $targetid . '" ';
+	
+	
+	if ($width) {
+	    $addmaxw = ' style="max-width: '.intval($width).'px"';
+	}
     }
 
-    return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" >'
+    return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" '.$addmaxw.'>'
     . do_shortcode( $content ) . '<figcaption ' . $capid 
     . '>' . $caption . '</figcaption></figure>';
 }
