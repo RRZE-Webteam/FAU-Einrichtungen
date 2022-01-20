@@ -118,6 +118,8 @@
   --color-button-bg: #004A9F;
   --color-button-hover-text: #fff;
   --color-button-hover-bg: #041E42;
+  --color-ghostbutton-hover-text: #fff;
+  --color-ghostbutton-hover-bg: #04316A;
   --color-footer-bg: #04316A;
   --color-footer-text: #fff;
   --color-hero-bg: #04316A;
@@ -3705,17 +3707,12 @@ table.wp-list-table .column-revealid_id {
 }
 
 /*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/*
-    Created on : 20.01.2022, 14:22:59
-    Author     : unrz59
+UI Elements, from jquery UI CSS
 */
 #ui-datepicker-div {
   background-color: white;
   border: 1px solid var(--color-ContentBorders);
+  padding: 5px 10px;
 }
 
 /*-----------------------------------------------------------------------------------*/

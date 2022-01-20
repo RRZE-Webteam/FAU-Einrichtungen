@@ -119,6 +119,8 @@
   --color-button-bg: #004A9F;
   --color-button-hover-text: #fff;
   --color-button-hover-bg: #041E42;
+  --color-ghostbutton-hover-text: #fff;
+  --color-ghostbutton-hover-bg: #04316A;
   --color-footer-bg: #04316A;
   --color-footer-text: #fff;
   --color-hero-bg: #04316A;
@@ -5022,6 +5024,10 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
 .continue .read-more-link:hover, .continue .read-more-link:focus {
   text-decoration: none;
 }
+.continue .read-more-link:hover, .continue .read-more-link:focus {
+  color: var(--color-ghostbutton-hover-text);
+  background: var(--color-ghostbutton-hover-bg);
+}
 .continue .read-more-link:after {
   display: inline-block;
   position: relative;
@@ -5813,6 +5819,10 @@ dd > dl {
 .pagination.pagebreaks .subpages .current .number:hover, .pagination.pagebreaks .subpages .current .number:focus {
   text-decoration: none;
 }
+.pagination.pagebreaks .subpages .current .number:hover, .pagination.pagebreaks .subpages .current .number:focus {
+  color: var(--color-ghostbutton-hover-text);
+  background: var(--color-ghostbutton-hover-bg);
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Forms
@@ -5897,6 +5907,10 @@ input[type=file]:hover, input[type=file]:focus {
 }
 input[type=file]:hover, input[type=file]:focus {
   text-decoration: none;
+}
+input[type=file]:hover, input[type=file]:focus {
+  color: var(--color-ghostbutton-hover-text);
+  background: var(--color-ghostbutton-hover-bg);
 }
 input[type=reset], input[type=submit] {
   display: inline-block;

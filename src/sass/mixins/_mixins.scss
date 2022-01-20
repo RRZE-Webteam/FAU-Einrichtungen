@@ -249,7 +249,11 @@ Mixins File for Wordpress Theme FAU
     background: transparent;
     color: var(--color-Text);    
     
-   
+    &:hover, 
+    &:focus {
+	color: var(--color-ghostbutton-hover-text);
+        background: var(--color-ghostbutton-hover-bg);
+    }
 }
 
 

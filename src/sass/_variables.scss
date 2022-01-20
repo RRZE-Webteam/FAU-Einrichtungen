@@ -145,11 +145,14 @@ $colorCopyright: #fff;
 $colorCopyrightBackground: rgba(0, 0, 0, 0.6);
 
 // Buttons
-
-$color_button_text:	map-get($colormap-primary, "dunkler-kontrast");
-$color_button_bg:	map-get($colormap-primary, "dunkler");
+$color_button_text:		map-get($colormap-primary, "dunkler-kontrast");
+$color_button_bg:		map-get($colormap-primary, "dunkler");
 $color-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
-$color-button-hover-bg:	map-get($colormap-primary, "dunkelste");
+$color-button-hover-bg:		map-get($colormap-primary, "dunkelste");
+
+// Ghost-Button
+$color-ghostbutton-hover-text:	map-get($colormap-primary, "ci-hell-kontrast");
+$color-ghostbutton-hover-bg:	map-get($colormap-primary, "ci-hell");
 
 
 // Hinweis: Für SVG-Grafiken brauchen wir den HEX-Code direkt und können nicht Custom Properies nutzen!
