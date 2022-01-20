@@ -90,7 +90,7 @@ a {
 
 		&:focus:after,
 		&:hover:after {
-			background-image: svg-angle-right($color-button-hover-text);
+			background-image: svg-angle-right($color-ghostbutton-hover-text);
 		}
     }
 }
