@@ -3704,6 +3704,20 @@ table.wp-list-table .column-revealid_id {
   border: 0;
 }
 
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 20.01.2022, 14:22:59
+    Author     : unrz59
+*/
+#ui-datepicker-div {
+  background-color: white;
+  border: 1px solid var(--color-ContentBorders);
+}
+
 /*-----------------------------------------------------------------------------------*/
 /* Plugin Output in Backend
 /*-----------------------------------------------------------------------------------*/
