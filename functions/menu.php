@@ -39,13 +39,16 @@ function fau_register_menus()
     register_nav_menu($defaultoptions['socialmedia_menu_position'], $defaultoptions['socialmedia_menu_position_title']);
     // Social Media Menu (seit 1.9.5)
 
-    register_nav_menu('error-1', __('Fehler- und Suchseite: Vorschlagmenu Spalte 1', 'fau'));
-    // Fehler und Suchseite: Vorschlagmenu Spalte 1
-    register_nav_menu('error-2', __('Fehler- und Suchseite: Vorschlagmenu Spalte 2', 'fau'));
+    register_nav_menu('error-helper', __('Fehler- und Suchseite: Vorschlagmenu', 'fau'));
+    // Fehler und Suchseite
+    // Mit V2. nur noch ein Menü, welches als Portalmenu angezeigt wird.
+    
+    
+//    register_nav_menu('error-2', __('Fehler- und Suchseite: Vorschlagmenu Spalte 2', 'fau'));
     // Fehler und Suchseite: Vorschlagmenu Spalte 2
-    register_nav_menu('error-3', __('Fehler- und Suchseite: Vorschlagmenu Spalte 3', 'fau'));
+//    register_nav_menu('error-3', __('Fehler- und Suchseite: Vorschlagmenu Spalte 3', 'fau'));
     // Fehler und Suchseite: Vorschlagmenu Spalte 3
-    register_nav_menu('error-4', __('Fehler- und Suchseite: Vorschlagmenu Spalte 4', 'fau'));
+//    register_nav_menu('error-4', __('Fehler- und Suchseite: Vorschlagmenu Spalte 4', 'fau'));
     // Fehler und Suchseite: Vorschlagmenu Spalte 4
 
 }
