@@ -304,3 +304,21 @@ button.expand-all {
         }
     }
 }
+/*-----------------------------------------------------------------------------------*/
+/* Content Slider
+/*-----------------------------------------------------------------------------------*/
+#content .entry-content .content-slider.flexslider {
+    margin: 1rem 3rem;
+    .flex-control-nav, 
+    .flex-direction-nav,
+    .flex-pauseplay {
+	a {
+	     @include defaultlinkstyle();
+		text-decoration: none;
+	}
+    }
+    .flex-pauseplay a {
+	width: 2rem;
+	height: 2rem;
+    }
+}

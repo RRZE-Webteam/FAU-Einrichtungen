@@ -7590,7 +7590,7 @@ div.alignright {
 /*-----------------------------------------------------------------------------------*/
 /* Buttons
 /*-----------------------------------------------------------------------------------*/
-#content button:not(.meta-links-trigger-button, .accordion-toggle),
+#content button:not(.meta-links-trigger-button):not(.accordion-toggle),
 input[type=button],
 [role=button] {
   display: inline-block;
@@ -7604,7 +7604,7 @@ input[type=button],
   padding: 0.5rem 0.7rem;
   text-decoration: none;
 }
-#content button:not(.meta-links-trigger-button, .accordion-toggle):hover, #content button:not(.meta-links-trigger-button, .accordion-toggle):focus,
+#content button:not(.meta-links-trigger-button):not(.accordion-toggle):hover, #content button:not(.meta-links-trigger-button):not(.accordion-toggle):focus,
 input[type=button]:hover,
 input[type=button]:focus,
 [role=button]:hover,
@@ -7612,7 +7612,7 @@ input[type=button]:focus,
   color: var(--color-button-hover-text);
   background: var(--color-button-hover-bg);
 }
-#content button:not(.meta-links-trigger-button, .accordion-toggle):hover, #content button:not(.meta-links-trigger-button, .accordion-toggle):focus,
+#content button:not(.meta-links-trigger-button):not(.accordion-toggle):hover, #content button:not(.meta-links-trigger-button):not(.accordion-toggle):focus,
 input[type=button]:hover,
 input[type=button]:focus,
 [role=button]:hover,

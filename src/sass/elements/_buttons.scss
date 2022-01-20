@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Buttons
 /*-----------------------------------------------------------------------------------*/
-#content button:not(.meta-links-trigger-button, .accordion-toggle),
+#content button:not(.meta-links-trigger-button):not(.accordion-toggle),
 input[type="button"],
 [role="button"] {
     @include buttonstyle();
