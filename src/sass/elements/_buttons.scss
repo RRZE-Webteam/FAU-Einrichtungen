@@ -1,15 +1,20 @@
 /*-----------------------------------------------------------------------------------*/
 /* Buttons
 /*-----------------------------------------------------------------------------------*/
-button:not(.meta-links-trigger-button),
+#content button:not(.meta-links-trigger-button, .accordion-toggle),
 input[type="button"],
 [role="button"] {
     @include buttonstyle();
 }
 
-a.standard-btn,
-a.btn, 
-a[role="button"] {
+#content .entry-content a.standard-btn, 
+#content .page .entry-content button.standard-btn,
+#content .post .entry-content a.standard-btn, 
+#content .post .entry-content button.standard-btn,
+#content a.standard-btn.primary-btn,
+#content a.standard-btn,
+#content a.btn, 
+#content a[role="button"] {
     @include defaultlinkstyle();
     @include buttonstyle();
 }
