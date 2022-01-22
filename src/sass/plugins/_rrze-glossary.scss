@@ -13,12 +13,12 @@
 	    color: var(--color-TextLight);
 	    @include px2rem($font-size-textbuttons);
 	    width: 2rem;
-	    height: 1.875rem;
+	    height: 2rem;
 	    margin: 0.2rem;
 	    padding: 0.2rem;
 	    text-align: center;
 	    vertical-align: middle;
-	     border: 1px solid var(--color-StandardHellgrau);
+	    border: 1px solid var(--color-StandardHellgrau);
 	    @include border-radius(4px);
 
 	   
@@ -29,11 +29,14 @@
 
 		a {
 		     padding: 0.2rem;
-		     text-decoration: none;
+		     
 		     width: 100%;
 		     @include defaultlinkstyle();
 		     @include buttoncolor();
 		     @include border-radius(4px);
+                     
+                     line-height: 2rem;
+                     text-decoration: none;
 		}
 
 		a:hover,
