@@ -4968,7 +4968,7 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   font-size: 0.937rem;
   line-height: 1.407rem;
   color: var(--color-button-text);
-  background: var(--color-button-bg);
+  background-color: var(--color-button-bg);
   border: none;
   padding: 0.5rem 0.7rem;
   text-decoration: none;
@@ -4976,7 +4976,7 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
 }
 .top-link:hover, .top-link:focus {
   color: var(--color-button-hover-text);
-  background: var(--color-button-hover-bg);
+  background-color: var(--color-button-hover-bg);
 }
 .top-link:hover, .top-link:focus {
   text-decoration: none;
@@ -5001,7 +5001,7 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   font-size: 0.937rem;
   line-height: 1.407rem;
   color: var(--color-button-text);
-  background: var(--color-button-bg);
+  background-color: var(--color-button-bg);
   border: none;
   padding: 0.5rem 0.7rem;
   text-decoration: none;
@@ -5019,7 +5019,7 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
 }
 .continue .read-more-link:hover, .continue .read-more-link:focus {
   color: var(--color-button-hover-text);
-  background: var(--color-button-hover-bg);
+  background-color: var(--color-button-hover-bg);
 }
 .continue .read-more-link:hover, .continue .read-more-link:focus {
   text-decoration: none;
@@ -5760,7 +5760,7 @@ dd > dl {
   box-shadow: none;
   text-decoration: none;
   color: var(--color-button-text);
-  background: var(--color-button-bg);
+  background-color: var(--color-button-bg);
   font-size: 0.875rem;
   line-height: 1.313rem;
 }
@@ -5774,7 +5774,7 @@ dd > dl {
 }
 .pagination.pagebreaks .subpages a:hover, .pagination.pagebreaks .subpages a:focus {
   color: var(--color-button-hover-text);
-  background: var(--color-button-hover-bg);
+  background-color: var(--color-button-hover-bg);
 }
 .pagination.pagebreaks .subpages a :hover,
 .pagination.pagebreaks .subpages a :focus {
@@ -5785,7 +5785,7 @@ dd > dl {
 }
 .pagination.pagebreaks .subpages .number {
   color: var(--color-button-text);
-  background: var(--color-button-bg);
+  background-color: var(--color-button-bg);
   padding: 0.5rem 0.7rem;
   text-decoration: none;
   border-radius: 3px;
@@ -5793,7 +5793,7 @@ dd > dl {
 }
 .pagination.pagebreaks .subpages .number:hover, .pagination.pagebreaks .subpages .number:focus {
   color: var(--color-button-hover-text);
-  background: var(--color-button-hover-bg);
+  background-color: var(--color-button-hover-bg);
 }
 .pagination.pagebreaks .subpages .current .number {
   display: inline-block;
@@ -5802,7 +5802,7 @@ dd > dl {
   font-size: 0.937rem;
   line-height: 1.407rem;
   color: var(--color-button-text);
-  background: var(--color-button-bg);
+  background-color: var(--color-button-bg);
   border: none;
   padding: 0.5rem 0.7rem;
   text-decoration: none;
@@ -5814,7 +5814,7 @@ dd > dl {
 }
 .pagination.pagebreaks .subpages .current .number:hover, .pagination.pagebreaks .subpages .current .number:focus {
   color: var(--color-button-hover-text);
-  background: var(--color-button-hover-bg);
+  background-color: var(--color-button-hover-bg);
 }
 .pagination.pagebreaks .subpages .current .number:hover, .pagination.pagebreaks .subpages .current .number:focus {
   text-decoration: none;
@@ -5892,7 +5892,7 @@ input[type=file] {
   font-size: 0.937rem;
   line-height: 1.407rem;
   color: var(--color-button-text);
-  background: var(--color-button-bg);
+  background-color: var(--color-button-bg);
   border: none;
   padding: 0.5rem 0.7rem;
   text-decoration: none;
@@ -5903,7 +5903,7 @@ input[type=file] {
 }
 input[type=file]:hover, input[type=file]:focus {
   color: var(--color-button-hover-text);
-  background: var(--color-button-hover-bg);
+  background-color: var(--color-button-hover-bg);
 }
 input[type=file]:hover, input[type=file]:focus {
   text-decoration: none;
@@ -5919,7 +5919,7 @@ input[type=reset], input[type=submit] {
   font-size: 0.937rem;
   line-height: 1.407rem;
   color: var(--color-button-text);
-  background: var(--color-button-bg);
+  background-color: var(--color-button-bg);
   border: none;
   padding: 0.5rem 0.7rem;
   text-decoration: none;
@@ -5927,7 +5927,7 @@ input[type=reset], input[type=submit] {
 }
 input[type=reset]:hover, input[type=reset]:focus, input[type=submit]:hover, input[type=submit]:focus {
   color: var(--color-button-hover-text);
-  background: var(--color-button-hover-bg);
+  background-color: var(--color-button-hover-bg);
 }
 input[type=reset]:hover, input[type=reset]:focus, input[type=submit]:hover, input[type=submit]:focus {
   text-decoration: none;
@@ -6602,7 +6602,7 @@ img.alignright {
   position: absolute;
   z-index: 110;
   color: var(--color-button-text);
-  background: var(--color-button-bg);
+  background-color: var(--color-button-bg);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   padding: 1.5em;
   top: 0px;
@@ -6617,7 +6617,7 @@ img.alignright {
 }
 #skiplinks .jumplinks li a:active:hover, #skiplinks .jumplinks li a:active:focus, #skiplinks .jumplinks li a:hover:hover, #skiplinks .jumplinks li a:hover:focus, #skiplinks .jumplinks li a:focus:hover, #skiplinks .jumplinks li a:focus:focus {
   color: var(--color-button-hover-text);
-  background: var(--color-button-hover-bg);
+  background-color: var(--color-button-hover-bg);
 }
 
 /* Color Definitions */
@@ -7590,33 +7590,33 @@ div.alignright {
 /*-----------------------------------------------------------------------------------*/
 /* Buttons
 /*-----------------------------------------------------------------------------------*/
-#content button:not(.meta-links-trigger-button):not(.accordion-toggle),
+button:not(.meta-links-trigger-button):not(.accordion-toggle):not(.menu-item),
 input[type=button],
-[role=button] {
+[role=button]:not(.mejs-overlay-button) {
   display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
   font-size: 0.937rem;
   line-height: 1.407rem;
   color: var(--color-button-text);
-  background: var(--color-button-bg);
+  background-color: var(--color-button-bg);
   border: none;
   padding: 0.5rem 0.7rem;
   text-decoration: none;
 }
-#content button:not(.meta-links-trigger-button):not(.accordion-toggle):hover, #content button:not(.meta-links-trigger-button):not(.accordion-toggle):focus,
+button:not(.meta-links-trigger-button):not(.accordion-toggle):not(.menu-item):hover, button:not(.meta-links-trigger-button):not(.accordion-toggle):not(.menu-item):focus,
 input[type=button]:hover,
 input[type=button]:focus,
-[role=button]:hover,
-[role=button]:focus {
+[role=button]:not(.mejs-overlay-button):hover,
+[role=button]:not(.mejs-overlay-button):focus {
   color: var(--color-button-hover-text);
-  background: var(--color-button-hover-bg);
+  background-color: var(--color-button-hover-bg);
 }
-#content button:not(.meta-links-trigger-button):not(.accordion-toggle):hover, #content button:not(.meta-links-trigger-button):not(.accordion-toggle):focus,
+button:not(.meta-links-trigger-button):not(.accordion-toggle):not(.menu-item):hover, button:not(.meta-links-trigger-button):not(.accordion-toggle):not(.menu-item):focus,
 input[type=button]:hover,
 input[type=button]:focus,
-[role=button]:hover,
-[role=button]:focus {
+[role=button]:not(.mejs-overlay-button):hover,
+[role=button]:not(.mejs-overlay-button):focus {
   text-decoration: none;
 }
 
@@ -7642,7 +7642,7 @@ input[type=button]:focus,
   font-size: 0.937rem;
   line-height: 1.407rem;
   color: var(--color-button-text);
-  background: var(--color-button-bg);
+  background-color: var(--color-button-bg);
   border: none;
   padding: 0.5rem 0.7rem;
   text-decoration: none;
@@ -7685,7 +7685,7 @@ input[type=button]:focus,
 #content a[role=button]:hover,
 #content a[role=button]:focus {
   color: var(--color-button-hover-text);
-  background: var(--color-button-hover-bg);
+  background-color: var(--color-button-hover-bg);
 }
 #content .entry-content a.standard-btn:hover, #content .entry-content a.standard-btn:focus,
 #content .page .entry-content button.standard-btn:hover,

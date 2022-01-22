@@ -218,12 +218,12 @@ Mixins File for Wordpress Theme FAU
 
 @mixin buttoncolor() {
     color: var(--color-button-text);
-    background: var(--color-button-bg);
+    background-color: var(--color-button-bg);
   
     &:hover, 
     &:focus {
 	color: var(--color-button-hover-text);
-        background: var(--color-button-hover-bg);
+        background-color: var(--color-button-hover-bg);
     }
 }
 
@@ -256,7 +256,15 @@ Mixins File for Wordpress Theme FAU
     }
 }
 
-
+@mixin removebuttoncolor() {
+    background-color: unset;
+    color: unset;
+     &:hover, 
+    &:focus {
+	color: unset;
+        background-color: unset;
+    }
+}
 // Set Font Style
 
 @mixin fontFace($family,$src,$weight: normal,$style: normal,$withlocal: true) {

@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : unrz59
 */
 
-.fau-oembed {
+#content .fau-oembed {
 	margin: 5px 0 20px 0;
 	
 	#social & {
@@ -17,6 +17,15 @@ and open the template in the editor.
 	iframe {
 	    width: 100%;
 	}
+        button {
+            background-color: transparent;
+            padding: 0;
+            &:focus,
+            &:hover {
+                background-color: var(--color-button-hover-bg);
+                color:  var(--color-button-hover-text);
+            }
+        }
 }
 .social-media-widget {
 	 .fau-oembed {
@@ -68,8 +77,7 @@ and open the template in the editor.
     }
     .page-template-page-portal,
     .page-template-page-start {
-	.portalpage-sidebar,
-	.startpage-sidebar {
+	.portalpage-sidebar {
 	    .fau-oembed {
 		iframe.defaultwidth {
 		    width: 293px;

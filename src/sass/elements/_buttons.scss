@@ -1,9 +1,9 @@
 /*-----------------------------------------------------------------------------------*/
 /* Buttons
 /*-----------------------------------------------------------------------------------*/
-#content button:not(.meta-links-trigger-button):not(.accordion-toggle),
+button:not(.meta-links-trigger-button):not(.accordion-toggle):not(.menu-item),
 input[type="button"],
-[role="button"] {
+[role="button"]:not(.mejs-overlay-button) {
     @include buttonstyle();
 }
 
