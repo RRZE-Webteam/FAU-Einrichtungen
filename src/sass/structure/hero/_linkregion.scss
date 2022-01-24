@@ -10,7 +10,7 @@
     li {
 	display: table;
 	padding-left: 0;
-	color: #fff;
+	color: var(--color-hero-text);
 	
 	@include px2rem($font-size-hero-links);
 
@@ -19,7 +19,7 @@
 	    @extend .fa-angle-right;	
 	    font-weight: bold;
 	    display: table-cell;
-	    color: #fff;
+	    color: var(--color-hero-text);
 	    width: 20px;
 	} 
 	
@@ -48,33 +48,33 @@
 	    }
 	}
 	&.zuv {
-			border-color: $colorZUV;
+			border-color: var(--color-zentral-ci-hell);
 	}
 	&.phil,
 	&.philfak {
-		border-color: $colorPhilFak;
+		border-color: var(--color-phil-ci-hell);
 	}
 	&.rw,
 	&.rwfak {
-		border-color: $colorRwFak;
+		border-color: var(--color-rw-ci-hell);
 	}
 	&.med,
 	&.medfak {
-		border-color: $colorMedFak;
+		border-color: var(--color-med-ci-hell);
 	}
 	&.nat,
 	&.natfak  {
-		border-color: $colorNatFak;
+		border-color: var(--color-nat-ci-hell);
 	}
 	&.tf,
 	&.techfak {
-		border-color: $colorTechFak;
+		border-color: var(--color-tf-ci-hell);
 	}	
 	&.white {
-		border-color: #fff;
+		border-color: var(--color-white);
 	}
 	&.gray {
-		border-color: $colorStandardHellgrau;
+		border-color: var(--color-StandardHellgrau);
 	}
     }
     
@@ -87,18 +87,18 @@
 	z-index: 10;
 	p.headline {
 	    font-weight: normal;
-	    color: #fff;
+	    color: var(--color-hero-text);
 	    @include px2rem( $font-size-h3-hero);
-	    padding: 10px 0;
+	    padding: 0.5rem 0;
 	}
 	h2 {  	
 		font-weight: bold;
-		padding-bottom: 11px;
+		padding-bottom: 0.6rem;
 		padding-top: 0; 
-		color: #fff;
+		color: var(--color-hero-text);
 		
 		&.second {
-		    padding-top: 22px;
+		    padding-top: 1.2rem;
 		} 
 	  
 	}
@@ -112,7 +112,7 @@
 	@extend .col-sm-6;
 	
 	z-index: 10;
-	padding-top: 5px;
+	padding-top: 0.2rem;
 	
 	p {
 	    font-weight: normal;
@@ -124,13 +124,13 @@
 	    @include hyphens(none);
 	    position: relative;
 	    z-index: 10;
-	    padding-top: 0px;
+	    padding-top: 0;
 	}
 
 	p.description {
 	    @include px2rem($font-size-hero-bannertext);
 	    padding: 0;
-	    margin: 10px 0 0 0; 
+	    margin: 1rem 0 2rem 0; 
 	}
     }
     .ismobile & {
@@ -149,7 +149,7 @@
 	}
 
 	>*, h1, h2, h3 {
-			color: $colorMeta;
+	    color:  var(--color-Default);
 	}
 
     }
@@ -172,11 +172,7 @@
 	    margin-top: 30px;
            
 	}
-	
-	.siegel {
-	    bottom: inherit;
-	    top: 10px;
-	}
+
 }
 
 

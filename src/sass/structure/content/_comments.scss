@@ -8,8 +8,8 @@
     clear: both;
     code {
 	white-space: normal;
-	color: $colorLightestContrast;
-	background-color: $colorLightest;
+	color: var(--color-primary-ci-hell2-kontrast);
+	background-color: var(--color-primary-ci-hell2);
 
     }
     label {
@@ -32,7 +32,7 @@
 	margin: 0px;
     }
     .comment-body {
-	border-left: 2px solid $colorLightest;
+	border-left: 2px solid var(--color-primary-ci-hell);
 	font-style: initial;
 	padding: 10px 0 5px 10px;
 		opacity: 0.7;
@@ -56,3 +56,21 @@
     
 }
 
+.widget {
+    #recentcomments {
+	li.recentcomments {
+	   
+	    a {
+		&::before {
+		    display: none;
+		}
+	    }
+	}
+	li.recentcomments:before {
+	     @include svg-icon-place();
+	     background-image: svg-icon-comment();
+	     margin-right: 0.2rem;
+	}
+    }
+    
+}

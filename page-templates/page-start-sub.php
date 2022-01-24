@@ -13,10 +13,12 @@
     
 ?>
 
-    <div id="content">
-	<div class="container">
-	    <div class="row">
-		<div class="startpage-blogroll">
+    <div id="content" class="start-sub">   
+	<div class="content-container">	 
+            <?php get_template_part('template-parts/content', 'portalmenu-oben'); ?>
+	    <div class="content-row">
+		<div class="portalpage-content">
+		    
 		    <main<?php echo fau_get_page_langcode($post->ID);?>>	  
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 		    <?php 
@@ -78,12 +80,15 @@
 				    $query->the_post(); 
 				    echo fau_display_news_teaser($post->ID);
 				     wp_reset_postdata();
+				      $number = 1;
 				}
 			    }
-
-			    if (get_theme_mod('start_link_news_show')) {
-				echo fau_get_category_links();
-			    }
+			    if ($number > 0) {
+				if (get_theme_mod('start_link_news_show')) {
+				    echo fau_get_category_links();
+				}
+			    } 
+			    
 			}    
 			?>
 			</main>	
@@ -93,22 +98,8 @@
 		<?php  
 
 
-		 $menuslug = get_post_meta( $post->ID, 'portalmenu-slug', true );	
-		 if ($menuslug) { 	
-		    echo "<hr>";
-		    		
-		    $nosub  = get_post_meta( $post->ID, 'fauval_portalmenu_nosub', true );
-		    if ($nosub==1) {
-			$displaysub =0;
-		    } else {
-			$displaysub =1;
-		    }
-		    $nofallbackthumbs  = get_post_meta( $post->ID, 'fauval_portalmenu_nofallbackthumb', true );
-		    $nothumbnails  = get_post_meta( $post->ID, 'fauval_portalmenu_thumbnailson', true ); 
-
-		    fau_get_contentmenu($menuslug,$displaysub,0,$nothumbnails,$nofallbackthumbs);
-
-		 }
+		get_template_part('template-parts/content', 'portalmenu-unten');
+                 
 		$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );
 		if ($logoliste) { 
 		    /* New since 1.10.57 */

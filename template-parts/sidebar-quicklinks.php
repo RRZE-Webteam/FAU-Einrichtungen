@@ -105,7 +105,7 @@ if ((strlen(trim($list1))>0) || (strlen(trim($list2))>0)) {
     // Es gibt eine Liste
     fau_use_sidebar(true);
 
-    $output .= '<aside class="widget quicklinks" aria-label='.__('Links','fau').'>'."\n";
+    $output .= '<div class="widget quicklinks">'."\n";
    
      if (  (strlen(trim($titleblock2))>0) || (strlen(trim($titleblock1)>0))) {
 	// Zwei Listen mit zwei Überschriften
@@ -136,7 +136,7 @@ if ((strlen(trim($list1))>0) || (strlen(trim($list2))>0)) {
 	$output .= $list2;
 	$output .= '</ul>'."\n";
     }
-    $output .= '</aside>'."\n";;
+    $output .= '</div>'."\n";;
 }
 
  if(function_exists('mimetypes_to_icons')) {

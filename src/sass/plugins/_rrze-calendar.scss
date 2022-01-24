@@ -3,29 +3,45 @@
 /* https://github.com/RRZE-Webteam/rrze-calendar
 /*-----------------------------------------------------------------------------------*/
 
+    #rrze-calendar,
+    .rrze-calendar {
+	    a {
+		@include defaultlinkstyle();
+		text-decoration: none;
+	    }
+	    
+	    
+	    .kalender .inhalt .monatsansicht .kopfzeile {
+		height: 2rem;
+		
+		.tag {
+		    font-size: 1rem;
+		}
+	    }
+	    
+	    .widget & {
+		li {
+		    a {
+			@include defaultlinkstyle();
+			text-decoration: none;
+		    }
+		    a::before {
+			
+			display: none;
+		    }
+		}
+	    }
+    }
 
 .events-more-links {
 	padding: 0;
 	text-align: left;
 	margin-bottom: 5px;
+
 	
-	a {
-		@include inline-block;
-		margin-left: 0px;
-	}
-	
-	.events-more {
-		color: $colorButton;
-		background: $colorButtonBackground;
-		padding: 8px 10px;
-		text-decoration: none;
-		@include border-radius(3px);
-		@include px2rem($font-size-textbuttons);
-		
-		&:hover, &:focus {
-			background: $colorButtonBackgroundHover;
-			text-decoration: none;
-		}
+	a.events-more {
+	    @include defaultlinkstyle();
+	    @include buttonstyle();
 	}
 }
 
@@ -33,11 +49,11 @@
 /* Event-Listen in der Sidebar oder in Shortcodes */
 .events-list {
 	padding-bottom: 10px;
-	
+
 	.events-more-links a {
 	    margin-left: 60px;
 	}
-	
+
 }
 
 
@@ -50,7 +66,7 @@
 			@include no-list;
 			padding: 10px 0 0 0;
 			min-height: 42px;
-			@include px2rem($font-size-sidebar-events);	
+			@include px2rem($font-size-sidebar-events);
 			background-image: none;
 		}
 	}
@@ -59,81 +75,124 @@
 .event-date {
 	float: left;
 	display: block;
-	background: $colorPrimary;
-	color: #fff;
-	padding: 5px;
-	width: 45px;
+        @include buttonstyle();
+	background: var(--color-primary-ci-hell); 
+	color:  var(--color-primary-ci-hell-kontrast); 
+	
+	&:hover,
+	&:focus {
+	   background: var(--color-primary-ci-hell); 
+	    color:  var(--color-primary-ci-hell-kontrast); 
+	}
+	padding: 0.3rem;
+	width: 3rem;
 	text-align: center;
-}
+	
+	.event-date-month {
+		@include px2rem($font-size-sidebar-events-month);
+		text-transform: uppercase;
+		font-weight: bold;
+	}
 
-.event-date-month {	
-	@include px2rem($font-size-sidebar-events-month);	
-	text-transform: uppercase;
-	font-weight: bold;
-}
-
-.event-date-day {
-	@include px2rem($font-size-sidebar-events-day);	
-	font-weight: bold;
-}
-
-.event-allday {
-    text-transform: uppercase;
-}
-
-.event-info {
-	margin-left: 60px;
-	margin-bottom: 10px;
-	padding-bottom: 5px;
-}
-
-.event-title {
-	font-weight: bold;
-}
-
-.event-time, 
-.event-location {
-	color: $colorPrimary;
-}
-
-
-.event-info {
-	a, .event-time {
-		color: $colorText;
+	.event-date-day {
+		@include px2rem($font-size-sidebar-events-day);
+		font-weight: bold;
 	}
 }
 
-.event-category-fau .event-date {
-	background: $colorZUV;
-    
+
+.event-info {
+    margin-left: 3.8rem;
+	margin-bottom: 0.5rem;
+	a, .event-time {
+		color: var(--color-Text);
+	}
+	.event-location,
+	.event-time {
+	    font-size: 0.8rem;
+	    line-height: 1.5;
+	}
+	.event-title {
+	    font-weight: bold;
+	    margin: 0.2rem 0;
+	}
+	.event-allday {
+	    text-transform: uppercase;
+	}
+
 }
+
+
+.event-category-fau .event-date,
 .event-category-einrichtungen .event-date {
-	background: $colorDefault;
+	background: var(--color-zentral-ci-hell); 
+	color:  var(--color-zentral-ci-hell-kontrast); 
+	
+	&:hover,
+	&:focus {
+	   background: var(--color-zentral-ci-hell); 
+	    color:  var(--color-zentral-ci-hell-kontrast); 
+	}
 }
 
 .event-category-techfak .event-date {
-	background: $colorTechFak;
+	background: var(--color-tf-ci-hell); 
+	color:  var(--color-tf-ci-hell-kontrast); 
+	
+	&:hover,
+	&:focus {
+	    background: var(--color-tf-ci-hell); 
+	color:  var(--color-tf-ci-hell-kontrast); 
+  }
 }
 
 .event-category-rwfak .event-date {
-	background: $colorRwFak;
+	background: var(--color-rw-ci-hell); 
+	color:  var(--color-rw-ci-hell-kontrast); 
+	
+	&:hover,
+	&:focus {
+	   background: var(--color-rw-ci-hell); 
+	color:  var(--color-rw-ci-hell-kontrast); 
+	}
 }
 
 .event-category-philfak .event-date {
-	background: $colorPhilFak;
+	background: var(--color-phil-ci-hell); 
+	color:  var(--color-phil-ci-hell-kontrast); 
+	
+	&:hover,
+	&:focus {
+	   background: var(--color-phil-ci-hell); 
+	color:  var(--color-phil-ci-hell-kontrast); 
+	}
 }
 
 .event-category-natfak .event-date {
-	background: $colorNatFak;
+	background: var(--color-nat-ci-hell); 
+	color:  var(--color-nat-ci-hell-kontrast); 
+	
+	&:hover,
+	&:focus {
+	    background: var(--color-nat-ci-hell); 
+	    color:  var(--color-nat-ci-hell-kontrast); 
+	}
 }
 
 .event-category-medfak .event-date {
-	background: $colorMedFak;
+	background: var(--color-med-ci-hell); 
+	color:  var(--color-med-ci-hell-kontrast); 
+	
+	&:hover,
+	&:focus {
+	    background: var(--color-med-ci-hell); 
+	    color:  var(--color-med-ci-hell-kontrast); 
+	}
 }
 
 .widget_event_widget a {
 	text-decoration: none;
-	
+
 	&:hover, &:focus {
 		text-decoration: underline;
 	}
@@ -142,7 +201,7 @@
 .events-list {
 	ul {
 		@include no-list;
-		
+
 		li {
 			@include no-list;
 		}
@@ -153,24 +212,24 @@
 .event-detail-item {
 	margin-bottom: 20px;
 	min-height: 50px;
-	
+
 	.event-info {
 		margin-left: 70px;
 		font-size: 15px;
 		line-height: 20px;
 		padding-top: 6px;
 	}
-	
+
 	.event-date {
 		width: 50px;
 		padding: 7px 0;
 	}
-	
+
 	.event-date-month {
 		font-size: 14px;
 		line-height: 18px;
 	}
-	
+
 	.event-date-day {
 		font-size: 28px;
 		line-height: 28px;
@@ -180,7 +239,8 @@
 
 
 
-@media (max-width: $screen-sm - 1) {
+
+@media (max-width: $screen-sm) {
 	#content .widget_event_widget .event-info {
 		margin-left: 60px;
 	}

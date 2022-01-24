@@ -3,110 +3,150 @@
 /*-----------------------------------------------------------------------------------*/
 
 
-#headerwrap header {
+#headerwrapper header {
     .branding {
-	.sitetitle {
-	    display: inline-block;
-	    color: #fff;
-	    background-color: $colorPrimary;
-	    padding: 0;
-	    margin: 0;
-	    height: auto;	
-	    text-align: center;
-	    text-decoration: none;
-	    font-weight: bold;
-	    width: 100vw;
-	    
-	    @include px2rem($font-size-mobile-sitetitle, $font-size-gridbase);
+        max-width: 100%;
+        display: none;
 
-	    .longtitle & {
-		@include px2rem($font-size-mobile-sitetitle - 2, $font-size-gridbase);
-	    }
-
-	   
-	    
-	    @media (min-width: $screen-sm) {		
-		background-color: #fff;
-		color: $colorPrimary;
-		width: auto;
-		
-		@include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
-
-		.nologo.longtitle & {
-			    @include px2rem($font-size-desktop-sitetitle - 2, $font-size-gridbase);
-		}
-
-		a {
-			vertical-align: bottom;
-		}
-	    }
-	    @media (min-width: $screen-sm) {
-		margin: 10px 0;
-		text-align: left;
-	    }
-	    a {
-		text-decoration: none;
-		color: #fff;
-		@media (min-width: $screen-sm) {
-		     color: $colorPrimary;
-		}
-	    }
+        @media (min-width: $screen-sm) {
+            display: block;
+        }
 
 
-	    img,
-	    svg {
-		display: none;
-		@media (min-width: $screen-sm) {
-		    display: inline-block;
-		    max-width: 240px;
-		    max-height: 65px;
-		    object-fit: contain;
-		    object-position: left;
-		    @include px2rem($font-size-desktop-sitetitle, $font-size-gridbase);
-		}
-	    }
-	    span {
-		margin: 10px 15px;
-		display: inline-block;
-		hyphens: auto;
-		@media (min-width: $screen-sm) {
-		    background: inherit;
-		    hyphens: manual;
-		    max-width: 225px;
-		    margin: 10px 15px 0 0;
-		    .nologo.longtitle & {
-			hyphens: auto;
-		    }
-		}
-	    }
+        .sitetitle {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0;
+            font-family: $fontStackFAU;
+            font-weight: bold;
+            column-gap: 15px;
+            row-gap: 0.5rem;
 
-	    .visiblelogo {
-		@media (min-width: $screen-sm) {
-		       display: none;
-		}
-	    }
+            .custom-logo-link {
 
-	}
+                svg,
+                img {
+                    max-height: 60px;
+                    max-width: 100%;
+                    width: auto;
+                }
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            @media (min-width: $screen-sm) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            @media (min-width: $screen-md) {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .textlogo {
+            width: 400px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            column-gap: 15px;
+            row-gap: 0;
+
+            @media (max-width: $screen-xs),
+            (min-width: $screen-sm) and (max-width: $screen-lg) {
+                flex-wrap: wrap;
+                width: 240px;
+            }
+
+            .baselogo {
+                flex: 0 0 148px;
+
+                svg {
+                    display: block;
+                }
+            }
+
+            .text {
+                font-family: $fontStackFAU;
+                font-weight: 500;
+                font-size: 15px;
+                line-height: 20px;
+                letter-spacing: 0.2px;
+                color: var(--color-primary-ci-hell);
+                 
+                @media (min-width: $screen-xl) {
+                    margin-top: -5px;
+                    // Schrift soll mit Oberkante des Logos beginnen, wenn es rechts daneben ist :/
+                }
+
+                .fau-title-place,
+                .fau-title {
+                    display: block;
+                    color: var(--color-FAU);
+                }
+
+                .zentral {
+                    color: var(--color-zentral-ci-hell);
+                }
+
+                .phil {
+                    color: var(--color-phil-ci-hell);
+                }
+
+                .nat {
+                    color: var(--color-nat-ci-hell);
+                }
+
+                .med {
+                    color: var(--color-med-ci-hell);
+                }
+
+                .rw {
+                    color: var(--color-rw-ci-hell);
+                }
+
+                .tf {
+                    color: var(--color-tf-ci-hell);
+                }
+
+                .website-shortcut::before {
+                    content: "| ";
+                }
+
+
+            }
+
+        }
+
+        a {
+            text-decoration: none;
+            padding: 15px;
+            margin: -15px;
+            display: inline-block;
+            &:focus,
+            &:hover {
+                display: inline-block;
+                transition: border-left 0.25s ease-out, margin-right 0.25s ease-out;
+                border-left: 8px solid var(--color-primary-ci-hell);
+                box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.22);
+                position: relative;
+                margin-right: -23px;
+            }
+        }
     }
-    @media (max-width: $screen-sm - 1) {
-	
-	.md-showsitelogo:not(.nologo) & .branding {
 
-	    width: 100%;
-	    text-align: center;
-	    .sitetitle {	   
-		margin: 10px auto;
-		background-color: #fff;
-		img,
-		svg {
+    @media (max-width: $screen-sm) {
 
-		    display: inline-block;
-		}
-		span.visiblelogo {
-		    display: none;
-		}
-	    }
-	}
+        .md-showsitelogo:not(.nologo) & .branding {
+
+            width: 100%;
+            text-align: center;
+        }
     }
 
 }

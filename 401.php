@@ -9,31 +9,38 @@
 
 get_header();
 get_template_part('template-parts/hero', 'error');  
-
 ?>
-	<section id="content">
-	    <div class="container">
-		<div class="row">
-		     <h1 class="screen-reader-text"><?php echo __('Anmeldung fehlgeschlagen','fau'); ?></h1>
-		    <div class="error-notice">
-			<p class="hinweis">
-				<strong><?php _e('Es tut uns leid.','fau'); ?></strong>
-			</p>
-			<p>
-				<?php _e('Leider ist Ihre Anmeldung fehlgeschlagen.','fau'); ?>
-			</p>						
-		    </div>
-		    <?php 
-		    get_template_part('template-parts/error', 'siegel');   
-		    get_template_part('template-parts/error', 'trysearch');  
-		    ?>
+ <div id="content">
+    <div class="content-container">	   
+	<div class="content-row">
+	    <div class="errorpage-content ">
+		     <main>
 
-		</div>
-		<?php get_template_part('template-parts/search', 'helper');  ?>
-
+				<h1 class="screen-reader-text"><?php echo __('Anmeldung fehlgeschlagen','fau'); ?></h1>
+				<div class="error-notice">
+				    <p class="hinweis">
+					    <strong><?php _e('Es tut uns leid.','fau'); ?></strong>
+				    </p>
+				    <p>
+					    <?php _e('Leider ist Ihre Anmeldung fehlgeschlagen.','fau'); ?>
+				    </p>						
+				</div>	    
+			      <?php 
+				get_template_part('template-parts/search', 'helper'); 
+				?>   
+		      </main> 
 	    </div>
-	    
-	</section>
-<?php get_template_part('template-parts/footer', 'social'); ?>	
-<?php 
-get_footer();  
+	    <?php if ( is_plugin_active( 'FAU-Fehlermeldungen/fau-fehlermeldungen.php' ) ) { ?>
+	      <aside class="portalpage-sidebar" aria-label="<?php echo __('Sidebar','fau');?>">
+	      <?php 
+	       echo do_shortcode('[fau_fehlermeldungen type="401" fulltext="false" ]'); 
+	      ?>
+	     </aside>
+
+	    <?php } ?>
+	</div>
+    </div>
+ </div>
+<?php
+get_template_part('template-parts/footer', 'social'); 
+get_footer();

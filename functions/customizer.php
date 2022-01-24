@@ -39,22 +39,28 @@ function fau_customizer_settings( $wp_customize ) {
     $var = apply_filters('fau_setoptions',$setoptions[$OPTIONS_NAME]);
     
     foreach($var as $tab => $value) {        
-	$tabtitel = $value['tabtitle'];    
 	
-	$desc = '';
-	$capability = 'edit_theme_options';
-	if (isset($value['capability'])) 
-	    $capability = $value['capability'];
-	if (isset($value['desc']))
-	    $desc = esc_html($value['desc']);
+	if (in_array($tab, ['title_tagline', 'header_image', 'background_image', 'nav', 'static_front_page'])) {
+	    
+	} else {
 	
-	$num = $num +1;
-	$wp_customize->add_panel( $tab, array(
-		'priority'	=> $num,
-	        'capability'	=> $capability,
-		'title'		=> esc_html($tabtitel),
-		'description'	=> $desc,
-	) );
+	    $tabtitel = $value['tabtitle'];    
+
+	    $desc = '';
+	    $capability = 'edit_theme_options';
+	    if (isset($value['capability'])) 
+		$capability = $value['capability'];
+	    if (isset($value['desc']))
+		$desc = esc_html($value['desc']);
+
+	    $num = $num +1;
+	    $wp_customize->add_panel( $tab, array(
+		    'priority'	=> $num,
+		    'capability'	=> $capability,
+		    'title'		=> esc_html($tabtitel),
+		    'description'	=> $desc,
+	    ) );
+	}
 	if (isset($setoptions[$OPTIONS_NAME][$tab]['fields'])) {
 	    
 	    $nosectionentries = array();	  
@@ -111,6 +117,7 @@ function fau_customizer_settings( $wp_customize ) {
 		    $title = $desc = $label = $type = '';
 		    $notifplugin = $ifplugin = $ifclassexists = $iffunctionexists = $ifmodvalue = '';
 		    $superadminonly = false;
+		    $input_attrs = array();
 		    $optionid = esc_html($field); 
 		    
 		    if (isset($value['title']))
@@ -123,13 +130,15 @@ function fau_customizer_settings( $wp_customize ) {
 			$notifplugin = $value['notifplugin'];
 		    if (isset($value['ifplugin']))
 			$ifplugin = $value['ifplugin'];
-                      if (isset($value['ifclass']))
+		    if (isset($value['ifclass']))
 			$ifclassexists = $value['ifclass'];
-                      if (isset($value['iffunction']))
+		    if (isset($value['iffunction']))
 			$iffunctionexists = $value['iffunction'];
-		     if (isset($value['ifsuperadmin']))
+		    if (isset($value['ifsuperadmin']))
 			$superadminonly = $value['ifsuperadmin'];
-		   
+		    if (isset($value['input_attrs'])) {
+			$input_attrs = $value['input_attrs'];
+		    }
 			
 		      
 		      
@@ -263,6 +272,7 @@ function fau_customizer_settings( $wp_customize ) {
 				    'section'		=> $section,
 				    'settings'		=> $optionid,
 				    'type' 		=> 'category',
+				    'input_attrs'	=> $input_attrs
 				    
 			    ) ) );
 			} elseif ($type == 'select')  {    
@@ -276,7 +286,8 @@ function fau_customizer_settings( $wp_customize ) {
 				    'section'		=> $section,
 				    'settings'		=> $optionid,
 				    'type' 		=> 'select',
-				    'choices'		=>  $value['liste']
+				    'choices'		=>  $value['liste'],
+				    'input_attrs'	=> $input_attrs
 				    
 			    ) );
 			} elseif (($type == 'multiselect') || ($type == 'multiselectlist')) {
@@ -290,7 +301,8 @@ function fau_customizer_settings( $wp_customize ) {
 				    'section'		=> $section,
 				    'settings'		=> $optionid,
 				    'type' 		=> 'multiple-select',
-				    'choices'		=>  $value['liste']
+				    'choices'		=>  $value['liste'],
+				    'input_attrs'	=> $input_attrs
 				    
 			    ) ) );
 
@@ -305,6 +317,7 @@ function fau_customizer_settings( $wp_customize ) {
 				    'section'		=> $section,
 				    'settings'		=> $optionid,
 				    'type' 		=> 'textarea',
+				    'input_attrs'	=> $input_attrs
 				    
 			    ) );     
 			} elseif ($type == 'image') {    
@@ -343,6 +356,7 @@ function fau_customizer_settings( $wp_customize ) {
 				'flex_height' => $flexheight,
 				'width'       => $width,
 				'height'      => $height,
+				'input_attrs'	=> $input_attrs
 			    ) ) );	
 			     
 			} elseif ($type == 'number') {    
@@ -357,6 +371,7 @@ function fau_customizer_settings( $wp_customize ) {
 				    'section'		=> $section,
 				    'settings'		=> $optionid,
 				    'type' 		=> 'number',
+				    'input_attrs'	=> $input_attrs
 				    
 			    ) );          
 			} elseif ($type == 'text') {    
@@ -371,6 +386,7 @@ function fau_customizer_settings( $wp_customize ) {
 				    'section'		=> $section,
 				    'settings'		=> $optionid,
 				    'type' 		=> 'text',
+				    'input_attrs'	=> $input_attrs
 				    
 			    ) );     
 			    
@@ -385,7 +401,8 @@ function fau_customizer_settings( $wp_customize ) {
 				    'description'	=> $label,
 				    'section'		=> $section,
 				    'settings'		=> $optionid,
-				    'type' 		=> $type,		    
+				    'type' 		=> $type,	
+				    'input_attrs'	=> $input_attrs				
 			    ) );
 			}
 
@@ -402,11 +419,15 @@ function fau_customizer_settings( $wp_customize ) {
     }
     
     
+    
+    
+    
+    
     /*-----------------------------------------------------------------------------------*/
     /* Plugin FAU ORGA Breadcrumb: Add to customizer
     /*-----------------------------------------------------------------------------------*/
 
-    if ( is_plugin_active( 'fau-orga-breadcrumb/fau-orga-breadcrumb.php' ) ) {
+     if ( is_plugin_active( 'fau-orga-breadcrumb/fau-orga-breadcrumb.php' ) ) {
 	// Wenn das FAU.ORG Plugin vorhanden und aktiv ist, erlaube es hier, die Option
 	// dazu zu verwalten
 
@@ -554,7 +575,7 @@ if (class_exists('WP_Customize_Control')) {
 				array(
 				    'name'              => '_customize-dropdown-categories-' . $this->id,
 				    'echo'              => 0,
-				    'show_option_none'  => __( '&mdash; Select &mdash;', 'fau' ),
+				    'show_option_none'  => __( '&mdash; Auswählen &mdash;', 'fau' ),
 				    'option_none_value' => '0',
 				    'selected'          => $this->value(),
 				)

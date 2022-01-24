@@ -262,6 +262,98 @@ function fau_widget_tag_cloud_args($args) {
 }
 add_filter('widget_tag_cloud_args', 'fau_widget_tag_cloud_args', 10, 1 );
 
+
+/*-----------------------------------------------------------------------------------*/
+/* Add Class for  menu items and removes unneeded item-classes
+/*-----------------------------------------------------------------------------------*/
+function fau_add_subnav_css_class($css_class, $page){
+    if (is_array($css_class)) {
+	$new_class = array();
+	foreach ($css_class as $i => $c) {
+	    if ($c == 'page_item') {
+	//	nope
+	    } elseif (preg_match("/page\-item\-[0-9]+/", $c, $matches)) {
+	//	dont need
+	    } else {
+		$new_class[] = $c;
+	    }
+	}
+    } else {
+	$css_class = preg_replace("/page\-item\-[0-9]+/", "", $css_class);
+	$new_class = $css_class;
+    }
+    if ($page->post_password != '') {
+	$new_class[] = 'protected-page';
+    }
+    if (in_array($page->post_status, ['draft', 'pending', 'auto-draft'])) {
+	$new_class[] = "draft-page";
+    }
+    if ($page->post_status == 'future') {
+	$new_class[] = "captain-future";
+    }
+    if ($page->post_status == 'private') {
+	$new_class[] = "private-page";
+    }  
+
+    return $new_class;
+}
+add_filter("page_css_class", "fau_add_subnav_css_class", 10, 2);
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Force srcset urls to be relative
+/*-----------------------------------------------------------------------------------*/
+add_filter('wp_calculate_image_srcset', function($sources) {
+    if (!is_array($sources)) {
+        return $sources;
+    }
+
+    foreach ($sources as &$source) {
+        if (isset($source['url'])) {
+            $source['url'] = fau_esc_url($source['url']);
+        }
+    }
+
+    return $sources;
+
+}, PHP_INT_MAX);
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Filter to replace the [caption] shortcode text with HTML5 compliant code
+/* @return text HTML content describing embedded figure
+/*-----------------------------------------------------------------------------------*/
+
+function fau_img_caption_shortcode_filter($val, $attr, $content = null) {
+    extract(shortcode_atts(array(
+        'id'    => '',
+        'align' => '',
+        'width' => '',
+        'caption' => ''
+    ), $attr));
+
+    if ( 1 > (int) $width || empty($caption) )
+        return $val;
+    $addmaxw = '';
+    $capid = '';
+    if ( $id ) {
+        $id = esc_attr($id);
+	$targetid =  $id . '-'.rand();
+	  // In case the same image is used more as one time in the website, we need to habe a uniq id, therfor add a rand() value here.
+        $capid = 'id="figcaption_'.$targetid.'" ';
+        $id = 'id="' . $targetid . '" aria-labelledby="figcaption_' . $targetid . '" ';
+	
+	
+	if ($width) {
+	    $addmaxw = ' style="max-width: '.intval($width).'px"';
+	}
+    }
+
+    return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" '.$addmaxw.'>'
+    . do_shortcode( $content ) . '<figcaption ' . $capid 
+    . '>' . $caption . '</figcaption></figure>';
+}
+add_filter('img_caption_shortcode', 'fau_img_caption_shortcode_filter',10,3);
 /*-----------------------------------------------------------------------------------*/
 /* Defined allowed core block types if theme is used in Gutenberg Block Editor
 /*-----------------------------------------------------------------------------------*/

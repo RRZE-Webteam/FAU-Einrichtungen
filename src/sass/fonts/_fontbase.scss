@@ -4,8 +4,16 @@
 
 
 html {
-    font-size: $font-size-rembase-mobile;
-    @media (min-width: $screen-sm) {
+    font-size: $font-size-rembase-screen-xxs;
+    
+    
+    @media (min-width: $screen-minrembase) {
 	font-size: $font-size-rembase;
     }
+    
+    @media (min-width: $screen-xl) {
+	font-size: $font-size-rembase-screen-xl;
+    }
+    
+    
 } 

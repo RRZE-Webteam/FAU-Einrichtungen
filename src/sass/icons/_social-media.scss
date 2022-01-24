@@ -2,10 +2,7 @@
 /* Social Media and Portal Icons 
 /*-----------------------------------------------------------------------------------*/
 
-$socialmedia_icon_size: 1.8rem;
-$socialmedia_icon_bgcolor_hover: #fff;
-$socialmedia_icon_color: #fff;
-$socialmedia_icon_color_hover: $colorPrimary;
+
 
 
 .svg-socialmedia {
@@ -193,7 +190,7 @@ $socialmedia_icon_color_hover: $colorPrimary;
 	    background-image: svg-icon-calendar($socialmedia_icon_color);
 	}
 	&[href*=".ics"]:focus:before,
-	&[href*=".ics"]:hover:before
+	&[href*=".ics"]:hover:before,
 	&[href*="ical"]:focus:before,
 	&[href*="ical"]:hover:before {
 	    background-image: svg-icon-calendar($socialmedia_icon_color_hover);
@@ -207,7 +204,7 @@ $socialmedia_icon_color_hover: $colorPrimary;
 	a::before {
 		border-radius: 50%;
 		border: 1px solid $socialmedia_icon_bgcolor_hover;
-		box-shadow: 0px 0px 1px $socialmedia_icon_bgcolor_hover;
+	//	box-shadow: 0px 0px 1px $socialmedia_icon_bgcolor_hover;
 	}
     }
     &.hoverbg {

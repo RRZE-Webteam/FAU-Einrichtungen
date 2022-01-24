@@ -4,149 +4,128 @@
 
 
 blockquote {
-	padding: 0;
-	margin: 0;
-	border: none;
-	font-family: $fontStackSerifs;
-	font-style: italic;
-	position: relative;
-	
-	@include px2rem($font-size-quotes);
-	
-	
+    padding: 0;
+    margin: 0;
+    border: none;
+    font-family: $fontStackSerifs;
+    position: relative;
 
+    @include px2rem($font-size-quotes);
 
-	p { 
-		margin-bottom: 0;
-		font-family: $fontStackSerifs;
-		@include px2rem($font-size-quotes);
-		font-weight: 400;
-		font-style: italic;
-		
-		strong {
-		    font-weight: bolder; 
-		}
-	}
-	
-	#tinymce &,
-	#content & {
-		font-style: italic;
-		margin: 10px;
-		padding-left: 50px;
-		min-height: 50px;
+    p {
+        margin-bottom: 0;
+        font-family: $fontStackSerifs;
+        @include px2rem($font-size-quotes);
+        font-weight: 400;
+        letter-spacing: .3px;
 
-		@media (min-width: $screen-sm) {
-		    margin: 10px 50px;
-		    padding-left: 65px;
-		}
-		
-		p {
-		    color: $colorPrimary;
-		}
-		
-		
-	}
-
-	#content .sidebar-inline & {
-	    margin: 10px;
-	}
-	small,
-	cite { 
-	    display: block; 
-	    text-align: right;
-	    @include px2rem($font-size-quotes-cites);
-	    color: $colorTextLight;
-	    &:before { content: '\2014 \00A0'; }
-
-	}
-	#content & img {
-	    box-shadow: none;
-	    border: none;
-	}
-	
-	&.pull-right {
-	    border-right: none;
-	    padding-right: 50px;
-	    &::before {
-		content: "";
-	    }
-	    &::after {
-		content: "\201C"; // Unicode for Left Double Quote
-		font-family: Georgia, serif;
-		font-size: 70px;
-		font-weight: bold;
-		color: $colorTextLight; //lighten($color-text,50%); 
-
-		position: absolute;
-		right: 10px;
-		top: 10px;
-	    }
-	    
-	}
-	
-	
-	&::before {
-            content: "\201C"; // Unicode for Left Double Quote
-            font-family: Georgia, serif;
-            font-size: 70px;
-            font-weight: bold;
-            color: $colorTextLight; //lighten($color-text,50%); 
-
-            position: absolute;
-            left: 10px;
-            top: 10px;
-	    
-	    
+        strong {
+            font-weight: bolder;
         }
-	#content &::before {
-	    color: $colorPrimary;
-	    left: 0px;
-	    
-	    @media (min-width: $screen-sm) {
-		left: 10px;
-	    }
-	}
-	
-        &::after{
-            // Reset to make sure
+    }
+
+    #tinymce &,
+    #content & {
+        max-width: calc(100% - 40px);
+        width: 100%;
+        margin: 10px;
+        padding: 31px 20px 20px 20px;
+        min-height: 50px;
+        border-left: 10px solid var(--color-primary-ci-hell);
+        background: var(--color-ContentRegions);
+        display: inline-block;
+        overflow: hidden;
+
+        @media (min-width: $screen-sm) {
+            margin: 10px 50px;
+            padding: 31px 40px 20px 40px;
+            max-width: calc(100% - 80px);
+        }
+
+        p, h1, h2, h3, h4, h5, h6 {
+            color: var(--color-Text);
+        }
+    }
+
+    #content .sidebar-inline & {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    small,
+    cite {
+        display: block;
+        text-align: right;
+        @include px2rem($font-size-quotes-cites);
+        color: var(--color-Text);
+
+        &:before {
+            content: '\2014 \00A0';
+        }
+
+    }
+
+    cite {
+        margin-top: 10px;
+    }
+
+    #content & img {
+        box-shadow: none;
+        border: none;
+    }
+
+    &.pull-right {
+        border-right: none;
+        padding-right: 40px;
+        padding-left: 15px;
+
+    }
+
+
+    #content .sidebar-inline &,
+    #tinymce &.noquote,
+    #content &.noquote {
+        background: inherit;
+        padding-left: 0;
+        padding-right: 0;
+        border: none;
+
+        &::after,
+        &::before {
             content: "";
         }
-	
-	#content .sidebar-inline &,
-	#tinymce  &.noquote,
-	#content  &.noquote {
-		    background: inherit;
-		    padding-left: 0;
-		    padding-right: 0;
-		    &::after, 
-		    &::before {
-			content: "";
-		    }
-		   
-		}
-		
-	#content .sidebar-inline & {
-	    
-	    @include px2rem($font-size-sidebar);  
-	    p {
-		@include px2rem($font-size-sidebar);  
-	    }
-	}	
-		
+
+    }
+
+    #content .sidebar-inline & {
+
+        @include px2rem($font-size-sidebar);
+
+        p {
+            @include px2rem($font-size-sidebar);
+        }
+    }
+
 }
 
 
 cite {
-    color: $colorPrimaryHeroLight; 
+    color: var(--color-Text);
     font-weight: normal;
-    font-style: normal;
-    
+    font-style: italic;
+
     &.text {
-	color: inherit;
+        color: inherit;
+    }
+
+    #content .sidebar-inline & {
+        @include px2rem($font-size-sidebar);
+
+        p {
+            @include px2rem($font-size-sidebar);
+        }
     }
 }
-
-
 
 
 // Abbrevations, Acronyms
@@ -156,12 +135,13 @@ acronym[data-original-title],
 abbr[title],
 abbr[data-original-title] {
     cursor: help;
-    text-decoration: none; 
+    text-decoration: none;
 }
+
 acronym.initialism,
 abbr.initialism {
-	font-size: 90%;
-	text-transform: uppercase;
+    font-size: 90%;
+    text-transform: uppercase;
 }
 
 

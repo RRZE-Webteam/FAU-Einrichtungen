@@ -3,79 +3,28 @@
 /*-----------------------------------------------------------------------------------*/
 
 #hero {
-    &.hero-small {
-	@include radial-gradient($colorPrimaryHero, $colorPrimaryHeroLight);
-        overflow:hidden;
-	
-	p.presentationtitle,
-	h1 {
-	    padding: 0;
-	    margin: 20px 0;
-	   
-	    @media (min-width: $screen-sm ) {
-		padding: 30px 0 10px 0;
+    .breadcrumbs {
+	    color: var(--color-hero-text);
+	    padding: 10px 0;
+	    position: relative;
+	    z-index: 10;
+
+	    @include px2rem($font-size-breadcrumb);
+
+	    span {
+		    padding: 0 5px;
+	    }	
+
+	    .single & .active {
+		display: none;	  
 	    }
-	}
 
-    }    
-    .hero-content {
-	 z-index: 10;
+	    .breadcrumb_sitetitle {
+		@include px2rem($font-size-breadcrumb);
+	    }
+	    
+	    span.active {
+		display: none;
+	    }
     }
-    .single & p.presentationtitle {
-	display: none;
-	@media (min-width: $screen-sm ) {
-	    display: inline-block;
-	}
-    }
-     
-    
 }
-
-
-.hero-meta-portal {
-	position: absolute;
-	top: 100px;
-	right: 120px;
-	text-align: right;
-	color: $colorPrimaryHeroLight; 
-	@include px2rem($font-size-hero-meta-portal);
-	display: none;
-	opacity: 0.9;
-	
-	@media (min-width: $screen-lg ) {
-	    display: inline-block;
-	}
-	@media (min-width: $screen-xl ) {
-	   right: 50px;
-	}
-    }	
-
-
-.breadcrumbs {
-	color: #fff;
-	padding: 10px 0;
-	position: relative;
-	z-index: 10;
-	
-	@include px2rem($font-size-breadcrumb);
-	
-	span {
-		padding: 0 5px;
-	}	
-	
-	.single & .active {
-	    display: none;	  
-	}
-}
-
-
-
-h3.breadcrumb_sitetitle {
-	font-size: 14px;
-	font-weight: normal;
-	line-height: 18px;
-	margin-bottom: -5px;
-	color: #fff;
-}
-	
-	

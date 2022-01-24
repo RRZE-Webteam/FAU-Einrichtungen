@@ -1,0 +1,97 @@
+/*-----------------------------------------------------------------------------------*/
+/* CSS Custom Properties
+/*-----------------------------------------------------------------------------------*/
+
+:root {
+   
+     @each $variante, $colorcode  in $colormap-primary {	    
+	 --color-primary-#{$variante}: #{$colorcode};
+     }
+     @each $farbtyp, $map in $colormaps {		
+	$colorcode: map-get($map, "basis");
+	--color-#{$farbtyp}-basis: #{$colorcode};
+	$colorcode: map-get($map, "basis-kontrast");
+	--color-#{$farbtyp}-basis-kontrast: #{$colorcode};
+	$colorcode: map-get($map, "ci-hell");
+	--color-#{$farbtyp}-ci-hell: #{$colorcode};
+	$colorcode: map-get($map, "ci-hell-kontrast");
+	--color-#{$farbtyp}-ci-hell-kontrast: #{$colorcode};
+	
+	$colorcode: map-get($map, "ci-hell2");
+	--color-#{$farbtyp}-ci-hell2: #{$colorcode};
+	$colorcode: map-get($map, "ci-hell2-kontrast");
+	--color-#{$farbtyp}-ci-hell2-kontrast: #{$colorcode};	
+	
+	$colorcode: map-get($map, "dunkler");
+	--color-#{$farbtyp}-dunkler: #{$colorcode};
+	$colorcode: map-get($map, "dunkler-kontrast");
+	--color-#{$farbtyp}-dunkler-kontrast: #{$colorcode};		
+	
+	$colorcode: map-get($map, "dunkelste");
+	--color-#{$farbtyp}-dunkelste: #{$colorcode};
+	$colorcode: map-get($map, "dunkelste-kontrast");
+	--color-#{$farbtyp}-dunkelste-kontrast: #{$colorcode};			
+    }
+    
+     @each $variante, $colorcode  in $colormap-misc {	    
+	 --color-#{$variante}: #{$colorcode};
+     }
+     /* Calculated Values */
+     --color-MetaHomeBackground: #{$colorMetaFAUHomeBackground}; 
+     --color-MetaHover: #{$colorMetaHover};
+     --color-MetaText: #fff;
+     --color-MetaBackgroundLight: #{$colorMetaLightest};
+     
+     --color-FAU: #{$colorZUV};
+     --color-content-headlines: #{$color-content-headlines};
+     --color-links: #{$color-links};
+     --color-content-links: #{$color-content-links};
+     --color-content-links-underline: #{$color-content-links-underline};
+     --color-content-links-hover: #{$color-content-links-hover};
+     
+     --color-button-text: #{$color_button_text};
+     --color-button-bg: #{$color_button_bg};
+     --color-button-hover-text: #{$color-button-hover-text};
+     --color-button-hover-bg: #{$color-button-hover-bg};
+     --color-ghostbutton-hover-text: #{$color-ghostbutton-hover-text};
+     --color-ghostbutton-hover-bg: #{$color-ghostbutton-hover-bg};
+
+    --color-footer-bg: #{$color-footer-bg};
+    --color-footer-text: #{$color-footer-text};
+    --color-hero-bg: #{$color-hero-bg};
+    --color-hero-text: #{$color-hero-text};
+    
+    --color-mainmenu-toplevel-bg: #{$color-mainmenu-toplevel-bg};
+    --color-mainmenu-toplevel-text: #{$color-mainmenu-toplevel-text};
+    --color-mainmenu-toplevel-hover-text: #{$color-mainmenu-toplevel-hover-text};
+    --color-mainmenu-toplevel-hover-bg: #{$color-mainmenu-toplevel-hover-bg};
+    --color-mainmenu-sublevel-bg: #{$color-mainmenu-sublevel-bg};
+    --color-mainmenu-sublevel-text: #{$color-mainmenu-sublevel-text};
+    --color-mainmenu-sublevel-hover-text: #{$color-mainmenu-sublevel-hover-text};
+    --color-mainmenu-sublevel-hover-bg: #{$color-mainmenu-sublevel-hover-bg};
+    --color-mainmenu-sublevel-button-text: #{$color-mainmenu-sublevel-button-text};
+    --color-mainmenu-sublevel-button-bg: #{$color-mainmenu-sublevel-button-bg};
+    --color-mainmenu-sublevel-button-hover-text: #{$color-mainmenu-sublevel-button-hover-text};
+    --color-mainmenu-sublevel-button-hover-bg: #{$color-mainmenu-sublevel-button-hover-bg};
+    
+    --color-submenu-toplevel-bg: #{$color-submenu-toplevel-bg};
+    --color-submenu-toplevel-text: #{$color-submenu-toplevel-text};
+    --color-submenu-toplevel-hover-text: #{$color-submenu-toplevel-hover-text};
+    --color-submenu-toplevel-hover-bg: #{$color-submenu-toplevel-hover-bg};
+    --color-submenu-active-bg: #{$color-submenu-active-bg};
+    --color-submenu-active-text: #{$color-submenu-active-text};
+    --color-submenu-hover-text: #{$color-submenu-hover-text};
+    --color-submenu-hover-bg: #{$color-submenu-hover-bg};
+    --color-submenu-currentlevel-text: #{$color-submenu-currentlevel-text};
+    --color-submenu-currentlevel-bg: #{$color-submenu-currentlevel-bg};
+    --color-submenu-sublevel-text: #{$color-submenu-sublevel-text};
+    --color-submenu-sublevel-bg: #{$color-submenu-sublevel-bg};
+    --color-submenu-currentpage-bg: #{$color-submenu-currentpage-bg};
+    --color-submenu-currentpage-text: #{$color-submenu-currentpage-text};
+
+    --color-menulink-hover-text: #{$color-menulink-hover-text};
+    --color-menulink-hover-bg: #{$color-menulink-hover-bg}; 
+    
+
+}
+

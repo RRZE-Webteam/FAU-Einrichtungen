@@ -7,20 +7,11 @@ p, address {
     padding: 0 0 11px 0;
 
     @include px2rem($font-size-base);
-    color: $colorText;
+    color: var(--color-Text);
     font-family: $fontStack; 
     font-style: normal;
     
-    #footer & {
-	color: #fff;
-	background: $colorPrimaryHero;
-	
-
-	@media (min-width: $screen-sm) {
-	    @include px2rem($font-size-footer);
-	}
-
-    }
+    
 }
 
 
@@ -43,23 +34,17 @@ p {
 	&.lead-in {
 		margin: 0;
 		padding: 0;
-		color: $colorPrimary;
 		font-weight: 300;
 		font-style: italic;
 		@include px2rem($font-size-quotes);
         }
 	
-	#content .span4 .widget &,
 	#content .startpage-sidebar .widget &,
 	#content .sidebar-inline .widget & {
 	    @include px2rem($font-size-sidebar);
 	}
 	
-	#footer & {
-		color: #fff;
-		background: $colorPrimaryHero;
-		@include px2rem($font-size-footer);
-	}
+	
 	
 }
 address {

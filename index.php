@@ -19,28 +19,29 @@ get_header();
 $posttype = get_post_type();
 $screenreadertitle = '';
 $herotype = get_theme_mod('advanced_header_template');
-if($posttype == 'event') {
-	get_template_part('template-parts/hero', 'events');
-	$screenreadertitle = get_theme_mod('title_hero_events');
-} elseif (($posttype == 'post') && (is_archive())) {
+if (($posttype == 'post') && (is_archive())) {
     
     if ($herotype=='banner') {
 	get_template_part('template-parts/hero', 'banner');
     } elseif ($herotype=='slider') {	
-	get_template_part('template-parts/hero', 'sliderpage');
+	get_template_part('template-parts/hero', 'sliderpage-slider');
     } else {
 	get_template_part('template-parts/hero', 'category');
     }
-	
-    $screenreadertitle = single_cat_title("", false);
+    if (is_category()) {
+	$screenreadertitle = single_cat_title("", false);
+    } else {
+	$screenreadertitle = get_the_archive_title();
+    }
 
 } else {
      if ($herotype=='banner') {
 	get_template_part('template-parts/hero', 'banner');
     } elseif ($herotype=='slider') {	
-	get_template_part('template-parts/hero', 'sliderpage');
+	get_template_part('template-parts/hero', 'sliderpage-slider');
     } else {
-	get_template_part('template-parts/hero', 'index');
+      get_template_part('template-parts/hero', 'banner');
+//	get_template_part('template-parts/hero', 'index');
     }
 	
    
@@ -69,9 +70,7 @@ if($posttype == 'event') {
 				the_post();  
 
 				$line++;
-				if( $posttype == 'event') {
-				    get_template_part( 'post', 'event' ); 
-				} elseif ($posttype == 'person')  { 	
+				if ($posttype == 'person')  { 	
 				    echo FAU_Person_Shortcodes::fau_person(array("id"=> $post->ID, 'format' => 'kompakt', 'showlink' => 0, 'showlist' => 1 )); 				    
 				} elseif($posttype == 'post') { 
 				      echo fau_display_news_teaser($post->ID,true);
@@ -98,18 +97,21 @@ if($posttype == 'event') {
 				 }
 				
 				 }
-				if  ($posttype=='person') { ?>
-				    <nav class="navigation">
-					<div class="nav-previous"><?php previous_posts_link(__('<span class="meta-nav">&laquo;</span> Vorherige Einträge', 'fau')); ?></div>
-					<div class="nav-next"><?php next_posts_link(__('Weitere Einträge <span class="meta-nav">&raquo;</span>', 'fau'), '' ); ?></div>
-				    </nav>
-
-				<?php } elseif($posttype=='post') { ?>
-				    <nav class="navigation">
-					<div class="nav-previous"><?php previous_posts_link(__('<span class="meta-nav">&laquo;</span> Neuere Beiträge', 'fau')); ?></div>
-					<div class="nav-next"><?php next_posts_link(__('Ältere Beiträge <span class="meta-nav">&raquo;</span>', 'fau'), '' ); ?></div>
-				</nav>
-				<?php }
+				if  (($posttype=='person') || ($posttype=='post')) {
+                                    $next = get_next_posts_link(__('Ältere Beiträge', 'fau'));
+                                    $prev = get_previous_posts_link(__('Neuere Beiträge', 'fau'));
+                                    
+                                    if ($next || $prev) {
+                                        echo '<nav class="index-navigation">';
+                                        if ($prev) {
+                                            echo '<div class="prev">'.$prev.'</div>';
+                                        }
+                                        if ($next) {
+                                            echo '<div class="next">'.$next.'</div>';
+                                        }
+                                        echo '</nav>';
+                                    } 
+                                }
 			     ?>
 			</main>
 			<?php 

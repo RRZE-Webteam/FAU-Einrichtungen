@@ -21,6 +21,7 @@ if ( ! function_exists( 'fau_use_svg' ) ) {
 	
 	if (fau_is_svg($slug)) {   
 	    $labelpointer = $role = $title = $desc = $arialabel = '';
+	    $ariahidden = false;
 	    if ((isset($aria)) && (is_array($aria))) {
 		$uniq = wp_unique_id();
 		$labelpointer = $role = '';
@@ -34,6 +35,12 @@ if ( ! function_exists( 'fau_use_svg' ) ) {
 			$labelpointer .= ' ';
 		    }
 		    $labelpointer .= $slug.'-desc-'.$uniq;
+		}
+		if (isset($aria['labelledby'])) {
+		    $labelpointer = esc_attr($aria['labelledby']);
+		}
+		if (isset($aria['hidden'])) {
+		    $ariahidden = true;
 		}
 		if ($labelpointer) {
 		    $arialabel = 'aria-labelledby="'.$labelpointer.'"';
@@ -55,6 +62,9 @@ if ( ! function_exists( 'fau_use_svg' ) ) {
 	    }
 	    if ($arialabel) {
 		$res .= ' '.$arialabel;
+	    }
+	    if ($ariahidden) {
+		$res .= ' aria-hidden="true"';
 	    }
 	    if ($role) {
 		$res .= ' role="'.$role.'"';

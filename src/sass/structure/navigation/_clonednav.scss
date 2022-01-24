@@ -21,7 +21,7 @@
 				@include border-radius(0);
 				margin-bottom: 0;
 				padding: 2px 0;
-				color: $colorMeta;
+				color: var(--color-Default);
 			}
 
 			&:before {
@@ -29,7 +29,7 @@
 				@extend .fa-angle-right;
 				font-weight: bold;
 				display: table-cell;
-				color: $colorMeta;
+				color: var(--color-Default);
 				width: 20px;
 			}
 
@@ -62,40 +62,40 @@
 			}
 
 			&.zuv {
-				border-color: $colorZUV;
+				border-color: var(--color-zentral-ci-hell);
 			}
 
 			&.phil,
 			&.philfak {
-				border-color: $colorPhilFak;
+				border-color: var(--color-phil-ci-hell);
 			}
 
 			&.rw,
 			&.rwfak {
-				border-color: $colorRwFak;
+				border-color: var(--color-rw-ci-hell);
 			}
 
 			&.med,
 			&.medfak {
-				border-color: $colorMedFak;
+				border-color: var(--color-med-ci-hell);
 			}
 
 			&.nat,
 			&.natfak {
-				border-color: $colorNatFak;
+				border-color: var(--color-nat-ci-hell);
 			}
 
 			&.tf,
 			&.techfak {
-				border-color: $colorTechFak;
+				border-color:  var(--color-tf-ci-hell);
 			}
 
 			&.white {
-				border-color: #fff;
+				border-color: var(--color-white);
 			}
 
 			&.gray {
-				border-color: $colorStandardHellgrau;
+				border-color: var(--color-StandardHellgrau);
 			}
 
 
@@ -114,12 +114,12 @@
 
 	.cloned-meta-links,
 	.cloned-hero-nav {
-		background: $colorMetaBackground;
-		color: $colorMeta;
+		background: var(--color-StandardHellgrau);
+		color: var(--color-Default);
 
 		li, a, h1, h2, h3, h4, p {
-			background: $colorMetaBackground;
-			color: $colorMeta;
+			background: var(--color-StandardHellgrau);
+			color: var(--color-Default);
 		}
 		
 		@media (min-width: $screen-sm) {
@@ -131,9 +131,6 @@
 		margin-bottom: 10px;
 		margin-left: -15px;
 		
-		.siegel {
-		    display: none;
-		}
 	}
 }
 	

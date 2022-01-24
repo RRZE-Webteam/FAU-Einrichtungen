@@ -16,3 +16,13 @@
 
 // Meta Region
 @import "metasearch";
+
+// Meta Orga Breadcrumb
+@import "orga-breadcrumb";
+
+.header-menu {
+
+    @media (max-width: $screen-sm) {
+        width: 100%;
+    }
+}

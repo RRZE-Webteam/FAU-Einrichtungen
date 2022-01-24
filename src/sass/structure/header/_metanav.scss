@@ -1,192 +1,325 @@
 /*-----------------------------------------------------------------------------------*/
 /* Meta-Navigation
 /*-----------------------------------------------------------------------------------*/
-.meta-links {	
-	.ext-link {
-		padding-right: 0;
-		background-image: none;
-	}
+.meta-links-container {
+    flex-shrink: 0;
 
-	&:hover {
-		overflow: visible;
-	}
-
-}
-.orgalist,
-.meta-nav {
-	@include no-list;
-	padding: 0;
-
-	li {
-		@include no-list;
-		@include inline-block;
-		margin: 0 4px;
-		background: none;
-		position: relative;
-
-		a {
-			@include inline-block;
-			padding: 10px 0;
-			color: $colorMeta;
-			text-decoration: none;
-		}
-
-		a:focus,
-		a:hover,
-		&:focus-within a,
-		&:hover a,
-		&:focus a {
-			text-decoration: underline;
-		}
-	}
-
-	li.has-sub {
-		margin-right: 0;
-
-		> a {
-			padding-right: 25px;
-			position: relative;
-		}
-
-		> a:before {
-			@extend .fa;
-			@extend .fa-caret-down;
-			position: absolute;
-			top: 15px;
-			right: 11px;
-		}
-	}
-
-
-	ul.sub-menu {
-		@include no-list;
-		display: none;
-		position: absolute;
-		top: 35px;
-		left: -10px;
-		background: $colorMetaLightest;
-		width: 180px;
-		@include box-shadow(0 3px 3px rgba(0, 0, 0, 0.2));
-
-		li {
-			@include no-list;
-			display: block;
-
-			a {
-				padding: 4px 10px;
-				margin: 0;
-				display: block;
-				text-decoration: none;
-				background: none;
-
-				&:hover, &:focus {
-					background: #fff;
-					text-decoration: none;
-				}
-			}
-		}
-	}
-
-	li:hover ul.sub-menu,
-	li.focus ul.sub-menu {
-		display: block;
-	}
-}
-
-.meta-nav {
-    display: none;
-    .js & {
-	display: inline-block;
+    @media (min-width: $screen-sm) {
+        display: none;
     }
+}
+
+#meta-menu {
+
+    @media (min-width: $screen-sm) {
+        display: none;
+    }
+
+    &:target {
+        .meta-links-trigger-open {
+            display: none;
+        }
+
+        .meta-links-trigger-close {
+            display: flex;
+        }
+
+        & + .meta-links {
+            display: block;
+
+            @media (min-width: $screen-sm) {
+                display: flex;
+            }
+        }
+    }
+}
+
+.meta-links-toggled {
+
+    .meta-links {
+        display: block;
+
+        @media (min-width: $screen-sm) {
+            display: flex;
+        }
+    }
+
+    .meta-links-trigger {
+
+        .meta-links-trigger-icon-open {
+            display: none;
+        }
+
+        .meta-links-trigger-icon-close {
+            display: flex;
+        }
+    }
+}
+
+.meta-links-trigger {
+    display: block;
+    margin-left: 5px;
+    padding: 1px 6px;
+    @include px2rem($font-size-mobile-meta);
+
+    .meta-links-trigger-text {
+        @include hideout();
+    }
+
+    .meta-links-trigger-icon {
+        display: flex;
+        color: var(--color-FAU);
+
+        svg {
+            width: 24px;
+            height: auto;
+        }
+    }
+
+    .meta-links-trigger-icon-fau {
+       //margin-right: -16px;
+
+        svg {
+            width: 40px;
+        }
+    }
+
+    &.meta-links-trigger-close .meta-links-trigger-icon svg,
+    &[aria-expanded="true"] svg {
+        transform: scale(0.7);
+    }
+
+    .meta-links-trigger-open,
+    .meta-links-trigger-icon-open {
+        display: flex;
+    }
+
+    .meta-links-trigger-icon-close {
+        display: none;
+    }
+}
+
+.meta-links-trigger-close {
+    display: none;
+}
+
+.meta-links-trigger-button {
+    border: none;
+    //outline: none;
+    font: inherit;
+    color: inherit;
+    background: none;
+}
+
+.meta-links {
+    display: none;
     margin: 0;
-    padding: 0;
+    background-color: var(--color-MetaBackgroundLight);
+    z-index: 100;
+    padding: 15px;
+
+    @media (min-width: $screen-sm) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: 1rem;
+	padding: 5px 0;
+
+        background-color: transparent;
+
+        .orgalist {
+            order: 1;
+        }
+        .breadcrumblist {
+            display: none;
+        }
+        .meta-search {
+            order: 3;
+        }
+        .meta-widget {
+            order: 4;
+        }
+        .meta-nav.menu {
+            order: 2;
+        }
+    }
+
+    ul li,
+    ol li {
+        list-style-type: none;
+        padding: 0;
+	
+        a {
+	    color: var(--color-MetaTextDefault);
+            display: inline-block;
+            padding: 0.15rem 0;
+            text-decoration: none;
+	    
+	    &:focus,
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .orgalist {
+        margin: 0;
+
+        @media (min-width: $screen-sm) {
+            flex-shrink: 0;
+        }
+    }
+
+    .fauhome {
+        padding: 0;
+
+        a {
+            padding: 0.25rem 0.25rem 0.25rem 0;
+	    color: var(--color-FAU);
+	    
+            @media (min-width: $screen-sm) {
+                display: flex;
+            }
+
+            &:hover {
+                color: var(--color-white);
+                background-color: var(--color-FAU);
+
+                &:before {
+                    background-image: svg-arrow-up(#fff, 16, 16);
+                }
+            }
+
+            &:before {
+                @extend .svg-icon;
+
+                width: 1.2rem;
+                background-image: svg-arrow-up($colorZUV, 16, 16);
+                margin-left: 0;
+                margin-right: 2px;
+                vertical-align: middle;
+            }
+        }
+
+        svg {
+            fill: currentColor;
+            vertical-align: middle;
+        }
+    }
+
+    .meta-search {
+        width: 100%;
+        position: relative;
+        margin: 1rem 0 0;
+
+        @media (min-width: $screen-sm) {
+            margin-top: 0;
+            max-width: 300px;
+            margin-left: auto;
+        }
+
+        .searchform {
+            display: flex;
+            width: 100%;
+            padding: 0;
+            justify-items: center;
+        }
+
+        .searchicon {
+            position: absolute;
+            margin: 0;
+            top: 50%;
+            left: 0.5rem;
+            transform: translateY(-50%);
+        }
+
+        #headsearchinput {
+            width: 100%;
+            padding-left: 2rem;
+        }
+    }
+
+    .cms-workflow-widget {
+        margin: 1rem 0 0;
+
+        @media (min-width: $screen-sm) {
+            margin-top: 0;
+        }
+
+        .mlp_language_box {
+            background-color: transparent;
+        }
+    }
+
+    .meta-nav.menu {
+        margin: 0.5rem 0 0;
+
+        @media (min-width: $screen-sm) {
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 1rem;
+            margin-top: 0;
+        }
+    }
+}
+
+.meta-logo {
+    display: flex;
+    max-height: 100%;
+    text-align: center;
     
+    @media (min-width: $screen-sm) {
+        display: none;
+    }
+
+    .branding {
+        display: flex;
+        justify-content: center;
+        max-height: 100%;
+    }
+
+    .custom-logo-link {
+        text-align: center;
+
+        img,
+        svg {
+            width: auto;
+            height: 100%;
+        }
+    }
+    a {
+        border: 1px dashed transparent;
+        &:hover,
+        &:focus {
+            border-color: var(--color-primary-ci-hell);
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.22);
+        }
+    }
+
+    .textlogo {
+
+        .baselogo {
+            display: none;
+        }
+
+        .fau-title {
+            display: none;
+
+        }
+        .fauorg-home & {
+            .fau-title {
+                display: block;
+            }
+        }
+
+        .fauorg-kooperation & {
+            .baselogo {
+                display: block;
+            }
+
+            .text {
+                display: block;
+            }
+        }
+    }
 }
-.orgalist {
-	display: inline-block;
-	text-align: left;
-
-
-	li.fauhome {
-	    margin-left: 0;
-	    a {
-		padding-right: 5px;
-		
-		svg {
-		    display: inline-block;
-		    position: relative;
-		    vertical-align: text-top;
-		    .fau {
-			fill: $colorZUV;
-		    }
-		} 
-	    }
-	    a::before {
-		display: none;
-		@extend .svg-icon;
-		background-image: svg-arrow-up($colorZUV,16,16);		
-		margin-left: 0;
-		margin-right: 2px;
-		@media (min-width: $screen-sm) {
-		    display: inline-block;
-		}
-	    }
-	    
-	    
-	    a:hover,
-	    a:focus {
-		background: $colorZUV;
-		svg {
-		    .fau {
-			fill: white;
-		    }
-		}
-		&::before {
-		    background-image: svg-arrow-up(white,16,16);	
-		}
-		
-	    }
-	
-	}
-	
-	li.facultyhome {
-	    display: none;
-	    padding-right: 5px;
-	    padding-left: 5px;
-	}
-	
-	@media (min-width: $screen-sm) {
-	    li.facultyhome {
-		display: inline-block;
-		
-	    }
-
-	    li.fauhome,
-	    li.facultyhome {
-		    @include transition(background, 0.2s ease-out);
-	    }
-
-	    li.fauhome:hover, 
-	    li.fauhome:focus,
-	    li.facultyhome:hover, 
-	    li.facultyhome:focus {
-		    background: $colorMetaFAUHomeBackground;
-		    @include transition(background, 0.1s);
-	    }
-	    
-
-	
-	}
-	
-
-	@media (min-width: $screen-sm) {
-		text-align: left;
-
-		.fauorg-home & .fauhome {
-			// Zeige auf der FAU-Website selbst den Logolink in der Meta
-			// nicht an, wenn die Darstellung größer gleich als Tablet ist.
-			display: none;
-		}	
-	}
-}
-

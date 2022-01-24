@@ -1,0 +1,39 @@
+/*-----------------------------------------------------------------------------------*/
+/* Helpermenus (Search)
+/*-----------------------------------------------------------------------------------*/
+
+.helpermenus {
+    h3 {
+        display: block;
+        @include px2rem($font-size-contentmenu-title);
+        width: $contentmenu-default-width;;
+
+        a {
+            &.ext-link:after {
+                @extend .fa;
+                content: "\f08e";
+                margin-left: 5px;
+                margin-top: 0;
+                @include px2rem($font-size-content-linkicon);
+                color: var(--color-Text);
+                vertical-align: top;
+
+            }
+        }
+
+        a:hover,
+        a:focus {
+            text-decoration: none;
+            background-color: var(--color-menulink-hover-bg);
+            color: var(--color-menulink-hover-text);
+        }
+    }
+
+    ul {
+        @include no-list();
+    }
+
+    li {
+        @include anglelist();
+    }
+}

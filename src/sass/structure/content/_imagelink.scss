@@ -3,16 +3,7 @@
 /*  (since 1.10.56, replaces navigation/_logos-menu.scss)
 /*-----------------------------------------------------------------------------------*/
 
-/*
-#content .imagelink .slick-item {
-    img  {
-	@include box-shadow(none);
-    }
-    &.shadow img {
-	 @include box-shadow(2px 2px 5px $colorShadows);
-    }
-}
-*/
+
 .imagelink {    
     width: calc(100% - 100px);
     margin: 20px auto 0;
@@ -27,12 +18,12 @@
 		}
 	    }
 	    &.border {
-		border: 1px solid $colorContentBorders;
+		border: 1px solid var(--color-ContentBorders);
 	    }
 	    
 	    &.rounded {
-		border: 1px solid $colorContentBorders;
-		@include box-shadow(0 0 1px $colorContentBorders);
+		border: 1px solid var(--color-ContentBorders);
+		@include box-shadow(0 0 1px var(--color-ContentBorders));
 		overflow: hidden;
 		border-radius: 50%;
 	    }
@@ -41,7 +32,7 @@
 	    &:focus-within,
 	    &:hover, 
 	    &:focus {
-		border: 1px solid $colorHover;
+		border: 1px solid var(--color-primary-dunkelste);
 	    }
 	    
 	}
@@ -125,22 +116,20 @@
 		&:focus {
 			outline: none;
 			background: transparent;
-			color: $slick-arrow-color;
+			color: var(--color-button-bg);
 
 			&:before {
-				opacity: $slick-opacity-on-hover;
+				 color: var(--color-button-hover-bg);
 			}
 		}
 
-		&.slick-disabled:before {
-			opacity: $slick-opacity-not-active;
-		}
-
+		
 		&:before {
 			font-size: 40px;
 			line-height: 1;
-			color: $colorPrimary;
-			opacity: $slick-opacity-default;
+			color: var(--color-button-bg);
+			text-shadow: 0 0 1px var(--color-button-text);
+
 		}
 
 	}
@@ -204,7 +193,7 @@
 
 	
 	.slick-dots {
-	    position: absolute;
+	//    position: absolute;
 	    display: block;
 	    width: 100%;
 	    padding: 0;
@@ -215,49 +204,38 @@
 
 		position: relative;
 		display: inline-block;
-		width: 20px;
-		height: 20px;
-		margin: 0 5px;
+		width: 1.5rem;
+		height: 1.5rem;
+		margin: 0 0.5rem;
 		padding: 0;
 		cursor: pointer;
 		
 		button {
 		    
 		    display: block;
-		    width: 20px;
-		    height: 20px;
-		    padding: 5px;
+		    width: 1.5rem;
+		    height: 1.5rem;
 		    cursor: pointer;
-		    color: transparent;
-		    border: 0;
-		    outline: none;
-		    background: transparent;
-
-		    &:before {
-			@extend .fa;
-			content: "\f111";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 20px;
-			height: 20px;
-		
-			text-align: center;
-			opacity: .25;
-			color: $colorPrimary;
-		    }
+		    border-radius: 50%;
 		    
-		     &:hover, &:focus {
-			    outline: none;
-			    &:before {
-				opacity: 1;
-			    }
-			}
+		    color: var(--color-primary-ci-hell-kontrast);
+		    background-color: var(--color-primary-ci-hell);
+		    
+		    border: 0;
+		    padding: 0;
+		    outline: none;
+
+		    &:hover, 
+		    &:focus {
+			color: var(--color-button-hover-text);
+			background-color: var(--color-button-hover-bg);
+		    }
   
 		}
-		 &.slick-active button:before {
-		     opacity: 1;
-		 }
+		&.slick-active button {
+		    color: var(--color-button-hover-text);
+		    background-color: var(--color-button-hover-bg);
+		}
 	    }
 	}   
 	
@@ -279,7 +257,7 @@
 	    &:focus-within,
 	    &:hover, 
 	    &:focus {
-		border-color: $colorHover;
+		border-color: var(--color-primary-dunkelste);
 	    }
 		
 	    a {
@@ -304,13 +282,13 @@
 	    }
 	    &.rounded {
 		border-width: 2px;
-		border-color: $colorContentBorders;
+		border-color: var(--color-ContentBorders);
 
 	    }
 	    &.rounded:hover, 
 	    &.rounded:focus, 
 	    &.rounded:active  {
-		border-color: $colorHover;
+		border-color: var(--color-primary-dunkelste);
 	    }
 	}
 

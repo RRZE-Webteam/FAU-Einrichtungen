@@ -1,0 +1,24 @@
+/*-----------------------------------------------------------------------------------*/
+/* Grid in Hero
+/*-----------------------------------------------------------------------------------*/
+@use "sass:math";
+
+.hero-container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+
+
+    @media (min-width: $screen-sm) {
+	padding-left:  floor(math.div($grid-gutter-width, 2));
+	padding-right: ceil(math.div($grid-gutter-width, 2));
+	width: $container-sm;
+    }
+     @media (min-width: $screen-md) {
+	width: $container-md;
+    }
+    @media (min-width: $screen-lg-min) {
+	width: $container-lg;
+    }
+
+}

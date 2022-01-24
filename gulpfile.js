@@ -4,7 +4,7 @@
  */
 const
     {src, dest, watch, series, parallel} = require('gulp'),
-    sass = require('gulp-sass'),
+    sass = require('gulp-sass')(require('sass')),
     postcss = require('gulp-postcss'),
     autoprefixer = require('autoprefixer'),
     uglify = require('gulp-uglify'),
@@ -184,6 +184,16 @@ function cloneTheme(cb) {
     
     }
 
+    // Copy social media icons in the new base directory
+    function copysocialmedia() {
+	var srcsocialmedia = targetdir + 'src/favicons/' + farbfamilie + '/**';
+	var targetsocialmedia = targetdir + 'img/socialmedia/';	
+	console.log(`  - Copy Social Media Icons ${srcsocialmedia} to ${targetsocialmedia}`);	
+	return src([srcsocialmedia])
+		    .pipe(dest(targetsocialmedia));
+    }
+
+
     
     // compile sass, use autoprefixer and minify results
     function buildbackendstyles() {
@@ -223,7 +233,7 @@ function cloneTheme(cb) {
     }
      
    
-    const dothis = series(copyprocess,parallel(setcolorfamily,setwebsite_usefaculty,copyscreenshot),buildbackendstyles,buildproductivestyle);	
+    const dothis = series(copyprocess,parallel(setcolorfamily,setwebsite_usefaculty,copyscreenshot,copysocialmedia),buildbackendstyles,buildproductivestyle);	
     dothis();
     cb();
     return;
@@ -293,7 +303,8 @@ function buildmainstyle() {
  */
 function devbuildmainstyle() {
     var plugins = [
-        autoprefixer()
+        autoprefixer(),
+	// cssnano()
     ];
   return src([info.source.sass + 'fau-theme-style.scss'])
    .pipe(header(banner, { info : info }))
@@ -367,12 +378,36 @@ function updatepot()  {
   .pipe(touch());;
 };
 
+
+// Set debugmode true
+function set_debugmode() {
+	// find this entry and change it:
+	// 'website_usefaculty'		=> '',
+	// phil, med, nat, rw, tf
+	var constfile =  './functions/constants.php';
+	console.log(`  - Set Debugmode true in constfile ${constfile}`);	
+	return src([constfile])
+		    .pipe(replace(/'debugmode'\s*=>\s*(.*),/g, '\'debugmode\' => true,'))
+		    .pipe(dest('./functions/'));
+}
+
+// Set debugmode true
+function unset_debugmode() {
+	// find this entry and change it:
+	// 'website_usefaculty'		=> '',
+	// phil, med, nat, rw, tf
+	var constfile =  './functions/constants.php';
+	console.log(`  - Set Debugmode false in constfile ${constfile}`);	
+	return src([constfile])
+		    .pipe(replace(/'debugmode'\s*=>\s*(.*),/g, '\'debugmode\' => false,'))
+		    .pipe(dest('./functions/'));
+}
+
+
 /*
  * Update Version on Patch-Level
  *  (All other levels we are doing manually; This level has to update automatically on each build)
  */
-
-
 function upversionpatch() {
     var newVer = semver.inc(info.version, 'patch');
     return src(['./package.json', './' + info.maincss])
@@ -439,11 +474,14 @@ exports.makecustomizerjs = makecustomizerjs;
 exports.makewplinkjs = makewplinkjs;
 exports.clone = cloneTheme;
 exports.buildmainstyle = buildmainstyle;
+exports.debugmode = set_debugmode;
+exports.nodebug = unset_debugmode;
 
 var js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, makewplinkjs);
-var dev = series(sassautoprefixhelperfiles, devbuildmainstyle, js, devversion, validatecss);
+var dev = series(sassautoprefixhelperfiles, devbuildmainstyle, js, devversion);
 
-exports.cssdev = series(sassautoprefixhelperfiles, devbuildmainstyle, validatecss);
+exports.cssdev = devbuildmainstyle;
+exports.css = devbuildmainstyle;
 exports.js = js;
 exports.dev = dev;
 exports.build = series(buildhelperstyles, buildmainstyle, js, upversionpatch);

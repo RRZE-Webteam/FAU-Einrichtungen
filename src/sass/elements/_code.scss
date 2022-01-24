@@ -7,8 +7,8 @@ pre {
 	padding: 0 3px 2px;
 	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 	@include px2rem($font-size-codepre);
-	color: $colorText;
-	background-color: $colorStandardHellgrau;
+	color: var(--color-Text);
+	background-color: var(--color-StandardHellgrau);
 }
 
 code {
@@ -26,7 +26,7 @@ pre {
 	word-wrap: break-word;
 	white-space: pre;
 	white-space: pre-wrap;
-	border: 1px solid $colorContentBorders;
+	border: 1px solid var(--color-ContentBorders);
 	@include border-radius(4px);
 }
 

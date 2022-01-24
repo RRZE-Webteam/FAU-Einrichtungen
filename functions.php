@@ -51,6 +51,7 @@ function fau_setup() {
 	    
 	add_editor_style( array( 'css/fau-theme-editor-style.css' ) );
 	add_theme_support('html5');
+	add_theme_support('caption');
 	add_theme_support('title-tag');
 	add_theme_support('automatic-feed-links');
 
@@ -119,7 +120,7 @@ function fau_custom_init() {
 
     // Declare Default Symbols from the start
     fau_register_svg_symbol("fau-logo-text", false);
-    fau_register_svg_symbol("fau-siegel", false);
+   // fau_register_svg_symbol("fau-siegel", false);
     fau_register_svg_symbol("fau-logo", false);
 
     
@@ -202,7 +203,7 @@ add_filter('script_loader_tag', 'fau_remove_type_attr', 10, 2);
 /* Change default header
 /*-----------------------------------------------------------------------------------*/
 function fau_addmetatags() {
-
+    global $defaultoptions;
     $output = '';
    // $output .= '<meta http-equiv="Content-Type" content="text/html; charset='.get_bloginfo('charset').'">'."\n";
    // $output .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">'."\n";    
@@ -211,15 +212,20 @@ function fau_addmetatags() {
     
     $googleverification = get_theme_mod('google-site-verification');
     if ((isset( $googleverification )) && ( !fau_empty($googleverification) )) {
-        $output .= '<meta name="google-site-verification" content="'.$googleverification.'">'."\n";
+        $output .= '	<meta name="google-site-verification" content="'.$googleverification.'">'."\n";
     }
 
-    if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {
-	    $output .=  '<link rel="apple-touch-icon" href="'.get_fau_template_uri().'/img/apple-touch-icon.png">'."\n";
-	    $output .=  '<link rel="icon" href="'.get_fau_template_uri().'/img/apple-touch-icon.png">'."\n";
-	    $output .=  '<link rel="icon" href="'.get_fau_template_uri().'/img/apple-touch-icon-120x120.png" sizes="120x120">'."\n";
-	    $output .=  '<link rel="icon" href="'.get_fau_template_uri().'/img/apple-touch-icon-152x152.png" sizes="152x152">'."\n";
-	    $output .=  '<link rel="shortcut icon" href="'.get_fau_template_uri().'/img/favicon.ico">'."\n";	
+    if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {    
+	    $output .=  '   <link rel="shortcut icon" href="'.get_fau_template_uri().'/img/socialmedia/favicon.ico">'."\n";
+	    $output .=  '   <link rel="apple-touch-icon" sizes="180x180" href="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
+	//    $output .=  '   <link rel="icon" type="image/png" sizes="32x32" href="'.get_fau_template_uri().'/img/socialmedia/favicon-32x32.png">'."\n";
+	    $output .=  '   <link rel="icon" type="image/png" sizes="180x180" href="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
+	    $output .=  '   <link rel="icon" type="image/svg+xml" href="'.get_fau_template_uri().'/img/socialmedia/favicon.svg" sizes="any">'."\n";
+	    $output .=  '   <link rel="mask-icon" type="image/svg+xml" href="'.get_fau_template_uri().'/img/socialmedia/favicon-mask.svg" color="'.$defaultoptions['default-social-media-color'].'">'."\n";
+	    $output .=  '   <meta name="msapplication-TileColor" content="'.$defaultoptions['default-social-media-color'].'">'."\n";
+	    $output .=  '   <meta name="msapplication-TileImage" content="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
+	    $output .=  '   <meta name="theme-color" content="'.$defaultoptions['default-social-media-color'].'">'."\n";
+  
     }
     
     	// Adds RSS feed links to <head> for posts and comments.
@@ -227,7 +233,12 @@ function fau_addmetatags() {
 	// Will post both: feed and comment feed; To use only main rss feed, i have to add it manually in head
     
     $title = sanitize_text_field(get_bloginfo( 'name' ));
-    $output .= '<link rel="alternate" type="application/rss+xml" title="'.$title.' - RSS 2.0 Feed" href="'.get_bloginfo( 'rss2_url').'">'."\n";
+    $output .= '    <link rel="alternate" type="application/rss+xml" title="'.$title.' - RSS 2.0 Feed" href="'.get_bloginfo( 'rss2_url').'">'."\n";
+    
+    if ($defaultoptions['default-sourcecode-notice']) {
+	$output .= '	<!-- '.$defaultoptions['default-sourcecode-notice-text'].' -->'."\n";
+    }
+    
     
     echo $output;
 }
@@ -258,8 +269,8 @@ function fau_dns_prefetch() {
  
     foreach ($prefetchDomains as $domain) {
         $domain = esc_url($domain);
-        $result .= '<link rel="dns-prefetch" href="' . $domain . '" crossorigin />'."\n";
-        $result .= '<link rel="preconnect" href="' . $domain . '" crossorigin />'."\n";
+        $result .= '	<link rel="dns-prefetch" href="' . $domain . '" crossorigin />'."\n";
+        $result .= '	<link rel="preconnect" href="' . $domain . '" crossorigin />'."\n";
     }
  
     echo $result;
@@ -300,75 +311,22 @@ function fau_remove_unwanted_head_actions() {
 }
 add_action('wp_head', 'fau_remove_unwanted_head_actions', 0);
 
-// Todo:
-//  Move to rrze settings plugin , once it is ready to serve this.
 /*-----------------------------------------------------------------------------------*/
-/* create array with organisation logos
+/*Custom Loo setup
 /*-----------------------------------------------------------------------------------*/
-function fau_init_header_logos() {
-    global $default_fau_orga_data;
-
-    $header_logos = array();
-    $website_usefaculty = get_theme_mod('website_usefaculty');
-    
-    foreach($default_fau_orga_data as $name=>$value) {
-
-	if (strpos($name, '_') === 0) {
-	    if ((strpos($name, '_faculty') === 0) && (!empty($website_usefaculty)) ) {	    
-		    $sub = $website_usefaculty;
-		    if (isset($default_fau_orga_data[$name][$sub])) {
-			$header_logos[$sub]['url'] = $default_fau_orga_data[$name][$sub]['thumbnail'];
-			if (isset($default_fau_orga_data[$name][$sub]['url'])) {
-			    $header_logos[$sub]['thumbnail_url'] = $default_fau_orga_data[$name][$sub]['thumbnail'];
-			} else {
-			    $header_logos[$sub]['thumbnail_url'] = $default_fau_orga_data[$name][$sub]['url'];
-			}
-			$header_logos[$sub]['description'] = $default_fau_orga_data[$name][$sub]['title']; 
-		    }
-	    
-	    } else {
-		foreach($value as $sub=>$sval) {
-		    $header_logos[$sub]['url'] = $default_fau_orga_data[$name][$sub]['url'];
-		    if (isset($default_fau_orga_data[$name][$sub]['thumbnail'])) {
-			$header_logos[$sub]['thumbnail_url'] = $default_fau_orga_data[$name][$sub]['thumbnail'];
-		    } else {
-			$header_logos[$sub]['thumbnail_url'] = $default_fau_orga_data[$name][$sub]['url'];
-		    }
-		    $header_logos[$sub]['description'] = $default_fau_orga_data[$name][$sub]['title']; 
-		}
-	    }
-	} else {
-	    $header_logos[$name]['url'] = $default_fau_orga_data[$name]['url'];
-	    if (isset($default_fau_orga_data[$name]['thumbnail'])) {
-		$header_logos[$name]['thumbnail_url'] = $default_fau_orga_data[$name]['thumbnail'];
-	    } else {
-		$header_logos[$name]['thumbnail_url'] = $default_fau_orga_data[$name]['url'];
-	    }
-	    $header_logos[$name]['description'] = $default_fau_orga_data[$name]['title']; 
-	}
-     }
-     return $header_logos;
-} 
-
-/*-----------------------------------------------------------------------------------*/
-/* Header setup
-/*-----------------------------------------------------------------------------------*/
-function fau_custom_header_setup() { 
+function fau_custom_logo_setup() {
     global $defaultoptions;
-	$args = array(
-	    'height'			=> $defaultoptions['default_logo_height'],
-	    'width'			=> $defaultoptions['default_logo_width'],
-	    'admin-head-callback'	=> 'fau_admin_header_style',
-	    'header-text'		=> false,
-	    'flex-width'		=> true,
-	    'flex-height'		=> true,
-	);
-	add_theme_support( 'custom-header', $args );
-	$default_header_logos = fau_init_header_logos();
-	register_default_headers( $default_header_logos );
+    $defaults = array(
+        'height'               => $defaultoptions['default_logo_height'],
+        'width'                => $defaultoptions['default_logo_width'],
+        'flex-height'          => true,
+        'flex-width'           => true,
+        'unlink-homepage-logo' => true, 
+    );
+ 
+    add_theme_support( 'custom-logo', $defaults );
 }
-add_action( 'after_setup_theme', 'fau_custom_header_setup' );
-
+add_action( 'after_setup_theme', 'fau_custom_logo_setup' );
 
 /*-----------------------------------------------------------------------------------*/
 /*  Returns language code, without subcode

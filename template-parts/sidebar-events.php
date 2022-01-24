@@ -158,30 +158,30 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 		$fallback = get_theme_mod('fallback_topevent_image');
 		if ($fallback) {
 		    $thisimage = wp_get_attachment_image_src( $fallback,  $defaultoptions['default_rwdimage_typname']);
-		//    $thisimage = wp_get_attachment_image_src( $fallback,  'topevent-thumb');
 		    $imageurl = $thisimage[0]; 	
 		    $imgwidth = $thisimage[1];
 		    $imgheight = $thisimage[2];
 		    $imgsrcset =  wp_get_attachment_image_srcset($fallback, $defaultoptions['default_rwdimage_typname']);
 		    $imgsrcsizes = wp_get_attachment_image_sizes($fallback, $defaultoptions['default_rwdimage_typname']);
-		//     $imgsrcset =  wp_get_attachment_image_srcset($fallback, 'topevent-thumb'); 
-		} else {	   
-		    $imageurl = fau_esc_url($defaultoptions['default_topevent_thumb_src']);
 
 		}
-		$imagehtml = '<img itemprop="thumbnailUrl" src="'.$imageurl.'" width="'.$imgwidth.'" height="'.$imgheight.'" alt="'.$alttext.'"';
-		if ($imgsrcset) {
-		    $imagehtml .= ' srcset="'.$imgsrcset.'"';
-		    if ($imgsrcsizes) {
-			 $imagehtml .= ' sizes="'.$imgsrcsizes.'"';
+		if ($imageurl) {
+		    $imagehtml = '<img itemprop="thumbnailUrl" src="'.$imageurl.'" width="'.$imgwidth.'" height="'.$imgheight.'" alt="'.$alttext.'"';
+		    if ($imgsrcset) {
+			$imagehtml .= ' srcset="'.$imgsrcset.'"';
+			if ($imgsrcsizes) {
+			     $imagehtml .= ' sizes="'.$imgsrcsizes.'"';
+			}
 		    }
+		    $imagehtml .= ">";
+		} else {
+		    $imagehtml = '';
 		}
-		$imagehtml .= ">";
 
 	    }
-	    if (($hideimage < 1) && (isset($imagehtml))) {  
-		echo '<div class="event-thumb" aria-hidden="true" role="presentation" tabindex="-1" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';
-		echo '<a href="'.$link.'">'.$imagehtml.'</a>'; 
+	    if (($hideimage == false) && (!empty($imagehtml))) {  
+		echo '<div class="event-thumb" aria-hidden="true" role="presentation" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';
+		echo '<a href="'.$link.'"  tabindex="-1">'.$imagehtml.'</a>'; 
 		if (isset($imageid) && ($imageid>0)) {
 		    $schema = "";
 		    $bigimage = wp_get_attachment_image_src($imageid, 'full'); 
@@ -197,6 +197,7 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 		echo '<div class="topevent-date" itemprop="startDate" content="'.$topevent_date.'">';
 		echo date_i18n( get_option( 'date_format' ), strtotime( $topevent_date ) );
 		echo "</div>";
+		echo '<meta property="endDate" content="'.$topevent_date.'">';
 	    }
 	    $desc = get_post_meta( $topevent->ID, 'topevent_description', true );
 	    if (strlen(trim($desc))<3) {

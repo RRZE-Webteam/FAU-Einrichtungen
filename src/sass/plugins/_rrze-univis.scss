@@ -15,4 +15,28 @@
 	      @include sr-only();
 	 }
     }
+    
+    .person,
+    .liste-person {
+	a {
+	     @include defaultlinkstyle();
+	}
+	
+    }
+    .lecture-info-ics, 
+    [itemprop="telephone"] {
+	a {
+	    @include defaultlinkstyle();
+	    text-decoration: none;
+	}
+    }
+    
+    &.navigation {
+	.nav-previous {
+	    a {
+		@include buttonstyle();
+	    }
+	}
+    }
+    
 }
