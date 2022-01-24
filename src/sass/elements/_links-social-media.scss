@@ -18,29 +18,30 @@
 			
 			a {
 				@include inline-block;
-				color: $colorSocial;
 				text-decoration: none;
 				padding: 5px 0;
 				background: none;
 				@include px2rem($font-size-base);
 				
-				&:hover, &:focus {
-					color: $colorPrimary;
+				&:hover, 
+				&:focus {
 					text-decoration: underline;
 					
 					&:before {
-						background: $colorPrimary;
+					    background: var(--color-button-hover-bg);
+					    color: var(--color-button-hover-text);
 					}
 				}
 			}
 			
 			a:before {
-				background: $colorSocial;
-				color: $colorSocialBackground;
+				
+				background: var(--color-primary-ci-hell);
+			        color: var(--color-primary-ci-hell-kontrast);
+				// background: var(--color-button-bg);
+			        // color: var(--color-button-text);
 				height: 1.7rem;
-				width:  1.7rem;
-				line-height: 1.7rem !important;
-				font-size: calc(1.7rem / 1.5) !important;				
+				width:  1.7rem;			
 				text-align: center;
 				margin-right: 1rem;
 				@include border-radius(50%);
@@ -49,22 +50,22 @@
 		
 	
 		
-		li.social-diaspora a:before { @extend .fa; content: '*'; font-size: 20px; font-weight: bold;}
-		li.social-pinterest a:before { @extend .fa; @extend .fa-pinterest-p; @extend .fa-lg; line-height: 1.0em;}
-		li.social-instagram a:before { @extend .fa; @extend .fa-instagram; line-height: 1.0em;}
-		li.social-facebook a:before {  @extend .fa; @extend .fa-facebook; }
-		li.social-twitter a:before {  @extend .fa; @extend .fa-twitter; }
-		li.social-xing a:before {  @extend .fa; @extend .fa-xing; }
-		li.social-github a:before {  @extend .fa; @extend .fa-github; }	
-		li.social-skype a:before {  @extend .fa; @extend .fa-skype; }
-		li.social-tumblr a:before {  @extend .fa; @extend .fa-tumblr; }
-		li.social-delicious a:before {  @extend .fa; @extend .fa-delicious; }
-		li.social-flickr a:before {  @extend .fa; @extend .fa-flickr; }
-		li.social-feed a:before { @extend .fa;  @extend .fa-rss-square; }
-		li.social-vimeo a:before { @extend .fa; @extend .fa-vimeo-square; }
-		li.social-youtube a:before { @extend .fa; @extend .fa-youtube-square; }
-		li.social-itunes a:before { @extend .fa; @extend .fa-apple; }
-		li.social-wikipedia a:before { @extend .fa; @extend .fa-wikipedia-w; }
+		li.social-diaspora a:before { @extend .fa;  content: '*'; font-size: 20px; font-weight: bold;}
+		li.social-pinterest a:before { @extend .fa; font-size: 1rem; @extend .fa-pinterest-p; }
+		li.social-instagram a:before { @extend .fa; font-size: 1rem;  @extend .fa-instagram; }
+		li.social-facebook a:before {  @extend .fa; font-size: 1rem; @extend .fa-facebook; }
+		li.social-twitter a:before {  @extend .fa; font-size: 1rem; @extend .fa-twitter; }
+		li.social-xing a:before {  @extend .fa; font-size: 1rem; @extend .fa-xing; }
+		li.social-github a:before {  @extend .fa; font-size: 1rem; @extend .fa-github; }	
+		li.social-skype a:before {  @extend .fa; font-size: 1rem; @extend .fa-skype; }
+		li.social-tumblr a:before {  @extend .fa; font-size: 1rem; @extend .fa-tumblr; }
+		li.social-delicious a:before {  @extend .fa; font-size: 1rem; @extend .fa-delicious; }
+		li.social-flickr a:before {  @extend .fa; font-size: 1rem; @extend .fa-flickr; }
+		li.social-feed a:before { @extend .fa; font-size: 1rem; @extend .fa-rss-square; }
+		li.social-vimeo a:before { @extend .fa; font-size: 1rem; @extend .fa-vimeo-square; }
+		li.social-youtube a:before { @extend .fa; font-size: 1rem; @extend .fa-youtube-square; }
+		li.social-itunes a:before { @extend .fa; font-size: 1rem; @extend .fa-apple; }
+		li.social-wikipedia a:before { @extend .fa; font-size: 1rem; @extend .fa-wikipedia-w; }
 		
 		
 		li.social-iconbyurl {
@@ -182,12 +183,6 @@
 			&[href$=".ics"] {
 			    @extend .fa-calendar;
 			}
-  
-
 		    }
-		   
-		   
 		}
-		
-		
 	}

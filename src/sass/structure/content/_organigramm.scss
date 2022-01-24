@@ -12,7 +12,7 @@
 	
 	ul {
 		margin-bottom: 20px;
-		border-left: 2px solid $colorLightest;
+		border-left: 2px solid var(--color-primary-ci-hell);
 		margin-left: 10px;
 	}
 	
@@ -34,19 +34,16 @@
 	}
 	
 	a {
-		text-decoration: none;
+		@include defaultlinkstyle();
 	}
 	
-	a:hover, a:focus {
-		text-decoration: underline;
-	}
-	
+
 
 	
 	.toggle-icon {
 		@extend .fa;
 		@extend .fa-plus-square;
-		color: $colorPrimary;
+		color: var(--color-Text);
 		margin-right: 5px;
 		cursor: pointer;
 	}

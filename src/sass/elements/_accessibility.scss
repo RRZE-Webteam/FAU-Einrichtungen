@@ -16,36 +16,41 @@
 /* Skiplinks in top position of page; for keyboard users
 /*-----------------------------------------------------------------------------------*/
 
-.jumplinks {	
-    margin: 0;
+#skiplinks {
+    position: absolute;
+    width: 100%;
+    top: 50%;
     
-    li {
-	@include no-list;
-	a {
-	    @include sr-only();
-	    @include sr-only-focusable();
-	    
-	    &:active,
-	    &:hover, 
-	    &:focus {
-		position: absolute;
-		z-index: 110;
-		background: $colorPrimary;
-		color: $colorPrimaryContrast;
-		@include box-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
-		padding: 1.5em;
-		top: 0px;
-		left: 0;
-		right: 0;
-		margin: 0 auto;
-		text-align: center;
-		
-		width: 100%;
-		text-decoration: none;
-		@include px2rem($font-size-large);
-		
+    .jumplinks {	
+	margin: 0;
+
+	li {
+	    @include no-list;
+	    a {
+		@include sr-only();
+		@include sr-only-focusable();
+
+		&:active,
+		&:hover, 
+		&:focus {
+		    position: absolute;
+		    z-index: 110;
+		    @include buttoncolor();
+		    @include box-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+		    padding: 1.5em;
+		    top: 0px;
+		    left: 0;
+		    right: 0;
+		    margin: 0 auto;
+		    text-align: center;
+
+		    width: 100%;
+		    text-decoration: none;
+		    @include px2rem($font-size-large);
+
+		}
 	    }
 	}
+
     }
-	
 }

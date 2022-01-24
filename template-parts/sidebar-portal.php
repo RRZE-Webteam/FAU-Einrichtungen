@@ -70,7 +70,7 @@
     if ($sidebarfilled>0) { 
 	fau_use_sidebar(true);
     ?>
-    <aside class="startpage-sidebar" aria-label="<?php echo __('Sidebar','fau');?>">
+    <aside class="portalpage-sidebar" aria-label="<?php echo __('Sidebar','fau');?>">
 	<?php
 	get_template_part('template-parts/sidebar', 'events'); 	
 	get_template_part('template-parts/sidebar', 'textabove');  

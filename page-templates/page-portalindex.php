@@ -12,9 +12,10 @@ while ( have_posts() ) : the_post();
 
     get_template_part('template-parts/hero', 'small'); ?>
 
-    <div id="content" class="content-portal">
-	<div class="container">	
-	    <div class="row">
+    <div id="content">
+	<div class="content-container">	   
+            <?php get_template_part('template-parts/content', 'portalmenu-oben'); ?>
+	    <div class="content-row">
 		    <main<?php echo fau_get_page_langcode($post->ID);?>>
 			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
 		    <?php 
@@ -34,31 +35,14 @@ while ( have_posts() ) : the_post();
 			    ?>
 			</div>    
 			<?php 
-			$displayedicons = 0;
-			$menuslug = get_post_meta( $post->ID, 'portalmenu-slug', true );	
-			if ($menuslug) { 
-  
-			    $nosub  = get_post_meta( $post->ID, 'fauval_portalmenu_nosub', true );
-			    if ($nosub==1) {
-				$displaysub =0;
-			    } else {
-				$displaysub =1;
-			    }
-			    $nofallbackthumbs  = get_post_meta( $post->ID, 'fauval_portalmenu_nofallbackthumb', true );
-			    $nothumbnails  = get_post_meta( $post->ID, 'fauval_portalmenu_thumbnailson', true ); 
-
-			    fau_get_contentmenu($menuslug,$displaysub,0,$nothumbnails,$nofallbackthumbs);
-			    $displayedicons = 1;
-			}
+			get_template_part('template-parts/content', 'portalmenu-unten');
 			   
 			$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
 			if ($logoliste) { 
 			    /* New since 1.10.57 */
 			    $logos = fau_imagelink_get(array('size' => "logo-thumb", 'catid' => $logoliste, "autoplay" => true, "dots" => true));
 			    if ((isset($logos) && (!empty($logos)))) {
-				if ($displayedicons==1) {
-				    echo "<hr>\n";
-				}
+				
 				echo $logos;
 			    }
 			   

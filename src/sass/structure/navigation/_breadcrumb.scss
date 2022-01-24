@@ -1,0 +1,31 @@
+/*-----------------------------------------------------------------------------------*/
+/* Allgemeine Klasse für Breadcrumbs
+/*-----------------------------------------------------------------------------------*/
+
+ul.breadcrumblist,
+ol.breadcrumblist {
+    margin: 0;
+    
+    li {
+	@include no-list;
+	display: inline;
+	@include px2rem($font-size-breadcrumb);	   
+    }
+    li:after {
+	content: ' / ';
+    }
+    li:last-child::after {
+	content: '';
+    }
+    
+}
+
+// Abwärtscompatabilititaet zu V1.x basierten Plugins
+.breadcrumbs {
+    a::after {
+        content: ' / ';
+    }
+    li a::after {
+        content: '';
+    }
+}

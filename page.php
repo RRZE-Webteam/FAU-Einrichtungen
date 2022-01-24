@@ -37,10 +37,14 @@ while ( have_posts() ) :
 						echo '<div class="content-inline">';
 					    }
 					    the_content(); 
-					    echo '</div>';
+					   
+					    
+					    echo wp_link_pages($pagebreakargs);  
+					    
+					     echo '</div>';
 					    ?>
 					</div>    
-					<?php echo wp_link_pages($pagebreakargs); ?>    
+					
 			    </main>
 			    <?php  
 			    $logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );		

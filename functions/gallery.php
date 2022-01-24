@@ -29,7 +29,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	extract(shortcode_atts(array(
 	    'order'	=> 'ASC',
 	    'orderby'	=> 'menu_order ID',
-	    'id'		=> $post->ID,
+	    'id'	=> $post->ID,
 	    'columns'	=> 0,
 	    'include'	=> '',
 	    'exclude'	=> '',
@@ -116,8 +116,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    if ($gridclass=='flexgrid') {
 		$output .= '<div class="flexgrid">'."\n";
 	    } else {
-		$output .= '<div class="'.$gridclass.'">'."\n";
-		$output .= '<div class="row">'."\n";
+		$output .= '<div class="flexgrid '.$gridclass.'">'."\n";
 	    }
 
 
@@ -188,19 +187,10 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    $output .= '</figure>'."\n";
 		    $i++;
 
-		    if (($gridclass == 'two') && ($i % 2 == 0)) {
-			$output .= '</div><div class="row">'."\n";  
-		    } elseif (($gridclass == 'three') && ($i % 3 == 0)) {
-			$output .= '</div><div class="row">'."\n";
-		    } elseif (($gridclass == 'four') && ($i % 4 == 0)) {
-			$output .= '</div><div class="row">'."\n";
-		    }
+		   
 	    }
 
 	    $output .= '</div>'."\n";
-	    if ($gridclass !='flexgrid') {
-		$output .= '</div>'."\n";
-	    }
 	    $output .= '</div>'."\n";
 
 
@@ -237,7 +227,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 			    if (!fau_empty($imgmeta['excerpt'])) { 
 				$output .= '<br>'; 			
 			    }
-			    $output .= '<span class="linkorigin">(<a href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
+			    $output .= '<span class="linkorigin">(<a  tabindex="-1" href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
 			}
 		    $output .='</figcaption>';
 		}

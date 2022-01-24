@@ -2,12 +2,12 @@
 /* Banner im Hero-Teil
 /*-----------------------------------------------------------------------------------*/
 
+	
 #hero.hero-banner {
 	    height: auto;
 	    overflow: inherit;
-            
-            @include radial-gradient($colorPrimaryHero, $colorPrimaryHeroLight);
-            
+	    background: var(--color-hero-bg);
+
 	    @media (min-width: $screen-sm) {
 		 max-height: 142px;
 	    }
@@ -22,7 +22,7 @@
 	    top: 0px;
 	    margin: 0 auto;
 	    height: auto;
-	    background: $colorPrimary;
+	    background: var(--color-hero-bg);
 	    max-width: 1260px;
 	    overflow: hidden;
 	    @include box-shadow(0 10px 20px rgba(0,0,0,0.5));
@@ -94,8 +94,8 @@
 		h1 {
 			@include px2rem($font-size-h1,  $font-size-base);		
 			@include hyphens(none);
-			color: #fff;
-			background: rgba($colorPrimary,0.8);
+			color: var(--color-hero-text);
+			background: var(--color-hero-bg);
 			margin: 0;
 			padding: 0 7px 1px 7px;
 			position: relative;
@@ -117,10 +117,10 @@
 		
 		p.description {
 			font-weight: normal;
-			color: #fff;
+			color: var(--color-hero-text);
 			@include px2rem($font-size-hero-bannertext);
 			display: none;
-			background: rgba($colorPrimary,0.8);
+			background: var(--color-hero-bg);
 			padding: 0 7px 1px 7px;
 			margin: 10px 0 0 0;
 			box-decoration-break: clone;
@@ -163,16 +163,12 @@
 
 
 .infobar {
-    @extend .col-xs-12;
-    @extend .col-sm-8;
-    
+
     display: none;
     @media (min-width: $screen-xs) {
         display: inline-block;
     }
-    &.fullsize {
-	 @extend .col-sm-12;
-    }
+
     
 }
 

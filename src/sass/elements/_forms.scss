@@ -3,145 +3,294 @@
 /*-----------------------------------------------------------------------------------*/
 
 
-textarea, input, select {
-	font-family: $fontStack;
-}
-
-
-
-select, 
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"], 
-input[type="datetime-local"], 
-input[type="date"], 
-input[type="month"], 
-input[type="time"], 
-input[type="week"], 
-input[type="number"], 
-input[type="email"], 
-input[type="url"], 
-input[type="search"], 
-input[type="tel"], 
-input[type="color"] {
-	width: 100%;
-	padding: 5px 10px;
-	@include px2rem($font-size-base);
-	height: auto;
-}
-
-input[type="datetime"], 
-input[type="datetime-local"], 
-input[type="date"], 
-input[type="month"], 
-input[type="time"], 
-input[type="week"], 
-input[type="number"] {
-    width: 10em;
-}
-textarea {
-	min-height: 100px;
-	width: 100%;
-}
-
-form {	
+input {
 	margin: 0;
+	@include px2rem($font-size-base);
+	&[type="reset"],
+	&[type="submit"],
+	&[type="button"],
+	&[type="radio"],
+	&[type="checkbox"] {
+	    cursor: pointer;
+	}
+
+	&[type="search"] {
+	    box-sizing: content-box;
+	}
+	
+
+	&[type="text"],
+	&[type="password"],
+	&[type="datetime"],
+	&[type="datetime-local"],
+	&[type="date"],
+	&[type="month"],
+	&[type="time"],
+	&[type="week"],
+	&[type="number"],
+	&[type="email"],
+	&[type="url"],
+	&[type="search"],
+	&[type="tel"],
+	&[type="color"] {
+		display: inline-block;
+		margin-bottom: 10px;
+		color: var(--color-Text);
+		border-radius: 4px;
+		
+		border: 1px solid var(--color-ContentBorders);
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		transition: border linear 0.2s, box-shadow linear 0.2s;
+		
+		padding: 5px 10px;
+		@include px2rem($font-size-base);
+		height: auto;
+	}
+	
+	&[type="radio"],
+	&[type="checkbox"] {
+	    margin: 0 0.5rem 0 0;
+	    width: 1rem;
+	    height: 1rem;
+	}
+	&[type="color"] {
+	    margin: 0 0.5rem 0 0;
+	    padding: 0.1rem;
+	    width: 4rem;
+	    height: 1.5rem;
+	}
+	&[type="password"],
+	&[type="text"] {
+	    width: 25rem;
+	    margin: 0 0 0.5rem 0;
+	}
+	
+	
+
+	&[type="datetime"],
+	&[type="datetime-local"],
+	&[type="date"],
+	&[type="month"],
+	&[type="time"],
+	&[type="week"],
+	&[type="number"] {
+	    width: 10rem;
+	}
+	
+	
+	&[type="file"]:focus,
+	&[type="radio"]:focus,
+	&[type="checkbox"]:focus {
+		outline: thin dotted var(--color-ContentBorders);
+		outline: 5px auto -webkit-focus-ring-color;
+		outline-offset: -2px;
+	}
+		
+
+	&[type=text]:focus {
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.075);
+		border: 1px solid var(--color-ContentBorders);
+	}
+	
+	&[readonly],
+	&[disabled] {
+		cursor: not-allowed;
+		background-color: var(--color-ContentRegions);
+	}
+
+	&[type="radio"][disabled],
+	&[type="checkbox"][disabled],
+	&[type="radio"][readonly],
+	&[type="checkbox"][readonly] {
+		background-color: transparent;
+	}
+	
+	
+	&[type="file"] {
+	    @include ghostbutton();
+	    margin: 0 0 1rem 0;
+	}
+	
+	&[type="reset"],	
+	&[type="submit"] {	
+		@include buttonstyle();
+		margin: 0 1rem 1rem 0;
+	}
+
+	&:focus:invalid{
+		color: var(--color-Notice);
+		border-color: var(--color-Notice);
+	}
+
+	&:focus:invalid:focus {
+		border-color: var(--color-Notice);
+		box-shadow: 0 0 6px rgba(0, 0, 0, 0.075);
+	}
+	
+	&::placeholder {
+	    color: var(--color-TextLight);
+	}
+
+
+}
+
+
+
+textarea {
+	@include px2rem($font-size-base);
+	display: inline-block;
+	color: var(--color-Text, #555555);
+	border-radius: 4px;
+
+	overflow: auto;
+	vertical-align: top;
+	
+	border: 1px solid var(--color-ContentBorders);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	transition: border linear 0.2s, box-shadow linear 0.2s;
+	width: 25rem;
+	height: auto;
+	min-height: 3rem;
+	 
+	 
+	padding: 0.5rem;
+	margin: 0.5rem 0;
+	
+	&[disabled],
+	&[readonly] {
+		cursor: not-allowed;
+		background-color: #eeeeee;
+	}
+	
+	
+	&:focus {
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.075);
+		border: 1px solid var(--color-primary-ci-hell);
+	}
+	&:focus:invalid {
+		color: var(--color-Notice);
+		border-color: var(--color-Notice);
+	}
+
+	&:focus:invalid:focus {
+		border-color: var(--color-Notice);
+		box-shadow: 0 0 6px rgba(0, 0, 0, 0.075);
+	}
+	&::placeholder {
+	    color: var(--color-TextLight);
+	}
+}
+
+select {
+    	display: inline-block;
+	cursor: pointer;
+	border-radius: 4px;
+	@include px2rem($font-size-base);
+	color: var(--color-Text);
+	background-color: var(--color-MainBackground);
+	width: 25rem;
+	height: auto;
+	margin: 0;
+	border: 1px solid var(--color-ContentBorders);
+	padding: 0.5rem 0.7rem;
+	
+	
+	
+
+	&[multiple],
+	&[size] {
+		height: auto;
+	}
+
+	&:focus {
+		outline: thin dotted var(--color-ContentBorders);
+		outline: 5px auto -webkit-focus-ring-color;
+		outline-offset: -2px;
+	}
+
+
+	&[disabled],
+	&[readonly] {
+		cursor: not-allowed;
+		background-color: var(--color-ContentRegions);
+	}
+	&::placeholder {
+	    color: var(--color-TextLight);
+	}
+   
+	&:focus:invalid {
+		color: var(--color-Notice);
+		border-color: var(--color-Notice);
+	}
+
+
+	&:focus:invalid:focus {
+		border-color: var(--color-Notice);
+		box-shadow: 0 0 6px rgba(0, 0, 0, 0.075);
+	}
+	
+
+}
+
+
+
+
+
+form {
+	margin: 1rem 0;
+	padding: 0;
 	display: inline-block;
 	border: none;
 
-	legend {
-	    margin: 0;
-	    padding: 0 0 11px 0;
-	    @include px2rem($font-size-h3);
-	    color: $colorPrimary;
-	    font-weight: bold;
-	}
-	
-	main & {
-	    max-width: 98%;
-	    padding: 0;
-	    @media (min-width: $screen-sm) {
-		border: 1px solid $colorLightest;
-		padding: 20px;
-	    }
-	}
-	main &.noborder {
-	    border: none;
-	}
-	main .content-inline.with-sidebar & {
-	    display: block;
-	    border: none; 
-	}
 }
+
+
+fieldset {
+	padding: 0;
+	border: 0;
+	margin: 1rem 0;
+	@include border-radius(4px);
+}
+
+legend {
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin-bottom: 0 0 1rem 0;
+	font-weight: bold;
+	@include px2rem($font-size-h3);
+}
+
+
 
 label {
 	padding-top: 5px;
-	margin-right: 20px;
-	display: inline-block;
-	min-width: 300px;
+	display: block;
 	@include px2rem($font-size-base);
-}
-
-input[type=text]:focus,
-textarea:focus {
-	box-shadow: 0 0 5px $colorPrimary;
-	border: 1px solid $colorPrimary;
-}  
-
-
-
-
-
-input[type="submit"] {
-	@include inline-block;
-	border: 3px solid $colorPrimary;
-	height: 30px;
-	line-height: 30px;
-	margin: 10px 0;
-	padding: 4px 18px;
-	box-sizing: content-box;
-	@include border-radius(20px);
-	background: $colorPrimary;
-	color: #fff;
-	font-weight: bold;
 	
-	clear: left;
-	
-	&:hover, 
-	&:focus {
-		background: #fff;
-		color: $colorPrimary;
+	textarea, 
+	&[type="password"],
+	&[type="text"] {
+	    display: block;
 	}
-	
-	&:active {
-		background: $colorHover;
-	}
-	
-	
 }
 
-
-
-input[type="radio"] {
-    margin: -5px 10px 0 0;
+select + label,
+input + label {
+    display: inline-block;
 }
 
-fieldset {
-    margin: 10px 0;
-    @include border-radius(4px);
+label + br {
+    display: none;
 }
+
 /* Login/Passwords Form */
 .post-password-form {
 	label {
 		float: none;
-		color: $colorPrimary;
 	}
+
 	
-	input[type="password"] {
-		width: 220px;
-		margin-top: 5px;
-	}
 }
 
 

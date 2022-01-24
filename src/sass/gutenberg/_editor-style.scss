@@ -8,7 +8,7 @@
     h5,
     h6 {
 	&.mce-content-body {
-	    color: $colorPrimary;
+	    color: var(--color-Text);
 	    font-weight: bold;
 
 	    em {
@@ -64,7 +64,7 @@
 
 
 	    &.subtitle {
-		    padding: 0 0 22px 0;		
+		    padding: 0 0 1rem 0;		
 	    }
 
 
@@ -124,7 +124,7 @@
 	padding: 0 0 11px 0;
 
 	@include px2rem($font-size-base);
-	color: $colorText;
+	color: var(--color-Text);
 	font-family: $fontStack; 
 
     }
@@ -135,7 +135,7 @@
 	    &.lead-in {
 		    margin: 0;
 		    padding: 0;
-		    color: $colorPrimary;
+		    color: var(--color-Text);
 		    font-weight: 300;
 		    font-style: italic;
 		    @include px2rem($font-size-quotes);
@@ -166,7 +166,7 @@
     li {
 	padding: 3px 0 4px 4px;
 	@include px2rem($font-size-content-listitem);  
-	color: $colorText;
+	color: var(--color-Text);
     }
 
 

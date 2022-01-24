@@ -2,12 +2,32 @@
 /* CSS Definitionen für das Plugin FAU_Person
 /* https://github.com/RRZE-Webteam/fau-person/
 /*-----------------------------------------------------------------------------------*/
+@use "sass:math";
 
-.person-info-more {
-	@include morelink();
-}
 
+
+
+.fau-person,
 .person {
+    a {
+	   @include defaultlinkstyle();
+             text-decoration: none;
+
+            &:active,
+            &:hover, 
+            &:focus {
+                    text-decoration: underline;
+            }
+    }
+    .person-info-more a.standard-btn {
+         @include ghostbutton();
+    }
+    
+   // &.liste-person a {
+   //      @include styledcontentlink();
+   // }
+    
+    
     h3, h4, h5 {
 	a {
 	     text-decoration: none;
@@ -57,14 +77,13 @@
 	    }
 	    
 	} 
-	
-    span[itemprop="honorificPrefix"], 
-    span[itemprop="honorificSuffix"] {
-	white-space: nowrap;
-    }
-    .fullname {
-	@include hyphens(none);
-    }
+        .fullname,
+        span[itemprop="honorificPrefix"], 
+        span[itemprop="honorificSuffix"] {
+            overflow-wrap: break-word;
+            white-space: normal;
+        }
+
 
 }
 
@@ -78,7 +97,7 @@
 	display: block;
 	
 	@media (min-width: $screen-sm) {
-	    border: 1px solid $colorStandardHellgrau;
+	    border: 1px solid var(--color-StandardHellgrau);
 	    margin: 0 0 10px 0;
 	    padding: 0 5px;
         }
@@ -86,42 +105,42 @@
 	    border: none;
 	}
 	&.background-fau, &.background-zuv {
-	    background: $colorZUV;
+	    background: var(--color-zentral-ci-hell);
 	     a, li, p {
-		color: #fff;
+		color: var(--color-zentral-ci-hell-kontrast);
 	    }
 	}
 	&.background-grau {
-	    background: $colorStandardHellgrau;
+	    background: var(--color-StandardHellgrau);
 	}
 	&.background-phil {
-	    background: $colorPhilFak;
+	    background: var(--color-phil-ci-hell);
 	    a, li, p {
-		color: #fff;
+		color: var(--color-phil-ci-hell-kontrast);
 	    }
 	}
 	&.background-med {
-	    background: $colorMedFak;
+	    background: var(--color-med-ci-hell);
 	     a, li, p {
-		color: #fff;
+		color: var(--color-med-ci-hell-kontrast);
 	    }
 	}
 	&.background-nat {
-	    background: $colorNatFak;
+	    background: var(--color-nat-ci-hell);
 	     a, li, p {
-		color: #fff;
+		color: var(--color-nat-ci-hell-kontrast);
 	    }
 	}
 	&.background-tf {
-	    background: $colorTechFak;  
+	    background: var(--color-tf-ci-hell);
 	     a, li, p {
-		color: #fff;
+		color: var(--color-phil-tf-hell-kontrast);
 	    }
 	}
 	&.background-rw {
-	    background: $colorRwFak;  
+	    background: var(--color-rw-ci-hell);
 	    a, li, p {
-		color: #fff;
+		color: var(--color-rw-ci-hell-kontrast);
 	    }
 	}
 
@@ -133,23 +152,7 @@
 	
 	
 	
-	.image-placeholder {
-		width: 90px;
-		height: 120px;
-		background: $colorLightest;
-		position: relative;
-		text-align: center;
-	
 		
-		&:before {
-			@extend .fa;
-			@extend .fa-4x;
-			@extend .fa-user;
-			line-height: 120px;	
-			color: $colorLight;
-		}
-	}
-	
 	.accordion & {
 	    padding: 0;
 	    border: none;
@@ -198,34 +201,8 @@
 
 	}
 	
-	
-	
-	.person-info-phone:before { 
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-phone; 
-	}
-	.person-info-mobile:before { 
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-mobile; 
-	}	
-	.person-info-fax:before {
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-print; 
-	}
-	.person-info-email:before {
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-envelope; 
-	}
 
-	.person-info-www:before { 
-	    @extend .fa;
-	    width: 20px; 
-	    @extend .fa-info-circle; 
-	}
+	
 	.person-info-position {
 	    font-weight: bold;
 	}
@@ -270,7 +247,8 @@
     }
     
     h2, h3 {
-	padding-top: 11px;
+	padding-top: 0;
+	margin-top: 0;
     }
     
 }
@@ -280,9 +258,17 @@
 .sidebar-inline,
 .startpage-sidebar,
 .portalpage-content,
-.startpage-blogroll,
 .content-inline {
-	
+    .fau-person {
+	p {
+	    a {
+		@include defaultlinkstyle();
+	    }
+
+	}
+    }
+    
+    
 	.person .row {
 	    display: flex;
 	    flex-wrap: wrap; 
@@ -301,24 +287,23 @@
 		flex: 0 0 90px;
 		float: none;
 		order: 1;
-		margin: 0;
-		padding: 5px;
+		margin: 0 15px 0 0;
+		padding: 5px 0;
 	    }
 	    .person-default,
 	    .person-sidebar,
 	    .person-default-thumb {
-		flex: 1 0 200px;
 		float: none;
 		order: 2;
-		max-width: inherit;
-		width: inherit;
+		flex-basis: min-content;
+
 	    } 
 
 
 	    .person-compact-thumb {
 		margin-left: 5px;
 		margin-right: 5px;
-		flex: 1 0 200px;
+		flex: 1 0;
 		@media (min-width: $screen-sm) {
 		    flex-basis: 350px; 
 		    padding: 5px;	
@@ -329,7 +314,7 @@
 	    }
 	    .person-default-more {
 		 float: none;
-		 flex: 1 1 180px;
+		 flex: 1 1;
 		 order: 3;
 		 padding: 5px;
 	    }
@@ -337,8 +322,7 @@
 	    // removing old Bootstrap3 definitons
 	    .span1,
 	    .span3,
-	    .span6,
-	    .span4 {
+	    .span6 {
 		float: none;
 		width: auto;
 		margin-left: inherit;
@@ -351,13 +335,41 @@
     
     
 }
+.fau-person.sidebar.thumb-size-large .row,
+.fau-person.sidebar .row  {
+    justify-content: flex-start;
+    
+    figure {
+	flex: 1 1;
+	
+	min-width: 90px;
+	width: calc(100% - 215px);
+	max-width: 150px;
+	
+	margin-right: ceil(math.div($grid-gutter-width, 2));    
+	padding: 0;
+	img {
+	    width: 100%;
+	    height: auto;
+	}
+    }
+    .person-sidebar {
+	flex: 1 0;
+	max-width: inherit;
+	min-width: 200px;
+	width: inherit;
+    }
+    
+    
+}
+
+
 
 /* Sidebar: Inline */
-.startpage-sidebar,
 .sidebar-inline {
 	
     ul.person-info li {
-	    color: $colorText;
+	    color: var(--color-Text);
     }
     li.person-info-address {
 	white-space: pre-line;
@@ -379,7 +391,7 @@
 
 .sidebar-outline {
     ul.person-info li {
-	    color: $colorText;
+	    color: var(--color-Text);
     }
     li.person-info-address {
 		white-space: pre;
@@ -423,8 +435,8 @@
 
 .single-person .entry-content {
     width: 100%;
-    padding-left:  floor(($grid-gutter-width / 2));
-    padding-right: ceil(($grid-gutter-width / 2));
+    padding-left:  floor(math.div($grid-gutter-width, 2));
+    padding-right: ceil(math.div($grid-gutter-width, 2));
     
     @media (min-width: $screen-sm) {
 	width: $container-sm;

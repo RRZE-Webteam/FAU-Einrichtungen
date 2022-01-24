@@ -1,0 +1,19 @@
+/*-----------------------------------------------------------------------------------*/
+/* Buttons
+/*-----------------------------------------------------------------------------------*/
+// button:not(.meta-links-trigger-button):not(.accordion-toggle):not(.menu-item),
+button,
+input[type="button"] {
+// [role="button"]:not(.mejs-overlay-button) {
+    @include buttonstyle();
+}
+
+
+button.standard-btn,
+a.standard-btn.primary-btn,
+a.standard-btn,
+a.btn, 
+a[role="button"] {
+    @include defaultlinkstyle();
+    @include buttonstyle();
+}

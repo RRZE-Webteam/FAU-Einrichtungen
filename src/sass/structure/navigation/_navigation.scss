@@ -3,9 +3,11 @@
 /*             But not: Breadcrumb, Social media icons, hero, gallerys and styling elements 
 /*-----------------------------------------------------------------------------------*/
 
-// Hauptmenu
+// Allgemein Nav
 @import "menu";
 
+// Hauptmenu
+@import "mainmenu";
 
 // Meta menu leiste
 @import "clonednav";
@@ -16,4 +18,8 @@
 // Top-Links
 @import "portalmenus";
 
+// Allgemeine Breadcrumb-Klassen
+@import "breadcrumb";
 
+//Helpermenus
+@import "helpermenus";

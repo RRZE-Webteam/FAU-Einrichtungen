@@ -1,7 +1,7 @@
 {
   "name": "FAU-Einrichtungen",
   "textdomain": "fau",
-  "version": "1.13.15-0",
+  "version": "2.0.4",
   "keywords": [
     "WordPress",
     "Theme",
@@ -10,8 +10,8 @@
   ],
   "compatibility": {
     "wprequires": "5.0",
-    "wptestedup": "5.7",
-    "phprequires": "7.3"
+    "wptestedup": "5.8",
+    "phprequires": "7.4"
   },
   "author": {
     "name": "RRZE-Webteam <webmaster@fau.de> (https://www.rrze.fau.de)",
@@ -89,7 +89,7 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/register": "^7.12.10",
     "autoprefixer": "^10.2.3",
-    "cssnano": "^4.1.10",
+    "cssnano": "^5.0.13",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-bump": "^3.2.0",
@@ -99,12 +99,13 @@
     "gulp-postcss": "^9.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.0.0",
     "gulp-touch-cmd": "0.0.1",
     "gulp-uglify": "^3.0.2",
     "gulp-w3c-css": "^2.0.0",
     "gulp-wp-pot": "^2.5.0",
     "map-stream": "0.0.7",
+    "sass": "^1.42.1",
     "semver": "^7.3.4",
     "yargs": "^16.2.0"
   }

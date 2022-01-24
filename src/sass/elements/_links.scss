@@ -3,13 +3,13 @@
 /*-----------------------------------------------------------------------------------*/
 
 a {
-	color: $colorPrimary;
+	color: var(--color-links);
 	text-decoration: none;
-
+        
+      
 	&:active,
 	&:hover, 
 	&:focus {
-		color: $colorHover;
 		text-decoration: underline;
 	}
 
@@ -30,8 +30,7 @@ a {
 	    
 	}
 
-	
-	
+
 	table &:hover, 
 	table &:focus,
 	&.tag-cloud-link,
@@ -45,6 +44,9 @@ a {
 	#hero &:focus {
 		text-decoration: underline;
 	}
+	
+	
+	
 }
 
 #footer .ext-link, 
@@ -56,36 +58,7 @@ a {
 
 
 
-.news-more-links {
-	padding: 20px 0;
-	text-align: left;
-	
-	a {
-		@include inline-block;
-		margin-right: 15px;
-	}
 
-	.news-rss:before {
-		@extend .fa;
-		@extend .fa-lg;
-		@extend .fa-rss-square;
-		padding-right: 5px;
-	}
-	
-	.news-more {
-		color: $colorButton;
-		background: $colorButtonBackground;
-		padding: 6px 10px;
-		text-decoration: none;
-		@include border-radius(3px);
-		@include px2rem($font-size-textbuttons);
-		
-		
-		&:hover, &:focus {
-			background: $colorButtonBackgroundHover;
-		}
-	}
-}
 
 
 //Special Links
@@ -95,53 +68,70 @@ a {
 	bottom: 20px; 
 	right: 20px;
 
-	background: $colorPrimary;
-	
-	
-	color: #fff;
-	padding: 7px;
-	@include border-radius(4px);
-	
-	&:hover, 
-	    &:focus {
-		color: #fff;
-		background: $colorHover;
-	}
-	
+	@include buttonstyle(4px);
+
 	display: none;
 
 }
 
-// Additional link effects for Content
+// Continue/Weiterlesen Link
+.continue {
+    margin-top: 0.5rem;
+    text-align: right;
 
-main {
-    p, dd, dt, ul, li, td, tr {
-	
-	
-	a {
-	    text-decoration: underline;
-	    text-decoration-color: $colorPrimary;
-	}
-	a:active,
-	a:focus, 
-	a:hover {
-	   font-weight: bold;
-	}
+    .read-more-link {
+		@include defaultlinkstyle();
+		@include ghostbutton();
 
-	a:focus {
-	    outline-style: solid;
-	    outline-color: $colorPrimary;
-	    outline-width: 2px;
-	    @media (prefers-reduced-motion: no-preference) {
-		transition: outline-offset .25s ease-in-out;
-	    }
-	    outline-offset: 4px;
-	}
-	
-	
-	
+		&:after {
+			 @include svg-icon-place();
+			 background-image: svg-angle-right($color-content-links);
+		}
+
+		&:focus:after,
+		&:hover:after {
+			background-image: svg-angle-right($color-ghostbutton-hover-text);
+		}
     }
+}
+	    
+	    
+// Additional link effects for Content
+main,
+.entry-content,
+.portalpage-content,
+.content-inline {
+
+    a{
+        @include styledcontentlink();
+
+        &.news-image,
+        svg,
+        img {
+            @include defaultlinkstyle();
+        }
+        
+    }
+    .imagelink,
+    .person-info,
+    .widget,
+    aside,
+    h1, h2, h3, h4, h5, h6 {
+        a {
+             @include defaultlinkstyle();
+             text-decoration: none;
+
+            &:active,
+            &:hover, 
+            &:focus {
+                    text-decoration: underline;
+            }
+        }
+    }
+   
+   
     a.media-img {
+	@include defaultlinkstyle();
 	display: inline-block;
 	overflow: hidden;
 		
@@ -157,7 +147,8 @@ main {
     a.media-img:focus {
 	    img {
 		
-		transform: scale(1.2);
+		transform: scale(1.1);
+		box-shadow: none;
 	    }
 	}
 	
@@ -192,66 +183,3 @@ main {
 }
 
 
-	
-/*
-Not used variants:
-
-:not(.fau-person) a {
-	    text-decoration: none;	    
-	    box-shadow: inset 0 -1px 0 $colorPrimary;
-	    border-bottom: 1px solid $colorPrimary;
-	    transition: box-shadow 0.2s ease-in-out;
-	}
-	:not(.fau-person) a:focus,
-	:not(.fau-person) a:hover {
-	    box-shadow: inset 0 -28px 0 $PalettonHeller;
-	    color: white;
-	}
-	
-
-// or based on idea of https://codepen.io/giuliamalaroda/pen/QBOGdG
-
-
-a:not(.media-img) {
-	      text-decoration-color: $colorPrimary;
-		position: relative;
-		z-index: 0;
-		display: inline-block;
-		overflow: hidden;
-		color: $colorPrimary;
-		vertical-align: bottom;
-		transition: color .3s ease-out;
-		text-decoration: none;
-
-	      
-	}
-	a:not(.media-img)::before {
-	       content: "";
-		position: absolute;
-		z-index: -1;
-		top: 0;
-		left: 0;
-		transform: translateY(calc(100% - 2px));
-		width: 100%;
-		height: 100%;
-		background-image: linear-gradient(60deg, $colorPrimary 0%, $PalettonHeller 100%);
-		transition: transform .25s ease-out;
-		
-	}
-	
-	a:not(.media-img):focus,
-	a:not(.media-img):hover { 
-	    color: #fff;
-	}
-	 a:not(.media-img):focus::before,
-	 a:not(.media-img):hover::before {
-	       transform: translateY(0);
-	 }
-	@media (prefers-reduced-motion: no-preference) {
-	    a:not(.media-img):focus::before,
-	    a:not(.media-img):hover::before {
-	       transition: transform .25s ease-out;
-	    }
-	}
-
-	*/
