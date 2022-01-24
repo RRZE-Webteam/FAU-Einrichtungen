@@ -710,6 +710,13 @@ function fau_custom_excerpt(
     
     if (mb_strlen($excerpt) < 5) {
         $excerpt = '<!-- '.__('Kein Inhalt', 'fau').' -->';
+	if (($needcontinue == 1) && ($withmore == true)) {
+	    if ($continuenextline) {
+		$excerpt .= '<br>';
+	    }
+	    $excerpt .= $morestr;
+	}
+	return $excerpt;
     }
 
     $needcontinue = 0;
