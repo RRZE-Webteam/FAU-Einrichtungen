@@ -304,7 +304,7 @@ function buildmainstyle() {
 function devbuildmainstyle() {
     var plugins = [
         autoprefixer(),
-	 cssnano()
+	// cssnano()
     ];
   return src([info.source.sass + 'fau-theme-style.scss'])
    .pipe(header(banner, { info : info }))

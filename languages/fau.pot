@@ -366,7 +366,7 @@ msgid "Titel im Logo"
 msgstr ""
 
 #: functions/constants.php:425
-msgid "Bei EInrichtungen der FAU wird der Titel neben dem FAU-Logo gezeigt. Ist der Titel zu lang um ihn optisch korrekt darzustellen, kann hiermmit ein kürzerer Titel angegeben werden. Wird dieser EIntrag leer gelassen, wird der Titel der Website verwendet."
+msgid "Bei Einrichtungen der FAU wird der Titel neben dem FAU-Logo gezeigt. Ist der Titel zu lang um ihn optisch korrekt darzustellen, kann hiermmit ein kürzerer Titel angegeben werden. Wird dieser EIntrag leer gelassen, wird der Titel der Website verwendet."
 msgstr ""
 
 #: functions/constants.php:437
@@ -1301,8 +1301,12 @@ msgstr ""
 msgid "Dieser Untertitel erscheint im Inhaltsbereich, unterhalb des Balkens mit dem eigentlichen Titel."
 msgstr ""
 
-#: functions/custom-fields.php:489
+#: functions/custom-fields.php:489, functions/custom-fields.php:622
 msgid "Portalmenü"
+msgstr ""
+
+#: functions/custom-fields.php:489
+msgid "unten"
 msgstr ""
 
 #: functions/custom-fields.php:489
@@ -1313,8 +1317,12 @@ msgstr ""
 msgid "Kein Portalmenu zeigen"
 msgstr ""
 
+#: functions/custom-fields.php:492, functions/custom-fields.php:501, functions/custom-fields.php:625, functions/custom-fields.php:634
+msgid "Beitragsbilder"
+msgstr ""
+
 #: functions/custom-fields.php:492, functions/custom-fields.php:625
-msgid "Beitragsbilder verbergen"
+msgid "verbergen"
 msgstr ""
 
 #: functions/custom-fields.php:495
@@ -1326,19 +1334,11 @@ msgid "Unterpunkte verbergen."
 msgstr ""
 
 #: functions/custom-fields.php:501, functions/custom-fields.php:634
-msgid "Beitragsbilder anschrägen"
+msgid "anschrägen"
 msgstr ""
 
-#: functions/custom-fields.php:505, functions/custom-fields.php:638
-msgid "Format 2:1"
-msgstr ""
-
-#: functions/custom-fields.php:506, functions/custom-fields.php:639
-msgid "Format 3:2"
-msgstr ""
-
-#: functions/custom-fields.php:507, functions/custom-fields.php:640
-msgid "Format 3:4"
+#: functions/custom-fields.php:505, functions/custom-fields.php:506, functions/custom-fields.php:507, functions/custom-fields.php:638, functions/custom-fields.php:639, functions/custom-fields.php:640
+msgid "Format"
 msgstr ""
 
 #: functions/custom-fields.php:507, functions/custom-fields.php:640
@@ -1346,7 +1346,7 @@ msgid "Bildformat"
 msgstr ""
 
 #: functions/custom-fields.php:622
-msgid "Portalmenü Oben"
+msgid "oben"
 msgstr ""
 
 #: functions/custom-fields.php:628
@@ -1530,7 +1530,7 @@ msgid "Reset"
 msgstr ""
 
 #: functions/customizer.php:578
-msgid "&mdash; Select &mdash;"
+msgid "&mdash; Auswählen &mdash;"
 msgstr ""
 
 #: functions/defaults.php:103
@@ -1665,36 +1665,20 @@ msgstr ""
 msgid "Drei Ebenen"
 msgstr ""
 
-#: functions/defaults.php:235
+#: functions/defaults.php:235, functions/defaults.php:239
 msgid "Pfeil nach unten"
 msgstr ""
 
-#: functions/defaults.php:236
+#: functions/defaults.php:236, functions/defaults.php:241
 msgid "Pfeil nach links"
 msgstr ""
 
-#: functions/defaults.php:237
+#: functions/defaults.php:237, functions/defaults.php:240
 msgid "Pfeil nach rechts"
 msgstr ""
 
-#: functions/defaults.php:238
+#: functions/defaults.php:238, functions/defaults.php:242
 msgid "Pfeil nach oben"
-msgstr ""
-
-#: functions/defaults.php:239
-msgid "Dreickspfeil nach unten"
-msgstr ""
-
-#: functions/defaults.php:240
-msgid "Dreickspfeil nach rechts"
-msgstr ""
-
-#: functions/defaults.php:241
-msgid "Dreickspfeil nach links"
-msgstr ""
-
-#: functions/defaults.php:242
-msgid "Dreickspfeil nach oben"
 msgstr ""
 
 #: functions/filters.php:27

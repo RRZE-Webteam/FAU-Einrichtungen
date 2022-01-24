@@ -575,7 +575,7 @@ if (class_exists('WP_Customize_Control')) {
 				array(
 				    'name'              => '_customize-dropdown-categories-' . $this->id,
 				    'echo'              => 0,
-				    'show_option_none'  => __( '&mdash; Select &mdash;', 'fau' ),
+				    'show_option_none'  => __( '&mdash; Auswählen &mdash;', 'fau' ),
 				    'option_none_value' => '0',
 				    'selected'          => $this->value(),
 				)

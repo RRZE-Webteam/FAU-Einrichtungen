@@ -3,16 +3,7 @@
 /*  (since 1.10.56, replaces navigation/_logos-menu.scss)
 /*-----------------------------------------------------------------------------------*/
 
-/*
-#content .imagelink .slick-item {
-    img  {
-	@include box-shadow(none);
-    }
-    &.shadow img {
-	 @include box-shadow(2px 2px 5px $colorShadows);
-    }
-}
-*/
+
 .imagelink {    
     width: calc(100% - 100px);
     margin: 20px auto 0;

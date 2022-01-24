@@ -7590,9 +7590,8 @@ div.alignright {
 /*-----------------------------------------------------------------------------------*/
 /* Buttons
 /*-----------------------------------------------------------------------------------*/
-button:not(.meta-links-trigger-button):not(.accordion-toggle):not(.menu-item),
-input[type=button],
-[role=button]:not(.mejs-overlay-button) {
+button,
+input[type=button] {
   display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
@@ -7604,30 +7603,23 @@ input[type=button],
   padding: 0.5rem 0.7rem;
   text-decoration: none;
 }
-button:not(.meta-links-trigger-button):not(.accordion-toggle):not(.menu-item):hover, button:not(.meta-links-trigger-button):not(.accordion-toggle):not(.menu-item):focus,
+button:hover, button:focus,
 input[type=button]:hover,
-input[type=button]:focus,
-[role=button]:not(.mejs-overlay-button):hover,
-[role=button]:not(.mejs-overlay-button):focus {
+input[type=button]:focus {
   color: var(--color-button-hover-text);
   background-color: var(--color-button-hover-bg);
 }
-button:not(.meta-links-trigger-button):not(.accordion-toggle):not(.menu-item):hover, button:not(.meta-links-trigger-button):not(.accordion-toggle):not(.menu-item):focus,
+button:hover, button:focus,
 input[type=button]:hover,
-input[type=button]:focus,
-[role=button]:not(.mejs-overlay-button):hover,
-[role=button]:not(.mejs-overlay-button):focus {
+input[type=button]:focus {
   text-decoration: none;
 }
 
-#content .entry-content a.standard-btn,
-#content .page .entry-content button.standard-btn,
-#content .post .entry-content a.standard-btn,
-#content .post .entry-content button.standard-btn,
-#content a.standard-btn.primary-btn,
-#content a.standard-btn,
-#content a.btn,
-#content a[role=button] {
+button.standard-btn,
+a.standard-btn.primary-btn,
+a.standard-btn,
+a.btn,
+a[role=button] {
   box-shadow: none;
   transition: initial;
   padding: 0;
@@ -7647,21 +7639,15 @@ input[type=button]:focus,
   padding: 0.5rem 0.7rem;
   text-decoration: none;
 }
-#content .entry-content a.standard-btn:hover, #content .entry-content a.standard-btn:focus,
-#content .page .entry-content button.standard-btn:hover,
-#content .page .entry-content button.standard-btn:focus,
-#content .post .entry-content a.standard-btn:hover,
-#content .post .entry-content a.standard-btn:focus,
-#content .post .entry-content button.standard-btn:hover,
-#content .post .entry-content button.standard-btn:focus,
-#content a.standard-btn.primary-btn:hover,
-#content a.standard-btn.primary-btn:focus,
-#content a.standard-btn:hover,
-#content a.standard-btn:focus,
-#content a.btn:hover,
-#content a.btn:focus,
-#content a[role=button]:hover,
-#content a[role=button]:focus {
+button.standard-btn:hover, button.standard-btn:focus,
+a.standard-btn.primary-btn:hover,
+a.standard-btn.primary-btn:focus,
+a.standard-btn:hover,
+a.standard-btn:focus,
+a.btn:hover,
+a.btn:focus,
+a[role=button]:hover,
+a[role=button]:focus {
   box-shadow: none;
   text-decoration: underline;
   color: currentcolor;
@@ -7669,39 +7655,27 @@ input[type=button]:focus,
           text-decoration-color: currentcolor;
   box-shadow: none;
 }
-#content .entry-content a.standard-btn:hover, #content .entry-content a.standard-btn:focus,
-#content .page .entry-content button.standard-btn:hover,
-#content .page .entry-content button.standard-btn:focus,
-#content .post .entry-content a.standard-btn:hover,
-#content .post .entry-content a.standard-btn:focus,
-#content .post .entry-content button.standard-btn:hover,
-#content .post .entry-content button.standard-btn:focus,
-#content a.standard-btn.primary-btn:hover,
-#content a.standard-btn.primary-btn:focus,
-#content a.standard-btn:hover,
-#content a.standard-btn:focus,
-#content a.btn:hover,
-#content a.btn:focus,
-#content a[role=button]:hover,
-#content a[role=button]:focus {
+button.standard-btn:hover, button.standard-btn:focus,
+a.standard-btn.primary-btn:hover,
+a.standard-btn.primary-btn:focus,
+a.standard-btn:hover,
+a.standard-btn:focus,
+a.btn:hover,
+a.btn:focus,
+a[role=button]:hover,
+a[role=button]:focus {
   color: var(--color-button-hover-text);
   background-color: var(--color-button-hover-bg);
 }
-#content .entry-content a.standard-btn:hover, #content .entry-content a.standard-btn:focus,
-#content .page .entry-content button.standard-btn:hover,
-#content .page .entry-content button.standard-btn:focus,
-#content .post .entry-content a.standard-btn:hover,
-#content .post .entry-content a.standard-btn:focus,
-#content .post .entry-content button.standard-btn:hover,
-#content .post .entry-content button.standard-btn:focus,
-#content a.standard-btn.primary-btn:hover,
-#content a.standard-btn.primary-btn:focus,
-#content a.standard-btn:hover,
-#content a.standard-btn:focus,
-#content a.btn:hover,
-#content a.btn:focus,
-#content a[role=button]:hover,
-#content a[role=button]:focus {
+button.standard-btn:hover, button.standard-btn:focus,
+a.standard-btn.primary-btn:hover,
+a.standard-btn.primary-btn:focus,
+a.standard-btn:hover,
+a.standard-btn:focus,
+a.btn:hover,
+a.btn:focus,
+a[role=button]:hover,
+a[role=button]:focus {
   text-decoration: none;
 }
 
