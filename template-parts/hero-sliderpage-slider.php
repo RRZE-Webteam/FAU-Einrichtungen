@@ -33,8 +33,13 @@
 	   $sliderclass .= " with-infobar";
 	}
 	
+	echo "<!-- ";
+	echo "catid: ".$catid."<br>";
+	echo "numberposts".$numberposts."<br>";
+	echo get_html_var_dump($hero_posts);
+	echo "-->";
 	
-	if (count($hero_posts) > 0) { ?>
+	if ($hero_posts && (count($hero_posts) > 0)) { ?>
 <div id="hero" class="<?php echo $sliderclass; ?>">
 	<section id="hero-slides" role="region" aria-roledescription="carousel"  aria-label="<?php echo __('Bedeutende Artikel','fau'); ?>">
 	   <div class="slick-slider featured-slider cf" id="mainslider">
