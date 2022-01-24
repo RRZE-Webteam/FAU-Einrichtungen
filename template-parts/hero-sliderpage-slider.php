@@ -33,11 +33,6 @@
 	   $sliderclass .= " with-infobar";
 	}
 	
-	echo "<!-- ";
-	echo "catid: ".$catid."<br>";
-	echo "numberposts".$numberposts."<br>";
-	echo get_html_var_dump($hero_posts);
-	echo "-->";
 	
 	if ($hero_posts && (count($hero_posts) > 0)) { ?>
 <div id="hero" class="<?php echo $sliderclass; ?>">
@@ -136,8 +131,8 @@
 					echo $link;
 					echo '">'.get_the_title($hero->ID).'</a></header>'."\n";					
 					?>
-				    </div>
-				</div>
+				 </div>
+			    </div>
 			    <?php
 				$maxlen = get_theme_mod("default_slider_excerpt_length");
 				if ($maxlen > 0) { ?>
