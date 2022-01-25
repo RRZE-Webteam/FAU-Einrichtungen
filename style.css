@@ -104,6 +104,7 @@ Text Domain: fau
   --color-tf-dunkelste-kontrast: #fff;
   --color-Text: #222;
   --color-TextLight: #797676;
+  --color-TextLightKontrast: #5B5858;
   --color-MetaTextDefault: #444;
   --color-Notice: #a71c18;
   --color-Alert: #c5ac94;
@@ -9229,7 +9230,6 @@ body:not([data-scroll="0"]) #headerwrapper {
 /*-----------------------------------------------------------------------------------*/
 .orga-breadcrumb {
   display: none;
-  margin-top: 0.5rem;
 }
 .orga-breadcrumb:first-child {
   margin-top: 0;
@@ -9238,14 +9238,14 @@ body:not([data-scroll="0"]) #headerwrapper {
   .orga-breadcrumb {
     display: block;
     width: 750px;
-    padding: 0 15px;
+    padding: 5px 15px 0;
     margin: 0 auto;
   }
   .orga-breadcrumb li {
-    color: var(--color-MetaTextDefault);
+    color: var(--color-TextLightKontrast);
   }
   .orga-breadcrumb li a {
-    color: var(--color-MetaTextDefault);
+    color: var(--color-TextLightKontrast);
     text-decoration: none;
   }
   .orga-breadcrumb li a:hover, .orga-breadcrumb li a:focus {
@@ -9270,6 +9270,11 @@ body:not([data-scroll="0"]) #headerwrapper {
 
 #meta .orga-breadcrumb {
   display: block;
+  margin: 0.25rem 0 0.5rem;
+  border-bottom: 1px solid #797676;
+}
+#meta .orga-breadcrumb li {
+  line-height: 1.5;
 }
 @media (min-width: 768px) {
   #meta .orga-breadcrumb {

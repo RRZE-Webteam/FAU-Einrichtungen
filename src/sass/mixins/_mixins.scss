@@ -164,13 +164,9 @@ Mixins File for Wordpress Theme FAU
         @include inline-block;
         @include border-radius(3px);
         @include px2rem($font-size-textbuttons);
-	@include buttoncolor();
-	
-
+	    @include buttoncolor();
         padding: 6px 10px;
         text-decoration: none;
-
-
     }
 
 }

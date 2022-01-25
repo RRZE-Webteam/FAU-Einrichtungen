@@ -7,15 +7,15 @@ ol.breadcrumblist {
     margin: 0;
     
     li {
-	@include no-list;
-	display: inline;
-	@include px2rem($font-size-breadcrumb);	   
+        @include no-list;
+        display: inline;
+        @include px2rem($font-size-breadcrumb);
     }
     li:after {
-	content: ' / ';
+	    content: ' / ';
     }
     li:last-child::after {
-	content: '';
+	    content: '';
     }
     
 }
