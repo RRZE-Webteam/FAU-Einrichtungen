@@ -223,11 +223,11 @@ $font-size-sidebar-events-month: 10;
 $font-size-sidebar-events-day: 20;
 
 $font-size-socialmedia-morelink: $font-size-sidebar;
-$font-size-nav-blockquote: ($font-size-base + 1);
-$font-size-nav-blockquote-cite: ($font-size-base - 1);
-$font-size-nav-introtext: $font-size-base;
-$font-size-nav-flyout-items: $font-size-base;
 $font-size-nav-mainlinks: $font-size-base;
+
+$font-size-nav-level2: $font-size-base;
+$font-size-nav-level3: ($font-size-base - 1);
+$font-size-nav-buttons:	($font-size-base + 2);
 
 $font-size-subnav-firstlevel: ($font-size-base - 1);
 $font-size-subnav-sublevel: ($font-size-base - 2);

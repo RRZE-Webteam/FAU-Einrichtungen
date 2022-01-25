@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.5-2
+Version: 2.0.5-3
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -1839,7 +1839,7 @@ html {
 }
 .fa, .accordion .accordion-group .accordion-heading .accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a:before, .wpcf7-not-valid-tip:before, .wpcf7-validation-errors:before, .wpcf7-mail-sent-ok:before, .imagelink .slick-next:before, .imagelink .slick-prev:before, .image-gallery .gallery-slick .slick-next:before, .image-gallery .gallery-slick .slick-prev:before, .search-result .search-meta .download:before, .search-result .search-meta .post-meta-attachment:before, .search-result .search-meta .post-meta-news-external:before, .search-result .search-meta .post-meta-news:before, .search-result .search-meta .post-meta-defaulttype:before, .search-result .search-meta .post-meta-kontakt:before, .search-result .search-meta .post-meta-event:before, .search-result .search-meta .post-meta-date:before, .search-result .search-meta .post-meta-category:before, .news-item h2 .ext-link::after, .news-item .news-meta .news-meta-date:before, .news-item .news-meta .news-meta-categories:before, .news-details .post-meta-tags:before, .news-details .post-meta-date:before, .news-details .post-meta-categories:before, .organigram .toggle-icon, .hero-navigation li:before, #hero-slides .slick-next:before, #hero-slides .slick-prev:before, .helpermenus li:before, .helpermenus h3 a.ext-link:after, #footer .cloned-meta-links li:before,
 #footer .cloned-hero-nav li:before,
-#footer .meta-nav li:before, #mainnav-toggle-close:before, #mainnav-toggle:before, .nav .level2 > li > a:before, .nav > li.has-sub > a:before,
+#footer .meta-nav li:before, #mainnav-toggle-close:before, #mainnav-toggle:before, .nav > li.has-sub > a:before,
 .nav > li.has-sub > [type=button]:before, .sorttable th::after, ul.social li.social-iconbyurl a::before, ul.social li.social-wikipedia a:before, ul.social li.social-itunes a:before, ul.social li.social-youtube a:before, ul.social li.social-vimeo a:before, ul.social li.social-feed a:before, ul.social li.social-flickr a:before, ul.social li.social-delicious a:before, ul.social li.social-tumblr a:before, ul.social li.social-skype a:before, ul.social li.social-github a:before, ul.social li.social-xing a:before, ul.social li.social-twitter a:before, ul.social li.social-facebook a:before, ul.social li.social-instagram a:before, ul.social li.social-pinterest a:before, ul.social li.social-diaspora a:before {
   display: inline-block;
   font: normal normal normal 16px/1.5 FontAwesome;
@@ -1912,28 +1912,28 @@ html {
 
 .fa.fa-pull-left, .accordion .accordion-group .accordion-heading .fa-pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-left:before, .fa-pull-left.wpcf7-not-valid-tip:before, .fa-pull-left.wpcf7-validation-errors:before, .fa-pull-left.wpcf7-mail-sent-ok:before, .imagelink .fa-pull-left.slick-next:before, .imagelink .fa-pull-left.slick-prev:before, .image-gallery .gallery-slick .fa-pull-left.slick-next:before, .image-gallery .gallery-slick .fa-pull-left.slick-prev:before, .search-result .search-meta .fa-pull-left.download:before, .search-result .search-meta .fa-pull-left.post-meta-attachment:before, .search-result .search-meta .fa-pull-left.post-meta-news-external:before, .search-result .search-meta .fa-pull-left.post-meta-news:before, .search-result .search-meta .fa-pull-left.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-left.post-meta-kontakt:before, .search-result .search-meta .fa-pull-left.post-meta-event:before, .search-result .search-meta .fa-pull-left.post-meta-date:before, .search-result .search-meta .fa-pull-left.post-meta-category:before, .news-item h2 .fa-pull-left.ext-link::after, .news-item .news-meta .fa-pull-left.news-meta-date:before, .news-item .news-meta .fa-pull-left.news-meta-categories:before, .news-details .fa-pull-left.post-meta-tags:before, .news-details .fa-pull-left.post-meta-date:before, .news-details .fa-pull-left.post-meta-categories:before, .organigram .fa-pull-left.toggle-icon, .hero-navigation li.fa-pull-left:before, #hero-slides .fa-pull-left.slick-next:before, #hero-slides .fa-pull-left.slick-prev:before, .helpermenus li.fa-pull-left:before, .helpermenus h3 a.fa-pull-left.ext-link:after, #footer .cloned-meta-links li.fa-pull-left:before,
 #footer .cloned-hero-nav li.fa-pull-left:before,
-#footer .meta-nav li.fa-pull-left:before, .fa-pull-left#mainnav-toggle-close:before, .fa-pull-left#mainnav-toggle:before, .nav .level2 > li > a.fa-pull-left:before, .nav > li.has-sub > a.fa-pull-left:before,
+#footer .meta-nav li.fa-pull-left:before, .fa-pull-left#mainnav-toggle-close:before, .fa-pull-left#mainnav-toggle:before, .nav > li.has-sub > a.fa-pull-left:before,
 .nav > li.has-sub > .fa-pull-left[type=button]:before, .sorttable th.fa-pull-left::after, ul.social li.social-iconbyurl a.fa-pull-left::before, ul.social li.social-wikipedia a.fa-pull-left:before, ul.social li.social-itunes a.fa-pull-left:before, ul.social li.social-youtube a.fa-pull-left:before, ul.social li.social-vimeo a.fa-pull-left:before, ul.social li.social-feed a.fa-pull-left:before, ul.social li.social-flickr a.fa-pull-left:before, ul.social li.social-delicious a.fa-pull-left:before, ul.social li.social-tumblr a.fa-pull-left:before, ul.social li.social-skype a.fa-pull-left:before, ul.social li.social-github a.fa-pull-left:before, ul.social li.social-xing a.fa-pull-left:before, ul.social li.social-twitter a.fa-pull-left:before, ul.social li.social-facebook a.fa-pull-left:before, ul.social li.social-instagram a.fa-pull-left:before, ul.social li.social-pinterest a.fa-pull-left:before, ul.social li.social-diaspora a.fa-pull-left:before {
   margin-right: 0.3em;
 }
 
 .fa.fa-pull-right, .accordion .accordion-group .accordion-heading .fa-pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-right:before, .fa-pull-right.wpcf7-not-valid-tip:before, .fa-pull-right.wpcf7-validation-errors:before, .fa-pull-right.wpcf7-mail-sent-ok:before, .imagelink .fa-pull-right.slick-next:before, .imagelink .fa-pull-right.slick-prev:before, .image-gallery .gallery-slick .fa-pull-right.slick-next:before, .image-gallery .gallery-slick .fa-pull-right.slick-prev:before, .search-result .search-meta .fa-pull-right.download:before, .search-result .search-meta .fa-pull-right.post-meta-attachment:before, .search-result .search-meta .fa-pull-right.post-meta-news-external:before, .search-result .search-meta .fa-pull-right.post-meta-news:before, .search-result .search-meta .fa-pull-right.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-right.post-meta-kontakt:before, .search-result .search-meta .fa-pull-right.post-meta-event:before, .search-result .search-meta .fa-pull-right.post-meta-date:before, .search-result .search-meta .fa-pull-right.post-meta-category:before, .news-item h2 .fa-pull-right.ext-link::after, .news-item .news-meta .fa-pull-right.news-meta-date:before, .news-item .news-meta .fa-pull-right.news-meta-categories:before, .news-details .fa-pull-right.post-meta-tags:before, .news-details .fa-pull-right.post-meta-date:before, .news-details .fa-pull-right.post-meta-categories:before, .organigram .fa-pull-right.toggle-icon, .hero-navigation li.fa-pull-right:before, #hero-slides .fa-pull-right.slick-next:before, #hero-slides .fa-pull-right.slick-prev:before, .helpermenus li.fa-pull-right:before, .helpermenus h3 a.fa-pull-right.ext-link:after, #footer .cloned-meta-links li.fa-pull-right:before,
 #footer .cloned-hero-nav li.fa-pull-right:before,
-#footer .meta-nav li.fa-pull-right:before, .fa-pull-right#mainnav-toggle-close:before, .fa-pull-right#mainnav-toggle:before, .nav .level2 > li > a.fa-pull-right:before, .nav > li.has-sub > a.fa-pull-right:before,
+#footer .meta-nav li.fa-pull-right:before, .fa-pull-right#mainnav-toggle-close:before, .fa-pull-right#mainnav-toggle:before, .nav > li.has-sub > a.fa-pull-right:before,
 .nav > li.has-sub > .fa-pull-right[type=button]:before, .sorttable th.fa-pull-right::after, ul.social li.social-iconbyurl a.fa-pull-right::before, ul.social li.social-wikipedia a.fa-pull-right:before, ul.social li.social-itunes a.fa-pull-right:before, ul.social li.social-youtube a.fa-pull-right:before, ul.social li.social-vimeo a.fa-pull-right:before, ul.social li.social-feed a.fa-pull-right:before, ul.social li.social-flickr a.fa-pull-right:before, ul.social li.social-delicious a.fa-pull-right:before, ul.social li.social-tumblr a.fa-pull-right:before, ul.social li.social-skype a.fa-pull-right:before, ul.social li.social-github a.fa-pull-right:before, ul.social li.social-xing a.fa-pull-right:before, ul.social li.social-twitter a.fa-pull-right:before, ul.social li.social-facebook a.fa-pull-right:before, ul.social li.social-instagram a.fa-pull-right:before, ul.social li.social-pinterest a.fa-pull-right:before, ul.social li.social-diaspora a.fa-pull-right:before {
   margin-left: 0.3em;
 }
 
 .fa.pull-left, .accordion .accordion-group .accordion-heading .pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-left:before, .pull-left.wpcf7-not-valid-tip:before, .pull-left.wpcf7-validation-errors:before, .pull-left.wpcf7-mail-sent-ok:before, .imagelink .pull-left.slick-next:before, .imagelink .pull-left.slick-prev:before, .image-gallery .gallery-slick .pull-left.slick-next:before, .image-gallery .gallery-slick .pull-left.slick-prev:before, .search-result .search-meta .pull-left.download:before, .search-result .search-meta .pull-left.post-meta-attachment:before, .search-result .search-meta .pull-left.post-meta-news-external:before, .search-result .search-meta .pull-left.post-meta-news:before, .search-result .search-meta .pull-left.post-meta-defaulttype:before, .search-result .search-meta .pull-left.post-meta-kontakt:before, .search-result .search-meta .pull-left.post-meta-event:before, .search-result .search-meta .pull-left.post-meta-date:before, .search-result .search-meta .pull-left.post-meta-category:before, .news-item h2 .pull-left.ext-link::after, .news-item .news-meta .pull-left.news-meta-date:before, .news-item .news-meta .pull-left.news-meta-categories:before, .news-details .pull-left.post-meta-tags:before, .news-details .pull-left.post-meta-date:before, .news-details .pull-left.post-meta-categories:before, .organigram .pull-left.toggle-icon, .hero-navigation li.pull-left:before, #hero-slides .pull-left.slick-next:before, #hero-slides .pull-left.slick-prev:before, .helpermenus li.pull-left:before, .helpermenus h3 a.pull-left.ext-link:after, #footer .cloned-meta-links li.pull-left:before,
 #footer .cloned-hero-nav li.pull-left:before,
-#footer .meta-nav li.pull-left:before, .pull-left#mainnav-toggle-close:before, .pull-left#mainnav-toggle:before, .nav .level2 > li > a.pull-left:before, .nav > li.has-sub > a.pull-left:before,
+#footer .meta-nav li.pull-left:before, .pull-left#mainnav-toggle-close:before, .pull-left#mainnav-toggle:before, .nav > li.has-sub > a.pull-left:before,
 .nav > li.has-sub > .pull-left[type=button]:before, .sorttable th.pull-left::after, ul.social li.social-iconbyurl a.pull-left::before, ul.social li.social-wikipedia a.pull-left:before, ul.social li.social-itunes a.pull-left:before, ul.social li.social-youtube a.pull-left:before, ul.social li.social-vimeo a.pull-left:before, ul.social li.social-feed a.pull-left:before, ul.social li.social-flickr a.pull-left:before, ul.social li.social-delicious a.pull-left:before, ul.social li.social-tumblr a.pull-left:before, ul.social li.social-skype a.pull-left:before, ul.social li.social-github a.pull-left:before, ul.social li.social-xing a.pull-left:before, ul.social li.social-twitter a.pull-left:before, ul.social li.social-facebook a.pull-left:before, ul.social li.social-instagram a.pull-left:before, ul.social li.social-pinterest a.pull-left:before, ul.social li.social-diaspora a.pull-left:before {
   margin-right: 0.3em;
 }
 
 .fa.pull-right, .accordion .accordion-group .accordion-heading .pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-right:before, .pull-right.wpcf7-not-valid-tip:before, .pull-right.wpcf7-validation-errors:before, .pull-right.wpcf7-mail-sent-ok:before, .imagelink .pull-right.slick-next:before, .imagelink .pull-right.slick-prev:before, .image-gallery .gallery-slick .pull-right.slick-next:before, .image-gallery .gallery-slick .pull-right.slick-prev:before, .search-result .search-meta .pull-right.download:before, .search-result .search-meta .pull-right.post-meta-attachment:before, .search-result .search-meta .pull-right.post-meta-news-external:before, .search-result .search-meta .pull-right.post-meta-news:before, .search-result .search-meta .pull-right.post-meta-defaulttype:before, .search-result .search-meta .pull-right.post-meta-kontakt:before, .search-result .search-meta .pull-right.post-meta-event:before, .search-result .search-meta .pull-right.post-meta-date:before, .search-result .search-meta .pull-right.post-meta-category:before, .news-item h2 .pull-right.ext-link::after, .news-item .news-meta .pull-right.news-meta-date:before, .news-item .news-meta .pull-right.news-meta-categories:before, .news-details .pull-right.post-meta-tags:before, .news-details .pull-right.post-meta-date:before, .news-details .pull-right.post-meta-categories:before, .organigram .pull-right.toggle-icon, .hero-navigation li.pull-right:before, #hero-slides .pull-right.slick-next:before, #hero-slides .pull-right.slick-prev:before, .helpermenus li.pull-right:before, .helpermenus h3 a.pull-right.ext-link:after, #footer .cloned-meta-links li.pull-right:before,
 #footer .cloned-hero-nav li.pull-right:before,
-#footer .meta-nav li.pull-right:before, .pull-right#mainnav-toggle-close:before, .pull-right#mainnav-toggle:before, .nav .level2 > li > a.pull-right:before, .nav > li.has-sub > a.pull-right:before,
+#footer .meta-nav li.pull-right:before, .pull-right#mainnav-toggle-close:before, .pull-right#mainnav-toggle:before, .nav > li.has-sub > a.pull-right:before,
 .nav > li.has-sub > .pull-right[type=button]:before, .sorttable th.pull-right::after, ul.social li.social-iconbyurl a.pull-right::before, ul.social li.social-wikipedia a.pull-right:before, ul.social li.social-itunes a.pull-right:before, ul.social li.social-youtube a.pull-right:before, ul.social li.social-vimeo a.pull-right:before, ul.social li.social-feed a.pull-right:before, ul.social li.social-flickr a.pull-right:before, ul.social li.social-delicious a.pull-right:before, ul.social li.social-tumblr a.pull-right:before, ul.social li.social-skype a.pull-right:before, ul.social li.social-github a.pull-right:before, ul.social li.social-xing a.pull-right:before, ul.social li.social-twitter a.pull-right:before, ul.social li.social-facebook a.pull-right:before, ul.social li.social-instagram a.pull-right:before, ul.social li.social-pinterest a.pull-right:before, ul.social li.social-diaspora a.pull-right:before {
   margin-left: 0.3em;
 }
@@ -2944,7 +2944,7 @@ html {
 
 .fa-angle-right:before, .hero-navigation li:before, .helpermenus li:before, #footer .cloned-meta-links li:before,
 #footer .cloned-hero-nav li:before,
-#footer .meta-nav li:before, .nav .level2 > li > a:before {
+#footer .meta-nav li:before {
   content: "\f105";
 }
 
@@ -9409,18 +9409,37 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 }
 .nav .button-portal {
   display: inline-block;
-  color: var(--color-mainmenu-sublevel-button-text);
-  background-color: var(--color-mainmenu-sublevel-button-bg);
-  padding: 13px 20px;
-  font-weight: bold;
-  font-size: 1.062rem;
-  line-height: 1.594rem;
-  border-radius: 4px;
+  font-weight: normal;
+  display: inline-block;
+  border-radius: 3px;
   background-clip: padding-box;
+  font-size: 0.937rem;
+  line-height: 1.407rem;
+  color: var(--color-button-text);
+  background-color: var(--color-button-bg);
+  border: none;
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
+  padding: 0.5rem 1rem;
+  /*
+  color: var(--color-mainmenu-sublevel-button-text);
+         background-color: var(--color-mainmenu-sublevel-button-bg);
+
+         &:hover,
+         &:focus {
+             color: var(--color-mainmenu-sublevel-button-hover-text);
+             background: var(--color-mainmenu-sublevel-button-hover-bg);
+         }
+     */
 }
 .nav .button-portal:hover, .nav .button-portal:focus {
-  color: var(--color-mainmenu-sublevel-button-hover-text);
-  background: var(--color-mainmenu-sublevel-button-hover-bg);
+  color: var(--color-button-hover-text);
+  background-color: var(--color-button-hover-bg);
+}
+.nav .button-portal:hover, .nav .button-portal:focus {
+  text-decoration: none;
 }
 .nav ul {
   list-style: none;
@@ -9456,13 +9475,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   border-bottom: 1px solid var(--color-primary-dunkelste);
   background-color: transparent;
 }
-.nav .level2 > li > a:before {
-  font-weight: bold;
-  width: 15px;
-  display: inline-block;
-  margin-left: -15px;
-  padding-left: 2px;
-}
 .nav p.nav-excerpt {
   color: var(--color-mainmenu-sublevel-text);
   font-size: 0.875rem;
@@ -9486,14 +9498,14 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
     border-bottom: none;
   }
   .mainnav-plainview .nav ul.level2 > li > a {
-    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1.5rem;
     border-bottom-color: var(--color-primary-dunkler);
     padding-left: 12px;
   }
-  .mainnav-plainview .nav ul.level2 > li > a:before {
-    display: none;
-  }
   .mainnav-plainview .nav ul.level3 a {
+    font-size: 0.937rem;
+    line-height: 1.407rem;
     padding-left: 12px;
   }
   .mainnav-plainview .nav .flyout-entries-full {
@@ -10747,7 +10759,6 @@ ol.breadcrumblist li:last-child::after {
 /* Slider im Hero-Teil
 /*-----------------------------------------------------------------------------------*/
 #hero.sliderpage {
-  margin-bottom: 0;
   overflow: inherit;
 }
 

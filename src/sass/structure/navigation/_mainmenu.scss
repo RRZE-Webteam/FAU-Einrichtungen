@@ -102,7 +102,6 @@
         a:hover,
         a:focus {
             text-decoration: underline;
-
             color: var(--color-mainmenu-sublevel-hover-text);
             background-color: var(--color-mainmenu-sublevel-hover-bg);
         }
@@ -117,21 +116,11 @@
     /* Portal buttons */
     .button-portal {
         @include inline-block;
-        color: var(--color-mainmenu-sublevel-button-text);
-        background-color: var(--color-mainmenu-sublevel-button-bg);
 
-
-        padding: 13px 20px;
-        font-weight: bold;
-
-        @include px2rem($font-size-nav-mainlinks + 1);
-        @include border-radius(4px);
-
-        &:hover,
-        &:focus {
-            color: var(--color-mainmenu-sublevel-button-hover-text);
-            background: var(--color-mainmenu-sublevel-button-hover-bg);
-        }
+        font-weight: normal;
+	@include buttonstyle();
+	@include px2rem($font-size-nav-buttons);
+	padding: 0.5rem 1rem;
     }
 
     ul {
@@ -161,26 +150,8 @@
             > a {
                 border-bottom: 1px solid var(--color-primary-dunkelste);
                 background-color: transparent;
-
-                &:before {
-                    @extend .fa;
-                    @extend .fa-angle-right;
-                    font-weight: bold;
-                    width: 15px;
-                    display: inline-block;
-                    margin-left: -15px;
-                    padding-left: 2px;
-                }
             }
         }
-    }
-
-    p.nav-excerpt {
-        color: var(--color-mainmenu-sublevel-text);
-        @include px2rem($font-size-small);
-        font-style: normal;
-        padding: 0;
-        margin: 0;
     }
 }
 
@@ -196,7 +167,7 @@
 
                 &.level2 > li {
                     margin-bottom: 15px;
-
+		    
                     &:not(.has-sub) {
                         > a {
                             border-bottom: none;
@@ -204,18 +175,15 @@
                     }
 
                     > a {
-                        font-weight: bold;
-                        border-bottom-color: var(--color-primary-dunkler);;
+			@include px2rem($font-size-nav-level2);
+                        border-bottom-color: var(--color-primary-dunkler);
                         padding-left: $padding-base-horizontal;
 
-                        &:before {
-                            display: none;
-                        }
                     }
                 }
 
                 &.level3 a {
-
+		    @include px2rem($font-size-nav-level3);
                     padding-left: $padding-base-horizontal;
                 }
             }
