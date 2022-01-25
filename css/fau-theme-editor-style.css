@@ -5061,7 +5061,6 @@ main a,
   -webkit-text-decoration-color: var(--color-primary-ci-hell);
           text-decoration-color: var(--color-primary-ci-hell);
   text-underline-offset: 3px;
-  padding: 1px;
 }
 main a:active, main a:focus, main a:hover,
 .entry-content a:active,

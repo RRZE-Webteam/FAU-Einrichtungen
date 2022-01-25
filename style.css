@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.5-3
+Version: 2.0.5-4
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -5183,7 +5183,6 @@ main a,
   -webkit-text-decoration-color: var(--color-primary-ci-hell);
           text-decoration-color: var(--color-primary-ci-hell);
   text-underline-offset: 3px;
-  padding: 1px;
 }
 main a:active, main a:focus, main a:hover,
 .entry-content a:active,
@@ -9402,6 +9401,8 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   text-decoration: underline;
   color: var(--color-mainmenu-sublevel-hover-text);
   background-color: var(--color-mainmenu-sublevel-hover-bg);
+  border-radius: 3px;
+  background-clip: padding-box;
 }
 .nav .nav-flyout {
   background-color: var(--color-mainmenu-sublevel-bg);
@@ -9423,16 +9424,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   font-size: 1.125rem;
   line-height: 1.688rem;
   padding: 0.5rem 1rem;
-  /*
-  color: var(--color-mainmenu-sublevel-button-text);
-         background-color: var(--color-mainmenu-sublevel-button-bg);
-
-         &:hover,
-         &:focus {
-             color: var(--color-mainmenu-sublevel-button-hover-text);
-             background: var(--color-mainmenu-sublevel-button-hover-bg);
-         }
-     */
 }
 .nav .button-portal:hover, .nav .button-portal:focus {
   color: var(--color-button-hover-text);
@@ -9474,14 +9465,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 .nav .level2 > li > a {
   border-bottom: 1px solid var(--color-primary-dunkelste);
   background-color: transparent;
-}
-.nav p.nav-excerpt {
-  color: var(--color-mainmenu-sublevel-text);
-  font-size: 0.875rem;
-  line-height: 1.313rem;
-  font-style: normal;
-  padding: 0;
-  margin: 0;
 }
 
 /*
@@ -14716,30 +14699,32 @@ div.wpcf7-response-output {
 /*
  * CSS Settings for FAU Glossary
  */
-.fau-glossar .letters {
+#content .fau-glossar .letters {
   text-align: center;
 }
-.fau-glossar .letters li {
+#content .fau-glossar .letters li {
   color: var(--color-TextLight);
-  font-size: 0.937rem;
-  line-height: 1.407rem;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   margin: 0.2rem;
-  padding: 0.2rem;
+  padding: 0;
   text-align: center;
   vertical-align: middle;
   border: 1px solid var(--color-StandardHellgrau);
+}
+#content .fau-glossar .letters li span {
+  color: var(--color-TextLight);
+}
+#content .fau-glossar .letters li span, #content .fau-glossar .letters li a {
+  font-size: 0.937rem;
+  line-height: 1.407rem;
+  width: 100%;
+  line-height: 2.5rem;
+  padding: 0.2rem;
   border-radius: 4px;
   background-clip: padding-box;
 }
-.fau-glossar .letters li.filled {
-  font-weight: bold;
-  padding: 0;
-}
-.fau-glossar .letters li.filled a {
-  padding: 0.2rem;
-  width: 100%;
+#content .fau-glossar .letters li a {
   box-shadow: none;
   transition: initial;
   padding: 0;
@@ -14750,12 +14735,9 @@ div.wpcf7-response-output {
   box-shadow: none;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
-  border-radius: 4px;
-  background-clip: padding-box;
-  line-height: 2rem;
   text-decoration: none;
 }
-.fau-glossar .letters li.filled a:hover, .fau-glossar .letters li.filled a:focus {
+#content .fau-glossar .letters li a:hover, #content .fau-glossar .letters li a:focus {
   box-shadow: none;
   text-decoration: underline;
   color: currentcolor;
@@ -14763,12 +14745,12 @@ div.wpcf7-response-output {
           text-decoration-color: currentcolor;
   box-shadow: none;
 }
-.fau-glossar .letters li.filled a:hover, .fau-glossar .letters li.filled a:focus {
+#content .fau-glossar .letters li a:hover, #content .fau-glossar .letters li a:focus {
   color: var(--color-button-hover-text);
   background-color: var(--color-button-hover-bg);
 }
-.fau-glossar .letters li.filled a:hover,
-.fau-glossar .letters li.filled a:focus {
+#content .fau-glossar .letters li a:hover,
+#content .fau-glossar .letters li a:focus {
   text-decoration: underline;
 }
 

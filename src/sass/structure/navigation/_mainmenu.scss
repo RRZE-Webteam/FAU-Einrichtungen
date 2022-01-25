@@ -104,6 +104,7 @@
             text-decoration: underline;
             color: var(--color-mainmenu-sublevel-hover-text);
             background-color: var(--color-mainmenu-sublevel-hover-bg);
+	    @include border-radius(3px);
         }
     }
 
