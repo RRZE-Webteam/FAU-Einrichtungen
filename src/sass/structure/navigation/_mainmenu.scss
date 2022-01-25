@@ -255,15 +255,23 @@
 #mainnav-toggle-close {
     position: absolute;
     right: 5px;
-    top: 5px;
+    top: 3px;
     @include px2rem($font-size-mobile-meta);
     background-color: transparent;
-    border: none;
+    border: 1px dashed transparent;
     z-index: 100;
     color: var(--color-Default);
-    padding: 1px 6px;
+    padding: 1px 8px;
     display: none;
-
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: var(--color-FAU);
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.22);
+    }
+    .nav-toggled &{
+        padding: 1px 9px;
+    }
     span {
         @include hideout();
     }

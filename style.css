@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.5-1
+Version: 2.0.5-2
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -8872,7 +8872,7 @@ body:not([data-scroll="0"]) #headerwrapper {
 }
 .meta-links-trigger .meta-links-trigger-icon svg {
   width: 24px;
-  height: auto;
+  height: 36px;
 }
 .meta-links-trigger .meta-links-trigger-icon-fau svg {
   width: 40px;
@@ -8893,10 +8893,15 @@ body:not([data-scroll="0"]) #headerwrapper {
 }
 
 .meta-links-trigger-button {
-  border: none;
+  border: 1px dashed transparent;
   font: inherit;
   color: inherit;
   background: none;
+}
+.meta-links-trigger-button:hover, .meta-links-trigger-button:focus, .meta-links-trigger-button:active {
+  border-color: var(--color-FAU);
+  background-color: transparent;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.22);
 }
 
 .meta-links {
@@ -9063,6 +9068,7 @@ body:not([data-scroll="0"]) #headerwrapper {
 }
 .meta-logo a {
   border: 1px dashed transparent;
+  padding: 0 5px;
 }
 .meta-logo a:hover, .meta-logo a:focus {
   border-color: var(--color-primary-ci-hell);
@@ -9525,15 +9531,26 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 #mainnav-toggle-close {
   position: absolute;
   right: 5px;
-  top: 5px;
+  top: 3px;
   font-size: 1.5rem;
   line-height: 2.25rem;
   background-color: transparent;
-  border: none;
+  border: 1px dashed transparent;
   z-index: 100;
   color: var(--color-Default);
-  padding: 1px 6px;
+  padding: 1px 8px;
   display: none;
+}
+#mainnav-toggle:hover, #mainnav-toggle:focus, #mainnav-toggle:active,
+#mainnav-toggle-close:hover,
+#mainnav-toggle-close:focus,
+#mainnav-toggle-close:active {
+  border-color: var(--color-FAU);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.22);
+}
+.nav-toggled #mainnav-toggle,
+.nav-toggled #mainnav-toggle-close {
+  padding: 1px 9px;
 }
 #mainnav-toggle span,
 #mainnav-toggle-close span {
@@ -15358,8 +15375,9 @@ button.expand-all {
   text-decoration: none;
 }
 .accordion .accordion-group .accordion-heading .accordion-toggle.active, .accordion .accordion-group .accordion-heading .accordion-toggle.active:hover, .accordion .accordion-group .accordion-heading .accordion-toggle.active:focus {
-  background-color: var(--color-primary-ci-hell);
-  color: var(--color-primary-ci-hell-kontrast);
+  background-color: var(--color-primary-dunkler);
+  color: var(--color-primary-dunkler-kontrast);
+  border-color: var(--color-primary-dunkler);
 }
 .accordion .accordion-group .accordion-heading .accordion-toggle.active:before, .accordion .accordion-group .accordion-heading .accordion-toggle.active:hover:before, .accordion .accordion-group .accordion-heading .accordion-toggle.active:focus:before {
   top: 8px;
