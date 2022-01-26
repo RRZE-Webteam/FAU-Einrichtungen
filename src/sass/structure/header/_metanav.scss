@@ -72,7 +72,7 @@
 
         svg {
             width: 24px;
-            height: auto;
+            height: 36px;
         }
     }
 
@@ -104,11 +104,18 @@
 }
 
 .meta-links-trigger-button {
-    border: none;
+    border: 1px dashed transparent;
     //outline: none;
     font: inherit;
     color: inherit;
     background: none;
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: var(--color-FAU);
+        background-color: transparent;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.22);
+    }
 }
 
 .meta-links {
@@ -123,7 +130,7 @@
         align-items: center;
         justify-content: space-between;
         column-gap: 1rem;
-	padding: 5px 0;
+	    padding: 5px 0;
 
         background-color: transparent;
 
@@ -289,6 +296,7 @@
     }
     a {
         border: 1px dashed transparent;
+        padding: 0 5px;
         &:hover,
         &:focus {
             border-color: var(--color-primary-ci-hell);

@@ -238,7 +238,7 @@ endif;
 
 
 if ( ! function_exists( 'fau_form_select' ) ) :
-    function fau_form_select($name= '', $liste = array(), $prevalue, $labeltext = '',  $howtotext = '', $showempty=1, $emptytext = '', $modal = false ) {
+    function fau_form_select($name= '', $liste = array(), $prevalue = '', $labeltext = '',  $howtotext = '', $showempty=1, $emptytext = '', $modal = false ) {
 	$name = fau_san( $name );
 	$labeltext = fau_san( $labeltext );
 	$emptytext = fau_san( $emptytext );

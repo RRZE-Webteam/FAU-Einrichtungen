@@ -196,15 +196,13 @@ function get_top_parent_page_id($id, $offset = false)
 /* Walker for main menu 
 /*-----------------------------------------------------------------------------------*/
 
-class Walker_Main_Menu_Plainview extends Walker_Nav_Menu
-{
+class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
     private $currentID;
     private $level = 1;
     private $count = array();
     private $element;
 
-    function start_lvl(&$output, $depth = 0, $args = array())
-    {
+    function start_lvl(&$output, $depth = 0, $args = array())  {
         $this->level++;
         $this->count[$this->level] = 0;
         if ($this->level == 2) {
@@ -214,8 +212,7 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu
         $output .= '<ul class="sub-menu level'.$this->level.'">';
     }
 
-    function end_lvl(&$output, $depth = 0, $args = array())
-    {
+    function end_lvl(&$output, $depth = 0, $args = array()) {
         if ($this->level == 2) {
             $output       .= '</ul>';
             $currenttitle = fau_get_the_title($this->currentID);
