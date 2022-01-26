@@ -4,19 +4,19 @@
 hr {
 	position: relative;
 	clear: both;
-	background: #fff;
+	background: var(--color-MainBackground);
 	border: none;
 	outline: none;
 	display: none;
 	
-	height: 20px;
-	margin: 10px 10px 30px;
+	height: 1rem;
+	margin: 1rem 0;
 	
 	
-	@media (min-width: $screen-xxs) {
+	@media (min-width: $screen-sm) {
 	    display: block;
-	    margin: 10px 50px 30px;
-	    height: 20px;	
+	    margin: 1rem 3rem 2rem;
+	    height: 1.5rem;	
 	}
 
 	
@@ -29,11 +29,11 @@ hr {
 		margin-bottom: 10px
 	    }
 	}
-	@include box-shadow(0 10px 10px -10px $colorStandardHellgrau inset);
+	@include box-shadow(0 10px 10px -10px var(--color-StandardHellgrau) inset);
 	
 	&.line {
 	    height: 1px;
-	    @include linear-gradient-three(transparent,$colorStandardHellgrau 50%,transparent);  
+	    @include linear-gradient-three(transparent,var(--color-StandardHellgrau) 50%,transparent);  
 	}
 	&.line.big {
 	     margin-bottom: 60px
@@ -42,5 +42,5 @@ hr {
 .page-template-page-start hr::after,
 .home hr::after {
     top: 30px;
-    @include box-shadow(0 0 30px $colorStandardHellgrau);
+    @include box-shadow(0 0 30px var(--color-StandardHellgrau));
 }

@@ -1,0 +1,55 @@
+/*-----------------------------------------------------------------------------------*/
+/* Orga Breadcrumb (optional)
+/*-----------------------------------------------------------------------------------*/
+@use "sass:math";
+
+.orga-breadcrumb {
+    display: none;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    @media (min-width: $screen-sm) {
+        display: block;
+        width: 750px;
+        padding: 5px 15px 0;
+        margin: 0 auto;
+
+        li {
+            color: var(--color-TextLightKontrast);
+
+            a {
+                color: var(--color-TextLightKontrast);
+                text-decoration: none;
+            }
+
+            a:hover, a:focus {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    @media (min-width: $screen-md) {
+        width: 970px;
+    }
+    @media (min-width: $screen-lg) {
+        width: 1024px;
+    }
+    @media (min-width: $screen-xl + 20) {
+        width: 1400px;
+    }
+}
+#meta .orga-breadcrumb {
+    display: block;
+    margin: 0.25rem 0 .5rem;
+    border-bottom: 1px solid map-get($colormap-misc, "TextLight");
+    li {
+        line-height: 1.5;
+    }
+
+    @media (min-width: $screen-sm) {
+        display: none;
+    }
+}
+

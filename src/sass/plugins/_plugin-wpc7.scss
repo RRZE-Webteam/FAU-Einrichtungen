@@ -6,7 +6,6 @@
 .wpcf7-undostyle {
     border: none !important;;
     background: inherit;
-    color: $colorPrimary !important;
     display: block;
 
 }
@@ -30,7 +29,7 @@ div.wpcf7-response-output {
         vertical-align: -4px;
         min-width: 24px;
     }
-    color: $colorText;
+    color: var(--color-Text);
 }
 
 .wpcf7-mail-sent-ng {

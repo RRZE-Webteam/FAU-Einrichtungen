@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Global content definitions
 /*-----------------------------------------------------------------------------------*/
-
+@use "sass:math";
 
 #content {    
     .container {
@@ -9,13 +9,20 @@
     }
     main {
 	@include px2rem($font-size-base);
-	color: $colorText;
+	color: var(--color-Text);
 	font-family: $fontStack;
 	padding-top: 0;
 	width: 100%;
 	
 	.sidebar-inline {
 	    @include px2rem($font-size-sidebar);
+	}
+	
+	.subtitle {
+	    margin: 1rem floor(math.div($grid-gutter-width, 2));
+	    @media (min-width: $screen-sm) {
+		margin: 0 0 1rem 0;
+	    }
 	}
     }
    
@@ -27,22 +34,4 @@
 	}
     }
 
-}
-
-
-// Avoid problems by users who follow the hash-link to #content 
-// by https://css-tricks.com/hash-tag-links-padding/
-
-#droppoint::before {
-  display: block; 
-  content: " "; 
-  margin-top: -165px; 
-  height: 165px; 
-  visibility: hidden; 
-//  pointer-events: none;
-// Not yet supportet by W3C
-}
-.single #droppoint::before {
-    margin-top: inherit; 
-    height: inherit; 
 }

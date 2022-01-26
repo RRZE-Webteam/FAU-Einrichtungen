@@ -56,8 +56,8 @@ if ((filter_var($copyright, FILTER_VALIDATE_URL)) && (preg_match('/\/cropped\-/'
 		} 
 		?>
 		 <div class="banner-text">
-		    <div class="container">
-			<div class="row">
+		    <div class="hero-container">
+			<div class="hero-row">
                             
                             <?php  
                                 $title = get_bloginfo( 'title' );

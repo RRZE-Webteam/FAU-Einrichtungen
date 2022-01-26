@@ -83,17 +83,16 @@ while ( have_posts() ) : the_post();
 						    $typestr .= ': ';
 
 						    foreach($categories as $category) {
-							$thiscatstr .= '<a href="'.get_category_link( $category->term_id ).'">'.$category->cat_name.'</a>'.$separator;
+							$thiscatstr .= '<a href="'.get_category_link( $category->term_id ).'" aria-label="'.__('Beiträge aus der Kategorie', 'fau').' '.$category->cat_name.' '.__('aufrufen','fau').'">'.$category->cat_name.'</a>'.$separator;
 						    }
 						    $typestr .= trim($thiscatstr, $separator);
 						    $typestr .= '</span> ';
 						}
 					    }
+					    $taglist = '';
 					    if (get_theme_mod('post_display_tags_below')) {
 						    $showfooter = true;
-						    if(get_the_tag_list()) {
-							$taglist = get_the_tag_list('<span class="post-meta-tags"> '.__('Schlagworte', 'fau').': ',', ','</span>');
-						    }   
+						    $taglist = fau_get_the_taglist('<span class="post-meta-tags"> '.__('Schlagworte', 'fau').': ',', ','</span>'); 
 					    }
 
 					    if ($showfooter) {   

@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Customizer view
 /*-----------------------------------------------------------------------------------*/
-$color_customizer_buttons: #0085ba;
+
 
 #customize-controls #sub-accordion-section-header_image img {
     height: 65px;
@@ -11,13 +11,14 @@ $color_customizer_buttons: #0085ba;
 }
 
 #customize-theme-controls {
+    #accordion-section-title_tagline,
     #accordion-panel-website,
     #accordion-panel-socialmedia,
     #accordion-panel-allgemeines,
     #accordion-panel-templates,
     #accordion-panel-advanced {
 	.accordion-section-title {
-	     border-left-color: $colorDefault;
+	     border-left-color: var(--color-Default);
 	}
     }
     #accordion-panel-superadmin {
@@ -32,7 +33,7 @@ $color_customizer_buttons: #0085ba;
 	    }
 	}
     }
-    
+    #accordion-section-title_tagline,
     #accordion-panel-website {
 	.accordion-section-title:before {
 	    @extend .fa;
@@ -62,16 +63,26 @@ $color_customizer_buttons: #0085ba;
 	    width: 18px;
 	}
     }
+    #accordion-panel-debugmode {
+	.accordion-section-title {
+	     border-left-color: var(--color-Notice);
+	}
+	.accordion-section-title:before {
+	    @extend .fa;
+	    @extend .fa-keyboard-o;
+	    width: 18px;
+	}
+    }
     
     
     .customize-control-multiple-select {
 	option:checked, 
 	option[selected] {
-	    background: $colorStandardHellgrau;
+	    background: var(--color-StandardHellgrau);
 	}
 	select[multiple]:focus option:checked {
-	  background: $color_customizer_buttons;
-	  color: #fff;
+	  background: var(--color-button-bg);
+	  color: var(--color-MainBackground); 
 	}
     }
     
@@ -96,17 +107,14 @@ $color_customizer_buttons: #0085ba;
 	    width: 20px;
 	    height: 20px;
 	    border-radius: 50%;
-	    background: $color_customizer_buttons;
+	    background:  var(--color-button-bg);
 	    cursor: pointer;
 	    transition: background .15s ease-in-out;
 	}
 
-	.range-slider__range::-webkit-slider-thumb:hover {
-	    background: $color_customizer_buttons;
-	}
-
+	.range-slider__range::-webkit-slider-thumb:hover,
 	.range-slider__range:active::-webkit-slider-thumb {
-	    background: $color_customizer_buttons;
+	    background: var(--color-button-bg);
 	}
 
 	.range-slider__range::-moz-range-thumb {
@@ -114,28 +122,25 @@ $color_customizer_buttons: #0085ba;
 	    height: 20px;
 	    border: 0;
 	    border-radius: 50%;
-	    background: $color_customizer_buttons;
+	    background:  var(--color-button-bg);
 	    cursor: pointer;
 	    transition: background .15s ease-in-out;
 	}
 
-	.range-slider__range::-moz-range-thumb:hover {
-	    background:  $color_customizer_buttons;
-	}
-
+	.range-slider__range::-moz-range-thumb:hover,
 	.range-slider__range:active::-moz-range-thumb {
-	    background: $color_customizer_buttons;
+	    background:  var(--color-button-bg);
 	}
 
 	.range-slider__value {
 	    display: inline-block;
 	    position: relative;
 	    width: 30px;
-	    color: #fff;
+	    color:  var(--color-MainBackground); 
 	    line-height: 20px;
 	    text-align: center;
 	    border-radius: 3px;
-	    background:  $color_customizer_buttons;
+	    background:   var(--color-button-bg);
 	    padding: 2px 5px;
 	    margin-left: 8px;
 	}

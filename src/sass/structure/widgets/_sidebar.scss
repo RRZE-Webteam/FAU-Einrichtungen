@@ -1,59 +1,54 @@
 /*-----------------------------------------------------------------------------------*/
-/* Sidebar 
+/* Sidebar
 /*-----------------------------------------------------------------------------------*/
+@use "sass:math";
 
 
 /* Sidebar: Inline */
 .sidebar-inline {
-	border-top: 2px solid $colorLightest;
-        margin: 10px 0;
-	padding-top: 10px;
-        @media (min-width: $screen-sm) {
-            border-top: none;
-            padding-top: 0;
-            margin-top: 0;
+    border-top: 2px solid var(--color-primary-ci-hell);
+    margin: 10px 0;
+    padding-top: 10px;
+
+    @media (min-width: $screen-sm) {
+        border-top: none;
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .widget {
+        margin-bottom: 22px;
+        margin-top: 22px;
+
+        @media (min-width: $screen-md) {
+            h2:first-child {
+                margin-top: 0;
+            }
         }
-	
-	
-	.widget {
-		margin-bottom: 22px;
-		margin-top: 22px;
-                
-                @media (min-width: $screen-md) {
-                    h2:first-child {
-                        padding-top: 0;
-                    }
-                }
-	}
-	
-	.widget:last-child {
-		margin-bottom: 0;
-	}
-	.widget:first-child {
-		margin-top: 0;
-	}
-	
-	.content-portal & {
-		margin-top: 22px;
-	}
-	.page-template-page-portalindex & {
-	    float: right;
-	}
-	
+    }
 
-	@media (min-width: $screen-md) {
-	    border-left: 2px solid $colorLightest;
-	    border-top: none;
-            padding-left: ceil(($fau-gutter-width / 2));	
-            margin-top: 0;
-            padding-top: 0;
-	}
-	
-	.page-template-default  & {
-	    @media (min-width: $screen-md) {
-		 border-left: none;
-	    }
-	}
+    .widget:last-child {
+        margin-bottom: 0;
+    }
+
+    .widget:first-child {
+        margin-top: 0;
+    }
+
+    .content-portal & {
+        margin-top: 22px;
+    }
+
+    .page-template-page-portalindex & {
+        float: right;
+    }
 
 
+    @media (min-width: $screen-md) {
+        border-left: 2px solid var(--color-primary-ci-hell2);
+        border-top: none;
+        padding-left: ceil(math.div($fau-gutter-width, 2));
+        margin-top: 0;
+        padding-top: 0;
+    }
 }

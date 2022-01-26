@@ -2,6 +2,8 @@
 Mixins File for Wordpress Theme FAU
 */
 
+@use "sass:math";
+
 @mixin box-shadow($shadow) {
     box-shadow: $shadow;
 }
@@ -12,57 +14,64 @@ Mixins File for Wordpress Theme FAU
 }
 
 @mixin border-top-radius($radius) {
-  border-top-right-radius: $radius;
-   border-top-left-radius: $radius;
-   background-clip: padding-box;
+    border-top-right-radius: $radius;
+    border-top-left-radius: $radius;
+    background-clip: padding-box;
 }
+
 @mixin border-right-radius($radius) {
-  border-bottom-right-radius: $radius;
-     border-top-right-radius: $radius;
-     background-clip: padding-box;
+    border-bottom-right-radius: $radius;
+    border-top-right-radius: $radius;
+    background-clip: padding-box;
 }
+
 @mixin border-bottom-radius($radius) {
-   border-bottom-right-radius: $radius;
-   border-bottom-left-radius: $radius;
-   background-clip: padding-box;
+    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+    background-clip: padding-box;
 }
+
 @mixin border-left-radius($radius) {
-  border-bottom-left-radius: $radius;
-     border-top-left-radius: $radius;
-     background-clip: padding-box;
+    border-bottom-left-radius: $radius;
+    border-top-left-radius: $radius;
+    background-clip: padding-box;
 }
 
 @mixin linear-gradient($fromColor, $toColor) {
     background-color: $fromColor; /* Fallback Color */
     background-image: linear-gradient(to right, $fromColor, $toColor);
 }
+
 @mixin linear-top-gradient($fromColor, $toColor) {
     background-color: $fromColor; /* Fallback Color */
     background-image: linear-gradient(to bottom, $fromColor, $toColor);
 }
+
 @mixin linear-gradient-three($fromColor, $toColor, $nextColor) {
     background-color: $fromColor; /* Fallback Color */
-    background-image: linear-gradient(to right, $fromColor, $toColor,$nextColor);
+    background-image: linear-gradient(to right, $fromColor, $toColor, $nextColor);
 }
+
 @mixin linear-top-gradient-three($fromColor, $toColor, $nextColor) {
     background-color: $fromColor; /* Fallback Color */
-    background-image: linear-gradient(to bottom, $fromColor, $toColor,$nextColor);
+    background-image: linear-gradient(to bottom, $fromColor, $toColor, $nextColor);
 }
 
 @mixin radial-gradient($color2, $color1) {
     background: $color2;
-    background: radial-gradient(ellipse at center, $color1 0%,$color2 100%);
+    background: radial-gradient(ellipse at center, $color1 0%, $color2 100%);
 }
 
 @mixin radial-gradient-image($color2, $color1, $image) {
     background-color: $color2;
     background: $image, $color2;
-    background: $image, radial-gradient(ellipse at center, $color1 0%,$color2 100%);
+    background: $image, radial-gradient(ellipse at center, $color1 0%, $color2 100%);
 }
 
 @mixin transition($duration, $params) {
     transition: $duration $params;
 }
+
 @mixin transform-translate($tx, $ty) {
     transform: translate($tx, $ty);
 }
@@ -73,7 +82,7 @@ Mixins File for Wordpress Theme FAU
 
 @mixin placeholder($color) {
     ::placeholder {
-	    color: $color;
+        color: $color;
     }
 }
 
@@ -84,7 +93,7 @@ Mixins File for Wordpress Theme FAU
     background: none;
 
     &:before {
-	    display: none;
+        display: none;
     }
 }
 
@@ -92,105 +101,185 @@ Mixins File for Wordpress Theme FAU
     @include no-list;
     background: none;
     display: table;
-    border-bottom: 1px solid $colorLightest;
+    border-bottom: 1px solid var(--color-primary-ci-hell);
     width: 100%;
-			
+
 
     &:before {
-	@extend .fa;
-	@extend .fa-angle-right;	
-	font-weight: bold;
-	display: table-cell;
-	vertical-align: middle;
-	color: $colorDefault;
-	width: 5px;
+        @extend .fa;
+        @extend .fa-angle-right;
+        font-weight: bold;
+        display: table-cell;
+        vertical-align: middle;
+        color: var(--color-Default);
+        width: 5px;
     }
-		
+
     a {
-	    text-decoration: none;
-	    display: table-cell;
-	    padding: 5px 12px;
-	    font-size: 13px;
-	    line-height: 16px;
+        text-decoration: none;
+        display: table-cell;
+        padding: 5px 12px;
+        font-size: 13px;
+        line-height: 16px;
     }
 
     a:hover, a:focus {
-	    text-decoration: none;
-	    background-color: $colorLightest;
+        text-decoration: none;
+        background-color: var(--color-primary-ci-hell2);
     }
 }
 
 @mixin inline-block() {
-    display: inline-block; 
+    display: inline-block;
 }
+
 @mixin hideout() {
-    position:absolute;
-    left:-10000px;
-    top:auto;
-    width:1px;
-    height:1px;
-    overflow:hidden;
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
 
 @function px2rem($font-size, $base-font-size: $font-size-gridbase) {
-	@return $font-size / $base-font-size + rem;
+    @return math.div($font-size, $base-font-size) + rem;
 }
 
 @mixin px2rem($font-size, $base-font-size: $font-size-gridbase, $line: $font-size * 1.5) {
-  // font-size: $font-size + px; // für den IE8
-  // line-height: ($line) + px;
-  font-size: floor(($font-size / $base-font-size)*1000)/1000 + rem;
-  line-height: ceil(($line / $base-font-size)*1000)/1000 + rem;
+    // font-size: $font-size + px; // für den IE8
+    // line-height: ($line) + px;
+    font-size: math.div(floor(math.div($font-size, $base-font-size) * 1000), 1000) + rem;
+    line-height: math.div(ceil(math.div($line, $base-font-size) * 1000), 1000) + rem;
 }
 
 @mixin morelink() {
     margin: 10px 0 0 0;
-    color: $colorButton;
     padding: 8px 10px;
     text-decoration: none;
     @include border-radius(3px);
     @include px2rem($font-size-textbuttons);
 
     a {
-	@include inline-block;
-	@include border-radius(3px);
-	@include px2rem($font-size-textbuttons);
-	
-	color: $colorButton;
-	background: $colorButtonBackground;
-	padding: 6px 10px;
-	text-decoration: none;
-
-	
-	&:hover, &:focus {
-		background: $colorButtonBackgroundHover;
-		text-decoration: none;
-	}
+        @include inline-block;
+        @include border-radius(3px);
+        @include px2rem($font-size-textbuttons);
+	    @include buttoncolor();
+        padding: 6px 10px;
+        text-decoration: none;
     }
 
 }
 
+@mixin defaultlinkstyle() {
+    box-shadow: none;
+    transition: initial;
+    padding: 0;
+    text-decoration: underline;
+    color: currentcolor;
+    text-decoration-color:  currentcolor;
+    box-shadow: none;
+   
+    &:hover,
+    &:focus {
+        box-shadow: none;
+        text-decoration: underline;
+        color: currentcolor;
+        text-decoration-color: currentcolor;
+	box-shadow: none;
+    }
+}
 
+@mixin styledcontentlink() {
+    cursor: pointer;
 
+    word-wrap: break-word;
+    color: var(--color-content-links);
+    box-shadow: inset 0 -0.1rem 0 0 var(--color-primary-ci-hell);
+    transition: all .3s ease-out; //box-shadow 0.3s ease-in-out;
+    text-decoration: underline;
+    text-decoration-color:  var(--color-primary-ci-hell);
+    text-underline-offset: 3px;
+ //   padding: 1px;
+
+    &:active,
+    &:focus,
+    &:hover {
+        text-decoration: underline;
+        text-decoration-color:  var(--color-primary-ci-hell);
+        color: var(--color-primary-ci-hell-kontrast);
+        box-shadow: inset 0 -1.5rem 0 var(--color-primary-ci-hell);
+    }
+}
+
+@mixin buttoncolor() {
+    color: var(--color-button-text);
+    background-color: var(--color-button-bg);
+  
+    &:hover, 
+    &:focus {
+	color: var(--color-button-hover-text);
+        background-color: var(--color-button-hover-bg);
+    }
+}
+
+@mixin buttonstyle($radius: 3px) {
+    @include inline-block;
+    @include border-radius($radius);
+    @include px2rem($font-size-textbuttons);
+    @include buttoncolor;
+    
+    border: none;
+    padding: 0.5rem 0.7rem;
+    text-decoration: none;
+
+    &:hover, &:focus {
+        text-decoration: none;
+    }
+}
+
+@mixin ghostbutton($radius: 3px, $border: 1px) {
+    @include buttonstyle($radius);
+    
+    border: $border solid var(--color-ContentBorders);
+    background: transparent;
+    color: var(--color-Text);    
+    
+    &:hover, 
+    &:focus {
+	color: var(--color-ghostbutton-hover-text);
+        background: var(--color-ghostbutton-hover-bg);
+    }
+}
+
+@mixin removebuttoncolor() {
+    background-color: unset;
+    color: unset;
+     &:hover, 
+    &:focus {
+	color: unset;
+        background-color: unset;
+    }
+}
 // Set Font Style
 
-@mixin fontFace($family,$src,$weight: normal,$style: normal,$withlocal: true) {   
-  @font-face {
-    font-family: $family;
-     @if $withlocal {
-	src: local($family), 
-	url('#{$src}.woff2') format('woff2'), 
-	url('#{$src}.woff') format('woff'),
-	url('#{$src}.ttf') format('truetype');
-     } @else {
-	src: url('#{$src}.woff2') format('woff2'), 
-	url('#{$src}.woff') format('woff'),
-	url('#{$src}.ttf') format('truetype');
-     }
+@mixin fontFace($family,$src,$weight: normal,$style: normal,$withlocal: true) {
+    @font-face {
+        font-family: $family;
+        @if $withlocal {
+            src: local($family),
+            url('#{$src}.woff2') format('woff2'),
+            url('#{$src}.woff') format('woff'),
+            url('#{$src}.ttf') format('truetype');
+        } @else {
+            src: url('#{$src}.woff2') format('woff2'),
+            url('#{$src}.woff') format('woff'),
+            url('#{$src}.ttf') format('truetype');
+        }
 
-    font-style: $style;
-    font-weight: $weight;
-  }
+        font-style: $style;
+        font-weight: $weight;
+    }
 }
 
 
@@ -200,14 +289,16 @@ Mixins File for Wordpress Theme FAU
 // See: https://hugogiraudel.com/2016/10/13/css-hide-and-seek/
 
 @mixin sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    min-width: 1px;
+    min-height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 // Use in conjunction with .sr-only to only display content when it's focused.
@@ -217,14 +308,14 @@ Mixins File for Wordpress Theme FAU
 // Credit: HTML5 Boilerplate
 
 @mixin sr-only-focusable {
-  &:active,
-  &:focus {
-    position: static;
-    width: auto;
-    height: auto;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
-  }
+    &:active,
+    &:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+    }
 }
 

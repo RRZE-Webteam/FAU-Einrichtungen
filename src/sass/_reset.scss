@@ -36,8 +36,7 @@ template {
 sub,
 sup {
 	position: relative;
-	font-size: 75%;
-	line-height: 0;
+	font-size: 0.75rem;
 	vertical-align: baseline;
 }
 
@@ -51,53 +50,10 @@ sub {
 
 
 
-button,
-input,
-select,
-textarea {
-	margin: 0;
-	font-size: 100%;
-	vertical-align: middle;
-}
-
-button,
-input {
-	line-height: normal;
-}
-
-label,
-select,
-button,
-[role="button"],
-html input[type="button"],
-input[type="reset"],
-input[type="submit"], 
-input[type="button"],
-input[type="radio"],
-input[type="checkbox"] {
-	cursor: pointer;
-}
-
-input[type="search"] {
-	box-sizing: content-box;
-}
-
-
-textarea {
-	overflow: auto;
-	vertical-align: top;
-}
-
-body {
-	color: #333333;
-	background-color: #ffffff;
-}
-
-
 
 
 small {
-	font-size: 85%;
+	font-size: 0.85rem;
 }
 
 strong {
@@ -108,33 +64,7 @@ em {
 	font-style: italic;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 20px 0 20px 0;
-	font-family: inherit;
-}
 
-
-dl {
-	margin-bottom: 20px;
-}
-
-dt,
-dd {
-	line-height: 20px;
-}
-
-dt {
-	font-weight: bold;
-}
-
-dd {
-	margin-left: 10px;
-}
 
 
 blockquote.pull-right {
@@ -164,178 +94,3 @@ q:after {
 }
 
 
-
-
-fieldset {
-	padding: 0;
-	margin: 0;
-	border: 0;
-}
-
-legend {
-	display: block;
-	width: 100%;
-	padding: 0;
-	margin-bottom: 20px;
-	font-size: 21px;
-	line-height: 40px;
-	color: #333333;
-	border: 0;
-	border-bottom: 1px solid #e5e5e5;
-}
-
-legend small {
-	font-size: 15px;
-	color: #999999;
-}
-
-label,
-input,
-button,
-select,
-textarea {
-	font-size: 14px;
-	font-weight: normal;
-	line-height: 20px;
-}
-
-label {
-	display: block;
-	margin-bottom: 5px;
-}
-
-select,
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"] {
-	display: inline-block;
-	height: 20px;
-	padding: 4px 6px;
-	margin-bottom: 10px;
-	font-size: 14px;
-	line-height: 20px;
-	color: #555555;
-	vertical-align: middle;
-	border-radius: 4px;
-}
-
-input,
-textarea {
-	width: 206px;
-}
-
-textarea {
-	height: auto;
-}
-
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"] {
-	background-color: #ffffff;
-	border: 1px solid #cccccc;
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-	transition: border linear 0.2s, box-shadow linear 0.2s;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-	margin: 4px 0 0;
-	line-height: normal;
-}
-
-input[type="file"],
-input[type="image"],
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-input[type="radio"],
-input[type="checkbox"] {
-	width: auto;
-}
-
-select,
-input[type="file"] {
-	height: 30px;
-	line-height: 30px;
-}
-
-select {
-	width: 220px;
-	background-color: #ffffff;
-	border: 1px solid #cccccc;
-}
-
-select[multiple],
-select[size] {
-	height: auto;
-}
-
-select:focus,
-input[type="file"]:focus,
-input[type="radio"]:focus,
-input[type="checkbox"]:focus {
-	outline: thin dotted #333;
-	outline: 5px auto -webkit-focus-ring-color;
-	outline-offset: -2px;
-}
-
-
-input,
-textarea {
-	margin-left: 0;
-}
-
-input[disabled],
-select[disabled],
-textarea[disabled],
-input[readonly],
-select[readonly],
-textarea[readonly] {
-	cursor: not-allowed;
-	background-color: #eeeeee;
-}
-
-input[type="radio"][disabled],
-input[type="checkbox"][disabled],
-input[type="radio"][readonly],
-input[type="checkbox"][readonly] {
-	background-color: transparent;
-}
-
-input:focus:invalid,
-textarea:focus:invalid,
-select:focus:invalid {
-	color: #b94a48;
-	border-color: #ee5f5b;
-}
-
-input:focus:invalid:focus,
-textarea:focus:invalid:focus,
-select:focus:invalid:focus {
-	border-color: #e9322d;
-	box-shadow: 0 0 6px #f8b9b7;
-}

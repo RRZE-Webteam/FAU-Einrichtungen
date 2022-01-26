@@ -1,14 +1,14 @@
 /*-----------------------------------------------------------------------------------*/
-/* Meta region in top
+/* Meta region in top   fauorg-home
 /*-----------------------------------------------------------------------------------*/
 
 #meta {
 	@include placeholder(#fff);
-	background: $colorMetaBackground;
+	background: var(--color-StandardHellgrau);
+	color: var(--color-MetaTextDefault);
 	z-index: 100;
-	height: 50px;
-	padding: 5px 0;
-	
+    position: relative;
+
 	input,
 	li {
 		@include px2rem($font-size-meta);
@@ -20,18 +20,44 @@
 		padding: inherit;
 	}
 
-}
+    .header-row {
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        padding: 4px 0;
+        @media (min-width: $screen-sm) {
+            padding: 5px 0;
+        }
 
-
-.meta-tools {	
-	text-align: right;
-	position: static;
+        &:after {
+            content: '';
+            width: 52px;
+        }
+    }
 }
 
 .meta-widget {
 	display: inline-block;
 	margin: 5px 30px 5px 20px;
-	height: 30px;
+    height: 1.875rem;
 }
 
+#headerwrapper {
+    position: sticky;
+    top: 0;
+    z-index: 150;
+    transition: box-shadow 0.2s;
 
+    .admin-bar & {
+        top: $wordpress-adminbar-bigheight;
+
+        @media (min-width: $wordpress-adminbar-break) {
+            top: $wordpress-adminbar-smallheight;
+        }
+    }
+
+    body:not([data-scroll='0']) & {
+        background-color: var(--color-white);
+        @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+    }
+}

@@ -66,11 +66,11 @@ button.expand-all {
             overflow: hidden;
 
             .accordion-toggle {
-                border-left: 10px solid $colorPrimary;
-                background: $colorContentBorders;
-                color: $colorDefault; // $colorPrimary;
+                border-left: 10px solid var(--color-primary-ci-hell);
+                background: var(--color-ContentBorders);
+                color:  var(--color-Text);
                 @include border-radius(4px);
-		@include px2rem($font-size-content-toggle);
+		        @include px2rem($font-size-content-toggle);
                 text-decoration: none;
                 padding: 8px 35px 8px 10px;
                 position: relative;
@@ -84,17 +84,18 @@ button.expand-all {
                 }
 
                 &:hover,
-                    &:focus {
-                    background-color: darken($colorLightest, 3%);
+                &:focus {
+                    background-color: var(--color-primary-ci-hell);
+                    color: var(--color-primary-ci-hell-kontrast);
                     text-decoration: none;
                 }
 
                 &.active,
                 &.active:hover,
-                    &.active:focus {
-                    background-color: darken($colorLightest, 3%);
-                    color: $colorLightestContrast; // $colorPrimary;
-
+                &.active:focus {
+                    background-color: var(--color-primary-dunkler);
+                    color: var(--color-primary-dunkler-kontrast);
+                    border-color: var(--color-primary-dunkler);
                     &:before {
                         @extend .fa-caret-up;
                         top: 8px;
@@ -110,7 +111,7 @@ button.expand-all {
             .accordion-inner {
                 @extend .clearfix;
                 border: none;
-                background: $colorContentRegions;
+                background: var(--color-ContentRegions);
                 padding: 15px 20px;
             }
         }
@@ -118,35 +119,35 @@ button.expand-all {
     .phil .accordion-heading .accordion-toggle,
     .philfak .accordion-heading .accordion-toggle,
     .gold .accordion-heading .accordion-toggle {
-        border-color: $colorPhilFak;
+        border-color: var(--color-phil-ci-hell);
     }
     .rw .accordion-heading .accordion-toggle,
     .rwfak .accordion-heading .accordion-toggle,
     .red .accordion-heading .accordion-toggle {
-        border-color: $colorRwFak;
+        border-color: var(--color-rw-ci-hell);
     }
     .med .accordion-heading .accordion-toggle,
     .medfak .accordion-heading .accordion-toggle,
     .blue .accordion-heading .accordion-toggle {
-        border-color: $colorMedFak;
+        border-color: var(--color-med-ci-hell);
     }
     .nat .accordion-heading .accordion-toggle,
     .natfak .accordion-heading .accordion-toggle,
     .green .accordion-heading .accordion-toggle {
-        border-color: $colorNatFak;
+        border-color: var(--color-nat-ci-hell);
     }
     .tf .accordion-heading .accordion-toggle,
     .techfak .accordion-heading .accordion-toggle,
     .grey .accordion-heading .accordion-toggle {
-        border-color: $colorTechFak;
+        border-color: var(--color-tf-ci-hell);
     }
     .fau .accordion-heading .accordion-toggle,
     .default .accordion-heading .accordion-toggle {
-        border-color: $colorDefault;
+        border-color: var(--color-zentral-ci-hell);
     }
 
     h1, h2, h3, h4, h5, h6 {
-        color: $colorText;
+        color: var(--color-Text);
     }
     hr {
         &::after,
@@ -158,7 +159,7 @@ button.expand-all {
             right: inherit;
             top: inherit;
         }
-        border: 1px solid $PalettonHellste;
+        border: 1px solid var(--color-primary-ci-hell);
         margin: 30px 20px;
         height: inherit;
     }
@@ -180,9 +181,9 @@ button.expand-all {
     margin: 10px 0 20px 0;
 
     header {
-        border-left: 10px solid $colorPrimary;
-        background: $colorContentBorders;
-        color: $colorDefault; // $colorPrimary;
+        border-left: 10px solid var(--color-primary-ci-hell);
+        background: var(--color-ContentBorders);
+        color:  var(--color-Default);
         @include border-radius(4px);
         text-decoration: none;
         @include px2rem($font-size-content-toggle);
@@ -190,33 +191,33 @@ button.expand-all {
         position: relative;
 
         h2 {
-            color: $colorDefault; // $colorPrimary;
+            color:  var(--color-Default);
             padding: 0px;
         }
         &.phil,
         &.philfak {
-            border-color: $colorPhilFak;
+            border-color: var(--color-phil-ci-hell);
         }
         &.rw,
         &.rwfak {
-            border-color: $colorRwFak;
+            border-color: var(--color-rw-ci-hell);
         }
         &.med,
         &.medfak {
-            border-color: $colorMedFak;
+            border-color: var(--color-med-ci-hell);
         }
         &.nat,
         &.natfak {
-            border-color: $colorNatFak;
+            border-color: var(--color-nat-ci-hell);
         }
         &.tf,
         &.techfak {
-            border-color: $colorTechFak;
+            border-color: var(--color-tf-ci-hell);
         }
 
         &.fau,
         &.default {
-            border-color: $colorDefault;
+            border-color: var(--color-zentral-ci-hell);
         }
     }
     .body {
@@ -239,71 +240,92 @@ button.expand-all {
 	 display: inherit;
      }
 }
+#content .accordion {
+    button.expand-all {
+	@include defaultlinkstyle();
+	@include buttonstyle();
+    }
+}
 /*-----------------------------------------------------------------------------------*/
 /* Alerts
 /*-----------------------------------------------------------------------------------*/
-.alert {
+#content .alert {
+    padding: 2%;
     h2 {
-	padding-top: 7px;
+	    padding-top: 7px;
     }
-     p {
-	
-	padding: 5px 0;  
+    p {
+        padding: 5px 0;
     }
     &.alert-danger p {
-	font-size: 1.1rem;
+	    font-size: 1.1rem;
     }
 }
 
 
-/*-----------------------------------------------------------------------------------*/
-/* Absatzklassen
-/*-----------------------------------------------------------------------------------*/
-
-.notice-question:before,
-.notice-download:before,
-.notice-faubox:before,
-.notice-audio:before,
-.notice-video:before {
-    .faculty-phil & {
-        color: $colorPhilFak;
-    }
-    .faculty-rw & {
-        color: $colorRwFak;
-    }
-    .faculty-med & {
-        color: $colorMedFak;
-    }
-    .faculty-nat & {
-        color: $colorNatFak;
-    }
-    .faculty-tf & {
-        color: $colorTechFak;
-    }
-}
-
-.fauorg-home,
-.faculty-phil,
-.faculty-rw,
-.faculty-med,
-.faculty-nat,
-.faculty-tf {
-    .notice-hinweis {
-         color: $colorPrimary;
-         h3, p {
-            color: $colorPrimary;
-	}
-	h3+p, 
-	h3+ul, 
-	h3+ol {
-            color: $colorText;
-        }
-    }
-}
 /*-----------------------------------------------------------------------------------*/
 /* Timeline
 /*-----------------------------------------------------------------------------------*/
 
-#content [id^="timeline"] .issues li p:not(.wp-caption-text) {
-    @include px2rem($font-size-base);
+#content [id^="timeline"]  {
+    .issues li p:not(.wp-caption-text) {
+        @include px2rem($font-size-base);
+    }
+    .timeline-nav a,
+    ul.dates a,
+    a.next,
+    a.prev {
+        @include defaultlinkstyle();
+        text-decoration: none;
+        &:hover,
+        &:focus {
+            color: var(--color-submenu-hover-bg);
+            text-decoration: none;
+        }
+    }
+
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Buttons
+/*-----------------------------------------------------------------------------------*/
+#content .standard-btn {
+    @include defaultlinkstyle();
+    @include buttonstyle();
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* News
+/*-----------------------------------------------------------------------------------*/
+
+.rrze-elements-news {
+    .news-item {
+        a.read-more-link {
+            @include defaultlinkstyle();
+            @include ghostbutton();
+            display: block;
+            width: auto;
+            float: right;
+            margin: .6rem 0 0 1.8rem;
+        }
+    }
+}
+/*-----------------------------------------------------------------------------------*/
+/* Content Slider
+/*-----------------------------------------------------------------------------------*/
+#content .entry-content .content-slider.flexslider {
+    margin: 1rem 3rem;
+    .flex-control-nav, 
+    .flex-direction-nav,
+    .flex-pauseplay {
+	a {
+	     @include defaultlinkstyle();
+		text-decoration: none;
+	}
+    }
+    .flex-pauseplay a {
+	width: 2rem;
+	height: 2rem;
+    }
 }

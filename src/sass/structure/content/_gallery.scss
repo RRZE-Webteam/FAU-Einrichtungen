@@ -1,6 +1,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Gallery in content 
 /*-----------------------------------------------------------------------------------*/
+@use "sass:math";
 
 
 .image-gallery {
@@ -18,86 +19,50 @@
 	}
 	figcaption {
 	    @include px2rem($font-size-image-caption);
-	    color: $PalettonDunkler;
 	    padding: 5px;
 	}
     }
     figure:not(.with-caption) {
 	img {  
 	    object-fit: cover;
-	    
-		    min-height: 100%;
-		    min-width: 100%;
-		    width: 100%;
-		    height: auto;
-		    max-width: none;
-		    max-height: none;
+	    min-height: 100%;
+	    min-width: 100%;
+	    width: 100%;
+	    height: auto;
+	    max-width: none;
+	    max-height: none;
 
-	    
 	}
 
     }
     
     
     .grid {
-	.two, 
-	.three,
-	.four, 
-	.five {
-	    .row {
-		display: flex;
-		flex-wrap: wrap;
-		margin-left: 0;
-		margin-right: 0;
-	    }
-	    figure {
-		padding: 5px;
+	$gapwidth: floor(math.div($grid-gutter-width, 2));
+	$figpadding: 5px;
+	$figwidth2: floor(math.div(($gapwidth + ($figpadding * 2)),2));
+	$figwidth3: floor(math.div((($gapwidth * 2) + ($figpadding * 2)),3));
+	$figwidth4: floor(math.div((($gapwidth * 3) + ($figpadding * 2)),4));
+	$figwidth5: floor(math.div((($gapwidth * 4) + ($figpadding * 2)),5));
 	
-	    }
-	}
-	.two {	    
-	    figure {
-		width: calc(50% - 1px);
-		
-	    }
-	}
-	.three {
-	    figure {
-		width: calc(33% - 1px);
-	    }
-	}
-	.four {
-	    figure {
-		@extend .col-xs-6;
-		@media (min-width: $screen-sm-min) {
-		    width: calc(25% - 1px);
-		    // Rundungsfehler auschliessen: 
-		    // Hintergurnd: 666 / 4 = 166,5; würde auf 167 aufgerundet werden 
-		    // und dann leider dazu führen, dass der grid doch umbricht.
-		}
-	    }
-	}
-	.five {
-	    figure {
-		@extend .col-xs-6;
-		@media (min-width: $screen-sm-min) {
-		    width: calc(20% - 1px);
-		}
-	    }
-	}
 	.flexgrid {
 	    display: flex; 
 	    flex-wrap: wrap; 
-	    
+	    gap: $gapwidth;
 	    
 	    figure { 
-		border: 1px solid #e9edf2;
+		border: 1px solid var(--color-ContentBorders);
 		text-align: center;
 		height: auto;
-		margin: 5px;
 		overflow: hidden;
-		flex: 1 1 190px;
+		width: calc(33% - $figwidth3);
+		margin: 0;
+		padding: $figpadding;
 		
+		a {
+		    @include defaultlinkstyle();
+		    text-decoration: none;
+		}
 	
 	    }
 	    figure:not(.with-caption) { 
@@ -117,22 +82,106 @@
 		:focus,
 		:hover {
 		    img {
-			transform: scale(1.2);
+			transform: scale(1.1);
+			filter: grayscale(100%);
 		    }
 		}
 	    }
 
 	    
+	    
+	    &.two, 
+	    &.three,
+	    &.four, 
+	    &.five {
+		figure {
+		    padding: $figpadding;
+
+		}
+	    }
+	    &.two {	    
+		figure {
+		    
+		    width: calc(50% - $figwidth2);
+
+		}
+	    }
+	    &.three {
+		figure {
+		    width: calc(33% - $figwidth3);
+		}
+	    }
+	    &.four {
+		figure {
+		   width: calc(50% - $figwidth2);
+		    @media (min-width: $screen-sm) {
+			width: calc(25% - $figwidth4);
+		    }
+		}
+	    }
+	    &.five {
+		figure {
+		    width: calc(50% - $figwidth2);
+		    @media (min-width: $screen-sm) {
+			width: calc(20% - $figwidth5);
+		    }
+		}
+	    }
+	    
 	}
 	
 	
+	
     }
+     &.nospace .grid {
+	.flexgrid {
+	    gap: 0;
+	    figure {
+		padding: 0;
+		width: 33%;
+		border: none;
+	    }
+	}
+	.flexgrid.two {	    
+		figure {
+		    
+		    width: 50%;
+
+		}
+	
+	}
+	.flexgrid.three {
+		figure {
+		    width: 33%;
+		}
+
+	}
+	.flexgrid.four {
+		figure {
+		   width: 50%;
+		    @media (min-width: $screen-sm) {
+			width: 25%;
+		    }
+		}
+
+	}
+	.flexgrid.five {
+		figure {
+		    width: 50%;
+		    @media (min-width: $screen-sm) {
+			width: 20%;
+		    }
+		}
+	
+	}
+    }
+    
+    
     .gallery-slick {
 	figure,
 	.gallery-image-caption {
 	    text-align: center;
 	    @include px2rem($font-size-image-caption);
-	    color: $PalettonDunkler;
 	    padding: 5px;
 	}
 	.slick-slider {
@@ -153,9 +202,6 @@
 		margin-right: 5px;
 		height: auto;
 		    
-		.page-template-page-subnav & {
-		    max-height: 80px;
-		}
 		
 		img {
 		    object-fit: fill;
@@ -205,29 +251,28 @@
 		border: none;
 		outline: none;
 
-
+		
 		&:hover,
 		&:focus {
 			outline: none;
 			background: transparent;
-			color: $slick-arrow-color;
+			color: var(--color-button-bg);
 
 			&:before {
-				opacity: $slick-opacity-on-hover;
+				 color: var(--color-button-hover-bg);
 			}
 		}
 
-		&.slick-disabled:before {
-			opacity: $slick-opacity-not-active;
-		}
-
+		
 		&:before {
 			font-size: 40px;
 			line-height: 1;
-			color: $colorPrimary;
-			opacity: $slick-opacity-default;
+			color: var(--color-button-bg);
+			text-shadow: 0 0 1px var(--color-button-text);
 
 		}
+		
+
 
 	}
 
@@ -340,61 +385,41 @@
 
 		position: relative;
 		display: inline-block;
-		width: 20px;
-		height: 20px;
-		margin: 0 5px;
+		width: 1.5rem;
+		height: 1.5rem;
+		margin: 0.2rem 0.5rem;
 		padding: 0;
 		cursor: pointer;
 		
 		button {
 		    
 		    display: block;
-		    width: 20px;
-		    height: 20px;
-		    padding: 5px;
+		    width: 1.5rem;
+		    height: 1.5rem;
 		    cursor: pointer;
-		    color: transparent;
+		    border-radius: 50%;
+		    padding: 0;
+		    color: var(--color-primary-ci-hell-kontrast);
+		    background-color: var(--color-primary-ci-hell);
+		    
 		    border: 0;
 		    outline: none;
-		    background: transparent;
 
-		    &:before {
-			@extend .fa;
-			content: "\f111";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 20px;
-			height: 20px;
-		
-			text-align: center;
-			opacity: .25;
-			color: $colorPrimary;
-
+		    &:hover, 
+		    &:focus {
+			color: var(--color-button-hover-text);
+			background-color: var(--color-button-hover-bg);
 		    }
-		    
-		     &:hover, &:focus {
-			    outline: none;
-			    &:before {
-				opacity: 1;
-			    }
-			}
   
 		}
-		 &.slick-active button:before {
-		     opacity: 1;
-		 }
+		&.slick-active button {
+		    color: var(--color-button-hover-text);
+		    background-color: var(--color-button-hover-bg);
+		}
+
 	    }
 	}
     }
-    &.nospace .grid {
-	.flexgrid, .one, .two, .three, .four, .five {
-	    figure {
-		padding: 0;
-		margin: 0;
-		border: none;
-	    }
-	}
-    }
+   
     
 }

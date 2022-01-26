@@ -13,6 +13,11 @@ $font-path-roboto:	'../fonts/roboto/';
 
 
 @import "frameworks/bootstrap";
+
+// SVG Icons and CI elements
+@import "icons/icons";
+
+
 // Mixins
 @import "mixins/mixins";
 // Fonts

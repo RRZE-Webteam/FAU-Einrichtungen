@@ -13,7 +13,7 @@ get_header(); ?>
 
 	<?php get_template_part('template-parts/hero', 'small'); ?>
 
-	<div id="content">
+	<div id="content" class="subnav">
 	    <div class="content-container">			
 		<div class="content-row">	
 		    <?php echo fau_get_page_subnav($post->ID); ?>		
@@ -36,11 +36,15 @@ get_header(); ?>
 				    echo '<div class="content-inline">';
 				}
 				the_content(); 
+				
+				
+				echo wp_link_pages($pagebreakargs);
+				
 				echo '</div>';
 				?>
 	
 			    </div>
-			    <?php echo wp_link_pages($pagebreakargs); ?>
+			  
 			</main>    
 		      <?php  
 			$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			

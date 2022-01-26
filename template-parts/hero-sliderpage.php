@@ -9,7 +9,5 @@
 
 
 ?>
-	<div id="hero" class="sliderpage">
-	<?php get_template_part('template-parts/hero', 'sliderpage-slider'); ?>
-	<?php get_template_part('template-parts/hero', 'sliderpage-jumplinks'); ?>
-	</div>
+
+<?php get_template_part('template-parts/hero', 'sliderpage-slider'); ?>

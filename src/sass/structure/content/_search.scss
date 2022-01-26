@@ -4,30 +4,72 @@
 
 .search-result {
 	margin-bottom: 11px;
+	
+	    .search-row {
+		display: flex;
+		align-items: flex-start;
+		flex-wrap: wrap;
+
+		@media (min-width: $screen-xs) {
+		    flex-wrap: nowrap;
+		    column-gap: $fau-gutter-width;
+		}
+		.searchresult-image {
+		    width: 100vw;
+		    text-align: center;
+		    padding: 0;
+		    margin-left: calc(-#{$fau-gutter-width} / 2);
+		    margin-right: calc(-#{$fau-gutter-width} / 2);
+		    // Auf kleinem Display setze die Bilder nahtlos an den Rand
+
+		    @media (min-width: $screen-xs) {
+			width: auto;
+			min-width: 220px;
+			margin-left: 0;
+			margin-right: 0;
+			margin-bottom: 0;		
+		    }
+		    @media (min-width: $screen-xl) {
+			min-width: 320px;
+		    }
+		    img {
+			width: 100%;
+			text-align: center;
+			@media (min-width: $screen-sm) {
+			    width: 220px; 
+			}
+			@media (min-width: $screen-xl) {
+			    width: 320px;
+			}
+		     }  
+		}
+		.searchresult-imagetext {
+		    width: 100%;
+
+		    @media (min-width: $screen-xs ) {
+			p {
+			    display: inline;
+			}
+		    }
+
+		}
+
+		.fullwidthregion {
+		    width: 100%;
+		}
+	    }
+	
+	
 	article {
 	    @extend .col-sm-12;
 	}
-	.searchresult-image {
-	    @extend .col-xs-4;
-	    @extend .col-sm-3;
-	    text-align: right;
-	    
-	    img {
-		height: auto;
-		max-height: 147px;
-		box-shadow: none;
-	    }
-	    
-	} 
-	.searchresult-imagetext {
-	    @extend .col-xs-8;
-	    @extend .col-sm-9
-	}
+
+
 	.search-meta {
 		padding: 5px 0;
 		margin-top: 0px;
 		margin-bottom: 10px;
-		color: $colorText;
+		color: var(--color-Text);
 		display: block;
 		font-family: $fontStack;
 		
@@ -102,59 +144,61 @@
 
 
 .widget_search,
-.search-contenttry {	
-	form {
-	    border: none;
-	    .sidebar-single & {
-		padding: 20px 0;
-	    }
-	}
+.searchform-content {	
+  
 	.search-text {
-	     margin: 0 20px;
-	     @include placeholder(#fff);
-
 	    label {
 		@extend .screen-reader-text;
 	    }
-	    input {
-		@include border-radius(20px);
-		padding: 0 15px;
-	    }
 	    input[type="text"] {
+		@include border-radius(20px);
 		@include px2rem($font-size-herosearch);
-		border: 1px solid $colorMeta;
-		width: 80%;
-		padding: 5px 10px 5px 30px;
+		border: 1px solid  var(--color-primary-ci-hell);
+		max-width: min(25rem, 90%);
+		padding: 0.5rem 7rem 0.5rem 2rem;
 		height: inherit;
 		margin: 0;
-		background: $colorMeta; // $colorSearchInputBackground;
-		color: #fff; // $colorSearchInput;
-
-		&:focus, &:hover {
-			background-color: $colorMetaHover; // $colorSearchInputBackgroundFocus;
-			border: 1px solid $colorMetaHover;
+		width: 100%;
+		@media (min-width: $screen-xs) {
+		    width: 25rem;
 		}
-	    }
+		
+		
+		background: var(--color-primary-ci-hell);
+		color: var(--color-primary-ci-hell-kontrast);
 
+		&:active,
+		&:target,
+		&:focus {
+			background-color: var(--color-primary-ci-hell2);
+			color: var(--color-primary-ci-hell2-kontrast);
+			outline-style: none;
+                        
+                       
+		}
+                &:focus::placeholder {
+                    color: var(--color-primary-ci-hell2-kontrast);
+                }
+	    }
+            input[type="text"]::placeholder {
+                color: var(--color-primary-ci-hell-kontrast);
+            }
+            
 	    input[type="submit"] {
+		@include border-radius(20px);
 		@include px2rem($font-size-herosearch);
-		    border: 1px solid $colorSearchInputBackground;
-		    background: $colorSearchInputBackgroundFocus;
-		    color: $colorSearchInput;
-		    padding: 5px 10px;
+		    border: 1px solid var(--color-primary-ci-hell);
+		    @include buttoncolor();
+		    padding: 0.5rem 1rem;
 		    height: inherit;
-		    margin-left: -30px;
-		    
-		    &:focus, &:hover {
-			    background-color: $colorSearchInputBackground;
-		    }
+		    margin-left: -5rem;
 	    }
 	    .searchicon {
-		@extend .fa;
-		@extend .fa-search;
-		position: relative;
-		margin-right: -30px;
-		color: #fff;
+		@extend .svg-icon;
+		@include svg-icon-sizes(1.1rem);
+		background-image: svg-icon-search(#fff, 16, 16);
+		margin-right: -2rem;
+		margin-left: 1rem;
 	    }
 	}
 
@@ -167,7 +211,7 @@
 			margin-right: 3px;
 		}
 	}
-	.filter {
+/*	.filter {
 	   display: block;
 	   margin: 20px;
 	    label {
@@ -189,15 +233,103 @@
 		white-space: nowrap;
 	    }
 	}
+	*/
+	.filter {
+	    margin-top: 0.5rem;
+	    display: flex;
+	    flex-wrap: wrap;
+	    justify-content : flex-start;
+	    align-items : center;
+	    
+	    div {
+		@include inline-block();
+		text-align: left;		
+		
+		label {
+		    @include inline-block();
+		    margin: 0 1rem 0 0.5rem;
+		    padding: 0;
+		    min-width: inherit;
+		}
+		input[type="checkbox"] {
+		    margin: 0;
+		    width: 1rem;
+		    height: 1rem;
+		    border: 1px solid #bbb;
+		    box-shadow: inset 0 1px 1px 0 rgba(0,0,0,.1);
+		}
+		
+	    }
+	}
 
 }
-
+.search-contenttry,
+.searchpage-content {
+    form {
+	    border: none;
+	    
+	    @include border-radius(4px);
+	    margin: 1rem 0;
+	    padding: 1rem;
+	    .sidebar-single & {
+		padding: 20px 0;
+	    }
+	    &:hover {
+		box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.1);
+	    }
+	}
+	
+}
 .widget_search {
 
     .search-text {
-	margin: 0 5px 0 20px;
-        input[type="text"], input[type="submit"] {
+        input[type="text"], 
+        input[type="submit"] {
 	    @include px2rem($font-size-sidebar);
 	}
+        
+        input[type="text"] {
+            width: 15rem;
+            padding-right: 5rem;
+        }
+         input[type="submit"] {
+	   margin:0 0 0 -4rem;
+	}
     }
+}
+
+.search-results {
+ .nav-links {
+	    margin: 20px 0;
+	    @include inline-block();
+
+	    a {
+		
+		@include defaultlinkstyle();	
+		text-decoration: none;
+		@include buttonstyle();
+		@include px2rem($font-size-pagination-links);
+		
+		&:hover, 
+		&:focus {
+			text-decoration: underline;
+		}
+	    }
+
+	    
+	    .dots {
+		@include buttonstyle();
+	    }
+	    .current {
+		@include ghostbutton();
+		@include px2rem($font-size-pagination-links);
+	    }
+
+	    .prev, 
+	    .next {
+		    padding-left: 1rem;
+		    padding-right: 1rem;
+	    }
+
+ }
 }

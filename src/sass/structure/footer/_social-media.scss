@@ -2,7 +2,7 @@
 /* Social Media Widget
 /*-----------------------------------------------------------------------------------*/
 #social {
-	background: $colorSocialBackground;	
+	background: var(--color-StandardHellgrau);
 	margin: 0;
 	padding: 20px 0;
 	    
@@ -12,7 +12,6 @@
 	h3#socialmediatitle,
 	div h3:first-child,
 	h2  {
-		color: $colorSocial;
 		padding-top: 0;
 	}
 	h2, 
@@ -25,10 +24,9 @@
 	    display: block;
 	}
 	a {
-	    color: $colorSocial;	    
+	    color: var(--color-Text);	    
 	    &:hover, &:focus {
-		    text-decoration: underline;
-		    color: $colorPrimary;
+		    text-decoration: underline;	  
 	    }
 	    
 	}

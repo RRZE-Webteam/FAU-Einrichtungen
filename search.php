@@ -7,35 +7,33 @@
  * @since FAU 1.0
  */
 
-get_header(); 
-get_template_part('template-parts/hero', 'search'); 
-$active_sidebar = 0;
-$showhelplinks = 0;
-if ( is_active_sidebar( 'search-sidebar' ) ) { 	
-    $active_sidebar = 1;
-}
-?>
-    <div id="content">
-	<div class="content-container">
-	    <div class="content-row">
-		    <div class="search-resultnested">   
-			
 
-				    
-				<main>
-				   <h1 class="screen-reader-text"><?php _e('Webauftritt durchsuchen','fau'); ?></h1>
-				 <?php 
-								 
-				if(strlen(get_search_query()) > 0) {
+
+get_header();
+get_template_part('template-parts/hero', 'search');  
+$notfound = false;
+?>
+ <div id="content">
+    <div class="content-container">	   
+	<div class="content-row">
+	    <div class="searchpage-content ">
+		     <main>
+
+				<h1 class="screen-reader-text"><?php echo __('Webauftritt durchsuchen','fau'); ?></h1>
+				
+				<?php
+				  if(strlen(get_search_query()) > 0) {
+				    // Suchbegriff vorhanden
 				    if(have_posts()) { 
-					global $wp_query, $wp_rewrite;
-					
-					?>							
+					// Treffer vorhanden
+					global $wp_query, $wp_rewrite;?>
 						<h2><?php _e('Suchergebnisse','fau'); ?></h2>
 						<?php
+						get_template_part('template-parts/search', 'form');  
+						
+						
 						$notice_search = get_theme_mod('search_notice_searchregion');
-						if (!fau_empty($notice_search)) {
-						?>
+						if (!fau_empty($notice_search)) { ?>
 						<p class="notice-hinweis"><?php echo $notice_search; ?></p>
 						<?php } ?>
 						<p class="meta-resultinfo"><?php 
@@ -53,7 +51,7 @@ if ( is_active_sidebar( 'search-sidebar' ) ) {
 						echo '<ul class="searchresults">';
 						while ( have_posts() ) { 
 						    the_post(); 
-						    echo fau_display_search_resultitem($active_sidebar);
+						    echo fau_display_search_resultitem();
 						} 
 						echo "</ul>";
 
@@ -89,62 +87,68 @@ if ( is_active_sidebar( 'search-sidebar' ) ) {
 						) );
 						?>
 						<?php if ( $links ) { ?>
-						    <nav id="nav-pages" class="navigation paging-navigation" role="navigation">
-							<h3 class="screen-reader-text"><?php _e( 'Weitere Suchergebnisse', 'fau' ); ?></h3>
+						    <nav id="nav-pages" class="navigation paging-navigation" role="navigation" aria-label="<?php _e( 'Weitere Suchergebnisse', 'fau' ); ?>">
 							<div class="nav-links">
 							    <?php echo $links; ?>
 							</div>
 						    </nav>
 						<?php } 
 					    } 
-
-				    } else { ?>
-					 <div class="error-content">	
-					    <div class="error-notice">
-						    <p class="attention">
-							<strong><?php _e('Nichts gefunden.','fau'); ?></strong></p>
-						    <p><?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?></p>
-
-					    </div>
-					    <?php get_template_part('template-parts/error', 'siegel');  ?>
-					</div>
-					<?php 
-					    $showhelplinks = 1;
-				    } 
-				} else { ?>
-				    <div class="error-content">
+					
+				    } else {
+					// keine Treffer
+					$notfound = true;
+					?>
 					<div class="error-notice">
-					    <p class="attention">
+					    <p class="hinweis">
+						    <strong><?php _e('Nichts gefunden.','fau'); ?></strong>
+					    </p>
+					    <p>
+						    <?php _e('Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden.','fau'); ?>
+					    </p>						
+					</div>	   
+					<?php 
+					get_template_part('template-parts/search', 'form');  
+				    }
+				  } else {
+				    // bisher kein SUchbegriff eingegeben
+				      ?>
+					<div class="error-notice">
+					    <p class="hinweis">
 						    <strong><?php _e('Kein Suchbegriff.','fau'); ?></strong>
 					    </p>
-					     <p><?php _e('Bitte geben Sie einen Suchbegriff in das Suchfeld ein.','fau'); ?></p>
-					</div>
-					<?php get_template_part('template-parts/error', 'siegel');  ?>
-				    </div>
-					
-					<?php
-					$showhelplinks = 1;
-				} ?>
-				</main>	
-			
-				<?php
-				if ($showhelplinks==1) {
-					get_template_part('template-parts/search', 'helper'); 
-				}
+					    <p>
+						    <?php _e('Bitte geben Sie einen Suchbegriff in das Suchfeld ein.','fau'); ?>
+					    </p>						
+					</div>	   
+					<?php 
+					get_template_part('template-parts/search', 'form');  
+				  }
 				?>
-			</div>
-		    
-		  <?php if ( is_active_sidebar( 'search-sidebar' ) ) { 	?>
-		    <div class="search-sidebar">
-			<?php dynamic_sidebar( 'search-sidebar' ); ?>
-		    </div>	
-		    <?php } ?>
-
+				
+				
+					    
+			      <?php 
+				
+				get_template_part('template-parts/search', 'helper'); 
+				?>   
+		      </main> 
 	    </div>
+	    <?php if ( (is_plugin_active( 'FAU-Fehlermeldungen/fau-fehlermeldungen.php' ) && ($notfound)) || (is_active_sidebar( 'search-sidebar' )) ) { ?>
+	      <aside class="portalpage-sidebar" aria-label="<?php echo __('Sidebar','fau');?>">	 
+	      <?php 
+		if ( is_plugin_active( 'FAU-Fehlermeldungen/fau-fehlermeldungen.php' ) && ($notfound)) { 
+		    echo do_shortcode('[fau_fehlermeldungen type="404" fulltext="false" ]'); 
+		}
+		if ( is_active_sidebar( 'search-sidebar' ) ) { 	
+		    dynamic_sidebar( 'search-sidebar' );
+		} ?>
+	     </aside>
+	    <?php } ?>
 	</div>
     </div>
-
-
-<?php 
-get_footer(); 
+ </div>
+<?php
+get_template_part('template-parts/footer', 'social'); 
+get_footer();
 

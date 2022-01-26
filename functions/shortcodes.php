@@ -39,14 +39,23 @@ class FAUShortcodes {
                 'showsubs'	=> true,
                 'nothumbs'	=> false,
                 'nofallback'    => false,
-                'type'    => 1,
-                'skewed'    => false,
+                'type'          => 1,
+                'skewed'        => false,
             ), $atts));
+            
             $out ='';
+	    
             $menu = $menu ?  esc_attr( $menu ) : '';
-            $error = '<p class="box red-box">'.__("Es konnte kein Menu unter der angegebenen Bezeichnung gefunden werden",'fau').'</p>';
+            $error = '<p>'.__("Es konnte kein Menu unter der angegebenen Bezeichnung gefunden werden",'fau').'</p>';
             $error .= "name=$menu";
             if (! fau_empty($menu)) {
+		
+		$showsubs = filter_var($showsubs, FILTER_VALIDATE_BOOLEAN);
+		$nothumbs = filter_var($nothumbs, FILTER_VALIDATE_BOOLEAN);
+		$nofallback = filter_var($nofallback, FILTER_VALIDATE_BOOLEAN);
+		$skewed = filter_var($skewed, FILTER_VALIDATE_BOOLEAN);
+		
+		
                 if ($menu == sanitize_key($menu)) {
                     $term = get_term_by('id', $menu, 'nav_menu');
                 } else {
@@ -57,48 +66,59 @@ class FAUShortcodes {
                 } else {
 		    $slug = $term->slug;
 		    $subentries = get_theme_mod('default_submenu_entries');
-		    $spalte = get_theme_mod('default_submenu_spalten');
+                    if ($showsubs===false) {
+                        $subentries = 0;
+                    }
+		//    $spalte = get_theme_mod('default_submenu_spalten');
 
 		    $a_contentmenuclasses[] = 'contentmenu';
 		    $thumbnail = 'rwd-480-2-1';
 		    $type = intval($type);
-                   
+           
 		    switch ($type) {
                     	case 1:
 				$thumbnail = 'rwd-480-2-1';
+				 $a_contentmenuclasses[] = 'size_2-1';
                     		break;
                     	case 2:
-                    		$showsubs = false;
-                    		$a_contentmenuclasses[] = 'refresh';
-                    		$a_contentmenuclasses[] = 'no-shadow';
-                   		$thumbnail = 'rwd-480-3-2';
+				$a_contentmenuclasses[] = 'size_3-2';
+                   		$thumbnail = 'full';
                     		break;
                     	case 3:
-                    		$showsubs = false;
-                    		$a_contentmenuclasses[] = 'refresh';
-                    		$a_contentmenuclasses[] = 'no-shadow';
-                    		$thumbnail = 'gallery-full';
+				$a_contentmenuclasses[] = 'size_3-4';
+                    		$thumbnail = 'full';
                     		break;
                     	default:
 				$thumbnail = 'rwd-480-2-1';
                     		$type = 1;
                     		break;
 		    }
-                    $a_contentmenuclasses[] = 'contentmenutype' . $type;
+                    
+                    
 
-                    if($skewed) {
+                    if ($skewed===true) {
                     	$a_contentmenuclasses[] = 'skewed';
                     }
-                    $out .= '<div class="'. implode(' ',$a_contentmenuclasses) . '" role="navigation">';
+                    if ($showsubs===false) {
+                    	$a_contentmenuclasses[] = 'no-sub';
+                    }
+                    if ($nofallback === true) {
+						$a_contentmenuclasses[] = 'no-fallback';
+					}
+                    if ($nothumbs === true) {
+						$a_contentmenuclasses[] = 'no-thumb';
+					}
+                    $out .= '<div class="'. implode(' ',$a_contentmenuclasses) . '" role="navigation" aria-label="'.__('Inhaltsmenü','fau').'">';
                     $out .= '<ul class="subpages-menu">';
                     $outnav = wp_nav_menu( array( 'menu' => $slug,
                         'echo'          => false,
                         'container'     => true,
-												'items_wrap'     => '%3$s',
+			'items_wrap'     => '%3$s',
                         'link_before'   => '',
                         'link_after'    => '',
                         'item_spacing'  => 'discard',
-                        'walker'        => new Walker_Content_Menu($slug,$showsubs,$spalte,$nothumbs,$nofallback,$thumbnail)));
+                       
+                        'walker'        => new Walker_Content_Menu($slug,$showsubs,$subentries,$nothumbs,$nofallback,$thumbnail)));
                     $out .= $outnav;
                     $out .=  "</ul></div>";
                 }

@@ -5,7 +5,8 @@
 
 body {
 	margin: 0;
-	color: $colorText;	
+	color: var(--color-Text);
+	background-color: var(--color-MainBackground);
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.35;
@@ -18,22 +19,28 @@ html, body, button {
 	font-kerning:  none;
 }
 
+html {
+    scroll-padding-top: 175px;
+    
+    @media (min-width: $screen-sm) {
+        scroll-padding-top: 400px;
+    }
+    
+}
 
 /* Main surrounding grid */
 /* Wrap content in white */
 #pagewrapper {
 	min-height: 100%;
-	margin: 0 auto;	
-	background-color: #fff;
+	margin: 0 auto;
+	background-color: var(--color-MainBackground);
 	position: relative;
-	
+
 	display: flex;
-	flex-wrap: wrap; 
+	flex-wrap: wrap;
 	flex-direction: column;
 	min-height: 100vh;
 	
-	
-	#headerwrap, 
 	footer {
 	    // normal
 	}
@@ -43,6 +50,8 @@ html, body, button {
 	#content {
 	    flex: 1;
 	    width: 100%;
+	    
+	 
 	}
 	footer {
 	    margin-top: auto;
@@ -55,16 +64,6 @@ html, body, button {
 
 
 
-.flyout-entries,
-.introthumb,
-.introtext {
-    @extend .col-xs-12;
-    @extend .col-sm-4;
-}
-.introtext-full {
-    @extend .col-xs-12;
-    @extend .col-sm-8;
-}
 .flyout-entries-full {
      @extend .col-xs-12;
 }
@@ -72,7 +71,7 @@ html, body, button {
 
 
 
-@media (max-width: $screen-sm - 1) {
+@media (max-width: $screen-sm) {
 	body {
 	//    overflow: hidden;
 	    padding: 0;

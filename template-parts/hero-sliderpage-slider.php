@@ -8,11 +8,6 @@
  * @since FAU 1.7
  */
 
-?>
-
-
-    <section id="hero-slides" role="region" aria-roledescription="carousel"  aria-label="<?php echo __('Bedeutende Artikel','fau'); ?>">
-	<?php	
 	global $usejslibs;
 	global $defaultoptions;
 	$i= 0;
@@ -32,8 +27,16 @@
 	    );                   
 	    $hero_posts = get_posts($query); 
 	}
-	?>
 	
+	$sliderclass = "sliderpage";
+	if ((has_nav_menu('quicklinks-3')) || (has_nav_menu('quicklinks-4'))) {
+	   $sliderclass .= " with-infobar";
+	}
+	
+	
+	if ($hero_posts && (count($hero_posts) > 0)) { ?>
+<div id="hero" class="<?php echo $sliderclass; ?>">
+	<section id="hero-slides" role="region" aria-roledescription="carousel"  aria-label="<?php echo __('Bedeutende Artikel','fau'); ?>">
 	   <div class="slick-slider featured-slider cf" id="mainslider">
 	       <?php
 		foreach($hero_posts as $hero): 
@@ -65,15 +68,18 @@
 				// Es gibt weder Bannerbild noch Artikelbild.
 				// Wir nehmen das Fallbackbild aus dem Customizer
 				$sliderimage = wp_get_attachment_image_src( $fallbackid, 'hero' );
-				$slidersrcset =  wp_get_attachment_image_srcset($fallbackid,'hero');
-				$slidersrcsizes = wp_get_attachment_image_sizes($fallbackid,'hero' );
-				$imgdata = fau_get_image_attributs($fallbackid);
-				if (preg_match("/^cropped\-/",$imgdata['title'])) {
-				    $copyright = get_theme_mod("fallback-slider-image-title");			
+				if ($sliderimage !== false) {
+				    $slidersrcset =  wp_get_attachment_image_srcset($fallbackid,'hero');
+				    $slidersrcsizes = wp_get_attachment_image_sizes($fallbackid,'hero' );
+				    $imgdata = fau_get_image_attributs($fallbackid);
+				    if (preg_match("/^cropped\-/",$imgdata['title'])) {
+					$copyright = get_theme_mod("fallback-slider-image-title");			
+				    } else {
+					$copyright = trim(strip_tags( $imgdata['credits'] ));
+				    }
 				} else {
-				    $copyright = trim(strip_tags( $imgdata['credits'] ));
+				    $sliderimage = array($defaultoptions['src-fallback-slider-image'],$defaultoptions['slider-image-width'],$defaultoptions['slider-image-height']);  
 				}
-				
 				
 			    } else {
 				// Kein Fallbackbild definiert, also hardcodiertes Fallback des Themes
@@ -102,6 +108,7 @@
 		    $slidersrc .= ' role="presentation">';
 		    echo $slidersrc."\n"; 
 
+
 		    if ((get_theme_mod('advanced_display_hero_credits')==true) && (!empty($copyright))) {
 			echo '<p class="credits">'.$copyright."</p>";
 		    }
@@ -124,8 +131,8 @@
 					echo $link;
 					echo '">'.get_the_title($hero->ID).'</a></header>'."\n";					
 					?>
-				    </div>
-				</div>
+				 </div>
+			    </div>
 			    <?php
 				$maxlen = get_theme_mod("default_slider_excerpt_length");
 				if ($maxlen > 0) { ?>
@@ -163,5 +170,13 @@
 		</button>
 	    </div>
 	    
-	</section>
+	</section> 
+    <?php 
+    get_template_part('template-parts/hero', 'sliderpage-jumplinks'); ?>
+	</div>
+    <?php 
+	} else {
+	 get_template_part('template-parts/hero', 'banner'); 
+	
+    } ?>
    

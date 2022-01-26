@@ -1,177 +1,194 @@
 //-----------------------------------------------------------------------------------*/
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
+@use "sass:math";
+
 $farbfamilie: 'zuv';
 // med, phil, nat, rw, tf, zuv
 
-// Define fonts
-$fontStack: 'Roboto', sans-serif;
-$fontStackSerifs: Georgia, serif;
-$font-family-base: $fontStack;
-$font-path-awesome: './fonts/fontawesome/';
-$font-path-roboto: './fonts/roboto/';
 
 
 // Define colors
-$colorText: #444;
-$colorTextLight: #797676;
+$colormap-misc: ("Text": #222, 
+		 "TextLight": #797676, 
+		 "TextLightKontrast": #5B5858,
+		 "MetaTextDefault": #444,
+		 "Notice": #a71c18, 
+		 "Alert": #c5ac94,
+		 "ZUV": #04316A, // #003366, 
+		 "Default": #04316A, // #003366, 
+		 "MainBackground":  #fff, 
+		 "StandardHellgrau": #e9edf2,	// desaturate(lighten($colorZUV, 73%), 75%);
+		 "ContentBorders": #dfe6ec,	// desaturate(lighten($colorZUV, 69%), 75%);
+		 "ContentRegions": #f5f7f9,        // FAU: lighten($colorZUV, 4%);
+		 "white":   #fff,
+		 "black":   #000,
+		 "PrintMain": #000,
+		 "KontrastHell":    #fff,
+		 "KontrastDunkel":  #333
+		 );
 
-// Define notice colors
-$colorNotice: #a71c18;
+ 
+// $colormap-zentral: ("basis": #003366, "heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #24598f, "dunkelste": #1f4b7a, "basis-kontrast": #fff);
+// alt, 2015
 
-// Define colors of each faculty
-$colorPhilFak: #A36B0D;
-$colorRwFak: #8d1429;
-$colorMedFak: #0381A2;
-$colorNatFak: #048767;
-$colorTechFak: #6E7881;
-$colorZUV: #003366;
-$colorDefault: #003366;
 
-$colorStandardHellgrau: #e9edf2;
-// FAU: colorlightest:
-// desaturate(lighten($colorZUV, 73%), 75%);
-$colorContentBorders: #dfe6ec;
-// FAU: colorlight
-// desaturate(lighten($colorZUV, 69%), 75%);
-$colorContentRegions: #f5f7f9;
-// FAU: lighten($colorZUV, 4%);
+// Neuer Entwurf 28.10.
+$colormap-zentral: ("basis": #04316A, "basis-kontrast": #fff,"heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #004A9F, "dunkler-kontrast": #fff, "dunkelste": #041E42, "dunkelste-kontrast": #fff, "ci-hell": #04316A, "ci-hell-kontrast": #fff, "ci-hell2": #CED9E7, "ci-hell2-kontrast": #000);
+$colormap-phil: ("basis": #963B2F, "basis-kontrast": #fff,"heller": #d9c689, "hellste": #f3eedf, "dunkler": #e87722, "dunkler-kontrast": #000, "dunkelste": #963B2F, "dunkelste-kontrast": #fff,  "ci-hell": #FDB735, "ci-hell-kontrast": #000, "ci-hell2": #F4E8CB, "ci-hell2-kontrast": #000);
+$colormap-med: ("basis": #005287,"basis-kontrast": #fff, "heller": #bfd6f5, "hellste": #eaf3fc, "dunkler": #005287, "dunkler-kontrast": #fff, "dunkelste": #003E61, "dunkelste-kontrast": #fff,  "ci-hell": #18B4F1, "ci-hell-kontrast": #000, "ci-hell2": #B9D9EC, "ci-hell2-kontrast": #000);
+$colormap-nat: ("basis": #266141, "basis-kontrast": #fff,"heller": #aacfbd, "hellste": #e5efea, "dunkler": #266141, "dunkler-kontrast": #fff, "dunkelste": #14462D, "dunkelste-kontrast": #fff,  "ci-hell": #7BB725, "ci-hell-kontrast": #000, "ci-hell2": #CFE0D8, "ci-hell2-kontrast": #000);
+$colormap-rw: ("basis": #971B2F, "basis-kontrast": #fff,"heller": #c5ac94, "hellste": #F2DED1, "dunkler": #971B2F, "dunkler-kontrast": #fff, "dunkelste": #662938, "dunkelste-kontrast": #fff,  "ci-hell": #C50F3C, "ci-hell-kontrast": #fff, "ci-hell2": #F2DED1, "ci-hell2-kontrast": #000);
+$colormap-tf: ("basis": #2F586E, "basis-kontrast": #fff,"heller": #d2d5d7, "hellste": #ebecee, "dunkler": #2F586E, "dunkler-kontrast": #fff, "dunkelste": #204251, "dunkelste-kontrast": #fff,  "ci-hell": #8C9FB1, "ci-hell-kontrast": #000, "ci-hell2": #D3DDE6, "ci-hell2-kontrast": #000);
+
+
+
+$colormap-primary: $colormap-zentral;
+
+
+@if $farbfamilie == 'med' {
+	$colormap-primary: $colormap-med;
+} @else if $farbfamilie == 'phil' {
+	$colormap-primary: $colormap-phil;
+} @else if $farbfamilie == 'nat' {
+	$colormap-primary: $colormap-nat;
+} @else if $farbfamilie == 'rw' {
+	$colormap-primary: $colormap-rw;
+} @else if $farbfamilie == 'tf' {
+	$colormap-primary: $colormap-tf;
+} @else if $farbfamilie == 'zuv' {
+	$colormap-primary: $colormap-zentral;
+}
+
+
+$colormaps: ("primary": $colormap-primary, "zentral": $colormap-zentral, "phil": $colormap-phil, "med": $colormap-med, "nat": $colormap-nat, "rw": $colormap-rw, "tf": $colormap-tf);
+
+// Content
+$color-content-headlines:   map-get($colormap-misc, "Text");
+$color-links:		    map-get($colormap-misc, "Text");
+$color-content-links:	    map-get($colormap-misc, "Text");
+$color-content-links-underline:	    map-get($colormap-primary, "ci-hell");
+$color-content-links-hover: map-get($colormap-primary, "ci-hell-kontrast");
+
+
+// Footer
+$color-footer-bg:	map-get($colormap-primary, "ci-hell");
+$color-footer-text:	map-get($colormap-primary, "ci-hell-kontrast");
+
+// Hero
+$color-hero-bg:		map-get($colormap-primary, "ci-hell");
+$color-hero-text:	map-get($colormap-primary, "ci-hell-kontrast");
+
+
+
+// Main Menu
+$color-mainmenu-toplevel-bg:	    map-get($colormap-misc, "MainBackground");
+$color-mainmenu-toplevel-text:	    map-get($colormap-misc, "Text");
+$color-mainmenu-toplevel-hover-text:	map-get($colormap-primary, "ci-hell-kontrast");
+$color-mainmenu-toplevel-hover-bg:	map-get($colormap-primary, "ci-hell");
+$color-mainmenu-sublevel-bg:	    map-get($colormap-primary, "ci-hell");
+$color-mainmenu-sublevel-text:	    map-get($colormap-primary, "ci-hell-kontrast");
+$color-mainmenu-sublevel-hover-text:	map-get($colormap-primary, "dunkler-kontrast");
+$color-mainmenu-sublevel-hover-bg:	map-get($colormap-primary, "dunkler");
+$color-mainmenu-sublevel-button-text:	map-get($colormap-primary, "dunkler-kontrast");
+$color-mainmenu-sublevel-button-bg:	map-get($colormap-primary, "dunkler");
+$color-mainmenu-sublevel-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
+$color-mainmenu-sublevel-button-hover-bg:	map-get($colormap-primary, "dunkelste");
+
+// Submenu (= Subnav links)
+$color-submenu-toplevel-bg:	    map-get($colormap-misc, "MainBackground");
+$color-submenu-toplevel-text:	    map-get($colormap-misc, "Text");
+$color-submenu-toplevel-hover-text:	map-get($colormap-primary, "ci-hell-kontrast");
+$color-submenu-toplevel-hover-bg:	map-get($colormap-primary, "ci-hell");
+$color-submenu-active-bg:	    map-get($colormap-primary, "ci-hell");
+$color-submenu-active-text:	    map-get($colormap-primary, "ci-hell-kontrast");
+$color-submenu-hover-text:	map-get($colormap-primary, "dunkler-kontrast");
+$color-submenu-hover-bg:	map-get($colormap-primary, "dunkler");
+$color-submenu-currentlevel-text:	map-get($colormap-primary, "ci-hell2-kontrast");
+$color-submenu-currentlevel-bg:	    map-get($colormap-primary, "ci-hell2");
+$color-submenu-sublevel-text:	map-get($colormap-primary, "ci-hell-kontrast");
+$color-submenu-sublevel-bg:	    map-get($colormap-primary, "ci-hell");
+
+$color-submenu-currentpage-bg:	map-get($colormap-primary, "dunkelste");
+$color-submenu-currentpage-text:map-get($colormap-primary, "dunkelste-kontrast");
+
+$color-menulink-hover-text:	map-get($colormap-primary, "dunkler-kontrast");
+$color-menulink-hover-bg:	map-get($colormap-primary, "dunkler");
+
+
+
+
+$colorNotice:		map-get($colormap-misc, "Notice"); 	
+$colorZUV:		map-get($colormap-misc, "ZUV"); 
+$colorDefault:		map-get($colormap-misc, "Default"); 
+$colorStandardHellgrau: map-get($colormap-misc, "StandardHellgrau"); 
+$colorContentRegions:	map-get($colormap-misc, "ContentRegions"); 
+$colorMainBackground:	map-get($colormap-misc, "MainBackground"); 
 
 $colorShadows:	rgba(135,132,135,1);
 // Color for shadows
 
 
-// Define defaults and variables
-$colorPrimary: $colorZUV;
-$colorPrimaryContrast: #fff;
-$PalettonHellste: desaturate(lighten($colorPrimary, 73%), 75%);
-$PalettonHeller: desaturate(lighten($colorPrimary, 69%), 75%);
-$PalettonDunkler: desaturate(lighten($colorPrimary, 10%), 90%);
-$PalettonDunkelste: desaturate(lighten($colorPrimary, 10%), 40%);
-
-$colorPrimaryHero: $colorPrimary;
-$HeroSiegelColor: $colorPrimary;
-$colorPrintMain: #000;
-$colorPrintMainLinks: $colorText;
-
-
-@if $farbfamilie == 'med' {
-	$colorPrimary: $colorMedFak;
-	$PalettonHellste: #eaf3fc; // #35C0DA;
-	$PalettonHeller: #bfd6f5; // #08C0E7;
-	$PalettonDunkler: #026480;
-	$PalettonDunkelste: #014e63;
-	$HeroSiegelColor: $colorPrimary;
-
-} @else if $farbfamilie == 'phil' {
-	$colorPrimary: $colorPhilFak;
-	$PalettonHellste: #f3eedf;
-	$PalettonHeller: #d9c689;
-	$PalettonDunkler: #805000;
-	$PalettonDunkelste: #553500;
-	$HeroSiegelColor: $PalettonDunkler;
-
-} @else if $farbfamilie == 'nat' {
-	$colorPrimary: $colorNatFak;
-	$PalettonHellste: #e5efea;
-	$PalettonHeller: #aacfbd;
-	$PalettonDunkler: #006e53;
-	$PalettonDunkelste: #00533f;
-	$HeroSiegelColor: $colorPrimary;
-
-
-} @else if $farbfamilie == 'rw' {
-	$colorPrimary: $colorRwFak;
-	$PalettonHellste: #ede7de; // #C9A8AF;
-	$PalettonHeller: #c5ac94; // #bd7d8b;
-	$PalettonDunkler: #690013;
-	$PalettonDunkelste: #42000c;
-	$HeroSiegelColor: $colorPrimary;
-
-} @else if $farbfamilie == 'tf' {
-	$colorPrimary: $colorTechFak;
-	$PalettonHellste: #ebecee; // #bfc2c5;
-	$PalettonHeller: #d2d5d7; // #8e949a;
-	$PalettonDunkler: #53606b;
-	$PalettonDunkelste: #3b4956;
-	$HeroSiegelColor: $PalettonDunkler;
-
-
-} @else if $farbfamilie == 'zuv' {
-	$colorPrimary: $colorZUV;
-	$PalettonHellste: #dde5f0;
-	$PalettonHeller: #8fb1ef;
-	$PalettonDunkler: #24598f;
-	$PalettonDunkelste: #1f4b7a;
-	$HeroSiegelColor: lighten($colorPrimary, 15%);
-
-}
-
-
-$colorHover: $PalettonDunkelste;
-$colorLight: $PalettonHeller;
-$colorLightContrast: #fff;
-$colorLightest: $PalettonHellste;
-$colorLightestContrast: $PalettonDunkelste;
-$colorPrimaryHero: $colorPrimary;
-$colorPrimaryHeroLight: lighten($colorPrimary, 15%);
-
-
-$colorSubNavCurrent: #fff;
-$colorSubNavCurrentBackground: $PalettonDunkler;
-$colorSubNavCurrentHover: #fff;
-$colorSubNavCurrentHoverBackground: $colorHover;
-$colorSubNav: $PalettonDunkelste;
-$colorSubNavBackground: $colorLightest;
-$colorSubNavBackgroundHover: $PalettonDunkler; // darken($colorSubNavBackground, 5%);
-$colorMainMenu: #fff;
-
 
 $colorOverlayLight: rgba(255, 255, 255, 0.15);
 $colorOverlayDark: rgba(0, 0, 0, 0.15);
-// Vorschlag von https://github.com/SebastianHonert/FAU-Einrichtungen/commit/762a7ab636090006af98d4fc502e8e12359c711e#diff-0cecaa3634e3ebf71c0b473a183dff42
-// Mit passenden Variablennamen versehen.
-
-
-$colorButtonBackground: $colorPrimary;
-$colorButton: #fff;
-$colorButtonBackgroundHover: $PalettonDunkler;
-
-
-$colorSearchPlaceholder: #111;
-$colorSearchInput: #000;
-$colorSearchInputBackground: $colorLightest;
-$colorSearchInputBackgroundFocus: #fff;
 
 // Meta Menu
-$colorMeta: $colorDefault;
 // Define Background-Color for Meta Menu at top
-$colorMetaBackground: $colorStandardHellgrau;
-$colorMetaFAUHomeBackground: desaturate(darken($colorStandardHellgrau, 10%), 90%); // #d0d3d8;
-$colorMetaHover: desaturate(lighten($colorDefault, 10%), 40%);
-$colorMetaText: #fff;
-$colorMetaLight: desaturate(lighten($colorDefault, 69%), 75%);
-$colorMetaLightest: desaturate(lighten($colorDefault, 73%), 75%);
+$colorMetaFAUHomeBackground:	desaturate(darken($colorStandardHellgrau, 10%), 90%); // #d0d3d8;
+$colorMetaHover:		desaturate(lighten($colorDefault, 10%), 40%);
+$colorMetaLightest:		desaturate(lighten($colorDefault, 73%), 75%);
 
-$colorPasspartoutBackground: $colorStandardHellgrau;
-
-// Social Bar Startseite
-$colorSocial: $colorPrimary; // $colorDefault;
-$colorSocialBackground: $colorMetaBackground;
 
 
 // CopyrightInfos auf Slider und Banner
 $colorCopyright: #fff;
 $colorCopyrightBackground: rgba(0, 0, 0, 0.6);
 
-// Abbrevations, Acronyms
-$colorAbbr: #000;
+// Buttons
+$color_button_text:		map-get($colormap-primary, "dunkler-kontrast");
+$color_button_bg:		map-get($colormap-primary, "dunkler");
+$color-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
+$color-button-hover-bg:		map-get($colormap-primary, "dunkelste");
+
+// Ghost-Button
+$color-ghostbutton-hover-text:	map-get($colormap-primary, "ci-hell-kontrast");
+$color-ghostbutton-hover-bg:	map-get($colormap-primary, "ci-hell");
+
+
+// Hinweis: Für SVG-Grafiken brauchen wir den HEX-Code direkt und können nicht Custom Properies nutzen!
+$socialmedia_icon_bgcolor_hover: map-get($colormap-primary, "ci-hell-kontrast");
+$socialmedia_icon_color:	map-get($colormap-primary, "ci-hell-kontrast");
+$socialmedia_icon_color_hover:	map-get($colormap-primary, "ci-hell");
+
+$svg-icon-size: 1.4rem;
+$svg-icon-color: $color_button_text;
+$svg-icon-color_hover: $color-button-hover-text;
+$socialmedia_icon_size: 1.8rem;
+
+
+// Define fonts
+
+
+$fontStack: 'Roboto','FAU Chimera', sans-serif;
+// $fontStack: 'Roboto', sans-serif;
+$fontStackSerifs: Georgia, serif;
+$fontStackFAU: 'FAU Chimera', sans-serif;
+
+$font-family-base: $fontStack;
+$font-path-awesome: './fonts/fontawesome/';
+$font-path-roboto: './fonts/roboto/';
+$font-path-fau-chimera: './fonts/fau-chimera/';
 
 // Font sizes
-$font-size-rembase: 93.75%;
-$font-size-rembase-mobile: 100%;
-$font-size-gridbase: 15;
-$font-size-base: 15;
+$font-size-rembase: 100%; 
+$font-size-rembase-screen-xl: 110%;
+$font-size-rembase-screen-xxs: 90%; 
+$screen-minrembase:	    360px;
+
+$font-size-gridbase: 16;
+$font-size-base: 16;
+
 
 $font-size-meta: ($font-size-base - 2);
 $font-size-sidebar: ($font-size-base - 2);
@@ -181,19 +198,18 @@ $font-size-larger: ($font-size-base + 8);
 
 $font-size-footer: ($font-size-base - 2);
 $font-size-breadcrumb: ($font-size-base - 2);
-$font-size-herosearch: 16;
-$font-size-header-branding: 19;
+$font-size-herosearch: $font-size-base;
+$font-size-header-branding: ($font-size-base + 4);
 
 $font-size-hero-slider-title: 25;
-$font-size-hero-slider-text: 18;
-$font-size-hero-slider-copyright: 14;
+$font-size-hero-slider-text: $font-size-large;
+$font-size-hero-slider-copyright: ($font-size-base - 1);
 $font-size-hero-meta-portal: 40;
 
-$font-size-textbuttons: 14;
-$font-size-linkicon: 13;
-$font-size-hero-links: 13;
-$font-size-hero-bannertext: 18;
-$font-size-link-contentmenu: 13;
+$font-size-textbuttons: ($font-size-base - 1);
+$font-size-linkicon: ($font-size-base - 2);
+$font-size-hero-links: ($font-size-base - 2);
+$font-size-hero-bannertext: $font-size-large;
 
 $font-size-content-linkicon: 10;
 $font-size-content-listitem: $font-size-base;
@@ -207,63 +223,62 @@ $font-size-sidebar-events-month: 10;
 $font-size-sidebar-events-day: 20;
 
 $font-size-socialmedia-morelink: $font-size-sidebar;
-$font-size-nav-blockquote: 16;
-$font-size-nav-blockquote-cite: 14;
-$font-size-nav-introtext: 15;
-$font-size-nav-flyout-items: 15;
-$font-size-nav-mainlinks: 17;
+$font-size-nav-mainlinks: $font-size-base;
+
+$font-size-nav-level2: $font-size-base;
+$font-size-nav-level3: ($font-size-base - 1);
+$font-size-nav-buttons:	($font-size-base + 2);
 
 $font-size-subnav-firstlevel: ($font-size-base - 1);
 $font-size-subnav-sublevel: ($font-size-base - 2);
 
 
 
-$font-size-h1: 32;
-$font-size-h1-mobilebranding: 24;
-$font-size-h1-banner: 28;
-$font-size-h1-sidebar: 22;
-$font-size-h1-table: 22;
-$font-size-h1-small: 24;
+$font-size-h1: ($font-size-base + 13);
+$font-size-h1-mobilebranding: ($font-size-h1 - 2);
+$font-size-h1-banner: $font-size-h1;
+$font-size-h1-sidebar: ($font-size-base + 8);
+$font-size-h1-table: ($font-size-h1 - 2);
+$font-size-h1-small: ($font-size-h1 - 2);
 
 
-$font-size-h2: 24;
-$font-size-h2-small: 22;
-$font-size-h2-socialmedia: 18;
-$font-size-h2-sidebar: 18;
-$font-size-h2-table: 18;
+$font-size-h2: ($font-size-base + 8);
+$font-size-h2-small: ($font-size-h2 - 2);
+$font-size-h2-socialmedia: ($font-size-h2 - 2);
+$font-size-h2-sidebar: ($font-size-base + 5);
+$font-size-h2-table: ($font-size-h2 - 2);
 
-$font-size-h3: 19; // 18
-$font-size-h3-small: 18;
-$font-size-h3-hero: 18;
-$font-size-h3-sidebar: 16;
-$font-size-h3-contentmenu: 15;
-$font-size-h3-table: 15;
+$font-size-h3: ($font-size-base + 5);
+$font-size-h3-small: ($font-size-h3 - 2);
+$font-size-h3-hero: ($font-size-h3 - 2);
+$font-size-h3-sidebar: ($font-size-base + 3);
 
-
-$font-size-h4: 17; // 15
-$font-size-h4-small: 16;
-$font-size-h4-sidebar: 14;
-$font-size-h4-table: 14;
+$font-size-h3-table: ($font-size-h3 - 2);
 
 
-$font-size-h5: 16; // 15
-$font-size-h5-sidebar: 13;
-$font-size-h5-table: 13;
+$font-size-h4: ($font-size-base + 3);
+$font-size-h4-small: ($font-size-h4 - 2);
+$font-size-h4-sidebar: ($font-size-base + 1);
+$font-size-h4-table: ($font-size-h4 - 2);
 
 
-$font-size-h6: $font-size-base;
-$font-size-h6-sidebar: 13;
-$font-size-h6-table: 13;
+$font-size-h5: ($font-size-base + 2);
+$font-size-h5-sidebar: ($font-size-base + 1);
+$font-size-h5-table: ($font-size-h5 - 2);
 
 
-$font-size-quotes: 18;
-$font-size-quotes-cites: ($font-size-quotes - 1);
+$font-size-h6: ($font-size-base + 1);
+$font-size-h6-sidebar: $font-size-base;
+$font-size-h6-table: ($font-size-h6 - 2);
 
-$font-size-content-meta: 14;
 
-$font-size-image-caption: 13;
+$font-size-quotes: ($font-size-base + 2);
+$font-size-quotes-cites: ($font-size-quotes - 2);
 
-$font-size-content-toggle: 16;
+$font-size-content-meta: $font-size-small;
+$font-size-image-caption: $font-size-small;
+
+$font-size-content-toggle: $font-size-base;
 
 $font-size-pagination-h3: $font-size-content-meta;
 $font-size-pagination-links: $font-size-content-meta;
@@ -273,9 +288,24 @@ $font-size-mobile-meta: 24;
 $font-size-mobile-sitetitle: 20;
 $font-size-desktop-sitetitle: 22;
 
-$font-size-print-base: 11;
-$font-size-print-base-small: 9;
+$font-size-print-base: $font-size-base;
+$font-size-print-base-small: ($font-size-base - 2);
 
+
+// Contentmenus / Portalmenus im Contentbereich
+
+$font-size-contentmenu-title: ($font-size-base + 2);
+$font-size-contentmenu-link: $font-size-base;
+
+$contentmenu-xxs-width: 182px;
+$contentmenu-default-width: 302px;
+$contentmenu-default-height: floor(math.div(300px, 3) * 2);
+$contentmenu-xxs-maxheight: floor(math.div(180px, 3) * 2);
+
+$contentmenu-typ2-width: 300px;
+$contentmenu-typ2-height: auto;
+$contentmenu-typ3-width: 480px;
+$contentmenu-typ3-height: auto;
 
 // Slider
 $slick-arrow-color: white !default;
@@ -283,8 +313,12 @@ $slick-opacity-default: 0.75 !default;
 $slick-opacity-on-hover: 1 !default;
 $slick-opacity-not-active: 0.25 !default;
 
-$slick-opacity-text-background: 0.7;
+$slick-opacity-text-background: 0.8;
 $slick-opacity-text-shadow: 0px 0px 4px #000;
+
+
+
+
 // Define breakpoints
 
 // iPhone 3G
@@ -320,8 +354,8 @@ $screen-md-min:              $screen-md;
 $screen-lg:                  1200px;
 $screen-lg-min:              $screen-lg;
 
-$screen-xl: 1760px;
-$screen-xxl: 3200px;
+$screen-xl: 1400px;
+$screen-xxl: 1760px;
 $screen-xxs: 320px;
 
 $slider-maxwidth: 1260px;
@@ -341,8 +375,8 @@ $screen-xxl-min: $screen-xxl;
 
 $container-lg: 1024px;
 // $container-lg: 970px;
-$container-xl: 1100px;
-$container-xxl: 1100px;
+$container-xl: 1400px;
+$container-xxl: 1760px;
 
 // max width of the homepage hero image, used by the plugin "ILI FAU Templates"
 $max-width-hero: 1920px;
@@ -360,5 +394,7 @@ $subnav-width-md: 275px;
 $subnav-width-lg: 290px;
 
 $sidebar-width-inline: 235px;
+$sidebar-width-inline-lg: 270px;
 $sidebar-width-portal: 33%;
 $sidebar-width-posts: 330px;
+$sidebar-maxwidth-portal: 350px;

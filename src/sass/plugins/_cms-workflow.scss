@@ -5,150 +5,81 @@
 
 /* Language switcher */
 .cms-workflow-widget {
-    margin: 0;
-    position: absolute;
-    top: 10px;
-    left: 50px;
-    right: inherit;
-    margin: 0;
-    
-        
-    
-     @media (min-width: $screen-sm ) {
-	position: relative;
-	left: inherit;
-	top: inherit;
-	margin-left: 20px;
-	
-	 ul {
-	     min-width: 100px;
-	     width: max-content;
 
-	 }
-     }
-    
-    
-    .mlp_language_box {
-	@include inline-block();
-	background: $colorMetaBackground;
-	
+    @media (min-width: $screen-sm) {
+        position: relative;
+        left: inherit;
+        top: inherit;
 
-	ul {
-	    display: block;
-	     @media (min-width: $screen-sm) {
-		display: flex;
-	    }
-	    padding: 0;
-	    margin: 0;
-	   
-	   
-	    &:before {
-			@extend .fa;
-			@extend .fa-language;
-			@include px2rem(21);
-			display: none;
-			z-index: 10;	
-	    }
-	  
-	    li {
-		padding: 0;
-		margin: 0;
-		border: 1px solid $colorContentBorders;
-		border-left: none;
-		
-		@media (min-width: $screen-sm) {
-		    border: none;
-		}
-		
-		@include no-list();
-		
-		a {
-		    text-align: center;
-		    text-decoration: none;
-		    text-transform: uppercase;
-		    font-weight: bold;
-		    color: $colorMeta;
-		    display: inline-block;
-		    
-		    @include border-radius(20px);
-		    height: 30px;
-		    padding: 0 4px;
-		    line-height: 30px;
-		    overflow: hidden;
-		    width: 38px;
-		   
-		    @media (min-width: $screen-lg) {
-			min-width: 40px;
-			width: auto;
-			background: #fff;
-			padding: 0 5px;
-			margin-right: 5px;
-		    }
-		    
-		    &::before {
-			content: attr(hreflang);
-			display: inline-block;
+        ul {
+            min-width: 100px;
+            width: max-content;
 
-			@media (min-width: $screen-lg) {
-				content: "";
-				margin-right: 0px;
-				display: none;
-			}
-		    }
-		    
-		    
-		    
-		    &:hover,
-		    &:focus {
-			    background: $colorMetaHover; // $colorMetaLightest;
-			    color: $colorMetaText;
-			    @include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
-			    
-			    
-		    }
-	
-
-		}
-		
-		&.lang-current.current {
-		    display: none;
-		}
-		
-		&:nth-child(1) {
-		    @media (min-width: $screen-lg) {
-			margin-left: -25px;
-
-			a {
-			    padding-left: 30px;
-			    padding-right: 10px;
-			}
-		    }
-		}
-	    
-	    } 
-	   
-
-	}
-	@media (max-width: $screen-sm - 1) {
-	     li:hover {
-		background: $colorMetaHover; // $colorMetaLightest;
-		color: $colorMetaText;
-		
-		a::before,
-		a {
-		    color: $colorMetaText;
-		}
-		
-	    }
-	}
-	 @media (min-width: $screen-sm) {
-	     ul:before {
-		 display: inherit;
-	     }
-	    
-	 }
+        }
     }
-    
+
+    .mlp_language_box {
+        @include inline-block();
+        background: var(--color-StandardHellgrau);
+
+        ul {
+            display: block;
+            padding: 0;
+            margin: 0;
+
+            @media (min-width: $screen-sm) {
+                display: flex;
+            }
+
+            li {
+                padding: 0;
+                margin: 0;
+                border: none;
+
+                @include no-list();
+
+                a {
+                    text-align: center;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    color: var(--color-Default);
+                    display: inline-block;
+                    height: 1.875rem;
+                    line-height: 30px;
+                    overflow: hidden;
+                    min-width: 40px;
+                    width: auto;
+                    background: #fff;
+                    padding: 0 5px;
+                    margin-right: 5px;
+
+                    @include border-radius(20px);
+
+                    &:before {
+                        z-index: 10;
+                        color: var(--color-MetaTextDefault);
+                        vertical-align: middle;
+                        margin-right: 0.25rem;
+
+                        @extend .fa;
+                        @extend .fa-language;
+                        @include px2rem(21);
+                    }
+
+                    &:hover,
+                    &:focus {
+                        background: var(--color-MetaBackgroundLight);
+                        @include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+                    }
+                }
+
+                &.lang-current.current {
+                    display: none;
+                }
+            }
+        }
+    }
 }
 
 

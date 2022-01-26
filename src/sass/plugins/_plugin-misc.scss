@@ -23,3 +23,11 @@ Anpassungen der Gestaltung an verschiedene Plugins
 	display: none;
     }
 }
+
+
+.shariff,
+.rrze-rsvp {
+    a {
+	 @include defaultlinkstyle();
+    }
+}

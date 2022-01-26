@@ -1,0 +1,450 @@
+/*-----------------------------------------------------------------------------------*/
+/* Hauptmenu im Kopf der Seite
+/*-----------------------------------------------------------------------------------*/
+@use "sass:math";
+
+.nav {
+    @include no-list;
+
+    /* All links & buttons */
+    a, [type=button] {
+        text-decoration: none;
+        color: var(--color-mainmenu-toplevel-text);
+        background: var(--color-mainmenu-toplevel-bg);
+
+        &:hover,
+        &:focus,
+        &[aria-expanded=true] {
+            color: var(--color-mainmenu-toplevel-hover-text);
+            background: var(--color-mainmenu-toplevel-hover-bg);
+            text-decoration: none;
+        }
+
+
+    }
+
+    /* First-level items */
+    > li {
+        @include no-list;
+
+        /* Primary navigation toggle links / buttons */
+        > a,
+        > [type=button] {
+            display: block;
+            position: relative;
+            @include px2rem($font-size-nav-mainlinks);
+            font-weight: bold;
+            padding: 10px 15px;
+
+            /* Necessary for force-click toggle buttons */
+            border: none;
+            background-color: transparent;
+            text-align: left;
+            width: 100%;
+        }
+
+        &.has-sub {
+            > a,
+            > [type=button] {
+                padding-bottom: 10px;
+                padding-right: 28px;
+                margin-bottom: 0;
+
+                &:before {
+                    @extend .fa;
+                    @extend .fa-caret-down;
+                    position: absolute;
+                    top: 11px;
+                    right: 15px;
+                    display: none;
+                    transition: transform .2s ease-in-out;
+                }
+            }
+
+            &:hover {
+                > a {
+                    @include border-bottom-radius(0);
+                }
+            }
+
+            body:not(.mainnav-forceclick):not(.ismobile) & {
+                > a:focus ~ .nav-flyout,
+                > [type=button]:focus ~ .nav-flyout,
+                &:hover .nav-flyout {
+                    display: block;
+                }
+            }
+
+            /* Must be an extra selector as IE / Edge doesn't support :focus-within and considers this invalid */
+            body:not(.mainnav-forceclick):not(.ismobile) &:focus-within .nav-flyout {
+                display: block;
+            }
+
+            > [type=button][aria-expanded=true] {
+                &:before {
+                    transform: rotate(-180deg);
+                }
+
+                ~ .nav-flyout {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .level2,
+    .level3 {
+        a {
+            color: var(--color-mainmenu-sublevel-text);
+            background-color: var(--color-mainmenu-sublevel-bg);
+        }
+
+        a:hover,
+        a:focus {
+            text-decoration: underline;
+            color: var(--color-mainmenu-sublevel-hover-text);
+            background-color: var(--color-mainmenu-sublevel-hover-bg);
+	        @include border-radius(3px);
+        }
+    }
+
+    /* Fly-Out / secondary navigation */
+    .nav-flyout {
+        background-color: var(--color-mainmenu-sublevel-bg);
+        padding: 20px 0;
+    }
+
+    /* Portal buttons */
+    .button-portal {
+        @include inline-block;
+        font-weight: normal;
+        @include buttonstyle();
+        @include px2rem($font-size-nav-buttons);
+        padding: 0.5rem 1rem;
+    }
+
+    ul {
+        @include no-list;
+        margin: 0 0 15px 0;
+
+        li {
+            @include no-list; /* Necessary because there's a global style setting this to "disc" */
+            padding: 0;
+        }
+
+        a {
+            display: inline-block;
+            padding: 7px 20px 7px 15px;
+            width: 100%;
+        }
+    }
+
+
+    .level2 {
+        > li {
+            &.has-sub {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            > a {
+                border-bottom: 1px solid var(--color-primary-dunkelste);
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+/*
+* Larger device
+*/
+
+@media (min-width: $screen-sm) {
+    .mainnav-plainview {
+        .nav {
+            ul {
+                margin-bottom: 0;
+
+                &.level2 > li {
+                    margin-bottom: 15px;
+		    
+                    &:not(.has-sub) {
+                        > a {
+                            border-bottom: none;
+                        }
+                    }
+
+                    > a {
+			            @include px2rem($font-size-nav-level2);
+                        border-bottom-color: var(--color-primary-dunkler);
+                        padding-left: $padding-base-horizontal;
+
+                    }
+                }
+
+                &.level3 a {
+		            @include px2rem($font-size-nav-level3);
+                }
+            }
+
+            .flyout-entries-full {
+                column-count: 3;
+                column-gap: 30px;
+
+                @media (max-width: $screen-md - 1) {
+                    column-count: 2;
+                }
+
+                @media (min-width: $screen-xl) {
+                    column-count: 4;
+                }
+            }
+
+            .nav-flyout {
+                background: var(--color-mainmenu-sublevel-bg);
+
+
+                @media (min-width: $screen-sm) {
+                    min-height: 199px;
+                }
+            }
+
+            .container {
+                padding-left: floor(math.div($grid-gutter-width, 2) - $padding-base-horizontal);
+                padding-right: ceil(math.div($grid-gutter-width, 2) - $padding-base-horizontal);
+            }
+
+        }
+    }
+}
+
+#mainnav-toggle,
+#mainnav-toggle-close {
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    @include px2rem($font-size-mobile-meta);
+    background-color: transparent;
+    border: 1px dashed transparent;
+    z-index: 100;
+    color: var(--color-Default);
+    padding: 1px 8px;
+    display: none;
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: var(--color-FAU);
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.22);
+    }
+    .nav-toggled &{
+        padding: 1px 9px;
+    }
+    span {
+        @include hideout();
+    }
+}
+
+#mainnav-toggle:before {
+    @extend .fa;
+    @extend .fa-bars;
+}
+
+#mainnav-toggle-close:before {
+    @extend .fa;
+    @extend .fa-close;
+}
+
+#mainnav-toggle[aria-expanded=true]:before {
+    @extend .fa-close;
+}
+
+
+/* Very small device */
+@media (max-width: $screen-xs - 1) {
+    .no-js {
+        .hide-mobile {
+            display: none;
+            top: 0;
+            position: relative;
+        }
+    }
+}
+
+/* Medium sized device */
+@media (max-width: $screen-sm) {
+    /* If there's no JavaScript available */
+    #mainnav-toggle-close {
+        display: none;
+    }
+
+    #nav-wrapper {
+        display: none;
+    }
+
+    .nav {
+        border-top: 1px solid var(--color-primary-ci-hell);
+
+        .nav-flyout {
+            padding-top: 0;
+        }
+
+        > li {
+            border-top: 1px solid $colorOverlayDark; // #ccc;
+            &:first-child {
+                border-top-color: transparent;
+            }
+
+            &.level1 {
+                &:hover, &:focus {
+                    border-top: 1px solid var(--color-primary-dunkelste);
+
+                    + li {
+                        border-top: 1px solid var(--color-primary-dunkelste);
+                    }
+                }
+
+
+                > a,
+                > [type=button] {
+                    margin: 0;
+                    cursor: pointer;
+
+                    &[aria-expanded=true] {
+                        background-color: var(--color-primary-dunkler);
+                        color: var(--color-primary-dunkler-kontrast);
+                        border-radius: 0;
+                    }
+
+                    &:hover, &:focus {
+                        background-color: var(--color-primary-dunkelste);
+                        color: var(--color-primary-dunkelste-kontrast);
+                    }
+                }
+            }
+        }
+    }
+
+    .level2 {
+        border-top: 1px solid #1f4c7a;
+    }
+    .level3 {
+        li {
+            a {
+                padding-left: $padding-base-horizontal * 2.5;
+            }
+        }
+    }
+
+    .no-js #nav:target {
+
+        #mainnav-toggle {
+            display: none;
+        }
+        #mainnav-toggle-close {
+            display: block;
+        }
+    }
+
+    .no-js #nav:target #nav-wrapper,
+    #nav [aria-expanded=true] ~ #nav-wrapper {
+        display: block;
+    }
+
+    [aria-expanded=true] ~ #menu-backdrop {
+        display: block;
+    }
+
+    .js {
+        .nav-flyout {
+            display: none;
+        }
+
+        .nav > li.level1 {
+            > a,
+            > [type=button] {
+
+                &:before {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    #mainnav-toggle {
+        display: block;
+    }
+}
+
+/* Large device */
+@media (min-width: $screen-sm) {
+    #nav {
+        background-color: transparent;
+    }
+
+    .nav {
+        /* All links & buttons */
+        > li {
+            float: left;
+
+            > a,
+            > [type=button] {
+                padding: 10px;
+                @include border-radius(4px);
+            }
+
+            &.has-sub {
+                > a,
+                > [type=button] {
+                    &:before {
+                        display: block;
+                        right: 11px;
+                    }
+                }
+            }
+        }
+
+        /* Fly-Out / secondary navigation */
+        .nav-flyout {
+            display: none;
+            position: absolute;
+            z-index: 30;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+            @include box-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
+        }
+    }
+}
+
+/* Large device */
+@media (min-width: $screen-md) {
+    .nav {
+        .nav-flyout {
+            max-height: calc(100vh - 162px);
+            overflow-y: auto;
+        }
+    }
+
+}
+
+#menu-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 51, 102, .7);
+    z-index: 100;
+}
+.meta-links-toggled,
+.nav-toggled {
+
+    #menu-backdrop {
+        display: block;
+
+        @media (min-width: $screen-sm) {
+            display: none;
+        }
+    }
+}

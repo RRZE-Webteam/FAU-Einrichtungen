@@ -3,7 +3,7 @@
 /*-----------------------------------------------------------------------------------*/
 
 .widget {
-	margin-bottom: 10px;
+	margin-bottom: 0.7rem;
 	overflow-wrap: break-word;
 	@include px2rem($font-size-sidebar);
 	ul {
@@ -11,35 +11,33 @@
 	    padding: 0;
 	    
 	    ul {
-		margin: 0 0 10px 5px;
+		margin: 0 0 0.7rem 0.5rem;
 	    }
 	}
 
 	
 	li {
-		padding: 0 0 0 5px;
-		@include px2rem($font-size-sidebar-listitem);
-		
+		@include px2rem($font-size-sidebar-listitem);	
 		list-style-type: none;
-		padding-bottom: 3px;
-		display: table-row;
 		
 		a {
-			text-decoration: none;
+                    padding: 0;
+                    text-decoration: none;
 		}
 		
-		a:hover, a:focus {
+		a:hover, 
+                a:focus {
 			text-decoration: underline;
 		}
+		a:before {
+           
+		   @include svg-icon-place();
+		   background-image: svg-angle-right($color-content-links);
+		   color: var(--color-Default);
+
+	       }
 	}
-	li:before {
-	    @extend .fa;
-	    @extend .fa-angle-right;	
-	    font-weight: bold;
-	    color: $colorDefault; 
-	    width: 15px;
-	    display: table-cell;
-	}
+	
 	
 }
 

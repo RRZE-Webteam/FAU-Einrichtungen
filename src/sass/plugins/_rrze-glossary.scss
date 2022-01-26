@@ -3,51 +3,50 @@
  */
 
 
-
-.fau-glossar {
+#content .fau-glossar {
     .letters {
 	text-align: center;
-	
+
 	li {
-	    border: 1px solid $colorStandardHellgrau;
-	    color: $colorTextLight;
+	   
+	    color: var(--color-TextLight);
 	    
-	    width: 2rem;
-	    height: 2rem;
+	    width: 2.5rem;
+	    height: 2.5rem;
 	    margin: 0.2rem;
-	    padding: 0.2rem;
+	    padding: 0;
 	    text-align: center;
 	    vertical-align: middle;
-	    @include border-radius(4px);
-	   
-    
-	    &.filled {
-		border-color: $colorPrimary;
-		background: $colorContentBorders;
-		color: $colorPrimary;
-		font-weight: bold;
-		padding: 0;
+	    border: 1px solid var(--color-StandardHellgrau);
+	  
+	    span {
+		 color: var(--color-TextLight);
+	    }
+	    span, a {
+		@include px2rem($font-size-textbuttons);
+		width: 100%;
+		line-height: 2.5rem;
+		padding: 0.2rem;		
+		@include border-radius(4px);
 		
-		a {
-		     padding: 0.2rem;
-		     text-decoration: none;
-		     width: 100%;
+	    }
+
+	    a {
+		     @include defaultlinkstyle();
+		     @include buttoncolor();
+                     text-decoration: none;
 		}
-		
+
 		a:hover,
 		a:focus {
 		    text-decoration: underline;
-		    background-color: darken($colorLightest, 3%);
-		    border-color: $colorPrimary;
-		    background: $colorPrimary;
-		    color: #fff;
 		}
-	    }
-	    
-	    
+
+
+
 	}
-	
+
     }
-    
+
 }
 

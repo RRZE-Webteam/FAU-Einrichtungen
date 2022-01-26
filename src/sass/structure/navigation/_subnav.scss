@@ -4,124 +4,184 @@
 
 .sidebar-subnav {
     header {
-	padding: 11px 15px;
+	
 	margin-top: 0px;
-	border-top: 1px solid $colorLightest;
+	border-top: 1px solid var(--color-primary-ci-hell);
 	@include px2rem($font-size-h3);
 	font-weight: bold;
+	
+	a {
+	    display: block;
+	    padding: 11px 15px;
+	    color: var(--color-submenu-toplevel-text);
+	    background: var(--color-submenu-toplevel-bg);
+
+	    &:hover,
+	    &:focus {
+	    	background-color: var(--color-submenu-hover-bg);
+		color: var(--color-submenu-hover-text);
+	    }
+	}
     }
-} 
+}
 #subnav {
 	@include no-list;
-	
+
 	ul, li {
 		@include no-list;
 	}
-	
+
 	a {
 		text-decoration: none;
 		display: block;
 		@include px2rem($font-size-subnav-firstlevel);
 
 		padding: 6px 15px;
-		color: $colorSubNav;
-		background: $colorSubNavBackground;
+		color: var(--color-submenu-currentlevel-text);
+		background: var(--color-submenu-currentlevel-bg);
 		padding-left: 15px;
-		padding-right: 15px; 
+		padding-right: 15px;
 
-		&:hover, &:focus {
-			background-color: $colorSubNavCurrentBackground;
-			color: $colorSubNavCurrent;
+		&:hover,
+		&:focus {
+			background-color: var(--color-submenu-hover-bg);
+			color: var(--color-submenu-hover-text);
 		}
 	}
-	
+
 	ul {
 		display: none;
 	}
-	
+
 	> li {
 		border-bottom: 1px solid #fff;
 	}
-	
-	.current_page_item, 
+
+	.current_page_item,
 	.current_page_ancestor {
 		a {
-			color: $colorSubNavCurrent;
-			background-color: $colorSubNavCurrentBackground; 
+			color: var(--color-submenu-sublevel-text);
+			background-color: var(--color-submenu-sublevel-bg);
 			border: none;
-			
-			&:hover, &:focus {        
-				background-color: $colorSubNavCurrentHoverBackground; 
-				color: $colorSubNavCurrentHover; 
+
+			&:hover,
+			&:focus {
+			    background-color: var(--color-submenu-hover-bg);
+			    color: var(--color-submenu-hover-text);
 			}
 		}
-		
+
 		> ul {
 			display: block;
 		}
-		
+
 		> a {
 			font-weight: bold;
 		}
 	}
-	
+
 	li li a {
 		padding-left: 25px;
 	}
-	
+
 	li li li a {
 		padding-left: 35px;
 		@include px2rem($font-size-subnav-sublevel);
 	}
-	
+
 	li li li li a {
 		padding-left: 45px;
-		
+
 		&:hover, &:focus {
-			background: $colorSubNavBackgroundHover; 
-			color: $colorSubNav; 
+		    background-color: var(--color-submenu-hover-bg);
+		    color: var(--color-submenu-hover-text);
 		}
 	}
-	
+
 	li .current_page_item,
 	li .current_page_ancestor {
 		a {
-			background: $colorSubNavCurrentBackground; 
+		    color:  var(--color-submenu-active-text);
+		    background: var(--color-submenu-active-bg);
 		}
-		
+
 		li {
-			a:hover, a:focus {
-				background: $colorSubNavCurrentHoverBackground; 
+			a:hover,
+			a:focus {
+			   background-color: var(--color-submenu-hover-bg);
+			   color: var(--color-submenu-hover-text);
 			}
 		}
 	}
-	
-	li .current_page_ancestor .current_page_item a {
-		background: $colorSubNavCurrentHoverBackground;
-	}
-	
+
+	li .current_page_ancestor .current_page_item a,
 	li li .current_page_ancestor a {
-		background: $colorSubNavCurrentHoverBackground;
+		background: var(--color-submenu-currentpage-bg);
+		color: var(--color-submenu-currentpage-text);
+
 	}
-	
+
 	li li li li a,
 	li li li li.current_page_item a {
-		background: $colorSubNavBackgroundHover; 
-		color: $colorSubNavCurrent;
+		background: var(--color-primary-dunkler);
+		color: var(--color-primary-dunkler-kontrast);
 	}
-	
-	li.protected-page a {
-		padding-right: 40px;
-		background-image: url('../img/protected-page.png');
-		background-repeat: no-repeat;
-		background-position: right center;
+	li.private-page,
+	li.protected-page {
+	    a:after {
+		    @extend .svg-icon;
+		    @include svg-icon-sizes(1.1rem);
+		    background-image: svg-icon-lock($color-submenu-sublevel-text, 16, 16);
+		    margin-left: 5px;
+		    margin-top: -5px; 
+	    }
+	    a:hover,
+	    a:focus {
+		&:after {
+		    background-image: svg-icon-lock($color-submenu-active-text, 16, 16);
+		}
+	    }
 	}
-	
+	li.private-page.current_page_item,
+	li.private-page.current_page_ancestor,
+	li.protected-page.current_page_item,
+	li.protected-page.current_page_ancestor {
+	    a:after {
+		background-image: svg-icon-lock($color-submenu-currentpage-text, 16, 16);
+	    }
+	}
+	li.captain-future,
+	li.draft-page {
+	    a:after {
+		    @extend .svg-icon;
+		    @include svg-icon-sizes(1.1rem);
+		    background-image: svg-icon-draft($color-submenu-currentlevel-text, 16, 16);
+		    margin-left: 5px;
+		    margin-top: -5px;
+	    }
+	    a:hover,
+	    a:focus {
+		&:after {
+		    background-image: svg-icon-draft($color-submenu-active-text, 16, 16);
+		}
+	    }
+	}
+	li.captain-future.current_page_item,
+	li.captain-future.current_page_ancestor,
+	li.draft-page.current_page_item,
+	li.draft-page.current_page_ancestor {
+	    a:after {
+		background-image: svg-icon-draft($color-submenu-currentpage-text, 16, 16);
+	    }
+	}
+
+
+
 
 }
 
 
-@media (max-width: $screen-sm - 1) {
+@media (max-width: $screen-sm) {
   	ul.menu {
 		margin-bottom: 10px;
 	}

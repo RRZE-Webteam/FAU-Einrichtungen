@@ -23,7 +23,7 @@ table th[class*="span"] {
 	position: relative;
 	overflow: hidden;
 	margin: 0;
-	border-right: 1px solid $colorContentBorders;
+	border-right: 1px solid var(--color-ContentBorders);
 	
 	
 	@media (min-width: $screen-sm) {
@@ -41,8 +41,8 @@ table {
 	border: 0;
 	background: transparent;
 	
-	border-top: 1px solid $colorContentBorders;
-	border-bottom: 1px solid $colorContentBorders;
+	border-top: 1px solid var(--color-ContentBorders);
+	border-bottom: 1px solid var(--color-ContentBorders);
 	margin: 0;
 	width: 100%;
 
@@ -71,16 +71,13 @@ table {
 	}
 	
 	th {
-		color: $colorText;
-		background: $colorContentBorders;
+		color: var(--color-Text);
+		background: var(--color-ContentBorders);
 		font-weight: bold;
-		border-top: 1px solid $colorContentBorders;
-		border-bottom: 1px solid $colorContentBorders;
+		border-top: 1px solid var(--color-ContentBorders);
+		border-bottom: 1px solid var(--color-ContentBorders);
 		text-align: left;
 		
-		h1, h2, h3, h4, h5, h6 {
-		    color: $PalettonDunkler;
-		}
 		
 
 	}
@@ -89,36 +86,23 @@ table {
 	}
 	
 	td {
-		border-right: 1px solid #fff;
-		color: $colorText;
+		border-right: 1px solid var(--color-StandardHellgrau);
+		color: var(--color-Text);
 		
 		
 	}
 	
 	tr {
-		border-left: 1px solid $colorStandardHellgrau;
-		border-right: 1px solid $colorStandardHellgrau;
+		border-left: 1px solid var(--color-StandardHellgrau);
+		border-right: 1px solid var(--color-StandardHellgrau);
 	}
 	
 	tr:nth-child(odd) td {
-		color:  $colorLightestContrast;
-		background: $colorStandardHellgrau;
-		
-		h1, h2, h3, h4, h5, h6 {
-		    color: $PalettonDunkler;
-		}
-		
-		
-		ul {
-		    li {
-			color:  $colorLightestContrast;
-		    }
-		}
+		background: var(--color-StandardHellgrau);
 	}
 	
 	ul {
 		li {
-			color: $colorPrimary;
 			@include px2rem($font-size-table);	    
 			background-position: left 5px;
 		}
@@ -126,14 +110,7 @@ table {
 	
 	&.nooddcolor {
 	    tr:nth-child(odd) td {
-		color:  $colorText;
 		background: transparent;
-		
-		ul {
-		    li {
-			color:  $colorText;
-		    }
-		}
 	    }
 	}
 	&.nobackground {
@@ -150,16 +127,12 @@ table {
 	    }
 	    tr:nth-child(odd) td {
 		background: transparent;
-		color: $colorText;
-		li {
-		    color: $colorText;
-		}
 	    }
 	}
 	
 	thead {
 	    td {
-		background: $colorContentBorders;
+		background: var(--color-ContentBorders);
 	    }
 	}
 	

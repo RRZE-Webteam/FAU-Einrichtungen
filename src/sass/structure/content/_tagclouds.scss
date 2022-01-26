@@ -1,0 +1,17 @@
+/*-----------------------------------------------------------------------------------*/
+/* Tagclouds, mostly from widgets
+/*-----------------------------------------------------------------------------------*/
+
+.tagcloud {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    a.tag-cloud-link {
+	@include defaultlinkstyle();
+	@include ghostbutton();
+	display: inline;
+	padding: 0 0.3rem;
+	line-height: 1.5;
+    }
+}

@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------------*/
-/* Top events 
+/* Top events
 /*-----------------------------------------------------------------------------------*/
 
 .topevent-widget {
@@ -20,8 +20,7 @@
     display: block;
 }
 
-.topevent-date {
-	color: $colorPrimary;
+.topevent-date {	
 	font-weight: bold;
 	margin-bottom: 5px;
 }
@@ -29,12 +28,12 @@
 .topevent-description {
 	@include px2rem($font-size-sidebar);
 	p {
-	    @include px2rem($font-size-sidebar);	
+	    @include px2rem($font-size-sidebar);
 	}
 }
 
 
-@media (max-width: $screen-sm - 1) {
+@media (max-width: $screen-sm) {
 	.topevent-date,
 	.topevent-description {
 		margin-left: 15px;
