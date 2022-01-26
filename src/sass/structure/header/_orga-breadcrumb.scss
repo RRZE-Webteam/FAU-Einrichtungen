@@ -5,7 +5,6 @@
 
 .orga-breadcrumb {
     display: none;
-    margin-top: 0.5rem;
 
     &:first-child {
         margin-top: 0;
@@ -14,14 +13,14 @@
     @media (min-width: $screen-sm) {
         display: block;
         width: 750px;
-        padding: 0 15px;
+        padding: 5px 15px 0;
         margin: 0 auto;
 
         li {
-            color: var(--color-MetaTextDefault);
+            color: var(--color-TextLightKontrast);
 
             a {
-                color: var(--color-MetaTextDefault);
+                color: var(--color-TextLightKontrast);
                 text-decoration: none;
             }
 
@@ -43,6 +42,11 @@
 }
 #meta .orga-breadcrumb {
     display: block;
+    margin: 0.25rem 0 .5rem;
+    border-bottom: 1px solid map-get($colormap-misc, "TextLight");
+    li {
+        line-height: 1.5;
+    }
 
     @media (min-width: $screen-sm) {
         display: none;

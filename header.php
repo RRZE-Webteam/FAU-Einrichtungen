@@ -141,12 +141,13 @@ if ($custom_logo_id) {
                                 ?>
 
                             </div>
+			    <?php if (has_nav_menu('main-menu')) { ?>
                             <nav class="header-menu" id="nav" aria-label="<?php _e("Hauptnavigation", "fau"); ?>">
                                 <a href="#nav" id="mainnav-toggle"><span><?php _e("Menu", "fau"); ?></span></a>
                                 <a href="#top" id="mainnav-toggle-close"><span><?php _e("Menu", "fau"); ?> <?php _e("schließen", "fau"); ?></span></a>
                                 <div id="nav-wrapper">
                                     <?php
-                                    if (has_nav_menu('main-menu')) {
+
                                             wp_nav_menu(array(
                                                 'theme_location' => 'main-menu',
                                                 'container'      => false,
@@ -155,19 +156,10 @@ if ($custom_logo_id) {
                                                 'walker'         => new Walker_Main_Menu_Plainview
                                             ));
                                         
-                                    } else {
-					 wp_nav_menu(array(
-                                                'container'      => false,
-                                                'items_wrap'     => '<ul class="nav">%3$s</ul>',
-                                                'depth'          => 4,
-                                                'walker'         => new Walker_Main_Menu_Plainview
-                                            ));
-					 
-
-                                    }
-                                    ?>
+                                   ?>
                                 </div>
                             </nav>
+			<?php  } ?>
                         </div>
                     </div>
                 </header>

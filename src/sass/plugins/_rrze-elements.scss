@@ -70,7 +70,7 @@ button.expand-all {
                 background: var(--color-ContentBorders);
                 color:  var(--color-Text);
                 @include border-radius(4px);
-		@include px2rem($font-size-content-toggle);
+		        @include px2rem($font-size-content-toggle);
                 text-decoration: none;
                 padding: 8px 35px 8px 10px;
                 position: relative;
@@ -86,16 +86,16 @@ button.expand-all {
                 &:hover,
                 &:focus {
                     background-color: var(--color-primary-ci-hell);
-		    color: var(--color-primary-ci-hell-kontrast); 
+                    color: var(--color-primary-ci-hell-kontrast);
                     text-decoration: none;
                 }
 
                 &.active,
                 &.active:hover,
-                    &.active:focus {
-                    background-color: var(--color-primary-ci-hell);
-                    color: var(--color-primary-ci-hell-kontrast); 
-
+                &.active:focus {
+                    background-color: var(--color-primary-dunkler);
+                    color: var(--color-primary-dunkler-kontrast);
+                    border-color: var(--color-primary-dunkler);
                     &:before {
                         @extend .fa-caret-up;
                         top: 8px;

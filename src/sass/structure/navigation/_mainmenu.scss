@@ -102,9 +102,9 @@
         a:hover,
         a:focus {
             text-decoration: underline;
-
             color: var(--color-mainmenu-sublevel-hover-text);
             background-color: var(--color-mainmenu-sublevel-hover-bg);
+	        @include border-radius(3px);
         }
     }
 
@@ -117,21 +117,10 @@
     /* Portal buttons */
     .button-portal {
         @include inline-block;
-        color: var(--color-mainmenu-sublevel-button-text);
-        background-color: var(--color-mainmenu-sublevel-button-bg);
-
-
-        padding: 13px 20px;
-        font-weight: bold;
-
-        @include px2rem($font-size-nav-mainlinks + 1);
-        @include border-radius(4px);
-
-        &:hover,
-        &:focus {
-            color: var(--color-mainmenu-sublevel-button-hover-text);
-            background: var(--color-mainmenu-sublevel-button-hover-bg);
-        }
+        font-weight: normal;
+        @include buttonstyle();
+        @include px2rem($font-size-nav-buttons);
+        padding: 0.5rem 1rem;
     }
 
     ul {
@@ -161,26 +150,8 @@
             > a {
                 border-bottom: 1px solid var(--color-primary-dunkelste);
                 background-color: transparent;
-
-                &:before {
-                    @extend .fa;
-                    @extend .fa-angle-right;
-                    font-weight: bold;
-                    width: 15px;
-                    display: inline-block;
-                    margin-left: -15px;
-                    padding-left: 2px;
-                }
             }
         }
-    }
-
-    p.nav-excerpt {
-        color: var(--color-mainmenu-sublevel-text);
-        @include px2rem($font-size-small);
-        font-style: normal;
-        padding: 0;
-        margin: 0;
     }
 }
 
@@ -196,7 +167,7 @@
 
                 &.level2 > li {
                     margin-bottom: 15px;
-
+		    
                     &:not(.has-sub) {
                         > a {
                             border-bottom: none;
@@ -204,19 +175,15 @@
                     }
 
                     > a {
-                        font-weight: bold;
-                        border-bottom-color: var(--color-primary-dunkler);;
+			            @include px2rem($font-size-nav-level2);
+                        border-bottom-color: var(--color-primary-dunkler);
                         padding-left: $padding-base-horizontal;
 
-                        &:before {
-                            display: none;
-                        }
                     }
                 }
 
                 &.level3 a {
-
-                    padding-left: $padding-base-horizontal;
+		            @include px2rem($font-size-nav-level3);
                 }
             }
 
@@ -255,15 +222,23 @@
 #mainnav-toggle-close {
     position: absolute;
     right: 5px;
-    top: 5px;
+    top: 3px;
     @include px2rem($font-size-mobile-meta);
     background-color: transparent;
-    border: none;
+    border: 1px dashed transparent;
     z-index: 100;
     color: var(--color-Default);
-    padding: 1px 6px;
+    padding: 1px 8px;
     display: none;
-
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: var(--color-FAU);
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.22);
+    }
+    .nav-toggled &{
+        padding: 1px 9px;
+    }
     span {
         @include hideout();
     }
@@ -307,12 +282,17 @@
     }
 
     .nav {
+        border-top: 1px solid var(--color-primary-ci-hell);
+
         .nav-flyout {
             padding-top: 0;
         }
 
         > li {
             border-top: 1px solid $colorOverlayDark; // #ccc;
+            &:first-child {
+                border-top-color: transparent;
+            }
 
             &.level1 {
                 &:hover, &:focus {
@@ -326,9 +306,13 @@
 
                 > a,
                 > [type=button] {
+                    margin: 0;
+                    cursor: pointer;
+
                     &[aria-expanded=true] {
                         background-color: var(--color-primary-dunkler);
                         color: var(--color-primary-dunkler-kontrast);
+                        border-radius: 0;
                     }
 
                     &:hover, &:focus {
@@ -340,10 +324,15 @@
         }
     }
 
-
-
     .level2 {
         border-top: 1px solid #1f4c7a;
+    }
+    .level3 {
+        li {
+            a {
+                padding-left: $padding-base-horizontal * 2.5;
+            }
+        }
     }
 
     .no-js #nav:target {
