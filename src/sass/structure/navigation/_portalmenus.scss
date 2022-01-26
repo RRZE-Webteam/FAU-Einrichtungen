@@ -176,6 +176,7 @@ main .subpages-menu,
             padding: 0;
         }
 
+        > p, // Quickfix für wpautop bei Verwendung des Shortcodes im Content-Bereich
         .portaltop {
             display: block;
             @include px2rem($font-size-contentmenu-title);
@@ -185,7 +186,7 @@ main .subpages-menu,
             width: 100%;
             font-weight: bold;
 
-            .no-sub & {
+            .no-sub:not(.no-thumb) & {
                 position: absolute;
                 bottom: 0;
                 padding: 0;
@@ -210,7 +211,7 @@ main .subpages-menu,
                 padding: 10px 10px 8px 10px;
                 text-align: center;
 
-                .no-sub & {
+                .no-sub:not(.no-thumb) & {
                     display: block;
                     padding: 8px 10px;
                     color: #fff;
@@ -247,7 +248,9 @@ main .subpages-menu,
                 }
             }
         }
-
+        > p {
+            border: none;  // Quickfix für wpautop bei Verwendung des Shortcodes im Content-Bereich
+        }
 
         ul {
             @include no-list;

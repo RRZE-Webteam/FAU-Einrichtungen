@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.5-5
+Version: 2.0.5-6
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -10319,6 +10319,7 @@ main .subpages-menu a:focus svg .fallback,
 .subpages-menu li p {
   padding: 0;
 }
+.subpages-menu li > p,
 .subpages-menu li .portaltop {
   display: block;
   font-size: 1.125rem;
@@ -10329,7 +10330,8 @@ main .subpages-menu a:focus svg .fallback,
   width: 100%;
   font-weight: bold;
 }
-.no-sub .subpages-menu li .portaltop {
+.no-sub:not(.no-thumb) .subpages-menu li > p,
+.no-sub:not(.no-thumb) .subpages-menu li .portaltop {
   position: absolute;
   bottom: 0;
   padding: 0;
@@ -10337,19 +10339,25 @@ main .subpages-menu a:focus svg .fallback,
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
   border: none;
 }
-.no-thumb .subpages-menu li .portaltop, .no-fallback > .subpages-menu li .portaltop {
+.no-thumb .subpages-menu li > p, .no-fallback > .subpages-menu li > p,
+.no-thumb .subpages-menu li .portaltop,
+.no-fallback > .subpages-menu li .portaltop {
   border-top: 1px solid var(--color-ContentBorders);
 }
-.subpages-menu li .portaltop:hover, .subpages-menu li .portaltop:focus {
+.subpages-menu li > p:hover, .subpages-menu li > p:focus,
+.subpages-menu li .portaltop:hover,
+.subpages-menu li .portaltop:focus {
   border-color: var(--color-menulink-hover-bg);
 }
+.subpages-menu li > p a,
 .subpages-menu li .portaltop a {
   width: 100%;
   display: inline-block;
   padding: 10px 10px 8px 10px;
   text-align: center;
 }
-.no-sub .subpages-menu li .portaltop a {
+.no-sub:not(.no-thumb) .subpages-menu li > p a,
+.no-sub:not(.no-thumb) .subpages-menu li .portaltop a {
   display: block;
   padding: 8px 10px;
   color: #fff;
@@ -10357,16 +10365,21 @@ main .subpages-menu a:focus svg .fallback,
   font-weight: normal;
   transition: all 0.4s ease;
 }
-.no-sub .subpages-menu li .portaltop a:focus, .no-sub .subpages-menu li .portaltop a:hover {
+.no-sub:not(.no-thumb) .subpages-menu li > p a:focus, .no-sub:not(.no-thumb) .subpages-menu li > p a:hover,
+.no-sub:not(.no-thumb) .subpages-menu li .portaltop a:focus,
+.no-sub:not(.no-thumb) .subpages-menu li .portaltop a:hover {
   text-decoration: none;
   background-color: var(--color-menulink-hover-bg);
   color: var(--color-menulink-hover-text);
 }
-.subpages-menu li .portaltop a:hover, .subpages-menu li .portaltop a:focus {
+.subpages-menu li > p a:hover, .subpages-menu li > p a:focus,
+.subpages-menu li .portaltop a:hover,
+.subpages-menu li .portaltop a:focus {
   text-decoration: none;
   background-color: var(--color-menulink-hover-bg);
   color: var(--color-menulink-hover-text);
 }
+.subpages-menu li > p a.ext-link:after,
 .subpages-menu li .portaltop a.ext-link:after {
   display: inline-block;
   position: relative;
@@ -10384,8 +10397,13 @@ main .subpages-menu a:focus svg .fallback,
   color: var(--color-Text);
   vertical-align: top;
 }
-.subpages-menu li .portaltop a.ext-link:hover:after, .subpages-menu li .portaltop a.ext-link:focus:after {
+.subpages-menu li > p a.ext-link:hover:after, .subpages-menu li > p a.ext-link:focus:after,
+.subpages-menu li .portaltop a.ext-link:hover:after,
+.subpages-menu li .portaltop a.ext-link:focus:after {
   background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFFFFF" d="M15.6401 7.02539H12.0186V5.02539H19.0186V12.0254H17.0186V8.4754L12.1046 13.3893L10.6904 11.9751L15.6401 7.02539Z M10.9824 6.97485H4.98242V18.9749H16.9824V12.9749H14.9824V16.9749H6.98242V8.97485H10.9824V6.97485Z"/%3E%3C/svg%3E%0A');
+}
+.subpages-menu li > p {
+  border: none;
 }
 .subpages-menu li ul {
   list-style: none;
