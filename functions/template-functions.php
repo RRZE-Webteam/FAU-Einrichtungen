@@ -709,13 +709,7 @@ function fau_custom_excerpt(
 	// remove most tags, but not those who are allowed
     
     if (mb_strlen($excerpt) < 5) {
-        $excerpt = '<!-- '.__('Kein Inhalt', 'fau').' -->';
-	if (($needcontinue == 1) && ($withmore == true)) {
-	    if ($continuenextline) {
-		$excerpt .= '<br>';
-	    }
-	    $excerpt .= $morestr;
-	}
+        $excerpt = '<!-- '.__('Kein Inhalt', 'fau').' -->';	
 	return $excerpt;
     }
 
