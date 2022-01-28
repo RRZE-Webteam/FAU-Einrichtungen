@@ -619,7 +619,12 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
             $imagehtml = fau_get_image_htmlcode($post_thumbnail_id, 'rwd-480-3-2', $alttext, '', array('itemprop' => 'thumbnailUrl'));
             if (fau_empty($imagehtml)) {
                 $imagehtml = fau_get_image_fallback_htmlcode('post-thumb', $alttext, '',  array('itemprop' => 'thumbnailUrl'));
-		$usefallbackthumb = true;
+		$ownfallback = get_theme_mod('default_postthumb_image');
+		if ($ownfallback) {
+		    $usefallbackthumb = false;
+		} else {
+		    $usefallbackthumb = true;
+		}
             }
 	    
             $output .= '<div class="thumbnailregion';
@@ -709,13 +714,7 @@ function fau_custom_excerpt(
 	// remove most tags, but not those who are allowed
     
     if (mb_strlen($excerpt) < 5) {
-        $excerpt = '<!-- '.__('Kein Inhalt', 'fau').' -->';
-	if (($needcontinue == 1) && ($withmore == true)) {
-	    if ($continuenextline) {
-		$excerpt .= '<br>';
-	    }
-	    $excerpt .= $morestr;
-	}
+        $excerpt = '<!-- '.__('Kein Inhalt', 'fau').' -->';	
 	return $excerpt;
     }
 
@@ -1723,10 +1722,8 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
     switch ($size) {
 
         case 'topevent_thumb':
-
             $width  = $defaultoptions['default_rwdimage_width'];
             $height = $defaultoptions['default_rwdimage_height'];
-
             $fallback = get_theme_mod('fallback_topevent_image');
             if ($fallback) {
                 $thisimage   = wp_get_attachment_image_src($fallback, 'rwd-480-3-2');
@@ -1740,7 +1737,6 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
             break;
 
         case 'post-thumb':
-
             $width    = $defaultoptions['default_rwdimage_width'];
             $height   = $defaultoptions['default_rwdimage_height'];
             $fallback = get_theme_mod('default_postthumb_image');

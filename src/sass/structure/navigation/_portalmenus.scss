@@ -176,6 +176,15 @@ main .subpages-menu,
             padding: 0;
         }
 
+        &.menu-item-has-children {
+            .portaltop {
+                flex-grow: unset;
+                &:hover, &:focus {
+                    border-color: var(--color-menulink-hover-bg);
+                }
+            }
+        }
+
         > p, // Quickfix für wpautop bei Verwendung des Shortcodes im Content-Bereich
         .portaltop {
             display: block;
@@ -185,6 +194,7 @@ main .subpages-menu,
             border-bottom: 1px solid var(--color-ContentBorders);
             width: 100%;
             font-weight: bold;
+            flex-grow: 1;
 
             .no-sub:not(.no-thumb) & {
                 position: absolute;
@@ -202,12 +212,13 @@ main .subpages-menu,
 
             &:hover,
             &:focus {
-                border-color: var(--color-menulink-hover-bg);
+                border-color: transparent;
             }
 
             a {
+                display: block;
                 width: 100%;
-                display: inline-block;
+                height: 100%;
                 padding: 10px 10px 8px 10px;
                 text-align: center;
 
@@ -224,6 +235,8 @@ main .subpages-menu,
                         text-decoration: none;
                         background-color: var(--color-menulink-hover-bg);
                         color: var(--color-menulink-hover-text);
+                        display: block;
+                        height: 100%
                     }
                 }
 
@@ -232,7 +245,6 @@ main .subpages-menu,
                     text-decoration: none;
                     background-color: var(--color-menulink-hover-bg);
                     color: var(--color-menulink-hover-text);
-
                 }
 
                 &.ext-link:after {
