@@ -522,7 +522,7 @@ $setoptions = array(
 		'advanced_display_postthumb_alt-from-desc'		  => array(
 		    'type'    => 'toggle',
 		    'title'   => __( 'Alternativtext Artikelbild', 'fau' ),
-		    'label'   => __( 'Bei der Darstellung des Artikelbildes wird das ALT-Attribut vom Inhalt der Bildbeschriebung gefüllt, wenn das ALT-Attribut leer ist.', 'fau' ),                
+		    'label'   => __( 'Bei der Darstellung des Artikelbildes wird das ALT-Attribut vom Inhalt der Bildbeschreibung gefüllt, wenn das ALT-Attribut leer ist.', 'fau' ),                
 		    'default' => $defaultoptions['advanced_display_postthumb_alt-from-desc'],
 		    'parent'  => 'postoptions'
 		), 
