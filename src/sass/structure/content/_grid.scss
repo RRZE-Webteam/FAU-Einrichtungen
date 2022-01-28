@@ -125,7 +125,7 @@
                 max-width: calc(100% - $sidebar-width-inline - $grid-gutter-width);
                 width: calc(100% - $sidebar-width-inline - $grid-gutter-width);
             }
-	     @media (min-width: $screen-lg) {
+            @media (min-width: $screen-lg) {
                 max-width: calc(100% - $sidebar-width-inline-lg - $grid-gutter-width);
                 width: calc(100% - $sidebar-width-inline-lg - $grid-gutter-width);
             }
@@ -162,23 +162,24 @@
         }
 
         @media (min-width: $screen-md) {
+            align-self: flex-start;
             width: $sidebar-width-inline;
             border-top: none;
             margin-top: 0;
             padding-top: 0;
         }
-	@media (min-width: $screen-lg) {
-	     width: $sidebar-width-inline-lg;
-	}
 
-	
+	    @media (min-width: $screen-lg) {
+            width: $sidebar-width-inline-lg;
+	    }
     }
 }
 .content-row .portalpage-sidebar {
 
     @media (min-width: $screen-sm) {
+        align-self: flex-start;
         width: $sidebar-width-portal;
-	max-width: $sidebar-maxwidth-portal;
+	    max-width: $sidebar-maxwidth-portal;
         margin-top: 0;
         padding-left: floor(math.div($grid-gutter-width, 2));
         border-top: none;
@@ -257,6 +258,7 @@
             padding-right: ceil(math.div($grid-gutter-width, 2));
             width: 100%;
             @media (min-width: $screen-sm) {
+                align-self: flex-start;
                 padding-right: 0;
                 max-width: $sidebar-width-posts;
             }
