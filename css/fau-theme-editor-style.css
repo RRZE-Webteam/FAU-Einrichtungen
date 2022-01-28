@@ -6487,7 +6487,6 @@ main figure.alignleft img, main figure.alignright img, main figure.alignnone img
 }
 @media (min-width: 480px) {
   main figure.alignleft img, main figure.alignright img, main figure.alignnone img, main figure.aligncenter img, aside figure.alignleft img, aside figure.alignright img, aside figure.alignnone img, aside figure.aligncenter img, .portalpage-sidebar figure.alignleft img, .portalpage-sidebar figure.alignright img, .portalpage-sidebar figure.alignnone img, .portalpage-sidebar figure.aligncenter img, .widget figure.alignleft img, .widget figure.alignright img, .widget figure.alignnone img, .widget figure.aligncenter img {
-    width: auto;
     max-width: 100%;
   }
 }
@@ -6508,6 +6507,7 @@ main figure.alignnone, aside figure.alignnone, .portalpage-sidebar figure.alignn
 main figure.aligncenter, aside figure.aligncenter, .portalpage-sidebar figure.aligncenter, .widget figure.aligncenter {
   text-align: center;
   float: none;
+  margin: 1rem auto;
 }
 
 figcaption {

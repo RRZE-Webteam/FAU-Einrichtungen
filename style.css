@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.6-0
+Version: 2.0.6-1
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -6609,7 +6609,6 @@ main figure.alignleft img, main figure.alignright img, main figure.alignnone img
 }
 @media (min-width: 480px) {
   main figure.alignleft img, main figure.alignright img, main figure.alignnone img, main figure.aligncenter img, aside figure.alignleft img, aside figure.alignright img, aside figure.alignnone img, aside figure.aligncenter img, .portalpage-sidebar figure.alignleft img, .portalpage-sidebar figure.alignright img, .portalpage-sidebar figure.alignnone img, .portalpage-sidebar figure.aligncenter img, .widget figure.alignleft img, .widget figure.alignright img, .widget figure.alignnone img, .widget figure.aligncenter img {
-    width: auto;
     max-width: 100%;
   }
 }
@@ -6630,6 +6629,7 @@ main figure.alignnone, aside figure.alignnone, .portalpage-sidebar figure.alignn
 main figure.aligncenter, aside figure.aligncenter, .portalpage-sidebar figure.aligncenter, .widget figure.aligncenter {
   text-align: center;
   float: none;
+  margin: 1rem auto;
 }
 
 figcaption {
@@ -15725,12 +15725,12 @@ button.expand-all {
 /*-----------------------------------------------------------------------------------*/
 /* Content Slider
 /*-----------------------------------------------------------------------------------*/
-#content .entry-content .content-slider.flexslider {
+#content .content-slider.flexslider {
   margin: 1rem 3rem;
 }
-#content .entry-content .content-slider.flexslider .flex-control-nav a,
-#content .entry-content .content-slider.flexslider .flex-direction-nav a,
-#content .entry-content .content-slider.flexslider .flex-pauseplay a {
+#content .content-slider.flexslider .flex-control-nav a,
+#content .content-slider.flexslider .flex-direction-nav a,
+#content .content-slider.flexslider .flex-pauseplay a {
   box-shadow: none;
   transition: initial;
   padding: 0;
@@ -15741,11 +15741,11 @@ button.expand-all {
   box-shadow: none;
   text-decoration: none;
 }
-#content .entry-content .content-slider.flexslider .flex-control-nav a:hover, #content .entry-content .content-slider.flexslider .flex-control-nav a:focus,
-#content .entry-content .content-slider.flexslider .flex-direction-nav a:hover,
-#content .entry-content .content-slider.flexslider .flex-direction-nav a:focus,
-#content .entry-content .content-slider.flexslider .flex-pauseplay a:hover,
-#content .entry-content .content-slider.flexslider .flex-pauseplay a:focus {
+#content .content-slider.flexslider .flex-control-nav a:hover, #content .content-slider.flexslider .flex-control-nav a:focus,
+#content .content-slider.flexslider .flex-direction-nav a:hover,
+#content .content-slider.flexslider .flex-direction-nav a:focus,
+#content .content-slider.flexslider .flex-pauseplay a:hover,
+#content .content-slider.flexslider .flex-pauseplay a:focus {
   box-shadow: none;
   text-decoration: underline;
   color: currentcolor;
@@ -15753,7 +15753,7 @@ button.expand-all {
           text-decoration-color: currentcolor;
   box-shadow: none;
 }
-#content .entry-content .content-slider.flexslider .flex-pauseplay a {
+#content .content-slider.flexslider .flex-pauseplay a {
   width: 2rem;
   height: 2rem;
 }
