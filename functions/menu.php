@@ -521,9 +521,8 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                     $imagehtml          = '';
                     $imageurl           = '';
 
-                    $pretitle  = $options['advanced_contentmenu_thumblink_alt_pretitle'];
-                    $posttitle = $options['advanced_contentmenu_thumblink_alt_posttitle'];
-                    $alttext   = $pretitle.apply_filters('the_title', $item->title, $item->ID).$posttitle;
+                    $pretitle  = __('Zur Seite: ','fau');
+                    $alttext   = $pretitle.apply_filters('the_title', $item->title, $item->ID);
                     $alttext   = esc_html($alttext);
                     $altattr   = 'alt="'.$alttext.'"';
 
