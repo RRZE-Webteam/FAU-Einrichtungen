@@ -38,7 +38,7 @@ p {
 		font-style: italic;
 		@include px2rem($font-size-quotes);
         }
-	
+	aside &,
 	#content .widget &,
 	#content .widget & {
 	    @include px2rem($font-size-sidebar);
@@ -48,6 +48,7 @@ p {
 	
 }
 address {
+	aside &,
 	#content .widget &,
 	#content .widget & {
 	    @include px2rem($font-size-sidebar);
