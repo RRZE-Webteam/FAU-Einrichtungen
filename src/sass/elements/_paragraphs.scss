@@ -39,8 +39,8 @@ p {
 		@include px2rem($font-size-quotes);
         }
 	
-	#content .startpage-sidebar .widget &,
-	#content .sidebar-inline .widget & {
+	#content .widget &,
+	#content .widget & {
 	    @include px2rem($font-size-sidebar);
 	}
 	
@@ -48,8 +48,8 @@ p {
 	
 }
 address {
-	#content .startpage-sidebar .widget &,
-	#content .sidebar-inline .widget & {
+	#content .widget &,
+	#content .widget & {
 	    @include px2rem($font-size-sidebar);
 	}
 }
