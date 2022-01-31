@@ -42,3 +42,10 @@
 }
 
 
+span {
+    aside &,
+	#content .widget &,
+	#content .widget & {
+	      @include px2rem($font-size-sidebar);
+	}
+}

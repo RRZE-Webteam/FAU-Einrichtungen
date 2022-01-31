@@ -113,7 +113,7 @@ main, aside, .portalpage-sidebar, .widget {
 	&.aligncenter {
 	    margin-left: calc(-#{$fau-gutter-width} / 2);
 	    margin-right: calc(-#{$fau-gutter-width} / 2);
-        width: 100vw;
+	    width: 100vw;
 	    max-width: 100vw;
 	    
 	    @media (min-width: $screen-xs) {
@@ -148,7 +148,9 @@ main, aside, .portalpage-sidebar, .widget {
 	&.aligncenter {
 	    text-align: center;
 	    float: none;
-        margin: 1rem auto;
+	    @media (min-width: $screen-xs) {
+		margin: 1rem auto;
+	    }
 	}
     }
 }

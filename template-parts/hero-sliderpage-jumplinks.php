@@ -16,10 +16,9 @@ if ((has_nav_menu('quicklinks-3')) || (has_nav_menu('quicklinks-4'))) {
 
 		    <div role="presentation" class="infobar">				    
 			<?php 
-		       $header_image = get_header_image();
-			if (!empty( $header_image ) ){	
-			    echo '<p class="sitetitle">'. get_bloginfo( 'title' ). "</p>\n";
-			}
+
+			echo '<p class="sitetitle">'. get_bloginfo( 'title' ). "</p>\n";
+
 			if (null !== get_bloginfo( 'description' )) {
 			     echo '<p class="description">'.get_bloginfo( 'description' )."</p>";
 			}

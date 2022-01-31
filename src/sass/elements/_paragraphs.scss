@@ -38,9 +38,9 @@ p {
 		font-style: italic;
 		@include px2rem($font-size-quotes);
         }
-	
-	#content .startpage-sidebar .widget &,
-	#content .sidebar-inline .widget & {
+	aside &,
+	#content .widget &,
+	#content .widget & {
 	    @include px2rem($font-size-sidebar);
 	}
 	
@@ -48,8 +48,9 @@ p {
 	
 }
 address {
-	#content .startpage-sidebar .widget &,
-	#content .sidebar-inline .widget & {
+	aside &,
+	#content .widget &,
+	#content .widget & {
 	    @include px2rem($font-size-sidebar);
 	}
 }
@@ -59,3 +60,5 @@ p.presentationtitle {
     @include px2rem($font-size-h1,  $font-size-base);
     margin: 20px 0 20px 0;
 }
+
+
