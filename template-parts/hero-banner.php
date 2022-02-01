@@ -74,7 +74,7 @@ if ((filter_var($copyright, FILTER_VALIDATE_URL)) && (preg_match('/\/cropped\-/'
                             ?>
 				<div class="<?php echo $infobarclass;?>">				    
 				    <?php 
-				    if ((!empty( $header_image ) && (!fau_empty($title)) )){	
+				    if (!fau_empty($title)) {	
 					echo '<p class="sitetitle">'. $title. '</p>';
 				    }
 				    $desc = strip_tags(get_bloginfo( 'description' ));
