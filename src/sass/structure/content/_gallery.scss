@@ -22,7 +22,7 @@
 	    padding: 5px;
 	}
     }
-    figure:not(.with-caption) {
+    figure {
 	img {  
 	    object-fit: cover;
 	    min-height: 100%;
@@ -65,7 +65,7 @@
 		}
 	
 	    }
-	    figure:not(.with-caption) { 
+	    figure {
 		overflow: hidden;
 		
 		img {

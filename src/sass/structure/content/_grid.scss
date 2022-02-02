@@ -181,6 +181,7 @@
         width: $sidebar-width-portal;
 	    max-width: $sidebar-maxwidth-portal;
         margin-top: 0;
+        padding-top: 0;
         padding-left: floor(math.div($grid-gutter-width, 2));
         border-top: none;
         border-left: 2px solid var(--color-primary-ci-hell2);
@@ -279,20 +280,24 @@
 .portalpage-content {
     flex: 1 1;
     width: 100%;
-    
     padding: 0 ceil(math.div($grid-gutter-width, 2));
     @media (min-width: $screen-sm) {
-	padding-left: 0;
-	padding-right: ceil(math.div($grid-gutter-width, 2));
-	margin-right: ceil(math.div($grid-gutter-width, 2));
+        padding: 0;
     }
-    @media (min-width: $screen-lg) {
-	margin-right: $grid-gutter-width;
+
+    .with-sidebar & {
+        @media (min-width: $screen-sm) {
+            width: calc(67% - 30px);
+            padding-right: ceil(math.div($grid-gutter-width, 2));
+            margin-right: ceil(math.div($grid-gutter-width, 2));
+        }
+        @media (min-width: $screen-lg) {
+            margin-right: $grid-gutter-width;
+        }
     }
-   
     
     main {
-	padding-top: ceil(math.div($grid-gutter-width, 2));
+	    padding-top: ceil(math.div($grid-gutter-width, 2));
     }
 }
 
@@ -300,7 +305,7 @@
 .page-template-page-start-sub ,
 .page-template-page-start {
     .content-row .portalpage-sidebar {
-	border-color: transparent;
+	    border-color: transparent;
     }
     
 }
