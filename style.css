@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.11-0
+Version: 2.0.11-1
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -11598,6 +11598,7 @@ ol.breadcrumblist li:last-child::after {
     width: 33%;
     max-width: 350px;
     margin-top: 0;
+    padding-top: 0;
     padding-left: 15px;
     border-top: none;
     border-left: 2px solid var(--color-primary-ci-hell2);
@@ -11704,13 +11705,18 @@ ol.breadcrumblist li:last-child::after {
 }
 @media (min-width: 768px) {
   .portalpage-content {
-    padding-left: 0;
+    padding: 0;
+  }
+}
+@media (min-width: 768px) {
+  .with-sidebar .portalpage-content {
+    width: calc(67% - 30px);
     padding-right: 15px;
     margin-right: 15px;
   }
 }
 @media (min-width: 1200px) {
-  .portalpage-content {
+  .with-sidebar .portalpage-content {
     margin-right: 30px;
   }
 }
