@@ -27,23 +27,21 @@
 @each $farbtyp, $map in $colormaps {	   
 
     .textcol-#{$farbtyp} {
-	color:  var(--color-#{$farbtyp}-ci-hell);
+        color:  var(--color-#{$farbtyp}-ci-hell);
         background-color:  var(--color-#{$farbtyp}-ci-hell-kontrast);
     }
-    .bgcol-#{$farbtyp} {
+    .bgcol-#{$farbtyp}, .nav a.bgcol-#{$farbtyp} {
         color:  var(--color-#{$farbtyp}-ci-hell-kontrast);
-	background-color: var(--color-#{$farbtyp}-ci-hell);
+	    background-color: var(--color-#{$farbtyp}-ci-hell);
     }
 
     @each $variante, $colorcode in $map {
+	    .textcolor-#{$farbtyp}-#{$variante} {
+		    color: var(--color-#{$farbtyp}-#{$variante});
+	    }
+        .bgcolor-#{$farbtyp}-#{$variante} {
+            background-color: var(--color-#{$farbtyp}-#{$variante});
+        }
 
-	.textcolor-#{$farbtyp}-#{$variante} {
-		color: var(--color-#{$farbtyp}-#{$variante});
-	}
-	.bgcolor-#{$farbtyp}-#{$variante} {
-	    background-color: var(--color-#{$farbtyp}-#{$variante});
-	}
-
-
-   }
+    }
 }
