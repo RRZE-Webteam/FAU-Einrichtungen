@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.12-0
+Version: 2.0.12-1
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -9174,7 +9174,7 @@ body:not([data-scroll="0"]) #headerwrapper {
 .search-toggled .meta-search .searchform .searchicon {
   background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310.42 310.42" width="16" height="16"%3E%3Cpath fill="%23E9EDF2" d="M273.587,214.965c49.11-49.111,49.11-129.021,0-178.132s-129.021-49.111-178.131,0 C53.792,78.497,47.482,140.462,76.509,188.85c0,0,2.085,3.496-0.731,6.312c-16.065,16.064-64.263,64.263-64.263,64.263 c-12.791,12.79-15.837,30.675-4.493,42.02l1.953,1.951c11.343,11.345,29.229,8.301,42.019-4.49c0,0,48.096-48.097,64.128-64.128 c2.951-2.951,6.448-0.866,6.448-0.866C169.957,262.938,231.923,256.629,273.587,214.965z M118.71,191.71 c-36.288-36.288-36.287-95.332,0-131.62c36.288-36.287,95.333-36.288,131.62,0c36.288,36.287,36.288,95.332,0,131.62 C214.043,227.997,154.999,227.997,118.71,191.71z M244.365,134.336c0,5.5-4.5,10-10,10h-98.334c-5.5,0-10-4.5-10-10v-16.575c0-5.5,4.5-10,10-10h98.334c5.5,0,10,4.5,10,10 V134.336z"/%3E%3C/svg%3E%0A');
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .meta-search {
     width: 50px;
   }
@@ -9212,7 +9212,7 @@ body:not([data-scroll="0"]) #headerwrapper {
 .search-toggled #headerwrapper #search-toggle:before {
   background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310.42 310.42" width="16" height="16"%3E%3Cpath fill="%2304316A" d="M273.587,214.965c49.11-49.111,49.11-129.021,0-178.132s-129.021-49.111-178.131,0 C53.792,78.497,47.482,140.462,76.509,188.85c0,0,2.085,3.496-0.731,6.312c-16.065,16.064-64.263,64.263-64.263,64.263 c-12.791,12.79-15.837,30.675-4.493,42.02l1.953,1.951c11.343,11.345,29.229,8.301,42.019-4.49c0,0,48.096-48.097,64.128-64.128 c2.951-2.951,6.448-0.866,6.448-0.866C169.957,262.938,231.923,256.629,273.587,214.965z M118.71,191.71 c-36.288-36.288-36.287-95.332,0-131.62c36.288-36.287,95.333-36.288,131.62,0c36.288,36.287,36.288,95.332,0,131.62 C214.043,227.997,154.999,227.997,118.71,191.71z M244.365,134.336c0,5.5-4.5,10-10,10h-98.334c-5.5,0-10-4.5-10-10v-16.575c0-5.5,4.5-10,10-10h98.334c5.5,0,10,4.5,10,10 V134.336z"/%3E%3C/svg%3E%0A');
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .js #headerwrapper #search-toggle {
     display: block;
   }
@@ -9569,7 +9569,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   }
 }
 /* Medium sized device */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   /* If there's no JavaScript available */
   #mainnav-toggle-close {
     display: none;
@@ -10090,7 +10090,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"%3E%3Cpath fill="%23FFFFFF" d="M20 2c.552 0 1 .448 1 1v3.757l-2 2V4H5v16h14v-2.758l2-2V21c0 .552-.448 1-1 1H4c-.552 0-1-.448-1-1V3c0-.552.448-1 1-1h16zm1.778 6.808l1.414 1.414L15.414 18l-1.416-.002.002-1.412 7.778-7.778zM13 12v2H8v-2h5zm3-4v2H8V8h8z"/%3E%3C/svg%3E%0A');
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   ul.menu {
     margin-bottom: 10px;
   }
