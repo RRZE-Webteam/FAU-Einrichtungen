@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 75,
+    'optiontable-version'	=> 76,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -166,8 +166,9 @@ $defaultoptions = [
     'advanced_footer_display_socialmedia'	=> false,
     
     
-    'advanced_beitragsoptionen'		=> true,
-    'advanced_topevent'			=> true,
+    'advanced_beitragsoptionen'			=> true,
+    'advanced_topevent'				=> true,
+    'default_display_thumbnail_3_2'		=> true,
     'galery_link_original'			=> true,
     'galery_force_caption_onslick'		=> true,
 
@@ -200,6 +201,7 @@ $defaultoptions = [
     
     'post_display_category_below'			=> true,
     'post_display_tags_below'			    => true,
+    
     'search_display_post_thumbnails'		    => true,
     'search_display_post_cats'			    => true,
     'search_display_continue_arrow'			=> true,
@@ -854,6 +856,13 @@ $setoptions = array(
 		    'parent'  => 'newsbereich'
 		),  
 	       
+	      'default_display_thumbnail_3_2' => array(
+		    'type'    => 'toggle',
+		    'title'   => __( 'Artikelbilder im 3:2 Format', 'fau' ),
+		    'label'   => __( 'Artikelbilder der Artikelliste werden in ein festes 3:2 Format angezeigt. Sollten die Bilder höher oder Breiter sein, werden sie entsprechend proportional verkleinert.', 'fau' ),      
+		    'default' => $defaultoptions['default_display_thumbnail_3_2'],
+		    'parent'  => 'newsbereich'
+              ), 
 	       
 	       'default_display_continue_link' => array(
 		    'type'    => 'toggle',
