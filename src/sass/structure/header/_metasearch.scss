@@ -92,7 +92,7 @@
         }
     }
 
-    @media (max-width: $screen-sm) {
+    @media (max-width: $screen-sm - 1) {
         width: 50px;
         .search-toggled & {
             .searchform {
@@ -137,7 +137,7 @@
     }
 
 
-    @media (max-width: $screen-sm) {
+    @media (max-width: $screen-sm - 1) {
         .js & {
             display: block;
         }

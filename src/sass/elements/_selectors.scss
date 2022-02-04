@@ -5,4 +5,13 @@
 ::selection {
     color: var(--color-primary-ci-hell-kontrast);
     background: var(--color-primary-ci-hell);
+       
+}
+
+
+#hero, footer {
+    ::selection {
+	color: var(--color-primary-ci-hell2-kontrast);
+	background: var(--color-primary-ci-hell2);       
+    }
 }

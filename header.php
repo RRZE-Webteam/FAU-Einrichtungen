@@ -88,7 +88,9 @@ if ($custom_logo_id) {
                              aria-label="<?php _e('Navigation: Weitere Angebote', 'fau'); ?>">
                             <?php
                             // FAU link
-                            echo fau_get_toplinks(null, 1);
+			    if ($website_type !== '3' && $website_type !== '-1') {
+				echo fau_get_toplinks(null, 1);
+			    }
                             ?>
                             <?php
                             // Breadcrumb

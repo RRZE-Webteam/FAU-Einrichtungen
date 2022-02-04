@@ -271,7 +271,7 @@
 }
 
 /* Medium sized device */
-@media (max-width: $screen-sm) {
+@media (max-width: $screen-sm - 1) {
     /* If there's no JavaScript available */
     #mainnav-toggle-close {
         display: none;

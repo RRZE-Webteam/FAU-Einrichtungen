@@ -60,8 +60,7 @@
              height: auto;
 	}
 	svg {
-	   padding: 0 17px;
-	    
+	   padding: 0 17px;	    
 	}
 	
 	@media (min-width: $screen-xs) {
@@ -69,7 +68,17 @@
 	    padding: 4px;
 	    margin: 5px auto;
 	}
+	
+	
+	.blogroll-image-3-2 & {
+	    img, svg {
+		aspect-ratio: 3 / 2;
+		max-width: 300px;
+		max-height: 200px;
+		object-fit: contain;
 
+	    }
+	}
 }
 
 .news-item {
