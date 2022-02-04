@@ -314,12 +314,8 @@
             display: none;
 
         }
-        .fauorg-home & {
-            .fau-title {
-                display: block;
-            }
-        }
 
+	.fauorg-home &,
         .fauorg-kooperation & {
             .baselogo {
                 display: block;
@@ -329,5 +325,30 @@
                 display: block;
             }
         }
+	
+	
+	
+	
+	.fauorg-home & {
+	    display: block;
+	    text-align: center;
+	    
+            .baselogo {
+                svg {
+                    display: block;
+		    height: 35px;
+                }
+            }
+
+            .text {
+                display: none;
+
+            }
+
+        }
+	
+	
+	
     }
 }
+
