@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.16-0
+Version: 2.0.16-1
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -13971,15 +13971,17 @@ aside span, #content .widget span, #content .widget span {
 .person h5 a:focus {
   text-decoration: underline;
 }
-.fau-person h3,
-.person h3 {
+.fau-person h3, .fau-person h3 span,
+.person h3,
+.person h3 span {
   font-size: 1.187rem;
   line-height: 1.782rem;
   padding-bottom: 0;
   padding-top: 5px;
 }
-.fau-person h4,
-.person h4 {
+.fau-person h4, .fau-person h4 span,
+.person h4,
+.person h4 span {
   padding-top: 0;
   padding-bottom: 0;
 }

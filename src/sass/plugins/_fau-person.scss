@@ -39,7 +39,7 @@
 	
 
     }
-	h3 {
+	h3, h3 span {
 	    @include px2rem($font-size-h3-small);
 
 	
@@ -47,7 +47,7 @@
 		padding-top: 5px;
 	}
 	
-	h4 {
+	h4, h4 span {
 		padding-top: 0;
 		padding-bottom: 0;
 		
