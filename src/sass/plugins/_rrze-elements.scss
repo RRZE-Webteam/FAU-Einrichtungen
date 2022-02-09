@@ -290,7 +290,7 @@ button.expand-all {
 /*-----------------------------------------------------------------------------------*/
 /* Buttons
 /*-----------------------------------------------------------------------------------*/
-#content .standard-btn {
+.standard-btn {
     @include defaultlinkstyle();
     @include buttonstyle();
 }
