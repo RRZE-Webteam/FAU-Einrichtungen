@@ -9,6 +9,7 @@
 
 .fau-person,
 .person {
+    .contactlist a,
     .person-info a {
 		@include defaultlinkstyle();
 		text-decoration: none;
@@ -259,6 +260,7 @@
 .portalpage-content,
 .content-inline {
     .fau-person {
+	.contactlist,
 	p {
 	    a {
 		@include defaultlinkstyle();
