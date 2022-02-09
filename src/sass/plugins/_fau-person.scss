@@ -9,15 +9,14 @@
 
 .fau-person,
 .person {
-    a {
-	   @include defaultlinkstyle();
-             text-decoration: none;
-
-            &:active,
-            &:hover, 
-            &:focus {
-                    text-decoration: underline;
-            }
+    .person-info a {
+		@include defaultlinkstyle();
+		text-decoration: none;
+		&:active,
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
     }
     .person-info-more a.standard-btn {
          @include ghostbutton();
