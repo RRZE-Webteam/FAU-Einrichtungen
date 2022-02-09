@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.16-1
+Version: 2.0.16-2
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -543,7 +543,7 @@ kbd kbd {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1024px;
+    width: 1200px;
   }
 }
 
@@ -8474,7 +8474,7 @@ textarea {
     margin-left: 100%;
   }
 }
-@media (min-width: 1420px) {
+@media (min-width: 1400px) {
   .container {
     width: 1400px;
   }
@@ -8535,8 +8535,8 @@ body.embedded .news-item .news-meta {
 }
 @media (min-width: 1200px) {
   .outside-the-box-full-width {
-    margin-left: calc(-50vw + (1024px - (30px / 2)) / 2);
-    margin-right: calc(-50vw + (1024px - (30px / 2)) / 2);
+    margin-left: calc(-50vw + (1200px - (30px / 2)) / 2);
+    margin-right: calc(-50vw + (1200px - (30px / 2)) / 2);
   }
 }
 .outside-the-box-full-width img {
@@ -8590,10 +8590,10 @@ body.embedded .news-item .news-meta {
 }
 @media (min-width: 1200px) {
   .header-container {
-    width: 1024px;
+    width: 1200px;
   }
 }
-@media (min-width: 1420px) {
+@media (min-width: 1400px) {
   .header-container {
     width: 1400px;
   }
@@ -10795,7 +10795,7 @@ ol.breadcrumblist li:last-child::after {
 }
 @media (min-width: 1200px) {
   .hero-container {
-    width: 1024px;
+    width: 1200px;
   }
 }
 
@@ -11451,7 +11451,7 @@ ol.breadcrumblist li:last-child::after {
 }
 @media (min-width: 1200px) {
   .content-container {
-    width: 1024px;
+    width: 1200px;
   }
 }
 @media (min-width: 1400px) {
@@ -11511,7 +11511,7 @@ ol.breadcrumblist li:last-child::after {
 }
 @media (min-width: 1200px) {
   .content-row .entry-content {
-    max-width: 704px;
+    max-width: 880px;
   }
 }
 @media (min-width: 1400px) {
@@ -11648,7 +11648,7 @@ ol.breadcrumblist li:last-child::after {
 }
 @media (min-width: 1200px) {
   #content .post-row {
-    max-width: 994px;
+    max-width: 1170px;
   }
 }
 @media (min-width: 1400px) {
@@ -11683,7 +11683,7 @@ ol.breadcrumblist li:last-child::after {
 }
 @media (min-width: 1200px) {
   .with-sidebar #content .post-row .entry-content {
-    max-width: 664px;
+    max-width: 840px;
   }
 }
 @media (min-width: 1400px) {
@@ -14402,7 +14402,7 @@ aside span, #content .widget span, #content .widget span {
 }
 @media (min-width: 1200px) {
   .single-person .entry-content {
-    width: 1024px;
+    width: 1200px;
   }
 }
 

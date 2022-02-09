@@ -288,7 +288,7 @@ kbd kbd {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1024px;
+    width: 1200px;
   }
 }
 
