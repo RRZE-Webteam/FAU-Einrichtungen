@@ -166,7 +166,6 @@
                 margin-bottom: 0;
 
                 &.level2 > li {
-                    margin-bottom: 15px;
 		    
                     &:not(.has-sub) {
                         > a {
@@ -182,6 +181,9 @@
                     }
                 }
 
+                &.level3 li:last-child {
+                    padding-bottom: 15px;
+                }
                 &.level3 a {
 		            @include px2rem($font-size-nav-level3);
                 }
