@@ -518,12 +518,14 @@ function fau_display_search_resultitem() {
 	    $output .= '<div class="search-row">'."\n";
             if ($withthumb == true) {
                 
-                $output .= "\t\t".'<div class="searchresult-image">'."\n";
+                $output .= "\t\t".'<div class="searchresult-image '.$type.'">'."\n";
                 if (!empty($attachment['image'])) {
                     $output .= $attachment['image'];
                 } else {
-                    $output .= '<img src="'.fau_esc_url($attachment['icon']).'"  alt="">';
+		    $output .= fau_get_image_fallback_htmlcode('rwd-480-3-2', '', 'fallback');
+       //             $output .= '<img src="'.fau_esc_url($attachment['icon']).'" class="fallback" alt="">';
                 }
+		
                 $output .= "\t\t".'</div>'."\n";
             }
 	    $output .= "\t\t".'<div class="searchresult-imagetext">'."\n";
@@ -1115,8 +1117,7 @@ function fau_get_defaultlinks($list = '', $ulclass = '', $ulid = ''){
 /*-----------------------------------------------------------------------------------*/
 /* Erstellt Link zur Home-ORGA in der Meta-Nav
 /*-----------------------------------------------------------------------------------*/
-function fau_get_orgahomelink()
-{
+function fau_get_orgahomelink() {
     global $defaultoptions;
     global $default_fau_orga_data;
     global $default_fau_orga_faculty;
@@ -1240,8 +1241,7 @@ function fau_get_orgahomelink()
  * @return string
  */
 /*-----------------------------------------------------------------------------------*/
-function fau_get_toplinks($args = array(), $mode = 0)
-{
+function fau_get_toplinks($args = array(), $mode = 0) {
     global $default_link_liste;
 
 
