@@ -726,9 +726,13 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
         }
         $output   .= '<p itemprop="description">';
         $cuttet   = false;
-        $abstract = get_post_meta($post->ID, 'abstract', true);
-        if (strlen(trim($abstract)) < 3) {
-            $abstract = fau_custom_excerpt($post->ID, get_theme_mod('default_anleser_excerpt_length'), false, '', true);
+        if (post_password_required()) {
+            $abstract = __('Dieser Inhalt ist passwortgeschützt.', 'fau');
+        } else {
+            $abstract = get_post_meta($post->ID, 'abstract', true);
+            if (strlen(trim($abstract)) < 3) {
+                $abstract = fau_custom_excerpt($post->ID, get_theme_mod('default_anleser_excerpt_length'), false, '', true);
+            }
         }
         $output .= $abstract;
 	$output .= '</p>';
