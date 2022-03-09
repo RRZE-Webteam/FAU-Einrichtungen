@@ -41,10 +41,11 @@
     }
 	h3, h3 span {
 	    @include px2rem($font-size-h3-small);
-
-	
 		padding-bottom: 0;
 		padding-top: 5px;
+		aside &, #content .widget &, #content .widget & {
+			@include px2rem($font-size-h3-small);
+		}
 	}
 	
 	h4, h4 span {
@@ -230,25 +231,25 @@
 
 .widget .person {
     ul.person-info ul {
-	margin: 0 0 10px 25px;
+		margin: 0 0 10px 25px;
     }   
     li.person-info-address,
     li.person-info-description,
     li.person-info-office {
-	display: block;
-	margin-top: 10px;
+		display: block;
+		margin-top: 10px;
     }
     li.person-info-address {
-	margin-bottom: 5px;
+		margin-bottom: 5px;
     }
     
     div[itemprop="contactPoint"] {
-	margin-top: 10px;
+		margin-top: 10px;
     }
     
     h2, h3 {
-	padding-top: 0;
-	margin-top: 0;
+		padding-top: 0;
+		margin-top: 0;
     }
     
 }
@@ -336,8 +337,8 @@
     
     
 }
-.fau-person.sidebar.thumb-size-large .row,
-.fau-person.sidebar .row  {
+.fau-theme .fau-person.sidebar.thumb-size-large .row,
+.fau-theme .fau-person.sidebar .row  {
     justify-content: flex-start;
     
     figure {
@@ -373,20 +374,17 @@
 	    color: var(--color-Text);
     }
     li.person-info-address {
-	white-space: pre-line;
+		white-space: pre-line;
     }
     .content-person {
-	border: none;
-	margin: 0;
-	padding: 0;
-    }
-    h2 {
-	padding-bottom: 11px;
+		border: none;
+		margin: 0;
+		padding: 0;
     }
     .connection {
-	h3 {
-	    @include px2rem($font-size-h4);
-	}
+		h3 {
+			@include px2rem($font-size-h4);
+		}
     }
 }
 

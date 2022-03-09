@@ -1076,14 +1076,34 @@ function fau_do_metabox_page_additional_attributes($object, $box) {
     }
 
     if (empty($thislist)) {
-       // echo __('Es wurden noch keine Bilder als Logos definiert. Daher kann hier noch nichts ausgewählt werden.', 'fau');
-	// Keine Meldung mehr
+        // echo __('Es wurden noch keine Bilder als Logos definiert. Daher kann hier noch nichts ausgewählt werden.', 'fau');
+        // Keine Meldung mehr
     } else {
-	echo '<div class="ontemplate_page-portal ontemplate_page-portalindex ontemplate_page-start ontemplate_page-start-sub">';
+	    echo '<div class="ontemplate_page-portal ontemplate_page-portalindex ontemplate_page-start ontemplate_page-start-sub">';
         $currentcat = get_post_meta($object->ID, 'fauval_imagelink_catid', true);
-        fau_form_select('fau_metabox_page_imagelinks_catid', $thislist, $currentcat, __('Bildlinks einblenden', 'fau'), __('Wählen Sie hier die Kategorie aus aus der Bildlinks (verlinkte Logos) verwendet werden sollen. Die Bilder aus der gewählten Kategorie werden dann am Ende der Seite angezeigt.', 'fau'), 1, __('Keine Logos zeigen', 'fau'));
-	echo '</div>';
-	
+        fau_form_select(
+            'fau_metabox_page_imagelinks_catid',
+            $thislist,
+            $currentcat,
+            __('Bildlinks einblenden', 'fau'),
+            __('Wählen Sie hier die Kategorie aus aus der Bildlinks (verlinkte Logos) verwendet werden sollen. Die Bilder aus der gewählten Kategorie werden dann am Ende der Seite angezeigt.', 'fau'),
+            1,
+            __('Keine Logos zeigen', 'fau'));
+        $currentsize = get_post_meta($object->ID, 'fauval_imagelink_size', true);
+        $imagesizes = [
+            'logo-thumb' => '140×110 Pixel',
+            'page-thumb' => '220×110 Pixel',
+            'post-thumbnails' => '300×150 Pixel',
+            'thumbnail' => '150×150 Pixel',
+        ];
+        fau_form_select(
+            'fau_metabox_page_imagelinks_size',
+            $imagesizes,
+            $currentsize,
+            __('Größe der Bildlinks', 'fau'),
+            '',
+            1);
+	    echo '</div>';
     }
    
     
@@ -1117,6 +1137,9 @@ function fau_save_metabox_page_additional_attributes( $post_id, $post ) {
 
     $newval = isset($_POST['fau_metabox_page_imagelinks_catid']) ? absint($_POST['fau_metabox_page_imagelinks_catid']) : 0;
     fau_save_standard('fauval_imagelink_catid', $newval, $post_id, 'post', 'int');
+
+    $newval = isset($_POST['fau_metabox_page_imagelinks_size']) ? esc_attr($_POST['fau_metabox_page_imagelinks_size']) : '';
+    fau_save_standard('fauval_imagelink_size', $newval, $post_id, 'post', 'text');
 
 
 }
