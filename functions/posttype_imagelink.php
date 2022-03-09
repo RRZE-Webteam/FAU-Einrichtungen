@@ -151,7 +151,7 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
     function fau_imagelink_get( $atts = array()) {
 	global $defaultoptions;
 	
-	$allowedsizes = array("logo-thumb", "post-thumbnails", "thumbnail", "x120", "x240", "x360", "x480");
+	$allowedsizes = array("logo-thumb", "post-thumbnails", "thumbnail", "page-thumb", "x120", "x240", "x360", "x480");
 	$dots =   (( isset($atts['dots'])  && ($atts['dots']===true)) ?  'true'  : 'false' );
 	$echo =   (( isset($atts['echo'])  && ($atts['echo']===true)) ?  'true'  : 'false' );
 	$autoplay =   (( isset($atts['autoplay'])  && ($atts['autoplay']==true)) ?  'true'  : 'false' );
