@@ -117,8 +117,7 @@ main,
     .person-info,
     .contactlist,
     .widget,
-    aside,
-    address,    
+    address,
     h1, h2, h3, h4, h5, h6 {
         a {
              @include defaultlinkstyle();

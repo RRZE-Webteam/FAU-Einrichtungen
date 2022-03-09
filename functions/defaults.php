@@ -115,6 +115,10 @@ $default_link_liste = array(
 		'name'	    => __('Lageplan', 'fau' ),
 		'content'  => 'https://karte.fau.de/',
 	    ),
+	    'link5'  => array(
+		'name'	    => __('Hilfe im Notfall', 'fau' ),
+		'content'  => 'https://www.fau.de/notfall/',
+	    ),
 	   
 	),
 	'techmenu' => array(    

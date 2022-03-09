@@ -166,7 +166,6 @@
                 margin-bottom: 0;
 
                 &.level2 > li {
-                    margin-bottom: 15px;
 		    
                     &:not(.has-sub) {
                         > a {
@@ -182,6 +181,9 @@
                     }
                 }
 
+                &.level3 li:last-child {
+                    padding-bottom: 15px;
+                }
                 &.level3 a {
 		            @include px2rem($font-size-nav-level3);
                 }
@@ -286,6 +288,26 @@
 
         .nav-flyout {
             padding-top: 0;
+        }
+        .flyout-entries-full {
+            display: flex;
+            flex-direction: column;
+            .button-portal {
+                order: 1;
+                margin-top: 10px;
+                padding: 7px 20px 7px 5px;
+                background: transparent;
+                border-radius: 0;
+                border-bottom: 1px solid var(--color-primary-dunkler);
+                &:hover, &:focus, &:active {
+                    background: var(--color-mainmenu-sublevel-hover-bg);
+                    text-decoration: underline;
+                }
+            }
+            ul {
+                order: 2;
+            }
+
         }
 
         > li {

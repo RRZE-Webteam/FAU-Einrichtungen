@@ -32,11 +32,13 @@ get_header(); ?>
                         get_template_part('template-parts/content', 'portalmenu-unten');
                         	
 			    $logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
-			    if ($logoliste) { 
-				$logos = fau_imagelink_get(array('size' => "logo-thumb", 'catid' => $logoliste, "autoplay" => true, "dots" => true));
-				if ((isset($logos) && (!empty($logos)))) {
-				    echo $logos;
-				}	   
+			    if ($logoliste) {
+                    $logosize = get_post_meta( $post->ID, 'fauval_imagelink_size', true );
+                    $size = $logosize != '' ? esc_attr($logosize) : "logo-thumb";
+                    $logos = fau_imagelink_get(array('size' => $size, 'catid' => $logoliste, "autoplay" => true, "dots" => true));
+                    if ((isset($logos) && (!empty($logos)))) {
+                        echo $logos;
+                    }
 			    }
 
 			?>
