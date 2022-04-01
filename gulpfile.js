@@ -250,9 +250,7 @@ function sassautoprefixhelperfiles() {
     var plugins = [
         autoprefixer()
     ];
-  return src([info.source.sass + 'fau-theme-admin.scss', 
-      info.source.sass + 'fau-theme-editor-style.scss', 
-      info.source.sass + 'fau-theme-gutenberg.scss'])
+  return src([info.source.sass + 'fau-theme-admin.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
     .pipe(dest('./css'))
@@ -271,9 +269,7 @@ function buildhelperstyles() {
         autoprefixer(),
         cssnano()
     ];
-  return src([info.source.sass + 'fau-theme-admin.scss',
-      info.source.sass + 'fau-theme-editor-style.scss',
-      info.source.sass + 'fau-theme-gutenberg.scss'])
+  return src([info.source.sass + 'fau-theme-admin.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
     .pipe(dest('./css'))
@@ -410,7 +406,7 @@ function unset_debugmode() {
  */
 function upversionpatch() {
     var newVer = semver.inc(info.version, 'patch');
-    return src(['./package.json', './' + info.maincss])
+    return src(['./package.json', 'theme.json', './' + info.maincss])
         .pipe(bump({
             version: newVer
         }))
@@ -428,7 +424,7 @@ function upversionpatch() {
  */
 function devversion() {
     var newVer = semver.inc(info.version, 'prerelease');
-    return src(['./package.json', './' + info.maincss])
+    return src(['./package.json', 'theme.json', './' + info.maincss])
         .pipe(bump({
             version: newVer
         }))

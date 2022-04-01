@@ -49,7 +49,6 @@ function fau_setup() {
 	if ( ! isset( $content_width ) ) $content_width = $defaultoptions['content-width'];
 	
 	    
-	add_editor_style( array( 'css/fau-theme-editor-style.css' ) );
 	add_theme_support('html5');
 	add_theme_support('caption');
 	add_theme_support('title-tag');
@@ -116,6 +115,11 @@ function fau_custom_init() {
     remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
    
+    
+    // Remove Gutenbergs Userstyle and SVGs Duotone injections from 5.9.2
+    remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
+    remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+    
     remove_filter( 'the_content', 'wpautop' );
 
     // Declare Default Symbols from the start
