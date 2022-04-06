@@ -59,6 +59,10 @@ function filter_media_comment_status( $open, $post_id ) {
 	return $open;
 }
 add_filter( 'comments_open', 'filter_media_comment_status', 10 , 2 );
+/*-----------------------------------------------------------------------------------*/
+/*  Remove Inline Style for recent comments
+/*-----------------------------------------------------------------------------------*/
+add_filter( 'show_recent_comments_widget_style', '__return_false' );
 
 
 /*-----------------------------------------------------------------------------------*/
