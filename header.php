@@ -30,18 +30,17 @@ if ($custom_logo_id) {
 ?>
 <!DOCTYPE html>
 <html class="no-js" <?php language_attributes(); ?>>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <?php wp_head(); ?>
-
-    </head>
-    <body id="top" <?php body_class(); ?>>
-        <?php wp_body_open(); ?>
-        <div id="pagewrapper">
-            <div id="headerwrapper">
-                <?php get_template_part('template-parts/header', 'skiplinks'); ?>
-                <div id="meta">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<?php print_indented("wp_head",2); ?>
+	</head>
+	<body id="top" <?php body_class(); ?>><?php wp_body_open(); ?>
+		
+		<div id="pagewrapper">
+			<div id="headerwrapper">
+				<?php print_indented('get_template_part', 4, 'template-parts/header-skiplinks'); ?>
+				<div id="meta">
                     <div class="header-container">
                         <div class="header-row" id="meta-menu">
                             <div class="meta-links-container">

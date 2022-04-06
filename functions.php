@@ -193,62 +193,6 @@ function fau_admin_header_style() {
 add_action( 'admin_enqueue_scripts', 'fau_admin_header_style' );
 
 
-
-/*-----------------------------------------------------------------------------------*/
-/* Remove type-String from link-reference to follow W3C Validator
-/*-----------------------------------------------------------------------------------*/
-function fau_remove_type_attr($tag, $handle) {
-    return preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
-}
-add_filter('style_loader_tag', 'fau_remove_type_attr', 10, 2);
-add_filter('script_loader_tag', 'fau_remove_type_attr', 10, 2);
-
-/*-----------------------------------------------------------------------------------*/
-/* Change default header
-/*-----------------------------------------------------------------------------------*/
-function fau_addmetatags() {
-    global $defaultoptions;
-    $output = '';
-   // $output .= '<meta http-equiv="Content-Type" content="text/html; charset='.get_bloginfo('charset').'">'."\n";
-   // $output .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">'."\n";    
-
-    $output .= fau_get_rel_alternate();
-    
-    $googleverification = get_theme_mod('google-site-verification');
-    if ((isset( $googleverification )) && ( !fau_empty($googleverification) )) {
-        $output .= '	<meta name="google-site-verification" content="'.$googleverification.'">'."\n";
-    }
-
-    if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {    
-	    $output .=  '   <link rel="shortcut icon" href="'.get_fau_template_uri().'/img/socialmedia/favicon.ico">'."\n";
-	    $output .=  '   <link rel="apple-touch-icon" sizes="180x180" href="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
-	//    $output .=  '   <link rel="icon" type="image/png" sizes="32x32" href="'.get_fau_template_uri().'/img/socialmedia/favicon-32x32.png">'."\n";
-	    $output .=  '   <link rel="icon" type="image/png" sizes="180x180" href="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
-	    $output .=  '   <link rel="icon" type="image/svg+xml" href="'.get_fau_template_uri().'/img/socialmedia/favicon.svg" sizes="any">'."\n";
-	    $output .=  '   <link rel="mask-icon" type="image/svg+xml" href="'.get_fau_template_uri().'/img/socialmedia/favicon-mask.svg" color="'.$defaultoptions['default-social-media-color'].'">'."\n";
-	    $output .=  '   <meta name="msapplication-TileColor" content="'.$defaultoptions['default-social-media-color'].'">'."\n";
-	    $output .=  '   <meta name="msapplication-TileImage" content="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
-	    $output .=  '   <meta name="theme-color" content="'.$defaultoptions['default-social-media-color'].'">'."\n";
-  
-    }
-    
-    	// Adds RSS feed links to <head> for posts and comments.
-	// add_theme_support( 'automatic-feed-links' );
-	// Will post both: feed and comment feed; To use only main rss feed, i have to add it manually in head
-    
-    $title = sanitize_text_field(get_bloginfo( 'name' ));
-    $output .= '    <link rel="alternate" type="application/rss+xml" title="'.$title.' - RSS 2.0 Feed" href="'.get_bloginfo( 'rss2_url').'">'."\n";
-    
-    if ($defaultoptions['default-sourcecode-notice']) {
-	$output .= '	<!-- '.$defaultoptions['default-sourcecode-notice-text'].' -->'."\n";
-    }
-    
-    
-    echo $output;
-}
-add_action('wp_head', 'fau_addmetatags',1);
-
-
 /*-----------------------------------------------------------------------------------*/
 /* Change default DNS prefetch
 /*-----------------------------------------------------------------------------------*/
@@ -266,22 +210,71 @@ function fau_dns_prefetch() {
     $prefetchDomains = [ 'https://www.fau.de'  ];
     $mydomain = parse_url(get_home_url());
     $prefetchDomains[] = $mydomain['host'];
-	
-	
+
     $prefetchDomains = array_unique($prefetchDomains);
     $result = '';
  
     foreach ($prefetchDomains as $domain) {
         $domain = esc_url($domain);
-        $result .= '	<link rel="dns-prefetch" href="' . $domain . '" crossorigin />'."\n";
-        $result .= '	<link rel="preconnect" href="' . $domain . '" crossorigin />'."\n";
+        $result .= '<link rel="dns-prefetch" href="' . $domain . '" crossorigin>'."\n";
+        $result .= '<link rel="preconnect" href="' . $domain . '" crossorigin>'."\n";
     }
- 
+    
     echo $result;
 }
 add_action('wp_head', 'fau_dns_prefetch', 10);
 
 
+/*-----------------------------------------------------------------------------------*/
+/* Change default header
+/*-----------------------------------------------------------------------------------*/
+function fau_addmetatags() {
+    global $defaultoptions;
+    $output = '';
+   // $output .= '<meta http-equiv="Content-Type" content="text/html; charset='.get_bloginfo('charset').'">'."\n";
+   // $output .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">'."\n";    
+
+    $output .= fau_get_rel_alternate();
+    
+    $googleverification = get_theme_mod('google-site-verification');
+    if ((isset( $googleverification )) && ( !fau_empty($googleverification) )) {
+        $output .= '<meta name="google-site-verification" content="'.$googleverification.'">'."\n";
+    }
+
+    if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {    
+	    $output .=  '<link rel="shortcut icon" href="'.get_fau_template_uri().'/img/socialmedia/favicon.ico">'."\n";
+	    $output .=  '<link rel="apple-touch-icon" sizes="180x180" href="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
+	//    $output .=  '   <link rel="icon" type="image/png" sizes="32x32" href="'.get_fau_template_uri().'/img/socialmedia/favicon-32x32.png">'."\n";
+	    $output .=  '<link rel="icon" type="image/png" sizes="180x180" href="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
+	    $output .=  '<link rel="icon" type="image/svg+xml" href="'.get_fau_template_uri().'/img/socialmedia/favicon.svg" sizes="any">'."\n";
+	    $output .=  '<link rel="mask-icon" type="image/svg+xml" href="'.get_fau_template_uri().'/img/socialmedia/favicon-mask.svg" color="'.$defaultoptions['default-social-media-color'].'">'."\n";
+	    $output .=  '<meta name="msapplication-TileColor" content="'.$defaultoptions['default-social-media-color'].'">'."\n";
+	    $output .=  '<meta name="msapplication-TileImage" content="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
+	    $output .=  '<meta name="theme-color" content="'.$defaultoptions['default-social-media-color'].'">'."\n";
+  
+    }
+    
+    	// Adds RSS feed links to <head> for posts and comments.
+	// add_theme_support( 'automatic-feed-links' );
+	// Will post both: feed and comment feed; To use only main rss feed, i have to add it manually in head
+    
+    $title = sanitize_text_field(get_bloginfo( 'name' ));
+    $output .= '<link rel="alternate" type="application/rss+xml" title="'.$title.' - RSS 2.0 Feed" href="'.get_bloginfo( 'rss2_url').'">'."\n";
+    echo $output;
+}
+add_action('wp_head', 'fau_addmetatags',1);
+
+/*-----------------------------------------------------------------------------------*/
+/*  Add FAU Jobs advertisement
+/*-----------------------------------------------------------------------------------*/
+function fau_addmjobsad() {
+    global $defaultoptions;
+     
+    if ($defaultoptions['default-sourcecode-notice']) {
+	echo '<!-- '.$defaultoptions['default-sourcecode-notice-text'].' -->'."\n";
+    }
+}
+add_action('wp_head', 'fau_addmjobsad',10);
 /*-----------------------------------------------------------------------------------*/
 /*  Remove something out of the head
 /*-----------------------------------------------------------------------------------*/

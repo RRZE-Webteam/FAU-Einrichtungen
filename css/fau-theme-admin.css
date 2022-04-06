@@ -5282,10 +5282,6 @@ table .edit-post-visual-editor .editor-block-list__block h6 {
 /*
 Backend CSS Settings for Block Editor (Gutenberg)
 */
-/*
-    Created on : 01.04.2022, 16:34:21
-    Author     : unrz59
-*/
 .block-editor .editor-styles-wrapper {
   margin: 0 30px;
 }
