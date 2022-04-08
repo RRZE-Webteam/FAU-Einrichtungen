@@ -59,6 +59,10 @@ function filter_media_comment_status( $open, $post_id ) {
 	return $open;
 }
 add_filter( 'comments_open', 'filter_media_comment_status', 10 , 2 );
+/*-----------------------------------------------------------------------------------*/
+/*  Remove Inline Style for recent comments
+/*-----------------------------------------------------------------------------------*/
+add_filter( 'show_recent_comments_widget_style', '__return_false' );
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -354,35 +358,12 @@ function fau_img_caption_shortcode_filter($val, $attr, $content = null) {
     . '>' . $caption . '</figcaption></figure>';
 }
 add_filter('img_caption_shortcode', 'fau_img_caption_shortcode_filter',10,3);
+
 /*-----------------------------------------------------------------------------------*/
-/* Defined allowed core block types if theme is used in Gutenberg Block Editor
+/* Remove type-String from link-reference to follow W3C Validator
 /*-----------------------------------------------------------------------------------*/
-function fau_allowed_block_types( $allowed_block_types, $post ) {
-    if ( ($post->post_type === 'post' ) || ( $post->post_type === 'page' )) {
-        return array(
-	    'core/paragraph',
-	    'core/image',
-	    'core/list',
-	    'core/file',
-	    'core/gallery',
-	    'core/heading',
-	    'core/html',
-	    'core/quote',
-	    'core/shortcode',
-	    'core/table'
-        );
-    }
-    return $allowed_block_types;
+function fau_remove_type_attr($tag, $handle) {
+    return preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
 }
-
-// add_filter( 'allowed_block_types', 'fau_allowed_block_types', 10, 2 );
-
-/* 
- * TODO: 
- * Wir mussen das andersrum machen, da wir die Liste der erlaubten Typen nicht alle kennen: 
- * Es können durch Plugins andere hinzukommen, die wir bearbeitbar lassen wollen.
- * Daher andersUm
- * Array eingeben der Typen, die wir verbieten wollen.
- * Diese gegen eine Liste matchen, die alle Typen enthält.
- * Und von der Gesamatliste eben die verbotenenen Typen abziehen
- */
+add_filter('style_loader_tag', 'fau_remove_type_attr', 10, 2);
+add_filter('script_loader_tag', 'fau_remove_type_attr', 10, 2);

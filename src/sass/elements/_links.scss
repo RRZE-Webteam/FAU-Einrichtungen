@@ -74,27 +74,20 @@ a {
 
 }
 
+	    
+
+
+
 // Continue/Weiterlesen Link
 .continue {
     margin-top: 0.5rem;
     text-align: right;
 
     .read-more-link {
-		@include defaultlinkstyle();
-		@include ghostbutton();
-
-		&:after {
-			 @include svg-icon-place();
-			 background-image: svg-angle-right($color-content-links);
-		}
-
-		&:focus:after,
-		&:hover:after {
-			background-image: svg-angle-right($color-ghostbutton-hover-text);
-		}
+	
+	@include nextlink-ghostbutton();
     }
 }
-	    
 	    
 // Additional link effects for Content
 main,
@@ -112,7 +105,7 @@ main,
         }
         
     }
-    
+    .socialmedia li,
     .imagelink,
     .person-info,
     .contactlist,
@@ -130,7 +123,13 @@ main,
             }
         }
     }
-   
+    .nextlink-ghostbutton {
+	@include nextlink-ghostbutton();
+	
+    }
+    .prevlink-ghostbutton {
+	@include prevlink-ghostbutton();
+    }
    
     a.media-img {
 	@include defaultlinkstyle();

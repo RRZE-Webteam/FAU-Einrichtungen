@@ -56,3 +56,36 @@ function fau_add_gutenberg_assets() {
 	wp_enqueue_style( 'fau-gutenberg', get_theme_file_uri( '/css/fau-theme-gutenberg.css' ), false );
 }
 add_action( 'enqueue_block_editor_assets', 'fau_add_gutenberg_assets' );
+
+/*-----------------------------------------------------------------------------------*/
+/* Defined allowed core block types if theme is used in Gutenberg Block Editor
+/*-----------------------------------------------------------------------------------*/
+function fau_allowed_block_types( $allowed_block_types, $post ) {
+    if ( ($post->post_type === 'post' ) || ( $post->post_type === 'page' )) {
+        return array(
+	    'core/paragraph',
+	    'core/image',
+	    'core/list',
+	    'core/file',
+	    'core/gallery',
+	    'core/heading',
+	    'core/html',
+	    'core/quote',
+	    'core/shortcode',
+	    'core/table'
+        );
+    }
+    return $allowed_block_types;
+}
+
+// add_filter( 'allowed_block_types', 'fau_allowed_block_types', 10, 2 );
+
+/* 
+ * TODO: 
+ * Wir mussen das andersrum machen, da wir die Liste der erlaubten Typen nicht alle kennen: 
+ * Es können durch Plugins andere hinzukommen, die wir bearbeitbar lassen wollen.
+ * Daher andersUm
+ * Array eingeben der Typen, die wir verbieten wollen.
+ * Diese gegen eine Liste matchen, die alle Typen enthält.
+ * Und von der Gesamatliste eben die verbotenenen Typen abziehen
+ */
