@@ -252,6 +252,38 @@ Mixins File for Wordpress Theme FAU
     }
 }
 
+@mixin nextlink-ghostbutton() {
+    @include defaultlinkstyle();
+    @include ghostbutton();
+     font-weight: normal;
+    &:after {
+	     @include svg-icon-place();
+	     background-image: svg-angle-right($color-content-links);
+    }
+
+    &:focus:after,
+    &:hover:after {
+	    background-image: svg-angle-right($color-ghostbutton-hover-text);
+    }
+}
+@mixin prevlink-ghostbutton() {
+    @include defaultlinkstyle();
+    @include ghostbutton();
+    font-weight: normal;
+	 &:before {
+	    @include svg-icon-place();
+	    background-image: svg-angle-right($color-content-links);
+	    transform: rotate(180deg);
+	    transform-origin: 50% 50%;
+	}
+	&:focus:before,
+	&:hover:before {
+	    background-image: svg-angle-right($color-ghostbutton-hover-text);
+
+	}
+}
+
+
 @mixin removebuttoncolor() {
     background-color: unset;
     color: unset;
