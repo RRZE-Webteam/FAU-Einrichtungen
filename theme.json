@@ -1,0 +1,41 @@
+{
+  "version": "2.0.29",
+  "settings": {
+        "color": {
+          "custom": false,
+          "customDuotone": false,
+          "defaultDuotone": false,
+          "customGradient": false,
+          "defaultGradients": false
+        },
+        
+        "typography": {
+          "fontSize": "16px",
+          "lineHeight": "1.5",
+          "fontFamily": "'Roboto','FAU Chimera', sans-serif;",
+          "dropCap": false,
+          "fontSizes": [
+            {
+              "slug": "small",
+              "size": "0.875rem",
+              "name": "Small"
+            },
+            {
+              "slug": "medium",
+              "size": "1rem",
+              "name": "medium"
+            },
+            {
+              "slug": "large",
+              "size": "1.25rem",
+              "name": "large"
+            },
+            {
+              "slug": "larger",
+              "size": "1.5rem",
+              "name": "larger"
+            }
+          ]
+      }
+	}
+}

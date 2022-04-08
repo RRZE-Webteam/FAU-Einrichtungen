@@ -1945,5 +1945,23 @@ function fau_get_the_taglist($before = '', $sep = '', $after = '') {
     return $res;
 }
 /*-----------------------------------------------------------------------------------*/
+/*  Add tabs / intendens to default output functions
+ *   Source/credits to: https://wordpress.stackexchange.com/questions/70901/indenting-tabbing-wp-head
+ */
+/*-----------------------------------------------------------------------------------*/
+if (! function_exists("print_indented")) {
+    function print_indented($fn, $num_tabs=1, $params=null){
+	ob_start();
+	call_user_func($fn, $params);
+	$html = ob_get_contents();
+	ob_end_clean();
+	$tabs="";
+	for ($i=0 ; $i<$num_tabs ; $i++) $tabs.="\t";
+	echo preg_replace("/\n/", "\n" . $tabs, substr($html, 0, - 1));
+	echo "\n";
+    }
+}
+
+/*-----------------------------------------------------------------------------------*/
 /* This is the end :)
 /*-----------------------------------------------------------------------------------*/
