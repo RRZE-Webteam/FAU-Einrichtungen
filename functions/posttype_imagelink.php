@@ -92,25 +92,21 @@ if ( ! function_exists( 'fau_imagelink_metabox' ) ) {
 }
 if ( ! function_exists( 'fau_imagelink_metabox_content' ) ) {
     function fau_imagelink_metabox_content( $object, $box ) { 
-	global $post;
+		global $post;
 
 
-	wp_nonce_field( basename( __FILE__ ), 'fau_imagelink_metabox_content_nonce' ); 
+		wp_nonce_field( basename( __FILE__ ), 'fau_imagelink_metabox_content_nonce' ); 
 
-	if ( !current_user_can( 'edit_page', $object->ID) )
-		// Oder sollten wir nach publish_pages  fragen? 
-		// oder nach der Rolle? vgl. http://docs.appthemes.com/tutorials/wordpress-check-user-role-function/ 
-	    return;
+		if ( !current_user_can( 'edit_page', $object->ID) )
+			return;
 
+		$targeturl = get_post_meta( $object->ID, 'fauval_imagelink_url', true );
+		$desc  = get_post_meta( $object->ID, 'portal_description', true );
 
-	$targeturl = get_post_meta( $object->ID, 'fauval_imagelink_url', true );
-	$desc  = get_post_meta( $object->ID, 'portal_description', true );
+		fau_form_url('fau_imagelink_url', $targeturl, __('Webadresse','fau'), '', $placeholder='https://');   
+		fau_form_text('fau_imagelink_desc', $desc, __('Kurzbeschreibung','fau'));
 
-			
-	fau_form_url('fau_imagelink_url', $targeturl, __('Webadresse','fau'), '', $placeholder='https://');   
-	fau_form_text('fau_imagelink_desc', $desc, __('Kurzbeschreibung','fau'));
-
-	return;
+		return;
 
     }
 }
@@ -149,147 +145,140 @@ add_action( 'save_post', 'fau_imagelink_metabox_content_save' );
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_imagelink_get' ) ) {
     function fau_imagelink_get( $atts = array()) {
-	global $defaultoptions;
-	
-	$allowedsizes = array("logo-thumb", "post-thumbnails", "thumbnail", "page-thumb", "x120", "x240", "x360", "x480");
-	$dots =   (( isset($atts['dots'])  && ($atts['dots']===true)) ?  'true'  : 'false' );
-	$echo =   (( isset($atts['echo'])  && ($atts['echo']===true)) ?  'true'  : 'false' );
-	$autoplay =   (( isset($atts['autoplay'])  && ($atts['autoplay']==true)) ?  'true'  : 'false' );
-	$slidesToShow = ( isset($atts['slidesToShow'] ) ? intval( $atts['slidesToShow'] ) : 4 );
-	$catid = ( isset($atts['catid'] ) ? intval( $atts['catid'] ) : 0 );
-	$cat = ( isset($atts['cat'] ) ? esc_attr( $atts['cat'] ) : '' );
-	$order = ( isset($atts['order'] ) ? esc_attr( $atts['order'] ) : 'ASC' );
-	$size = ( isset($atts['size'] ) ? esc_attr( $atts['size'] ) : 'logo-thumb' );
+		global $defaultoptions;
 
-	$navtitle = ( isset($atts['navtitle'] ) ? sanitize_text_field( $atts['navtitle'] ) : '' );
-	$class = ( isset($atts['class'] ) ? sanitize_text_field( $atts['class'] ) : '' );
+		$allowedsizes = array("logo-thumb", "post-thumbnails", "thumbnail", "page-thumb", "x120", "x240", "x360", "x480");
+		$dots =   (( isset($atts['dots'])  && ($atts['dots']===true)) ?  'true'  : 'false' );
+		$echo =   (( isset($atts['echo'])  && ($atts['echo']===true)) ?  'true'  : 'false' );
+		$autoplay =   (( isset($atts['autoplay'])  && ($atts['autoplay']==true)) ?  'true'  : 'false' );
+		$slidesToShow = ( isset($atts['slidesToShow'] ) ? intval( $atts['slidesToShow'] ) : 4 );
+		$catid = ( isset($atts['catid'] ) ? intval( $atts['catid'] ) : 0 );
+		$cat = ( isset($atts['cat'] ) ? esc_attr( $atts['cat'] ) : '' );
+		$order = ( isset($atts['order'] ) ? esc_attr( $atts['order'] ) : 'ASC' );
+		$size = ( isset($atts['size'] ) ? esc_attr( $atts['size'] ) : 'logo-thumb' );
 
-	$type = ( isset($atts['type'] ) ? esc_attr( $atts['type'] ) : 'slide' );
+		$navtitle = ( isset($atts['navtitle'] ) ? sanitize_text_field( $atts['navtitle'] ) : '' );
+		$class = ( isset($atts['class'] ) ? sanitize_text_field( $atts['class'] ) : '' );
 
-	if (!in_array($size, $allowedsizes)) {
-	    $size = 'thumbnail';
-	}
+		$type = ( isset($atts['type'] ) ? esc_attr( $atts['type'] ) : 'slide' );
+
+		if (!in_array($size, $allowedsizes)) {
+			$size = 'thumbnail';
+		}
 
 
-	if ( isset($catid) && $catid >0) {
-	    $args = array(
-	       'post_type'  => 'imagelink',
-	       'nopaging'   => 1,
-	       'orderby'    => 'name', 
-	       'order'	    => $order,
-	       'tax_query'  => array(
-			array(
-			   'taxonomy' => 'imagelinks_category',
-			   'field' => 'id', // can be slug or id - a CPT-onomy term's ID is the same as its post ID
-			   'terms' => $catid,
-
-		       )
-	       )
-	    );	 
-	} elseif (!empty($cat)) {
-	     $args = array(
-	       'post_type'  => 'imagelink',
-	       'nopaging'	  => 1,
-	       'orderby'	  => 'name', 
-	       'order'	  => $order,
-	       'tax_query'  => array(
-			array(
-			   'taxonomy' => 'imagelinks_category',
-			   'field' => 'slug', // can be slug or id - a CPT-onomy term's ID is the same as its post ID
-			   'terms' => $cat,
-
-		       )
-	       )
-	    );	
-	} else {
-	    $args = array(
-	       'post_type'	=> 'imagelink',
-	       'nopaging'	=> 1,
-	       'orderby'	=> 'name', 
-	       'order'	=> $order
-	    );
-	}
+		if ( isset($catid) && $catid >0) {
+			$args = array(
+			   'post_type'  => 'imagelink',
+			   'nopaging'   => 1,
+			   'orderby'    => 'name', 
+			   'order'	    => $order,
+			   'tax_query'  => array(
+				array(
+				   'taxonomy' => 'imagelinks_category',
+				   'field' => 'id', // can be slug or id - a CPT-onomy term's ID is the same as its post ID
+				   'terms' => $catid,
+				   )
+			   )
+			);	 
+		} elseif (!empty($cat)) {
+			 $args = array(
+			   'post_type'  => 'imagelink',
+			   'nopaging'	  => 1,
+			   'orderby'	  => 'name', 
+			   'order'	  => $order,
+			   'tax_query'  => array(
+				array(
+				   'taxonomy' => 'imagelinks_category',
+				   'field' => 'slug', // can be slug or id - a CPT-onomy term's ID is the same as its post ID
+				   'terms' => $cat,
+				   )
+			   )
+			);	
+		} else {
+			$args = array(
+			   'post_type'	=> 'imagelink',
+			   'nopaging'	=> 1,
+			   'orderby'	=> 'name', 
+			   'order'	=> $order
+			);
+		}
 
 
 
-	$imagelist = get_posts($args); 
-	$number =0;
-	$item_output = $output = $mainclass = '';
-	$rand = rand();	    
+		$imagelist = get_posts($args); 
+		$number =0;
+		$item_output = $output = $mainclass = '';
+		$rand = rand();	    
 
 
-	foreach($imagelist as $item) {
-	    $number++;
-	    $currenturl  = get_post_meta( $item->ID, 'fauval_imagelink_url', true );
+		foreach($imagelist as $item) {
+			
+			$currenturl  = get_post_meta( $item->ID, 'fauval_imagelink_url', true );
+			$imageid = get_post_thumbnail_id( $item->ID ); 
+			
+			if ((!empty($currenturl)) && ($imageid > 0)) {
+				$number++;
+				$item_output .= '<div class="slick-item';
+				if (!empty($class)) {
+					$item_output .= ' '.$class;
+				}
+				$item_output .= '">';
+				$item_output .= '<a';
+				if (fau_is_url_external($currenturl)) {
+					$item_output .= ' rel="nofollow"';
+				}
+				
+				$item_output .= ' href="'.$currenturl.'">';
+				$alttext = get_the_title($item->ID);
+				$alttext = esc_html($alttext);
+				if (empty($alttext)) {
+					$alttext = __("Zum Webauftritt: ", 'fau').$currenturl;
+				}
 
-	    $item_output .= '<div class="slick-item';
-	    if (!empty($class)) {
-		$item_output .= ' '.$class;
-	    }
-	    $item_output .= '">';
-	    $item_output .= '<a rel="nofollow" href="'.$currenturl.'">';
-	    $alttext = get_the_title($item->ID);
-	    $alttext = esc_html($alttext);
-	    if (empty($alttext)) {
-		$alttext = __("Zum Webauftritt: ", 'fau').$currenturl;
-	    }
+				$item_output .= fau_get_image_htmlcode($imageid, 'rwd-480-3-2', $alttext);
 
-	    $id = get_post_thumbnail_id( $item->ID ); 
-	    $item_output .= fau_get_image_htmlcode($id, 'rwd-480-3-2', $alttext);
-	    
-	    $item_output .= '</a>';
-	    $item_output .= '</div>';
-	}
+				$item_output .= '</a>';
+				$item_output .= '</div>';
+			}
+		}
 
-	if ($number>0) {
-	    $output .= '<nav aria-label="'.$navtitle.'" class="imagelink';
+		if ($number>0) {
+			$output .= '<nav aria-label="'.$navtitle.'" class="imagelink';
 
-	    if (isset($type) && ($type == 'list')) {
-		$output .= " list";
-	    } elseif ($dots) {
-		$output .= " dots";
-	    }
-	    $output .= '">';
-	    $mainclass .= $size;
-	    $mainclass .= ' slider-for-'.$rand;
-	     $output .= '<div class="'.$mainclass.'">';
+			if (isset($type) && ($type == 'list')) {
+				$output .= " list";
+			} elseif ($dots) {
+				$output .= " dots";
+			}
+			$output .= '">';
+			$mainclass .= $size;
+			$mainclass .= ' slider-for-'.$rand;
+			$output .= '<div class="'.$mainclass.'">';
 
-	    $output .= $item_output;
-	    $output .= '</div>';
-	    $output .= "</nav>";
-	    if (isset($type) && ($type == 'slide')) {
-		$output .= "<script type=\"text/javascript\"> jQuery(document).ready(function($) {";		
-		$output .= "$('.slider-for-$rand').slick({ slidesToScroll: 1, focusOnSelect: true";
-		$output .= ", variableWidth: true";		
-		$output .= ", slidesToShow: $slidesToShow";
-		$output .= ", dots: $dots";
-		$output .= ", autoplay: $autoplay";
-		$output .= ", responsive: [{
-		      breakpoint: 768,
-		      settings: {
-			arrows: false,
-			slidesToShow: 3
-		      }
-		    },
-		    {
-		      breakpoint: 480,
-		      settings: {
-			arrows: false,
-			slidesToShow: 1
-		      }
-		    }]";
-		$output .= "});";
-		$output .= "});</script>";
+			$output .= $item_output;
+			$output .= '</div>';
+			$output .= "</nav>";
+			if (isset($type) && ($type == 'slide')) {
+				$output .= "<script type=\"text/javascript\"> jQuery(document).ready(function($) {";		
+				$output .= "$('.slider-for-$rand').slick({ slidesToScroll: 1, focusOnSelect: true";
+				$output .= ", variableWidth: true";		
+				$output .= ", slidesToShow: $slidesToShow";
+				$output .= ", dots: $dots";
+				$output .= ", autoplay: $autoplay";
+				$output .= ", responsive: [{ breakpoint: 768, settings: {arrows: false,slidesToShow: 3 }},{breakpoint: 480,settings: {arrows: false,slidesToShow: 1 }}]";
+				$output .= "});";
+				$output .= "});</script>";
 
-		wp_enqueue_script('fau-js-heroslider');
-	    }
-	    if ($echo === true) {
-		echo $output;
-		return;
-	    } else {
-		return $output;
-	    }
-	}
+				wp_enqueue_script('fau-js-heroslider');
+			}
+			if ($echo === true) {
+				echo $output;
+				return;
+			} else {
+				return $output;
+			}
+		}
 
     }
 }
@@ -327,7 +316,7 @@ add_shortcode('imagelink', 'fau_imagelink_shortcode' );
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_get_imagelinks' ) ) {
     function fau_get_imagelinks ( $catid, $echo = true ) {
-	return fau_imagelink_get(array('size' => "logo-thumb", 'catid' => $catid, "autoplay" => true, "dots" => true, 'echo' => $echo));
+		return fau_imagelink_get(array('size' => "logo-thumb", 'catid' => $catid, "autoplay" => true, "dots" => true, 'echo' => $echo));
     }
 }
 /*-----------------------------------------------------------------------------------*/
