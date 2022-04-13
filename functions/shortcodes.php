@@ -8,7 +8,6 @@
 class FAUShortcodes {
 	function __construct() {
 	   remove_filter( 'the_content', 'wpautop' );
-//	   add_filter( 'the_content', 'wpautop' , 10);
 	   add_action( 'init', array( $this, 'add_shortcodes' ) );
 	}
 
@@ -50,10 +49,10 @@ class FAUShortcodes {
             $error .= "name=$menu";
             if (! fau_empty($menu)) {
 		
-		$showsubs = filter_var($showsubs, FILTER_VALIDATE_BOOLEAN);
-		$nothumbs = filter_var($nothumbs, FILTER_VALIDATE_BOOLEAN);
-		$nofallback = filter_var($nofallback, FILTER_VALIDATE_BOOLEAN);
-		$skewed = filter_var($skewed, FILTER_VALIDATE_BOOLEAN);
+				$showsubs = filter_var($showsubs, FILTER_VALIDATE_BOOLEAN);
+				$nothumbs = filter_var($nothumbs, FILTER_VALIDATE_BOOLEAN);
+				$nofallback = filter_var($nofallback, FILTER_VALIDATE_BOOLEAN);
+				$skewed = filter_var($skewed, FILTER_VALIDATE_BOOLEAN);
 		
 		
                 if ($menu == sanitize_key($menu)) {
@@ -64,35 +63,35 @@ class FAUShortcodes {
                 if ($term===false) {
                     $out = $error;
                 } else {
-		    $slug = $term->slug;
-		    $subentries = get_theme_mod('default_submenu_entries');
+					$slug = $term->slug;
+					$subentries = get_theme_mod('default_submenu_entries');
                     if ($showsubs===false) {
                         $subentries = 0;
                     }
-		//    $spalte = get_theme_mod('default_submenu_spalten');
+					//    $spalte = get_theme_mod('default_submenu_spalten');
 
-		    $a_contentmenuclasses[] = 'contentmenu';
-		    $thumbnail = 'rwd-480-2-1';
-		    $type = intval($type);
-           
-		    switch ($type) {
-                    	case 1:
-				$thumbnail = 'rwd-480-2-1';
-				 $a_contentmenuclasses[] = 'size_2-1';
-                    		break;
-                    	case 2:
-				$a_contentmenuclasses[] = 'size_3-2';
-                   		$thumbnail = 'full';
-                    		break;
-                    	case 3:
-				$a_contentmenuclasses[] = 'size_3-4';
-                    		$thumbnail = 'full';
-                    		break;
-                    	default:
-				$thumbnail = 'rwd-480-2-1';
-                    		$type = 1;
-                    		break;
-		    }
+					$a_contentmenuclasses[] = 'contentmenu';
+					$thumbnail = 'rwd-480-2-1';
+					$type = intval($type);
+
+					switch ($type) {
+								case 1:
+						$thumbnail = 'rwd-480-2-1';
+						 $a_contentmenuclasses[] = 'size_2-1';
+									break;
+								case 2:
+						$a_contentmenuclasses[] = 'size_3-2';
+								$thumbnail = 'full';
+									break;
+								case 3:
+						$a_contentmenuclasses[] = 'size_3-4';
+									$thumbnail = 'full';
+									break;
+								default:
+						$thumbnail = 'rwd-480-2-1';
+									$type = 1;
+									break;
+					}
                     
                     
 
@@ -113,7 +112,7 @@ class FAUShortcodes {
                     $outnav = wp_nav_menu( array( 'menu' => $slug,
                         'echo'          => false,
                         'container'     => true,
-			'items_wrap'     => '%3$s',
+						'items_wrap'     => '%3$s',
                         'link_before'   => '',
                         'link_after'    => '',
                         'item_spacing'  => 'discard',

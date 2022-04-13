@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.30-0
+Version: 2.0.30-4
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -13553,6 +13553,7 @@ main .news-more-links .news-rss:hover:before {
 .imagelink .slick-slide {
   width: 152px;
   height: 152px;
+  height: auto;
   margin: 0 10px;
 }
 .imagelink .slick-slide a {
@@ -13570,26 +13571,71 @@ main .news-more-links .news-rss:hover:before {
   width: 100%;
   object-fit: contain;
 }
+.imagelink .x120 .slick-item,
+.imagelink .x120 .slick-slide {
+  width: 120px;
+  height: 120px;
+}
+.imagelink .x120 .slick-item a,
+.imagelink .x120 .slick-slide a {
+  height: 118px;
+}
+.imagelink .x240 .slick-item,
+.imagelink .x240 .slick-slide {
+  width: 240px;
+  height: 240px;
+}
+.imagelink .x240 .slick-item a,
+.imagelink .x240 .slick-slide a {
+  height: 238px;
+}
+.imagelink .x360 .slick-item,
+.imagelink .x360 .slick-slide {
+  width: 360px;
+  height: 360px;
+}
+.imagelink .x360 .slick-item a,
+.imagelink .x360 .slick-slide a {
+  height: 358px;
+}
+.imagelink .x480 .slick-item,
+.imagelink .x480 .slick-slide {
+  width: 480px;
+  height: 480px;
+}
+.imagelink .x480 .slick-item a,
+.imagelink .x480 .slick-slide a {
+  height: 478px;
+}
+.imagelink .logo-thumb .slick-item,
 .imagelink .logo-thumb .slick-slide {
   width: 142px;
   height: 142px;
 }
+.imagelink .logo-thumb .slick-item a,
 .imagelink .logo-thumb .slick-slide a {
   height: 140px;
 }
+.imagelink .page-thumb .slick-item,
 .imagelink .page-thumb .slick-slide {
   width: 222px;
   height: 222px;
 }
+.imagelink .page-thumb .slick-item a,
 .imagelink .page-thumb .slick-slide a {
   height: 220px;
 }
+.imagelink .post-thumbnails .slick-item,
 .imagelink .post-thumbnails .slick-slide {
   width: 302px;
   height: 302px;
 }
+.imagelink .post-thumbnails .slick-item a,
 .imagelink .post-thumbnails .slick-slide a {
   height: 300px;
+}
+.imagelink .post-thumbnails .slick-item {
+  margin: 10px 2px;
 }
 .imagelink .slick-prev,
 .imagelink .slick-next {
@@ -13707,6 +13753,59 @@ main .news-more-links .news-rss:hover:before {
   width: 100%;
   display: flex;
   text-align: center;
+  /*
+  	.x120 .slick-item {
+  	    width: 120px;
+  	    height: 120px;
+
+  	    a {
+  		height: 118px;	
+  	    }
+  	}
+
+  	.x240 .slick-item {
+  	    width: 240px;
+  	    height: 240px;
+
+  	    a {
+  		height: 238px;	
+  	    }
+  	}
+  	.x360 .slick-item {
+  	    width: 360px;
+  	    height: 360px;
+
+  	    a {
+  		height: 358px;	
+  	    }
+  	}
+  	.x480 .slick-item {
+  	    width: 480px;
+  	    height: 480px;
+
+  	    a {
+  		height: 478px;	
+  	    }
+  	}
+
+  	.logo-thumb .slick-item {
+  	    width: 142px;
+  	    height: 142px;
+
+  	    a {
+  		height: 140px;	
+  	    }
+  	}
+
+  	.post-thumbnails .slick-item {
+  	    width: 302px;
+  	    height: 302px;
+  	    margin: 10px 2px;
+  	    a {
+  		height: 300px;
+  	    }
+  	}
+  	*/
 }
 .imagelink.list .slick-item {
   width: 152px;
@@ -13741,49 +13840,6 @@ main .news-more-links .news-rss:hover:before {
 }
 .imagelink.list .slick-item.rounded:hover, .imagelink.list .slick-item.rounded:focus, .imagelink.list .slick-item.rounded:active {
   border-color: var(--color-primary-dunkelste);
-}
-.imagelink.list .x120 .slick-item {
-  width: 120px;
-  height: 120px;
-}
-.imagelink.list .x120 .slick-item a {
-  height: 118px;
-}
-.imagelink.list .x240 .slick-item {
-  width: 240px;
-  height: 240px;
-}
-.imagelink.list .x240 .slick-item a {
-  height: 238px;
-}
-.imagelink.list .x360 .slick-item {
-  width: 360px;
-  height: 360px;
-}
-.imagelink.list .x360 .slick-item a {
-  height: 358px;
-}
-.imagelink.list .x480 .slick-item {
-  width: 480px;
-  height: 480px;
-}
-.imagelink.list .x480 .slick-item a {
-  height: 478px;
-}
-.imagelink.list .logo-thumb .slick-item {
-  width: 142px;
-  height: 142px;
-}
-.imagelink.list .logo-thumb .slick-item a {
-  height: 140px;
-}
-.imagelink.list .post-thumbnails .slick-item {
-  width: 302px;
-  height: 302px;
-  margin: 10px 2px;
-}
-.imagelink.list .post-thumbnails .slick-item a {
-  height: 300px;
 }
 .imagelink.dots {
   margin: 20px auto 40px auto;
