@@ -15,14 +15,7 @@
  *   https://wordpress.stackexchange.com/questions/320653/how-to-detect-the-usage-of-gutenberg
  */
 
-/*
- * Note: Maybe test if gutenberg is enabled first.
- *   $is_gutenberg_enabled = false;
- *   if(has_filter('is_gutenberg_enabled') {
- *       $is_gutenberg_enabled = apply_filters('is_gutenberg_enabled', false);
- *    }
- * with plugin https://gitlab.rrze.fau.de/rrze-webteam/rrze-writing/blob/master/RRZE/Writing/Editor/Editor.php
- */
+
 
 /*-----------------------------------------------------------------------------------*/
 /* We use our own color set in this theme and dont want autors to change text colors
@@ -83,43 +76,15 @@ function fau_deregister_blocklibrary_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'fau_deregister_blocklibrary_styles', 100 );
 
-/*-----------------------------------------------------------------------------------*/
-/* Defined allowed core block types if theme is used in Gutenberg Block Editor
-/*-----------------------------------------------------------------------------------*/
-/* 
- * TODO: 
- * Wir mussen das andersrum machen, da wir die Liste der erlaubten Typen nicht alle kennen: 
- * Es können durch Plugins andere hinzukommen, die wir bearbeitbar lassen wollen.
- * Daher andersUm
- * Array eingeben der Typen, die wir verbieten wollen.
- * Diese gegen eine Liste matchen, die alle Typen enthält.
- * Und von der Gesamatliste eben die verbotenenen Typen abziehen
+
+/*
+ * Note: Maybe test if gutenberg is enabled first.
+ *   $is_gutenberg_enabled = false;
+ *   if(has_filter('is_gutenberg_enabled') {
+ *       $is_gutenberg_enabled = apply_filters('is_gutenberg_enabled', false);
+ *    }
+ * with plugin https://gitlab.rrze.fau.de/rrze-webteam/rrze-writing/blob/master/RRZE/Writing/Editor/Editor.php
  */
-function fau_allowed_block_types( $allowed_block_types, $post ) {
-	global $is_gutenberg_enabled;
-
-	if ($is_gutenberg_enabled) {
-		if ( ($post->post_type === 'post' ) || ( $post->post_type === 'page' )) {
-			return array(
-			'core/paragraph',
-			'core/image',
-			'core/list',
-			'core/file',
-			'core/gallery',
-			'core/heading',
-			'core/html',
-			'core/quote',
-			'core/shortcode',
-			'core/table'
-			);
-		}
-		return $allowed_block_types;
-	}
-}
-
-// add_filter( 'allowed_block_types', 'fau_allowed_block_types', 10, 2 );
-
-
 
 /**
  * Check if Block Editor is active.
@@ -179,3 +144,41 @@ function fau_is_newsletter_plugin_active() {
 
     return false;
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* Defined allowed core block types if theme is used in Gutenberg Block Editor
+/*-----------------------------------------------------------------------------------*/
+/* 
+ * TODO: 
+ * Wir mussen das andersrum machen, da wir die Liste der erlaubten Typen nicht alle kennen: 
+ * Es können durch Plugins andere hinzukommen, die wir bearbeitbar lassen wollen.
+ * Daher andersUm
+ * Array eingeben der Typen, die wir verbieten wollen.
+ * Diese gegen eine Liste matchen, die alle Typen enthält.
+ * Und von der Gesamatliste eben die verbotenenen Typen abziehen
+
+function fau_allowed_block_types( $allowed_block_types, $post ) {
+	global $is_gutenberg_enabled;
+
+	if ($is_gutenberg_enabled) {
+		if ( ($post->post_type === 'post' ) || ( $post->post_type === 'page' )) {
+			return array(
+			'core/paragraph',
+			'core/image',
+			'core/list',
+			'core/file',
+			'core/gallery',
+			'core/heading',
+			'core/html',
+			'core/quote',
+			'core/shortcode',
+			'core/table'
+			);
+		}
+		return $allowed_block_types;
+	}
+}
+
+// add_filter( 'allowed_block_types', 'fau_allowed_block_types', 10, 2 );
+ 
+ */
