@@ -13,6 +13,7 @@ $imagelink_defaults = array(
 			'order'			=> 'ASC', 
 			'dots'			=> true, 
 			'autoplay'		=> true,
+			'adaptiveHeight'	=> true,
 			'slides'		=> 4, 
 			'class'			=> '', 
 			'type'			=> 'slide', 
@@ -171,7 +172,7 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 		$imagelink_option['echo'] = filter_var( $atts['echo'], FILTER_VALIDATE_BOOLEAN );
 		$imagelink_option['dots'] = filter_var( $atts['dots'], FILTER_VALIDATE_BOOLEAN );
 		
-		$imagelink_option['navtitle'] = ( isset($atts['navtitle'] ) ? sanitize_text_field( $atts['navtitle'] ) : '' );
+		$imagelink_option['navtitle'] = ( isset($atts['navtitle'] ) ? sanitize_text_field( $atts['navtitle'] ) : $imagelink_option['navtitle']  );
 		$imagelink_option['class'] = ( isset($atts['class'] ) ? sanitize_text_field( $atts['class'] ) : '' );
 		$imagelink_option['order'] = ( isset($atts['order'] ) ? sanitize_text_field( $atts['order'] ) : $imagelink_defaults['order']  );
 		
@@ -256,7 +257,8 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 				if (empty($alttext)) {
 					$alttext = __("Zum Webauftritt: ", 'fau').$currenturl;
 				}
-				$item_output .= fau_get_image_htmlcode($imageid, $imagelink_option['size'], $alttext);
+				$item_output .= fau_get_image_htmlcode($imageid, 'rwd-480-3-2', $alttext);
+		//		$item_output .= fau_get_image_htmlcode($imageid, $imagelink_option['size'], $alttext);
 				$item_output .= '</a>';
 				$item_output .= '</div>';
 			}
@@ -269,11 +271,13 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 			if ($imagelink_option['dots']) {
 				$output .= " dots";
 			}
+			if (($imagelink_option['adaptiveHeight']) && ($imagelink_option['type'] !== 'list')) {
+				$output .= " adaptiveHeight";
+			}
 			$output .= '"';
-		//	if ($imagelink_option['type'] == 'slide') {
-		//		$output .= ' aria-roledescription="'.__('Karussell','fau').'"';
-		//	}
+
 			$output .= '>';
+			$mainclass .= 'imagelink-container ';
 			$mainclass .= $imagelink_option['size'];
 			$mainclass .= ' slider-for-'.$rand;
 			$output .= '<div class="'.$mainclass.'">';
@@ -296,8 +300,13 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 				
 				$slidesToShow = $imagelink_option['slides'];
 				
-				$slickfunc .= "$('.slider-for-$rand').slick({ slidesToScroll: 1, focusOnSelect: true, adaptiveHeight: true";
-				$slickfunc .= ", variableWidth: true, slidesToShow: $slidesToShow, dots: $str_dots, autoplay: $str_autoplay";
+				$slickfunc .= "$('.slider-for-$rand').slick({ slidesToScroll: 1, focusOnSelect: true";
+				
+				if ($imagelink_option['adaptiveHeight']) {
+					$slickfunc .= ", adaptiveHeight: true";
+				}
+				
+				$slickfunc .= ", slidesToShow: $slidesToShow, dots: $str_dots, autoplay: $str_autoplay";
 				$slickfunc .= ", responsive: [{ breakpoint: 768, settings: {arrows: false,slidesToShow: 3 }},{breakpoint: 480,settings: {arrows: false,slidesToShow: 1 }}]";
 				$slickfunc .= "});\n";
 				
@@ -344,9 +353,9 @@ if ( ! function_exists( 'fau_imagelink_shortcode' ) ) {
 		$args['echo'] = filter_var( $args['echo'], FILTER_VALIDATE_BOOLEAN );
 		$args['dots'] = filter_var( $args['dots'], FILTER_VALIDATE_BOOLEAN );
 		
-		$args['navtitle'] = ( isset($atts['navtitle'] ) ? sanitize_text_field( $atts['navtitle'] ) : '' );
+		$args['navtitle'] = ( isset($atts['navtitle'] ) ? sanitize_text_field( $atts['navtitle'] ) : $imagelink_defaults['navtitle'] );
 		$args['class'] = ( isset($atts['class'] ) ? sanitize_text_field( $atts['class'] ) : '' );
-		$args['order'] = ( isset($atts['order'] ) ? sanitize_text_field( $atts['order'] ) : 'ASC' );
+		$args['order'] = ( isset($atts['order'] ) ? sanitize_text_field( $atts['order'] ) : $imagelink_defaults['order'] );
 		$args['size'] = ( isset($atts['size'] ) ? sanitize_text_field( $atts['size'] ) : $imagelink_defaults['size'] );
 		$args['catid'] = ( isset($atts['catid'] ) ? intval( $atts['catid'] ) : 0 );
 		$args['cat'] = ( isset($atts['cat'] ) ? esc_attr( $atts['cat'] ) : '' );

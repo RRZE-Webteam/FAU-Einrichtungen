@@ -6,7 +6,8 @@
  */
 
 global $defaultoptions, $default_fau_orga_data, $fau_used_svgs;
-
+global $is_gutenberg_enabled;
+	
 load_theme_textdomain( 'fau', get_template_directory() . '/languages' );
 require_once( get_template_directory() . '/functions/template-functions.php' );
 
@@ -31,9 +32,7 @@ require_once( get_template_directory() . '/functions/posttype_imagelink.php' );
 require_once( get_template_directory() . '/functions/widgets.php' );
 require_once( get_template_directory() . '/functions/gallery.php' );
 
-require_once( get_template_directory() . '/functions/gutenberg.php');
-// deaktiviert wegen Newsletter-Plugin
-// brauchen noch ein andere Lösung
+
 
 require_once( get_template_directory() . '/functions/svglib.php');
 
@@ -91,7 +90,17 @@ function fau_setup() {
 	/* Images for gallerys - Name: gallery-full */
 	add_image_size( 'gallery-full', $defaultoptions['default_gallery_full_width'], $defaultoptions['default_gallery_full_height'], $defaultoptions['default_gallery_full_crop']); // 940, 470, false
 	
+	global $is_gutenberg_enabled;
 
+	
+
+	if (has_filter('is_gutenberg_enabled')) {
+		$is_gutenberg_enabled = apply_filters('is_gutenberg_enabled', false);
+	}
+	if (fau_is_newsletter_plugin_active()) {
+		$is_gutenberg_enabled = true;
+	} 
+	
 
 }
 add_action( 'after_setup_theme', 'fau_setup' );
@@ -115,11 +124,8 @@ function fau_custom_init() {
     remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
    
-    
-    // Remove Gutenbergs Userstyle and SVGs Duotone injections from 5.9.2
-    remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
-    remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
-    
+
+	
     remove_filter( 'the_content', 'wpautop' );
 	// add_filter( 'the_content', 'wpautop' , 99);
     // Declare Default Symbols from the start
@@ -147,7 +153,7 @@ function fau_register_scripts() {
 	// Base FAU Scripts
     wp_register_script('fau-js-heroslider', $defaultoptions['src-sliderjs'], array('jquery'), $theme_version, true );
 	// Slider JS
-	
+
 }
 add_action('init', 'fau_register_scripts');
 
@@ -168,8 +174,8 @@ function fau_enqueuefootercripts() {
     global $usejslibs;
      
      if ((isset($usejslibs['heroslider']) && ($usejslibs['heroslider'] == true))) {
-	 // wird bei Startseite Slider und auch bei gallerien verwendet
-	 wp_enqueue_script('fau-js-heroslider');
+		// wird bei Startseite Slider und auch bei gallerien verwendet
+		wp_enqueue_script('fau-js-heroslider');
      }	   
 }
 add_action( 'wp_footer', 'fau_enqueuefootercripts' );
@@ -356,12 +362,6 @@ function fau_get_language_attributes ($doctype = 'html' ) {
 }
 
 
-
-/*-----------------------------------------------------------------------------------*/
-/* Load Comment Functions
-/*-----------------------------------------------------------------------------------*/
-require get_template_directory() . '/functions/comments.php';
-
 /*-----------------------------------------------------------------------------------*/
 /* Limit Number of Posts for embedded format
 /*-----------------------------------------------------------------------------------*/
@@ -372,6 +372,17 @@ function fau_embedded_posts( $query ) {
         $query->set( 'posts_per_page', 3 );
     }
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* Load Comment Functions
+/*-----------------------------------------------------------------------------------*/
+
+// Comment handling
+require get_template_directory() . '/functions/comments.php';
+
+// Block Editor handling
+require_once( get_template_directory() . '/functions/gutenberg.php');
+
 
 /*-----------------------------------------------------------------------------------*/
 /* This is the end of the code as we know it
