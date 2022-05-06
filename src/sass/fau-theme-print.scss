@@ -1,0 +1,140 @@
+// Import FAU variables
+@import "variables";
+
+// Custom Properties
+@import "custom-properties";
+
+// Reset Base styles
+@import "reset";
+
+// Framework
+@import "frameworks/frameworks";
+
+// SVG Icons and CI elements
+@import "icons/icons";
+
+// Mixins
+@import "mixins/mixins";
+
+// Fonts
+@import "fonts/fonts";
+
+// Structure
+@import "structure/structure";
+
+// Element Styles
+@import "elements/elements";
+
+// Plugin-Support
+@import "plugins/plugins";
+
+// Printer Adjustments
+@import "printer";
+
+/* Allgemein ausblenden ***********************************************************************************************/
+
+.header-menu,
+.orga-breadcrumb,
+.meta-footer,
+.top-link,
+.read-more-link,
+.news-more-links,
+.more-posts,
+.continue,
+.sidebar-single,
+.sidebar-subnav,
+#meta,
+a[aria-hidden="true"] {
+    display: none;
+}
+
+/* Header *************************************************************************************************************/
+
+#headerwrap {
+    margin: 0;
+
+    & header .branding {
+        width: 100%;
+    }
+
+    & header .branding .textlogo {
+        width: 100%;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+}
+
+#hero {
+    display: none;
+    margin: 0;
+}
+
+#content {
+    padding-top: 20px;
+}
+
+/* Footer *************************************************************************************************************/
+
+footer, {
+    display: none;
+
+    &:before {
+        display: none;
+    }
+}
+
+/* Galerie ************************************************************************************************************/
+
+.image-gallery .gallery-slick .slick-prev,
+.image-gallery .gallery-slick .slick-next,
+.slick-dots {
+    display: none !important;
+}
+
+.image-gallery .gallery-slick .slider-nav-width {
+    width: 100% !important;
+}
+
+.slick-slider .slick-list,
+.slick-slider .slick-track {
+    width: 100% !important;
+    transform: none !important;
+}
+
+.slick-slider .slick-slide/*,
+.slick-slider .slick-cloned,
+.slick-slider .slick-current*/ {
+    margin: 5px !important;
+}
+
+/* Links **************************************************************************************************************/
+
+a:after {
+    content: " (" attr(href) ") ";
+}
+
+[role=presentation] a:after {
+    display: none;
+}
+
+/* Allgemein **********************************************************************************************************/
+
+@page {
+    margin: 2cm;
+}
+
+h1 {
+    page-break-before: always;
+}
+
+h1, h2, h3, h4, h5 {
+    page-break-after: avoid;
+}
+
+img {
+    max-width: 400px;
+}
+
+table, figure {
+    page-break-inside: avoid;
+}
