@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.30
+Version: 2.0.31-1
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -16733,22 +16733,36 @@ a[aria-hidden=true] {
   display: none;
 }
 
+/* Allgemein **********************************************************************************************************/
+@page {
+  margin: 2cm;
+}
+h1 {
+  page-break-before: always;
+}
+
+h1, h2, h3, h4, h5 {
+  page-break-after: avoid;
+}
+
+table, figure {
+  page-break-inside: avoid;
+}
+
 /* Header *************************************************************************************************************/
-#headerwrap {
+#headerwrapper {
   margin: 0;
 }
-#headerwrap header .branding {
+#headerwrapper header .branding {
   width: 100%;
 }
-#headerwrap header .branding .textlogo {
+#headerwrapper header .branding a {
+  width: 100%;
+}
+#headerwrapper header .branding .textlogo {
   width: 100%;
   flex-direction: row-reverse;
   justify-content: space-between;
-}
-
-#hero {
-  display: none;
-  margin: 0;
 }
 
 #content {
@@ -16763,6 +16777,18 @@ footer:before {
   display: none;
 }
 
+/* Links **************************************************************************************************************/
+a:after {
+  content: " (" attr(href) ") ";
+  display: block;
+  text-align: left;
+  font-size: 12pt;
+}
+
+[role=presentation] a:after {
+  display: none;
+}
+
 /* Galerie ************************************************************************************************************/
 .image-gallery .gallery-slick .slick-prev,
 .image-gallery .gallery-slick .slick-next,
@@ -16770,45 +16796,27 @@ footer:before {
   display: none !important;
 }
 
+.slick-slide.slick-current.slick-active {
+  display: none !important;
+}
+
 .image-gallery .gallery-slick .slider-nav-width {
   width: 100% !important;
 }
 
-.slick-slider .slick-list,
-.slick-slider .slick-track {
+.slick-slider .slick-list {
   width: 100% !important;
   transform: none !important;
 }
 
-.slick-slider .slick-slide {
-  margin: 5px !important;
+.slick-slider .slick-track {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+  transform: none !important;
 }
 
-/* Links **************************************************************************************************************/
-a:after {
-  content: " (" attr(href) ") ";
-}
-
-[role=presentation] a:after {
-  display: none;
-}
-
-/* Allgemein **********************************************************************************************************/
-@page {
-  margin: 2cm;
-}
-h1 {
-  page-break-before: always;
-}
-
-h1, h2, h3, h4, h5 {
-  page-break-after: avoid;
-}
-
-img {
-  max-width: 400px;
-}
-
-table, figure {
-  page-break-inside: avoid;
+.image-gallery .gallery-slick .slider-nav-width .slick-slide {
+  width: 23% !important;
+  margin: 1% !important;
 }

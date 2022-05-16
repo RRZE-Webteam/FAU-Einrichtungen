@@ -48,13 +48,35 @@ a[aria-hidden="true"] {
     display: none;
 }
 
+/* Allgemein **********************************************************************************************************/
+
+@page {
+    margin: 2cm;
+}
+
+h1 {
+    page-break-before: always;
+}
+
+h1, h2, h3, h4, h5 {
+    page-break-after: avoid;
+}
+
+table, figure {
+    page-break-inside: avoid;
+}
+
 /* Header *************************************************************************************************************/
 
-#headerwrap {
+#headerwrapper {
     margin: 0;
 
     & header .branding {
         width: 100%;
+
+        & a {
+            width: 100%;
+        }
     }
 
     & header .branding .textlogo {
@@ -62,11 +84,6 @@ a[aria-hidden="true"] {
         flex-direction: row-reverse;
         justify-content: space-between;
     }
-}
-
-#hero {
-    display: none;
-    margin: 0;
 }
 
 #content {
@@ -83,6 +100,19 @@ footer, {
     }
 }
 
+/* Links **************************************************************************************************************/
+
+a:after {
+    content: " (" attr(href) ") ";
+    display: block;
+    text-align: left;
+    font-size: 12pt;
+}
+
+[role=presentation] a:after {
+    display: none;
+}
+
 /* Galerie ************************************************************************************************************/
 
 .image-gallery .gallery-slick .slick-prev,
@@ -91,50 +121,27 @@ footer, {
     display: none !important;
 }
 
+.slick-slide.slick-current.slick-active {
+    display: none !important;
+}
+
 .image-gallery .gallery-slick .slider-nav-width {
     width: 100% !important;
 }
 
-.slick-slider .slick-list,
-.slick-slider .slick-track {
+.slick-slider .slick-list {
     width: 100% !important;
     transform: none !important;
 }
 
-.slick-slider .slick-slide/*,
-.slick-slider .slick-cloned,
-.slick-slider .slick-current*/ {
-    margin: 5px !important;
+.slick-slider .slick-track {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    transform: none !important;
 }
 
-/* Links **************************************************************************************************************/
-
-a:after {
-    content: " (" attr(href) ") ";
-}
-
-[role=presentation] a:after {
-    display: none;
-}
-
-/* Allgemein **********************************************************************************************************/
-
-@page {
-    margin: 2cm;
-}
-
-h1 {
-    page-break-before: always;
-}
-
-h1, h2, h3, h4, h5 {
-    page-break-after: avoid;
-}
-
-img {
-    max-width: 400px;
-}
-
-table, figure {
-    page-break-inside: avoid;
+.image-gallery .gallery-slick .slider-nav-width .slick-slide {
+    width: 23% !important;
+    margin: 1% !important;
 }
