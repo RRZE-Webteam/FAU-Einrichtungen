@@ -369,7 +369,12 @@ jQuery(document).ready(function ($) {
         $('.sorttable').tablesorter();
 
         // Print links function
-        window.addEventListener('beforeprint', printlinks('#content a[href]:not([href^="javascript:"])'));
+        const linkSelector = 'a[href]:not([href^="javascript:"])';
+        const selector1 = `.entry-content ${linkSelector}`;
+        const selector2 = `.portalpage-content ${linkSelector}`;
+        const selector3 = `.portalpage-sidebar ${linkSelector}`;
+        const selector4 = `.content-inline ${linkSelector}`;
+        window.addEventListener('beforeprint', printlinks(`${selector1}, ${selector2}, ${selector3}, ${selector4}`));
     }
 );
 
