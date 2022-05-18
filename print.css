@@ -16534,6 +16534,17 @@ ul, li, td, tr, th, p, span, div {
     padding-left: 0;
   }
 
+  body:not(.js-enabled) th a[href]::after, body:not(.js-enabled) td a[href]::after, body:not(.js-enabled) li a[href]::after, body:not(.js-enabled) .social a[href]::after, body:not(.js-enabled) p a[href]::after {
+    content: " (" attr(href) ")";
+    color: var(--color-PrintMain);
+    background-color: inherit;
+    font-style: italic;
+    font-size: 80%;
+  }
+  body:not(.js-enabled) th a[href^="#"]:after, body:not(.js-enabled) td a[href^="#"]:after, body:not(.js-enabled) li a[href^="#"]:after, body:not(.js-enabled) .social a[href^="#"]:after, body:not(.js-enabled) p a[href^="#"]:after {
+    display: none;
+  }
+
   main {
     position: relative;
     display: block;
@@ -16541,24 +16552,6 @@ ul, li, td, tr, th, p, span, div {
   }
   main thead {
     display: table-header-group;
-  }
-  main th a[href]::after,
-main td a[href]::after,
-main li a[href]::after,
-main .social a[href]::after,
-main p a[href]::after {
-    content: " (" attr(href) ")";
-    color: var(--color-PrintMain);
-    background-color: inherit;
-    font-style: italic;
-    font-size: 80%;
-  }
-  main th a[href^="#"]:after,
-main td a[href^="#"]:after,
-main li a[href^="#"]:after,
-main .social a[href^="#"]:after,
-main p a[href^="#"]:after {
-    display: none;
   }
   main th a,
 main td a,
@@ -16727,8 +16720,6 @@ footer .socialmedia {
 .news-more-links,
 .more-posts,
 .continue,
-.sidebar-single,
-.sidebar-subnav,
 #meta,
 a[aria-hidden=true] {
   display: none;
@@ -16746,8 +16737,12 @@ h1, h2, h3, h4, h5 {
   page-break-after: avoid;
 }
 
-table, figure {
+table, figure, img {
   page-break-inside: avoid;
+}
+
+img {
+  display: block;
 }
 
 /* Header *************************************************************************************************************/
@@ -16783,7 +16778,7 @@ footer:before {
 }
 
 /* Links **************************************************************************************************************/
-a:after {
+body:not(.js-enabled) a:after {
   content: " (" attr(href) ") ";
   display: inline-block;
   text-align: left;
@@ -16792,6 +16787,20 @@ a:after {
 
 [role=presentation] a:after {
   display: none;
+}
+
+.tw-linkref:before {
+  content: " ";
+}
+
+.tw-linklist {
+  margin: 40px;
+}
+.tw-linklist li {
+  padding: 0.4rem 0;
+}
+.tw-linklist svg {
+  margin: 0 0.4rem -0.3rem 0.1rem;
 }
 
 /* Hero Slider ********************************************************************************************************/
@@ -16808,6 +16817,10 @@ a:after {
   display: none !important;
 }
 
+/*#hero-slides .item {
+    width: 23% !important;
+    margin: 1% !important;
+}*/
 #hero-slides .item p,
 #hero-slides .item header {
   color: white !important;

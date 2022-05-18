@@ -46,6 +46,26 @@
         padding-left: 0;
     }
 
+    body:not(.js-enabled) {
+
+        & th,
+        & td,
+        & li,
+        & .social,
+        & p {
+            a[href]::after {
+                content: " (" attr(href) ")";
+                color: var(--color-PrintMain);
+                background-color: inherit;
+                font-style: italic;
+                font-size: 80%;
+            }
+
+            a[href^="#"]:after {
+                display: none;
+            }
+        }
+    }
 
     main {
         position: relative;
@@ -61,18 +81,6 @@
         li,
         .social,
         p {
-            a[href]::after {
-                content: " (" attr(href) ")";
-                color: var(--color-PrintMain);
-                background-color: inherit;
-                font-style: italic;
-                font-size: 80%;
-            }
-
-            a[href^="#"]:after {
-                display: none;
-            }
-
             a {
                 text-transform: inherit;
                 word-wrap: break-word;

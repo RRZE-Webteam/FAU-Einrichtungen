@@ -41,8 +41,8 @@
 .news-more-links,
 .more-posts,
 .continue,
-.sidebar-single,
-.sidebar-subnav,
+/*.sidebar-single,
+.sidebar-subnav,*/
 #meta,
 a[aria-hidden="true"] {
     display: none;
@@ -62,8 +62,12 @@ h1, h2, h3, h4, h5 {
     page-break-after: avoid;
 }
 
-table, figure {
+table, figure, img {
     page-break-inside: avoid;
+}
+
+img {
+    display: block;
 }
 
 /* Header *************************************************************************************************************/
@@ -106,7 +110,7 @@ footer, {
 
 /* Links **************************************************************************************************************/
 
-a:after {
+body:not(.js-enabled) a:after {
     content: "\00a0(" attr(href) ") ";
     display: inline-block;
     text-align: left;
@@ -115,6 +119,25 @@ a:after {
 
 [role=presentation] a:after {
     display: none;
+}
+
+.tw-linkref {
+
+    &:before {
+        content: "\00a0";
+    }
+}
+
+.tw-linklist {
+    margin: 40px;
+
+    & li {
+        padding: 0.4rem 0;
+    }
+
+    & svg {
+        margin: 0 0.4rem -0.3rem 0.1rem;
+    }
 }
 
 /* Hero Slider ********************************************************************************************************/
@@ -131,6 +154,12 @@ a:after {
 #hero-slides .slider-controls {
     display: none !important;
 }
+
+/*#hero-slides .item {
+    width: 23% !important;
+    margin: 1% !important;
+}*/
+
 
 #hero-slides .item p,
 #hero-slides .item header {
