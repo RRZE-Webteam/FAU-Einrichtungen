@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.31-1
+Version: 2.0.31-2
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -16620,24 +16620,26 @@ ins {
     display: none;
   }
 
-  #hero {
-    display: none;
-  }
-  #hero.hero-small {
-    margin: 0;
-    position: relative;
-    display: block;
-  }
-  #hero.hero-small .col-xs-12, #hero.hero-small .flyout-entries-full, #hero.hero-small #hero-slides .item .slider-titel, #hero-slides .item #hero.hero-small .slider-titel, #hero.hero-small #hero-slides .item .slider-text, #hero-slides .item #hero.hero-small .slider-text, #hero.hero-small .hero-navigation .quicklinks, .hero-navigation #hero.hero-small .quicklinks, #hero.hero-small .hero-navigation .infobar, .hero-navigation #hero.hero-small .infobar,
-#hero.hero-small .col-sm-8,
-#hero.hero-small .search-input {
-    width: 100%;
-  }
-  #hero .hero-meta-portal,
-#hero .breadcrumbs {
-    display: none;
-  }
+  /*#hero {
+      display: none;
 
+      &.hero-small {
+          margin: 0;
+          position: relative;
+          display: block;
+
+          .col-xs-12,
+          .col-sm-8 {
+              width: 100%;
+          }
+
+      }
+
+      .hero-meta-portal,
+      .breadcrumbs {
+          display: none;
+      }
+  }*/
   #wpadminbar,
 .widget_archive,
 .widget widget_nav_menu,
@@ -16652,8 +16654,7 @@ ins {
 .logos-menu-settings,
 .sorttable th::after,
 #meta,
-#social,
-#header .header-menu {
+#social {
     display: none;
   }
 
@@ -16750,16 +16751,20 @@ table, figure {
 }
 
 /* Header *************************************************************************************************************/
+#header .header-row {
+  flex-wrap: wrap;
+}
+
 #headerwrapper {
   margin: 0;
 }
-#headerwrapper header .branding {
+#headerwrapper #header .branding {
   width: 100%;
 }
-#headerwrapper header .branding a {
+#headerwrapper #header .branding a {
   width: 100%;
 }
-#headerwrapper header .branding .textlogo {
+#headerwrapper #header .branding .textlogo {
   width: 100%;
   flex-direction: row-reverse;
   justify-content: space-between;
@@ -16779,14 +16784,41 @@ footer:before {
 
 /* Links **************************************************************************************************************/
 a:after {
-  content: " (" attr(href) ") ";
-  display: block;
+  content: " (" attr(href) ") ";
+  display: inline-block;
   text-align: left;
   font-size: 12pt;
 }
 
 [role=presentation] a:after {
   display: none;
+}
+
+/* Hero Slider ********************************************************************************************************/
+#hero {
+  background-color: transparent;
+}
+
+#hero-slides {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+#hero-slides .slider-controls {
+  display: none !important;
+}
+
+#hero-slides .item p,
+#hero-slides .item header {
+  color: white !important;
+  background-color: black !important;
+  opacity: 1 !important;
+}
+
+#hero-slides .item a {
+  color: white !important;
+  background-color: black !important;
+  opacity: 1 !important;
 }
 
 /* Galerie ************************************************************************************************************/
@@ -16796,7 +16828,7 @@ a:after {
   display: none !important;
 }
 
-.slick-slide.slick-current.slick-active {
+.image-gallery .slick-slide.slick-current.slick-active {
   display: none !important;
 }
 
@@ -16804,12 +16836,12 @@ a:after {
   width: 100% !important;
 }
 
-.slick-slider .slick-list {
+.image-gallery .slick-slider .slick-list {
   width: 100% !important;
   transform: none !important;
 }
 
-.slick-slider .slick-track {
+.image-gallery .slick-slider .slick-track {
   display: flex !important;
   flex-wrap: wrap !important;
   width: 100% !important;

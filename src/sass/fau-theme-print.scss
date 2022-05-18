@@ -68,10 +68,14 @@ table, figure {
 
 /* Header *************************************************************************************************************/
 
+#header .header-row {
+    flex-wrap: wrap;
+}
+
 #headerwrapper {
     margin: 0;
 
-    & header .branding {
+    & #header .branding {
         width: 100%;
 
         & a {
@@ -79,7 +83,7 @@ table, figure {
         }
     }
 
-    & header .branding .textlogo {
+    & #header .branding .textlogo {
         width: 100%;
         flex-direction: row-reverse;
         justify-content: space-between;
@@ -103,14 +107,42 @@ footer, {
 /* Links **************************************************************************************************************/
 
 a:after {
-    content: " (" attr(href) ") ";
-    display: block;
+    content: "\00a0(" attr(href) ") ";
+    display: inline-block;
     text-align: left;
     font-size: 12pt;
 }
 
 [role=presentation] a:after {
     display: none;
+}
+
+/* Hero Slider ********************************************************************************************************/
+
+#hero {
+    background-color: transparent;
+}
+
+#hero-slides {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+#hero-slides .slider-controls {
+    display: none !important;
+}
+
+#hero-slides .item p,
+#hero-slides .item header {
+    color: white !important;
+    background-color: black !important;
+    opacity: 1 !important;
+}
+
+#hero-slides .item a {
+    color: white !important;
+    background-color: black !important;
+    opacity: 1 !important;
 }
 
 /* Galerie ************************************************************************************************************/
@@ -121,7 +153,7 @@ a:after {
     display: none !important;
 }
 
-.slick-slide.slick-current.slick-active {
+.image-gallery .slick-slide.slick-current.slick-active {
     display: none !important;
 }
 
@@ -129,12 +161,12 @@ a:after {
     width: 100% !important;
 }
 
-.slick-slider .slick-list {
+.image-gallery .slick-slider .slick-list {
     width: 100% !important;
     transform: none !important;
 }
 
-.slick-slider .slick-track {
+.image-gallery .slick-slider .slick-track {
     display: flex !important;
     flex-wrap: wrap !important;
     width: 100% !important;

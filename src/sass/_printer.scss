@@ -120,7 +120,7 @@
     }
 
 
-    #hero {
+    /*#hero {
         display: none;
 
         &.hero-small {
@@ -139,7 +139,7 @@
         .breadcrumbs {
             display: none;
         }
-    }
+    }*/
 
 
     #wpadminbar,
@@ -157,7 +157,7 @@
     .sorttable th::after,
     #meta,
     #social,
-    #header .header-menu {
+    /*#header .header-menu*/ {
         display: none;
     }
     .admin-bar #headerwrapper {
