@@ -19,8 +19,35 @@
 // Fonts
 @import "fonts/fonts";
 
+
+
+
+
+
+
 // Structure
-@import "structure/structure";
+// Layout - Rahmen, grundlegende Struktur gesamte Website
+@import "structure/layout/layout";
+// Header Region
+@import "structure/header/header";
+// Navigation
+@import "structure/navigation/navigation";
+// Hero
+@import "structure/hero/hero";
+// Content specials
+@import "structure/content/content";
+// Widgets
+@import "structure/widgets/widgets";
+// Footer
+@import "structure/footer/footer";
+
+
+
+
+
+
+
+
 
 // Element Styles
 @import "elements/elements";
@@ -63,7 +90,11 @@ h1, h2, h3, h4, h5 {
 }
 
 table, figure, img {
-    page-break-inside: avoid;
+    display: block;
+    position: static;
+    page-break-before: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-after: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-inside: avoid; /* or 'auto' */
 }
 
 img {
@@ -206,3 +237,14 @@ body:not(.js-enabled) a:after {
     width: 23% !important;
     margin: 1% !important;
 }
+
+/* Youtube Videos ************************************************************************************************************/
+
+.tw-iframe-footnote {
+    display: block;
+}
+
+.tw-iframe-image {
+    display: block;
+}
+

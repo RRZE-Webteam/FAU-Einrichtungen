@@ -25,7 +25,7 @@
 
 
 // Element Styles
-@import "elements/elements"; 
+@import "elements/elements";
 
 // Structure
 @import "structure/structure";
@@ -34,7 +34,8 @@
 // Plugin-Support
 @import "plugins/plugins";
 
-
+// Tollwerk styles for tollwerk print elements (like footnotes) that must have some styling for the screen as well.
+@import "tw/tw";
 
 // Printer Adjustments
 @import "printer";

@@ -4765,9 +4765,6 @@ Hind:
   font-style: normal;
 }
 /*-----------------------------------------------------------------------------------*/
-/* Structural 
-/*-----------------------------------------------------------------------------------*/
-/*-----------------------------------------------------------------------------------*/
 /* Generelles Layout und Grid
 /*-----------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------*/
@@ -16738,7 +16735,14 @@ h1, h2, h3, h4, h5 {
 }
 
 table, figure, img {
+  display: block;
+  position: static;
+  page-break-before: auto;
+  /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+  page-break-after: auto;
+  /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
   page-break-inside: avoid;
+  /* or 'auto' */
 }
 
 img {
@@ -16864,4 +16868,13 @@ body:not(.js-enabled) a:after {
 .image-gallery .gallery-slick .slider-nav-width .slick-slide {
   width: 23% !important;
   margin: 1% !important;
+}
+
+/* Youtube Videos ************************************************************************************************************/
+.tw-iframe-footnote {
+  display: block;
+}
+
+.tw-iframe-image {
+  display: block;
 }
