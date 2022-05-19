@@ -53,7 +53,7 @@
 
 /* Allgemein ausblenden ***********************************************************************************************/
 
-/*.header-menu,*/
+.header-menu,
 .orga-breadcrumb,
 .meta-footer,
 .top-link,
@@ -92,7 +92,7 @@ table, figure, img {
 }
 
 img {
-    max-width: 500px !important;
+    //max-width: 500px !important;
     border: 0 !important;
 }
 
@@ -108,6 +108,7 @@ blockquote, ul {
 
 #headerwrapper {
     margin: 0;
+    box-shadow: none !important;
 
     & #header .branding {
         width: 100%;
@@ -191,6 +192,7 @@ main a,
 
 #hero {
     overflow: hidden !important;
+    background-color: transparent !important;
 
     & * {
         position: static !important;
@@ -201,7 +203,7 @@ main a,
     display: block !important;
     height: auto !important;
     max-height: none !important;
-    //background-color: transparent !important;
+    background-color: transparent !important;
     box-shadow: none !important;
 }
 
@@ -209,16 +211,51 @@ main a,
     display: none !important;
 }
 
+#hero-slides .item {
+    height: auto !important;
+    margin-bottom: 3rem !important;
+}
+
 #hero-slides .item p,
 #hero-slides .item header {
-    color: white !important;
-    background-color: black !important;
+    color: black !important;
+    background-color: #ffffff !important;
     opacity: 1 !important;
 }
 
+#hero-slides .slick-slide {
+    height: auto !important;
+    opacity: 1 !important;
+}
+
+#hero-slides .item img {
+    width: auto !important;
+    height: 10rem !important;
+    min-width: auto !important;
+    min-height: auto !important;
+    margin-left: 3rem !important;
+    transform: none !important;
+}
+
+#hero-slides .item .credits {
+    margin: .5rem 1rem .5rem 3rem !important;
+    opacity: 1 !important;
+}
+
+#hero-slides .item .hero-slide-text {
+    top: auto !important;
+    bottom: auto !important;
+    margin: .5rem 1rem .5rem 0 !important;
+    opacity: 1 !important;
+}
+
+#hero-slides .item .container {
+    margin-left: 2rem !important;
+}
+
 #hero-slides .item a {
-    color: white !important;
-    background-color: black !important;
+    color: black !important;
+    background-color: #ffffff !important;
     opacity: 1 !important;
 }
 
@@ -244,6 +281,16 @@ main a,
 
 .imagelink .slick-prev.slick-arrow,
 .imagelink .slick-next.slick-arrow {
+    display: none !important;
+}
+
+.imagelink .slick-track {
+    width: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+.imagelink .slick-slide.slick-cloned {
     display: none !important;
 }
 
