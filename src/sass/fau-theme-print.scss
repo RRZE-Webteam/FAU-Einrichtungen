@@ -30,7 +30,6 @@
 // Navigation
 @import "structure/navigation/navigation";
 // Hero
-@import "structure/hero/hero";
 // Content specials
 @import "structure/content/content";
 // Widgets
@@ -85,7 +84,7 @@ h1, h2, h3, h4, h5 {
 
 table, figure, img {
     display: block !important;
-    position: static !important;
+    position: relative !important;
     page-break-before: auto !important; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
     page-break-after: auto !important; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
     page-break-inside: avoid !important; /* or 'auto' */
@@ -107,10 +106,13 @@ blockquote, ul {
 }
 
 #headerwrapper {
+    position: static !important;
     margin: 0;
     box-shadow: none !important;
 
     & #header .branding {
+        display: block !important;
+        margin-bottom: 2rem !important;
         width: 100%;
 
         & a {
@@ -123,6 +125,11 @@ blockquote, ul {
         flex-direction: row-reverse;
         justify-content: space-between;
     }
+}
+
+.portalpage-content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 #content {
@@ -195,7 +202,7 @@ main a,
     background-color: transparent !important;
 
     & * {
-        position: static !important;
+        position: relative !important;
     }
 }
 
@@ -213,7 +220,8 @@ main a,
 
 #hero-slides .item {
     height: auto !important;
-    margin-bottom: 3rem !important;
+    margin-bottom: 0 !important;
+    padding: .5rem;
 }
 
 #hero-slides .item p,
@@ -224,33 +232,48 @@ main a,
 }
 
 #hero-slides .slick-slide {
+    width: auto !important;
     height: auto !important;
     opacity: 1 !important;
+    padding-left: .5rem !important;
+    padding-right: .5rem !important;
+    margin-bottom: 1rem;
+    page-break-inside: avoid;
+    left: initial !important;
+    top: initial !important;
+    float: none !important;
+    clear: both !important;
+}
+
+#hero-slides .slick-slide > * {
+    border: solid 1px #ddd;
+    page-break-inside: avoid;
 }
 
 #hero-slides .item img {
+    height: 5rem !important;
     width: auto !important;
-    height: 10rem !important;
+    object-fit: contain;
+    object-position: center;
     min-width: auto !important;
     min-height: auto !important;
-    margin-left: 3rem !important;
+    margin-left: 0 !important;
     transform: none !important;
 }
 
 #hero-slides .item .credits {
-    margin: .5rem 1rem .5rem 3rem !important;
+    margin: .5rem 0 !important;
     opacity: 1 !important;
+    font-size: .8em !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 #hero-slides .item .hero-slide-text {
     top: auto !important;
     bottom: auto !important;
-    margin: .5rem 1rem .5rem 0 !important;
+    margin: 1rem 0 0 !important;
     opacity: 1 !important;
-}
-
-#hero-slides .item .container {
-    margin-left: 2rem !important;
 }
 
 #hero-slides .item a {
@@ -259,14 +282,18 @@ main a,
     opacity: 1 !important;
 }
 
+.container {
+    width: auto !important;
+}
+
 /* Slider *************************************************************************************************************/
 
-.imagelink.dots {
+.dots {
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
 
-.imagelink .slick-item {
+.slick-item {
     overflow: visible !important;
     position: relative !important;
 
@@ -279,18 +306,25 @@ main a,
     }
 }
 
-.imagelink .slick-prev.slick-arrow,
-.imagelink .slick-next.slick-arrow {
+.slick-prev.slick-arrow,
+.slick-next.slick-arrow {
     display: none !important;
 }
 
-.imagelink .slick-track {
+.slick-track {
     width: auto !important;
     transform: none !important;
     opacity: 1 !important;
+    margin-left: -.5rem;
+    margin-right: -.5rem;
 }
 
-.imagelink .slick-slide.slick-cloned {
+.slick-slide,
+.slick-slide * {
+    page-break-inside: avoid;
+}
+
+.slick-slide.slick-cloned {
     display: none !important;
 }
 

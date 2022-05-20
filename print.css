@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.31-2
+Version: 2.0.31-3
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -573,14 +573,14 @@ kbd kbd {
   clear: both;
 }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .hero-navigation .quicklinks, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, #hero .search-title, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .hero-navigation .infobar, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, #hero .search-input, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, #hero-slides .item .slider-text, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, #hero-slides .item .slider-titel, .flyout-entries-full, .col-sm-12, .search-result article, .col-md-12, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .flyout-entries-full, .col-sm-12, .search-result article, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .hero-navigation .infobar, .hero-navigation .quicklinks, #hero-slides .item .slider-text, #hero-slides .item .slider-titel, .flyout-entries-full {
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .flyout-entries-full {
   float: left;
 }
 
@@ -628,7 +628,7 @@ kbd kbd {
   width: 91.6666666667%;
 }
 
-.col-xs-12, .hero-navigation .infobar, .hero-navigation .quicklinks, #hero-slides .item .slider-text, #hero-slides .item .slider-titel, .flyout-entries-full {
+.col-xs-12, .flyout-entries-full {
   width: 100%;
 }
 
@@ -789,7 +789,7 @@ kbd kbd {
 }
 
 @media (min-width: 768px) {
-  .col-sm-1, .col-sm-2, .col-sm-3, .hero-navigation .quicklinks, .col-sm-4, #hero .search-title, .col-sm-5, .col-sm-6, .hero-navigation .infobar, .col-sm-7, .col-sm-8, #hero .search-input, .col-sm-9, .col-sm-10, #hero-slides .item .slider-text, .col-sm-11, .col-sm-12, .search-result article {
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .search-result article {
     float: left;
   }
 
@@ -801,11 +801,11 @@ kbd kbd {
     width: 16.6666666667%;
   }
 
-  .col-sm-3, .hero-navigation .quicklinks {
+  .col-sm-3 {
     width: 25%;
   }
 
-  .col-sm-4, #hero .search-title {
+  .col-sm-4 {
     width: 33.3333333333%;
   }
 
@@ -813,7 +813,7 @@ kbd kbd {
     width: 41.6666666667%;
   }
 
-  .col-sm-6, .hero-navigation .infobar {
+  .col-sm-6 {
     width: 50%;
   }
 
@@ -821,7 +821,7 @@ kbd kbd {
     width: 58.3333333333%;
   }
 
-  .col-sm-8, #hero .search-input {
+  .col-sm-8 {
     width: 66.6666666667%;
   }
 
@@ -829,7 +829,7 @@ kbd kbd {
     width: 75%;
   }
 
-  .col-sm-10, #hero-slides .item .slider-text {
+  .col-sm-10 {
     width: 83.3333333333%;
   }
 
@@ -1837,7 +1837,7 @@ html {
   font-weight: normal;
   font-style: normal;
 }
-.fa, .accordion .accordion-group .accordion-heading .accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a:before, .wpcf7-not-valid-tip:before, .wpcf7-validation-errors:before, .wpcf7-mail-sent-ok:before, .sorttable th::after, ul.social li.social-iconbyurl a::before, ul.social li.social-wikipedia a:before, ul.social li.social-itunes a:before, ul.social li.social-youtube a:before, ul.social li.social-vimeo a:before, ul.social li.social-feed a:before, ul.social li.social-flickr a:before, ul.social li.social-delicious a:before, ul.social li.social-tumblr a:before, ul.social li.social-skype a:before, ul.social li.social-github a:before, ul.social li.social-xing a:before, ul.social li.social-twitter a:before, ul.social li.social-facebook a:before, ul.social li.social-instagram a:before, ul.social li.social-pinterest a:before, ul.social li.social-diaspora a:before, .imagelink .slick-next:before, .imagelink .slick-prev:before, .image-gallery .gallery-slick .slick-next:before, .image-gallery .gallery-slick .slick-prev:before, .search-result .search-meta .download:before, .search-result .search-meta .post-meta-attachment:before, .search-result .search-meta .post-meta-news-external:before, .search-result .search-meta .post-meta-news:before, .search-result .search-meta .post-meta-defaulttype:before, .search-result .search-meta .post-meta-kontakt:before, .search-result .search-meta .post-meta-event:before, .search-result .search-meta .post-meta-date:before, .search-result .search-meta .post-meta-category:before, .news-item h2 .ext-link::after, .news-item .news-meta .news-meta-date:before, .news-item .news-meta .news-meta-categories:before, .news-details .post-meta-tags:before, .news-details .post-meta-date:before, .news-details .post-meta-categories:before, .organigram .toggle-icon, .hero-navigation li:before, #hero-slides .slick-next:before, #hero-slides .slick-prev:before, .helpermenus li:before, .helpermenus h3 a.ext-link:after, #footer .cloned-meta-links li:before,
+.fa, .accordion .accordion-group .accordion-heading .accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a:before, .wpcf7-not-valid-tip:before, .wpcf7-validation-errors:before, .wpcf7-mail-sent-ok:before, .sorttable th::after, ul.social li.social-iconbyurl a::before, ul.social li.social-wikipedia a:before, ul.social li.social-itunes a:before, ul.social li.social-youtube a:before, ul.social li.social-vimeo a:before, ul.social li.social-feed a:before, ul.social li.social-flickr a:before, ul.social li.social-delicious a:before, ul.social li.social-tumblr a:before, ul.social li.social-skype a:before, ul.social li.social-github a:before, ul.social li.social-xing a:before, ul.social li.social-twitter a:before, ul.social li.social-facebook a:before, ul.social li.social-instagram a:before, ul.social li.social-pinterest a:before, ul.social li.social-diaspora a:before, .imagelink .slick-next:before, .imagelink .slick-prev:before, .image-gallery .gallery-slick .slick-next:before, .image-gallery .gallery-slick .slick-prev:before, .search-result .search-meta .download:before, .search-result .search-meta .post-meta-attachment:before, .search-result .search-meta .post-meta-news-external:before, .search-result .search-meta .post-meta-news:before, .search-result .search-meta .post-meta-defaulttype:before, .search-result .search-meta .post-meta-kontakt:before, .search-result .search-meta .post-meta-event:before, .search-result .search-meta .post-meta-date:before, .search-result .search-meta .post-meta-category:before, .news-item h2 .ext-link::after, .news-item .news-meta .news-meta-date:before, .news-item .news-meta .news-meta-categories:before, .news-details .post-meta-tags:before, .news-details .post-meta-date:before, .news-details .post-meta-categories:before, .organigram .toggle-icon, .helpermenus li:before, .helpermenus h3 a.ext-link:after, #footer .cloned-meta-links li:before,
 #footer .cloned-hero-nav li:before,
 #footer .meta-nav li:before, #mainnav-toggle-close:before, #mainnav-toggle:before, .nav > li.has-sub > a:before,
 .nav > li.has-sub > [type=button]:before {
@@ -1910,28 +1910,28 @@ html {
   float: right;
 }
 
-.fa.fa-pull-left, .accordion .accordion-group .accordion-heading .fa-pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-left:before, .fa-pull-left.wpcf7-not-valid-tip:before, .fa-pull-left.wpcf7-validation-errors:before, .fa-pull-left.wpcf7-mail-sent-ok:before, .sorttable th.fa-pull-left::after, ul.social li.social-iconbyurl a.fa-pull-left::before, ul.social li.social-wikipedia a.fa-pull-left:before, ul.social li.social-itunes a.fa-pull-left:before, ul.social li.social-youtube a.fa-pull-left:before, ul.social li.social-vimeo a.fa-pull-left:before, ul.social li.social-feed a.fa-pull-left:before, ul.social li.social-flickr a.fa-pull-left:before, ul.social li.social-delicious a.fa-pull-left:before, ul.social li.social-tumblr a.fa-pull-left:before, ul.social li.social-skype a.fa-pull-left:before, ul.social li.social-github a.fa-pull-left:before, ul.social li.social-xing a.fa-pull-left:before, ul.social li.social-twitter a.fa-pull-left:before, ul.social li.social-facebook a.fa-pull-left:before, ul.social li.social-instagram a.fa-pull-left:before, ul.social li.social-pinterest a.fa-pull-left:before, ul.social li.social-diaspora a.fa-pull-left:before, .imagelink .fa-pull-left.slick-next:before, .imagelink .fa-pull-left.slick-prev:before, .image-gallery .gallery-slick .fa-pull-left.slick-next:before, .image-gallery .gallery-slick .fa-pull-left.slick-prev:before, .search-result .search-meta .fa-pull-left.download:before, .search-result .search-meta .fa-pull-left.post-meta-attachment:before, .search-result .search-meta .fa-pull-left.post-meta-news-external:before, .search-result .search-meta .fa-pull-left.post-meta-news:before, .search-result .search-meta .fa-pull-left.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-left.post-meta-kontakt:before, .search-result .search-meta .fa-pull-left.post-meta-event:before, .search-result .search-meta .fa-pull-left.post-meta-date:before, .search-result .search-meta .fa-pull-left.post-meta-category:before, .news-item h2 .fa-pull-left.ext-link::after, .news-item .news-meta .fa-pull-left.news-meta-date:before, .news-item .news-meta .fa-pull-left.news-meta-categories:before, .news-details .fa-pull-left.post-meta-tags:before, .news-details .fa-pull-left.post-meta-date:before, .news-details .fa-pull-left.post-meta-categories:before, .organigram .fa-pull-left.toggle-icon, .hero-navigation li.fa-pull-left:before, #hero-slides .fa-pull-left.slick-next:before, #hero-slides .fa-pull-left.slick-prev:before, .helpermenus li.fa-pull-left:before, .helpermenus h3 a.fa-pull-left.ext-link:after, #footer .cloned-meta-links li.fa-pull-left:before,
+.fa.fa-pull-left, .accordion .accordion-group .accordion-heading .fa-pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-left:before, .fa-pull-left.wpcf7-not-valid-tip:before, .fa-pull-left.wpcf7-validation-errors:before, .fa-pull-left.wpcf7-mail-sent-ok:before, .sorttable th.fa-pull-left::after, ul.social li.social-iconbyurl a.fa-pull-left::before, ul.social li.social-wikipedia a.fa-pull-left:before, ul.social li.social-itunes a.fa-pull-left:before, ul.social li.social-youtube a.fa-pull-left:before, ul.social li.social-vimeo a.fa-pull-left:before, ul.social li.social-feed a.fa-pull-left:before, ul.social li.social-flickr a.fa-pull-left:before, ul.social li.social-delicious a.fa-pull-left:before, ul.social li.social-tumblr a.fa-pull-left:before, ul.social li.social-skype a.fa-pull-left:before, ul.social li.social-github a.fa-pull-left:before, ul.social li.social-xing a.fa-pull-left:before, ul.social li.social-twitter a.fa-pull-left:before, ul.social li.social-facebook a.fa-pull-left:before, ul.social li.social-instagram a.fa-pull-left:before, ul.social li.social-pinterest a.fa-pull-left:before, ul.social li.social-diaspora a.fa-pull-left:before, .imagelink .fa-pull-left.slick-next:before, .imagelink .fa-pull-left.slick-prev:before, .image-gallery .gallery-slick .fa-pull-left.slick-next:before, .image-gallery .gallery-slick .fa-pull-left.slick-prev:before, .search-result .search-meta .fa-pull-left.download:before, .search-result .search-meta .fa-pull-left.post-meta-attachment:before, .search-result .search-meta .fa-pull-left.post-meta-news-external:before, .search-result .search-meta .fa-pull-left.post-meta-news:before, .search-result .search-meta .fa-pull-left.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-left.post-meta-kontakt:before, .search-result .search-meta .fa-pull-left.post-meta-event:before, .search-result .search-meta .fa-pull-left.post-meta-date:before, .search-result .search-meta .fa-pull-left.post-meta-category:before, .news-item h2 .fa-pull-left.ext-link::after, .news-item .news-meta .fa-pull-left.news-meta-date:before, .news-item .news-meta .fa-pull-left.news-meta-categories:before, .news-details .fa-pull-left.post-meta-tags:before, .news-details .fa-pull-left.post-meta-date:before, .news-details .fa-pull-left.post-meta-categories:before, .organigram .fa-pull-left.toggle-icon, .helpermenus li.fa-pull-left:before, .helpermenus h3 a.fa-pull-left.ext-link:after, #footer .cloned-meta-links li.fa-pull-left:before,
 #footer .cloned-hero-nav li.fa-pull-left:before,
 #footer .meta-nav li.fa-pull-left:before, .fa-pull-left#mainnav-toggle-close:before, .fa-pull-left#mainnav-toggle:before, .nav > li.has-sub > a.fa-pull-left:before,
 .nav > li.has-sub > .fa-pull-left[type=button]:before {
   margin-right: 0.3em;
 }
 
-.fa.fa-pull-right, .accordion .accordion-group .accordion-heading .fa-pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-right:before, .fa-pull-right.wpcf7-not-valid-tip:before, .fa-pull-right.wpcf7-validation-errors:before, .fa-pull-right.wpcf7-mail-sent-ok:before, .sorttable th.fa-pull-right::after, ul.social li.social-iconbyurl a.fa-pull-right::before, ul.social li.social-wikipedia a.fa-pull-right:before, ul.social li.social-itunes a.fa-pull-right:before, ul.social li.social-youtube a.fa-pull-right:before, ul.social li.social-vimeo a.fa-pull-right:before, ul.social li.social-feed a.fa-pull-right:before, ul.social li.social-flickr a.fa-pull-right:before, ul.social li.social-delicious a.fa-pull-right:before, ul.social li.social-tumblr a.fa-pull-right:before, ul.social li.social-skype a.fa-pull-right:before, ul.social li.social-github a.fa-pull-right:before, ul.social li.social-xing a.fa-pull-right:before, ul.social li.social-twitter a.fa-pull-right:before, ul.social li.social-facebook a.fa-pull-right:before, ul.social li.social-instagram a.fa-pull-right:before, ul.social li.social-pinterest a.fa-pull-right:before, ul.social li.social-diaspora a.fa-pull-right:before, .imagelink .fa-pull-right.slick-next:before, .imagelink .fa-pull-right.slick-prev:before, .image-gallery .gallery-slick .fa-pull-right.slick-next:before, .image-gallery .gallery-slick .fa-pull-right.slick-prev:before, .search-result .search-meta .fa-pull-right.download:before, .search-result .search-meta .fa-pull-right.post-meta-attachment:before, .search-result .search-meta .fa-pull-right.post-meta-news-external:before, .search-result .search-meta .fa-pull-right.post-meta-news:before, .search-result .search-meta .fa-pull-right.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-right.post-meta-kontakt:before, .search-result .search-meta .fa-pull-right.post-meta-event:before, .search-result .search-meta .fa-pull-right.post-meta-date:before, .search-result .search-meta .fa-pull-right.post-meta-category:before, .news-item h2 .fa-pull-right.ext-link::after, .news-item .news-meta .fa-pull-right.news-meta-date:before, .news-item .news-meta .fa-pull-right.news-meta-categories:before, .news-details .fa-pull-right.post-meta-tags:before, .news-details .fa-pull-right.post-meta-date:before, .news-details .fa-pull-right.post-meta-categories:before, .organigram .fa-pull-right.toggle-icon, .hero-navigation li.fa-pull-right:before, #hero-slides .fa-pull-right.slick-next:before, #hero-slides .fa-pull-right.slick-prev:before, .helpermenus li.fa-pull-right:before, .helpermenus h3 a.fa-pull-right.ext-link:after, #footer .cloned-meta-links li.fa-pull-right:before,
+.fa.fa-pull-right, .accordion .accordion-group .accordion-heading .fa-pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-right:before, .fa-pull-right.wpcf7-not-valid-tip:before, .fa-pull-right.wpcf7-validation-errors:before, .fa-pull-right.wpcf7-mail-sent-ok:before, .sorttable th.fa-pull-right::after, ul.social li.social-iconbyurl a.fa-pull-right::before, ul.social li.social-wikipedia a.fa-pull-right:before, ul.social li.social-itunes a.fa-pull-right:before, ul.social li.social-youtube a.fa-pull-right:before, ul.social li.social-vimeo a.fa-pull-right:before, ul.social li.social-feed a.fa-pull-right:before, ul.social li.social-flickr a.fa-pull-right:before, ul.social li.social-delicious a.fa-pull-right:before, ul.social li.social-tumblr a.fa-pull-right:before, ul.social li.social-skype a.fa-pull-right:before, ul.social li.social-github a.fa-pull-right:before, ul.social li.social-xing a.fa-pull-right:before, ul.social li.social-twitter a.fa-pull-right:before, ul.social li.social-facebook a.fa-pull-right:before, ul.social li.social-instagram a.fa-pull-right:before, ul.social li.social-pinterest a.fa-pull-right:before, ul.social li.social-diaspora a.fa-pull-right:before, .imagelink .fa-pull-right.slick-next:before, .imagelink .fa-pull-right.slick-prev:before, .image-gallery .gallery-slick .fa-pull-right.slick-next:before, .image-gallery .gallery-slick .fa-pull-right.slick-prev:before, .search-result .search-meta .fa-pull-right.download:before, .search-result .search-meta .fa-pull-right.post-meta-attachment:before, .search-result .search-meta .fa-pull-right.post-meta-news-external:before, .search-result .search-meta .fa-pull-right.post-meta-news:before, .search-result .search-meta .fa-pull-right.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-right.post-meta-kontakt:before, .search-result .search-meta .fa-pull-right.post-meta-event:before, .search-result .search-meta .fa-pull-right.post-meta-date:before, .search-result .search-meta .fa-pull-right.post-meta-category:before, .news-item h2 .fa-pull-right.ext-link::after, .news-item .news-meta .fa-pull-right.news-meta-date:before, .news-item .news-meta .fa-pull-right.news-meta-categories:before, .news-details .fa-pull-right.post-meta-tags:before, .news-details .fa-pull-right.post-meta-date:before, .news-details .fa-pull-right.post-meta-categories:before, .organigram .fa-pull-right.toggle-icon, .helpermenus li.fa-pull-right:before, .helpermenus h3 a.fa-pull-right.ext-link:after, #footer .cloned-meta-links li.fa-pull-right:before,
 #footer .cloned-hero-nav li.fa-pull-right:before,
 #footer .meta-nav li.fa-pull-right:before, .fa-pull-right#mainnav-toggle-close:before, .fa-pull-right#mainnav-toggle:before, .nav > li.has-sub > a.fa-pull-right:before,
 .nav > li.has-sub > .fa-pull-right[type=button]:before {
   margin-left: 0.3em;
 }
 
-.fa.pull-left, .accordion .accordion-group .accordion-heading .pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-left:before, .pull-left.wpcf7-not-valid-tip:before, .pull-left.wpcf7-validation-errors:before, .pull-left.wpcf7-mail-sent-ok:before, .sorttable th.pull-left::after, ul.social li.social-iconbyurl a.pull-left::before, ul.social li.social-wikipedia a.pull-left:before, ul.social li.social-itunes a.pull-left:before, ul.social li.social-youtube a.pull-left:before, ul.social li.social-vimeo a.pull-left:before, ul.social li.social-feed a.pull-left:before, ul.social li.social-flickr a.pull-left:before, ul.social li.social-delicious a.pull-left:before, ul.social li.social-tumblr a.pull-left:before, ul.social li.social-skype a.pull-left:before, ul.social li.social-github a.pull-left:before, ul.social li.social-xing a.pull-left:before, ul.social li.social-twitter a.pull-left:before, ul.social li.social-facebook a.pull-left:before, ul.social li.social-instagram a.pull-left:before, ul.social li.social-pinterest a.pull-left:before, ul.social li.social-diaspora a.pull-left:before, .imagelink .pull-left.slick-next:before, .imagelink .pull-left.slick-prev:before, .image-gallery .gallery-slick .pull-left.slick-next:before, .image-gallery .gallery-slick .pull-left.slick-prev:before, .search-result .search-meta .pull-left.download:before, .search-result .search-meta .pull-left.post-meta-attachment:before, .search-result .search-meta .pull-left.post-meta-news-external:before, .search-result .search-meta .pull-left.post-meta-news:before, .search-result .search-meta .pull-left.post-meta-defaulttype:before, .search-result .search-meta .pull-left.post-meta-kontakt:before, .search-result .search-meta .pull-left.post-meta-event:before, .search-result .search-meta .pull-left.post-meta-date:before, .search-result .search-meta .pull-left.post-meta-category:before, .news-item h2 .pull-left.ext-link::after, .news-item .news-meta .pull-left.news-meta-date:before, .news-item .news-meta .pull-left.news-meta-categories:before, .news-details .pull-left.post-meta-tags:before, .news-details .pull-left.post-meta-date:before, .news-details .pull-left.post-meta-categories:before, .organigram .pull-left.toggle-icon, .hero-navigation li.pull-left:before, #hero-slides .pull-left.slick-next:before, #hero-slides .pull-left.slick-prev:before, .helpermenus li.pull-left:before, .helpermenus h3 a.pull-left.ext-link:after, #footer .cloned-meta-links li.pull-left:before,
+.fa.pull-left, .accordion .accordion-group .accordion-heading .pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-left:before, .pull-left.wpcf7-not-valid-tip:before, .pull-left.wpcf7-validation-errors:before, .pull-left.wpcf7-mail-sent-ok:before, .sorttable th.pull-left::after, ul.social li.social-iconbyurl a.pull-left::before, ul.social li.social-wikipedia a.pull-left:before, ul.social li.social-itunes a.pull-left:before, ul.social li.social-youtube a.pull-left:before, ul.social li.social-vimeo a.pull-left:before, ul.social li.social-feed a.pull-left:before, ul.social li.social-flickr a.pull-left:before, ul.social li.social-delicious a.pull-left:before, ul.social li.social-tumblr a.pull-left:before, ul.social li.social-skype a.pull-left:before, ul.social li.social-github a.pull-left:before, ul.social li.social-xing a.pull-left:before, ul.social li.social-twitter a.pull-left:before, ul.social li.social-facebook a.pull-left:before, ul.social li.social-instagram a.pull-left:before, ul.social li.social-pinterest a.pull-left:before, ul.social li.social-diaspora a.pull-left:before, .imagelink .pull-left.slick-next:before, .imagelink .pull-left.slick-prev:before, .image-gallery .gallery-slick .pull-left.slick-next:before, .image-gallery .gallery-slick .pull-left.slick-prev:before, .search-result .search-meta .pull-left.download:before, .search-result .search-meta .pull-left.post-meta-attachment:before, .search-result .search-meta .pull-left.post-meta-news-external:before, .search-result .search-meta .pull-left.post-meta-news:before, .search-result .search-meta .pull-left.post-meta-defaulttype:before, .search-result .search-meta .pull-left.post-meta-kontakt:before, .search-result .search-meta .pull-left.post-meta-event:before, .search-result .search-meta .pull-left.post-meta-date:before, .search-result .search-meta .pull-left.post-meta-category:before, .news-item h2 .pull-left.ext-link::after, .news-item .news-meta .pull-left.news-meta-date:before, .news-item .news-meta .pull-left.news-meta-categories:before, .news-details .pull-left.post-meta-tags:before, .news-details .pull-left.post-meta-date:before, .news-details .pull-left.post-meta-categories:before, .organigram .pull-left.toggle-icon, .helpermenus li.pull-left:before, .helpermenus h3 a.pull-left.ext-link:after, #footer .cloned-meta-links li.pull-left:before,
 #footer .cloned-hero-nav li.pull-left:before,
 #footer .meta-nav li.pull-left:before, .pull-left#mainnav-toggle-close:before, .pull-left#mainnav-toggle:before, .nav > li.has-sub > a.pull-left:before,
 .nav > li.has-sub > .pull-left[type=button]:before {
   margin-right: 0.3em;
 }
 
-.fa.pull-right, .accordion .accordion-group .accordion-heading .pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-right:before, .pull-right.wpcf7-not-valid-tip:before, .pull-right.wpcf7-validation-errors:before, .pull-right.wpcf7-mail-sent-ok:before, .sorttable th.pull-right::after, ul.social li.social-iconbyurl a.pull-right::before, ul.social li.social-wikipedia a.pull-right:before, ul.social li.social-itunes a.pull-right:before, ul.social li.social-youtube a.pull-right:before, ul.social li.social-vimeo a.pull-right:before, ul.social li.social-feed a.pull-right:before, ul.social li.social-flickr a.pull-right:before, ul.social li.social-delicious a.pull-right:before, ul.social li.social-tumblr a.pull-right:before, ul.social li.social-skype a.pull-right:before, ul.social li.social-github a.pull-right:before, ul.social li.social-xing a.pull-right:before, ul.social li.social-twitter a.pull-right:before, ul.social li.social-facebook a.pull-right:before, ul.social li.social-instagram a.pull-right:before, ul.social li.social-pinterest a.pull-right:before, ul.social li.social-diaspora a.pull-right:before, .imagelink .pull-right.slick-next:before, .imagelink .pull-right.slick-prev:before, .image-gallery .gallery-slick .pull-right.slick-next:before, .image-gallery .gallery-slick .pull-right.slick-prev:before, .search-result .search-meta .pull-right.download:before, .search-result .search-meta .pull-right.post-meta-attachment:before, .search-result .search-meta .pull-right.post-meta-news-external:before, .search-result .search-meta .pull-right.post-meta-news:before, .search-result .search-meta .pull-right.post-meta-defaulttype:before, .search-result .search-meta .pull-right.post-meta-kontakt:before, .search-result .search-meta .pull-right.post-meta-event:before, .search-result .search-meta .pull-right.post-meta-date:before, .search-result .search-meta .pull-right.post-meta-category:before, .news-item h2 .pull-right.ext-link::after, .news-item .news-meta .pull-right.news-meta-date:before, .news-item .news-meta .pull-right.news-meta-categories:before, .news-details .pull-right.post-meta-tags:before, .news-details .pull-right.post-meta-date:before, .news-details .pull-right.post-meta-categories:before, .organigram .pull-right.toggle-icon, .hero-navigation li.pull-right:before, #hero-slides .pull-right.slick-next:before, #hero-slides .pull-right.slick-prev:before, .helpermenus li.pull-right:before, .helpermenus h3 a.pull-right.ext-link:after, #footer .cloned-meta-links li.pull-right:before,
+.fa.pull-right, .accordion .accordion-group .accordion-heading .pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-right:before, .pull-right.wpcf7-not-valid-tip:before, .pull-right.wpcf7-validation-errors:before, .pull-right.wpcf7-mail-sent-ok:before, .sorttable th.pull-right::after, ul.social li.social-iconbyurl a.pull-right::before, ul.social li.social-wikipedia a.pull-right:before, ul.social li.social-itunes a.pull-right:before, ul.social li.social-youtube a.pull-right:before, ul.social li.social-vimeo a.pull-right:before, ul.social li.social-feed a.pull-right:before, ul.social li.social-flickr a.pull-right:before, ul.social li.social-delicious a.pull-right:before, ul.social li.social-tumblr a.pull-right:before, ul.social li.social-skype a.pull-right:before, ul.social li.social-github a.pull-right:before, ul.social li.social-xing a.pull-right:before, ul.social li.social-twitter a.pull-right:before, ul.social li.social-facebook a.pull-right:before, ul.social li.social-instagram a.pull-right:before, ul.social li.social-pinterest a.pull-right:before, ul.social li.social-diaspora a.pull-right:before, .imagelink .pull-right.slick-next:before, .imagelink .pull-right.slick-prev:before, .image-gallery .gallery-slick .pull-right.slick-next:before, .image-gallery .gallery-slick .pull-right.slick-prev:before, .search-result .search-meta .pull-right.download:before, .search-result .search-meta .pull-right.post-meta-attachment:before, .search-result .search-meta .pull-right.post-meta-news-external:before, .search-result .search-meta .pull-right.post-meta-news:before, .search-result .search-meta .pull-right.post-meta-defaulttype:before, .search-result .search-meta .pull-right.post-meta-kontakt:before, .search-result .search-meta .pull-right.post-meta-event:before, .search-result .search-meta .pull-right.post-meta-date:before, .search-result .search-meta .pull-right.post-meta-category:before, .news-item h2 .pull-right.ext-link::after, .news-item .news-meta .pull-right.news-meta-date:before, .news-item .news-meta .pull-right.news-meta-categories:before, .news-details .pull-right.post-meta-tags:before, .news-details .pull-right.post-meta-date:before, .news-details .pull-right.post-meta-categories:before, .organigram .pull-right.toggle-icon, .helpermenus li.pull-right:before, .helpermenus h3 a.pull-right.ext-link:after, #footer .cloned-meta-links li.pull-right:before,
 #footer .cloned-hero-nav li.pull-right:before,
 #footer .meta-nav li.pull-right:before, .pull-right#mainnav-toggle-close:before, .pull-right#mainnav-toggle:before, .nav > li.has-sub > a.pull-right:before,
 .nav > li.has-sub > .pull-right[type=button]:before {
@@ -2329,11 +2329,11 @@ html {
   content: "\f052";
 }
 
-.fa-chevron-left:before, [dir=rtl] .imagelink .slick-next:before, .imagelink .slick-prev:before, [dir=rtl] .image-gallery .gallery-slick .slick-next:before, .image-gallery .gallery-slick .slick-prev:before, [dir=rtl] #hero-slides .slick-next:before, #hero-slides .slick-prev:before {
+.fa-chevron-left:before, [dir=rtl] .imagelink .slick-next:before, .imagelink .slick-prev:before, [dir=rtl] .image-gallery .gallery-slick .slick-next:before, .image-gallery .gallery-slick .slick-prev:before {
   content: "\f053";
 }
 
-.fa-chevron-right:before, .imagelink .slick-next:before, [dir=rtl] .imagelink .slick-prev:before, .image-gallery .gallery-slick .slick-next:before, [dir=rtl] .image-gallery .gallery-slick .slick-prev:before, #hero-slides .slick-next:before, [dir=rtl] #hero-slides .slick-prev:before {
+.fa-chevron-right:before, .imagelink .slick-next:before, [dir=rtl] .imagelink .slick-prev:before, .image-gallery .gallery-slick .slick-next:before, [dir=rtl] .image-gallery .gallery-slick .slick-prev:before {
   content: "\f054";
 }
 
@@ -2942,7 +2942,7 @@ html {
   content: "\f104";
 }
 
-.fa-angle-right:before, .hero-navigation li:before, .helpermenus li:before, #footer .cloned-meta-links li:before,
+.fa-angle-right:before, .helpermenus li:before, #footer .cloned-meta-links li:before,
 #footer .cloned-hero-nav li:before,
 #footer .meta-nav li:before {
   content: "\f105";
@@ -7543,736 +7543,6 @@ ol.breadcrumblist li:last-child::after {
 .helpermenus li a:hover, .helpermenus li a:focus {
   text-decoration: none;
   background-color: var(--color-primary-ci-hell2);
-}
-
-/*-----------------------------------------------------------------------------------*/
-/* Hero: Region unterhalb des Menüs und vor dem Content.
-/*      Enthält: Slider, Banner, Breadcrumb
-/*-----------------------------------------------------------------------------------*/
-/*-----------------------------------------------------------------------------------*/
-/* Hero: Design header for website header
-/*-----------------------------------------------------------------------------------*/
-#hero {
-  position: relative;
-  transition: none;
-  z-index: 10;
-  width: 100%;
-  margin: 0 auto;
-  padding-top: 0;
-  overflow: hidden;
-  background: var(--color-hero-bg);
-}
-@media (min-width: 768px) {
-  #hero {
-    margin: 20px auto;
-  }
-}
-@media (min-width: 768px) and (min-width: 992px) {
-  #hero.sliderpage, #hero.hero-banner {
-    margin: 40px auto;
-  }
-}
-#hero :-ms-input-placeholder {
-  color: var(--color-hero-text);
-}
-#hero ::placeholder {
-  color: var(--color-hero-text);
-}
-#hero h1, #hero h2, #hero h3, #hero h4, #hero p {
-  font-weight: normal;
-  color: var(--color-hero-text);
-}
-#hero h1 {
-  position: relative;
-  z-index: 10;
-  padding-top: 0px;
-}
-#hero a {
-  color: var(--color-hero-text);
-}
-#hero .container {
-  position: relative;
-}
-.flyout-toggled #hero {
-  opacity: 0.3;
-}
-.no-js #hero {
-  margin-top: 0;
-  transition: none;
-  padding-top: 10px;
-  position: relative;
-}
-.no-js #hero .container {
-  display: table;
-}
-.no-js #hero .span6 {
-  display: table-cell;
-  width: 90%;
-}
-.no-js #hero .span3 {
-  display: table-cell;
-  width: 45%;
-}
-#hero.hero-small {
-  background: var(--color-hero-bg);
-  overflow: hidden;
-}
-#hero.hero-small p.presentationtitle,
-#hero.hero-small h1 {
-  padding: 0;
-  margin: 20px 0;
-}
-#hero .hero-content {
-  z-index: 10;
-}
-.single #hero p.presentationtitle {
-  display: none;
-}
-@media (min-width: 768px) {
-  .single #hero p.presentationtitle {
-    display: inline-block;
-  }
-}
-
-/*-----------------------------------------------------------------------------------*/
-/* Grid in Hero
-/*-----------------------------------------------------------------------------------*/
-.hero-container {
-  margin-right: auto;
-  margin-left: auto;
-  width: 100%;
-}
-@media (min-width: 768px) {
-  .hero-container {
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .hero-container {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .hero-container {
-    width: 1200px;
-  }
-}
-
-/*-----------------------------------------------------------------------------------*/
-/* Slider im Hero-Teil
-/*-----------------------------------------------------------------------------------*/
-#hero.sliderpage {
-  overflow: inherit;
-}
-
-#hero-slides {
-  position: relative;
-  display: none;
-  height: auto;
-  background: var(--color-hero-bg);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-#hero-slides .item {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 250px;
-}
-@media (min-width: 768px) {
-  #hero-slides .item {
-    height: 350px;
-  }
-}
-@media (min-width: 1260px) {
-  #hero-slides .item {
-    width: 1260px;
-    height: 350px;
-  }
-}
-@media (min-width: 768px) {
-  #hero-slides .item .slider-titel {
-    margin-bottom: 5px;
-  }
-}
-#hero-slides .item .slider-titel header {
-  display: inline;
-  padding: 3px;
-  margin: 25px 30px;
-  font-size: 1.562rem;
-  line-height: 2.344rem;
-  -webkit-box-decoration-break: clone;
-          box-decoration-break: clone;
-}
-@media (min-width: 768px) {
-  #hero-slides .item .slider-titel header {
-    margin: 10px 0 15px 0;
-  }
-}
-#hero-slides .item .slider-text {
-  display: none;
-}
-@media (min-width: 768px) {
-  #hero-slides .item .slider-text {
-    display: inline-block;
-  }
-}
-#hero-slides .item .slider-text p {
-  font-size: 1.25rem;
-  line-height: 2.125rem;
-  padding: 5px 4px 4px 4px;
-  margin: 0;
-  -webkit-box-decoration-break: clone;
-          box-decoration-break: clone;
-}
-@media (min-width: 768px) {
-  #hero-slides .item .slider-text p {
-    display: inline;
-  }
-}
-#hero-slides .item .slider-titel,
-#hero-slides .item .slider-text {
-  max-width: 55rem;
-}
-#hero-slides .item .slider-titel header, #hero-slides .item .slider-titel p,
-#hero-slides .item .slider-text header,
-#hero-slides .item .slider-text p {
-  background-color: var(--color-primary-ci-hell);
-  color: var(--color-primary-ci-hell-kontrast);
-  opacity: 0.8;
-}
-#hero-slides .item p.credits {
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  font-size: 0.937rem;
-  line-height: 1.407rem;
-  z-index: 6;
-  margin: 0;
-  padding: 1px 4px;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-#hero-slides .item img {
-  vertical-align: middle;
-  z-index: 5;
-  width: auto;
-  min-height: 250px;
-  min-width: 100%;
-  max-width: inherit;
-  margin-left: 50%;
-  transform: translate(-50%, 0);
-}
-@media (min-width: 768px) {
-  #hero-slides .item img {
-    min-height: 350px;
-  }
-}
-#hero-slides .hero-slide-text {
-  z-index: 10;
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  top: 75%;
-  transform: translate(0, -75%);
-}
-@media (min-width: 768px) {
-  #hero-slides .hero-slide-text {
-    bottom: 30px;
-    top: inherit;
-    transform: none;
-  }
-}
-#hero-slides li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background: none;
-  padding: 0;
-}
-#hero-slides li:before {
-  display: none;
-}
-@media (min-width: 320px) {
-  #hero-slides {
-    display: block;
-    width: 100%;
-  }
-  .no-js #hero-slides {
-    display: none;
-  }
-}
-@media (min-width: 480px) {
-  #hero-slides {
-    max-height: 350px;
-  }
-}
-@media (min-width: 992px) {
-  #hero-slides {
-    margin: 0 auto -40px;
-  }
-}
-@media (min-width: 992px) {
-  .with-infobar #hero-slides {
-    margin-bottom: -20px;
-  }
-}
-@media (min-width: 1280px) {
-  #hero-slides {
-    width: 1260px;
-    height: 350px;
-  }
-}
-#hero-slides .slick-prev,
-#hero-slides .slick-next {
-  position: absolute;
-  display: block;
-  height: 40px;
-  width: 40px;
-  line-height: 0px;
-  font-size: 0px;
-  cursor: pointer;
-  background: transparent;
-  color: transparent;
-  top: 75%;
-  transform: translate(0, -75%);
-  padding: 0;
-  border: none;
-  outline: none;
-}
-@media (min-width: 480px) {
-  #hero-slides .slick-prev,
-#hero-slides .slick-next {
-    top: 50%;
-    transform: translate(0, -50%);
-  }
-}
-#hero-slides .slick-prev:hover, #hero-slides .slick-prev:focus,
-#hero-slides .slick-next:hover,
-#hero-slides .slick-next:focus {
-  outline: none;
-  background: transparent;
-  color: var(--color-button-bg);
-}
-#hero-slides .slick-prev:hover:before, #hero-slides .slick-prev:focus:before,
-#hero-slides .slick-next:hover:before,
-#hero-slides .slick-next:focus:before {
-  color: var(--color-button-hover-bg);
-}
-#hero-slides .slick-prev:before,
-#hero-slides .slick-next:before {
-  font-size: 40px;
-  line-height: 1;
-  color: var(--color-button-bg);
-  text-shadow: 0 0 1px var(--color-button-text);
-}
-#hero-slides .slick-prev {
-  left: 5px;
-}
-[dir=rtl] #hero-slides .slick-prev {
-  left: auto;
-  right: 5px;
-}
-@media (min-width: 1380px) {
-  #hero-slides .slick-prev {
-    left: -50px;
-  }
-  [dir=rtl] #hero-slides .slick-prev {
-    left: auto;
-    right: -50px;
-  }
-}
-#hero-slides .slick-next {
-  right: 5px;
-}
-[dir=rtl] #hero-slides .slick-next {
-  left: 5px;
-  right: auto;
-}
-@media (min-width: 1380px) {
-  #hero-slides .slick-next {
-    right: -50px;
-  }
-  [dir=rtl] #hero-slides .slick-next {
-    left: -50px;
-    right: auto;
-  }
-}
-#hero-slides .slick-startstop {
-  position: absolute;
-  display: block;
-  top: 0px;
-  right: 0px;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  font-size: 0.937rem;
-  line-height: 1.407rem;
-  margin: 0;
-  padding: 1px 4px;
-  border: none;
-}
-@media (min-width: 480px) {
-  #hero-slides .slick-startstop {
-    bottom: inherit;
-  }
-}
-#hero-slides .slick-startstop:hover, #hero-slides .slick-startstop:focus {
-  color: #fff;
-  background: #000;
-  transition-timing-function: ease;
-  text-decoration: underline;
-}
-.no-js #hero-slides .slick-startstop {
-  display: none;
-}
-
-@media (min-width: 992px) {
-  #hero-slides {
-    top: -20px;
-  }
-}
-
-/*-----------------------------------------------------------------------------------*/
-/* Linkbereich unter dem Slider / Banner
-/*-----------------------------------------------------------------------------------*/
-.hero-navigation ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background: none;
-}
-.hero-navigation ul:before {
-  display: none;
-}
-.hero-navigation li {
-  display: table;
-  padding-left: 0;
-  color: var(--color-hero-text);
-  font-size: 0.875rem;
-  line-height: 1.313rem;
-}
-.hero-navigation li:before {
-  font-weight: bold;
-  display: table-cell;
-  color: var(--color-hero-text);
-  width: 20px;
-}
-.hero-navigation li.zuv, .hero-navigation li.phil, .hero-navigation li.philfak, .hero-navigation li.rw, .hero-navigation li.rwfak, .hero-navigation li.med, .hero-navigation li.medfak, .hero-navigation li.nat, .hero-navigation li.natfak, .hero-navigation li.tf, .hero-navigation li.techfak, .hero-navigation li.white, .hero-navigation li.grau {
-  border-left: 8px solid transparent;
-  vertical-align: center;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
-}
-.hero-navigation li.zuv:before, .hero-navigation li.phil:before, .hero-navigation li.philfak:before, .hero-navigation li.rw:before, .hero-navigation li.rwfak:before, .hero-navigation li.med:before, .hero-navigation li.medfak:before, .hero-navigation li.nat:before, .hero-navigation li.natfak:before, .hero-navigation li.tf:before, .hero-navigation li.techfak:before, .hero-navigation li.white:before, .hero-navigation li.grau:before {
-  display: none;
-  content: "";
-}
-.hero-navigation li.zuv a, .hero-navigation li.phil a, .hero-navigation li.philfak a, .hero-navigation li.rw a, .hero-navigation li.rwfak a, .hero-navigation li.med a, .hero-navigation li.medfak a, .hero-navigation li.nat a, .hero-navigation li.natfak a, .hero-navigation li.tf a, .hero-navigation li.techfak a, .hero-navigation li.white a, .hero-navigation li.grau a {
-  display: inline-block;
-  padding: 2px 0 2px 10px;
-  line-height: 16px;
-  vertical-align: center;
-}
-.hero-navigation li.zuv {
-  border-color: var(--color-zentral-ci-hell);
-}
-.hero-navigation li.phil, .hero-navigation li.philfak {
-  border-color: var(--color-phil-ci-hell);
-}
-.hero-navigation li.rw, .hero-navigation li.rwfak {
-  border-color: var(--color-rw-ci-hell);
-}
-.hero-navigation li.med, .hero-navigation li.medfak {
-  border-color: var(--color-med-ci-hell);
-}
-.hero-navigation li.nat, .hero-navigation li.natfak {
-  border-color: var(--color-nat-ci-hell);
-}
-.hero-navigation li.tf, .hero-navigation li.techfak {
-  border-color: var(--color-tf-ci-hell);
-}
-.hero-navigation li.white {
-  border-color: var(--color-white);
-}
-.hero-navigation li.gray {
-  border-color: var(--color-StandardHellgrau);
-}
-.hero-navigation .quicklinks {
-  z-index: 10;
-}
-.hero-navigation .quicklinks p.headline {
-  font-weight: normal;
-  color: var(--color-hero-text);
-  font-size: 1.187rem;
-  line-height: 1.782rem;
-  padding: 0.5rem 0;
-}
-.hero-navigation .quicklinks h2 {
-  font-weight: bold;
-  padding-bottom: 0.6rem;
-  padding-top: 0;
-  color: var(--color-hero-text);
-}
-.hero-navigation .quicklinks h2.second {
-  padding-top: 1.2rem;
-}
-.hero-navigation .infobar {
-  z-index: 10;
-  padding-top: 0.2rem;
-}
-.hero-navigation .infobar p {
-  font-weight: normal;
-  color: #fff;
-}
-.hero-navigation .infobar p.sitetitle,
-.hero-navigation .infobar h1 {
-  font-size: 1.812rem;
-  line-height: 2.357rem;
-  -webkit-hyphens: none;
-      -ms-hyphens: none;
-          hyphens: none;
-  position: relative;
-  z-index: 10;
-  padding-top: 0;
-}
-.hero-navigation .infobar p.description {
-  font-size: 1.25rem;
-  line-height: 1.875rem;
-  padding: 0;
-  margin: 1rem 0 2rem 0;
-}
-.ismobile .hero-navigation {
-  display: none;
-}
-#footer .hero-navigation {
-  display: block;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-#footer .hero-navigation .infobar {
-  display: none;
-}
-#footer .hero-navigation li {
-  padding: 3px 0 4px 4px;
-}
-#footer .hero-navigation > *, #footer .hero-navigation h1, #footer .hero-navigation h2, #footer .hero-navigation h3 {
-  color: var(--color-Default);
-}
-
-#hero .hero-navigation {
-  display: none;
-}
-@media (min-width: 768px) {
-  #hero .hero-navigation {
-    display: block;
-    position: relative;
-    margin-top: 20px;
-    padding-bottom: 10px;
-    z-index: 10;
-    overflow: hidden;
-  }
-}
-@media (min-width: 992px) {
-  #hero .hero-navigation {
-    margin-top: 30px;
-  }
-}
-
-/*-----------------------------------------------------------------------------------*/
-/* Banner im Hero-Teil
-/*-----------------------------------------------------------------------------------*/
-#hero.hero-banner {
-  height: auto;
-  overflow: inherit;
-  background: var(--color-hero-bg);
-}
-@media (min-width: 768px) {
-  #hero.hero-banner {
-    max-height: 142px;
-  }
-}
-
-.banner {
-  position: relative;
-  top: 0px;
-  margin: 0 auto;
-  height: auto;
-  background: var(--color-hero-bg);
-  max-width: 1260px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-@media (min-width: 768px) {
-  .banner {
-    height: 182px;
-  }
-}
-@media (min-width: 992px) {
-  .banner {
-    top: -20px;
-  }
-}
-.banner .introimg {
-  overflow: hidden;
-}
-.banner .introimg img {
-  width: auto;
-  max-width: none;
-  height: 100px;
-}
-@media (max-width: 479px) {
-  .banner .introimg img {
-    height: 120px;
-    margin-left: -30%;
-  }
-}
-@media (min-width: 480px) {
-  .banner .introimg img {
-    height: auto;
-    width: 100%;
-    max-width: 1260px;
-  }
-}
-@media (min-width: 768px) {
-  .banner .introimg img {
-    min-height: 182px;
-    width: 1260px;
-    height: auto;
-  }
-}
-@media (min-width: 992px) {
-  .banner .introimg img {
-    width: 1260px;
-    height: auto;
-  }
-}
-.banner .introimg p.credits {
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  font-size: 14px;
-  line-height: 18px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 6;
-  margin: 0;
-  padding: 1px 4px;
-}
-.banner .banner-text {
-  position: absolute;
-  top: 20px;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  padding: 0px;
-  display: none;
-}
-@media (min-width: 480px) {
-  .banner .banner-text {
-    height: 142px;
-    display: block;
-  }
-}
-.banner .banner-text p.sitetitle,
-.banner .banner-text h1 {
-  font-size: 1.812rem;
-  line-height: 2.719rem;
-  -webkit-hyphens: none;
-      -ms-hyphens: none;
-          hyphens: none;
-  color: var(--color-hero-text);
-  background: var(--color-hero-bg);
-  margin: 0;
-  padding: 0 7px 1px 7px;
-  position: relative;
-  z-index: 10;
-  max-height: 130px;
-  overflow: hidden;
-  vertical-align: bottom;
-  display: none;
-  -webkit-box-decoration-break: clone;
-          box-decoration-break: clone;
-}
-@media (min-width: 768px) {
-  .banner .banner-text p.sitetitle,
-.banner .banner-text h1 {
-    display: inline;
-  }
-}
-.banner .banner-text .slogan {
-  display: block;
-  margin-top: 15px;
-}
-.banner .banner-text p.description {
-  font-weight: normal;
-  color: var(--color-hero-text);
-  font-size: 1.25rem;
-  line-height: 1.875rem;
-  display: none;
-  background: var(--color-hero-bg);
-  padding: 0 7px 1px 7px;
-  margin: 10px 0 0 0;
-  -webkit-box-decoration-break: clone;
-          box-decoration-break: clone;
-}
-@media (min-width: 480px) {
-  .banner .banner-text p.description {
-    display: inline-block;
-  }
-}
-@media (min-width: 768px) {
-  .banner .banner-text p.description {
-    display: inline;
-  }
-}
-
-@media (max-width: 479px) {
-  .page-template-page-start-sub.js-enabled #hero .banner {
-    top: 0;
-    bottom: 0;
-  }
-}
-@media (min-width: 992px) {
-  .page-template-page-start.no-quicklinks #hero {
-    height: 310px;
-  }
-}
-.infobar {
-  display: none;
-}
-@media (min-width: 480px) {
-  .infobar {
-    display: inline-block;
-  }
-}
-
-/*-----------------------------------------------------------------------------------*/
-/* Breadcrumb
-/*-----------------------------------------------------------------------------------*/
-#hero .breadcrumbs {
-  color: var(--color-hero-text);
-  padding: 10px 0;
-  position: relative;
-  z-index: 10;
-  font-size: 0.875rem;
-  line-height: 1.313rem;
-}
-#hero .breadcrumbs span {
-  padding: 0 5px;
-}
-.single #hero .breadcrumbs .active {
-  display: none;
-}
-#hero .breadcrumbs .breadcrumb_sitetitle {
-  font-size: 0.875rem;
-  line-height: 1.313rem;
-}
-#hero .breadcrumbs span.active {
-  display: none;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -16737,7 +16007,7 @@ h1, h2, h3, h4, h5 {
 
 table, figure, img {
   display: block !important;
-  position: static !important;
+  position: relative !important;
   page-break-before: auto !important;
   /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
   page-break-after: auto !important;
@@ -16760,10 +16030,13 @@ blockquote, ul {
 }
 
 #headerwrapper {
+  position: static !important;
   margin: 0;
   box-shadow: none !important;
 }
 #headerwrapper #header .branding {
+  display: block !important;
+  margin-bottom: 2rem !important;
   width: 100%;
 }
 #headerwrapper #header .branding a {
@@ -16773,6 +16046,11 @@ blockquote, ul {
   width: 100%;
   flex-direction: row-reverse;
   justify-content: space-between;
+}
+
+.portalpage-content {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 #content {
@@ -16811,7 +16089,7 @@ main a,
   display: flex !important;
   flex-wrap: wrap !important;
 }
-.fontawesome-icon-list .fa-hover.col-md-3.col-sm-4, .fontawesome-icon-list #hero .fa-hover.col-md-3.search-title, #hero .fontawesome-icon-list .fa-hover.col-md-3.search-title {
+.fontawesome-icon-list .fa-hover.col-md-3.col-sm-4 {
   width: 25% !important;
 }
 
@@ -16835,7 +16113,7 @@ main a,
   background-color: transparent !important;
 }
 #hero * {
-  position: static !important;
+  position: relative !important;
 }
 
 #hero-slides {
@@ -16852,7 +16130,8 @@ main a,
 
 #hero-slides .item {
   height: auto !important;
-  margin-bottom: 3rem !important;
+  margin-bottom: 0 !important;
+  padding: 0.5rem;
 }
 
 #hero-slides .item p,
@@ -16863,33 +16142,48 @@ main a,
 }
 
 #hero-slides .slick-slide {
+  width: auto !important;
   height: auto !important;
   opacity: 1 !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  margin-bottom: 1rem;
+  page-break-inside: avoid;
+  left: initial !important;
+  top: initial !important;
+  float: none !important;
+  clear: both !important;
+}
+
+#hero-slides .slick-slide > * {
+  border: solid 1px #ddd;
+  page-break-inside: avoid;
 }
 
 #hero-slides .item img {
+  height: 5rem !important;
   width: auto !important;
-  height: 10rem !important;
+  object-fit: contain;
+  object-position: center;
   min-width: auto !important;
   min-height: auto !important;
-  margin-left: 3rem !important;
+  margin-left: 0 !important;
   transform: none !important;
 }
 
 #hero-slides .item .credits {
-  margin: 0.5rem 1rem 0.5rem 3rem !important;
+  margin: 0.5rem 0 !important;
   opacity: 1 !important;
+  font-size: 0.8em !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 #hero-slides .item .hero-slide-text {
   top: auto !important;
   bottom: auto !important;
-  margin: 0.5rem 1rem 0.5rem 0 !important;
+  margin: 1rem 0 0 !important;
   opacity: 1 !important;
-}
-
-#hero-slides .item .container {
-  margin-left: 2rem !important;
 }
 
 #hero-slides .item a {
@@ -16898,17 +16192,21 @@ main a,
   opacity: 1 !important;
 }
 
+.container {
+  width: auto !important;
+}
+
 /* Slider *************************************************************************************************************/
-.imagelink.dots {
+.dots {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
 
-.imagelink .slick-item {
+.slick-item {
   overflow: visible !important;
   position: relative !important;
 }
-.imagelink .slick-item .tw-linkref {
+.slick-item .tw-linkref {
   position: absolute !important;
   top: auto !important;
   bottom: 0 !important;
@@ -16916,18 +16214,25 @@ main a,
   background-color: #ffffff !important;
 }
 
-.imagelink .slick-prev.slick-arrow,
-.imagelink .slick-next.slick-arrow {
+.slick-prev.slick-arrow,
+.slick-next.slick-arrow {
   display: none !important;
 }
 
-.imagelink .slick-track {
+.slick-track {
   width: auto !important;
   transform: none !important;
   opacity: 1 !important;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
 }
 
-.imagelink .slick-slide.slick-cloned {
+.slick-slide,
+.slick-slide * {
+  page-break-inside: avoid;
+}
+
+.slick-slide.slick-cloned {
   display: none !important;
 }
 
