@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 77,
+    'optiontable-version'	=> 78,
 		// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 		// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 		// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -28,7 +28,7 @@ $defaultoptions = [
     'website_type'			=> 1,
 		// website_type: 
 		//  0 = Fakultaetsportal; 
-		//  1 = Lehrstuehle, Departents 
+		//  1 = Lehrstuehle, Departments 
 		//  2 = Zentrale Einrichtungen, 
 		//  3 = Kooperationen 
 		// -1 = fau.de Portal (4 Spalter in Bühne, kein Link zur FAU. 
@@ -49,6 +49,7 @@ $defaultoptions = [
     'slider-catid'			=> 0,    
     'src-scriptjs'			=> get_fau_template_uri() . '/js/fau-theme.min.js',
     'src-sliderjs'			=> get_fau_template_uri() . '/js/fau-theme-slick.min.js',
+    'src-printlinks'			=> get_fau_template_uri() . '/js/printlinks.min.js',
     'src-adminjs'			=> get_fau_template_uri() . '/js/fau-theme-admin.min.js',
     'src-admin-customizer-js'		=> get_fau_template_uri() . '/js/fau-theme-customizer-range-value-control.min.js',
     'src-admin-wplinkjs'		=> get_fau_template_uri() . '/js/fau-theme-wplink.min.js',

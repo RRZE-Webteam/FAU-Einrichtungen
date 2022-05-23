@@ -45,7 +45,9 @@ require_once( get_template_directory() . '/functions/filters.php');
 function fau_setup() {
 	global $defaultoptions;
 	 
-	if ( ! isset( $content_width ) ) $content_width = $defaultoptions['content-width'];
+	if (!isset( $content_width ) ) {
+            $content_width = $defaultoptions['content-width'];
+        }
 	
 	    
 	add_theme_support('html5');
@@ -148,11 +150,15 @@ function fau_register_scripts() {
     $theme_version = $theme_data->Version;
 
     wp_register_style('fau-style',  get_stylesheet_uri(), array(), $theme_version);
+    wp_register_style( 'fau-style', get_stylesheet_uri(), array(), $theme_version, 'screen' );
+    wp_register_style( 'fau-style-print', get_stylesheet_directory_uri() . '/print.css', array(), $theme_version, 'print' );
 	// Base Style
     wp_register_script('fau-scripts', $defaultoptions['src-scriptjs'], array('jquery'), $theme_version, true );
 	// Base FAU Scripts
     wp_register_script('fau-js-heroslider', $defaultoptions['src-sliderjs'], array('jquery'), $theme_version, true );
 	// Slider JS
+    wp_register_script( 'fau-js-printlinks', $defaultoptions['src-printlinks'], [], null, true );
+        // Print links js
 
 }
 add_action('init', 'fau_register_scripts');
@@ -162,6 +168,8 @@ add_action('init', 'fau_register_scripts');
 /*-----------------------------------------------------------------------------------*/
 function fau_basescripts_styles() {
     wp_enqueue_style( 'fau-style');	
+    wp_enqueue_style( 'fau-style-print' );
+    wp_enqueue_script( 'fau-js-printlinks' );
     wp_enqueue_script( 'fau-scripts');
 
 }
@@ -387,6 +395,9 @@ require_once( get_template_directory() . '/functions/gutenberg.php');
 /*-----------------------------------------------------------------------------------*/
 /* This is the end of the code as we know it
 /*-----------------------------------------------------------------------------------*/
+
+
+
 
 
 

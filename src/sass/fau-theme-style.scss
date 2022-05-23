@@ -1,5 +1,3 @@
-
-
 // Import FAU variables
 @import "variables";
 
@@ -15,26 +13,23 @@
 // SVG Icons and CI elements
 @import "icons/icons";
 
-
 // Mixins
 @import "mixins/mixins";
 
 // Fonts
 @import "fonts/fonts";
 
-
-
 // Element Styles
-@import "elements/elements"; 
+@import "elements/elements";
 
 // Structure
 @import "structure/structure";
 
-
 // Plugin-Support
 @import "plugins/plugins";
 
-
+// Tollwerk styles for tollwerk print elements (like footnotes) that must have some styling for the screen as well.
+@import "tw/tw";
 
 // Printer Adjustments
 @import "printer";
