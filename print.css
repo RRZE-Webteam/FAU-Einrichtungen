@@ -8233,6 +8233,20 @@ ol.breadcrumblist li:last-child::after {
   }
 }
 
+.hide-banner-title .hero-banner .infobar .sitetitle,
+.hide-banner-slogan .hero-banner .infobar .slogan {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-width: 1px;
+  min-height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 @media (max-width: 479px) {
   .page-template-page-start-sub.js-enabled #hero .banner {
     top: 0;
@@ -10095,6 +10109,7 @@ main .news-more-links .news-rss:hover:before {
 }
 .imagelink .slick-item {
   border: 1px solid transparent;
+  height: auto;
 }
 .imagelink .slick-item.shadow img {
   box-shadow: 2px 2px 5px #878487;
@@ -10114,6 +10129,7 @@ main .news-more-links .news-rss:hover:before {
 .imagelink .slick-slide {
   width: 152px;
   height: 152px;
+  height: auto;
   margin: 0 10px;
 }
 .imagelink .slick-slide a {
@@ -10131,26 +10147,41 @@ main .news-more-links .news-rss:hover:before {
   width: 100%;
   object-fit: contain;
 }
+.imagelink .x120 .slick-item,
+.imagelink .x120 .slick-slide {
+  width: 120px;
+}
+.imagelink .x240 .slick-item,
+.imagelink .x240 .slick-slide {
+  width: 240px;
+}
+.imagelink .x360 .slick-item,
+.imagelink .x360 .slick-slide {
+  width: 360px;
+}
+.imagelink .x480 .slick-item,
+.imagelink .x480 .slick-slide {
+  width: 480px;
+}
+.imagelink .logo-thumb .slick-item,
 .imagelink .logo-thumb .slick-slide {
   width: 142px;
-  height: 142px;
 }
-.imagelink .logo-thumb .slick-slide a {
-  height: 140px;
-}
+.imagelink .page-thumb .slick-item,
 .imagelink .page-thumb .slick-slide {
   width: 222px;
-  height: 222px;
 }
-.imagelink .page-thumb .slick-slide a {
-  height: 220px;
-}
+.imagelink .post-thumbnails .slick-item,
 .imagelink .post-thumbnails .slick-slide {
   width: 302px;
-  height: 302px;
 }
-.imagelink .post-thumbnails .slick-slide a {
-  height: 300px;
+.imagelink .post-thumbnails .slick-item {
+  margin: 10px 2px;
+}
+.imagelink .slick-item.rounded a {
+  aspect-ratio: 1/1;
+  height: auto;
+  padding: 5px;
 }
 .imagelink .slick-prev,
 .imagelink .slick-next {
@@ -10269,19 +10300,24 @@ main .news-more-links .news-rss:hover:before {
   display: flex;
   text-align: center;
 }
+.imagelink.list .imagelink-container {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .imagelink.list .slick-item {
-  width: 152px;
-  height: 152px;
   margin: 10px;
   display: inline-block;
   border: 1px solid transparent;
   overflow: hidden;
+  padding: 2px;
 }
 .imagelink.list .slick-item:active, .imagelink.list .slick-item:focus-within, .imagelink.list .slick-item:hover, .imagelink.list .slick-item:focus {
   border-color: var(--color-primary-dunkelste);
 }
 .imagelink.list .slick-item a {
-  height: 150px;
   margin: auto;
   vertical-align: middle;
   text-align: center;
@@ -10300,54 +10336,17 @@ main .news-more-links .news-rss:hover:before {
   border-width: 2px;
   border-color: var(--color-ContentBorders);
 }
+.imagelink.list .slick-item.rounded a {
+  padding: 5px;
+}
 .imagelink.list .slick-item.rounded:hover, .imagelink.list .slick-item.rounded:focus, .imagelink.list .slick-item.rounded:active {
   border-color: var(--color-primary-dunkelste);
 }
-.imagelink.list .x120 .slick-item {
-  width: 120px;
-  height: 120px;
-}
-.imagelink.list .x120 .slick-item a {
-  height: 118px;
-}
-.imagelink.list .x240 .slick-item {
-  width: 240px;
-  height: 240px;
-}
-.imagelink.list .x240 .slick-item a {
-  height: 238px;
-}
-.imagelink.list .x360 .slick-item {
-  width: 360px;
-  height: 360px;
-}
-.imagelink.list .x360 .slick-item a {
-  height: 358px;
-}
-.imagelink.list .x480 .slick-item {
-  width: 480px;
-  height: 480px;
-}
-.imagelink.list .x480 .slick-item a {
-  height: 478px;
-}
-.imagelink.list .logo-thumb .slick-item {
-  width: 142px;
-  height: 142px;
-}
-.imagelink.list .logo-thumb .slick-item a {
-  height: 140px;
-}
-.imagelink.list .post-thumbnails .slick-item {
-  width: 302px;
-  height: 302px;
-  margin: 10px 2px;
-}
-.imagelink.list .post-thumbnails .slick-item a {
-  height: 300px;
-}
 .imagelink.dots {
   margin: 20px auto 40px auto;
+}
+.imagelink.dots.adaptiveHeight .slick-slide, .imagelink.dots.adaptiveHeight .slick-item {
+  height: auto;
 }
 
 /*-----------------------------------------------------------------------------------*/
