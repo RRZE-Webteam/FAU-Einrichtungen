@@ -363,7 +363,7 @@ add_filter('img_caption_shortcode', 'fau_img_caption_shortcode_filter',10,3);
 /* Remove type-String from link-reference to follow W3C Validator
 /*-----------------------------------------------------------------------------------*/
 function fau_remove_type_attr($tag, $handle) {
-    return preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
+    return preg_replace( "/ type=['\"]text\/(javascript|css)['\"]/", '', $tag );
 }
 add_filter('style_loader_tag', 'fau_remove_type_attr', 10, 2);
 add_filter('script_loader_tag', 'fau_remove_type_attr', 10, 2);
