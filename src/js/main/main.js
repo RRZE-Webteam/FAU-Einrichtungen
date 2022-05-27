@@ -368,8 +368,10 @@ jQuery(document).ready(function ($) {
         // Tablesorter
         $('.sorttable').tablesorter();
 
-        // Print links function
-        window.addEventListener('beforeprint', printlinks('#content a[href]:not([href^="javascript:"])'));
+        // Create link list for printing
+        window.addEventListener('beforeprint', function(){
+            printlinks('#content a[href]:not([href^="javascript:"])');
+        });
 
         // Footnotes for YouTube videos etc.
         function iframeFootnotes() {

@@ -80,7 +80,7 @@ img {
     border: 0 !important;
 }
 
-blockquote, ol, ul, dl {
+blockquote {
     page-break-inside: avoid !important;
 }
 
@@ -188,6 +188,7 @@ main a,
 }
 
 .tw-linkref {
+    display: inline !important;
 
     &:before {
         content: "\00a0";
@@ -195,16 +196,18 @@ main a,
 }
 
 .tw-linklist {
+    display: block !important;
     margin: 40px;
 
     &:before {
-        content: "Links zu den Fußnoten:";
+        content: "Linkverzeichnis:";
         margin-left: .35rem;
         font-weight: bold;
     }
 
     & li {
-        padding: 0.2rem 0;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #999;
 
         &:first-child {
             padding-top: 1rem;
@@ -243,6 +246,7 @@ main a,
     height: auto !important;
     margin-bottom: 0 !important;
     padding: .5rem;
+    overflow: unset;
 }
 
 #hero-slides .item p,
@@ -304,6 +308,7 @@ main a,
 
 .container {
     width: auto !important;
+    padding: 0 !important;
 }
 
 /* Slider *************************************************************************************************************/
