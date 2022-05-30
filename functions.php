@@ -249,12 +249,36 @@ function fau_addmetatags() {
    // $output .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">'."\n";    
 
     $output .= fau_get_rel_alternate();
+	// get alternate urls for the website if avaible
     
     $googleverification = get_theme_mod('google-site-verification');
     if ((isset( $googleverification )) && ( !fau_empty($googleverification) )) {
         $output .= '<meta name="google-site-verification" content="'.$googleverification.'">'."\n";
+	// if we set the Google Site Verification in the customizer, we add the html meta tag here 
     }
 
+
+    $title = sanitize_text_field(get_bloginfo( 'name' ));
+    $output .= '<link rel="alternate" type="application/rss+xml" title="'.$title.' - RSS 2.0 Feed" href="'.get_bloginfo( 'rss2_url').'">'."\n";
+       	// Adds RSS feed links to <head> for posts and comments.
+	// add_theme_support( 'automatic-feed-links' );
+	// Will post both: feed and comment feed; To use only main rss feed, i have to add it manually in head
+    
+    
+    
+    echo $output;
+    
+    
+    
+}
+add_action('wp_head', 'fau_addmetatags',1);
+
+/*-----------------------------------------------------------------------------------*/
+/* create favicon metas 
+/*-----------------------------------------------------------------------------------*/
+function fau_create_meta_favicon() {
+    global $defaultoptions;
+    $output = '';
     if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {    
 	    $output .=  '<link rel="shortcut icon" href="'.get_fau_template_uri().'/img/socialmedia/favicon.ico">'."\n";
 	    $output .=  '<link rel="apple-touch-icon" sizes="180x180" href="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
@@ -264,19 +288,14 @@ function fau_addmetatags() {
 	    $output .=  '<link rel="mask-icon" type="image/svg+xml" href="'.get_fau_template_uri().'/img/socialmedia/favicon-mask.svg" color="'.$defaultoptions['default-social-media-color'].'">'."\n";
 	    $output .=  '<meta name="msapplication-TileColor" content="'.$defaultoptions['default-social-media-color'].'">'."\n";
 	    $output .=  '<meta name="msapplication-TileImage" content="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
-	    $output .=  '<meta name="theme-color" content="'.$defaultoptions['default-social-media-color'].'">'."\n";
-  
+	    $output .=  '<meta name="theme-color" content="'.$defaultoptions['default-social-media-color'].'">'."\n";  
     }
-    
-    	// Adds RSS feed links to <head> for posts and comments.
-	// add_theme_support( 'automatic-feed-links' );
-	// Will post both: feed and comment feed; To use only main rss feed, i have to add it manually in head
-    
-    $title = sanitize_text_field(get_bloginfo( 'name' ));
-    $output .= '<link rel="alternate" type="application/rss+xml" title="'.$title.' - RSS 2.0 Feed" href="'.get_bloginfo( 'rss2_url').'">'."\n";
-    echo $output;
+     echo $output;
 }
-add_action('wp_head', 'fau_addmetatags',1);
+add_action('wp_head', 'fau_create_meta_favicon');
+    // add favicon for frontend
+add_action('admin_head', 'fau_create_meta_favicon');
+    // add favicon for backend
 
 /*-----------------------------------------------------------------------------------*/
 /*  Add FAU Jobs advertisement
