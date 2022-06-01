@@ -4,32 +4,6 @@
 // Custom Properties
 @import "custom-properties";
 
-// Reset Base styles
-@import "reset";
-
-// Framework
-@import "frameworks/frameworks";
-
-// SVG Icons and CI elements
-@import "icons/icons";
-
-// Mixins
-@import "mixins/mixins";
-
-// Fonts
-@import "fonts/fonts";
-
-// Structure
-@import "structure/structure";
-
-// Element Styles
-@import "elements/elements";
-
-// Plugin-Support
-@import "plugins/plugins";
-
-
-
 /* Allgemein ausblenden ***********************************************************************************************/
 
 .header-menu,
@@ -206,8 +180,10 @@ main a,
     }
 
     & li {
-        padding: 0.5rem 0;
+        padding: .5rem 0 .5rem calc(44px + .4rem);
         border-top: 1px solid #999;
+        text-indent: calc(-44px - .4rem);
+        line-height: 1;
 
         &:first-child {
             margin-top: 1rem;
@@ -216,7 +192,7 @@ main a,
 
     & svg {
         display: inline-block;
-        margin: 0 0.4rem 0 0.1rem;
+        margin: 0 .4rem 0 .1rem;
         vertical-align: middle;
     }
 }
@@ -225,10 +201,19 @@ main a,
 
 #hero {
     overflow: hidden !important;
-    background-color: transparent !important;
+    background: transparent !important;
 
     & * {
         position: relative !important;
+    }
+
+    & .hero-content p,
+    & .hero-content a {
+        color: #000000 !important;
+
+        &::after {
+            color: #000000 !important;
+        }
     }
 }
 
@@ -248,11 +233,12 @@ main a,
     height: auto !important;
     margin-bottom: 0 !important;
     padding: .5rem;
-    overflow: unset;
 }
 
 #hero-slides .item p,
 #hero-slides .item header {
+    margin: 0;
+    padding: 0;
     color: black !important;
     background-color: #ffffff !important;
     opacity: 1 !important;
@@ -300,6 +286,20 @@ main a,
     bottom: auto !important;
     margin: 1rem 0 0 !important;
     opacity: 1 !important;
+    transform: unset;
+
+    & .slider-titel {
+        padding: 0;
+
+        & header {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    & .slider-text {
+        padding: 0;
+    }
 }
 
 #hero-slides .item a {
@@ -310,7 +310,7 @@ main a,
 
 .container {
     width: auto !important;
-    padding: 0 !important;
+    // padding: 0 !important;
 }
 
 /* Slider *************************************************************************************************************/
