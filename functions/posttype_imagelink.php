@@ -168,10 +168,12 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 		if (isset($atts['slides']) && intval($atts['slides']) && $atts['slides']>0) {
 			$imagelink_option['slides']  = $atts['slides'];
 		} 
-		$imagelink_option['autoplay'] = filter_var( $atts['autoplay'], FILTER_VALIDATE_BOOLEAN );
-		$imagelink_option['echo'] = filter_var( $atts['echo'], FILTER_VALIDATE_BOOLEAN );
-		$imagelink_option['dots'] = filter_var( $atts['dots'], FILTER_VALIDATE_BOOLEAN );
+
 		
+		$imagelink_option['echo'] = ( isset($atts['echo'] ) ? filter_var( $atts['echo'], FILTER_VALIDATE_BOOLEAN ) : $imagelink_option['echo']  );
+		$imagelink_option['dots'] = ( isset($atts['dots'] ) ? filter_var( $atts['dots'], FILTER_VALIDATE_BOOLEAN ) : $imagelink_option['dots']  );
+		$imagelink_option['autoplay'] = ( isset($atts['autoplay'] ) ? filter_var( $atts['autoplay'], FILTER_VALIDATE_BOOLEAN ) : $imagelink_option['autoplay']  );
+
 		$imagelink_option['navtitle'] = ( isset($atts['navtitle'] ) ? sanitize_text_field( $atts['navtitle'] ) : $imagelink_option['navtitle']  );
 		$imagelink_option['class'] = ( isset($atts['class'] ) ? sanitize_text_field( $atts['class'] ) : '' );
 		$imagelink_option['order'] = ( isset($atts['order'] ) ? sanitize_text_field( $atts['order'] ) : $imagelink_defaults['order']  );
