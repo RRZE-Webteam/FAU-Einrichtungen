@@ -369,8 +369,8 @@ jQuery(document).ready(function ($) {
         $('.sorttable').tablesorter();
 
         // Create link list for printing
-        window.addEventListener('beforeprint', function(){
-            printlinks('#content a[href]:not([href^="javascript:"])');
+        window.addEventListener('beforeprint', function () {
+            printlinks('main a[href]:not([href^="javascript:"]),aside a[href]:not([href^="javascript:"])');
         });
 
         // Footnotes for YouTube videos etc.
@@ -395,7 +395,7 @@ jQuery(document).ready(function ($) {
                 }
 
                 // Create image if image source was set
-                if(imageSource) {
+                if (imageSource) {
                     let image = document.createElement('img');
                     image.setAttribute('alt', '');
                     image.setAttribute('class', 'tw-iframe-image');
@@ -404,6 +404,7 @@ jQuery(document).ready(function ($) {
                 }
             });
         }
+
         iframeFootnotes();
     }
 );
