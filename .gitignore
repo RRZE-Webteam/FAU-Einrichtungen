@@ -12,3 +12,4 @@ tmp
 *.map
 /npm-debug.log
 .DS_Store
+img/screenshots/Browse.plb
