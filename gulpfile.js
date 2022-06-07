@@ -317,7 +317,7 @@ function devbuildmainstyle() {
 function buildprintstyle() {
     var plugins = [
         autoprefixer(),
-    //    cssnano()
+        cssnano()
     ];
     return src([info.source.sass + 'fau-theme-print.scss'])
         .pipe(header(banner, { info : info }))
@@ -492,7 +492,7 @@ exports.debugmode = set_debugmode;
 exports.nodebug = unset_debugmode;
 
 var js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, makewplinkjs);
-var dev = series(sassautoprefixhelperfiles, devbuildmainstyle, js, devversion);
+var dev = series(sassautoprefixhelperfiles, devbuildmainstyle, buildprintstyle,  js, devversion);
 
 exports.cssdev = devbuildmainstyle;
 exports.css = devbuildmainstyle;
