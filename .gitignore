@@ -11,3 +11,5 @@ tmp
 .vscode/sftp.json
 *.map
 /npm-debug.log
+.DS_Store
+img/screenshots/Browse.plb

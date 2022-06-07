@@ -1,112 +1,114 @@
 {
-  "name": "FAU-Einrichtungen",
-  "textdomain": "fau",
-  "version": "2.0.29",
-  "keywords": [
-    "WordPress",
-    "Theme",
-    "FAU",
-    "RRZE"
-  ],
-  "compatibility": {
-    "wprequires": "5.0",
-    "wptestedup": "5.8",
-    "phprequires": "7.4"
-  },
-  "author": {
-    "name": "RRZE-Webteam <webmaster@fau.de> (https://www.rrze.fau.de)",
-    "url": "https://www.wordpress.rrze.fau.de"
-  },
-  "description": "WordPress-Theme der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
-  "license": "GNU General Public License v3 or later",
-  "licenseurl": "http://www.gnu.org/licenses/gpl-3.0.html",
-  "tags": "three-columns, two-columns, one-column, right-sidebar, featured-images",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/RRZE-Webteam/FAU-Einrichtungen",
-    "issues": "https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues",
-    "clone": "git+https://github.com/RRZE-Webteam/FAU-Einrichtungen.git"
-  },
-  "browserslist": [
-    "last 3 years",
-    "ie 11"
-  ],
-  "themeClones": {
-    "tf": {
-      "name": "FAU-Techfak",
-      "description": "WordPress-Theme für die Technische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
-      "GitHubThemeURI": "https://github.com/RRZE-Webteam/FAU-Techfak"
+    "name": "FAU-Einrichtungen",
+    "textdomain": "fau",
+    "version": "2.0.41",
+    "keywords": [
+        "WordPress",
+        "Theme",
+        "FAU",
+        "RRZE"
+    ],
+    "compatibility": {
+        "wprequires": "5.8",
+        "wptestedup": "6.0",
+        "phprequires": "7.4"
     },
-    "med": {
-      "name": "FAU-Medfak",
-      "description": "WordPress-Theme für die Medizinische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
-      "GitHubThemeURI": "https://github.com/RRZE-Webteam/FAU-Medfak"
+    "author": {
+        "name": "RRZE-Webteam <webmaster@fau.de> (https://www.rrze.fau.de)",
+        "url": "https://www.wordpress.rrze.fau.de"
     },
-    "nat": {
-      "name": "FAU-Natfak",
-      "description": "WordPress-Theme für die Naturwissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
-      "GitHubThemeURI": "https://github.com/RRZE-Webteam/FAU-Natfak"
+    "description": "WordPress-Theme der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
+    "license": "GNU General Public License v3 or later",
+    "licenseurl": "http://www.gnu.org/licenses/gpl-3.0.html",
+    "tags": "three-columns, two-columns, one-column, right-sidebar, featured-images",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/RRZE-Webteam/FAU-Einrichtungen",
+        "issues": "https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues",
+        "clone": "git+https://github.com/RRZE-Webteam/FAU-Einrichtungen.git"
     },
-    "phil": {
-      "name": "FAU-Philfak",
-      "description": "WordPress-Theme für die Philosophische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
-      "GitHubThemeURI": "https://github.com/RRZE-Webteam/FAU-Philfak"
+    "browserslist": [
+        "last 3 years",
+        "ie 11"
+    ],
+    "themeClones": {
+        "tf": {
+            "name": "FAU-Techfak",
+            "description": "WordPress-Theme für die Technische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
+            "GitHubThemeURI": "https://github.com/RRZE-Webteam/FAU-Techfak"
+        },
+        "med": {
+            "name": "FAU-Medfak",
+            "description": "WordPress-Theme für die Medizinische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
+            "GitHubThemeURI": "https://github.com/RRZE-Webteam/FAU-Medfak"
+        },
+        "nat": {
+            "name": "FAU-Natfak",
+            "description": "WordPress-Theme für die Naturwissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
+            "GitHubThemeURI": "https://github.com/RRZE-Webteam/FAU-Natfak"
+        },
+        "phil": {
+            "name": "FAU-Philfak",
+            "description": "WordPress-Theme für die Philosophische Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
+            "GitHubThemeURI": "https://github.com/RRZE-Webteam/FAU-Philfak"
+        },
+        "rw": {
+            "name": "FAU-RWFak",
+            "description": "WordPress-Theme für die Rechts- und Wirtschaftswissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
+            "GitHubThemeURI": "https://github.com/RRZE-Webteam/FAU-RWFak"
+        },
+        "zuv": {
+            "name": "FAU-Einrichtungen",
+            "description": "WordPress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
+            "GitHubThemeURI": "https://github.com/RRZE-Webteam/FAU-Einrichtungen"
+        }
     },
-    "rw": {
-      "name": "FAU-RWFak",
-      "description": "WordPress-Theme für die Rechts- und Wirtschaftswissenschaftliche Fakultät der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
-      "GitHubThemeURI": "https://github.com/RRZE-Webteam/FAU-RWFak"
+    "contributors": [],
+    "dependencies": {
+        "postcss": "^8.2.4"
     },
-    "zuv": {
-      "name": "FAU-Einrichtungen",
-      "description": "WordPress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
-      "GitHubThemeURI": "https://github.com/RRZE-Webteam/FAU-Einrichtungen"
+    "main": "index.php",
+    "maincss": "style.css",
+    "printcss": "print.css",
+    "mainjs": "fau-theme.min.js",
+    "adminjs": "fau-theme-admin.min.js",
+    "scripts": {
+        "start": "gulp",
+        "dev": "gulp dev",
+        "build": "gulp build",
+        "pot": "gulp pot",
+        "clone": "gulp clone"
+    },
+    "source": {
+        "js": "./src/js/",
+        "sass": "./src/sass/"
+    },
+    "jsdir": "./js/",
+    "cssdir": "./css/",
+    "devDependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/register": "^7.12.10",
+        "autoprefixer": "^10.2.3",
+        "cssnano": "^5.0.13",
+        "gulp": "^4.0.2",
+        "gulp-babel": "^8.0.0",
+        "gulp-bump": "^3.2.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-dart-sass": "^1.0.2",
+        "gulp-header": "^2.0.9",
+        "gulp-postcss": "^9.0.0",
+        "gulp-rename": "^2.0.0",
+        "gulp-replace": "^1.0.0",
+        "gulp-sass": "^5.0.0",
+        "gulp-touch-cmd": "0.0.1",
+        "gulp-uglify": "^3.0.2",
+        "gulp-w3c-css": "^2.0.0",
+        "gulp-wp-pot": "^2.5.0",
+        "map-stream": "0.0.7",
+        "sass": "^1.42.1",
+        "semver": "^7.3.4",
+        "yargs": "^16.2.0"
     }
-  },
-  "contributors": [],
-  "dependencies": {
-    "postcss": "^8.2.4"
-  },
-  "main": "index.php",
-  "maincss": "style.css",
-  "mainjs": "fau-theme.min.js",
-  "adminjs": "fau-theme-admin.min.js",
-  "scripts": {
-    "start": "gulp",
-    "dev": "gulp dev",
-    "build": "gulp build",
-    "pot": "gulp pot",
-    "clone": "gulp clone"
-  },
-  "source": {
-    "js": "./src/js/",
-    "sass": "./src/sass/"
-  },
-  "jsdir": "./js/",
-  "cssdir": "./css/",
-  "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "@babel/register": "^7.12.10",
-    "autoprefixer": "^10.2.3",
-    "cssnano": "^5.0.13",
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-bump": "^3.2.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-dart-sass": "^1.0.2",
-    "gulp-header": "^2.0.9",
-    "gulp-postcss": "^9.0.0",
-    "gulp-rename": "^2.0.0",
-    "gulp-replace": "^1.0.0",
-    "gulp-sass": "^5.0.0",
-    "gulp-touch-cmd": "0.0.1",
-    "gulp-uglify": "^3.0.2",
-    "gulp-w3c-css": "^2.0.0",
-    "gulp-wp-pot": "^2.5.0",
-    "map-stream": "0.0.7",
-    "sass": "^1.42.1",
-    "semver": "^7.3.4",
-    "yargs": "^16.2.0"
-  }
 }
+

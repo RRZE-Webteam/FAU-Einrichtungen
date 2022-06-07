@@ -1,5 +1,5 @@
 'use strict';
-/* 
+/*
  * Gulp Builder for WordPress Theme FAU-Einrichtungen
  */
 const
@@ -65,30 +65,30 @@ function cloneTheme(cb) {
     if (builddir===undefined) {
 	builddir = '../build/';
     }
-           
-      
+
+
     switch(theme) {
-	case 'zuv': 
+	case 'zuv':
 	    targetdir = builddir + 'FAU-ZUV/';
 	    farbfamilie =  'zuv';
 	    break;
-	case 'phil': 
+	case 'phil':
 	    targetdir = builddir + 'FAU-Philfak/';
 	    farbfamilie =  'phil';
 	    break;
-	case 'med': 
+	case 'med':
 	    targetdir = builddir + 'FAU-Medfak/';
 	    farbfamilie =  'med';
 	    break;
-	case 'rw': 
+	case 'rw':
 	    targetdir = builddir + 'FAU-RWFak/';
 	    farbfamilie =  'rw';
 	    break;
-	case 'tf': 
+	case 'tf':
 	    targetdir = builddir + 'FAU-Techfak/';
 	    farbfamilie =  'tf';
 	    break;
-	case 'nat': 
+	case 'nat':
 	    targetdir = builddir + 'FAU-Natfak/';
 	    farbfamilie =  'nat';
 	    break;
@@ -96,15 +96,15 @@ function cloneTheme(cb) {
 	    console.log(`No valid theme defined. Please use argument:   gulp clone --theme=name   , with name=(phil|rw|tf|nat|med)`);
 	    break;
     }
- 
-    if (targetdir === '') {	
+
+    if (targetdir === '') {
 	cb();
 	return;
     }
     console.log(`Building theme for: ${theme}`);
     console.log(`   Target directory: ${targetdir}`);
     console.log(`   Color: ${farbfamilie}`);
-   
+
     var sassdir = targetdir + info.source.sass;
     var variablesfile =  sassdir + '_variables.scss';
     var constfile = targetdir + 'functions/constants.php';
@@ -137,10 +137,10 @@ function cloneTheme(cb) {
     '*/'].join('\n');
 
 
-    // Copy files 
+    // Copy files
     function copyprocess() {
 	    console.log(`Starting copy files to ${targetdir}`);
-	   return src(['**/*', 
+	   return src(['**/*',
 		"!.git{,/**}",
 		"!node_modules{,/**}",
 		"!.babelrc",
@@ -153,52 +153,52 @@ function cloneTheme(cb) {
 	    ])
 	    .pipe(dest(targetdir));
     };
-    
-    // Update color family in variables.scss 
+
+    // Update color family in variables.scss
     function setcolorfamily() {
-	console.log(`  - Update color family in ${variablesfile} to ${farbfamilie}`);	
+	console.log(`  - Update color family in ${variablesfile} to ${farbfamilie}`);
 	return src([variablesfile])
 		    .pipe(replace(/farbfamilie: '(.*)'/g, 'farbfamilie: \''+farbfamilie+'\''))
-		    .pipe(dest(sassdir));  
+		    .pipe(dest(sassdir));
     }
-    
+
     // Update theme config to the theme type
     function setwebsite_usefaculty() {
 	// find this entry and change it:
 	// 'website_usefaculty'		=> '',
 	// phil, med, nat, rw, tf
-	console.log(`  - Update constfile family ${constfile} to ${farbfamilie}`);	
+	console.log(`  - Update constfile family ${constfile} to ${farbfamilie}`);
 	return src([constfile])
 		    .pipe(replace(/'website_usefaculty'\s*=>\s*'(.*)'/g, '\'website_usefaculty\' => \''+farbfamilie+'\''))
 		    .pipe(dest(targetdir + 'functions/'));
     }
-    
+
     // Copy theme screenshot in the new base directory
     function copyscreenshot() {
 	var screenshot = targetdir + 'img/screenshots/screenshot-' + farbfamilie + '.png';
-	console.log(`  - Copy screenshot ${screenshot} to ${targetdir}`);	
-	
+	console.log(`  - Copy screenshot ${screenshot} to ${targetdir}`);
+
 	return src([screenshot])
 		    .pipe(rename("screenshot.png"))
 		    .pipe(dest(targetdir));
-    
+
     }
 
     // Copy social media icons in the new base directory
     function copysocialmedia() {
 	var srcsocialmedia = targetdir + 'src/favicons/' + farbfamilie + '/**';
-	var targetsocialmedia = targetdir + 'img/socialmedia/';	
-	console.log(`  - Copy Social Media Icons ${srcsocialmedia} to ${targetsocialmedia}`);	
+	var targetsocialmedia = targetdir + 'img/socialmedia/';
+	console.log(`  - Copy Social Media Icons ${srcsocialmedia} to ${targetsocialmedia}`);
 	return src([srcsocialmedia])
 		    .pipe(dest(targetsocialmedia));
     }
 
 
-    
+
     // compile sass, use autoprefixer and minify results
     function buildbackendstyles() {
-	  return src([targetdir + info.source.sass + 'fau-theme-admin.scss', 
-	      targetdir + info.source.sass + 'fau-theme-editor-style.scss', 
+	  return src([targetdir + info.source.sass + 'fau-theme-admin.scss',
+	      targetdir + info.source.sass + 'fau-theme-editor-style.scss',
 	      targetdir + info.source.sass + 'fau-theme-gutenberg.scss'])
 	    .pipe(header(helpercssbanner, { info : info }))
 	    .pipe(sass().on('error',  sass.logError))
@@ -209,16 +209,16 @@ function cloneTheme(cb) {
 	    .pipe(dest(targetdir + 'css/' ))
     	    .pipe(touch());
 
-	    console.log(`  - Backend styles created in ${targetdir}css`);	
+	    console.log(`  - Backend styles created in ${targetdir}css`);
 
     }
-    
-    
+
+
      // compile sass, use autoprefixer and minify results
     function buildproductivestyle() {
-	
+
 	var inputscss = targetdir + info.source.sass + 'fau-theme-style.scss';
-	console.log(`  - Creating new CSS from SCSS-File ${inputscss} in ${targetdir}style.css`);	
+	console.log(`  - Creating new CSS from SCSS-File ${inputscss} in ${targetdir}style.css`);
 	return src([inputscss])
 	    .pipe(header(themebanner, { info : info }))
 	    .pipe(sass().on('error',  sass.logError))
@@ -231,9 +231,9 @@ function cloneTheme(cb) {
     	    .pipe(touch());
 
     }
-     
-   
-    const dothis = series(copyprocess,parallel(setcolorfamily,setwebsite_usefaculty,copyscreenshot,copysocialmedia),buildbackendstyles,buildproductivestyle);	
+
+
+    const dothis = series(copyprocess,parallel(setcolorfamily,setwebsite_usefaculty,copyscreenshot,copysocialmedia),buildbackendstyles,buildproductivestyle);
     dothis();
     cb();
     return;
@@ -243,7 +243,7 @@ function cloneTheme(cb) {
 
 
 
-/* 
+/*
  * SASS and Autoprefix CSS Files, without clean
  */
 function sassautoprefixhelperfiles() {
@@ -255,14 +255,14 @@ function sassautoprefixhelperfiles() {
     .pipe(postcss(plugins))
     .pipe(dest('./css'))
     .pipe(touch());
-    
-   
+
+
 }
 
 
 
-/* 
- * Compile all styles with SASS and clean them up 
+/*
+ * Compile all styles with SASS and clean them up
  */
 function buildhelperstyles() {
     var plugins = [
@@ -277,8 +277,8 @@ function buildhelperstyles() {
 }
 
 
-/* 
- * Compile all styles with SASS and clean them up 
+/*
+ * Compile all styles with SASS and clean them up
  */
 function buildmainstyle() {
     var plugins = [
@@ -294,7 +294,7 @@ function buildmainstyle() {
     .pipe(touch());
 }
 
-/* 
+/*
  * Compile main style for dev without minifying
  */
 function devbuildmainstyle() {
@@ -309,6 +309,23 @@ function devbuildmainstyle() {
     .pipe(rename(info.maincss))
     .pipe(dest('./'))
     .pipe(touch());
+}
+
+/*
+ * Compile all print styles with SASS and clean them up
+ */
+function buildprintstyle() {
+    var plugins = [
+        autoprefixer(),
+        cssnano()
+    ];
+    return src([info.source.sass + 'fau-theme-print.scss'])
+        .pipe(header(banner, { info : info }))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(postcss(plugins))
+        .pipe(rename(info.printcss))
+        .pipe(dest('./'))
+        .pipe(touch());
 }
 
 function bundleadminjs() {
@@ -336,13 +353,13 @@ function makewplinkjs() {
     .pipe(touch());
 }
 function bundlemainjs() {
-    return src([info.source.js + 'main/jquery.fancybox.js', 
-	    //    info.source.js + 'main/jquery.hoverIntent.min.js', 
+    return src([info.source.js + 'main/jquery.fancybox.js',
+	    //    info.source.js + 'main/jquery.hoverIntent.min.js',
 		// we remove hoverIntent, cause its already provider from wordpress
 	    info.source.js + 'main/jquery.tablesorter.min.js',
 	    //  info.source.js + 'main/slick.js',
 		// we remove slick from the main js to reduce the data transfered
-		// in default situations. slick we only use on special pages, where we 
+		// in default situations. slick we only use on special pages, where we
 		// can call it additional
 	    info.source.js + 'main/console-errors.js',
 	    info.source.js + 'main/main.js'])
@@ -381,7 +398,7 @@ function set_debugmode() {
 	// 'website_usefaculty'		=> '',
 	// phil, med, nat, rw, tf
 	var constfile =  './functions/constants.php';
-	console.log(`  - Set Debugmode true in constfile ${constfile}`);	
+	console.log(`  - Set Debugmode true in constfile ${constfile}`);
 	return src([constfile])
 		    .pipe(replace(/'debugmode'\s*=>\s*(.*),/g, '\'debugmode\' => true,'))
 		    .pipe(dest('./functions/'));
@@ -393,7 +410,7 @@ function unset_debugmode() {
 	// 'website_usefaculty'		=> '',
 	// phil, med, nat, rw, tf
 	var constfile =  './functions/constants.php';
-	console.log(`  - Set Debugmode false in constfile ${constfile}`);	
+	console.log(`  - Set Debugmode false in constfile ${constfile}`);
 	return src([constfile])
 		    .pipe(replace(/'debugmode'\s*=>\s*(.*),/g, '\'debugmode\' => false,'))
 		    .pipe(dest('./functions/'));
@@ -417,10 +434,10 @@ function upversionpatch() {
 
 /*
  * Update DEV Version on prerelease level.
- *  Reason: in the Theme function, we will recognise the prerelease version by its syntax. 
+ *  Reason: in the Theme function, we will recognise the prerelease version by its syntax.
  *  This will allow the theme automatically switch to the non-minified-files instead of
  *   the minified versions.
- *   In other words: If we use dev, the theme wil load script files without ".min.".  
+ *   In other words: If we use dev, the theme wil load script files without ".min.".
  */
 function devversion() {
     var newVer = semver.inc(info.version, 'prerelease');
@@ -434,12 +451,12 @@ function devversion() {
 
 
 
-/* 
+/*
  * CSS Validator
  */
 
 
-function validatecss() { 
+function validatecss() {
   return src(['./'+info.maincss])
     .pipe(cssvalidate({ profile: "css3svg"}))
     .pipe(map(function(file, done) {
@@ -453,7 +470,7 @@ function validatecss() {
 	    console.log('  Kontext: ' + error.context);
 	    console.log('  ' + error.message);
         });
-       
+
       }
       done(null, file);
     }));
@@ -470,17 +487,23 @@ exports.makecustomizerjs = makecustomizerjs;
 exports.makewplinkjs = makewplinkjs;
 exports.clone = cloneTheme;
 exports.buildmainstyle = buildmainstyle;
+exports.buildprintstyle = buildprintstyle;
 exports.debugmode = set_debugmode;
 exports.nodebug = unset_debugmode;
 
 var js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, makewplinkjs);
-var dev = series(sassautoprefixhelperfiles, devbuildmainstyle, js, devversion);
+var dev = series(sassautoprefixhelperfiles, devbuildmainstyle, buildprintstyle,  js, devversion);
 
 exports.cssdev = devbuildmainstyle;
 exports.css = devbuildmainstyle;
 exports.js = js;
 exports.dev = dev;
-exports.build = series(buildhelperstyles, buildmainstyle, js, upversionpatch);
+exports.build = series(buildhelperstyles, buildmainstyle, buildprintstyle, js, upversionpatch);
+
+/* Temporary */
+exports.watch = function () {
+    watch(info.source.sass + '**/*.scss', { ignoreInitial: false }, buildprintstyle);
+};
 
 exports.default = dev;
 
