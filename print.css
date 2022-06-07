@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.38
+Version: 2.0.39
 Requires at least: 5.0
 Tested up to: 5.8
 Requires PHP: 7.4
@@ -193,10 +193,6 @@ a[aria-hidden=true] {
   size: A4 portrait !important;
   margin: 2cm 2cm 2cm 2.5cm !important;
 }
-h1 {
-  page-break-before: always !important;
-}
-
 h1, h2, h3, h4, h5, h6 {
   page-break-after: avoid !important;
   page-break-inside: avoid !important;
@@ -229,6 +225,17 @@ abbr[title]:after {
 .content-row .entry-content {
   max-width: 100% !important;
   padding-left: 0 !important;
+}
+
+.content-container,
+.inline-box .content-inline {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.subtitle {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .table-wrapper {
@@ -346,6 +353,10 @@ main a,
   vertical-align: middle;
 }
 
+#hero .breadcrumbs span {
+  padding: 0 !important;
+}
+
 /* Hero Slider ********************************************************************************************************/
 #hero {
   overflow: hidden !important;
@@ -432,14 +443,11 @@ main a,
   opacity: 1 !important;
   transform: unset;
 }
-#hero-slides .item .hero-slide-text .slider-titel {
-  padding: 0;
-}
 #hero-slides .item .hero-slide-text .slider-titel header {
   margin: 0;
   padding: 0;
 }
-#hero-slides .item .hero-slide-text .slider-text {
+#hero-slides .item .hero-slide-text .slider-text p {
   padding: 0;
 }
 
@@ -451,6 +459,8 @@ main a,
 
 .container {
   width: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 /* Slider *************************************************************************************************************/
