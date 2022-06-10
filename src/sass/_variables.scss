@@ -29,8 +29,8 @@ $colormap-misc: ("Text": #222,
 		 );
 
  
-// $colormap-zentral: ("basis": #003366, "heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #24598f, "dunkelste": #1f4b7a, "basis-kontrast": #fff);
-// alt, 2015
+
+
 
 
 // Neuer Entwurf 28.10.
@@ -174,6 +174,8 @@ $fontStack: 'Roboto','FAU Chimera', sans-serif;
 // $fontStack: 'Roboto', sans-serif;
 $fontStackSerifs: Georgia, serif;
 $fontStackFAU: 'FAU Chimera', sans-serif;
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+
 
 $font-family-base: $fontStack;
 $font-path-awesome: './fonts/fontawesome/';
@@ -400,3 +402,5 @@ $sidebar-width-inline-lg: 270px;
 $sidebar-width-portal: 33%;
 $sidebar-width-posts: 330px;
 $sidebar-maxwidth-portal: 350px;
+
+$pre-scrollable-max-height:   340px;

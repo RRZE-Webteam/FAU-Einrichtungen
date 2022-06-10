@@ -4,6 +4,10 @@
 // Custom Properties
 @import "custom-properties";
 
+// Mixins
+@import "mixins/mixins";
+
+
 // Reset Base styles
 @import "reset";
 
@@ -13,8 +17,7 @@
 // SVG Icons and CI elements
 @import "icons/icons";
 
-// Mixins
-@import "mixins/mixins";
+
 
 // Fonts
 @import "fonts/fonts";
