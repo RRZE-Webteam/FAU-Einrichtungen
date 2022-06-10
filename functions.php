@@ -75,9 +75,14 @@ function fau_setup() {
 	add_image_size( 'herobanner', $defaultoptions['default_startseite-bannerbild-image_width'], $defaultoptions['default_startseite-bannerbild-image_height'], $defaultoptions['default_startseite-bannerbild-image_crop']);
 
 
-	/* RWD-Bildauflösung: 480x240. , 2:1 Proportion. No Crop */
-	add_image_size( 'rwd-480-2-1', $defaultoptions[ 'default_rwdimage_2-1_width'], $defaultoptions['default_rwdimage_2-1_height'], $defaultoptions['default_rwdimage_2-1_crop']);
-
+	/*    Small 2:1 size for image
+        'default_rwdimage_2-1_typname'		=> 'rwd-480-2-1',
+	'default_rwdimage_2-1_width'		=> 480,
+	'default_rwdimage_2-1_height'		=> 240,    
+	'default_rwdimage_2-1_crop'		=> false,
+	    */
+	add_image_size( $defaultoptions[ 'default_rwdimage_2-1_typname'], $defaultoptions[ 'default_rwdimage_2-1_width'], $defaultoptions['default_rwdimage_2-1_height'], $defaultoptions['default_rwdimage_2-1_crop']);
+	
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size($defaultoptions[ 'default_rwdimage_2-1_width'], $defaultoptions['default_rwdimage_2-1_height'], $defaultoptions['default_rwdimage_2-1_crop'] );
 

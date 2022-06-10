@@ -1719,8 +1719,7 @@ function fau_get_image_figcaption($atts = array(), $type = 'post-image', $class 
 /*-----------------------------------------------------------------------------------*/
 /* create HTML for image with srcset-codes
 /*-----------------------------------------------------------------------------------*/
-function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array())
-{
+function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array()) {
     if ($id == 0) {
         return;
     }
@@ -1750,6 +1749,8 @@ function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $
         $imgsrcset   = wp_get_attachment_image_srcset($id, $size);
         $imgsrcsizes = wp_get_attachment_image_sizes($id, $size);
         $alttext     = esc_html($alttext);
+	
+	
         if (!isset($alttext)) {
             $imgmeta = fau_get_image_attributs($id);
             $alttext = $imgmeta['alt'];
