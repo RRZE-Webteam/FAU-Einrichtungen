@@ -50,7 +50,7 @@ function fau_setup() {
         }
 
 
-	add_theme_support('html5');
+	add_theme_support('html5', array( 'comment-list', 'comment-form', 'search-form' ));
 	add_theme_support('caption');
 	add_theme_support('title-tag');
 	add_theme_support('automatic-feed-links');
@@ -75,9 +75,14 @@ function fau_setup() {
 	add_image_size( 'herobanner', $defaultoptions['default_startseite-bannerbild-image_width'], $defaultoptions['default_startseite-bannerbild-image_height'], $defaultoptions['default_startseite-bannerbild-image_crop']);
 
 
-	/* RWD-Bildauflösung: 480x240. , 2:1 Proportion. No Crop */
-	add_image_size( 'rwd-480-2-1', $defaultoptions[ 'default_rwdimage_2-1_width'], $defaultoptions['default_rwdimage_2-1_height'], $defaultoptions['default_rwdimage_2-1_crop']);
-
+	/*    Small 2:1 size for image
+        'default_rwdimage_2-1_typname'		=> 'rwd-480-2-1',
+	'default_rwdimage_2-1_width'		=> 480,
+	'default_rwdimage_2-1_height'		=> 240,    
+	'default_rwdimage_2-1_crop'		=> false,
+	    */
+	add_image_size( $defaultoptions[ 'default_rwdimage_2-1_typname'], $defaultoptions[ 'default_rwdimage_2-1_width'], $defaultoptions['default_rwdimage_2-1_height'], $defaultoptions['default_rwdimage_2-1_crop']);
+	
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size($defaultoptions[ 'default_rwdimage_2-1_width'], $defaultoptions['default_rwdimage_2-1_height'], $defaultoptions['default_rwdimage_2-1_crop'] );
 
@@ -149,16 +154,17 @@ function fau_register_scripts() {
     $theme_data = wp_get_theme();
     $theme_version = $theme_data->Version;
 
-    wp_register_style('fau-style',  get_stylesheet_uri(), array(), $theme_version);
-    wp_register_style( 'fau-style', get_stylesheet_uri(), array(), $theme_version, 'screen' );
-    wp_register_style( 'fau-style-print', get_stylesheet_directory_uri() . '/print.css', array(), $theme_version, 'print' );
-	// Base Style
+//    wp_register_style('fau-style',  get_stylesheet_uri(), array(), $theme_version);
+    wp_register_style('fau-style', get_stylesheet_uri(), array(), $theme_version, 'screen' );
+	// Base style for screen
+    wp_register_style('fau-style-print', get_stylesheet_directory_uri() . '/print.css', array(), $theme_version, 'print' );
+	// Base style for print
     wp_register_script('fau-scripts', $defaultoptions['src-scriptjs'], array('jquery'), $theme_version, true );
-	// Base FAU Scripts
+	// Base FAU scripts
     wp_register_script('fau-js-heroslider', $defaultoptions['src-sliderjs'], array('jquery'), $theme_version, true );
 	// Slider JS
-    wp_register_script( 'fau-js-printlinks', $defaultoptions['src-printlinks'], [], null, true );
-    // Print links js
+    wp_register_script('fau-js-printlinks', $defaultoptions['src-printlinks'], [], $theme_version, true );
+	// Print links js
 
 }
 add_action('init', 'fau_register_scripts');
@@ -283,8 +289,7 @@ function fau_create_meta_favicon() {
     if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) {    
 
 	    $output .=  '<link rel="shortcut icon" href="'.get_fau_template_uri().'/img/socialmedia/favicon.ico">'."\n";
-	    $output .=  '<link rel="apple-touch-icon" sizes="180x180" href="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
-	//    $output .=  '   <link rel="icon" type="image/png" sizes="32x32" href="'.get_fau_template_uri().'/img/socialmedia/favicon-32x32.png">'."\n";
+	    $output .=  '<link rel="apple-touch-icon" sizes="180x180" href="'.get_fau_template_uri().'/img/socialmedia/favicon-apple-touch.png">'."\n";
 	    $output .=  '<link rel="icon" type="image/png" sizes="180x180" href="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
 	    $output .=  '<link rel="icon" type="image/svg+xml" href="'.get_fau_template_uri().'/img/socialmedia/favicon.svg" sizes="any">'."\n";
 	    $output .=  '<link rel="mask-icon" type="image/svg+xml" href="'.get_fau_template_uri().'/img/socialmedia/favicon-mask.svg" color="'.$defaultoptions['default-social-media-color'].'">'."\n";

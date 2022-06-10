@@ -1,7 +1,7 @@
 {
     "name": "FAU-Einrichtungen",
     "textdomain": "fau",
-    "version": "2.0.41",
+    "version": "2.0.42-6",
     "keywords": [
         "WordPress",
         "Theme",
@@ -111,4 +111,3 @@
         "yargs": "^16.2.0"
     }
 }
-

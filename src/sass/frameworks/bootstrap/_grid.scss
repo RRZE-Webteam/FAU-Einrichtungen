@@ -21,17 +21,6 @@
   }
 }
 
-
-// Fluid container
-//
-// Utilizes the mixin meant for fixed width containers, but without any defined
-// width for fluid, full width layouts.
-
-.container-fluid {
-  @include container-fixed;
-}
-
-
 // Row
 //
 // Rows contain and clear the floats of your columns.
