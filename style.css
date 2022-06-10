@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.42-4
+Version: 2.0.42-5
 Requires at least: 5.8
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -10282,8 +10282,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   padding: 6px 15px;
   color: var(--color-submenu-currentlevel-text);
   background: var(--color-submenu-currentlevel-bg);
-  padding-left: 15px;
-  padding-right: 15px;
 }
 #subnav a:hover, #subnav a:focus {
   background-color: var(--color-submenu-hover-bg);
@@ -10316,19 +10314,25 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   font-weight: bold;
 }
 #subnav li li a {
-  padding-left: 25px;
+  padding-left: 1.5rem;
 }
 #subnav li li li a {
-  padding-left: 35px;
+  padding-left: 2.3rem;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
+}
+#subnav li li li li {
   font-size: 0.875rem;
   line-height: 1.313rem;
 }
 #subnav li li li li a {
-  padding-left: 45px;
+  padding-left: 3.1rem;
 }
-#subnav li li li li a:hover, #subnav li li li li a:focus {
-  background-color: var(--color-submenu-hover-bg);
-  color: var(--color-submenu-hover-text);
+#subnav li li li li li a {
+  padding-left: 4rem;
+}
+#subnav li li li li li li a {
+  padding-left: 4.5rem;
 }
 #subnav li .current_page_item a,
 #subnav li .current_page_ancestor a {

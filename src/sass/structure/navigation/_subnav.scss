@@ -12,7 +12,7 @@
 	
 	a {
 	    display: block;
-	    padding: 11px 15px;
+	    padding: 11px $fau-gutter-halfwidth;
 	    color: var(--color-submenu-toplevel-text);
 	    background: var(--color-submenu-toplevel-bg);
 
@@ -36,11 +36,9 @@
 		display: block;
 		@include px2rem($font-size-subnav-firstlevel);
 
-		padding: 6px 15px;
+		padding: 6px $fau-gutter-halfwidth;
 		color: var(--color-submenu-currentlevel-text);
 		background: var(--color-submenu-currentlevel-bg);
-		padding-left: 15px;
-		padding-right: 15px;
 
 		&:hover,
 		&:focus {
@@ -80,24 +78,41 @@
 		}
 	}
 
-	li li a {
-		padding-left: 25px;
-	}
-
-	li li li a {
-		padding-left: 35px;
-		@include px2rem($font-size-subnav-sublevel);
-	}
-
-	li li li li a {
-		padding-left: 45px;
-
-		&:hover, &:focus {
-		    background-color: var(--color-submenu-hover-bg);
-		    color: var(--color-submenu-hover-text);
+	li li {
+	    a {
+		padding-left: 1.5rem;
+	    }
+	    li {
+		a {
+		    padding-left: 2.3rem;
+		    @include px2rem($font-size-subnav-sublevel);
 		}
+		li {
+		    @include px2rem($font-size-subnav-sublevel);
+		    a {
+			padding-left: 3.1rem;
+		    }
+		    li {
+			a {
+			    padding-left: 4rem;
+			}
+			 li {
+			    a {
+				padding-left: 4.5rem;
+			    }
+			}
+		    }
+		    
+		}
+
+	    } 
 	}
 
+
+
+	
+	
+	
 	li .current_page_item,
 	li .current_page_ancestor {
 		a {

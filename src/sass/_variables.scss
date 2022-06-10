@@ -383,6 +383,8 @@ $max-width-hero: 1920px;
 
 // Bootstrap Adjustments
 $fau-gutter-width: 30px;
+$fau-gutter-halfwidth: ceil(math.div($fau-gutter-width, 2));
+$fau-gutter-thirdwidth: ceil(math.div($fau-gutter-width, 3));
 
 $grid-gutter-width: $fau-gutter-width;
 
