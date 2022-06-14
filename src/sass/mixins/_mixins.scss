@@ -200,7 +200,6 @@ Mixins File for Wordpress Theme FAU
     text-decoration: underline;
     text-decoration-color:  var(--color-primary-ci-hell);
     text-underline-offset: 3px;
- //   padding: 1px;
 
     &:active,
     &:focus,
@@ -255,7 +254,7 @@ Mixins File for Wordpress Theme FAU
 @mixin nextlink-ghostbutton() {
     @include defaultlinkstyle();
     @include ghostbutton();
-     font-weight: normal;
+    font-weight: normal;
     &:after {
 	     @include svg-icon-place();
 	     background-image: svg-angle-right($color-content-links);
@@ -287,7 +286,7 @@ Mixins File for Wordpress Theme FAU
 @mixin removebuttoncolor() {
     background-color: unset;
     color: unset;
-     &:hover, 
+    &:hover, 
     &:focus {
 	color: unset;
         background-color: unset;

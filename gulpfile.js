@@ -197,9 +197,7 @@ function cloneTheme(cb) {
 
     // compile sass, use autoprefixer and minify results
     function buildbackendstyles() {
-	  return src([targetdir + info.source.sass + 'fau-theme-admin.scss',
-	      targetdir + info.source.sass + 'fau-theme-editor-style.scss',
-	      targetdir + info.source.sass + 'fau-theme-gutenberg.scss'])
+	  return src([targetdir + info.source.sass + 'fau-theme-admin.scss'])
 	    .pipe(header(helpercssbanner, { info : info }))
 	    .pipe(sass().on('error',  sass.logError))
 	    .pipe(postcss([
@@ -246,7 +244,7 @@ function cloneTheme(cb) {
 /*
  * SASS and Autoprefix CSS Files, without clean
  */
-function sassautoprefixhelperfiles() {
+function devbuildbackendstyles() {
     var plugins = [
         autoprefixer()
     ];
@@ -259,16 +257,15 @@ function sassautoprefixhelperfiles() {
 
 }
 
-
-
 /*
  * Compile all styles with SASS and clean them up
  */
-function buildhelperstyles() {
+function buildbackendstyles() {
     var plugins = [
         autoprefixer(),
         cssnano()
     ];
+
   return src([info.source.sass + 'fau-theme-admin.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
@@ -454,8 +451,6 @@ function devversion() {
 /*
  * CSS Validator
  */
-
-
 function validatecss() {
   return src(['./'+info.maincss])
     .pipe(cssvalidate({ profile: "css3svg"}))
@@ -492,13 +487,13 @@ exports.debugmode = set_debugmode;
 exports.nodebug = unset_debugmode;
 
 var js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, makewplinkjs);
-var dev = series(sassautoprefixhelperfiles, devbuildmainstyle, buildprintstyle,  js, devversion);
+var dev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle,  js, devversion);
 
-exports.cssdev = devbuildmainstyle;
-exports.css = devbuildmainstyle;
+exports.cssdev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle);
+exports.css = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle);
 exports.js = js;
 exports.dev = dev;
-exports.build = series(buildhelperstyles, buildmainstyle, buildprintstyle, js, upversionpatch);
+exports.build = series(buildbackendstyles, buildmainstyle, buildprintstyle, js, upversionpatch);
 
 /* Temporary */
 exports.watch = function () {
