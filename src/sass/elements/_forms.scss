@@ -188,12 +188,12 @@ select {
 	@include px2rem($font-size-base);
 	color: var(--color-Text);
 	background-color: var(--color-MainBackground);
-	width: 25rem;
-	height: auto;
+//	width: 25rem;
+	width: fit-content;
+//	height: auto;
 	margin: 0;
 	border: 1px solid var(--color-ContentBorders);
 	padding: 0.5rem 0.7rem;
-	
 	
 	
 

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.44-0
+Version: 2.0.44-1
 Requires at least: 5.8
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -1522,7 +1522,7 @@ Icons as functions
   margin-right: 0.5rem;
 }
 
-.svg-icon, .widget_search .search-text .searchicon,
+.svg-icon, .sidebar-single .rrze_search .searchicon, .widget_search .search-text .searchicon,
 .searchform-content .search-text .searchicon, #subnav li.captain-future a:after,
 #subnav li.draft-page a:after, #subnav li.private-page a:after,
 #subnav li.protected-page a:after, .meta-search .searchform .searchicon, .meta-links .fauhome a:before {
@@ -6279,8 +6279,9 @@ select {
   line-height: 1.5rem;
   color: var(--color-Text);
   background-color: var(--color-MainBackground);
-  width: 25rem;
-  height: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   margin: 0;
   border: 1px solid var(--color-ContentBorders);
   padding: 0.5rem 0.7rem;
@@ -6824,6 +6825,7 @@ img.alignright {
 /*-----------------------------------------------------------------------------------*/
 .sr-only,
 .screen-reader-text,
+.sidebar-single .rrze_search label,
 .widget_search .search-text label,
 .searchform-content .search-text label,
 .meta-search .searchform label,
@@ -16136,24 +16138,63 @@ button.expand-all {
   border: none;
 }
 .sidebar-single .rrze_search form[role=search] header {
-  flex-wrap: wrap;
+  display: block;
 }
-.sidebar-single .rrze_search label {
-  min-width: inherit;
+.sidebar-single .rrze_search input[type=text] {
+  border-radius: 20px;
+  background-clip: padding-box;
   font-size: 0.875rem;
   line-height: 1.313rem;
+  border: 1px solid var(--color-primary-ci-hell);
+  max-width: min(15rem, 90%);
+  padding: 0.5rem 5rem 0.5rem 2rem;
+  height: inherit;
+  margin: 0;
+  width: 15rem;
+  background: var(--color-primary-ci-hell);
+  color: var(--color-primary-ci-hell-kontrast);
 }
-.sidebar-single .rrze_search #headsearchinput {
-  max-width: 12rem;
-  margin: 5px 0;
-  padding: 19px 25px 19px 10px;
-  line-height: 1.5rem;
-  font-size: 1rem;
-  height: 1.875rem;
-  border: 3px solid var(--color-StandardHellgrau);
+.sidebar-single .rrze_search input[type=text]:active, .sidebar-single .rrze_search input[type=text]:target, .sidebar-single .rrze_search input[type=text]:focus {
+  background-color: var(--color-primary-ci-hell2);
+  color: var(--color-primary-ci-hell2-kontrast);
+  outline-style: none;
+}
+.sidebar-single .rrze_search input[type=text]:focus:-ms-input-placeholder {
+  color: var(--color-primary-ci-hell2-kontrast);
+}
+.sidebar-single .rrze_search input[type=text]:focus::placeholder {
+  color: var(--color-primary-ci-hell2-kontrast);
+}
+.sidebar-single .rrze_search input[type=text]:-ms-input-placeholder {
+  color: var(--color-primary-ci-hell-kontrast);
+}
+.sidebar-single .rrze_search input[type=text]::placeholder {
+  color: var(--color-primary-ci-hell-kontrast);
 }
 .sidebar-single .rrze_search input[type=submit] {
-  margin-left: -20px;
+  border-radius: 20px;
+  background-clip: padding-box;
+  font-size: 0.875rem;
+  line-height: 1.313rem;
+  border: 1px solid var(--color-primary-ci-hell);
+  color: var(--color-button-text);
+  background-color: var(--color-button-bg);
+  padding: 0.5rem 1rem;
+  height: inherit;
+  margin: 0 0 0 -4rem;
+}
+.sidebar-single .rrze_search input[type=submit]:hover, .sidebar-single .rrze_search input[type=submit]:focus {
+  color: var(--color-button-hover-text);
+  background-color: var(--color-button-hover-bg);
+}
+.sidebar-single .rrze_search .searchicon {
+  width: 1.1rem;
+  height: 1.1rem;
+  line-height: 1.1rem;
+  font-size: calc(1.1rem / 1.5);
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124.524 124.524" width="16" height="16"%3E%3Cpath fill="%23FFFFFF" d="M51,102.05c10.5,0,20.2-3.2,28.3-8.6l29.3,29.3c2.301,2.3,6.101,2.3,8.5,0l5.7-5.7c2.3-2.3,2.3-6.1,0-8.5L93.4,79.35 c5.399-8.1,8.6-17.8,8.6-28.3c0-28.1-22.9-51-51-51c-28.1,0-51,22.9-51,51C0,79.149,22.8,102.05,51,102.05z M51,20.05 c17.1,0,31,13.9,31,31c0,17.1-13.9,31-31,31c-17.1,0-31-13.9-31-31C20,33.95,33.9,20.05,51,20.05z"/%3E%3C/svg%3E%0A');
+  margin-right: -2rem;
+  margin-left: 1rem;
 }
 
 /*-----------------------------------------------------------------------------------*/
