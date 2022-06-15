@@ -3,36 +3,43 @@
 /* https://github.com/RRZE-Webteam/rrze-calendar
 /*-----------------------------------------------------------------------------------*/
 
-    #rrze-calendar,
-    .rrze-calendar {
+    
+    main {
+	.rrze-calendar.kalender,
+	.rrze-calendar.events-list {
 	    a {
 		@include defaultlinkstyle();
 		text-decoration: none;
 	    }
-	    
-	    
-	    .kalender .inhalt .monatsansicht .kopfzeile {
+	}
+	.rrze-calendar.kalender {
+	    a.termin {
+		font-weight: bold;
+	    }
+	    .inhalt .monatsansicht .kopfzeile {
 		height: 2rem;
-		
+
 		.tag {
 		    font-size: 1rem;
 		}
 	    }
-	    
-	    .widget & {
-		li {
-		    a {
-			@include defaultlinkstyle();
-			text-decoration: none;
-		    }
-		    a::before {
-			
-			display: none;
-		    }
-		}
-	    }
+	}
+	
     }
 
+ 
+    .widget .rrze-calendar {
+	li {
+	    a {
+		@include defaultlinkstyle();
+		text-decoration: none;
+	    }
+	    a::before {			
+		display: none;
+	    }
+	}
+    }
+    
 .events-more-links {
 	padding: 0;
 	text-align: left;

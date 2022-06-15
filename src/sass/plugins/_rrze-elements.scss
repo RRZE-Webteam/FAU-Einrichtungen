@@ -31,15 +31,6 @@ button.expand-all {
     float: right;
 }
 
-.accordion-group {
-    margin-bottom: 2px;
-    border: 1px solid #e5e5e5;
-    border-radius: 4px;
-}
-
-.accordion-heading {
-    border-bottom: 0;
-}
 
 .accordion-heading .accordion-toggle {
     display: block;
@@ -50,10 +41,6 @@ button.expand-all {
     cursor: pointer;
 }
 
-.accordion-inner {
-    padding: 9px 15px;
-    border-top: 1px solid #e5e5e5;
-}
 
 .accordion {
     margin: 10px 0 20px 0;
@@ -61,7 +48,8 @@ button.expand-all {
     .accordion-group {
         border: none;
         margin-bottom: 5px;
-
+	border-radius: 4px;
+	
         .accordion-heading {
             overflow: hidden;
 
@@ -192,7 +180,7 @@ button.expand-all {
 
         h2 {
             color:  var(--color-Default);
-            padding: 0px;
+            padding: 0;
         }
         &.phil,
         &.philfak {
@@ -250,7 +238,6 @@ button.expand-all {
 /* Alerts
 /*-----------------------------------------------------------------------------------*/
 #content .alert {
-    padding: 2%;
     h2 {
 	    padding-top: 7px;
     }
@@ -260,6 +247,13 @@ button.expand-all {
     &.alert-danger p {
 	    font-size: 1.1rem;
     }
+    
+    margin-left: -$fau-gutter-halfwidth;
+    margin-right: -$fau-gutter-halfwidth;
+     @media (min-width: $screen-sm) {
+	 margin-left: 0;
+	 margit-right: 0;
+     }
 }
 
 
@@ -329,3 +323,37 @@ button.expand-all {
 	height: 2rem;
     }
 }
+
+/*----------------------------------------------------------------------------*/
+/* Images in Columns
+/*----------------------------------------------------------------------------*/
+main, aside, .portalpage-sidebar, .widget {
+    .elements-columns,
+    .four-columns-one,
+    .four-columns-two,
+    .four-columns-three,
+    .three-columns-one,
+    .three-columns-two,
+    .three-columns-three,
+    .accordion {
+	    figure {
+
+		&.alignleft,
+		&.alignright,
+		&.alignnone,
+		&.aligncenter {
+		    @media (max-width: $screen-sm) {
+			margin: 1rem auto;
+			width: 100%;
+			max-width: 100%;
+			
+			img {
+			    width: 100%;
+			    max-width: 100%;
+			}
+		    }
+		    
+		}
+	    }
+    }
+ }
