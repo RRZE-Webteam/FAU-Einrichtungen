@@ -92,7 +92,10 @@ div.aligncenter {
 	max-width: 100%;
 }
 
-
+// Prohibit that iframes with fixed width/height settings will overflow the avaible size
+iframe {
+	max-width: 100%;
+}
 
 
 
@@ -126,15 +129,6 @@ div.aligncenter {
 	margin-bottom: 20px;
 }
 
-.mejs-container {
-	width: auto !important;
-	background: transparent !important;
-}
-
-.mtli_attachment {
-	background-position: left center !important;
-	display: inline !important;
-}
 
 
 
