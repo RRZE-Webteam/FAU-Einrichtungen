@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.44
+Version: 2.0.45-3
 Requires at least: 5.8
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -5033,7 +5033,6 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
@@ -5055,7 +5054,6 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .continue .read-more-link:hover, .continue .read-more-link:focus {
   color: var(--color-button-hover-text);
@@ -5118,17 +5116,9 @@ main a:active, main a:focus, main a:hover,
   box-shadow: inset 0 -1.5rem 0 var(--color-primary-ci-hell);
 }
 main a.news-image,
-main a svg,
-main a img,
 .entry-content a.news-image,
-.entry-content a svg,
-.entry-content a img,
 .portalpage-content a.news-image,
-.portalpage-content a svg,
-.portalpage-content a img,
-.content-inline a.news-image,
-.content-inline a svg,
-.content-inline a img {
+.content-inline a.news-image {
   box-shadow: none;
   transition: initial;
   padding: 0;
@@ -5136,37 +5126,53 @@ main a img,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 main a.news-image:hover, main a.news-image:focus,
-main a svg:hover,
-main a svg:focus,
-main a img:hover,
-main a img:focus,
 .entry-content a.news-image:hover,
 .entry-content a.news-image:focus,
-.entry-content a svg:hover,
-.entry-content a svg:focus,
-.entry-content a img:hover,
-.entry-content a img:focus,
 .portalpage-content a.news-image:hover,
 .portalpage-content a.news-image:focus,
-.portalpage-content a svg:hover,
-.portalpage-content a svg:focus,
-.portalpage-content a img:hover,
-.portalpage-content a img:focus,
 .content-inline a.news-image:hover,
-.content-inline a.news-image:focus,
-.content-inline a svg:hover,
-.content-inline a svg:focus,
-.content-inline a img:hover,
-.content-inline a img:focus {
+.content-inline a.news-image:focus {
   box-shadow: none;
   text-decoration: underline;
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
+}
+main a.news-image svg, main a.news-image img,
+.entry-content a.news-image svg,
+.entry-content a.news-image img,
+.portalpage-content a.news-image svg,
+.portalpage-content a.news-image img,
+.content-inline a.news-image svg,
+.content-inline a.news-image img {
   box-shadow: none;
+  padding: 0;
+}
+main a svg,
+main a img,
+.entry-content a svg,
+.entry-content a img,
+.portalpage-content a svg,
+.portalpage-content a img,
+.content-inline a svg,
+.content-inline a img {
+  box-shadow: none;
+  padding: 2px;
+  border: 0;
+}
+@media (min-width: 480px) {
+  main a svg,
+main a img,
+.entry-content a svg,
+.entry-content a img,
+.portalpage-content a svg,
+.portalpage-content a img,
+.content-inline a svg,
+.content-inline a img {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
 }
 main .socialmedia li a,
 main .imagelink a,
@@ -5218,7 +5224,6 @@ main h1 a, main h2 a, main h3 a, main h4 a, main h5 a, main h6 a,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   text-decoration: none;
 }
 main .socialmedia li a:hover, main .socialmedia li a:focus,
@@ -5311,7 +5316,6 @@ main h1 a:focus, main h2 a:hover, main h2 a:focus, main h3 a:hover, main h3 a:fo
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 main .socialmedia li a:active, main .socialmedia li a:hover, main .socialmedia li a:focus,
 main .imagelink a:active,
@@ -5453,7 +5457,6 @@ main .nextlink-ghostbutton,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
@@ -5481,7 +5484,6 @@ main .nextlink-ghostbutton:hover, main .nextlink-ghostbutton:focus,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 main .nextlink-ghostbutton:hover, main .nextlink-ghostbutton:focus,
 .entry-content .nextlink-ghostbutton:hover,
@@ -5550,7 +5552,6 @@ main .prevlink-ghostbutton,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
@@ -5578,7 +5579,6 @@ main .prevlink-ghostbutton:hover, main .prevlink-ghostbutton:focus,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 main .prevlink-ghostbutton:hover, main .prevlink-ghostbutton:focus,
 .entry-content .prevlink-ghostbutton:hover,
@@ -5649,9 +5649,7 @@ main a.media-img,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   display: inline-block;
-  overflow: hidden;
 }
 main a.media-img:hover, main a.media-img:focus,
 .entry-content a.media-img:hover,
@@ -5665,21 +5663,42 @@ main a.media-img:hover, main a.media-img:focus,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 main a.media-img img,
 .entry-content a.media-img img,
 .portalpage-content a.media-img img,
 .content-inline a.media-img img {
-  object-fit: cover;
+  box-shadow: none;
+  padding: 2px;
+  border: 0;
 }
-@media (prefers-reduced-motion: no-preference) {
+@media (min-width: 480px) {
   main a.media-img img,
 .entry-content a.media-img img,
 .portalpage-content a.media-img img,
 .content-inline a.media-img img {
-    transition: transform 1s;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
+}
+main a.media-img img.polaroid,
+.entry-content a.media-img img.polaroid,
+.portalpage-content a.media-img img.polaroid,
+.content-inline a.media-img img.polaroid {
+  padding: 5px;
+}
+main a.media-img img.thickborder,
+.entry-content a.media-img img.thickborder,
+.portalpage-content a.media-img img.thickborder,
+.content-inline a.media-img img.thickborder {
+  border: 2px solid var(--color-ContentBorders);
+  border-radius: 2px;
+  background-clip: padding-box;
+}
+main a.media-img img.noshadow,
+.entry-content a.media-img img.noshadow,
+.portalpage-content a.media-img img.noshadow,
+.content-inline a.media-img img.noshadow {
+  box-shadow: none;
 }
 main a.media-img:hover img,
 main a.media-img:focus img,
@@ -5689,8 +5708,59 @@ main a.media-img:focus img,
 .portalpage-content a.media-img:focus img,
 .content-inline a.media-img:hover img,
 .content-inline a.media-img:focus img {
+  border: 2px solid var(--color-content-links-underline);
+  padding: 0;
+}
+main a.media-img:hover img.polaroid,
+main a.media-img:focus img.polaroid,
+.entry-content a.media-img:hover img.polaroid,
+.entry-content a.media-img:focus img.polaroid,
+.portalpage-content a.media-img:hover img.polaroid,
+.portalpage-content a.media-img:focus img.polaroid,
+.content-inline a.media-img:hover img.polaroid,
+.content-inline a.media-img:focus img.polaroid {
+  padding: 3px;
+}
+main a.media-img:hover img.thickborder,
+main a.media-img:focus img.thickborder,
+.entry-content a.media-img:hover img.thickborder,
+.entry-content a.media-img:focus img.thickborder,
+.portalpage-content a.media-img:hover img.thickborder,
+.portalpage-content a.media-img:focus img.thickborder,
+.content-inline a.media-img:hover img.thickborder,
+.content-inline a.media-img:focus img.thickborder {
+  border: 2px solid var(--color-content-links-underline);
+  padding: 2px;
+}
+main a.media-img.sizinglink,
+.entry-content a.media-img.sizinglink,
+.portalpage-content a.media-img.sizinglink,
+.content-inline a.media-img.sizinglink {
+  overflow: hidden;
+}
+main a.media-img.sizinglink img,
+.entry-content a.media-img.sizinglink img,
+.portalpage-content a.media-img.sizinglink img,
+.content-inline a.media-img.sizinglink img {
+  object-fit: cover;
+}
+@media (prefers-reduced-motion: no-preference) and (min-width: 480px) {
+  main a.media-img.sizinglink img,
+.entry-content a.media-img.sizinglink img,
+.portalpage-content a.media-img.sizinglink img,
+.content-inline a.media-img.sizinglink img {
+    transition: transform 1s;
+  }
+}
+main a.media-img.sizinglink:hover img,
+main a.media-img.sizinglink:focus img,
+.entry-content a.media-img.sizinglink:hover img,
+.entry-content a.media-img.sizinglink:focus img,
+.portalpage-content a.media-img.sizinglink:hover img,
+.portalpage-content a.media-img.sizinglink:focus img,
+.content-inline a.media-img.sizinglink:hover img,
+.content-inline a.media-img.sizinglink:focus img {
   transform: scale(1.1);
-  box-shadow: none;
 }
 main a.media-img.alignleft,
 .entry-content a.media-img.alignleft,
@@ -6040,7 +6110,6 @@ dd > dl {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   text-decoration: none;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
@@ -6053,7 +6122,6 @@ dd > dl {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .pagination.pagebreaks .subpages a:hover, .pagination.pagebreaks .subpages a:focus {
   color: var(--color-button-hover-text);
@@ -6725,7 +6793,7 @@ svg {
 main img {
   box-shadow: none;
 }
-@media (min-width: 768px) {
+@media (min-width: 480px) {
   main img {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
@@ -6735,21 +6803,29 @@ main img.shadow {
   box-shadow: none;
 }
 main img.thickborder {
-  border: 1px solid black;
+  border: 2px solid var(--color-ContentBorders);
   border-radius: 2px;
   background-clip: padding-box;
 }
-main img.borderless {
-  border: none;
-}
-main img.noshadow {
+main img.borderless, main img.noshadow {
   box-shadow: none;
 }
-@media (max-width: 480px) {
-  main img.size-full, main img.aligncenter {
-    width: 100%;
-    max-width: 100vw;
-  }
+main img.rounded {
+  border-radius: 6px;
+  background-clip: padding-box;
+}
+main img.polaroid {
+  padding: 5px;
+  background-color: var(--color-MainBackground);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+main img.circle {
+  border-radius: 50%;
+  background-clip: padding-box;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  margin: 2px;
 }
 
 main figure.alignleft, main figure.alignright, main figure.alignnone, main figure.aligncenter, aside figure.alignleft, aside figure.alignright, aside figure.alignnone, aside figure.aligncenter, .portalpage-sidebar figure.alignleft, .portalpage-sidebar figure.alignright, .portalpage-sidebar figure.alignnone, .portalpage-sidebar figure.aligncenter, .widget figure.alignleft, .widget figure.alignright, .widget figure.alignnone, .widget figure.aligncenter {
@@ -6805,7 +6881,7 @@ figcaption {
 }
 @media (min-width: 480px) {
   figcaption {
-    padding: 0.3rem 0 0.3rem 0;
+    padding: 0.3rem 0;
   }
 }
 
@@ -7914,7 +7990,6 @@ a[role=button] {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
@@ -7940,7 +8015,6 @@ a[role=button]:focus {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 button.standard-btn:hover, button.standard-btn:focus,
 a.standard-btn.primary-btn:hover,
@@ -10337,7 +10411,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   text-decoration: none;
   color: var(--color-Text);
 }
@@ -10347,7 +10420,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 
 main .subpages-menu a,
@@ -10361,7 +10433,6 @@ main .subpages-menu a,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   text-decoration: none;
 }
 main .subpages-menu a:hover, main .subpages-menu a:focus,
@@ -10376,7 +10447,6 @@ main .subpages-menu a:hover, main .subpages-menu a:focus,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 main .subpages-menu svg .fallback,
 .entry-content .contentmenu svg .fallback,
@@ -12133,7 +12203,6 @@ ul.assistant-tabs-nav li:last-child {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .organigram a:hover, .organigram a:focus {
   box-shadow: none;
@@ -12141,7 +12210,6 @@ ul.assistant-tabs-nav li:last-child {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .organigram .toggle-icon {
   color: var(--color-Text);
@@ -12176,7 +12244,6 @@ ul.assistant-tabs-nav li:last-child {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .post-image figure a:hover, .post-image figure a:focus {
   box-shadow: none;
@@ -12184,7 +12251,6 @@ ul.assistant-tabs-nav li:last-child {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .post-image figure a img {
   border: none;
@@ -12553,7 +12619,6 @@ ul.assistant-tabs-nav li:last-child {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   margin-right: 15px;
 }
 .content-inline .news-more-links a:hover, .content-inline .news-more-links a:focus, .entry-content .news-more-links a:hover, .entry-content .news-more-links a:focus, .portalpage-content .news-more-links a:hover, .portalpage-content .news-more-links a:focus, main .news-more-links a:hover, main .news-more-links a:focus {
@@ -12562,7 +12627,6 @@ ul.assistant-tabs-nav li:last-child {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .content-inline .news-more-links .news-rss, .entry-content .news-more-links .news-rss, .portalpage-content .news-more-links .news-rss, main .news-more-links .news-rss {
   display: inline-block;
@@ -12651,7 +12715,6 @@ main .news-more-links .news-rss:hover:before {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
@@ -12671,7 +12734,6 @@ main .news-more-links .news-rss:hover:before {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .index-navigation .prev a:hover, .index-navigation .prev a:focus,
 .index-navigation .next a:hover,
@@ -13012,7 +13074,6 @@ main .news-more-links .news-rss:hover:before {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   text-decoration: none;
   display: inline-block;
   border-radius: 3px;
@@ -13033,7 +13094,6 @@ main .news-more-links .news-rss:hover:before {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .search-results .nav-links a:hover, .search-results .nav-links a:focus {
   color: var(--color-button-hover-text);
@@ -13151,7 +13211,6 @@ main .news-more-links .news-rss:hover:before {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   text-decoration: none;
 }
 .image-gallery .grid .flexgrid figure a:hover, .image-gallery .grid .flexgrid figure a:focus {
@@ -13160,7 +13219,6 @@ main .news-more-links .news-rss:hover:before {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .image-gallery .grid .flexgrid figure {
   overflow: hidden;
@@ -13763,7 +13821,6 @@ main .news-more-links .news-rss:hover:before {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
@@ -13787,7 +13844,6 @@ main .news-more-links .news-rss:hover:before {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .tagcloud a.tag-cloud-link:hover, .tagcloud a.tag-cloud-link:focus {
   color: var(--color-button-hover-text);
@@ -14098,7 +14154,6 @@ aside span, #content .widget span, #content .widget span {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   text-decoration: none;
 }
 .fau-person .contactlist a:hover, .fau-person .contactlist a:focus,
@@ -14113,7 +14168,6 @@ aside span, #content .widget span, #content .widget span {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .fau-person .contactlist a:active, .fau-person .contactlist a:hover, .fau-person .contactlist a:focus,
 .fau-person .person-info a:active,
@@ -14393,7 +14447,6 @@ aside .person h3 span,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .sidebar-single .fau-person .contactlist a:hover, .sidebar-single .fau-person .contactlist a:focus,
 .sidebar-single .fau-person p a:hover,
@@ -14419,7 +14472,6 @@ aside .person h3 span,
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .sidebar-single .person .row,
 .sidebar-inline .person .row,
@@ -15043,7 +15095,6 @@ div.wpcf7-response-output {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   text-decoration: none;
@@ -15054,7 +15105,6 @@ div.wpcf7-response-output {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 #content .fau-glossar .letters li a:hover, #content .fau-glossar .letters li a:focus {
   color: var(--color-button-hover-text);
@@ -15078,7 +15128,6 @@ main .rrze-calendar.events-list a {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   text-decoration: none;
 }
 main .rrze-calendar.kalender a:hover, main .rrze-calendar.kalender a:focus,
@@ -15089,7 +15138,6 @@ main .rrze-calendar.events-list a:focus {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 main .rrze-calendar.kalender a.termin {
   font-weight: bold;
@@ -15109,7 +15157,6 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   text-decoration: none;
 }
 .widget .rrze-calendar li a:hover, .widget .rrze-calendar li a:focus {
@@ -15118,7 +15165,6 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .widget .rrze-calendar li a::before {
   display: none;
@@ -15137,7 +15183,6 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
@@ -15155,7 +15200,6 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .events-more-links a.events-more:hover, .events-more-links a.events-more:focus {
   color: var(--color-button-hover-text);
@@ -15641,16 +15685,6 @@ button.expand-all {
   float: right;
 }
 
-.accordion-group {
-  margin-bottom: 2px;
-  border: 1px solid #e5e5e5;
-  border-radius: 4px;
-}
-
-.accordion-heading {
-  border-bottom: 0;
-}
-
 .accordion-heading .accordion-toggle {
   display: block;
   padding: 8px 15px;
@@ -15660,17 +15694,13 @@ button.expand-all {
   cursor: pointer;
 }
 
-.accordion-inner {
-  padding: 9px 15px;
-  border-top: 1px solid #e5e5e5;
-}
-
 .accordion {
   margin: 10px 0 20px 0;
 }
 .accordion .accordion-group {
   border: none;
   margin-bottom: 5px;
+  border-radius: 4px;
 }
 .accordion .accordion-group .accordion-heading {
   overflow: hidden;
@@ -15781,7 +15811,7 @@ button.expand-all {
 }
 .accordionbox header h2 {
   color: var(--color-Default);
-  padding: 0px;
+  padding: 0;
 }
 .accordionbox header.phil, .accordionbox header.philfak {
   border-color: var(--color-phil-ci-hell);
@@ -15827,7 +15857,6 @@ button.expand-all {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
@@ -15845,7 +15874,6 @@ button.expand-all {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 #content .accordion button.expand-all:hover, #content .accordion button.expand-all:focus {
   color: var(--color-button-hover-text);
@@ -15896,7 +15924,6 @@ button.expand-all {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   text-decoration: none;
 }
 #content [id^=timeline] .timeline-nav a:hover, #content [id^=timeline] .timeline-nav a:focus,
@@ -15911,7 +15938,6 @@ button.expand-all {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 #content [id^=timeline] .timeline-nav a:hover, #content [id^=timeline] .timeline-nav a:focus,
 #content [id^=timeline] ul.dates a:hover,
@@ -15935,7 +15961,6 @@ button.expand-all {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
@@ -15953,7 +15978,6 @@ button.expand-all {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .standard-btn:hover, .standard-btn:focus {
   color: var(--color-button-hover-text);
@@ -15974,7 +15998,6 @@ button.expand-all {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   display: inline-block;
   border-radius: 3px;
   background-clip: padding-box;
@@ -15999,7 +16022,6 @@ button.expand-all {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .rrze-elements-news .news-item a.read-more-link:hover, .rrze-elements-news .news-item a.read-more-link:focus {
   color: var(--color-button-hover-text);
@@ -16029,7 +16051,6 @@ button.expand-all {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   text-decoration: none;
 }
 #content .content-slider.flexslider .flex-control-nav a:hover, #content .content-slider.flexslider .flex-control-nav a:focus,
@@ -16042,7 +16063,6 @@ button.expand-all {
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 #content .content-slider.flexslider .flex-pauseplay a {
   width: 2rem;
@@ -16452,7 +16472,6 @@ aside .accordion figure.aligncenter img, .portalpage-sidebar .elements-columns f
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .rrze-univis .person a:hover, .rrze-univis .person a:focus,
 .rrze-univis .liste-person a:hover,
@@ -16462,7 +16481,6 @@ aside .accordion figure.aligncenter img, .portalpage-sidebar .elements-columns f
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .rrze-univis .lecture-info-ics a,
 .rrze-univis [itemprop=telephone] a {
@@ -16473,7 +16491,6 @@ aside .accordion figure.aligncenter img, .portalpage-sidebar .elements-columns f
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
   text-decoration: none;
 }
 .rrze-univis .lecture-info-ics a:hover, .rrze-univis .lecture-info-ics a:focus,
@@ -16484,7 +16501,6 @@ aside .accordion figure.aligncenter img, .portalpage-sidebar .elements-columns f
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .rrze-univis.navigation .nav-previous a {
   display: inline-block;
@@ -16623,7 +16639,6 @@ aside .accordion figure.aligncenter img, .portalpage-sidebar .elements-columns f
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .fau-studienangebot #studienangebot-result table a:hover, .fau-studienangebot #studienangebot-result table a:focus {
   box-shadow: none;
@@ -16631,7 +16646,6 @@ aside .accordion figure.aligncenter img, .portalpage-sidebar .elements-columns f
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -16642,6 +16656,11 @@ aside .accordion figure.aligncenter img, .portalpage-sidebar .elements-columns f
   background-position: right !important;
   padding-left: 0 !important;
   padding-right: 20px !important;
+}
+
+a.media-img.mtli_attachment {
+  background: none !important;
+  padding-left: 0 !important;
 }
 
 /*
@@ -16681,7 +16700,6 @@ Anpassungen der Gestaltung an verschiedene Plugins
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
 .shariff a:hover, .shariff a:focus,
 .rrze-rsvp a:hover,
@@ -16691,5 +16709,4 @@ Anpassungen der Gestaltung an verschiedene Plugins
   color: currentcolor;
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
-  box-shadow: none;
 }
