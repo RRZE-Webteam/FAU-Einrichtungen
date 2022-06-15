@@ -111,8 +111,8 @@ main, aside, .portalpage-sidebar, .widget {
 	&.alignright,
 	&.alignnone,
 	&.aligncenter {
-	    margin-left: calc(-#{$fau-gutter-width} / 2);
-	    margin-right: calc(-#{$fau-gutter-width} / 2);
+	    margin-left: $fau-gutter-halfwidth;
+	    margin-right: $fau-gutter-halfwidth;
 	    width: 100vw;
 	    max-width: 100vw;
 	    
@@ -140,7 +140,7 @@ main, aside, .portalpage-sidebar, .widget {
 		float: right;	 
 	    }
 	}
-	&.alignnone{
+	&.alignnone {
 	    text-align: left;
 	    float: none;
 
