@@ -92,6 +92,10 @@
   --color-PrintMain: #000;
   --color-KontrastHell: #fff;
   --color-KontrastDunkel: #333;
+  --color-Negative: #a71c18;
+  --color-Negative-Kontrast: #fff;
+  --color-Positive: #00905a;
+  --color-Positive-Kontrast: #fff;
   /* Calculated Values */
   --color-MetaHomeBackground: #d4d4d4;
   --color-MetaHover: #264c7b;

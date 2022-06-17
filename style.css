@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.46-1
+Version: 2.0.46-2
 Requires at least: 5.8
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -107,6 +107,10 @@ Text Domain: fau
   --color-PrintMain: #000;
   --color-KontrastHell: #fff;
   --color-KontrastDunkel: #333;
+  --color-Negative: #a71c18;
+  --color-Negative-Kontrast: #fff;
+  --color-Positive: #00905a;
+  --color-Positive-Kontrast: #fff;
   /* Calculated Values */
   --color-MetaHomeBackground: #d4d4d4;
   --color-MetaHover: #264c7b;
@@ -5934,7 +5938,7 @@ ul.social li.social-iconbyurl a[href*="diaspora.com"]:before {
 /*-----------------------------------------------------------------------------------*/
 ul,
 ol {
-  margin: 0 15px 10px 25px;
+  margin: 0 1rem 0.5rem 1.5rem;
   padding: 0;
 }
 @media (min-width: 768px) {
@@ -5962,97 +5966,14 @@ li {
   line-height: 1.313rem;
 }
 
-ul {
-  /* Lettered Pagination */
-  /* File Lists */
-  /* Search results */
-  /* Lists without list points */
-}
 ul li {
-  list-style-type: circle;
+  list-style-type: disc;
 }
 ul li ul li {
-  list-style-type: disc;
+  list-style-type: circle;
 }
 ul li ul li ul li {
   list-style-type: square;
-}
-ul.letters {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background: none;
-  margin: 20px 0 10px 0;
-}
-ul.letters:before {
-  display: none;
-}
-ul.letters li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background: none;
-  display: inline-block;
-  background: none;
-  margin: 0.2rem;
-}
-ul.letters li:before {
-  display: none;
-}
-ul.letters li a {
-  display: inline-block;
-  text-decoration: none;
-}
-ul.letters li a:hover,
-ul.letters li a:focus {
-  text-decoration: underline;
-}
-ul.files {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background: none;
-}
-ul.files:before {
-  display: none;
-}
-ul.files li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background: none;
-  background: none;
-  font-size: 13px;
-  line-height: 18px;
-}
-ul.files li:before {
-  display: none;
-}
-ul.searchresults {
-  margin-left: 0;
-}
-ul.searchresults li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background: none;
-}
-ul.searchresults li:before {
-  display: none;
-}
-ul.nolist {
-  margin-left: 0;
-}
-ul.nolist li {
-  list-style-type: none;
-}
-ul.nolist li li {
-  margin-left: 25px;
-  list-style-type: circle;
-}
-ul.nolist li ul.nolist li {
-  margin-left: 0;
-  list-style-type: none;
 }
 
 ol li {
@@ -6072,7 +5993,242 @@ ol li ol li ul li {
   list-style-type: circle;
 }
 ol li ul li {
+  list-style-type: disc;
+}
+ol li ul li ul li {
   list-style-type: circle;
+}
+
+ul, ol {
+  /* Lettered Pagination */
+  /* File Lists */
+  /* Search results */
+  /* Lists without list points */
+}
+ul.letters, ol.letters {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+ul.letters:before, ol.letters:before {
+  display: none;
+}
+ul.letters li, ol.letters li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  display: inline-block;
+  background: none;
+  margin: 0.2rem;
+}
+ul.letters li:before, ol.letters li:before {
+  display: none;
+}
+ul.letters li a, ol.letters li a {
+  display: inline-block;
+  text-decoration: none;
+}
+ul.letters li a:hover,
+ul.letters li a:focus, ol.letters li a:hover,
+ol.letters li a:focus {
+  text-decoration: underline;
+}
+ul.files, ol.files {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+ul.files:before, ol.files:before {
+  display: none;
+}
+ul.files li, ol.files li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  background: none;
+}
+ul.files li:before, ol.files li:before {
+  display: none;
+}
+ul.searchresults, ol.searchresults {
+  margin-left: 0;
+}
+ul.searchresults li, ol.searchresults li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+ul.searchresults li:before, ol.searchresults li:before {
+  display: none;
+}
+ul.nolist li, ol.nolist li {
+  list-style-type: none;
+}
+
+ol.kontrastmarker {
+  list-style: none;
+  counter-reset: steps;
+  margin-left: 0;
+}
+ol.kontrastmarker li {
+  counter-increment: steps;
+  list-style-type: none;
+}
+ol.kontrastmarker li ol {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  counter-reset: substeps;
+}
+ol.kontrastmarker li ol li {
+  counter-increment: substeps;
+}
+ol.kontrastmarker li ul {
+  margin-left: 3rem;
+}
+ol.kontrastmarker li ul li {
+  list-style-type: disc;
+}
+ol.kontrastmarker li ul li::before {
+  display: none;
+}
+ol.kontrastmarker li::before {
+  content: counter(steps);
+  margin-right: 0.5rem;
+  background: var(--color-primary-ci-hell);
+  color: var(--color-primary-ci-hell-kontrast);
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  line-height: 1.5em;
+}
+ol.kontrastmarker li ol li::before {
+  content: counter(substeps, lower-alpha);
+}
+ol.kontrastmarker.zentral li::before {
+  color: var(--color-zentral-ci-hell-kontrast);
+  background: var(--color-zentral-ci-hell);
+}
+ol.kontrastmarker.phil li::before {
+  color: var(--color-phil-ci-hell-kontrast);
+  background: var(--color-phil-ci-hell);
+}
+ol.kontrastmarker.nat li::before {
+  color: var(--color-nat-ci-hell-kontrast);
+  background: var(--color-nat-ci-hell);
+}
+ol.kontrastmarker.rw li::before {
+  color: var(--color-rw-ci-hell-kontrast);
+  background: var(--color-rw-ci-hell);
+}
+ol.kontrastmarker.med li::before {
+  color: var(--color-med-ci-hell-kontrast);
+  background: var(--color-med-ci-hell);
+}
+ol.kontrastmarker.tf li::before {
+  color: var(--color-tf-ci-hell-kontrast);
+  background: var(--color-tf-ci-hell);
+}
+
+ul li.cross,
+ul li.check,
+ul li.positiv,
+ul li.plus,
+ul li.minus,
+ul li.negativ,
+ul li.question,
+ul li.exclamation,
+ul li.paragraph {
+  list-style-type: none;
+}
+ul li.cross:before,
+ul li.check:before,
+ul li.positiv:before,
+ul li.plus:before,
+ul li.minus:before,
+ul li.negativ:before,
+ul li.question:before,
+ul li.exclamation:before,
+ul li.paragraph:before {
+  margin-right: 0.5rem;
+  margin-left: -1.5rem;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  line-height: 1.5em;
+}
+ul li.check::before {
+  background: var(--color-Positive);
+  color: var(--color-Positive-Kontrast);
+  content: "✓";
+}
+ul li.cross::before {
+  background: var(--color-Negative);
+  color: var(--color-Negative-Kontrast);
+  content: "✗";
+}
+ul li.positiv::before,
+ul li.plus::before {
+  background: var(--color-Positive);
+  color: var(--color-Positive-Kontrast);
+  content: "+";
+}
+ul li.negativ::before,
+ul li.minus::before {
+  background: var(--color-Negative);
+  color: var(--color-Negative-Kontrast);
+  content: "-";
+}
+ul li.question::before {
+  background: var(--color-StandardHellgrau);
+  color: var(--color-Text);
+  content: "?";
+}
+ul li.exclamation::before {
+  background: var(--color-Notice);
+  color: var(--color-white);
+  content: "!";
+}
+ul li.paragraph::before {
+  background: var(--color-StandardHellgrau);
+  color: var(--color-Text);
+  content: "§";
+}
+
+.markercolor > li::marker {
+  color: var(--color-primary-ci-hell);
+}
+
+.markercolor.zentral > li::marker {
+  color: var(--color-zentral-ci-hell);
+}
+
+.markercolor.phil > li::marker {
+  color: var(--color-phil-ci-hell);
+}
+
+.markercolor.nat > li::marker {
+  color: var(--color-nat-ci-hell);
+}
+
+.markercolor.rw > li::marker {
+  color: var(--color-rw-ci-hell);
+}
+
+.markercolor.med > li::marker {
+  color: var(--color-med-ci-hell);
+}
+
+.markercolor.tf > li::marker {
+  color: var(--color-tf-ci-hell);
 }
 
 /*-----------------------------------------------------------------------------------*/
