@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 79,
+    'optiontable-version'	=> 80,
 		// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 		// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 		// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -250,6 +250,10 @@ $defaultoptions = [
 		// CI Logo der FAU anstelle des Logos der Website
     'advanced_header_template'	=> '',
 		// Anzeigeform des Heros bei Index- und Kategorieseiten
+    'advanced_template_page_start_display_content'  => false,
+		// Auf dem Template "Page Start" (Startseite) wird der Content
+		//  per Default nicht gezeigt (false). Über die Customizer-Option
+		// kann dieser Eintrag geändert werden.
 	]; 
 
  $content_width =$defaultoptions['content-width'];
@@ -1229,7 +1233,18 @@ $setoptions = array(
               ),  
 
 	   
-		
+		'templates'  => array(
+                  'type'    => 'section',
+                  'title'   => __( 'Templates', 'fau' ),     
+		),
+	        'advanced_template_page_start_display_content'	  => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Startseite: Inhalt zeigen', 'fau' ),
+                  'label'   => __( 'Auf der Startseite wird per Default nur die Artikelliste gezeigt. Mit diesen Schalter kann oberhalb der Artikelliste auch eigenen Inhalt eingeblendet werden.', 'fau' ),                
+                  'default' => $defaultoptions['advanced_template_page_start_display_content'],
+		  'parent'  => 'templates'
+              ),   
+
 	       
 	       
 	    ),    
