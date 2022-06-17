@@ -179,6 +179,11 @@
 	display: none;
 	z-index: 8010;
 	background: url('./img/fancybox/fancybox_overlay.png');
+	
+	
+	.admin-bar & {
+	    top: $wordpress-adminbar-smallheight;
+	}
 }
 
 .fancybox-overlay-fixed {

@@ -102,6 +102,10 @@ main {
 	    object-fit: contain;
 	    margin: 2px;
 	}
+	&.circle.rotate {
+	    transform: rotateZ(0);
+	    transition: transform .5s ease-in-out;
+	}
 
     }
     

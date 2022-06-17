@@ -5,7 +5,7 @@
 
 ul,
 ol {
-	margin: 0 15px 10px 25px;
+	margin: 0 1rem 0.5rem 1.5rem;
 	padding: 0;
 	@media (min-width: $screen-sm) {
 	    margin-right: 0;
@@ -36,76 +36,15 @@ li {
 
 ul {
 	li {
-	    list-style-type: circle;	    
+	    list-style-type: disc;	    
 	    ul li {
-		list-style-type: disc;		
+		list-style-type: circle;		
 		ul li {
 		   list-style-type: square;
 		}
 	    }
 	}
 	
-	/* Lettered Pagination */
-	&.letters {
-	    @include no-list;
-	    margin: 20px 0 10px 0;
-
-	    li {
-		    @include no-list;
-		    @include inline-block;
-		    background: none;
-		    margin: 0.2rem;
-
-		    a {
-			    @include inline-block;
-			    text-decoration: none;
-		    }
-
-		    a:hover, 
-		    a:focus {
-			    text-decoration: underline;
-		    }
-	    }
-	}
-	/* File Lists */
-
-	&.files {
-		@include no-list;
-
-		li {
-			@include no-list;
-			background: none;
-			font-size: 13px;
-			line-height: 18px;
-		}
-	}
-
-	/* Search results */
-	&.searchresults {
-	    margin-left: 0;
-	    li {
-		    @include no-list;
-	    }
-	}
-	
-	/* Lists without list points */
-	
-	&.nolist {
-	    margin-left: 0;	    
-	    li {	  
-		list-style-type: none;
-		
-		
-		li {
-		    margin-left: 25px;
-		    list-style-type: circle;
-		}
-		ul.nolist li {
-		     margin-left: 0;	
-		     list-style-type: none;
-		}
-	    }
-	}
 }
 
 ol {
@@ -128,12 +67,241 @@ ol {
 		    }
 		}
 		ul li {
-		     list-style-type: circle;	    
+		     list-style-type: disc;	
+		      ul li {
+			list-style-type: circle;
+		    }
 		}
 	}
 }
 
 
+ul, ol {
+    	/* Lettered Pagination */
+	&.letters {
+	    @include no-list;
+
+	    li {
+		    @include no-list;
+		    @include inline-block;
+		    background: none;
+		    margin: 0.2rem;
+
+		    a {
+			    @include inline-block;
+			    text-decoration: none;
+		    }
+
+		    a:hover, 
+		    a:focus {
+			    text-decoration: underline;
+		    }
+	    }
+	}
+	/* File Lists */
+	&.files {
+		@include no-list;
+
+		li {
+			@include no-list;
+			background: none;
+		}
+	}
+
+	/* Search results */
+	&.searchresults {
+	    margin-left: 0;
+	    li {
+		    @include no-list;
+	    }
+	}
+	
+	/* Lists without list points */
+	&.nolist {
+	    li {	  
+		list-style-type: none;
+	    }
+	}	
+	
+	
+	
+}
+
+// Kontrastmarker for sorted lists
+ol.kontrastmarker {
+    list-style: none;
+    counter-reset: steps;
+    margin-left: 0;
+
+    li {
+	  counter-increment: steps;
+	  list-style-type: none;
+
+	    ol {
+		margin-left:  1.5rem;
+		margin-top:  0.5rem;
+		counter-reset: substeps;
+
+		li {
+		    counter-increment: substeps;
+		}
+	  }
+	  ul {
+	    margin-left: 3rem;
+	    li {
+		list-style-type: disc;	   
+	     }
+	    li::before {
+		  display: none;
+	     }
+	  }
+
+
+    }
+    li::before {
+	content: counter(steps);
+	margin-right: 0.5rem;
+	background: var(--color-primary-ci-hell);
+	color: var(--color-primary-ci-hell-kontrast);
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 50%;
+	display: inline-grid;
+	place-items: center;
+	line-height: 1.5em;
+    }
+    li ol li::before {
+	content: counter(substeps, lower-alpha);
+    }
+    &.zentral li::before {
+	     color: var(--color-zentral-ci-hell-kontrast);
+	     background:  var(--color-zentral-ci-hell);
+    }    
+    &.phil li::before {
+	     color: var(--color-phil-ci-hell-kontrast);
+	     background:  var(--color-phil-ci-hell);
+    }
+    &.nat li::before {
+	     color: var(--color-nat-ci-hell-kontrast);
+	     background:  var(--color-nat-ci-hell);
+    }
+    &.rw li::before {
+	     color: var(--color-rw-ci-hell-kontrast);
+	     background:  var(--color-rw-ci-hell);
+    }
+    &.med li::before {
+	     color: var(--color-med-ci-hell-kontrast);
+	     background:  var(--color-med-ci-hell);
+    }
+    &.tf li::before {
+	     color: var(--color-tf-ci-hell-kontrast);
+	     background:  var(--color-tf-ci-hell);
+    }    
+}
+
+// Symbols for unsorted list elements
+
+ul {
+    li.cross,
+    li.check,
+    li.positiv,
+    li.plus,
+    li.minus,
+    li.negativ,
+    li.question,
+    li.exclamation,
+    li.paragraph {
+	list-style-type: none;
+	
+	&:before {
+	    margin-right: 0.5rem;
+	    margin-left: -1.5rem;
+	    width: 1.5em;
+	    height: 1.5em;
+	    border-radius: 50%;
+	    display: inline-grid;
+	    place-items: center;
+	    line-height: 1.5em;
+	}
+    }
+
+    li.check::before {
+	background: var(--color-Positive);
+	color: var(--color-Positive-Kontrast);
+	content: '✓';
+    }
+
+    li.cross::before {
+	background: var(--color-Negative);
+	color: var(--color-Negative-Kontrast);
+	content: '✗';
+    }
+    li.positiv::before,
+    li.plus::before {
+	background: var(--color-Positive);
+	color: var(--color-Positive-Kontrast);
+	content: "+";
+    }
+    li.negativ::before,
+    li.minus::before {
+	background: var(--color-Negative);
+	color: var(--color-Negative-Kontrast);
+	content: "-";
+    }
+    li.question::before {
+	background: var(--color-StandardHellgrau);
+	color: var(--color-Text);
+	content: "?";
+    }
+     li.exclamation::before {
+	background: var(--color-Notice);
+	color: var(--color-white);
+	content: "!";
+    }
+     li.paragraph::before {
+	background: var(--color-StandardHellgrau);
+	color: var(--color-Text);
+	content: "§";
+    }
+}
 
 
 
+
+// General Class to allow the use independent from the level and its context
+.markercolor {
+    > li::marker {
+	color: var(--color-primary-ci-hell);
+    }
+
+}
+.markercolor.zentral {
+    > li::marker {
+	color: var(--color-zentral-ci-hell);
+    }
+}
+.markercolor.phil {
+    > li::marker {
+	color: var(--color-phil-ci-hell);
+    }
+}
+.markercolor.nat {
+     > li::marker {
+	color: var(--color-nat-ci-hell);
+    }
+}
+.markercolor.rw {
+     > li::marker {
+	color: var(--color-rw-ci-hell);
+    }
+}
+.markercolor.med {
+     > li::marker {
+	color: var(--color-med-ci-hell);
+    }
+}
+.markercolor.tf {
+     > li::marker {
+	color: var(--color-tf-ci-hell);
+    }
+}

@@ -163,6 +163,10 @@ main,
 	    border: 2px solid var(--color-content-links-underline);
 	    padding: 2px;
 	}
+	img.circle.rotate {
+	    transform: rotateZ(20deg);
+	    transition: transform .5s ease-in-out;
+	}
     }
 
     a.media-img.sizinglink {
@@ -179,7 +183,9 @@ main,
     a.media-img.sizinglink:focus {
 	img {
 	    transform: scale(1.1);
-	//    box-shadow: none;
+	    box-shadow: none;
+	    border: none;
+	    padding: 2px;
 	}
     }
 

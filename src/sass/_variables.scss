@@ -15,17 +15,21 @@ $colormap-misc: ("Text": #222,
 		 "MetaTextDefault": #444,
 		 "Notice": #a71c18, 
 		 "Alert": #c5ac94,
-		 "ZUV": #04316A, // #003366, 
-		 "Default": #04316A, // #003366, 
+		 "ZUV": #04316A, 
+		 "Default": #04316A,
 		 "MainBackground":  #fff, 
-		 "StandardHellgrau": #e9edf2,	// desaturate(lighten($colorZUV, 73%), 75%);
-		 "ContentBorders": #dfe6ec,	// desaturate(lighten($colorZUV, 69%), 75%);
-		 "ContentRegions": #f5f7f9,        // FAU: lighten($colorZUV, 4%);
+		 "StandardHellgrau": #e9edf2,	
+		 "ContentBorders": #dfe6ec,
+		 "ContentRegions": #f5f7f9,  
 		 "white":   #fff,
 		 "black":   #000,
 		 "PrintMain": #000,
 		 "KontrastHell":    #fff,
-		 "KontrastDunkel":  #333
+		 "KontrastDunkel":  #333,
+		 "Negative": #a71c18,
+		 "Negative-Kontrast": #fff,		 
+		 "Positive": #00905a,
+		 "Positive-Kontrast": #fff,		 
 		 );
 
  

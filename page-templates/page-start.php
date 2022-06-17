@@ -23,6 +23,10 @@ get_template_part('template-parts/hero', 'sliderpage-slider');
 					
 					<?php
 					
+					if (get_theme_mod('advanced_template_page_start_display_content')==true) {
+					    the_content();
+					}
+					
 					$number = 0;
 					$max = get_theme_mod('start_max_newspertag');
 					$maxall = get_theme_mod('start_max_newscontent');
