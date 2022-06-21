@@ -139,7 +139,9 @@ main,
 	    @include default-img();
 	}
 	img.polaroid {
-	    padding: 5px;
+	    @media (min-width: $screen-xs) {
+		padding: 5px;
+	    }
 	}
 	img.thickborder {
 	    border: 2px solid var(--color-ContentBorders);
@@ -157,11 +159,15 @@ main,
 	    padding: 0;
 	}
 	img.polaroid {
-	    padding: 3px;
+	    @media (min-width: $screen-xs) {
+		padding: 3px;
+	    }
 	}
 	img.thickborder {
 	    border: 2px solid var(--color-content-links-underline);
-	    padding: 2px;
+	    @media (min-width: $screen-xs) {
+		padding: 2px;
+	    }
 	}
 	img.circle.rotate {
 	    transform: rotateZ(20deg);
@@ -185,7 +191,9 @@ main,
 	    transform: scale(1.1);
 	    box-shadow: none;
 	    border: none;
-	    padding: 2px;
+	    @media (min-width: $screen-xs) {
+		padding: 2px;
+	    }
 	}
     }
 

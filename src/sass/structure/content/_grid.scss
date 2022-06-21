@@ -72,7 +72,7 @@
     }
 
     .entry-content {
-        min-width: $screen-xxs;
+        min-width: $screen-xxs - $grid-gutter-width;
         flex-grow: 1;
         @media (min-width: $screen-sm) {
             max-width: $container-sm - $subnav-width-sm - $grid-gutter-width;
@@ -169,9 +169,9 @@
             padding-top: 0;
         }
 
-	    @media (min-width: $screen-lg) {
+	@media (min-width: $screen-lg) {
             width: $sidebar-width-inline-lg;
-	    }
+	}
     }
 }
 .content-row .portalpage-sidebar {
@@ -225,7 +225,7 @@
         .entry-content {
             order: 1;
             flex-grow: 1;
-            min-width: $screen-xxs;
+            min-width: $screen-xxs - $grid-gutter-width;
             width: 100%;
             padding-left: floor(math.div($grid-gutter-width, 2));
             padding-right: ceil(math.div($grid-gutter-width, 2));
