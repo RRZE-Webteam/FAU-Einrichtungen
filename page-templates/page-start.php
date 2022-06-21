@@ -23,7 +23,7 @@ get_template_part('template-parts/hero', 'sliderpage-slider');
 					
 					<?php
 					
-					if (get_theme_mod('advanced_template_page_start_display_content')==true) {
+					if (get_theme_mod('advanced_template_page_start_display_content')===true) {
 					    the_content();
 					}
 					
