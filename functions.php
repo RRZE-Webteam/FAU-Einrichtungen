@@ -154,8 +154,8 @@ function fau_register_scripts() {
     $theme_data = wp_get_theme();
     $theme_version = $theme_data->Version;
 
-//    wp_register_style('fau-style',  get_stylesheet_uri(), array(), $theme_version);
-    wp_register_style('fau-style', get_stylesheet_uri(), array(), $theme_version, 'screen' );
+    wp_register_style('fau-style',  get_stylesheet_uri(), array(), $theme_version);
+//    wp_register_style('fau-style', get_stylesheet_uri(), array(), $theme_version, 'screen' );
 	// Base style for screen
     wp_register_style('fau-style-print', get_stylesheet_directory_uri() . '/print.css', array(), $theme_version, 'print' );
 	// Base style for print
