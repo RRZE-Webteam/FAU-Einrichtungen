@@ -150,14 +150,12 @@
 	    
 	    @media (min-width: $screen-sm) {
 		width: 220px;
-	//	min-width: 220px;
                 max-width: 50%;
 		margin-left: 0;
 		margin-right: 0;
 		margin-bottom: 0;		
 	    }
 	    @media (min-width: $screen-xl) {
-	//	min-width: 320px;
                 width: 320px;
 	    }
 	    .passpartout {
