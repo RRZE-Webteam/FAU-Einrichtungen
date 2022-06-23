@@ -65,6 +65,8 @@ abbr[title]:after {
     padding-left: 0 !important;
 }
 
+.portalpage-content,
+.hero-container, 
 .content-container,
 .inline-box .content-inline {
     padding-left: 0 !important;
@@ -85,6 +87,9 @@ abbr[title]:after {
     }
 }
 
+thead, tfoot {
+    display: table-row-group;
+}
 /* Header *************************************************************************************************************/
 
 #header .header-row {
@@ -113,10 +118,6 @@ abbr[title]:after {
     }
 }
 
-.portalpage-content {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
 
 #content {
     padding-top: 20px;
@@ -315,6 +316,7 @@ main a,
     background-color: #ffffff !important;
     opacity: 1 !important;
 }
+
 
 .container {
     width: auto !important;
