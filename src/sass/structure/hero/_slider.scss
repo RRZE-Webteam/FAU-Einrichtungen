@@ -1,6 +1,8 @@
 /*-----------------------------------------------------------------------------------*/
 /* Slider im Hero-Teil
 /*-----------------------------------------------------------------------------------*/
+
+
 #hero.sliderpage {
     overflow: inherit;
 }
@@ -28,8 +30,6 @@
 		}
 
 		.slider-titel {
-			@extend .col-xs-12;
-
 			@media (min-width: $screen-sm) {
 				margin-bottom: 5px;
 			}
@@ -37,8 +37,10 @@
 				display: inline;
 				padding: 3px;
 				margin: 25px 30px;
+				word-break: break-word;
+				
 				@include px2rem($font-size-hero-slider-title);
-
+				
 				box-decoration-break: clone;
 				@media (min-width: $screen-sm) {
 					margin: 10px 0 15px 0;
@@ -48,9 +50,6 @@
 			}
 		}
 		.slider-text {
-			@extend .col-xs-12;
-			@extend .col-sm-10;
-
 			display: none;
 			@media (min-width: $screen-sm) {
 				display: inline-block;
@@ -117,9 +116,8 @@
 	.hero-slide-text {
 		z-index: 10;
 		position: absolute;
-		margin: 0;
+		margin: 0 20px;
 		padding: 0;
-		width: 100%;
 		top: 75%;
 		@include transform-translate(0, -75%);
 
@@ -169,16 +167,15 @@
 	.slick-next {
 		position: absolute;
 		display: block;
-		height: 40px;
-		width: 40px;
+		height: $slider-arrow-width;
+		width: $slider-arrow-width;
 		line-height: 0px;
 		font-size: 0px;
 		cursor: pointer;
 		background: transparent;
 		color: transparent;
-
-
 		top: 75%;
+		
 		@include transform-translate(0, -75%);
 
 		@media (min-width: $screen-xs) {
@@ -204,7 +201,7 @@
 
 		
 		&:before {
-			font-size: 40px;
+			font-size: $slider-arrow-width;
 			line-height: 1;
 			color: var(--color-button-bg);
 			text-shadow: 0 0 1px var(--color-button-text);

@@ -35,9 +35,10 @@
     align-items: center;
 
     header & {
-
+	@media (min-width: $screen-md) {
+	     align-items: flex-end;
+	}
         @media (min-width: $screen-sm) {
-            align-items: center;
             justify-content: space-between;
             padding: 1.2rem 0 1rem;
 

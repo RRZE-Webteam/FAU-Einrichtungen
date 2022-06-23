@@ -170,10 +170,26 @@ function fau_body_class($classes) {
         $classes[] = 'fauorg-unterorg';
     }
 
-    $header_image = get_header_image();
-    if (empty($header_image)) {
-        $classes[] = 'nologo';
+    
+    $show_customlogo = false;
+    $custom_logo_id  = get_theme_mod('custom_logo');
+    $logo_src        = '';
+    if ($custom_logo_id) {
+	$logo            = wp_get_attachment_image_src($custom_logo_id, 'full');
+	$logo_src        = $logo[0];
+	$show_customlogo = true;
+	if (!empty($logo_src)) {
+	    if (preg_match('/\/themes\/FAU\-[a-z]+\/img\/logos\//i', $logo_src,  $match)) {
+		$show_customlogo = false;
+		// Version 2: Check for old Images in theme, that was chosen in customizer, but removed
+		// from code later. In this case, ignore this entry.
+	    }
+	}
     }
+    if ($show_customlogo===false) {
+	$classes[] = 'nologo';
+    }
+    
 
     $sitetitle = get_bloginfo('title');
     if (strlen($sitetitle) > 50) {
