@@ -10,8 +10,8 @@
 
 
     @media (min-width: $screen-sm) {
-	padding-left:  floor(math.div($grid-gutter-width, 2));
-	padding-right: ceil(math.div($grid-gutter-width, 2));
+	padding-left:  $fau-gutter-halfwidth;
+	padding-right: $fau-gutter-halfwidth;
 	width: $container-sm;
     }
      @media (min-width: $screen-md) {

@@ -114,8 +114,8 @@
 		    }
 		    ?>
 		    <div class="hero-slide-text">
-			<div class="container">
-			    <div class="row">
+			<div class="hero-container">
+			    <div class="hero-row">
 				<div class="slider-titel">
 				    <?php
 					
@@ -136,7 +136,7 @@
 			    <?php
 				$maxlen = get_theme_mod("default_slider_excerpt_length");
 				if ($maxlen > 0) { ?>
-				<div class="row">
+				<div class="hero-row">
 				    <div class="slider-text"><?php 
 					$abstract = get_post_meta( $hero->ID, 'abstract', true );			   
 					if (strlen(trim($abstract))<3) {

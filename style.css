@@ -472,14 +472,14 @@ a.bg-danger:focus {
   clear: both;
 }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .hero-navigation .quicklinks, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, #hero .search-title, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .hero-navigation .infobar, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, #hero .search-input, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, #hero-slides .item .slider-text, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, #hero-slides .item .slider-titel, .flyout-entries-full, .col-sm-12, .search-result article, .col-md-12, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .hero-navigation .quicklinks, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, #hero .search-title, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .hero-navigation .infobar, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, #hero .search-input, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .flyout-entries-full, .col-sm-12, .search-result article, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .hero-navigation .infobar, .hero-navigation .quicklinks, #hero-slides .item .slider-text, #hero-slides .item .slider-titel, .flyout-entries-full {
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .hero-navigation .infobar, .hero-navigation .quicklinks, .flyout-entries-full {
   float: left;
 }
 
@@ -527,7 +527,7 @@ a.bg-danger:focus {
   width: 91.6666666667%;
 }
 
-.col-xs-12, .hero-navigation .infobar, .hero-navigation .quicklinks, #hero-slides .item .slider-text, #hero-slides .item .slider-titel, .flyout-entries-full {
+.col-xs-12, .hero-navigation .infobar, .hero-navigation .quicklinks, .flyout-entries-full {
   width: 100%;
 }
 
@@ -688,7 +688,7 @@ a.bg-danger:focus {
 }
 
 @media (min-width: 768px) {
-  .col-sm-1, .col-sm-2, .col-sm-3, .hero-navigation .quicklinks, .col-sm-4, #hero .search-title, .col-sm-5, .col-sm-6, .hero-navigation .infobar, .col-sm-7, .col-sm-8, #hero .search-input, .col-sm-9, .col-sm-10, #hero-slides .item .slider-text, .col-sm-11, .col-sm-12, .search-result article {
+  .col-sm-1, .col-sm-2, .col-sm-3, .hero-navigation .quicklinks, .col-sm-4, #hero .search-title, .col-sm-5, .col-sm-6, .hero-navigation .infobar, .col-sm-7, .col-sm-8, #hero .search-input, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .search-result article {
     float: left;
   }
 
@@ -728,7 +728,7 @@ a.bg-danger:focus {
     width: 75%;
   }
 
-  .col-sm-10, #hero-slides .item .slider-text {
+  .col-sm-10 {
     width: 83.3333333333%;
   }
 
@@ -9229,6 +9229,9 @@ body.embedded .news-item .news-meta {
   content: "";
   width: 52px;
 }
+.wp-custom-logo #meta .header-row {
+  height: 50px;
+}
 
 .meta-widget {
   display: inline-block;
@@ -11318,6 +11321,7 @@ ol.breadcrumblist li:last-child::after {
   display: inline;
   padding: 3px;
   margin: 25px 30px;
+  word-break: break-word;
   font-size: 1.562rem;
   line-height: 2.344rem;
   -webkit-box-decoration-break: clone;
@@ -11390,9 +11394,8 @@ ol.breadcrumblist li:last-child::after {
 #hero-slides .hero-slide-text {
   z-index: 10;
   position: absolute;
-  margin: 0;
+  margin: 0 40px;
   padding: 0;
-  width: 100%;
   top: 75%;
   transform: translate(0, -75%);
 }
