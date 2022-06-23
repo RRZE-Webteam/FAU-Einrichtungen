@@ -103,9 +103,8 @@ function fau_setup() {
 
 	if (has_filter('is_gutenberg_enabled')) {
 		$is_gutenberg_enabled = apply_filters('is_gutenberg_enabled', false);
-	}
-	if (fau_is_newsletter_plugin_active()) {
-		$is_gutenberg_enabled = true;
+	} else {
+	    $is_gutenberg_enabled = fau_is_newsletter_plugin_active();
 	}
 
 

@@ -60,7 +60,7 @@ function fau_add_gutenberg_assets() {
 		wp_enqueue_style( 'fau-gutenberg', get_theme_file_uri( '/css/fau-theme-gutenberg.css' ), false );
 	}
 }
-add_action( 'enqueue_block_editor_assets', 'fau_add_gutenberg_assets' );
+// add_action( 'enqueue_block_editor_assets', 'fau_add_gutenberg_assets' );
 
 /*-----------------------------------------------------------------------------------*/
 /* Remove Block Style from frontend as long wie dont use it
@@ -108,8 +108,10 @@ function fau_blockeditor_is_active() {
         $block_editor_active = array( 'no-replace', 'block' );
 	    return in_array( $editor_option, $block_editor_active, true );
     }
-
-    return true;
+    if (fau_is_newsletter_plugin_active()) {
+	return true;
+    }
+    return false;
 }
 
 /**
