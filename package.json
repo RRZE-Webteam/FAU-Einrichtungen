@@ -1,7 +1,7 @@
 {
     "name": "FAU-Einrichtungen",
     "textdomain": "fau",
-    "version": "2.0.48",
+    "version": "2.0.49",
     "keywords": [
         "WordPress",
         "Theme",
@@ -28,8 +28,7 @@
         "clone": "git+https://github.com/RRZE-Webteam/FAU-Einrichtungen.git"
     },
     "browserslist": [
-        "last 3 years",
-        "ie 11"
+        "last 3 years"
     ],
     "themeClones": {
         "tf": {
