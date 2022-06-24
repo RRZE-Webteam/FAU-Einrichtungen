@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.0.49-0
+Version: 2.0.49-1
 Requires at least: 5.8
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -1409,7 +1409,6 @@ a.bg-danger:focus {
   box-sizing: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   touch-action: pan-y;
 }
@@ -1709,6 +1708,8 @@ Icons as functions
 /*-----------------------------------------------------------------------------------*/
 html {
   font-size: 90%;
+  -webkit-font-smooth: antialiased;
+  -webkit-text-size-adjust: 100%;
 }
 @media (min-width: 360px) {
   html {
@@ -4699,13 +4700,11 @@ main h1 a, main h2 a, main h3 a, main h4 a, main h5 a {
 
 h1, h2 {
   -webkit-hyphens: none;
-      -ms-hyphens: none;
           hyphens: none;
 }
 
 h3, h4, h5, h6 {
   -webkit-hyphens: auto;
-      -ms-hyphens: auto;
           hyphens: auto;
 }
 
@@ -4931,7 +4930,6 @@ p, address {
 
 #content p {
   -webkit-hyphens: auto;
-      -ms-hyphens: auto;
           hyphens: auto;
 }
 #content .textwidget p {
@@ -6487,9 +6485,6 @@ input:focus:invalid:focus {
   border-color: var(--color-Notice);
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.075);
 }
-input:-ms-input-placeholder {
-  color: var(--color-TextLight);
-}
 input::placeholder {
   color: var(--color-TextLight);
 }
@@ -6527,9 +6522,6 @@ textarea:focus:invalid:focus {
   border-color: var(--color-Notice);
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.075);
 }
-textarea:-ms-input-placeholder {
-  color: var(--color-TextLight);
-}
 textarea::placeholder {
   color: var(--color-TextLight);
 }
@@ -6560,9 +6552,6 @@ select:focus {
 select[disabled], select[readonly] {
   cursor: not-allowed;
   background-color: var(--color-ContentRegions);
-}
-select:-ms-input-placeholder {
-  color: var(--color-TextLight);
 }
 select::placeholder {
   color: var(--color-TextLight);
@@ -9200,9 +9189,6 @@ body.embedded .news-item .news-meta {
   z-index: 100;
   position: relative;
 }
-#meta :-ms-input-placeholder {
-  color: #fff;
-}
 #meta ::placeholder {
   color: #fff;
 }
@@ -10279,7 +10265,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   border-left: 8px solid transparent;
   vertical-align: center;
   -webkit-hyphens: auto;
-      -ms-hyphens: auto;
           hyphens: auto;
 }
 #footer .cloned-meta-links li.zuv:before, #footer .cloned-meta-links li.phil:before, #footer .cloned-meta-links li.philfak:before, #footer .cloned-meta-links li.rw:before, #footer .cloned-meta-links li.rwfak:before, #footer .cloned-meta-links li.med:before, #footer .cloned-meta-links li.medfak:before, #footer .cloned-meta-links li.nat:before, #footer .cloned-meta-links li.natfak:before, #footer .cloned-meta-links li.tf:before, #footer .cloned-meta-links li.techfak:before, #footer .cloned-meta-links li.white:before, #footer .cloned-meta-links li.grau:before,
@@ -11197,9 +11182,6 @@ ol.breadcrumblist li:last-child::after {
     margin: 40px auto;
   }
 }
-#hero :-ms-input-placeholder {
-  color: var(--color-hero-text);
-}
 #hero ::placeholder {
   color: var(--color-hero-text);
 }
@@ -11592,7 +11574,6 @@ ol.breadcrumblist li:last-child::after {
   border-left: 8px solid transparent;
   vertical-align: center;
   -webkit-hyphens: auto;
-      -ms-hyphens: auto;
           hyphens: auto;
 }
 .hero-navigation li.zuv:before, .hero-navigation li.phil:before, .hero-navigation li.philfak:before, .hero-navigation li.rw:before, .hero-navigation li.rwfak:before, .hero-navigation li.med:before, .hero-navigation li.medfak:before, .hero-navigation li.nat:before, .hero-navigation li.natfak:before, .hero-navigation li.tf:before, .hero-navigation li.techfak:before, .hero-navigation li.white:before, .hero-navigation li.grau:before {
@@ -11661,7 +11642,6 @@ ol.breadcrumblist li:last-child::after {
   font-size: 1.812rem;
   line-height: 2.357rem;
   -webkit-hyphens: none;
-      -ms-hyphens: none;
           hyphens: none;
   position: relative;
   z-index: 10;
@@ -11811,7 +11791,6 @@ ol.breadcrumblist li:last-child::after {
   font-size: 1.812rem;
   line-height: 2.719rem;
   -webkit-hyphens: none;
-      -ms-hyphens: none;
           hyphens: none;
   color: var(--color-hero-text);
   background: var(--color-hero-bg);
@@ -12546,7 +12525,6 @@ ul.assistant-tabs-nav li:last-child {
   margin-top: 0;
   padding: 10px 0;
   -webkit-hyphens: auto;
-      -ms-hyphens: auto;
           hyphens: auto;
 }
 @media (min-width: 768px) {
@@ -13164,15 +13142,9 @@ main .news-more-links .news-rss:hover:before {
   color: var(--color-primary-ci-hell2-kontrast);
   outline-style: none;
 }
-.widget_search .search-text input[type=text]:focus:-ms-input-placeholder, .searchform-content .search-text input[type=text]:focus:-ms-input-placeholder {
-  color: var(--color-primary-ci-hell2-kontrast);
-}
 .widget_search .search-text input[type=text]:focus::placeholder,
 .searchform-content .search-text input[type=text]:focus::placeholder {
   color: var(--color-primary-ci-hell2-kontrast);
-}
-.widget_search .search-text input[type=text]:-ms-input-placeholder, .searchform-content .search-text input[type=text]:-ms-input-placeholder {
-  color: var(--color-primary-ci-hell-kontrast);
 }
 .widget_search .search-text input[type=text]::placeholder,
 .searchform-content .search-text input[type=text]::placeholder {
@@ -16613,14 +16585,8 @@ aside .accordion figure.aligncenter img, .portalpage-sidebar .elements-columns f
   color: var(--color-primary-ci-hell2-kontrast);
   outline-style: none;
 }
-.sidebar-single .rrze_search input[type=text]:focus:-ms-input-placeholder {
-  color: var(--color-primary-ci-hell2-kontrast);
-}
 .sidebar-single .rrze_search input[type=text]:focus::placeholder {
   color: var(--color-primary-ci-hell2-kontrast);
-}
-.sidebar-single .rrze_search input[type=text]:-ms-input-placeholder {
-  color: var(--color-primary-ci-hell-kontrast);
 }
 .sidebar-single .rrze_search input[type=text]::placeholder {
   color: var(--color-primary-ci-hell-kontrast);
@@ -16663,7 +16629,6 @@ aside .accordion figure.aligncenter img, .portalpage-sidebar .elements-columns f
   margin-top: 0;
   padding: 10px 0;
   -webkit-hyphens: auto;
-      -ms-hyphens: auto;
           hyphens: auto;
 }
 @media (min-width: 768px) {
