@@ -5,14 +5,13 @@
 
 // Core variables and mixins
 @import "bootstrap/variables";
+// @import "bootstrap/vars";
 @import "bootstrap/mixins";
 
+
 // Core CSS
- @import "bootstrap/scaffolding";
- @import "bootstrap/type";
- @import "bootstrap/code";
+@import "bootstrap/type";
 @import "bootstrap/grid";
-// @import "bootstrap/buttons";
 
 // Components
 @import "bootstrap/alerts";

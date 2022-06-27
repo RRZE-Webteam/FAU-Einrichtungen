@@ -71,12 +71,16 @@
 	
 	
 	.blogroll-image-3-2 & {
-	    img, svg {
-	//	aspect-ratio: 3 / 2;
-		max-width: 300px;
+	    img, svg {	
+		max-width: 100%;
 		max-height: 200px;
-		object-fit: contain;
-
+		object-fit: cover;
+		
+		@media (min-width: $screen-xs) {
+			max-width: 300px;
+			max-height: 200px;
+			object-fit: contain;
+		}
 	    }
 	}
 }
@@ -146,14 +150,12 @@
 	    
 	    @media (min-width: $screen-sm) {
 		width: 220px;
-	//	min-width: 220px;
                 max-width: 50%;
 		margin-left: 0;
 		margin-right: 0;
 		margin-bottom: 0;		
 	    }
 	    @media (min-width: $screen-xl) {
-	//	min-width: 320px;
                 width: 320px;
 	    }
 	    .passpartout {

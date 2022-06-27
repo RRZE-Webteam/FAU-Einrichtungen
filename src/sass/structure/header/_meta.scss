@@ -7,7 +7,7 @@
 	background: var(--color-StandardHellgrau);
 	color: var(--color-MetaTextDefault);
 	z-index: 100;
-    position: relative;
+	position: relative;
 
 	input,
 	li {
@@ -23,7 +23,8 @@
     .header-row {
         justify-content: space-between;
         align-items: center;
-        height: 50px;
+        min-height: 50px;
+	
         padding: 4px 0;
         @media (min-width: $screen-sm) {
             padding: 5px 0;
@@ -33,6 +34,10 @@
             content: '';
             width: 52px;
         }
+	
+	.wp-custom-logo & {
+	    height: 50px;
+	}
     }
 }
 

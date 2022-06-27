@@ -19,7 +19,7 @@
 	}
 	
 	.subtitle {
-	    margin: 1rem floor(math.div($grid-gutter-width, 2));
+	    margin: 1rem $fau-gutter-halfwidth;
 	    @media (min-width: $screen-sm) {
 		margin: 0 0 1rem 0;
 	    }
@@ -34,4 +34,7 @@
 	}
     }
 
+    .portalmenu-oben {
+	margin-bottom: $fau-gutter-halfwidth;
+    }
 }

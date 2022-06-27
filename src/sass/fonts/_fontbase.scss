@@ -6,6 +6,8 @@
 html {
     font-size: $font-size-rembase-screen-xxs;
     
+    -webkit-font-smooth: antialiased;
+    -webkit-text-size-adjust: 100%;  
     
     @media (min-width: $screen-minrembase) {
 	font-size: $font-size-rembase;

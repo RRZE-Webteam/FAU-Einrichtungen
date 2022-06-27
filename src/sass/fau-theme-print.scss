@@ -1,0 +1,430 @@
+// Import FAU variables
+@import "variables";
+
+// Custom Properties
+@import "custom-properties";
+
+/* Allgemein ausblenden ***********************************************************************************************/
+
+.header-menu,
+.orga-breadcrumb,
+.breadcrumbs,
+.meta-footer,
+.top-link,
+.read-more-link,
+.news-more-links,
+.more-posts,
+.continue,
+.hide-in-print,
+.sidebar-single,
+.sidebar-subnav,
+#meta,
+#social,
+a[aria-hidden="true"] {
+    display: none;
+}
+
+/* Allgemein **********************************************************************************************************/
+
+@page {
+    size: A4 portrait !important;
+    margin: 2cm 2cm 2cm 2.5cm !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+}
+
+a {
+    page-break-inside: avoid !important;
+}
+
+figure, img {
+    position: relative !important;
+    page-break-before: auto !important;
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+}
+
+img {
+    border: 0 !important;
+}
+
+blockquote {
+    page-break-inside: avoid !important;
+}
+
+abbr[title]:after {
+    content: " (" attr(title) ")" !important;
+}
+
+.entry-content,
+.content-row .entry-content {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+}
+
+.portalpage-content,
+.hero-container, 
+.content-container,
+.inline-box .content-inline {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.subtitle {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.table-wrapper {
+    overflow: unset;
+
+    & .scrollable {
+        overflow-x: unset;
+        overflow-y: unset;
+    }
+}
+
+thead, tfoot {
+    display: table-row-group;
+}
+/* Header *************************************************************************************************************/
+
+#header .header-row {
+    flex-wrap: wrap;
+}
+
+#headerwrapper {
+    position: static !important;
+    margin: 0;
+    box-shadow: none !important;
+
+    & #header .branding {
+        display: block !important;
+        margin-bottom: 2rem !important;
+        width: 100%;
+
+        & a {
+            width: 100%;
+        }
+    }
+
+    & #header .branding .textlogo {
+        width: 100%;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+}
+
+
+#content {
+    padding-top: 20px;
+}
+
+/* Footer *************************************************************************************************************/
+
+footer, {
+    display: none;
+
+    &:before {
+        display: none;
+    }
+}
+
+/* Links **************************************************************************************************************/
+
+body:not(.js-enabled) a:after {
+    content: "\00a0(" attr(href) ") ";
+    display: inline-block;
+    color: var(--color-PrintMain);
+    font-size: 12pt;
+    font-style: italic;
+    text-align: left;
+    background-color: inherit;
+}
+
+[role=presentation] a:after {
+    display: none;
+}
+
+a[href^="#"]:after {
+    display: none;
+}
+
+main a,
+.entry-content a,
+.portalpage-content a,
+.content-inline a {
+    box-shadow: none !important;
+    transition: none !important;
+}
+
+.fontawesome-icon-list {
+    display: flex !important;
+    flex-wrap: wrap !important;
+
+    & .fa-hover.col-md-3.col-sm-4 {
+        width: 25% !important;
+    }
+}
+
+.tw-linkref {
+    display: inline !important;
+
+    &:before {
+        content: "\00a0";
+    }
+}
+
+.tw-linklist {
+    display: block !important;
+    margin: 40px;
+
+    &:before {
+        content: "Linkverzeichnis:";
+        margin-left: .35rem;
+        font-weight: bold;
+    }
+
+    & li {
+        padding: .5rem 0 .5rem calc(44px + .4rem);
+        border-top: 1px solid #999;
+        text-indent: calc(-44px - .4rem);
+        line-height: 1;
+
+        &:first-child {
+            margin-top: 1rem;
+        }
+    }
+
+    & svg {
+        display: inline-block;
+        margin: 0 .4rem 0 .1rem;
+        vertical-align: middle;
+    }
+}
+
+#hero .breadcrumbs span {
+    padding: 0 !important;
+}
+
+/* Hero Slider ********************************************************************************************************/
+
+#hero {
+    overflow: hidden !important;
+    background: transparent !important;
+
+    & * {
+        position: relative !important;
+    }
+
+    & .hero-content p,
+    & .hero-content a {
+        color: #000000 !important;
+
+        &::after {
+            color: #000000 !important;
+        }
+    }
+}
+
+#hero-slides {
+    display: block !important;
+    height: auto !important;
+    max-height: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+#hero-slides .slider-controls {
+    display: none !important;
+}
+
+#hero-slides .item {
+    height: auto !important;
+    margin-bottom: 0 !important;
+    padding: .5rem;
+}
+
+#hero-slides .item p,
+#hero-slides .item header {
+    margin: 0;
+    padding: 0;
+    color: black !important;
+    background-color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+#hero-slides .slick-slide {
+    width: auto !important;
+    height: auto !important;
+    opacity: 1 !important;
+    padding-left: .5rem !important;
+    padding-right: .5rem !important;
+    margin-bottom: 1rem !important;
+    page-break-inside: avoid !important;
+    left: initial !important;
+    top: initial !important;
+    float: none !important;
+    clear: both !important;
+}
+
+#hero-slides .slick-slide > * {
+    border: solid 1px #ddd !important;
+    page-break-inside: avoid !important;
+}
+
+#hero-slides .item img {
+    height: 5rem !important;
+    width: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    min-width: auto !important;
+    min-height: auto !important;
+    margin-left: 0 !important;
+    transform: none !important;
+}
+
+#hero-slides .item .credits {
+    margin: 0 !important;
+    opacity: 1 !important;
+    font-size: .8em !important;
+    padding: 0 !important;
+}
+
+#hero-slides .item .hero-slide-text {
+    top: auto !important;
+    bottom: auto !important;
+    margin: 1rem 0 0 !important;
+    opacity: 1 !important;
+    transform: unset;
+
+    & .slider-titel header {
+        margin: 0;
+        padding: 0;
+    }
+
+    & .slider-text p {
+        padding: 0;
+    }
+}
+
+#hero-slides .item a {
+    color: black !important;
+    background-color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+
+.container {
+    width: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Slider *************************************************************************************************************/
+
+.dots {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.slick-item {
+    overflow: visible !important;
+    position: relative !important;
+
+    & .tw-linkref {
+        position: absolute !important;
+        top: auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        background-color: #ffffff !important;
+    }
+}
+
+.slick-prev.slick-arrow,
+.slick-next.slick-arrow {
+    display: none !important;
+}
+
+.slick-track {
+    width: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    margin-left: -.5rem !important;
+    margin-right: -.5rem !important;
+}
+
+.slick-slide,
+.slick-slide * {
+    page-break-inside: avoid !important;
+}
+
+.slick-slide.slick-cloned {
+    display: none !important;
+}
+
+/* Bildergalerie ******************************************************************************************************/
+
+.image-gallery .gallery-slick .slick-prev,
+.image-gallery .gallery-slick .slick-next,
+.slick-dots {
+    display: none !important;
+}
+
+.image-gallery .slick-slide.slick-current.slick-active {
+    display: none !important;
+}
+
+.image-gallery .slick-slider.slick-initialized {
+    display: none !important;
+}
+
+.image-gallery .slick-dotted.slick-initialized {
+    display: block !important;
+}
+
+.image-gallery .gallery-slick .slider-nav-width {
+    width: 100% !important;
+}
+
+.image-gallery .slick-slider .slick-list {
+    width: 100% !important;
+    transform: none !important;
+}
+
+.image-gallery .slick-slider .slick-track {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    transform: none !important;
+}
+
+.image-gallery .gallery-slick .slider-nav-width .slick-slide {
+    width: 23% !important;
+    margin: 1% !important;
+}
+
+/* YouTube Videos *****************************************************************************************************/
+
+.oembed > iframe {
+    display: none;
+}
+
+.tw-iframe-footnote {
+    display: block;
+    margin: 1rem 0 2rem 0;
+}
+
+.tw-iframe-image {
+    display: block;
+}
+
+/* Plugins **********************************************************************************************************/
+
+/* Siteimprove Login Button */
+.si-toggle-container {
+     display: none !important;
+}

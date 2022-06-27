@@ -367,6 +367,45 @@ jQuery(document).ready(function ($) {
 
         // Tablesorter
         $('.sorttable').tablesorter();
+
+        // Create link list for printing
+        window.addEventListener('beforeprint', function () {
+            printlinks('main a[href]:not([href^="javascript:"]),aside a[href]:not([href^="javascript:"])');
+        });
+
+        // Footnotes for YouTube videos etc.
+        function iframeFootnotes() {
+            const iframes = document.querySelectorAll('iframe');
+            iframes.forEach(iframe => {
+                // Create footnote
+                let footnote = document.createElement('div');
+                footnote.setAttribute('class', 'tw-iframe-footnote');
+                footnote.innerHTML = '<strong>Video:</strong> ' + iframe.src;
+                iframe.parentNode.insertBefore(footnote, iframe.nextSibling);
+
+                // Try to get image source
+                let imageSource = null;
+                switch (true) {
+                    case (iframe.src.indexOf('youtube.com/embed/') != -1):
+                        const substringStart = iframe.src.lastIndexOf('/') + 1;
+                        const substringEnd = iframe.src.indexOf('?');
+                        const substring = iframe.src.substring(substringStart, substringEnd);
+                        imageSource = 'https://img.youtube.com/vi/' + substring + '/maxresdefault.jpg';
+                        break;
+                }
+
+                // Create image if image source was set
+                if (imageSource) {
+                    let image = document.createElement('img');
+                    image.setAttribute('alt', '');
+                    image.setAttribute('class', 'tw-iframe-image');
+                    image.setAttribute('src', imageSource);
+                    iframe.parentNode.insertBefore(image, iframe.nextSibling);
+                }
+            });
+        }
+
+        iframeFootnotes();
     }
 );
 

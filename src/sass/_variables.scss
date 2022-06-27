@@ -15,25 +15,29 @@ $colormap-misc: ("Text": #222,
 		 "MetaTextDefault": #444,
 		 "Notice": #a71c18, 
 		 "Alert": #c5ac94,
-		 "ZUV": #04316A, // #003366, 
-		 "Default": #04316A, // #003366, 
+		 "ZUV": #04316A, 
+		 "Default": #04316A,
 		 "MainBackground":  #fff, 
-		 "StandardHellgrau": #e9edf2,	// desaturate(lighten($colorZUV, 73%), 75%);
-		 "ContentBorders": #dfe6ec,	// desaturate(lighten($colorZUV, 69%), 75%);
-		 "ContentRegions": #f5f7f9,        // FAU: lighten($colorZUV, 4%);
+		 "StandardHellgrau": #e9edf2,	
+		 "ContentBorders": #dfe6ec,
+		 "ContentRegions": #f5f7f9,  
 		 "white":   #fff,
 		 "black":   #000,
 		 "PrintMain": #000,
 		 "KontrastHell":    #fff,
-		 "KontrastDunkel":  #333
+		 "KontrastDunkel":  #333,
+		 "Negative": #a71c18,
+		 "Negative-Kontrast": #fff,		 
+		 "Positive": #00905a,
+		 "Positive-Kontrast": #fff,		 
 		 );
 
  
-// $colormap-zentral: ("basis": #003366, "heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #24598f, "dunkelste": #1f4b7a, "basis-kontrast": #fff);
-// alt, 2015
 
 
-// Neuer Entwurf 28.10.
+
+
+// Abgestimmte Farbtabelle vom 28.10.2021
 $colormap-zentral: ("basis": #04316A, "basis-kontrast": #fff,"heller": #8fb1ef, "hellste": #dde5f0, "dunkler": #004A9F, "dunkler-kontrast": #fff, "dunkelste": #041E42, "dunkelste-kontrast": #fff, "ci-hell": #04316A, "ci-hell-kontrast": #fff, "ci-hell2": #CED9E7, "ci-hell2-kontrast": #000);
 $colormap-phil: ("basis": #963B2F, "basis-kontrast": #fff,"heller": #d9c689, "hellste": #f3eedf, "dunkler": #e87722, "dunkler-kontrast": #000, "dunkelste": #963B2F, "dunkelste-kontrast": #fff,  "ci-hell": #FDB735, "ci-hell-kontrast": #000, "ci-hell2": #F4E8CB, "ci-hell2-kontrast": #000);
 $colormap-med: ("basis": #005287,"basis-kontrast": #fff, "heller": #bfd6f5, "hellste": #eaf3fc, "dunkler": #005287, "dunkler-kontrast": #fff, "dunkelste": #003E61, "dunkelste-kontrast": #fff,  "ci-hell": #18B4F1, "ci-hell-kontrast": #000, "ci-hell2": #B9D9EC, "ci-hell2-kontrast": #000);
@@ -174,6 +178,8 @@ $fontStack: 'Roboto','FAU Chimera', sans-serif;
 // $fontStack: 'Roboto', sans-serif;
 $fontStackSerifs: Georgia, serif;
 $fontStackFAU: 'FAU Chimera', sans-serif;
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+
 
 $font-family-base: $fontStack;
 $font-path-awesome: './fonts/fontawesome/';
@@ -360,6 +366,7 @@ $screen-xxs: 320px;
 
 $slider-maxwidth: 1260px;
 $slider-maxheight: 350px;
+$slider-arrow-width: 40px;
 
 $wordpress-adminbar-break: 783px;
 // WordPress Adminbar breaks to small
@@ -383,6 +390,8 @@ $max-width-hero: 1920px;
 
 // Bootstrap Adjustments
 $fau-gutter-width: 30px;
+$fau-gutter-halfwidth: ceil(math.div($fau-gutter-width, 2));
+$fau-gutter-thirdwidth: ceil(math.div($fau-gutter-width, 3));
 
 $grid-gutter-width: $fau-gutter-width;
 
@@ -398,3 +407,5 @@ $sidebar-width-inline-lg: 270px;
 $sidebar-width-portal: 33%;
 $sidebar-width-posts: 330px;
 $sidebar-maxwidth-portal: 350px;
+
+$pre-scrollable-max-height:   340px;

@@ -66,38 +66,46 @@ svg {
 
 main {
     img {
-        @include box-shadow(none);
-        @media (min-width: $screen-sm) {
-            @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
-        }
+	@include box-shadow(none);
+	@media (min-width: $screen-xs) {
+	    @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+	}
 
         &.shadow {
-       //     @include box-shadow(4px 4px 4px rgba(0, 0, 0, 0.5));
            filter: drop-shadow(2px 2px 7px rgba(0,0,0,0.5));
            box-shadow: none;
         }
 
         &.thickborder {
-            border: 1px solid black;
+            border: 2px solid var(--color-ContentBorders);
             @include border-radius(2px);
         }
 
-        &.borderless {
-            border: none;
-        }
-
+        &.borderless,
         &.noshadow {
             box-shadow: none;
         }
 
-        &.size-full,
-        &.aligncenter {
-            @media (max-width: $screen-xs) {
-                width: 100%;
-                max-width: 100vw;
-            }
-        }
-
+       
+	&.rounded {
+	    @include border-radius(6px);
+	}
+	&.polaroid {
+	    padding: 5px;
+	    background-color: var(--color-MainBackground);
+	    border: 1px solid rgba(0, 0, 0, 0.2);
+	    @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+	}
+	&.circle {
+	    @include border-radius(50%);
+	    aspect-ratio: 1 / 1;
+	    object-fit: contain;
+	    margin: 2px;
+	}
+	&.circle.rotate {
+	    transform: rotateZ(0);
+	    transition: transform .5s ease-in-out;
+	}
 
     }
     
@@ -111,8 +119,8 @@ main, aside, .portalpage-sidebar, .widget {
 	&.alignright,
 	&.alignnone,
 	&.aligncenter {
-	    margin-left: calc(-#{$fau-gutter-width} / 2);
-	    margin-right: calc(-#{$fau-gutter-width} / 2);
+	    margin-left: $fau-gutter-halfwidth;
+	    margin-right: $fau-gutter-halfwidth;
 	    width: 100vw;
 	    max-width: 100vw;
 	    
@@ -140,7 +148,7 @@ main, aside, .portalpage-sidebar, .widget {
 		float: right;	 
 	    }
 	}
-	&.alignnone{
+	&.alignnone {
 	    text-align: left;
 	    float: none;
 
@@ -158,9 +166,9 @@ figcaption {
 	@include px2rem($font-size-image-caption);
 	padding: 0.3rem;
 	
-	 @media (min-width: $screen-xs) {
-	     padding: 0.3rem 0 0.3rem 0;
-	 }
+	@media (min-width: $screen-xs) {
+	     padding: 0.3rem 0;
+	}
 }
 
 

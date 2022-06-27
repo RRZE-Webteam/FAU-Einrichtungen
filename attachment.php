@@ -14,8 +14,8 @@ while ( have_posts() ) : the_post(); ?>
 
 	<?php get_template_part('template-parts/hero', 'small'); ?>
 	<div id="content">
-		<div class="container">
-			<div class="row">
+		<div class="content-container">
+		    <div class="content-row">
 					
 			    <main>
 				<h1 class="screen-reader-text"><?php the_title(); ?></h1>

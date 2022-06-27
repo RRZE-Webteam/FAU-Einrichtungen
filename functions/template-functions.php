@@ -33,71 +33,70 @@ function fau_body_class($classes) {
 
    
     if ($posttype == 'page') {
-	
-	$page_sidebar = get_theme_mod('advanced_page_sidebar_wpsidebar');
-	if ($page_sidebar && is_active_sidebar($defaultoptions['advanced_page_sidebar_wpsidebar_id'])) {
-		$is_sidebar_active = true;
-		$classes[]         = 'page-sidebar';
-	} else {   
-	    global $post;
-	    $sidebarfilled = false;
-	    $titleup = get_post_meta( $post->ID, 'sidebar_title_above', true );
-	    $textup = get_post_meta( $post->ID, 'sidebar_text_above', true );
-	    $titledown = get_post_meta( $post->ID, 'sidebar_title_below', true );
-	    $textdown = get_post_meta( $post->ID, 'sidebar_text_below', true );
+		$page_sidebar = get_theme_mod('advanced_page_sidebar_wpsidebar');
+		if ($page_sidebar && is_active_sidebar($defaultoptions['advanced_page_sidebar_wpsidebar_id'])) {
+			$is_sidebar_active = true;
+			$classes[]         = 'page-sidebar';
+		} else {   
+			global $post;
+			$sidebarfilled = false;
+			$titleup = get_post_meta( $post->ID, 'sidebar_title_above', true );
+			$textup = get_post_meta( $post->ID, 'sidebar_text_above', true );
+			$titledown = get_post_meta( $post->ID, 'sidebar_title_below', true );
+			$textdown = get_post_meta( $post->ID, 'sidebar_text_below', true );
 
-	    if ($titleup || $titledown || $textup || $textdown) {
-		$sidebarfilled = true;
-	    } else {
-		$foundlink = 0;   
-		$linkblock1_number = get_theme_mod('advanced_page_sidebar_linkblock1_number');
-		if ($linkblock1_number > 0) {	
-		    for ($i = 1; $i <= $linkblock1_number; $i++) {	
-			$name = 'fauval_linkblock1_link'.$i;
-			$urlname= $name.'_url';
-			$oldurl =  get_post_meta( $post->ID, $urlname, true );
-			$oldid =  get_post_meta( $post->ID, $name, true );
-			if ($oldid || !empty($oldurl)) {
-			    $foundlink = 1;    
+			if ($titleup || $titledown || $textup || $textdown) {
+				$sidebarfilled = true;
+			} else {
+				$foundlink = 0;   
+				$linkblock1_number = get_theme_mod('advanced_page_sidebar_linkblock1_number');
+				if ($linkblock1_number > 0) {	
+					for ($i = 1; $i <= $linkblock1_number; $i++) {	
+					$name = 'fauval_linkblock1_link'.$i;
+					$urlname= $name.'_url';
+					$oldurl =  get_post_meta( $post->ID, $urlname, true );
+					$oldid =  get_post_meta( $post->ID, $name, true );
+					if ($oldid || !empty($oldurl)) {
+						$foundlink = 1;    
+					}
+				}
 			}
-		    }
+			if ($foundlink) {
+				$sidebarfilled = true;
+			} else {
+				$linkblock2_number = get_theme_mod('advanced_page_sidebar_linkblock2_number');
+				if ($linkblock2_number > 0) {	
+					for ($i = 1; $i <= $linkblock2_number; $i++) {	
+						$name = 'fauval_linkblock2_link'.$i;
+						$urlname= $name.'_url';
+						$oldurl =  get_post_meta( $post->ID, $urlname, true );
+						$oldid =  get_post_meta( $post->ID, $name, true );
+						if ($oldid || !empty($oldurl)) {
+							$foundlink = 1;    
+						}
+					}
+				}
+
+				if ($foundlink) {
+					$sidebarfilled = true;
+				} else {
+					$sidebar_personen = get_post_meta( $post->ID, 'sidebar_personen', true );
+					if ($sidebar_personen) {
+					   $sidebarfilled = true;
+					}
+				}
+			}
+
+			}
+
+
+			if ($sidebarfilled) { 
+				$is_sidebar_active = true;
+				$classes[]         = 'page-sidebar';
+			}
+
+
 		}
-		if ($foundlink) {
-		    $sidebarfilled = true;
-		} else {
-		    $linkblock2_number = get_theme_mod('advanced_page_sidebar_linkblock2_number');
-		    if ($linkblock2_number > 0) {	
-			for ($i = 1; $i <= $linkblock2_number; $i++) {	
-			    $name = 'fauval_linkblock2_link'.$i;
-			    $urlname= $name.'_url';
-			    $oldurl =  get_post_meta( $post->ID, $urlname, true );
-			    $oldid =  get_post_meta( $post->ID, $name, true );
-			    if ($oldid || !empty($oldurl)) {
-				$foundlink = 1;    
-			    }
-			}
-		    }
-
-		    if ($foundlink) {
-			$sidebarfilled = true;
-		    } else {
-			$sidebar_personen = get_post_meta( $post->ID, 'sidebar_personen', true );
-			if ($sidebar_personen) {
-			   $sidebarfilled = true;
-			}
-		    }
-		}
-
-	    }
-
-
-	    if ($sidebarfilled) { 
-		$is_sidebar_active = true;
-		$classes[]         = 'page-sidebar';
-	    }
-    
-	    
-	}
     }
    
     if (($posttype == 'post') && is_active_sidebar('news-sidebar')) {
@@ -171,10 +170,26 @@ function fau_body_class($classes) {
         $classes[] = 'fauorg-unterorg';
     }
 
-    $header_image = get_header_image();
-    if (empty($header_image)) {
-        $classes[] = 'nologo';
+    
+    $show_customlogo = false;
+    $custom_logo_id  = get_theme_mod('custom_logo');
+    $logo_src        = '';
+    if ($custom_logo_id) {
+	$logo            = wp_get_attachment_image_src($custom_logo_id, 'full');
+	$logo_src        = $logo[0];
+	$show_customlogo = true;
+	if (!empty($logo_src)) {
+	    if (preg_match('/\/themes\/FAU\-[a-z]+\/img\/logos\//i', $logo_src,  $match)) {
+		$show_customlogo = false;
+		// Version 2: Check for old Images in theme, that was chosen in customizer, but removed
+		// from code later. In this case, ignore this entry.
+	    }
+	}
     }
+    if ($show_customlogo===false) {
+	$classes[] = 'nologo';
+    }
+    
 
     $sitetitle = get_bloginfo('title');
     if (strlen($sitetitle) > 50) {
@@ -203,12 +218,13 @@ function fau_body_class($classes) {
     
     $classes[] = 'mainnav-plainview';
 
-
-
- //   if (('' != get_theme_mod('advanced_display_header_md-showsitelogo')) && (true == get_theme_mod('advanced_display_header_md-showsitelogo'))) {
- //       $classes[] = 'md-showsitelogo';
- //   }
-
+	if (false == get_theme_mod('advanced_header_banner_display_slogan')) {
+        $classes[] = 'hide-banner-slogan';
+    }
+	if (false == get_theme_mod('advanced_header_banner_display_title')) {
+        $classes[] = 'hide-banner-title';
+    }
+	
 
  
    
@@ -1719,8 +1735,7 @@ function fau_get_image_figcaption($atts = array(), $type = 'post-image', $class 
 /*-----------------------------------------------------------------------------------*/
 /* create HTML for image with srcset-codes
 /*-----------------------------------------------------------------------------------*/
-function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array())
-{
+function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array()) {
     if ($id == 0) {
         return;
     }
@@ -1750,6 +1765,8 @@ function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $
         $imgsrcset   = wp_get_attachment_image_srcset($id, $size);
         $imgsrcsizes = wp_get_attachment_image_sizes($id, $size);
         $alttext     = esc_html($alttext);
+	
+	
         if (!isset($alttext)) {
             $imgmeta = fau_get_image_attributs($id);
             $alttext = $imgmeta['alt'];

@@ -4,9 +4,9 @@
 
 :root {
    
-     @each $variante, $colorcode  in $colormap-primary {	    
-	 --color-primary-#{$variante}: #{$colorcode};
-     }
+//   @each $variante, $colorcode  in $colormap-primary {	    
+//	 --color-primary-#{$variante}: #{$colorcode};
+//     }
      @each $farbtyp, $map in $colormaps {		
 	$colorcode: map-get($map, "basis");
 	--color-#{$farbtyp}-basis: #{$colorcode};

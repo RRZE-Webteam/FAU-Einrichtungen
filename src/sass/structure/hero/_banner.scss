@@ -7,7 +7,6 @@
 	    height: auto;
 	    overflow: inherit;
 	    background: var(--color-hero-bg);
-
 	    @media (min-width: $screen-sm) {
 		 max-height: 142px;
 	    }
@@ -138,6 +137,11 @@
 	    
 }
 
+.hide-banner-title .hero-banner .infobar .sitetitle,
+.hide-banner-slogan .hero-banner .infobar .slogan {
+    @include sr-only();
+}
+
 
 @media (max-width: $screen-xs - 1) {
     .page-template-page-start-sub  {
@@ -168,7 +172,5 @@
     @media (min-width: $screen-xs) {
         display: inline-block;
     }
-
-    
 }
 

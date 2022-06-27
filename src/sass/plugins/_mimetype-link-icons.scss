@@ -1,0 +1,17 @@
+/*-----------------------------------------------------------------------------------*/
+/* CSS Definitionen für das Plugin MimeTypes Link Icons
+/* https://wordpress.org/plugins/mimetypes-link-icons
+/*-----------------------------------------------------------------------------------*/
+
+.widget {
+    li a.mtli_attachment {
+	background-position: right !important;
+	padding-left: 0 !important;
+	padding-right: 20px !important;
+    }
+}
+
+a.mtli_attachment {
+    background: none !important; 
+    padding-left: 0 !important;
+}

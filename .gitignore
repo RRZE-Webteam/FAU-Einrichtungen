@@ -2,7 +2,6 @@
 nbproject/project.properties
 /nbproject/private/
 nbproject/project.xml
-img/logos/Browse.plb
 node_modules
 .idea*
 .sass-cache*
@@ -11,3 +10,5 @@ tmp
 .vscode/sftp.json
 *.map
 /npm-debug.log
+.DS_Store
+Browse.plb

@@ -10,7 +10,7 @@
 
 $menuslug = get_post_meta( $post->ID, 'portalmenu-slug_oben', true );	
 if ($menuslug) { 	
-    echo '<div class="content-row">';
+    echo '<div class="content-row portalmenu-oben">';
      $shortcodeopt = 'menu="'.$menuslug.'"';
    
     $nosub  = get_post_meta( $post->ID, 'fauval_portalmenu_nosub_oben', true );  

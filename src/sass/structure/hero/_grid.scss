@@ -7,11 +7,10 @@
     margin-right: auto;
     margin-left: auto;
     width: 100%;
-
+    padding-left:  $fau-gutter-halfwidth;
+    padding-right: $fau-gutter-halfwidth;
 
     @media (min-width: $screen-sm) {
-	padding-left:  floor(math.div($grid-gutter-width, 2));
-	padding-right: ceil(math.div($grid-gutter-width, 2));
 	width: $container-sm;
     }
      @media (min-width: $screen-md) {
@@ -20,5 +19,11 @@
     @media (min-width: $screen-lg-min) {
 	width: $container-lg;
     }
+    @media (min-width: $screen-xl-min) {
+        width: $container-xl;
+    }
 
-}
+    .hero-row {
+
+    }
+} 

@@ -1,10 +1,12 @@
-
-
 // Import FAU variables
 @import "variables";
 
 // Custom Properties
 @import "custom-properties";
+
+// Mixins
+@import "mixins/mixins";
+
 
 // Reset Base styles
 @import "reset";
@@ -16,25 +18,15 @@
 @import "icons/icons";
 
 
-// Mixins
-@import "mixins/mixins";
 
 // Fonts
 @import "fonts/fonts";
 
-
-
 // Element Styles
-@import "elements/elements"; 
+@import "elements/elements";
 
 // Structure
 @import "structure/structure";
 
-
 // Plugin-Support
 @import "plugins/plugins";
-
-
-
-// Printer Adjustments
-@import "printer";
