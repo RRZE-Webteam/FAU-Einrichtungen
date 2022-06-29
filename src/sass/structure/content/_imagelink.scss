@@ -41,7 +41,7 @@
 	    height: auto;
 	    margin: 0 10px;
 	    
-	    a {
+	    a, .image {
 		height: 150px;		
 		display: flex;
 		margin: auto;		
@@ -99,6 +99,7 @@
 	.post-thumbnails .slick-item {
 	    margin: 10px 2px;
 	}
+	.slick-item.rounded .image,
 	.slick-item.rounded a {
 	    aspect-ratio: 1 / 1;
 	    height: auto;
@@ -284,6 +285,7 @@
 		border-color: var(--color-primary-dunkelste);
 	    }
 		
+	    .image,
 	    a {
 		margin: auto;
 		vertical-align: middle;
@@ -307,6 +309,7 @@
 		border-width: 2px;
 		border-color: var(--color-ContentBorders);
 		
+		.image,
 		a {
 		    padding: 5px;
 		}

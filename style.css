@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.2-0
+Version: 2.1.2-1
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -13702,7 +13702,7 @@ main .news-more-links .news-rss:hover:before {
   height: auto;
   margin: 0 10px;
 }
-.imagelink .slick-slide a {
+.imagelink .slick-slide a, .imagelink .slick-slide .image {
   height: 150px;
   display: flex;
   margin: auto;
@@ -13748,6 +13748,7 @@ main .news-more-links .news-rss:hover:before {
 .imagelink .post-thumbnails .slick-item {
   margin: 10px 2px;
 }
+.imagelink .slick-item.rounded .image,
 .imagelink .slick-item.rounded a {
   aspect-ratio: 1/1;
   height: auto;
@@ -13887,6 +13888,7 @@ main .news-more-links .news-rss:hover:before {
 .imagelink.list .slick-item:active, .imagelink.list .slick-item:focus-within, .imagelink.list .slick-item:hover, .imagelink.list .slick-item:focus {
   border-color: var(--color-primary-dunkelste);
 }
+.imagelink.list .slick-item .image,
 .imagelink.list .slick-item a {
   margin: auto;
   vertical-align: middle;
@@ -13906,6 +13908,7 @@ main .news-more-links .news-rss:hover:before {
   border-width: 2px;
   border-color: var(--color-ContentBorders);
 }
+.imagelink.list .slick-item.rounded .image,
 .imagelink.list .slick-item.rounded a {
   padding: 5px;
 }
