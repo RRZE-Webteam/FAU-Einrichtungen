@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.2-1
+Version: 2.1.2-3
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -5640,9 +5640,13 @@ main .prevlink-ghostbutton:focus:before, main .prevlink-ghostbutton:hover:before
 .content-inline .prevlink-ghostbutton:hover:before {
   background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFFFFF" d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"/%3E%3C/svg%3E%0A');
 }
+main figure > a,
 main a.media-img,
+.entry-content figure > a,
 .entry-content a.media-img,
+.portalpage-content figure > a,
 .portalpage-content a.media-img,
+.content-inline figure > a,
 .content-inline a.media-img {
   box-shadow: none;
   transition: initial;
@@ -5653,11 +5657,19 @@ main a.media-img,
           text-decoration-color: currentcolor;
   display: inline-block;
 }
-main a.media-img:hover, main a.media-img:focus,
+main figure > a:hover, main figure > a:focus,
+main a.media-img:hover,
+main a.media-img:focus,
+.entry-content figure > a:hover,
+.entry-content figure > a:focus,
 .entry-content a.media-img:hover,
 .entry-content a.media-img:focus,
+.portalpage-content figure > a:hover,
+.portalpage-content figure > a:focus,
 .portalpage-content a.media-img:hover,
 .portalpage-content a.media-img:focus,
+.content-inline figure > a:hover,
+.content-inline figure > a:focus,
 .content-inline a.media-img:hover,
 .content-inline a.media-img:focus {
   box-shadow: none;
@@ -5666,95 +5678,155 @@ main a.media-img:hover, main a.media-img:focus,
   -webkit-text-decoration-color: currentcolor;
           text-decoration-color: currentcolor;
 }
+main figure > a img,
 main a.media-img img,
+.entry-content figure > a img,
 .entry-content a.media-img img,
+.portalpage-content figure > a img,
 .portalpage-content a.media-img img,
+.content-inline figure > a img,
 .content-inline a.media-img img {
   box-shadow: none;
   border: 0;
 }
 @media (min-width: 480px) {
-  main a.media-img img,
+  main figure > a img,
+main a.media-img img,
+.entry-content figure > a img,
 .entry-content a.media-img img,
+.portalpage-content figure > a img,
 .portalpage-content a.media-img img,
+.content-inline figure > a img,
 .content-inline a.media-img img {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     padding: 2px;
   }
 }
 @media (min-width: 480px) {
-  main a.media-img img.polaroid,
+  main figure > a img.polaroid,
+main a.media-img img.polaroid,
+.entry-content figure > a img.polaroid,
 .entry-content a.media-img img.polaroid,
+.portalpage-content figure > a img.polaroid,
 .portalpage-content a.media-img img.polaroid,
+.content-inline figure > a img.polaroid,
 .content-inline a.media-img img.polaroid {
     padding: 5px;
   }
 }
+main figure > a img.thickborder,
 main a.media-img img.thickborder,
+.entry-content figure > a img.thickborder,
 .entry-content a.media-img img.thickborder,
+.portalpage-content figure > a img.thickborder,
 .portalpage-content a.media-img img.thickborder,
+.content-inline figure > a img.thickborder,
 .content-inline a.media-img img.thickborder {
   border: 2px solid var(--color-ContentBorders);
   border-radius: 2px;
   background-clip: padding-box;
 }
+main figure > a img.noshadow,
 main a.media-img img.noshadow,
+.entry-content figure > a img.noshadow,
 .entry-content a.media-img img.noshadow,
+.portalpage-content figure > a img.noshadow,
 .portalpage-content a.media-img img.noshadow,
+.content-inline figure > a img.noshadow,
 .content-inline a.media-img img.noshadow {
   box-shadow: none;
 }
+main figure > a:hover img,
+main figure > a:focus img,
 main a.media-img:hover img,
 main a.media-img:focus img,
+.entry-content figure > a:hover img,
+.entry-content figure > a:focus img,
 .entry-content a.media-img:hover img,
 .entry-content a.media-img:focus img,
+.portalpage-content figure > a:hover img,
+.portalpage-content figure > a:focus img,
 .portalpage-content a.media-img:hover img,
 .portalpage-content a.media-img:focus img,
+.content-inline figure > a:hover img,
+.content-inline figure > a:focus img,
 .content-inline a.media-img:hover img,
 .content-inline a.media-img:focus img {
   border: 2px solid var(--color-content-links-underline);
   padding: 0;
 }
 @media (min-width: 480px) {
-  main a.media-img:hover img.polaroid,
+  main figure > a:hover img.polaroid,
+main figure > a:focus img.polaroid,
+main a.media-img:hover img.polaroid,
 main a.media-img:focus img.polaroid,
+.entry-content figure > a:hover img.polaroid,
+.entry-content figure > a:focus img.polaroid,
 .entry-content a.media-img:hover img.polaroid,
 .entry-content a.media-img:focus img.polaroid,
+.portalpage-content figure > a:hover img.polaroid,
+.portalpage-content figure > a:focus img.polaroid,
 .portalpage-content a.media-img:hover img.polaroid,
 .portalpage-content a.media-img:focus img.polaroid,
+.content-inline figure > a:hover img.polaroid,
+.content-inline figure > a:focus img.polaroid,
 .content-inline a.media-img:hover img.polaroid,
 .content-inline a.media-img:focus img.polaroid {
     padding: 3px;
   }
 }
+main figure > a:hover img.thickborder,
+main figure > a:focus img.thickborder,
 main a.media-img:hover img.thickborder,
 main a.media-img:focus img.thickborder,
+.entry-content figure > a:hover img.thickborder,
+.entry-content figure > a:focus img.thickborder,
 .entry-content a.media-img:hover img.thickborder,
 .entry-content a.media-img:focus img.thickborder,
+.portalpage-content figure > a:hover img.thickborder,
+.portalpage-content figure > a:focus img.thickborder,
 .portalpage-content a.media-img:hover img.thickborder,
 .portalpage-content a.media-img:focus img.thickborder,
+.content-inline figure > a:hover img.thickborder,
+.content-inline figure > a:focus img.thickborder,
 .content-inline a.media-img:hover img.thickborder,
 .content-inline a.media-img:focus img.thickborder {
   border: 2px solid var(--color-content-links-underline);
 }
 @media (min-width: 480px) {
-  main a.media-img:hover img.thickborder,
+  main figure > a:hover img.thickborder,
+main figure > a:focus img.thickborder,
+main a.media-img:hover img.thickborder,
 main a.media-img:focus img.thickborder,
+.entry-content figure > a:hover img.thickborder,
+.entry-content figure > a:focus img.thickborder,
 .entry-content a.media-img:hover img.thickborder,
 .entry-content a.media-img:focus img.thickborder,
+.portalpage-content figure > a:hover img.thickborder,
+.portalpage-content figure > a:focus img.thickborder,
 .portalpage-content a.media-img:hover img.thickborder,
 .portalpage-content a.media-img:focus img.thickborder,
+.content-inline figure > a:hover img.thickborder,
+.content-inline figure > a:focus img.thickborder,
 .content-inline a.media-img:hover img.thickborder,
 .content-inline a.media-img:focus img.thickborder {
     padding: 2px;
   }
 }
+main figure > a:hover img.circle.rotate,
+main figure > a:focus img.circle.rotate,
 main a.media-img:hover img.circle.rotate,
 main a.media-img:focus img.circle.rotate,
+.entry-content figure > a:hover img.circle.rotate,
+.entry-content figure > a:focus img.circle.rotate,
 .entry-content a.media-img:hover img.circle.rotate,
 .entry-content a.media-img:focus img.circle.rotate,
+.portalpage-content figure > a:hover img.circle.rotate,
+.portalpage-content figure > a:focus img.circle.rotate,
 .portalpage-content a.media-img:hover img.circle.rotate,
 .portalpage-content a.media-img:focus img.circle.rotate,
+.content-inline figure > a:hover img.circle.rotate,
+.content-inline figure > a:focus img.circle.rotate,
 .content-inline a.media-img:hover img.circle.rotate,
 .content-inline a.media-img:focus img.circle.rotate {
   transform: rotateZ(20deg);

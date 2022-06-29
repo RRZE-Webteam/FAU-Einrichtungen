@@ -129,7 +129,7 @@ main,
     }
    
     
-    
+    figure > a,
     a.media-img {
 	@include defaultlinkstyle();
 	display: inline-block;
@@ -152,6 +152,8 @@ main,
 	}
 
     }
+    figure > a:hover,
+    figure > a:focus,
     a.media-img:hover, 
     a.media-img:focus {
 	img {
