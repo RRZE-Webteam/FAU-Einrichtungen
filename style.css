@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.2-3
+Version: 2.1.2-4
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -9924,6 +9924,10 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub > [type=button]:f
 }
 body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav-flyout {
   display: block;
+}
+.nav > li.has-sub > [type=button][aria-expanded=true] {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 .nav > li.has-sub > [type=button][aria-expanded=true]:before {
   transform: rotate(-180deg);
