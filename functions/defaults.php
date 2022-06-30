@@ -100,8 +100,8 @@ $default_link_liste = array(
 
 	'meta' => array(
 	    'link1'  => array(
-		'name'	    => __('Mein Campus', 'fau' ),
-		'content'  => 'https://campus.fau.de/',
+		'name'	    => __('Campo', 'fau' ),
+		'content'  => 'https://campo.fau.de/',
 	    ),
 	    'link2'  => array(
 		'name'	    => __('UnivIS', 'fau' ),

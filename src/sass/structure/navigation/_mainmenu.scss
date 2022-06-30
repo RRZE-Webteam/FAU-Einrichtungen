@@ -60,7 +60,6 @@
                     transition: transform .2s ease-in-out;
                 }
             }
-
             &:hover {
                 > a {
                     @include border-bottom-radius(0);
@@ -81,6 +80,7 @@
             }
 
             > [type=button][aria-expanded=true] {
+		@include border-bottom-radius(0);
                 &:before {
                     transform: rotate(-180deg);
                 }
@@ -422,6 +422,8 @@
                         right: 11px;
                     }
                 }
+		
+
             }
         }
 
