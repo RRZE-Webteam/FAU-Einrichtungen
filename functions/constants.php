@@ -395,6 +395,9 @@ function fau_get_searchable_fields() {
     if (class_exists('FAU_Person')) {
 	$search_post_types[] ='person';
     }
+    if (post_type_exists('faq')) {
+        $search_post_types[] = 'faq';
+    }
     return $search_post_types;
 }
 /*--------------------------------------------------------------------*/
