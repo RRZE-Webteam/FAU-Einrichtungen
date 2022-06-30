@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 80,
+    'optiontable-version'	=> 81,
 		// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 		// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 		// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -248,6 +248,15 @@ $defaultoptions = [
 		//  'advanced_display_header_md-showsitelogo'	=> false,
 		// Zeigt bei der mobilen Ansicht statt dem Logo der Website das 
 		// CI Logo der FAU anstelle des Logos der Website
+    'advanced_display_portalmenu_button'    => true,
+		// Per Default wird ein Button zur Verlinkung der jeweiligen 
+		// Menüoberseite im Flyout angezeigt.
+		// Wenn das Flyout jedoch auf Hover/Focus öffnet, kann der Button 
+		// weggelassen werden, da dann auch der Klick auf den Hauptmenüpunkt 
+		// wirksam ist.
+		// Diese Option wirkt nicht, wenn das Menü einen Klick 
+		// erfordert um zu öffnen.
+		
     'advanced_header_template'	=> '',
 		// Anzeigeform des Heros bei Index- und Kategorieseiten
     'advanced_template_page_start_display_content'  => false,
@@ -1056,7 +1065,13 @@ $setoptions = array(
 		    'title'   => __( 'Hauptmenü', 'fau' ),                      
 		),
 	       
-	    
+	       'advanced_display_portalmenu_button' => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Menü Portal-Button anzeigen', 'fau' ),
+                  'label'   => __( 'Der Button im Aufklappmenü verlinkt zur Seite des gewählten Oberpunktes. Mit dieser Option kann das Button bei Menüs, die nicht auf Klick, sondern auf Maushover öffnen, deaktiviert werden. Diese Option wirkt nicht, wenn das Menü einen Klick erfordert um zu öffnen.', 'fau' ),               
+                  'default' => $defaultoptions['advanced_display_portalmenu_button'],
+		  'parent'  => 'topmenulinks'
+		),  
 	        'menu_pretitle_portal' => array(
                   'type'    => 'text',
                   'title'   => __( 'Menü Portal-Button (Vortitel)', 'fau' ),

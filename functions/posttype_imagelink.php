@@ -241,19 +241,23 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 			$currenturl  = get_post_meta( $item->ID, 'fauval_imagelink_url', true );
 			$imageid = get_post_thumbnail_id( $item->ID ); 
 			
-			if ((!empty($currenturl)) && ($imageid > 0)) {
+			if ($imageid > 0) {
 				$number++;
 				$item_output .= '<div class="slick-item';
 				if (!empty($imagelink_option['class'])) {
 					$item_output .= ' '.$imagelink_option['class'];
 				}
 				$item_output .= '">';
-				$item_output .= '<a';
-				if (fau_is_url_external($currenturl)) {
-					$item_output .= ' rel="nofollow"';
+				if (!empty($currenturl)) {
+				    $item_output .= '<a';
+				    if (fau_is_url_external($currenturl)) {
+					    $item_output .= ' rel="nofollow"';
+				    }
+
+				    $item_output .= ' href="'.$currenturl.'">';
+				} else {
+				     $item_output .= '<span class="image">';
 				}
-				
-				$item_output .= ' href="'.$currenturl.'">';
 				$alttext = get_the_title($item->ID);
 				$alttext = esc_html($alttext);
 				if (empty($alttext)) {
@@ -261,7 +265,11 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 				}
 				$item_output .= fau_get_image_htmlcode($imageid, 'rwd-480-3-2', $alttext);
 		//		$item_output .= fau_get_image_htmlcode($imageid, $imagelink_option['size'], $alttext);
-				$item_output .= '</a>';
+				if (!empty($currenturl)) {
+				    $item_output .= '</a>';
+				} else {
+				    $item_output .= '</span>';
+				}
 				$item_output .= '</div>';
 			}
 		}
