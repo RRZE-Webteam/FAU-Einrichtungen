@@ -33,7 +33,7 @@ if (isset($banner) && ($banner > 0)) {
     $height = get_theme_mod('default_startseite-bannerbild-image_height');
     $crop = get_theme_mod('default_startseite-bannerbild-image_crop');
 
-    $image = '<img src="'.fau_esc_url($url).'" width="'.$width.'" height="'.$height.'" alt="">';	
+    $image = '<img src="'.fau_esc_url($url).'" width="'.$width.'" height="'.$height.'" alt="" loading="lazy">';	
 } else {
     $image = '';
 }

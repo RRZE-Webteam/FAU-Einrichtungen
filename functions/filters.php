@@ -176,7 +176,7 @@ function fau_add_classes_to_linked_images($content) {
     $classes = 'media-img'; // can do multiple classes, separate with space
 
     if (preg_match('/<a href=\"([^\"]+)\.(bmp|gif|jpeg|jpg|png)(?![\w.\-_])\"><img/i', $content) ) {
-	// link geht auf die Bilddtaie direkt, ergänze daher die class lightbox, bisher keine class gesetzt
+	// link geht auf die Bilddatei direkt, ergänze daher die class lightbox, bisher keine class gesetzt
 	$pattern = '/<a href=\"([^\"]+)\.(bmp|gif|jpeg|jpg|png)(?![\w.\-_])\"><img/i';
 	$replacement = '<a class="lightbox" href="$1.$2"><img';
 	$content = preg_replace($pattern, $replacement, $content);
