@@ -28,7 +28,7 @@
 		// Only Posts please :)
 		echo '<input type="hidden" name="post_type[]" value="post">'."\n";		
 	    } else {
-		$listtypes = get_theme_mod('search_post_types');
+		$listtypes = fau_get_searchable_fields(); // get_theme_mod('search_post_types');
 		$autosearch_types =  get_theme_mod('search_post_types_checked');
 		foreach ($listtypes as $type) {
 		   if (in_array($type, $autosearch_types)) { 
