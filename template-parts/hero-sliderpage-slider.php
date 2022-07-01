@@ -105,7 +105,7 @@
 			     $slidersrc .= ' sizes="'.$slidersrcsizes.'"';
 			}
 		    }
-		    $slidersrc .= ' role="presentation">';
+		    $slidersrc .= ' role="presentation" loading="lazy">';
 		    echo $slidersrc."\n"; 
 
 

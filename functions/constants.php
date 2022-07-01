@@ -386,16 +386,41 @@ function fau_compatible_header_logo() {
 /*--------------------------------------------------------------------*/
 /* Suchfelder
 /*--------------------------------------------------------------------*/
-function fau_get_searchable_fields() {
-    $search_post_types = array("page", "post", "attachment");
+function fau_get_searchable_fields($format = 'array') {
+  //  $search_post_types = array("page", "post", "attachment");
+    $search_post_typelist  = array(
+	"page"		=> __('Seiten','fau'),
+	"post"		=> __('Artikel','fau'),
+	"attachment"	=> __('Dokumente und Bilder','fau'),
+    );
     
     if (class_exists('FAU_Studienangebot')) {
-	$search_post_types[] ='studienangebot';
+//	$search_post_types[] ='studienangebot';
+	$addsearch=  array('studienangebot' => __('Studienangebot','fau'));
+	$search_post_typelist = array_merge($search_post_typelist, $addsearch);
     }
     if (class_exists('FAU_Person')) {
-	$search_post_types[] ='person';
+//	$search_post_types[] ='person';
+	$addsearch = array('person' => __('Kontakte','fau'));
+	$search_post_typelist = array_merge($search_post_typelist, $addsearch);
     }
+     if (class_exists('RRZE\FAQ\CPT')) {
+  //      $search_post_types[] = 'faq';
+	$addsearch= array('faq' => __('Fragen und Antworten','fau'));
+	$search_post_typelist = array_merge($search_post_typelist, $addsearch);
+    }
+    
+    if ($format === 'list') {
+	return $search_post_typelist;
+    } else {
+	return array_keys($search_post_typelist);
+    }
+    
     return $search_post_types;
+    
+    
+
+    
 }
 /*--------------------------------------------------------------------*/
 /* Erstelle globale Kategorieliste 
@@ -984,11 +1009,12 @@ $setoptions = array(
 		    'type'    => 'multiselectlist',
 		    'title'   => __( 'Filter', 'fau' ),
 		    'label'   => __( 'Vorab aktivierte Suchbereiche des Filters. In diesen wird gesucht, wenn der Nutzer der Seite keine Auswahl trifft oder diese nicht zur Verfügung gestellt wird.', 'fau' ),
-		    'liste'   => array(
+		    'listeold'   => array(
 				"page"		=> __('Seiten','fau'),
       				"post"		=> __('Artikel','fau'),
 				"attachment"	=> __('Dokumente und Bilder','fau'),
 		      ),
+		    'liste' => fau_get_searchable_fields('list'),
 		    'default' => $defaultoptions['search_post_types_checked'],
 		    'parent'  => 'suchergebnisse'
             ),     

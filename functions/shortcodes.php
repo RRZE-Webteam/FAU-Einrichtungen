@@ -25,9 +25,7 @@ class FAUShortcodes {
             // Portalmenu
             add_shortcode( 'portalmenu', array( $this, 'fau_portalmenu'));
 
-
 	}
-
 
         /*-----------------------------------------------------------------------------------*/
         /* Portalmenus als Shortcode
@@ -49,10 +47,10 @@ class FAUShortcodes {
             $error .= "name=$menu";
             if (! fau_empty($menu)) {
 		
-				$showsubs = filter_var($showsubs, FILTER_VALIDATE_BOOLEAN);
-				$nothumbs = filter_var($nothumbs, FILTER_VALIDATE_BOOLEAN);
-				$nofallback = filter_var($nofallback, FILTER_VALIDATE_BOOLEAN);
-				$skewed = filter_var($skewed, FILTER_VALIDATE_BOOLEAN);
+		$showsubs = filter_var($showsubs, FILTER_VALIDATE_BOOLEAN);
+		$nothumbs = filter_var($nothumbs, FILTER_VALIDATE_BOOLEAN);
+		$nofallback = filter_var($nofallback, FILTER_VALIDATE_BOOLEAN);
+		$skewed = filter_var($skewed, FILTER_VALIDATE_BOOLEAN);
 		
 		
                 if ($menu == sanitize_key($menu)) {
@@ -63,35 +61,35 @@ class FAUShortcodes {
                 if ($term===false) {
                     $out = $error;
                 } else {
-					$slug = $term->slug;
-					$subentries = get_theme_mod('default_submenu_entries');
+		    $slug = $term->slug;
+		    $subentries = get_theme_mod('default_submenu_entries');
                     if ($showsubs===false) {
                         $subentries = 0;
                     }
-					//    $spalte = get_theme_mod('default_submenu_spalten');
+		    //    $spalte = get_theme_mod('default_submenu_spalten');
 
-					$a_contentmenuclasses[] = 'contentmenu';
-					$thumbnail = 'rwd-480-2-1';
-					$type = intval($type);
+		    $a_contentmenuclasses[] = 'contentmenu';
+		    $thumbnail = 'rwd-480-2-1';
+		    $type = intval($type);
 
-					switch ($type) {
-								case 1:
-						$thumbnail = 'rwd-480-2-1';
-						 $a_contentmenuclasses[] = 'size_2-1';
-									break;
-								case 2:
-						$a_contentmenuclasses[] = 'size_3-2';
-								$thumbnail = 'full';
-									break;
-								case 3:
-						$a_contentmenuclasses[] = 'size_3-4';
-									$thumbnail = 'full';
-									break;
-								default:
-						$thumbnail = 'rwd-480-2-1';
-									$type = 1;
-									break;
-					}
+		    switch ($type) {
+			case 1:
+			    $thumbnail = 'rwd-480-2-1';
+			    $a_contentmenuclasses[] = 'size_2-1';
+			    break;
+			case 2:
+			    $a_contentmenuclasses[] = 'size_3-2';
+			    $thumbnail = 'full';
+			    break;
+			case 3:
+			    $a_contentmenuclasses[] = 'size_3-4';
+			    $thumbnail = 'full';
+			    break;
+			default:
+			    $thumbnail = 'rwd-480-2-1';
+			    $type = 1;
+			    break;
+		    }
                     
                     
 
@@ -102,17 +100,17 @@ class FAUShortcodes {
                     	$a_contentmenuclasses[] = 'no-sub';
                     }
                     if ($nofallback === true) {
-						$a_contentmenuclasses[] = 'no-fallback';
-					}
+			$a_contentmenuclasses[] = 'no-fallback';
+		    }
                     if ($nothumbs === true) {
-						$a_contentmenuclasses[] = 'no-thumb';
-					}
+			$a_contentmenuclasses[] = 'no-thumb';
+		    }
                     $out .= '<div class="'. implode(' ',$a_contentmenuclasses) . '" role="navigation" aria-label="'.__('Inhaltsmenü','fau').'">';
                     $out .= '<ul class="subpages-menu">';
                     $outnav = wp_nav_menu( array( 'menu' => $slug,
                         'echo'          => false,
                         'container'     => true,
-						'items_wrap'     => '%3$s',
+			'items_wrap'     => '%3$s',
                         'link_before'   => '',
                         'link_after'    => '',
                         'item_spacing'  => 'discard',
