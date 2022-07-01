@@ -568,8 +568,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
 
-    function end_el(&$output, $item, $depth = 0, $args = array())
-    {
+    function end_el(&$output, $item, $depth = 0, $args = array())  {
 
         if ($this->level == 1 ||
             ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub)) {

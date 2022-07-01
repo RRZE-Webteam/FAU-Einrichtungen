@@ -51,9 +51,7 @@ function fau_add_metabox_page() {
     
     add_meta_box(
         'fau_metabox_page_untertitel',			
-        esc_html__( 'Untertitel', 'fau' ),		
-        'fau_do_metabox_page_untertitel',		
-        'page','normal','low',
+        esc_html__( 'Untertitel', 'fau' ), 'fau_do_metabox_page_untertitel', 'page','normal','low',
 	array(
 	    '__block_editor_compatible_meta_box' => true,
 	)
@@ -403,17 +401,10 @@ function fau_save_metabox_post_untertitel($post_id, $post) {
     if (!current_user_can('edit_post', $post_id)) {
         return;
     }
-
+    
     $newval = isset($_POST['fau_metabox_post_untertitel']) ? sanitize_text_field($_POST['fau_metabox_post_untertitel']) : '';
-    $oldval = get_post_meta($post_id, 'fauval_untertitel', true);
+    fau_save_standard('fauval_untertitel', $newval, $post_id, 'post', 'text');
 
-    if (!empty($newval) && !empty($oldval)) {
-        update_post_meta($post_id, 'fauval_untertitel', $newval);
-    } elseif (!empty($newval) && empty($oldval)) {
-        add_post_meta($post_id, 'fauval_untertitel', $newval, true);
-    } else {
-        delete_post_meta($post_id, 'fauval_untertitel');
-    }
 }
 
 /* Display Options for menuquotes on pages */
@@ -444,15 +435,9 @@ function fau_save_metabox_page_untertitel( $post_id, $post ) {
 	}
 
 	$newval = isset($_POST['fau_metabox_page_untertitel']) ? sanitize_text_field($_POST['fau_metabox_page_untertitel']) : '';
-	$oldval = get_post_meta( $post_id, 'headline', true );
+	fau_save_standard('headline', $newval, $post_id, 'post', 'text');
 	
-	if (!empty($newval) && !empty($oldval)) {
-            update_post_meta($post_id, 'headline', $newval);
-        } elseif (!empty($newval) && empty($oldval)) {
-            add_post_meta($post_id, 'headline', $newval, true);
-	} else {
-	    delete_post_meta($post_id, 'headline');	
-	} 
+	
 }
 
 /* Display Options for portalmenu unten on portal pages */
@@ -1039,16 +1024,20 @@ function fau_do_metabox_page_additional_attributes($object, $box) {
 	fau_form_select('fau_metabox_page_title_langcode', $liste, $prevalue, $labeltext,  $howtotext);
     }
     
+    echo '<div class="ontemplate_page-subnav">';
+     
+     
+    $ignoresubnavi = get_post_meta($object->ID, 'fauval_hide-in-subnav', true);
+    $labeltext = __('Seite verbergen','fau');
+    $howtotext = __('Diese Seite wird nicht im Navigationsmenü im Inhaltsbereich gezeigt.','fau').' '.$only_subnavi;
+    fau_form_toggle('fau_metabox_page_hide-in-subnav', $ignoresubnavi, $labeltext, $howtotext);
     
-	$ignoresubnavi = get_post_meta($object->ID, 'fauval_hide-in-subnav', true);
-	$labeltext = __('Seite verbergen','fau');
-	$howtotext = __('Diese Seite wird nicht im Navigationsmenü im Inhaltsbereich gezeigt.','fau').' '.$only_subnavi;
-	echo '<div class="ontemplate_page-subnav">';
-	fau_form_toggle('fau_metabox_page_hide-in-subnav', $ignoresubnavi, $labeltext, $howtotext);
-	echo '</div>';
+    echo '</div>';
     
-
-	
+    $arialabel_subnav = get_post_meta($object->ID, 'fauval_aria-label', true);
+    $labeltext = __('ARIA Label','fau');
+    $howtotext = __('Wird der Seitentitel auch von einer oder mehreren anderen Seiten verwendet, ist es notwendig, diesen über ein ARIA-Label von den anderen Seiten zu unterscheiden. In diesem Label kann der Titel ergänzt werden um ein Kontext, der die Seite von anderen Seiten mit gleichen Namen unterscheidet.','fau');
+    fau_form_text('fau_metabox_page_aria-label', $arialabel_subnav, $labeltext, $howtotext);
     
     if (get_theme_mod('website_type')==-1) {
 	$menuebene = get_post_meta($object->ID, 'menu-level', true);
@@ -1141,6 +1130,9 @@ function fau_save_metabox_page_additional_attributes( $post_id, $post ) {
     $newval = isset($_POST['fau_metabox_page_imagelinks_size']) ? esc_attr($_POST['fau_metabox_page_imagelinks_size']) : '';
     fau_save_standard('fauval_imagelink_size', $newval, $post_id, 'post', 'text');
 
+    $newval = isset($_POST['fau_metabox_page_aria-label']) ? sanitize_text_field($_POST['fau_metabox_page_aria-label']) : '';
+    fau_save_standard('fauval_aria-label', $newval, $post_id, 'post', 'text');
+    
 
 }
 /*-----------------------------------------------------------------------------------*/

@@ -367,3 +367,17 @@ function fau_remove_type_attr($tag, $handle) {
 }
 add_filter('style_loader_tag', 'fau_remove_type_attr', 10, 2);
 add_filter('script_loader_tag', 'fau_remove_type_attr', 10, 2);
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Add additional aria-label-attribut for special pages
+/*-----------------------------------------------------------------------------------*/
+function fau_add_aria_label_pages( $atts, $item, $args ) {  
+    $arialabel_subnav = get_post_meta($item->object_id, 'fauval_aria-label', true);
+    
+    if (!fau_empty($arialabel_subnav)) {
+	$atts['aria-label'] = $arialabel_subnav;
+    }
+    return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'fau_add_aria_label_pages', 10, 3 );
