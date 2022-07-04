@@ -26,23 +26,13 @@
 		
 		$query_types = get_query_var('post_type',$listtypes);
 		$allowed_types =   get_post_types(array('public' => true, 'exclude_from_search' => false));
-		// $allowed_types =  get_theme_mod('search_post_types_checked');
 		
-
-	//	echo get_html_var_dump($query_types);
 		
 		if ((is_array($listtypes)) && (!empty($listtypes))) {
 		    foreach ($listtypes as $type) {       
 			if( in_array( $type, $allowed_types ) ) {
 			    
 			   $typestr = $listtypesfield[$type];
-			    
-			//    $typeinfo = get_post_type_object( $type );
-			//    $typestr = $typeinfo->labels->name; 	    
-
-			  //  if ($type == 'attachment') {
-			//	$typestr = __('Dokumente und Bilder', 'fau');
-			  //  }
 
 			    echo '<div class="'.$type.'"><input type="checkbox" name="post_type[]" id="label-'.$type.'" value="'.$type.'"';
 			    if (is_array($query_types) && in_array($type, $query_types)) { echo ' checked="checked"'; }
