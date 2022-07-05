@@ -54,6 +54,12 @@
                 "vh",
                 "vw"
             ]
-        }
+        },
+	"border": {
+	    "color": false,
+	    "radius": false,
+	    "style": false,
+	    "width": false
+	  }
     }
 }
