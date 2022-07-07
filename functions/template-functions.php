@@ -539,7 +539,6 @@ function fau_display_search_resultitem() {
                     $output .= $attachment['image'];
                 } else {
 		    $output .= fau_get_image_fallback_htmlcode('rwd-480-3-2', '', 'fallback');
-       //             $output .= '<img src="'.fau_esc_url($attachment['icon']).'" class="fallback" alt="">';
                 }
 		
                 $output .= "\t\t".'</div>'."\n";
@@ -1785,7 +1784,7 @@ function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $
         if ($attributes) {
             $item_output .= $attributes;
         }
-        $item_output .= '>';
+        $item_output .= ' loading="lazy">';
 
         return $item_output;
     }
@@ -1893,7 +1892,7 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
         if ($attributes) {
             $item_output .= $attributes;
         }
-        $item_output .= '>';
+        $item_output .= ' loading="lazy">';
 
         return $item_output;
 

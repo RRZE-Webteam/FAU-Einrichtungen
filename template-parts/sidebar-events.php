@@ -142,14 +142,13 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 		$img = wp_get_attachment_image_src($imageid, $defaultoptions['default_rwdimage_typname']);
 
 		$imagehtml = '<img itemprop="thumbnailUrl" src="'.fau_esc_url($img[0]).'" width="'.$imgwidth.'" height="'.$imgheight.'" alt="'.$alttext.'"';
-		// $imagehtml = '<img itemprop="thumbnailUrl" src="'.fau_esc_url($img[0]).'" width="'.$img[1].'" height="'.$img[2].'" alt="'.$alttext.'"';
 		if ($imgsrcset) {
 		    $imagehtml .= ' srcset="'.$imgsrcset.'"';
 		    if ($imgsrcsizes) {
 			 $imagehtml .= ' sizes="'.$imgsrcsizes.'"';
 		    }
 		}
-		$imagehtml .= '>';    
+		$imagehtml .= ' loading="lazy">';    
 
 
 	    } 

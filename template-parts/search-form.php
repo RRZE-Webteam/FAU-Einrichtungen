@@ -21,18 +21,18 @@
 		echo '<div class="filter">';
 
 
-		$listtypes = fau_get_searchable_fields();	  
+		$listtypesfield = fau_get_searchable_fields('list');
+		$listtypes = array_keys($listtypesfield);
+		
 		$query_types = get_query_var('post_type',$listtypes);
-		$allowed_types = get_post_types(array('public' => true, 'exclude_from_search' => false));
+		$allowed_types =   get_post_types(array('public' => true, 'exclude_from_search' => false));
+		
+		
 		if ((is_array($listtypes)) && (!empty($listtypes))) {
 		    foreach ($listtypes as $type) {       
 			if( in_array( $type, $allowed_types ) ) {
-			    $typeinfo = get_post_type_object( $type );
-			    $typestr = $typeinfo->labels->name; 	    
-
-			    if ($type == 'attachment') {
-				$typestr = __('Dokumente und Bilder', 'fau');
-			    }
+			    
+			   $typestr = $listtypesfield[$type];
 
 			    echo '<div class="'.$type.'"><input type="checkbox" name="post_type[]" id="label-'.$type.'" value="'.$type.'"';
 			    if (is_array($query_types) && in_array($type, $query_types)) { echo ' checked="checked"'; }

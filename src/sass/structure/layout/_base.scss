@@ -19,14 +19,17 @@ html, body, button {
 	font-kerning:  none;
 }
 
-html {
-    scroll-padding-top: 175px;
+ html {
+      height: 100%;
+    // scroll-padding-top: 175px;
+    scroll-behavior: smooth;
+
     
-    @media (min-width: $screen-sm) {
-        scroll-padding-top: 400px;
-    }
-    
+  
 }
+
+
+
 
 /* Main surrounding grid */
 /* Wrap content in white */

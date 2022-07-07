@@ -42,9 +42,14 @@
 	    margin: 0 10px;
 	    
 	    a, .image {
-		height: 150px;		
+		height: 150px;	
+		max-height: 150px;
 		display: flex;
-		margin: auto;		
+		margin: auto;	
+		 img {
+		   width: 150px;
+		   height: 150px;
+	       }
 	    }
 	    
 	    
@@ -56,7 +61,7 @@
 		flex-shrink: 0;
 		margin: auto;
 		height: auto;
-		width: 100%;
+		width: auto;
 		object-fit: contain;    
 		    
 	    }
@@ -65,35 +70,85 @@
 	.x120 .slick-item,
 	.x120 .slick-slide {
 	    width: 120px;
+	   a, .image {
+	       max-height: 120px;
+	         img {
+		   width: 120px;
+		   height: 120px;
+	       }
+	   }
 	}
 	
 	.x240 .slick-item,
 	.x240 .slick-slide {
 	    width: 240px;
+	    a, .image {
+	       max-height: 240px;
+	        img {
+		   width: 240px;
+		   height: 240px;
+	       }
+	   }
 	}
 	
 	.x360 .slick-item,
 	.x360 .slick-slide {
 	    width: 360px;
+	     a, .image {
+	       max-height: 360px;
+	        img {
+		   width: 360px;
+		   height: 360px;
+	       }
+	   }
 	}
 
 	.x480 .slick-item,
 	.x480 .slick-slide {
 	    width: 480px;
+	    a, .image {
+	       max-height: 480px;
+	        img {
+		   width: 480px;
+		   height: 480px;
+	       }
+	   }
 	}
 
 	.logo-thumb .slick-item,
 	.logo-thumb .slick-slide {
 	    width: 142px;
+	     a, .image {
+	       max-height: 110px;
+	       
+	       img {
+		   width: 140px;
+		   height: 110px;
+	       }
+	   }
 	}
 	.page-thumb .slick-item,
 	.page-thumb .slick-slide {
 	    width: 222px;
+	    a, .image {
+	       max-height: 222px;
+	        img {
+		   width: 220px;
+		   height: 110px;
+	       }
+	   }
 	}
 
 	.post-thumbnails .slick-item,
 	.post-thumbnails .slick-slide {
 	    width: 302px;
+	    a, .image {
+	       max-height: 302px;
+	        img {
+		   width: 300px;
+		   height: 150px;
+	       }
+	   }
 	}
 
 	.post-thumbnails .slick-item {
@@ -330,6 +385,7 @@
     &.dots.adaptiveHeight {
 	.slick-slide, .slick-item {
 	    height: auto;
+	    vertical-align: middle;
 	}
     }
 }

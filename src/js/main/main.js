@@ -142,6 +142,18 @@ jQuery(document).ready(function ($) {
         $(window).scroll(fixedHeader); // TODO: Automatically debounced via JQuery?
 
 
+	// Add custom var with height for fixed header
+	var setHeaderHeight = function() {
+	  document.documentElement.removeAttribute('style');
+	  var headerHeight = document.querySelector('#headerwrapper').scrollHeight;
+	  document.documentElement.style.setProperty('--js-fixed-header-height', `${headerHeight}px`);
+	};
+
+	 setHeaderHeight();
+
+	
+	
+	
         // Add toggle icons to organigram
         $('.organigram .has-sub').each(function () {
             $(this).prepend('<span class="toggle-icon"></span>');
