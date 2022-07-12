@@ -19,7 +19,7 @@ get_header(); ?>
 	    <div class="content-row">
 		<div class="portalpage-content">
 		     <main<?php echo fau_get_page_langcode($post->ID);?>>
-			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
+			<h1 id="maintop" class="screen-reader-text"><?php the_title(); ?></h1>
 		    <?php 
 		   
 		    

@@ -12,13 +12,15 @@
 
 	:target {
 	     scroll-margin-top: var(--js-fixed-header-height, $scroll-target-offset);  
-	     padding-top: 1rem;
+	     padding-top: 2rem;
+     
 	     
 	     .admin-bar & {	 
-		 padding-top: $wordpress-adminbar-bigheight;
+		 padding-top: calc(2rem + $wordpress-adminbar-bigheight);
 		 @media (min-width: $wordpress-adminbar-break) {
-		      padding-top: $wordpress-adminbar-smallheight;
+		      padding-top: calc(2rem + $wordpress-adminbar-smallheight);
 		 }
+
 	     }
 	}
 	

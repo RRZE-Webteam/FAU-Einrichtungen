@@ -384,7 +384,7 @@ function updatepot()  {
 	ignoreTemplateNameHeader: true
       })
     )
-  .pipe(dest(`languages/${info.textdomain}.pot`))
+  .pipe(dest('languages/'+ info.textdomain + '.pot'))
   .pipe(touch());;
 };
 

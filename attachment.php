@@ -18,7 +18,7 @@ while ( have_posts() ) : the_post(); ?>
 		    <div class="content-row">
 					
 			    <main>
-				<h1 class="screen-reader-text"><?php the_title(); ?></h1>
+				<h1 id="maintop"  class="screen-reader-text"><?php the_title(); ?></h1>
 				    <?php 
 
 				    echo wp_get_attachment_image( $post->ID, 'full' );
