@@ -17,7 +17,7 @@ while ( have_posts() ) : the_post();
             <?php get_template_part('template-parts/content', 'portalmenu-oben'); ?>
 	    <div class="content-row">
 		    <main<?php echo fau_get_page_langcode($post->ID);?>>
-			<h1 class="screen-reader-text"><?php the_title(); ?></h1>
+			<h1 id="maintop" class="screen-reader-text"><?php the_title(); ?></h1>
 		    <?php 
 			$headline = get_post_meta( $post->ID, 'headline', true );				
 			if (!fau_empty($headline)) {

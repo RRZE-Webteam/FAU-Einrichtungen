@@ -145,7 +145,8 @@ jQuery(document).ready(function ($) {
 	// Add custom var with height for fixed header
 	var setHeaderHeight = function() {
 	  document.documentElement.removeAttribute('style');
-	  var headerHeight = document.querySelector('#headerwrapper').scrollHeight;
+	  var headerHeight = document.querySelector('#headerwrapper').scrollHeight + 30;
+	  
 	  document.documentElement.style.setProperty('--js-fixed-header-height', `${headerHeight}px`);
 	};
 

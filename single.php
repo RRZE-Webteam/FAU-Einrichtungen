@@ -22,7 +22,7 @@ while ( have_posts() ) : the_post();
 			<div class="post-row">			    
 			    <div <?php post_class( 'entry-content' ); ?>>
 				<main>
-				    <h1 class="mobiletitle"><?php the_title(); ?></h1>
+				    <h1 id="maintop" class="mobiletitle"><?php the_title(); ?></h1>
 				    <article class="news-details">
 					    <?php if ( has_post_thumbnail() && ! post_password_required() ) {     
 						$post_thumbnail_id = get_post_thumbnail_id(); 						    						    
