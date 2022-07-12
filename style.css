@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.6-2
+Version: 2.1.6-3
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -12355,7 +12355,7 @@ ol.breadcrumblist li:last-child::after {
   width: 100%;
 }
 #content main :target {
-  scroll-margin-top: var(--js-fixed-header-height, 190px);
+  scroll-margin-top: var(--js-fixed-header-height, 200px);
   padding-top: 2rem;
 }
 .admin-bar #content main :target {
@@ -13595,17 +13595,9 @@ main .news-more-links .news-rss:hover:before {
   margin-right: 5px;
   height: auto;
 }
-.page-template-page-subnav .image-gallery .gallery-slick .slider-nav-width .slick-slide {
-  max-height: 90px;
-}
 .image-gallery .gallery-slick .slider-nav-width .slick-slide img {
-  object-fit: fill;
-  min-width: 200px;
-  min-height: 150px;
-}
-.page-template-page-subnav .image-gallery .gallery-slick .slider-nav-width .slick-slide img {
-  min-width: 120px;
-  min-height: 90px;
+  object-fit: cover;
+  aspect-ratio: 3/2;
 }
 .image-gallery .gallery-slick .slider-nav-width.slick-dotted {
   margin-bottom: 30px;
