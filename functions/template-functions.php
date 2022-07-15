@@ -1740,6 +1740,7 @@ function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $
     }
 
     $img = wp_get_attachment_image_src($id, $size);
+    
     if ($img) {
 
         $attributes = '';
@@ -1752,15 +1753,18 @@ function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $
         }
 
         $widthstr = '';
-        if ((isset($img[1])) && ($img[1] > 0)) {
+        if ((isset($img[1])) && ($img[1] > 1)) {
             $widthstr = ' width="'.$img[1].'"';
         }
         $heightstr = '';
-        if ((isset($img[2])) && ($img[2] > 0)) {
+        if ((isset($img[2])) && ($img[2] > 1)) {
             $heightstr = ' height="'.$img[2].'"';
         }
-        // In case of svg images, width and height are empty
+        // In case of svg images, width and height are either empty or set to 1.
+	// therefor we set the attributes only in case they are above 1.
 
+	
+	
         $imgsrcset   = wp_get_attachment_image_srcset($id, $size);
         $imgsrcsizes = wp_get_attachment_image_sizes($id, $size);
         $alttext     = esc_html($alttext);
