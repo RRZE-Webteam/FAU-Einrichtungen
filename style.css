@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.6-7
+Version: 2.1.6-10
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -1536,7 +1536,7 @@ Icons as functions
 .svg-icon, .sidebar-single .rrze_search .searchicon, .widget_search .search-text .searchicon,
 .searchform-content .search-text .searchicon, #subnav li.captain-future a:after,
 #subnav li.draft-page a:after, #subnav li.private-page a:after,
-#subnav li.protected-page a:after, .meta-search .searchform .searchicon, .meta-links .fauhome a:before {
+#subnav li.protected-page a:after, .meta-links .fauhome a:before {
   display: inline-block;
   position: relative;
   vertical-align: middle;
@@ -9548,35 +9548,6 @@ body.nav-toggled #headerwrapper {
   fill: currentColor;
   vertical-align: middle;
 }
-.meta-links .meta-search {
-  width: 100%;
-  position: relative;
-  margin: 1rem 0 0;
-}
-@media (min-width: 768px) {
-  .meta-links .meta-search {
-    margin-top: 0;
-    max-width: 300px;
-    margin-left: auto;
-  }
-}
-.meta-links .meta-search .searchform {
-  display: flex;
-  width: 100%;
-  padding: 0;
-  justify-items: center;
-}
-.meta-links .meta-search .searchicon {
-  position: absolute;
-  margin: 0;
-  top: 0.9375rem;
-  left: 0.5rem;
-  transform: translateY(-50%);
-}
-.meta-links .meta-search #headsearchinput {
-  width: 100%;
-  padding-left: 2rem;
-}
 .meta-links .cms-workflow-widget {
   margin: 1rem 0 0;
 }
@@ -9666,13 +9637,25 @@ body.nav-toggled #headerwrapper {
 /* Search in Header
 /*-----------------------------------------------------------------------------------*/
 .meta-search {
+  width: auto;
+  display: inline-block;
+  position: relative;
+  margin: 1rem 0 0;
   text-align: right;
+}
+@media (min-width: 768px) {
+  .meta-search {
+    margin-top: 0;
+    max-width: 300px;
+    margin-left: auto;
+  }
 }
 .active-meta-widget .meta-search {
   display: inline;
   flex-shrink: 0;
 }
 .meta-search .searchform {
+  display: flex;
   transition: 0.5s all;
   border: none;
   margin: 0;
@@ -9681,9 +9664,8 @@ body.nav-toggled #headerwrapper {
 .meta-search .searchform input[type=text] {
   border-radius: 20px;
   background-clip: padding-box;
-  padding: 5px 35px 5px 10px;
-  width: 220px;
-  background: var(--color-Default);
+  padding: 0.3rem 35px 0.3rem 2rem;
+  width: 10rem;
   border: none;
   outline: none;
   color: var(--color-MainBackground);
@@ -9691,6 +9673,7 @@ body.nav-toggled #headerwrapper {
   display: inline-block;
   margin-right: -25px;
   margin-bottom: 0px;
+  background: var(--color-Default) url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124.524 124.524" width="16" height="16"%3E%3Cpath fill="%23FFFFFF" d="M51,102.05c10.5,0,20.2-3.2,28.3-8.6l29.3,29.3c2.301,2.3,6.101,2.3,8.5,0l5.7-5.7c2.3-2.3,2.3-6.1,0-8.5L93.4,79.35 c5.399-8.1,8.6-17.8,8.6-28.3c0-28.1-22.9-51-51-51c-28.1,0-51,22.9-51,51C0,79.149,22.8,102.05,51,102.05z M51,20.05 c17.1,0,31,13.9,31,31c0,17.1-13.9,31-31,31c-17.1,0-31-13.9-31-31C20,33.95,33.9,20.05,51,20.05z"/%3E%3C/svg%3E%0A') no-repeat 0.5rem;
 }
 .meta-search .searchform input[type=text]:focus {
   background-color: var(--color-MetaHover);
@@ -9732,21 +9715,7 @@ body.nav-toggled #headerwrapper {
   background: var(--color-MetaBackgroundLight);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-.meta-search .searchform .searchicon {
-  width: 1.1rem;
-  height: 1.1rem;
-  line-height: 1.1rem;
-  font-size: calc(1.1rem / 1.5);
-  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124.524 124.524" width="16" height="16"%3E%3Cpath fill="%23FFFFFF" d="M51,102.05c10.5,0,20.2-3.2,28.3-8.6l29.3,29.3c2.301,2.3,6.101,2.3,8.5,0l5.7-5.7c2.3-2.3,2.3-6.1,0-8.5L93.4,79.35 c5.399-8.1,8.6-17.8,8.6-28.3c0-28.1-22.9-51-51-51c-28.1,0-51,22.9-51,51C0,79.149,22.8,102.05,51,102.05z M51,20.05 c17.1,0,31,13.9,31,31c0,17.1-13.9,31-31,31c-17.1,0-31-13.9-31-31C20,33.95,33.9,20.05,51,20.05z"/%3E%3C/svg%3E%0A');
-  margin-right: -30px;
-}
-.search-toggled .meta-search .searchform .searchicon {
-  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310.42 310.42" width="16" height="16"%3E%3Cpath fill="%23E9EDF2" d="M273.587,214.965c49.11-49.111,49.11-129.021,0-178.132s-129.021-49.111-178.131,0 C53.792,78.497,47.482,140.462,76.509,188.85c0,0,2.085,3.496-0.731,6.312c-16.065,16.064-64.263,64.263-64.263,64.263 c-12.791,12.79-15.837,30.675-4.493,42.02l1.953,1.951c11.343,11.345,29.229,8.301,42.019-4.49c0,0,48.096-48.097,64.128-64.128 c2.951-2.951,6.448-0.866,6.448-0.866C169.957,262.938,231.923,256.629,273.587,214.965z M118.71,191.71 c-36.288-36.288-36.287-95.332,0-131.62c36.288-36.287,95.333-36.288,131.62,0c36.288,36.287,36.288,95.332,0,131.62 C214.043,227.997,154.999,227.997,118.71,191.71z M244.365,134.336c0,5.5-4.5,10-10,10h-98.334c-5.5,0-10-4.5-10-10v-16.575c0-5.5,4.5-10,10-10h98.334c5.5,0,10,4.5,10,10 V134.336z"/%3E%3C/svg%3E%0A');
-}
 @media (max-width: 767px) {
-  .meta-search {
-    width: 50px;
-  }
   .search-toggled .meta-search .searchform {
     background: var(--color-StandardHellgrau);
     display: block;
@@ -9760,13 +9729,12 @@ body.nav-toggled #headerwrapper {
   .search-toggled .meta-search .searchform input[type=text] {
     width: calc(100% - 50px);
   }
-  .search-toggled .meta-search .searchform .searchicon {
-    display: none;
-  }
 }
 @media (min-width: 768px) {
-  .meta-search .searchform {
-    display: inline-block;
+  .meta-search {
+    margin-top: 0;
+    max-width: 300px;
+    margin-left: auto;
   }
 }
 
@@ -9777,9 +9745,6 @@ body.nav-toggled #headerwrapper {
   display: none;
   z-index: 100;
   color: var(--color-Default);
-}
-.search-toggled #headerwrapper #search-toggle:before {
-  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310.42 310.42" width="16" height="16"%3E%3Cpath fill="%2304316A" d="M273.587,214.965c49.11-49.111,49.11-129.021,0-178.132s-129.021-49.111-178.131,0 C53.792,78.497,47.482,140.462,76.509,188.85c0,0,2.085,3.496-0.731,6.312c-16.065,16.064-64.263,64.263-64.263,64.263 c-12.791,12.79-15.837,30.675-4.493,42.02l1.953,1.951c11.343,11.345,29.229,8.301,42.019-4.49c0,0,48.096-48.097,64.128-64.128 c2.951-2.951,6.448-0.866,6.448-0.866C169.957,262.938,231.923,256.629,273.587,214.965z M118.71,191.71 c-36.288-36.288-36.287-95.332,0-131.62c36.288-36.287,95.333-36.288,131.62,0c36.288,36.287,36.288,95.332,0,131.62 C214.043,227.997,154.999,227.997,118.71,191.71z M244.365,134.336c0,5.5-4.5,10-10,10h-98.334c-5.5,0-10-4.5-10-10v-16.575c0-5.5,4.5-10,10-10h98.334c5.5,0,10,4.5,10,10 V134.336z"/%3E%3C/svg%3E%0A');
 }
 @media (max-width: 767px) {
   .js #headerwrapper #search-toggle {

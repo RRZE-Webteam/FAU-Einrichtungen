@@ -77,8 +77,6 @@
     }
 
     .meta-links-trigger-icon-fau {
-       //margin-right: -16px;
-
         svg {
             width: 40px;
         }
@@ -214,37 +212,7 @@
         }
     }
 
-    .meta-search {
-        width: 100%;
-        position: relative;
-        margin: 1rem 0 0;
-
-        @media (min-width: $screen-sm) {
-            margin-top: 0;
-            max-width: 300px;
-            margin-left: auto;
-        }
-
-        .searchform {
-            display: flex;
-            width: 100%;
-            padding: 0;
-            justify-items: center;
-        }
-
-        .searchicon {
-            position: absolute;
-            margin: 0;
-            top: calc(1.875rem/2);
-            left: 0.5rem;
-            transform: translateY(-50%);
-        }
-
-        #headsearchinput {
-            width: 100%;
-            padding-left: 2rem;
-        }
-    }
+    
 
     .cms-workflow-widget {
         margin: 1rem 0 0;
