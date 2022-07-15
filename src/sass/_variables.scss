@@ -69,6 +69,16 @@ $colormap-primary: $colormap-zentral;
 
 $colormaps: ("primary": $colormap-primary, "zentral": $colormap-zentral, "phil": $colormap-phil, "med": $colormap-med, "nat": $colormap-nat, "rw": $colormap-rw, "tf": $colormap-tf);
 
+// Branding Color (Color for textlogo)
+$color-branding-primary:    map-get($colormap-primary, "ci-hell");
+$color-branding-zentral:    map-get($colormap-zentral, "ci-hell");
+$color-branding-phil:	    map-get($colormap-phil, "ci-hell");
+$color-branding-med:	    map-get($colormap-med, "ci-hell");
+$color-branding-tf:	    map-get($colormap-tf, "ci-hell");
+$color-branding-rw:	    map-get($colormap-rw, "ci-hell");
+$color-branding-nat:	    map-get($colormap-nat, "ci-hell");
+
+
 // Content
 $color-content-headlines:   map-get($colormap-misc, "Text");
 $color-links:		    map-get($colormap-misc, "Text");
@@ -80,6 +90,7 @@ $color-content-links-hover: map-get($colormap-primary, "ci-hell-kontrast");
 // Footer
 $color-footer-bg:	map-get($colormap-primary, "ci-hell");
 $color-footer-text:	map-get($colormap-primary, "ci-hell-kontrast");
+
 
 // Hero
 $color-hero-bg:		map-get($colormap-primary, "ci-hell");

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.6-6
+Version: 2.1.6-7
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -113,6 +113,14 @@ Text Domain: fau
   --color-Positive-Kontrast: #fff;
   --color-Neutral: #f0ad4e;
   --color-Neutral-Kontrast: #000;
+  /* Branding color */
+  --color-branding-primary: #04316A;
+  --color-branding-zentral: #04316A;
+  --color-branding-phil: #FDB735;
+  --color-branding-med: #18B4F1;
+  --color-branding-nat: #7BB725;
+  --color-branding-rw: #C50F3C;
+  --color-branding-tf: #8C9FB1;
   /* Calculated Values */
   --color-MetaHomeBackground: #d4d4d4;
   --color-MetaHover: #264c7b;
@@ -6271,6 +6279,7 @@ ul li.paragraph:before {
   display: inline-grid;
   place-items: center;
   line-height: 1.5em;
+  font-weight: bold;
 }
 ul li.check::before {
   background: var(--color-Positive);
@@ -9222,7 +9231,7 @@ body.embedded .news-item .news-meta {
   font-size: 15px;
   line-height: 20px;
   letter-spacing: 0.2px;
-  color: var(--color-primary-ci-hell);
+  color: var(--color-branding-primary);
 }
 @media (min-width: 1400px) {
   #headerwrapper header .branding .textlogo .text {
@@ -9232,25 +9241,25 @@ body.embedded .news-item .news-meta {
 #headerwrapper header .branding .textlogo .text .fau-title-place,
 #headerwrapper header .branding .textlogo .text .fau-title {
   display: block;
-  color: var(--color-FAU);
+  color: var(--color-branding-zentral);
 }
 #headerwrapper header .branding .textlogo .text .zentral {
-  color: var(--color-zentral-ci-hell);
+  color: var(--color-branding-zentral);
 }
 #headerwrapper header .branding .textlogo .text .phil {
-  color: var(--color-phil-ci-hell);
+  color: var(--color-branding-phil);
 }
 #headerwrapper header .branding .textlogo .text .nat {
-  color: var(--color-nat-ci-hell);
+  color: var(--color-branding-nat);
 }
 #headerwrapper header .branding .textlogo .text .med {
-  color: var(--color-med-ci-hell);
+  color: var(--color-branding-med);
 }
 #headerwrapper header .branding .textlogo .text .rw {
-  color: var(--color-rw-ci-hell);
+  color: var(--color-branding-rw);
 }
 #headerwrapper header .branding .textlogo .text .tf {
-  color: var(--color-tf-ci-hell);
+  color: var(--color-branding-tf);
 }
 #headerwrapper header .branding .textlogo .text .website-shortcut::before {
   content: "| ";
@@ -9264,7 +9273,7 @@ body.embedded .news-item .news-meta {
 #headerwrapper header .branding a:focus, #headerwrapper header .branding a:hover {
   display: inline-block;
   transition: border-left 0.25s ease-out, margin-right 0.25s ease-out;
-  border-left: 8px solid var(--color-primary-ci-hell);
+  border-left: 8px solid var(--color-branding-primary);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   margin-right: -23px;

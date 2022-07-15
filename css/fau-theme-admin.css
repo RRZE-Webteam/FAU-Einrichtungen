@@ -98,6 +98,14 @@
   --color-Positive-Kontrast: #fff;
   --color-Neutral: #f0ad4e;
   --color-Neutral-Kontrast: #000;
+  /* Branding color */
+  --color-branding-primary: #04316A;
+  --color-branding-zentral: #04316A;
+  --color-branding-phil: #FDB735;
+  --color-branding-med: #18B4F1;
+  --color-branding-nat: #7BB725;
+  --color-branding-rw: #C50F3C;
+  --color-branding-tf: #8C9FB1;
   /* Calculated Values */
   --color-MetaHomeBackground: #d4d4d4;
   --color-MetaHover: #264c7b;
