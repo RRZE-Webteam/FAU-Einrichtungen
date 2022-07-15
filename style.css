@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.6-4
+Version: 2.1.6-6
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -111,6 +111,8 @@ Text Domain: fau
   --color-Negative-Kontrast: #fff;
   --color-Positive: #00905a;
   --color-Positive-Kontrast: #fff;
+  --color-Neutral: #f0ad4e;
+  --color-Neutral-Kontrast: #000;
   /* Calculated Values */
   --color-MetaHomeBackground: #d4d4d4;
   --color-MetaHover: #264c7b;
@@ -6047,11 +6049,12 @@ ul ul,
 ul ol,
 ol ol,
 ol ul {
+  margin-top: 0.5rem;
   margin-bottom: 0;
 }
 
 li {
-  padding: 0.2rem 0 0.2rem 0.2rem;
+  padding: 0.3rem 0 0.3rem 0.2rem;
   font-size: 1rem;
   line-height: 1.5rem;
 }
@@ -6116,7 +6119,7 @@ ul.letters li, ol.letters li {
   background: none;
   display: inline-block;
   background: none;
-  margin: 0.2rem;
+  margin: 0.3rem 0.2rem;
 }
 ul.letters li:before, ol.letters li:before {
   display: none;
@@ -6173,9 +6176,10 @@ ol.kontrastmarker {
 ol.kontrastmarker li {
   counter-increment: steps;
   list-style-type: none;
+  margin-left: 2rem;
 }
 ol.kontrastmarker li ol {
-  margin-left: 1.5rem;
+  margin-left: 0;
   margin-top: 0.5rem;
   counter-reset: substeps;
 }
@@ -6183,10 +6187,12 @@ ol.kontrastmarker li ol li {
   counter-increment: substeps;
 }
 ol.kontrastmarker li ul {
-  margin-left: 3rem;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
 }
 ol.kontrastmarker li ul li {
   list-style-type: disc;
+  margin-left: 0;
 }
 ol.kontrastmarker li ul li::before {
   display: none;
@@ -6202,6 +6208,7 @@ ol.kontrastmarker li::before {
   display: inline-grid;
   place-items: center;
   line-height: 1.5em;
+  margin-left: -2rem;
 }
 ol.kontrastmarker li ol li::before {
   content: counter(substeps, lower-alpha);
@@ -6237,10 +6244,13 @@ ul li.positiv,
 ul li.plus,
 ul li.minus,
 ul li.negativ,
+ul li.neutral,
+ul li.gleich,
 ul li.question,
 ul li.exclamation,
 ul li.paragraph {
   list-style-type: none;
+  margin-left: 2rem;
 }
 ul li.cross:before,
 ul li.check:before,
@@ -6248,11 +6258,13 @@ ul li.positiv:before,
 ul li.plus:before,
 ul li.minus:before,
 ul li.negativ:before,
+ul li.neutral:before,
+ul li.gleich:before,
 ul li.question:before,
 ul li.exclamation:before,
 ul li.paragraph:before {
   margin-right: 0.5rem;
-  margin-left: -1.5rem;
+  margin-left: -2rem;
   width: 1.5em;
   height: 1.5em;
   border-radius: 50%;
@@ -6281,6 +6293,12 @@ ul li.minus::before {
   background: var(--color-Negative);
   color: var(--color-Negative-Kontrast);
   content: "-";
+}
+ul li.gleich::before,
+ul li.neutral::before {
+  background: var(--color-Neutral);
+  color: var(--color-Neutral-Kontrast);
+  content: "=";
 }
 ul li.question::before {
   background: var(--color-StandardHellgrau);

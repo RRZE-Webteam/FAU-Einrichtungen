@@ -96,6 +96,8 @@
   --color-Negative-Kontrast: #fff;
   --color-Positive: #00905a;
   --color-Positive-Kontrast: #fff;
+  --color-Neutral: #f0ad4e;
+  --color-Neutral-Kontrast: #000;
   /* Calculated Values */
   --color-MetaHomeBackground: #d4d4d4;
   --color-MetaHover: #264c7b;
