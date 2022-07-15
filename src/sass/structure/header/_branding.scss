@@ -7,7 +7,8 @@
     .branding {
         max-width: 100%;
         display: none;
-
+	margin-top: $fau-gutter-halfwidth;
+	
         @media (min-width: $screen-sm) {
             display: block;
         }
@@ -20,7 +21,7 @@
             padding: 0;
             font-family: $fontStackFAU;
             font-weight: bold;
-            column-gap: 15px;
+            column-gap: $fau-gutter-halfwidth;
             row-gap: 0.5rem;
 
             .custom-logo-link {

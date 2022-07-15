@@ -9139,6 +9139,7 @@ body.embedded .news-item .news-meta {
 #headerwrapper header .branding {
   max-width: 100%;
   display: none;
+  margin-top: 15px;
 }
 @media (min-width: 768px) {
   #headerwrapper header .branding {
@@ -9788,7 +9789,7 @@ body.nav-toggled #headerwrapper {
   .orga-breadcrumb {
     display: block;
     padding-top: 5px;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
     padding-left: 15px;
     padding-right: 15px;
     width: 750px;

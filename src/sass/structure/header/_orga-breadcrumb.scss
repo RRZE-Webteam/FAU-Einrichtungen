@@ -13,9 +13,9 @@
     @media (min-width: $screen-sm) {
         display: block;
         padding-top: 5px;
-        padding-bottom: 15px;
-        padding-left: floor(math.div($grid-gutter-width, 2));
-        padding-right: ceil(math.div($grid-gutter-width, 2));
+        padding-bottom: 5px;
+        padding-left: $fau-gutter-halfwidth;
+        padding-right: $fau-gutter-halfwidth;
         width: $container-sm;
         margin: 0 auto;
 
