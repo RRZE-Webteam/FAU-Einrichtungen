@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.6-10
+Version: 2.1.6-11
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -9638,13 +9638,14 @@ body.nav-toggled #headerwrapper {
 /*-----------------------------------------------------------------------------------*/
 .meta-search {
   width: auto;
-  display: inline-block;
+  display: block;
   position: relative;
   margin: 1rem 0 0;
   text-align: right;
 }
 @media (min-width: 768px) {
   .meta-search {
+    display: inline-block;
     margin-top: 0;
     max-width: 300px;
     margin-left: auto;
@@ -9665,7 +9666,7 @@ body.nav-toggled #headerwrapper {
   border-radius: 20px;
   background-clip: padding-box;
   padding: 0.3rem 35px 0.3rem 2rem;
-  width: 10rem;
+  width: calc(100% - 55px);
   border: none;
   outline: none;
   color: var(--color-MainBackground);

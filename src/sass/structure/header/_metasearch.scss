@@ -5,13 +5,14 @@
 .meta-search {
     
     width: auto;
-    display: inline-block;
+    display: block;
     
     position: relative;
     margin: 1rem 0 0;
     
     @media (min-width: $screen-sm) {
 	// width: 100%;
+	display: inline-block;
 	margin-top: 0;
 	max-width: 300px;
 	margin-left: auto;
@@ -40,7 +41,7 @@
         input[type="text"] {
             @include border-radius(20px);
             padding: 0.3rem 35px 0.3rem 2rem;
-            width: 10rem;
+            width: calc(100% - 55px);
             border: none;
             outline: none;
             color: var(--color-MainBackground);
