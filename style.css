@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.6-14
+Version: 2.1.6-16
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -1742,9 +1742,7 @@ html {
   font-weight: normal;
   font-style: normal;
 }
-.fa, .accordion .accordion-group .accordion-heading .accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a:before, .wpcf7-not-valid-tip:before, .wpcf7-validation-errors:before, .wpcf7-mail-sent-ok:before, .imagelink .slick-next:before, .imagelink .slick-prev:before, .image-gallery .gallery-slick .slick-next:before, .image-gallery .gallery-slick .slick-prev:before, .search-result .search-meta .download:before, .search-result .search-meta .post-meta-attachment:before, .search-result .search-meta .post-meta-news-external:before, .search-result .search-meta .post-meta-news:before, .search-result .search-meta .post-meta-defaulttype:before, .search-result .search-meta .post-meta-kontakt:before, .search-result .search-meta .post-meta-event:before, .search-result .search-meta .post-meta-date:before, .search-result .search-meta .post-meta-category:before, .news-item h2 .ext-link::after, .news-item .news-meta .news-meta-date:before, .news-item .news-meta .news-meta-categories:before, .news-details .post-meta-tags:before, .news-details .post-meta-date:before, .news-details .post-meta-categories:before, .organigram .toggle-icon, .hero-navigation li:before, #hero-slides .slick-next:before, #hero-slides .slick-prev:before, .helpermenus li:before, .helpermenus h3 a.ext-link:after, #footer .cloned-meta-links li:before,
-#footer .cloned-hero-nav li:before,
-#footer .meta-nav li:before, #mainnav-toggle-close:before, #mainnav-toggle:before, .nav > li.has-sub > a:before,
+.fa, .accordion .accordion-group .accordion-heading .accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a:before, .wpcf7-not-valid-tip:before, .wpcf7-validation-errors:before, .wpcf7-mail-sent-ok:before, .imagelink .slick-next:before, .imagelink .slick-prev:before, .image-gallery .gallery-slick .slick-next:before, .image-gallery .gallery-slick .slick-prev:before, .search-result .search-meta .download:before, .search-result .search-meta .post-meta-attachment:before, .search-result .search-meta .post-meta-news-external:before, .search-result .search-meta .post-meta-news:before, .search-result .search-meta .post-meta-defaulttype:before, .search-result .search-meta .post-meta-kontakt:before, .search-result .search-meta .post-meta-event:before, .search-result .search-meta .post-meta-date:before, .search-result .search-meta .post-meta-category:before, .news-item h2 .ext-link::after, .news-item .news-meta .news-meta-date:before, .news-item .news-meta .news-meta-categories:before, .news-details .post-meta-tags:before, .news-details .post-meta-date:before, .news-details .post-meta-categories:before, .organigram .toggle-icon, .hero-navigation li:before, #hero-slides .slick-next:before, #hero-slides .slick-prev:before, .helpermenus li:before, .helpermenus h3 a.ext-link:after, #mainnav-toggle-close:before, #mainnav-toggle:before, .nav > li.has-sub > a:before,
 .nav > li.has-sub > [type=button]:before, .sorttable th::after, ul.social li.social-iconbyurl a::before, ul.social li.social-wikipedia a:before, ul.social li.social-itunes a:before, ul.social li.social-youtube a:before, ul.social li.social-vimeo a:before, ul.social li.social-feed a:before, ul.social li.social-flickr a:before, ul.social li.social-delicious a:before, ul.social li.social-tumblr a:before, ul.social li.social-skype a:before, ul.social li.social-github a:before, ul.social li.social-xing a:before, ul.social li.social-twitter a:before, ul.social li.social-facebook a:before, ul.social li.social-instagram a:before, ul.social li.social-pinterest a:before, ul.social li.social-diaspora a:before {
   display: inline-block;
   font: normal normal normal 16px/1.5 FontAwesome;
@@ -1815,30 +1813,22 @@ html {
   float: right;
 }
 
-.fa.fa-pull-left, .accordion .accordion-group .accordion-heading .fa-pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-left:before, .fa-pull-left.wpcf7-not-valid-tip:before, .fa-pull-left.wpcf7-validation-errors:before, .fa-pull-left.wpcf7-mail-sent-ok:before, .imagelink .fa-pull-left.slick-next:before, .imagelink .fa-pull-left.slick-prev:before, .image-gallery .gallery-slick .fa-pull-left.slick-next:before, .image-gallery .gallery-slick .fa-pull-left.slick-prev:before, .search-result .search-meta .fa-pull-left.download:before, .search-result .search-meta .fa-pull-left.post-meta-attachment:before, .search-result .search-meta .fa-pull-left.post-meta-news-external:before, .search-result .search-meta .fa-pull-left.post-meta-news:before, .search-result .search-meta .fa-pull-left.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-left.post-meta-kontakt:before, .search-result .search-meta .fa-pull-left.post-meta-event:before, .search-result .search-meta .fa-pull-left.post-meta-date:before, .search-result .search-meta .fa-pull-left.post-meta-category:before, .news-item h2 .fa-pull-left.ext-link::after, .news-item .news-meta .fa-pull-left.news-meta-date:before, .news-item .news-meta .fa-pull-left.news-meta-categories:before, .news-details .fa-pull-left.post-meta-tags:before, .news-details .fa-pull-left.post-meta-date:before, .news-details .fa-pull-left.post-meta-categories:before, .organigram .fa-pull-left.toggle-icon, .hero-navigation li.fa-pull-left:before, #hero-slides .fa-pull-left.slick-next:before, #hero-slides .fa-pull-left.slick-prev:before, .helpermenus li.fa-pull-left:before, .helpermenus h3 a.fa-pull-left.ext-link:after, #footer .cloned-meta-links li.fa-pull-left:before,
-#footer .cloned-hero-nav li.fa-pull-left:before,
-#footer .meta-nav li.fa-pull-left:before, .fa-pull-left#mainnav-toggle-close:before, .fa-pull-left#mainnav-toggle:before, .nav > li.has-sub > a.fa-pull-left:before,
+.fa.fa-pull-left, .accordion .accordion-group .accordion-heading .fa-pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-left:before, .fa-pull-left.wpcf7-not-valid-tip:before, .fa-pull-left.wpcf7-validation-errors:before, .fa-pull-left.wpcf7-mail-sent-ok:before, .imagelink .fa-pull-left.slick-next:before, .imagelink .fa-pull-left.slick-prev:before, .image-gallery .gallery-slick .fa-pull-left.slick-next:before, .image-gallery .gallery-slick .fa-pull-left.slick-prev:before, .search-result .search-meta .fa-pull-left.download:before, .search-result .search-meta .fa-pull-left.post-meta-attachment:before, .search-result .search-meta .fa-pull-left.post-meta-news-external:before, .search-result .search-meta .fa-pull-left.post-meta-news:before, .search-result .search-meta .fa-pull-left.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-left.post-meta-kontakt:before, .search-result .search-meta .fa-pull-left.post-meta-event:before, .search-result .search-meta .fa-pull-left.post-meta-date:before, .search-result .search-meta .fa-pull-left.post-meta-category:before, .news-item h2 .fa-pull-left.ext-link::after, .news-item .news-meta .fa-pull-left.news-meta-date:before, .news-item .news-meta .fa-pull-left.news-meta-categories:before, .news-details .fa-pull-left.post-meta-tags:before, .news-details .fa-pull-left.post-meta-date:before, .news-details .fa-pull-left.post-meta-categories:before, .organigram .fa-pull-left.toggle-icon, .hero-navigation li.fa-pull-left:before, #hero-slides .fa-pull-left.slick-next:before, #hero-slides .fa-pull-left.slick-prev:before, .helpermenus li.fa-pull-left:before, .helpermenus h3 a.fa-pull-left.ext-link:after, .fa-pull-left#mainnav-toggle-close:before, .fa-pull-left#mainnav-toggle:before, .nav > li.has-sub > a.fa-pull-left:before,
 .nav > li.has-sub > .fa-pull-left[type=button]:before, .sorttable th.fa-pull-left::after, ul.social li.social-iconbyurl a.fa-pull-left::before, ul.social li.social-wikipedia a.fa-pull-left:before, ul.social li.social-itunes a.fa-pull-left:before, ul.social li.social-youtube a.fa-pull-left:before, ul.social li.social-vimeo a.fa-pull-left:before, ul.social li.social-feed a.fa-pull-left:before, ul.social li.social-flickr a.fa-pull-left:before, ul.social li.social-delicious a.fa-pull-left:before, ul.social li.social-tumblr a.fa-pull-left:before, ul.social li.social-skype a.fa-pull-left:before, ul.social li.social-github a.fa-pull-left:before, ul.social li.social-xing a.fa-pull-left:before, ul.social li.social-twitter a.fa-pull-left:before, ul.social li.social-facebook a.fa-pull-left:before, ul.social li.social-instagram a.fa-pull-left:before, ul.social li.social-pinterest a.fa-pull-left:before, ul.social li.social-diaspora a.fa-pull-left:before {
   margin-right: 0.3em;
 }
 
-.fa.fa-pull-right, .accordion .accordion-group .accordion-heading .fa-pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-right:before, .fa-pull-right.wpcf7-not-valid-tip:before, .fa-pull-right.wpcf7-validation-errors:before, .fa-pull-right.wpcf7-mail-sent-ok:before, .imagelink .fa-pull-right.slick-next:before, .imagelink .fa-pull-right.slick-prev:before, .image-gallery .gallery-slick .fa-pull-right.slick-next:before, .image-gallery .gallery-slick .fa-pull-right.slick-prev:before, .search-result .search-meta .fa-pull-right.download:before, .search-result .search-meta .fa-pull-right.post-meta-attachment:before, .search-result .search-meta .fa-pull-right.post-meta-news-external:before, .search-result .search-meta .fa-pull-right.post-meta-news:before, .search-result .search-meta .fa-pull-right.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-right.post-meta-kontakt:before, .search-result .search-meta .fa-pull-right.post-meta-event:before, .search-result .search-meta .fa-pull-right.post-meta-date:before, .search-result .search-meta .fa-pull-right.post-meta-category:before, .news-item h2 .fa-pull-right.ext-link::after, .news-item .news-meta .fa-pull-right.news-meta-date:before, .news-item .news-meta .fa-pull-right.news-meta-categories:before, .news-details .fa-pull-right.post-meta-tags:before, .news-details .fa-pull-right.post-meta-date:before, .news-details .fa-pull-right.post-meta-categories:before, .organigram .fa-pull-right.toggle-icon, .hero-navigation li.fa-pull-right:before, #hero-slides .fa-pull-right.slick-next:before, #hero-slides .fa-pull-right.slick-prev:before, .helpermenus li.fa-pull-right:before, .helpermenus h3 a.fa-pull-right.ext-link:after, #footer .cloned-meta-links li.fa-pull-right:before,
-#footer .cloned-hero-nav li.fa-pull-right:before,
-#footer .meta-nav li.fa-pull-right:before, .fa-pull-right#mainnav-toggle-close:before, .fa-pull-right#mainnav-toggle:before, .nav > li.has-sub > a.fa-pull-right:before,
+.fa.fa-pull-right, .accordion .accordion-group .accordion-heading .fa-pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-right:before, .fa-pull-right.wpcf7-not-valid-tip:before, .fa-pull-right.wpcf7-validation-errors:before, .fa-pull-right.wpcf7-mail-sent-ok:before, .imagelink .fa-pull-right.slick-next:before, .imagelink .fa-pull-right.slick-prev:before, .image-gallery .gallery-slick .fa-pull-right.slick-next:before, .image-gallery .gallery-slick .fa-pull-right.slick-prev:before, .search-result .search-meta .fa-pull-right.download:before, .search-result .search-meta .fa-pull-right.post-meta-attachment:before, .search-result .search-meta .fa-pull-right.post-meta-news-external:before, .search-result .search-meta .fa-pull-right.post-meta-news:before, .search-result .search-meta .fa-pull-right.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-right.post-meta-kontakt:before, .search-result .search-meta .fa-pull-right.post-meta-event:before, .search-result .search-meta .fa-pull-right.post-meta-date:before, .search-result .search-meta .fa-pull-right.post-meta-category:before, .news-item h2 .fa-pull-right.ext-link::after, .news-item .news-meta .fa-pull-right.news-meta-date:before, .news-item .news-meta .fa-pull-right.news-meta-categories:before, .news-details .fa-pull-right.post-meta-tags:before, .news-details .fa-pull-right.post-meta-date:before, .news-details .fa-pull-right.post-meta-categories:before, .organigram .fa-pull-right.toggle-icon, .hero-navigation li.fa-pull-right:before, #hero-slides .fa-pull-right.slick-next:before, #hero-slides .fa-pull-right.slick-prev:before, .helpermenus li.fa-pull-right:before, .helpermenus h3 a.fa-pull-right.ext-link:after, .fa-pull-right#mainnav-toggle-close:before, .fa-pull-right#mainnav-toggle:before, .nav > li.has-sub > a.fa-pull-right:before,
 .nav > li.has-sub > .fa-pull-right[type=button]:before, .sorttable th.fa-pull-right::after, ul.social li.social-iconbyurl a.fa-pull-right::before, ul.social li.social-wikipedia a.fa-pull-right:before, ul.social li.social-itunes a.fa-pull-right:before, ul.social li.social-youtube a.fa-pull-right:before, ul.social li.social-vimeo a.fa-pull-right:before, ul.social li.social-feed a.fa-pull-right:before, ul.social li.social-flickr a.fa-pull-right:before, ul.social li.social-delicious a.fa-pull-right:before, ul.social li.social-tumblr a.fa-pull-right:before, ul.social li.social-skype a.fa-pull-right:before, ul.social li.social-github a.fa-pull-right:before, ul.social li.social-xing a.fa-pull-right:before, ul.social li.social-twitter a.fa-pull-right:before, ul.social li.social-facebook a.fa-pull-right:before, ul.social li.social-instagram a.fa-pull-right:before, ul.social li.social-pinterest a.fa-pull-right:before, ul.social li.social-diaspora a.fa-pull-right:before {
   margin-left: 0.3em;
 }
 
-.fa.pull-left, .accordion .accordion-group .accordion-heading .pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-left:before, .pull-left.wpcf7-not-valid-tip:before, .pull-left.wpcf7-validation-errors:before, .pull-left.wpcf7-mail-sent-ok:before, .imagelink .pull-left.slick-next:before, .imagelink .pull-left.slick-prev:before, .image-gallery .gallery-slick .pull-left.slick-next:before, .image-gallery .gallery-slick .pull-left.slick-prev:before, .search-result .search-meta .pull-left.download:before, .search-result .search-meta .pull-left.post-meta-attachment:before, .search-result .search-meta .pull-left.post-meta-news-external:before, .search-result .search-meta .pull-left.post-meta-news:before, .search-result .search-meta .pull-left.post-meta-defaulttype:before, .search-result .search-meta .pull-left.post-meta-kontakt:before, .search-result .search-meta .pull-left.post-meta-event:before, .search-result .search-meta .pull-left.post-meta-date:before, .search-result .search-meta .pull-left.post-meta-category:before, .news-item h2 .pull-left.ext-link::after, .news-item .news-meta .pull-left.news-meta-date:before, .news-item .news-meta .pull-left.news-meta-categories:before, .news-details .pull-left.post-meta-tags:before, .news-details .pull-left.post-meta-date:before, .news-details .pull-left.post-meta-categories:before, .organigram .pull-left.toggle-icon, .hero-navigation li.pull-left:before, #hero-slides .pull-left.slick-next:before, #hero-slides .pull-left.slick-prev:before, .helpermenus li.pull-left:before, .helpermenus h3 a.pull-left.ext-link:after, #footer .cloned-meta-links li.pull-left:before,
-#footer .cloned-hero-nav li.pull-left:before,
-#footer .meta-nav li.pull-left:before, .pull-left#mainnav-toggle-close:before, .pull-left#mainnav-toggle:before, .nav > li.has-sub > a.pull-left:before,
+.fa.pull-left, .accordion .accordion-group .accordion-heading .pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-left:before, .pull-left.wpcf7-not-valid-tip:before, .pull-left.wpcf7-validation-errors:before, .pull-left.wpcf7-mail-sent-ok:before, .imagelink .pull-left.slick-next:before, .imagelink .pull-left.slick-prev:before, .image-gallery .gallery-slick .pull-left.slick-next:before, .image-gallery .gallery-slick .pull-left.slick-prev:before, .search-result .search-meta .pull-left.download:before, .search-result .search-meta .pull-left.post-meta-attachment:before, .search-result .search-meta .pull-left.post-meta-news-external:before, .search-result .search-meta .pull-left.post-meta-news:before, .search-result .search-meta .pull-left.post-meta-defaulttype:before, .search-result .search-meta .pull-left.post-meta-kontakt:before, .search-result .search-meta .pull-left.post-meta-event:before, .search-result .search-meta .pull-left.post-meta-date:before, .search-result .search-meta .pull-left.post-meta-category:before, .news-item h2 .pull-left.ext-link::after, .news-item .news-meta .pull-left.news-meta-date:before, .news-item .news-meta .pull-left.news-meta-categories:before, .news-details .pull-left.post-meta-tags:before, .news-details .pull-left.post-meta-date:before, .news-details .pull-left.post-meta-categories:before, .organigram .pull-left.toggle-icon, .hero-navigation li.pull-left:before, #hero-slides .pull-left.slick-next:before, #hero-slides .pull-left.slick-prev:before, .helpermenus li.pull-left:before, .helpermenus h3 a.pull-left.ext-link:after, .pull-left#mainnav-toggle-close:before, .pull-left#mainnav-toggle:before, .nav > li.has-sub > a.pull-left:before,
 .nav > li.has-sub > .pull-left[type=button]:before, .sorttable th.pull-left::after, ul.social li.social-iconbyurl a.pull-left::before, ul.social li.social-wikipedia a.pull-left:before, ul.social li.social-itunes a.pull-left:before, ul.social li.social-youtube a.pull-left:before, ul.social li.social-vimeo a.pull-left:before, ul.social li.social-feed a.pull-left:before, ul.social li.social-flickr a.pull-left:before, ul.social li.social-delicious a.pull-left:before, ul.social li.social-tumblr a.pull-left:before, ul.social li.social-skype a.pull-left:before, ul.social li.social-github a.pull-left:before, ul.social li.social-xing a.pull-left:before, ul.social li.social-twitter a.pull-left:before, ul.social li.social-facebook a.pull-left:before, ul.social li.social-instagram a.pull-left:before, ul.social li.social-pinterest a.pull-left:before, ul.social li.social-diaspora a.pull-left:before {
   margin-right: 0.3em;
 }
 
-.fa.pull-right, .accordion .accordion-group .accordion-heading .pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-right:before, .pull-right.wpcf7-not-valid-tip:before, .pull-right.wpcf7-validation-errors:before, .pull-right.wpcf7-mail-sent-ok:before, .imagelink .pull-right.slick-next:before, .imagelink .pull-right.slick-prev:before, .image-gallery .gallery-slick .pull-right.slick-next:before, .image-gallery .gallery-slick .pull-right.slick-prev:before, .search-result .search-meta .pull-right.download:before, .search-result .search-meta .pull-right.post-meta-attachment:before, .search-result .search-meta .pull-right.post-meta-news-external:before, .search-result .search-meta .pull-right.post-meta-news:before, .search-result .search-meta .pull-right.post-meta-defaulttype:before, .search-result .search-meta .pull-right.post-meta-kontakt:before, .search-result .search-meta .pull-right.post-meta-event:before, .search-result .search-meta .pull-right.post-meta-date:before, .search-result .search-meta .pull-right.post-meta-category:before, .news-item h2 .pull-right.ext-link::after, .news-item .news-meta .pull-right.news-meta-date:before, .news-item .news-meta .pull-right.news-meta-categories:before, .news-details .pull-right.post-meta-tags:before, .news-details .pull-right.post-meta-date:before, .news-details .pull-right.post-meta-categories:before, .organigram .pull-right.toggle-icon, .hero-navigation li.pull-right:before, #hero-slides .pull-right.slick-next:before, #hero-slides .pull-right.slick-prev:before, .helpermenus li.pull-right:before, .helpermenus h3 a.pull-right.ext-link:after, #footer .cloned-meta-links li.pull-right:before,
-#footer .cloned-hero-nav li.pull-right:before,
-#footer .meta-nav li.pull-right:before, .pull-right#mainnav-toggle-close:before, .pull-right#mainnav-toggle:before, .nav > li.has-sub > a.pull-right:before,
+.fa.pull-right, .accordion .accordion-group .accordion-heading .pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-right:before, .pull-right.wpcf7-not-valid-tip:before, .pull-right.wpcf7-validation-errors:before, .pull-right.wpcf7-mail-sent-ok:before, .imagelink .pull-right.slick-next:before, .imagelink .pull-right.slick-prev:before, .image-gallery .gallery-slick .pull-right.slick-next:before, .image-gallery .gallery-slick .pull-right.slick-prev:before, .search-result .search-meta .pull-right.download:before, .search-result .search-meta .pull-right.post-meta-attachment:before, .search-result .search-meta .pull-right.post-meta-news-external:before, .search-result .search-meta .pull-right.post-meta-news:before, .search-result .search-meta .pull-right.post-meta-defaulttype:before, .search-result .search-meta .pull-right.post-meta-kontakt:before, .search-result .search-meta .pull-right.post-meta-event:before, .search-result .search-meta .pull-right.post-meta-date:before, .search-result .search-meta .pull-right.post-meta-category:before, .news-item h2 .pull-right.ext-link::after, .news-item .news-meta .pull-right.news-meta-date:before, .news-item .news-meta .pull-right.news-meta-categories:before, .news-details .pull-right.post-meta-tags:before, .news-details .pull-right.post-meta-date:before, .news-details .pull-right.post-meta-categories:before, .organigram .pull-right.toggle-icon, .hero-navigation li.pull-right:before, #hero-slides .pull-right.slick-next:before, #hero-slides .pull-right.slick-prev:before, .helpermenus li.pull-right:before, .helpermenus h3 a.pull-right.ext-link:after, .pull-right#mainnav-toggle-close:before, .pull-right#mainnav-toggle:before, .nav > li.has-sub > a.pull-right:before,
 .nav > li.has-sub > .pull-right[type=button]:before, .sorttable th.pull-right::after, ul.social li.social-iconbyurl a.pull-right::before, ul.social li.social-wikipedia a.pull-right:before, ul.social li.social-itunes a.pull-right:before, ul.social li.social-youtube a.pull-right:before, ul.social li.social-vimeo a.pull-right:before, ul.social li.social-feed a.pull-right:before, ul.social li.social-flickr a.pull-right:before, ul.social li.social-delicious a.pull-right:before, ul.social li.social-tumblr a.pull-right:before, ul.social li.social-skype a.pull-right:before, ul.social li.social-github a.pull-right:before, ul.social li.social-xing a.pull-right:before, ul.social li.social-twitter a.pull-right:before, ul.social li.social-facebook a.pull-right:before, ul.social li.social-instagram a.pull-right:before, ul.social li.social-pinterest a.pull-right:before, ul.social li.social-diaspora a.pull-right:before {
   margin-left: 0.3em;
 }
@@ -2847,9 +2837,7 @@ html {
   content: "\f104";
 }
 
-.fa-angle-right:before, .hero-navigation li:before, .helpermenus li:before, #footer .cloned-meta-links li:before,
-#footer .cloned-hero-nav li:before,
-#footer .meta-nav li:before {
+.fa-angle-right:before, .hero-navigation li:before, .helpermenus li:before {
   content: "\f105";
 }
 
@@ -10271,219 +10259,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 .nav-toggled #menu-backdrop {
     display: none;
   }
-}
-
-/*-----------------------------------------------------------------------------------*/
-/* Cloned Nav in Footer
-/*-----------------------------------------------------------------------------------*/
-#footer .cloned-meta-links,
-#footer .cloned-hero-nav,
-#footer .meta-nav {
-  display: block;
-  padding: 10px;
-}
-#footer .cloned-meta-links li,
-#footer .cloned-hero-nav li,
-#footer .meta-nav li {
-  display: table;
-  padding: 3px 0 4px 4px;
-}
-#footer .cloned-meta-links li a,
-#footer .cloned-hero-nav li a,
-#footer .meta-nav li a {
-  display: block;
-  float: none;
-  border-radius: 0;
-  background-clip: padding-box;
-  margin-bottom: 0;
-  padding: 2px 0;
-  color: var(--color-Default);
-}
-#footer .cloned-meta-links li:before,
-#footer .cloned-hero-nav li:before,
-#footer .meta-nav li:before {
-  font-weight: bold;
-  display: table-cell;
-  color: var(--color-Default);
-  width: 20px;
-}
-#footer .cloned-meta-links li.zuv, #footer .cloned-meta-links li.phil, #footer .cloned-meta-links li.philfak, #footer .cloned-meta-links li.rw, #footer .cloned-meta-links li.rwfak, #footer .cloned-meta-links li.med, #footer .cloned-meta-links li.medfak, #footer .cloned-meta-links li.nat, #footer .cloned-meta-links li.natfak, #footer .cloned-meta-links li.tf, #footer .cloned-meta-links li.techfak, #footer .cloned-meta-links li.white, #footer .cloned-meta-links li.grau,
-#footer .cloned-hero-nav li.zuv,
-#footer .cloned-hero-nav li.phil,
-#footer .cloned-hero-nav li.philfak,
-#footer .cloned-hero-nav li.rw,
-#footer .cloned-hero-nav li.rwfak,
-#footer .cloned-hero-nav li.med,
-#footer .cloned-hero-nav li.medfak,
-#footer .cloned-hero-nav li.nat,
-#footer .cloned-hero-nav li.natfak,
-#footer .cloned-hero-nav li.tf,
-#footer .cloned-hero-nav li.techfak,
-#footer .cloned-hero-nav li.white,
-#footer .cloned-hero-nav li.grau,
-#footer .meta-nav li.zuv,
-#footer .meta-nav li.phil,
-#footer .meta-nav li.philfak,
-#footer .meta-nav li.rw,
-#footer .meta-nav li.rwfak,
-#footer .meta-nav li.med,
-#footer .meta-nav li.medfak,
-#footer .meta-nav li.nat,
-#footer .meta-nav li.natfak,
-#footer .meta-nav li.tf,
-#footer .meta-nav li.techfak,
-#footer .meta-nav li.white,
-#footer .meta-nav li.grau {
-  min-height: 34px;
-  line-height: 34px;
-  border-left: 8px solid transparent;
-  vertical-align: center;
-  -webkit-hyphens: auto;
-          hyphens: auto;
-}
-#footer .cloned-meta-links li.zuv:before, #footer .cloned-meta-links li.phil:before, #footer .cloned-meta-links li.philfak:before, #footer .cloned-meta-links li.rw:before, #footer .cloned-meta-links li.rwfak:before, #footer .cloned-meta-links li.med:before, #footer .cloned-meta-links li.medfak:before, #footer .cloned-meta-links li.nat:before, #footer .cloned-meta-links li.natfak:before, #footer .cloned-meta-links li.tf:before, #footer .cloned-meta-links li.techfak:before, #footer .cloned-meta-links li.white:before, #footer .cloned-meta-links li.grau:before,
-#footer .cloned-hero-nav li.zuv:before,
-#footer .cloned-hero-nav li.phil:before,
-#footer .cloned-hero-nav li.philfak:before,
-#footer .cloned-hero-nav li.rw:before,
-#footer .cloned-hero-nav li.rwfak:before,
-#footer .cloned-hero-nav li.med:before,
-#footer .cloned-hero-nav li.medfak:before,
-#footer .cloned-hero-nav li.nat:before,
-#footer .cloned-hero-nav li.natfak:before,
-#footer .cloned-hero-nav li.tf:before,
-#footer .cloned-hero-nav li.techfak:before,
-#footer .cloned-hero-nav li.white:before,
-#footer .cloned-hero-nav li.grau:before,
-#footer .meta-nav li.zuv:before,
-#footer .meta-nav li.phil:before,
-#footer .meta-nav li.philfak:before,
-#footer .meta-nav li.rw:before,
-#footer .meta-nav li.rwfak:before,
-#footer .meta-nav li.med:before,
-#footer .meta-nav li.medfak:before,
-#footer .meta-nav li.nat:before,
-#footer .meta-nav li.natfak:before,
-#footer .meta-nav li.tf:before,
-#footer .meta-nav li.techfak:before,
-#footer .meta-nav li.white:before,
-#footer .meta-nav li.grau:before {
-  display: none;
-  content: "";
-}
-#footer .cloned-meta-links li.zuv a, #footer .cloned-meta-links li.phil a, #footer .cloned-meta-links li.philfak a, #footer .cloned-meta-links li.rw a, #footer .cloned-meta-links li.rwfak a, #footer .cloned-meta-links li.med a, #footer .cloned-meta-links li.medfak a, #footer .cloned-meta-links li.nat a, #footer .cloned-meta-links li.natfak a, #footer .cloned-meta-links li.tf a, #footer .cloned-meta-links li.techfak a, #footer .cloned-meta-links li.white a, #footer .cloned-meta-links li.grau a,
-#footer .cloned-hero-nav li.zuv a,
-#footer .cloned-hero-nav li.phil a,
-#footer .cloned-hero-nav li.philfak a,
-#footer .cloned-hero-nav li.rw a,
-#footer .cloned-hero-nav li.rwfak a,
-#footer .cloned-hero-nav li.med a,
-#footer .cloned-hero-nav li.medfak a,
-#footer .cloned-hero-nav li.nat a,
-#footer .cloned-hero-nav li.natfak a,
-#footer .cloned-hero-nav li.tf a,
-#footer .cloned-hero-nav li.techfak a,
-#footer .cloned-hero-nav li.white a,
-#footer .cloned-hero-nav li.grau a,
-#footer .meta-nav li.zuv a,
-#footer .meta-nav li.phil a,
-#footer .meta-nav li.philfak a,
-#footer .meta-nav li.rw a,
-#footer .meta-nav li.rwfak a,
-#footer .meta-nav li.med a,
-#footer .meta-nav li.medfak a,
-#footer .meta-nav li.nat a,
-#footer .meta-nav li.natfak a,
-#footer .meta-nav li.tf a,
-#footer .meta-nav li.techfak a,
-#footer .meta-nav li.white a,
-#footer .meta-nav li.grau a {
-  display: inline-block;
-  padding: 2px 0 2px 10px;
-  line-height: 16px;
-  vertical-align: center;
-}
-#footer .cloned-meta-links li.zuv,
-#footer .cloned-hero-nav li.zuv,
-#footer .meta-nav li.zuv {
-  border-color: var(--color-zentral-ci-hell);
-}
-#footer .cloned-meta-links li.phil, #footer .cloned-meta-links li.philfak,
-#footer .cloned-hero-nav li.phil,
-#footer .cloned-hero-nav li.philfak,
-#footer .meta-nav li.phil,
-#footer .meta-nav li.philfak {
-  border-color: var(--color-phil-ci-hell);
-}
-#footer .cloned-meta-links li.rw, #footer .cloned-meta-links li.rwfak,
-#footer .cloned-hero-nav li.rw,
-#footer .cloned-hero-nav li.rwfak,
-#footer .meta-nav li.rw,
-#footer .meta-nav li.rwfak {
-  border-color: var(--color-rw-ci-hell);
-}
-#footer .cloned-meta-links li.med, #footer .cloned-meta-links li.medfak,
-#footer .cloned-hero-nav li.med,
-#footer .cloned-hero-nav li.medfak,
-#footer .meta-nav li.med,
-#footer .meta-nav li.medfak {
-  border-color: var(--color-med-ci-hell);
-}
-#footer .cloned-meta-links li.nat, #footer .cloned-meta-links li.natfak,
-#footer .cloned-hero-nav li.nat,
-#footer .cloned-hero-nav li.natfak,
-#footer .meta-nav li.nat,
-#footer .meta-nav li.natfak {
-  border-color: var(--color-nat-ci-hell);
-}
-#footer .cloned-meta-links li.tf, #footer .cloned-meta-links li.techfak,
-#footer .cloned-hero-nav li.tf,
-#footer .cloned-hero-nav li.techfak,
-#footer .meta-nav li.tf,
-#footer .meta-nav li.techfak {
-  border-color: var(--color-tf-ci-hell);
-}
-#footer .cloned-meta-links li.white,
-#footer .cloned-hero-nav li.white,
-#footer .meta-nav li.white {
-  border-color: var(--color-white);
-}
-#footer .cloned-meta-links li.gray,
-#footer .cloned-hero-nav li.gray,
-#footer .meta-nav li.gray {
-  border-color: var(--color-StandardHellgrau);
-}
-#footer .meta-nav {
-  padding: 10px 0;
-}
-#footer .cloned-meta-links {
-  margin-bottom: 0px;
-}
-#footer .cloned-meta-links,
-#footer .cloned-hero-nav {
-  background: var(--color-StandardHellgrau);
-  color: var(--color-Default);
-}
-#footer .cloned-meta-links li, #footer .cloned-meta-links a, #footer .cloned-meta-links h1, #footer .cloned-meta-links h2, #footer .cloned-meta-links h3, #footer .cloned-meta-links h4, #footer .cloned-meta-links p,
-#footer .cloned-hero-nav li,
-#footer .cloned-hero-nav a,
-#footer .cloned-hero-nav h1,
-#footer .cloned-hero-nav h2,
-#footer .cloned-hero-nav h3,
-#footer .cloned-hero-nav h4,
-#footer .cloned-hero-nav p {
-  background: var(--color-StandardHellgrau);
-  color: var(--color-Default);
-}
-@media (min-width: 768px) {
-  #footer .cloned-meta-links,
-#footer .cloned-hero-nav {
-    display: none;
-  }
-}
-#footer .cloned-hero-nav {
-  margin-bottom: 10px;
-  margin-left: -15px;
 }
 
 /*-----------------------------------------------------------------------------------*/

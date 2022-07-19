@@ -283,10 +283,6 @@ jQuery(document).ready(function ($) {
         };
 
 
-        // Clone the hero navigation into the footer
-        var $heroNavigation = $('#hero .hero-navigation').clone().attr("aria-label", "Quicklink Navigation");
-        $('<div class="cloned-hero-nav"></div>').append($heroNavigation).prependTo('#footer');
-
 
         // Find the sidebar navigation (if present)
         var sidebarNavigation = $('.sidebar-subnav');
