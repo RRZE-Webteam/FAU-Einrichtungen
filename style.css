@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.6-11
+Version: 2.1.6-12
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -16229,7 +16229,7 @@ button.expand-all {
 @media (min-width: 768px) {
   #content .alert, #content .wpcf7-mail-sent-ng, #content .wpcf7-spam-blocked, #content .wpcf7-not-valid-tip-no-ajax {
     margin-left: 0;
-    margit-right: 0;
+    margin-right: 0;
   }
 }
 
