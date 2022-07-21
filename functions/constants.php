@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 81,
+    'optiontable-version'	=> 82,
 		// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 		// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 		// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -92,7 +92,9 @@ $defaultoptions = [
     
 
     /* Image Sizes */
-    
+    'default_image_sizes' => [
+	''
+    ],
     /* Default Thumb Size */
     'default_thumb_width'			=> 300,
     'default_thumb_height'			=> 150,
@@ -125,6 +127,12 @@ $defaultoptions = [
     'default_gallery_full_height'		=> 470,
     'default_gallery_full_crop'			=> false,     
     
+    'default_imagelink_sizes' => [
+            'logo-thumb' => '140×110 Pixel',
+            'page-thumb' => '2:1 (220×110 Pixel)',
+            'post-thumbnails' => '2:1 (300×150 Pixel)',
+            'thumbnail' => '1:1 (150×150 Pixel)',
+        ],
 
     'breadcrumb_root'				=> __('Startseite', 'fau'),
     'breadcrumb_withtitle'			=> false,

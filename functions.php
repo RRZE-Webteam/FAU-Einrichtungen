@@ -67,6 +67,17 @@ function fau_setup() {
 	 * "standard" posts and pages.
 	 */
 
+	/* 
+	 * Notice: Default Image Siztes dont neet to be defined:
+	 * 
+	 * What Are the Default WordPress Image Sizes?
+	    Thumbnail size: 150px (square)
+	    Medium size: Max width and height of 300px.
+	    Large size: Max width and height of 1024px.
+	    Full size: The original size of your image.
+	 * 
+	 * Reserved Image Size Names: thumb, thumbnail, post-thumbnail, medium, medium_large, large, full.
+	 */
 
 	/* Image Sizes for Slider, Name: hero - 1260:350, true */
 	add_image_size( 'hero', $defaultoptions['slider-image-width'], $defaultoptions['slider-image-height'], $defaultoptions['slider-image-crop']);

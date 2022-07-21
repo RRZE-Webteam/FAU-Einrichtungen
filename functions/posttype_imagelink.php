@@ -263,8 +263,13 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 				if (empty($alttext)) {
 					$alttext = __("Zum Webauftritt: ", 'fau').$currenturl;
 				}
-				$item_output .= fau_get_image_htmlcode($imageid, 'rwd-480-3-2', $alttext);
-		//		$item_output .= fau_get_image_htmlcode($imageid, $imagelink_option['size'], $alttext);
+		//		$item_output .= fau_get_image_htmlcode($imageid, 'rwd-480-3-2', $alttext);
+				if ($imagelink_option['size'] == 'thumbnail') {
+				    $item_output .= fau_get_image_htmlcode($imageid, 'thumb', $alttext);
+				} else {
+				    $item_output .= fau_get_image_htmlcode($imageid, $imagelink_option['size'], $alttext);
+				}
+				
 				if (!empty($currenturl)) {
 				    $item_output .= '</a>';
 				} else {

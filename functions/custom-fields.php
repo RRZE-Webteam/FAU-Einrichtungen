@@ -1079,12 +1079,11 @@ function fau_do_metabox_page_additional_attributes($object, $box) {
             1,
             __('Keine Logos zeigen', 'fau'));
         $currentsize = get_post_meta($object->ID, 'fauval_imagelink_size', true);
-        $imagesizes = [
-            'logo-thumb' => '140×110 Pixel',
-            'page-thumb' => '220×110 Pixel',
-            'post-thumbnails' => '300×150 Pixel',
-            'thumbnail' => '150×150 Pixel',
-        ];
+	
+	global $defaultoptions;
+	
+        $imagesizes = $defaultoptions['default_imagelink_sizes'];
+	
         fau_form_select(
             'fau_metabox_page_imagelinks_size',
             $imagesizes,
