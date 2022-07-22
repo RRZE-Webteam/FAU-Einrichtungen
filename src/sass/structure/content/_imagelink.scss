@@ -46,17 +46,11 @@
 	    
 	    a, .image {
 		height: 110px;	
-    //		max-height: 110px;
 		display: flex;
 		margin: auto;	
 		 img {
-		   // width: 140px;
 		   max-height: 110px;
 	       }
-	       
-	       
-
-	       
 	    }
 	    
 	    
@@ -79,12 +73,12 @@
 	    .slick-slide {
 		width: 150px;
 		height: 150px; 
-
 	       a, .image {
 		   height: 150px; 
-	//	   max-height: 150px;
+		   width: 150px;
 		     img {
 			max-height: 150px; 
+			max-width: 150px; 
 		   }
 	       }
 	    }
@@ -95,10 +89,9 @@
 	.x120 .slick-slide {
 	    width: 120px;
 	   a, .image {
-	//       max-height: 120px;
+		height: 120px;
 	         img {
-	//	   width: 120px;
-	//	   height: 120px;
+		   max-height: 120px;
 	       }
 	   }
 	}
@@ -107,10 +100,9 @@
 	.x240 .slick-slide {
 	    width: 240px;
 	    a, .image {
-	//       max-height: 240px;
+		height: 240px;
 	        img {
-	//	   width: 240px;
-	//	   height: 240px;
+		   max-height: 240px;
 	       }
 	   }
 	}
@@ -119,10 +111,9 @@
 	.x360 .slick-slide {
 	    width: 360px;
 	     a, .image {
-	//       max-height: 360px;
+		 height: 360px;
 	        img {
-//		   width: 360px;
-//		   height: 360px;
+    		   max-height: 360px;
 	       }
 	   }
 	}
@@ -131,10 +122,9 @@
 	.x480 .slick-slide {
 	    width: 480px;
 	    a, .image {
-	//       max-height: 480px;
+	        height: 480px;
 	        img {
-//		   width: 480px;
-//		   height: 480px;
+		   max-height: 480px;
 	       }
 	   }
 	}
@@ -144,9 +134,7 @@
 	    width: 142px;
 	     a, .image {
 	       height: 110px;
-	       
 	       img {
-//		   width: 140px;
 		   max-height: 110px;
 	       }
 	   }
@@ -157,7 +145,6 @@
 	    a, .image {
 	       height: 110px;
 	        img {
-//		   width: 220px;
 		   max-height: 110px;
 	       }
 	   }
@@ -169,7 +156,6 @@
 		a, .image {
 		   height: 150px;
 		    img {
-    //		   width: 300px;
 		       max-height: 150px;
 		   }
 	       }

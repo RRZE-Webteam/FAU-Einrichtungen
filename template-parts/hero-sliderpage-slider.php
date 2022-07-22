@@ -78,12 +78,12 @@
 					$copyright = trim(strip_tags( $imgdata['credits'] ));
 				    }
 				} else {
-				    $sliderimage = array($defaultoptions['src-fallback-slider-image'],$defaultoptions['slider-image-width'],$defaultoptions['slider-image-height']);  
+				    $sliderimage = array($defaultoptions['src-fallback-slider-image'],$defaultoptions['default_image_sizes']['hero']['width'],$$defaultoptions['default_image_sizes']['hero']['height']);  
 				}
 				
 			    } else {
 				// Kein Fallbackbild definiert, also hardcodiertes Fallback des Themes
-				$sliderimage = array($defaultoptions['src-fallback-slider-image'],$defaultoptions['slider-image-width'],$defaultoptions['slider-image-height']);  
+				$sliderimage = array($defaultoptions['src-fallback-slider-image'],$defaultoptions['default_image_sizes']['hero']['width'],$defaultoptions['default_image_sizes']['hero']['height']);  
 			    }	
 			}
 		    }

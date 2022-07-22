@@ -41,7 +41,9 @@ require_once( get_template_directory() . '/functions/deprecated.php');
 // Filter-Hooks
 require_once( get_template_directory() . '/functions/filters.php');
 
-
+/*-----------------------------------------------------------------------------------*/
+/* Setup theme
+/*-----------------------------------------------------------------------------------*/
 function fau_setup() {
 	global $defaultoptions;
 
@@ -61,13 +63,40 @@ function fau_setup() {
 	fau_create_socialmedia_menu();
 	    // Checkup Social Media Menu
 
+	
+	global $is_gutenberg_enabled;
+	if (has_filter('is_gutenberg_enabled')) {
+		$is_gutenberg_enabled = apply_filters('is_gutenberg_enabled', false);
+	} else {
+	    $is_gutenberg_enabled = fau_is_newsletter_plugin_active();
+	}
 
-	/*
-	 * This theme uses a custom image size for featured images, displayed on
-	 * "standard" posts and pages.
-	 */
+}
+add_action( 'after_setup_theme', 'fau_setup' );
 
-	/* 
+/*-----------------------------------------------------------------------------------*/
+/*Custom Loo setup
+/*-----------------------------------------------------------------------------------*/
+function fau_custom_logo_setup() {
+    global $defaultoptions;
+    $defaults = array(
+        'height'               => $defaultoptions['default_logo_height'],
+        'width'                => $defaultoptions['default_logo_width'],
+        'flex-height'          => true,
+        'flex-width'           => true,
+        'unlink-homepage-logo' => true,
+    );
+
+    add_theme_support( 'custom-logo', $defaults );
+}
+add_action( 'after_setup_theme', 'fau_custom_logo_setup' );
+
+/*-----------------------------------------------------------------------------------*/
+/* Set image sizes
+/*-----------------------------------------------------------------------------------*/
+function fau_set_image_sizes() {
+    global $defaultoptions;
+     /* 
 	 * Notice: Default Image Siztes dont neet to be defined:
 	 * 
 	 * What Are the Default WordPress Image Sizes?
@@ -76,52 +105,31 @@ function fau_setup() {
 	    Large size: Max width and height of 1024px.
 	    Full size: The original size of your image.
 	 * 
-	 * Reserved Image Size Names: thumb, thumbnail, post-thumbnail, medium, medium_large, large, full.
+	 * Reserved Image Size Names:
+	 *  thumb = alias for thumbnail
+	 *  thumbnail, default 150px x 150px max
+	 *  post-thumbnail, 
+	 *  medium, default 300px x 300px max
+	 *  medium_large, default 768px x 0px max
+	 *  large, default 1024px x 1024px max
+	 *  full, unmodified
 	 */
-
-	/* Image Sizes for Slider, Name: hero - 1260:350, true */
-	add_image_size( 'hero', $defaultoptions['slider-image-width'], $defaultoptions['slider-image-height'], $defaultoptions['slider-image-crop']);
-
-	/* Banner fuer Startseiten, Name: herobanner -  1260:182, true */
-	add_image_size( 'herobanner', $defaultoptions['default_startseite-bannerbild-image_width'], $defaultoptions['default_startseite-bannerbild-image_height'], $defaultoptions['default_startseite-bannerbild-image_crop']);
-
-
-	/*    Small 2:1 size for image
-        'default_rwdimage_2-1_typname'		=> 'rwd-480-2-1',
-	'default_rwdimage_2-1_width'		=> 480,
-	'default_rwdimage_2-1_height'		=> 240,    
-	'default_rwdimage_2-1_crop'		=> false,
-	    */
-	add_image_size( $defaultoptions[ 'default_rwdimage_2-1_typname'], $defaultoptions[ 'default_rwdimage_2-1_width'], $defaultoptions['default_rwdimage_2-1_height'], $defaultoptions['default_rwdimage_2-1_crop']);
-	
-	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size($defaultoptions[ 'default_rwdimage_2-1_width'], $defaultoptions['default_rwdimage_2-1_height'], $defaultoptions['default_rwdimage_2-1_crop'] );
-
-
-	/* RWD-Bildauflösung: 480x320. , 3:2 Proportion. No Crop */
-	add_image_size( $defaultoptions['default_rwdimage_typname'], $defaultoptions['default_rwdimage_width'], $defaultoptions['default_rwdimage_height'], $defaultoptions['default_rwdimage_crop']);
-
-
-	/*
-	 * Größen für Bildergalerien:
-	 */
-	/* Images for gallerys - Name: gallery-full */
-	add_image_size( 'gallery-full', $defaultoptions['default_gallery_full_width'], $defaultoptions['default_gallery_full_height'], $defaultoptions['default_gallery_full_crop']); // 940, 470, false
-
-	global $is_gutenberg_enabled;
-
-
-
-	if (has_filter('is_gutenberg_enabled')) {
-		$is_gutenberg_enabled = apply_filters('is_gutenberg_enabled', false);
-	} else {
-	    $is_gutenberg_enabled = fau_is_newsletter_plugin_active();
+    foreach ($defaultoptions['default_image_sizes'] as $size => $value) {	
+	switch ($size) {
+	    case '_post_thumbnail':
+		add_theme_support( 'post-thumbnails' );
+		set_post_thumbnail_size($value[ 'width'], $value['height'], $value['crop']);
+		break;
+	    case '_thumbnail': 
+		// default values; tu nichts (derzeit)
+		break;
+	    default:
+		add_image_size( $size, $value[ 'width'], $value['height'], $value['crop']);
+		break;
 	}
-
-
+    } 
 }
-add_action( 'after_setup_theme', 'fau_setup' );
-
+add_action( 'after_setup_theme', 'fau_set_image_sizes' );
 
 /*-----------------------------------------------------------------------------------*/
 /* Set extra init values
@@ -360,22 +368,6 @@ function fau_remove_unwanted_head_actions() {
 }
 add_action('wp_head', 'fau_remove_unwanted_head_actions', 0);
 
-/*-----------------------------------------------------------------------------------*/
-/*Custom Loo setup
-/*-----------------------------------------------------------------------------------*/
-function fau_custom_logo_setup() {
-    global $defaultoptions;
-    $defaults = array(
-        'height'               => $defaultoptions['default_logo_height'],
-        'width'                => $defaultoptions['default_logo_width'],
-        'flex-height'          => true,
-        'flex-width'           => true,
-        'unlink-homepage-logo' => true,
-    );
-
-    add_theme_support( 'custom-logo', $defaults );
-}
-add_action( 'after_setup_theme', 'fau_custom_logo_setup' );
 
 /*-----------------------------------------------------------------------------------*/
 /*  Returns language code, without subcode

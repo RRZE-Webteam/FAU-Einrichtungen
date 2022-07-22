@@ -10,22 +10,22 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 82,
+    'optiontable-version'	    => 84,
 		// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 		// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 		// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 		// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-    'debugmode'				=> true,
+    'debugmode'			    => false,
 		// Der Debugmode erlaubt die Einschaltung von Debug- und Demowerten über den Customizer.
 		// Bei der Compilierung des Themes mit Gulp wird der Debugmode bei
 		//  'gulp build'   auf false gesetzt
 		// Ansonsten kann er manuell über 'gulp nodebug' auf false und
 		//  mit 'gulp debugmode' auf true gesetzt werden
 		// Oder hier von Hand :)
-    'js-version'				=> '2.10',
+    'js-version'		    => '2.10',
 		// Theme-Versionslinie, wird überschrieben durch Style.css Version
     
-    'website_type'			=> 1,
+    'website_type'		    => 1,
 		// website_type: 
 		//  0 = Fakultaetsportal; 
 		//  1 = Lehrstuehle, Departments 
@@ -33,7 +33,7 @@ $defaultoptions = [
 		//  3 = Kooperationen 
 		// -1 = fau.de Portal (4 Spalter in Bühne, kein Link zur FAU. 
 
-    'website_usefaculty'			=> '',
+    'website_usefaculty'		=> '',
 		// phil, med, nat, rw, tf
 		// Setzt fest die Fakultät bei Wahl des Website-Types    
 
@@ -93,39 +93,72 @@ $defaultoptions = [
 
     /* Image Sizes */
     'default_image_sizes' => [
-	''
+	'hero'	=> [
+	    'width'	=> 1260,
+	    'height'	=> 350,
+	    'crop'	=> true,
+	    'imagelink'	=> false,
+	    'desc'	=> __('Sliderbild auf Startseite','fau')
+	],
+	'herobanner'	=> [
+	    'width'	=> 1260,
+	    'height'	=> 182,
+	    'crop'	=> true,
+	    'imagelink'	=> false,
+	    'desc'	=> __('Bannerbild Startseite','fau')
+	],
+	'logo-thumb'	=> [
+	    'width'	=> 140,
+	    'height'	=> 110,
+	    'crop'	=> false,
+	    'imagelink'	=> true,
+	    'desc'	=> __('Kleines rechteckiges Logo','fau')
+	],
+	'rwd-480-2-1'	=> [
+	    'width'	=> 480,
+	    'height'	=> 240,
+	    'crop'	=> false,
+	    'imagelink'	=> true,
+	    'desc'	=> __('Bild in 2:1 Format','fau')
+	],
+	'rwd-480-3-2'	=> [
+	    'width'	=> 480,
+	    'height'	=> 320,
+	    'crop'	=> false,
+	    'imagelink'	=> true,
+	    'desc'	=> __('Bild in 3:2 Format','fau')
+	],
+	'gallery-full'	=> [
+	    'width'	=> 940,
+	    'height'	=> 470,
+	    'crop'	=> false,
+	    'imagelink'	=> false,
+	    'desc'	=> __('Hochkantbild für Galerien','fau')
+	],
+	'_post_thumbnail'   => [
+	    'width'	=> 480,
+	    'height'	=> 240,
+	    'crop'	=> false,
+	    'imagelink'	=> true,
+	    'desc'	=> __('Artikelbild','fau')
+	],
+	'_thumbnail'	=> [
+	    'width'	=> 150,
+	    'height'	=> 150,
+	    'crop'	=> true,
+	    'imagelink'	=> true,
+	    'desc'	=> __('Thumbnail','fau')
+	],
+	'_thumb'	=> [
+	    'width'	=> 150,
+	    'height'	=> 150,
+	    'crop'	=> true,
+	    'imagelink'	=> true,
+	    'desc'	=> __('Thumb','fau')
+	]
+	
     ],
-    /* Default Thumb Size */
-    'default_thumb_width'			=> 300,
-    'default_thumb_height'			=> 150,
-    'default_thumb_crop'			=> false,
-    
-    /* Image Sizes for Slider, Name: hero */
-    'slider-image-width'			=> 1260,
-    'slider-image-height'			=> 350,    
-    'slider-image-crop'				=> true,
-    
-    /* Hero Banner - Name: herobanner */
-    'default_startseite-bannerbild-image_width'	    => 1260,
-    'default_startseite-bannerbild-image_height'    => 182,
-    'default_startseite-bannerbild-image_crop'	    => true,
-    
-   /* Small 2:1 size for image */
-    'default_rwdimage_2-1_typname'		=> 'rwd-480-2-1',
-    'default_rwdimage_2-1_width'		=> 480,
-    'default_rwdimage_2-1_height'		=> 240,    
-    'default_rwdimage_2-1_crop'			=> false,
 
-    /* Small 3:2 size for images - Name: rwd-480-3-2 */
-    'default_rwdimage_typname'			=> 'rwd-480-3-2',
-    'default_rwdimage_width'			=> 480,
-    'default_rwdimage_height'			=> 320,    
-    'default_rwdimage_crop'			=> false,
-     
-    /* Images for gallerys - Name: gallery-full */
-    'default_gallery_full_width'		=> 940,
-    'default_gallery_full_height'		=> 470,
-    'default_gallery_full_crop'			=> false,     
     
     'default_imagelink_sizes' => [
             'logo-thumb' => '140×110 Pixel',
@@ -611,8 +644,8 @@ $setoptions = array(
 
 	       'fallback-slider-image' => array(
 		    'type'    => 'image',
-		    'maxwidth'	=> $defaultoptions['slider-image-width'],
-		    'maxheight'	=> $defaultoptions['slider-image-height'],
+		    'maxwidth'	=> $defaultoptions['default_image_sizes']['hero']['width'], // $defaultoptions['slider-image-width'],
+		    'maxheight'	=> $defaultoptions['default_image_sizes']['hero']['height'], // $defaultoptions['slider-image-height'],
 		    'title'   => __( 'Slider Ersatzbild', 'fau' ),
 		    'label'   => __( 'Ersatzbild für den Slider, für den Fall, daß ein Artikel kein eigenes Artikel- oder Bühnenbild definiert hat.', 'fau' ),               
 		    'parent'  => 'slider'
@@ -1152,8 +1185,8 @@ $setoptions = array(
               
 	         'fallback_submenu_image' => array(
 		    'type'    => 'image',
-		    'maxwidth'	=> $defaultoptions['default_rwdimage_2-1_width'],
-		    'maxheight'	=> $defaultoptions['default_rwdimage_2-1_height'],
+		    'maxwidth'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['width'], // $defaultoptions['default_rwdimage_2-1_width'],
+		    'maxheight'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['height'], // $defaultoptions['default_rwdimage_2-1_height'],
 		    'title'   => __( 'Thumbnail Ersatzbild', 'fau' ),
 		    'label'   => __( 'Ersatzbild für den Fall, daß eine verlinkte Seite kein eigenes Artikelbild definiert hat.', 'fau' ),               
 		    'parent'  => 'contentmenus',

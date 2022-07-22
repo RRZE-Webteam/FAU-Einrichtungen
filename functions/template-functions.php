@@ -731,8 +731,8 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
                 $output .= '<meta itemprop="url" content="'.fau_make_absolute_url($imgmeta[0]).'">';
             }
             global $defaultoptions;
-            $output .= '<meta itemprop="width" content="'.$defaultoptions['default_rwdimage_width'].'">';
-            $output .= '<meta itemprop="height" content="'.$defaultoptions['default_rwdimage_height'].'">';
+            $output .= '<meta itemprop="width" content="'.$defaultoptions['default_image_sizes']['rwd-480-3-2']['width'].'">';
+            $output .= '<meta itemprop="height" content="'.$defaultoptions['default_image_sizes']['rwd-480-3-2']['height'].'">';
             $output .= '</div>';
             $output .= '</div>';
             $output .= '<div class="teaserregion">';
@@ -1795,24 +1795,49 @@ function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $
 
     return;
 }
+/*-----------------------------------------------------------------------------------*/
+/* get info of defined sizes
+/*-----------------------------------------------------------------------------------*/
+function fau_get_image_sizes($size = 'rwd-480-3-2') {
+    global $defaultoptions;
 
+    // Find (old) aliases and map them
+    switch($size) {
+	case 'topevent_thumb':
+        case 'post-thumb':
+	    $realsize = 'rwd-480-3-2';
+	    break;
+	case 'fallback_submenu_image':
+        case 'page-thumb':	     
+	    $realsize = 'rwd-480-2-1';
+	    break;
+	default:
+	    $realsize = $size;
+	    break;
+
+    }
+    if (isset($defaultoptions['default_image_sizes'][$realsize])) {
+	return $defaultoptions['default_image_sizes'][$realsize];
+    }
+    
+    return $defaultoptions['default_image_sizes']['rwd-480-3-2'];
+} 
 /*-----------------------------------------------------------------------------------*/
 /* get fallback image by size
 /*-----------------------------------------------------------------------------------*/
-function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array())
-{
+function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array()) {
     global $options;
     global $defaultoptions;
 
     $imgsrc  = $imgsrcset = $imgsrcsizes = '';
     $alttext = esc_html($alttext);
-    $width   = $height = 0;
 
+    $sizedata = fau_get_image_sizes($size);
+    $width = $sizedata['width'];
+    $height = $sizedata['height'];
+    
     switch ($size) {
-
         case 'topevent_thumb':
-            $width  = $defaultoptions['default_rwdimage_width'];
-            $height = $defaultoptions['default_rwdimage_height'];
             $fallback = get_theme_mod('fallback_topevent_image');
             if ($fallback) {
                 $thisimage   = wp_get_attachment_image_src($fallback, 'rwd-480-3-2');
@@ -1826,8 +1851,6 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
             break;
 
         case 'post-thumb':
-            $width    = $defaultoptions['default_rwdimage_width'];
-            $height   = $defaultoptions['default_rwdimage_height'];
             $fallback = get_theme_mod('default_postthumb_image');
             if ($fallback) {
                 $thisimage   = wp_get_attachment_image_src($fallback, 'rwd-480-3-2');
@@ -1841,8 +1864,6 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
             break;
 
         case 'fallback_submenu_image':
-            $width    = $options['default_rwdimage_2-1_width'];
-            $height   = $options['default_rwdimage_2-1_height'];
             $fallback = get_theme_mod('fallback_submenu_image');
             if ($fallback) {
                 $thisimage   = wp_get_attachment_image_src($fallback, 'rwd-480-2-1');
@@ -1853,23 +1874,6 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
                 $imgsrcsizes = wp_get_attachment_image_sizes($fallback, 'rwd-480-2-1');
             }
 
-
-            break;
-
-
-        case 'rwd-480-2-1':
-        case 'page-thumb':
-            $width  = $options['default_rwdimage_2-1_width'];
-            $height = $options['default_rwdimage_2-1_height'];
-            break;
-        case 'rwd-480-3-2':
-            $width  = $options['default_rwdimage_width'];
-            $height = $options['default_rwdimage_height'];
-            break;
-
-        default:
-            $width  = $options['default_rwdimage_width'];
-            $height = $options['default_rwdimage_height'];
             break;
     }
 
