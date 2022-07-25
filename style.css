@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.6-18
+Version: 2.1.6-19
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -13537,6 +13537,7 @@ main .news-more-links .news-rss:hover:before {
 }
 .imagelink .slick-slide a img, .imagelink .slick-slide .image img {
   max-height: 110px;
+  max-width: 140px;
 }
 .imagelink .slick-slide img {
   box-shadow: none;
@@ -13563,7 +13564,7 @@ main .news-more-links .news-rss:hover:before {
 .imagelink .thumbnail .slick-slide a img,
 .imagelink .thumbnail .slick-slide .image img {
   max-height: 150px;
-  max-width: 150px;
+  width: 150px;
 }
 .imagelink .x120 .slick-item,
 .imagelink .x120 .slick-slide {
@@ -13578,6 +13579,7 @@ main .news-more-links .news-rss:hover:before {
 .imagelink .x120 .slick-slide a img,
 .imagelink .x120 .slick-slide .image img {
   max-height: 120px;
+  width: 120px;
 }
 .imagelink .x240 .slick-item,
 .imagelink .x240 .slick-slide {
@@ -13592,6 +13594,7 @@ main .news-more-links .news-rss:hover:before {
 .imagelink .x240 .slick-slide a img,
 .imagelink .x240 .slick-slide .image img {
   max-height: 240px;
+  width: 240px;
 }
 .imagelink .x360 .slick-item,
 .imagelink .x360 .slick-slide {
@@ -13606,6 +13609,7 @@ main .news-more-links .news-rss:hover:before {
 .imagelink .x360 .slick-slide a img,
 .imagelink .x360 .slick-slide .image img {
   max-height: 360px;
+  width: 360px;
 }
 .imagelink .x480 .slick-item,
 .imagelink .x480 .slick-slide {
@@ -13620,6 +13624,7 @@ main .news-more-links .news-rss:hover:before {
 .imagelink .x480 .slick-slide a img,
 .imagelink .x480 .slick-slide .image img {
   max-height: 480px;
+  width: 480px;
 }
 .imagelink .logo-thumb .slick-item,
 .imagelink .logo-thumb .slick-slide {
@@ -13634,6 +13639,7 @@ main .news-more-links .news-rss:hover:before {
 .imagelink .logo-thumb .slick-slide a img,
 .imagelink .logo-thumb .slick-slide .image img {
   max-height: 110px;
+  width: 140px;
 }
 .imagelink .page-thumb .slick-item,
 .imagelink .page-thumb .slick-slide {
@@ -13648,6 +13654,7 @@ main .news-more-links .news-rss:hover:before {
 .imagelink .page-thumb .slick-slide a img,
 .imagelink .page-thumb .slick-slide .image img {
   max-height: 110px;
+  width: 220px;
 }
 .imagelink .post-thumbnails .slick-item,
 .imagelink .post-thumbnails .slick-slide {
@@ -13662,6 +13669,7 @@ main .news-more-links .news-rss:hover:before {
 .imagelink .post-thumbnails .slick-slide a img,
 .imagelink .post-thumbnails .slick-slide .image img {
   max-height: 150px;
+  width: 300px;
 }
 .imagelink .post-thumbnails .slick-item {
   margin: 10px 2px;
