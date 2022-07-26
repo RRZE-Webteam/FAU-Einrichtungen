@@ -104,8 +104,8 @@ $default_link_liste = array(
 		'content'  => 'https://campo.fau.de/',
 	    ),
 	    'link2'  => array(
-		'name'	    => __('Videoportal', 'fau' ),
-		'content'  => 'https://www.fau.tv/',
+		'name'	    => __('UnivIS', 'fau' ),
+		'content'  => 'https://univis.fau.de/',
 	    ),
 	    'link3'  => array(
 		'name'	    => __('Stellenangebote', 'fau' ),
