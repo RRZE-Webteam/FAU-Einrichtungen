@@ -7,19 +7,6 @@
  * TODO/ISSUE: Als eigenen Plugin auslagern oder in Plugin RRZE Elements übernehmen
  */
 
-global $imagelink_defaults;
-$imagelink_defaults = array(
-			'echo'			=> false, 
-			'order'			=> 'ASC', 
-			'dots'			=> true, 
-			'autoplay'		=> true,
-			'adaptiveHeight'	=> true,
-			'slides'		=> 4, 
-			'class'			=> '', 
-			'type'			=> 'slide', 
-			'size'			=> 'logo-thumb',
-			'navtitle'		=> __('Partnerlogos', 'fau') 
-);
 
 global $imagelink_allowedsizes;
 $imagelink_allowedsizes = array("logo-thumb", "post-thumbnails", "thumbnail", "page-thumb", "x120", "x240", "x360", "x480");
@@ -160,7 +147,7 @@ add_action( 'save_post', 'fau_imagelink_metabox_content_save' );
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_imagelink_get' ) ) {
     function fau_imagelink_get( $atts = array()) {		
-		global $imagelink_defaults;
+		$imagelink_defaults = fau_get_imagelink_defaults();
 		global $imagelink_allowedsizes;
 		$imagelink_option = array_merge($imagelink_defaults, $atts);
 		
@@ -305,11 +292,11 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 				global $slickfunc;
 				
 				$str_autoplay = 'true';
-				if (!$imagelink_option['autoplay']) {
+				if ($imagelink_option['autoplay']===false) {
 					$str_autoplay = 'false';
 				}
 				$str_dots = 'true';
-				if (!$imagelink_option['dots']) {
+				if ($imagelink_option['dots']===false) {
 					$str_dots = 'false';
 				}
 				
@@ -358,7 +345,7 @@ add_action( 'wp_footer', 'fau_imagelink_addfooter_scripts');
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_imagelink_shortcode' ) ) {
     function fau_imagelink_shortcode( $atts ) {
-		global $imagelink_defaults;
+		$imagelink_defaults = fau_get_imagelink_defaults();
 		$args = shortcode_atts( $imagelink_defaults, $atts, 'imagelink' );
 
 		if (isset($atts['slides']) && intval($atts['slides']) && $atts['slides']>0) {
@@ -379,6 +366,37 @@ if ( ! function_exists( 'fau_imagelink_shortcode' ) ) {
     }
 }
 add_shortcode('imagelink', 'fau_imagelink_shortcode' );
+
+/*-----------------------------------------------------------------------------------*/
+/* Get default values
+/*-----------------------------------------------------------------------------------*/
+
+function fau_get_imagelink_defaults() {
+    global $defaultoptions;
+    $order = get_theme_mod('advanced_imagelink_default_order',$defaultoptions['advanced_imagelink_default_order']);
+    $dots = get_theme_mod('advanced_imagelink_default_dots',$defaultoptions['advanced_imagelink_default_dots']);
+    $autoplay = get_theme_mod('advanced_imagelink_default_autoplay',$defaultoptions['advanced_imagelink_default_autoplay']);    
+    $slides = get_theme_mod('advanced_imagelink_default_slides',$defaultoptions['advanced_imagelink_default_slides']);    
+    $type = get_theme_mod('advanced_imagelink_default_type',$defaultoptions['advanced_imagelink_default_type']);    
+    $size = get_theme_mod('advanced_imagelink_default_size',$defaultoptions['advanced_imagelink_default_size']);    
+    
+    $imagelink_defaults = array(
+			'echo'			=> false, 
+			'order'			=> $order, 
+			'dots'			=> $dots, 
+			'autoplay'		=> $autoplay, 
+			'adaptiveHeight'	=> true,
+			'slides'		=> $slides, 
+			'class'			=> '', 
+			'type'			=> $type, 
+			'size'			=> $size, 
+			'navtitle'		=> __('Partnerlogos', 'fau') 
+    );
+    
+   
+    
+    return $imagelink_defaults;
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Display imagelink slider (OLD)

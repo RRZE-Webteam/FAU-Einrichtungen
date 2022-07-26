@@ -120,6 +120,7 @@ function fau_set_image_sizes() {
 		add_theme_support( 'post-thumbnails' );
 		set_post_thumbnail_size($value[ 'width'], $value['height'], $value['crop']);
 		break;
+	    case '_thumb': 
 	    case '_thumbnail': 
 		// default values; tu nichts (derzeit)
 		break;

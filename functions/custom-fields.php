@@ -1093,7 +1093,6 @@ function fau_do_metabox_page_additional_attributes($object, $box) {
 		$imagesizes[$size] = $value['desc']. ' ('.$value['width'].' x '.$value['height'].')';
 	    }
 	}
-    //    $imagesizes = $defaultoptions['default_imagelink_sizes'];
 	
         fau_form_select(
             'fau_metabox_page_imagelinks_size',

@@ -1826,9 +1826,6 @@ function fau_get_image_sizes($size = 'rwd-480-3-2') {
 /* get fallback image by size
 /*-----------------------------------------------------------------------------------*/
 function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array()) {
-    global $options;
-    global $defaultoptions;
-
     $imgsrc  = $imgsrcset = $imgsrcsizes = '';
     $alttext = esc_html($alttext);
 
