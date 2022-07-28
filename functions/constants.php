@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	    => 85,
+    'optiontable-version'	    => 86,
 		// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 		// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 		// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -300,7 +300,7 @@ $defaultoptions = [
 		// Default für die Order von Imagelinks
     'advanced_imagelink_default_slides'		=> 4,
 		// Default Anzahl der Slides in einem Imagelink
-    'advanced_imagelink_default_autoplay'	=> true,
+    'advanced_imagelink_default_autoplay'	=> false,
 		// Default Autoplay bei Imagelinks
     'advanced_imagelink_default_type'		=> 'slide',
 		// Default Anzeigetype von Imagelinks: slide oder list
@@ -1128,7 +1128,7 @@ $setoptions = array(
 	     'advanced_imagelink_default_autoplay' => array(
                   'type'    => 'toggle',
                   'title'   => __( 'Autoplay (Slider)', 'fau' ),
-                  'label'   => __( 'Wenn zur Anzeige der Slider gewählt wurde, kann hier eingestellt werden, ob dieser von selbst starten soll oder nicht', 'fau' ),               
+                  'label'   => __( 'Wenn zur Anzeige der Slider gewählt wurde, kann hier eingestellt werden, ob dieser von selbst starten soll oder nicht. Bitte beachten Sie, dass ein automatisches Abspielen die Barrierefreiheit der Seite beeinträchtigen kann. Sollte die Option eingeschaltet werden, sollte in der Barrierefreiheitserklärung angegeben werden, dass die Website bei den automatisch rotierenden Bildlinks nicht barrierefrei ist.', 'fau' ),               
                   'default' => $defaultoptions['advanced_imagelink_default_autoplay'],
 		  'parent'  => 'imagelink'
             ),  

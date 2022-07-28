@@ -52,7 +52,7 @@ jQuery(document).ready(function ($) {
                 nextArrow: sliderNextHTML,
                 prevArrow: sliderPrevHTML,
                 // mobileFirst: true,
-                appendArrows: '.slider-controls',
+                appendArrows: '.slider-controls'
             });
 
             $('.slick-startstop').on('click', function () {
