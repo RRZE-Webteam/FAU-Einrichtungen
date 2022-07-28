@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.6-24
+Version: 2.1.6-29
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -5177,14 +5177,12 @@ main .socialmedia li a,
 main .imagelink a,
 main .person-info a,
 main .contactlist a,
-main .widget a,
 main address a,
 main h1 a, main h2 a, main h3 a, main h4 a, main h5 a, main h6 a,
 .entry-content .socialmedia li a,
 .entry-content .imagelink a,
 .entry-content .person-info a,
 .entry-content .contactlist a,
-.entry-content .widget a,
 .entry-content address a,
 .entry-content h1 a,
 .entry-content h2 a,
@@ -5196,7 +5194,6 @@ main h1 a, main h2 a, main h3 a, main h4 a, main h5 a, main h6 a,
 .portalpage-content .imagelink a,
 .portalpage-content .person-info a,
 .portalpage-content .contactlist a,
-.portalpage-content .widget a,
 .portalpage-content address a,
 .portalpage-content h1 a,
 .portalpage-content h2 a,
@@ -5208,7 +5205,6 @@ main h1 a, main h2 a, main h3 a, main h4 a, main h5 a, main h6 a,
 .content-inline .imagelink a,
 .content-inline .person-info a,
 .content-inline .contactlist a,
-.content-inline .widget a,
 .content-inline address a,
 .content-inline h1 a,
 .content-inline h2 a,
@@ -5232,8 +5228,6 @@ main .person-info a:hover,
 main .person-info a:focus,
 main .contactlist a:hover,
 main .contactlist a:focus,
-main .widget a:hover,
-main .widget a:focus,
 main address a:hover,
 main address a:focus,
 main h1 a:hover,
@@ -5246,8 +5240,6 @@ main h1 a:focus, main h2 a:hover, main h2 a:focus, main h3 a:hover, main h3 a:fo
 .entry-content .person-info a:focus,
 .entry-content .contactlist a:hover,
 .entry-content .contactlist a:focus,
-.entry-content .widget a:hover,
-.entry-content .widget a:focus,
 .entry-content address a:hover,
 .entry-content address a:focus,
 .entry-content h1 a:hover,
@@ -5270,8 +5262,6 @@ main h1 a:focus, main h2 a:hover, main h2 a:focus, main h3 a:hover, main h3 a:fo
 .portalpage-content .person-info a:focus,
 .portalpage-content .contactlist a:hover,
 .portalpage-content .contactlist a:focus,
-.portalpage-content .widget a:hover,
-.portalpage-content .widget a:focus,
 .portalpage-content address a:hover,
 .portalpage-content address a:focus,
 .portalpage-content h1 a:hover,
@@ -5294,8 +5284,6 @@ main h1 a:focus, main h2 a:hover, main h2 a:focus, main h3 a:hover, main h3 a:fo
 .content-inline .person-info a:focus,
 .content-inline .contactlist a:hover,
 .content-inline .contactlist a:focus,
-.content-inline .widget a:hover,
-.content-inline .widget a:focus,
 .content-inline address a:hover,
 .content-inline address a:focus,
 .content-inline h1 a:hover,
@@ -5326,9 +5314,6 @@ main .person-info a:focus,
 main .contactlist a:active,
 main .contactlist a:hover,
 main .contactlist a:focus,
-main .widget a:active,
-main .widget a:hover,
-main .widget a:focus,
 main address a:active,
 main address a:hover,
 main address a:focus,
@@ -5347,9 +5332,6 @@ main h1 a:focus, main h2 a:active, main h2 a:hover, main h2 a:focus, main h3 a:a
 .entry-content .contactlist a:active,
 .entry-content .contactlist a:hover,
 .entry-content .contactlist a:focus,
-.entry-content .widget a:active,
-.entry-content .widget a:hover,
-.entry-content .widget a:focus,
 .entry-content address a:active,
 .entry-content address a:hover,
 .entry-content address a:focus,
@@ -5383,9 +5365,6 @@ main h1 a:focus, main h2 a:active, main h2 a:hover, main h2 a:focus, main h3 a:a
 .portalpage-content .contactlist a:active,
 .portalpage-content .contactlist a:hover,
 .portalpage-content .contactlist a:focus,
-.portalpage-content .widget a:active,
-.portalpage-content .widget a:hover,
-.portalpage-content .widget a:focus,
 .portalpage-content address a:active,
 .portalpage-content address a:hover,
 .portalpage-content address a:focus,
@@ -5419,9 +5398,6 @@ main h1 a:focus, main h2 a:active, main h2 a:hover, main h2 a:focus, main h3 a:a
 .content-inline .contactlist a:active,
 .content-inline .contactlist a:hover,
 .content-inline .contactlist a:focus,
-.content-inline .widget a:active,
-.content-inline .widget a:hover,
-.content-inline .widget a:focus,
 .content-inline address a:active,
 .content-inline address a:hover,
 .content-inline address a:focus,
@@ -5444,6 +5420,52 @@ main h1 a:focus, main h2 a:active, main h2 a:hover, main h2 a:focus, main h3 a:a
 .content-inline h6 a:hover,
 .content-inline h6 a:focus {
   text-decoration: underline;
+}
+main .widget a,
+.entry-content .widget a,
+.portalpage-content .widget a,
+.content-inline .widget a {
+  box-shadow: none;
+  transition: initial;
+  padding: 0;
+  text-decoration: underline;
+  color: currentcolor;
+  -webkit-text-decoration-color: currentcolor;
+          text-decoration-color: currentcolor;
+}
+main .widget a:hover, main .widget a:focus,
+.entry-content .widget a:hover,
+.entry-content .widget a:focus,
+.portalpage-content .widget a:hover,
+.portalpage-content .widget a:focus,
+.content-inline .widget a:hover,
+.content-inline .widget a:focus {
+  box-shadow: none;
+  text-decoration: underline;
+  color: currentcolor;
+  -webkit-text-decoration-color: currentcolor;
+          text-decoration-color: currentcolor;
+}
+main .widget h1 a, main .widget h2 a, main .widget h3 a, main .widget h4 a, main .widget h5 a, main .widget h6 a,
+.entry-content .widget h1 a,
+.entry-content .widget h2 a,
+.entry-content .widget h3 a,
+.entry-content .widget h4 a,
+.entry-content .widget h5 a,
+.entry-content .widget h6 a,
+.portalpage-content .widget h1 a,
+.portalpage-content .widget h2 a,
+.portalpage-content .widget h3 a,
+.portalpage-content .widget h4 a,
+.portalpage-content .widget h5 a,
+.portalpage-content .widget h6 a,
+.content-inline .widget h1 a,
+.content-inline .widget h2 a,
+.content-inline .widget h3 a,
+.content-inline .widget h4 a,
+.content-inline .widget h5 a,
+.content-inline .widget h6 a {
+  text-decoration: none;
 }
 main .nextlink-ghostbutton,
 .entry-content .nextlink-ghostbutton,
