@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.6-22
+Version: 2.1.6-24
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -13677,8 +13677,8 @@ main .news-more-links .news-rss:hover:before {
 }
 .imagelink .slick-item.rounded {
   aspect-ratio: 1/1;
-  display: flex;
-  align-content: center;
+  display: flex !important;
+  align-content: center !important;
 }
 .imagelink .slick-item.rounded .image,
 .imagelink .slick-item.rounded a {
@@ -16165,6 +16165,38 @@ button.expand-all {
   color: var(--color-ghostbutton-hover-text);
   background: var(--color-ghostbutton-hover-bg);
 }
+.rrze-elements-news .news-item .entry-thumbnail a {
+  box-shadow: none;
+  transition: initial;
+  padding: 0;
+  text-decoration: underline;
+  color: currentcolor;
+  -webkit-text-decoration-color: currentcolor;
+          text-decoration-color: currentcolor;
+  display: inline-block;
+}
+.rrze-elements-news .news-item .entry-thumbnail a:hover, .rrze-elements-news .news-item .entry-thumbnail a:focus {
+  box-shadow: none;
+  text-decoration: underline;
+  color: currentcolor;
+  -webkit-text-decoration-color: currentcolor;
+          text-decoration-color: currentcolor;
+}
+.rrze-elements-news .news-item .entry-thumbnail a img {
+  box-shadow: none;
+  border: 0;
+}
+@media (min-width: 480px) {
+  .rrze-elements-news .news-item .entry-thumbnail a img {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 2px;
+  }
+}
+.rrze-elements-news .news-item .entry-thumbnail a:hover img,
+.rrze-elements-news .news-item .entry-thumbnail a:focus img {
+  border: 2px solid var(--color-content-links-underline);
+  padding: 0;
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Content Slider
@@ -16568,7 +16600,9 @@ aside .accordion figure.aligncenter img, .portalpage-sidebar .elements-columns f
 /* https://github.com/RRZE-Webteam/fau-oembed/
 /*-----------------------------------------------------------------------------------*/
 .fau-oembed iframe {
+  aspect-ratio: 4/3;
   max-width: 100%;
+  height: auto;
 }
 
 #content .fau-oembed {
@@ -16591,6 +16625,7 @@ aside .accordion figure.aligncenter img, .portalpage-sidebar .elements-columns f
 }
 
 .social-media-widget .fau-oembed iframe.defaultwidth {
+  aspect-ratio: 9/6;
   width: 450px;
   height: 300px;
 }

@@ -179,8 +179,8 @@
 	
 	.slick-item.rounded {
 	    aspect-ratio: 1 / 1;
-	    display: flex;
-	    align-content: center;
+	    display: flex !important;
+	    align-content: center !important;;
 	    
 	    .image,
 	    a {
@@ -398,7 +398,7 @@
 	    &.rounded {
 		border-width: 2px;
 		border-color: var(--color-ContentBorders);
-		 display: flex;
+		display: flex;
 		 
 		.image,
 		a {
