@@ -308,6 +308,10 @@ $defaultoptions = [
 		// Default Anzeige der Dots unter dem Imagelinkslider
     'advanced_imagelink_default_size'		=> 'logo-thumb',
 		// Default Size der Imagelinks
+    'advanced_imagelink_default_navtitle'	=> __('Partnerlogos', 'fau'),
+		// Default ARIA TItel
+    'advanced_imagelink_default_class'		=> '',
+		// Default CSS Class
 ]; 
 
 
@@ -483,7 +487,7 @@ function fau_get_searchable_fields($format = 'array') {
 }
 /*--------------------------------------------------------------------*/
 /* Erstelle globale Kategorieliste 
- * (für Version unter 1.9.4 benötigt
+ * (für Version unter 1.9.4 benötigt)
  */
 /*--------------------------------------------------------------------*/
  $categories=get_categories(array('orderby' => 'name','order' => 'ASC'));
@@ -628,12 +632,7 @@ $setoptions = array(
 		), 
 	       
 
-	        
-	       
-	    
-	    
-	     
-	    
+
 	       
 	    'slider'  => array(
                   'type'    => 'section',
@@ -1084,6 +1083,76 @@ $setoptions = array(
 		     'parent'  => 'suchergebnisse'
 		), 
    
+	       
+	       
+	    'imagelink'  => array(
+                  'type'    => 'section',
+                  'title'   => __( 'Bildlinks', 'fau' ),                      
+            ), 
+	
+	     
+	    'advanced_imagelink_default_order' => array(
+		    'type'    => 'select',
+		    'title'   => __( 'Sortierung', 'fau' ),
+		    'label'   => __( 'Standardsortierung der Bildlinks.', 'fau' ),
+		    'liste'   => array(
+				'asc' => __('A - Z','fau'),
+      				'desc' => __('Z - A','fau'),
+      				'rand' => __('Zufall','fau'),
+		      ),
+		    'default' => $defaultoptions['advanced_imagelink_default_order'],
+		    'parent'  => 'imagelink'
+            ),     
+               
+	   
+	    'advanced_imagelink_default_type' => array(
+		    'type'    => 'select',
+		    'title'   => __( 'Darstellungsform', 'fau' ),
+		    'label'   => __( 'Die Darstellung kann als Slider oder als statische Liste erfolgen.', 'fau' ),
+		    'liste'   => array(
+				'slide' => __('Slider','fau'),
+      				'list' => __('Liste','fau')
+		      ),
+		    'default' => $defaultoptions['advanced_imagelink_default_type'],
+		    'parent'  => 'imagelink'
+            ),   
+	    'advanced_imagelink_default_slides'=> array(
+                  'type'    => 'range-value',
+                  'title'   => __( 'Anzahl Bildlinks', 'fau' ),
+                  'label'   => __( 'Wieviele sollen üblicherweise bei der Slide-Anzeige dargestellt werden.', 'fau' ),
+                  'default' => $defaultoptions['advanced_imagelink_default_slides'],
+		  'min'	    => 2,
+		  'max'	    => 7,		  
+                  'parent'  => 'imagelink'
+            ),    
+	     'advanced_imagelink_default_autoplay' => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Autoplay (Slider)', 'fau' ),
+                  'label'   => __( 'Wenn zur Anzeige der Slider gewählt wurde, kann hier eingestellt werden, ob dieser von selbst starten soll oder nicht', 'fau' ),               
+                  'default' => $defaultoptions['advanced_imagelink_default_autoplay'],
+		  'parent'  => 'imagelink'
+            ),  
+	     'advanced_imagelink_default_dots' => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Dots (Slider)', 'fau' ),
+                  'label'   => __( 'Zeigt bei der Sliderdarstellung unterhalb der Bildlinks Navigationsbuttons als Punkte an.', 'fau' ),               
+                  'default' => $defaultoptions['advanced_imagelink_default_dots'],
+		  'parent'  => 'imagelink'
+            ),  
+	    'advanced_imagelink_default_navtitle' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'ARIA-Label', 'fau' ),
+                  'label'   => __( 'Unsichtbarer Titel für die Linklisten (wird für Screenreader und Suchmaschinen verwendet).', 'fau' ),               
+                  'default' => $defaultoptions['advanced_imagelink_default_navtitle'],
+		   'parent'  => 'imagelink'
+	    ), 
+	     'advanced_imagelink_default_class' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'CSS-Klassen', 'fau' ),
+                  'label'   => __( 'Optionale CSS Klassen zur Modifikation der optischen Darstellung.', 'fau' ),               
+                  'default' => $defaultoptions['advanced_imagelink_default_class'],
+		   'parent'  => 'imagelink'
+	    ), 
 	       
 	       
           )

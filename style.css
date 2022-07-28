@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.6-21
+Version: 2.1.6-22
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -13537,7 +13537,8 @@ main .news-more-links .news-rss:hover:before {
 }
 .imagelink .slick-slide a img, .imagelink .slick-slide .image img {
   max-height: 110px;
-  max-width: 140px;
+  width: 140px;
+  padding: 0;
 }
 .imagelink .slick-slide img {
   box-shadow: none;
