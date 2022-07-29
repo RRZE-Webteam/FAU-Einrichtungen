@@ -23,13 +23,6 @@
 	    min-height: 50px;
 	    display: block;
 	}
-	a {
-	    color: var(--color-Text);	    
-	    &:hover, &:focus {
-		    text-decoration: underline;	  
-	    }
-	    
-	}
 	ul.social li {
 	    width: 50%;
 	    @media (min-width: $screen-sm) {
