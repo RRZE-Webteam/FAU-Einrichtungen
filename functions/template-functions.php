@@ -731,8 +731,8 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
                 $output .= '<meta itemprop="url" content="'.fau_make_absolute_url($imgmeta[0]).'">';
             }
             global $defaultoptions;
-            $output .= '<meta itemprop="width" content="'.$defaultoptions['default_rwdimage_width'].'">';
-            $output .= '<meta itemprop="height" content="'.$defaultoptions['default_rwdimage_height'].'">';
+            $output .= '<meta itemprop="width" content="'.$defaultoptions['default_image_sizes']['rwd-480-3-2']['width'].'">';
+            $output .= '<meta itemprop="height" content="'.$defaultoptions['default_image_sizes']['rwd-480-3-2']['height'].'">';
             $output .= '</div>';
             $output .= '</div>';
             $output .= '<div class="teaserregion">';
@@ -1740,6 +1740,7 @@ function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $
     }
 
     $img = wp_get_attachment_image_src($id, $size);
+    
     if ($img) {
 
         $attributes = '';
@@ -1752,15 +1753,18 @@ function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $
         }
 
         $widthstr = '';
-        if ((isset($img[1])) && ($img[1] > 0)) {
+        if ((isset($img[1])) && ($img[1] > 1)) {
             $widthstr = ' width="'.$img[1].'"';
         }
         $heightstr = '';
-        if ((isset($img[2])) && ($img[2] > 0)) {
+        if ((isset($img[2])) && ($img[2] > 1)) {
             $heightstr = ' height="'.$img[2].'"';
         }
-        // In case of svg images, width and height are empty
+        // In case of svg images, width and height are either empty or set to 1.
+	// therefor we set the attributes only in case they are above 1.
 
+	
+	
         $imgsrcset   = wp_get_attachment_image_srcset($id, $size);
         $imgsrcsizes = wp_get_attachment_image_sizes($id, $size);
         $alttext     = esc_html($alttext);
@@ -1791,24 +1795,46 @@ function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $
 
     return;
 }
+/*-----------------------------------------------------------------------------------*/
+/* get info of defined sizes
+/*-----------------------------------------------------------------------------------*/
+function fau_get_image_sizes($size = 'rwd-480-3-2') {
+    global $defaultoptions;
 
+    // Find (old) aliases and map them
+    switch($size) {
+	case 'topevent_thumb':
+        case 'post-thumb':
+	    $realsize = 'rwd-480-3-2';
+	    break;
+	case 'fallback_submenu_image':
+        case 'page-thumb':	     
+	    $realsize = 'rwd-480-2-1';
+	    break;
+	default:
+	    $realsize = $size;
+	    break;
+
+    }
+    if (isset($defaultoptions['default_image_sizes'][$realsize])) {
+	return $defaultoptions['default_image_sizes'][$realsize];
+    }
+    
+    return $defaultoptions['default_image_sizes']['rwd-480-3-2'];
+} 
 /*-----------------------------------------------------------------------------------*/
 /* get fallback image by size
 /*-----------------------------------------------------------------------------------*/
-function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array())
-{
-    global $options;
-    global $defaultoptions;
-
+function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array()) {
     $imgsrc  = $imgsrcset = $imgsrcsizes = '';
     $alttext = esc_html($alttext);
-    $width   = $height = 0;
 
+    $sizedata = fau_get_image_sizes($size);
+    $width = $sizedata['width'];
+    $height = $sizedata['height'];
+    
     switch ($size) {
-
         case 'topevent_thumb':
-            $width  = $defaultoptions['default_rwdimage_width'];
-            $height = $defaultoptions['default_rwdimage_height'];
             $fallback = get_theme_mod('fallback_topevent_image');
             if ($fallback) {
                 $thisimage   = wp_get_attachment_image_src($fallback, 'rwd-480-3-2');
@@ -1822,8 +1848,6 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
             break;
 
         case 'post-thumb':
-            $width    = $defaultoptions['default_rwdimage_width'];
-            $height   = $defaultoptions['default_rwdimage_height'];
             $fallback = get_theme_mod('default_postthumb_image');
             if ($fallback) {
                 $thisimage   = wp_get_attachment_image_src($fallback, 'rwd-480-3-2');
@@ -1837,8 +1861,6 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
             break;
 
         case 'fallback_submenu_image':
-            $width    = $options['default_rwdimage_2-1_width'];
-            $height   = $options['default_rwdimage_2-1_height'];
             $fallback = get_theme_mod('fallback_submenu_image');
             if ($fallback) {
                 $thisimage   = wp_get_attachment_image_src($fallback, 'rwd-480-2-1');
@@ -1849,23 +1871,6 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
                 $imgsrcsizes = wp_get_attachment_image_sizes($fallback, 'rwd-480-2-1');
             }
 
-
-            break;
-
-
-        case 'rwd-480-2-1':
-        case 'page-thumb':
-            $width  = $options['default_rwdimage_2-1_width'];
-            $height = $options['default_rwdimage_2-1_height'];
-            break;
-        case 'rwd-480-3-2':
-            $width  = $options['default_rwdimage_width'];
-            $height = $options['default_rwdimage_height'];
-            break;
-
-        default:
-            $width  = $options['default_rwdimage_width'];
-            $height = $options['default_rwdimage_height'];
             break;
     }
 
@@ -1977,6 +1982,36 @@ if (! function_exists("print_indented")) {
 	echo "\n";
     }
 }
+/*-----------------------------------------------------------------------------------*/
+/*  Returns language code, without subcode
+/*-----------------------------------------------------------------------------------*/
+function fau_get_language_main () {
+    $charset = explode('-',get_bloginfo('language'))[0];
+    return $charset;
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Change WordPress default language attributes function to
+ * strip of region code parts. Not used yet /anymore
+/*-----------------------------------------------------------------------------------*/
+function fau_get_language_attributes ($doctype = 'html' ) {
+    $attributes = array();
+
+    if ( function_exists( 'is_rtl' ) && is_rtl() )
+	    $attributes[] = 'dir="rtl"';
+
+    if ( $langcode = fau_get_language_main() ) {
+	    if ( get_option('html_type') == 'text/html' || $doctype == 'html' )
+		    $attributes[] = "lang=\"$langcode\"";
+
+	    if ( get_option('html_type') != 'text/html' || $doctype == 'xhtml' )
+		    $attributes[] = "xml:lang=\"$langcode\"";
+    }
+    $output = implode(' ', $attributes);
+    return $output;
+}
+
 
 /*-----------------------------------------------------------------------------------*/
 /* This is the end :)

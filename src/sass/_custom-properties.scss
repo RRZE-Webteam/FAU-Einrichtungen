@@ -36,6 +36,18 @@
      @each $variante, $colorcode  in $colormap-misc {	    
 	 --color-#{$variante}: #{$colorcode};
      }
+     
+     /* Branding color */
+    --color-branding-primary: #{$color-branding-primary};
+    --color-branding-zentral: #{$color-branding-zentral};
+    --color-branding-phil: #{$color-branding-phil};
+    --color-branding-med: #{$color-branding-med};
+    --color-branding-nat: #{$color-branding-nat};
+    --color-branding-rw: #{$color-branding-rw};
+    --color-branding-tf: #{$color-branding-tf};
+	       
+     
+     
      /* Calculated Values */
      --color-MetaHomeBackground: #{$colorMetaFAUHomeBackground}; 
      --color-MetaHover: #{$colorMetaHover};

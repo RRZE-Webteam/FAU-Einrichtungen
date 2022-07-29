@@ -7,19 +7,6 @@
  * TODO/ISSUE: Als eigenen Plugin auslagern oder in Plugin RRZE Elements übernehmen
  */
 
-global $imagelink_defaults;
-$imagelink_defaults = array(
-			'echo'			=> false, 
-			'order'			=> 'ASC', 
-			'dots'			=> true, 
-			'autoplay'		=> true,
-			'adaptiveHeight'	=> true,
-			'slides'		=> 4, 
-			'class'			=> '', 
-			'type'			=> 'slide', 
-			'size'			=> 'logo-thumb',
-			'navtitle'		=> __('Partnerlogos', 'fau') 
-);
 
 global $imagelink_allowedsizes;
 $imagelink_allowedsizes = array("logo-thumb", "post-thumbnails", "thumbnail", "page-thumb", "x120", "x240", "x360", "x480");
@@ -160,9 +147,9 @@ add_action( 'save_post', 'fau_imagelink_metabox_content_save' );
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_imagelink_get' ) ) {
     function fau_imagelink_get( $atts = array()) {		
-		global $imagelink_defaults;
+		$imagelink_option = fau_get_imagelink_defaults();
 		global $imagelink_allowedsizes;
-		$imagelink_option = array_merge($imagelink_defaults, $atts);
+	//	$imagelink_option = array_merge($imagelink_defaults, $atts);
 		
 		
 		if (isset($atts['slides']) && intval($atts['slides']) && $atts['slides']>0) {
@@ -173,10 +160,9 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 		$imagelink_option['echo'] = ( isset($atts['echo'] ) ? filter_var( $atts['echo'], FILTER_VALIDATE_BOOLEAN ) : $imagelink_option['echo']  );
 		$imagelink_option['dots'] = ( isset($atts['dots'] ) ? filter_var( $atts['dots'], FILTER_VALIDATE_BOOLEAN ) : $imagelink_option['dots']  );
 		$imagelink_option['autoplay'] = ( isset($atts['autoplay'] ) ? filter_var( $atts['autoplay'], FILTER_VALIDATE_BOOLEAN ) : $imagelink_option['autoplay']  );
-
 		$imagelink_option['navtitle'] = ( isset($atts['navtitle'] ) ? sanitize_text_field( $atts['navtitle'] ) : $imagelink_option['navtitle']  );
-		$imagelink_option['class'] = ( isset($atts['class'] ) ? sanitize_text_field( $atts['class'] ) : '' );
-		$imagelink_option['order'] = ( isset($atts['order'] ) ? sanitize_text_field( $atts['order'] ) : $imagelink_defaults['order']  );
+		$imagelink_option['class'] = ( isset($atts['class'] ) ? sanitize_text_field( $atts['class'] ) : $imagelink_option['class']  );
+		$imagelink_option['order'] = ( isset($atts['order'] ) ? sanitize_text_field( $atts['order'] ) : $imagelink_option['order']  );
 		
 		if  (isset($atts['size'] ) && (in_array(sanitize_text_field( $atts['size'] ), $imagelink_allowedsizes))) {
 			$imagelink_option['size'] = sanitize_text_field( $atts['size'] ); 
@@ -189,14 +175,21 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 		$imagelink_option['catid'] = ( isset($atts['catid'] ) ? intval( $atts['catid'] ) : 0 );
 		$imagelink_option['cat'] = ( isset($atts['cat'] ) ? esc_attr( $atts['cat'] ) : '' );
 
-
-
+		
+		if (strtolower($imagelink_option['order']) == 'rand') {
+		    $orderby = 'rand';
+		    $order = 'ASC';
+		} else {
+		    $orderby = 'name';
+		    $order = $imagelink_option['order'];
+		}
+		
 		if ( isset($imagelink_option['catid']) && $imagelink_option['catid'] >0) {
 			$args = array(
 			   'post_type'  => 'imagelink',
 			   'nopaging'   => 1,
-			   'orderby'    => 'name', 
-			   'order'	    => $imagelink_option['order'],
+			   'orderby'    => $orderby, 
+			   'order'	    => $order,
 			   'tax_query'  => array(
 				array(
 				   'taxonomy' => 'imagelinks_category',
@@ -209,8 +202,8 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 			 $args = array(
 			   'post_type'  => 'imagelink',
 			   'nopaging'	  => 1,
-			   'orderby'	  => 'name', 
-			   'order'	  => $imagelink_option['order'],
+			   'orderby'	  => $orderby, 
+			   'order'	  => $order,
 			   'tax_query'  => array(
 				array(
 				   'taxonomy' => 'imagelinks_category',
@@ -223,12 +216,10 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 			$args = array(
 			   'post_type'	=> 'imagelink',
 			   'nopaging'	=> 1,
-			   'orderby'	=> 'name', 
-			   'order'	=> $imagelink_option['order']
+			   'orderby'	=> $orderby, 
+			   'order'	=> $order
 			);
 		}
-
-
 
 		$imagelist = get_posts($args); 
 		$number =0;
@@ -263,8 +254,12 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 				if (empty($alttext)) {
 					$alttext = __("Zum Webauftritt: ", 'fau').$currenturl;
 				}
-				$item_output .= fau_get_image_htmlcode($imageid, 'rwd-480-3-2', $alttext);
-		//		$item_output .= fau_get_image_htmlcode($imageid, $imagelink_option['size'], $alttext);
+				if ($imagelink_option['size'] == 'thumbnail') {
+				    $item_output .= fau_get_image_htmlcode($imageid, 'thumb', $alttext);
+				} else {
+				    $item_output .= fau_get_image_htmlcode($imageid, $imagelink_option['size'], $alttext);
+				}
+				
 				if (!empty($currenturl)) {
 				    $item_output .= '</a>';
 				} else {
@@ -299,13 +294,13 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 			if ($imagelink_option['type'] == 'slide') {
 				global $slickfunc;
 				
-				$str_autoplay = 'true';
-				if (!$imagelink_option['autoplay']) {
-					$str_autoplay = 'false';
+				$str_autoplay = 'false';
+				if ($imagelink_option['autoplay']) {		
+					$str_autoplay = 'true';
 				}
-				$str_dots = 'true';
-				if (!$imagelink_option['dots']) {
-					$str_dots = 'false';
+				$str_dots = 'false';
+				if ($imagelink_option['dots']) {
+					$str_dots = 'true';
 				}
 				
 				$slidesToShow = $imagelink_option['slides'];
@@ -353,18 +348,17 @@ add_action( 'wp_footer', 'fau_imagelink_addfooter_scripts');
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_imagelink_shortcode' ) ) {
     function fau_imagelink_shortcode( $atts ) {
-		global $imagelink_defaults;
+		$imagelink_defaults = fau_get_imagelink_defaults();
 		$args = shortcode_atts( $imagelink_defaults, $atts, 'imagelink' );
 
 		if (isset($atts['slides']) && intval($atts['slides']) && $atts['slides']>0) {
 			$args['slides']  = $atts['slides'];
 		} 
-		$args['autoplay'] = filter_var( $args['autoplay'], FILTER_VALIDATE_BOOLEAN );
-		$args['echo'] = filter_var( $args['echo'], FILTER_VALIDATE_BOOLEAN );
-		$args['dots'] = filter_var( $args['dots'], FILTER_VALIDATE_BOOLEAN );
-		
+		$args['autoplay'] = ( isset($atts['autoplay'] ) ? filter_var( $args['autoplay'], FILTER_VALIDATE_BOOLEAN ) : $imagelink_defaults['autoplay'] );
+		$args['echo'] = ( isset($atts['echo'] ) ? filter_var( $args['echo'], FILTER_VALIDATE_BOOLEAN ) : $imagelink_defaults['echo'] );
+		$args['dots'] = ( isset($atts['dots'] ) ? filter_var( $args['dots'], FILTER_VALIDATE_BOOLEAN ) : $imagelink_defaults['dots'] );	
 		$args['navtitle'] = ( isset($atts['navtitle'] ) ? sanitize_text_field( $atts['navtitle'] ) : $imagelink_defaults['navtitle'] );
-		$args['class'] = ( isset($atts['class'] ) ? sanitize_text_field( $atts['class'] ) : '' );
+		$args['class'] = ( isset($atts['class'] ) ? sanitize_text_field( $atts['class'] ) :  $imagelink_defaults['class'] );
 		$args['order'] = ( isset($atts['order'] ) ? sanitize_text_field( $atts['order'] ) : $imagelink_defaults['order'] );
 		$args['size'] = ( isset($atts['size'] ) ? sanitize_text_field( $atts['size'] ) : $imagelink_defaults['size'] );
 		$args['catid'] = ( isset($atts['catid'] ) ? intval( $atts['catid'] ) : 0 );
@@ -374,6 +368,39 @@ if ( ! function_exists( 'fau_imagelink_shortcode' ) ) {
     }
 }
 add_shortcode('imagelink', 'fau_imagelink_shortcode' );
+
+/*-----------------------------------------------------------------------------------*/
+/* Get default values
+/*-----------------------------------------------------------------------------------*/
+
+function fau_get_imagelink_defaults() {
+    global $defaultoptions;
+    $order = get_theme_mod('advanced_imagelink_default_order',$defaultoptions['advanced_imagelink_default_order']);
+    $dots = get_theme_mod('advanced_imagelink_default_dots',$defaultoptions['advanced_imagelink_default_dots']);
+    $autoplay = get_theme_mod('advanced_imagelink_default_autoplay',$defaultoptions['advanced_imagelink_default_autoplay']);    
+    $slides = get_theme_mod('advanced_imagelink_default_slides',$defaultoptions['advanced_imagelink_default_slides']);    
+    $type = get_theme_mod('advanced_imagelink_default_type',$defaultoptions['advanced_imagelink_default_type']);    
+    $size = get_theme_mod('advanced_imagelink_default_size',$defaultoptions['advanced_imagelink_default_size']);    
+    $class = get_theme_mod('advanced_imagelink_default_class',$defaultoptions['advanced_imagelink_default_class']);    
+    $navtitle = get_theme_mod('advanced_imagelink_default_navtitle',$defaultoptions['advanced_imagelink_default_navtitle']);    
+    
+    $imagelink_defaults = array(
+			'echo'			=> false, 
+			'order'			=> $order, 
+			'dots'			=> $dots, 
+			'autoplay'		=> $autoplay, 
+			'adaptiveHeight'	=> true,
+			'slides'		=> $slides, 
+			'class'			=> $class, 
+			'type'			=> $type, 
+			'size'			=> $size, 
+			'navtitle'		=> $navtitle
+    );
+    
+   
+    
+    return $imagelink_defaults;
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Display imagelink slider (OLD)

@@ -25,6 +25,10 @@
 		@include box-shadow(0 0 1px var(--color-ContentBorders));
 		overflow: hidden;
 		border-radius: 50%;
+		
+		img {
+		    aspect-ratio: 1 / 1;
+		}
 	    }
 	    
 	    &:active,
@@ -36,19 +40,18 @@
 	    
 	}
 	.slick-slide {
-	    width: 152px;
-	    height: 152px;
+	    width: 142px;
 	    height: auto;
 	    margin: 0 10px;
 	    
 	    a, .image {
-		height: 150px;	
-		max-height: 150px;
+		height: 110px;	
 		display: flex;
 		margin: auto;	
 		 img {
-		   width: 150px;
-		   height: 150px;
+		   max-height: 110px;
+		   width: 140px;
+		   padding: 0;
 	       }
 	    }
 	    
@@ -67,14 +70,31 @@
 	    }
 	}
 	
+	.thumbnail {
+	    .slick-item,
+	    .slick-slide {
+		width: 150px;
+		height: 150px; 
+	       a, .image {
+		   height: 150px; 
+		   width: 150px;
+		     img {
+			max-height: 150px; 
+			width: 150px; 
+		   }
+	       }
+	    }
+
+	}
+	
 	.x120 .slick-item,
 	.x120 .slick-slide {
 	    width: 120px;
 	   a, .image {
-	       max-height: 120px;
+		height: 120px;
 	         img {
-		   width: 120px;
-		   height: 120px;
+		   max-height: 120px;
+		    width: 120px;
 	       }
 	   }
 	}
@@ -83,10 +103,10 @@
 	.x240 .slick-slide {
 	    width: 240px;
 	    a, .image {
-	       max-height: 240px;
+		height: 240px;
 	        img {
-		   width: 240px;
-		   height: 240px;
+		   max-height: 240px;
+		    width: 240px;
 	       }
 	   }
 	}
@@ -95,10 +115,10 @@
 	.x360 .slick-slide {
 	    width: 360px;
 	     a, .image {
-	       max-height: 360px;
+		 height: 360px;
 	        img {
-		   width: 360px;
-		   height: 360px;
+    		   max-height: 360px;
+		    width: 360px;
 	       }
 	   }
 	}
@@ -107,10 +127,10 @@
 	.x480 .slick-slide {
 	    width: 480px;
 	    a, .image {
-	       max-height: 480px;
+	        height: 480px;
 	        img {
-		   width: 480px;
-		   height: 480px;
+		   max-height: 480px;
+		    width: 480px;
 	       }
 	   }
 	}
@@ -119,11 +139,10 @@
 	.logo-thumb .slick-slide {
 	    width: 142px;
 	     a, .image {
-	       max-height: 110px;
-	       
+	       height: 110px;
 	       img {
-		   width: 140px;
-		   height: 110px;
+		   max-height: 110px;
+		    width: 140px;
 	       }
 	   }
 	}
@@ -131,35 +150,51 @@
 	.page-thumb .slick-slide {
 	    width: 222px;
 	    a, .image {
-	       max-height: 222px;
+	       height: 110px;
 	        img {
-		   width: 220px;
-		   height: 110px;
+		   max-height: 110px;
+		    width: 220px;
 	       }
 	   }
 	}
-
-	.post-thumbnails .slick-item,
-	.post-thumbnails .slick-slide {
-	    width: 302px;
-	    a, .image {
-	       max-height: 302px;
-	        img {
-		   width: 300px;
+	.post-thumbnails {
+	    .slick-item,
+	    .slick-slide {
+		width: 302px;
+		a, .image {
 		   height: 150px;
+		    img {
+		       max-height: 150px;
+		       width: 300px;
+			
+		   }
 	       }
-	   }
+	    }
+
+	    .slick-item {
+		margin: 10px 2px;
+	    }
 	}
 
-	.post-thumbnails .slick-item {
-	    margin: 10px 2px;
-	}
-	.slick-item.rounded .image,
-	.slick-item.rounded a {
+	
+	.slick-item.rounded {
 	    aspect-ratio: 1 / 1;
-	    height: auto;
-	    padding: 5px;
+	    display: flex !important;
+	    align-content: center !important;;
+	    
+	    .image,
+	    a {
+		height: auto;
+		padding: 5px;
+		aspect-ratio: 1 / 1;
+		img {
+		     aspect-ratio: 1 / 1;
+		     max-height: inherit;
+		}
+
+	    }
 	}
+
 	
 	.slick-prev,
 	.slick-next {
@@ -363,7 +398,8 @@
 	    &.rounded {
 		border-width: 2px;
 		border-color: var(--color-ContentBorders);
-		
+		display: flex;
+		 
 		.image,
 		a {
 		    padding: 5px;

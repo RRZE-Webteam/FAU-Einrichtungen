@@ -2,8 +2,22 @@
 /* Search in Header
 /*-----------------------------------------------------------------------------------*/
 
-
 .meta-search {
+    
+    width: auto;
+    display: block;
+    
+    position: relative;
+    margin: 1rem 0 0;
+    
+    @media (min-width: $screen-sm) {
+	// width: 100%;
+	display: inline-block;
+	margin-top: 0;
+	max-width: 300px;
+	margin-left: auto;
+    }
+    
     text-align: right;
 
     .active-meta-widget & {
@@ -13,6 +27,12 @@
 
 
     .searchform {
+	display: flex;
+	@media (min-width: $screen-sm) {
+        //    display: inline-block;
+	}
+	
+	
         @include transition(0.5s, all);
         border: none;
         margin: 0;
@@ -20,9 +40,8 @@
 
         input[type="text"] {
             @include border-radius(20px);
-            padding: 5px 35px 5px 10px;
-            width: 220px;
-            background: var(--color-Default);
+            padding: 0.3rem 35px 0.3rem 2rem;
+            width: calc(100% - 55px);
             border: none;
             outline: none;
             color: var(--color-MainBackground);
@@ -30,6 +49,7 @@
             display: inline-block;
             margin-right: -25px;
             margin-bottom: 0px;
+	    background: var(--color-Default) svg-icon-search(#fff, 16, 16) no-repeat 0.5rem;
 
             &:focus {
                 background-color: var(--color-MetaHover);
@@ -80,20 +100,11 @@
             @extend .screen-reader-text;
         }
 
-        .searchicon {
-            @extend .svg-icon;
-            @include svg-icon-sizes(1.1rem);
-            background-image: svg-icon-search(#fff, 16, 16);
-            margin-right: -30px;
-
-            .search-toggled & {
-                background-image: svg-icon-search-toggled($colorStandardHellgrau, 16, 16);
-            }
-        }
+       
     }
 
     @media (max-width: $screen-sm - 1) {
-        width: 50px;
+       
         .search-toggled & {
             .searchform {
                 background: var(--color-StandardHellgrau);
@@ -108,19 +119,16 @@
                 input[type="text"] {
                     width: calc(100% - 50px);
                 }
-
-                .searchicon {
-                    display: none;
-                }
             }
         }
 
     }
-    @media (min-width: $screen-sm) {
-        .searchform {
-            display: inline-block;
-        }
+     @media (min-width: $screen-sm) {
+            margin-top: 0;
+            max-width: 300px;
+            margin-left: auto;
     }
+   
 }
 
 
@@ -133,7 +141,7 @@
     color: var(--color-Default);
 
     .search-toggled &:before {
-        background-image: svg-icon-search-toggled($colorDefault, 16, 16);
+   //     background-image: svg-icon-search-toggled($colorDefault, 16, 16);
     }
 
 

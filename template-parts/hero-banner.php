@@ -29,9 +29,9 @@ if (isset($banner) && ($banner > 0)) {
     $copyright = trim(strip_tags( $imgdata['credits'] ));
 } elseif ($use_bannerdefault) {
     $url = get_theme_mod("default_startseite-bannerbild-image_src");
-    $width = get_theme_mod('default_startseite-bannerbild-image_width');
-    $height = get_theme_mod('default_startseite-bannerbild-image_height');
-    $crop = get_theme_mod('default_startseite-bannerbild-image_crop');
+    $width = $defaultoptions['default_image_sizes']['herobanner']['width']; 
+    $height = $defaultoptions['default_image_sizes']['herobanner']['height'];
+    $crop = $defaultoptions['default_image_sizes']['herobanner']['crop'];
 
     $image = '<img src="'.fau_esc_url($url).'" width="'.$width.'" height="'.$height.'" alt="" loading="lazy">';	
 } else {
