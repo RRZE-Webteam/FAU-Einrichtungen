@@ -244,13 +244,14 @@ function fau_dns_prefetch() {
      // check if own domain is a subdomain. if so, we also add the main domain above
     $host = explode('.', $mydomain['host']);
     if (($host) && (count($host)>1)) {
-	$maindomain = $host[count($host)-2].'.'.$host[count($host)-1];
-        $prefetchDomains[] = $scheme.'://'.$maindomain;
+        $prefetchDomains[] = $scheme.'://'.$host[count($host)-2].'.'.$host[count($host)-1];
+	
+	 // check for third level
+	if (count($host)>2) {
+	    $prefetchDomains[] = $scheme.'://'.$host[count($host)-3].'.'.$host[count($host)-2].'.'.$host[count($host)-1];
+	}
     }
-    if (($host) && (count($host)>1)) {
-	$maindomain = $host[count($host)-2].'.'.$host[count($host)-1];
-        $prefetchDomains[] = $scheme.'://'.$maindomain;
-    }
+   
 
     $prefetchDomains = array_unique($prefetchDomains);
     $result = '';
