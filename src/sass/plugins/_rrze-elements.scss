@@ -252,7 +252,7 @@ button.expand-all {
     margin-right: -$fau-gutter-halfwidth;
      @media (min-width: $screen-sm) {
 	 margin-left: 0;
-	 margit-right: 0;
+	 margin-right: 0;
      }
 }
 
@@ -303,6 +303,29 @@ button.expand-all {
             float: right;
             margin: .6rem 0 0 1.8rem;
         }
+	
+	.entry-thumbnail {
+	    a {
+		@include defaultlinkstyle();
+		display: inline-block;
+
+		img {
+		    @include default-img();
+		}
+	    }
+	    a:hover,
+	    a:focus {
+		img {
+		    border: 2px solid var(--color-content-links-underline);
+		    padding: 0;
+		}
+
+	    }
+	}
+    
+	
+	
+	
     }
 }
 /*-----------------------------------------------------------------------------------*/

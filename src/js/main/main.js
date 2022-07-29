@@ -52,7 +52,7 @@ jQuery(document).ready(function ($) {
                 nextArrow: sliderNextHTML,
                 prevArrow: sliderPrevHTML,
                 // mobileFirst: true,
-                appendArrows: '.slider-controls',
+                appendArrows: '.slider-controls'
             });
 
             $('.slick-startstop').on('click', function () {
@@ -145,7 +145,8 @@ jQuery(document).ready(function ($) {
 	// Add custom var with height for fixed header
 	var setHeaderHeight = function() {
 	  document.documentElement.removeAttribute('style');
-	  var headerHeight = document.querySelector('#headerwrapper').scrollHeight;
+	  var headerHeight = document.querySelector('#headerwrapper').scrollHeight + 30;
+	  
 	  document.documentElement.style.setProperty('--js-fixed-header-height', `${headerHeight}px`);
 	};
 
@@ -281,10 +282,6 @@ jQuery(document).ready(function ($) {
             });
         };
 
-
-        // Clone the hero navigation into the footer
-        var $heroNavigation = $('#hero .hero-navigation').clone().attr("aria-label", "Quicklink Navigation");
-        $('<div class="cloned-hero-nav"></div>').append($heroNavigation).prependTo('#footer');
 
 
         // Find the sidebar navigation (if present)

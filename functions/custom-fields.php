@@ -311,9 +311,9 @@ function fau_do_metabox_post_topevent($object, $box) {
         $imagehtml = '';
 
         if (isset($topevent_image) && ($topevent_image>0)) {
-            $image = wp_get_attachment_image_src($topevent_image, $defaultoptions['default_rwdimage_typname']);
+            $image = wp_get_attachment_image_src($topevent_image, 'rwd-480-3-2');
             if (isset($image)) {
-                $imagehtml = '<img class="image_show_topevent_image" src="'.$image[0].'" width="'.get_theme_mod('default_rwdimage_width').'" height="'.get_theme_mod('default_rwdimage_height').'" alt="">';
+                $imagehtml = '<img class="image_show_topevent_image" src="'.$image[0].'" width="'.$defaultoptions['default_image_sizes']['rwd-480-3-2']['width'].'" height="'.$defaultoptions['default_image_sizes']['rwd-480-3-2']['height'].'" alt="">';
             }
         }
 
@@ -337,7 +337,7 @@ function fau_do_metabox_post_topevent($object, $box) {
             jQuery('#image_button_topevent_image').click(function()  {
                 wp.media.editor.send.attachment = function(props, attachment) {
                     jQuery('#fauval_topevent_image').val(attachment.id);
-                    htmlshow = "<img src=\""+attachment.url + "\" width=\"<?php echo get_theme_mod('default_rwdimage_width');?>\" height=\"<?php echo get_theme_mod('default_rwdimage_height');?>\"/>";  					   
+                    htmlshow = "<img src=\""+attachment.url + "\" width=\"<?php echo $defaultoptions['default_image_sizes']['rwd-480-3-2']['width'];?>\" height=\"<?php echo $defaultoptions['default_image_sizes']['rwd-480-3-2']['height']?>\"/>";  					   
                     jQuery('.showimg_topevent_image').html(htmlshow);
 
                 }
@@ -1079,12 +1079,21 @@ function fau_do_metabox_page_additional_attributes($object, $box) {
             1,
             __('Keine Logos zeigen', 'fau'));
         $currentsize = get_post_meta($object->ID, 'fauval_imagelink_size', true);
-        $imagesizes = [
-            'logo-thumb' => '140×110 Pixel',
-            'page-thumb' => '220×110 Pixel',
-            'post-thumbnails' => '300×150 Pixel',
-            'thumbnail' => '150×150 Pixel',
-        ];
+	
+	global $defaultoptions;
+	
+	$imagesizes = array();
+	foreach ($defaultoptions['default_image_sizes'] as $size => $value) {
+	    
+	    if (substr($size,0,1) == '_') {
+		$size = substr($size,1);
+	    }
+	    
+	    if ($value['imagelink'] == true) {
+		$imagesizes[$size] = $value['desc']. ' ('.$value['width'].' x '.$value['height'].')';
+	    }
+	}
+	
         fau_form_select(
             'fau_metabox_page_imagelinks_size',
             $imagesizes,

@@ -17,12 +17,13 @@ ul ul,
 ul ol,
 ol ol,
 ol ul {
-	margin-bottom: 0;
+    margin-top:  0.5rem;
+    margin-bottom: 0;
 }
 
 
 li {
-    padding: 0.2rem 0 0.2rem 0.2rem;
+    padding: 0.3rem 0 0.3rem 0.2rem;
     @include px2rem($font-size-content-listitem);  
 
     .widget.quicklinks &,
@@ -85,7 +86,7 @@ ul, ol {
 		    @include no-list;
 		    @include inline-block;
 		    background: none;
-		    margin: 0.2rem;
+		    margin: 0.3rem 0.2rem;
 
 		    a {
 			    @include inline-block;
@@ -136,20 +137,28 @@ ol.kontrastmarker {
     li {
 	  counter-increment: steps;
 	  list-style-type: none;
-
+	  margin-left: 2rem;
+	  
 	    ol {
-		margin-left:  1.5rem;
+		margin-left:  0;
 		margin-top:  0.5rem;
 		counter-reset: substeps;
 
 		li {
 		    counter-increment: substeps;
+		    
+		    
 		}
 	  }
 	  ul {
-	    margin-left: 3rem;
+	    margin-left: 1.5rem;
+	    margin-top:  0.5rem;
 	    li {
-		list-style-type: disc;	   
+		list-style-type: disc;	 
+		margin-left: 0;
+	     }
+	    li::marker  {
+		 
 	     }
 	    li::before {
 		  display: none;
@@ -169,7 +178,9 @@ ol.kontrastmarker {
 	display: inline-grid;
 	place-items: center;
 	line-height: 1.5em;
+	margin-left: -2rem;
     }
+
     li ol li::before {
 	content: counter(substeps, lower-alpha);
     }
@@ -208,20 +219,25 @@ ul {
     li.plus,
     li.minus,
     li.negativ,
+    li.neutral,
+    li.gleich,
     li.question,
     li.exclamation,
     li.paragraph {
 	list-style-type: none;
+	margin-left: 2rem;
 	
 	&:before {
 	    margin-right: 0.5rem;
-	    margin-left: -1.5rem;
+	    margin-left: -2rem;
 	    width: 1.5em;
 	    height: 1.5em;
 	    border-radius: 50%;
 	    display: inline-grid;
 	    place-items: center;
 	    line-height: 1.5em;
+	    font-weight: bold;
+ 
 	}
     }
 
@@ -247,6 +263,12 @@ ul {
 	background: var(--color-Negative);
 	color: var(--color-Negative-Kontrast);
 	content: "-";
+    }
+    li.gleich::before,
+    li.neutral::before {
+	background: var(--color-Neutral);
+	color: var(--color-Neutral-Kontrast);
+	content: "=";
     }
     li.question::before {
 	background: var(--color-StandardHellgrau);

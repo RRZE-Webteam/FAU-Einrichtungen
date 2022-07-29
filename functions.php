@@ -41,7 +41,9 @@ require_once( get_template_directory() . '/functions/deprecated.php');
 // Filter-Hooks
 require_once( get_template_directory() . '/functions/filters.php');
 
-
+/*-----------------------------------------------------------------------------------*/
+/* Setup theme
+/*-----------------------------------------------------------------------------------*/
 function fau_setup() {
 	global $defaultoptions;
 
@@ -50,7 +52,7 @@ function fau_setup() {
         }
 
 
-	add_theme_support('html5', array( 'comment-list', 'comment-form', 'search-form' ));
+	add_theme_support('html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ));
 	add_theme_support('caption');
 	add_theme_support('title-tag');
 	add_theme_support('automatic-feed-links');
@@ -61,56 +63,67 @@ function fau_setup() {
 	fau_create_socialmedia_menu();
 	    // Checkup Social Media Menu
 
-
-	/*
-	 * This theme uses a custom image size for featured images, displayed on
-	 * "standard" posts and pages.
-	 */
-
-
-	/* Image Sizes for Slider, Name: hero - 1260:350, true */
-	add_image_size( 'hero', $defaultoptions['slider-image-width'], $defaultoptions['slider-image-height'], $defaultoptions['slider-image-crop']);
-
-	/* Banner fuer Startseiten, Name: herobanner -  1260:182, true */
-	add_image_size( 'herobanner', $defaultoptions['default_startseite-bannerbild-image_width'], $defaultoptions['default_startseite-bannerbild-image_height'], $defaultoptions['default_startseite-bannerbild-image_crop']);
-
-
-	/*    Small 2:1 size for image
-        'default_rwdimage_2-1_typname'		=> 'rwd-480-2-1',
-	'default_rwdimage_2-1_width'		=> 480,
-	'default_rwdimage_2-1_height'		=> 240,    
-	'default_rwdimage_2-1_crop'		=> false,
-	    */
-	add_image_size( $defaultoptions[ 'default_rwdimage_2-1_typname'], $defaultoptions[ 'default_rwdimage_2-1_width'], $defaultoptions['default_rwdimage_2-1_height'], $defaultoptions['default_rwdimage_2-1_crop']);
 	
-	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size($defaultoptions[ 'default_rwdimage_2-1_width'], $defaultoptions['default_rwdimage_2-1_height'], $defaultoptions['default_rwdimage_2-1_crop'] );
-
-
-	/* RWD-Bildauflösung: 480x320. , 3:2 Proportion. No Crop */
-	add_image_size( $defaultoptions['default_rwdimage_typname'], $defaultoptions['default_rwdimage_width'], $defaultoptions['default_rwdimage_height'], $defaultoptions['default_rwdimage_crop']);
-
-
-	/*
-	 * Größen für Bildergalerien:
-	 */
-	/* Images for gallerys - Name: gallery-full */
-	add_image_size( 'gallery-full', $defaultoptions['default_gallery_full_width'], $defaultoptions['default_gallery_full_height'], $defaultoptions['default_gallery_full_crop']); // 940, 470, false
-
 	global $is_gutenberg_enabled;
-
-
-
 	if (has_filter('is_gutenberg_enabled')) {
 		$is_gutenberg_enabled = apply_filters('is_gutenberg_enabled', false);
 	} else {
 	    $is_gutenberg_enabled = fau_is_newsletter_plugin_active();
 	}
 
-
 }
 add_action( 'after_setup_theme', 'fau_setup' );
 
+/*-----------------------------------------------------------------------------------*/
+/*Custom Loo setup
+/*-----------------------------------------------------------------------------------*/
+function fau_custom_logo_setup() {
+    global $defaultoptions;
+    $defaults = array(
+        'height'               => $defaultoptions['default_logo_height'],
+        'width'                => $defaultoptions['default_logo_width'],
+        'flex-height'          => true,
+        'flex-width'           => true,
+        'unlink-homepage-logo' => true,
+    );
+
+    add_theme_support( 'custom-logo', $defaults );
+}
+add_action( 'after_setup_theme', 'fau_custom_logo_setup' );
+
+/*-----------------------------------------------------------------------------------*/
+/* Set image sizes
+/*-----------------------------------------------------------------------------------*/
+function fau_set_image_sizes() {
+    global $defaultoptions;
+     /* 
+	 * Notice: Default Image Siztes dont neet to be defined:
+	 * Reserved Image Size Names:
+	 *  thumb = alias for thumbnail
+	 *  thumbnail, default 150px x 150px max
+	 *  post-thumbnail, 
+	 *  medium, default 300px x 300px max
+	 *  medium_large, default 768px x 0px max
+	 *  large, default 1024px x 1024px max
+	 *  full, unmodified
+	 */
+    foreach ($defaultoptions['default_image_sizes'] as $size => $value) {	
+	switch ($size) {
+	    case '_post_thumbnail':
+		add_theme_support( 'post-thumbnails' );
+		set_post_thumbnail_size($value[ 'width'], $value['height'], $value['crop']);
+		break;
+	    case '_thumb': 
+	    case '_thumbnail': 
+		// default values; tu nichts (derzeit)
+		break;
+	    default:
+		add_image_size( $size, $value[ 'width'], $value['height'], $value['crop']);
+		break;
+	}
+    } 
+}
+add_action( 'after_setup_theme', 'fau_set_image_sizes' );
 
 /*-----------------------------------------------------------------------------------*/
 /* Set extra init values
@@ -120,7 +133,7 @@ function fau_custom_init() {
     remove_post_type_support( 'page', 'comments' );
 
     /*
-     * ToDO: Remove this, once the Settings Plugin is capable to do this
+     * Remove emojis
     */
     remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
     remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
@@ -133,11 +146,7 @@ function fau_custom_init() {
 
 
     remove_filter( 'the_content', 'wpautop' );
-	// add_filter( 'the_content', 'wpautop' , 99);
-    // Declare Default Symbols from the start
-   // fau_register_svg_symbol("fau-logo-text", false);
-   // fau_register_svg_symbol("fau-siegel", false);
-    //fau_register_svg_symbol("fau-logo", false);
+	// no auto p
 
 
 }
@@ -154,7 +163,6 @@ function fau_register_scripts() {
     $theme_version = $theme_data->Version;
 
     wp_register_style('fau-style',  get_stylesheet_uri(), array(), $theme_version);
-	//    wp_register_style('fau-style', get_stylesheet_uri(), array(), $theme_version, 'screen' );
 	// Global Style. Notice: Its used also for print, so dont limit it to screen output!
     wp_register_style('fau-style-print', get_stylesheet_directory_uri() . '/print.css', array(), $theme_version, 'print' );
 	// Base style for print
@@ -226,9 +234,24 @@ add_filter( 'wp_resource_hints', 'fau_remove_default_dns_prefetch', 10, 2 );
 
 function fau_dns_prefetch() {
     // List of domains to set prefetching for
-    $prefetchDomains = [ 'https://www.fau.de'  ];
+    $prefetchDomains = array();
     $mydomain = parse_url(get_home_url());
+    $scheme = $mydomain['scheme'];
+    
     $prefetchDomains[] = $mydomain['host'];
+    // add own domain
+
+     // check if own domain is a subdomain. if so, we also add the main domain above
+    $host = explode('.', $mydomain['host']);
+    if (($host) && (count($host)>1)) {
+        $prefetchDomains[] = $scheme.'://'.$host[count($host)-2].'.'.$host[count($host)-1];
+	
+	 // check for third level
+	if (count($host)>2) {
+	    $prefetchDomains[] = $scheme.'://'.$host[count($host)-3].'.'.$host[count($host)-2].'.'.$host[count($host)-1];
+	}
+    }
+   
 
     $prefetchDomains = array_unique($prefetchDomains);
     $result = '';
@@ -236,7 +259,13 @@ function fau_dns_prefetch() {
     foreach ($prefetchDomains as $domain) {
         $domain = esc_url($domain);
         $result .= '<link rel="dns-prefetch" href="' . $domain . '" crossorigin>'."\n";
-        $result .= '<link rel="preconnect" href="' . $domain . '" crossorigin>'."\n";
+	
+	//  $result .= '<link rel="preconnect" href="' . $domain . '" crossorigin>'."\n";
+	// We do not make a preconnect to all domains:
+	// The preconnect hint is best used for only the most critical connections. 
+	// For the others, just use <link rel="dns-prefetch"> to save time on 
+	// the first step — the DNS lookup.
+	// see also: https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
     }
 
     echo $result;
@@ -248,7 +277,6 @@ add_action('wp_head', 'fau_dns_prefetch', 10);
 /* Change default header
 /*-----------------------------------------------------------------------------------*/
 function fau_addmetatags() {
-    global $defaultoptions;
     $output = '';
    // $output .= '<meta http-equiv="Content-Type" content="text/html; charset='.get_bloginfo('charset').'">'."\n";
    // $output .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">'."\n";
@@ -349,52 +377,6 @@ function fau_remove_unwanted_head_actions() {
 }
 add_action('wp_head', 'fau_remove_unwanted_head_actions', 0);
 
-/*-----------------------------------------------------------------------------------*/
-/*Custom Loo setup
-/*-----------------------------------------------------------------------------------*/
-function fau_custom_logo_setup() {
-    global $defaultoptions;
-    $defaults = array(
-        'height'               => $defaultoptions['default_logo_height'],
-        'width'                => $defaultoptions['default_logo_width'],
-        'flex-height'          => true,
-        'flex-width'           => true,
-        'unlink-homepage-logo' => true,
-    );
-
-    add_theme_support( 'custom-logo', $defaults );
-}
-add_action( 'after_setup_theme', 'fau_custom_logo_setup' );
-
-/*-----------------------------------------------------------------------------------*/
-/*  Returns language code, without subcode
-/*-----------------------------------------------------------------------------------*/
-function fau_get_language_main () {
-    $charset = explode('-',get_bloginfo('language'))[0];
-    return $charset;
-}
-
-
-/*-----------------------------------------------------------------------------------*/
-/* Change WordPress default language attributes function to
- * strip of region code parts. Not used yet /anymore
-/*-----------------------------------------------------------------------------------*/
-function fau_get_language_attributes ($doctype = 'html' ) {
-    $attributes = array();
-
-    if ( function_exists( 'is_rtl' ) && is_rtl() )
-	    $attributes[] = 'dir="rtl"';
-
-    if ( $langcode = fau_get_language_main() ) {
-	    if ( get_option('html_type') == 'text/html' || $doctype == 'html' )
-		    $attributes[] = "lang=\"$langcode\"";
-
-	    if ( get_option('html_type') != 'text/html' || $doctype == 'xhtml' )
-		    $attributes[] = "xml:lang=\"$langcode\"";
-    }
-    $output = implode(' ', $attributes);
-    return $output;
-}
 
 
 /*-----------------------------------------------------------------------------------*/

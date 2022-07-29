@@ -29,7 +29,9 @@ $colormap-misc: ("Text": #222,
 		 "Negative": #a71c18,
 		 "Negative-Kontrast": #fff,		 
 		 "Positive": #00905a,
-		 "Positive-Kontrast": #fff,		 
+		 "Positive-Kontrast": #fff,	
+		 "Neutral": #f0ad4e,
+		 "Neutral-Kontrast": #000,
 		 );
 
  
@@ -67,6 +69,16 @@ $colormap-primary: $colormap-zentral;
 
 $colormaps: ("primary": $colormap-primary, "zentral": $colormap-zentral, "phil": $colormap-phil, "med": $colormap-med, "nat": $colormap-nat, "rw": $colormap-rw, "tf": $colormap-tf);
 
+// Branding Color (Color for textlogo)
+$color-branding-primary:    map-get($colormap-primary, "ci-hell");
+$color-branding-zentral:    map-get($colormap-zentral, "ci-hell");
+$color-branding-phil:	    map-get($colormap-phil, "ci-hell");
+$color-branding-med:	    map-get($colormap-med, "ci-hell");
+$color-branding-tf:	    map-get($colormap-tf, "ci-hell");
+$color-branding-rw:	    map-get($colormap-rw, "ci-hell");
+$color-branding-nat:	    map-get($colormap-nat, "ci-hell");
+
+
 // Content
 $color-content-headlines:   map-get($colormap-misc, "Text");
 $color-links:		    map-get($colormap-misc, "Text");
@@ -78,6 +90,7 @@ $color-content-links-hover: map-get($colormap-primary, "ci-hell-kontrast");
 // Footer
 $color-footer-bg:	map-get($colormap-primary, "ci-hell");
 $color-footer-text:	map-get($colormap-primary, "ci-hell-kontrast");
+
 
 // Hero
 $color-hero-bg:		map-get($colormap-primary, "ci-hell");
@@ -381,7 +394,6 @@ $screen-xl-max: ($screen-xxl - 1);
 $screen-xxl-min: $screen-xxl;
 
 $container-lg: 1200px;
-// $container-lg: 970px;
 $container-xl: 1400px;
 $container-xxl: 1760px;
 
@@ -397,7 +409,7 @@ $grid-gutter-width: $fau-gutter-width;
 
 
 $searchbackdrop-offset-top: 195px;
-$scroll-target-offset: 190px;
+$scroll-target-offset: 200px;
 
 $subnav-width-sm: 260px;
 $subnav-width-md: 275px;

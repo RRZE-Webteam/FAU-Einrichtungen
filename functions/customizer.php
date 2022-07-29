@@ -22,11 +22,25 @@ function fau_customizer_settings( $wp_customize ) {
 	// Nichts da mit eigenen CSS - Corporate Design rulez.. *huestel*
     }
     
-    
+    add_theme_support('static_front_page' );
+    // Changing Defaults
     $wp_customize->get_setting( 'blogname' )->transport		= 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport	= 'postMessage';	
+    $wp_customize->remove_section( 'colors' );
+  //  $wp_customize->remove_section( 'static_front_page' );
+   
+     
+    
+    $wp_customize->add_section( 'static_front_page' , array(
+	'title'	=> __('Startseite','fau'),
+	'priority'	=> 20,
+    ) ); 
+    // Workaround for https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues/1131
+    
     $num = 0;
        
+    
+    
     $definedtypes = array(
 	"text", "checkbox", "radio", "select", "textarea", "dropdown-pages", "email", 
 	"url", "number", "hidden", "date",
@@ -40,10 +54,7 @@ function fau_customizer_settings( $wp_customize ) {
     
     foreach($var as $tab => $value) {        
 	
-	if (in_array($tab, ['title_tagline', 'header_image', 'background_image', 'nav', 'static_front_page'])) {
-	    
-	} else {
-	
+	if (!in_array($tab, ['title_tagline', 'colors', 'header_image', 'background_image', 'nav', 'static_front_page'])) {
 	    $tabtitel = $value['tabtitle'];    
 
 	    $desc = '';

@@ -59,9 +59,9 @@ if (($posttype == 'post') && (is_archive())) {
 			<?php } 
 			    
 			    if (empty($herotype)) {   ?>
-			    <h1 class="screen-reader-text"><?php echo $screenreadertitle; ?></h1>
+				<h1 id="maintop"  class="screen-reader-text"><?php echo $screenreadertitle; ?></h1>
 			     <?php } else { ?>
-				  <h1><?php echo $screenreadertitle; ?></h1>
+				<h1 id="maintop" ><?php echo $screenreadertitle; ?></h1>
 			     <?php }
 			   
 			    

@@ -106,7 +106,6 @@ main,
     .imagelink,
     .person-info,
     .contactlist,
-    .widget,
     address,
     h1, h2, h3, h4, h5, h6 {
         a {
@@ -120,6 +119,19 @@ main,
             }
         }
     }
+    .widget {
+	    a {
+	       @include defaultlinkstyle();
+	    }
+	    h1, h2, h3, h4, h5, h6 {
+		   a {
+		    text-decoration: none;
+		   }
+	    }
+	
+    }
+    
+    
     .nextlink-ghostbutton {
 	@include nextlink-ghostbutton();
 	

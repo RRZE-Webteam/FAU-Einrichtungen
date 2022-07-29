@@ -131,15 +131,15 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 	    $alttext = $pretitle.$titel.$posttitle;
 	    $alttext = esc_html($alttext);
 
-	    $imgwidth = $defaultoptions['default_rwdimage_width'];
-	    $imgheight = $defaultoptions['default_rwdimage_height'];
+	    $imgwidth = $defaultoptions['default_image_sizes']['rwd-480-3-2']['width'];
+	    $imgheight = $defaultoptions['default_image_sizes']['rwd-480-3-2']['height'];
 	    $imgsrcset = '';
 
 	    if (isset($imageid) && ($imageid>0)) {
 
-		$imgsrcset =  wp_get_attachment_image_srcset($imageid, $defaultoptions['default_rwdimage_typname']);
-		$imgsrcsizes = wp_get_attachment_image_sizes($imageid, $defaultoptions['default_rwdimage_typname']);
-		$img = wp_get_attachment_image_src($imageid, $defaultoptions['default_rwdimage_typname']);
+		$imgsrcset =  wp_get_attachment_image_srcset($imageid, 'rwd-480-3-2');
+		$imgsrcsizes = wp_get_attachment_image_sizes($imageid, 'rwd-480-3-2');
+		$img = wp_get_attachment_image_src($imageid, 'rwd-480-3-2');
 
 		$imagehtml = '<img itemprop="thumbnailUrl" src="'.fau_esc_url($img[0]).'" width="'.$imgwidth.'" height="'.$imgheight.'" alt="'.$alttext.'"';
 		if ($imgsrcset) {
@@ -156,12 +156,12 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 
 		$fallback = get_theme_mod('fallback_topevent_image');
 		if ($fallback) {
-		    $thisimage = wp_get_attachment_image_src( $fallback,  $defaultoptions['default_rwdimage_typname']);
+		    $thisimage = wp_get_attachment_image_src( $fallback,  'rwd-480-3-2');
 		    $imageurl = $thisimage[0]; 	
 		    $imgwidth = $thisimage[1];
 		    $imgheight = $thisimage[2];
-		    $imgsrcset =  wp_get_attachment_image_srcset($fallback, $defaultoptions['default_rwdimage_typname']);
-		    $imgsrcsizes = wp_get_attachment_image_sizes($fallback, $defaultoptions['default_rwdimage_typname']);
+		    $imgsrcset =  wp_get_attachment_image_srcset($fallback, 'rwd-480-3-2');
+		    $imgsrcsizes = wp_get_attachment_image_sizes($fallback, 'rwd-480-3-2');
 
 		}
 		if ($imageurl) {

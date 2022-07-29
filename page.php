@@ -22,7 +22,7 @@ while ( have_posts() ) :
 		<div class="content-container">
 		    <div class="content-row">
 			    <main<?php echo fau_get_page_langcode($post->ID);?>>
-				<h1 class="screen-reader-text"><?php the_title(); ?></h1>
+				<h1 id="maintop" class="screen-reader-text"><?php the_title(); ?></h1>
 					<?php 
 					$headline = get_post_meta( $post->ID, 'headline', true );				
 					if (!fau_empty($headline)) {
@@ -50,13 +50,13 @@ while ( have_posts() ) :
 			    $logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );		
 			    if ($logoliste) { 
 				    /* New since 1.10.57 */
-                    $logosize = get_post_meta( $post->ID, 'fauval_imagelink_size', true );
-                    $size = $logosize != '' ? esc_attr($logosize) : "logo-thumb";
-                    $logos = fau_imagelink_get(array('size' => $size, 'catid' => $logoliste, "autoplay" => true, "dots" => true));
-                    if ((isset($logos) && (!empty($logos)))) {
-                        echo "<hr>\n";
-                        echo $logos;
-                    }
+				$logosize = get_post_meta( $post->ID, 'fauval_imagelink_size', true );
+				$size = $logosize != '' ? esc_attr($logosize) : "logo-thumb";
+				$logos = fau_imagelink_get(array('size' => $size, 'catid' => $logoliste));
+				if ((isset($logos) && (!empty($logos)))) {
+				    echo "<hr>\n";
+				    echo $logos;
+				}
 			    }
 			    ?>	
 		    </div>

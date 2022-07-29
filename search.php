@@ -18,8 +18,7 @@ $notfound = false;
 	<div class="content-row">
 	    <div class="searchpage-content ">
 		     <main>
-
-				<h1 class="screen-reader-text"><?php echo __('Webauftritt durchsuchen','fau'); ?></h1>
+				<h1 id="maintop" class="screen-reader-text"><?php echo __('Webauftritt durchsuchen','fau'); ?></h1>
 				
 				<?php
 				  if(strlen(get_search_query()) > 0) {

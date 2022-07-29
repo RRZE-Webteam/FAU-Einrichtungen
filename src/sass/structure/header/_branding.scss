@@ -2,12 +2,12 @@
 /* Branding und Hauptmenu
 /*-----------------------------------------------------------------------------------*/
 
-
 #headerwrapper header {
     .branding {
         max-width: 100%;
         display: none;
-
+	margin-top: $fau-gutter-halfwidth;
+	
         @media (min-width: $screen-sm) {
             display: block;
         }
@@ -20,11 +20,10 @@
             padding: 0;
             font-family: $fontStackFAU;
             font-weight: bold;
-            column-gap: 15px;
+            column-gap: $fau-gutter-halfwidth;
             row-gap: 0.5rem;
 
             .custom-logo-link {
-
                 svg,
                 img {
                     max-height: 60px;
@@ -77,7 +76,7 @@
                 font-size: 15px;
                 line-height: 20px;
                 letter-spacing: 0.2px;
-                color: var(--color-primary-ci-hell);
+                color: var(--color-branding-primary);
                  
                 @media (min-width: $screen-xl) {
                     margin-top: -5px;
@@ -87,31 +86,31 @@
                 .fau-title-place,
                 .fau-title {
                     display: block;
-                    color: var(--color-FAU);
+                    color: var(--color-branding-zentral);
                 }
 
                 .zentral {
-                    color: var(--color-zentral-ci-hell);
+                    color: var(--color-branding-zentral);
                 }
 
                 .phil {
-                    color: var(--color-phil-ci-hell);
+                    color: var(--color-branding-phil);
                 }
 
                 .nat {
-                    color: var(--color-nat-ci-hell);
+                    color: var(--color-branding-nat);
                 }
 
                 .med {
-                    color: var(--color-med-ci-hell);
+                    color: var(--color-branding-med);
                 }
 
                 .rw {
-                    color: var(--color-rw-ci-hell);
+                    color: var(--color-branding-rw);
                 }
 
                 .tf {
-                    color: var(--color-tf-ci-hell);
+                    color: var(--color-branding-tf);
                 }
 
                 .website-shortcut::before {
@@ -132,7 +131,7 @@
             &:hover {
                 display: inline-block;
                 transition: border-left 0.25s ease-out, margin-right 0.25s ease-out;
-                border-left: 8px solid var(--color-primary-ci-hell);
+                border-left: 8px solid var(--color-branding-primary);
                 box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.22);
                 position: relative;
                 margin-right: -23px;
@@ -141,9 +140,7 @@
     }
 
     @media (max-width: $screen-sm) {
-
         .md-showsitelogo:not(.nologo) & .branding {
-
             width: 100%;
             text-align: center;
         }

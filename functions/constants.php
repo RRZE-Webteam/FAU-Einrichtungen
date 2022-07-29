@@ -10,22 +10,22 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	=> 81,
+    'optiontable-version'	    => 86,
 		// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 		// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 		// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 		// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-    'debugmode'				=> true,
+    'debugmode'			    => false,
 		// Der Debugmode erlaubt die Einschaltung von Debug- und Demowerten über den Customizer.
 		// Bei der Compilierung des Themes mit Gulp wird der Debugmode bei
 		//  'gulp build'   auf false gesetzt
 		// Ansonsten kann er manuell über 'gulp nodebug' auf false und
 		//  mit 'gulp debugmode' auf true gesetzt werden
 		// Oder hier von Hand :)
-    'js-version'				=> '2.10',
+    'js-version'		    => '2.10',
 		// Theme-Versionslinie, wird überschrieben durch Style.css Version
     
-    'website_type'			=> 1,
+    'website_type'		    => 1,
 		// website_type: 
 		//  0 = Fakultaetsportal; 
 		//  1 = Lehrstuehle, Departments 
@@ -33,7 +33,7 @@ $defaultoptions = [
 		//  3 = Kooperationen 
 		// -1 = fau.de Portal (4 Spalter in Bühne, kein Link zur FAU. 
 
-    'website_usefaculty'			=> '',
+    'website_usefaculty'		=> '',
 		// phil, med, nat, rw, tf
 		// Setzt fest die Fakultät bei Wahl des Website-Types    
 
@@ -92,39 +92,72 @@ $defaultoptions = [
     
 
     /* Image Sizes */
-    
-    /* Default Thumb Size */
-    'default_thumb_width'			=> 300,
-    'default_thumb_height'			=> 150,
-    'default_thumb_crop'			=> false,
-    
-    /* Image Sizes for Slider, Name: hero */
-    'slider-image-width'			=> 1260,
-    'slider-image-height'			=> 350,    
-    'slider-image-crop'				=> true,
-    
-    /* Hero Banner - Name: herobanner */
-    'default_startseite-bannerbild-image_width'	    => 1260,
-    'default_startseite-bannerbild-image_height'    => 182,
-    'default_startseite-bannerbild-image_crop'	    => true,
-    
-   /* Small 2:1 size for image */
-    'default_rwdimage_2-1_typname'		=> 'rwd-480-2-1',
-    'default_rwdimage_2-1_width'		=> 480,
-    'default_rwdimage_2-1_height'		=> 240,    
-    'default_rwdimage_2-1_crop'			=> false,
-
-    /* Small 3:2 size for images - Name: rwd-480-3-2 */
-    'default_rwdimage_typname'			=> 'rwd-480-3-2',
-    'default_rwdimage_width'			=> 480,
-    'default_rwdimage_height'			=> 320,    
-    'default_rwdimage_crop'			=> false,
-     
-    /* Images for gallerys - Name: gallery-full */
-    'default_gallery_full_width'		=> 940,
-    'default_gallery_full_height'		=> 470,
-    'default_gallery_full_crop'			=> false,     
-    
+    'default_image_sizes' => [
+	'hero'	=> [
+	    'width'	=> 1260,
+	    'height'	=> 350,
+	    'crop'	=> true,
+	    'imagelink'	=> false,
+	    'desc'	=> __('Sliderbild auf Startseite','fau')
+	],
+	'herobanner'	=> [
+	    'width'	=> 1260,
+	    'height'	=> 182,
+	    'crop'	=> true,
+	    'imagelink'	=> false,
+	    'desc'	=> __('Bannerbild Startseite','fau')
+	],
+	'logo-thumb'	=> [
+	    'width'	=> 140,
+	    'height'	=> 110,
+	    'crop'	=> false,
+	    'imagelink'	=> true,
+	    'desc'	=> __('Kleines rechteckiges Logo','fau')
+	],
+	'rwd-480-2-1'	=> [
+	    'width'	=> 480,
+	    'height'	=> 240,
+	    'crop'	=> false,
+	    'imagelink'	=> true,
+	    'desc'	=> __('Bild in 2:1 Format','fau')
+	],
+	'rwd-480-3-2'	=> [
+	    'width'	=> 480,
+	    'height'	=> 320,
+	    'crop'	=> false,
+	    'imagelink'	=> true,
+	    'desc'	=> __('Bild in 3:2 Format','fau')
+	],
+	'gallery-full'	=> [
+	    'width'	=> 940,
+	    'height'	=> 470,
+	    'crop'	=> false,
+	    'imagelink'	=> false,
+	    'desc'	=> __('Hochkantbild für Galerien','fau')
+	],
+	'_post_thumbnail'   => [
+	    'width'	=> 480,
+	    'height'	=> 240,
+	    'crop'	=> false,
+	    'imagelink'	=> true,
+	    'desc'	=> __('Artikelbild','fau')
+	],
+	'_thumbnail'	=> [
+	    'width'	=> 150,
+	    'height'	=> 150,
+	    'crop'	=> true,
+	    'imagelink'	=> true,
+	    'desc'	=> __('Thumbnail','fau')
+	],
+	'_thumb'	=> [
+	    'width'	=> 150,
+	    'height'	=> 150,
+	    'crop'	=> true,
+	    'imagelink'	=> true,
+	    'desc'	=> __('Thumb','fau')
+	]
+	
+    ],
 
     'breadcrumb_root'				=> __('Startseite', 'fau'),
     'breadcrumb_withtitle'			=> false,
@@ -200,28 +233,27 @@ $defaultoptions = [
     'advanced_page_sidebar_order_personlinks'	=> 0,
 		// 0 = Kontakte, Links
 		// 1 = Links, Kontakte
-    'advanced_activate_post_comments'		=> false,
-    'advanced_comments_notes_before'		=> __('Ihre E-Mail-Adresse wird nicht angezeigt. Verpflichtende Felder werden mit dem folgenden Zeichen markiert: <span class="required">*</span>', 'fau' ),
+    'advanced_activate_post_comments'			=> false,
+    'advanced_comments_notes_before'			=> __('Ihre E-Mail-Adresse wird nicht angezeigt. Verpflichtende Felder werden mit dem folgenden Zeichen markiert: <span class="required">*</span>', 'fau' ),
     'advanced_comments_disclaimer'			=> __('Hinweis: Die Kommentare wurden von Lesern geschrieben und spiegeln deren persönliche Meinung wieder. Sie müssen nicht die Meinung der Universität oder der Fakultät repräsentieren.', 'fau' ),
-    'advanced_comments_avatar'			=> false,
+    'advanced_comments_avatar'				=> false,
     
     
     'post_display_category_below'			=> true,
-    'post_display_tags_below'			    => true,
-    
-    'search_display_post_thumbnails'		    => true,
-    'search_display_post_cats'			    => true,
+    'post_display_tags_below'				=> true,
+    'search_display_post_thumbnails'			=> true,
+    'search_display_post_cats'				=> true,
     'search_display_continue_arrow'			=> true,
-    'search_display_excerpt_morestring'		    => '...',
-    'search_display_typenote'			    => true,
-    'advanced_display_postthumb_alt-from-desc'	    => false,
-    'search_post_types'				    => array("page", "post", "attachment"),
-    'search_post_types_checked'			    => array("page", "post"),
+    'search_display_excerpt_morestring'			=> '...',
+    'search_display_typenote'				=> true,
+    'advanced_display_postthumb_alt-from-desc'		=> false,
+    'search_post_types'					=> array("page", "post", "attachment"),
+    'search_post_types_checked'				=> array("page", "post"),
     'search_allowfilter'				=> true,
     'search_notice_searchregion'			=> __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie bitte die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.','fau'),
 
         
-    'advanced_reveal_pages_id'			    => false,
+    'advanced_reveal_pages_id'				=> false,
 		// Zeigt Page-ID im Backend der Seitebearbeitung
     'advanced_images_info_credits'			=> 0,
     'advanced_display_hero_credits'			=> true,   
@@ -263,10 +295,33 @@ $defaultoptions = [
 		// Auf dem Template "Page Start" (Startseite) wird der Content
 		//  per Default nicht gezeigt (false). Über die Customizer-Option
 		// kann dieser Eintrag geändert werden.
-	]; 
+    
+    'advanced_imagelink_default_order'		=> 'asc',
+		// Default für die Order von Imagelinks
+    'advanced_imagelink_default_slides'		=> 4,
+		// Default Anzahl der Slides in einem Imagelink
+    'advanced_imagelink_default_autoplay'	=> false,
+		// Default Autoplay bei Imagelinks
+    'advanced_imagelink_default_type'		=> 'slide',
+		// Default Anzeigetype von Imagelinks: slide oder list
+    'advanced_imagelink_default_dots'		=> true,
+		// Default Anzeige der Dots unter dem Imagelinkslider
+    'advanced_imagelink_default_size'		=> 'logo-thumb',
+		// Default Size der Imagelinks
+    'advanced_imagelink_default_navtitle'	=> __('Partnerlogos', 'fau'),
+		// Default ARIA TItel
+    'advanced_imagelink_default_class'		=> '',
+		// Default CSS Class
+]; 
+
 
  $content_width =$defaultoptions['content-width'];
 
+ 
+
+
+
+ 
 /*--------------------------------------------------------------------*/
 /* Initialisiere Options und Theme Mods 
 /*  (unter besonderer Berücksichtung der Abwärtskompatibilität alter Options)
@@ -306,7 +361,6 @@ function fau_initoptions() {
 		}		
     }
     if ($update_thememods==true) {
-	
         update_option( "theme_mods_$theme", $themeopt );
     }
     
@@ -346,8 +400,17 @@ function fau_initoptions() {
 	    fau_compatible_header_logo();
 	     // Prüfe: Header-Image zu Custom Logo
     }
-
-    
+/*
+    // Update Imagelink-Options
+    global $imagelink_defaults;
+    $imagelink_defaults['order'] = $newoptions['advanced_imagelink_default_order'];
+    $imagelink_defaults['dots'] = $newoptions['advanced_imagelink_default_dots'];
+    $imagelink_defaults['autoplay'] = $newoptions['advanced_imagelink_default_autoplay'];
+    $imagelink_defaults['slides'] = $newoptions['advanced_imagelink_default_slides'];
+    $imagelink_defaults['type'] = $newoptions['advanced_imagelink_default_type'];
+    $imagelink_defaults['size'] = $newoptions['advanced_imagelink_default_size'];
+	    
+*/
     return $newoptions;
 }
 
@@ -424,7 +487,7 @@ function fau_get_searchable_fields($format = 'array') {
 }
 /*--------------------------------------------------------------------*/
 /* Erstelle globale Kategorieliste 
- * (für Version unter 1.9.4 benötigt
+ * (für Version unter 1.9.4 benötigt)
  */
 /*--------------------------------------------------------------------*/
  $categories=get_categories(array('orderby' => 'name','order' => 'ASC'));
@@ -436,7 +499,6 @@ function fau_get_searchable_fields($format = 'array') {
  }        
 /*--------------------------------------------------------------------*/
 /* Durch User änderbare Konfigurationen
- *   Ab 1.9.5 über Customizer, davor über Theme Options
 /*--------------------------------------------------------------------*/
 $setoptions = array(
     'fau_theme_options'   => array(
@@ -570,12 +632,7 @@ $setoptions = array(
 		), 
 	       
 
-	        
-	       
-	    
-	    
-	     
-	    
+
 	       
 	    'slider'  => array(
                   'type'    => 'section',
@@ -603,8 +660,8 @@ $setoptions = array(
 
 	       'fallback-slider-image' => array(
 		    'type'    => 'image',
-		    'maxwidth'	=> $defaultoptions['slider-image-width'],
-		    'maxheight'	=> $defaultoptions['slider-image-height'],
+		    'maxwidth'	=> $defaultoptions['default_image_sizes']['hero']['width'], // $defaultoptions['slider-image-width'],
+		    'maxheight'	=> $defaultoptions['default_image_sizes']['hero']['height'], // $defaultoptions['slider-image-height'],
 		    'title'   => __( 'Slider Ersatzbild', 'fau' ),
 		    'label'   => __( 'Ersatzbild für den Slider, für den Fall, daß ein Artikel kein eigenes Artikel- oder Bühnenbild definiert hat.', 'fau' ),               
 		    'parent'  => 'slider'
@@ -874,8 +931,8 @@ $setoptions = array(
 
 	    'default_postthumb_image' => array(
 		    'type'    => 'image',
-		    'maxwidth'	=> $defaultoptions['default_rwdimage_width'], 
-		    'maxheight'	=> $defaultoptions['default_rwdimage_height'],
+		    'maxwidth'	=> $defaultoptions['default_image_sizes']['rwd-480-3-2']['width'], 
+		    'maxheight'	=> $defaultoptions['default_image_sizes']['rwd-480-3-2']['height'], 
 		    'title'   => __( 'Thumbnail Ersatzbild', 'fau' ),
 		    'label'   => __( 'Ersatzbild für den Fall, daß ein Artikel kein eigenes Artikelbild definiert hat.', 'fau' ),               
 		    'parent'  => 'newsbereich'
@@ -935,8 +992,8 @@ $setoptions = array(
 	       
 	      'fallback_topevent_image' => array(
 		    'type'    => 'image',
-		    'maxwidth'	=> $defaultoptions['default_rwdimage_width'], 
-		    'maxheight'	=> $defaultoptions['default_rwdimage_height'],
+		    'maxwidth'	=> $defaultoptions['default_image_sizes']['rwd-480-3-2']['width'], 
+		    'maxheight'	=> $defaultoptions['default_image_sizes']['rwd-480-3-2']['height'], 
 		    'title'   => __( 'Thumbnail Ersatzbild', 'fau' ),
 		    'default' => $defaultoptions['fallback_topevent_image'],
 		    'label'   => __( 'Ersatzbild für den Fall, daß für den Eventeintrag kein eigenes Bild definiert wurde.', 'fau' ),               
@@ -1026,6 +1083,76 @@ $setoptions = array(
 		     'parent'  => 'suchergebnisse'
 		), 
    
+	       
+	       
+	    'imagelink'  => array(
+                  'type'    => 'section',
+                  'title'   => __( 'Bildlinks', 'fau' ),                      
+            ), 
+	
+	     
+	    'advanced_imagelink_default_order' => array(
+		    'type'    => 'select',
+		    'title'   => __( 'Sortierung', 'fau' ),
+		    'label'   => __( 'Standardsortierung der Bildlinks.', 'fau' ),
+		    'liste'   => array(
+				'asc' => __('A - Z','fau'),
+      				'desc' => __('Z - A','fau'),
+      				'rand' => __('Zufall','fau'),
+		      ),
+		    'default' => $defaultoptions['advanced_imagelink_default_order'],
+		    'parent'  => 'imagelink'
+            ),     
+               
+	   
+	    'advanced_imagelink_default_type' => array(
+		    'type'    => 'select',
+		    'title'   => __( 'Darstellungsform', 'fau' ),
+		    'label'   => __( 'Die Darstellung kann als Slider oder als statische Liste erfolgen.', 'fau' ),
+		    'liste'   => array(
+				'slide' => __('Slider','fau'),
+      				'list' => __('Liste','fau')
+		      ),
+		    'default' => $defaultoptions['advanced_imagelink_default_type'],
+		    'parent'  => 'imagelink'
+            ),   
+	    'advanced_imagelink_default_slides'=> array(
+                  'type'    => 'range-value',
+                  'title'   => __( 'Anzahl Bildlinks', 'fau' ),
+                  'label'   => __( 'Wieviele sollen üblicherweise bei der Slide-Anzeige dargestellt werden.', 'fau' ),
+                  'default' => $defaultoptions['advanced_imagelink_default_slides'],
+		  'min'	    => 2,
+		  'max'	    => 7,		  
+                  'parent'  => 'imagelink'
+            ),    
+	     'advanced_imagelink_default_autoplay' => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Autoplay (Slider)', 'fau' ),
+                  'label'   => __( 'Wenn zur Anzeige der Slider gewählt wurde, kann hier eingestellt werden, ob dieser von selbst starten soll oder nicht. Bitte beachten Sie, dass ein automatisches Abspielen die Barrierefreiheit der Seite beeinträchtigen kann. Sollte die Option eingeschaltet werden, sollte in der Barrierefreiheitserklärung angegeben werden, dass die Website bei den automatisch rotierenden Bildlinks nicht barrierefrei ist.', 'fau' ),               
+                  'default' => $defaultoptions['advanced_imagelink_default_autoplay'],
+		  'parent'  => 'imagelink'
+            ),  
+	     'advanced_imagelink_default_dots' => array(
+                  'type'    => 'toggle',
+                  'title'   => __( 'Dots (Slider)', 'fau' ),
+                  'label'   => __( 'Zeigt bei der Sliderdarstellung unterhalb der Bildlinks Navigationsbuttons als Punkte an.', 'fau' ),               
+                  'default' => $defaultoptions['advanced_imagelink_default_dots'],
+		  'parent'  => 'imagelink'
+            ),  
+	    'advanced_imagelink_default_navtitle' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'ARIA-Label', 'fau' ),
+                  'label'   => __( 'Unsichtbarer Titel für die Linklisten (wird für Screenreader und Suchmaschinen verwendet).', 'fau' ),               
+                  'default' => $defaultoptions['advanced_imagelink_default_navtitle'],
+		   'parent'  => 'imagelink'
+	    ), 
+	     'advanced_imagelink_default_class' => array(
+                  'type'    => 'text',
+                  'title'   => __( 'CSS-Klassen', 'fau' ),
+                  'label'   => __( 'Optionale CSS Klassen zur Modifikation der optischen Darstellung.', 'fau' ),               
+                  'default' => $defaultoptions['advanced_imagelink_default_class'],
+		   'parent'  => 'imagelink'
+	    ), 
 	       
 	       
           )
@@ -1144,8 +1271,8 @@ $setoptions = array(
               
 	         'fallback_submenu_image' => array(
 		    'type'    => 'image',
-		    'maxwidth'	=> $defaultoptions['default_rwdimage_2-1_width'],
-		    'maxheight'	=> $defaultoptions['default_rwdimage_2-1_height'],
+		    'maxwidth'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['width'], // $defaultoptions['default_rwdimage_2-1_width'],
+		    'maxheight'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['height'], // $defaultoptions['default_rwdimage_2-1_height'],
 		    'title'   => __( 'Thumbnail Ersatzbild', 'fau' ),
 		    'label'   => __( 'Ersatzbild für den Fall, daß eine verlinkte Seite kein eigenes Artikelbild definiert hat.', 'fau' ),               
 		    'parent'  => 'contentmenus',

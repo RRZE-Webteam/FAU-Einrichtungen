@@ -19,7 +19,7 @@ $active_sidebar = false;
 	    <div class="content-row">
 		    <div class="search-resultnested">   
 			<main>
-			    <h1 class="screen-reader-text"><?php 
+			    <h1 id="maintop"  class="screen-reader-text"><?php 
 				$post_type = get_post_type_object(get_post_type());
 				echo $post_type->labels->name;
 				?></h1>
