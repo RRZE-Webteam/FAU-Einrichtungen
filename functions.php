@@ -98,13 +98,6 @@ function fau_set_image_sizes() {
     global $defaultoptions;
      /* 
 	 * Notice: Default Image Siztes dont neet to be defined:
-	 * 
-	 * What Are the Default WordPress Image Sizes?
-	    Thumbnail size: 150px (square)
-	    Medium size: Max width and height of 300px.
-	    Large size: Max width and height of 1024px.
-	    Full size: The original size of your image.
-	 * 
 	 * Reserved Image Size Names:
 	 *  thumb = alias for thumbnail
 	 *  thumbnail, default 150px x 150px max
@@ -140,7 +133,7 @@ function fau_custom_init() {
     remove_post_type_support( 'page', 'comments' );
 
     /*
-     * ToDO: Remove this, once the Settings Plugin is capable to do this
+     * Remove emojis
     */
     remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
     remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
@@ -153,11 +146,7 @@ function fau_custom_init() {
 
 
     remove_filter( 'the_content', 'wpautop' );
-	// add_filter( 'the_content', 'wpautop' , 99);
-    // Declare Default Symbols from the start
-   // fau_register_svg_symbol("fau-logo-text", false);
-   // fau_register_svg_symbol("fau-siegel", false);
-    //fau_register_svg_symbol("fau-logo", false);
+	// no auto p
 
 
 }
@@ -174,7 +163,6 @@ function fau_register_scripts() {
     $theme_version = $theme_data->Version;
 
     wp_register_style('fau-style',  get_stylesheet_uri(), array(), $theme_version);
-	//    wp_register_style('fau-style', get_stylesheet_uri(), array(), $theme_version, 'screen' );
 	// Global Style. Notice: Its used also for print, so dont limit it to screen output!
     wp_register_style('fau-style-print', get_stylesheet_directory_uri() . '/print.css', array(), $theme_version, 'print' );
 	// Base style for print
@@ -246,9 +234,23 @@ add_filter( 'wp_resource_hints', 'fau_remove_default_dns_prefetch', 10, 2 );
 
 function fau_dns_prefetch() {
     // List of domains to set prefetching for
-    $prefetchDomains = [ 'https://www.fau.de'  ];
+    $prefetchDomains = array();
     $mydomain = parse_url(get_home_url());
+    $scheme = $mydomain['scheme'];
+    
     $prefetchDomains[] = $mydomain['host'];
+    // add own domain
+
+     // check if own domain is a subdomain. if so, we also add the main domain above
+    $host = explode('.', $mydomain['host']);
+    if (($host) && (count($host)>1)) {
+	$maindomain = $host[count($host)-2].'.'.$host[count($host)-1];
+        $prefetchDomains[] = $scheme.'://'.$maindomain;
+    }
+    if (($host) && (count($host)>1)) {
+	$maindomain = $host[count($host)-2].'.'.$host[count($host)-1];
+        $prefetchDomains[] = $scheme.'://'.$maindomain;
+    }
 
     $prefetchDomains = array_unique($prefetchDomains);
     $result = '';
@@ -256,7 +258,13 @@ function fau_dns_prefetch() {
     foreach ($prefetchDomains as $domain) {
         $domain = esc_url($domain);
         $result .= '<link rel="dns-prefetch" href="' . $domain . '" crossorigin>'."\n";
-        $result .= '<link rel="preconnect" href="' . $domain . '" crossorigin>'."\n";
+	
+	//  $result .= '<link rel="preconnect" href="' . $domain . '" crossorigin>'."\n";
+	// We do not make a preconnect to all domains:
+	// The preconnect hint is best used for only the most critical connections. 
+	// For the others, just use <link rel="dns-prefetch"> to save time on 
+	// the first step — the DNS lookup.
+	// see also: https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
     }
 
     echo $result;
@@ -268,7 +276,6 @@ add_action('wp_head', 'fau_dns_prefetch', 10);
 /* Change default header
 /*-----------------------------------------------------------------------------------*/
 function fau_addmetatags() {
-    global $defaultoptions;
     $output = '';
    // $output .= '<meta http-equiv="Content-Type" content="text/html; charset='.get_bloginfo('charset').'">'."\n";
    // $output .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">'."\n";
@@ -369,36 +376,6 @@ function fau_remove_unwanted_head_actions() {
 }
 add_action('wp_head', 'fau_remove_unwanted_head_actions', 0);
 
-
-/*-----------------------------------------------------------------------------------*/
-/*  Returns language code, without subcode
-/*-----------------------------------------------------------------------------------*/
-function fau_get_language_main () {
-    $charset = explode('-',get_bloginfo('language'))[0];
-    return $charset;
-}
-
-
-/*-----------------------------------------------------------------------------------*/
-/* Change WordPress default language attributes function to
- * strip of region code parts. Not used yet /anymore
-/*-----------------------------------------------------------------------------------*/
-function fau_get_language_attributes ($doctype = 'html' ) {
-    $attributes = array();
-
-    if ( function_exists( 'is_rtl' ) && is_rtl() )
-	    $attributes[] = 'dir="rtl"';
-
-    if ( $langcode = fau_get_language_main() ) {
-	    if ( get_option('html_type') == 'text/html' || $doctype == 'html' )
-		    $attributes[] = "lang=\"$langcode\"";
-
-	    if ( get_option('html_type') != 'text/html' || $doctype == 'xhtml' )
-		    $attributes[] = "xml:lang=\"$langcode\"";
-    }
-    $output = implode(' ', $attributes);
-    return $output;
-}
 
 
 /*-----------------------------------------------------------------------------------*/
