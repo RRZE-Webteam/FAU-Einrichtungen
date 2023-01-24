@@ -74,6 +74,7 @@ $defaultoptions = [
 
 
     'default_postthumb_always'			=> 1,
+	'show_date_on'						=> true,
     'default_postthumb_image'			=> 0,
     'default_submenu_spalten'			=> 4,
     'default_submenu_entries'			=> 5,
@@ -937,6 +938,14 @@ $setoptions = array(
 		    'label'   => __( 'Ersatzbild für den Fall, daß ein Artikel kein eigenes Artikelbild definiert hat.', 'fau' ),               
 		    'parent'  => 'newsbereich'
 		),  
+/* Datum der Blogroll -Umschaltungsoption anzeigen*/
+		'show_date_on' => array(
+			'type'    => 'toggle',
+			'title'   => __( 'Datum', 'fau' ),
+			'label'   => __( 'Erstellungsdatum', 'fau' ),      
+			'default' => $defaultoptions['show_date_on'],
+			'parent'  => 'newsbereich'
+			  ), 
 	       
 	      'default_display_thumbnail_3_2' => array(
 		    'type'    => 'toggle',
