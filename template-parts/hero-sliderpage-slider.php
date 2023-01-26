@@ -36,8 +36,11 @@
 	
 	if ($hero_posts && (count($hero_posts) > 0)) { ?>
 <div id="hero" class="<?php echo $sliderclass; ?>">
+
 	<section id="hero-slides" role="region" aria-roledescription="carousel"  aria-label="<?php echo __('Bedeutende Artikel','fau'); ?>">
+
 	   <div class="slick-slider featured-slider cf" id="mainslider">
+
 	       <?php
 		foreach($hero_posts as $hero): 
 		    echo '<div class="item" aria-roledescription="slide" role="group" aria-labelledby="label-'.$hero->ID.'">';
@@ -89,7 +92,8 @@
 		    }
 
 
-		    $slidersrc = '<img src="'.fau_esc_url($sliderimage[0]).'"'; 
+		    $slidersrc = ' 	<div class="overlay-slider-image">
+			</div><img src="'.fau_esc_url($sliderimage[0]).'"'; 
 		    // In case of SVG-Images, width and height are empty
 		    if ($sliderimage[1] > 1) {
 			$slidersrc .= ' width="'.$sliderimage[1].'"';
@@ -113,9 +117,10 @@
 			echo '<p class="credits">'.$copyright."</p>";
 		    }
 		    ?>
+			
 		    <div class="hero-slide-text">
 			<div class="hero-container">
-			    <div class="hero-row">
+						    <div class="hero-row">
 				<div class="slider-titel">
 				    <?php
 					
