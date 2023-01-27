@@ -10874,7 +10874,6 @@ ol.breadcrumblist li:last-child::after {
 
 #hero-slides {
   position: relative;
-  display: none;
   height: auto;
   width: 100%;
 }
@@ -10895,6 +10894,12 @@ ol.breadcrumblist li:last-child::after {
     height: 480px;
   }
 }
+@media (max-width: 480px) {
+  #hero-slides .item {
+    height: 350px;
+    background-color: var(--color-FAU);
+  }
+}
 #hero-slides .item .slider-titel {
   text-align: center;
   font-size: 3.5rem;
@@ -10906,6 +10911,11 @@ ol.breadcrumblist li:last-child::after {
 @media (min-width: 768px) {
   #hero-slides .item .slider-titel {
     margin-bottom: 5px;
+  }
+}
+@media (max-width: 480px) {
+  #hero-slides .item .slider-titel {
+    font-size: 1.5rem;
   }
 }
 #hero-slides .item .slider-titel header {
@@ -10921,12 +10931,17 @@ ol.breadcrumblist li:last-child::after {
     margin: 10px 0 15px 0;
   }
 }
-#hero-slides .item .slider-text {
-  display: none;
-}
 @media (min-width: 768px) {
   #hero-slides .item .slider-text {
     display: inline-block;
+  }
+}
+@media (max-width: 480px) {
+  #hero-slides .item .slider-text {
+    bottom: 10px;
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
   }
 }
 #hero-slides .item .slider-text p {
@@ -10983,6 +10998,15 @@ ol.breadcrumblist li:last-child::after {
     min-height: 480px;
   }
 }
+@media (max-width: 480px) {
+  #hero-slides .item img {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    -webkit-clip-path: polygon(0px 90%, 0px 0%, 100% 0%, 100% 100%);
+            clip-path: polygon(0px 90%, 0px 0%, 100% 0%, 100% 100%);
+  }
+}
 #hero-slides .hero-slide-text {
   z-index: 19;
   position: absolute;
@@ -10991,6 +11015,14 @@ ol.breadcrumblist li:last-child::after {
   width: 100%;
   top: 25%;
   transform: translate(0, -75%);
+}
+@media (max-width: 480px) {
+  #hero-slides .hero-slide-text {
+    bottom: 20px;
+    top: auto;
+    margin: 0 0px;
+    transform: translate(0, 0%);
+  }
 }
 @media (min-width: 768px) {
   #hero-slides .hero-slide-text {
@@ -11013,9 +11045,6 @@ ol.breadcrumblist li:last-child::after {
   #hero-slides {
     display: block;
     width: 100%;
-  }
-  .no-js #hero-slides {
-    display: none;
   }
 }
 @media (min-width: 480px) {
@@ -11056,6 +11085,12 @@ ol.breadcrumblist li:last-child::after {
   border: none;
   outline: none;
 }
+@media (max-width: 480px) {
+  #hero-slides .slick-prev,
+  #hero-slides .slick-next {
+    top: 80px;
+  }
+}
 @media (min-width: 480px) {
   #hero-slides .slick-prev,
   #hero-slides .slick-next {
@@ -11079,6 +11114,12 @@ ol.breadcrumblist li:last-child::after {
 #hero-slides .slick-next:before {
   font-size: 150px;
   color: rgba(255, 255, 255, 0.63);
+}
+@media (max-width: 480px) {
+  #hero-slides .slick-prev:before,
+  #hero-slides .slick-next:before {
+    font-size: 50px;
+  }
 }
 #hero-slides .slick-prev {
   left: 15px;
@@ -11315,6 +11356,11 @@ ol.breadcrumblist li:last-child::after {
   z-index: 2;
   position: absolute;
   width: 100%;
+}
+@media (max-width: 480px) {
+  .overlay-slider-image {
+    display: none;
+  }
 }
 
 .banner {

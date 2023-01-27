@@ -14,7 +14,7 @@
  
 #hero-slides {
 	position: relative;
-	display: none;
+	//display: none;
 	height: auto;
 	width: 100%;
 
@@ -25,6 +25,7 @@
 		overflow: hidden;
 		width: 100%;
 		height: 150px;
+		
 
 		@media (min-width: $screen-sm) {
 			height:  $slider-maxheight;
@@ -33,6 +34,10 @@
 		@media (min-width: $slider-maxwidth) {
 			width: $slider-maxwidth;
 			height: $slider-maxheight;
+		}
+		@media (max-width: $screen-xs) {
+			height: 350px;
+			background-color: var(--color-FAU);
 		}
 
 		.slider-titel {
@@ -49,6 +54,9 @@
 			@media (min-width: $screen-sm) {
 				margin-bottom: 5px;
 			}
+			@media (max-width: $screen-xs){
+				font-size: 1.5rem;
+			}
 			header {
 				display: inline;
 				padding: 3px;
@@ -63,13 +71,20 @@
 			}
 		}
 		.slider-text {
-			display: none;
+		//	display: none;
 			
 
 			@media (min-width: $screen-sm) {
 				display: inline-block;
 			}
-			
+			@media (max-width: $screen-xs){
+				bottom:10px;
+				display: inline-block;
+				width: 100%;
+				
+				padding: 10px;
+			}
+		
 
 			p {
 				padding: 5px 4px 4px 4px;
@@ -80,6 +95,7 @@
 					display: inline;
 
 				}
+
 
 			}
 		}
@@ -125,6 +141,12 @@
 			@media (min-width: $screen-sm) {
 				min-height:  $slider-maxheight;
 			}
+			@media (max-width: $screen-xs){
+				width: 100%;
+				height: auto;
+				min-height: 150px;
+				clip-path: polygon(0px 90%, 0px 0%, 100% 0%, 100% 100%);
+			}
 
 
 		}
@@ -140,6 +162,12 @@
 		width: 100%;
 		top: 25%;
 		@include transform-translate(0, -75%);
+		@media (max-width: $screen-xs){
+			bottom:20px;
+			top:auto;
+			margin: 0 0px;
+			@include transform-translate(0, 0%);
+		}
 
 		@media (min-width: $screen-sm) {
 			bottom: 30px;
@@ -160,7 +188,7 @@
 		width: 100%;
 
 		.no-js & {
-			display: none;
+			//display: none;
 		}
 	}
 
@@ -195,6 +223,9 @@
 		background: transparent;
 		color: transparent;
 		top: calc(50% - 70px);
+		@media (max-width: $screen-xs) {
+			top:80px;
+		}
 	
 		
 		@include transform-translate(0, -75%);
@@ -225,6 +256,9 @@
 		&:before {
 			font-size: 150px;
 			color: rgba(255, 255, 255, 0.63);
+			@media (max-width: $screen-xs) {
+				font-size: 50px;
+			}
 
 		}
 
