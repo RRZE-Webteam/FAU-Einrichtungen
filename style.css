@@ -10916,6 +10916,9 @@ ol.breadcrumblist li:last-child::after {
 @media (max-width: 480px) {
   #hero-slides .item .slider-titel {
     font-size: 1.5rem;
+    height: 70px;
+    overflow: hidden;
+    top: 5px;
   }
 }
 #hero-slides .item .slider-titel header {
@@ -10941,11 +10944,11 @@ ol.breadcrumblist li:last-child::after {
     bottom: 10px;
     display: inline-block;
     width: 100%;
-    padding: 10px;
+    padding: 5px;
   }
 }
 #hero-slides .item .slider-text p {
-  padding: 5px 4px 4px 4px;
+  padding: 0px 4px 4px 4px;
   margin: 0;
   -webkit-box-decoration-break: clone;
           box-decoration-break: clone;
@@ -10989,8 +10992,8 @@ ol.breadcrumblist li:last-child::after {
   max-width: inherit;
   margin-left: 50%;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 45%, rgba(0, 51, 102, 0.8));
-  -webkit-clip-path: polygon(0px 100%, 0px 10%, 100% 0%, 100% 100%);
-          clip-path: polygon(0px 100%, 0px 10%, 100% 0%, 100% 100%);
+  -webkit-clip-path: polygon(0px 100%, 0px 7%, 100% 0%, 100% 100%);
+          clip-path: polygon(0px 100%, 0px 7%, 100% 0%, 100% 100%);
   transform: translate(-50%, 0);
 }
 @media (min-width: 768px) {
@@ -11003,8 +11006,8 @@ ol.breadcrumblist li:last-child::after {
     width: 100%;
     height: auto;
     min-height: 150px;
-    -webkit-clip-path: polygon(0px 90%, 0px 0%, 100% 0%, 100% 100%);
-            clip-path: polygon(0px 90%, 0px 0%, 100% 0%, 100% 100%);
+    -webkit-clip-path: none;
+            clip-path: none;
   }
 }
 #hero-slides .hero-slide-text {
@@ -11072,7 +11075,7 @@ ol.breadcrumblist li:last-child::after {
 #hero-slides .slick-next {
   position: absolute;
   display: block;
-  height: 40px;
+  height: 80px;
   width: 40px;
   line-height: 0px;
   font-size: 0px;
@@ -11088,7 +11091,7 @@ ol.breadcrumblist li:last-child::after {
 @media (max-width: 480px) {
   #hero-slides .slick-prev,
   #hero-slides .slick-next {
-    top: 80px;
+    top: 100px;
   }
 }
 @media (min-width: 480px) {
@@ -11114,6 +11117,7 @@ ol.breadcrumblist li:last-child::after {
 #hero-slides .slick-next:before {
   font-size: 150px;
   color: rgba(255, 255, 255, 0.63);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.23);
 }
 @media (max-width: 480px) {
   #hero-slides .slick-prev:before,
@@ -11160,12 +11164,12 @@ ol.breadcrumblist li:last-child::after {
 #hero-slides .slick-startstop {
   position: absolute;
   display: block;
-  top: 0px;
-  right: 0px;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  font-size: 0.937rem;
-  line-height: 1.407rem;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.63);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.83);
   margin: 0;
   padding: 1px 4px;
   border: none;
@@ -11175,9 +11179,15 @@ ol.breadcrumblist li:last-child::after {
     bottom: inherit;
   }
 }
+@media (max-width: 480px) {
+  #hero-slides .slick-startstop {
+    right: calc(50% - 20px);
+    top: 25%;
+  }
+}
 #hero-slides .slick-startstop:hover, #hero-slides .slick-startstop:focus {
   color: #fff;
-  background: #000;
+  background: transparent;
   transition-timing-function: ease;
   text-decoration: underline;
 }
@@ -11189,6 +11199,24 @@ ol.breadcrumblist li:last-child::after {
   #hero-slides {
     top: -20px;
   }
+}
+
+.slick-dots {
+  display: flex !important;
+  width: 60px;
+  margin: 0 auto;
+}
+
+.slick-dots li {
+  margin: 0px auto;
+  width: 60px;
+}
+
+.slick-dots li button {
+  margin-right: 10px;
+  height: 5px;
+  padding: 5px;
+  border-radius: 50%;
 }
 
 /*-----------------------------------------------------------------------------------*/

@@ -171,8 +171,11 @@
 		} ?>
 
 		<button type="button"  class="slick-startstop<?php echo $startstopclass;?>">
-		    <?php echo $buttontext;?>
+		<i class="fa fa-pause" aria-hidden="true"></i>
+
+			
 		</button>
+		
 	    </div>
 	    
 	</section> 

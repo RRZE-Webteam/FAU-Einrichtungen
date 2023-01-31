@@ -26,14 +26,14 @@ jQuery(document).ready(function ($) {
         var autoplaySpeedval = 7000;
         var sliderNextHTML = '<button type="button" class="slick-next">Next</button>';
         var sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
-        var stopSliderHTML = 'Stop Animation';
-        var startSliderHTML = 'Start Animation';
+        var stopSliderHTML = '<i class="fa fa-pause" aria-hidden="true"></i>' ;
+        var startSliderHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
 
         if ($('html').attr('lang') == 'de-DE') {
             sliderNextHTML = '<button type="button" class="slick-next">Weiter</button>';
             sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
-            stopSliderHTML = 'Animation stoppen';
-            startSliderHTML = 'Animation starten';
+            stopSliderHTML = '<i class="fa fa-pause" aria-hidden="true"></i>' ;
+            startSliderHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
         }
 
         if ($.fn.slick) {
