@@ -38,11 +38,10 @@
 
 .content-row {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 
-     
-    @media (min-width: $screen-xl-min) {
-        //flex-wrap: nowrap;
+    @media (min-width: $screen-sm) {
+        flex-wrap: nowrap;
     }
 
     main {
@@ -204,10 +203,11 @@
     .post-row {
         display: flex;
         justify-content: space-between;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         width: 100%;
         @media (min-width: $screen-sm) {
             //max-width: $container-sm - $grid-gutter-width;
+            flex-wrap: nowrap;
         }
         @media (min-width: $screen-md) {
             //max-width: $container-md - $grid-gutter-width;

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.7
+Version: 2.1.8-3
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -11625,7 +11625,12 @@ ol.breadcrumblist li:last-child::after {
 
 .content-row {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+}
+@media (min-width: 768px) {
+  .content-row {
+    flex-wrap: nowrap;
+  }
 }
 .content-row main {
   flex-grow: 1;
@@ -11779,8 +11784,13 @@ ol.breadcrumblist li:last-child::after {
 #content .post-row {
   display: flex;
   justify-content: space-between;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   width: 100%;
+}
+@media (min-width: 768px) {
+  #content .post-row {
+    flex-wrap: nowrap;
+  }
 }
 @media (min-width: 1400px) {
   #content .post-row {
@@ -12776,7 +12786,7 @@ main .news-more-links .news-rss:hover:before {
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   padding: 0.5rem 1rem;
-  height: 48px;
+  height: inherit;
   margin-left: -5rem;
 }
 .widget_search .search-text input[type=submit]:hover, .widget_search .search-text input[type=submit]:focus,
