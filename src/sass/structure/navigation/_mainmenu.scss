@@ -9,6 +9,7 @@
     /* All links & buttons */
     a, [type=button] {
         text-decoration: none;
+        font-weight: bold;
         color: var(--color-mainmenu-toplevel-text);
         background: var(--color-mainmenu-toplevel-bg);
 
@@ -21,6 +22,11 @@
         }
 
 
+    }
+
+    li.level1.has-sub:hover > a {
+        color: var(--color-mainmenu-toplevel-bg);
+        background: var(--color-mainmenu-toplevel-hover-bg);
     }
 
     /* First-level items */
@@ -101,10 +107,15 @@
 
         a:hover,
         a:focus {
-            text-decoration: underline;
             color: var(--color-mainmenu-sublevel-hover-text);
             background-color: var(--color-mainmenu-sublevel-hover-bg);
 	        @include border-radius(3px);
+        }
+    }
+
+    .level3 {
+        a {
+            font-weight: normal;
         }
     }
 
@@ -148,7 +159,6 @@
             }
 
             > a {
-                border-bottom: 1px solid var(--color-primary-dunkelste);
                 background-color: transparent;
             }
         }
@@ -175,7 +185,7 @@
 
                     > a {
 			            @include px2rem($font-size-nav-level2);
-                        border-bottom-color: var(--color-primary-dunkler);
+
                         padding-left: $padding-base-horizontal;
 
                     }
@@ -186,6 +196,8 @@
                 }
                 &.level3 a {
 		            @include px2rem($font-size-nav-level3);
+                    margin-left: 12px;
+                    border-left: 10px solid var(--color-mainmenu-sublevel-hover-bg);
                 }
             }
 
@@ -301,7 +313,6 @@
                 border-bottom: 1px solid var(--color-primary-dunkler);
                 &:hover, &:focus, &:active {
                     background: var(--color-mainmenu-sublevel-hover-bg);
-                    text-decoration: underline;
                 }
             }
             ul {
