@@ -9161,11 +9161,11 @@ body.nav-toggled #headerwrapper {
   color: var(--color-FAU);
 }
 .meta-links-trigger .meta-links-trigger-icon svg {
-  width: 24px;
-  height: 36px;
+  width: 48px;
+  height: 48px;
 }
 .meta-links-trigger .meta-links-trigger-icon-fau svg {
-  width: 40px;
+  width: 48px;
 }
 .meta-links-trigger.meta-links-trigger-close .meta-links-trigger-icon svg, .meta-links-trigger[aria-expanded=true] svg {
   transform: scale(0.7);
@@ -9299,6 +9299,8 @@ body.nav-toggled #headerwrapper {
   .meta-links .meta-nav.menu li a {
     display: block;
     padding: 0.5rem 10px;
+    font-size: 1rem;
+    line-height: 1.8rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   }
 }
@@ -9808,6 +9810,8 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 }
 #mainnav-toggle,
 #mainnav-toggle-close {
+  min-width: 48px;
+  min-height: 48px;
   position: absolute;
   right: 5px;
   top: 3px;
@@ -9839,6 +9843,10 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+#mainnav-toggle:before {
+  font-size: 28px;
 }
 
 /* Very small device */
@@ -12768,7 +12776,7 @@ main .news-more-links .news-rss:hover:before {
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   padding: 0.5rem 1rem;
-  height: inherit;
+  height: 48px;
   margin-left: -5rem;
 }
 .widget_search .search-text input[type=submit]:hover, .widget_search .search-text input[type=submit]:focus,

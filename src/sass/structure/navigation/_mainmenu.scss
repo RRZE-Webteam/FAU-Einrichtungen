@@ -234,6 +234,8 @@
 
 #mainnav-toggle,
 #mainnav-toggle-close {
+    min-width: 48px;
+    min-height: 48px;
     position: absolute;
     right: 5px;
     top: 3px;
@@ -259,6 +261,7 @@
 }
 
 #mainnav-toggle:before {
+    font-size: 28px;
     @extend .fa;
     @extend .fa-bars;
 }
