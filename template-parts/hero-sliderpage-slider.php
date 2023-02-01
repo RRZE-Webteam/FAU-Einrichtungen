@@ -170,9 +170,12 @@
 		    $buttontext = $defaultoptions['slider-starttext'];
 		} ?>
 
-		<button type="button"  class="slick-startstop<?php echo $startstopclass;?>">
-		    <?php echo $buttontext;?>
+		<button type="button" aria-label="<?php echo $buttontext ?> " class="slick-startstop<?php echo $startstopclass;?>">
+		<i class="fa fa-pause" aria-hidden="true"></i>
+
+			
 		</button>
+		
 	    </div>
 	    
 	</section> 

@@ -47,8 +47,6 @@
 			&a,
 			&:hover{
 				transform: scale(1.025);
-				
-			
 
 			}
 			@media (min-width: $screen-sm) {
@@ -56,6 +54,9 @@
 			}
 			@media (max-width: $screen-xs){
 				font-size: 1.5rem;
+				height: 70px;
+				overflow: hidden;
+				top:5px;
 			}
 			header {
 				display: inline;
@@ -67,13 +68,9 @@
 					margin: 10px 0 15px 0;
 
 				}
-
 			}
 		}
 		.slider-text {
-		//	display: none;
-			
-
 			@media (min-width: $screen-sm) {
 				display: inline-block;
 			}
@@ -82,21 +79,17 @@
 				display: inline-block;
 				width: 100%;
 				
-				padding: 10px;
+				padding: 5px;
 			}
 		
-
 			p {
-				padding: 5px 4px 4px 4px;
+				padding: 0px 4px 4px 4px;
 				margin: 0;
 				box-decoration-break: clone;
 
 				@media (min-width: $screen-sm) {
 					display: inline;
-
 				}
-
-
 			}
 		}
 		
@@ -107,13 +100,11 @@
 			width: 100%;
 			text-align: center;
 		    header, p {
-
 			color: var(--color-primary-ci-hell-kontrast);
 			opacity: $slick-opacity-text-background;
 		    }
 		    
 		}
-		
 		p.credits {
 			background: $colorCopyrightBackground;
 			color: $colorCopyright;
@@ -125,7 +116,6 @@
 			right: 0;
 			bottom: 0;
 		}
-
 		img {
 			vertical-align: middle;
 			z-index: 5;
@@ -135,7 +125,7 @@
 			max-width: inherit;
 			margin-left: 50%;
 			background: linear-gradient(180deg,rgba(255,255,255,0) 45%,rgba(0,51,102,.8));
-			clip-path: polygon(0px 100% , 0px 10%, 100% 0%, 100% 100%);
+			clip-path: polygon(0px 100% , 0px 7%, 100% 0%, 100% 100%);
 			@include transform-translate(-50%, 0);
 
 			@media (min-width: $screen-sm) {
@@ -145,10 +135,8 @@
 				width: 100%;
 				height: auto;
 				min-height: 150px;
-				clip-path: polygon(0px 90%, 0px 0%, 100% 0%, 100% 100%);
+				clip-path:none;
 			}
-
-
 		}
 	}
 
@@ -174,7 +162,6 @@
 			top: inherit;
 			transform: none;
 		}
-
 	}
 
 	li {
@@ -205,7 +192,6 @@
 	    }
 	}
 	
-
 	@media (min-width: $slider-maxwidth + 20) {
 		width: $slider-maxwidth;
 		height: $slider-maxheight
@@ -215,7 +201,7 @@
 	.slick-next {
 		position: absolute;
 		display: block;
-		height: $slider-arrow-width;
+		height: $slider-arrow-width+40px;
 		width: $slider-arrow-width;
 		line-height: 0px;
 		font-size: 0px;
@@ -224,7 +210,7 @@
 		color: transparent;
 		top: calc(50% - 70px);
 		@media (max-width: $screen-xs) {
-			top:80px;
+			top:100px;
 		}
 	
 		
@@ -254,14 +240,14 @@
 
 		
 		&:before {
+			
 			font-size: 150px;
 			color: rgba(255, 255, 255, 0.63);
+			text-shadow: 1px 1px rgba(0, 0, 0, 0.23);
 			@media (max-width: $screen-xs) {
 				font-size: 50px;
 			}
-
 		}
-
 	}
 
 	.slick-prev {
@@ -280,7 +266,6 @@
 			}
 		}
 
-
 		&:before {
 			@extend .fa;
 			@extend .fa-chevron-left;
@@ -289,13 +274,11 @@
 				@extend .fa-chevron-right;
 			}
 		}
-
 	}
 
 	.slick-next {
 		right: 25px;
 		
-
 		[dir="rtl"] & {
 			left: 15px;
 			right: 15px;
@@ -314,7 +297,6 @@
 			}
 		}
 
-
 		&:before {
 			@extend .fa;
 			@extend .fa-chevron-right;
@@ -323,24 +305,31 @@
 				@extend .fa-chevron-left;
 			}
 		}
-
 	}
 
 
 	.slick-startstop {
 		position: absolute;
 		display: block;
-		top: 0px;
-		right: 0px;
+		top: 20px;
+		right: 20px;
+		font-size: 28px ;
+		text-shadow: 1px 1px rgba(0, 0, 0, 0.63);
+		
 
 		@media (min-width: $screen-xs) {
 			bottom: inherit;
 		}
+		@media (max-width: $screen-xs) {
+			
+			right:calc(50% - 20px);
+			top:25%;
+		}
 
 
-		background: $colorCopyrightBackground;
-		color: $colorCopyright;
-		@include px2rem($font-size-hero-slider-copyright);
+		background: transparent;
+		color: rgba(255, 255, 255, 0.83);
+	//	@include px2rem($font-size-hero-slider-copyright);
 		margin: 0;
 		padding: 1px 4px;
 		border: none;
@@ -348,7 +337,7 @@
 		&:hover,
 		&:focus {
 			color: #fff;
-			background: #000;
+			background: transparent;
 			transition-timing-function: ease;
 			text-decoration: underline;
 		}
@@ -357,14 +346,28 @@
 			display: none;
 		}
 	}
-	
-	
 }
 
 #hero-slides {
     @media (min-width: $screen-md) {
         top: -20px;
     }
-    
-    
+}
+
+.slick-dots {
+	display: flex !important;
+	width: 60px;
+	margin: 0 auto;
+
+}
+.slick-dots li{
+	margin:0px auto;
+	width: 60px;
+}
+
+.slick-dots li button {
+	margin-right: 10px;
+	height: 5px;
+	padding: 5px;
+	border-radius:50%;
 }
