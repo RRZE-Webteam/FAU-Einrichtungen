@@ -10,6 +10,21 @@
 .slider-titel header a {
 	//Remove the underline of title on slider
 		text-decoration: none !important;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		max-height: 180px;
+		width: 80%;
+		margin: 0 auto;
+		@media (max-width: $screen-xs)  {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+		 }
 }
  
 #hero-slides {
@@ -54,14 +69,17 @@
 			}
 			@media (max-width: $screen-xs){
 				font-size: 1.5rem;
-				height: 70px;
+				height: 92px;
 				overflow: hidden;
 				top:5px;
+				overflow: hidden;
+
 			}
 			header {
 				display: inline;
-				padding: 3px;
+				//padding: 3px;
 				margin: 25px 30px;
+			
 				word-break: break-word;
 				box-decoration-break: clone;
 				@media (min-width: $screen-sm) {
@@ -76,8 +94,9 @@
 			}
 			@media (max-width: $screen-xs){
 				bottom:10px;
-				display: inline-block;
+				//display: inline-block;
 				width: 100%;
+				display: none;
 				
 				padding: 5px;
 			}
@@ -132,9 +151,9 @@
 				min-height:  $slider-maxheight;
 			}
 			@media (max-width: $screen-xs){
-				width: 100%;
-				height: auto;
-				min-height: 150px;
+				width: auto;
+				height: 70%;
+			
 				clip-path:none;
 			}
 		}
@@ -210,7 +229,7 @@
 		color: transparent;
 		top: calc(50% - 70px);
 		@media (max-width: $screen-xs) {
-			top:100px;
+			top:calc(50% - 30px);
 		}
 	
 		
@@ -233,7 +252,7 @@
 			color: #fff;
 
 			&:before {
-				color: rgba(255, 255, 255, 0.63);
+				color: rgba(255, 255, 255, 0.8);
 
 			}
 		}
@@ -242,8 +261,8 @@
 		&:before {
 			
 			font-size: 150px;
-			color: rgba(255, 255, 255, 0.63);
-			text-shadow: 1px 1px rgba(0, 0, 0, 0.23);
+			color: rgba(255, 255, 255, 0.83);
+			text-shadow: 1px 1px rgba(0, 0, 0, 0.63);
 			@media (max-width: $screen-xs) {
 				font-size: 50px;
 			}
@@ -323,7 +342,7 @@
 		@media (max-width: $screen-xs) {
 			
 			right:calc(50% - 20px);
-			top:25%;
+			top:59%;
 		}
 
 

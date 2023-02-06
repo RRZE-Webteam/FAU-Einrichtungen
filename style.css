@@ -10890,6 +10890,23 @@ ol.breadcrumblist li:last-child::after {
 
 .slider-titel header a {
   text-decoration: none !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 180px;
+  width: 80%;
+  margin: 0 auto;
+}
+@media (max-width: 480px) {
+  .slider-titel header a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
 }
 
 #hero-slides {
@@ -10936,14 +10953,14 @@ ol.breadcrumblist li:last-child::after {
 @media (max-width: 480px) {
   #hero-slides .item .slider-titel {
     font-size: 1.5rem;
-    height: 70px;
+    height: 92px;
     overflow: hidden;
     top: 5px;
+    overflow: hidden;
   }
 }
 #hero-slides .item .slider-titel header {
   display: inline;
-  padding: 3px;
   margin: 25px 30px;
   word-break: break-word;
   -webkit-box-decoration-break: clone;
@@ -10962,8 +10979,8 @@ ol.breadcrumblist li:last-child::after {
 @media (max-width: 480px) {
   #hero-slides .item .slider-text {
     bottom: 10px;
-    display: inline-block;
     width: 100%;
+    display: none;
     padding: 5px;
   }
 }
@@ -11023,9 +11040,8 @@ ol.breadcrumblist li:last-child::after {
 }
 @media (max-width: 480px) {
   #hero-slides .item img {
-    width: 100%;
-    height: auto;
-    min-height: 150px;
+    width: auto;
+    height: 70%;
     -webkit-clip-path: none;
             clip-path: none;
   }
@@ -11111,7 +11127,7 @@ ol.breadcrumblist li:last-child::after {
 @media (max-width: 480px) {
   #hero-slides .slick-prev,
   #hero-slides .slick-next {
-    top: 100px;
+    top: calc(50% - 30px);
   }
 }
 @media (min-width: 480px) {
@@ -11131,13 +11147,13 @@ ol.breadcrumblist li:last-child::after {
 #hero-slides .slick-prev:hover:before, #hero-slides .slick-prev:focus:before,
 #hero-slides .slick-next:hover:before,
 #hero-slides .slick-next:focus:before {
-  color: rgba(255, 255, 255, 0.63);
+  color: rgba(255, 255, 255, 0.8);
 }
 #hero-slides .slick-prev:before,
 #hero-slides .slick-next:before {
   font-size: 150px;
-  color: rgba(255, 255, 255, 0.63);
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.23);
+  color: rgba(255, 255, 255, 0.83);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.63);
 }
 @media (max-width: 480px) {
   #hero-slides .slick-prev:before,
@@ -11202,7 +11218,7 @@ ol.breadcrumblist li:last-child::after {
 @media (max-width: 480px) {
   #hero-slides .slick-startstop {
     right: calc(50% - 20px);
-    top: 25%;
+    top: 59%;
   }
 }
 #hero-slides .slick-startstop:hover, #hero-slides .slick-startstop:focus {
