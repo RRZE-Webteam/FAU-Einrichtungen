@@ -10894,12 +10894,14 @@ ol.breadcrumblist li:last-child::after {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  height: 60px;
+  -webkit-box-orient: horizontal;
+  max-width: 100%;
   opacity: 1;
+  padding: 15px 35px;
+  white-space: nowrap;
+  font-weight: 700;
   display: inline-block;
   background-color: var(--color-Default);
-  padding: 11px;
   margin: 0 auto;
   text-align: left;
 }
@@ -10910,9 +10912,10 @@ ol.breadcrumblist li:last-child::after {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    height: 60px;
+    height: 65px;
     padding: 3px;
     margin-top: 14px;
+    white-space: normal;
   }
 }
 
@@ -10946,8 +10949,8 @@ ol.breadcrumblist li:last-child::after {
 }
 #hero-slides .item .slider-titel {
   text-align: left;
-  font-size: 30px;
-  transition: all 1s;
+  font-weight: 700;
+  font-size: 2.3rem;
 }
 @media (min-width: 768px) {
   #hero-slides .item .slider-titel {
@@ -11065,7 +11068,7 @@ ol.breadcrumblist li:last-child::after {
 }
 @media (min-width: 768px) {
   #hero-slides .hero-slide-text {
-    bottom: 10px;
+    bottom: 45px;
     top: inherit;
     transform: none;
   }
