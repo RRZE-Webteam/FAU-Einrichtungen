@@ -13,19 +13,28 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		display: -webkit-box;
-		-webkit-line-clamp: 2;
+		-webkit-line-clamp: 1;
 		-webkit-box-orient: vertical;
-		max-height: 180px;
-		width: 80%;
+		height: 60px;
+		opacity: 1;
+		display: inline-block;
+		//width: 80%;
+		background-color: var(--color-Default);
+				padding: 11px;
 		margin: 0 auto;
+		text-align: left;
 		@media (max-width: $screen-xs)  {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			display: -webkit-box;
 			-webkit-line-clamp: 2;
 			-webkit-box-orient: vertical;
+			height: 60px;
+			padding: 3px;
+			margin-top: 14px;
 		 }
 }
+
  
 #hero-slides {
 	position: relative;
@@ -56,29 +65,30 @@
 		}
 
 		.slider-titel {
-			text-align: center;
-			font-size: 3.5rem;
+			text-align: left;
+			font-size: 30px;
 			transition: all 1s;
+		//	background-color: var(--color-FAU);
 			&a,
 			&:hover{
-				transform: scale(1.025);
+				//transform: scale(1.025);
 
 			}
 			@media (min-width: $screen-sm) {
 				margin-bottom: 5px;
 			}
 			@media (max-width: $screen-xs){
-				font-size: 1.5rem;
-				height: 92px;
+				font-size: 24px;
+				height: 100px;
 				overflow: hidden;
 				top:5px;
-				overflow: hidden;
+				
 
 			}
 			header {
 				display: inline;
 				//padding: 3px;
-				margin: 25px 30px;
+			
 			
 				word-break: break-word;
 				box-decoration-break: clone;
@@ -117,10 +127,10 @@
 		    max-width: 100%;
 			z-index: 19;
 			width: 100%;
-			text-align: center;
+			text-align: left;
 		    header, p {
 			color: var(--color-primary-ci-hell-kontrast);
-			opacity: $slick-opacity-text-background;
+			//opacity: $slick-opacity-text-background;
 		    }
 		    
 		}
@@ -139,7 +149,7 @@
 			vertical-align: middle;
 			z-index: 5;
 			width: auto;
-			min-height: 250px;
+			min-height: 270px;
 			min-width: 100%;
 			max-width: inherit;
 			margin-left: 50%;
@@ -164,10 +174,10 @@
 	.hero-slide-text {
 		z-index: 19;
 		position: absolute;
-		margin: 0 20px;
+	
 		padding: 0;
 		width: 100%;
-		top: 25%;
+		height: 70px;
 		@include transform-translate(0, -75%);
 		@media (max-width: $screen-xs){
 			bottom:20px;
@@ -177,7 +187,7 @@
 		}
 
 		@media (min-width: $screen-sm) {
-			bottom: 30px;
+			bottom: 10px;
 			top: inherit;
 			transform: none;
 		}

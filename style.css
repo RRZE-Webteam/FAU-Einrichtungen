@@ -10893,11 +10893,15 @@ ol.breadcrumblist li:last-child::after {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  max-height: 180px;
-  width: 80%;
+  height: 60px;
+  opacity: 1;
+  display: inline-block;
+  background-color: var(--color-Default);
+  padding: 11px;
   margin: 0 auto;
+  text-align: left;
 }
 @media (max-width: 480px) {
   .slider-titel header a {
@@ -10906,6 +10910,9 @@ ol.breadcrumblist li:last-child::after {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    height: 60px;
+    padding: 3px;
+    margin-top: 14px;
   }
 }
 
@@ -10938,12 +10945,9 @@ ol.breadcrumblist li:last-child::after {
   }
 }
 #hero-slides .item .slider-titel {
-  text-align: center;
-  font-size: 3.5rem;
+  text-align: left;
+  font-size: 30px;
   transition: all 1s;
-}
-#hero-slides .item .slider-titela, #hero-slides .item .slider-titel:hover {
-  transform: scale(1.025);
 }
 @media (min-width: 768px) {
   #hero-slides .item .slider-titel {
@@ -10952,16 +10956,14 @@ ol.breadcrumblist li:last-child::after {
 }
 @media (max-width: 480px) {
   #hero-slides .item .slider-titel {
-    font-size: 1.5rem;
-    height: 92px;
+    font-size: 24px;
+    height: 100px;
     overflow: hidden;
     top: 5px;
-    overflow: hidden;
   }
 }
 #hero-slides .item .slider-titel header {
   display: inline;
-  margin: 25px 30px;
   word-break: break-word;
   -webkit-box-decoration-break: clone;
           box-decoration-break: clone;
@@ -11000,13 +11002,12 @@ ol.breadcrumblist li:last-child::after {
   max-width: 100%;
   z-index: 19;
   width: 100%;
-  text-align: center;
+  text-align: left;
 }
 #hero-slides .item .slider-titel header, #hero-slides .item .slider-titel p,
 #hero-slides .item .slider-text header,
 #hero-slides .item .slider-text p {
   color: var(--color-primary-ci-hell-kontrast);
-  opacity: 0.8;
 }
 #hero-slides .item p.credits {
   background: rgba(0, 0, 0, 0.6);
@@ -11024,7 +11025,7 @@ ol.breadcrumblist li:last-child::after {
   vertical-align: middle;
   z-index: 5;
   width: auto;
-  min-height: 250px;
+  min-height: 270px;
   min-width: 100%;
   max-width: inherit;
   margin-left: 50%;
@@ -11049,10 +11050,9 @@ ol.breadcrumblist li:last-child::after {
 #hero-slides .hero-slide-text {
   z-index: 19;
   position: absolute;
-  margin: 0 20px;
   padding: 0;
   width: 100%;
-  top: 25%;
+  height: 70px;
   transform: translate(0, -75%);
 }
 @media (max-width: 480px) {
@@ -11065,7 +11065,7 @@ ol.breadcrumblist li:last-child::after {
 }
 @media (min-width: 768px) {
   #hero-slides .hero-slide-text {
-    bottom: 30px;
+    bottom: 10px;
     top: inherit;
     transform: none;
   }

@@ -92,8 +92,7 @@
 		    }
 
 
-		    $slidersrc = ' 	<div class="overlay-slider-image">
-			</div><img src="'.fau_esc_url($sliderimage[0]).'"'; 
+		    $slidersrc = ' 	<img src="'.fau_esc_url($sliderimage[0]).'"'; 
 		    // In case of SVG-Images, width and height are empty
 		    if ($sliderimage[1] > 1) {
 			$slidersrc .= ' width="'.$sliderimage[1].'"';
@@ -114,7 +113,7 @@
 
 
 		    if ((get_theme_mod('advanced_display_hero_credits')==true) && (!empty($copyright))) {
-			echo '<p class="credits">'.$copyright."</p>";
+			//echo '<p class="credits">'.$copyright."</p>";
 		    }
 		    ?>
 			
@@ -147,7 +146,7 @@
 					if (strlen(trim($abstract))<3) {
 					   $abstract =  fau_custom_excerpt($hero->ID,$maxlen,false,'',true);
 					} ?>
-					<p><?php echo $abstract; ?></p>
+					<p><?php //echo $abstract; ?></p>
 				    </div>
 				</div>  <?php } ?>		   
 			</div>
