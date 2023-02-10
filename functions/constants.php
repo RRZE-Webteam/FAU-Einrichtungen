@@ -193,6 +193,7 @@ $defaultoptions = [
     'default_anleser_excerpt_length'		=> 300,
     'default_search_excerpt_length'		=> 300,
     'default_display_continue_link'		=> true,
+	'default_zig_zag_blogroll'			=> false,
     
     'custom_excerpt_allowtags'			=> 'br',
     'title_hero_search'				=> __( 'Webauftritt durchsuchen', 'fau' ),
@@ -962,6 +963,14 @@ $setoptions = array(
 		    'default' => $defaultoptions['default_display_continue_link'],
 		    'parent'  => 'newsbereich'
               ), 
+
+			'default_zig_zag_blogroll' => array(
+			'type'    => 'toggle',
+			'title'   => __( 'Zickzack-Modus', 'fau' ),
+			'label'   => __( 'Zeige die Artikel im Zickzack-Format an.', 'fau' ),      
+			'default' => $defaultoptions['default_zig_zag_blogroll'],
+			'parent'  => 'newsbereich'
+				), 
 	       
 	        	
 	    'topevents'  => array(

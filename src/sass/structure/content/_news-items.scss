@@ -198,6 +198,11 @@
     }
 }
 
+.zigzag:nth-child(odd) {
+	.teaser-row {
+		flex-direction: row-reverse;
+	}
+}
 
 .content-inline, .entry-content, .portalpage-content, main {
     .news-more-links {

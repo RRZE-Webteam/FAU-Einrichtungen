@@ -630,10 +630,15 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
             $hstart = 2;
         }
         $arialabelid = "aria-".$post->ID."-".random_int(10000, 30000);
+
+        // get value for zig zag display format
+        $default_zig_zag_blogroll = get_theme_mod('default_zig_zag_blogroll');
+        $zigzag_class = $default_zig_zag_blogroll ? 'zigzag ' : '';
+
         // add random key, due to the possible use of blogrolls of the news. The same article can be displayed
         // more times on the same page. This would result in an wcag/html error, cause the uniq id would be used more as one time
         $output   .= '<article '; // class="news-item" ';
-        $output   .= 'class="news-item '.esc_attr(implode(' ', get_post_class('', $post->ID))).'"';
+        $output   .= 'class="news-item '.$zigzag_class.esc_attr(implode(' ', get_post_class('', $post->ID))).'"';
         $output   .= ' aria-labelledby="'.$arialabelid.'" itemscope itemtype="http://schema.org/NewsArticle">';
         $link     = get_post_meta($post->ID, 'external_link', true);
         $link     = esc_url(trim($link));
