@@ -10886,6 +10886,8 @@ ol.breadcrumblist li:last-child::after {
 /*-----------------------------------------------------------------------------------*/
 #hero.sliderpage {
   overflow: inherit;
+  margin: 0 auto;
+  margin-top: 10px;
 }
 
 .slider-titel header a {
@@ -10905,16 +10907,15 @@ ol.breadcrumblist li:last-child::after {
   margin: 0 auto;
   text-align: left;
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .slider-titel header a {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    height: 65px;
-    padding: 3px;
-    margin-top: 14px;
+    height: 85px;
+    padding: 15px;
     white-space: normal;
   }
 }
@@ -10941,7 +10942,7 @@ ol.breadcrumblist li:last-child::after {
     height: 480px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   #hero-slides .item {
     height: 350px;
     background-color: var(--color-FAU);
@@ -10957,7 +10958,7 @@ ol.breadcrumblist li:last-child::after {
     margin-bottom: 5px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   #hero-slides .item .slider-titel {
     font-size: 24px;
     height: 100px;
@@ -10981,16 +10982,14 @@ ol.breadcrumblist li:last-child::after {
     display: inline-block;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   #hero-slides .item .slider-text {
     bottom: 10px;
     width: 100%;
     display: none;
-    padding: 5px;
   }
 }
 #hero-slides .item .slider-text p {
-  padding: 0px 4px 4px 4px;
   margin: 0;
   -webkit-box-decoration-break: clone;
           box-decoration-break: clone;
@@ -11028,13 +11027,11 @@ ol.breadcrumblist li:last-child::after {
   vertical-align: middle;
   z-index: 5;
   width: auto;
-  min-height: 270px;
+  min-height: 260px;
   min-width: 100%;
   max-width: inherit;
   margin-left: 50%;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 45%, rgba(0, 51, 102, 0.8));
-  -webkit-clip-path: polygon(0px 100%, 0px 7%, 100% 0%, 100% 100%);
-          clip-path: polygon(0px 100%, 0px 7%, 100% 0%, 100% 100%);
   transform: translate(-50%, 0);
 }
 @media (min-width: 768px) {
@@ -11058,7 +11055,7 @@ ol.breadcrumblist li:last-child::after {
   height: 70px;
   transform: translate(0, -75%);
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   #hero-slides .hero-slide-text {
     bottom: 20px;
     top: auto;
@@ -11114,8 +11111,8 @@ ol.breadcrumblist li:last-child::after {
 #hero-slides .slick-next {
   position: absolute;
   display: block;
-  height: 80px;
-  width: 40px;
+  height: 160px;
+  width: 60px;
   line-height: 0px;
   font-size: 0px;
   cursor: pointer;
@@ -11127,13 +11124,13 @@ ol.breadcrumblist li:last-child::after {
   border: none;
   outline: none;
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   #hero-slides .slick-prev,
   #hero-slides .slick-next {
     top: calc(50% - 30px);
   }
 }
-@media (min-width: 480px) {
+@media (min-width: 768px) {
   #hero-slides .slick-prev,
   #hero-slides .slick-next {
     top: calc(50% - 70px);
@@ -11158,7 +11155,7 @@ ol.breadcrumblist li:last-child::after {
   color: rgba(255, 255, 255, 0.83);
   text-shadow: 1px 1px rgba(0, 0, 0, 0.63);
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   #hero-slides .slick-prev:before,
   #hero-slides .slick-next:before {
     font-size: 50px;
@@ -11218,7 +11215,7 @@ ol.breadcrumblist li:last-child::after {
     bottom: inherit;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   #hero-slides .slick-startstop {
     right: calc(50% - 20px);
     top: 59%;

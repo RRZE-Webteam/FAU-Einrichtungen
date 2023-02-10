@@ -5,6 +5,8 @@
 
 #hero.sliderpage {
     overflow: inherit;
+	margin: 0 auto;
+	margin-top:10px;
 }
 
 .slider-titel header a {
@@ -26,15 +28,16 @@
 			
 		margin: 0 auto;
 		text-align: left;
-		@media (max-width: $screen-xs)  {
+		@media (max-width: $screen-sm)  {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			display: -webkit-box;
 			-webkit-line-clamp: 2;
 			-webkit-box-orient: vertical;
-			height: 65px;
-			padding: 3px;
-			margin-top: 14px;
+			height: 85px;
+			padding: 15px;
+		
+		
 			white-space: normal;
 		 }
 }
@@ -59,7 +62,7 @@
 			width: $slider-maxwidth;
 			height: $slider-maxheight;
 		}
-		@media (max-width: $screen-xs) {
+		@media (max-width: $screen-sm) {
 			height: 350px;
 			background-color: var(--color-FAU);
 		}
@@ -76,7 +79,7 @@
 			@media (min-width: $screen-sm) {
 				margin-bottom: 5px;
 			}
-			@media (max-width: $screen-xs){
+			@media (max-width: $screen-sm){
 				font-size: 24px;
 				height: 100px;
 				overflow: hidden;
@@ -98,17 +101,17 @@
 			@media (min-width: $screen-sm) {
 				display: inline-block;
 			}
-			@media (max-width: $screen-xs){
+			@media (max-width: $screen-sm){
 				bottom:10px;
 				//display: inline-block;
 				width: 100%;
 				display: none;
 				
-				padding: 5px;
+				
 			}
 		
 			p {
-				padding: 0px 4px 4px 4px;
+				
 				margin: 0;
 				box-decoration-break: clone;
 			
@@ -147,12 +150,12 @@
 			vertical-align: middle;
 			z-index: 5;
 			width: auto;
-			min-height: 270px;
+			min-height: 260px;
 			min-width: 100%;
 			max-width: inherit;
 			margin-left: 50%;
 			background: linear-gradient(180deg,rgba(255,255,255,0) 45%,rgba(0,51,102,.8));
-			clip-path: polygon(0px 100% , 0px 7%, 100% 0%, 100% 100%);
+		//	clip-path: polygon(0px 100% , 0px 7%, 100% 0%, 100% 100%);
 			@include transform-translate(-50%, 0);
 
 			@media (min-width: $screen-sm) {
@@ -177,7 +180,7 @@
 		width: 100%;
 		height: 70px;
 		@include transform-translate(0, -75%);
-		@media (max-width: $screen-xs){
+		@media (max-width: $screen-sm){
 			bottom:20px;
 			top:auto;
 			margin: 0 0px;
@@ -228,22 +231,22 @@
 	.slick-next {
 		position: absolute;
 		display: block;
-		height: $slider-arrow-width+40px;
-		width: $slider-arrow-width;
+		height: 160px;
+		width: 60px;
 		line-height: 0px;
 		font-size: 0px;
 		cursor: pointer;
 		background: transparent;
 		color: transparent;
 		top: calc(50% - 70px);
-		@media (max-width: $screen-xs) {
+		@media (max-width: $screen-sm) {
 			top:calc(50% - 30px);
 		}
 	
 		
 		@include transform-translate(0, -75%);
 
-		@media (min-width: $screen-xs) {
+		@media (min-width: $screen-sm) {
 			top: calc(50% - 70px);
 			@include transform-translate(0, -50%);
 		}
@@ -271,7 +274,7 @@
 			font-size: 150px;
 			color: rgba(255, 255, 255, 0.83);
 			text-shadow: 1px 1px rgba(0, 0, 0, 0.63);
-			@media (max-width: $screen-xs) {
+			@media (max-width: $screen-sm) {
 				font-size: 50px;
 			}
 		}
@@ -347,7 +350,7 @@
 		@media (min-width: $screen-xs) {
 			bottom: inherit;
 		}
-		@media (max-width: $screen-xs) {
+		@media (max-width: $screen-sm) {
 			
 			right:calc(50% - 20px);
 			top:59%;
