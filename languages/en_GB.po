@@ -1827,6 +1827,10 @@ msgstr "Page types"
 msgid "Seitenüberblick"
 msgstr "Overview"
 
+#: functions/constants.php:970
+msgid "Zeige die Artikel im Zickzack-Format an."
+msgstr "Display the articles in zigzag format."
+
 #: 401.php:34, 403.php:35, 404.php:35, search.php:137,
 #: functions/constants.php:1160, functions/custom-fields.php:80,
 #: template-parts/sidebar-portal.php:73, template-parts/sidebar-start.php:73

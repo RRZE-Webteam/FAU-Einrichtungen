@@ -842,6 +842,11 @@ msgstr ""
 msgid "Erlaubte Anzahl an Zeichen:"
 msgstr "Allowed number of characters:"
 
+#: functions/constants.php:970
+msgid "Zeige die Artikel im Zickzack-Format an."
+msgstr "Display the articles in zigzag format."
+
+
 # Im Deutschen fehlt ein Komma: "Ermöglicht es, Beiträge..."
 #: functions/constants.php:1055
 msgid ""
@@ -1810,6 +1815,7 @@ msgstr "Pages Sidebar"
 #: functions/custom-fields.php:88
 msgid "Seiten-Eigenschaften"
 msgstr "Page Properties"
+
 
 #: functions/constants.php:1078
 msgid "Seitensprache"

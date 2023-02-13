@@ -242,6 +242,7 @@ $defaultoptions = [
     
     
     'post_display_category_below'			=> true,
+	'post_prev_next'						=> true,
     'post_display_tags_below'				=> true,
     'search_display_post_thumbnails'			=> true,
     'search_display_post_cats'				=> true,
@@ -587,6 +588,14 @@ $setoptions = array(
                   'default' => $defaultoptions['post_display_category_below'],
 		  'parent'  => 'postoptions'
               ),  
+
+			  'post_prev_next' => array(
+				'type'    => 'toggle',
+				'title'   => __( 'Prev/Next-Link', 'fau' ),
+				'label'   => __( 'show prev,next buttons', 'fau' ),                
+				'default' => $defaultoptions['post_prev_next'],
+		'parent'  => 'postoptions'
+			),  
 	       
 	       'post_display_tags_below' => array(
                   'type'    => 'toggle',
