@@ -12493,7 +12493,7 @@ ul.assistant-tabs-nav li:last-child {
   font-family: "Roboto", "FAU Chimera", sans-serif;
 }
 .news-item .news-meta-date {
-  margin-left: 10px;
+  margin-right: 10px;
 }
 .news-item h2 .ext-link {
   display: inline-block;

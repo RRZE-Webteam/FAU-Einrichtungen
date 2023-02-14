@@ -663,8 +663,36 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
             $output .= $typestr;
             $output .= '<span class="news-meta-date" itemprop="datePublished" content="'.esc_attr(get_post_time('c')).'"> '.get_the_date('',
                     $post->ID)."</span>";
-            $output .= '</div>';
+                    // show category
+                   
+           
         }
+
+        if (('' != get_theme_mod('show_cat_on')) && (true == get_theme_mod('show_cat_on')))  {
+            $categories = get_the_category();
+            $separator  = ', ';
+            $thiscatstr = '';
+            $typestr    = '';
+            if (('' != get_theme_mod('show_date_on')) && (false == get_theme_mod('show_date_on')))  {
+                $output .= '<div class="news-meta">';
+             }
+            if ($categories) {
+                $typestr .= '<span class="news-meta-categories"> ';
+                $typestr .= __('Kategorie', 'fau');
+                $typestr .= ': ';
+                foreach ($categories as $category) {
+                    $thiscatstr .= '<a href="'.get_category_link($category->term_id).'">'.$category->cat_name.'</a>'.$separator;
+                }
+                $typestr .= trim($thiscatstr, $separator);
+                $typestr .= '</span> ';
+            }
+            $output .= $typestr;
+            
+        }
+
+        if  (  (('' != get_theme_mod('show_cat_on')) && (true == get_theme_mod('show_cat_on'))) || (('' != get_theme_mod('show_date_on')) && (true == get_theme_mod('show_date_on')))  ) { 
+        $output .= '</div>';
+    }
 
         if ($hidemeta === false) {
             $categories = get_the_category();
