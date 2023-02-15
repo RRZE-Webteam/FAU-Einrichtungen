@@ -25,8 +25,12 @@ while ( have_posts() ) : the_post();
 				    <h1 id="maintop" class="mobiletitle"><?php the_title(); ?></h1>
 				    <article class="news-details">
 					    <?php if ( has_post_thumbnail() && ! post_password_required() ) {     
+
+
+
 						$post_thumbnail_id = get_post_thumbnail_id(); 						    						    
 						if ($post_thumbnail_id) {
+							$value = isset( $_COOKIE['hide_featured_image'] ) ? $_COOKIE['hide_featured_image'] : get_post_meta( $post->ID, '_hide_featured_image', true );
 						    $imgdata = fau_get_image_attributs($post_thumbnail_id);
 						    $full_image_attributes = wp_get_attachment_image_src( $post_thumbnail_id, 'full');
 						    if ($full_image_attributes) {
@@ -38,6 +42,12 @@ while ( have_posts() ) : the_post();
 							    // falls es noch immer leer ist, geben wir an, dass dieses Bild ein Symbolbild ist und 
 							    // der Klick das Bild größer macht.
 							    $altattr = __('Symbolbild zum Artikel. Der Link öffnet das Bild in einer großen Anzeige.','fau');
+							}
+							if ( $value ) {
+								$post_thumbnail_id = get_post_thumbnail_id( $post->ID );
+								$post_thumbnail_url = wp_get_attachment_image_src( $post_thumbnail_id, 'full' )[0];
+								echo '<style type="text/css">.post-image { display: none; }</style>';
+								echo '<img src="' . esc_url( $post_thumbnail_url ) . '" class="post-image" />';
 							}
 							echo '<div class="post-image">';
 							echo '<figure>';
