@@ -12435,11 +12435,6 @@ ul.assistant-tabs-nav li:last-child {
     max-width: 50%;
   }
 }
-@media (min-width: 992px) {
-  .news-details .post-image {
-    max-width: 300px;
-  }
-}
 .news-details .subtitle {
   padding-top: 0;
 }
