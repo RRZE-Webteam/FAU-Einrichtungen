@@ -75,6 +75,7 @@ $defaultoptions = [
 
     'default_postthumb_always'			=> 1,
 	'show_date_on'						=> true,
+	'show_cat_on' 						=> true,
     'default_postthumb_image'			=> 0,
     'default_submenu_spalten'			=> 4,
     'default_submenu_entries'			=> 5,
@@ -952,10 +953,17 @@ $setoptions = array(
 		'show_date_on' => array(
 			'type'    => 'toggle',
 			'title'   => __( 'Datum', 'fau' ),
-			'label'   => __( 'Erstellungsdatum', 'fau' ),      
+			'label'   => __( 'Erstellungsdatum zeigen', 'fau' ),      
 			'default' => $defaultoptions['show_date_on'],
 			'parent'  => 'newsbereich'
 			  ), 
+			  'show_cat_on' => array(
+				'type'    => 'toggle',
+				'title'   => __( 'Kategorie zeigen', 'fau' ),
+				'label'   => __( 'Kategorie zeigen', 'fau' ),      
+				'default' => $defaultoptions['show_date_on'],
+				'parent'  => 'newsbereich'
+				  ), 
 	       
 	      'default_display_thumbnail_3_2' => array(
 		    'type'    => 'toggle',

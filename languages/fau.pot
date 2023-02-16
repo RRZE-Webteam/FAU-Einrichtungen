@@ -859,7 +859,15 @@ msgid "Datum"
 msgstr ""
 
 #: functions/constants.php:955, functions/template-functions.php:457
-msgid "Erstellungsdatum"
+msgid "Erstellungsdatum zeigen"
+msgstr ""
+
+#: functions/constants.php:960, functions/template-functions.php:457
+msgid "Kategorie zeigen"
+msgstr ""
+
+#: functions/constants.php:960
+msgid "Artikelbilder im 3:2 Format"
 msgstr ""
 
 #: functions/constants.php:962
