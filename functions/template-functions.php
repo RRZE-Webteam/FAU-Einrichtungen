@@ -2054,7 +2054,16 @@ function fau_get_language_attributes ($doctype = 'html' ) {
     return $output;
 }
 
+/*-----------------------------------------------------------------------------------*/
+/* Remove the option image size thumbal and medium in edit post
+/*-----------------------------------------------------------------------------------*/
 
+function remove_image_size_options( $sizes ) {
+    unset( $sizes['thumbnail']);
+    unset( $sizes['medium']);
+    return $sizes;
+}
+add_filter('image_size_names_choose', 'remove_image_size_options');
 /*-----------------------------------------------------------------------------------*/
 /* This is the end :)
 /*-----------------------------------------------------------------------------------*/
