@@ -575,10 +575,3 @@ if ( ! function_exists( 'fau_save_standard' ) ) :
 	return "\n" . ob_get_clean();
     }
 endif;
-
-function remove_image_size_options( $sizes ) {
-    unset( $sizes['thumbnail']);
-    unset( $sizes['medium']);
-    return $sizes;
-}
-add_filter('image_size_names_choose', 'remove_image_size_options');
