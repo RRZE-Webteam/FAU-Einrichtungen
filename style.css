@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.1.8-3
+Version: 2.1.8-32
 Requires at least: 5.9
 Tested up to: 6.0
 Requires PHP: 7.4
@@ -12107,6 +12107,14 @@ ul.assistant-tabs-nav li:last-child {
 /*-----------------------------------------------------------------------------------*/
 /* Post Content
 /*-----------------------------------------------------------------------------------*/
+.my-custom-image {
+  width: 100%;
+}
+
+.my-custom-image-div {
+  margin-inline: -10%;
+}
+
 .post-navigation {
   background-color: #f3f9ff;
   padding: 0px;

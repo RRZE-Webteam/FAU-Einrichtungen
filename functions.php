@@ -401,8 +401,11 @@ require get_template_directory() . '/functions/comments.php';
 require_once( get_template_directory() . '/functions/gutenberg.php');
 
 
+
+
+
 /*-----------------------------------------------------------------------------------*/
-/* This is the end of the code as we know it
+/*Hide and show feutured image
 /*-----------------------------------------------------------------------------------*/
 
 
@@ -429,5 +432,23 @@ function hide_featured_image_save_post( $post_id ) {
 add_action( 'save_post', 'hide_featured_image_save_post' );
 
 
+/*-----------------------------------------------------------------------------------*/
+/* Outside-box image post block
+/*-----------------------------------------------------------------------------------*/
+function my_custom_blocks() {
+    wp_register_script(
+        'my-custom-blocks',
+        get_template_directory_uri() . '/js/fau-costum-image-block.min.js',
+        array( 'wp-blocks', 'wp-editor' ),
+        true
+    );
+    register_block_type( 'my-blocks/full-width-image', array(
+        'editor_script' => 'my-custom-blocks',
+    ) );
+}
+add_action( 'init', 'my_custom_blocks' );
 
 
+/*-----------------------------------------------------------------------------------*/
+/* This is the end of the code as we know it
+/*-----------------------------------------------------------------------------------*/

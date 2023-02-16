@@ -3,6 +3,18 @@
 /*-----------------------------------------------------------------------------------*/
 @use "sass:math";
 
+
+// outside-the-box image
+.my-custom-image {
+    width: 100%;
+
+}
+
+.my-custom-image-div {
+   margin-inline: -10%;
+}
+
+
 .post-navigation {
     background-color: #f3f9ff;
     padding: 0px;

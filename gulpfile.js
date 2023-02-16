@@ -373,6 +373,15 @@ function makeslickjs() {
     .pipe(touch());
 }
 
+function makecustomblockjs() {
+    return src([info.source.js + 'main/fau-costum-image-block.js'])
+    .pipe(uglify())
+    .pipe(rename("fau-costum-image-block.min.js"))
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
+}
+
+
 function updatepot()  {
   return src(['**/*.php', '!vendor/**/*.php'])
   .pipe(
@@ -478,6 +487,7 @@ exports.validatecss = validatecss;
 exports.bundlemainjs = bundlemainjs;
 exports.bundleadminjs = bundleadminjs;
 exports.makeslickjs = makeslickjs;
+exports.makecustomblockjs = makecustomblockjs;
 exports.makecustomizerjs = makecustomizerjs;
 exports.makewplinkjs = makewplinkjs;
 exports.clone = cloneTheme;
@@ -486,7 +496,7 @@ exports.buildprintstyle = buildprintstyle;
 exports.debugmode = set_debugmode;
 exports.nodebug = unset_debugmode;
 
-var js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, makewplinkjs);
+var js = series(bundlemainjs, makeslickjs, makecustomblockjs, bundleadminjs, makecustomizerjs, makewplinkjs);
 var dev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle,  js, devversion);
 
 exports.cssdev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle);
