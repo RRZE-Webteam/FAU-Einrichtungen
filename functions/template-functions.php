@@ -2064,6 +2064,14 @@ function remove_image_size_options( $sizes ) {
     return $sizes;
 }
 add_filter('image_size_names_choose', 'remove_image_size_options');
+
+/*-----------------------------------------------------------------------------------*/
+/* Add html atributes to image caption on post editor
+/*-----------------------------------------------------------------------------------*/
+function enqueue_image_caption_editor_script() {
+    wp_enqueue_script( 'image-caption-editor', get_template_directory_uri() . '/js/fau-image-caption-editor.min.js', array( 'jquery', 'wp-editor' ), '1.0', true );
+}
+add_action( 'admin_enqueue_scripts', 'enqueue_image_caption_editor_script' );
 /*-----------------------------------------------------------------------------------*/
 /* This is the end :)
 /*-----------------------------------------------------------------------------------*/
