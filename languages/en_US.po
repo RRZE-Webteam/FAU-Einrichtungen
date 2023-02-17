@@ -931,6 +931,12 @@ msgstr "No menu could be found under the specified name"
 msgid "Es konnten keine Artikel gefunden werden"
 msgstr "No entries found."
 
+
+#: functions/shortcodes.php:199, functions/shortcodes.php:307
+msgid "Keine relevanten Beiträge gefunden"
+msgstr "No relevant posts found"
+
+
 #: page-templates/page-start.php:87
 msgid "Es konnten keine öffentlichen Beiträge gefunden werden."
 msgstr "No public posts could be found."

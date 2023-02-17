@@ -301,7 +301,11 @@ function relevant_posts_shortcode($atts)
 	wp_reset_postdata();
 
 	// Return the output wrapped in a <div> with the relevant-posts class
-	return '<div class="relevant-posts">' . $output . '</div>';
+	if (!empty($output)) {
+		return '<div class="relevant-posts">' . $output . '</div>';
+	  } else {
+		return '<div class="relevant-posts empty">'.__('Keine relevanten Beiträge gefunden','fau').'</div>';
+	 }
 }
 
 add_shortcode('relevant-posts', 'relevant_posts_shortcode');

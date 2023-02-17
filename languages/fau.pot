@@ -2064,6 +2064,10 @@ msgstr ""
 msgid "Es konnten keine Artikel gefunden werden"
 msgstr ""
 
+#: functions/shortcodes.php:199, functions/shortcodes.php:307
+msgid "Keine relevanten Beiträge gefunden"
+msgstr ""
+
 #: functions/template-functions.php:483, functions/template-functions.php:461
 msgid "Letzte Änderung"
 msgstr ""
