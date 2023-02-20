@@ -310,5 +310,13 @@ function relevant_posts_shortcode($atts)
 
 add_shortcode('relevant-posts', 'relevant_posts_shortcode');
 
+/*-----------------------------------------------------------------------------------*/
+/* Shortcodes to display row outide the margin for 25%
+/*-----------------------------------------------------------------------------------*/
+function row_outside_box( $atts, $content = null ) {
+    return '<div class="fau-row-outisde-div" ><div style="fau-row-outisde">' . do_shortcode( $content ) . '</div></div>';
+  }
+  
+  add_shortcode( 'row_outside_box', 'row_outside_box' );
 
 ?>
