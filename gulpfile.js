@@ -389,6 +389,15 @@ function makeimageactipneditorjs() {
     .pipe(touch());
 }
 
+function makesrollstoriesjs() {
+    return src([info.source.js + 'main/fau-scroll-stories.js'])
+    .pipe(uglify())
+    .pipe(rename("fau-scroll-stories.min.js"))
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
+}
+
+
 
 function updatepot()  {
   return src(['**/*.php', '!vendor/**/*.php'])
@@ -504,7 +513,7 @@ exports.buildprintstyle = buildprintstyle;
 exports.debugmode = set_debugmode;
 exports.nodebug = unset_debugmode;
 
-var js = series(bundlemainjs, makeslickjs, makecustomblockjs, makeimageactipneditorjs, bundleadminjs, makecustomizerjs, makewplinkjs);
+var js = series(bundlemainjs, makeslickjs, makecustomblockjs, makeimageactipneditorjs,makesrollstoriesjs, bundleadminjs, makecustomizerjs, makewplinkjs);
 var dev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle,  js, devversion);
 
 exports.cssdev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle);
