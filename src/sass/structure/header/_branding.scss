@@ -6,7 +6,7 @@
     .branding {
         max-width: 100%;
         display: none;
-	margin-top: $fau-gutter-halfwidth;
+	    margin: $fau-gutter-halfwidth 0;
 	
         @media (min-width: $screen-sm) {
             display: block;
