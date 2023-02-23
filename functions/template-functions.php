@@ -660,7 +660,7 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 /* Datum der Blogroll -Umschaltungsoption anzeigen */
         if (('' != get_theme_mod('show_date_on')) && (true == get_theme_mod('show_date_on'))) {
             $output .= '<div class="news-meta">';
-            $output .= $typestr;
+           // $output .= $typestr;
             $output .= '<span class="news-meta-date" itemprop="datePublished" content="'.esc_attr(get_post_time('c')).'"> '.get_the_date('',
                     $post->ID)."</span>";
                     // show category
