@@ -11,7 +11,7 @@
 	.post-image {
 	     margin-top: 0px;
 	     @media (min-width: $screen-xs) {
-	        max-width: 50%;
+	        width: 50%;
 	     }	
 	}
 	.subtitle {
@@ -165,7 +165,22 @@
 		    width: 320px;
 		}
                 */
-	     }  
+	    }
+	}
+	.thumbnailregion.vidpod-thumb {
+		.rrze-video {
+			margin: 0px !important;
+		}
+		.plyr__video-embed {
+			margin: auto;
+			@media (min-width: $screen-xs) {
+				max-width: 300px;
+				aspect-ratio: 3/2;
+			}
+			iframe {
+				margin: 5px auto;
+			}
+		}
 	}
 	.thumbnailregion.fallback {
 	    display: none;
