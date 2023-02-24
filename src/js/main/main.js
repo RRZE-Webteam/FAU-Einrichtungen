@@ -15,8 +15,7 @@ jQuery(document).ready(function ($) {
         var swapLogo = !$body.hasClass('md-showsitelogo');
         var $openflyover = false;
         var breakMD = 768;
-
-
+          
         //  Slider
         var autostart = !!sliderAutostart;
         var pauseOnHovervar = autostart
@@ -415,6 +414,22 @@ jQuery(document).ready(function ($) {
         }
 
         iframeFootnotes();
+
+
+        //close the menu when clicked outside the menu
+        $(document).click(function(event) {
+            // Get the element with the click event listener
+            var element = $('.has-sub');
+          
+            // Get the target element of the click event
+            var target = $(event.target);
+          
+            // Check if the target element is outside of the element with the click event listener
+            if (!target.is(element) && !element.has(target).length) {
+              // Set the aria-expanded attribute to false
+              element.attr('aria-expanded', 'false');
+            }
+          });
     }
 );
 
