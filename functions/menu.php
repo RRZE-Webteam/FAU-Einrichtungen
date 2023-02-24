@@ -237,20 +237,13 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
             }
         
             $output .= '<div class="nav-flyout"><div class="container"><div class="row">';
-            $output .= '<div class="flyout-entries-full column-count-'. $columnclass.'">';
-        }
-
-        $output .= '<ul class="sub-menu level'.$this->level.'">';
-    }
-
-    function end_lvl(&$output, $depth = 0, $args = array()) {
-        if ($this->level == 2) {
-            $output       .= '</ul>';
+           
+            
             $currenttitle = fau_get_the_title($this->currentID);
             if (!empty($currenttitle)) {
                 $display_button = get_theme_mod('advanced_display_portalmenu_button');
                 $display_forceclick = get_theme_mod('advanced_display_portalmenu_forceclick');
-
+    
                 if (((isset($display_button)) && ($display_button==true)) || ($display_forceclick==true)) {
                     $output   .= '<a href="'.get_permalink($this->currentID).'" class="button-portal">';
                     $pretitle = get_theme_mod('menu_pretitle_portal');
@@ -265,7 +258,18 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
                     $output .= '</a>';
                 }
             }
+            $output .= '<div class="flyout-entries-full column-count-'. $columnclass.'">';
+        }
 
+
+        $output .= '<ul class="sub-menu level'.$this->level.'">';
+        
+        
+    }
+
+    function end_lvl(&$output, $depth = 0, $args = array()) {
+        if ($this->level == 2) {
+            $output       .= '</ul>';
             $output .= '</div>';
             $output .= '</div></div></div>';
 
@@ -282,8 +286,10 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 
         // Generate Classes. Dont use WordPress default, cause i dont want to
         // get all those unused data filled up my html
+        
         $classes = array();
-        if ($level < 2) {
+          if ($level < 2) {
+            
             //	$classes[] = 'menu-item-' . $item->ID;
             $classes[] = 'level'.$level;
         }
@@ -310,6 +316,7 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 
         $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
         $class_names = $class_names ? ' class="'.esc_attr($class_names).'"' : '';
+        
 
 
         $output .= '<li'.$value.$class_names.'>';
