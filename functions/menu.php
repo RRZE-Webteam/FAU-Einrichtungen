@@ -223,21 +223,21 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
         $child_count_html = '<span class="child-count">' . $child_count . '</span>';
 
         if ($this->level == 2) {
-            $columclass='';
+            $columnclass='';
 
             if ($child_count<8){
-                $columclass='1';
+                $columnclass='1';
             }else   if($child_count<16){
-                $columclass='2';
+                $columnclass='2';
             }else if($child_count<24){
-                $columclass='3';
+                $columnclass='3';
             }
             else if($child_count>25){
-                $columclass='4';
+                $columnclass='4';
             }
         
             $output .= '<div class="nav-flyout"><div class="container"><div class="row">';
-            $output .= '<div class="flyout-entries-full colum-count-'. $columclass.'">';
+            $output .= '<div class="flyout-entries-full column-count-'. $columnclass.'">';
         }
 
         $output .= '<ul class="sub-menu level'.$this->level.'">';
