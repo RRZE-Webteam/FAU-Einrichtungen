@@ -428,3 +428,93 @@ main a,
 .si-toggle-container {
      display: none !important;
 }
+
+/* Accordion **********************************************************************************************************/
+
+.accordion-group, .accordion-body, .accordion-inner, .accordion-inner p {
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+}
+
+/* Alert **********************************************************************************************************/
+
+.alert {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+}
+
+/* Sidebar inline **********************************************************************************************************/
+/*
+    Fix for the sidebar collapsing into the content.
+    Apparently caused by a bug from a combination of page-break-inside and flex.
+    Rather dirty fix for now.
+*/
+.sidebar-inline {
+    margin-top: 400px !important;
+}
+
+/* Linklist **********************************************************************************************************/
+/*
+    Linklist will also collapse into content if there is no sidebar, but here forcing a page-break works -
+    probably because it's just display: block.
+*/
+.tw-linklist {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+}
+@-moz-document url-prefix() {
+    .tw-linklist {
+        margin-top: 300px;
+    }
+}
+
+/* Footnotes for Buttons **********************************************************************************************************/
+
+.standard-btn ~ .tw-linkref {
+    background: #ffffff;
+    border-radius: 50%;
+    left: -10px;
+    padding: 1px 4px 1px 1px;
+    vertical-align: top;
+}
+
+/* Spalten **********************************************************************************************************/
+
+.two-columns-one {
+    float: left !important;
+    width: 48.5% !important;
+    margin-right: 1.5% !important;
+}
+.three-columns-one {
+    float: left !important;
+    width: 31.3% !important;
+    margin-right: 3% !important;
+}
+.elements-columns.cols-4 {
+    .colspan-1 {
+        min-width: unset !important;
+        flex: 25% 1 0 !important;
+    }
+}
+.elements-columns.cols-3 {
+    .colspan-1 {
+        .alert {
+            .media-img {
+                float: none !important;
+                display: block !important;
+            }
+        }
+    }
+}
+
+/* Slider **********************************************************************************************************/
+
+#hero-slides {
+    margin-bottom: 50px;
+}
+
+/* Newsportal **********************************************************************************************************/
+
+.rrze-elements-news.ili-tpl:not(.post-cols) .news-item .entry-thumbnail {
+    padding-top: unset !important;
+}
