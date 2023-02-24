@@ -12614,6 +12614,9 @@ ul.assistant-tabs-nav li:last-child {
 .zigzag:nth-child(odd) .teaser-row {
   flex-direction: row-reverse;
 }
+.zigzag:nth-child(odd) .continue {
+  text-align: left;
+}
 
 .content-inline .news-more-links, .entry-content .news-more-links, .portalpage-content .news-more-links, main .news-more-links {
   padding: 20px 0;
