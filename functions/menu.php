@@ -237,8 +237,21 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
             }
         
             $output .= '<div class="nav-flyout"><div class="container"><div class="row">';
-           
+            $output .= '<div class="flyout-entries-full column-count-'. $columnclass.'">';
             
+           
+           
+        }
+
+
+        $output .= '<ul class="sub-menu level'.$this->level.'">';
+        
+        
+    }
+
+    function end_lvl(&$output, $depth = 0, $args = array()) {
+        if ($this->level == 2) {
+            $output       .= '</ul>';
             $currenttitle = fau_get_the_title($this->currentID);
             if (!empty($currenttitle)) {
                 $display_button = get_theme_mod('advanced_display_portalmenu_button');
@@ -258,18 +271,6 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
                     $output .= '</a>';
                 }
             }
-            $output .= '<div class="flyout-entries-full column-count-'. $columnclass.'">';
-        }
-
-
-        $output .= '<ul class="sub-menu level'.$this->level.'">';
-        
-        
-    }
-
-    function end_lvl(&$output, $depth = 0, $args = array()) {
-        if ($this->level == 2) {
-            $output       .= '</ul>';
             $output .= '</div>';
             $output .= '</div></div></div>';
 
