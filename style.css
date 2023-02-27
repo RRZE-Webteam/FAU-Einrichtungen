@@ -9744,9 +9744,17 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   background: none;
   /* Necessary because there's a global style setting this to "disc" */
   padding: 0;
+  /* Fix for Webkit only, because "column-width" doesn't work properly */
 }
 .nav ul li:before {
   display: none;
+}
+@supports not (-moz-appearance: none) {
+  @media (min-width: 768px) {
+    .nav ul li {
+      width: 330px;
+    }
+  }
 }
 .nav ul a {
   display: inline-block;

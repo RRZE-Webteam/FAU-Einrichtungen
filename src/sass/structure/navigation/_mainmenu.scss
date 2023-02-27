@@ -141,6 +141,13 @@
         li {
             @include no-list; /* Necessary because there's a global style setting this to "disc" */
             padding: 0;
+            
+            /* Fix for Webkit only, because "column-width" doesn't work properly */
+            @supports (not (-moz-appearance: none)) {
+                @media (min-width: $screen-sm) {
+                    width: 330px;
+                }
+              }
         }
 
         a {
