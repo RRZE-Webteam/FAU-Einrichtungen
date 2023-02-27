@@ -120,8 +120,8 @@
 
     /* Fly-Out / secondary navigation */
     .nav-flyout {
-        background-color: var(--color-mainmenu-sublevel-bg);
-        padding: 40px 0;
+        background-color: var(--color-white);
+        padding: 50px 0;
     }
 
     /* Portal buttons */
@@ -152,17 +152,11 @@
 
 
     .level2 {
-        display: grid;
-        justify-content: center;
-        grid-template-columns: auto auto auto;
-        grid-gap: 0 20px;
 
         > li {
             &.has-sub {
                 page-break-inside: avoid;
                 break-inside: avoid;
-                
-                grid-row: 1 / span 4;
             }
 
             > a {
@@ -203,15 +197,15 @@
                 }
                 &.level3 a {
 		            @include px2rem($font-size-nav-level3);
+                    line-height: 1.2rem;
                 }
             }
 
             .flyout-entries-full {
-                //column-count: 3;
-                //column-gap: 30px;
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                justify-content: start;
+                flex-direction: column;
 
                 @media (max-width: $screen-md - 1) {
                     //column-count: 2;
@@ -220,10 +214,53 @@
                 @media (min-width: $screen-xl) {
                     //column-count: 4;
                 }
+
+                &.column-count-1, &.column-count-2, &.column-count-3, &.column-count-4 {
+                    ul {
+                        column-width: 330px;
+                    }
+                    .button-portal {
+                        margin-right: auto;
+                        margin-top: 10px;
+
+                        @media (max-width: $screen-xl) {
+                            margin-left: unset !important;
+                            margin-right: unset !important;
+                        }
+                    }
+                }
+                &.column-count-1 {
+                    ul {
+                        column-count: 1;
+                    }
+                    .button-portal {
+                        margin-left: 543px;
+                    }
+                }
+                &.column-count-2 {
+                    ul {
+                        column-count: 2;
+                    }
+                    .button-portal {
+                        margin-left: 369px;
+                    }
+                }
+                &.column-count-3, &.column-count-4 {
+                    ul {
+                        column-count: 3;
+
+                        @media (max-width: 1029px) {
+                            column-count: 2;
+                        }
+                    }
+                    .button-portal {
+                        margin-left: 194px;
+                    }
+                }
             }
 
             .nav-flyout {
-                background: var(--color-white);
+                background-color: var(--color-white);
                 border-top: 8px solid var(--color-mainmenu-sublevel-bg);
 
                 @media (min-width: $screen-sm) {
@@ -310,7 +347,7 @@
         border-top: 1px solid var(--color-primary-ci-hell);
 
         .nav-flyout {
-            padding-top: 0;
+            padding: 0;
         }
         .flyout-entries-full {
             display: flex;
@@ -318,9 +355,8 @@
             .button-portal {
                 order: 1;
                 margin-top: 10px;
-                padding: 7px 20px 7px 5px;
-                background: transparent;
-                border-radius: 0;
+                padding: 7px 20px 7px 13px;
+                margin-left: 0;
                 border-bottom: 1px solid var(--color-primary-dunkler);
                 &:hover, &:focus, &:active {
                     background: var(--color-mainmenu-sublevel-hover-bg);
@@ -364,17 +400,6 @@
                         color: var(--color-primary-dunkelste-kontrast);
                     }
                 }
-            }
-        }
-    }
-
-    .level2 {
-        border-top: 1px solid #1f4c7a;
-    }
-    .level3 {
-        li {
-            a {
-                padding-left: $padding-base-horizontal * 2.5;
             }
         }
     }
