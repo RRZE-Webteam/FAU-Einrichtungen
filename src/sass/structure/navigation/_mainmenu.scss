@@ -115,6 +115,11 @@
     .level3 {
         a {
             font-weight: normal;
+
+            @media (max-width: $screen-sm) {
+                font-size: 0.9rem;
+                line-height: 1.3rem;
+            }
         }
     }
 
@@ -156,7 +161,6 @@
             width: 100%;
         }
     }
-
 
     .level2 {
 

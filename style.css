@@ -9698,6 +9698,12 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 .nav .level3 a {
   font-weight: normal;
 }
+@media (max-width: 768px) {
+  .nav .level3 a {
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+  }
+}
 .nav .nav-flyout {
   background-color: var(--color-white);
   padding: 50px 0;
