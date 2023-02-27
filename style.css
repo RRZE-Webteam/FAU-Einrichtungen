@@ -9773,6 +9773,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 .nav .level2 > li.has-sub {
   page-break-inside: avoid;
   break-inside: avoid;
+  margin-bottom: 20px;
 }
 .nav .level2 > li > a {
   background-color: transparent;
