@@ -663,17 +663,20 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
         $output .= 'href="' . $link . '">' . get_the_title($post->ID) . '</a>';
         $output .= "</h" . $hstart . ">";
 
+        
         /* Datum der Blogroll -Umschaltungsoption anzeigen */
         if (('' != get_theme_mod('show_date_on')) && (true == get_theme_mod('show_date_on'))) {
             $output .= '<div class="news-meta">';
+           
+            
            // $output .= $typestr;
             $output .= '<span class="news-meta-date" itemprop="datePublished" content="'.esc_attr(get_post_time('c')).'"> '.get_the_date('',
-                    $post->ID)."</span>";
+                    $post->ID)." </span>";
                     // show category
                    
            
         }
-
+    
         if (('' != get_theme_mod('show_cat_on')) && (true == get_theme_mod('show_cat_on'))) {
             $categories = get_the_category();
             $separator  = ', ';
@@ -694,10 +697,17 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
             }
             $output .= $typestr;
         }
+        $vidpod_auth = get_post_meta($post->ID, 'vidpod_auth', true);
+        if ($vidpod_auth !=null){
+            $output .= '<span class="fa fa-pencil"> '.$vidpod_auth.'</span>';
+            
+        }
+
 
         if ((('' != get_theme_mod('show_cat_on')) && (true == get_theme_mod('show_cat_on'))) || (('' != get_theme_mod('show_date_on')) && (true == get_theme_mod('show_date_on')))) {
             $output .= '</div>';
         }
+        
 
         if ($hidemeta === false) {
             $categories = get_the_category();
@@ -740,6 +750,7 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
 
         $output      .= '<div class="teaser-row">';
         $show_thumbs = get_theme_mod('default_postthumb_always');
+
 
         if ((has_post_thumbnail($post->ID)) || ($show_thumbs == true)) {
             $usefallbackthumb = false;
@@ -793,7 +804,17 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
             }
             $output .= '</div>';
             $output .= '<div class="teaserregion">';
-        } else {
+        }else         if ((metadata_exists('post', $post->ID, 'vidpod_url') && shortcode_exists('fauvideo')) && !((has_post_thumbnail($post->ID)) || ($show_thumbs == true)) ){
+            $usefallbackthumb = false;
+            $output .= '<div class="thumbnailregion vidpod-thumb">';
+            $vidpod_url = get_post_meta($post->ID, 'vidpod_url', true);
+            $output .= do_shortcode('[fauvideo url="' . $vidpod_url . '"]');
+            $output .= '</div>';
+            $output .= '<div class="teaserregion">';
+        }
+
+        
+        else {
             $output .= '<div class="fullwidthregion">';
         }
         $output   .= '<p itemprop="description">';

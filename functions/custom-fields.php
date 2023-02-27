@@ -398,10 +398,16 @@ function fau_do_metabox_post_vidpod($object, $box) {
     // retrieve the values of the meta fields
 
     $vidpod_url = get_post_meta( $object->ID, 'vidpod_url', true );
+    $vidpod_auth = get_post_meta( $object->ID, 'vidpod_auth', true );
+    
     ?>
     <p>
         <label for="fauval_vidpod_url">URL</label><br>
         <input type="text" id="fauval_vidpod_url" class="large-text" name="fauval_vidpod_url" value="<?php echo esc_attr( $vidpod_url ); ?>">
+    </p>
+    <p>
+        <label for="fauval_vidpod_auth">Autorth:</label><br>
+        <input type="text" id="fauval_vidpod_auth" class="large-text" name="fauval_vidpod_auth" value="<?php echo esc_attr( $vidpod_auth); ?>">
     </p>
     <?php
 }
@@ -420,6 +426,9 @@ function fau_save_metabox_post_vidpod($post_id, $post) {
 
     $newval = isset($_POST['fauval_vidpod_url']) ? sanitize_text_field($_POST['fauval_vidpod_url']) : '';
     fau_save_standard('vidpod_url', $newval, $post_id, 'post', 'text');
+
+    $newauth = isset($_POST['fauval_vidpod_auth']) ? sanitize_text_field($_POST['fauval_vidpod_auth']) : '';
+    fau_save_standard('vidpod_auth', $newauth, $post_id, 'post', 'text');
 }
 
 /* Display Options for menuquotes on posts */
