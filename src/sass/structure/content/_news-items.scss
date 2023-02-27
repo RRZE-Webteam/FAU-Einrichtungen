@@ -168,7 +168,7 @@
 	    }
 	}
 	.thumbnailregion.vidpod-thumb {
-		.rrze-video {
+				.rrze-video {
 			margin: 0px !important;
 		}
 		.plyr__video-embed {
@@ -180,6 +180,9 @@
 			iframe {
 				margin: 5px auto;
 			}
+		}
+		@media (max-width: $screen-xs) {
+			padding-bottom: 16px;
 		}
 	}
 	.thumbnailregion.fallback {

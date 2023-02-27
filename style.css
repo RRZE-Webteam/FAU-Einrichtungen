@@ -12628,6 +12628,11 @@ ul.assistant-tabs-nav li:last-child {
 .news-item .teaser-row .thumbnailregion.vidpod-thumb .plyr__video-embed iframe {
   margin: 5px auto;
 }
+@media (max-width: 480px) {
+  .news-item .teaser-row .thumbnailregion.vidpod-thumb {
+    padding-bottom: 16px;
+  }
+}
 .news-item .teaser-row .thumbnailregion.fallback {
   display: none;
 }
