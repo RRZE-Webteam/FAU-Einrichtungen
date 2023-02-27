@@ -142,6 +142,10 @@
     ul {
         @include no-list;
         margin: 0 0 15px 0;
+        
+        &.level4 {
+            margin: 0;
+        }
 
         li {
             @include no-list; /* Necessary because there's a global style setting this to "disc" */
