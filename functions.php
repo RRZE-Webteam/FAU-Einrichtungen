@@ -401,12 +401,54 @@ require get_template_directory() . '/functions/comments.php';
 require_once( get_template_directory() . '/functions/gutenberg.php');
 
 
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/*Hide and show feutured image
+/*-----------------------------------------------------------------------------------*/
+
+
+function hide_featured_image_meta_box() {
+    add_meta_box( 'hide_featured_image', 'Featured Image', 'hide_featured_image_callback', 'post', 'side', 'low' );
+}
+add_action( 'add_meta_boxes', 'hide_featured_image_meta_box' );
+function hide_featured_image_callback( $post ) {
+    $value = get_post_meta( $post->ID, '_hide_featured_image', true );
+    echo '<label for="hide-featured-image"><input type="checkbox" id="hide-featured-image" name="hide_featured_image" value="1"' . checked( $value, 1, false ) . '> Hide featured image from this post</label>';
+}
+
+
+function hide_featured_image_save_post( $post_id ) {
+    if ( isset( $_POST['hide_featured_image'] ) ) {
+        update_post_meta( $post_id, '_hide_featured_image', 1 );
+    } else {
+        delete_post_meta( $post_id, '_hide_featured_image' );
+    }
+    
+    // Add the following code to set a cookie with the checkbox value
+    setcookie( 'hide_featured_image', isset( $_POST['hide_featured_image'] ), time() + 86400, COOKIEPATH, COOKIE_DOMAIN );
+}
+add_action( 'save_post', 'hide_featured_image_save_post' );
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Outside-box image post block
+/*-----------------------------------------------------------------------------------*/
+function my_custom_blocks() {
+    wp_register_script(
+        'my-custom-blocks',
+        get_template_directory_uri() . '/js/fau-costum-image-block.min.js',
+        array( 'wp-blocks', 'wp-editor' ),
+        true
+    );
+    register_block_type( 'my-blocks/full-width-image', array(
+        'editor_script' => 'my-custom-blocks',
+    ) );
+}
+add_action( 'init', 'my_custom_blocks' );
+
+
 /*-----------------------------------------------------------------------------------*/
 /* This is the end of the code as we know it
 /*-----------------------------------------------------------------------------------*/
-
-
-
-
-
-

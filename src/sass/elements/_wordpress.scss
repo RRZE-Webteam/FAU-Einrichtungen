@@ -129,3 +129,10 @@ p.has-drop-cap {
     }
 }
 
+.wp-block-columns.wp-container-6, .wp-block-columns.wp-container-8, .wp-block-columns.wp-container-10 {
+    display: flex;
+}
+
+.wp-container-6  .wp-block-column {
+    width: 50%;
+}

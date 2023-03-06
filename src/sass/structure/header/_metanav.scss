@@ -71,14 +71,14 @@
         color: var(--color-FAU);
 
         svg {
-            width: 24px;
-            height: 36px;
+            width: 48px;
+            height: 48px;
         }
     }
 
     .meta-links-trigger-icon-fau {
         svg {
-            width: 40px;
+            width: 48px;
         }
     }
 
@@ -129,6 +129,7 @@
         justify-content: space-between;
         column-gap: 1rem;
 	    padding: 5px 0;
+       
 
         background-color: transparent;
 
@@ -232,6 +233,8 @@
             @media (max-width: $screen-sm - 1) {
                 display: block;
                 padding: .5rem 10px;
+                font-size: 1rem;
+                line-height: 1.8rem;
                 border-bottom: 1px solid $colorOverlayDark;
             }
         }

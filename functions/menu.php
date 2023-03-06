@@ -193,12 +193,60 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 
     function start_lvl(&$output, $depth = 0, $args = array())  {
         $this->level++;
+    
         $this->count[$this->level] = 0;
-        if ($this->level == 2) {
-            $output .= '<div class="nav-flyout"><div class="container"><div class="row">';
-            $output .= '<div class="flyout-entries-full">';
+
+        $child_count = 0;
+        $children = get_posts(array(
+            'post_type' => 'nav_menu_item',
+            'nopaging' => true,
+            'numberposts' => -1,
+            'meta_key' => '_menu_item_menu_item_parent',
+            'meta_value' => $this->element->ID,
+            'order' => 'ASC',
+            'orderby' => 'menu_order',
+        ));
+        if (!empty($children)) {
+            foreach ($children as $child) {
+                $grand_children = get_posts(array(
+                    'post_type' => 'nav_menu_item',
+                    'nopaging' => true,
+                    'numberposts' => -1,
+                    'meta_key' => '_menu_item_menu_item_parent',
+                    'meta_value' => $child->ID,
+                    'order' => 'ASC',
+                    'orderby' => 'menu_order',
+                ));
+                $child_count += count($grand_children) + 1; // add 1 for the child itself
+            }
         }
+        $child_count_html = '<span class="child-count">' . $child_count . '</span>';
+
+        if ($this->level == 2) {
+            $columnclass='';
+
+            if ($child_count<8){
+                $columnclass='1';
+            }else   if($child_count<16){
+                $columnclass='2';
+            }else if($child_count<24){
+                $columnclass='3';
+            }
+            else if($child_count>25){
+                $columnclass='4';
+            }
+        
+            $output .= '<div class="nav-flyout"><div class="container"><div class="row">';
+            $output .= '<div class="flyout-entries-full column-count-'. $columnclass.'">';
+            
+           
+           
+        }
+
+
         $output .= '<ul class="sub-menu level'.$this->level.'">';
+        
+        
     }
 
     function end_lvl(&$output, $depth = 0, $args = array()) {
@@ -206,24 +254,23 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
             $output       .= '</ul>';
             $currenttitle = fau_get_the_title($this->currentID);
             if (!empty($currenttitle)) {
-		$display_button = get_theme_mod('advanced_display_portalmenu_button');
-		$display_forceclick = get_theme_mod('advanced_display_portalmenu_forceclick');
-		
-		if (((isset($display_button)) && ($display_button==true)) || ($display_forceclick==true)) {
-		    $output   .= '<a href="'.get_permalink($this->currentID).'" class="button-portal">';
-		    $pretitle = get_theme_mod('menu_pretitle_portal');
-		    if (!fau_empty($pretitle)) {
-			$output .= $pretitle.' ';
-		    }
-		    $output    .= $currenttitle;
-		    $posttitle = get_theme_mod('menu_aftertitle_portal');
-		    if (!fau_empty($posttitle)) {
-			$output .= ' '.$posttitle;
-		    }
-		    $output .= '</a>';
-		}
+                $display_button = get_theme_mod('advanced_display_portalmenu_button');
+                $display_forceclick = get_theme_mod('advanced_display_portalmenu_forceclick');
+    
+                if (((isset($display_button)) && ($display_button==true)) || ($display_forceclick==true)) {
+                    $output   .= '<a href="'.get_permalink($this->currentID).'" class="button-portal">';
+                    $pretitle = get_theme_mod('menu_pretitle_portal');
+                    if (!fau_empty($pretitle)) {
+                        $output .= $pretitle.' ';
+                    }
+                    $output    .= $currenttitle;
+                    $posttitle = get_theme_mod('menu_aftertitle_portal');
+                    if (!fau_empty($posttitle)) {
+                        $output .= ' '.$posttitle;
+                    }
+                    $output .= '</a>';
+                }
             }
-
             $output .= '</div>';
             $output .= '</div></div></div>';
 
@@ -240,8 +287,10 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 
         // Generate Classes. Dont use WordPress default, cause i dont want to
         // get all those unused data filled up my html
+        
         $classes = array();
-        if ($level < 2) {
+          if ($level < 2) {
+            
             //	$classes[] = 'menu-item-' . $item->ID;
             $classes[] = 'level'.$level;
         }
@@ -263,9 +312,12 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
             // absoluter Link auf externe Seite
             $classes[] = 'external';
         }
+        $this->element = $item; // Store the current element to be used in start_lvl
+
 
         $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
         $class_names = $class_names ? ' class="'.esc_attr($class_names).'"' : '';
+        
 
 
         $output .= '<li'.$value.$class_names.'>';
@@ -275,22 +327,22 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
         $atts['target'] = !empty($item->target) ? $item->target : '';
         $atts['rel']    = !empty($item->xfn) ? $item->xfn : '';
         $atts['href']   = !empty($item->url) ? $item->url : '';
-
+    
         $item_classes  = empty($item->classes) ? array() : (array)$item->classes;
         $item_classes  = fau_cleanup_menuclasses($item_classes);
         $item_class    = implode(' ', $item_classes);
         $atts['class'] = !empty($item_class) ? $item_class : '';
-
-
+    
+    
         if ($iscurrent == 1) {
             $atts['aria-current'] = "page";
         }
         $atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args);
-
+    
         if ($this->level == 1) {
             $this->currentID = $item->object_id;
         }
-
+    
         $attributes = '';
         foreach ($atts as $attr => $value) {
             if (!empty($value)) {
@@ -298,28 +350,48 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
                 $attributes .= ' '.$attr.'="'.$value.'"';
             }
         }
-
-
-        if (is_page($item->object_id)) {
-            $titlelangcode = get_post_meta($item->object_id, 'fauval_pagetitle_langcode', true);
-            if (!fau_empty($titlelangcode)) {
-                $sitelang = fau_get_language_main();
-                if ($titlelangcode != $sitelang) {
-                    $attributes .= ' lang="'.$titlelangcode.'"';
+    
+        // Add child count for level one and two
+        if ($level <= 1 && isset($args->walker)) {
+            $child_count = 0;
+            $children = get_posts(array(
+                'post_type' => 'nav_menu_item',
+                'nopaging' => true,
+                'numberposts' => -1,
+                'meta_key' => '_menu_item_menu_item_parent',
+                'meta_value' => $item->ID,
+                'order' => 'ASC',
+                'orderby' => 'menu_order',
+            ));
+            if (!empty($children)) {
+                foreach ($children as $child) {
+                    $grand_children = get_posts(array(
+                        'post_type' => 'nav_menu_item',
+                        'nopaging' => true,
+                        'numberposts' => -1,
+                        'meta_key' => '_menu_item_menu_item_parent',
+                        'meta_value' => $child->ID,
+                        'order' => 'ASC',
+                        'orderby' => 'menu_order',
+                    ));
+                    $child_count += count($grand_children) + 1; // add 1 for the child itself
                 }
             }
+            $child_count_html = '<span class="child-count">' . $child_count . '</span>';
+        } else {
+            $child_count_html = '';
         }
-
-
+        
+    
         $item_output = $args->before;
         $item_output .= '<a'.$attributes.'>';
-        $item_output .= $args->link_before.apply_filters('the_title', $item->title, $item->ID).$args->link_after;
+        $item_output .= $args->link_before.apply_filters('the_title', $item->title, $item->ID).$args->link_after; // Append child count
         $item_output .= '</a>';
         $item_output .= $args->after;
-
+    
         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
-
+    
     function end_el(&$output, $item, $depth = 0, $args = array())  {
         $output .= "</li>";
     }

@@ -74,6 +74,8 @@ $defaultoptions = [
 
 
     'default_postthumb_always'			=> 1,
+	'show_date_on'						=> true,
+	'show_cat_on' 						=> true,
     'default_postthumb_image'			=> 0,
     'default_submenu_spalten'			=> 4,
     'default_submenu_entries'			=> 5,
@@ -192,6 +194,7 @@ $defaultoptions = [
     'default_anleser_excerpt_length'		=> 300,
     'default_search_excerpt_length'		=> 300,
     'default_display_continue_link'		=> true,
+	'default_zig_zag_blogroll'			=> false,
     
     'custom_excerpt_allowtags'			=> 'br',
     'title_hero_search'				=> __( 'Webauftritt durchsuchen', 'fau' ),
@@ -240,6 +243,7 @@ $defaultoptions = [
     
     
     'post_display_category_below'			=> true,
+	'post_prev_next'						=> true,
     'post_display_tags_below'				=> true,
     'search_display_post_thumbnails'			=> true,
     'search_display_post_cats'				=> true,
@@ -585,6 +589,14 @@ $setoptions = array(
                   'default' => $defaultoptions['post_display_category_below'],
 		  'parent'  => 'postoptions'
               ),  
+
+			  'post_prev_next' => array(
+				'type'    => 'toggle',
+				'title'   => __( 'Prev/Next-Link', 'fau' ),
+				'label'   => __( 'show prev,next buttons', 'fau' ),                
+				'default' => $defaultoptions['post_prev_next'],
+		'parent'  => 'postoptions'
+			),  
 	       
 	       'post_display_tags_below' => array(
                   'type'    => 'toggle',
@@ -937,6 +949,21 @@ $setoptions = array(
 		    'label'   => __( 'Ersatzbild für den Fall, daß ein Artikel kein eigenes Artikelbild definiert hat.', 'fau' ),               
 		    'parent'  => 'newsbereich'
 		),  
+/* Datum der Blogroll -Umschaltungsoption anzeigen*/
+		'show_date_on' => array(
+			'type'    => 'toggle',
+			'title'   => __( 'Datum', 'fau' ),
+			'label'   => __( 'Erstellungsdatum zeigen', 'fau' ),      
+			'default' => $defaultoptions['show_date_on'],
+			'parent'  => 'newsbereich'
+			  ), 
+			  'show_cat_on' => array(
+				'type'    => 'toggle',
+				'title'   => __( 'Kategorie zeigen', 'fau' ),
+				'label'   => __( 'Kategorie zeigen', 'fau' ),      
+				'default' => $defaultoptions['show_date_on'],
+				'parent'  => 'newsbereich'
+				  ), 
 	       
 	      'default_display_thumbnail_3_2' => array(
 		    'type'    => 'toggle',
@@ -953,6 +980,14 @@ $setoptions = array(
 		    'default' => $defaultoptions['default_display_continue_link'],
 		    'parent'  => 'newsbereich'
               ), 
+
+			'default_zig_zag_blogroll' => array(
+			'type'    => 'toggle',
+			'title'   => __( 'Zickzack-Modus', 'fau' ),
+			'label'   => __( 'Zeige die Artikel im Zickzack-Format an.', 'fau' ),      
+			'default' => $defaultoptions['default_zig_zag_blogroll'],
+			'parent'  => 'newsbereich'
+				), 
 	       
 	        	
 	    'topevents'  => array(

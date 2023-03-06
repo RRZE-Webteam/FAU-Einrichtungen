@@ -842,6 +842,18 @@ msgstr ""
 msgid "Erlaubte Anzahl an Zeichen:"
 msgstr "Allowed number of characters:"
 
+#: functions/constants.php:955, functions/template-functions.php:457
+msgid "Erstellungsdatum zeigen"
+msgstr "Show creation date"
+
+#: functions/constants.php:960, functions/template-functions.php:457
+msgid "Kategorie zeigen"
+msgstr "Show Categories"
+
+#: functions/constants.php:970
+msgid "Zeige die Artikel im Zickzack-Format an."
+msgstr "Display the articles in zigzag format."
+
 # Im Deutschen fehlt ein Komma: "Ermöglicht es, Beiträge..."
 #: functions/constants.php:1055
 msgid ""
@@ -918,6 +930,12 @@ msgstr "No menu could be found under the specified name"
 #: functions/shortcodes.php:199, functions/shortcodes.php:228
 msgid "Es konnten keine Artikel gefunden werden"
 msgstr "No entries found."
+
+
+#: functions/shortcodes.php:199, functions/shortcodes.php:307
+msgid "Keine relevanten Beiträge gefunden"
+msgstr "No relevant posts found"
+
 
 #: page-templates/page-start.php:87
 msgid "Es konnten keine öffentlichen Beiträge gefunden werden."
@@ -1810,6 +1828,7 @@ msgstr "Pages Sidebar"
 #: functions/custom-fields.php:88
 msgid "Seiten-Eigenschaften"
 msgstr "Page Properties"
+
 
 #: functions/constants.php:1078
 msgid "Seitensprache"

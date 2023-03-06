@@ -36,8 +36,11 @@
 	
 	if ($hero_posts && (count($hero_posts) > 0)) { ?>
 <div id="hero" class="<?php echo $sliderclass; ?>">
+
 	<section id="hero-slides" role="region" aria-roledescription="carousel"  aria-label="<?php echo __('Bedeutende Artikel','fau'); ?>">
+
 	   <div class="slick-slider featured-slider cf" id="mainslider">
+
 	       <?php
 		foreach($hero_posts as $hero): 
 		    echo '<div class="item" aria-roledescription="slide" role="group" aria-labelledby="label-'.$hero->ID.'">';
@@ -89,7 +92,7 @@
 		    }
 
 
-		    $slidersrc = '<img src="'.fau_esc_url($sliderimage[0]).'"'; 
+		    $slidersrc = ' 	<img src="'.fau_esc_url($sliderimage[0]).'"'; 
 		    // In case of SVG-Images, width and height are empty
 		    if ($sliderimage[1] > 1) {
 			$slidersrc .= ' width="'.$sliderimage[1].'"';
@@ -110,12 +113,13 @@
 
 
 		    if ((get_theme_mod('advanced_display_hero_credits')==true) && (!empty($copyright))) {
-			echo '<p class="credits">'.$copyright."</p>";
+			//echo '<p class="credits">'.$copyright."</p>";
 		    }
 		    ?>
+			
 		    <div class="hero-slide-text">
 			<div class="hero-container">
-			    <div class="hero-row">
+						    <div class="hero-row">
 				<div class="slider-titel">
 				    <?php
 					
@@ -142,7 +146,7 @@
 					if (strlen(trim($abstract))<3) {
 					   $abstract =  fau_custom_excerpt($hero->ID,$maxlen,false,'',true);
 					} ?>
-					<p><?php echo $abstract; ?></p>
+					<p><?php //echo $abstract; ?></p>
 				    </div>
 				</div>  <?php } ?>		   
 			</div>
@@ -165,9 +169,12 @@
 		    $buttontext = $defaultoptions['slider-starttext'];
 		} ?>
 
-		<button type="button"  class="slick-startstop<?php echo $startstopclass;?>">
-		    <?php echo $buttontext;?>
+		<button type="button" aria-label="<?php echo $buttontext ?> " class="slick-startstop<?php echo $startstopclass;?>">
+		<i class="fa fa-pause" aria-hidden="true"></i>
+
+			
 		</button>
+		
 	    </div>
 	    
 	</section> 

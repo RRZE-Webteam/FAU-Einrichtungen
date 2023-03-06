@@ -15,8 +15,7 @@ jQuery(document).ready(function ($) {
         var swapLogo = !$body.hasClass('md-showsitelogo');
         var $openflyover = false;
         var breakMD = 768;
-
-
+          
         //  Slider
         var autostart = !!sliderAutostart;
         var pauseOnHovervar = autostart
@@ -26,14 +25,14 @@ jQuery(document).ready(function ($) {
         var autoplaySpeedval = 7000;
         var sliderNextHTML = '<button type="button" class="slick-next">Next</button>';
         var sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
-        var stopSliderHTML = 'Stop Animation';
-        var startSliderHTML = 'Start Animation';
+        var stopSliderHTML = '<i class="fa fa-pause" aria-hidden="true"></i>' ;
+        var startSliderHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
 
         if ($('html').attr('lang') == 'de-DE') {
             sliderNextHTML = '<button type="button" class="slick-next">Weiter</button>';
             sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
-            stopSliderHTML = 'Animation stoppen';
-            startSliderHTML = 'Animation starten';
+            stopSliderHTML = '<i class="fa fa-pause" aria-hidden="true"></i>' ;
+            startSliderHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
         }
 
         if ($.fn.slick) {
@@ -415,6 +414,22 @@ jQuery(document).ready(function ($) {
         }
 
         iframeFootnotes();
+
+
+        //close the menu when clicked outside the menu
+        $(document).click(function(event) {
+            // Get the element with the click event listener
+            var element = $('.has-sub');
+          
+            // Get the target element of the click event
+            var target = $(event.target);
+          
+            // Check if the target element is outside of the element with the click event listener
+            if (!target.is(element) && !element.has(target).length) {
+              // Set the aria-expanded attribute to false
+              element.attr('aria-expanded', 'false');
+            }
+          });
     }
 );
 
