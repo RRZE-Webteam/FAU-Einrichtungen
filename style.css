@@ -11867,13 +11867,16 @@ ol.breadcrumblist li:last-child::after {
   }
 }
 
+.content-row .portalpage-sidebar {
+  padding-top: 20px;
+}
 @media (min-width: 768px) {
   .content-row .portalpage-sidebar {
     align-self: flex-start;
     width: 33%;
     max-width: 350px;
     margin-top: 0;
-    padding-top: 0;
+    padding-top: 20px;
     padding-left: 15px;
     border-top: none;
     border-left: 2px solid var(--color-primary-ci-hell2);
