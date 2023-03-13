@@ -258,7 +258,7 @@
 		height: auto;
 
 		@media (max-width: $screen-sm) {
-			top: calc(50% - (20px + 85px + 75px)/2);
+			top: calc(50% - (20px + 70px + 105px)/2);
 		}
 
 		padding: 0;
@@ -285,7 +285,7 @@
 			color: rgba(255, 255, 255, 0.83);
 			text-shadow: 1px 1px rgba(0, 0, 0, 0.63);
 			@media (max-width: $screen-sm) {
-				font-size: 50px;
+				font-size: 70px;
 			}
 		}
 	}

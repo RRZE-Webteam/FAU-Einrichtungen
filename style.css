@@ -11199,7 +11199,7 @@ ol.breadcrumblist li:last-child::after {
 @media (max-width: 768px) {
   #hero-slides .slick-prev,
   #hero-slides .slick-next {
-    top: calc(50% - 90px);
+    top: calc(50% - 97.5px);
   }
 }
 #hero-slides .slick-prev:hover, #hero-slides .slick-prev:focus,
@@ -11223,7 +11223,7 @@ ol.breadcrumblist li:last-child::after {
 @media (max-width: 768px) {
   #hero-slides .slick-prev:before,
   #hero-slides .slick-next:before {
-    font-size: 50px;
+    font-size: 70px;
   }
 }
 #hero-slides .slick-prev {
