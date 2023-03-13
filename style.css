@@ -10942,6 +10942,11 @@ ol.breadcrumblist li:last-child::after {
   margin: 0 auto;
   margin-top: 10px;
 }
+@media (max-width: 768px) {
+  #hero.sliderpage {
+    margin-top: 0px;
+  }
+}
 
 .slider-titel header a {
   text-decoration: none !important;
