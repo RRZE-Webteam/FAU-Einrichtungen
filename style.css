@@ -11083,6 +11083,12 @@ ol.breadcrumblist li:last-child::after {
   right: 0;
   bottom: 0;
 }
+@media (max-width: 480px) {
+  #hero-slides .item p.credits {
+    top: 0;
+    bottom: auto;
+  }
+}
 #hero-slides .item img {
   vertical-align: middle;
   z-index: 5;

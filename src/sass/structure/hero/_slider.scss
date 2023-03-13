@@ -151,6 +151,10 @@
 			position: absolute;
 			right: 0;
 			bottom: 0;
+			@media (max-width: $screen-xs) {
+				top: 0;
+				bottom: auto;
+			}
 		}
 		img {
 			vertical-align: middle;
