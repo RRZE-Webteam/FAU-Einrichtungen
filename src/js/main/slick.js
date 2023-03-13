@@ -52,7 +52,7 @@
                 centerPadding: '50px',
                 cssEase: 'ease',
                 customPaging: function(slider, i) {
-                    return $('<button type="button" />').text(" ");
+                    return $('<button type="button" />').text(i + 1);
                 },
                 dots: false,
                 dotsClass: 'slick-dots',
@@ -1367,7 +1367,6 @@
                 $(this).find('button').first().attr({
                     'role': 'tab',
                     'id': 'slick-slide-control' + _.instanceUid + i,
-                    'class':'dotsslider',
                     'aria-controls': 'slick-slide' + _.instanceUid + mappedSlideIndex,
                     'aria-label': (i + 1) + ' of ' + numDotGroups,
                     'aria-selected': null,
