@@ -8347,6 +8347,7 @@ html {
 #pagewrapper #content {
   flex: 1;
   width: 100%;
+  overflow-x: hidden;
 }
 #pagewrapper footer {
   margin-top: auto;
@@ -12180,6 +12181,15 @@ ul.assistant-tabs-nav li:last-child {
 
 .fau-row-outisde-div {
   margin-inline: -25%;
+}
+.fau-row-outisde-div p {
+  max-width: 60%;
+  width: 60%;
+  margin-left: 20% !important;
+}
+.fau-row-outisde-div figure {
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .post-navigation {

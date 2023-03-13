@@ -7,21 +7,35 @@
 // outside-the-box image
 .my-custom-image {
     width: 100%;
+  
 
 }
 
 .my-custom-image-div {
    margin-inline: -10%;
+
+
 }
 
 .fau-row-outisde {
     width: 100%;
 
+
 }
 
 .fau-row-outisde-div {
    margin-inline: -25%;
+   p {
+       max-width: 60%;
+       width: 60%;
+       margin-left: 20% !important;
+   }
+   figure {
+       padding: 0 !important;
+       margin: 0 !important;
+   }
 }
+
 
 
 .post-navigation {
@@ -250,6 +264,8 @@
 .single {
     #content {
         padding-top: 0;
+      
+    
     }
 
     h1.mobiletitle {
