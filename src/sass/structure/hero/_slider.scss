@@ -150,10 +150,16 @@
 			padding: 1px 4px;
 			position: absolute;
 			right: 0;
-			bottom: 0;
-			@media (max-width: $screen-xs) {
-				top: 0;
-				bottom: auto;
+			top: 0;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 1; /* number of lines to show */
+					line-clamp: 1; 
+			-webkit-box-orient: vertical;
+			@media (min-width: $screen-sm) {
+				bottom: 0;
+				top: auto;
 			}
 		}
 		img {

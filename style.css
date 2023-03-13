@@ -11081,12 +11081,18 @@ ol.breadcrumblist li:last-child::after {
   padding: 1px 4px;
   position: absolute;
   right: 0;
-  bottom: 0;
+  top: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
-@media (max-width: 480px) {
+@media (min-width: 768px) {
   #hero-slides .item p.credits {
-    top: 0;
-    bottom: auto;
+    bottom: 0;
+    top: auto;
   }
 }
 #hero-slides .item img {
