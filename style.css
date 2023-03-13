@@ -10970,6 +10970,13 @@ ol.breadcrumblist li:last-child::after {
     padding: 15px;
     white-space: normal;
   }
+  @media not all and (-webkit-min-device-pixel-ratio: 0), not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      .slider-titel header a {
+        line-height: 1.5; /* Adjust line-height for Safari */
+      }
+    }
+  }
 }
 
 #hero-slides {

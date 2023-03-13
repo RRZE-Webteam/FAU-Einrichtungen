@@ -28,6 +28,7 @@
 			
 		margin: 0 auto;
 		text-align: left;
+	
 		@media (max-width: $screen-sm)  {
 			overflow: hidden;
 			text-overflow: ellipsis;
@@ -39,6 +40,11 @@
 		
 		
 			white-space: normal;
+			@media not all and (min-resolution:.001dpcm) { 
+				@supports (-webkit-appearance:none) {
+				  line-height: 1.5; /* Adjust line-height for Safari */
+				}
+			  }
 		 }
 }
 
