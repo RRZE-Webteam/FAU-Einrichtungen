@@ -253,7 +253,6 @@ new FAUShortcodes();
 /*-----------------------------------------------------------------------------------*/
 /* Shortcodes to display relevant articlelist
 /*-----------------------------------------------------------------------------------*/
-
 function relevant_posts_shortcode($atts)
 {
 	// Parse shortcode attributes
@@ -263,21 +262,25 @@ function relevant_posts_shortcode($atts)
 			'max' => 5,
 		), $atts);
 
-	// Get current post tags if no tag attribute is provided
-	if (empty($atts['tag'])) {
-		$tags = wp_get_post_tags(get_the_ID());
-		$atts['tag'] = array();
-		foreach ($tags as $tag) {
-			$atts['tag'][] = $tag->slug;
-		}
+	// Get tag slugs
+	$tag_slugs = array();
+	if (!empty($atts['tag'])) {
+		$tag_slugs = explode(',', $atts['tag']);
+		$tag_slugs = array_map('trim', $tag_slugs);
 	} else {
-		$atts['tag'] = explode(',', $atts['tag']);
-		$atts['tag'] = array_map('trim', $atts['tag']);
+		$tags = wp_get_post_tags(get_the_ID());
+		if (!$tags) {
+			// If no tags, return empty
+			return '<div class="relevant-posts empty">'.__('Keine relevanten Beiträge gefunden','fau').'</div>';
+		}
+		foreach ($tags as $tag) {
+			$tag_slugs[] = $tag->slug;
+		}
 	}
 
 	// Build query arguments
 	$args = array(
-		'tag__in' => $atts['tag'],
+		'tag_slug__in' => $tag_slugs,
 		'post__not_in' => array(get_the_ID()),
 		'posts_per_page' => $atts['max'],
 		'ignore_sticky_posts' => true,
@@ -303,9 +306,9 @@ function relevant_posts_shortcode($atts)
 	// Return the output wrapped in a <div> with the relevant-posts class
 	if (!empty($output)) {
 		return '<div class="relevant-posts">' . $output . '</div>';
-	  } else {
+	} else {
 		return '<div class="relevant-posts empty">'.__('Keine relevanten Beiträge gefunden','fau').'</div>';
-	 }
+	}
 }
 
 add_shortcode('relevant-posts', 'relevant_posts_shortcode');

@@ -113,7 +113,7 @@
 
 
 		    if ((get_theme_mod('advanced_display_hero_credits')==true) && (!empty($copyright))) {
-			//echo '<p class="credits">'.$copyright."</p>";
+			echo '<p class="credits">'.$copyright."</p>";
 		    }
 		    ?>
 			

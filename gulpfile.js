@@ -381,13 +381,7 @@ function makecustomblockjs() {
     .pipe(touch());
 }
 
-function makeimageactipneditorjs() {
-    return src([info.source.js + 'main/fau-image-caption-editor.js'])
-    .pipe(uglify())
-    .pipe(rename("fau-image-caption-editor.min.js"))
-    .pipe(dest(info.jsdir))
-    .pipe(touch());
-}
+
 
 function makesrollstoriesjs() {
     return src([info.source.js + 'main/fau-scroll-stories.js'])
@@ -513,7 +507,7 @@ exports.buildprintstyle = buildprintstyle;
 exports.debugmode = set_debugmode;
 exports.nodebug = unset_debugmode;
 
-var js = series(bundlemainjs, makeslickjs, makecustomblockjs, makeimageactipneditorjs,makesrollstoriesjs, bundleadminjs, makecustomizerjs, makewplinkjs);
+var js = series(bundlemainjs, makeslickjs, makecustomblockjs,makesrollstoriesjs, bundleadminjs, makecustomizerjs, makewplinkjs);
 var dev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle,  js, devversion);
 
 exports.cssdev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle);

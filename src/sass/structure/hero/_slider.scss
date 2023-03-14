@@ -7,7 +7,10 @@
     overflow: inherit;
 	margin: 0 auto;
 	margin-top:10px;
+	@media (max-width: $screen-sm)  {
+		margin-top:0px;}
 }
+
 
 .slider-titel header a {
 
@@ -28,6 +31,7 @@
 			
 		margin: 0 auto;
 		text-align: left;
+	
 		@media (max-width: $screen-sm)  {
 			overflow: hidden;
 			text-overflow: ellipsis;
@@ -39,6 +43,11 @@
 		
 		
 			white-space: normal;
+			@media not all and (min-resolution:.001dpcm) { 
+				@supports (-webkit-appearance:none) {
+				  line-height: 1.5; /* Adjust line-height for Safari */
+				}
+			  }
 		 }
 }
 
@@ -143,8 +152,18 @@
 			margin: 0;
 			padding: 1px 4px;
 			position: absolute;
-			right: 0;
 			bottom: 0;
+			right: 0;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 1; /* number of lines to show */
+					line-clamp: 1; 
+			-webkit-box-orient: vertical;
+			@media (max-width: $screen-sm) {
+				top: 0;
+				bottom: auto;
+			}
 		}
 		img {
 			vertical-align: middle;
@@ -179,18 +198,14 @@
 		padding: 0;
 		width: 100%;
 		height: 70px;
-		@include transform-translate(0, -75%);
+		bottom: 45px;
+		top: inherit;
+		transform: none;
 		@media (max-width: $screen-sm){
 			bottom:20px;
 			top:auto;
 			margin: 0 0px;
 			@include transform-translate(0, 0%);
-		}
-
-		@media (min-width: $screen-sm) {
-			bottom: 45px;
-			top: inherit;
-			transform: none;
 		}
 	}
 
@@ -231,24 +246,19 @@
 	.slick-next {
 		position: absolute;
 		display: block;
-		height: 160px;
 		width: 60px;
 		line-height: 0px;
 		font-size: 0px;
 		cursor: pointer;
 		background: transparent;
 		color: transparent;
-		top: calc(50% - 70px);
-		@media (max-width: $screen-sm) {
-			top:calc(50% - 30px);
-		}
-	
-		
-		@include transform-translate(0, -75%);
 
-		@media (min-width: $screen-sm) {
-			top: calc(50% - 70px);
-			@include transform-translate(0, -50%);
+		bottom: auto;
+		top: calc(50% - (45px + 70px + 225px)/2);
+		height: auto;
+
+		@media (max-width: $screen-sm) {
+			top: calc(50% - (20px + 70px + 105px)/2);
 		}
 
 		padding: 0;
@@ -275,7 +285,7 @@
 			color: rgba(255, 255, 255, 0.83);
 			text-shadow: 1px 1px rgba(0, 0, 0, 0.63);
 			@media (max-width: $screen-sm) {
-				font-size: 50px;
+				font-size: 70px;
 			}
 		}
 	}
