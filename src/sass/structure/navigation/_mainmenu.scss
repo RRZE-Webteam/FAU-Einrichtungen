@@ -107,7 +107,7 @@
         a:hover,
         a:focus {
             color: var(--color-mainmenu-sublevel-hover-text);
-            background-color: var(--color-mainmenu-sublevel-hover-bg);
+            background-color: var(--color-mainmenu-sublevel-bg);
 	        @include border-radius(3px);
         }
     }
@@ -137,6 +137,7 @@
         @include px2rem($font-size-nav-buttons);
         padding: 0.5rem 1rem;
         margin-left: 20px;
+        background-color: var(--color-mainmenu-sublevel-bg);
     }
 
     ul {
