@@ -9692,7 +9692,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 .nav .level3 a:hover,
 .nav .level3 a:focus {
   color: var(--color-mainmenu-sublevel-hover-text);
-  background-color: var(--color-mainmenu-sublevel-hover-bg);
+  background-color: var(--color-mainmenu-sublevel-bg);
   border-radius: 3px;
   background-clip: padding-box;
 }
@@ -9726,6 +9726,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   line-height: 1.688rem;
   padding: 0.5rem 1rem;
   margin-left: 20px;
+  background-color: var(--color-mainmenu-sublevel-bg);
 }
 .nav .button-portal:hover, .nav .button-portal:focus {
   color: var(--color-button-hover-text);
@@ -12189,6 +12190,11 @@ ul.assistant-tabs-nav li:last-child {
 
 .fau-row-outisde-div {
   margin-inline: -25%;
+}
+@media (max-width: 1400px) {
+  .fau-row-outisde-div {
+    margin-inline: unset;
+  }
 }
 .fau-row-outisde-div p {
   max-width: 60%;
