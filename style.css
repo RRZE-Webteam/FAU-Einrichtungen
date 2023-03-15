@@ -12190,6 +12190,11 @@ ul.assistant-tabs-nav li:last-child {
 .fau-row-outisde-div {
   margin-inline: -25%;
 }
+@media (max-width: 1400px) {
+  .fau-row-outisde-div {
+    margin-inline: unset;
+  }
+}
 .fau-row-outisde-div p {
   max-width: 60%;
   width: 60%;
