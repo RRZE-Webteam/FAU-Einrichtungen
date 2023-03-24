@@ -60,7 +60,7 @@ function fau_create_socialmedia_menu()
 
 
         // Existieren bereits Einträge in der alten Options-Tabelle mit Social Media Angaben, die angezeigt werden sollen?
-        // Wenn ja, dann fülle das Menu mit diesen; enn nein, fülle das Menu mit Default-Einträgen
+        // Wenn ja, dann fülle das Menu mit diesen; wenn nein, fülle das Menu mit Default-Einträgen
 
         global $default_socialmedia_liste;
         ksort($default_socialmedia_liste);
@@ -446,8 +446,13 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
     private $element;
     private $showsub = true;
 
-    function __construct( $menu, $showsub = true, $maxsecondlevel = 6, $noshowthumb = false,$nothumbnailfallback = false, $thumbnail = 'rwd-480-2-1' ) {
+    function __construct( $menu, $showsub = true, $maxsecondlevel = 0, $noshowthumb = false,$nothumbnailfallback = false, $thumbnail = 'rwd-480-2-1' ) {
         $this->showsub             = $showsub;
+        
+        if ($maxsecondlevel==0) {
+            $maxsecondlevel = get_theme_mod('default_submenu_entries');
+        }
+        
         $this->maxsecondlevel      = $maxsecondlevel;
         $this->nothumbnail         = $noshowthumb;
         $this->nothumbnailfallback = $nothumbnailfallback;

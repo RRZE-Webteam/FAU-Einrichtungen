@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'	    => 86,
+    'optiontable-version'	    => 87,
 		// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 		// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 		// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -77,8 +77,9 @@ $defaultoptions = [
 	'show_date_on'						=> true,
 	'show_cat_on' 						=> true,
     'default_postthumb_image'			=> 0,
-    'default_submenu_spalten'			=> 4,
     'default_submenu_entries'			=> 5,
+    'fallback_submenu_image'			=> 0,
+    
     'menu_fallbackquote_show_excerpt'		=> 1,
     'menu_fallbackquote_excerpt_length'		=> 240,  
     'start_topevents_max'			=> 1,
@@ -86,7 +87,6 @@ $defaultoptions = [
     'topevent_hideimage'			=> false,
     'topevents_templates'			=> array(1), 
     'fallback_topevent_image'			=> 0,
-    'fallback_submenu_image'			=> 0,
     'default_topevent_excerpt_length'		=> 100,
 
     'default_startseite-bannerbild-image_src'	=> get_fau_template_uri().'/img/bannerbild-tafel-1260x182.jpg',
@@ -1289,11 +1289,11 @@ $setoptions = array(
 	       
 	       
 	       
-                'contentmenus'  => array(
+        'contentmenus'  => array(
 		    'type'    => 'section',
 		    'title'   => __( 'Inhaltsmenüs', 'fau' ),                      
 		),
-                'default_submenu_entries' => array(
+        'default_submenu_entries' => array(
                   'type'    => 'range-value',
                   'title'   => __( 'Untermenüpunkte', 'fau' ),
                   'label'   => __( 'Anzahl der anzuzeigenden Untermenüpunkte (Zweite Ebene).', 'fau' ),                
@@ -1303,8 +1303,7 @@ $setoptions = array(
 		    'step'  => 1,
 		  'parent'  => 'contentmenus'
 		),   
-              
-	         'fallback_submenu_image' => array(
+	    'fallback_submenu_image' => array(
 		    'type'    => 'image',
 		    'maxwidth'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['width'], // $defaultoptions['default_rwdimage_2-1_width'],
 		    'maxheight'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['height'], // $defaultoptions['default_rwdimage_2-1_height'],
@@ -1313,7 +1312,9 @@ $setoptions = array(
 		    'parent'  => 'contentmenus',
 		    'default' => $defaultoptions['fallback_submenu_image'],
 		),  
-	       
+	    
+
+               
 	       
 
 	       
