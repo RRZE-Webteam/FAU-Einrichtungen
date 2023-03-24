@@ -71,7 +71,6 @@ class FAUShortcodes
 				if ($showsubs === false) {
 					$subentries = 0;
 				}
-				//    $spalte = get_theme_mod('default_submenu_spalten');
 
 				$a_contentmenuclasses[] = 'contentmenu';
 				$thumbnail = 'rwd-480-2-1';
