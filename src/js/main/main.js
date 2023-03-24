@@ -373,9 +373,6 @@ jQuery(document).ready(function ($) {
         $(window).on('resize', updateResponsivePositioning);
         updateResponsivePositioning();
 
-        // Tablesorter
-        $('.sorttable').tablesorter();
-
         // Create link list for printing
         window.addEventListener('beforeprint', function () {
             printlinks('main a[href]:not([href^="javascript:"]),aside a[href]:not([href^="javascript:"])');

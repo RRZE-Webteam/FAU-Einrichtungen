@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.1-0
+Version: 2.3.2-0
 Requires at least: 6.0
 Tested up to: 6.1
 Requires PHP: 8.0
@@ -1737,7 +1737,7 @@ html {
   font-style: normal;
 }
 .fa, .accordion .accordion-group .accordion-heading .accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a:before, .wpcf7-not-valid-tip:before, .wpcf7-validation-errors:before, .wpcf7-mail-sent-ok:before, .imagelink .slick-next:before, .imagelink .slick-prev:before, .image-gallery .gallery-slick .slick-next:before, .image-gallery .gallery-slick .slick-prev:before, .search-result .search-meta .download:before, .search-result .search-meta .post-meta-attachment:before, .search-result .search-meta .post-meta-news-external:before, .search-result .search-meta .post-meta-news:before, .search-result .search-meta .post-meta-defaulttype:before, .search-result .search-meta .post-meta-kontakt:before, .search-result .search-meta .post-meta-event:before, .search-result .search-meta .post-meta-date:before, .search-result .search-meta .post-meta-category:before, .news-item h2 .ext-link::after, .news-item .news-meta .news-meta-date:before, .news-item .news-meta .news-meta-categories:before, .news-details .post-meta-tags:before, .news-details .post-meta-date:before, .news-details .post-meta-categories:before, .organigram .toggle-icon, .hero-navigation li:before, #hero-slides .slick-next:before, #hero-slides .slick-prev:before, .helpermenus li:before, .helpermenus h3 a.ext-link:after, #mainnav-toggle-close:before, #mainnav-toggle:before, .nav > li.has-sub > a:before,
-.nav > li.has-sub > [type=button]:before, .sorttable th::after, ul.social li.social-iconbyurl a::before, ul.social li.social-wikipedia a:before, ul.social li.social-itunes a:before, ul.social li.social-youtube a:before, ul.social li.social-vimeo a:before, ul.social li.social-feed a:before, ul.social li.social-flickr a:before, ul.social li.social-delicious a:before, ul.social li.social-tumblr a:before, ul.social li.social-skype a:before, ul.social li.social-github a:before, ul.social li.social-xing a:before, ul.social li.social-twitter a:before, ul.social li.social-facebook a:before, ul.social li.social-instagram a:before, ul.social li.social-pinterest a:before, ul.social li.social-diaspora a:before {
+.nav > li.has-sub > [type=button]:before, ul.social li.social-iconbyurl a::before, ul.social li.social-wikipedia a:before, ul.social li.social-itunes a:before, ul.social li.social-youtube a:before, ul.social li.social-vimeo a:before, ul.social li.social-feed a:before, ul.social li.social-flickr a:before, ul.social li.social-delicious a:before, ul.social li.social-tumblr a:before, ul.social li.social-skype a:before, ul.social li.social-github a:before, ul.social li.social-xing a:before, ul.social li.social-twitter a:before, ul.social li.social-facebook a:before, ul.social li.social-instagram a:before, ul.social li.social-pinterest a:before, ul.social li.social-diaspora a:before {
   display: inline-block;
   font: normal normal normal 16px/1.5 FontAwesome;
   font-size: inherit;
@@ -1808,42 +1808,31 @@ html {
 }
 
 .fa.fa-pull-left, .accordion .accordion-group .accordion-heading .fa-pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-left:before, .fa-pull-left.wpcf7-not-valid-tip:before, .fa-pull-left.wpcf7-validation-errors:before, .fa-pull-left.wpcf7-mail-sent-ok:before, .imagelink .fa-pull-left.slick-next:before, .imagelink .fa-pull-left.slick-prev:before, .image-gallery .gallery-slick .fa-pull-left.slick-next:before, .image-gallery .gallery-slick .fa-pull-left.slick-prev:before, .search-result .search-meta .fa-pull-left.download:before, .search-result .search-meta .fa-pull-left.post-meta-attachment:before, .search-result .search-meta .fa-pull-left.post-meta-news-external:before, .search-result .search-meta .fa-pull-left.post-meta-news:before, .search-result .search-meta .fa-pull-left.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-left.post-meta-kontakt:before, .search-result .search-meta .fa-pull-left.post-meta-event:before, .search-result .search-meta .fa-pull-left.post-meta-date:before, .search-result .search-meta .fa-pull-left.post-meta-category:before, .news-item h2 .fa-pull-left.ext-link::after, .news-item .news-meta .fa-pull-left.news-meta-date:before, .news-item .news-meta .fa-pull-left.news-meta-categories:before, .news-details .fa-pull-left.post-meta-tags:before, .news-details .fa-pull-left.post-meta-date:before, .news-details .fa-pull-left.post-meta-categories:before, .organigram .fa-pull-left.toggle-icon, .hero-navigation li.fa-pull-left:before, #hero-slides .fa-pull-left.slick-next:before, #hero-slides .fa-pull-left.slick-prev:before, .helpermenus li.fa-pull-left:before, .helpermenus h3 a.fa-pull-left.ext-link:after, .fa-pull-left#mainnav-toggle-close:before, .fa-pull-left#mainnav-toggle:before, .nav > li.has-sub > a.fa-pull-left:before,
-.nav > li.has-sub > .fa-pull-left[type=button]:before, .sorttable th.fa-pull-left::after, ul.social li.social-iconbyurl a.fa-pull-left::before, ul.social li.social-wikipedia a.fa-pull-left:before, ul.social li.social-itunes a.fa-pull-left:before, ul.social li.social-youtube a.fa-pull-left:before, ul.social li.social-vimeo a.fa-pull-left:before, ul.social li.social-feed a.fa-pull-left:before, ul.social li.social-flickr a.fa-pull-left:before, ul.social li.social-delicious a.fa-pull-left:before, ul.social li.social-tumblr a.fa-pull-left:before, ul.social li.social-skype a.fa-pull-left:before, ul.social li.social-github a.fa-pull-left:before, ul.social li.social-xing a.fa-pull-left:before, ul.social li.social-twitter a.fa-pull-left:before, ul.social li.social-facebook a.fa-pull-left:before, ul.social li.social-instagram a.fa-pull-left:before, ul.social li.social-pinterest a.fa-pull-left:before, ul.social li.social-diaspora a.fa-pull-left:before {
+.nav > li.has-sub > .fa-pull-left[type=button]:before, ul.social li.social-iconbyurl a.fa-pull-left::before, ul.social li.social-wikipedia a.fa-pull-left:before, ul.social li.social-itunes a.fa-pull-left:before, ul.social li.social-youtube a.fa-pull-left:before, ul.social li.social-vimeo a.fa-pull-left:before, ul.social li.social-feed a.fa-pull-left:before, ul.social li.social-flickr a.fa-pull-left:before, ul.social li.social-delicious a.fa-pull-left:before, ul.social li.social-tumblr a.fa-pull-left:before, ul.social li.social-skype a.fa-pull-left:before, ul.social li.social-github a.fa-pull-left:before, ul.social li.social-xing a.fa-pull-left:before, ul.social li.social-twitter a.fa-pull-left:before, ul.social li.social-facebook a.fa-pull-left:before, ul.social li.social-instagram a.fa-pull-left:before, ul.social li.social-pinterest a.fa-pull-left:before, ul.social li.social-diaspora a.fa-pull-left:before {
   margin-right: 0.3em;
 }
 
 .fa.fa-pull-right, .accordion .accordion-group .accordion-heading .fa-pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-right:before, .fa-pull-right.wpcf7-not-valid-tip:before, .fa-pull-right.wpcf7-validation-errors:before, .fa-pull-right.wpcf7-mail-sent-ok:before, .imagelink .fa-pull-right.slick-next:before, .imagelink .fa-pull-right.slick-prev:before, .image-gallery .gallery-slick .fa-pull-right.slick-next:before, .image-gallery .gallery-slick .fa-pull-right.slick-prev:before, .search-result .search-meta .fa-pull-right.download:before, .search-result .search-meta .fa-pull-right.post-meta-attachment:before, .search-result .search-meta .fa-pull-right.post-meta-news-external:before, .search-result .search-meta .fa-pull-right.post-meta-news:before, .search-result .search-meta .fa-pull-right.post-meta-defaulttype:before, .search-result .search-meta .fa-pull-right.post-meta-kontakt:before, .search-result .search-meta .fa-pull-right.post-meta-event:before, .search-result .search-meta .fa-pull-right.post-meta-date:before, .search-result .search-meta .fa-pull-right.post-meta-category:before, .news-item h2 .fa-pull-right.ext-link::after, .news-item .news-meta .fa-pull-right.news-meta-date:before, .news-item .news-meta .fa-pull-right.news-meta-categories:before, .news-details .fa-pull-right.post-meta-tags:before, .news-details .fa-pull-right.post-meta-date:before, .news-details .fa-pull-right.post-meta-categories:before, .organigram .fa-pull-right.toggle-icon, .hero-navigation li.fa-pull-right:before, #hero-slides .fa-pull-right.slick-next:before, #hero-slides .fa-pull-right.slick-prev:before, .helpermenus li.fa-pull-right:before, .helpermenus h3 a.fa-pull-right.ext-link:after, .fa-pull-right#mainnav-toggle-close:before, .fa-pull-right#mainnav-toggle:before, .nav > li.has-sub > a.fa-pull-right:before,
-.nav > li.has-sub > .fa-pull-right[type=button]:before, .sorttable th.fa-pull-right::after, ul.social li.social-iconbyurl a.fa-pull-right::before, ul.social li.social-wikipedia a.fa-pull-right:before, ul.social li.social-itunes a.fa-pull-right:before, ul.social li.social-youtube a.fa-pull-right:before, ul.social li.social-vimeo a.fa-pull-right:before, ul.social li.social-feed a.fa-pull-right:before, ul.social li.social-flickr a.fa-pull-right:before, ul.social li.social-delicious a.fa-pull-right:before, ul.social li.social-tumblr a.fa-pull-right:before, ul.social li.social-skype a.fa-pull-right:before, ul.social li.social-github a.fa-pull-right:before, ul.social li.social-xing a.fa-pull-right:before, ul.social li.social-twitter a.fa-pull-right:before, ul.social li.social-facebook a.fa-pull-right:before, ul.social li.social-instagram a.fa-pull-right:before, ul.social li.social-pinterest a.fa-pull-right:before, ul.social li.social-diaspora a.fa-pull-right:before {
+.nav > li.has-sub > .fa-pull-right[type=button]:before, ul.social li.social-iconbyurl a.fa-pull-right::before, ul.social li.social-wikipedia a.fa-pull-right:before, ul.social li.social-itunes a.fa-pull-right:before, ul.social li.social-youtube a.fa-pull-right:before, ul.social li.social-vimeo a.fa-pull-right:before, ul.social li.social-feed a.fa-pull-right:before, ul.social li.social-flickr a.fa-pull-right:before, ul.social li.social-delicious a.fa-pull-right:before, ul.social li.social-tumblr a.fa-pull-right:before, ul.social li.social-skype a.fa-pull-right:before, ul.social li.social-github a.fa-pull-right:before, ul.social li.social-xing a.fa-pull-right:before, ul.social li.social-twitter a.fa-pull-right:before, ul.social li.social-facebook a.fa-pull-right:before, ul.social li.social-instagram a.fa-pull-right:before, ul.social li.social-pinterest a.fa-pull-right:before, ul.social li.social-diaspora a.fa-pull-right:before {
   margin-left: 0.3em;
 }
 
 .fa.pull-left, .accordion .accordion-group .accordion-heading .pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-left:before, .pull-left.wpcf7-not-valid-tip:before, .pull-left.wpcf7-validation-errors:before, .pull-left.wpcf7-mail-sent-ok:before, .imagelink .pull-left.slick-next:before, .imagelink .pull-left.slick-prev:before, .image-gallery .gallery-slick .pull-left.slick-next:before, .image-gallery .gallery-slick .pull-left.slick-prev:before, .search-result .search-meta .pull-left.download:before, .search-result .search-meta .pull-left.post-meta-attachment:before, .search-result .search-meta .pull-left.post-meta-news-external:before, .search-result .search-meta .pull-left.post-meta-news:before, .search-result .search-meta .pull-left.post-meta-defaulttype:before, .search-result .search-meta .pull-left.post-meta-kontakt:before, .search-result .search-meta .pull-left.post-meta-event:before, .search-result .search-meta .pull-left.post-meta-date:before, .search-result .search-meta .pull-left.post-meta-category:before, .news-item h2 .pull-left.ext-link::after, .news-item .news-meta .pull-left.news-meta-date:before, .news-item .news-meta .pull-left.news-meta-categories:before, .news-details .pull-left.post-meta-tags:before, .news-details .pull-left.post-meta-date:before, .news-details .pull-left.post-meta-categories:before, .organigram .pull-left.toggle-icon, .hero-navigation li.pull-left:before, #hero-slides .pull-left.slick-next:before, #hero-slides .pull-left.slick-prev:before, .helpermenus li.pull-left:before, .helpermenus h3 a.pull-left.ext-link:after, .pull-left#mainnav-toggle-close:before, .pull-left#mainnav-toggle:before, .nav > li.has-sub > a.pull-left:before,
-.nav > li.has-sub > .pull-left[type=button]:before, .sorttable th.pull-left::after, ul.social li.social-iconbyurl a.pull-left::before, ul.social li.social-wikipedia a.pull-left:before, ul.social li.social-itunes a.pull-left:before, ul.social li.social-youtube a.pull-left:before, ul.social li.social-vimeo a.pull-left:before, ul.social li.social-feed a.pull-left:before, ul.social li.social-flickr a.pull-left:before, ul.social li.social-delicious a.pull-left:before, ul.social li.social-tumblr a.pull-left:before, ul.social li.social-skype a.pull-left:before, ul.social li.social-github a.pull-left:before, ul.social li.social-xing a.pull-left:before, ul.social li.social-twitter a.pull-left:before, ul.social li.social-facebook a.pull-left:before, ul.social li.social-instagram a.pull-left:before, ul.social li.social-pinterest a.pull-left:before, ul.social li.social-diaspora a.pull-left:before {
+.nav > li.has-sub > .pull-left[type=button]:before, ul.social li.social-iconbyurl a.pull-left::before, ul.social li.social-wikipedia a.pull-left:before, ul.social li.social-itunes a.pull-left:before, ul.social li.social-youtube a.pull-left:before, ul.social li.social-vimeo a.pull-left:before, ul.social li.social-feed a.pull-left:before, ul.social li.social-flickr a.pull-left:before, ul.social li.social-delicious a.pull-left:before, ul.social li.social-tumblr a.pull-left:before, ul.social li.social-skype a.pull-left:before, ul.social li.social-github a.pull-left:before, ul.social li.social-xing a.pull-left:before, ul.social li.social-twitter a.pull-left:before, ul.social li.social-facebook a.pull-left:before, ul.social li.social-instagram a.pull-left:before, ul.social li.social-pinterest a.pull-left:before, ul.social li.social-diaspora a.pull-left:before {
   margin-right: 0.3em;
 }
 
 .fa.pull-right, .accordion .accordion-group .accordion-heading .pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-right:before, .pull-right.wpcf7-not-valid-tip:before, .pull-right.wpcf7-validation-errors:before, .pull-right.wpcf7-mail-sent-ok:before, .imagelink .pull-right.slick-next:before, .imagelink .pull-right.slick-prev:before, .image-gallery .gallery-slick .pull-right.slick-next:before, .image-gallery .gallery-slick .pull-right.slick-prev:before, .search-result .search-meta .pull-right.download:before, .search-result .search-meta .pull-right.post-meta-attachment:before, .search-result .search-meta .pull-right.post-meta-news-external:before, .search-result .search-meta .pull-right.post-meta-news:before, .search-result .search-meta .pull-right.post-meta-defaulttype:before, .search-result .search-meta .pull-right.post-meta-kontakt:before, .search-result .search-meta .pull-right.post-meta-event:before, .search-result .search-meta .pull-right.post-meta-date:before, .search-result .search-meta .pull-right.post-meta-category:before, .news-item h2 .pull-right.ext-link::after, .news-item .news-meta .pull-right.news-meta-date:before, .news-item .news-meta .pull-right.news-meta-categories:before, .news-details .pull-right.post-meta-tags:before, .news-details .pull-right.post-meta-date:before, .news-details .pull-right.post-meta-categories:before, .organigram .pull-right.toggle-icon, .hero-navigation li.pull-right:before, #hero-slides .pull-right.slick-next:before, #hero-slides .pull-right.slick-prev:before, .helpermenus li.pull-right:before, .helpermenus h3 a.pull-right.ext-link:after, .pull-right#mainnav-toggle-close:before, .pull-right#mainnav-toggle:before, .nav > li.has-sub > a.pull-right:before,
-.nav > li.has-sub > .pull-right[type=button]:before, .sorttable th.pull-right::after, ul.social li.social-iconbyurl a.pull-right::before, ul.social li.social-wikipedia a.pull-right:before, ul.social li.social-itunes a.pull-right:before, ul.social li.social-youtube a.pull-right:before, ul.social li.social-vimeo a.pull-right:before, ul.social li.social-feed a.pull-right:before, ul.social li.social-flickr a.pull-right:before, ul.social li.social-delicious a.pull-right:before, ul.social li.social-tumblr a.pull-right:before, ul.social li.social-skype a.pull-right:before, ul.social li.social-github a.pull-right:before, ul.social li.social-xing a.pull-right:before, ul.social li.social-twitter a.pull-right:before, ul.social li.social-facebook a.pull-right:before, ul.social li.social-instagram a.pull-right:before, ul.social li.social-pinterest a.pull-right:before, ul.social li.social-diaspora a.pull-right:before {
+.nav > li.has-sub > .pull-right[type=button]:before, ul.social li.social-iconbyurl a.pull-right::before, ul.social li.social-wikipedia a.pull-right:before, ul.social li.social-itunes a.pull-right:before, ul.social li.social-youtube a.pull-right:before, ul.social li.social-vimeo a.pull-right:before, ul.social li.social-feed a.pull-right:before, ul.social li.social-flickr a.pull-right:before, ul.social li.social-delicious a.pull-right:before, ul.social li.social-tumblr a.pull-right:before, ul.social li.social-skype a.pull-right:before, ul.social li.social-github a.pull-right:before, ul.social li.social-xing a.pull-right:before, ul.social li.social-twitter a.pull-right:before, ul.social li.social-facebook a.pull-right:before, ul.social li.social-instagram a.pull-right:before, ul.social li.social-pinterest a.pull-right:before, ul.social li.social-diaspora a.pull-right:before {
   margin-left: 0.3em;
 }
 
 .fa-spin {
-  -webkit-animation: fa-spin 2s infinite linear;
-          animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
 }
 
 .fa-pulse {
-  -webkit-animation: fa-spin 1s infinite steps(8);
-          animation: fa-spin 1s infinite steps(8);
-}
-
-@-webkit-keyframes fa-spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(359deg);
-  }
+  animation: fa-spin 1s infinite steps(8);
 }
 @keyframes fa-spin {
   0% {
@@ -6846,15 +6835,6 @@ table tr.right td, table tr.right th {
   text-align: right;
 }
 
-.sorttable th::after {
-  margin-left: 5px;
-  content: "\f0dc";
-}
-
-.tablesorter-header-inner {
-  display: inline-block;
-}
-
 /*-----------------------------------------------------------------------------------*/
 /* Blockquotes, Cites, Abbr
 /*-----------------------------------------------------------------------------------*/
@@ -9147,7 +9127,8 @@ body.embedded .news-item .news-meta {
   display: flex;
   height: 100%;
   flex-wrap: nowrap;
-  column-gap: 15px;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
   justify-content: space-between;
   align-items: center;
 }
@@ -9187,7 +9168,8 @@ body.embedded .news-item .news-meta {
   padding: 0;
   font-family: "FAU Chimera", sans-serif;
   font-weight: bold;
-  column-gap: 15px;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
   row-gap: 0.5rem;
 }
 #headerwrapper header .branding .sitetitle .custom-logo-link svg,
@@ -9217,7 +9199,8 @@ body.embedded .news-item .news-meta {
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: nowrap;
-  column-gap: 15px;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
   row-gap: 0;
 }
 @media (max-width: 480px), (min-width: 768px) and (max-width: 1200px) {
@@ -9480,7 +9463,8 @@ body.nav-toggled #headerwrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    column-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
     padding: 5px 0;
     background-color: transparent;
   }
@@ -9582,7 +9566,8 @@ body.nav-toggled #headerwrapper {
   .meta-links .meta-nav.menu {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
     margin-top: 0;
   }
 }
@@ -10039,7 +10024,8 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 }
 .nav .level2 > li.has-sub {
   page-break-inside: avoid;
-  break-inside: avoid;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
   margin-bottom: 20px;
 }
 .nav .level2 > li > a {
@@ -10069,11 +10055,12 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   .mainnav-plainview .nav .flyout-entries-full {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     flex-direction: column;
   }
   .mainnav-plainview .nav .flyout-entries-full.column-count-1 ul.level2, .mainnav-plainview .nav .flyout-entries-full.column-count-1 ul.level3, .mainnav-plainview .nav .flyout-entries-full.column-count-2 ul.level2, .mainnav-plainview .nav .flyout-entries-full.column-count-2 ul.level3, .mainnav-plainview .nav .flyout-entries-full.column-count-3 ul.level2, .mainnav-plainview .nav .flyout-entries-full.column-count-3 ul.level3, .mainnav-plainview .nav .flyout-entries-full.column-count-4 ul.level2, .mainnav-plainview .nav .flyout-entries-full.column-count-4 ul.level3 {
-    column-width: 330px;
+    -moz-column-width: 330px;
+         column-width: 330px;
   }
   .mainnav-plainview .nav .flyout-entries-full.column-count-1 .button-portal, .mainnav-plainview .nav .flyout-entries-full.column-count-2 .button-portal, .mainnav-plainview .nav .flyout-entries-full.column-count-3 .button-portal, .mainnav-plainview .nav .flyout-entries-full.column-count-4 .button-portal {
     margin-right: auto;
@@ -10088,7 +10075,8 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 }
 @media (min-width: 768px) {
   .mainnav-plainview .nav .flyout-entries-full.column-count-1 ul.level2, .mainnav-plainview .nav .flyout-entries-full.column-count-1 ul.level3 {
-    column-count: 1;
+    -moz-column-count: 1;
+         column-count: 1;
   }
   .mainnav-plainview .nav .flyout-entries-full.column-count-1 .button-portal {
     margin-left: 543px;
@@ -10096,7 +10084,8 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 }
 @media (min-width: 768px) {
   .mainnav-plainview .nav .flyout-entries-full.column-count-2 ul.level2, .mainnav-plainview .nav .flyout-entries-full.column-count-2 ul.level3 {
-    column-count: 2;
+    -moz-column-count: 2;
+         column-count: 2;
   }
   .mainnav-plainview .nav .flyout-entries-full.column-count-2 .button-portal {
     margin-left: 369px;
@@ -10104,12 +10093,14 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 }
 @media (min-width: 768px) {
   .mainnav-plainview .nav .flyout-entries-full.column-count-3 ul.level2, .mainnav-plainview .nav .flyout-entries-full.column-count-3 ul.level3, .mainnav-plainview .nav .flyout-entries-full.column-count-4 ul.level2, .mainnav-plainview .nav .flyout-entries-full.column-count-4 ul.level3 {
-    column-count: 3;
+    -moz-column-count: 3;
+         column-count: 3;
   }
 }
 @media (min-width: 768px) and (max-width: 1029px) {
   .mainnav-plainview .nav .flyout-entries-full.column-count-3 ul.level2, .mainnav-plainview .nav .flyout-entries-full.column-count-3 ul.level3, .mainnav-plainview .nav .flyout-entries-full.column-count-4 ul.level2, .mainnav-plainview .nav .flyout-entries-full.column-count-4 ul.level3 {
-    column-count: 2;
+    -moz-column-count: 2;
+         column-count: 2;
   }
 }
 @media (min-width: 768px) {
@@ -10603,7 +10594,8 @@ main .subpages-menu a:focus svg .fallback,
   margin: 20px 0;
   display: flex;
   justify-content: space-around;
-  column-gap: 10px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
   row-gap: 20px;
   flex-wrap: wrap;
 }
@@ -10612,7 +10604,8 @@ main .subpages-menu a:focus svg .fallback,
 }
 @media (min-width: 768px) {
   .subpages-menu {
-    column-gap: 15px;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
     row-gap: 30px;
   }
 }
@@ -12898,7 +12891,8 @@ ul.assistant-tabs-nav li:last-child {
 @media (min-width: 768px) {
   .news-item .teaser-row {
     flex-wrap: nowrap;
-    column-gap: calc(30px / 2);
+    -moz-column-gap: calc(30px / 2);
+         column-gap: calc(30px / 2);
   }
 }
 .news-item .teaser-row .thumbnailregion {
@@ -13217,7 +13211,8 @@ main .news-more-links .news-rss:hover:before {
 @media (min-width: 480px) {
   .search-result .search-row {
     flex-wrap: nowrap;
-    column-gap: 30px;
+    -moz-column-gap: 30px;
+         column-gap: 30px;
   }
 }
 .search-result .search-row .searchresult-image {

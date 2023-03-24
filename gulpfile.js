@@ -296,11 +296,11 @@ function buildmainstyle() {
  */
 function devbuildmainstyle() {
     var plugins = [
-        autoprefixer(),
+        autoprefixer()
 	// cssnano()
     ];
   return src([info.source.sass + 'fau-theme-style.scss'])
-   .pipe(header(banner, { info : info }))
+    .pipe(header(banner, { info : info }))
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
     .pipe(rename(info.maincss))
@@ -353,7 +353,8 @@ function bundlemainjs() {
     return src([info.source.js + 'main/jquery.fancybox.js',
 	    //    info.source.js + 'main/jquery.hoverIntent.min.js',
 		// we remove hoverIntent, cause its already provider from wordpress
-	    info.source.js + 'main/jquery.tablesorter.min.js',
+	    //  info.source.js + 'main/jquery.tablesorter.min.js',
+	        //  tablesorter moved in elements plugin (March 2023)   
 	    //  info.source.js + 'main/slick.js',
 		// we remove slick from the main js to reduce the data transfered
 		// in default situations. slick we only use on special pages, where we
@@ -504,6 +505,7 @@ exports.makewplinkjs = makewplinkjs;
 exports.clone = cloneTheme;
 exports.buildmainstyle = buildmainstyle;
 exports.buildprintstyle = buildprintstyle;
+exports.devbuildmainstyle = devbuildmainstyle;
 exports.debugmode = set_debugmode;
 exports.nodebug = unset_debugmode;
 

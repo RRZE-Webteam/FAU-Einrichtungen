@@ -163,16 +163,3 @@ table {
 	
 	
 }
-.sorttable {
-	    th::after {
-		@extend .fa;
-		margin-left: 5px;
-		content: "\f0dc";
-		
-	    }
-	}
-
-	
-.tablesorter-header-inner {
-    display: inline-block;
-}

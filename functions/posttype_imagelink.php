@@ -18,11 +18,14 @@ function imagelink_taxonomy() {
 		'imagelinks_category',  
 		'imagelink',   		
 		array(
-			'hierarchical' 	=> true,
-			'label' 	=> __('Bildlink-Kategorien', 'fau'), 
-			'query_var' 	=> true,
-			'rewrite'	=> array(
-			    'slug' 		=> 'imagelinks',
+			'hierarchical'          => true,
+			'query_var'             => true,
+            'show_tagcloud'         => false,
+            'show_in_quick_edit'    => false,
+            'show_in_rest'          => false,
+            'show_in_nav_menus'     => false,
+			'rewrite'   => array(
+			    'slug'          => 'imagelinks',
 			    'with_front' 	=> false
 			)
 		)
@@ -60,13 +63,13 @@ function imagelink_post_type() {
 		'public'              => true,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
-		'show_in_nav_menus'   => true,
-		'show_in_admin_bar'   => true,
-  	 	'menu_icon'		=> 'dashicons-format-image',
+		'show_in_nav_menus'   => false,
+		'show_in_admin_bar'   => false,
+  	 	'menu_icon'             => 'dashicons-format-image',
 		'can_export'          => true,
 		'has_archive'         => false,
 		'exclude_from_search' => true,
-		'publicly_queryable'  => true,
+		'publicly_queryable'  => false,
 		'query_var'           => 'imagelink',
 		'rewrite'             => false,
 	
