@@ -1,0 +1,20 @@
+/*-----------------------------------------------------------------------------------*/
+/* CSS adjustment for The Events Calandar Plugin
+/*-----------------------------------------------------------------------------------*/
+
+.tribe-events {
+    // none yet
+}
+
+
+// No add for tribe events in dashboard
+.tribe-notice-event-tickets-install {
+    display: none;
+}
+
+#tribe_events_event_details {
+    .eventBritePluginPlug, .eventBritePluginPlug {
+	display: none;
+    }
+}
+
