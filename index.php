@@ -19,32 +19,29 @@ get_header();
 $posttype = get_post_type();
 $screenreadertitle = '';
 $herotype = get_theme_mod('advanced_header_template');
-if (($posttype == 'post') && (is_archive())) {
-    
+if (($posttype == 'post') && (is_archive())) {    
     if ($herotype=='banner') {
-	get_template_part('template-parts/hero', 'banner');
+        get_template_part('template-parts/hero', 'banner');
     } elseif ($herotype=='slider') {	
-	get_template_part('template-parts/hero', 'sliderpage-slider');
+        get_template_part('template-parts/hero', 'sliderpage-slider');
     } else {
-	get_template_part('template-parts/hero', 'category');
+        get_template_part('template-parts/hero', 'category');
     }
     if (is_category()) {
-	$screenreadertitle = single_cat_title("", false);
+        $screenreadertitle = single_cat_title("", false);
     } else {
-	$screenreadertitle = get_the_archive_title();
+        $screenreadertitle = get_the_archive_title();
     }
 
 } else {
      if ($herotype=='banner') {
-	get_template_part('template-parts/hero', 'banner');
+        get_template_part('template-parts/hero', 'banner');
     } elseif ($herotype=='slider') {	
-	get_template_part('template-parts/hero', 'sliderpage-slider');
+        get_template_part('template-parts/hero', 'sliderpage-slider');
     } else {
-      get_template_part('template-parts/hero', 'banner');
-//	get_template_part('template-parts/hero', 'index');
+        get_template_part('template-parts/hero', 'banner');
     }
 	
-   
     $screenreadertitle = __('Index','fau');
 }
 ?>

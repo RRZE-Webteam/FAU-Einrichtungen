@@ -27,7 +27,7 @@
 		width: 100%;
 		line-height: 2.5rem;
 		padding: 0.2rem;		
-		@include border-radius(4px);
+		@include border-radius(var(--border-radius-buttons, 4px));
 		
 	    }
 

@@ -9,8 +9,7 @@
 
     get_header();    
     get_template_part('template-parts/hero', 'banner');
-
-    
+  
 ?>
 
     <div id="content" class="start-sub">   

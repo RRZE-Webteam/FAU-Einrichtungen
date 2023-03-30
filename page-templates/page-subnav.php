@@ -8,11 +8,8 @@
  */
 global $is_sidebar_active;
 get_header(); ?>
-
+<?php get_template_part('template-parts/hero', 'small'); ?>
 <?php while ( have_posts() ) : the_post(); ?>
-
-	<?php get_template_part('template-parts/hero', 'small'); ?>
-
 	<div id="content" class="subnav">
 	    <div class="content-container">			
 		<div class="content-row">	
