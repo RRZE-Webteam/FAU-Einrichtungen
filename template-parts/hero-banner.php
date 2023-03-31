@@ -18,7 +18,6 @@ $startseite_banner_image_id = get_theme_mod("startseite_banner_image_id");
 if (isset($banner) && ($banner > 0)) {
 
     $image = fau_get_image_htmlcode($banner, 'herobanner', '');
-    
     $imgdata = fau_get_image_attributs($banner);
     $copyright = trim(strip_tags( $imgdata['credits'] ));
 } elseif (isset($startseite_banner_image_id) && ($startseite_banner_image_id>0)) {
@@ -46,51 +45,50 @@ if ((filter_var($copyright, FILTER_VALIDATE_URL)) && (preg_match('/\/cropped\-/'
 ?>
 
     <section id="hero" class="hero-banner">
-	<div class="banner" aria-hidden="true" role="presentation">
-	    <div class="introimg">
-		<?php 
-		
-		echo $image."\n"; 
-		if (($show_copyright) && (!empty($copyright))) {
-		    echo '<p class="credits">'.$copyright."</p>";
-		} 
-		?>
-		 <div class="banner-text">
-		    <div class="hero-container">
-			<div class="hero-row">
-                            
-                            <?php  
-                                $title = get_bloginfo( 'title' );
-                                $header_image = get_header_image();
-                                $infobarclass= "infobar";
-                                $length = 0;
-                               
-                                if ((!empty( $header_image ) && (!fau_empty($title)) )){
-                                   $length = strlen($title);
-                                   if ($length > 50) {
-                                       $infobarclass .= " fullsize";
-                                   }
-                                }
-                            ?>
-				<div class="<?php echo $infobarclass;?>">				    
-				    <?php 
-				    if (!fau_empty($title)) {	
-					echo '<p class="sitetitle">'. $title. '</p>';
-				    }
-				    $desc = strip_tags(get_bloginfo( 'description' ));
-				    if (!fau_empty($desc)) {
-                                    
-					echo '<div class="slogan"><p class="description';
-                                        if ($length > 80) {
-                                            echo " screen-reader-text";
-                                        }
-                                        echo '">'.$desc."</p></div>";
-				    }
-				    ?>
-				</div>
-			</div>		   
-		    </div>
-		 </div>    
-	    </div>
-	</div>
+        <div class="banner" aria-hidden="true" role="presentation">
+            <div class="introimg">
+                <?php 
+                echo $image."\n"; 
+                if (($show_copyright) && (!empty($copyright))) {
+                    echo '<p class="credits">'.$copyright."</p>";
+                } 
+                ?>
+                <div class="banner-text">
+                   <div class="hero-container">
+                   <div class="hero-row">
+
+                       <?php  
+                           $title = get_bloginfo( 'title' );
+                           $header_image = get_header_image();
+                           $infobarclass= "infobar";
+                           $length = 0;
+
+                           if ((!empty( $header_image ) && (!fau_empty($title)) )){
+                              $length = strlen($title);
+                              if ($length > 50) {
+                                  $infobarclass .= " fullsize";
+                              }
+                           }
+                       ?>
+                       <div class="<?php echo $infobarclass;?>">				    
+                           <?php 
+                           if (!fau_empty($title)) {	
+                            echo '<p class="sitetitle">'. $title. '</p>';
+                           }
+                           $desc = strip_tags(get_bloginfo( 'description' ));
+                           if (!fau_empty($desc)) {
+
+                           echo '<div class="slogan"><p class="description';
+                                               if ($length > 80) {
+                                                   echo " screen-reader-text";
+                                               }
+                                               echo '">'.$desc."</p></div>";
+                           }
+                           ?>
+                       </div>
+                   </div>		   
+                   </div>
+                </div>    
+            </div>
+        </div>
     </section>

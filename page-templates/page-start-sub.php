@@ -8,8 +8,7 @@
  */
 
     get_header();    
-    get_template_part('template-parts/hero', 'banner');
-  
+
 ?>
 
     <div id="content" class="start-sub">   
@@ -150,7 +149,6 @@
 		} ?>
 	</div>
     </div>  
-<?php get_template_part('template-parts/footer', 'social'); ?>	
 <?php 
 get_footer(); 
 

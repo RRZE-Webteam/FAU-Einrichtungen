@@ -8,7 +8,7 @@
  */
 
 get_header(); ?>
-<?php get_template_part('template-parts/hero', 'small'); ?>
+
 <?php while ( have_posts() ) : the_post(); ?>
 
     <div id="content">
@@ -52,7 +52,5 @@ get_header(); ?>
 	
 	
     </div>
-<?php endwhile; ?>
-<?php get_template_part('template-parts/footer', 'social'); ?>	
-<?php 
+<?php endwhile; 
 get_footer();

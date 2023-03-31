@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.3-1
+Version: 2.3.3-2
 Requires at least: 6.0
 Tested up to: 6.1
 Requires PHP: 8.0
@@ -171,7 +171,7 @@ Text Domain: fau
   --color-menulink-hover-text: #fff;
   --color-menulink-hover-bg: #004A9F;
   --border-radius: 4px;
-  --border-radius-buttons: 3px;
+  --border-radius-buttons: 4px;
 }
 
 /*
@@ -478,14 +478,14 @@ a.bg-danger:focus {
   clear: both;
 }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .hero-navigation .quicklinks, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, #hero .search-title, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .hero-navigation .infobar, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, #hero .search-input, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .flyout-entries-full, .col-sm-12, .search-result article, .col-md-12, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, #hero .search-title, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, #hero .search-input, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .flyout-entries-full, .col-sm-12, .search-result article, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .hero-navigation .infobar, .hero-navigation .quicklinks, .flyout-entries-full {
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .flyout-entries-full {
   float: left;
 }
 
@@ -533,7 +533,7 @@ a.bg-danger:focus {
   width: 91.6666666667%;
 }
 
-.col-xs-12, .hero-navigation .infobar, .hero-navigation .quicklinks, .flyout-entries-full {
+.col-xs-12, .flyout-entries-full {
   width: 100%;
 }
 
@@ -694,7 +694,7 @@ a.bg-danger:focus {
 }
 
 @media (min-width: 768px) {
-  .col-sm-1, .col-sm-2, .col-sm-3, .hero-navigation .quicklinks, .col-sm-4, #hero .search-title, .col-sm-5, .col-sm-6, .hero-navigation .infobar, .col-sm-7, .col-sm-8, #hero .search-input, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .search-result article {
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, #hero .search-title, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, #hero .search-input, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .search-result article {
     float: left;
   }
 
@@ -706,7 +706,7 @@ a.bg-danger:focus {
     width: 16.6666666667%;
   }
 
-  .col-sm-3, .hero-navigation .quicklinks {
+  .col-sm-3 {
     width: 25%;
   }
 
@@ -718,7 +718,7 @@ a.bg-danger:focus {
     width: 41.6666666667%;
   }
 
-  .col-sm-6, .hero-navigation .infobar {
+  .col-sm-6 {
     width: 50%;
   }
 
@@ -11616,49 +11616,6 @@ ol.breadcrumblist li:last-child::after {
 .hero-navigation li.gray {
   border-color: var(--color-StandardHellgrau);
 }
-.hero-navigation .quicklinks {
-  z-index: 10;
-}
-.hero-navigation .quicklinks p.headline {
-  font-weight: normal;
-  color: var(--color-hero-text);
-  font-size: 1.187rem;
-  line-height: 1.782rem;
-  padding: 0.5rem 0;
-}
-.hero-navigation .quicklinks h2 {
-  font-weight: bold;
-  padding-bottom: 0.6rem;
-  padding-top: 0;
-  color: var(--color-hero-text);
-}
-.hero-navigation .quicklinks h2.second {
-  padding-top: 1.2rem;
-}
-.hero-navigation .infobar {
-  z-index: 10;
-  padding-top: 0.2rem;
-}
-.hero-navigation .infobar p {
-  font-weight: normal;
-  color: #fff;
-}
-.hero-navigation .infobar p.sitetitle,
-.hero-navigation .infobar h1 {
-  font-size: 1.812rem;
-  line-height: 2.357rem;
-  -webkit-hyphens: none;
-          hyphens: none;
-  position: relative;
-  z-index: 10;
-  padding-top: 0;
-}
-.hero-navigation .infobar p.description {
-  font-size: 1.25rem;
-  line-height: 1.875rem;
-  padding: 0;
-  margin: 1rem 0 2rem 0;
-}
 .ismobile .hero-navigation {
   display: none;
 }
@@ -15515,7 +15472,7 @@ div.wpcf7-response-output {
   width: 100%;
   line-height: 2.5rem;
   padding: 0.2rem;
-  border-radius: 4px;
+  border-radius: var(--border-radius-buttons, 4px);
   background-clip: padding-box;
 }
 #content .fau-glossar .letters li a {

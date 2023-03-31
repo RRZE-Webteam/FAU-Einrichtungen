@@ -16,7 +16,7 @@ add_action( 'wp_enqueue_scripts', 'scroll_page_scripts' );
 
 // Load the header template
 get_header();
-get_template_part('template-parts/hero', 'small'); 
+
 ?>
 
 <!-- Your page content goes here -->

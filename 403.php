@@ -8,7 +8,6 @@
  */
 
 get_header();
-get_template_part('template-parts/hero', 'error');  
 ?>
  <div id="content">
     <div class="content-container">	   

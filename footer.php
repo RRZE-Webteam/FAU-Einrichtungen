@@ -10,7 +10,10 @@
  * @since FAU 1.0
  */
 
-	$website_type = get_theme_mod('website_type');			
+
+    get_template_part('template-parts/footer', 'social');
+	
+    $website_type = get_theme_mod('website_type');			
 	if (($website_type ==3 ) &&  ( is_active_sidebar( 'footer-block1' ) )) {  
 		$logoclass = "other";
 	} else {
