@@ -10,7 +10,7 @@
 
 
 get_header();
-get_template_part('template-parts/hero', 'search');  
+
 $notfound = false;
 ?>
  <div id="content">
@@ -148,6 +148,5 @@ $notfound = false;
     </div>
  </div>
 <?php
-get_template_part('template-parts/footer', 'social'); 
 get_footer();
 

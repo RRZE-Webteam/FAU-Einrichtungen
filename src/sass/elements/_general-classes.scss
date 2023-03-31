@@ -144,50 +144,6 @@ iframe {
 }
 
 
-/* Rahmen */
-
-
-.example {
-    padding: 20px 10px 5px 10px;
-    position: relative;
-    margin: 40px 20px;
-    border-radius: 2px;
-}
-
-.example::before {
-    content: "";
-    position: absolute;
-    top: -0.8rem;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border: 1px dashed var(--color-StandardHellgrau);
-    border-radius: 3px;
-}
-
-.example::after {
-    content: "Beispiel";
-    font-family: sans-serif;
-    text-transform: uppercase;
-    color: var(--color-Text);
-    font-weight: 700;
-    top: -1.7rem;
-    right: 10px;
-    padding: 3px 10px;
-    font-size: 0.8rem;
-    position: absolute;
-    z-index: 1;
-    background: white;
-    border: 1px dashed var(--color-StandardHellgrau);
-}
-
-:lang(en) .example:after {
-    content: 'Example';
-}
-
-.example[title]:after {
-    content:  attr(title);
-}
 
 .success {
 	color: green;

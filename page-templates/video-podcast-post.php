@@ -14,8 +14,8 @@ if (is_active_sidebar('news-sidebar')) {
 
 get_header();
 
-while (have_posts()) : the_post();
-	get_template_part('template-parts/hero', 'small'); ?>
+while (have_posts()) : the_post(); ?>
+	
 	<div id="content">
 		<div class="content-container">
 			<div class="post-row">
@@ -116,5 +116,4 @@ while (have_posts()) : the_post();
 		</div>
 	</div>
 <?php endwhile;
-get_template_part('template-parts/footer', 'social');
 get_footer();

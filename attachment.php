@@ -12,7 +12,6 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
-	<?php get_template_part('template-parts/hero', 'small'); ?>
 	<div id="content">
 		<div class="content-container">
 		    <div class="content-row">
@@ -96,5 +95,5 @@ while ( have_posts() ) : the_post(); ?>
 	</div>
 	
 <?php endwhile; ?>
-<?php get_template_part('template-parts/footer', 'social'); ?>	
+
 <?php get_footer(); 

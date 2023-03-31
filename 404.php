@@ -8,7 +8,7 @@
  */
 
 get_header();
-get_template_part('template-parts/hero', 'error');  
+
 ?>
  <div id="content">
     <div class="content-container">	   
@@ -43,6 +43,6 @@ get_template_part('template-parts/hero', 'error');
     </div>
  </div>
 <?php
-get_template_part('template-parts/footer', 'social'); 
+
 get_footer();
 

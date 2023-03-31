@@ -16,7 +16,7 @@ $content_width =$defaultoptions['content-width-fullpage'];
 
 while ( have_posts() ) : 
 	the_post(); 
-	get_template_part('template-parts/hero', 'small');
+	
 	?>
 	<div id="content">
 		<div class="content-container">
@@ -66,5 +66,4 @@ while ( have_posts() ) :
 	</div>
 	
 <?php endwhile;
-get_template_part('template-parts/footer', 'social');
 get_footer(); 

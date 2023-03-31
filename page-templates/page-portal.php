@@ -11,14 +11,12 @@ get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-    <?php get_template_part('template-parts/hero', 'small'); ?>
-
     <div id="content">
 	<div class="content-container">	  
             <?php get_template_part('template-parts/content', 'portalmenu-oben'); ?>
 	    <div class="content-row">
 		<div class="portalpage-content">
-		     <main<?php echo fau_get_page_langcode($post->ID);?>>
+		    <main<?php echo fau_get_page_langcode($post->ID);?>>
 			<h1 id="maintop" class="screen-reader-text"><?php the_title(); ?></h1>
 		    <?php 
 		   
@@ -29,17 +27,17 @@ get_header(); ?>
 			}
 			the_content(); 
                         
-                        get_template_part('template-parts/content', 'portalmenu-unten');
+            get_template_part('template-parts/content', 'portalmenu-unten');
                         	
-			    $logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
-			    if ($logoliste) {
+			$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
+			if ($logoliste) {
 				$logosize = get_post_meta( $post->ID, 'fauval_imagelink_size', true );
 				$size = $logosize != '' ? esc_attr($logosize) : "logo-thumb";
 				$logos = fau_imagelink_get(array('size' => $size, 'catid' => $logoliste));
 				if ((isset($logos) && (!empty($logos)))) {
 				    echo $logos;
 				}
-			    }
+			}
 
 			?>
 		    </main> 
@@ -54,7 +52,5 @@ get_header(); ?>
 	
 	
     </div>
-<?php endwhile; ?>
-<?php get_template_part('template-parts/footer', 'social'); ?>	
-<?php 
+<?php endwhile; 
 get_footer();

@@ -35,8 +35,7 @@ if ($custom_logo_id) {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<?php print_indented("wp_head",2); ?>
 	</head>
-	<body id="top" <?php body_class(); ?>><?php wp_body_open(); ?>
-		
+	<body id="top" <?php body_class(); ?>><?php wp_body_open(); ?>		
 		<div id="pagewrapper">
 			<div id="headerwrapper">
 				<?php print_indented('get_template_part', 4, 'template-parts/header-skiplinks'); ?>
@@ -86,30 +85,30 @@ if ($custom_logo_id) {
                         <nav class="meta-links"
                              aria-label="<?php _e('Navigation: Weitere Angebote', 'fau'); ?>">
                             <?php
-                            // FAU link
-			    if ($website_type !== '3' && $website_type !== '-1') {
-				echo fau_get_toplinks(null, 1);
-			    }
-                            ?>
-                            <?php
-                            // Breadcrumb
-                            if ($defaultoptions['debugmode'] && get_theme_mod('debug_orgabreadcrumb')) {
-                                get_template_part('template-parts/debugoutput', 'orga-breadcrumb');
-                            } elseif (is_plugin_active('fau-orga-breadcrumb/fau-orga-breadcrumb.php')) {
-                                get_template_part('template-parts/header', 'orga-breadcrumb');
-                            } ?>
-                            <?php
-                            // Search bar
-                            get_template_part('template-parts/header', 'search');
-                            // Language switcher
-                            if ($defaultoptions['debugmode'] && get_theme_mod('debug_sprachschalter')) {
-                                get_template_part('template-parts/debugoutput', 'sprachschalter');
-                            } elseif (is_active_sidebar('language-switcher')) {
-                                dynamic_sidebar('language-switcher');
-                            } ?>
-                            <?php
-                            // Top links
-                            echo fau_get_toplinks(null, 2);
+                                // FAU link
+                                if ($website_type !== '3' && $website_type !== '-1') {
+                                    echo fau_get_toplinks(null, 1);
+                                }
+                                
+                                // ORGA Breadcrumb
+                                if ($defaultoptions['debugmode'] && get_theme_mod('debug_orgabreadcrumb')) {
+                                    get_template_part('template-parts/debugoutput', 'orga-breadcrumb');
+                                } elseif (is_plugin_active('fau-orga-breadcrumb/fau-orga-breadcrumb.php')) {
+                                    get_template_part('template-parts/header', 'orga-breadcrumb');
+                                }
+                                
+                                // Search bar
+                                get_template_part('template-parts/header', 'search');
+                                
+                                // Language switcher
+                                if ($defaultoptions['debugmode'] && get_theme_mod('debug_sprachschalter')) {
+                                    get_template_part('template-parts/debugoutput', 'sprachschalter');
+                                } elseif (is_active_sidebar('language-switcher')) {
+                                    dynamic_sidebar('language-switcher');
+                                } 
+                                
+                                // Top links
+                                echo fau_get_toplinks(null, 2);
                             ?>
                         </nav>
                     </div>
@@ -127,14 +126,10 @@ if ($custom_logo_id) {
 
                                 <?php
                                 if ($show_customlogo) {
-                              //      $custom_logo_title = get_theme_mod('website_logotitle');
                                     echo '<p class="sitetitle">';
                                     echo '<meta itemprop="url" content="'.$logo_src.'">';
                                     echo '<meta itemprop="name" content="'.get_bloginfo('name', 'display').'">';
                                     echo get_custom_logo();
-                              //      if ($custom_logo_title) {
-                              //          echo '<span class="custom-logo-title">'.$custom_logo_title.'</span>';
-                              //      }
                                     echo '</p>';
                                 } else {
                                     get_template_part('template-parts/header', 'textlogo');
@@ -148,14 +143,13 @@ if ($custom_logo_id) {
                                 <a href="#top" id="mainnav-toggle-close"><span><?php _e("Menu", "fau"); ?> <?php _e("schließen", "fau"); ?></span></a>
                                 <div id="nav-wrapper">
                                     <?php
-
-                                            wp_nav_menu(array(
-                                                'theme_location' => 'main-menu',
-                                                'container'      => false,
-                                                'items_wrap'     => '<ul class="nav">%3$s</ul>',
-                                                'depth'          => 4,
-                                                'walker'         => new Walker_Main_Menu_Plainview
-                                            ));
+                                        wp_nav_menu(array(
+                                            'theme_location' => 'main-menu',
+                                            'container'      => false,
+                                            'items_wrap'     => '<ul class="nav">%3$s</ul>',
+                                            'depth'          => 4,
+                                            'walker'         => new Walker_Main_Menu_Plainview
+                                        ));
                                         
                                    ?>
                                 </div>
@@ -165,3 +159,5 @@ if ($custom_logo_id) {
                     </div>
                 </header>
             </div>
+<?php
+     get_template_part('template-parts/header', 'hero');

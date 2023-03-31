@@ -16,6 +16,7 @@ add_action( 'wp_enqueue_scripts', 'scroll_page_scripts' );
 
 // Load the header template
 get_header();
+
 ?>
 
 <!-- Your page content goes here -->

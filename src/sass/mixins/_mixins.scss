@@ -157,12 +157,12 @@ Mixins File for Wordpress Theme FAU
     margin: 10px 0 0 0;
     padding: 8px 10px;
     text-decoration: none;
-    @include border-radius(3px);
+    @include border-radius(var(--border-radius-buttons, 3px));
     @include px2rem($font-size-textbuttons);
 
     a {
         @include inline-block;
-        @include border-radius(3px);
+        @include border-radius(var(--border-radius-buttons, 3px));
         @include px2rem($font-size-textbuttons);
 	    @include buttoncolor();
         padding: 6px 10px;
@@ -233,7 +233,7 @@ Mixins File for Wordpress Theme FAU
     }
 }
 
-@mixin buttonstyle($radius: 3px) {
+@mixin buttonstyle($radius: var(--border-radius-buttons, 3px)) {
     @include inline-block;
     @include border-radius($radius);
     @include px2rem($font-size-textbuttons);
@@ -248,7 +248,7 @@ Mixins File for Wordpress Theme FAU
     }
 }
 
-@mixin ghostbutton($radius: 3px, $border: 1px) {
+@mixin ghostbutton($radius: var(--border-radius-buttons, 3px), $border: 1px) {
     @include buttonstyle($radius);
     
     border: $border solid var(--color-ContentBorders);

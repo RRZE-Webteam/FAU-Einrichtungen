@@ -29,12 +29,6 @@ function fau_register_menus()
     register_nav_menu('main-menu', __('Haupt-Navigation', 'fau'));
     // Hauptnavigation
 
-    if ($website_type == 0) {
-        // Buehnennavigation Template Portal Startseite mit 2 Spalten
-        register_nav_menu('quicklinks-3', __('Startseite Fakultät: Bühne Spalte 1', 'fau'));
-        register_nav_menu('quicklinks-4', __('Startseite Fakultät: Bühne Spalte 2', 'fau'));
-    }
-
 
     register_nav_menu($defaultoptions['socialmedia_menu_position'], $defaultoptions['socialmedia_menu_position_title']);
     // Social Media Menu (seit 1.9.5)

@@ -253,18 +253,15 @@ function fau_use_sidebar($activate)
 }
 
 
-function fau_prefix_custom_site_icon_size($sizes)
-{
+function fau_prefix_custom_site_icon_size($sizes) {
     $sizes[] = 64;
     $sizes[] = 120;
 
     return $sizes;
 }
-
 add_filter('site_icon_image_sizes', 'fau_prefix_custom_site_icon_size');
 
-function fau_prefix_custom_site_icon_tag($meta_tags)
-{
+function fau_prefix_custom_site_icon_tag($meta_tags) {
     $meta_tags[] = sprintf('<link rel="icon" href="%s" sizes="64x64" />', esc_url(get_site_icon_url(null, 64)));
     $meta_tags[] = sprintf('<link rel="icon" href="%s" sizes="120x120" />', esc_url(get_site_icon_url(null, 120)));
 
@@ -275,8 +272,7 @@ add_filter('site_icon_meta_tags', 'fau_prefix_custom_site_icon_tag');
 /*-----------------------------------------------------------------------------------*/
 /* Define errorpages 401 and 403
 /*-----------------------------------------------------------------------------------*/
-function custom_error_pages()
-{
+function custom_error_pages() {
     global $wp_query;
 
     if (isset($_REQUEST['status']) && $_REQUEST['status'] == 403) {
@@ -310,8 +306,7 @@ function custom_error_pages()
     }
 }
 
-function custom_error_title($title = '', $sep = '')
-{
+function custom_error_title($title = '', $sep = '') {
     if (isset($_REQUEST['status']) && $_REQUEST['status'] == 403) {
         return __('Zugriff nicht gestattet', 'fau');
     }
@@ -322,8 +317,7 @@ function custom_error_title($title = '', $sep = '')
 }
 
 
-function custom_error_class($classes)
-{
+function custom_error_class($classes) {
     if (isset($_REQUEST['status']) && $_REQUEST['status'] == 403) {
         $classes[] = "error403";
 
@@ -343,8 +337,7 @@ add_action('wp', 'custom_error_pages');
 /*-----------------------------------------------------------------------------------*/
 /*  Anzeige Suchergebnisse
 /*-----------------------------------------------------------------------------------*/
-function fau_display_search_resultitem()
-{
+function fau_display_search_resultitem() {
     global $post;
     global $defaultoptions;
 
