@@ -246,10 +246,10 @@ function fau_dns_prefetch() {
     if (($host) && (count($host)>1)) {
         $prefetchDomains[] = $scheme.'://'.$host[count($host)-2].'.'.$host[count($host)-1];
 	
-	 // check for third level
-	if (count($host)>2) {
-	    $prefetchDomains[] = $scheme.'://'.$host[count($host)-3].'.'.$host[count($host)-2].'.'.$host[count($host)-1];
-	}
+        // check for third level
+       if (count($host)>2) {
+           $prefetchDomains[] = $scheme.'://'.$host[count($host)-3].'.'.$host[count($host)-2].'.'.$host[count($host)-1];
+       }
     }
    
 
@@ -340,7 +340,7 @@ function fau_addmjobsad() {
     global $defaultoptions;
 
     if ($defaultoptions['default-sourcecode-notice']) {
-	echo '<!-- '.$defaultoptions['default-sourcecode-notice-text'].' -->'."\n";
+        echo '<!-- '.$defaultoptions['default-sourcecode-notice-text'].' -->'."\n";
     }
 }
 add_action('wp_head', 'fau_addmjobsad',10);
@@ -407,8 +407,6 @@ require_once( get_template_directory() . '/functions/gutenberg.php');
 /*-----------------------------------------------------------------------------------*/
 /*Hide and show feutured image
 /*-----------------------------------------------------------------------------------*/
-
-
 function hide_featured_image_meta_box() {
     add_meta_box( 'hide_featured_image', 'Featured Image', 'hide_featured_image_callback', 'post', 'side', 'low' );
 }

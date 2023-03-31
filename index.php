@@ -37,7 +37,7 @@ if (($posttype == 'post') && (is_archive())) {
 			<?php if(get_post_type() == 'post') { ?>
 			<main class="entry-content">
 			<?php } else { ?>
-			<main class="col-xs-12">
+			<main>
 			<?php } 
 			    
 			    if (empty($herotype)) {   ?>
