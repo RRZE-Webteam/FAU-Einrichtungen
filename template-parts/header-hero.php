@@ -19,7 +19,6 @@ if (is_search()) {
     $posttype = get_post_type();
     $herotype = get_theme_mod('advanced_header_template');
     $page_template = basename(get_page_template());
-
     switch ($page_template) {
 
         case 'page-start-sub.php':
