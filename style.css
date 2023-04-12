@@ -10676,6 +10676,12 @@ main .subpages-menu a:focus svg .fallback,
   }*/
 }
 
+.listview {
+  display: flex;
+  gap: 10px 10px;
+  flex-wrap: wrap;
+}
+
 /*-----------------------------------------------------------------------------------*/
 /* Allgemeine Klasse für Breadcrumbs
 /*-----------------------------------------------------------------------------------*/

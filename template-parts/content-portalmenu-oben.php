@@ -42,6 +42,11 @@ if ($menuslug) {
     if ($skewed) {
 	 $shortcodeopt .= ' skewed="true"';
     }
+
+    $listview = get_post_meta($post->ID, 'fauval_portalmenu_listview_oben', true);
+    if ($listview) {
+        $shortcodeopt .= ' listview="true"';
+    }
     
     
     echo do_shortcode('[portalmenu '.$shortcodeopt.']');

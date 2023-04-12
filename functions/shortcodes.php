@@ -43,6 +43,7 @@ class FAUShortcodes
 				'nofallback' => false,
 				'type' => 1,
 				'skewed' => false,
+				'listview' => false,
 			), $atts));
 
 		$out = '';
@@ -56,7 +57,7 @@ class FAUShortcodes
 			$nothumbs = filter_var($nothumbs, FILTER_VALIDATE_BOOLEAN);
 			$nofallback = filter_var($nofallback, FILTER_VALIDATE_BOOLEAN);
 			$skewed = filter_var($skewed, FILTER_VALIDATE_BOOLEAN);
-
+			$listview = filter_var($listview, FILTER_VALIDATE_BOOLEAN);
 
 			if ($menu == sanitize_key($menu)) {
 				$term = get_term_by('id', $menu, 'nav_menu');
@@ -109,8 +110,10 @@ class FAUShortcodes
 				if ($nothumbs === true) {
 					$a_contentmenuclasses[] = 'no-thumb';
 				}
+				if ($listview === true) {
+					$a_contentmenuclasses[] = 'listview';
+				}
 				$out .= '<div class="' . implode(' ', $a_contentmenuclasses) . '" role="navigation" aria-label="' . __('Inhaltsmenü', 'fau') . '">';
-				$out .= '<ul class="subpages-menu">';
 				$outnav = wp_nav_menu(
 					array(
 						'menu' => $slug,
@@ -121,11 +124,16 @@ class FAUShortcodes
 						'link_after' => '',
 						'item_spacing' => 'discard',
 
-						'walker' => new Walker_Content_Menu($slug, $showsubs, $subentries, $nothumbs, $nofallback, $thumbnail)
+						'walker' => new Walker_Content_Menu($slug, $showsubs, $subentries, $nothumbs, $nofallback, $thumbnail, $listview)
 					)
 				);
-				$out .= $outnav;
-				$out .= "</ul></div>";
+				if ($listview === true) {
+					$out .= $outnav;
+				} else {
+					$out .= '<ul class="subpages-menu">';
+					$out .= $outnav;
+					$out .= '</ul>';				}
+				$out .= '</div>';
 			}
 		} else {
 			$out = $error;
