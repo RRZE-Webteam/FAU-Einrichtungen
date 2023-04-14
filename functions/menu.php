@@ -538,10 +538,6 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                 $atts['class'] = 'subpage-item';
             }
 
-            if ($this->listview) {
-                $atts['class'] = 'standard-btn primary-btn';
-            }
-            
             if (fau_is_url_external($atts['href'])){      
                 if (isset($atts['class'])) {
                     $atts['class'] .= ' ext-link';

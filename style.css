@@ -10681,6 +10681,19 @@ main .subpages-menu a:focus svg .fallback,
   gap: 10px 10px;
   flex-wrap: wrap;
 }
+.listview a {
+  border-radius: var(--border-radius-buttons, 3px);
+  font-size: 0.937rem;
+  line-height: 1.407rem;
+  color: #222;
+  background-color: #DFE6EC;
+  padding: 0.5rem 0.7rem;
+}
+.listview a:hover {
+  text-decoration: none;
+  background-color: var(--color-menulink-hover-bg);
+  color: var(--color-menulink-hover-text);
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Allgemeine Klasse für Breadcrumbs
