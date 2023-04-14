@@ -42,7 +42,6 @@ class FAUShortcodes
 				'nothumbs' => false,
 				'nofallback' => false,
 				'type' => 1,
-				'skewed' => false,
 				'listview' => false,
 			), $atts));
 
@@ -56,7 +55,6 @@ class FAUShortcodes
 			$showsubs = filter_var($showsubs, FILTER_VALIDATE_BOOLEAN);
 			$nothumbs = filter_var($nothumbs, FILTER_VALIDATE_BOOLEAN);
 			$nofallback = filter_var($nofallback, FILTER_VALIDATE_BOOLEAN);
-			$skewed = filter_var($skewed, FILTER_VALIDATE_BOOLEAN);
 			$listview = filter_var($listview, FILTER_VALIDATE_BOOLEAN);
 
 			if ($menu == sanitize_key($menu)) {
@@ -96,11 +94,6 @@ class FAUShortcodes
 						break;
 				}
 
-
-
-				if ($skewed === true) {
-					$a_contentmenuclasses[] = 'skewed';
-				}
 				if ($showsubs === false) {
 					$a_contentmenuclasses[] = 'no-sub';
 				}

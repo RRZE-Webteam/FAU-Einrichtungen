@@ -38,10 +38,6 @@ if ($menuslug) {
 	$shortcodeopt .= ' type="'.$type.'"';
     }
     
-    $skewed = get_post_meta($post->ID, 'fauval_portalmenu_skewed_oben', true);
-    if ($skewed) {
-	 $shortcodeopt .= ' skewed="true"';
-    }
 
     $listview = get_post_meta($post->ID, 'fauval_portalmenu_listview_oben', true);
     if ($listview) {

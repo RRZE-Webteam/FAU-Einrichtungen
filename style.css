@@ -10326,29 +10326,10 @@ main .subpages-menu a:focus svg .fallback,
 .subpages-menu li:hover svg .fallback, .subpages-menu li:focus svg .fallback {
   fill: var(--color-menulink-hover-text);
 }
-.skewed.no-sub .subpages-menu li {
-  box-shadow: none;
-}
-.skewed.no-sub .subpages-menu li:focus a, .skewed.no-sub .subpages-menu li:hover a {
-  background-color: var(--color-menulink-hover-bg);
-  color: var(--color-menulink-hover-text);
-}
 .subpages-menu li .thumb {
   overflow: hidden;
   position: relative;
   width: 100%;
-}
-.skewed .subpages-menu li .thumb::after {
-  content: "";
-  width: 100%;
-  height: 1.875rem;
-  position: absolute;
-  left: 0;
-  top: -30px;
-  background: #fff;
-  transform-origin: right top;
-  transform: skewY(-1.75deg);
-  display: block;
 }
 .subpages-menu li .thumb a {
   text-decoration: none;
@@ -10376,9 +10357,6 @@ main .subpages-menu a:focus svg .fallback,
 .subpages-menu li .thumb a:hover img {
   transform: scale(1.05);
   filter: grayscale(60%);
-}
-.skewed .subpages-menu li .thumb a:hover img {
-  transform: none;
 }
 .subpages-menu li .thumb a svg {
   padding: 8%;

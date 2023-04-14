@@ -88,35 +88,11 @@ main .subpages-menu,
             }
         }
 
-        .skewed.no-sub & {
-            box-shadow: none;
-            &:focus,
-            &:hover {
-                a {
-                    background-color: var(--color-menulink-hover-bg);
-                    color: var(--color-menulink-hover-text);
-                }
-            }
-        }
 
         .thumb {
             overflow: hidden;
             position: relative;
             width: 100%;
-            .skewed & {
-                &::after {
-                    content: "";
-                    width: 100%;
-                    height: 1.875rem;
-                    position: absolute;
-                    left: 0;
-                    top: -30px;
-                    background: #fff;
-                    transform-origin: right top;
-                    transform: skewY(-1.75deg);
-                    display: block;
-                }
-            }
 
             a {
                 text-decoration: none;
@@ -145,9 +121,6 @@ main .subpages-menu,
                 &:hover img {
                     transform: scale(1.05);
                     filter: grayscale(60%);
-                    .skewed & {
-                        transform: none;
-                    }
                 }
 
                 svg {
