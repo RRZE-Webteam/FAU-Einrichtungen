@@ -11406,7 +11406,7 @@ ol.breadcrumblist li:last-child::after {
   margin: 0 auto;
   height: auto;
   background: var(--color-hero-bg);
-  max-width: 100%;
+  max-width: 1260px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
@@ -11422,8 +11422,6 @@ ol.breadcrumblist li:last-child::after {
 }
 .banner .introimg {
   overflow: hidden;
-  max-width: 1260px;
-  margin: 0 auto;
 }
 .banner .introimg img {
   width: auto;
