@@ -14103,6 +14103,26 @@ main .news-more-links .news-rss:hover:before {
   list-style: none;
 }
 
+.tribe-events-c-messages__message-list-item {
+  list-style: none;
+}
+
+.tribe-events-c-messages__message-list-item li {
+  list-style: none;
+}
+
+.tribe-events .datepicker .datepicker-months th {
+  background: #ffffff !important;
+}
+
+.datepicker table tr:nth-child(odd) td {
+  background: #ffffff !important;
+}
+
+.datepicker table th {
+  background: #ffffff !important;
+}
+
 /*-----------------------------------------------------------------------------------*/
 /* Widgets
 /*-----------------------------------------------------------------------------------*/
