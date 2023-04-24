@@ -10672,6 +10672,11 @@ main .subpages-menu a:focus svg .fallback,
   background-color: var(--color-menulink-hover-bg);
   color: var(--color-menulink-hover-text);
 }
+@media (max-width: 768px) {
+  .listview {
+    padding-left: 10px;
+  }
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Allgemeine Klasse für Breadcrumbs

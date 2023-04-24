@@ -422,5 +422,8 @@ main .subpages-menu,
             color: var(--color-menulink-hover-text);
         }
     }
+    @media (max-width: $screen-sm) {
+        padding-left: 10px;
+    }
 }
 
