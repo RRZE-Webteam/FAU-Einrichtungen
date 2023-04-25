@@ -1281,6 +1281,7 @@ $setoptions = array(
 		    'title'   => __( 'Menü erfordert Klick', 'fau' ),
 		    'label'   => __( 'Die Unterpunkte des Menüs öffnen sich nur bei einem Klick auf den jeweiligen Menüpunkt.', 'fau' ),                
 		    'default' => $defaultoptions['advanced_display_portalmenu_forceclick'],
+			'id'      => 'forceclick-toggle' ,
 	//	    'ifmodvalue'    => -1,
 	//	    'ifmodname'	=> 'website_type',
 	    //	    'ifsuperadmin'   => true,
