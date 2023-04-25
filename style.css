@@ -10660,7 +10660,6 @@ main .subpages-menu a:focus svg .fallback,
   flex-wrap: wrap;
 }
 .listview a {
-  border-radius: var(--border-radius-buttons, 3px);
   font-size: 0.937rem;
   line-height: 1.407rem;
   color: #222;
@@ -14013,7 +14012,6 @@ main .news-more-links .news-rss:hover:before {
   margin: 5px;
   background-color: var(--color-FAU);
   color: #ffffff;
-  border-radius: 4px;
 }
 
 .tribe-events-widget-events-list__event-date-tag-datetime-fau {
