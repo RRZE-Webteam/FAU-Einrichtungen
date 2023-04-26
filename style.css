@@ -9336,6 +9336,9 @@ body.nav-toggled #headerwrapper {
   margin: 1rem 0 0;
   text-align: right;
 }
+[dir=rtl] .meta-search {
+  margin-right: auto;
+}
 @media (min-width: 768px) {
   .meta-search {
     display: inline-block;
@@ -9343,10 +9346,16 @@ body.nav-toggled #headerwrapper {
     max-width: 300px;
     margin-left: auto;
   }
+  [dir=rtl] .meta-search {
+    margin-right: auto;
+  }
 }
 .active-meta-widget .meta-search {
   display: inline;
   flex-shrink: 0;
+}
+[dir=rtl] .active-meta-widget .meta-search {
+  margin-right: auto;
 }
 .meta-search .searchform {
   display: flex;

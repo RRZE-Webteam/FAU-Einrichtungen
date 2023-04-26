@@ -9,13 +9,19 @@
     
     position: relative;
     margin: 1rem 0 0;
-    
+    [dir="rtl"] & {
+        margin-right: auto;
+    }
+ 
     @media (min-width: $screen-sm) {
 	// width: 100%;
 	display: inline-block;
 	margin-top: 0;
 	max-width: 300px;
 	margin-left: auto;
+    [dir="rtl"] & {
+        margin-right: auto;
+    }
     }
     
     text-align: right;
@@ -23,6 +29,9 @@
     .active-meta-widget & {
         display: inline;
         flex-shrink: 0;
+        [dir="rtl"] & {
+            margin-right: auto;
+        }
     }
 
 
