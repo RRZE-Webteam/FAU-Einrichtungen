@@ -404,6 +404,9 @@ require_once( get_template_directory() . '/functions/gutenberg.php');
 
 
 
+
+// Move the following block to functions/custom-fields.php please...
+
 /*-----------------------------------------------------------------------------------*/
 /*Hide and show feutured image
 /*-----------------------------------------------------------------------------------*/
