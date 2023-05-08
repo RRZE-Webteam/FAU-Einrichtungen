@@ -36,10 +36,14 @@ endif;
 /* Empty function, which strips out empty chars
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_empty' ) ) :  
-    function fau_empty($string){ 
-	 $string = trim($string); 
-	 if(!is_numeric($string)) return empty($string); 
-	 return FALSE; 
+    function fau_empty($string = ''){ 
+        if(!is_numeric($string)) {
+            if (!empty($string))
+                $string = trim($string); 
+            return empty($string); 
+        }
+        
+        return FALSE; 
     } 
 endif;    
 
