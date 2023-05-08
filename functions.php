@@ -36,7 +36,6 @@ require_once( get_template_directory() . '/functions/gallery.php' );
 
 require_once( get_template_directory() . '/functions/svglib.php');
 
-require_once( get_template_directory() . '/functions/deprecated.php');
 
 // Filter-Hooks
 require_once( get_template_directory() . '/functions/filters.php');
@@ -437,8 +436,11 @@ add_action( 'save_post', 'hide_featured_image_save_post' );
 
 /*-----------------------------------------------------------------------------------*/
 /* Outside-box image post block
+ * 
+ * Note: Please move Block Editor stuff to functions/gutenberg.php
+ */
 /*-----------------------------------------------------------------------------------*/
-function my_custom_blocks() {
+function fau_custom_image_blocks() {
     wp_register_script(
         'my-custom-blocks',
         get_template_directory_uri() . '/js/fau-costum-image-block.min.js',
@@ -449,7 +451,7 @@ function my_custom_blocks() {
         'editor_script' => 'my-custom-blocks',
     ) );
 }
-add_action( 'init', 'my_custom_blocks' );
+add_action( 'init', 'fau_custom_image_blocks' );
 
 
 /*-----------------------------------------------------------------------------------*/
