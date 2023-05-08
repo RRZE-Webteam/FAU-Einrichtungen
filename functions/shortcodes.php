@@ -150,23 +150,16 @@ class FAUShortcodes
 	/*-----------------------------------------------------------------------------------*/
 	/* Special HRs for FAU
 	/*-----------------------------------------------------------------------------------*/
-
-	function fau_hr($atts, $content = null)
-	{
+	function fau_hr($atts, $content = null)	{
 		extract(shortcode_atts(
 			array(
-				"size" => '',
 				"class" => ''
 			), $atts));
 
 
-		$size = fau_sanitize_hr_shortcode($size);
 		$class = fau_sanitize_hr_shortcode($class);
-
 		$classes = "";
-		if (!fau_empty($size)) {
-			$classes .= $size;
-		}
+
 		if (!fau_empty($class)) {
 			if (!fau_empty($classes)) {
 				$classes .= " ";

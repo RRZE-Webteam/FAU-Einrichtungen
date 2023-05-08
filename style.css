@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.4-1
+Version: 2.3.4-5
 Requires at least: 6.0
 Tested up to: 6.1
 Requires PHP: 8.0
@@ -170,8 +170,9 @@ Text Domain: fau
   --color-submenu-currentpage-text: #fff;
   --color-menulink-hover-text: #fff;
   --color-menulink-hover-bg: #004A9F;
-  --border-radius: 4px;
-  --border-radius-buttons: 4px;
+  --border-radius: 0px;
+  --border-radius-buttons: 0px;
+  --devider-height: 4px;
 }
 
 /*
@@ -6963,41 +6964,35 @@ abbr.initialism {
 hr {
   position: relative;
   clear: both;
-  background: var(--color-MainBackground);
+  background: var(--color-FAU);
+  color: var(--color-FAU);
   border: none;
-  outline: none;
-  display: none;
-  height: 1rem;
-  margin: 1rem 0;
-  box-shadow: 0 10px 10px -10px var(--color-StandardHellgrau) inset;
+  height: var(--devider-height, 4px);
+  margin: 2rem 0;
 }
-@media (min-width: 768px) {
-  hr {
-    display: block;
-    margin: 1rem 3rem 2rem;
-    height: 1.5rem;
-  }
+hr.nat {
+  background-color: var(--color-branding-nat);
+  color: var(--color-branding-nat);
 }
-@media (min-width: 768px) {
-  hr.big, .page-template-page-start hr, .home hr {
-    height: 60px;
-    margin-bottom: 10px;
-  }
+hr.rw {
+  background-color: var(--color-branding-rw);
+  color: var(--color-branding-rw);
 }
-hr.line {
-  height: 1px;
-  background-color: transparent;
-  /* Fallback Color */
-  background-image: linear-gradient(to right, transparent, var(--color-StandardHellgrau) 50%, transparent);
+hr.phil {
+  background-color: var(--color-branding-phil);
+  color: var(--color-branding-phil);
 }
-hr.line.big {
-  margin-bottom: 60px;
+hr.tf {
+  background-color: var(--color-branding-tf);
+  color: var(--color-branding-tf);
 }
-
-.page-template-page-start hr::after,
-.home hr::after {
-  top: 30px;
-  box-shadow: 0 0 30px var(--color-StandardHellgrau);
+hr.med {
+  background-color: var(--color-branding-med);
+  color: var(--color-branding-med);
+}
+hr.fau, hr.zentral {
+  background-color: var(--color-branding-zentral);
+  color: var(--color-branding-zentral);
 }
 
 /*-----------------------------------------------------------------------------------*/

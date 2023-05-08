@@ -8,16 +8,14 @@
 /*-----------------------------------------------------------------------------------*/
 /* Sanitize optional classes for hr shortcodes
 /*-----------------------------------------------------------------------------------*/
-function fau_sanitize_hr_shortcode( $fau_hr_styles ) {
-	
+function fau_sanitize_hr_shortcode( $fau_hr_styles ) {	
     if (isset($fau_hr_styles)) {
-	$fau_hr_styles  = esc_attr( trim($fau_hr_styles) );
+        $fau_hr_styles  = esc_attr( trim($fau_hr_styles) );
     }
     if (fau_empty($fau_hr_styles)) return;
 	
-	if ( ! in_array( $fau_hr_styles, array( 'big', 'line' ) ) ) {
+	if ( ! in_array( $fau_hr_styles, array( "nat", "tf", "rw", "med", "phil", "zentral", "fau"  ) ) ) {
 		$fau_hr_styles = '';
-		
 	}
 	return $fau_hr_styles;
 }
@@ -27,7 +25,7 @@ function fau_sanitize_hr_shortcode( $fau_hr_styles ) {
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_san' ) ) :  
     function fau_san($s){
-	return filter_var(trim($s), FILTER_SANITIZE_STRING);
+        return filter_var(trim($s), FILTER_SANITIZE_STRING);
     }
 endif;    
 
