@@ -686,18 +686,7 @@ $setoptions = array(
 		    'parent'  => 'slider'
 		),  
 	       
-	       'default_slider_excerpt_length' => array(
-                  'type'    => 'range-value',
-                  'title'   => __( 'Textauszug', 'fau' ),
-                  'label'   => __( 'Maximale Länge des Teasers des verlinkten Beitrags.', 'fau' ),
-		  'min'	    => 0,
-		  'max'	    => 350,	
-		   'step'   => 10,
-                  'default' => $defaultoptions['default_slider_excerpt_length'],
-                   'parent'  => 'slider'
-              ), 
-	      
-	       
+      
 	       'slider-autoplay'  => array(
 		    'type'    => 'toggle',
 		    'title'   => __( 'Autoplay', 'fau' ),
@@ -1281,6 +1270,7 @@ $setoptions = array(
 		    'title'   => __( 'Menü erfordert Klick', 'fau' ),
 		    'label'   => __( 'Die Unterpunkte des Menüs öffnen sich nur bei einem Klick auf den jeweiligen Menüpunkt.', 'fau' ),                
 		    'default' => $defaultoptions['advanced_display_portalmenu_forceclick'],
+			'id'      => 'forceclick-toggle' ,
 	//	    'ifmodvalue'    => -1,
 	//	    'ifmodname'	=> 'website_type',
 	    //	    'ifsuperadmin'   => true,

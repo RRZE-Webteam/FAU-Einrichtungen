@@ -439,18 +439,20 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
     private $count = array();
     private $element;
     private $showsub = true;
+    private $listview = false;
 
-    function __construct( $menu, $showsub = true, $maxsecondlevel = 0, $noshowthumb = false,$nothumbnailfallback = false, $thumbnail = 'rwd-480-2-1' ) {
-        $this->showsub             = $showsub;
+    function __construct( $menu, $showsub = true, $maxsecondlevel = 0, $noshowthumb = false,$nothumbnailfallback = false, $thumbnail = 'rwd-480-2-1', $listview = false ) {
+        $this->showsub             = $showsub && !$listview;
         
         if ($maxsecondlevel==0) {
             $maxsecondlevel = get_theme_mod('default_submenu_entries');
         }
         
         $this->maxsecondlevel      = $maxsecondlevel;
-        $this->nothumbnail         = $noshowthumb;
+        $this->nothumbnail         = $noshowthumb || $listview;
         $this->nothumbnailfallback = $nothumbnailfallback;
         $this->thumbnail           = $thumbnail;
+        $this->listview            = $listview;
     }
 
     function __destruct() {
@@ -512,10 +514,12 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                 $iscurrent = 1;
             }
 
-            if ($this->level == 1) {
-                $output .= $indent.'<li'.$class_names.'>';
-            } else {
-                $output .= '<li>';
+            if (!$this->listview) {
+                if ($this->level == 1) {
+                    $output .= $indent.'<li'.$class_names.'>';
+                } else {
+                    $output .= '<li>';
+                }
             }
 
             $atts           = array();
@@ -533,7 +537,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
             if ($this->level == 1) {
                 $atts['class'] = 'subpage-item';
             }
-            
+
             if (fau_is_url_external($atts['href'])){      
                 if (isset($atts['class'])) {
                     $atts['class'] .= ' ext-link';
@@ -612,11 +616,11 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                     }
 
                 }
-                $item_output .= $args->link_before.'<span class="portaltop">';
+                $item_output .= $this->listview ? '' : $args->link_before.'<span class="portaltop">';
                 $item_output .= $link;
                 $item_output .= apply_filters('the_title', $item->title, $item->ID);
                 $item_output .= '</a>';
-                $item_output .= '</span>'.$args->link_after;
+                $item_output .= $this->listview ? '' : '</span>'.$args->link_after;
             } else {
                 $item_output .= $link;
                 $item_output .= $args->link_before.apply_filters('the_title', $item->title,
@@ -641,8 +645,8 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
     function end_el(&$output, $item, $depth = 0, $args = array())  {
 
-        if ($this->level == 1 ||
-            ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub)) {
+        if (!$this->listview && ($this->level == 1 ||
+            ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub))) {
             $output .= "</li>";
 
         }

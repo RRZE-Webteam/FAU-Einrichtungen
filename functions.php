@@ -425,7 +425,9 @@ function hide_featured_image_save_post( $post_id ) {
     }
     
     // Add the following code to set a cookie with the checkbox value
-    setcookie( 'hide_featured_image', isset( $_POST['hide_featured_image'] ), time() + 86400, COOKIEPATH, COOKIE_DOMAIN );
+//    setcookie( 'hide_featured_image', isset( $_POST['hide_featured_image'] ), time() + 86400, COOKIEPATH, COOKIE_DOMAIN );
+    
+    // Rework this please. See: https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues/1288
 }
 add_action( 'save_post', 'hide_featured_image_save_post' );
 

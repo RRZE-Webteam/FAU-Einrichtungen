@@ -533,10 +533,10 @@ function fau_do_metabox_page_portalmenu($object, $box) {
 
     $nosub = get_post_meta($object->ID, 'fauval_portalmenu_nosub', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_nosub', $nosub, __('Unterpunkte verbergen.', 'fau'));
-
-    $skewed = get_post_meta($object->ID, 'fauval_portalmenu_skewed', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_skewed', $skewed, __('Beitragsbilder', 'fau').' '.__('anschrägen', 'fau'));  
     
+    $listview = get_post_meta($object->ID, 'fauval_portalmenu_listview', true) ? 1 : 0;
+    fau_form_onoff('fau_metabox_page_portalmenu_listview', $listview, __('Listenansicht', 'fau').' '.__('verwenden', 'fau'));
+
     $portaltype = get_post_meta($object->ID, 'fauval_portalmenu_type', true);
     fau_form_select('fau_metabox_page_portalmenu_type', array(
         1 => __('Format', 'fau').' 2:1',
@@ -599,18 +599,19 @@ function fau_save_metabox_page_portalmenu($post_id, $post) {
         delete_post_meta($post_id, 'fauval_portalmenu_nosub');
     }
 
-    $newval = !empty($_POST['fau_metabox_page_portalmenu_skewed']) ? 1 : 0;
-    $oldval = get_post_meta($post_id, 'fauval_portalmenu_skewed', true) ? 1 : 0;
+    $newval = !empty($_POST['fau_metabox_page_portalmenu_listview']) ? 1 : 0;
+    $oldval = get_post_meta($post_id, 'fauval_portalmenu_listview', true) ? 1 : 0;
 
     if ($newval && !empty($oldval)) {
-        update_post_meta($post_id, 'fauval_portalmenu_skewed', $newval);
+        update_post_meta($post_id, 'fauval_portalmenu_listview', $newval);
     } elseif ($newval && empty($oldval)) {
-        add_post_meta($post_id, 'fauval_portalmenu_skewed', $newval, true);
+        add_post_meta($post_id, 'fauval_portalmenu_listview', $newval, true);
     } else {
-        delete_post_meta($post_id, 'fauval_portalmenu_skewed');
+        delete_post_meta($post_id, 'fauval_portalmenu_listview');
     }
 
-   $newval = isset($_POST['fau_metabox_page_portalmenu_type']) ? absint($_POST['fau_metabox_page_portalmenu_type']) : 0;
+
+    $newval = isset($_POST['fau_metabox_page_portalmenu_type']) ? absint($_POST['fau_metabox_page_portalmenu_type']) : 0;
     $oldval = get_post_meta($post_id, 'fauval_portalmenu_type', true);
 
     if ($newval && $oldval) {
@@ -663,10 +664,10 @@ function fau_do_metabox_page_portalmenu_oben($object, $box) {
 
     $nosub = get_post_meta($object->ID, 'fauval_portalmenu_nosub_oben', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_nosub_oben', $nosub, __('Unterpunkte verbergen.', 'fau'));
-
-    $skewed = get_post_meta($object->ID, 'fauval_portalmenu_skewed_oben', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_skewed_oben', $skewed, __('Beitragsbilder', 'fau').' '.__('anschrägen', 'fau'));  
     
+    $listview = get_post_meta($object->ID, 'fauval_portalmenu_listview_oben', true) ? 1 : 0;
+    fau_form_onoff('fau_metabox_page_portalmenu_listview_oben', $listview, __('Listenansicht', 'fau').' '.__('verwenden', 'fau'));
+
     $portaltype = get_post_meta($object->ID, 'fauval_portalmenu_type_oben', true);
     fau_form_select('fau_metabox_page_portalmenu_type_oben', array(
         1 => __('Format', 'fau').' 2:1',
@@ -729,18 +730,18 @@ function fau_save_metabox_page_portalmenu_oben($post_id, $post) {
         delete_post_meta($post_id, 'fauval_portalmenu_nosub_oben');
     }
 
-    $newval = !empty($_POST['fau_metabox_page_portalmenu_skewed_oben']) ? 1 : 0;
-    $oldval = get_post_meta($post_id, 'fauval_portalmenu_skewed_oben', true) ? 1 : 0;
+    $newval = !empty($_POST['fau_metabox_page_portalmenu_listview_oben']) ? 1 : 0;
+    $oldval = get_post_meta($post_id, 'fauval_portalmenu_listview_oben', true) ? 1 : 0;
 
     if ($newval && !empty($oldval)) {
-        update_post_meta($post_id, 'fauval_portalmenu_skewed_oben', $newval);
+        update_post_meta($post_id, 'fauval_portalmenu_listview_oben', $newval);
     } elseif ($newval && empty($oldval)) {
-        add_post_meta($post_id, 'fauval_portalmenu_skewed_oben', $newval, true);
+        add_post_meta($post_id, 'fauval_portalmenu_listview_oben', $newval, true);
     } else {
-        delete_post_meta($post_id, 'fauval_portalmenu_skewed_oben');
+        delete_post_meta($post_id, 'fauval_portalmenu_listview_oben');
     }
 
-   $newval = isset($_POST['fau_metabox_page_portalmenu_type_oben']) ? absint($_POST['fau_metabox_page_portalmenu_type_oben']) : 0;
+    $newval = isset($_POST['fau_metabox_page_portalmenu_type_oben']) ? absint($_POST['fau_metabox_page_portalmenu_type_oben']) : 0;
     $oldval = get_post_meta($post_id, 'fauval_portalmenu_type_oben', true);
 
     if ($newval && $oldval) {

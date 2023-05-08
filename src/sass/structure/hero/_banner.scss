@@ -31,7 +31,7 @@
 	    margin: 0 auto;
 	    height: auto;
 	    background: var(--color-hero-bg);
-	    max-width: 100%;
+	    max-width: $banner-startpage-width;
 	    overflow: hidden;
 	    @include box-shadow(0 10px 20px rgba(0,0,0,0.5));
 	    

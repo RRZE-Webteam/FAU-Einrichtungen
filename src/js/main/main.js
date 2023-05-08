@@ -1,4 +1,17 @@
 jQuery(document).ready(function ($) {
+
+
+
+// Existing code
+var $html = $('html');
+var $body = $('body');
+
+// This browser supports JS
+$html.removeClass('no-js').addClass('js');
+// Add JS-enabled class
+
+
+
         var $html = $('html');
         var $body = $('body');
 
@@ -427,6 +440,41 @@ jQuery(document).ready(function ($) {
               element.attr('aria-expanded', 'false');
             }
           });
+
+
+          //force click on tablet mode
+         function enableForceClick() {
+                // Check if the screen width is less than or equal to 768px
+                if (window.innerWidth <= 992) {
+                $('.menu-item.has-sub').on('click', function(e) {
+                    e.preventDefault();
+            
+                    var $subMenu = $(this).next('.nav-flyout');
+                    var expanded = $(this).attr('aria-expanded') === 'true';
+            
+                    // Toggle sub-menu visibility
+                    $subMenu.toggle(!expanded);
+            
+                    // Update aria-expanded attribute
+                    $(this).attr('aria-expanded', !expanded);
+                });
+                } else {
+                // Remove the click event listener on larger screens
+                $('.menu-item.has-sub').off('click');
+                }
+            }
+            
+            // Enable the force-click behavior when the document is ready
+            enableForceClick();
+            
+            // Enable/disable the force-click behavior on window resize
+            $(window).on('resize', function() {
+                enableForceClick();
+            });
+
+
+
+
     }
 );
 

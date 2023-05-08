@@ -4,43 +4,36 @@
 hr {
 	position: relative;
 	clear: both;
-	background: var(--color-MainBackground);
-	border: none;
-	outline: none;
-	display: none;
+	background: var(--color-FAU);
+	color:  var(--color-FAU);
+	border: none;	
+	height: var(--devider-height, 4px);
+	margin: 2rem 0;
 	
-	height: 1rem;
-	margin: 1rem 0;
-	
-	
-	@media (min-width: $screen-sm) {
-	    display: block;
-	    margin: 1rem 3rem 2rem;
-	    height: 1.5rem;	
-	}
 
-	
-	&.big,
-	.page-template-page-start &,
-	.home & {
-	   
-	    @media (min-width: $screen-sm) {
-		height: 60px;
-		margin-bottom: 10px
-	    }
+	&.nat {
+	    background-color: var(--color-branding-nat);
+	    color:  var(--color-branding-nat);
 	}
-	@include box-shadow(0 10px 10px -10px var(--color-StandardHellgrau) inset);
-	
-	&.line {
-	    height: 1px;
-	    @include linear-gradient-three(transparent,var(--color-StandardHellgrau) 50%,transparent);  
+	&.rw {
+	    background-color: var(--color-branding-rw);
+	    color:  var(--color-branding-rw);
 	}
-	&.line.big {
-	     margin-bottom: 60px
+	&.phil {
+	    background-color: var(--color-branding-phil);
+	    color:  var(--color-branding-phil);
 	}
-}
-.page-template-page-start hr::after,
-.home hr::after {
-    top: 30px;
-    @include box-shadow(0 0 30px var(--color-StandardHellgrau));
+	&.tf {
+	    background-color: var(--color-branding-tf);
+	    color:  var(--color-branding-tf);
+	}
+	&.med {
+	    background-color: var(--color-branding-med);
+	    color:  var(--color-branding-med);
+	}
+	&.fau, 
+	&.zentral {
+	    background-color: var(--color-branding-zentral);
+	    color:  var(--color-branding-zentral);
+	}	
 }

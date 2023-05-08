@@ -40,9 +40,10 @@ if ($menuslug) {
 	$shortcodeopt .= ' type="'.$type.'"';
     }
     
-    $skewed = get_post_meta($post->ID, 'fauval_portalmenu_skewed', true);
-    if ($skewed) {
-	 $shortcodeopt .= ' skewed="true"';
+
+    $listview = get_post_meta($post->ID, 'fauval_portalmenu_listview', true);
+    if ($listview) {
+        $shortcodeopt .= ' listview="true"';
     }
     
      echo '<div class="portalmenu-unten">';
