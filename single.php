@@ -29,7 +29,7 @@ while (have_posts()) : the_post(); ?>
 
 								$post_thumbnail_id = get_post_thumbnail_id();
 								if ($post_thumbnail_id && !metadata_exists('post', $post->ID, 'vidpod_url')) {
-									$value = isset($_COOKIE['hide_featured_image']) ? $_COOKIE['hide_featured_image'] : get_post_meta($post->ID, '_hide_featured_image', true);
+									$value = get_post_meta( $post->ID, '_hide_featured_image', true );
 									$imgdata = fau_get_image_attributs($post_thumbnail_id);
 									$full_image_attributes = wp_get_attachment_image_src($post_thumbnail_id, 'full');
 									if ($full_image_attributes) {
