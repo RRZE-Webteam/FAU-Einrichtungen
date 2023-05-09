@@ -233,30 +233,34 @@ Mixins File for Wordpress Theme FAU
     }
 }
 
-@mixin buttonstyle($radius: var(--border-radius-buttons, 3px)) {
+@mixin buttonstyle() {
     @include inline-block;
-    @include border-radius($radius);
     @include px2rem($font-size-textbuttons);
     @include buttoncolor;
     
     border: none;
     padding: 0.5rem 0.7rem;
     text-decoration: none;
-
+    border-radius: var(--border-radius-buttons, 3px);
+    
     &:hover, &:focus {
         text-decoration: none;
     }
 }
 
-@mixin ghostbutton($radius: var(--border-radius-buttons, 3px), $border: 1px) {
-    @include buttonstyle($radius);
-    
-    border: $border solid var(--color-ContentBorders);
+@mixin ghostbutton($border: 1px) {
+    @include inline-block;
+    @include px2rem($font-size-textbuttons);
+   
     background: transparent;
-    color: var(--color-Text);    
+    color: var(--color-Text);   
+    border: $border solid var(--color-ContentBorders);
+    border-radius: var(--border-radius-buttons, 3px);
+   
     
     &:hover, 
     &:focus {
+	text-decoration: none;
 	color: var(--color-ghostbutton-hover-text);
         background: var(--color-ghostbutton-hover-bg);
     }
@@ -361,15 +365,6 @@ Mixins File for Wordpress Theme FAU
     }
 }
 
-
-// Opacity
-
-@mixin opacity($opacity) {
-  opacity: $opacity;
-  // IE8 filter
-  $opacity-ie: ($opacity * 100);
-  filter: alpha(opacity=$opacity-ie);
-}
 
 
 // from _vendor-prefixes.scss:
