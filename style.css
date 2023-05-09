@@ -9756,6 +9756,7 @@ body.nav-toggled #headerwrapper {
   display: none;
 }
 .nav a, .nav [type=button] {
+  margin: 5px 0 0 0;
   text-decoration: none;
   font-weight: bold;
   color: var(--color-mainmenu-toplevel-text);
