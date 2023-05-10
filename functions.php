@@ -36,7 +36,6 @@ require_once( get_template_directory() . '/functions/gallery.php' );
 
 require_once( get_template_directory() . '/functions/svglib.php');
 
-require_once( get_template_directory() . '/functions/deprecated.php');
 
 // Filter-Hooks
 require_once( get_template_directory() . '/functions/filters.php');
@@ -287,23 +286,17 @@ function fau_addmetatags() {
     $googleverification = get_theme_mod('google-site-verification');
     if ((isset( $googleverification )) && ( !fau_empty($googleverification) )) {
         $output .= '<meta name="google-site-verification" content="'.$googleverification.'">'."\n";
-	// if we set the Google Site Verification in the customizer, we add the html meta tag here 
+        // if we set the Google Site Verification in the customizer, we add the html meta tag here 
     }
-
-
 
     $title = sanitize_text_field(get_bloginfo( 'name' ));
     $output .= '<link rel="alternate" type="application/rss+xml" title="'.$title.' - RSS 2.0 Feed" href="'.get_bloginfo( 'rss2_url').'">'."\n";
        	// Adds RSS feed links to <head> for posts and comments.
-	// add_theme_support( 'automatic-feed-links' );
-	// Will post both: feed and comment feed; To use only main rss feed, i have to add it manually in head
-    
-    
+        // add_theme_support( 'automatic-feed-links' );
+        // Will post both: feed and comment feed; To use only main rss feed, i have to add it manually in head
     
     echo $output;
-    
-    
-    
+
 }
 add_action('wp_head', 'fau_addmetatags',1);
 
@@ -322,7 +315,6 @@ function fau_create_meta_favicon() {
 	    $output .=  '<link rel="mask-icon" type="image/svg+xml" href="'.get_fau_template_uri().'/img/socialmedia/favicon-mask.svg" color="'.$defaultoptions['default-social-media-color'].'">'."\n";
 	    $output .=  '<meta name="msapplication-TileColor" content="'.$defaultoptions['default-social-media-color'].'">'."\n";
 	    $output .=  '<meta name="msapplication-TileImage" content="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
-
 	    $output .=  '<meta name="theme-color" content="'.$defaultoptions['default-social-media-color'].'">'."\n";  
     }
      echo $output;
@@ -404,6 +396,9 @@ require_once( get_template_directory() . '/functions/gutenberg.php');
 
 
 
+
+// Move the following block to functions/custom-fields.php please...
+
 /*-----------------------------------------------------------------------------------*/
 /*Hide and show feutured image
 /*-----------------------------------------------------------------------------------*/
@@ -434,8 +429,11 @@ add_action( 'save_post', 'hide_featured_image_save_post' );
 
 /*-----------------------------------------------------------------------------------*/
 /* Outside-box image post block
+ * 
+ * Note: Please move Block Editor stuff to functions/gutenberg.php
+ */
 /*-----------------------------------------------------------------------------------*/
-function my_custom_blocks() {
+function fau_custom_image_blocks() {
     wp_register_script(
         'my-custom-blocks',
         get_template_directory_uri() . '/js/fau-costum-image-block.min.js',
@@ -446,7 +444,7 @@ function my_custom_blocks() {
         'editor_script' => 'my-custom-blocks',
     ) );
 }
-add_action( 'init', 'my_custom_blocks' );
+add_action( 'init', 'fau_custom_image_blocks' );
 
 
 /*-----------------------------------------------------------------------------------*/

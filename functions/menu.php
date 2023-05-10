@@ -248,22 +248,18 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
             $output       .= '</ul>';
             $currenttitle = fau_get_the_title($this->currentID);
             if (!empty($currenttitle)) {
-                $display_button = get_theme_mod('advanced_display_portalmenu_button');
-                $display_forceclick = get_theme_mod('advanced_display_portalmenu_forceclick');
-    
-                if (((isset($display_button)) && ($display_button==true)) || ($display_forceclick==true)) {
-                    $output   .= '<a href="'.get_permalink($this->currentID).'" class="button-portal">';
-                    $pretitle = get_theme_mod('menu_pretitle_portal');
-                    if (!fau_empty($pretitle)) {
-                        $output .= $pretitle.' ';
-                    }
-                    $output    .= $currenttitle;
-                    $posttitle = get_theme_mod('menu_aftertitle_portal');
-                    if (!fau_empty($posttitle)) {
-                        $output .= ' '.$posttitle;
-                    }
-                    $output .= '</a>';
+                $output   .= '<a href="'.get_permalink($this->currentID).'" class="button-portal">';
+                $pretitle = get_theme_mod('menu_pretitle_portal');
+                if (!fau_empty($pretitle)) {
+                    $output .= $pretitle.' ';
                 }
+                $output    .= $currenttitle;
+                $posttitle = get_theme_mod('menu_aftertitle_portal');
+                if (!fau_empty($posttitle)) {
+                    $output .= ' '.$posttitle;
+                }
+                $output .= '</a>';
+       
             }
             $output .= '</div>';
             $output .= '</div></div></div>';

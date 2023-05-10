@@ -64,7 +64,7 @@ a {
 	position: fixed;
 	bottom: 20px; 
 	right: 20px;
-	@include buttonstyle(4px);
+	@include buttonstyle();
 	display: none;
 
 }

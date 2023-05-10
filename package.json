@@ -1,7 +1,7 @@
 {
     "name": "FAU-Einrichtungen",
     "textdomain": "fau",
-    "version": "2.3.4-6",
+    "version": "2.3.6",
     "keywords": [
         "WordPress",
         "Theme",
@@ -10,7 +10,7 @@
     ],
     "compatibility": {
         "wprequires": "6.0",
-        "wptestedup": "6.1",
+        "wptestedup": "6.2",
         "phprequires": "8.0"
     },
     "author": {

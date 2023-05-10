@@ -458,10 +458,7 @@ $html.removeClass('no-js').addClass('js');
                     // Update aria-expanded attribute
                     $(this).attr('aria-expanded', !expanded);
                 });
-                } else {
-                // Remove the click event listener on larger screens
-                $('.menu-item.has-sub').off('click');
-                }
+                } 
             }
             
             // Enable the force-click behavior when the document is ready

@@ -8,7 +8,7 @@
 
 .alert {
   border: 1px solid transparent;
-  border-radius: $alert-border-radius;
+  border-radius: var(--border-radius, 4px);
 
   // Headings for larger alerts
   h4 {
