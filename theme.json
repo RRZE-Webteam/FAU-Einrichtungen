@@ -14,28 +14,7 @@
           "lineHeight": "1.5",
           "fontFamily": "'Roboto','FAU Chimera', sans-serif;",
           "dropCap": false,
-          "fontSizes": [
-            {
-              "slug": "small",
-              "size": "0.875rem",
-              "name": "Small"
-            },
-            {
-              "slug": "medium",
-              "size": "1rem",
-              "name": "medium"
-            },
-            {
-              "slug": "large",
-              "size": "1.25rem",
-              "name": "large"
-            },
-            {
-              "slug": "larger",
-              "size": "1.5rem",
-              "name": "larger"
-            }
-          ]
+          "fontSizes": []
       },
        "custom": {},
         "layout": {
@@ -48,7 +27,6 @@
             "blockGap": null,
             "units": [
                 "%",
-                "px",
                 "em",
                 "rem",
                 "vh",
