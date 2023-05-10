@@ -247,10 +247,11 @@ Mixins File for Wordpress Theme FAU
     text-align: center;
     font-weight: normal;
     margin: 5px 0;
-    padding: 10px 18px;
+    
 
     
-    &:hover, &:focus {
+    &:hover, 
+    &:focus {
         text-decoration: none;
     }
 }
@@ -263,8 +264,9 @@ Mixins File for Wordpress Theme FAU
     color: var(--color-Text);   
     border: $border solid var(--color-ContentBorders);
     border-radius: var(--border-radius-buttons, 3px);
-   
-    
+    padding: 0.5rem 0.7rem;
+    text-decoration: none;
+     
     &:hover, 
     &:focus {
 	text-decoration: none;

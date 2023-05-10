@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.4-11
+Version: 2.3.4-15
 Requires at least: 6.0
 Tested up to: 6.1
 Requires PHP: 8.0
@@ -5000,7 +5000,6 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   text-align: center;
   font-weight: normal;
   margin: 5px 0;
-  padding: 10px 18px;
   display: none;
 }
 .top-link:hover, .top-link:focus {
@@ -5030,6 +5029,8 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
   border-radius: var(--border-radius-buttons, 3px);
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
   font-weight: normal;
 }
 .continue .read-more-link:hover, .continue .read-more-link:focus {
@@ -5464,6 +5465,8 @@ main .nextlink-ghostbutton,
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
   border-radius: var(--border-radius-buttons, 3px);
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
   font-weight: normal;
 }
 main .nextlink-ghostbutton:hover, main .nextlink-ghostbutton:focus,
@@ -5535,6 +5538,8 @@ main .prevlink-ghostbutton,
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
   border-radius: var(--border-radius-buttons, 3px);
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
   font-weight: normal;
 }
 main .prevlink-ghostbutton:hover, main .prevlink-ghostbutton:focus,
@@ -6387,6 +6392,8 @@ dd > dl {
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
   border-radius: var(--border-radius-buttons, 3px);
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
   font-size: 0.875rem;
   line-height: 1.313rem;
 }
@@ -6465,6 +6472,8 @@ input[type=file] {
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
   border-radius: var(--border-radius-buttons, 3px);
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
   margin: 0 0 1rem 0;
 }
 input[type=file]:hover, input[type=file]:focus {
@@ -6487,7 +6496,6 @@ input[type=reset], input[type=submit] {
   text-align: center;
   font-weight: normal;
   margin: 5px 0;
-  padding: 10px 18px;
   margin: 0 1rem 1rem 0;
 }
 input[type=reset]:hover, input[type=reset]:focus, input[type=submit]:hover, input[type=submit]:focus {
@@ -8129,7 +8137,6 @@ input[type=button] {
   text-align: center;
   font-weight: normal;
   margin: 5px 0;
-  padding: 10px 18px;
 }
 button:hover, button:focus,
 input[type=button]:hover,
@@ -8169,7 +8176,6 @@ a[role=button] {
   text-align: center;
   font-weight: normal;
   margin: 5px 0;
-  padding: 10px 18px;
 }
 button.standard-btn:hover, button.standard-btn:focus,
 a.standard-btn.primary-btn:hover,
@@ -9876,7 +9882,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   text-align: center;
   font-weight: normal;
   margin: 5px 0;
-  padding: 10px 18px;
   font-size: 1.125rem;
   line-height: 1.688rem;
   padding: 0.5rem 1rem;
@@ -12882,6 +12887,8 @@ ul.assistant-tabs-nav li:last-child {
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
   border-radius: var(--border-radius-buttons, 3px);
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
 }
 .content-inline .news-more-links .news-rss:hover, .content-inline .news-more-links .news-rss:focus, .entry-content .news-more-links .news-rss:hover, .entry-content .news-more-links .news-rss:focus, .portalpage-content .news-more-links .news-rss:hover, .portalpage-content .news-more-links .news-rss:focus, main .news-more-links .news-rss:hover, main .news-more-links .news-rss:focus {
   text-decoration: none;
@@ -12926,7 +12933,6 @@ main .news-more-links .news-rss:hover:before {
   text-align: center;
   font-weight: normal;
   margin: 5px 0;
-  padding: 10px 18px;
 }
 .content-inline .news-more-links .news-more:hover, .content-inline .news-more-links .news-more:focus, .entry-content .news-more-links .news-more:hover, .entry-content .news-more-links .news-more:focus, .portalpage-content .news-more-links .news-more:hover, .portalpage-content .news-more-links .news-more:focus, main .news-more-links .news-more:hover, main .news-more-links .news-more:focus {
   color: var(--color-button-hover-text);
@@ -12968,7 +12974,6 @@ main .news-more-links .news-rss:hover:before {
   text-align: center;
   font-weight: normal;
   margin: 5px 0;
-  padding: 10px 18px;
 }
 .index-navigation .prev a:hover, .index-navigation .prev a:focus,
 .index-navigation .next a:hover,
@@ -13328,7 +13333,6 @@ main .news-more-links .news-rss:hover:before {
   text-align: center;
   font-weight: normal;
   margin: 5px 0;
-  padding: 10px 18px;
   font-size: 0.875rem;
   line-height: 1.313rem;
 }
@@ -13364,7 +13368,6 @@ main .news-more-links .news-rss:hover:before {
   text-align: center;
   font-weight: normal;
   margin: 5px 0;
-  padding: 10px 18px;
 }
 .search-results .nav-links .dots:hover, .search-results .nav-links .dots:focus {
   color: var(--color-button-hover-text);
@@ -13381,6 +13384,8 @@ main .news-more-links .news-rss:hover:before {
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
   border-radius: var(--border-radius-buttons, 3px);
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
   font-size: 0.875rem;
   line-height: 1.313rem;
 }
@@ -14173,6 +14178,8 @@ main .news-more-links .news-rss:hover:before {
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
   border-radius: var(--border-radius-buttons, 3px);
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
   display: inline;
   padding: 0 0.3rem;
   line-height: 1.5;
@@ -14517,6 +14524,8 @@ aside span, #content .widget span, #content .widget span {
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
   border-radius: var(--border-radius-buttons, 3px);
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
 }
 .fau-person .person-info-more a.standard-btn:hover, .fau-person .person-info-more a.standard-btn:focus,
 .person .person-info-more a.standard-btn:hover,
@@ -15511,7 +15520,6 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
   text-align: center;
   font-weight: normal;
   margin: 5px 0;
-  padding: 10px 18px;
 }
 .events-more-links a.events-more:hover, .events-more-links a.events-more:focus {
   box-shadow: none;
@@ -15581,7 +15589,6 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
   text-align: center;
   font-weight: normal;
   margin: 5px 0;
-  padding: 10px 18px;
   background: var(--color-primary-ci-hell);
   color: var(--color-primary-ci-hell-kontrast);
   padding: 0.3rem;
@@ -16193,7 +16200,6 @@ button.expand-all {
   text-align: center;
   font-weight: normal;
   margin: 5px 0;
-  padding: 10px 18px;
 }
 #content .accordion button.expand-all:hover, #content .accordion button.expand-all:focus {
   box-shadow: none;
@@ -16302,7 +16308,6 @@ button.expand-all {
   text-align: center;
   font-weight: normal;
   margin: 5px 0;
-  padding: 10px 18px;
 }
 .standard-btn:hover, .standard-btn:focus {
   box-shadow: none;
@@ -16337,6 +16342,8 @@ button.expand-all {
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
   border-radius: var(--border-radius-buttons, 3px);
+  padding: 0.5rem 0.7rem;
+  text-decoration: none;
   display: block;
   width: auto;
   float: right;
@@ -16742,7 +16749,6 @@ aside .accordion figure.aligncenter img, .portalpage-sidebar .elements-columns f
   text-align: center;
   font-weight: normal;
   margin: 5px 0;
-  padding: 10px 18px;
 }
 .rrze-univis.navigation .nav-previous a:hover, .rrze-univis.navigation .nav-previous a:focus {
   color: var(--color-button-hover-text);

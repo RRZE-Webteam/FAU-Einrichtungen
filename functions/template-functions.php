@@ -212,9 +212,8 @@ function fau_body_class($classes)
     if (('' != get_theme_mod('default_display_thumbnail_3_2')) && (true == get_theme_mod('default_display_thumbnail_3_2'))) {
         $classes[] = 'blogroll-image-3-2';
     }
-    if (('' != get_theme_mod('advanced_display_portalmenu_forceclick')) && (true == get_theme_mod('advanced_display_portalmenu_forceclick'))) {
-        $classes[] = 'mainnav-forceclick';
-    }
+    $classes[] = 'mainnav-forceclick';
+    
 
     $classes[] = 'mainnav-plainview';
 
