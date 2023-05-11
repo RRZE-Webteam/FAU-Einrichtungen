@@ -3,13 +3,11 @@
 /* https://github.com/RRZE-Webteam/rrze-univis
 /*-----------------------------------------------------------------------------------*/
 
-#content.rrze-univis {
-	padding-top: 0;
-    }
+
 .rrze-univis {
     h1.mobiletitle {
 	margin-top: 0;
-	padding: 10px 0;
+	padding: 1rem 0;
 	hyphens: auto;
 	 @media (min-width: $screen-sm) {
 	      @include sr-only();
@@ -31,14 +29,17 @@
 	}
     }
     
-    &.navigation {
-	.nav-previous {
-	    a {
-		@include buttonstyle();
-	    }
-	}
-    }
+
     iframe {
 	max-width: 100%;
+    }
+    
+    ul.person-info {
+	
+	li.person-info-phone, 
+	li.person-info-officehours {
+	    margin-top: 1rem;
+	}
+	
     }
 }
