@@ -8,3 +8,15 @@ UI Elements, from jquery UI CSS
     border: 1px solid var(--color-ContentBorders);
     padding: 5px 10px;
 }
+
+
+// prohibit settings of link target in media modal
+.media-modal-content {
+    .link-target {
+	display: none;
+    }
+}
+// prohibit settings of link target in wp editor
+#wp-link .link-target {
+    display: none;
+}

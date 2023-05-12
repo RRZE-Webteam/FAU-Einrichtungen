@@ -25,7 +25,10 @@ function fau_sanitize_hr_shortcode( $fau_hr_styles ) {
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_san' ) ) :  
     function fau_san($s){
-        return filter_var(trim($s), FILTER_SANITIZE_STRING);
+        if (!empty($s)) {
+            return htmlspecialchars(trim($s));
+        }
+        return;
     }
 endif;    
 
