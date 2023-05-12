@@ -703,8 +703,7 @@ function fau_breadcrumb($lasttitle = '', $echo = true, $noNav = false) {
 
 
         if (is_category()) {
-            $res .= $before.'<span class="active" aria-current="page" itemprop="name">'.single_cat_title('',
-                    false).'</span>';
+            $res .= $before.'<span class="active" aria-current="page" itemprop="name">'.single_cat_title('', false).'</span>';
             $res .= '<meta itemprop="position" content="'.$position.'" />'.$after;
 
         } elseif (is_date()) {
@@ -840,7 +839,52 @@ function fau_breadcrumb($lasttitle = '', $echo = true, $noNav = false) {
 
     return $res;
 }
+/*-----------------------------------------------------------------------------------*/
+/* Get the title for the hero section
+/*-----------------------------------------------------------------------------------*/
+function fau_get_hero_title($overwrite = '') {
+    if (!fau_empty($overwrite)) {
+        return $overwrite;
+    }
+    global $post;
 
+    if ((is_front_page()) || (is_home())) {
+        return get_the_title(get_option('page_for_posts'));
+    } elseif (is_category()) {
+        return single_cat_title('', false);
+    } elseif (is_tag()) {
+        return __('Schlagwort', 'fau').' "'.single_tag_title('', false).'"';    
+    } elseif (is_date()) {
+        return get_the_time();
+    } elseif (!is_single() && !is_page() && !is_search() && get_post_type() != 'post' && !is_404()) {
+        $post_type = get_post_type_object(get_post_type());
+        return $post_type->labels->name;
+    } elseif (is_page()) {
+        return fau_get_the_title();
+    } elseif (is_search()) {
+        $thistitle    = '<span>'.__('Suche', 'fau').'</span>';
+        $searchstring = esc_attr(get_search_query());
+        if (!fau_empty($searchstring)) {
+            $thistitle = '<span>'.__('Suche nach', 'fau').'</span> "'.$searchstring.'"';
+        }
+        return $thistitle;
+
+    } elseif (is_author()) {
+        global $author;
+        $userdata = get_userdata($author);
+        return __('Beiträge von','fau').' '.$userdata->display_name;
+    } elseif (is_404()) {
+        return __('Seite nicht gefunden','fau');
+    } elseif (is_archive()) {
+        return get_the_archive_title(); 
+    }
+
+
+    
+    // fallback for everything else, that wasnt defined above
+    return get_the_title();
+
+}
 /*-----------------------------------------------------------------------------------*/
 /* Create Social Media Menu
 /*-----------------------------------------------------------------------------------*/
