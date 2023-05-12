@@ -398,32 +398,32 @@ function fau_initoptions() {
 
 /*--------------------------------------------------------------------*/
 /* Ab Version 2.0 wurde die Verwaltung des Logos von Header-Image auf Custom Logo umgestellt.
-/* Für Installationen, bei der das Logo jedoch mit Header Ikmage hochgeladen wurden,
+/* Für Installationen, bei der das Logo jedoch mit Header Image hochgeladen wurden,
 /* soll das Logo dennoch weiterhin angezeigt werden. 
 /*--------------------------------------------------------------------*/
 function fau_compatible_header_logo() {
     $data = get_theme_mod( 'header_image_data' );
     if ( $data) {
-	// Es existiert ein Custom Header 
-	
-	if (is_object($data) && ($data->attachment_id)) {
-	    
-	    // ok, there is an id
-	    // now check if we already have an id of a custom logo
-	    $custom_logo_id = get_theme_mod( 'custom_logo' );
-	    
-	    if ($custom_logo_id) {
-		// We already have an id
-	    } else {
-		// Set the image as custom logo and remove it from header mods
-		set_theme_mod( 'custom_logo', $data->attachment_id ); 
-		remove_theme_mod('header_image_data');
-		remove_theme_mod('header_image');
-		// now remove the 'header_image_data' mod.
-	    }
-	    
-	    
-	}
+        // Es existiert ein Custom Header 
+
+        if (is_object($data) && ($data->attachment_id)) {
+
+            // ok, there is an id
+            // now check if we already have an id of a custom logo
+            $custom_logo_id = get_theme_mod( 'custom_logo' );
+
+            if ($custom_logo_id) {
+                // We already have an id
+            } else {
+                // Set the image as custom logo and remove it from header mods
+                set_theme_mod( 'custom_logo', $data->attachment_id ); 
+                remove_theme_mod('header_image_data');
+                remove_theme_mod('header_image');
+                // now remove the 'header_image_data' mod.
+            }
+
+
+        }
 	
     }
     

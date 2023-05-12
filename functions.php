@@ -61,7 +61,10 @@ function fau_setup() {
 	    // Register Menus
 	fau_create_socialmedia_menu();
 	    // Checkup Social Media Menu
-
+    fau_custom_logo_setup();
+        // Set the Logo setup and sizes
+    fau_set_image_sizes();
+        // Sets the sizes of Images
 	
 	global $is_gutenberg_enabled;
 	if (has_filter('is_gutenberg_enabled')) {
@@ -88,7 +91,6 @@ function fau_custom_logo_setup() {
 
     add_theme_support( 'custom-logo', $defaults );
 }
-add_action( 'after_setup_theme', 'fau_custom_logo_setup' );
 
 /*-----------------------------------------------------------------------------------*/
 /* Set image sizes
@@ -107,22 +109,20 @@ function fau_set_image_sizes() {
 	 *  full, unmodified
 	 */
     foreach ($defaultoptions['default_image_sizes'] as $size => $value) {	
-	switch ($size) {
-	    case '_post_thumbnail':
-		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size($value[ 'width'], $value['height'], $value['crop']);
-		break;
-	    case '_thumb': 
-	    case '_thumbnail': 
-		// default values; tu nichts (derzeit)
-		break;
-	    default:
-		add_image_size( $size, $value[ 'width'], $value['height'], $value['crop']);
-		break;
-	}
+        switch ($size) {
+            case '_post_thumbnail':
+                add_theme_support( 'post-thumbnails' );
+                set_post_thumbnail_size($value[ 'width'], $value['height'], $value['crop']);
+                break;
+            case '_thumb': 
+            case '_thumbnail': 
+                // default values; tu nichts (derzeit)
+                break;
+            default:
+                add_image_size( $size, $value[ 'width'], $value['height'], $value['crop']);
+        }
     } 
 }
-add_action( 'after_setup_theme', 'fau_set_image_sizes' );
 
 /*-----------------------------------------------------------------------------------*/
 /* Set extra init values
@@ -210,7 +210,10 @@ function fau_admin_header_style() {
     wp_enqueue_style( 'dashicons' );
     wp_enqueue_media();
     wp_enqueue_script('jquery-ui-datepicker');
-
+    
+    wp_enqueue_script('image-caption-editor', get_template_directory_uri() . '/js/fau-image-caption-editor.min.js', array('jquery', 'wp-editor'), '1.0', true);
+        // Add html atributes to image caption on post editor
+    
     $theme_data = wp_get_theme();
     $theme_version = $theme_data->Version;
     wp_register_script('themeadminscripts', $defaultoptions['src-adminjs'], array('jquery'),$theme_version);
