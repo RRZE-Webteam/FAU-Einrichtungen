@@ -412,8 +412,8 @@ main .subpages-menu,
        // border-radius: var(--border-radius-buttons, 3px);
         font-size: 0.937rem;
         line-height: 1.407rem;
-        color: #222;
-        background-color: #DFE6EC;
+        color: var(--color-Text, #222);
+        background-color: var(--color-MetaBackgroundLight, #DFE6EC);
         padding: 0.5rem 1.8rem;     
 	&:focus,
         &:hover {
