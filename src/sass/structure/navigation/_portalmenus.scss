@@ -405,7 +405,7 @@ main .subpages-menu,
 
 .listview {
     display: flex;
-    gap: 10px 10px;
+    gap: var(--width-gutter-half, 15px);
     flex-wrap: wrap;
 
     a {
@@ -414,8 +414,8 @@ main .subpages-menu,
         line-height: 1.407rem;
         color: #222;
         background-color: #DFE6EC;
-        padding: 0.5rem 0.7rem;
-        
+        padding: 0.5rem 1.8rem;     
+	&:focus,
         &:hover {
             text-decoration: none;
             background-color: var(--color-menulink-hover-bg);
@@ -423,7 +423,7 @@ main .subpages-menu,
         }
     }
     @media (max-width: $screen-sm) {
-        padding-left: 10px;
+        padding-left: var(--width-gutter-half, 15px);
     }
 }
 
