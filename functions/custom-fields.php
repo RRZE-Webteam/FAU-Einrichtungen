@@ -39,6 +39,8 @@ function fau_metabox_cf_setup() {
    
     // Speichere Seiten-Eigenschaften
     add_action('save_post', 'fau_save_metabox_page_additional_attributes', 10, 2);
+
+    add_action('save_post', 'fau_save_metabox_post_vidpod', 10, 2);
 }
 /*-----------------------------------------------------------------------------------*/
 /*  Create one or more meta boxes to be displayed on the post editor screen. 
@@ -124,6 +126,13 @@ function fau_add_metabox_post() {
             'post', 'normal', 'high'
         );
     }
+
+    add_meta_box(
+        'fau_metabox_post_vidpod', 
+        esc_html__('Video/Podcast', 'fau'), 
+        'fau_do_metabox_post_vidpod', 
+        'post', 'side', 'low'
+    );
 }
 /*-----------------------------------------------------------------------------------*/
 /*  Display Options for posts
@@ -230,7 +239,6 @@ function fau_save_post_teaser($post_id, $post) {
     } else {
         delete_post_meta($post_id, 'fauval_slider_image');
     }
-	
 }
  
 /* Display Options for pages */
@@ -258,8 +266,6 @@ function fau_do_metabox_post_topevent($object, $box) {
     $help  .= ' '. __('Erlaubte Anzahl an Zeichen:','fau');
     $help  .=  ' <span class="fauval_topevent_desc_signs">'.get_theme_mod('default_topevent_excerpt_length').'</span>';    
     fau_form_textarea('fauval_topevent_desc', $topevent_desc, __( "Kurzbeschreibung", 'fau' ),40,5, $help); 	    	
-
-
 
     $topevent_date  = get_post_meta( $object->ID, 'topevent_date', true );
     $topevent_image  = get_post_meta( $object->ID, 'topevent_image', true );	    
@@ -379,6 +385,52 @@ function fau_save_post_topevent($post_id, $post) {
     fau_save_standard('topevent_image', $_POST['fauval_topevent_image'], $post_id, 'post', 'int');
 }
 
+/*-----------------------------------------------------------------------------------*/
+/* Add meta box for podcast/video post templates
+/*-----------------------------------------------------------------------------------*/
+function fau_do_metabox_post_vidpod($object, $box) {
+
+    if (!current_user_can('edit_post', $object->ID)) {
+        return;
+    }
+
+    wp_nonce_field( basename( __FILE__ ), 'vidpod_meta_box_nonce' );
+    // retrieve the values of the meta fields
+
+    $vidpod_url = get_post_meta( $object->ID, 'vidpod_url', true );
+    $vidpod_auth = get_post_meta( $object->ID, 'vidpod_auth', true );
+    
+    ?>
+    <p>
+        <label for="fauval_vidpod_url">URL</label><br>
+        <input type="text" id="fauval_vidpod_url" class="large-text" name="fauval_vidpod_url" value="<?php echo esc_attr( $vidpod_url ); ?>">
+    </p>
+    <p>
+        <label for="fauval_vidpod_auth">Autorth:</label><br>
+        <input type="text" id="fauval_vidpod_auth" class="large-text" name="fauval_vidpod_auth" value="<?php echo esc_attr( $vidpod_auth); ?>">
+    </p>
+    <?php
+}
+
+function fau_save_metabox_post_vidpod($post_id, $post) {
+    /* Verify the nonce before proceeding. */
+    if (!isset($_POST['vidpod_meta_box_nonce']) || !wp_verify_nonce($_POST['vidpod_meta_box_nonce'], basename(__FILE__))) {
+        return;
+    }
+    
+    $post_type = get_post_type($post_id);
+    
+    if ('post' != $post_type || !current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    $newval = isset($_POST['fauval_vidpod_url']) ? sanitize_text_field($_POST['fauval_vidpod_url']) : '';
+    fau_save_standard('vidpod_url', $newval, $post_id, 'post', 'text');
+
+    $newauth = isset($_POST['fauval_vidpod_auth']) ? sanitize_text_field($_POST['fauval_vidpod_auth']) : '';
+    fau_save_standard('vidpod_auth', $newauth, $post_id, 'post', 'text');
+}
+
 /* Display Options for menuquotes on posts */
 function fau_do_metabox_post_untertitel($object, $box) {
     wp_nonce_field(basename(__FILE__), 'fau_metabox_post_untertitel_nonce');
@@ -481,10 +533,10 @@ function fau_do_metabox_page_portalmenu($object, $box) {
 
     $nosub = get_post_meta($object->ID, 'fauval_portalmenu_nosub', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_nosub', $nosub, __('Unterpunkte verbergen.', 'fau'));
-
-    $skewed = get_post_meta($object->ID, 'fauval_portalmenu_skewed', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_skewed', $skewed, __('Beitragsbilder', 'fau').' '.__('anschrägen', 'fau'));  
     
+    $listview = get_post_meta($object->ID, 'fauval_portalmenu_listview', true) ? 1 : 0;
+    fau_form_onoff('fau_metabox_page_portalmenu_listview', $listview, __('Listenansicht', 'fau').' '.__('verwenden', 'fau'));
+
     $portaltype = get_post_meta($object->ID, 'fauval_portalmenu_type', true);
     fau_form_select('fau_metabox_page_portalmenu_type', array(
         1 => __('Format', 'fau').' 2:1',
@@ -547,18 +599,19 @@ function fau_save_metabox_page_portalmenu($post_id, $post) {
         delete_post_meta($post_id, 'fauval_portalmenu_nosub');
     }
 
-    $newval = !empty($_POST['fau_metabox_page_portalmenu_skewed']) ? 1 : 0;
-    $oldval = get_post_meta($post_id, 'fauval_portalmenu_skewed', true) ? 1 : 0;
+    $newval = !empty($_POST['fau_metabox_page_portalmenu_listview']) ? 1 : 0;
+    $oldval = get_post_meta($post_id, 'fauval_portalmenu_listview', true) ? 1 : 0;
 
     if ($newval && !empty($oldval)) {
-        update_post_meta($post_id, 'fauval_portalmenu_skewed', $newval);
+        update_post_meta($post_id, 'fauval_portalmenu_listview', $newval);
     } elseif ($newval && empty($oldval)) {
-        add_post_meta($post_id, 'fauval_portalmenu_skewed', $newval, true);
+        add_post_meta($post_id, 'fauval_portalmenu_listview', $newval, true);
     } else {
-        delete_post_meta($post_id, 'fauval_portalmenu_skewed');
+        delete_post_meta($post_id, 'fauval_portalmenu_listview');
     }
 
-   $newval = isset($_POST['fau_metabox_page_portalmenu_type']) ? absint($_POST['fau_metabox_page_portalmenu_type']) : 0;
+
+    $newval = isset($_POST['fau_metabox_page_portalmenu_type']) ? absint($_POST['fau_metabox_page_portalmenu_type']) : 0;
     $oldval = get_post_meta($post_id, 'fauval_portalmenu_type', true);
 
     if ($newval && $oldval) {
@@ -569,9 +622,6 @@ function fau_save_metabox_page_portalmenu($post_id, $post) {
         delete_post_meta($post_id, 'fauval_portalmenu_type');
     }
 }
-
-
-
 
 /* Display Options for portalmenu oben on portal pages */
 function fau_do_metabox_page_portalmenu_oben($object, $box) {    
@@ -614,16 +664,17 @@ function fau_do_metabox_page_portalmenu_oben($object, $box) {
 
     $nosub = get_post_meta($object->ID, 'fauval_portalmenu_nosub_oben', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_nosub_oben', $nosub, __('Unterpunkte verbergen.', 'fau'));
-
-    $skewed = get_post_meta($object->ID, 'fauval_portalmenu_skewed_oben', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_skewed_oben', $skewed, __('Beitragsbilder', 'fau').' '.__('anschrägen', 'fau'));  
     
+    $listview = get_post_meta($object->ID, 'fauval_portalmenu_listview_oben', true) ? 1 : 0;
+    fau_form_onoff('fau_metabox_page_portalmenu_listview_oben', $listview, __('Listenansicht', 'fau').' '.__('verwenden', 'fau'));
+
     $portaltype = get_post_meta($object->ID, 'fauval_portalmenu_type_oben', true);
     fau_form_select('fau_metabox_page_portalmenu_type_oben', array(
         1 => __('Format', 'fau').' 2:1',
         2 => __('Format', 'fau').' 3:2',
         3 => __('Format', 'fau').' 3:4'), $portaltype, __('Bildformat', 'fau'), '', 1);
 }
+
 /* Save the meta box's page metadata portalmenu oben. */
 function fau_save_metabox_page_portalmenu_oben($post_id, $post) {
     /* Verify the nonce before proceeding. */
@@ -679,18 +730,18 @@ function fau_save_metabox_page_portalmenu_oben($post_id, $post) {
         delete_post_meta($post_id, 'fauval_portalmenu_nosub_oben');
     }
 
-    $newval = !empty($_POST['fau_metabox_page_portalmenu_skewed_oben']) ? 1 : 0;
-    $oldval = get_post_meta($post_id, 'fauval_portalmenu_skewed_oben', true) ? 1 : 0;
+    $newval = !empty($_POST['fau_metabox_page_portalmenu_listview_oben']) ? 1 : 0;
+    $oldval = get_post_meta($post_id, 'fauval_portalmenu_listview_oben', true) ? 1 : 0;
 
     if ($newval && !empty($oldval)) {
-        update_post_meta($post_id, 'fauval_portalmenu_skewed_oben', $newval);
+        update_post_meta($post_id, 'fauval_portalmenu_listview_oben', $newval);
     } elseif ($newval && empty($oldval)) {
-        add_post_meta($post_id, 'fauval_portalmenu_skewed_oben', $newval, true);
+        add_post_meta($post_id, 'fauval_portalmenu_listview_oben', $newval, true);
     } else {
-        delete_post_meta($post_id, 'fauval_portalmenu_skewed_oben');
+        delete_post_meta($post_id, 'fauval_portalmenu_listview_oben');
     }
 
-   $newval = isset($_POST['fau_metabox_page_portalmenu_type_oben']) ? absint($_POST['fau_metabox_page_portalmenu_type_oben']) : 0;
+    $newval = isset($_POST['fau_metabox_page_portalmenu_type_oben']) ? absint($_POST['fau_metabox_page_portalmenu_type_oben']) : 0;
     $oldval = get_post_meta($post_id, 'fauval_portalmenu_type_oben', true);
 
     if ($newval && $oldval) {
@@ -1107,6 +1158,7 @@ function fau_do_metabox_page_additional_attributes($object, $box) {
     
     
 }
+
 /*-----------------------------------------------------------------------------------*/
 /* Speichere optionalen Sprachcode auf Seiten
 /*-----------------------------------------------------------------------------------*/
@@ -1144,6 +1196,7 @@ function fau_save_metabox_page_additional_attributes( $post_id, $post ) {
     
 
 }
+
 /*-----------------------------------------------------------------------------------*/
 /* Ersetzt das wpLink-Skript durch ein benutzerdefiniertes Skript.
 /*-----------------------------------------------------------------------------------*/

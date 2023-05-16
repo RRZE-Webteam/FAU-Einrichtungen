@@ -29,12 +29,6 @@ function fau_register_menus()
     register_nav_menu('main-menu', __('Haupt-Navigation', 'fau'));
     // Hauptnavigation
 
-    if ($website_type == 0) {
-        // Buehnennavigation Template Portal Startseite mit 2 Spalten
-        register_nav_menu('quicklinks-3', __('Startseite Fakultät: Bühne Spalte 1', 'fau'));
-        register_nav_menu('quicklinks-4', __('Startseite Fakultät: Bühne Spalte 2', 'fau'));
-    }
-
 
     register_nav_menu($defaultoptions['socialmedia_menu_position'], $defaultoptions['socialmedia_menu_position_title']);
     // Social Media Menu (seit 1.9.5)
@@ -60,7 +54,7 @@ function fau_create_socialmedia_menu()
 
 
         // Existieren bereits Einträge in der alten Options-Tabelle mit Social Media Angaben, die angezeigt werden sollen?
-        // Wenn ja, dann fülle das Menu mit diesen; enn nein, fülle das Menu mit Default-Einträgen
+        // Wenn ja, dann fülle das Menu mit diesen; wenn nein, fülle das Menu mit Default-Einträgen
 
         global $default_socialmedia_liste;
         ksort($default_socialmedia_liste);
@@ -193,12 +187,60 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 
     function start_lvl(&$output, $depth = 0, $args = array())  {
         $this->level++;
+    
         $this->count[$this->level] = 0;
-        if ($this->level == 2) {
-            $output .= '<div class="nav-flyout"><div class="container"><div class="row">';
-            $output .= '<div class="flyout-entries-full">';
+
+        $child_count = 0;
+        $children = get_posts(array(
+            'post_type' => 'nav_menu_item',
+            'nopaging' => true,
+            'numberposts' => -1,
+            'meta_key' => '_menu_item_menu_item_parent',
+            'meta_value' => $this->element->ID,
+            'order' => 'ASC',
+            'orderby' => 'menu_order',
+        ));
+        if (!empty($children)) {
+            foreach ($children as $child) {
+                $grand_children = get_posts(array(
+                    'post_type' => 'nav_menu_item',
+                    'nopaging' => true,
+                    'numberposts' => -1,
+                    'meta_key' => '_menu_item_menu_item_parent',
+                    'meta_value' => $child->ID,
+                    'order' => 'ASC',
+                    'orderby' => 'menu_order',
+                ));
+                $child_count += count($grand_children) + 1; // add 1 for the child itself
+            }
         }
+        $child_count_html = '<span class="child-count">' . $child_count . '</span>';
+
+        if ($this->level == 2) {
+            $columnclass='';
+
+            if ($child_count<8){
+                $columnclass='1';
+            }else   if($child_count<16){
+                $columnclass='2';
+            }else if($child_count<24){
+                $columnclass='3';
+            }
+            else if($child_count>25){
+                $columnclass='4';
+            }
+        
+            $output .= '<div class="nav-flyout"><div class="container"><div class="row">';
+            $output .= '<div class="flyout-entries-full column-count-'. $columnclass.'">';
+            
+           
+           
+        }
+
+
         $output .= '<ul class="sub-menu level'.$this->level.'">';
+        
+        
     }
 
     function end_lvl(&$output, $depth = 0, $args = array()) {
@@ -206,24 +248,19 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
             $output       .= '</ul>';
             $currenttitle = fau_get_the_title($this->currentID);
             if (!empty($currenttitle)) {
-		$display_button = get_theme_mod('advanced_display_portalmenu_button');
-		$display_forceclick = get_theme_mod('advanced_display_portalmenu_forceclick');
-		
-		if (((isset($display_button)) && ($display_button==true)) || ($display_forceclick==true)) {
-		    $output   .= '<a href="'.get_permalink($this->currentID).'" class="button-portal">';
-		    $pretitle = get_theme_mod('menu_pretitle_portal');
-		    if (!fau_empty($pretitle)) {
-			$output .= $pretitle.' ';
-		    }
-		    $output    .= $currenttitle;
-		    $posttitle = get_theme_mod('menu_aftertitle_portal');
-		    if (!fau_empty($posttitle)) {
-			$output .= ' '.$posttitle;
-		    }
-		    $output .= '</a>';
-		}
+                $output   .= '<a href="'.get_permalink($this->currentID).'" class="button-portal">';
+                $pretitle = get_theme_mod('menu_pretitle_portal');
+                if (!fau_empty($pretitle)) {
+                    $output .= $pretitle.' ';
+                }
+                $output    .= $currenttitle;
+                $posttitle = get_theme_mod('menu_aftertitle_portal');
+                if (!fau_empty($posttitle)) {
+                    $output .= ' '.$posttitle;
+                }
+                $output .= '</a>';
+       
             }
-
             $output .= '</div>';
             $output .= '</div></div></div>';
 
@@ -240,8 +277,10 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 
         // Generate Classes. Dont use WordPress default, cause i dont want to
         // get all those unused data filled up my html
+        
         $classes = array();
-        if ($level < 2) {
+          if ($level < 2) {
+            
             //	$classes[] = 'menu-item-' . $item->ID;
             $classes[] = 'level'.$level;
         }
@@ -263,9 +302,12 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
             // absoluter Link auf externe Seite
             $classes[] = 'external';
         }
+        $this->element = $item; // Store the current element to be used in start_lvl
+
 
         $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
         $class_names = $class_names ? ' class="'.esc_attr($class_names).'"' : '';
+        
 
 
         $output .= '<li'.$value.$class_names.'>';
@@ -275,22 +317,22 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
         $atts['target'] = !empty($item->target) ? $item->target : '';
         $atts['rel']    = !empty($item->xfn) ? $item->xfn : '';
         $atts['href']   = !empty($item->url) ? $item->url : '';
-
+    
         $item_classes  = empty($item->classes) ? array() : (array)$item->classes;
         $item_classes  = fau_cleanup_menuclasses($item_classes);
         $item_class    = implode(' ', $item_classes);
         $atts['class'] = !empty($item_class) ? $item_class : '';
-
-
+    
+    
         if ($iscurrent == 1) {
             $atts['aria-current'] = "page";
         }
         $atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args);
-
+    
         if ($this->level == 1) {
             $this->currentID = $item->object_id;
         }
-
+    
         $attributes = '';
         foreach ($atts as $attr => $value) {
             if (!empty($value)) {
@@ -298,28 +340,48 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
                 $attributes .= ' '.$attr.'="'.$value.'"';
             }
         }
-
-
-        if (is_page($item->object_id)) {
-            $titlelangcode = get_post_meta($item->object_id, 'fauval_pagetitle_langcode', true);
-            if (!fau_empty($titlelangcode)) {
-                $sitelang = fau_get_language_main();
-                if ($titlelangcode != $sitelang) {
-                    $attributes .= ' lang="'.$titlelangcode.'"';
+    
+        // Add child count for level one and two
+        if ($level <= 1 && isset($args->walker)) {
+            $child_count = 0;
+            $children = get_posts(array(
+                'post_type' => 'nav_menu_item',
+                'nopaging' => true,
+                'numberposts' => -1,
+                'meta_key' => '_menu_item_menu_item_parent',
+                'meta_value' => $item->ID,
+                'order' => 'ASC',
+                'orderby' => 'menu_order',
+            ));
+            if (!empty($children)) {
+                foreach ($children as $child) {
+                    $grand_children = get_posts(array(
+                        'post_type' => 'nav_menu_item',
+                        'nopaging' => true,
+                        'numberposts' => -1,
+                        'meta_key' => '_menu_item_menu_item_parent',
+                        'meta_value' => $child->ID,
+                        'order' => 'ASC',
+                        'orderby' => 'menu_order',
+                    ));
+                    $child_count += count($grand_children) + 1; // add 1 for the child itself
                 }
             }
+            $child_count_html = '<span class="child-count">' . $child_count . '</span>';
+        } else {
+            $child_count_html = '';
         }
-
-
+        
+    
         $item_output = $args->before;
         $item_output .= '<a'.$attributes.'>';
-        $item_output .= $args->link_before.apply_filters('the_title', $item->title, $item->ID).$args->link_after;
+        $item_output .= $args->link_before.apply_filters('the_title', $item->title, $item->ID).$args->link_after; // Append child count
         $item_output .= '</a>';
         $item_output .= $args->after;
-
+    
         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
-
+    
     function end_el(&$output, $item, $depth = 0, $args = array())  {
         $output .= "</li>";
     }
@@ -373,13 +435,20 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
     private $count = array();
     private $element;
     private $showsub = true;
+    private $listview = false;
 
-    function __construct( $menu, $showsub = true, $maxsecondlevel = 6, $noshowthumb = false,$nothumbnailfallback = false, $thumbnail = 'rwd-480-2-1' ) {
-        $this->showsub             = $showsub;
+    function __construct( $menu, $showsub = true, $maxsecondlevel = 0, $noshowthumb = false,$nothumbnailfallback = false, $thumbnail = 'rwd-480-2-1', $listview = false ) {
+        $this->showsub             = $showsub && !$listview;
+        
+        if ($maxsecondlevel==0) {
+            $maxsecondlevel = get_theme_mod('default_submenu_entries');
+        }
+        
         $this->maxsecondlevel      = $maxsecondlevel;
-        $this->nothumbnail         = $noshowthumb;
+        $this->nothumbnail         = $noshowthumb || $listview;
         $this->nothumbnailfallback = $nothumbnailfallback;
         $this->thumbnail           = $thumbnail;
+        $this->listview            = $listview;
     }
 
     function __destruct() {
@@ -441,10 +510,12 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                 $iscurrent = 1;
             }
 
-            if ($this->level == 1) {
-                $output .= $indent.'<li'.$class_names.'>';
-            } else {
-                $output .= '<li>';
+            if (!$this->listview) {
+                if ($this->level == 1) {
+                    $output .= $indent.'<li'.$class_names.'>';
+                } else {
+                    $output .= '<li>';
+                }
             }
 
             $atts           = array();
@@ -462,7 +533,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
             if ($this->level == 1) {
                 $atts['class'] = 'subpage-item';
             }
-            
+
             if (fau_is_url_external($atts['href'])){      
                 if (isset($atts['class'])) {
                     $atts['class'] .= ' ext-link';
@@ -541,11 +612,11 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                     }
 
                 }
-                $item_output .= $args->link_before.'<span class="portaltop">';
+                $item_output .= $this->listview ? '' : $args->link_before.'<span class="portaltop">';
                 $item_output .= $link;
                 $item_output .= apply_filters('the_title', $item->title, $item->ID);
                 $item_output .= '</a>';
-                $item_output .= '</span>'.$args->link_after;
+                $item_output .= $this->listview ? '' : '</span>'.$args->link_after;
             } else {
                 $item_output .= $link;
                 $item_output .= $args->link_before.apply_filters('the_title', $item->title,
@@ -570,8 +641,8 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
     function end_el(&$output, $item, $depth = 0, $args = array())  {
 
-        if ($this->level == 1 ||
-            ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub)) {
+        if (!$this->listview && ($this->level == 1 ||
+            ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub))) {
             $output .= "</li>";
 
         }
@@ -592,7 +663,30 @@ function fau_cleanup_menuclasses($currentarray = array())
 
     return array_diff($currentarray, $menugarbage);
 }
-
+/*-----------------------------------------------------------------------------------*/
+/* Check if the current post/page is a endpoint
+/*-----------------------------------------------------------------------------------*/
+function fau_is_endpoint() {
+    global $wp_query;
+    global $wp_rewrite;
+    global $wp_the_query;
+     
+    if (!isset($wp_query)) {
+        return false;
+    }
+    if (!isset($wp_rewrite)) {
+        return false;
+    }
+    $endpoints = $wp_rewrite->endpoints;
+    $res = false;    
+    foreach ($endpoints as $num => $endpoint) {
+        if(isset($wp_the_query->query_vars[$endpoint[1]])) {
+            $res = $endpoint[1];
+            break;
+        }
+    }
+    return $res;    
+}
 /*-----------------------------------------------------------------------------------*/
 /* Create breadcrumb
 /*-----------------------------------------------------------------------------------*/
@@ -605,7 +699,7 @@ function fau_breadcrumb($lasttitle = '', $echo = true, $noNav = false) {
     $before      = '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
     $after       = '</li>';
     $position    = 1;
-
+    $endpoint_slug = fau_is_endpoint();
 
     $res = '';
 
@@ -617,23 +711,23 @@ function fau_breadcrumb($lasttitle = '', $echo = true, $noNav = false) {
     }
 
     $res .= '<ol class="breadcrumblist" itemscope itemtype="https://schema.org/BreadcrumbList">';
-
-
+	
     if (is_front_page()) {
         $res .= $before.'<span class="active" aria-current="page" itemprop="name">'.$home.'</span><meta itemprop="position" content="'.$position.'" />'.$after;
-    } elseif (is_home()) {
+    } elseif ((is_home()) && ($endpoint_slug === false)) {
         $res .= $before.'<span class="active" aria-current="page" itemprop="name">'.get_the_title(get_option('page_for_posts')).'</span><meta itemprop="position" content="'.$position.'" />'.$after;
     } else {
 
         $homeLink = home_url('/');
         $res      .= $before.'<a itemprop="item" href="'.$homeLink.'"><span itemprop="name">'.$home.'</span></a><meta itemprop="position" content="'.$position.'" />'.$after;
-
         $position++;
 
-
-        if (is_category()) {
-            $res .= $before.'<span class="active" aria-current="page" itemprop="name">'.single_cat_title('',
-                    false).'</span>';
+        if ($endpoint_slug !== false) {        
+            $res .= $before.'<span class="active" aria-current="page" itemprop="name">'.ucfirst($endpoint_slug).'</span>';
+            $res .= '<meta itemprop="position" content="'.$position.'" />'.$after;
+            $position++;
+        } elseif (is_category()) {
+            $res .= $before.'<span class="active" aria-current="page" itemprop="name">'.single_cat_title('', false).'</span>';
             $res .= '<meta itemprop="position" content="'.$position.'" />'.$after;
 
         } elseif (is_date()) {
@@ -746,13 +840,11 @@ function fau_breadcrumb($lasttitle = '', $echo = true, $noNav = false) {
             global $author;
             $userdata = get_userdata($author);
 
-            $res .= $before.'<span class="active" aria-current="page" itemprop="name">'.__('Beiträge von',
-                    'fau').' '.$userdata->display_name.'</span>';
+            $res .= $before.'<span class="active" aria-current="page" itemprop="name">'.__('Beiträge von','fau').' '.$userdata->display_name.'</span>';
             $res .= '<meta itemprop="position" content="'.$position.'" />'.$after;
 
         } elseif (is_404()) {
-            $res .= $before.'<span class="active" aria-current="page" itemprop="name">'.__('Seite nicht gefunden',
-                    'fau').'</span>';
+            $res .= $before.'<span class="active" aria-current="page" itemprop="name">'.__('Seite nicht gefunden','fau').'</span>';
             $res .= '<meta itemprop="position" content="'.$position.'" />'.$after;
 
         }
@@ -769,7 +861,53 @@ function fau_breadcrumb($lasttitle = '', $echo = true, $noNav = false) {
 
     return $res;
 }
+/*-----------------------------------------------------------------------------------*/
+/* Get the title for the hero section
+/*-----------------------------------------------------------------------------------*/
+function fau_get_hero_title($overwrite = '') {
+    if (!fau_empty($overwrite)) {
+        return $overwrite;
+    }
+    global $post;
 
+
+    if ((is_front_page()) || (is_home())) {
+        return get_the_title(get_option('page_for_posts'));
+    } elseif (is_category()) {
+        return single_cat_title('', false);
+    } elseif (is_tag()) {
+        return __('Schlagwort', 'fau').' "'.single_tag_title('', false).'"';    
+    } elseif (is_date()) {
+        return get_the_time();
+    } elseif (!is_single() && !is_page() && !is_search() && get_post_type() != 'post' && !is_404()) {
+        $post_type = get_post_type_object(get_post_type());
+        return $post_type->labels->name;
+    } elseif (is_page()) {
+        return fau_get_the_title();
+    } elseif (is_search()) {
+        $thistitle    = '<span>'.__('Suche', 'fau').'</span>';
+        $searchstring = esc_attr(get_search_query());
+        if (!fau_empty($searchstring)) {
+            $thistitle = '<span>'.__('Suche nach', 'fau').'</span> "'.$searchstring.'"';
+        }
+        return $thistitle;
+
+    } elseif (is_author()) {
+        global $author;
+        $userdata = get_userdata($author);
+        return __('Beiträge von','fau').' '.$userdata->display_name;
+    } elseif (is_404()) {
+        return __('Seite nicht gefunden','fau');
+    } elseif (is_archive()) {
+        return get_the_archive_title(); 
+    }
+
+
+    
+    // fallback for everything else, that wasnt defined above
+    return get_the_title();
+
+}
 /*-----------------------------------------------------------------------------------*/
 /* Create Social Media Menu
 /*-----------------------------------------------------------------------------------*/

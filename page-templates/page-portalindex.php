@@ -7,11 +7,10 @@
  * @since FAU 1.0
  */
 
-get_header(); 
-while ( have_posts() ) : the_post(); 
+    get_header();
 
-    get_template_part('template-parts/hero', 'small'); ?>
-
+    
+    while ( have_posts() ) : the_post();  ?>
     <div id="content">
 	<div class="content-container">	   
             <?php get_template_part('template-parts/content', 'portalmenu-oben'); ?>
@@ -26,9 +25,9 @@ while ( have_posts() ) : the_post();
 			<div class="inline-box">			    
 			    <?php get_template_part('template-parts/sidebar', 'inline');  
 			    if ($is_sidebar_active) {
-				echo '<div class="content-inline with-sidebar">';
+                    echo '<div class="content-inline with-sidebar">';
 			    } else {
-				echo '<div class="content-inline">';
+                    echo '<div class="content-inline">';
 			    }
 			    the_content(); 
 			    echo '</div>';
@@ -44,7 +43,7 @@ while ( have_posts() ) : the_post();
 			    $size = $logosize != '' ? esc_attr($logosize) : "logo-thumb";
 			    $logos = fau_imagelink_get(array('size' => $size, 'catid' => $logoliste));
 			    if ((isset($logos) && (!empty($logos)))) {
-				echo $logos;
+                    echo $logos;
 			    }
 			   
 			}
@@ -56,5 +55,4 @@ while ( have_posts() ) : the_post();
 	
     </div>
 <?php endwhile; 
-get_template_part('template-parts/footer', 'social');
 get_footer();

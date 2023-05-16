@@ -381,3 +381,15 @@ function fau_add_aria_label_pages( $atts, $item, $args ) {
     return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'fau_add_aria_label_pages', 10, 3 );
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Remove the option image size thumbal and medium in edit post
+/*-----------------------------------------------------------------------------------*/
+function fau_remove_image_size_options($sizes) {
+    unset($sizes['thumbnail']);
+  //  unset($sizes['medium']);
+  //   deactivated the unset for medium yet, cause of discussion (11.05.2023, WW)
+    return $sizes;
+}
+ add_filter('image_size_names_choose', 'fau_remove_image_size_options');

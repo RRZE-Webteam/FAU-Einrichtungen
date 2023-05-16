@@ -8,9 +8,7 @@
  */
 
     get_header();    
-    get_template_part('template-parts/hero', 'banner');
 
-    
 ?>
 
     <div id="content" class="start-sub">   
@@ -35,10 +33,47 @@
 			if ($maxall > 0) {    
 			    
 			    $displayedposts = array();
-			    for($j = 1; $j <= 3; $j++) {
+			    for($j = 1; $j <= $max; $j++) {
 				    $i = 0;
 				    $thistag = get_theme_mod('start_prefix_tag_newscontent').$j;    
-				    $query = new WP_Query( 'tag='.$thistag );
+				    	// retrieve sticky posts
+						$sticky_query = new WP_Query( array(
+							'post__in' => get_option( 'sticky_posts' ),
+							'ignore_sticky_posts' => false,
+							'posts_per_page' => $max - $i,
+							'post__not_in' => $displayedposts,
+						) );
+
+						while ( $sticky_query->have_posts() && ( $i < $max ) && ( $number < $maxall ) ) {
+							$sticky_query->the_post();
+							echo fau_display_news_teaser( $post->ID );
+							$i++;
+							$number++;
+							$displayedposts[] = $post->ID;
+						}
+						wp_reset_postdata();
+
+						// retrieve regular posts with specific tags
+						for ( $j = 1; $j <= $max; $j++ ) {
+							$i = 0;
+							$thistag = get_theme_mod( 'start_prefix_tag_newscontent' ) . $j;
+
+							$query = new WP_Query( array(
+								'tag' => $thistag,
+								'ignore_sticky_posts' => false,
+								'posts_per_page' => $max - $i,
+								'post__not_in' => $displayedposts,
+							) );
+
+							while ( $query->have_posts() && ( $i < $max ) && ( $number < $maxall ) ) {
+								$query->the_post();
+								echo fau_display_news_teaser( $post->ID );
+								$i++;
+								$number++;
+								$displayedposts[] = $post->ID;
+							}
+							wp_reset_postdata();
+						}
 
 				     while ($query->have_posts() && ($i<$max) && ($number<$maxall) ) { 
 					$query->the_post(); 
@@ -114,7 +149,6 @@
 		} ?>
 	</div>
     </div>  
-<?php get_template_part('template-parts/footer', 'social'); ?>	
 <?php 
 get_footer(); 
 

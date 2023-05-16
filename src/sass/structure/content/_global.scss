@@ -38,7 +38,7 @@
 	}
 	
 	.subtitle {
-	    margin: 1rem $fau-gutter-halfwidth;
+	    margin: 1rem var(--width-gutter-half, 15px);
 	    @media (min-width: $screen-sm) {
 		margin: 0 0 1rem 0;
 	    }
@@ -54,6 +54,11 @@
     }
 
     .portalmenu-oben {
-	margin-bottom: $fau-gutter-halfwidth;
+	margin-bottom: var(--width-gutter-half, 15px);
+	margin-top: $fau-gutter-thirdwidth;
     }
+}
+
+.wsf-form ul li {
+	list-style: none;
 }

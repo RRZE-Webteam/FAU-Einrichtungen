@@ -1,7 +1,10 @@
 # FAU-Einrichtungen
 
-Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)
+Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU), https://www.fau.de
 
+## Version
+
+Version: 2.3.14
 
 ## Download 
 
@@ -66,8 +69,6 @@ Es ist jedoch abseits des Gulp-Skriptes möglich, SASS auch mit einer eigenen ID
 
 Im Verzeichnis  ```/src/sass/``` wurden alle notwendigen SASS und SCSS Dateien abgelegt.
 Die zentrale CSS-Datei style.css wird bei der SASS-Compilierung im  Hauptverzeichnis des Themes unter den Namen ```style.css``` abgelegt. Die CSS-Dateien für das Backend werden dagegen im Unterverzeichnis ```/css``` abfelegt.
-
-Ab der Version 2.0 wird als SASS-Compiler Dart SASS veerwendet. 
 
 
 #### SASS-Watcher

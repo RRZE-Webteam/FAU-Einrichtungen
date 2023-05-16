@@ -3,12 +3,175 @@
 /*-----------------------------------------------------------------------------------*/
 @use "sass:math";
 
+// outside-the-box image
+.my-custom-image {
+    width: 100%;
+}
+
+.my-custom-image-div {
+   margin-inline: -10%;
+}
+
+.fau-row-outisde {
+    width: 100%;
+}
+
+.fau-row-outisde-div {
+   margin-inline: -25%;
+
+    @media (max-width: $screen-xl) {
+        margin-inline: unset;
+    }
+    p {
+        max-width: 60%;
+        width: 60%;
+        margin-left: 20% !important;
+    }
+    figure {
+        padding: 0 !important;
+        margin: 0 !important;
+   }
+}
+
+.post-navigation {
+    background-color: #f3f9ff;
+    padding: 0px;
+    margin-top: 90px;
+    display: inline;
+}
+
+.nav-previous {
+    float: left;
+
+    a {
+        text-align: left;
+    }
+
+    ::before {
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+        content: " ";
+        width: 1.4rem;
+        height: 1.4rem;
+        line-height: 1.4rem;
+        font-size: calc(1.4rem / 1.5);
+        background-image: inherit;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center center;
+        transform: rotate(180deg);
+        background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23222222" d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"/%3E%3C/svg%3E%0A');
+    }
+}
+
+.nav-next {
+    float: right;
+
+    a {
+        text-align: right;
+    }
+
+    ::before {
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+        content: " ";
+        float:right;
+        width: 1.4rem;
+        height: 1.4rem;
+        line-height: 1.4rem;
+        font-size: calc(1.4rem / 1.5);
+        background-image: inherit;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center center;
+        background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23222222" d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"/%3E%3C/svg%3E%0A');
+    }
+}
+
+
+.nav-previous,
+.nav-next {
+    padding: 10px;
+    font-weight: bold;
+    box-shadow: none;
+    transition: initial;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 40%;
+    color: currentcolor;
+    display: inline-block;
+    border-radius: 3px;
+    background-clip: padding-box;
+    font-size: 0.937rem;
+    line-height: 1.407rem;
+    color: var(--color-button-text);
+    background-color: var(--color-button-bg);
+    border: none;
+    padding: 0.5rem 0.7rem;
+    text-decoration: none;
+    border: 1px solid var(--color-ContentBorders);
+    background: transparent;
+    color: var(--color-Text);
+    font-weight: normal;
+    text-decoration: none;
+
+    a {
+        box-shadow: none;
+        text-decoration: none;
+        transition: none;
+        text-decoration-color: none;
+    }
+}
+
+.nav-previous:hover,
+.nav-next:hover {
+    // background-color:#0170b9;
+    background-color: var(--color-primary-ci-hell);
+    color: #fff;
+
+    a {
+        color: #fff;
+    }
+}
+
+.nav-previous:hover a:link,
+.nav-next:hover a:link {
+    background-color: var(--color-primary-ci-hell);
+    color: #fff;
+
+
+}
+
+.nav-previous:hover a:link {
+    &::before {
+        transform: rotate(180deg);
+
+        background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFFFFF" d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"/%3E%3C/svg%3E%0A');
+
+    }
+}
+
+.nav-next:hover a:link {
+    &::before {
+        float: right;
+
+
+        background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFFFFF" d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"/%3E%3C/svg%3E%0A');
+
+    }
+
+}
+
 .post-image {
     text-align: center;
     float: none;
     margin: 0 -15px;
 
-   
+
     @media (min-width: $screen-xs) {
         float: right;
         margin: 20px 0 10px 20px;
@@ -19,7 +182,7 @@
         height: auto;
         margin: 0;
         padding: 0;
-	
+
     }
 
     .post-image-caption {
@@ -53,6 +216,7 @@
 
 .meta-footer {
     margin-top: floor(math.div($grid-gutter-width, 2));
+    padding-bottom: 50px;
     @include px2rem($font-size-content-meta);
 }
 
@@ -82,12 +246,15 @@
 .single {
     #content {
         padding-top: 0;
+      
+    
     }
 
     h1.mobiletitle {
         margin-top: 0;
         padding: 10px 0;
         hyphens: auto;
+
         @media (min-width: $screen-sm) {
             @include sr-only();
         }
@@ -107,6 +274,7 @@
 
         img {
             max-width: 100vw;
+
             @media (min-width: $screen-sm) {
                 max-width: 98.5%;
             }
@@ -116,6 +284,7 @@
             width: 98.5%;
             padding: 0 15px;
             text-align: left;
+
             @media (min-width: $screen-sm) {
                 text-align: center;
                 margin-left: 0;
@@ -125,9 +294,9 @@
 
         &.alignleft,
         &.alignright {
-	    @media (min-width: $screen-sm) {
-		margin: 0 auto;
-	    }
+            @media (min-width: $screen-sm) {
+                margin: 0 auto;
+            }
         }
     }
 

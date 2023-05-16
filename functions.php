@@ -36,7 +36,6 @@ require_once( get_template_directory() . '/functions/gallery.php' );
 
 require_once( get_template_directory() . '/functions/svglib.php');
 
-require_once( get_template_directory() . '/functions/deprecated.php');
 
 // Filter-Hooks
 require_once( get_template_directory() . '/functions/filters.php');
@@ -62,7 +61,10 @@ function fau_setup() {
 	    // Register Menus
 	fau_create_socialmedia_menu();
 	    // Checkup Social Media Menu
-
+    fau_custom_logo_setup();
+        // Set the Logo setup and sizes
+    fau_set_image_sizes();
+        // Sets the sizes of Images
 	
 	global $is_gutenberg_enabled;
 	if (has_filter('is_gutenberg_enabled')) {
@@ -89,7 +91,6 @@ function fau_custom_logo_setup() {
 
     add_theme_support( 'custom-logo', $defaults );
 }
-add_action( 'after_setup_theme', 'fau_custom_logo_setup' );
 
 /*-----------------------------------------------------------------------------------*/
 /* Set image sizes
@@ -108,22 +109,20 @@ function fau_set_image_sizes() {
 	 *  full, unmodified
 	 */
     foreach ($defaultoptions['default_image_sizes'] as $size => $value) {	
-	switch ($size) {
-	    case '_post_thumbnail':
-		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size($value[ 'width'], $value['height'], $value['crop']);
-		break;
-	    case '_thumb': 
-	    case '_thumbnail': 
-		// default values; tu nichts (derzeit)
-		break;
-	    default:
-		add_image_size( $size, $value[ 'width'], $value['height'], $value['crop']);
-		break;
-	}
+        switch ($size) {
+            case '_post_thumbnail':
+                add_theme_support( 'post-thumbnails' );
+                set_post_thumbnail_size($value[ 'width'], $value['height'], $value['crop']);
+                break;
+            case '_thumb': 
+            case '_thumbnail': 
+                // default values; tu nichts (derzeit)
+                break;
+            default:
+                add_image_size( $size, $value[ 'width'], $value['height'], $value['crop']);
+        }
     } 
 }
-add_action( 'after_setup_theme', 'fau_set_image_sizes' );
 
 /*-----------------------------------------------------------------------------------*/
 /* Set extra init values
@@ -211,7 +210,10 @@ function fau_admin_header_style() {
     wp_enqueue_style( 'dashicons' );
     wp_enqueue_media();
     wp_enqueue_script('jquery-ui-datepicker');
-
+    
+    wp_enqueue_script('image-caption-editor', get_template_directory_uri() . '/js/fau-image-caption-editor.min.js', array('jquery', 'wp-editor'), '1.0', true);
+        // Add html atributes to image caption on post editor
+    
     $theme_data = wp_get_theme();
     $theme_version = $theme_data->Version;
     wp_register_script('themeadminscripts', $defaultoptions['src-adminjs'], array('jquery'),$theme_version);
@@ -246,10 +248,10 @@ function fau_dns_prefetch() {
     if (($host) && (count($host)>1)) {
         $prefetchDomains[] = $scheme.'://'.$host[count($host)-2].'.'.$host[count($host)-1];
 	
-	 // check for third level
-	if (count($host)>2) {
-	    $prefetchDomains[] = $scheme.'://'.$host[count($host)-3].'.'.$host[count($host)-2].'.'.$host[count($host)-1];
-	}
+        // check for third level
+       if (count($host)>2) {
+           $prefetchDomains[] = $scheme.'://'.$host[count($host)-3].'.'.$host[count($host)-2].'.'.$host[count($host)-1];
+       }
     }
    
 
@@ -287,23 +289,17 @@ function fau_addmetatags() {
     $googleverification = get_theme_mod('google-site-verification');
     if ((isset( $googleverification )) && ( !fau_empty($googleverification) )) {
         $output .= '<meta name="google-site-verification" content="'.$googleverification.'">'."\n";
-	// if we set the Google Site Verification in the customizer, we add the html meta tag here 
+        // if we set the Google Site Verification in the customizer, we add the html meta tag here 
     }
-
-
 
     $title = sanitize_text_field(get_bloginfo( 'name' ));
     $output .= '<link rel="alternate" type="application/rss+xml" title="'.$title.' - RSS 2.0 Feed" href="'.get_bloginfo( 'rss2_url').'">'."\n";
        	// Adds RSS feed links to <head> for posts and comments.
-	// add_theme_support( 'automatic-feed-links' );
-	// Will post both: feed and comment feed; To use only main rss feed, i have to add it manually in head
-    
-    
+        // add_theme_support( 'automatic-feed-links' );
+        // Will post both: feed and comment feed; To use only main rss feed, i have to add it manually in head
     
     echo $output;
-    
-    
-    
+
 }
 add_action('wp_head', 'fau_addmetatags',1);
 
@@ -322,7 +318,6 @@ function fau_create_meta_favicon() {
 	    $output .=  '<link rel="mask-icon" type="image/svg+xml" href="'.get_fau_template_uri().'/img/socialmedia/favicon-mask.svg" color="'.$defaultoptions['default-social-media-color'].'">'."\n";
 	    $output .=  '<meta name="msapplication-TileColor" content="'.$defaultoptions['default-social-media-color'].'">'."\n";
 	    $output .=  '<meta name="msapplication-TileImage" content="'.get_fau_template_uri().'/img/socialmedia/favicon-180x180.png">'."\n";
-
 	    $output .=  '<meta name="theme-color" content="'.$defaultoptions['default-social-media-color'].'">'."\n";  
     }
      echo $output;
@@ -340,7 +335,7 @@ function fau_addmjobsad() {
     global $defaultoptions;
 
     if ($defaultoptions['default-sourcecode-notice']) {
-	echo '<!-- '.$defaultoptions['default-sourcecode-notice-text'].' -->'."\n";
+        echo '<!-- '.$defaultoptions['default-sourcecode-notice-text'].' -->'."\n";
     }
 }
 add_action('wp_head', 'fau_addmjobsad',10);
@@ -401,12 +396,60 @@ require get_template_directory() . '/functions/comments.php';
 require_once( get_template_directory() . '/functions/gutenberg.php');
 
 
+
+
+
+
+// Move the following block to functions/custom-fields.php please...
+
+/*-----------------------------------------------------------------------------------*/
+/*Hide and show feutured image
+/*-----------------------------------------------------------------------------------*/
+function hide_featured_image_meta_box() {
+    add_meta_box( 'hide_featured_image', 'Featured Image', 'hide_featured_image_callback', 'post', 'side', 'low' );
+}
+add_action( 'add_meta_boxes', 'hide_featured_image_meta_box' );
+function hide_featured_image_callback( $post ) {
+    $value = get_post_meta( $post->ID, '_hide_featured_image', true );
+    echo '<label for="hide-featured-image"><input type="checkbox" id="hide-featured-image" name="hide_featured_image" value="1"' . checked( $value, 1, false ) . '> Hide featured image from this post</label>';
+}
+
+
+function hide_featured_image_save_post( $post_id ) {
+    if ( isset( $_POST['hide_featured_image'] ) ) {
+        update_post_meta( $post_id, '_hide_featured_image', 1 );
+    } else {
+        delete_post_meta( $post_id, '_hide_featured_image' );
+    }
+    
+    // Add the following code to set a cookie with the checkbox value
+//    setcookie( 'hide_featured_image', isset( $_POST['hide_featured_image'] ), time() + 86400, COOKIEPATH, COOKIE_DOMAIN );
+    
+    // Rework this please. See: https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues/1288
+}
+add_action( 'save_post', 'hide_featured_image_save_post' );
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Outside-box image post block
+ * 
+ * Note: Please move Block Editor stuff to functions/gutenberg.php
+ */
+/*-----------------------------------------------------------------------------------*/
+function fau_custom_image_blocks() {
+    wp_register_script(
+        'my-custom-blocks',
+        get_template_directory_uri() . '/js/fau-costum-image-block.min.js',
+        array( 'wp-blocks', 'wp-editor' ),
+        true
+    );
+    register_block_type( 'my-blocks/full-width-image', array(
+        'editor_script' => 'my-custom-blocks',
+    ) );
+}
+add_action( 'init', 'fau_custom_image_blocks' );
+
+
 /*-----------------------------------------------------------------------------------*/
 /* This is the end of the code as we know it
 /*-----------------------------------------------------------------------------------*/
-
-
-
-
-
-

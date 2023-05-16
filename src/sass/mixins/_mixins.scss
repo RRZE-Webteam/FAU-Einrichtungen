@@ -157,12 +157,12 @@ Mixins File for Wordpress Theme FAU
     margin: 10px 0 0 0;
     padding: 8px 10px;
     text-decoration: none;
-    @include border-radius(3px);
+    @include border-radius(var(--border-radius-buttons, 3px));
     @include px2rem($font-size-textbuttons);
 
     a {
         @include inline-block;
-        @include border-radius(3px);
+        @include border-radius(var(--border-radius-buttons, 3px));
         @include px2rem($font-size-textbuttons);
 	    @include buttoncolor();
         padding: 6px 10px;
@@ -233,30 +233,43 @@ Mixins File for Wordpress Theme FAU
     }
 }
 
-@mixin buttonstyle($radius: 3px) {
+@mixin buttonstyle() {
     @include inline-block;
-    @include border-radius($radius);
     @include px2rem($font-size-textbuttons);
     @include buttoncolor;
     
     border: none;
     padding: 0.5rem 0.7rem;
     text-decoration: none;
+    border-radius: var(--border-radius-buttons, 3px);
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: normal;
+    margin: 5px 0;
+    
 
-    &:hover, &:focus {
+    
+    &:hover, 
+    &:focus {
         text-decoration: none;
     }
 }
 
-@mixin ghostbutton($radius: 3px, $border: 1px) {
-    @include buttonstyle($radius);
-    
-    border: $border solid var(--color-ContentBorders);
+@mixin ghostbutton($border: 1px) {
+    @include inline-block;
+    @include px2rem($font-size-textbuttons);
+   
     background: transparent;
-    color: var(--color-Text);    
-    
+    color: var(--color-Text);   
+    border: $border solid var(--color-ContentBorders);
+    border-radius: var(--border-radius-buttons, 3px);
+    padding: 0.5rem 0.7rem;
+    text-decoration: none;
+     
     &:hover, 
     &:focus {
+	text-decoration: none;
 	color: var(--color-ghostbutton-hover-text);
         background: var(--color-ghostbutton-hover-bg);
     }
@@ -361,15 +374,6 @@ Mixins File for Wordpress Theme FAU
     }
 }
 
-
-// Opacity
-
-@mixin opacity($opacity) {
-  opacity: $opacity;
-  // IE8 filter
-  $opacity-ie: ($opacity * 100);
-  filter: alpha(opacity=$opacity-ie);
-}
 
 
 // from _vendor-prefixes.scss:

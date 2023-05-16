@@ -27,10 +27,7 @@
         width: $container-sm;
     }
     @media (min-width: $screen-md) {
-        width: $container-md;
-    }
-    @media (min-width: $screen-lg-min) {
-        width: $container-lg;
+        width: 100%;
     }
     @media (min-width: $screen-xl-min) {
         max-width: $container-xl;
@@ -43,8 +40,7 @@
     display: flex;
     flex-wrap: wrap;
 
-     
-    @media (min-width: $screen-xl-min) {
+    @media (min-width: $screen-sm) {
         flex-wrap: nowrap;
     }
 
@@ -75,14 +71,14 @@
         min-width: $screen-xxs - $grid-gutter-width;
         flex-grow: 1;
         @media (min-width: $screen-sm) {
-            max-width: $container-sm - $subnav-width-sm - $grid-gutter-width;
+            //max-width: $container-sm - $subnav-width-sm - $grid-gutter-width;
             padding-left: $grid-gutter-width;
         }
         @media (min-width: $screen-md) {
-            max-width: $container-md - $subnav-width-md - $grid-gutter-width;
+            //max-width: $container-md - $subnav-width-md - $grid-gutter-width;
         }
         @media (min-width: $screen-lg) {
-            max-width: $container-lg - $subnav-width-lg - $grid-gutter-width;
+            //max-width: $container-lg - $subnav-width-lg - $grid-gutter-width;
         }
         @media (min-width: $screen-xl) {
             max-width: $container-xl - $subnav-width-lg - $grid-gutter-width;
@@ -175,13 +171,13 @@
     }
 }
 .content-row .portalpage-sidebar {
-
+    padding-top: 20px;
     @media (min-width: $screen-sm) {
         align-self: flex-start;
         width: $sidebar-width-portal;
 	    max-width: $sidebar-maxwidth-portal;
         margin-top: 0;
-        padding-top: 0;
+        padding-top: 20px;
         padding-left: floor(math.div($grid-gutter-width, 2));
         border-top: none;
         border-left: 2px solid var(--color-primary-ci-hell2);
@@ -210,13 +206,14 @@
         flex-wrap: wrap;
         width: 100%;
         @media (min-width: $screen-sm) {
-            max-width: $container-sm - $grid-gutter-width;
+            //max-width: $container-sm - $grid-gutter-width;
+            flex-wrap: nowrap;
         }
         @media (min-width: $screen-md) {
-            max-width: $container-md - $grid-gutter-width;
+            //max-width: $container-md - $grid-gutter-width;
         }
         @media (min-width: $screen-lg) {
-            max-width: $container-lg - $grid-gutter-width;
+            //max-width: $container-lg - $grid-gutter-width;
         }
         @media (min-width: $screen-xl) {
             max-width: $container-xl - $grid-gutter-width;
@@ -237,14 +234,14 @@
 
             .with-sidebar & {
                 @media (min-width: $screen-sm) {
-                    max-width: $container-sm - $sidebar-width-posts - $grid-gutter-width;
+                    //max-width: $container-sm - $sidebar-width-posts - $grid-gutter-width;
                     padding-right: ceil(math.div($grid-gutter-width, 2));
                 }
                 @media (min-width: $screen-md) {
-                    max-width: $container-md - $sidebar-width-posts - $grid-gutter-width;
+                    //max-width: $container-md - $sidebar-width-posts - $grid-gutter-width;
                 }
                 @media (min-width: $screen-lg) {
-                    max-width: $container-lg - $sidebar-width-posts - $grid-gutter-width;
+                    //max-width: $container-lg - $sidebar-width-posts - $grid-gutter-width;
                 }
                 @media (min-width: $screen-xl) {
                     max-width: $container-xl - $sidebar-width-posts - $grid-gutter-width;

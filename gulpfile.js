@@ -296,11 +296,11 @@ function buildmainstyle() {
  */
 function devbuildmainstyle() {
     var plugins = [
-        autoprefixer(),
+        autoprefixer()
 	// cssnano()
     ];
   return src([info.source.sass + 'fau-theme-style.scss'])
-   .pipe(header(banner, { info : info }))
+    .pipe(header(banner, { info : info }))
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(plugins))
     .pipe(rename(info.maincss))
@@ -353,7 +353,8 @@ function bundlemainjs() {
     return src([info.source.js + 'main/jquery.fancybox.js',
 	    //    info.source.js + 'main/jquery.hoverIntent.min.js',
 		// we remove hoverIntent, cause its already provider from wordpress
-	    info.source.js + 'main/jquery.tablesorter.min.js',
+	    //  info.source.js + 'main/jquery.tablesorter.min.js',
+	        //  tablesorter moved in elements plugin (March 2023)   
 	    //  info.source.js + 'main/slick.js',
 		// we remove slick from the main js to reduce the data transfered
 		// in default situations. slick we only use on special pages, where we
@@ -372,6 +373,26 @@ function makeslickjs() {
     .pipe(dest(info.jsdir))
     .pipe(touch());
 }
+
+function makecustomblockjs() {
+    return src([info.source.js + 'main/fau-costum-image-block.js'])
+    .pipe(uglify())
+    .pipe(rename("fau-costum-image-block.min.js"))
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
+}
+
+
+
+function makesrollstoriesjs() {
+    return src([info.source.js + 'main/fau-scroll-stories.js'])
+    .pipe(uglify())
+    .pipe(rename("fau-scroll-stories.min.js"))
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
+}
+
+
 
 function updatepot()  {
   return src(['**/*.php', '!vendor/**/*.php'])
@@ -420,7 +441,7 @@ function unset_debugmode() {
  */
 function upversionpatch() {
     var newVer = semver.inc(info.version, 'patch');
-    return src(['./package.json','./' + info.maincss])
+    return src(['./package.json', './README.md','./' + info.maincss])
         .pipe(bump({
             version: newVer
         }))
@@ -438,7 +459,7 @@ function upversionpatch() {
  */
 function devversion() {
     var newVer = semver.inc(info.version, 'prerelease');
-    return src(['./package.json', './' + info.maincss])
+    return src(['./package.json', './README.md', './' + info.maincss])
         .pipe(bump({
             version: newVer
         }))
@@ -478,15 +499,17 @@ exports.validatecss = validatecss;
 exports.bundlemainjs = bundlemainjs;
 exports.bundleadminjs = bundleadminjs;
 exports.makeslickjs = makeslickjs;
+exports.makecustomblockjs = makecustomblockjs;
 exports.makecustomizerjs = makecustomizerjs;
 exports.makewplinkjs = makewplinkjs;
 exports.clone = cloneTheme;
 exports.buildmainstyle = buildmainstyle;
 exports.buildprintstyle = buildprintstyle;
+exports.devbuildmainstyle = devbuildmainstyle;
 exports.debugmode = set_debugmode;
 exports.nodebug = unset_debugmode;
 
-var js = series(bundlemainjs, makeslickjs, bundleadminjs, makecustomizerjs, makewplinkjs);
+var js = series(bundlemainjs, makeslickjs, makecustomblockjs,makesrollstoriesjs, bundleadminjs, makecustomizerjs, makewplinkjs);
 var dev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle,  js, devversion);
 
 exports.cssdev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle);

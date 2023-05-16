@@ -1,34 +1,26 @@
 /*-----------------------------------------------------------------------------------*/
 /* Layout: Base Structure
 /*-----------------------------------------------------------------------------------*/
-
-
 body {
 	margin: 0;
 	color: var(--color-Text);
 	background-color: var(--color-MainBackground);
 	font-size: 16px;
 	font-size: 1rem;
-	line-height: 1.35;
+	line-height: 1.5;
 }
-
-
 
 html, body, button {
 	font-family: $fontStack;
 	font-kerning:  none;
 }
 
- html {
+html {
       height: 100%;
     // scroll-padding-top: 175px;
     scroll-behavior: smooth;
 
-    
-  
 }
-
-
 
 
 /* Main surrounding grid */
@@ -53,6 +45,7 @@ html, body, button {
 	#content {
 	    flex: 1;
 	    width: 100%;
+		overflow-x: hidden;
 	    
 	 
 	}
@@ -61,8 +54,6 @@ html, body, button {
 	}
 
 }
-
-
 
 
 

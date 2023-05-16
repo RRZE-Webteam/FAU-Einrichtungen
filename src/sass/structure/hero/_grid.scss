@@ -11,13 +11,14 @@
     padding-right: $fau-gutter-halfwidth;
 
     @media (min-width: $screen-sm) {
-	width: $container-sm;
+	    width: $container-sm;
     }
      @media (min-width: $screen-md) {
-	width: $container-md;
+	    //width: $container-md;
+        width: 100%;
     }
     @media (min-width: $screen-lg-min) {
-	width: $container-lg;
+	    //width: $container-lg;
     }
     @media (min-width: $screen-xl-min) {
         width: $container-xl;

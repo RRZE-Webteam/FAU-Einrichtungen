@@ -173,6 +173,14 @@ $color-ghostbutton-hover-text:	map-get($colormap-primary, "ci-hell-kontrast");
 $color-ghostbutton-hover-bg:	map-get($colormap-primary, "ci-hell");
 
 
+// Default Border Radius
+$default-border-radius:	 0px;
+$border-radius-buttons:	 0px;
+
+
+// Devider Height
+$default-devider-height: 4px;
+
 // Hinweis: Für SVG-Grafiken brauchen wir den HEX-Code direkt und können nicht Custom Properies nutzen!
 $socialmedia_icon_bgcolor_hover: map-get($colormap-primary, "ci-hell-kontrast");
 $socialmedia_icon_color:	map-get($colormap-primary, "ci-hell-kontrast");
@@ -245,7 +253,7 @@ $font-size-socialmedia-morelink: $font-size-sidebar;
 $font-size-nav-mainlinks: $font-size-base;
 
 $font-size-nav-level2: $font-size-base;
-$font-size-nav-level3: ($font-size-base - 1);
+$font-size-nav-level3: ($font-size-base - 2);
 $font-size-nav-buttons:	($font-size-base + 2);
 
 $font-size-subnav-firstlevel: ($font-size-base - 1);
@@ -377,8 +385,10 @@ $screen-xl: 1400px;
 $screen-xxl: 1760px;
 $screen-xxs: 320px;
 
-$slider-maxwidth: 1260px;
-$slider-maxheight: 350px;
+$slider-maxwidth: 100%;
+$banner-startpage-width:1260px;
+//$slider-maxheight: 350px;
+$slider-maxheight: 480px;
 $slider-arrow-width: 40px;
 
 $wordpress-adminbar-break: 783px;

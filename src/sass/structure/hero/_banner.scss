@@ -14,7 +14,16 @@
 
 }
 
-
+.overlay-slider-image{
+	background: linear-gradient(180deg,rgba(255,255,255,0) 45%,rgba(0,51,102,.8));
+	height: 480px;
+	z-index: 2;
+	position: absolute;
+	width: 100%;
+	@media (max-width: $screen-xs) {
+		display: none;
+	}
+}
 
 .banner {
 	    position: relative;
@@ -22,7 +31,7 @@
 	    margin: 0 auto;
 	    height: auto;
 	    background: var(--color-hero-bg);
-	    max-width: 1260px;
+	    max-width: $banner-startpage-width;
 	    overflow: hidden;
 	    @include box-shadow(0 10px 20px rgba(0,0,0,0.5));
 	    
@@ -42,21 +51,22 @@
 		    max-width: none;
 		    height: 100px;
 		    @media (max-width: $screen-xs - 1) {
-			height: 120px;
 			margin-left: -30%;
 		    }
 		    @media (min-width: $screen-xs) {
 			height: auto;
 			width: 100%;
-			max-width: 1260px;
+			max-width: 100%;
 		    }
 		    @media (min-width: $screen-sm) {
 			min-height: 182px;
-			width: 1260px;
+			max-width: 100%;
+
 			height: auto;
 		    }
 		    @media (min-width: $screen-md) {
-			width: 1260px;
+		max-width: 100%;
+
 			height: auto;
 			
 		    }

@@ -19,32 +19,14 @@ get_header();
 $posttype = get_post_type();
 $screenreadertitle = '';
 $herotype = get_theme_mod('advanced_header_template');
-if (($posttype == 'post') && (is_archive())) {
-    
-    if ($herotype=='banner') {
-	get_template_part('template-parts/hero', 'banner');
-    } elseif ($herotype=='slider') {	
-	get_template_part('template-parts/hero', 'sliderpage-slider');
-    } else {
-	get_template_part('template-parts/hero', 'category');
-    }
+if (($posttype == 'post') && (is_archive())) {    
     if (is_category()) {
-	$screenreadertitle = single_cat_title("", false);
+        $screenreadertitle = single_cat_title("", false);
     } else {
-	$screenreadertitle = get_the_archive_title();
+        $screenreadertitle = get_the_archive_title();
     }
 
-} else {
-     if ($herotype=='banner') {
-	get_template_part('template-parts/hero', 'banner');
-    } elseif ($herotype=='slider') {	
-	get_template_part('template-parts/hero', 'sliderpage-slider');
-    } else {
-      get_template_part('template-parts/hero', 'banner');
-//	get_template_part('template-parts/hero', 'index');
-    }
-	
-   
+} else {	
     $screenreadertitle = __('Index','fau');
 }
 ?>
@@ -55,7 +37,7 @@ if (($posttype == 'post') && (is_archive())) {
 			<?php if(get_post_type() == 'post') { ?>
 			<main class="entry-content">
 			<?php } else { ?>
-			<main class="col-xs-12">
+			<main>
 			<?php } 
 			    
 			    if (empty($herotype)) {   ?>
@@ -124,6 +106,5 @@ if (($posttype == 'post') && (is_archive())) {
 	
     </div>
 <?php 
-get_template_part('template-parts/footer', 'social'); 
 get_footer(); 
 

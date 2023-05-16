@@ -16,7 +16,7 @@
 			?>
 		</div>
 		<div class="hero-row" aria-hidden="true" role="presentation">
-		    <p class="presentationtitle"><?php echo get_the_archive_title(); ?></p>
+		    <p class="presentationtitle"><?php echo fau_get_hero_title(); ?></p>
 		</div>
 	</div>
     </section>

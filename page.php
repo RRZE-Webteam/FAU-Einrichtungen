@@ -16,7 +16,7 @@ $content_width =$defaultoptions['content-width-fullpage'];
 
 while ( have_posts() ) : 
 	the_post(); 
-	get_template_part('template-parts/hero', 'small');
+	
 	?>
 	<div id="content">
 		<div class="content-container">
@@ -32,39 +32,35 @@ while ( have_posts() ) :
 					<div class="inline-box">			    
 					    <?php get_template_part('template-parts/sidebar', 'inline');  
 					    if ($is_sidebar_active) {
-						echo '<div class="content-inline with-sidebar">';
+                            echo '<div class="content-inline with-sidebar">';
 					    } else {
-						echo '<div class="content-inline">';
+                            echo '<div class="content-inline">';
 					    }
 					    the_content(); 
 					   
 					    
 					    echo wp_link_pages($pagebreakargs);  
 					    
-					     echo '</div>';
+					    echo '</div>';
 					    ?>
 					</div>    
 					
-			    </main>
-			    <?php  
-			    $logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );		
-			    if ($logoliste) { 
-				    /* New since 1.10.57 */
-				$logosize = get_post_meta( $post->ID, 'fauval_imagelink_size', true );
-				$size = $logosize != '' ? esc_attr($logosize) : "logo-thumb";
-				$logos = fau_imagelink_get(array('size' => $size, 'catid' => $logoliste));
-				if ((isset($logos) && (!empty($logos)))) {
-				    echo "<hr>\n";
-				    echo $logos;
-				}
-			    }
+					<?php  
+                    $logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );		
+                    if ($logoliste) { 
+                        /* New since 1.10.57 */
+                        $logosize = get_post_meta( $post->ID, 'fauval_imagelink_size', true );
+                        $size = $logosize != '' ? esc_attr($logosize) : "logo-thumb";
+                        $logos = fau_imagelink_get(array('size' => $size, 'catid' => $logoliste));
+                        if ((isset($logos) && (!empty($logos)))) {
+                            echo $logos;
+                        }
+                    }
 			    ?>	
+			    </main>
 		    </div>
 		</div>
-	    	
-
 	</div>
 	
 <?php endwhile;
-get_template_part('template-parts/footer', 'social');
 get_footer(); 

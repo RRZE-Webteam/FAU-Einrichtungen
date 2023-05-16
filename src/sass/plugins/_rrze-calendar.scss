@@ -11,6 +11,9 @@
 		@include defaultlinkstyle();
 		text-decoration: none;
 	    }
+	    a.events-more {
+		@include buttonstyle();
+	    }
 	}
 	.rrze-calendar.kalender {
 	    a.termin {
@@ -47,25 +50,31 @@
 
 	
 	a.events-more {
-	    @include defaultlinkstyle();
 	    @include buttonstyle();
 	}
 }
 
 
-/* Event-Listen in der Sidebar oder in Shortcodes */
+/* Event-Listen in der Sidebar oder in Shortcodes 
 .events-list {
 	padding-bottom: 10px;
-
 	.events-more-links a {
 	    margin-left: 60px;
 	}
+}
+*/
 
+// Darstellung des Buttons in der Widget/Sidebar rechts: Hier wird auf 100% 
+// gegangen um eine bessere und einheitliche SIcht zu gewährleisten.
+// Der bisherige Margin left von 60px war ungenau und führte bei einigen 
+// Situationen zu optischen Schwächen.
+// (15.05.2023, WW)
+.widget .events-list .events-more-links a {
+    width: 100%;
 }
 
 
-.widget_event_widget,
-.events-list {
+.widget_event_widget .events-list {
 	ul {
 		@include no-list;
 
@@ -80,8 +89,6 @@
 }
 
 .event-date {
-	float: left;
-	display: block;
         @include buttonstyle();
 	background: var(--color-primary-ci-hell); 
 	color:  var(--color-primary-ci-hell-kontrast); 
@@ -105,20 +112,16 @@
 		@include px2rem($font-size-sidebar-events-day);
 		font-weight: bold;
 	}
-}
+    }
 
-
-.event-info {
-    margin-left: 3.8rem;
-	margin-bottom: 0.5rem;
+    .event-info { 
+	margin-left: 0;
+	margin-bottom: 0;
+	
 	a, .event-time {
-		color: var(--color-Text);
+	    color: var(--color-Text);
 	}
-	.event-location,
-	.event-time {
-	    font-size: 0.8rem;
-	    line-height: 1.5;
-	}
+	
 	.event-title {
 	    font-weight: bold;
 	    margin: 0.2rem 0;
@@ -126,8 +129,38 @@
 	.event-allday {
 	    text-transform: uppercase;
 	}
+    }
 
+
+.events-list .event-item, 
+.event-detail-item {
+    display: flex;
+    margin-bottom: $fau-gutter-halfwidth;
+    grid-gap: $fau-gutter-halfwidth;
+    align-items: flex-start;
+    
+	.event-info {
+		margin-left: 0;
+		margin-bottom: 0;
+	}
+
+	.event-date {
+		margin: 0;
+		padding: 0.5rem 0;
+		min-height: 42px;
+		min-width: 50px;
+	}
+
+	.event-date-month {
+		font-size: 14px;
+
+	}
+	.event-date-day {
+		font-size: 28px;
+	}
 }
+
+
 
 .rrze-calendar .event-date.bgcol-default,
 .event-category-fau .event-date,
@@ -220,39 +253,6 @@
 }
 
 
-.event-detail-item {
-	margin-bottom: 20px;
-	min-height: 50px;
-
-	.event-info {
-		margin-left: 70px;
-		font-size: 15px;
-		line-height: 20px;
-		padding-top: 6px;
-	}
-
-	.event-date {
-		width: 50px;
-		padding: 7px 0;
-	}
-
-	.event-date-month {
-		font-size: 14px;
-		line-height: 18px;
-	}
-
-	.event-date-day {
-		font-size: 28px;
-		line-height: 28px;
-	}
-}
 
 
 
-
-
-@media (max-width: $screen-sm) {
-	#content .widget_event_widget .event-info {
-		margin-left: 60px;
-	}
-}

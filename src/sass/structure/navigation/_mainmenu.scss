@@ -8,7 +8,9 @@
 
     /* All links & buttons */
     a, [type=button] {
+        margin: 5px 0 0 0;
         text-decoration: none;
+        font-weight: bold;
         color: var(--color-mainmenu-toplevel-text);
         background: var(--color-mainmenu-toplevel-bg);
 
@@ -21,6 +23,11 @@
         }
 
 
+    }
+
+    li.level1.has-sub:hover > a {
+        color: var(--color-mainmenu-toplevel-bg);
+        background: var(--color-mainmenu-toplevel-hover-bg);
     }
 
     /* First-level items */
@@ -95,23 +102,32 @@
     .level2,
     .level3 {
         a {
-            color: var(--color-mainmenu-sublevel-text);
-            background-color: var(--color-mainmenu-sublevel-bg);
+            color: var(--color-mainmenu-toplevel-text);
         }
 
         a:hover,
         a:focus {
-            text-decoration: underline;
             color: var(--color-mainmenu-sublevel-hover-text);
-            background-color: var(--color-mainmenu-sublevel-hover-bg);
+            background-color: var(--color-mainmenu-sublevel-bg);
 	        @include border-radius(3px);
+        }
+    }
+
+    .level3 {
+        a {
+            font-weight: normal;
+
+            @media (max-width: $screen-sm) {
+                font-size: 0.9rem;
+                line-height: 1.3rem;
+            }
         }
     }
 
     /* Fly-Out / secondary navigation */
     .nav-flyout {
-        background-color: var(--color-mainmenu-sublevel-bg);
-        padding: 20px 0;
+        background-color: var(--color-white);
+        padding: 50px 0;
     }
 
     /* Portal buttons */
@@ -121,34 +137,47 @@
         @include buttonstyle();
         @include px2rem($font-size-nav-buttons);
         padding: 0.5rem 1rem;
+        margin-left: 20px;
+        background-color: var(--color-mainmenu-sublevel-bg);
     }
 
     ul {
         @include no-list;
         margin: 0 0 15px 0;
+        
+        &.level4 {
+            margin: 0;
+        }
 
         li {
             @include no-list; /* Necessary because there's a global style setting this to "disc" */
             padding: 0;
+            
+            /* Fix for Webkit only, because "column-width" doesn't work properly */
+            @supports (not (-moz-appearance: none)) {
+                @media (min-width: $screen-sm) {
+                    width: 330px;
+                }
+              }
         }
 
         a {
             display: inline-block;
-            padding: 7px 20px 7px 15px;
+            padding: 7px 20px 7px 13px;
             width: 100%;
         }
     }
 
-
     .level2 {
+
         > li {
             &.has-sub {
                 page-break-inside: avoid;
                 break-inside: avoid;
+                margin-bottom: 20px;
             }
 
             > a {
-                border-bottom: 1px solid var(--color-primary-dunkelste);
                 background-color: transparent;
             }
         }
@@ -175,39 +204,88 @@
 
                     > a {
 			            @include px2rem($font-size-nav-level2);
-                        border-bottom-color: var(--color-primary-dunkler);
+
                         padding-left: $padding-base-horizontal;
 
                     }
                 }
 
-                &.level3 li:last-child {
-                    padding-bottom: 15px;
-                }
                 &.level3 a {
 		            @include px2rem($font-size-nav-level3);
+                    line-height: 1.2rem;
                 }
             }
 
             .flyout-entries-full {
-                column-count: 3;
-                column-gap: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                flex-direction: column;
 
                 @media (max-width: $screen-md - 1) {
-                    column-count: 2;
+                    //column-count: 2;
                 }
 
                 @media (min-width: $screen-xl) {
-                    column-count: 4;
+                    //column-count: 4;
+                }
+
+                &.column-count-1, &.column-count-2, &.column-count-3, &.column-count-4 {
+                    ul.level2, ul.level3 {
+                        column-width: 330px;
+                    }
+                    .button-portal {
+                        margin-right: auto;
+                        margin-top: 10px;
+
+                        @media (max-width: $screen-xl) {
+                            margin-left: unset !important;
+                            margin-right: unset !important;
+                        }
+                    }
+                }
+                &.column-count-1 {
+                    ul.level2, ul.level3 {
+                        column-count: 1;
+                    }
+                    .button-portal {
+                        margin-left: 543px;
+                    }
+                }
+                &.column-count-2 {
+                    ul.level2, ul.level3 {
+                        column-count: 2;
+                    }
+                    .button-portal {
+                        margin-left: 369px;
+                    }
+                }
+                &.column-count-3, &.column-count-4 {
+                    ul.level2, ul.level3 {
+                        column-count: 3;
+
+                        @media (max-width: 1029px) {
+                            column-count: 2;
+                        }
+                    }
+                    .button-portal {
+                        margin-left: 194px;
+                    }
                 }
             }
 
             .nav-flyout {
-                background: var(--color-mainmenu-sublevel-bg);
-
+                background-color: var(--color-white);
+                border-top: 8px solid var(--color-mainmenu-sublevel-bg);
 
                 @media (min-width: $screen-sm) {
                     min-height: 199px;
+                   
+                }
+
+                @media (max-width: $screen-md) {
+                    margin-top: 50px;
+
                 }
             }
 
@@ -222,6 +300,8 @@
 
 #mainnav-toggle,
 #mainnav-toggle-close {
+    min-width: 48px;
+    min-height: 48px;
     position: absolute;
     right: 5px;
     top: 3px;
@@ -247,6 +327,7 @@
 }
 
 #mainnav-toggle:before {
+    font-size: 28px;
     @extend .fa;
     @extend .fa-bars;
 }
@@ -287,7 +368,7 @@
         border-top: 1px solid var(--color-primary-ci-hell);
 
         .nav-flyout {
-            padding-top: 0;
+            padding: 0;
         }
         .flyout-entries-full {
             display: flex;
@@ -295,13 +376,11 @@
             .button-portal {
                 order: 1;
                 margin-top: 10px;
-                padding: 7px 20px 7px 5px;
-                background: transparent;
-                border-radius: 0;
+                padding: 7px 20px 7px 13px;
+                margin-left: 0;
                 border-bottom: 1px solid var(--color-primary-dunkler);
                 &:hover, &:focus, &:active {
                     background: var(--color-mainmenu-sublevel-hover-bg);
-                    text-decoration: underline;
                 }
             }
             ul {
@@ -342,17 +421,6 @@
                         color: var(--color-primary-dunkelste-kontrast);
                     }
                 }
-            }
-        }
-    }
-
-    .level2 {
-        border-top: 1px solid #1f4c7a;
-    }
-    .level3 {
-        li {
-            a {
-                padding-left: $padding-base-horizontal * 2.5;
             }
         }
     }
@@ -435,7 +503,7 @@
             left: 0;
             right: 0;
             overflow: hidden;
-            @include box-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
+            @include box-shadow(0 4px 18px rgba(0, 0, 0, 0.05)); 
         }
     }
 }

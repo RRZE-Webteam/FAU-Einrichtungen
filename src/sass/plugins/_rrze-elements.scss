@@ -48,7 +48,7 @@ button.expand-all {
     .accordion-group {
         border: none;
         margin-bottom: 5px;
-	border-radius: 4px;
+	border-radius: var(--border-radius, 4px);
 	
         .accordion-heading {
             overflow: hidden;
@@ -57,10 +57,11 @@ button.expand-all {
                 border-left: 10px solid var(--color-primary-ci-hell);
                 background: var(--color-ContentBorders);
                 color:  var(--color-Text);
-                @include border-radius(4px);
-		        @include px2rem($font-size-content-toggle);
+
+		@include px2rem($font-size-content-toggle);
                 text-decoration: none;
                 padding: 8px 35px 8px 10px;
+		margin: 0;
                 position: relative;
 
                 &:before {
