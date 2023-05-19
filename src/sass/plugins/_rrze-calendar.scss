@@ -31,7 +31,21 @@
     }
 
  
-    .widget .rrze-calendar {
+.events-more-links {
+	padding: 0;
+	text-align: left;
+	margin-bottom: var(--width-gutter-half, 1rem);
+	margin-top: var(--width-gutter-half, 1rem);
+
+	
+	a.events-more {
+	    @include buttonstyle();
+	}
+
+}
+
+.widget {
+    .rrze-calendar {
 	li {
 	    a {
 		@include defaultlinkstyle();
@@ -42,17 +56,12 @@
 	    }
 	}
     }
-    
-.events-more-links {
-	padding: 0;
-	text-align: left;
-	margin-bottom: 5px;
-
-	
-	a.events-more {
-	    @include buttonstyle();
-	}
+    .events-more-links {
+	margin-top: 0;
+    }
 }
+  
+    
 
 
 /* Event-Listen in der Sidebar oder in Shortcodes 
