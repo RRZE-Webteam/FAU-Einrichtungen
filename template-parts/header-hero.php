@@ -1,6 +1,4 @@
 <?php
-
-
 /* 
  * Creates the Hero Bar below the main navigation
  * 
@@ -8,16 +6,21 @@
  *  
  */
 
+$posttype = get_post_type();
+$known_types_without_hero = get_theme_mod('default_posttypes_without_hero'); 
 
-if (is_search()) {
+if (isset($posttype) && (isset($known_types_without_hero)) && (in_array($posttype, $known_types_without_hero))) {
+    // no hero for these types
+    // mostly used by special plugins, like FAU Studium
+} elseif (is_search()) {
     get_template_part('template-parts/hero', 'search');  
 } elseif (is_404()) {
     get_template_part('template-parts/hero', 'error');
 } elseif (isset($_REQUEST['status']) && $_REQUEST['status'] >= 400) {
     get_template_part('template-parts/hero', 'error');
 } else {
-    $posttype = get_post_type();
-    $herotype = get_theme_mod('advanced_header_template');
+   
+    $herotype = get_theme_mod('advanced_header_template');    
     $page_template = basename(get_page_template());
     switch ($page_template) {
 

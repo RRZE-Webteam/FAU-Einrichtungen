@@ -7,7 +7,7 @@ CSS Font File for Wordpress Theme FAU
     src: 
 	url('#{$font-path-roboto}/Roboto-Bold.woff2') format('woff2'),
 	url('#{$font-path-roboto}/Roboto-Bold-webfont.woff') format('woff'),
-         url('#{$font-path-roboto}/Roboto-Bold-webfont.ttf') format('truetype');
+        url('#{$font-path-roboto}/Roboto-Bold-webfont.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }	
@@ -15,7 +15,7 @@ CSS Font File for Wordpress Theme FAU
 @font-face {
     font-family: 'Roboto';
     src: url('#{$font-path-roboto}/Roboto-BoldItalic.woff2') format('woff2'),
-	url('#{$font-path-roboto}/Roboto-BoldItalic-webfont.woff') format('woff'),
+	 url('#{$font-path-roboto}/Roboto-BoldItalic-webfont.woff') format('woff'),
          url('#{$font-path-roboto}/Roboto-BoldItalic-webfont.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
@@ -23,8 +23,21 @@ CSS Font File for Wordpress Theme FAU
 
 @font-face {
     font-family: 'Roboto';
-    src:	url('#{$font-path-roboto}/Roboto-Italic.woff2') format('woff2'),
-	url('#{$font-path-roboto}/Roboto-Italic-webfont.woff') format('woff'),
+    src: url('#{$font-path-roboto}/Roboto-Bold-500.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}	
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('#{$font-path-roboto}/Roboto-BoldItalic-500.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('#{$font-path-roboto}/Roboto-Italic.woff2') format('woff2'),
+	 url('#{$font-path-roboto}/Roboto-Italic-webfont.woff') format('woff'),
          url('#{$font-path-roboto}/Roboto-Italic-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;

@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'           => 89,
+    'optiontable-version'           => 91,
 		// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 		// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 		// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -70,8 +70,12 @@ $defaultoptions = [
     'start_link_news_cat'			=> 0,    
     'start_link_news_show'			=> 1,
     'start_link_news_linktitle'		=> __('Mehr Meldungen','fau'),
+    'start_max_tagposition'         => 4,
+    'advance_show_sticky_posts'     => false,
+    'advance_show_sticky_posts_max' => 1,
 
 
+                    
     'default_postthumb_always'		=> 1,
 	'show_date_on'					=> true,
 	'show_cat_on' 					=> true,
@@ -159,7 +163,7 @@ $defaultoptions = [
         ]
 	
     ],
-
+    'default_posttypes_without_hero'            => ['studiengang'],
     'breadcrumb_root'                           => __('Startseite', 'fau'),
     'breadcrumb_withtitle'                      => false,
     'breadcrumb_showcurrent'                    => true,
@@ -846,20 +850,29 @@ $setoptions = array(
 			'parent'  => 'footer'
         ),  
 	       
-	      'newsbereich'  => array(
+            'newsbereich'  => array(
                   'type'    => 'section',
                   'title'   => __( 'Artikelliste (Blogroll)', 'fau' ),        
-              ),
+            ),
 	       
 	       'start_max_newscontent'=> array(
-                  'type'    => 'range-value',
-                  'title'   => __( 'Zahl der Artikel (Gesamt)', 'fau' ),
-                  'label'   => __( 'Anzahl der News auf der Startseite unterhalb des Sliders', 'fau' ),
-                  'default' => $defaultoptions['start_max_newscontent'],
-		   'parent'  => 'newsbereich',
-		   'min'	    => 0,
-		  'max'	    => 7,	
-              ),  
+                'type'    => 'range-value',
+                'title'   => __( 'Zahl der Artikel (Gesamt)', 'fau' ),
+                'label'   => __( 'Anzahl der News auf der Startseite unterhalb des Sliders', 'fau' ),
+                'default' => $defaultoptions['start_max_newscontent'],
+                'parent'  => 'newsbereich',
+                'min'	    => 0,
+                'max'	    => 7,	
+            ),  
+            'advance_show_sticky_posts'   => array(
+                'type'    => 'toggle',
+                'title'   => __( 'Artikel oben halten', 'fau' ),
+                'label'   => __( 'Wenn ein Artikel mit dem Sticky-Tag ("Oben halten") veröffentlicht wurde, wird dieser vor der aktuellen Liste gezeigt. Solange ein Artikel existiert der hochgehalten wird, wird dieser, unabhängig von seinem Alter existiert, vor der aktuellen Liste gezeigt.', 'fau' ),      
+                'default' => $defaultoptions['advance_show_sticky_posts'],
+                'parent'  => 'newsbereich'
+              ), 
+               
+    
 	        'start_prefix_tag_newscontent' => array(
                   'type'    => 'text',
                   'title'   => __( 'Positionierungs-Tag', 'fau' ),
