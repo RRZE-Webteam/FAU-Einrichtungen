@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
     // Name des Options-Array
 
 $defaultoptions = [
-    'optiontable-version'           => 89,
+    'optiontable-version'           => 90,
 		// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 		// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 		// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -159,7 +159,7 @@ $defaultoptions = [
         ]
 	
     ],
-
+    'default_posttypes_without_hero'            => ['studiengang'],
     'breadcrumb_root'                           => __('Startseite', 'fau'),
     'breadcrumb_withtitle'                      => false,
     'breadcrumb_showcurrent'                    => true,
