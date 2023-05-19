@@ -723,9 +723,10 @@ function fau_breadcrumb($lasttitle = '', $echo = true, $noNav = false) {
         $position++;
 
         if ($endpoint_slug !== false) {        
-            $res .= $before.'<span class="active" aria-current="page" itemprop="name">'.ucfirst($endpoint_slug).'</span>';
+            $res .= $before.'<span aria-current="page" itemprop="name">'.ucfirst($endpoint_slug).'</span>';
             $res .= '<meta itemprop="position" content="'.$position.'" />'.$after;
             $position++;
+          
         } elseif (is_category()) {
             $res .= $before.'<span class="active" aria-current="page" itemprop="name">'.single_cat_title('', false).'</span>';
             $res .= '<meta itemprop="position" content="'.$position.'" />'.$after;

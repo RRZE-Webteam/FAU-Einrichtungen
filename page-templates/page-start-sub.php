@@ -47,7 +47,6 @@
                                 while ( $sticky_query->have_posts() && ( $number < $maxall ) ) {
                                     $sticky_query->the_post();
                                     echo fau_display_news_teaser( $post->ID );
-                                    $i++;
                                     $number++;
                                     $displayedposts[] = $post->ID;
                                 }

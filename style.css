@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.16-2
+Version: 2.3.16-4
 Requires at least: 6.0
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -15515,31 +15515,11 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
   font-size: 1rem;
 }
 
-.widget .rrze-calendar li a {
-  box-shadow: none;
-  transition: initial;
-  padding: 0;
-  text-decoration: underline;
-  color: currentcolor;
-  -webkit-text-decoration-color: currentcolor;
-          text-decoration-color: currentcolor;
-  text-decoration: none;
-}
-.widget .rrze-calendar li a:hover, .widget .rrze-calendar li a:focus {
-  box-shadow: none;
-  text-decoration: underline;
-  color: currentcolor;
-  -webkit-text-decoration-color: currentcolor;
-          text-decoration-color: currentcolor;
-}
-.widget .rrze-calendar li a::before {
-  display: none;
-}
-
 .events-more-links {
   padding: 0;
   text-align: left;
-  margin-bottom: 5px;
+  margin-bottom: var(--width-gutter-half, 1rem);
+  margin-top: var(--width-gutter-half, 1rem);
 }
 .events-more-links a.events-more {
   display: inline-block;
@@ -15563,6 +15543,30 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
 }
 .events-more-links a.events-more:hover, .events-more-links a.events-more:focus {
   text-decoration: none;
+}
+
+.widget .rrze-calendar li a {
+  box-shadow: none;
+  transition: initial;
+  padding: 0;
+  text-decoration: underline;
+  color: currentcolor;
+  -webkit-text-decoration-color: currentcolor;
+          text-decoration-color: currentcolor;
+  text-decoration: none;
+}
+.widget .rrze-calendar li a:hover, .widget .rrze-calendar li a:focus {
+  box-shadow: none;
+  text-decoration: underline;
+  color: currentcolor;
+  -webkit-text-decoration-color: currentcolor;
+          text-decoration-color: currentcolor;
+}
+.widget .rrze-calendar li a::before {
+  display: none;
+}
+.widget .events-more-links {
+  margin-top: 0;
 }
 
 /* Event-Listen in der Sidebar oder in Shortcodes 
