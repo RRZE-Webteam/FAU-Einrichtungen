@@ -27,99 +27,101 @@
                         $displayedposts = array();
                         $max = get_theme_mod('start_max_newspertag');
                         $maxall = get_theme_mod('start_max_newscontent');
+                        if ($maxall > 0) {
 
-                        $maxpositioncount = get_theme_mod('start_max_tagposition');
-                        $showsticky  = get_theme_mod('advance_show_sticky_posts');
-                        $maxsticky = get_theme_mod('advance_show_sticky_posts_max');
+                            $maxpositioncount = get_theme_mod('start_max_tagposition');
+                            $showsticky  = get_theme_mod('advance_show_sticky_posts');
+                            $maxsticky = get_theme_mod('advance_show_sticky_posts_max');
 
-                        if ($showsticky) {
-                            $sticky = get_option( 'sticky_posts' );
-                            if (!empty($sticky)) {
-                               // Sticky posts exists
-                                $sticky_query = new WP_Query( array(
-                                    'post__in' => get_option( 'sticky_posts' ),
+                            if ($showsticky) {
+                                $sticky = get_option( 'sticky_posts' );
+                                if (!empty($sticky)) {
+                                   // Sticky posts exists
+                                    $sticky_query = new WP_Query( array(
+                                        'post__in' => get_option( 'sticky_posts' ),
+                                        'ignore_sticky_posts' => false,
+                                        'posts_per_page' => $maxsticky,
+                                            // stickys have their own count
+                                        'post__not_in' => $displayedposts,
+                                    ) );
+
+                                    while ( $sticky_query->have_posts() && ( $number < $maxall ) ) {
+                                        $sticky_query->the_post();
+                                        echo fau_display_news_teaser( $post->ID );
+                                        $number++;
+                                        $displayedposts[] = $post->ID;
+                                    }
+                                    wp_reset_postdata();
+
+                                }
+                            }
+
+                            // retrieve regular posts with specific tags
+                            // The number to the position is fixed to $maxpositioncount
+                            // so that we look for Tags e.g. startseite1, startseite2, startseite3, if 
+                            // $maxpositioncount = 3
+                            // For each tag, there could be $max entries.
+
+                            for ( $j = 1; $j <= $maxpositioncount; $j++ ) {
+                                $i = 0;
+                                $thistag = get_theme_mod( 'start_prefix_tag_newscontent' ) . $j;
+
+                                $query = new WP_Query( array(
+                                    'tag' => $thistag,
                                     'ignore_sticky_posts' => false,
-                                    'posts_per_page' => $maxsticky,
-                                        // stickys have their own count
                                     'post__not_in' => $displayedposts,
                                 ) );
 
-                                while ( $sticky_query->have_posts() && ( $number < $maxall ) ) {
-                                    $sticky_query->the_post();
+                                while ( $query->have_posts() && ( $i < $max ) && ( $number < $maxall ) ) {
+                                    $query->the_post();
                                     echo fau_display_news_teaser( $post->ID );
+                                    $i++;
                                     $number++;
                                     $displayedposts[] = $post->ID;
                                 }
                                 wp_reset_postdata();
-
+                                wp_reset_query();
                             }
-                        }
 
-                        // retrieve regular posts with specific tags
-                        // The number to the position is fixed to $maxpositioncount
-                        // so that we look for Tags e.g. startseite1, startseite2, startseite3, if 
-                        // $maxpositioncount = 3
-                        // For each tag, there could be $max entries.
+                            $newscat = get_theme_mod('start_link_news_cat');        
+                            if (($number==0) || ($number < $maxall)) {
 
-                        for ( $j = 1; $j <= $maxpositioncount; $j++ ) {
-                            $i = 0;
-                            $thistag = get_theme_mod( 'start_prefix_tag_newscontent' ) . $j;
+                                if ($number < $maxall) {
+                                    $num = $maxall - $number;
+                                    if ($num <=0 ) {
+                                        $num=1;
+                                    }
 
-                            $query = new WP_Query( array(
-                                'tag' => $thistag,
-                                'ignore_sticky_posts' => false,
-                                'post__not_in' => $displayedposts,
-                            ) );
-
-                            while ( $query->have_posts() && ( $i < $max ) && ( $number < $maxall ) ) {
-                                $query->the_post();
-                                echo fau_display_news_teaser( $post->ID );
-                                $i++;
-                                $number++;
-                                $displayedposts[] = $post->ID;
-                            }
-                            wp_reset_postdata();
-                            wp_reset_query();
-                        }
-                        
-                        $newscat = get_theme_mod('start_link_news_cat');        
-                        if (($number==0) || ($number < $maxall)) {
-
-                            if ($number < $maxall) {
-                                $num = $maxall - $number;
-                                if ($num <=0 ) {
-                                    $num=1;
-                                }
-
-                                if (isset($startlinknewscat)) {
-                                    $query = new WP_Query(  array( 'post__not_in' => $displayedposts, 'posts_per_page'  => $num, 'has_password' => false, 'post_type' => 'post', 'cat' => $startlinknewscat ) );
+                                    if (isset($startlinknewscat)) {
+                                        $query = new WP_Query(  array( 'post__not_in' => $displayedposts, 'posts_per_page'  => $num, 'has_password' => false, 'post_type' => 'post', 'cat' => $startlinknewscat ) );
+                                    } else {
+                                        $query = new WP_Query(  array( 'post__not_in' => $displayedposts, 'posts_per_page'  => $num, 'has_password' => false, 'post_type' => 'post'  ) );							    
+                                    }
                                 } else {
-                                    $query = new WP_Query(  array( 'post__not_in' => $displayedposts, 'posts_per_page'  => $num, 'has_password' => false, 'post_type' => 'post'  ) );							    
-                                }
-                            } else {
-                                $args = '';
-                                if (isset($startlinknewscat)) {
-                                    $args = 'cat='.$startlinknewscat;	
-                                }
-                                if (isset($args)) {
-                                    $args .= '&';
-                                }
+                                    $args = '';
+                                    if (isset($startlinknewscat)) {
+                                        $args = 'cat='.$startlinknewscat;	
+                                    }
+                                    if (isset($args)) {
+                                        $args .= '&';
+                                    }
 
-                                $args .= 'post_type=post&has_password=0&posts_per_page='.get_theme_mod('start_max_newscontent');	
-                                $query = new WP_Query( $args );
+                                    $args .= 'post_type=post&has_password=0&posts_per_page='.get_theme_mod('start_max_newscontent');	
+                                    $query = new WP_Query( $args );
+                                }
+                                while ($query->have_posts() ) { 
+                                    $query->the_post(); 
+                                    echo fau_display_news_teaser($post->ID);
+                                     wp_reset_postdata();
+                                      $number = 1;
+                                }
                             }
-                            while ($query->have_posts() ) { 
-                                $query->the_post(); 
-                                echo fau_display_news_teaser($post->ID);
-                                 wp_reset_postdata();
-                                  $number = 1;
-                            }
+                            if ($number > 0) {
+                                if (get_theme_mod('start_link_news_show')) {
+                                    echo fau_get_category_links();
+                                }
+                            } 
                         }
-                        if ($number > 0) {
-                            if (get_theme_mod('start_link_news_show')) {
-                                echo fau_get_category_links();
-                            }
-                        } 
                  ?>
                 </main>	
 		    </div>

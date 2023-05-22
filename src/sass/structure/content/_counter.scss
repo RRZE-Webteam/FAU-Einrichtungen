@@ -1,0 +1,35 @@
+/*-----------------------------------------------------------------------------------*/
+/* Counter / word / image / Static content shortcode
+/*-----------------------------------------------------------------------------------*/
+
+.counter_wrapper {
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    width: $subnav-width-sm;
+    margin: 20px;
+  
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.7);
+
+     & img{
+         width: 80px;
+         height: auto;
+         margin: 10px;
+         box-shadow: none;
+     }
+     & .number{
+         font-size: 30px;
+         font-weight: 700;
+         border: none;
+         background: none;
+       
+     }
+     & .word{
+        font-size: $font-size-base;
+        font-weight: 300;
+        text-transform: uppercase;
+
+     }
+
+}
