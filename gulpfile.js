@@ -383,6 +383,14 @@ function makecustomblockjs() {
 }
 
 
+function makecounterjs() {
+    return src([info.source.js + 'main/fau-counter.js'])
+    .pipe(uglify())
+    .pipe(rename("fau-counter.min.js"))
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
+}
+
 
 function makesrollstoriesjs() {
     return src([info.source.js + 'main/fau-scroll-stories.js'])
@@ -509,7 +517,7 @@ exports.devbuildmainstyle = devbuildmainstyle;
 exports.debugmode = set_debugmode;
 exports.nodebug = unset_debugmode;
 
-var js = series(bundlemainjs, makeslickjs, makecustomblockjs,makesrollstoriesjs, bundleadminjs, makecustomizerjs, makewplinkjs);
+var js = series(bundlemainjs, makeslickjs, makecustomblockjs, makecounterjs,makesrollstoriesjs, bundleadminjs, makecustomizerjs, makewplinkjs);
 var dev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle,  js, devversion);
 
 exports.cssdev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle);
