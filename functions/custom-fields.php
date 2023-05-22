@@ -868,6 +868,7 @@ function fau_do_metabox_page_sidebar($object, $box) {
 }
 
 /* Save the meta box's page metadata. */
+
 function fau_save_metabox_page_sidebar($post_id, $post) {
     if (!isset($_POST['fau_metabox_page_sidebar_nonce']) || !wp_verify_nonce($_POST['fau_metabox_page_sidebar_nonce'], basename(__FILE__))) {
         return $post_id;
@@ -879,21 +880,22 @@ function fau_save_metabox_page_sidebar($post_id, $post) {
         return;
     }
 
-    fau_save_standard('sidebar_title_above', $_POST['sidebar_title_above'], $post_id, 'page', 'text');
+    fau_save_standard('sidebar_title_above', fau_sanitize_html_field($_POST['sidebar_title_above']), $post_id, 'page', 'text');
 
     if (get_theme_mod('advanced_page_sidebar_useeditor_textabove') == false) {
-        fau_save_standard('sidebar_text_above', $_POST['sidebar_text_above'], $post_id, 'page', 'textnohtml');
+        fau_save_standard('sidebar_text_above', fau_sanitize_html_field($_POST['sidebar_text_above']), $post_id, 'page', 'textnohtml');
     } else {
-        fau_save_standard('sidebar_text_above', $_POST['sidebar_text_above'], $post_id, 'page', 'wpeditor');
+        fau_save_standard('sidebar_text_above', fau_sanitize_html_field($_POST['sidebar_text_above']), $post_id, 'page', 'wpeditor');
     }
-
-    fau_save_standard('sidebar_title_below', $_POST['sidebar_title_below'], $post_id, 'page', 'text');
-
+    
+    fau_save_standard('sidebar_title_below', fau_sanitize_html_field($_POST['sidebar_title_below']), $post_id, 'page', 'text');
+    
     if (get_theme_mod('advanced_page_sidebar_useeditor_textbelow') == false) {
-        fau_save_standard('sidebar_text_below', $_POST['sidebar_text_below'], $post_id, 'page', 'textnohtml');
+        fau_save_standard('sidebar_text_below', fau_sanitize_html_field($_POST['sidebar_text_below']), $post_id, 'page', 'textnohtml');
     } else {
-        fau_save_standard('sidebar_text_below', $_POST['sidebar_text_below'], $post_id, 'page', 'wpeditor');
+        fau_save_standard('sidebar_text_below', fau_sanitize_html_field($_POST['sidebar_text_below']), $post_id, 'page', 'wpeditor');
     }
+    
 
     $newval = isset($_POST['fauval_sidebar_order_personlinks']) ? absint($_POST['fauval_sidebar_order_personlinks']) : 0;
     $oldval = get_post_meta($post_id, 'fauval_sidebar_order_personlinks', true);

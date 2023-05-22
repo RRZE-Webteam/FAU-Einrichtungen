@@ -108,3 +108,43 @@ function fau_columns_checkcolor($color = '') {
     }
     return $color;
 }
+
+/*--------------------------------------------------------------------*/
+/* Sanitize Sidebar html fileds
+/*--------------------------------------------------------------------*/
+ function fau_sanitize_html_field($dateinput)
+ {
+     $allowed_html = array(
+         'img' => array(
+             'title' => array(),
+             'src' => array(),
+             'alt' => array(),
+         ),
+         'a' => array(
+             'title' => array(),
+             'href' => array(),
+             'class' => array(),
+         ),
+         'br' => array(),
+         'hr' => array(
+              'class' => array(),
+          ),
+         'p' => array(),
+         'strong' => array(),
+         'em' => array(),
+         'ol' => array(),
+         'ul' => array(),
+         'li' => array(),
+         'dl' => array(),     'dd' => array(),           'dt' => array(),
+         'h3' => array(),    'h4' => array(),            'h5' => array(),            'h6' => array(),
+         'table' => array(),  'tr' => array(),  'td' => array(),   'tbody' => array(),  'thead' => array(),  'tfooter' => array(),
+     );
+
+
+     $value = wp_kses($dateinput, $allowed_html);
+
+     $value = preg_replace('/<\/p>[\s\t\n\r]+<p>/i', '</p><p>', $value);
+     $value = preg_replace('/<p>[\s\t\n\r]+<\/p>/i', '', $value);
+     $value = trim($value);
+     return $value;
+ }
