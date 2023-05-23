@@ -118,11 +118,6 @@ main .subpages-menu,
                     }
                 }
 
-                &:hover img {
-                    transform: scale(1.05);
-                    filter: grayscale(60%);
-                }
-
                 svg {
                     padding: 8%;
                     margin-bottom: -7px;
@@ -425,5 +420,13 @@ main .subpages-menu,
     @media (max-width: $screen-sm) {
         padding-left: var(--width-gutter-half, 15px);
     }
+}
+
+.hover-zoom a:hover img {
+    transform: scale(1.05);
+}
+
+.hover-blur a:hover img {
+    filter: blur(2px) grayscale(60%);
 }
 

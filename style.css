@@ -10324,10 +10324,6 @@ main .subpages-menu a:focus svg .fallback,
 .contentmenu.size_3-4 .subpages-menu li .thumb a img, .contentmenu.size_3-4 .subpages-menu li .thumb a svg {
   aspect-ratio: 3/4;
 }
-.subpages-menu li .thumb a:hover img {
-  transform: scale(1.05);
-  filter: grayscale(60%);
-}
 .subpages-menu li .thumb a svg {
   padding: 8%;
   margin-bottom: -7px;
@@ -10645,6 +10641,14 @@ main .subpages-menu a:focus svg .fallback,
   .listview {
     padding-left: var(--width-gutter-half, 15px);
   }
+}
+
+.hover-zoom a:hover img {
+  transform: scale(1.05);
+}
+
+.hover-blur a:hover img {
+  filter: blur(2px) grayscale(60%);
 }
 
 /*-----------------------------------------------------------------------------------*/
