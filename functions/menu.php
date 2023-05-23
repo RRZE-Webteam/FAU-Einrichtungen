@@ -223,10 +223,10 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
                 $columnclass='1';
             }else   if($child_count<16){
                 $columnclass='2';
-            }else if($child_count<24){
+            }else if($child_count<=24){
                 $columnclass='3';
             }
-            else if($child_count>25){
+            else if($child_count>24){
                 $columnclass='4';
             }
         
