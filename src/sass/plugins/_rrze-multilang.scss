@@ -9,13 +9,20 @@
     left: 50px;
     right: inherit;
     margin: 0;
+	li a {
+		width: 100%;
+		& ::before {
+			display: none;
+		}
+	}
+
 
     @media (max-width: $screen-sm) {
 	ul {
 	    width: auto;
 	}
 	li a {
-	    width: 50px;
+		width: 100%;
 	}
     }
 

@@ -15716,12 +15716,18 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
   right: inherit;
   margin: 0;
 }
+.fau-theme .meta-widget.rrze-multilang-widget li a {
+  width: 100%;
+}
+.fau-theme .meta-widget.rrze-multilang-widget li a ::before {
+  display: none;
+}
 @media (max-width: 768px) {
   .fau-theme .meta-widget.rrze-multilang-widget ul {
     width: auto;
   }
   .fau-theme .meta-widget.rrze-multilang-widget li a {
-    width: 50px;
+    width: 100%;
   }
 }
 @media (min-width: 768px) {
