@@ -45,9 +45,19 @@ if ($menuslug) {
     if ($listview) {
         $shortcodeopt .= ' listview="true"';
     }
+
+    $hoverzoom = get_post_meta($post->ID, 'fauval_portalmenu_hoverZoom', true);
+    if ($hoverzoom) {
+        $shortcodeopt .= ' hoverzoom="true"';
+    }
+
+    $hoverblur = get_post_meta($post->ID, 'fauval_portalmenu_hoverBlur', true);
+    if ($hoverblur) {
+        $shortcodeopt .= ' hoverblur="true"';
+    }
     
-     echo '<div class="portalmenu-unten">';
+    echo '<div class="portalmenu-unten">';
     echo do_shortcode('[portalmenu '.$shortcodeopt.']'); 
-     echo '</div>';
+    echo '</div>';
 
   }
