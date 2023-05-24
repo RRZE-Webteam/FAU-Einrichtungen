@@ -43,6 +43,8 @@ class FAUShortcodes
 				'nofallback' => false,
 				'type' => 1,
 				'listview' => false,
+				'hoverzoom' => false,
+				'hoverblur' => false,
 			), $atts));
 
 		$out = '';
@@ -52,10 +54,20 @@ class FAUShortcodes
 		$error .= "name=$menu";
 		if (!fau_empty($menu)) {
 
+			$global_hoverzoom = get_theme_mod('portalmenus_hover_zoom', $defaultoptions['portalmenus_hover_zoom']);
+			$global_hoverzoom = filter_var($global_hoverzoom, FILTER_VALIDATE_BOOLEAN);
+			$global_hoverblur = get_theme_mod('portalmenus_hover_blur', $defaultoptions['portalmenus_hover_blur']);
+			$global_hoverblur = filter_var($global_hoverblur, FILTER_VALIDATE_BOOLEAN);
+
 			$showsubs = filter_var($showsubs, FILTER_VALIDATE_BOOLEAN);
 			$nothumbs = filter_var($nothumbs, FILTER_VALIDATE_BOOLEAN);
 			$nofallback = filter_var($nofallback, FILTER_VALIDATE_BOOLEAN);
 			$listview = filter_var($listview, FILTER_VALIDATE_BOOLEAN);
+			$hoverzoom = filter_var($hoverzoom, FILTER_VALIDATE_BOOLEAN);
+			$hoverblur = filter_var($hoverblur, FILTER_VALIDATE_BOOLEAN);
+
+			$hoverzoom = $hoverzoom ? $hoverzoom : $global_hoverzoom;
+			$hoverblur = $hoverblur ? $hoverblur : $global_hoverblur;
 
 			if ($menu == sanitize_key($menu)) {
 				$term = get_term_by('id', $menu, 'nav_menu');
@@ -105,6 +117,12 @@ class FAUShortcodes
 				}
 				if ($listview === true) {
 					$a_contentmenuclasses[] = 'listview';
+				}
+				if ($hoverzoom === true) {
+					$a_contentmenuclasses[] = 'hover-zoom';
+				}
+				if ($hoverblur === true) {
+					$a_contentmenuclasses[] = 'hover-blur';
 				}
 				$out .= '<div class="' . implode(' ', $a_contentmenuclasses) . '" role="navigation" aria-label="' . __('Inhaltsmenü', 'fau') . '">';
 				$outnav = wp_nav_menu(

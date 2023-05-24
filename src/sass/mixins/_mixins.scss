@@ -239,7 +239,8 @@ Mixins File for Wordpress Theme FAU
     @include buttoncolor;
     
     border: none;
-    padding: 0.5rem 0.7rem;
+   // padding: 0.5rem 0.7rem;
+   padding: 10px 18px;
     text-decoration: none;
     border-radius: var(--border-radius-buttons, 3px);
     font-size: 1rem;
@@ -264,8 +265,9 @@ Mixins File for Wordpress Theme FAU
     color: var(--color-Text);   
     border: $border solid var(--color-ContentBorders);
     border-radius: var(--border-radius-buttons, 3px);
-    padding: 0.5rem 0.7rem;
+    padding: 10px 18px;
     text-decoration: none;
+
      
     &:hover, 
     &:focus {
