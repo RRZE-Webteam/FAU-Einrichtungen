@@ -71,13 +71,14 @@ $html.removeClass('no-js').addClass('js');
                 if ($('.slick-startstop').hasClass("stopped")) {
                     $('.featured-slider').slick('slickPlay');
                     $('.slick-startstop').removeClass('stopped');
-                    $('.slick-startstop').html(stopSliderHTML);
+                    $('.slick-startstop').html('<i class="fa fa-pause" aria-hidden="true"></i>'); // show pause icon when slider is playing
                 } else {
                     $('.featured-slider').slick('slickPause');
                     $('.slick-startstop').addClass('stopped');
-                    $('.slick-startstop').html(startSliderHTML);
+                    $('.slick-startstop').html('<i class="fa fa-play" aria-hidden="true"></i>'); // show play icon when slider is stopped
                 }
             })
+            
         }
 
         // Fancybox for lightboxes
