@@ -14,6 +14,11 @@ if ($menuslug) {
     
     
     $shortcodeopt = 'menu="'.$menuslug.'"';
+
+    $meganav = get_post_meta( $post->ID, 'fauval_portalmenu_meganav', true );
+    if ($meganav) {
+        $shortcodeopt .= ' meganav="true"';
+    }
    
     $nosub  = get_post_meta( $post->ID, 'fauval_portalmenu_nosub', true );  
     if ($nosub==1) {

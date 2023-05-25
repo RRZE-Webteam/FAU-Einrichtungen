@@ -546,6 +546,9 @@ function fau_do_metabox_page_portalmenu($object, $box) {
     
     fau_form_select('fau_metabox_page_portalmenu_id', $thislist, $currentmenuid, __('Portalmenü', 'fau').' '.__('unten', 'fau'), __('Bei einer Portalseite wird unter dem Inhalt ein Menu ausgegeben. Bitte wählen Sie hier das Menü aus der Liste. Sollte das Menü noch nicht existieren, kann ein Administrator es anlegen.', 'fau'), 1, __('Kein Portalmenu zeigen', 'fau'));
 
+    $meganav = get_post_meta($object->ID, 'fauval_portalmenu_meganav', true) ? 1 : 0;
+    fau_form_onoff('fau_metabox_page_portalmenu_meganav', $meganav, __('Mega-Navigation', 'fau'));
+    
     $nothumbnails = get_post_meta($object->ID, 'fauval_portalmenu_thumbnailson', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_nothumbnails', $nothumbnails, __('Beitragsbilder', 'fau').' '.__('verbergen', 'fau'));
 
@@ -591,6 +594,17 @@ function fau_save_metabox_page_portalmenu($post_id, $post) {
         add_post_meta($post_id, 'portalmenu-slug', $newval, true);
     } else {
         delete_post_meta($post_id, 'portalmenu-slug');
+    }
+
+    $newval = !empty($_POST['fau_metabox_page_portalmenu_meganav']) ? 1 : 0;
+    $oldval = get_post_meta($post_id, 'fauval_portalmenu_meganav', true) ? 1 : 0;
+
+    if ($newval && !empty($oldval)) {
+        update_post_meta($post_id, 'fauval_portalmenu_meganav', $newval);
+    } elseif ($newval && empty($oldval)) {
+        add_post_meta($post_id, 'fauval_portalmenu_meganav', $newval, true);
+    } else {
+        delete_post_meta($post_id, 'fauval_portalmenu_meganav');
     }
 
     $newval = !empty($_POST['fau_metabox_page_portalmenu_nothumbnails']) ? 1 : 0;

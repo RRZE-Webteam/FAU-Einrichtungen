@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.21-2
+Version: 2.3.21-3
 Requires at least: 6.0
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -10636,6 +10636,60 @@ main .subpages-menu a:focus svg .fallback,
 @media (max-width: 768px) {
   .contentmenu.listview {
     padding-left: var(--width-gutter-half, 15px);
+  }
+}
+.contentmenu.meganav > ul {
+  column-count: 4;
+  display: block;
+}
+.contentmenu.meganav > ul > li {
+  break-inside: avoid;
+  background: none;
+  box-shadow: none;
+  display: list-item;
+}
+.contentmenu.meganav > ul > li > a {
+  display: inline-block;
+  font-weight: bold;
+  padding: 7px 20px 7px 12px;
+  width: 100%;
+}
+.contentmenu.meganav > ul > li > a:hover {
+  color: var(--color-mainmenu-sublevel-hover-text);
+  background-color: var(--color-mainmenu-sublevel-bg);
+  border-radius: 3px;
+}
+.contentmenu.meganav > ul > li > ul {
+  border: none;
+}
+.contentmenu.meganav > ul > li > ul > li {
+  background: none;
+  padding: 0;
+}
+.contentmenu.meganav > ul > li > ul > li > a {
+  display: inline-block;
+  font-size: 0.875rem;
+  line-height: 1.2rem;
+  padding: 7px 20px 7px 12px !important;
+  margin-top: 5px;
+  width: 100%;
+}
+.contentmenu.meganav > ul > li > ul > li > a:hover {
+  color: var(--color-mainmenu-sublevel-hover-text);
+  background-color: var(--color-mainmenu-sublevel-bg);
+  border-radius: 3px;
+}
+.contentmenu.meganav > ul > li > ul > li::before {
+  display: none;
+}
+@media (max-width: 768px) {
+  .contentmenu.meganav > ul {
+    column-count: 2;
+  }
+}
+@media (max-width: 480px) {
+  .contentmenu.meganav > ul {
+    column-count: 1;
   }
 }
 
