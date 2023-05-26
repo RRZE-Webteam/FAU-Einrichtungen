@@ -170,10 +170,6 @@ $defaultoptions = [
 	'default_logo_height'                       => 152,
 	'default_logo_width'                        => 400,
 
-	'socialmedia'                               => 0,
-	'active_socialmedia_footer'                 => array(0),
-	'socialmedia_buttons_title'                 => __('Social Media', 'fau'),
-
 	'socialmedia_menu_name'                     => __('Social Media Menu', 'fau'),
 	'socialmedia_menu_position'                 => 'FAU_SocialMedia_Menu_Footer',
 	'socialmedia_menu_position_title'           => __('Social Media Bereich im Footer', 'fau'),
@@ -203,7 +199,6 @@ $defaultoptions = [
 	'title_hero_search'                         => __('Webauftritt durchsuchen', 'fau'),
 
 	'advanced_footer_display_address'           => true,
-	'advanced_footer_display_socialmedia'       => false,
 	'advanced_beitragsoptionen'                 => true,
 	'advanced_topevent'                         => true,
 	'default_display_thumbnail_3_2'             => true,
@@ -750,45 +745,6 @@ $setoptions = array(
 					'type'    => 'section',
 					'title'   => __('Footer', 'fau'),
 					'desc'    => __('Einstellungen für den Fußteil des Webauftritts.', 'fau'),
-				),
-
-				'advanced_footer_display_socialmedia'	  => array(
-					'type'    => 'toggle',
-					'title'   => __('Social Media', 'fau'),
-					'label'   => __('Zeigt die Social Media Icons im Footerbereich unterhalb des technischen Menüs an', 'fau'),
-					'default' => $defaultoptions['advanced_footer_display_socialmedia'],
-					'parent'  => 'footer'
-				),
-				'active_socialmedia_footer' => array(
-					'type'    => 'multiselectlist',
-					'title'   => __('Widget aktivieren', 'fau'),
-					'label'   => __('Auf welchen Seiten soll das Widget angezeigt werden.', 'fau'),
-					'liste'   => array(
-						1 => __('Startseite', 'fau'),
-						2 => __('Portalseiten', 'fau'),
-						3 => __('Suche und Fehlerseiten', 'fau'),
-						4 => __('Inhaltsseite mit Navi', 'fau'),
-						5 => __('Standard Seiten', 'fau'),
-						6 => __('Beiträge', 'fau'),
-						-1 => __('Auf allen Seiten', 'fau'),
-					),
-					'default' => $defaultoptions['active_socialmedia_footer'],
-					'parent'  => 'footer',
-				),
-				'socialmedia' => array(
-					'type'    => 'toggle',
-					'title'   => __('Social Media Buttons in der ersten Widgetspalte anzeigen', 'fau'),
-					'label'   => __('Schaltet die Social Media Buttons in der Widgetspalte an oder aus. Bitte beachten Sie, daß die anzuzeigenden Icons selbst als Menü verwaltet werden. Rufen Sie hierzu die Menüeinstellungen auf und bearbeiten dort das Social Media Menü.', 'fau'),
-					'parent'  => 'footer',
-					'default' => $defaultoptions['socialmedia'],
-				),
-
-				'socialmedia_buttons_title' => array(
-					'type'    => 'text',
-					'title'   => __('Titel', 'fau'),
-					'label'   => __('Titel über den Social Media Icons in der ersten Spalte.', 'fau'),
-					'default' => $defaultoptions['socialmedia_buttons_title'],
-					'parent'  => 'footer',
 				),
 
 				'advanced_footer_display_address'	  => array(

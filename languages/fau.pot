@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: [object Object]\n"
-"POT-Creation-Date: 2023-05-23 12:37+0000\n"
+"POT-Creation-Date: 2023-05-25 16:23+0000\n"
 "Report-Msgid-Bugs-To: https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -28,7 +28,7 @@ msgstr ""
 msgid "Leider ist Ihre Anmeldung fehlgeschlagen."
 msgstr ""
 
-#: 401.php:33, 403.php:34, 404.php:35, search.php:137, functions/constants.php:1271, functions/custom-fields.php:82, template-parts/sidebar-portal.php:73, template-parts/sidebar-start.php:73
+#: 401.php:33, 403.php:34, 404.php:35, search.php:137, functions/constants.php:1271, functions/custom-fields.php:81, template-parts/sidebar-portal.php:73, template-parts/sidebar-start.php:73
 msgid "Sidebar"
 msgstr ""
 
@@ -40,7 +40,7 @@ msgstr ""
 msgid "Leider dürfen Sie auf diese Seite nicht zugreifen."
 msgstr ""
 
-#: 404.php:19, functions/menu.php:848, functions/menu.php:901, template-parts/hero-error.php:33
+#: 404.php:19, functions/menu.php:850, functions/menu.php:903, template-parts/hero-error.php:33
 msgid "Seite nicht gefunden"
 msgstr ""
 
@@ -706,7 +706,7 @@ msgstr ""
 msgid "Schaltet die Social Media Buttons in der Widgetspalte an oder aus. Bitte beachten Sie, daß die anzuzeigenden Icons selbst als Menü verwaltet werden. Rufen Sie hierzu die Menüeinstellungen auf und bearbeiten dort das Social Media Menü."
 msgstr ""
 
-#: functions/constants.php:788, functions/custom-fields.php:262, functions/helper-functions.php:434
+#: functions/constants.php:788, functions/custom-fields.php:283, functions/helper-functions.php:434
 msgid "Titel"
 msgstr ""
 
@@ -846,7 +846,7 @@ msgstr ""
 msgid "Ersatzbild für den Fall, daß ein Artikel kein eigenes Artikelbild definiert hat."
 msgstr ""
 
-#: functions/constants.php:924, functions/custom-fields.php:277
+#: functions/constants.php:924, functions/custom-fields.php:298
 msgid "Datum"
 msgstr ""
 
@@ -1058,7 +1058,7 @@ msgstr ""
 msgid "Portalmenüs"
 msgstr ""
 
-#: functions/constants.php:1161, functions/custom-fields.php:544, functions/custom-fields.php:702
+#: functions/constants.php:1161, functions/custom-fields.php:568, functions/custom-fields.php:737
 msgid "Blur-Effekt verwenden"
 msgstr ""
 
@@ -1066,7 +1066,7 @@ msgstr ""
 msgid "Ermöglicht das Hinzufügen eines Blur-Effekts auf Bilder des Portalmenüs."
 msgstr ""
 
-#: functions/constants.php:1169, functions/custom-fields.php:541, functions/custom-fields.php:699
+#: functions/constants.php:1169, functions/custom-fields.php:565, functions/custom-fields.php:734
 msgid "Zoom-Effekt verwenden"
 msgstr ""
 
@@ -1346,367 +1346,371 @@ msgstr ""
 msgid "Der Sprachschalter wird im produktiven Betrieb durch eines der Plugins CMS Workflow oder Language Switcher aktiviert. Mit dieser Option kann man ohne Installation und Konfiguration der Plugins den Sprachschalter simulieren - sprich den HTML-Code im Header erzeugen lassen. Falls einer der Plugins vorhanden und aktiv ist, wird diese Debug-Einstellung vorrang haben. "
 msgstr ""
 
-#: functions/custom-fields.php:56, functions/custom-fields.php:115
+#: functions/custom-fields.php:55, functions/custom-fields.php:114
 msgid "Untertitel"
 msgstr ""
 
-#: functions/custom-fields.php:65
+#: functions/custom-fields.php:64
 msgid "Portalmenu unten auf Portalseiten"
 msgstr ""
 
-#: functions/custom-fields.php:72
+#: functions/custom-fields.php:71
 msgid "Portalmenu oben auf Portalseiten"
 msgstr ""
 
-#: functions/custom-fields.php:90
+#: functions/custom-fields.php:89
 msgid "Seiten-Eigenschaften"
 msgstr ""
 
-#: functions/custom-fields.php:107
+#: functions/custom-fields.php:106, functions/custom-fields.php:139
 msgid "Beitragsoptionen"
 msgstr ""
 
-#: functions/custom-fields.php:124
+#: functions/custom-fields.php:123
 msgid "Top-Event"
 msgstr ""
 
-#: functions/custom-fields.php:132
+#: functions/custom-fields.php:131
 msgid "Video/Podcast"
 msgstr ""
 
-#: functions/custom-fields.php:150
+#: functions/custom-fields.php:161
 msgid "Bitte beachten: Damit ein Artikel auf der Startseite angezeigt werden soll, muss er das folgende Schlagwort erhalten: "
 msgstr ""
 
-#: functions/custom-fields.php:151
+#: functions/custom-fields.php:162
 msgid "Dies gefolgt von einer Nummer (1-3) für die Reihenfolge."
 msgstr ""
 
-#: functions/custom-fields.php:157
+#: functions/custom-fields.php:168
 msgid "Damit ein Artikel in der Bühne erscheint, muss er folgender Kategorie angehören: "
 msgstr ""
 
-#: functions/custom-fields.php:166
+#: functions/custom-fields.php:177
 msgid "Kurztext für die Bühne und den Newsindex (Startseite und Indexseiten). Wenn leer, wird der Kurztext automatisch aus dem Inhalt abzüglich der erlaubten Zeichen gebildet. "
 msgstr ""
 
-#: functions/custom-fields.php:167, functions/custom-fields.php:266
+#: functions/custom-fields.php:178, functions/custom-fields.php:287
 msgid "Erlaubte Anzahl an Zeichen:"
 msgstr ""
 
-#: functions/custom-fields.php:172
+#: functions/custom-fields.php:183
 msgid "Anleser"
 msgstr ""
 
-#: functions/custom-fields.php:175
+#: functions/custom-fields.php:186
 msgid "Externer Link"
 msgstr ""
 
-#: functions/custom-fields.php:175
+#: functions/custom-fields.php:186
 msgid "Wenn der Artikel nicht auf der Website liegt, sondern auf eine externe Seite verlinkt werden soll, ist hier eine URL anzugeben."
 msgstr ""
 
-#: functions/custom-fields.php:178
+#: functions/custom-fields.php:189
 msgid "Ersetze Bildbeschreibung"
 msgstr ""
 
-#: functions/custom-fields.php:178
+#: functions/custom-fields.php:189
 msgid "Mit diesem optionalen Text kann die Bildunterschrift des verwendeten Beitragsbildes durch einen eigenen Text ersetzt werden, der nur für diesen Beitrag gilt."
 msgstr ""
 
-#: functions/custom-fields.php:181
+#: functions/custom-fields.php:192
 msgid "Bühnenbild"
 msgstr ""
 
-#: functions/custom-fields.php:181
+#: functions/custom-fields.php:192
 msgid "An dieser Stelle kann optional ein alternatives Bild für die Bühne der Startseite ausgewählt werden, falls das normale Beitragsbild hierzu nicht verwendet werden soll."
 msgstr ""
 
-#: functions/custom-fields.php:254
+#: functions/custom-fields.php:275
 msgid "Diesen Artikel als Top-Event anzeigen."
 msgstr ""
 
-#: functions/custom-fields.php:258
+#: functions/custom-fields.php:279
 msgid "Bitte beachten: Damit ein Artikel als Top-Event angezeigt wird, muss entweder obige Option gesetzt sein oder der Artikel muss ein gültiges Datum für einen Top-Event angegeben haben, welches noch nicht abgelaufen ist."
 msgstr ""
 
-#: functions/custom-fields.php:262
+#: functions/custom-fields.php:283
 msgid "Titel wie er in der Sidebar erscheinen soll. Wenn leer, wird der normale Titel des Beitrags verwendet."
 msgstr ""
 
-#: functions/custom-fields.php:265
+#: functions/custom-fields.php:286
 msgid "Kurztext für die Sidebar. Wenn leer, wird der Anleser verwendet."
 msgstr ""
 
-#: functions/custom-fields.php:268, functions/posttype_imagelink.php:112
+#: functions/custom-fields.php:289, functions/posttype_imagelink.php:112
 msgid "Kurzbeschreibung"
 msgstr ""
 
-#: functions/custom-fields.php:283
+#: functions/custom-fields.php:304
 msgid "Geben Sie hier das Datum des Events ein."
 msgstr ""
 
-#: functions/custom-fields.php:284
+#: functions/custom-fields.php:305
 msgid "<br>Nutzen Sie das Format: \"Tag-Monat-Jahr\", wobei Sie Tage und Monate mit führenden Nullen schreiben und das Jahr vierstellig. Beispiel: 01-12-2016 für den ersten Dezember 2016."
 msgstr ""
 
-#: functions/custom-fields.php:302
+#: functions/custom-fields.php:323
 msgid "Symbolbild"
 msgstr ""
 
-#: functions/custom-fields.php:312
+#: functions/custom-fields.php:333
 msgid "Kein Symbolbild anzeigen."
 msgstr ""
 
-#: functions/custom-fields.php:330, functions/custom-fields.php:357, functions/helper-functions.php:400
+#: functions/custom-fields.php:351, functions/custom-fields.php:378, functions/helper-functions.php:400
 msgid "Kein Bild ausgewählt."
 msgstr ""
 
-#: functions/custom-fields.php:335, functions/helper-functions.php:381
+#: functions/custom-fields.php:356, functions/helper-functions.php:381
 msgid "Bild auswählen"
 msgstr ""
 
-#: functions/custom-fields.php:336, functions/helper-functions.php:382
+#: functions/custom-fields.php:357, functions/helper-functions.php:382
 msgid "Entfernen"
 msgstr ""
 
-#: functions/custom-fields.php:339
+#: functions/custom-fields.php:360
 msgid "Hier können Sie ein Thumbnail auswählen für den Event. Wenn kein Bild gewählt wird, wird ein Ersatzbild angezeigt."
 msgstr ""
 
-#: functions/custom-fields.php:443, functions/custom-fields.php:473
+#: functions/custom-fields.php:464, functions/custom-fields.php:494
 msgid "Untertitel (Inhaltsüberschrift)"
 msgstr ""
 
-#: functions/custom-fields.php:443, functions/custom-fields.php:473
+#: functions/custom-fields.php:464, functions/custom-fields.php:494
 msgid "Dieser Untertitel erscheint im Inhaltsbereich, unterhalb des Balkens mit dem eigentlichen Titel."
 msgstr ""
 
-#: functions/custom-fields.php:526, functions/custom-fields.php:684
+#: functions/custom-fields.php:547, functions/custom-fields.php:719
 msgid "Portalmenü"
 msgstr ""
 
-#: functions/custom-fields.php:526
+#: functions/custom-fields.php:547
 msgid "unten"
 msgstr ""
 
-#: functions/custom-fields.php:526
+#: functions/custom-fields.php:547
 msgid "Bei einer Portalseite wird unter dem Inhalt ein Menu ausgegeben. Bitte wählen Sie hier das Menü aus der Liste. Sollte das Menü noch nicht existieren, kann ein Administrator es anlegen."
 msgstr ""
 
-#: functions/custom-fields.php:526, functions/custom-fields.php:684
+#: functions/custom-fields.php:547, functions/custom-fields.php:719
 msgid "Kein Portalmenu zeigen"
 msgstr ""
 
-#: functions/custom-fields.php:529, functions/custom-fields.php:687
+#: functions/custom-fields.php:550
+msgid "Mega-Navigation"
+msgstr ""
+
+#: functions/custom-fields.php:553, functions/custom-fields.php:722
 msgid "Beitragsbilder"
 msgstr ""
 
-#: functions/custom-fields.php:529, functions/custom-fields.php:687
+#: functions/custom-fields.php:553, functions/custom-fields.php:722
 msgid "verbergen"
 msgstr ""
 
-#: functions/custom-fields.php:532
+#: functions/custom-fields.php:556
 msgid "Kein Ersatzbild zeigen, wenn Beitragsbild nicht gesetzt ist."
 msgstr ""
 
-#: functions/custom-fields.php:535, functions/custom-fields.php:693
+#: functions/custom-fields.php:559, functions/custom-fields.php:728
 msgid "Unterpunkte verbergen."
 msgstr ""
 
-#: functions/custom-fields.php:538, functions/custom-fields.php:696
+#: functions/custom-fields.php:562, functions/custom-fields.php:731
 msgid "Listenansicht verwenden"
 msgstr ""
 
-#: functions/custom-fields.php:548, functions/custom-fields.php:549, functions/custom-fields.php:550, functions/custom-fields.php:706, functions/custom-fields.php:707, functions/custom-fields.php:708
+#: functions/custom-fields.php:572, functions/custom-fields.php:573, functions/custom-fields.php:574, functions/custom-fields.php:741, functions/custom-fields.php:742, functions/custom-fields.php:743
 msgid "Format"
 msgstr ""
 
-#: functions/custom-fields.php:550, functions/custom-fields.php:708
+#: functions/custom-fields.php:574, functions/custom-fields.php:743
 msgid "Bildformat"
 msgstr ""
 
-#: functions/custom-fields.php:684
+#: functions/custom-fields.php:719
 msgid "oben"
 msgstr ""
 
-#: functions/custom-fields.php:690
+#: functions/custom-fields.php:725
 msgid "Keine Ersatzbild zeigen, wenn Beitragsbild nicht gesetzt ist."
 msgstr ""
 
-#: functions/custom-fields.php:825
+#: functions/custom-fields.php:860
 msgid "Titel oben"
 msgstr ""
 
-#: functions/custom-fields.php:825
+#: functions/custom-fields.php:860
 msgid "Titel am Anfang der Sidebar"
 msgstr ""
 
-#: functions/custom-fields.php:832, functions/custom-fields.php:830
+#: functions/custom-fields.php:867, functions/custom-fields.php:865
 msgid "Textbereich oben"
 msgstr ""
 
-#: functions/custom-fields.php:832, functions/custom-fields.php:830
+#: functions/custom-fields.php:867, functions/custom-fields.php:865
 msgid "Text am Anfang der Sidebar"
 msgstr ""
 
-#: functions/custom-fields.php:841
+#: functions/custom-fields.php:876
 msgid "Zuerst Kontake, dann Linklisten"
 msgstr ""
 
-#: functions/custom-fields.php:841
+#: functions/custom-fields.php:876
 msgid "Zuerst Linklisten, dann Kontakte"
 msgstr ""
 
-#: functions/custom-fields.php:841
+#: functions/custom-fields.php:876
 msgid "Reihenfolge Kontakte und Linklisten"
 msgstr ""
 
-#: functions/custom-fields.php:841
+#: functions/custom-fields.php:876
 msgid "Hier kann die Reihenfolge von Kontakte und Linklisten geändert werden, wie sie auf der Seite präsentiert werden."
 msgstr ""
 
-#: functions/custom-fields.php:848
+#: functions/custom-fields.php:883
 msgid "Keine (Deaktivieren)"
 msgstr ""
 
-#: functions/custom-fields.php:866
+#: functions/custom-fields.php:901
 msgid "Derzeit sind noch Personen oder Kontakte eingetragen, die man verlinken könnte."
 msgstr ""
 
-#: functions/custom-fields.php:862
+#: functions/custom-fields.php:897
 msgid "Titel über Ansprechpartner"
 msgstr ""
 
-#: functions/custom-fields.php:863
+#: functions/custom-fields.php:898
 msgid "Auswahl Ansprechpartner"
 msgstr ""
 
-#: functions/custom-fields.php:863
+#: functions/custom-fields.php:898
 msgid "Wählen Sie die Personen oder Ansprechpartner, die in der Sidebar erscheinen sollen. Es kann mehr als ein Eintrag gewählt werden."
 msgstr ""
 
-#: functions/custom-fields.php:873
+#: functions/custom-fields.php:908
 msgid "Titel erster Linkblock"
 msgstr ""
 
-#: functions/custom-fields.php:873
+#: functions/custom-fields.php:908
 msgid "Titel über die erste Liste von Links, sogenannte Quicklinks"
 msgstr ""
 
-#: functions/custom-fields.php:876, functions/custom-fields.php:898
+#: functions/custom-fields.php:911, functions/custom-fields.php:933
 msgid "Link Nr. "
 msgstr ""
 
-#: functions/custom-fields.php:894
+#: functions/custom-fields.php:929
 msgid "Titel zweiter Linkblock"
 msgstr ""
 
-#: functions/custom-fields.php:894
+#: functions/custom-fields.php:929
 msgid "Titel über die zweite Liste von Links. Weitere Links oder bspw. externe Links."
 msgstr ""
 
-#: functions/custom-fields.php:912
+#: functions/custom-fields.php:947
 msgid "Titel unten"
 msgstr ""
 
-#: functions/custom-fields.php:912
+#: functions/custom-fields.php:947
 msgid "Titel am Ende der Sidebar"
 msgstr ""
 
-#: functions/custom-fields.php:919, functions/custom-fields.php:917
+#: functions/custom-fields.php:954, functions/custom-fields.php:952
 msgid "Textbereich unten"
 msgstr ""
 
-#: functions/custom-fields.php:919, functions/custom-fields.php:917
+#: functions/custom-fields.php:954, functions/custom-fields.php:952
 msgid "Text am Ende der Sidebar"
 msgstr ""
 
-#: functions/custom-fields.php:1097, functions/custom-fields.php:1125
+#: functions/custom-fields.php:1132, functions/custom-fields.php:1160
 msgid "Sprache im Inhaltsbereich deklarieren"
 msgstr ""
 
-#: functions/custom-fields.php:1098, functions/custom-fields.php:1126
+#: functions/custom-fields.php:1133, functions/custom-fields.php:1161
 msgid "Falls die Sprache dieser Seite von anderen Webseiten des Webauftritts abweicht, geben Sie hier bitte die Sprache an, welche verwendet wird. Wenn die Sprache nicht geändert wird, ändern Sie nichts.</p><p class=\"hinweis\">Achtung: Diese Funktion wird vom Workflow-Plugin nicht berücksichtigt."
 msgstr ""
 
-#: functions/custom-fields.php:1114
+#: functions/custom-fields.php:1149
 msgid "Dies gilt nur für Seiten vom Template \"Inhaltsseite mit Navi\"."
 msgstr ""
 
-#: functions/custom-fields.php:1130
+#: functions/custom-fields.php:1165
 msgid "Sprache des Seitentitels umdefinieren"
 msgstr ""
 
-#: functions/custom-fields.php:1131
+#: functions/custom-fields.php:1166
 msgid "Falls die Sprache der Seitentitels von der allgemeinen Sprache des Webauftritts abweicht, geben Sie hier bitte die Sprache an, welche verwendet wird. Wenn die Sprache nicht geändert wird, ändern Sie nichts."
 msgstr ""
 
-#: functions/custom-fields.php:1139
+#: functions/custom-fields.php:1174
 msgid "Seite verbergen"
 msgstr ""
 
-#: functions/custom-fields.php:1140
+#: functions/custom-fields.php:1175
 msgid "Diese Seite wird nicht im Navigationsmenü im Inhaltsbereich gezeigt."
 msgstr ""
 
-#: functions/custom-fields.php:1146
+#: functions/custom-fields.php:1181
 msgid "ARIA Label"
 msgstr ""
 
-#: functions/custom-fields.php:1147
+#: functions/custom-fields.php:1182
 msgid "Wird der Seitentitel auch von einer oder mehreren anderen Seiten verwendet, ist es notwendig, diesen über ein ARIA-Label von den anderen Seiten zu unterscheiden. In diesem Label kann der Titel ergänzt werden um ein Kontext, der die Seite von anderen Seiten mit gleichen Namen unterscheidet."
 msgstr ""
 
-#: functions/custom-fields.php:1155
+#: functions/custom-fields.php:1190
 msgid "Menüebene"
 msgstr ""
 
-#: functions/custom-fields.php:1156
+#: functions/custom-fields.php:1191
 msgid "Die Menüebene definiert bei Seiten bis zur welchen Ebene das Menu auf der linken Seite gezeigt wird."
 msgstr ""
 
-#: functions/custom-fields.php:1170
+#: functions/custom-fields.php:1205
 msgid "Bild"
 msgstr ""
 
-#: functions/custom-fields.php:1168
+#: functions/custom-fields.php:1203
 msgid "Bilder"
 msgstr ""
 
-#: functions/custom-fields.php:1185
+#: functions/custom-fields.php:1220
 msgid "Bildlinks einblenden"
 msgstr ""
 
-#: functions/custom-fields.php:1186
+#: functions/custom-fields.php:1221
 msgid "Wählen Sie hier die Kategorie aus aus der Bildlinks (verlinkte Logos) verwendet werden sollen. Die Bilder aus der gewählten Kategorie werden dann am Ende der Seite angezeigt."
 msgstr ""
 
-#: functions/custom-fields.php:1188
+#: functions/custom-fields.php:1223
 msgid "Keine Logos zeigen"
 msgstr ""
 
-#: functions/custom-fields.php:1209
+#: functions/custom-fields.php:1244
 msgid "Größe der Bildlinks"
 msgstr ""
 
-#: functions/custom-fields.php:1272
+#: functions/custom-fields.php:1307
 msgid "Link einfügen/ändern"
 msgstr ""
 
-#: functions/custom-fields.php:1273
+#: functions/custom-fields.php:1308
 msgid "Aktualisieren"
 msgstr ""
 
-#: functions/custom-fields.php:1274
+#: functions/custom-fields.php:1309
 msgid "Link hinzufügen"
 msgstr ""
 
-#: functions/custom-fields.php:1275
+#: functions/custom-fields.php:1310
 msgid "(kein Titel)"
 msgstr ""
 
-#: functions/custom-fields.php:1276
+#: functions/custom-fields.php:1311
 msgid "Keine Ergebnisse gefunden."
 msgstr ""
 
@@ -1926,35 +1930,35 @@ msgstr ""
 msgid "Inhaltsmenu"
 msgstr ""
 
-#: functions/menu.php:470
+#: functions/menu.php:472
 msgid "Mehr"
 msgstr ""
 
-#: functions/menu.php:582
+#: functions/menu.php:584
 msgid "Zur Seite: "
 msgstr ""
 
-#: functions/menu.php:707
+#: functions/menu.php:709
 msgid "Breadcrumb"
 msgstr ""
 
-#: functions/menu.php:844, functions/menu.php:899
+#: functions/menu.php:846, functions/menu.php:901
 msgid "Beiträge von"
 msgstr ""
 
-#: functions/menu.php:836, functions/menu.php:880
+#: functions/menu.php:838, functions/menu.php:882
 msgid "Schlagwort"
 msgstr ""
 
-#: functions/menu.php:825, functions/menu.php:889, functions/widgets.php:32
+#: functions/menu.php:827, functions/menu.php:891, functions/widgets.php:32
 msgid "Suche"
 msgstr ""
 
-#: functions/menu.php:828, functions/menu.php:892
+#: functions/menu.php:830, functions/menu.php:894
 msgid "Suche nach"
 msgstr ""
 
-#: functions/menu.php:993
+#: functions/menu.php:995
 msgid "Bereichsnavigation:"
 msgstr ""
 
@@ -2032,31 +2036,31 @@ msgstr ""
 msgid "Zum Webauftritt: "
 msgstr ""
 
-#: functions/shortcodes.php:53
+#: functions/shortcodes.php:54
 msgid "Es konnte kein Menu unter der angegebenen Bezeichnung gefunden werden"
 msgstr ""
 
-#: functions/shortcodes.php:127
+#: functions/shortcodes.php:132
 msgid "Inhaltsmenü"
 msgstr ""
 
-#: functions/shortcodes.php:218, functions/shortcodes.php:249
+#: functions/shortcodes.php:223, functions/shortcodes.php:254
 msgid "Der Shortcode darf nur auf Seiten verwendet werden."
 msgstr ""
 
-#: functions/shortcodes.php:225, functions/shortcodes.php:256
+#: functions/shortcodes.php:230, functions/shortcodes.php:261
 msgid "Es konnten keine Artikel gefunden werden"
 msgstr ""
 
-#: functions/shortcodes.php:285, functions/shortcodes.php:321
+#: functions/shortcodes.php:290, functions/shortcodes.php:326
 msgid "Keine relevanten Beiträge gefunden"
 msgstr ""
 
-#: functions/shortcodes.php:403
+#: functions/shortcodes.php:408
 msgid "Es wurden keine anstehenden Veranstaltungen gefunden"
 msgstr ""
 
-#: functions/shortcodes.php:398
+#: functions/shortcodes.php:403
 msgid "Kalender ansehen"
 msgstr ""
 
