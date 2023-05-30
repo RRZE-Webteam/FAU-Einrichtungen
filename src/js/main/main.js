@@ -443,32 +443,7 @@ $html.removeClass('no-js').addClass('js');
           });
 
 
-          //force click on tablet mode
-         function enableForceClick() {
-                // Check if the screen width is less than or equal to 768px
-                if (window.innerWidth <= 992) {
-                $('.menu-item.has-sub').on('click', function(e) {
-                    e.preventDefault();
-            
-                    var $subMenu = $(this).next('.nav-flyout');
-                    var expanded = $(this).attr('aria-expanded') === 'true';
-            
-                    // Toggle sub-menu visibility
-                    $subMenu.toggle(!expanded);
-            
-                    // Update aria-expanded attribute
-                    $(this).attr('aria-expanded', !expanded);
-                });
-                } 
-            }
-            
-            // Enable the force-click behavior when the document is ready
-            enableForceClick();
-            
-            // Enable/disable the force-click behavior on window resize
-            $(window).on('resize', function() {
-                enableForceClick();
-            });
+       
 
 
 
