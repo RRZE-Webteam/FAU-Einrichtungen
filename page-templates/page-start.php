@@ -30,12 +30,6 @@ get_header();
                     $displayedposts = array();
                     $max = get_theme_mod('start_max_newspertag');
                     $maxall = get_theme_mod('start_max_newscontent');
-
-                    if ($maxall === false || $maxall <= 0) {
-                        echo 'Invalid maximum post number';
-                        return;
-                    }
-
                     $maxpositioncount = get_theme_mod('start_max_tagposition');
                     $showsticky = get_theme_mod('advance_show_sticky_posts');
                     $maxsticky = get_theme_mod('advance_show_sticky_posts_max');
@@ -69,10 +63,7 @@ get_header();
                         $i = 0;
                         $thistag = get_theme_mod('start_prefix_tag_newscontent') . $j;
 
-                        if (!$thistag) {
-                            echo 'Invalid tag value';
-                            continue;
-                        }
+                       
 
                         $query = new WP_Query(
                             array(
