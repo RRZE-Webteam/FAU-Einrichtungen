@@ -15,7 +15,6 @@ function fau_metabox_cf_setup() {
     add_action('add_meta_boxes_page', 'fau_add_metabox_page');
     add_action('add_meta_boxes_post', 'fau_add_metabox_post');
 
-
     /* Save sidecontent */
     add_action('save_post', 'fau_save_metabox_page_untertitel', 10, 2);
 
@@ -133,7 +132,19 @@ function fau_add_metabox_post() {
         'fau_do_metabox_post_vidpod', 
         'post', 'side', 'low'
     );
+
+    // Hide Featured Image meta box
+    add_meta_box(
+        'fau_metabox_post_teaser', 
+        esc_html__('Beitragsoptionen', 'fau'), 
+        'fau_do_metabox_post_teaser', 
+        'post', 'normal', 'high'
+    );
 }
+
+
+
+
 /*-----------------------------------------------------------------------------------*/
 /*  Display Options for posts
 /*-----------------------------------------------------------------------------------*/
@@ -180,6 +191,9 @@ function fau_do_metabox_post_teaser($object, $box) {
         $sliderimage = get_post_meta($object->ID, 'fauval_slider_image', true);
         fau_form_image('fauval_slider_image', $sliderimage, __('Bühnenbild', 'fau'), __('An dieser Stelle kann optional ein alternatives Bild für die Bühne der Startseite ausgewählt werden, falls das normale Beitragsbild hierzu nicht verwendet werden soll.', 'fau'), 540, 150);
     }
+    $value = get_post_meta($object->ID, '_hide_featured_image', true);
+
+    echo '<label for="hide-featured-image"><input type="checkbox" id="hide-featured-image" name="hide_featured_image" value="1"' . checked($value, 1, false) . '> Hide featured image from this post</label>';
 }
 /*-----------------------------------------------------------------------------------*/
 /* Save the meta box's post metadata.
@@ -239,7 +253,14 @@ function fau_save_post_teaser($post_id, $post) {
     } else {
         delete_post_meta($post_id, 'fauval_slider_image');
     }
+    if (isset($_POST['hide_featured_image'])) {
+        update_post_meta($post_id, '_hide_featured_image', 1);
+    } else {
+        delete_post_meta($post_id, '_hide_featured_image');
+    }
 }
+
+
  
 /* Display Options for pages */
 function fau_do_metabox_post_topevent($object, $box) { 
@@ -525,6 +546,9 @@ function fau_do_metabox_page_portalmenu($object, $box) {
     
     fau_form_select('fau_metabox_page_portalmenu_id', $thislist, $currentmenuid, __('Portalmenü', 'fau').' '.__('unten', 'fau'), __('Bei einer Portalseite wird unter dem Inhalt ein Menu ausgegeben. Bitte wählen Sie hier das Menü aus der Liste. Sollte das Menü noch nicht existieren, kann ein Administrator es anlegen.', 'fau'), 1, __('Kein Portalmenu zeigen', 'fau'));
 
+    $meganav = get_post_meta($object->ID, 'fauval_portalmenu_meganav', true) ? 1 : 0;
+    fau_form_onoff('fau_metabox_page_portalmenu_meganav', $meganav, __('Mega-Navigation', 'fau'));
+    
     $nothumbnails = get_post_meta($object->ID, 'fauval_portalmenu_thumbnailson', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_nothumbnails', $nothumbnails, __('Beitragsbilder', 'fau').' '.__('verbergen', 'fau'));
 
@@ -570,6 +594,17 @@ function fau_save_metabox_page_portalmenu($post_id, $post) {
         add_post_meta($post_id, 'portalmenu-slug', $newval, true);
     } else {
         delete_post_meta($post_id, 'portalmenu-slug');
+    }
+
+    $newval = !empty($_POST['fau_metabox_page_portalmenu_meganav']) ? 1 : 0;
+    $oldval = get_post_meta($post_id, 'fauval_portalmenu_meganav', true) ? 1 : 0;
+
+    if ($newval && !empty($oldval)) {
+        update_post_meta($post_id, 'fauval_portalmenu_meganav', $newval);
+    } elseif ($newval && empty($oldval)) {
+        add_post_meta($post_id, 'fauval_portalmenu_meganav', $newval, true);
+    } else {
+        delete_post_meta($post_id, 'fauval_portalmenu_meganav');
     }
 
     $newval = !empty($_POST['fau_metabox_page_portalmenu_nothumbnails']) ? 1 : 0;

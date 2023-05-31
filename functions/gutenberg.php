@@ -147,6 +147,31 @@ function fau_is_newsletter_plugin_active() {
     return false;
 }
 
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Outside-box image post block
+/*-----------------------------------------------------------------------------------*/
+function fau_custom_image_blocks() {
+    wp_register_script(
+        'my-custom-blocks',
+        get_template_directory_uri() . '/js/fau-costum-image-block.min.js',
+        array( 'wp-blocks', 'wp-editor' ),
+        true
+    );
+    register_block_type( 'my-blocks/full-width-image', array(
+        'editor_script' => 'my-custom-blocks',
+    ) );
+}
+add_action( 'init', 'fau_custom_image_blocks' );
+
+
+/*-----------------------------------------------------------------------------------*/
+/* This is the end of the code as we know it
+/*-----------------------------------------------------------------------------------*/
+
+
+
 /*-----------------------------------------------------------------------------------*/
 /* Defined allowed core block types if theme is used in Gutenberg Block Editor
 /*-----------------------------------------------------------------------------------*/

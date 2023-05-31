@@ -33,11 +33,12 @@ class FAUShortcodes
 	/*-----------------------------------------------------------------------------------*/
 	/* Portalmenus als Shortcode
 	/*-----------------------------------------------------------------------------------*/
-	function fau_portalmenu($atts, $content = null)
-	{
+	function fau_portalmenu($atts, $content = null)	{
+        global $defaultoptions;
 		extract(shortcode_atts(
 			array(
 				'menu' => '',
+				'meganav' => false,
 				'showsubs' => true,
 				'nothumbs' => false,
 				'nofallback' => false,
@@ -59,10 +60,11 @@ class FAUShortcodes
 			$global_hoverblur = get_theme_mod('portalmenus_hover_blur', $defaultoptions['portalmenus_hover_blur']);
 			$global_hoverblur = filter_var($global_hoverblur, FILTER_VALIDATE_BOOLEAN);
 
+			$meganav = filter_var($meganav, FILTER_VALIDATE_BOOLEAN);
+			$listview = filter_var($listview, FILTER_VALIDATE_BOOLEAN);
 			$showsubs = filter_var($showsubs, FILTER_VALIDATE_BOOLEAN);
 			$nothumbs = filter_var($nothumbs, FILTER_VALIDATE_BOOLEAN);
 			$nofallback = filter_var($nofallback, FILTER_VALIDATE_BOOLEAN);
-			$listview = filter_var($listview, FILTER_VALIDATE_BOOLEAN);
 			$hoverzoom = filter_var($hoverzoom, FILTER_VALIDATE_BOOLEAN);
 			$hoverblur = filter_var($hoverblur, FILTER_VALIDATE_BOOLEAN);
 
@@ -106,6 +108,9 @@ class FAUShortcodes
 						break;
 				}
 
+				if ($meganav === true) {
+					$a_contentmenuclasses[] = 'meganav';
+				}
 				if ($showsubs === false) {
 					$a_contentmenuclasses[] = 'no-sub';
 				}
@@ -135,7 +140,7 @@ class FAUShortcodes
 						'link_after' => '',
 						'item_spacing' => 'discard',
 
-						'walker' => new Walker_Content_Menu($slug, $showsubs, $subentries, $nothumbs, $nofallback, $thumbnail, $listview)
+						'walker' => new Walker_Content_Menu($slug, $showsubs, $subentries, $nothumbs, $nofallback, $thumbnail, $listview, $meganav)
 					)
 				);
 				if ($listview === true) {

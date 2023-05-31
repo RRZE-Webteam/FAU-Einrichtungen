@@ -152,14 +152,19 @@
 	    </div>
 	    <div class="slider-controls" aria-controls="mainslider" >
             <?php 
-            if (('' != get_theme_mod( 'slider-autoplay' )) && (true== get_theme_mod( 'slider-autoplay' )) ) {
-                $startstopclass= '';
-                $buttontext = $defaultoptions['slider-stoptext'];
-            } else {
-                $startstopclass= ' stopped';
-                $buttontext = $defaultoptions['slider-starttext'];
-            } ?>
-            <button type="button" aria-label="<?php echo $buttontext ?> " class="slick-startstop<?php echo $startstopclass;?>"><i class="fa fa-pause" aria-hidden="true"></i></button>
+           if (('' != get_theme_mod( 'slider-autoplay' )) && (true== get_theme_mod( 'slider-autoplay' )) ) {
+			$startstopclass= '';
+			$buttontext = $defaultoptions['slider-stoptext'];
+			$buttonicon = 'fa-pause'; // use the pause icon if the slider is autoplaying
+		} else {
+			$startstopclass= ' stopped';
+			$buttontext = $defaultoptions['slider-starttext'];
+			$buttonicon = 'fa-play'; // use the play icon if the slider is not autoplaying
+		}
+		
+		
+		?>
+          <button type="button" aria-label="<?php echo $buttontext ?> " class="slick-startstop<?php echo $startstopclass;?>"><i class="fa <?php echo $buttonicon; ?>" aria-hidden="true"></i></button>
 	    </div>
 	    
 	</section> 
