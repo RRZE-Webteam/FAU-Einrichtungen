@@ -436,8 +436,9 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
     private $element;
     private $showsub = true;
     private $listview = false;
+    private $meganav = false;
 
-    function __construct( $menu, $showsub = true, $maxsecondlevel = 0, $noshowthumb = false,$nothumbnailfallback = false, $thumbnail = 'rwd-480-2-1', $listview = false ) {
+    function __construct( $menu, $showsub = true, $maxsecondlevel = 0, $noshowthumb = false,$nothumbnailfallback = false, $thumbnail = 'rwd-480-2-1', $listview = false, $meganav = false ) {
         $this->showsub             = $showsub && !$listview;
         
         if ($maxsecondlevel==0) {
@@ -445,10 +446,11 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
         }
         
         $this->maxsecondlevel      = $maxsecondlevel;
-        $this->nothumbnail         = $noshowthumb || $listview;
+        $this->nothumbnail         = $noshowthumb || $listview || $meganav;
         $this->nothumbnailfallback = $nothumbnailfallback;
         $this->thumbnail           = $thumbnail;
         $this->listview            = $listview;
+        $this->meganav             = $meganav;
     }
 
     function __destruct() {
@@ -612,11 +614,11 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                     }
 
                 }
-                $item_output .= $this->listview ? '' : $args->link_before.'<span class="portaltop">';
+                $item_output .= $this->listview || $this->meganav ? '' : $args->link_before.'<span class="portaltop">';
                 $item_output .= $link;
                 $item_output .= apply_filters('the_title', $item->title, $item->ID);
                 $item_output .= '</a>';
-                $item_output .= $this->listview ? '' : '</span>'.$args->link_after;
+                $item_output .= $this->listview || $this->meganav ? '' : '</span>'.$args->link_after;
             } else {
                 $item_output .= $link;
                 $item_output .= $args->link_before.apply_filters('the_title', $item->title,

@@ -393,3 +393,17 @@ function fau_remove_image_size_options($sizes) {
     return $sizes;
 }
  add_filter('image_size_names_choose', 'fau_remove_image_size_options');
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Remove the target in all links in content
+/*-----------------------------------------------------------------------------------*/
+
+ function fau_change_link_targets($content) {
+    $pattern = '/<a(.*?)href=[\'"](.*?)[\'"](.*?)(target=[\'"](.*?)[\'"])?(.*?)>/i';
+    $replacement = '<a$1href="$2"$3$6>';
+    $content = preg_replace($pattern, $replacement, $content);
+    return $content;
+}
+add_filter('the_content', 'fau_change_link_targets');
+

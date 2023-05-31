@@ -136,7 +136,7 @@ function fau_columns_checkcolor($color = '') {
          'ul' => array(),
          'li' => array(),
          'dl' => array(),     'dd' => array(),           'dt' => array(),
-         'h3' => array(),    'h4' => array(),            'h5' => array(),            'h6' => array(),
+         'h2' => array(), 'h3' => array(),    'h4' => array(),            'h5' => array(),            'h6' => array(),
          'table' => array(),  'tr' => array(),  'td' => array(),   'tbody' => array(),  'thead' => array(),  'tfooter' => array(),
      );
 

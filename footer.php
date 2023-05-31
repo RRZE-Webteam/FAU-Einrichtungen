@@ -62,19 +62,16 @@
 			    ?>
 			</nav>
 			<?php 
-			$display_socialmedia_footer = get_theme_mod("advanced_footer_display_socialmedia");
-			if ($display_socialmedia_footer) {
-				    global $default_socialmedia_liste;
-				    global $defaultoptions;
-				    
-				    echo '<nav class="svg-socialmedia round hoverbg" aria-label="'.__('Social Media','fau').'">';
-				    echo '<div itemscope itemtype="http://schema.org/Organization">';
-				    echo fau_create_schema_publisher(false);		
-				    echo fau_get_socialmedia_menu($defaultoptions['socialmedia_menu_name'],'',true);
-				    echo '</div>';
-				    echo '</nav>';
-
-			} ?>
+			global $default_socialmedia_liste;
+			global $defaultoptions;
+			
+			echo '<nav class="svg-socialmedia round hoverbg" aria-label="'.__('Social Media','fau').'">';
+			echo '<div itemscope itemtype="http://schema.org/Organization">';
+			echo fau_create_schema_publisher(false);		
+			echo fau_get_socialmedia_menu($defaultoptions['socialmedia_menu_name'],'',true);
+			echo '</div>';
+			echo '</nav>';
+			?>
 		    </div>
 		</div>
 	    </div>
