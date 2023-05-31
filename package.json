@@ -1,7 +1,11 @@
 {
     "name": "FAU-Einrichtungen",
     "textdomain": "fau",
+<<<<<<< Updated upstream
     "version": "2.3.22",
+=======
+    "version": "2.3.21-12",
+>>>>>>> Stashed changes
     "keywords": [
         "WordPress",
         "Theme",
