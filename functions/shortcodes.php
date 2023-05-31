@@ -33,8 +33,8 @@ class FAUShortcodes
 	/*-----------------------------------------------------------------------------------*/
 	/* Portalmenus als Shortcode
 	/*-----------------------------------------------------------------------------------*/
-	function fau_portalmenu($atts, $content = null)
-	{
+	function fau_portalmenu($atts, $content = null)	{
+        global $defaultoptions;
 		extract(shortcode_atts(
 			array(
 				'menu' => '',
