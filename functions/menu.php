@@ -874,7 +874,9 @@ function fau_get_hero_title($overwrite = '') {
     global $post;
 
 
-    if ((is_front_page()) || (is_home())) {
+    if ($title = fau_is_endpoint()) {
+        return ucfirst($title);
+    } elseif ((is_front_page()) || (is_home())) {
         return get_the_title(get_option('page_for_posts'));
     } elseif (is_category()) {
         return single_cat_title('', false);
