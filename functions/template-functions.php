@@ -1646,9 +1646,10 @@ function fau_make_link_relative($url)
     $host         = parse_url($url, PHP_URL_HOST);
     if ($current_host == $host) {
         $url = wp_make_link_relative($url);
+   //     return apply_filters('fau_relative_link', $url, $orig);
     }
-
-    return apply_filters('fau_relative_link', $url, $orig);
+    return $url;
+    
 }
 /*-----------------------------------------------------------------------------------*/
 /*is url external
