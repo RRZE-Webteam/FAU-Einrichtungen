@@ -309,14 +309,19 @@ add_filter("page_css_class", "fau_add_subnav_css_class", 10, 2);
  * Note: We are using our own function for relative links here (fau_make_link_relative),
  * cause this function will only make relative links to these urls, that are on the
  * same host. Therfor external images wont be changed.
- */
+ 
 function fau_make_srcset_relative_on_sitehost($sources, $size_array, $image_src, $image_meta, $attachment_id ) {
     foreach ( $sources as &$source ) {
         $source['url'] = fau_make_link_relative( $source['url'] );
     }
     return $sources;
 }
-add_filter( 'wp_calculate_image_srcset', 'fau_make_srcset_relative_on_sitehost', 10, 5 );
+ * Deactivated 14.06.2023, WW: Macht weiter Probleme mit externen Domains bei 
+ * dem FAU Studium EMbed Plugin.
+ * Die paar Bytes Performancegewinn lohnen nicht für die Ursachenfindung. 
+ * Daher erstmal raus
+ */
+// add_filter( 'wp_calculate_image_srcset', 'fau_make_srcset_relative_on_sitehost', 10, 5 );
 
 /*-----------------------------------------------------------------------------------*/
 /* Filter to replace the [caption] shortcode text with HTML5 compliant code
