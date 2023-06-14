@@ -306,22 +306,17 @@ add_filter("page_css_class", "fau_add_subnav_css_class", 10, 2);
 
 /*-----------------------------------------------------------------------------------*/
 /* Force srcset urls to be relative
-/*-----------------------------------------------------------------------------------*/
-add_filter('wp_calculate_image_srcset', function($sources) {
-    if (!is_array($sources)) {
-        return $sources;
+ * Note: We are using our own function for relative links here (fau_make_link_relative),
+ * cause this function will only make relative links to these urls, that are on the
+ * same host. Therfor external images wont be changed.
+ */
+function fau_make_srcset_relative_on_sitehost($sources, $size_array, $image_src, $image_meta, $attachment_id ) {
+    foreach ( $sources as &$source ) {
+        $source['url'] = fau_make_link_relative( $source['url'] );
     }
-
-    foreach ($sources as &$source) {
-        if (isset($source['url'])) {
-            $source['url'] = fau_esc_url($source['url']);
-        }
-    }
-
     return $sources;
-
-}, PHP_INT_MAX);
-
+}
+add_filter( 'wp_calculate_image_srcset', 'fau_make_srcset_relative_on_sitehost', 10, 5 );
 
 /*-----------------------------------------------------------------------------------*/
 /* Filter to replace the [caption] shortcode text with HTML5 compliant code
@@ -386,14 +381,14 @@ add_filter( 'nav_menu_link_attributes', 'fau_add_aria_label_pages', 10, 3 );
 /*-----------------------------------------------------------------------------------*/
 /* Remove the option image size thumbal and medium in edit post
 /*-----------------------------------------------------------------------------------*/
-function fau_remove_image_size_options($sizes) {
-    unset($sizes['thumbnail']);
+// function fau_remove_image_size_options($sizes) {
+//    unset($sizes['thumbnail']);
   //  unset($sizes['medium']);
   //   deactivated the unset for medium yet, cause of discussion (11.05.2023, WW)
-    return $sizes;
-}
- add_filter('image_size_names_choose', 'fau_remove_image_size_options');
-
+//    return $sizes;
+// }
+// add_filter('image_size_names_choose', 'fau_remove_image_size_options');
+// deactivated yet, cause of users requests (14.06.2023, WW)
 
 /*-----------------------------------------------------------------------------------*/
 /* Remove the target in all links in content
