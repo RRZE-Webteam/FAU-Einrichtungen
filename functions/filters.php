@@ -209,20 +209,20 @@ add_filter('post_class', 'fau_remove_default_post_class', 10,3);
 function fau_remove_default_post_class($classes, $class, $post_id) {
     
     if (is_admin() ) {
-	// Do not change anything if we are in the backend
-	return $classes;
+        // Do not change anything if we are in the backend
+        return $classes;
     }
-// adapted form https://www.forumming.com/question/21152/remove-extra-classes-from-post-title
+    // adapted form https://www.forumming.com/question/21152/remove-extra-classes-from-post-title
     
     // Array that holds the undesired classes
     $removeClasses = array(
-	'hentry',
-	'type-',
-	'post-',
-	'status-',
+        'hentry',
+        'type-',
+        'post-',
+        'status-',
         'category-',
         'tag-',
-	'format'
+        'format'
     );
 
 
@@ -248,10 +248,10 @@ function fau_remove_default_post_class($classes, $class, $post_id) {
 /* Remove post class, we dont need
 /*-----------------------------------------------------------------------------------*/
 function fau_hide_admin_bar_from_front_end(){
- if (!is_user_logged_in()) {
-    return false;
-  }
-  return true;
+    if (!is_user_logged_in()) {
+       return false;
+    }
+    return true;
 }
 add_filter( 'show_admin_bar', 'fau_hide_admin_bar_from_front_end' );
 /*-----------------------------------------------------------------------------------*/
@@ -376,7 +376,7 @@ function fau_add_aria_label_pages( $atts, $item, $args ) {
     $arialabel_subnav = get_post_meta($item->object_id, 'fauval_aria-label', true);
     
     if (!fau_empty($arialabel_subnav)) {
-	$atts['aria-label'] = $arialabel_subnav;
+        $atts['aria-label'] = $arialabel_subnav;
     }
     return $atts;
 }

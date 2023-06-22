@@ -613,8 +613,7 @@ function fau_display_search_resultitem() {
 /*-----------------------------------------------------------------------------------*/
 /*  Blogroll
 /*-----------------------------------------------------------------------------------*/
-function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidemeta = true)
-{
+function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidemeta = true, $overwrite_thememods = false) {
     if ($id == 0) {
         return;
     }
@@ -622,6 +621,32 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
     $post   = get_post($id);
     $output = '';
     if ($post) {
+        $categories = get_the_category();
+        $vidpod_auth = get_post_meta($post->ID, 'vidpod_auth', true);
+        
+        
+        $withvideopost_autor = false;
+        if ($hidemeta) {
+            $withcat = false;
+        }
+        if ($overwrite_thememods===false) {
+            if (('' != get_theme_mod('show_date_on')) && (true == get_theme_mod('show_date_on'))) {
+                 $withdate = true;
+                 $hidemeta = false;
+            }
+            if (('' != get_theme_mod('show_cat_on')) && (true == get_theme_mod('show_cat_on'))) { 
+                if ($categories) {   
+                    $withcat = true;
+                    $hidemeta = false;
+                }
+            }          
+        }
+        if ($vidpod_auth !=null){
+            $withvideopost_autor = true;
+            $hidemeta = false;
+        }
+        
+        
         if (!is_int($hstart)) {
             $hstart = 2;
         } elseif (($hstart < 1) || ($hstart > 6)) {
@@ -659,89 +684,46 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
         $output .= "</h" . $hstart . ">";
 
         
-        /* Datum der Blogroll -Umschaltungsoption anzeigen */
-        if (('' != get_theme_mod('show_date_on')) && (true == get_theme_mod('show_date_on'))) {
-            $output .= '<div class="news-meta">';
-           
-            
-           // $output .= $typestr;
-            $output .= '<span class="news-meta-date" itemprop="datePublished" content="'.esc_attr(get_post_time('c')).'"> '.get_the_date('',
-                    $post->ID)." </span>";
-                    // show category
-                   
-           
+        $schemaauthor = get_theme_mod('contact_address_name') . " " . get_theme_mod('contact_address_name2');
+        if (!fau_empty($schemaauthor)) {
+            $output .= '<meta itemprop="author" content="' . esc_attr($schemaauthor) . '">';
         }
-    
-        if (('' != get_theme_mod('show_cat_on')) && (true == get_theme_mod('show_cat_on'))) {
-            $categories = get_the_category();
-            $separator  = ', ';
-            $thiscatstr = '';
-            $typestr    = '';
-            if (('' != get_theme_mod('show_date_on')) && (false == get_theme_mod('show_date_on'))) {
-                $output .= '<div class="news-meta">';
+        if ($vidpod_auth !=null) {
+            $output .= '<meta itemprop="producer" content="' . esc_attr($vidpod_auth) . '">';
+        }
+        if ($hidemeta) {
+             // display meta informations that we need for structured data as <meta> tags       
+            $output .= '<meta itemprop="datePublished" content="' . esc_attr(get_post_time('c')) . '">';
+            $output .= '<meta itemprop="dateModified" content="' . esc_attr(get_the_modified_time('c')) . '">';
+        } else {
+            // displays meta informations like date, category, tags, autornames with visible tags
+            $output .= '<div class="news-meta">';
+            
+            if ($withdate) {
+                $output .= '<span class="news-meta-date" itemprop="datePublished" content="'.esc_attr(get_post_time('c')).'"> '.get_the_date('',
+                    $post->ID)." </span>";
             }
-            if ($categories) {
-                $typestr .= '<span class="news-meta-categories"> ';
-                $typestr .= __('Kategorie', 'fau');
-                $typestr .= ': ';
+            if ($withcat) {                
+                $separator  = ', ';
+                $thiscatstr = '';
+                $typestr = '<span class="news-meta-categories"> ';
+                $typestr .= __('Kategorie', 'fau').': ';
                 foreach ($categories as $category) {
                     $thiscatstr .= '<a href="' . get_category_link($category->term_id) . '">' . $category->cat_name . '</a>' . $separator;
                 }
                 $typestr .= trim($thiscatstr, $separator);
                 $typestr .= '</span> ';
+                
+                $output .= $typestr;
             }
-            $output .= $typestr;
-        }
-        $vidpod_auth = get_post_meta($post->ID, 'vidpod_auth', true);
-        if ($vidpod_auth !=null){
-            $output .= '<span class="fa fa-pencil"> '.$vidpod_auth.'</span>';
-            
-        }
-
-
-        if ((('' != get_theme_mod('show_cat_on')) && (true == get_theme_mod('show_cat_on'))) || (('' != get_theme_mod('show_date_on')) && (true == get_theme_mod('show_date_on')))) {
+            if ($withvideopost_autor){
+                $output .= '<span class="news-meta-videopost-author"> ';      
+                $output .= __('Produzent', 'fau').': ';
+                $output .= esc_attr($vidpod_auth);      
+                $output .= '</span>';      
+            }
             $output .= '</div>';
         }
-        
-
-        if ($hidemeta === false) {
-            $categories = get_the_category();
-            $separator  = ', ';
-            $thiscatstr = '';
-            $typestr    = '';
-            if ($categories) {
-                $typestr .= '<span class="news-meta-categories"> ';
-                $typestr .= __('Kategorie', 'fau');
-                $typestr .= ': ';
-                foreach ($categories as $category) {
-                    $thiscatstr .= '<a href="' . get_category_link($category->term_id) . '">' . $category->cat_name . '</a>' . $separator;
-                }
-                $typestr .= trim($thiscatstr, $separator);
-                $typestr .= '</span> ';
-            }
-
-            if ($withdate) {
-                $output .= '<div class="news-meta">';
-                $output .= $typestr;
-                $output .= '<span class="news-meta-date" itemprop="datePublished" content="' . esc_attr(get_post_time('c')) . '"> ' . get_the_date(
-                    '',
-                    $post->ID
-                ) . "</span>";
-                $output .= '</div>';
-            } else {
-                $output .= '<div class="news-meta">';
-                if ($typestr) {
-                    $output .= $typestr;
-                }
-
-                $output .= '<meta itemprop="datePublished" content="' . esc_attr(get_post_time('c')) . '"></div>';
-            }
-        }
-        $output .= '<div><meta itemprop="dateModified" content="' . esc_attr(get_the_modified_time('c')) . '">';
-
-        $schemaauthor = get_theme_mod('contact_address_name') . " " . get_theme_mod('contact_address_name2');
-        $output       .= '<meta itemprop="author" content="' . esc_attr($schemaauthor) . '"></div>';
-
 
         $output      .= '<div class="teaser-row">';
         $show_thumbs = get_theme_mod('default_postthumb_always');
