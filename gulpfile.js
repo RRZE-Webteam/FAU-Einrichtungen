@@ -326,7 +326,9 @@ function buildprintstyle() {
 }
 
 function bundleadminjs() {
-    return src([info.source.js + 'admin/admin.js'])
+    return src([info.source.js + 'admin/admin.js',
+//	info.source.js + 'admin/banner-logo-link-widget.js',
+	info.source.js + 'admin/classic-editor-templateswitch.js'])
     .pipe(concat(info.adminjs))
     .pipe(uglify())
     .pipe(dest(info.jsdir))

@@ -1291,8 +1291,10 @@ function fau_save_metabox_page_additional_attributes( $post_id, $post ) {
 
 /*-----------------------------------------------------------------------------------*/
 /* Ersetzt das wpLink-Skript durch ein benutzerdefiniertes Skript.
+ * 
+ * Wird verwendet für die Auswahl der Links in der Metabox Sidebar auf Pages
+ */
 /*-----------------------------------------------------------------------------------*/
-
 add_action('admin_enqueue_scripts', function () {
     global $defaultoptions;
  

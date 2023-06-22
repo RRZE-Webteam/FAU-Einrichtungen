@@ -36,7 +36,9 @@ while (have_posts()) : the_post(); ?>
                             
                             $output .= do_shortcode('[fauvideo url="' . $vidpod_url . '"]');
                             $vidpod_auth = get_post_meta($post->ID, 'vidpod_auth', true);
-                            $output .= '<span class="fa fa-pencil"> '.$vidpod_auth.'</span>';
+                            if (!fau_empty($vidpod_auth)) {
+                                $output .= '<span class="post-meta-videopost-author"> '.$vidpod_auth.'</span>';
+                            }
                             $output .= '</div>' . "\n";
 
 							$headline = get_post_meta($post->ID, 'fauval_untertitel', true);

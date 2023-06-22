@@ -211,8 +211,10 @@ function fau_admin_header_style() {
     wp_enqueue_media();
     wp_enqueue_script('jquery-ui-datepicker');
     
-    wp_enqueue_script('image-caption-editor', get_template_directory_uri() . '/js/fau-image-caption-editor.min.js', array('jquery', 'wp-editor'), '1.0', true);
-        // Add html atributes to image caption on post editor
+    // wp_enqueue_script('image-caption-editor', get_template_directory_uri() . '/js/fau-image-caption-editor.min.js', array('jquery', 'wp-editor'), '1.0', true);
+    // Add html atributes to image caption on post editor
+    // deactivated 21.06 by ww, cause js not found anymore. Backend JS should be packed 
+    // in admin.js anyway
     
     $theme_data = wp_get_theme();
     $theme_version = $theme_data->Version;
