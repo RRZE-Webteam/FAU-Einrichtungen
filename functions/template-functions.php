@@ -1125,7 +1125,7 @@ function fau_get_category_links($cateid = 0)
         if (fau_empty($linktitle)) {
             $linktitle = $defaultoptions['start_link_news_linktitle'];
         }
-        $link = add_query_arg('paged', 2, $link); //allways link to the second page of the category
+      //  $link = add_query_arg('paged', 2, $link); //allways link to the second page of the category // let us remove this untill we find a better solution
         $res .= '<div class="news-more-links">' . "\n";
         $res .= "\t" . '<a class="news-more" href="' . $link . '">' . $linktitle . '</a>';
         $res .= '<a class="news-rss" href="' . get_category_feed_link($cateid) . '">' . __('RSS', 'fau') . '</a>';
