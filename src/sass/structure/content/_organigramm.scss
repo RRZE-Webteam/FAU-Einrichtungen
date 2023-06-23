@@ -4,31 +4,31 @@
 
 .organigram {
 	@include no-list;
-	margin: 20px 0;
+	margin: var(--width-gutter-half) 0;
 	
 	ul, li {
 		@include no-list;
 	}
 	
 	ul {
-		margin-bottom: 20px;
+		margin-bottom: var(--width-gutter-half);
 		border-left: 2px solid var(--color-primary-ci-hell);
-		margin-left: 10px;
+		margin-left: var(--width-gutter-half);
 	}
 	
 	li {
 		background: none;
-		font-size: 19px;
-		margin-bottom: 20px;
+		@include px2rem($font-size-large);
+		margin-bottom: var(--width-gutter-half);
 		margin-top: 5px;
 		
 		li {
-			font-size: 15px;
-			padding-left: 10px;
+			@include px2rem($font-size-base);
+			padding-left: var(--width-gutter-half);
 			margin-bottom: 0;
 			
 			li {
-				font-size: 13px;
+				@include px2rem($font-size-small);
 			}
 		}
 	}

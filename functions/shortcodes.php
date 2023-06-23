@@ -160,8 +160,7 @@ class FAUShortcodes
 	/*-----------------------------------------------------------------------------------*/
 	/* Display a menu as organigram
 	/*-----------------------------------------------------------------------------------*/
-	function fau_organigram($atts, $content = null)
-	{
+	function fau_organigram($atts, $content = null) {
 		extract(shortcode_atts(
 			array(
 				"menu" => 'menu'
