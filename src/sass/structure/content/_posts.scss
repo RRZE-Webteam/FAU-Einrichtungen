@@ -234,17 +234,9 @@
       
     
     }
-
-    h1.mobiletitle {
-        margin-top: 0;
-        padding: 10px 0;
-        hyphens: auto;
-
-        @media (min-width: $screen-sm) {
-            @include sr-only();
-        }
+    .herotype-slider {
+	margin-top: var(--width-gutter, 30px);
     }
-
     .wp-caption {
         max-width: 100vw;
         padding: 0;

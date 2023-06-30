@@ -29,9 +29,16 @@ if (($posttype == 'post') && (is_archive())) {
 } else {	
     $screenreadertitle = __('Index','fau');
 }
+
+$titleforscreenreader = true;
+if (empty($herotype)) { 
+    $titleforscreenreader = true;
+} elseif (($herotype=='banner') || ($herotype=='slider')) {
+   $titleforscreenreader = false;
+}
 ?>
 
-    <div id="content">
+    <div id="content" class="herotype-<?php echo $herotype; ?>">
 	    <div class="content-container">
 		    <div class="post-row">
 			<?php if(get_post_type() == 'post') { ?>
@@ -40,7 +47,7 @@ if (($posttype == 'post') && (is_archive())) {
 			<main>
 			<?php } 
 			    
-			    if (empty($herotype)) {   ?>
+			    if ($titleforscreenreader) {   ?>
 				<h1 id="maintop"  class="screen-reader-text"><?php echo $screenreadertitle; ?></h1>
 			     <?php } else { ?>
 				<h1 id="maintop" ><?php echo $screenreadertitle; ?></h1>
