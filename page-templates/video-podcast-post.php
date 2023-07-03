@@ -29,7 +29,7 @@ while (have_posts()) : the_post();  ?>
 					<main>
 
                         <?php if ($titleforscreenreader) { ?>
-                            <h1 id="maintop" class="screen-reader-text"><?php the_title(); ?></h1>
+                            <h1 id="maintop" class="mobiletitle"><?php the_title(); ?></h1>
                         <?php } else { ?>
                             <h1 id="maintop"><?php the_title(); ?></h1>
                         <?php } ?>
