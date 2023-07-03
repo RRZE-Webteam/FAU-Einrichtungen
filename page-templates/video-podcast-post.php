@@ -13,15 +13,27 @@ if (is_active_sidebar('news-sidebar')) {
 }
 
 get_header();
+$herotype = get_theme_mod('advanced_header_template');
+$titleforscreenreader = true;
+if (empty($herotype)) { 
+    $titleforscreenreader = true;
+} elseif (($herotype=='banner') || ($herotype=='slider')) {
+   $titleforscreenreader = false;
+}
 
-while (have_posts()) : the_post(); ?>
-	
-	<div id="content">
+while (have_posts()) : the_post();  ?>
+	<div id="content" class="herotype-<?php echo $herotype;?>">
 		<div class="content-container">
 			<div class="post-row">
 				<div <?php post_class('entry-content'); ?>>
 					<main>
-						<h1 id="maintop" class="mobiletitle"><?php the_title(); ?></h1>
+
+                        <?php if ($titleforscreenreader) { ?>
+                            <h1 id="maintop" class="mobiletitle"><?php the_title(); ?></h1>
+                        <?php } else { ?>
+                            <h1 id="maintop"><?php the_title(); ?></h1>
+                        <?php } ?>
+
 						<article class="news-details">
 							<?php 
 

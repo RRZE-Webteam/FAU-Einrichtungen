@@ -5,15 +5,7 @@
 
 
 .rrze-univis {
-    h1.mobiletitle {
-	margin-top: 0;
-	padding: 1rem 0;
-	hyphens: auto;
-	 @media (min-width: $screen-sm) {
-	      @include sr-only();
-	 }
-    }
-    
+        
     .person,
     .liste-person {
 	a {
