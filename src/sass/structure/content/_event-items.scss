@@ -36,8 +36,8 @@
 @media (max-width: $screen-sm) {
 	.topevent-date,
 	.topevent-description {
-		margin-left: 15px;
-		margin-right: 15px;
+		margin-left: var(--width-gutter-half);
+		margin-right: var(--width-gutter-half);
 	}
 
 

@@ -1,26 +1,89 @@
 {
   "version": 2,
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
   "settings": {
         "color": {
-          "custom": true,
+          "custom": false,
           "customDuotone": false,
           "defaultDuotone": false,
           "customGradient": false,
-          "defaultGradients": false
+          "defaultGradients": false,
+	    "palette": [
+		    {
+			    "slug": "base",
+			    "color": "#222",
+			    "name": "Textfarbe"
+		    },
+		    {
+			    "slug": "contrast",
+			    "color": "#fff",
+			    "name": "Kontrast"
+		    },
+		    {
+			    "slug": "primary",
+			    "color": "#04316A",
+			    "name": "Basis"
+		    },
+		    {
+			    "slug": "dunkler",
+			    "color": "#004A9F",
+			    "name": "Dunkler"
+		    },
+		    {
+			    "slug": "heller",
+			    "color": "#CED9E7",
+			    "name": "Heller"
+		    }
+
+	    ]
         },
-        
         "typography": {
-          "fontSize": "16px",
-          "lineHeight": "1.5",
-          "fontFamily": "'Roboto','FAU Chimera', sans-serif;",
-          "dropCap": false,
-          "fontSizes": []
-      },
-       "custom": {},
-        "layout": {
-            "contentSize": "650px",
-            "wideSize": "1000px"
-        },
+		"dropCap": false,
+		"fluid": true,
+		"fontFamilies": [
+			{
+				"name": "System",
+				"slug": "system",
+				"fontFamily": "Roboto, \"FAU Chimera\", sans-serif"
+			},
+			{
+				"name": "Serif",
+				"slug": "serif",
+				"fontFamily": "Georgia, \"Times New Roman\",\"New York\",Times,\"Noto Serif\",serif"
+			},
+			{
+				"name": "Monospace",
+				"slug": "monospace",
+				"fontFamily": "Consolas,Menlo,Monaco,\"SF Mono\",\"DejaVu Sans Mono\",\"Roboto Mono\",\"Courier New\",Courier,monospace"
+			}
+		],
+		"fontSizes": [
+			{
+				"slug": "small",
+				"size": "0.8rem",
+				"name": "Small",
+				"fluid": false
+			},
+			{
+				"slug": "normal",
+				"size": "1rem",
+				"name": "Normal",
+				"fluid": false
+			},
+			{
+				"slug": "medium",
+				"size": "1.25rem",
+				"name": "Medium",
+				"fluid": false
+			}
+		]
+	},
+		
+		
+       	"layout": {
+			"contentSize": "1040px",
+			"wideSize": "1400px"
+		},
         "spacing": {
             "margin": false,
             "padding": false,

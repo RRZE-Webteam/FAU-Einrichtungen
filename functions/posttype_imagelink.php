@@ -42,16 +42,7 @@ function imagelink_post_type() {
 		'name'                => _x( 'Bildlinks', 'Post Type General Name', 'fau' ),
 		'singular_name'       => _x( 'Bildlink', 'Post Type Singular Name', 'fau' ),
 		'menu_name'           => __( 'Bildlinks', 'fau' ),
-		'parent_item_colon'   => __( 'Übergeordneter Bildlink', 'fau' ),
-		'all_items'           => __( 'Alle Bildlinks', 'fau' ),
-		'view_item'           => __( 'Bildlink anzeigen', 'fau' ),
-		'add_new_item'        => __( 'Neuen Bildlink einfügen', 'fau' ),
-		'add_new'             => __( 'Neuer Bildlink', 'fau' ),
-		'edit_item'           => __( 'Bildlink bearbeiten', 'fau' ),
-		'update_item'         => __( 'Bildlink aktualisieren', 'fau' ),
-		'search_items'        => __( 'Bildlink suchen', 'fau' ),
-		'not_found'           => __( 'Keine Bildlinks gefunden', 'fau' ),
-		'not_found_in_trash'  => __( 'Keine Bildlinks im Papierkorb gefunden', 'fau' ),
+
 	);
 	$args = array(
 		'label'               => __( 'imagelink', 'fau' ),
@@ -63,7 +54,7 @@ function imagelink_post_type() {
 		'public'              => true,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
-		'show_in_nav_menus'   => false,
+		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => false,
   	 	'menu_icon'             => 'dashicons-format-image',
 		'can_export'          => true,

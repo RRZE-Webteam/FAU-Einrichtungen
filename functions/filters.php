@@ -209,20 +209,20 @@ add_filter('post_class', 'fau_remove_default_post_class', 10,3);
 function fau_remove_default_post_class($classes, $class, $post_id) {
     
     if (is_admin() ) {
-	// Do not change anything if we are in the backend
-	return $classes;
+        // Do not change anything if we are in the backend
+        return $classes;
     }
-// adapted form https://www.forumming.com/question/21152/remove-extra-classes-from-post-title
+    // adapted form https://www.forumming.com/question/21152/remove-extra-classes-from-post-title
     
     // Array that holds the undesired classes
     $removeClasses = array(
-	'hentry',
-	'type-',
-	'post-',
-	'status-',
+        'hentry',
+        'type-',
+        'post-',
+        'status-',
         'category-',
         'tag-',
-	'format'
+        'format'
     );
 
 
@@ -248,10 +248,10 @@ function fau_remove_default_post_class($classes, $class, $post_id) {
 /* Remove post class, we dont need
 /*-----------------------------------------------------------------------------------*/
 function fau_hide_admin_bar_from_front_end(){
- if (!is_user_logged_in()) {
-    return false;
-  }
-  return true;
+    if (!is_user_logged_in()) {
+       return false;
+    }
+    return true;
 }
 add_filter( 'show_admin_bar', 'fau_hide_admin_bar_from_front_end' );
 /*-----------------------------------------------------------------------------------*/
@@ -306,22 +306,22 @@ add_filter("page_css_class", "fau_add_subnav_css_class", 10, 2);
 
 /*-----------------------------------------------------------------------------------*/
 /* Force srcset urls to be relative
-/*-----------------------------------------------------------------------------------*/
-add_filter('wp_calculate_image_srcset', function($sources) {
-    if (!is_array($sources)) {
-        return $sources;
+ * Note: We are using our own function for relative links here (fau_make_link_relative),
+ * cause this function will only make relative links to these urls, that are on the
+ * same host. Therfor external images wont be changed.
+ 
+function fau_make_srcset_relative_on_sitehost($sources, $size_array, $image_src, $image_meta, $attachment_id ) {
+    foreach ( $sources as &$source ) {
+        $source['url'] = fau_make_link_relative( $source['url'] );
     }
-
-    foreach ($sources as &$source) {
-        if (isset($source['url'])) {
-            $source['url'] = fau_esc_url($source['url']);
-        }
-    }
-
     return $sources;
-
-}, PHP_INT_MAX);
-
+}
+ * Deactivated 14.06.2023, WW: Macht weiter Probleme mit externen Domains bei 
+ * dem FAU Studium EMbed Plugin.
+ * Die paar Bytes Performancegewinn lohnen nicht für die Ursachenfindung. 
+ * Daher erstmal raus
+ */
+// add_filter( 'wp_calculate_image_srcset', 'fau_make_srcset_relative_on_sitehost', 10, 5 );
 
 /*-----------------------------------------------------------------------------------*/
 /* Filter to replace the [caption] shortcode text with HTML5 compliant code
@@ -376,7 +376,7 @@ function fau_add_aria_label_pages( $atts, $item, $args ) {
     $arialabel_subnav = get_post_meta($item->object_id, 'fauval_aria-label', true);
     
     if (!fau_empty($arialabel_subnav)) {
-	$atts['aria-label'] = $arialabel_subnav;
+        $atts['aria-label'] = $arialabel_subnav;
     }
     return $atts;
 }
@@ -386,14 +386,14 @@ add_filter( 'nav_menu_link_attributes', 'fau_add_aria_label_pages', 10, 3 );
 /*-----------------------------------------------------------------------------------*/
 /* Remove the option image size thumbal and medium in edit post
 /*-----------------------------------------------------------------------------------*/
-function fau_remove_image_size_options($sizes) {
-    unset($sizes['thumbnail']);
+// function fau_remove_image_size_options($sizes) {
+//    unset($sizes['thumbnail']);
   //  unset($sizes['medium']);
   //   deactivated the unset for medium yet, cause of discussion (11.05.2023, WW)
-    return $sizes;
-}
- add_filter('image_size_names_choose', 'fau_remove_image_size_options');
-
+//    return $sizes;
+// }
+// add_filter('image_size_names_choose', 'fau_remove_image_size_options');
+// deactivated yet, cause of users requests (14.06.2023, WW)
 
 /*-----------------------------------------------------------------------------------*/
 /* Remove the target in all links in content

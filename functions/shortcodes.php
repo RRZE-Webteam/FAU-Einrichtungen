@@ -160,8 +160,7 @@ class FAUShortcodes
 	/*-----------------------------------------------------------------------------------*/
 	/* Display a menu as organigram
 	/*-----------------------------------------------------------------------------------*/
-	function fau_organigram($atts, $content = null)
-	{
+	function fau_organigram($atts, $content = null) {
 		extract(shortcode_atts(
 			array(
 				"menu" => 'menu'
@@ -343,75 +342,77 @@ function row_outside_box( $atts, $content = null ) {
 /*-----------------------------------------------------------------------------------*/
 /* Shortcodes to display list of Events TEC plugin
 /*-----------------------------------------------------------------------------------*/
-function events_list_shortcode( $atts ) {
-    $args = shortcode_atts(
-        array(
-            'posts_per_page' => 10,
-        ), $atts
-    );
-
-    $events = tribe_get_events( array(
-        'posts_per_page' => $args['posts_per_page'],
-        'start_date'     => 'now',
-    ) );
-
-    $output = '<div class="tribe-events-widget-events-list-fau">';
-
-    if ( ! empty( $events ) ) {
-        foreach ( $events as $event ) {
-            $permalink = get_permalink( $event );
-            $title = get_the_title( $event );
-			$start_time = tribe_get_start_date( $event, false, 'H:i' );
-			$end_time = tribe_get_end_date( $event, false, 'H:i' );
-            $start_date = tribe_get_start_date( $event, false, 'Y-m-d' );
-            $month = tribe_get_start_date( $event, false, 'M' );
-            $day_num = tribe_get_start_date( $event, false, 'j' );
-
-            $output .= '<div class="tribe-common-g-row-fau tribe-events-widget-events-list__event-row-fau">';
-            $output .= '<div class="tribe-events-widget-events-list__event-date-tag-fau tribe-common-g-col">';
-            $output .= '<time class="tribe-events-widget-events-list__event-date-tag-datetime-fau" datetime="' . $start_date . '">';
-            $output .= '<span class="tribe-events-widget-events-list__event-date-tag-month-fau">' . $month . '</span>';
-            $output .= '<span class="tribe-events-widget-events-list__event-date-tag-daynum tribe-common-h2-fau tribe-common-h4--min-medium">' . $day_num . '</span>';
-            $output .= '</time>';
-            $output .= '</div>'; // End of date tag
-            $output .= '<div class="tribe-events-widget-events-list__event-wrapper tribe-common-g-col">';
-            $output .= '<article class="tribe-events-widget-events-list__event tribe_events">';
-            $output .= '<div class="tribe-events-widget-events-list__event-details">';
-            $output .= '<header class="tribe-events-widget-events-list__event-header">';
-            $output .= '<div class="tribe-events-widget-events-list__event-datetime-wrapper-fau tribe-common-b2 tribe-common-b3--min-medium">';
-            $output .= '<time class="tribe-events-widget-events-list__event-datetime" datetime="' . $start_date . '">';
-            $output .= '<span class="tribe-event-date-start-fau">' . $start_time . '</span> - <span class="tribe-event-time-fau">' . $end_time . '</span>';
-            $output .= '</time>';
-            $output .= '</div>';
-            $output .= '<h3 class="tribe-events-widget-events-list__event-title-fau tribe-common-h7">';
-            $output .= '<a href="' . $permalink . '" title="' . $title . '" rel="bookmark" class="tribe-events-widget-events-list__event-title-link tribe-common-anchor-thin">';
-            $output .= $title;
-            $output .= '</a>';
-            $output .= '</h3>';
-            $output .= '</header>';
-            $output .= '</div>'; // End of event details
-            $output .= '</article>';
-            $output .= '</div>'; // End of event wrapper
-            $output .= '</div>'; // End of event row
+if ( is_plugin_active( "the-events-calendar/the-events-calendar.php") ){
+	function events_list_shortcode( $atts ) {
+	    $args = shortcode_atts(
+	        array(
+	            'posts_per_page' => 10,
+	        ), $atts
+	    );
+	
+	    $events = tribe_get_events( array(
+	        'posts_per_page' => $args['posts_per_page'],
+	        'start_date'     => 'now',
+	    ) );
+	
+	    $output = '<div class="tribe-events-widget-events-list-fau">';
+	
+	    if ( ! empty( $events ) ) {
+	        foreach ( $events as $event ) {
+	            $permalink = get_permalink( $event );
+	            $title = get_the_title( $event );
+				$start_time = tribe_get_start_date( $event, false, 'H:i' );
+				$end_time = tribe_get_end_date( $event, false, 'H:i' );
+	            $start_date = tribe_get_start_date( $event, false, 'Y-m-d' );
+	            $month = tribe_get_start_date( $event, false, 'M' );
+	            $day_num = tribe_get_start_date( $event, false, 'j' );
+	
+	            $output .= '<div class="tribe-common-g-row-fau tribe-events-widget-events-list__event-row-fau">';
+	            $output .= '<div class="tribe-events-widget-events-list__event-date-tag-fau tribe-common-g-col">';
+	            $output .= '<time class="tribe-events-widget-events-list__event-date-tag-datetime-fau" datetime="' . $start_date . '">';
+	            $output .= '<span class="tribe-events-widget-events-list__event-date-tag-month-fau">' . $month . '</span>';
+	            $output .= '<span class="tribe-events-widget-events-list__event-date-tag-daynum tribe-common-h2-fau tribe-common-h4--min-medium">' . $day_num . '</span>';
+	            $output .= '</time>';
+	            $output .= '</div>'; // End of date tag
+	            $output .= '<div class="tribe-events-widget-events-list__event-wrapper tribe-common-g-col">';
+	            $output .= '<article class="tribe-events-widget-events-list__event tribe_events">';
+	            $output .= '<div class="tribe-events-widget-events-list__event-details">';
+	            $output .= '<header class="tribe-events-widget-events-list__event-header">';
+	            $output .= '<div class="tribe-events-widget-events-list__event-datetime-wrapper-fau tribe-common-b2 tribe-common-b3--min-medium">';
+	            $output .= '<time class="tribe-events-widget-events-list__event-datetime" datetime="' . $start_date . '">';
+	            $output .= '<span class="tribe-event-date-start-fau">' . $start_time . '</span> - <span class="tribe-event-time-fau">' . $end_time . '</span>';
+	            $output .= '</time>';
+	            $output .= '</div>';
+	            $output .= '<h3 class="tribe-events-widget-events-list__event-title-fau tribe-common-h7">';
+	            $output .= '<a href="' . $permalink . '" title="' . $title . '" rel="bookmark" class="tribe-events-widget-events-list__event-title-link tribe-common-anchor-thin">';
+	            $output .= $title;
+	            $output .= '</a>';
+	            $output .= '</h3>';
+	            $output .= '</header>';
+	            $output .= '</div>'; // End of event details
+	            $output .= '</article>';
+	            $output .= '</div>'; // End of event wrapper
+	            $output .= '</div>'; // End of event row
+			}
+			$output .= '</div>'; // End of tribe-events-widget-events-list
+	
+			// Add "View Calendar" button if desired
+			$view_calendar_url = tribe_get_events_link();
+			$output .= '<div class="continue tribe-events">';
+			$output .= '<a href="' . $view_calendar_url . '" class="read-more-link tribe-events" title="View more events.">';
+			$output .= __('Kalender ansehen','fau');
+			$output .= '</a>';
+			$output .= '</div>';
+		
+		} else {
+			$output .= __('Es wurden keine anstehenden Veranstaltungen gefunden','fau');
 		}
-		$output .= '</div>'; // End of tribe-events-widget-events-list
-
-		// Add "View Calendar" button if desired
-		$view_calendar_url = tribe_get_events_link();
-		$output .= '<div class="continue tribe-events">';
-		$output .= '<a href="' . $view_calendar_url . '" class="read-more-link tribe-events" title="View more events.">';
-		$output .= __('Kalender ansehen','fau');
-		$output .= '</a>';
-		$output .= '</div>';
-	
-	} else {
-		$output .= __('Es wurden keine anstehenden Veranstaltungen gefunden','fau');
+		
+		return $output;
+		
 	}
-	
-	return $output;
-	
+	add_shortcode( 'events_list', 'events_list_shortcode' );
 }
-add_shortcode( 'events_list', 'events_list_shortcode' );
 
   
 /*-----------------------------------------------------------------------------------*/

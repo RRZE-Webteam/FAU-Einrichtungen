@@ -12,7 +12,10 @@
 	     margin-top: 0px;
 	     @media (min-width: $screen-xs) {
 	        width: 50%;
-	     }	
+	     }
+	     @media (min-width: $screen-sm) {
+	        width: inherit;
+	     }
 	}
 	.subtitle {
 	    padding-top: 0;
@@ -28,6 +31,10 @@
 	.post-meta-tags:before {
 		    @extend .fa;
 		    @extend .fa-tags;
+	}
+	.post-meta-videopost-author:before {
+		    @extend .fa;
+		    @extend .fa-pencil;
 	}
 	.post-meta-tags {
 	    @media (min-width: $screen-sm) {
@@ -100,14 +107,17 @@
 		    @extend .fa;
 		    @extend .fa-calendar;
 		}
+		.news-meta-videopost-author:before {
+		    @extend .fa;
+		    @extend .fa-pencil;
+		}
 	}
 	.news-meta-date {
-	   // margin-left: 10px;
 		margin-right: 10px;
 	}
 	h2 .ext-link {
 		@include inline-block;
-		padding-right: 15px;
+		padding-right: var(--width-gutter-half);
 		
 		&:hover, 
 		&:focus {
@@ -134,14 +144,14 @@
 
 	@media (min-width: $screen-sm) {
 	    flex-wrap: nowrap;
-	    column-gap: calc(#{$fau-gutter-width} / 2);
+	    column-gap: var(--width-gutter-half); 
 	}
 	.thumbnailregion {
 	    width: 100vw;
 	    text-align: center;
 	    padding: 0;
-	    margin-left: calc(-#{$fau-gutter-width} / 2);
-	    margin-right: calc(-#{$fau-gutter-width} / 2);
+	    margin-left: calc(var(--width-gutter-half) * -1); // calc(-#{$fau-gutter-width} / 2);
+	    margin-right: calc(var(--width-gutter-half) * -1); // calc(-#{$fau-gutter-width} / 2);
 	    // Auf kleinem Display setze die Bilder nahtlos an den Rand
 	    
 	    @media (min-width: $screen-sm) {
@@ -168,7 +178,7 @@
 	    }
 	}
 	.thumbnailregion.vidpod-thumb {
-				.rrze-video {
+		.rrze-video {
 			margin: 0px !important;
 		}
 		.plyr__video-embed {
@@ -182,14 +192,14 @@
 			}
 		}
 		@media (max-width: $screen-xs) {
-			padding-bottom: 16px;
+			padding-bottom: var(--width-gutter-half);
 		}
 	}
 	.thumbnailregion.fallback {
 	    display: none;
 	     @media (min-width: $screen-sm) {
 		 display: block;
-		 padding: $fau-gutter-width;
+		 padding: var(--width-gutter);
 		 background-color: var(--color-StandardHellgrau);
 	     }
 	}
@@ -229,7 +239,7 @@
 	    a {
 		    @include inline-block;
 		    @include defaultlinkstyle();
-		    margin-right: 15px;
+		    margin-right: var(--width-gutter-half);
 	    }
 
 	    .news-rss {

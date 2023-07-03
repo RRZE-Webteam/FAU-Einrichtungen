@@ -13,15 +13,27 @@ if (is_active_sidebar('news-sidebar')) {
 }
 
 get_header();
+$herotype = get_theme_mod('advanced_header_template');
+$titleforscreenreader = true;
+if (empty($herotype)) { 
+    $titleforscreenreader = true;
+} elseif (($herotype=='banner') || ($herotype=='slider')) {
+   $titleforscreenreader = false;
+}
 
-while (have_posts()) : the_post(); ?>
-	
-	<div id="content">
+while (have_posts()) : the_post();  ?>
+	<div id="content" class="herotype-<?php echo $herotype;?>">
 		<div class="content-container">
 			<div class="post-row">
 				<div <?php post_class('entry-content'); ?>>
 					<main>
-						<h1 id="maintop" class="mobiletitle"><?php the_title(); ?></h1>
+
+                        <?php if ($titleforscreenreader) { ?>
+                            <h1 id="maintop" class="mobiletitle"><?php the_title(); ?></h1>
+                        <?php } else { ?>
+                            <h1 id="maintop"><?php the_title(); ?></h1>
+                        <?php } ?>
+
 						<article class="news-details">
 							<?php 
 
@@ -36,7 +48,9 @@ while (have_posts()) : the_post(); ?>
                             
                             $output .= do_shortcode('[fauvideo url="' . $vidpod_url . '"]');
                             $vidpod_auth = get_post_meta($post->ID, 'vidpod_auth', true);
-                            $output .= '<span class="fa fa-pencil"> '.$vidpod_auth.'</span>';
+                            if (!fau_empty($vidpod_auth)) {
+                                $output .= '<span class="post-meta-videopost-author"> '.$vidpod_auth.'</span>';
+                            }
                             $output .= '</div>' . "\n";
 
 							$headline = get_post_meta($post->ID, 'fauval_untertitel', true);

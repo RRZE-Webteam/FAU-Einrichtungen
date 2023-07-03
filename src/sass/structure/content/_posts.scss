@@ -93,27 +93,15 @@
 
 .nav-previous,
 .nav-next {
-    padding: 10px;
-    font-weight: bold;
     box-shadow: none;
     transition: initial;
-    padding: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    max-width: 40%;
-    color: currentcolor;
-    display: inline-block;
-    border-radius: 3px;
-    background-clip: padding-box;
-    font-size: 0.937rem;
-    line-height: 1.407rem;
-    color: var(--color-button-text);
-    background-color: var(--color-button-bg);
-    border: none;
+    max-width: 40%;    
+    
+    @include px2rem($font-size-content-meta);
+    
     padding: 0.5rem 0.7rem;
-    text-decoration: none;
     border: 1px solid var(--color-ContentBorders);
+    border-radius: var(--border-radius);
     background: transparent;
     color: var(--color-Text);
     font-weight: normal;
@@ -131,19 +119,16 @@
 .nav-next:hover {
     // background-color:#0170b9;
     background-color: var(--color-primary-ci-hell);
-    color: #fff;
-
+    color: var(--color-primary-ci-hell-kontrast);
     a {
-        color: #fff;
+        color: var(--color-primary-ci-hell-kontrast);
     }
 }
 
 .nav-previous:hover a:link,
 .nav-next:hover a:link {
     background-color: var(--color-primary-ci-hell);
-    color: #fff;
-
-
+    color: var(--color-primary-ci-hell-kontrast);
 }
 
 .nav-previous:hover a:link {
@@ -169,7 +154,7 @@
 .post-image {
     text-align: center;
     float: none;
-    margin: 0 -15px;
+    margin: 0 calc(var(--width-gutter-half) * -1);
 
 
     @media (min-width: $screen-xs) {
@@ -189,7 +174,7 @@
         @include px2rem($font-size-image-caption);
         padding: 5px 0 10px 0;
         text-align: right;
-        margin: 0 15px;
+        margin: 0 var(--width-gutter-half);
 
         @media (min-width: $screen-sm) {
             text-align: left;
@@ -209,13 +194,13 @@
 .post-meta {
     display: block;
     padding: 5px 0;
-    margin: 0 0 floor(math.div($grid-gutter-width, 2)) 0;
+    margin: 0 0 var(--width-gutter-half) 0;
     font-family: $fontStack;
     @include px2rem($font-size-content-meta);
 }
 
 .meta-footer {
-    margin-top: floor(math.div($grid-gutter-width, 2));
+    margin-top: var(--width-gutter-half);
     padding-bottom: 50px;
     @include px2rem($font-size-content-meta);
 }
@@ -249,22 +234,20 @@
       
     
     }
-
-    h1.mobiletitle {
-        margin-top: 0;
-        padding: 10px 0;
-        hyphens: auto;
-
-        @media (min-width: $screen-sm) {
-            @include sr-only();
-        }
+    .herotype-slider {
+	margin-top: var(--width-gutter, 30px);
     }
-
+    
+    .herotype-default {
+	h1.screen-reader-text {
+	    
+	}
+    }
     .wp-caption {
         max-width: 100vw;
         padding: 0;
-        margin-left: -15px;
-        margin-right: -15px;
+        margin-left: calc(var(--width-gutter-half) * -1);
+        margin-right: calc(var(--width-gutter-half) * -1);
 
         @media (min-width: $screen-sm) {
             max-width: 100%;
@@ -282,7 +265,7 @@
 
         .wp-caption-text {
             width: 98.5%;
-            padding: 0 15px;
+            padding: 0 var(--width-gutter-half);
             text-align: left;
 
             @media (min-width: $screen-sm) {
