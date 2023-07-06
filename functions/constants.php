@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 91,
+	'optiontable-version'           => 92,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -22,7 +22,7 @@ $defaultoptions = [
 	// Ansonsten kann er manuell über 'gulp nodebug' auf false und
 	//  mit 'gulp debugmode' auf true gesetzt werden
 	// Oder hier von Hand :)
-	'js-version'                    => '2.11',
+	'js-version'                    => '2.12',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
 
 	'website_type'                  => 1,
@@ -99,8 +99,12 @@ $defaultoptions = [
 	/* Image Sizes */
 	'default_image_sizes' => [
 		'hero'	=> [
-			'width'	=> 1260,
-			'height'	=> 350,
+            //	'width'	=> 1260,
+            //	'height'	=> 350,
+            // Update auf höhere Auflösung um bei größeren Darstellungen ein schärferes Bild zu haben
+            // https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues/1319
+           	'width'	=> 2048,
+			'height'	=> 512,
 			'crop'	=> true,
 			'imagelink'	=> false,
 			'desc'	=> __('Sliderbild auf Startseite', 'fau')
