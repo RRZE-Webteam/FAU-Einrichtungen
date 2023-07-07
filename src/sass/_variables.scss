@@ -230,7 +230,6 @@ $font-size-header-branding: ($font-size-base + 4);
 
 $font-size-hero-slider-title: 28;
 $font-size-hero-slider-title-small: 24;
-$font-size-hero-slider-text: $font-size-large;
 $font-size-hero-slider-copyright: ($font-size-base - 1);
 $font-size-hero-meta-portal: 40;
 
@@ -344,8 +343,18 @@ $slick-opacity-not-active: 0.25 !default;
 $slick-opacity-text-background: 0.8;
 $slick-opacity-text-shadow: 0px 0px 4px #000;
 
+$slider-maxwidth: 100%;
 
+//$slider-maxheight: 350px;
+$slider-minheight: 128px;
+$slider-maxheight: 480px;
+$slider-height-xxs: 320px;
+$slider-height-sm: 480px;
+$slider-height-md: 512px;
 
+$slider-arrow-width: 40px;
+
+$banner-startpage-width:1260px;
 
 // Define breakpoints
 
@@ -386,11 +395,7 @@ $screen-xl: 1400px;
 $screen-xxl: 1760px;
 $screen-xxs: 320px;
 
-$slider-maxwidth: 100%;
-$banner-startpage-width:1260px;
-//$slider-maxheight: 350px;
-$slider-maxheight: 480px;
-$slider-arrow-width: 40px;
+
 
 $wordpress-adminbar-break: 783px;
 // WordPress Adminbar breaks to small

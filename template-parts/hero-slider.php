@@ -95,7 +95,11 @@
                 $slidersrc .= ' height="'.$sliderimage[2].'"';
 		    }
 		    $slidersrc .= ' alt=""';
-			
+			// Note: In this case an empty alt is correct for wcag, cause this 
+            // images are defined as presentation for an article. The alt of the image
+            // whoch mostly could be a symbol image would therfor be wrong and a 
+            // false information.
+           
 		    if ($slidersrcset) {
                 $slidersrc .= ' srcset="'.$slidersrcset.'"';
                 if ($slidersrcsizes) {
@@ -130,18 +134,6 @@
                             ?>
                         </div>
                     </div>
-                    <?php
-                    $maxlen = get_theme_mod("default_slider_excerpt_length");
-                    if ($maxlen > 0) { ?>
-                    <div class="hero-row">
-                        <div class="slider-text"><?php 
-                        $abstract = get_post_meta( $hero->ID, 'abstract', true );			   
-                        if (strlen(trim($abstract))<3) {
-                           $abstract =  fau_custom_excerpt($hero->ID,$maxlen,false,'',true);
-                        } ?>
-                        <p><?php //echo $abstract; ?></p>
-                        </div>
-                    </div>  <?php } ?>		   
                 </div>
 		    </div>
 		</div>
@@ -172,6 +164,5 @@
     <?php 
 	} else {
         get_template_part('template-parts/hero', 'banner'); 
-	
     }  
    

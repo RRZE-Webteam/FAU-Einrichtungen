@@ -13,17 +13,15 @@
 
     @media (min-width: $screen-sm) {
         margin: 20px auto;
-
-        &.sliderpage,
-        &.hero-banner {
-            @media (min-width: $screen-md) {
-                margin: 40px auto;
-            }
-        }
+    }
+    &.hero-banner {
+	@media (min-width: $screen-md) {
+	    margin: 40px auto;
+	}
     }
 
+
     @include placeholder(var(--color-hero-text));
-   // background: var(--color-hero-bg);
 
 
     h1, h2, h3, h4, p {

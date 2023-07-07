@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 92,
+	'optiontable-version'           => 93,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -55,7 +55,6 @@ $defaultoptions = [
 	'src-admin-wplinkjs'            => get_fau_template_uri() . '/js/fau-theme-wplink.min.js',
 	'src-svglib_dir'                => get_template_directory() .  '/src/svglib/',
 
-	'default_slider_excerpt_length'	=> 240,
 	'slider-autoplay'               => true,
 	'slider-animation'              => 'fade',
 	'slider-stoptext'               => __('Animation stoppen', 'fau'),

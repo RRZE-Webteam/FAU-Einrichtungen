@@ -8,8 +8,6 @@
 	position: relative;
     }
     main {
-	
-
 	:target {
 	     scroll-margin-top: var(--js-fixed-header-height, $scroll-target-offset);  
 	     padding-top: 2rem;
@@ -55,7 +53,7 @@
 
     .portalmenu-oben {
 	margin-bottom: var(--width-gutter-half, 15px);
-	margin-top: $fau-gutter-thirdwidth;
+	margin-top: var(--width-gutter-half, 15px);
     }
 }
 
