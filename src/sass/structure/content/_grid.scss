@@ -12,18 +12,25 @@
     @media (min-width: $screen-sm) {
         padding: 40px 0 30px 0;
     }
-
+    
+    
+    &.start, 
+    &.herotype-slider {
+	padding-top: 0;
+    }
 }
+
+
 
 .content-container {
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 15px;
+    margin-bottom: var(--width-gutter-half);
     width: 100%;
 
     @media (min-width: $screen-sm) {
-        padding-left: floor(math.div($grid-gutter-width, 2));
-        padding-right: ceil(math.div($grid-gutter-width, 2));
+        padding-left: var(--width-gutter-half);
+        padding-right: var(--width-gutter-half);
         width: $container-sm;
     }
     @media (min-width: $screen-md) {
@@ -74,12 +81,7 @@
             //max-width: $container-sm - $subnav-width-sm - $grid-gutter-width;
             padding-left: $grid-gutter-width;
         }
-        @media (min-width: $screen-md) {
-            //max-width: $container-md - $subnav-width-md - $grid-gutter-width;
-        }
-        @media (min-width: $screen-lg) {
-            //max-width: $container-lg - $subnav-width-lg - $grid-gutter-width;
-        }
+
         @media (min-width: $screen-xl) {
             max-width: $container-xl - $subnav-width-lg - $grid-gutter-width;
         }
@@ -102,8 +104,8 @@
         order: 1;
         display: block;
         width: 100%;
-        padding-left: floor(math.div($grid-gutter-width, 2));
-        padding-right: ceil(math.div($grid-gutter-width, 2));
+        padding-left: var(--width-gutter-half);
+        padding-right: var(--width-gutter-half);
         flex: 1 0;
         @media (min-width: $screen-sm) {
             padding-left: 0;
@@ -115,7 +117,7 @@
 
         &.with-sidebar {
             @media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
-                padding-right: ceil(math.div($grid-gutter-width, 2));
+                padding-right: var(--width-gutter-half);
             }
             @media (min-width: $screen-xl) {
                 max-width: calc(100% - $sidebar-width-inline - $grid-gutter-width);
@@ -137,7 +139,7 @@
     display: block;
     padding-top: 1.5rem;
     border-top: 2px solid var(--color-primary-ci-hell2);
-    margin: 15px auto floor(math.div($grid-gutter-width, 2)) auto;
+    margin: var(--width-gutter-half) auto;
     width: calc(100% - $grid-gutter-width);
    
     .widget h2:first-child {
@@ -175,10 +177,10 @@
     @media (min-width: $screen-sm) {
         align-self: flex-start;
         width: $sidebar-width-portal;
-	    max-width: $sidebar-maxwidth-portal;
+	max-width: $sidebar-maxwidth-portal;
         margin-top: 0;
         padding-top: 20px;
-        padding-left: floor(math.div($grid-gutter-width, 2));
+        padding-left: var(--width-gutter-half);
         border-top: none;
         border-left: 2px solid var(--color-primary-ci-hell2);
     }
@@ -206,14 +208,7 @@
         flex-wrap: wrap;
         width: 100%;
         @media (min-width: $screen-sm) {
-            //max-width: $container-sm - $grid-gutter-width;
             flex-wrap: nowrap;
-        }
-        @media (min-width: $screen-md) {
-            //max-width: $container-md - $grid-gutter-width;
-        }
-        @media (min-width: $screen-lg) {
-            //max-width: $container-lg - $grid-gutter-width;
         }
         @media (min-width: $screen-xl) {
             max-width: $container-xl - $grid-gutter-width;
@@ -224,8 +219,8 @@
             flex-grow: 1;
             min-width: $screen-xxs - $grid-gutter-width;
             width: 100%;
-            padding-left: floor(math.div($grid-gutter-width, 2));
-            padding-right: ceil(math.div($grid-gutter-width, 2));
+            padding-left: var(--width-gutter-half);
+            padding-right: var(--width-gutter-half);
 
             @media (min-width: $screen-sm) {
                 padding-left: 0;
@@ -234,14 +229,7 @@
 
             .with-sidebar & {
                 @media (min-width: $screen-sm) {
-                    //max-width: $container-sm - $sidebar-width-posts - $grid-gutter-width;
-                    padding-right: ceil(math.div($grid-gutter-width, 2));
-                }
-                @media (min-width: $screen-md) {
-                    //max-width: $container-md - $sidebar-width-posts - $grid-gutter-width;
-                }
-                @media (min-width: $screen-lg) {
-                    //max-width: $container-lg - $sidebar-width-posts - $grid-gutter-width;
+                    padding-right: var(--width-gutter-half);
                 }
                 @media (min-width: $screen-xl) {
                     max-width: $container-xl - $sidebar-width-posts - $grid-gutter-width;
@@ -252,8 +240,8 @@
 
         .sidebar-single {
             order: 2;
-            padding-left: floor(math.div($grid-gutter-width, 2));
-            padding-right: ceil(math.div($grid-gutter-width, 2));
+            padding-left: var(--width-gutter-half);
+            padding-right: var(--width-gutter-half);
             width: 100%;
             @media (min-width: $screen-sm) {
                 align-self: flex-start;
@@ -273,11 +261,10 @@
 /*-----------------------------------------------------------------------------------*/
 /* Template: Templates Portalseite, Portalindex, Startseite, Startseite Sub
 /*-----------------------------------------------------------------------------------*/
-
 .portalpage-content {
     flex: 1 1;
     width: 100%;
-    padding: 0 ceil(math.div($grid-gutter-width, 2));
+    padding: 0 var(--width-gutter-half);
     @media (min-width: $screen-sm) {
         padding: 0;
     }
@@ -285,8 +272,8 @@
     .with-sidebar & {
         @media (min-width: $screen-sm) {
             width: calc(67% - 30px);
-            padding-right: ceil(math.div($grid-gutter-width, 2));
-            margin-right: ceil(math.div($grid-gutter-width, 2));
+            padding-right: var(--width-gutter-half);
+            margin-right: var(--width-gutter-half);
         }
         @media (min-width: $screen-lg) {
             margin-right: $grid-gutter-width;
@@ -294,7 +281,7 @@
     }
     
     main {
-	    padding-top: ceil(math.div($grid-gutter-width, 2));
+	    padding-top: var(--width-gutter-half);
     }
 }
 
@@ -311,30 +298,30 @@
 /* Template: Errorpages
 /*-----------------------------------------------------------------------------------*/
 .errorpage-content {
-    padding: 0 15px;
+    padding: 0 var(--width-gutter-half);
     flex: 1 1 $screen-xs;
 
     main {
-	padding-top: ceil(math.div($grid-gutter-width, 2));
+	padding-top: var(--width-gutter-half);
     }
 
     @media (min-width: $screen-sm) {
-	padding-right: ceil(math.div($grid-gutter-width, 2));
+	padding-right: var(--width-gutter-half);
     }
 }
 
 /*-----------------------------------------------------------------------------------*/
-/* Template: Errorpages
+/* Template: Search Output
 /*-----------------------------------------------------------------------------------*/
 .searchpage-content {
-    padding: 0 15px;
+    padding: 0 var(--width-gutter-half);
     flex: 1 1 $screen-xs;
 
     main {
-	padding-top: ceil(math.div($grid-gutter-width, 2));
+	padding-top: var(--width-gutter-half);
     }
 
     @media (min-width: $screen-sm) {
-	padding-right: ceil(math.div($grid-gutter-width, 2));
+	padding-right: var(--width-gutter-half);
     }
 }

@@ -33,6 +33,7 @@ if (($posttype == 'post') && (is_archive())) {
 $titleforscreenreader = true;
 if (empty($herotype)) { 
     $titleforscreenreader = true;
+    $herotype = 'default';
 } elseif (($herotype=='banner') || ($herotype=='slider')) {
    $titleforscreenreader = false;
 }

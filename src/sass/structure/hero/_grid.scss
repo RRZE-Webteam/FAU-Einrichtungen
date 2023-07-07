@@ -1,14 +1,12 @@
 /*-----------------------------------------------------------------------------------*/
 /* Grid in Hero
 /*-----------------------------------------------------------------------------------*/
-@use "sass:math";
-
 .hero-container {
     margin-right: auto;
     margin-left: auto;
     width: 100%;
-    padding-left:  $fau-gutter-halfwidth;
-    padding-right: $fau-gutter-halfwidth;
+    padding-left: var(--width-gutter-half);
+    padding-right: var(--width-gutter-half);
 
     @media (min-width: $screen-sm) {
 	    width: $container-sm;
@@ -17,14 +15,8 @@
 	    //width: $container-md;
         width: 100%;
     }
-    @media (min-width: $screen-lg-min) {
-	    //width: $container-lg;
-    }
     @media (min-width: $screen-xl-min) {
         width: $container-xl;
     }
 
-    .hero-row {
-
-    }
 } 

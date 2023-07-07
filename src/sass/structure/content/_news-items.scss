@@ -4,9 +4,10 @@
 
 .news-details {
 	margin-top: 20px;
+	margin-top: -20px;
 	
-        @media (max-width: $screen-xs - 1) {
-	    margin-top: -20px;
+        @media (min-width: $screen-xs) {
+	    margin-top: 20px;
         }
 	.post-image {
 	     margin-top: 0px;
@@ -15,7 +16,17 @@
 	     }
 	     @media (min-width: $screen-sm) {
 	        width: inherit;
+		max-width: 420px;
 	     }
+	     
+	     img {
+		 @media (min-width: $screen-sm) {
+		    max-width: 420px;
+		    max-height: 280px;
+		    box-shadow: none;
+		 }
+	     }
+	     
 	}
 	.subtitle {
 	    padding-top: 0;

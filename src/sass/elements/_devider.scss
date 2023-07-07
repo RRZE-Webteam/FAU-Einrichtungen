@@ -1,6 +1,37 @@
 /*-----------------------------------------------------------------------------------*/
 /* Devider
 /*-----------------------------------------------------------------------------------*/
+
+.hr-default-nat hr {
+    background-color: var(--color-branding-nat);
+    color:  var(--color-branding-nat);
+}
+.hr-default-phil hr {
+    background-color: var(--color-branding-phil);
+    color:  var(--color-branding-phil);
+}
+.hr-default-med hr {
+    background-color: var(--color-branding-med);
+    color:  var(--color-branding-med);
+}
+.hr-default-tf hr {
+    background-color: var(--color-branding-tf);
+    color:  var(--color-branding-tf);
+}
+.hr-default-rw hr {
+    background-color: var(--color-branding-rw);
+    color:  var(--color-branding-rw);
+}
+.hr-default-grau hr {
+    background-color: var(--color-ContentBorders);
+    color: var(--color-ContentBorders);
+}
+.hr-default-invis hr {
+    background-color: transparent;
+    color: transparent;
+}
+
+
 hr {
 	position: relative;
 	clear: both;

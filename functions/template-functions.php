@@ -107,14 +107,6 @@ function fau_body_class($classes)
     }
 
 
-    if ((!is_plugin_active('rrze-elements/rrze-elements.php'))
-        // && (! is_plugin_active( 'rrze-faq/rrze-faq.php' ) )) {
-        && (!is_plugin_active('rrze-glossary/rrze-glossary.php'))
-    ) {
-        $classes[] = 'theme-accordion';
-    }
-
-
     $website_usefaculty = $defaultoptions['website_usefaculty'];
 
     if ($defaultoptions['debugmode']) {
@@ -231,6 +223,12 @@ function fau_body_class($classes)
         $classes[] = 'with-search-sidebar';
     }
 
+    if (('' != get_theme_mod('advanced_template_hr_linecolor')) && (true == get_theme_mod('advanced_template_hr_linecolor'))) {
+        $val = "hr-default-".esc_attr(get_theme_mod('advanced_template_hr_linecolor'));
+        $classes[] = $val;
+    }
+    
+    
     return $classes;
 }
 

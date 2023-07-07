@@ -1,184 +1,162 @@
 /*-----------------------------------------------------------------------------------*/
 /* Slider im Hero-Teil
+    		/*
+  $slider-minheight: 128px;
+$slider-maxheight: 480px;
+$slider-height-sm: 480px;
+$slider-height-md: 512px;
+		*/
 /*-----------------------------------------------------------------------------------*/
-
-
 #hero.sliderpage {
     overflow: inherit;
-	margin: 0 auto;
-	margin-top:10px;
-	@media (max-width: $screen-sm)  {
-		margin-top:0px;}
+    margin: 0px auto;
+   
 }
-
-
-.slider-titel header a {
-    text-decoration: none;
-    
-    
-//    overflow: hidden;
-//    text-overflow: ellipsis;
-// Notice: overflow hidden (und damit auch word-wrap: nowarp
-// sorgt für ein WCAG AA Problem und kann daher nicht verwendet werdne.
-// Falls der Text tatsächlich zu lang wird, muss das Design ihn trotzdem 
-// optisch darstellen
-// vgl: WCAG 2.1: Understanding Success Criterion 1.4.4: Resize text
-// Daher erstmal auskommentiert - WW, 28.06.2023
-
-    white-space: normal;
-
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    max-width: 100%;      
-    opacity: 1;
-    padding: var(--width-gutter-half, 15px) var(--width-gutter, 35px);
-    font-weight: 700;
-    display: inline-block;
-    background-color: var(--color-primary-ci-hell);
-    border-radius: var(--border-radius, 0px);  
-    margin: 0 auto;
-    text-align: left;
-
-	@media screen and (min-width: $screen-lg)  {
-	    -webkit-line-clamp: 1;
-//	    text-overflow: ellipsis;
-	    -webkit-box-orient: horizontal;
-//	    white-space: nowrap;
-	}
-
-	@media screen and (min-width: $screen-md)  {
-	    -webkit-line-clamp: 1;
-//	    text-overflow: ellipsis;
-	    -webkit-box-orient: horizontal;
-//	    white-space: nowrap;
-	}
-
-	@media screen and (min-resolution: 200dpi), screen and  (max-width: $screen-lg)  {
-	
-	    -webkit-line-clamp: 2;
-	    -webkit-box-orient: vertical;
-	    white-space: normal;
-	    margin-top: -40px;
-	    max-height: 125px;
-	}
-
-	@media (max-width: $screen-sm)  {
-//	    overflow: hidden;
-//	    text-overflow: ellipsis;
-	    display: -webkit-box;
-	    -webkit-line-clamp: 2;
-	    -webkit-box-orient: vertical;
-	    height: 85px;
-	    padding: var(--width-gutter-half, 15px);
-	    white-space: normal;
-	    @media not all and (min-resolution:.001dpcm) { 
-		    @supports (-webkit-appearance:none) {
-		      line-height: 1.5; /* Adjust line-height for Safari */
-		    }
-	    }
-	    @media screen and (min-resolution: 200dpi), screen and  (max-width: $screen-lg)  {
-		    -webkit-line-clamp: 2;
-		    -webkit-box-orient: vertical;
-		    white-space: normal;
-		    margin-top: 0px;
-		    max-height: 125px;
-	    }
-	}
-}
-
  
 #hero-slides {
 	position: relative;
-	//display: none;
 	height: auto;
 	width: 100%;
+	overflow: hidden;
+	
+	@media (min-width: $screen-xxs) {
+		display: block;
+		width: 100%;
+
+		.no-js & {
+			//display: none;
+		}
+	}
+
+	@media (min-width: $screen-xs) {
+	    max-height: $slider-maxheight;
+	}
+
+	@media (min-width: $screen-md) {
+	    margin: 0 auto;
+	    max-height: $slider-height-md;
+	}
+
 
 	.item {
 		position: relative;
 		overflow: hidden;
 		width: 100%;
-		height: 150px;
+		height: $slider-height-xxs;
+		background-color: var(--color-FAU);
 		@media (min-width: $screen-sm) {
-			height:  $slider-maxheight;
+			height: $slider-height-sm;
 		}
 
-		@media (min-width: $slider-maxwidth) {
+		@media (min-width: $screen-md) {
 			width: $slider-maxwidth;
-			height: $slider-maxheight;
+			height: $slider-height-md;
 		}
-		@media (max-width: $screen-sm) {
-			height: 350px;
-			background-color: var(--color-FAU);
-		}
+
 
 		.slider-titel {
 			text-align: left;
 			font-weight: 700;
-		//	font-size: 2.3rem;
+			z-index: 19;
+			width: 100%;
+			max-width: 100%;	
 			@include px2rem($font-size-hero-slider-title-small);
-
+			@media (max-width: $screen-sm - 1){				
+				height: 100px;
+				top: 5px;
+			}
 			@media (min-width: $screen-sm) {
 				margin-bottom: 5px;
 				@include px2rem($font-size-hero-slider-title);
 			}
-			@media (max-width: $screen-sm){
-				// font-size: 24px;			
-				
-				height: 100px;
-			//	overflow: hidden;
-				top: 5px;
-
-			}
-			header {
-				display: inline;
-				word-break: break-word;
-				box-decoration-break: clone;
-				@media (min-width: $screen-sm) {
-					margin: 10px 0 15px 0;
-
-				}
-			}
-		}
-		.slider-text {
-		
-			@media (min-width: $screen-sm) {
-				display: inline-block;
-			}
-			@media (max-width: $screen-sm){
-				bottom:10px;
-				//display: inline-block;
-				width: 100%;
-				display: none;
-				
-				
-			}
-		
-			p {
-				
-				margin: 0;
-				box-decoration-break: clone;
 			
+			header {
+			    color: var(--color-primary-ci-hell-kontrast);
+			    display: inline;
+			    word-break: break-word;
+			    box-decoration-break: clone;
+			    
+			    @media (min-width: $screen-sm) {
+				margin: 10px 0 15px 0;
+			    }
+			    a {
+				text-decoration: none;
 
-				@media (min-width: $screen-sm) {
-					display: inline;
-				}
+
+			    //    overflow: hidden;
+			    //    text-overflow: ellipsis;
+			    // Notice: overflow hidden (und damit auch word-wrap: nowarp
+			    // sorgt für ein WCAG AA Problem und kann daher nicht verwendet werdne.
+			    // Falls der Text tatsächlich zu lang wird, muss das Design ihn trotzdem 
+			    // optisch darstellen
+			    // vgl: WCAG 2.1: Understanding Success Criterion 1.4.4: Resize text
+			    // Daher erstmal auskommentiert - WW, 28.06.2023
+
+				white-space: normal;
+
+				display: -webkit-box;
+				-webkit-line-clamp: 1;
+				-webkit-box-orient: vertical;
+				max-width: 100%;      
+				opacity: 1;
+				padding: var(--width-gutter-half, 15px) var(--width-gutter, 35px);
+				font-weight: 700;
+				display: inline-block;
+				background-color: var(--color-primary-ci-hell);
+				border-radius: var(--border-radius, 0px);  
+				margin: 0 auto;
+				text-align: left;
+
+				    @media screen and (min-width: $screen-lg)  {
+					-webkit-line-clamp: 1;
+			    //	    text-overflow: ellipsis;
+					-webkit-box-orient: horizontal;
+			    //	    white-space: nowrap;
+				    }
+
+				    @media screen and (min-width: $screen-md)  {
+					-webkit-line-clamp: 1;
+			    //	    text-overflow: ellipsis;
+					-webkit-box-orient: horizontal;
+			    //	    white-space: nowrap;
+				    }
+
+				    @media screen and (min-resolution: 200dpi), screen and  (max-width: $screen-lg)  {
+
+					-webkit-line-clamp: 2;
+					-webkit-box-orient: vertical;
+					white-space: normal;
+					margin-top: -40px;
+					max-height: 125px;
+				    }
+
+				    @media (max-width: $screen-sm)  {
+			    //	    overflow: hidden;
+			    //	    text-overflow: ellipsis;
+					display: -webkit-box;
+					-webkit-line-clamp: 2;
+					-webkit-box-orient: vertical;
+					height: 85px;
+					padding: var(--width-gutter-half, 15px);
+					white-space: normal;
+					@media not all and (min-resolution:.001dpcm) { 
+						@supports (-webkit-appearance:none) {
+						  line-height: 1.5; /* Adjust line-height for Safari */
+						}
+					}
+					@media screen and (min-resolution: 200dpi), screen and  (max-width: $screen-lg)  {
+						-webkit-line-clamp: 2;
+						-webkit-box-orient: vertical;
+						white-space: normal;
+						margin-top: 0px;
+						max-height: 125px;
+					}
+				    }
+			    }
+
 			}
 		}
 		
-		.slider-titel, 
-		.slider-text {
-		    max-width: 100%;
-			z-index: 19;
-		
-			width: 100%;
-			text-align: left;
-		    header, p {
-			color: var(--color-primary-ci-hell-kontrast);
-			//opacity: $slick-opacity-text-background;
-		    }
-		    
-		}
 		p.credits {
 			background: $colorCopyrightBackground;
 			color: $colorCopyright;
@@ -189,42 +167,48 @@
 			position: absolute;
 			bottom: 0;
 			right: 0;
+			text-align: right;
+			
 		//	overflow: hidden;
 		//	text-overflow: ellipsis;
-			display: -webkit-box;
-			-webkit-line-clamp: 1; /* number of lines to show */
-			line-clamp: 1; 
-			-webkit-box-orient: vertical;
+		//	display: -webkit-box;
+		//	-webkit-line-clamp: 1; /* number of lines to show */
+		//	line-clamp: 1; 
+		//	-webkit-box-orient: vertical;
 			@media (max-width: $screen-sm) {
 				top: 0;
 				bottom: auto;
 			}
 		}
+		
 		img {
-			vertical-align: middle;
-			z-index: 5;
-			width: auto;
-			min-height: 260px;
-			min-width: 100%;
-			max-width: inherit;
-			margin-left: 50%;
-			background: linear-gradient(180deg,rgba(255,255,255,0) 45%,rgba(0,51,102,.8));
+		//	vertical-align: middle;
+		//	height: $slider-maxheight;	
+		//	background: linear-gradient(180deg,rgba(255,255,255,0) 45%,rgba(0,51,102,.8));
 		//	clip-path: polygon(0px 100% , 0px 7%, 100% 0%, 100% 100%);
-			@include transform-translate(-50%, 0);
-
-			@media (min-width: $screen-sm) {
-				min-height:  $slider-maxheight;
-			}
-			@media (max-width: $screen-xs){
-				width: auto;
-				height: 70%;
+		//	@include transform-translate(-50%, 0);
+			z-index: 5;
+			min-width: 100%;			
+			object-fit: cover;		
+			height: auto;
+			max-height: 70%;
+			min-height: $slider-minheight;
+			// max-height: 128px; // $slider-minheight;	
 			
-				clip-path:none;
+			@media (min-width: $screen-sm) {
+				min-height:  $slider-height-sm;
+				height: $slider-height-sm;
+				max-height:$slider-height-sm;
+				
 			}
+			@media (min-width: $screen-md) {
+				height: $slider-height-md;
+				max-height: $slider-height-md;
+				
+			}
+			
 		}
 	}
-
-
 
 	.hero-slide-text {
 		z-index: 19;
@@ -249,34 +233,6 @@
 		padding: 0;
 
 	}
-
-	@media (min-width: $screen-xxs) {
-		display: block;
-		width: 100%;
-
-		.no-js & {
-			//display: none;
-		}
-	}
-
-	@media (min-width: $screen-xs) {
-		max-height: $slider-maxheight;
-	}
-
-	@media (min-width: $screen-md) {
-		margin: 0 auto -40px;
-	}
-	.with-infobar &  {
-	    @media (min-width: $screen-md) {
-		margin-bottom: -20px;
-	    }
-	}
-	
-	@media (min-width: $slider-maxwidth + 20) {
-		width: $slider-maxwidth;
-		height: $slider-maxheight
-	}
-
 	.slick-prev,
 	.slick-next {
 		position: absolute;
@@ -309,16 +265,13 @@
 
 			&:before {
 				color: rgba(255, 255, 255, 0.8);
-
 			}
 		}
 
-		
-		&:before {
-			
+		&:before {	
 			font-size: 150px;
 			color: rgba(255, 255, 255, 0.83);
-			text-shadow: 1px 1px rgba(0, 0, 0, 0.63);
+			text-shadow: 2px 2px rgba(0, 0, 0, 0.63);
 			@media (max-width: $screen-sm) {
 				font-size: 70px;
 			}
@@ -326,21 +279,19 @@
 	}
 
 	.slick-prev {
-		left: 15px;
+		left: var(--width-gutter-half);
 
 		[dir="rtl"] & {
 			left: auto;
-			right: 15px;
+			right: var(--width-gutter-half);
 		}
-
 		@media (min-width: $break-1360 + 20) {
-			left: 15px;
+			left: var(--width-gutter-half);
 			[dir="rtl"] & {
 				left: auto;
-				right: 15px;
+				right: var(--width-gutter-half);
 			}
 		}
-
 		&:before {
 			@extend .fa;
 			@extend .fa-chevron-left;
@@ -355,8 +306,8 @@
 		right: 25px;
 		
 		[dir="rtl"] & {
-			left: 15px;
-			right: 15px;
+			left: var(--width-gutter-half);
+			right: var(--width-gutter-half);
 			.slick-arrow { 
 				font-size: 11em;
 		color:#fff;
@@ -365,10 +316,10 @@
 		}
 
 		@media (min-width: $break-1360 + 20) {
-			right: 35px;
+			right: calc(var(--width-gutter) + 5px);
 			[dir="rtl"] & {
-				left: 15px;
-				right: 15px;
+				left: var(--width-gutter-half);
+				right: var(--width-gutter-half);
 			}
 		}
 
@@ -382,29 +333,25 @@
 		}
 	}
 
-
 	.slick-startstop {
 		position: absolute;
 		display: block;
 		top: 20px;
 		right: 20px;
 		font-size: 28px ;
-		text-shadow: 1px 1px rgba(0, 0, 0, 0.63);
-		
-
+		text-shadow: 2px 2px rgba(0, 0, 0, 0.63);
+		    
 		@media (min-width: $screen-xs) {
 			bottom: inherit;
 		}
 		@media (max-width: $screen-sm) {
-			
 			right:calc(50% - 20px);
-			top:59%;
+			top: 50%;
 		}
 
 
 		background: transparent;
 		color: rgba(255, 255, 255, 0.83);
-	//	@include px2rem($font-size-hero-slider-copyright);
 		margin: 0;
 		padding: 1px 4px;
 		border: none;
@@ -423,11 +370,7 @@
 	}
 }
 
-#hero-slides {
-    @media (min-width: $screen-md) {
-       top: -10px;
-    }
-}
+
 
 .slick-dots {
 	display: flex !important;
