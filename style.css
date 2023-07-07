@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.29-33
+Version: 2.3.29-35
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -9883,16 +9883,15 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 .nav .level3 a:focus {
   color: var(--color-mainmenu-sublevel-hover-text);
   background-color: var(--color-mainmenu-sublevel-bg);
-  border-radius: 3px;
-  background-clip: padding-box;
+  border-radius: var(--border-radius);
 }
 .nav .level3 a {
   font-weight: normal;
 }
 @media (max-width: 768px) {
   .nav .level3 a {
-    font-size: 0.9rem;
-    line-height: 1.3rem;
+    font-size: 0.875rem;
+    line-height: 1.313rem;
   }
 }
 .nav .nav-flyout {
@@ -9989,12 +9988,11 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   .mainnav-plainview .nav ul.level2 > li > a {
     font-size: 1rem;
     line-height: 1.5rem;
-    padding-left: 12px;
+    padding-left: var(--width-gutter-half);
   }
   .mainnav-plainview .nav ul.level3 a {
     font-size: 0.875rem;
     line-height: 1.313rem;
-    line-height: 1.2rem;
   }
   .mainnav-plainview .nav .flyout-entries-full {
     display: flex;
@@ -10023,7 +10021,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
          column-count: 1;
   }
   .mainnav-plainview .nav .flyout-entries-full.column-count-1 .button-portal {
-    margin-left: 543px;
+    margin-left: 528px;
   }
 }
 @media (min-width: 768px) {
@@ -10032,7 +10030,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
          column-count: 2;
   }
   .mainnav-plainview .nav .flyout-entries-full.column-count-2 .button-portal {
-    margin-left: 369px;
+    margin-left: 354px;
   }
 }
 @media (min-width: 768px) {
@@ -10049,7 +10047,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 }
 @media (min-width: 768px) {
   .mainnav-plainview .nav .flyout-entries-full.column-count-3 .button-portal, .mainnav-plainview .nav .flyout-entries-full.column-count-4 .button-portal {
-    margin-left: 194px;
+    margin-left: 179px;
   }
 }
 @media (min-width: 768px) {
@@ -10066,12 +10064,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 @media (min-width: 768px) and (max-width: 992px) {
   .mainnav-plainview .nav .nav-flyout {
     margin-top: 50px;
-  }
-}
-@media (min-width: 768px) {
-  .mainnav-plainview .nav .container {
-    padding-left: 3px;
-    padding-right: 3px;
   }
 }
 #mainnav-toggle,
@@ -10147,7 +10139,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   .nav .flyout-entries-full .button-portal {
     order: 1;
     margin-top: 10px;
-    padding: 7px 20px 7px 13px;
+    padding: 7px 20px 7px var(--width-gutter-half);
     margin-left: 0;
     border-bottom: 1px solid var(--color-primary-dunkler);
   }
@@ -10231,8 +10223,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   .nav > li > a,
 .nav > li > [type=button] {
     padding: 10px;
-    border-radius: 4px;
-    background-clip: padding-box;
+    border-radius: var(--border-radius);
   }
   .nav > li.has-sub > a:before,
 .nav > li.has-sub > [type=button]:before {
