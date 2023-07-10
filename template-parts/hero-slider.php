@@ -47,42 +47,42 @@
                 $sliderimage = wp_get_attachment_image_src($imageid, 'hero'); 
                 $imgdata = fau_get_image_attributs($imageid);
                 $copyright = trim(strip_tags( $imgdata['credits'] ));
-                $slidersrcset =  wp_get_attachment_image_srcset($imageid,'hero');
-                $slidersrcsizes = wp_get_attachment_image_sizes($imageid,'hero' );
+                $slidersrcset =  wp_get_attachment_image_srcset($imageid,'full');
+                $slidersrcsizes = wp_get_attachment_image_sizes($imageid,'full' );
 		    } else {
-			$post_thumbnail_id = get_post_thumbnail_id( $hero->ID ); 
-			if ($post_thumbnail_id) {
-			    // Es wird das Artikelbild verwendet, auch wenn es vielleicht nicht
-			    // das Format des Banners hat
-			    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id, 'hero' );
-			    $imgdata = fau_get_image_attributs($post_thumbnail_id);
-			    $copyright = trim(strip_tags( $imgdata['credits'] ));
-			    $slidersrcset =  wp_get_attachment_image_srcset($post_thumbnail_id,'hero');
-			    $slidersrcsizes = wp_get_attachment_image_sizes($post_thumbnail_id,'hero' );
-			} else {
-			    $fallbackid = get_theme_mod("fallback-slider-image");			
-			    if (isset($fallbackid) && ($fallbackid > 0)) {
-				// Es gibt weder Bannerbild noch Artikelbild.
-				// Wir nehmen das Fallbackbild aus dem Customizer
-				$sliderimage = wp_get_attachment_image_src( $fallbackid, 'hero' );
-				if ($sliderimage !== false) {
-				    $slidersrcset =  wp_get_attachment_image_srcset($fallbackid,'hero');
-				    $slidersrcsizes = wp_get_attachment_image_sizes($fallbackid,'hero' );
-				    $imgdata = fau_get_image_attributs($fallbackid);
-				    if (preg_match("/^cropped\-/",$imgdata['title'])) {
-                        $copyright = get_theme_mod("fallback-slider-image-title");			
-				    } else {
-                        $copyright = trim(strip_tags( $imgdata['credits'] ));
-				    }
-				} else {
-				    $sliderimage = array($defaultoptions['src-fallback-slider-image'],$defaultoptions['default_image_sizes']['hero']['width'],$$defaultoptions['default_image_sizes']['hero']['height']);  
-				}
-				
-			    } else {
-                    // Kein Fallbackbild definiert, also hardcodiertes Fallback des Themes
-                    $sliderimage = array($defaultoptions['src-fallback-slider-image'],$defaultoptions['default_image_sizes']['hero']['width'],$defaultoptions['default_image_sizes']['hero']['height']);  
-			    }	
-			}
+                $post_thumbnail_id = get_post_thumbnail_id( $hero->ID ); 
+                if ($post_thumbnail_id) {
+                    // Es wird das Artikelbild verwendet, auch wenn es vielleicht nicht
+                    // das Format des Banners hat
+                    $sliderimage = wp_get_attachment_image_src( $post_thumbnail_id, 'hero' );
+                    $imgdata = fau_get_image_attributs($post_thumbnail_id);
+                    $copyright = trim(strip_tags( $imgdata['credits'] ));
+                    $slidersrcset =  wp_get_attachment_image_srcset($post_thumbnail_id,'full');
+                    $slidersrcsizes = wp_get_attachment_image_sizes($post_thumbnail_id,'full' );
+                } else {
+                    $fallbackid = get_theme_mod("fallback-slider-image");			
+                    if (isset($fallbackid) && ($fallbackid > 0)) {
+                        // Es gibt weder Bannerbild noch Artikelbild.
+                        // Wir nehmen das Fallbackbild aus dem Customizer
+                        $sliderimage = wp_get_attachment_image_src( $fallbackid, 'hero' );
+                        if ($sliderimage !== false) {
+                            $slidersrcset =  wp_get_attachment_image_srcset($fallbackid,'full');
+                            $slidersrcsizes = wp_get_attachment_image_sizes($fallbackid,'full' );
+                            $imgdata = fau_get_image_attributs($fallbackid);
+                            if (preg_match("/^cropped\-/",$imgdata['title'])) {
+                                $copyright = get_theme_mod("fallback-slider-image-title");			
+                            } else {
+                                $copyright = trim(strip_tags( $imgdata['credits'] ));
+                            }
+                        } else {
+                            $sliderimage = array($defaultoptions['src-fallback-slider-image'],$defaultoptions['default_image_sizes']['hero']['width'],$$defaultoptions['default_image_sizes']['hero']['height']);  
+                        }
+
+                    } else {
+                        // Kein Fallbackbild definiert, also hardcodiertes Fallback des Themes
+                        $sliderimage = array($defaultoptions['src-fallback-slider-image'],$defaultoptions['default_image_sizes']['hero']['width'],$defaultoptions['default_image_sizes']['hero']['height']);  
+                    }	
+                }
 		    }
 
 
@@ -95,7 +95,11 @@
                 $slidersrc .= ' height="'.$sliderimage[2].'"';
 		    }
 		    $slidersrc .= ' alt=""';
-			
+			// Note: In this case an empty alt is correct for wcag, cause this 
+            // images are defined as presentation for an article. The alt of the image
+            // whoch mostly could be a symbol image would therfor be wrong and a 
+            // false information.
+           
 		    if ($slidersrcset) {
                 $slidersrc .= ' srcset="'.$slidersrcset.'"';
                 if ($slidersrcsizes) {
@@ -130,18 +134,6 @@
                             ?>
                         </div>
                     </div>
-                    <?php
-                    $maxlen = get_theme_mod("default_slider_excerpt_length");
-                    if ($maxlen > 0) { ?>
-                    <div class="hero-row">
-                        <div class="slider-text"><?php 
-                        $abstract = get_post_meta( $hero->ID, 'abstract', true );			   
-                        if (strlen(trim($abstract))<3) {
-                           $abstract =  fau_custom_excerpt($hero->ID,$maxlen,false,'',true);
-                        } ?>
-                        <p><?php //echo $abstract; ?></p>
-                        </div>
-                    </div>  <?php } ?>		   
                 </div>
 		    </div>
 		</div>
@@ -172,6 +164,5 @@
     <?php 
 	} else {
         get_template_part('template-parts/hero', 'banner'); 
-	
     }  
    

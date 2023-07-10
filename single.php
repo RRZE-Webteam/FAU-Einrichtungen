@@ -20,6 +20,7 @@ $herotype = get_theme_mod('advanced_header_template');
 $titleforscreenreader = true;
 if (empty($herotype)) { 
     $titleforscreenreader = true;
+    $herotype = 'default';
 } elseif (($herotype=='banner') || ($herotype=='slider')) {
    $titleforscreenreader = false;
 }

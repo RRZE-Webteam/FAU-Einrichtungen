@@ -4,7 +4,7 @@
 * Template Post Type: post,
 * @package WordPress
 * @subpackage FAU
-* @since FAU 1.0
+* @since FAU 2.3
 */
 
 global $pagebreakargs;
@@ -17,12 +17,13 @@ $herotype = get_theme_mod('advanced_header_template');
 $titleforscreenreader = true;
 if (empty($herotype)) { 
     $titleforscreenreader = true;
+    $herotype = 'default';
 } elseif (($herotype=='banner') || ($herotype=='slider')) {
    $titleforscreenreader = false;
 }
 
 while (have_posts()) : the_post();  ?>
-	<div id="content" class="herotype-<?php echo $herotype;?>">
+	<div id="content" class="video-podcast herotype-<?php echo $herotype;?>">
 		<div class="content-container">
 			<div class="post-row">
 				<div <?php post_class('entry-content'); ?>>

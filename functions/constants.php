@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 91,
+	'optiontable-version'           => 94,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -22,7 +22,7 @@ $defaultoptions = [
 	// Ansonsten kann er manuell über 'gulp nodebug' auf false und
 	//  mit 'gulp debugmode' auf true gesetzt werden
 	// Oder hier von Hand :)
-	'js-version'                    => '2.11',
+	'js-version'                    => '2.12',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
 
 	'website_type'                  => 1,
@@ -55,12 +55,10 @@ $defaultoptions = [
 	'src-admin-wplinkjs'            => get_fau_template_uri() . '/js/fau-theme-wplink.min.js',
 	'src-svglib_dir'                => get_template_directory() .  '/src/svglib/',
 
-	'default_slider_excerpt_length'	=> 240,
 	'slider-autoplay'               => true,
 	'slider-animation'              => 'fade',
 	'slider-stoptext'               => __('Animation stoppen', 'fau'),
 	'slider-starttext'              => __('Animation starten', 'fau'),
-
 
 
 	'start_header_count'			=> 5,
@@ -83,8 +81,6 @@ $defaultoptions = [
 	'default_submenu_entries'		=> 5,
 	'fallback_submenu_image'		=> 0,
 
-	'menu_fallbackquote_show_excerpt'		=> 1,
-	'menu_fallbackquote_excerpt_length'		=> 240,
 	'start_topevents_max'			=> 1,
 	'start_topevents_active'		=> true,
 	'topevent_hideimage'			=> false,
@@ -99,8 +95,12 @@ $defaultoptions = [
 	/* Image Sizes */
 	'default_image_sizes' => [
 		'hero'	=> [
-			'width'	=> 1260,
-			'height'	=> 350,
+            //	'width'	=> 1260,
+            //	'height'	=> 350,
+            // Update auf höhere Auflösung um bei größeren Darstellungen ein schärferes Bild zu haben
+            // https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues/1319
+           	'width'	=> 2048,
+			'height'	=> 512,
 			'crop'	=> true,
 			'imagelink'	=> false,
 			'desc'	=> __('Sliderbild auf Startseite', 'fau')
@@ -293,7 +293,9 @@ $defaultoptions = [
 	// Default ARIA TItel
 	'advanced_imagelink_default_class'		=> '',
 	// Default CSS Class
-
+    'advanced_template_hr_linecolor'        => '',
+        // Overwriter für Default HR Farbe. Default leer, 
+        // damit der Default (Blau) verwendet wird.
 	'portalmenus_hover_blur'					=> false,
 	// Hover-Effekt bei Portalmenüs
 	'portalmenus_hover_zoom'					=> false,
@@ -1348,6 +1350,24 @@ $setoptions = array(
 					'default' => $defaultoptions['advanced_template_page_start_display_content'],
 					'parent'  => 'templates'
 				),
+                'advanced_template_hr_linecolor' => array(
+					'type'    => 'select',
+					'title'   => __('Farbe Trennlinie', 'fau'),
+					'label'   => __('Ändert die vorgegebene Standard-Trennlinienfarbe vom Standard auf eine andere CI-Farbe um.', 'fau'),
+					'liste'   => array(
+                        '' => __('Default (Blau)', 'fau'),
+						'phil' =>  __('Farbe der', 'fau').' '.__('Philosophischen Fakultät', 'fau'),
+						'med' => __('Farbe der', 'fau').' '.__('Medizinischen Fakultät', 'fau'),
+                        'nat' => __('Farbe der', 'fau').' '.__('Naturwissenschaftlichen Fakultät', 'fau'),
+						'tf' => __('Farbe der', 'fau').' '.__('Technischen Fakultät', 'fau'),
+						'rw' => __('Farbe der', 'fau').' '.__('Rechts- und Wirtschaftswissenschaftlichen Fakultät', 'fau'),
+						'grau' => __('Grau', 'fau'),
+                        'invis' => __('Unsichtbar', 'fau'),
+					),
+					'default' => $defaultoptions['advanced_template_hr_linecolor'],
+					'parent'  => 'templates'
+				),
+                
 			),
 		),
 

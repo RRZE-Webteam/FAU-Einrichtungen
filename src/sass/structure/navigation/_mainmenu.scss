@@ -109,7 +109,7 @@
         a:focus {
             color: var(--color-mainmenu-sublevel-hover-text);
             background-color: var(--color-mainmenu-sublevel-bg);
-	        @include border-radius(3px);
+	    border-radius: var(--border-radius);
         }
     }
 
@@ -118,8 +118,8 @@
             font-weight: normal;
 
             @media (max-width: $screen-sm) {
-                font-size: 0.9rem;
-                line-height: 1.3rem;
+         //       font-size: 0.9rem;
+		@include px2rem($font-size-nav-level3);	
             }
         }
     }
@@ -203,16 +203,13 @@
                     }
 
                     > a {
-			            @include px2rem($font-size-nav-level2);
-
-                        padding-left: $padding-base-horizontal;
-
+			@include px2rem($font-size-nav-level2);
+                        padding-left: var(--width-gutter-half);
                     }
                 }
 
                 &.level3 a {
-		            @include px2rem($font-size-nav-level3);
-                    line-height: 1.2rem;
+		    @include px2rem($font-size-nav-level3);
                 }
             }
 
@@ -222,15 +219,10 @@
                 justify-content: flex-start;
                 flex-direction: column;
 
-                @media (max-width: $screen-md - 1) {
-                    //column-count: 2;
-                }
-
-                @media (min-width: $screen-xl) {
-                    //column-count: 4;
-                }
-
-                &.column-count-1, &.column-count-2, &.column-count-3, &.column-count-4 {
+                &.column-count-1, 
+		&.column-count-2, 
+		&.column-count-3, 
+		&.column-count-4 {
                     ul.level2, ul.level3 {
                         column-width: 330px;
                     }
@@ -249,7 +241,7 @@
                         column-count: 1;
                     }
                     .button-portal {
-                        margin-left: 543px;
+                        margin-left: 528px;
                     }
                 }
                 &.column-count-2 {
@@ -257,7 +249,7 @@
                         column-count: 2;
                     }
                     .button-portal {
-                        margin-left: 369px;
+                        margin-left: 354px;
                     }
                 }
                 &.column-count-3, &.column-count-4 {
@@ -269,7 +261,7 @@
                         }
                     }
                     .button-portal {
-                        margin-left: 194px;
+                        margin-left: 179px;
                     }
                 }
             }
@@ -279,8 +271,7 @@
                 border-top: 8px solid var(--color-mainmenu-sublevel-bg);
 
                 @media (min-width: $screen-sm) {
-                    min-height: 199px;
-                   
+                    min-height: 199px;    
                 }
 
                 @media (max-width: $screen-md) {
@@ -289,10 +280,6 @@
                 }
             }
 
-            .container {
-                padding-left: floor(math.div($grid-gutter-width, 2) - $padding-base-horizontal);
-                padding-right: ceil(math.div($grid-gutter-width, 2) - $padding-base-horizontal);
-            }
 
         }
     }
@@ -376,7 +363,7 @@
             .button-portal {
                 order: 1;
                 margin-top: 10px;
-                padding: 7px 20px 7px 13px;
+                padding: 7px 20px 7px var(--width-gutter-half);
                 margin-left: 0;
                 border-bottom: 1px solid var(--color-primary-dunkler);
                 &:hover, &:focus, &:active {
@@ -479,7 +466,7 @@
             > a,
             > [type=button] {
                 padding: 10px;
-                @include border-radius(4px);
+                border-radius: var(--border-radius);
             }
 
             &.has-sub {
