@@ -25,7 +25,11 @@ $slider-height-md: 512px;
 
 		.no-js & {
 			//display: none;
-		}
+			
+			// why is this outcommented?
+			// is the slider usable without js?
+			// todo: check 
+		}   
 	}
 
 	@media (min-width: $screen-xs) {
@@ -60,13 +64,10 @@ $slider-height-md: 512px;
 			z-index: 19;
 			width: 100%;
 			max-width: 100%;	
+			
 			@include px2rem($font-size-hero-slider-title-small);
-			@media (max-width: $screen-sm - 1){				
-				height: 100px;
-				top: 5px;
-			}
+			
 			@media (min-width: $screen-sm) {
-				margin-bottom: 5px;
 				@include px2rem($font-size-hero-slider-title);
 			}
 			
@@ -127,7 +128,7 @@ $slider-height-md: 512px;
 					-webkit-box-orient: vertical;
 					white-space: normal;
 					margin-top: -40px;
-					max-height: 125px;
+		//			max-height: 125px;
 				    }
 
 				    @media (max-width: $screen-sm)  {
@@ -136,20 +137,16 @@ $slider-height-md: 512px;
 					display: -webkit-box;
 					-webkit-line-clamp: 2;
 					-webkit-box-orient: vertical;
-					height: 85px;
+			//		height: 85px;
 					padding: var(--width-gutter-half, 15px);
 					white-space: normal;
-					@media not all and (min-resolution:.001dpcm) { 
-						@supports (-webkit-appearance:none) {
-						  line-height: 1.5; /* Adjust line-height for Safari */
-						}
-					}
+
 					@media screen and (min-resolution: 200dpi), screen and  (max-width: $screen-lg)  {
 						-webkit-line-clamp: 2;
 						-webkit-box-orient: vertical;
 						white-space: normal;
 						margin-top: 0px;
-						max-height: 125px;
+		//				max-height: 125px;
 					}
 				    }
 			    }
@@ -190,15 +187,15 @@ $slider-height-md: 512px;
 			z-index: 5;
 			min-width: 100%;			
 			object-fit: cover;		
-			height: auto;
-			max-height: 70%;
+			height: 100%;
+			max-height: $slider-maxheight;
 			min-height: $slider-minheight;
 			// max-height: 128px; // $slider-minheight;	
 			
 			@media (min-width: $screen-sm) {
 				min-height:  $slider-height-sm;
 				height: $slider-height-sm;
-				max-height:$slider-height-sm;
+				max-height: $slider-height-sm;
 				
 			}
 			@media (min-width: $screen-md) {
@@ -216,15 +213,18 @@ $slider-height-md: 512px;
 	
 		padding: 0;
 		width: 100%;
-		height: 70px;
-		bottom: 45px;
-		top: inherit;
+	//	height: 70px;
+		bottom: var(--width-gutter-half);
+		top: auto;
 		transform: none;
-		@media (max-width: $screen-sm){
-			bottom:20px;
-			top:auto;
-			margin: 0 0px;
+		
+		@media (max-width: $screen-sm){			
+			margin: 0;
 			@include transform-translate(0, 0%);
+		}
+		@media (min-width: $screen-sm){
+		    bottom: calc(var(--width-gutter) + var(--width-gutter-half));
+		    top: inherit;
 		}
 	}
 
