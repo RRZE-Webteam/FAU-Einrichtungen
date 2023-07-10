@@ -400,11 +400,17 @@ main .subpages-menu,
         display: flex;
         gap: var(--width-gutter-half, 15px);
         flex-wrap: wrap;
-    
+	padding-left: var(--width-gutter-half, 15px);
+	padding-right: var(--width-gutter-half, 15px);
+	@media (min-width: $screen-sm) {
+	    padding-left: 0;
+	    padding-right: 0;
+	}
         a {
            // border-radius: var(--border-radius-buttons, 3px);
-            font-size: 0.937rem;
-            line-height: 1.407rem;
+         //   font-size: 0.937rem;
+         //   line-height: 1.407rem;
+	    @include px2rem($font-size-contentmenu-listview);
             color: var(--color-Text, #222);
             background-color: var(--color-MetaBackgroundLight, #DFE6EC);
             padding: 0.5rem 1.8rem;     
@@ -415,9 +421,7 @@ main .subpages-menu,
                 color: var(--color-menulink-hover-text);
             }
         }
-        @media (max-width: $screen-sm) {
-            padding-left: var(--width-gutter-half, 15px);
-        }
+
     }
     &.meganav {
         > ul {
