@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 94,
+	'optiontable-version'           => 95,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -220,7 +220,14 @@ $defaultoptions = [
 	'advanced_page_sidebar_wpsidebar_id'        => 'page-sidebar',
 	// Sidebar Id
 
-
+    'advanced_error_sidebar_replacesearch'      => false,
+	// Wenn true, wird eine Sidebar für die Fehlerseite ermöglicht, 
+    // mit der man die dortige Default-Suche ersetzen kann durch eigene Widgets
+	'advanced_error_sidebar_replacesearch_id'   => 'error-searchreplace-sidebar',
+	// Sidebar Id für die Fehlerseite
+    'advanced_error_sidebar_hidedefaultnotice'  => false,    
+    // Standard Fehlermeldung bei 401,403,404 Seiten verbergen
+    
 	'advanced_page_sidebar_personen_title'      => __('Kontakt', 'fau'),
 	'advanced_page_sidebar_linkblock1_number'	=> 3,
 	'advanced_page_sidebar_linkblock2_number'	=> 3,
@@ -1302,11 +1309,12 @@ $setoptions = array(
 				),
 				'advanced_page_sidebar_wpsidebar'		  => array(
 					'type'    => 'toggle',
-					'title'   => __('Aktiviere Widget-Funktion', 'fau'),
+					'title'   => __('Widget-Funktion für Seiten', 'fau'),
 					'label'   => __('Widgets die auf allen Seiten angezeigt werden sollen. Sollten Seitenspezifische Inhalte in der Sidebar angegeben worden sein, wird diese Sidebar darunter folgen. Diese Sidebar-Inhalte werden nicht auf Beiträgen gezeigt.', 'fau'),
 					'default' => $defaultoptions['advanced_page_sidebar_wpsidebar'],
 					'parent'  => 'sidebaropt'
 				),
+               
 
 				'inhalte'  => array(
 					'type'    => 'section',
@@ -1367,6 +1375,22 @@ $setoptions = array(
 					'default' => $defaultoptions['advanced_template_hr_linecolor'],
 					'parent'  => 'templates'
 				),
+                'advanced_error_sidebar_replacesearch' => array(
+					'type'    => 'toggle',
+					'title'   => __('Widget-Funktion für Fehlerseiten', 'fau'),
+					'label'   => __('Durch Nutzung dieser Sidebar kann die Standard-Suchmaske auf Fehlerseiten ("Seite nicht gefunden", "Seite nicht zugänglich") durch eigene Widgets ersetzt werden.','fau').' '.__('Nach Aktivierung muss unter Design->Widgets der entsprechende Bereich ergänzt werden.', 'fau'),
+					'default' => $defaultoptions['advanced_error_sidebar_replacesearch'],
+					'parent'  => 'templates'
+				),
+                
+                'advanced_error_sidebar_hidedefaultnotice'  => array(
+					'type'    => 'toggle',
+					'title'   => __('Standard Fehlermeldung verstecken', 'fau'),
+					'label'   => __('Wenn eine Fehlerseite erscheint, kann mit diesem Schalter die Standard-Fehlermeldung unterdrückt werden.', 'fau'),
+					'default' => $defaultoptions['advanced_error_sidebar_hidedefaultnotice'],
+					'parent'  => 'templates'
+				),
+                
                 
 			),
 		),

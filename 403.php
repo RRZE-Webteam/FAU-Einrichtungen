@@ -7,6 +7,9 @@
  * @since FAU 1.0
  */
 
+$error_hidedefaultnotice = get_theme_mod('advanced_error_sidebar_hidedefaultnotice');
+
+?>
 get_header();
 ?>
  <div id="content">
@@ -16,7 +19,8 @@ get_header();
 		     <main>
 
 				<h1 class="screen-reader-text"><?php echo __('Zugriff nicht gestattet','fau');  ?></h1>
-				<div class="error-notice">
+                <?php if (empty($error_hidedefaultnotice)) { ?> 
+				<div class="error-notice alert clearfix clear alert-warning">
 				    <p class="hinweis">
 					    <strong><?php _e('Es tut uns leid.','fau'); ?></strong>
 				    </p>
@@ -24,7 +28,8 @@ get_header();
 					   <?php _e('Leider dürfen Sie auf diese Seite nicht zugreifen.','fau'); ?>
 				    </p>						
 				</div>	    
-			      <?php 
+			    <?php 
+                }
 				get_template_part('template-parts/error', 'trysearch');  
 				get_template_part('template-parts/search', 'helper'); 
 				?>   

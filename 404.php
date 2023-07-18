@@ -8,6 +8,7 @@
  */
 
 get_header();
+$error_hidedefaultnotice = get_theme_mod('advanced_error_sidebar_hidedefaultnotice');
 
 ?>
  <div id="content">
@@ -17,7 +18,8 @@ get_header();
 		     <main>
 
 				<h1 class="screen-reader-text"><?php echo __('Seite nicht gefunden','fau'); ?></h1>
-				<div class="error-notice">
+                <?php if (empty($error_hidedefaultnotice)) { ?> 
+				<div class="error-notice alert clearfix clear alert-warning">
 				    <p class="hinweis">
 					    <strong><?php _e('Es tut uns leid.','fau'); ?></strong>
 				    </p>
@@ -25,7 +27,8 @@ get_header();
 					    <?php _e('Die von Ihnen aufgerufene Seite existiert nicht oder ihre Adresse hat sich durch Änderungen an der Seitenstruktur geändert.','fau'); ?>
 				    </p>						
 				</div>	    
-			      <?php 
+			    <?php 
+                }
 				get_template_part('template-parts/error', 'trysearch');  
 				get_template_part('template-parts/search', 'helper'); 
 				?>   
