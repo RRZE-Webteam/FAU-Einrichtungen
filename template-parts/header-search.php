@@ -7,8 +7,12 @@
  * @since      FAU 1.0
  */
 
+
+$advanced_header_search_hide = get_theme_mod('advanced_header_search_hide', false);
+
+
 ?>
-<div itemscope itemtype="https://schema.org/WebSite" class="meta-search">
+<div class="meta-search">
     <?php
     /** Condition statement if plugin is currently active */
     if (is_plugin_active('rrze-search/rrze-search.php')) {
@@ -16,7 +20,9 @@
         dynamic_sidebar('rrze-search-sidebar');
     } else {
         /** Original Snippet from WP Theme */
+        if (empty($advanced_header_search_hide)) {
         ?>
+        <div itemscope itemtype="https://schema.org/WebSite">
         <meta itemprop="url" content="<?php echo home_url('/'); ?>">
         <form itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction" id="search-header"
               role="search" aria-label="<?php echo get_theme_mod('title_hero_search'); ?>" method="get" class="searchform" action="<?php echo fau_esc_url(home_url('/')); ?>">
@@ -41,6 +47,8 @@
             ?>
             <input type="submit" enterkeyhint="search" value="<?php _e('Finden', 'fau'); ?>">
         </form>
+    </div>
     <?php } ?>
+        <?php } ?>
 </div>
 

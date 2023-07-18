@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 95,
+	'optiontable-version'           => 96,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -227,7 +227,8 @@ $defaultoptions = [
 	// Sidebar Id für die Fehlerseite
     'advanced_error_sidebar_hidedefaultnotice'  => false,    
     // Standard Fehlermeldung bei 401,403,404 Seiten verbergen
-    
+    'advanced_header_search_hide'               => false,
+    // Erlaubt die Deaktivierung der Sucheingabe im Kopfteil der Website
 	'advanced_page_sidebar_personen_title'      => __('Kontakt', 'fau'),
 	'advanced_page_sidebar_linkblock1_number'	=> 3,
 	'advanced_page_sidebar_linkblock2_number'	=> 3,
@@ -1388,6 +1389,14 @@ $setoptions = array(
 					'title'   => __('Standard Fehlermeldung verstecken', 'fau'),
 					'label'   => __('Wenn eine Fehlerseite erscheint, kann mit diesem Schalter die Standard-Fehlermeldung unterdrückt werden.', 'fau'),
 					'default' => $defaultoptions['advanced_error_sidebar_hidedefaultnotice'],
+					'parent'  => 'templates'
+				),
+                
+                'advanced_header_search_hide'     => array(
+					'type'    => 'toggle',
+					'title'   => __('Standard Sucheingabe abschalten', 'fau'),
+					'label'   => __('Die Suchmaske im Kopfteil der Seite kann durch diese Option abgeschaltet werrden.', 'fau'),
+					'default' => $defaultoptions['advanced_header_search_hide'],
 					'parent'  => 'templates'
 				),
                 
