@@ -8,6 +8,8 @@
  */
 
 get_header();
+$error_hidedefaultnotice = get_theme_mod('advanced_error_sidebar_hidedefaultnotice');
+
 ?>
  <div id="content">
     <div class="content-container">	   
@@ -16,15 +18,18 @@ get_header();
 		     <main>
 
 				<h1 class="screen-reader-text"><?php echo __('Anmeldung fehlgeschlagen','fau'); ?></h1>
-				<div class="error-notice">
+                <?php if (empty($error_hidedefaultnotice)) { ?> 
+				<div class="error-notice alert clearfix clear alert-warning">
 				    <p class="hinweis">
 					    <strong><?php _e('Es tut uns leid.','fau'); ?></strong>
 				    </p>
 				    <p>
 					    <?php _e('Leider ist Ihre Anmeldung fehlgeschlagen.','fau'); ?>
 				    </p>						
-				</div>	    
-			      <?php 
+				</div>	  
+			    <?php 
+                }
+				get_template_part('template-parts/error', 'trysearch');  
 				get_template_part('template-parts/search', 'helper'); 
 				?>   
 		      </main> 

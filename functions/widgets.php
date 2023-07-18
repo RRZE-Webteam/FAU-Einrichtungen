@@ -69,36 +69,51 @@ function fau_sidebars_init() {
 	$website_type = get_theme_mod('website_type');
 	if ($website_type==3) {
 	    register_sidebar( array(
-		'name' => __( 'Footer Logo Bereich Position 1', 'fau' ),
-		'id' => 'footer-block1',
-		'description' => __( 'Erster Widgetbereich im Footer, links unten.', 'fau' ),
-		'before_title' => '<h3 class="screen-reader-text">',
-		'after_title' => '</h3>',
-		'before_widget' => '<div class="footer-block1">',
-		'after_widget' => '</div>',
+            'name' => __( 'Footer Logo Bereich Position 1', 'fau' ),
+            'id' => 'footer-block1',
+            'description' => __( 'Erster Widgetbereich im Footer, links unten.', 'fau' ),
+            'before_title' => '<h3 class="screen-reader-text">',
+            'after_title' => '</h3>',
+            'before_widget' => '<div class="footer-block1">',
+            'after_widget' => '</div>',
 	    ) );
 	    register_sidebar( array(
-		'name' => __( 'Footer Logo Bereich Position 2', 'fau' ),
-		'id' => 'footer-block2',
-		'description' => __( 'Zweiter Widgetbereich im Footer, links unten. ', 'fau' ),
-		'before_title' => '<h3 class="screen-reader-text">',
-		'after_title' => '</h3>',
-		'before_widget' => '<div class="footer-block2">',
-		'after_widget' => '</div>',
+            'name' => __( 'Footer Logo Bereich Position 2', 'fau' ),
+            'id' => 'footer-block2',
+            'description' => __( 'Zweiter Widgetbereich im Footer, links unten. ', 'fau' ),
+            'before_title' => '<h3 class="screen-reader-text">',
+            'after_title' => '</h3>',
+            'before_widget' => '<div class="footer-block2">',
+            'after_widget' => '</div>',
 	    ) );
 	}
 	$page_sidebar = get_theme_mod('advanced_page_sidebar_wpsidebar');
 	if ($page_sidebar) {
 	    register_sidebar( array(
-		'name' => __( 'Seiten Sidebar', 'fau' ),
-		'id' => $defaultoptions['advanced_page_sidebar_wpsidebar_id'],
-		'description' => __('Widgets die auf allen Seiten angezeigt werden sollen. Sollten Seitenspezifische Inhalte in der Sidebar angegeben worden sein, wird diese Sidebar darunter folgen. Diese Sidebar-Inhalte werden nicht auf Beiträgen gezeigt.', 'fau' ),
-		'before_title' => '<h3>',
-		'after_title' => '</h3>',
-		'before_widget' => '<div class="page-sidebar-widgets">',
-		'after_widget' => '</div>',
+            'name' => __( 'Seiten Sidebar', 'fau' ),
+            'id' => $defaultoptions['advanced_page_sidebar_wpsidebar_id'],
+            'description' => __('Widgets die auf allen Seiten angezeigt werden sollen. Sollten Seitenspezifische Inhalte in der Sidebar angegeben worden sein, wird diese Sidebar darunter folgen. Diese Sidebar-Inhalte werden nicht auf Beiträgen gezeigt.', 'fau' ),
+            'before_title' => '<h3>',
+            'after_title' => '</h3>',
+            'before_widget' => '<div class="page-sidebar-widgets">',
+            'after_widget' => '</div>',
 	    ) );
 	}
+    $advanced_error_sidebar_replacesearch = get_theme_mod('advanced_error_sidebar_replacesearch');
+	if ($advanced_error_sidebar_replacesearch) {
+	    register_sidebar( array(
+            'name' => __( 'Widgets für Fehlerseiten', 'fau' ),
+            'id' => $defaultoptions['advanced_error_sidebar_replacesearch_id'],
+            'description' => __('Durch Nutzung dieser Sidebar kann die Standard-Suchmaske auf Fehlerseiten ("Seite nicht gefunden", "Seite nicht zugänglich") durch eigene Widgets ersetzt werden.', 'fau' ),
+            'before_title' => '<h2>',
+            'after_title' => '</h2>',
+            'before_widget' => '<div class="errorpage-widgets">',
+            'after_widget' => '</div>',
+	    ) );
+	}
+    
+    
+    
 	
 	
 }
