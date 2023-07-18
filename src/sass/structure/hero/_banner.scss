@@ -48,25 +48,19 @@
 
 		img {
 		    width: auto;
-		    max-width: none;
-		    height: 100px;
-		    @media (max-width: $screen-xs - 1) {
-			margin-left: -30%;
-		    }
+		    max-width: 100%;
+		    height: $banner-startpage-minheight;
+		    object-fit: cover;
+		    
 		    @media (min-width: $screen-xs) {
 			height: auto;
 			width: 100%;
-			max-width: 100%;
 		    }
 		    @media (min-width: $screen-sm) {
 			min-height: 182px;
-			max-width: 100%;
-
 			height: auto;
 		    }
 		    @media (min-width: $screen-md) {
-		max-width: 100%;
-
 			height: auto;
 			
 		    }
