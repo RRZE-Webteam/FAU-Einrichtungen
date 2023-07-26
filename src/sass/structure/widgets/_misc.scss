@@ -11,7 +11,7 @@
 	    padding: 0;
 	    
 	    ul {
-		margin: 0 0 0.7rem 0.5rem;
+			margin: 0 0 0.7rem 0.5rem;
 	    }
 	}
 
@@ -21,21 +21,21 @@
 		list-style-type: none;
 		
 		a {
-                    padding: 0;
-                    text-decoration: none;
+			padding: 0;
+			text-decoration: none;
 		}
 		
-		a:hover, 
-                a:focus {
+		a:hover, a:focus {
 			text-decoration: underline;
+			text-underline-offset: 0.3rem;
+			text-decoration-thickness: 0.15rem;
 		}
 		a:before {
            
 		   @include svg-icon-place();
 		   background-image: svg-angle-right($color-content-links);
 		   color: var(--color-Default);
-
-	       }
+		}
 	}
 	
 	

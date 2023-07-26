@@ -7,25 +7,26 @@
 	margin-top: -20px;
 	
         @media (min-width: $screen-xs) {
-	    margin-top: 20px;
+	    	margin-top: 20px;
         }
-	.post-image {
-	     margin-top: 0px;
-	     @media (min-width: $screen-xs) {
-	        width: 50%;
-	     }
-	     @media (min-width: $screen-sm) {
-	        width: inherit;
-		max-width: 420px;
-	     }
-	     
-	     img {
-		 @media (min-width: $screen-sm) {
-		    max-width: 420px;
-		    max-height: 280px;
-		    box-shadow: none;
-		 }
-	     }
+		.post-image {
+			margin-top: 0px;
+
+			@media (min-width: $screen-xs) {
+				width: 50%;
+			}
+			@media (min-width: $screen-sm) {
+				width: inherit;
+				max-width: 420px;
+			}
+			
+			img {
+				@media (min-width: $screen-sm) {
+					max-width: 420px;
+					max-height: 280px;
+					box-shadow: none;
+			}
+	    }
 	     
 	}
 	.subtitle {
@@ -49,14 +50,15 @@
 	}
 	.post-meta-tags {
 	    @media (min-width: $screen-sm) {
-		margin-left: 10px;
+			margin-left: 10px;
 	    }
 	    
 	}
 	.meta-footer {
 	    clear: both;
 	    a:hover {
-		text-decoration: underline;
+			text-decoration: underline;
+			text-decoration-thickness: 0.3rem;
 	    }
 	}
 }

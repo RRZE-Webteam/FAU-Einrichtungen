@@ -156,7 +156,7 @@
         padding: 0;
 	
         a {
-	    color: var(--color-MetaTextDefault);
+	        color: var(--color-MetaTextDefault);
             display: inline-block;
             padding: 0.15rem 0;
             text-decoration: none;
@@ -164,6 +164,8 @@
 	    &:focus,
             &:hover {
                 text-decoration: underline;
+                text-decoration-thickness: 0.15rem;
+                text-underline-offset: 0.3rem;
             }
         }
     }

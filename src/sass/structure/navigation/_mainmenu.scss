@@ -25,6 +25,12 @@
 
     }
 
+    [type="button"].current-menu-ancestor {
+        color: var(--color-mainmenu-toplevel-hover-text);
+        background: var(--color-mainmenu-toplevel-hover-bg);
+    }
+
+
     li.level1.has-sub:hover > a {
         color: var(--color-mainmenu-toplevel-bg);
         background: var(--color-mainmenu-toplevel-hover-bg);
@@ -109,7 +115,7 @@
         a:focus {
             color: var(--color-mainmenu-sublevel-hover-text);
             background-color: var(--color-mainmenu-sublevel-bg);
-	    border-radius: var(--border-radius);
+	        border-radius: var(--border-radius);
         }
     }
 
@@ -118,8 +124,8 @@
             font-weight: normal;
 
             @media (max-width: $screen-sm) {
-         //       font-size: 0.9rem;
-		@include px2rem($font-size-nav-level3);	
+                //       font-size: 0.9rem;
+                @include px2rem($font-size-nav-level3);	
             }
         }
     }
@@ -159,6 +165,13 @@
                     width: 330px;
                 }
               }
+
+            &.current-menu-item > a {
+                color: var(--color-mainmenu-sublevel-hover-text);
+                background-color: var(--color-mainmenu-sublevel-bg);
+                border-radius: var(--border-radius);
+            }
+
         }
 
         a {
@@ -219,10 +232,10 @@
                 justify-content: flex-start;
                 flex-direction: column;
 
-                &.column-count-1, 
-		&.column-count-2, 
-		&.column-count-3, 
-		&.column-count-4 {
+            &.column-count-1, 
+            &.column-count-2, 
+            &.column-count-3, 
+            &.column-count-4 {
                     ul.level2, ul.level3 {
                         column-width: 330px;
                     }
@@ -241,7 +254,7 @@
                         column-count: 1;
                     }
                     .button-portal {
-                        margin-left: 528px;
+                        margin-left: 535px;
                     }
                 }
                 &.column-count-2 {
@@ -249,7 +262,7 @@
                         column-count: 2;
                     }
                     .button-portal {
-                        margin-left: 354px;
+                        margin-left: 361px;
                     }
                 }
                 &.column-count-3, &.column-count-4 {
@@ -261,7 +274,7 @@
                         }
                     }
                     .button-portal {
-                        margin-left: 179px;
+                        margin-left: 187px;
                     }
                 }
             }
