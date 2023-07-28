@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.34-182
+Version: 2.3.34-203
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -4895,8 +4895,8 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
 }
 
 .continue {
-  margin-top: 0.5rem;
-  text-align: right;
+  margin-left: auto;
+  white-space: nowrap;
 }
 .continue .read-more-link {
   box-shadow: none;
@@ -4949,6 +4949,12 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
 }
 .continue .read-more-link:focus:after, .continue .read-more-link:hover:after {
   background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFFFFF" d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"/%3E%3C/svg%3E%0A');
+}
+@media (max-width: 768px) {
+  .continue {
+    margin-left: unset;
+    margin-top: 0.8rem;
+  }
 }
 
 main a,
@@ -12645,19 +12651,23 @@ ul.assistant-tabs-nav li:last-child {
   }
 }
 
-.news-item {
-  margin-bottom: 11px;
-}
 .news-item .news-meta {
-  padding: 5px 0;
-  margin-top: 0px;
-  margin-bottom: 10px;
+  padding: 0.2rem 0;
+  margin: 0.5rem 0;
   color: var(--color-Text);
-  display: block;
+  display: flex;
+  align-items: center;
   font-family: "Roboto", "FAU Chimera", sans-serif;
 }
-.news-item .news-meta-date {
-  margin-right: 10px;
+@media (max-width: 768px) {
+  .news-item .news-meta {
+    flex-wrap: wrap;
+  }
+}
+.news-item .news-meta-date,
+.news-item .news-meta-videopost-author,
+.news-item .news-meta-categories {
+  margin-right: 15px;
 }
 .news-item h2 .ext-link {
   display: inline-block;
@@ -12685,7 +12695,7 @@ ul.assistant-tabs-nav li:last-child {
 @media (min-width: 768px) {
   .news-item .teaser-row {
     flex-wrap: nowrap;
-    column-gap: var(--width-gutter-half);
+    column-gap: var(--width-gutter);
   }
 }
 .news-item .teaser-row .thumbnailregion {

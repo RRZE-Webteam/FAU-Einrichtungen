@@ -64,7 +64,6 @@ a {
 
 
 //Special Links
-
 .top-link {
 	position: fixed;
 	bottom: 20px; 
@@ -77,12 +76,17 @@ a {
 	    
 // Continue/Weiterlesen Link
 .continue {
-    margin-top: 0.5rem;
-    text-align: right;
+	margin-left: auto;
+	white-space: nowrap;
 
     .read-more-link {	
-	@include nextlink-ghostbutton();
+		@include nextlink-ghostbutton();
     }
+
+	@media (max-width: $screen-sm) {
+		margin-left: unset;
+		margin-top: 0.8rem;
+	}
 }
 	    
 // Additional link effects for Content

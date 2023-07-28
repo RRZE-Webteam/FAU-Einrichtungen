@@ -101,16 +101,20 @@
 }
 
 .news-item {
-	margin-bottom: 11px;
+	//margin-bottom: 11px;
 	
 
 	.news-meta {
-		padding: 5px 0;
-		margin-top: 0px;
-		margin-bottom: 10px;
+		padding: 0.2rem 0;
+		margin: 0.5rem 0;
 		color: var(--color-Text);
-		display: block;
+		display: flex;
+		align-items: center;
 		font-family: $fontStack;
+
+		@media (max-width: $screen-sm) {
+			flex-wrap: wrap;
+		}
 		
 		.news-meta-categories:before {
 		    @extend .fa;
@@ -125,8 +129,10 @@
 		    @extend .fa-pencil;
 		}
 	}
-	.news-meta-date {
-		margin-right: 10px;
+	.news-meta-date,
+	.news-meta-videopost-author,
+	.news-meta-categories {
+		margin-right: 15px;
 	}
 	h2 .ext-link {
 		@include inline-block;
@@ -157,7 +163,7 @@
 
 	@media (min-width: $screen-sm) {
 	    flex-wrap: nowrap;
-	    column-gap: var(--width-gutter-half); 
+	    column-gap: var(--width-gutter); 
 	}
 	.thumbnailregion {
 	    width: 100vw;

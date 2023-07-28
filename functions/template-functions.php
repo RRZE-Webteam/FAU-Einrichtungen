@@ -681,48 +681,6 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
         $output .= 'href="' . $link . '">' . get_the_title($post->ID) . '</a>';
         $output .= "</h" . $hstart . ">";
 
-        
-        $schemaauthor = get_theme_mod('contact_address_name') . " " . get_theme_mod('contact_address_name2');
-        if (!fau_empty($schemaauthor)) {
-            $output .= '<meta itemprop="author" content="' . esc_attr($schemaauthor) . '">';
-        }
-        if ($vidpod_auth !=null) {
-            $output .= '<meta itemprop="producer" content="' . esc_attr($vidpod_auth) . '">';
-        }
-        if ($hidemeta) {
-             // display meta informations that we need for structured data as <meta> tags       
-            $output .= '<meta itemprop="datePublished" content="' . esc_attr(get_post_time('c')) . '">';
-            $output .= '<meta itemprop="dateModified" content="' . esc_attr(get_the_modified_time('c')) . '">';
-        } else {
-            // displays meta informations like date, category, tags, autornames with visible tags
-            $output .= '<div class="news-meta">';
-            
-            if ($withdate) {
-                $output .= '<span class="news-meta-date" itemprop="datePublished" content="'.esc_attr(get_post_time('c')).'"> '.get_the_date('',
-                    $post->ID)." </span>";
-            }
-            if ($withcat) {                
-                $separator  = ', ';
-                $thiscatstr = '';
-                $typestr = '<span class="news-meta-categories"> ';
-                $typestr .= __('Kategorie', 'fau').': ';
-                foreach ($categories as $category) {
-                    $thiscatstr .= '<a href="' . get_category_link($category->term_id) . '">' . $category->cat_name . '</a>' . $separator;
-                }
-                $typestr .= trim($thiscatstr, $separator);
-                $typestr .= '</span> ';
-                
-                $output .= $typestr;
-            }
-            if ($withvideopost_autor){
-                $output .= '<span class="news-meta-videopost-author"> ';      
-                $output .= __('Produzent', 'fau').': ';
-                $output .= esc_attr($vidpod_auth);      
-                $output .= '</span>';      
-            }
-            $output .= '</div>';
-        }
-
         $output      .= '<div class="teaser-row">';
         $show_thumbs = get_theme_mod('default_postthumb_always');
 
@@ -804,14 +762,59 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
         }
         $output .= $abstract;
         $output .= '</p>';
-        $display_continue_link = get_theme_mod('default_display_continue_link');
-        if ($display_continue_link) {
-            $output .= '<div class="continue">';
-            $output .= fau_create_readmore($link, get_the_title($post->ID), $external, true);
-            $output .= '</div>';
-        }
         $output .= '</div>';
         $output .= "</div>";
+
+        // news-meta
+        $schemaauthor = get_theme_mod('contact_address_name') . " " . get_theme_mod('contact_address_name2');
+        if (!fau_empty($schemaauthor)) {
+            $output .= '<meta itemprop="author" content="' . esc_attr($schemaauthor) . '">';
+        }
+        if ($vidpod_auth !=null) {
+            $output .= '<meta itemprop="producer" content="' . esc_attr($vidpod_auth) . '">';
+        }
+        if ($hidemeta) {
+             // display meta informations that we need for structured data as <meta> tags       
+            $output .= '<meta itemprop="datePublished" content="' . esc_attr(get_post_time('c')) . '">';
+            $output .= '<meta itemprop="dateModified" content="' . esc_attr(get_the_modified_time('c')) . '">';
+        } else {
+            // displays meta informations like date, category, tags, autornames with visible tags
+            $output .= '<div class="news-meta">';
+            
+            if ($withdate) {
+                $output .= '<span class="news-meta-date" itemprop="datePublished" content="'.esc_attr(get_post_time('c')).'"> '.get_the_date('',
+                    $post->ID)." </span>";
+            }
+            if ($withcat) {                
+                $separator  = ', ';
+                $thiscatstr = '';
+                $typestr = '<span class="news-meta-categories"> ';
+                $typestr .= __('Kategorie', 'fau').': ';
+                foreach ($categories as $category) {
+                    $thiscatstr .= '<a href="' . get_category_link($category->term_id) . '">' . $category->cat_name . '</a>' . $separator;
+                }
+                $typestr .= trim($thiscatstr, $separator);
+                $typestr .= '</span> ';
+                
+                $output .= $typestr;
+            }
+            if ($withvideopost_autor){
+                $output .= '<span class="news-meta-videopost-author"> ';      
+                $output .= __('Produzent', 'fau').': ';
+                $output .= esc_attr($vidpod_auth);      
+                $output .= '</span>';      
+            }
+
+            $display_continue_link = get_theme_mod('default_display_continue_link');
+            if ($display_continue_link) {
+                $output .= '<div class="continue">';
+                $output .= fau_create_readmore($link, get_the_title($post->ID), $external, true);
+                $output .= '</div>';
+            }
+
+            $output .= '</div>';
+        }
+
         if (!$external) {
             $output .= fau_create_schema_publisher();
         }
