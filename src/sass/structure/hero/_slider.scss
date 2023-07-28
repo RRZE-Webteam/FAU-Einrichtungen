@@ -314,19 +314,15 @@ $slider-height-md: 512px;
 	}
 }
 
-
-
 .slick-dots {
 	display: flex !important;
 	width: 60px;
 	margin: 0 auto;
-
 }
-.slick-dots li{
+.slick-dots li {
 	margin:0px auto;
 	width: 60px;
 }
-
 .slick-dots li button {
 	margin-right: 10px;
 	height: 5px;

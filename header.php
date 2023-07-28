@@ -139,6 +139,16 @@ if ($custom_logo_id) {
                             </div>
 			    <?php if (has_nav_menu('main-menu')) { ?>
                             <nav class="header-menu" id="nav" aria-label="<?php _e("Hauptnavigation", "fau"); ?>">
+                                <div class="mobile-language-switcher">
+                                    <?php
+                                        // Language switcher
+                                        if ($defaultoptions['debugmode'] && get_theme_mod('debug_sprachschalter')) {
+                                            get_template_part('template-parts/debugoutput', 'sprachschalter');
+                                        } elseif (is_active_sidebar('language-switcher')) {
+                                            dynamic_sidebar('language-switcher');
+                                        } 
+                                    ?>
+                                </div>
                                 <a href="#nav" id="mainnav-toggle"><span><?php _e("Menu", "fau"); ?></span></a>
                                 <a href="#top" id="mainnav-toggle-close"><span><?php _e("Menu", "fau"); ?> <?php _e("schließen", "fau"); ?></span></a>
                                 <div id="nav-wrapper">

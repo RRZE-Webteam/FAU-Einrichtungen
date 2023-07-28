@@ -24,20 +24,6 @@
 				text-underline-offset: 0.4rem;
 				text-decoration-thickness: 0.15rem;
 			}
-			
-			/*&::after {
-				content: "";
-				display: block;
-				box-sizing: border-box;
-				position: absolute;
-				width: 14px;
-				height: 14px;
-				border-bottom: 3px solid;
-				border-left: 3px solid;
-				transform: rotate(45deg);
-				left: 2px;
-				top: 13px;
-			}*/
 
 			&::before {
 				display: inline-block;
@@ -56,6 +42,15 @@
 				left: -18px;
 				top: -3px;
 			}
+
+			@media (max-width: $screen-sm) {
+				padding: 0px 22px 0px 22px;
+			}
+		}
+
+		@media (max-width: $screen-sm) {
+			background-color: var(--color-white);
+			padding: 5px 0 5px 20px;
 		}
     }
 }
@@ -84,6 +79,11 @@
 			text-underline-offset: 0.3rem;
 			text-decoration-thickness: 0.15rem;
 		}
+
+		@media (max-width: $screen-sm) {
+			padding: 6px 15px;
+		}
+
 	}
 
 	ul {
@@ -223,9 +223,9 @@
 	}
 
     #subnav {
-	ul {
-			margin-left: 0;
-			margin-right: 0;
-	}
+		ul {
+				margin-left: 0;
+				margin-right: 0;
+		}
     }
 }

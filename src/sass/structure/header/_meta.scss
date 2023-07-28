@@ -21,11 +21,11 @@
 	}
 
     .header-row {
-        justify-content: space-between;
+        justify-content: start;
         align-items: center;
         min-height: 50px;
-	
         padding: 4px 0;
+
         @media (min-width: $screen-sm) {
             padding: 5px 0;
         }

@@ -442,11 +442,12 @@ $html.removeClass('no-js').addClass('js');
             }
           });
 
-
-       
-
-
-
+        // Search button switch for metasearch
+        $('.search-initiate-button').on('click', function(){
+            $('.search-initiate-button').toggleClass('active');
+            $('.meta-search .searchform input[type="submit"]').toggleClass('active');
+            $('.meta-search .searchform input[type="text"]').toggleClass('active');
+        });
 
     }
 );
