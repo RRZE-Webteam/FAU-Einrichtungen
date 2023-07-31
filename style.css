@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.34-203
+Version: 2.3.34-208
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -9129,6 +9129,12 @@ body.nav-toggled #headerwrapper {
 @media (min-width: 768px) {
   body.nav-toggled #headerwrapper {
     top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .visible-title {
+    display: none;
   }
 }
 

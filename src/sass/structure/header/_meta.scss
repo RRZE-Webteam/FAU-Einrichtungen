@@ -72,3 +72,10 @@
         }
     }
 }
+
+
+.visible-title {
+    @media (max-width: $screen-sm) {
+        display: none;
+    }
+}
