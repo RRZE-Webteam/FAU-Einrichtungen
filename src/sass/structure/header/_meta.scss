@@ -48,7 +48,8 @@
 }
 
 #headerwrapper {
-    position: sticky;
+    position: static;
+    width: 100%;
     top: 0;
     z-index: 150;
     transition: box-shadow 0.2s;

@@ -449,6 +449,43 @@ $html.removeClass('no-js').addClass('js');
             $('.meta-search .searchform input[type="text"]').toggleClass('active');
         });
 
+
+
+        //scroll up hide show headder
+
+
+    let lastScrollTop = 0;
+
+    window.addEventListener("scroll", function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        let header = document.getElementById('headerwrapper'); // Cache the element for performance
+        
+        // If the user is at the very top of the page
+        if (scrollTop === 0) {
+            header.style.position = "static";
+            header.style.top = "auto";  // Reset the top property
+        }
+        // If scrolling up and current scroll position is not at the very top
+        else if (scrollTop < lastScrollTop) {
+            header.style.top = "0";
+            header.style.position = "fixed";
+        } 
+        // If scrolled down more than 150px
+        else if (scrollTop < 250) {
+            header.style.top = "0";
+            header.style.position = "static";
+
+        } 
+        // If it's within the first 150px while scrolling down
+        else {
+            header.style.top = "-100%";
+            header.style.position = "fixed";
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+
+
     }
 );
 
