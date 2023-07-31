@@ -1,7 +1,11 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
+<<<<<<< Updated upstream
 Version: 2.3.34-209
+=======
+Version: 2.3.34-254
+>>>>>>> Stashed changes
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -13930,6 +13934,7 @@ main .news-more-links .news-rss:hover:before {
 }
 .imagelink .slick-dots {
   display: block;
+  justify-content: center;
   width: 100%;
   padding: 0;
   margin: 15px auto 20px auto;
@@ -13947,10 +13952,10 @@ main .news-more-links .news-rss:hover:before {
 }
 .imagelink .slick-dots li button {
   display: block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 1.8rem;
   cursor: pointer;
-  border-radius: 50%;
+  border-radius: var(--border-radius, 0px);
   color: var(--color-primary-ci-hell-kontrast);
   background-color: var(--color-primary-ci-hell);
   border: 0;
@@ -14966,6 +14971,25 @@ aside .person h3 span,
   order: 1;
   flex: 1 0 220px;
   margin-right: 10px;
+}
+.fau-person div [itemprop=telephone]::before {
+  background-image: url('data:image/svg+xml,<svg version="1.1" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 88.13 96.18" style="enable-background:new 0 0 88.13 96.18;" xml:space="preserve"><g><path d="M31.55,23.7c1.08,5.51-1.29,7.18-1.29,7.18l-6.93,4.35c-2.76,1.64-1.26,5.06-1.26,5.06c10.82,23.49,22.79,30.56,27.15,33.69c3.15,2.27,5.07,0.65,5.07,0.65l8.92-7.44c3.17-3.1,5.58-0.97,5.58-0.97l17.6,13.15c2.99,2.1,1.65,6.36-0.51,10.03c-2.13,3.63-13.7,8.29-24.75,6.3c-11.06-1.99-31.45-11.18-44.89-31.34C2.67,44.01,1.33,31.51,1.33,31.51c-5.75-18.52,9-28.38,9-28.38c11.61-7.32,17.04,0.48,17.04,0.48S30.47,18.18,31.55,23.7z"/></g></svg>');
+  background-size: 88%;
+}
+.fau-person div [itemprop=email]::before {
+  background-image: url('data:image/svg+xml,<svg version="1.1" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 88.13 61.06" style="enable-background:new 0 0 88.13 61.06;" xml:space="preserve"><path d="M81.83,8.59L61.06,26.41L81.83,44.6l6.29,5.54V8.18c0-1.51-0.41-2.9-1.07-4.09C87.06,4.09,81.83,8.59,81.83,8.59z"/><path d="M86.8,57.35l-4.97-4.37L56.24,30.56l-4.31,3.68c-2.27,1.95-5.07,2.9-7.87,2.9s-5.57-0.94-7.87-2.9l-4.31-3.68L6.29,52.97l-4.97,4.37c1.48,2.23,4,3.71,6.86,3.71h71.76C82.81,61.06,85.32,59.58,86.8,57.35L86.8,57.35z"/><path d="M27.07,26.41L6.29,8.59l-5.22-4.5C0.41,5.29,0,6.67,0,8.18v41.92l6.29-5.51C6.29,44.6,27.07,26.41,27.07,26.41z"/><path d="M33.68,23.79c0.19,0.13,0.41,0.31,0.57,0.5l6.04,5.16c2.17,1.86,5.35,1.86,7.55,0l6.04-5.16c0.16-0.19,0.38-0.38,0.57-0.5l20.4-17.5l7.05-6.04C81.26,0.09,80.64,0,79.94,0H8.18C7.49,0,6.86,0.09,6.23,0.25l7.05,6.04C13.28,6.29,33.68,23.79,33.68,23.79z"/></svg>');
+}
+.fau-person div [itemprop=faxNumber]::before {
+  background-image: url('data:image/svg+xml,<svg version="1.1" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 90 87.41" style="enable-background:new 0 0 90 87.41;" xml:space="preserve"><path d="M80.83,72.82c0,3.55-2.88,6.43-6.43,6.43c-3.55,0-6.43-2.88-6.43-6.43c0-3.55,2.88-6.43,6.43-6.43C77.95,66.39,80.83,69.27,80.83,72.82 M90,80.99V29.56c0,0,0-6.43-6.43-6.43H72.58v20.41c0,6.43-6.43,6.43-6.43,6.43H23.85c-6.43,0-6.43-6.43-6.43-6.43V23.13H6.43c0,0-6.43,0-6.43,6.43v51.43c0,0,0,6.43,6.43,6.43h77.14C83.57,87.41,90,87.41,90,80.99"/><path d="M66.47,36.51V6.43c0,0,0-6.43-6.43-6.43H29.96c0,0-6.43,0-6.43,6.43v30.08c0,0,0,6.43,6.43,6.43h30.08C60.04,42.94,66.47,42.94,66.47,36.51"/></svg>');
+  background-size: 90%;
+}
+.fau-person div [itemprop=telephone].mobile::before {
+  background-image: url('data:image/svg+xml,<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 53.72 89.07" style="enable-background:new 0 0 53.72 89.07;" xml:space="preserve"><path d="M46.53,0H7.21C3.22,0,0,3.23,0,7.21v74.65c0,3.99,3.23,7.21,7.21,7.21h39.31c3.99,0,7.21-3.23,7.21-7.21V7.21C53.74,3.23,50.5,0,46.53,0z M26.87,84.45c-2.65,0-4.79-2.14-4.79-4.79s2.14-4.81,4.79-4.81s4.79,2.14,4.79,4.79S29.52,84.45,26.87,84.45z M46.27,70.69H7.47V8.73h38.8C46.27,8.73,46.27,70.69,46.27,70.69z"/></svg>');
+  background-size: 58%;
+}
+.fau-person div [itemprop=url]::before {
+  background-image: url('data:image/svg+xml,<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 77 76.67" style="enable-background:new 0 0 77 76.67;" xml:space="preserve"><g><path d="M69.5,76.67H47.9V54.71c0-0.3-0.2-0.5-0.5-0.5H29.6c-0.3,0-0.5,0.2-0.5,0.5v21.96H7.5c-4.1,0-7.5-3.4-7.5-7.5V35.95c0-2.6,1.1-5.1,2.9-7l0.1-0.1l29.9-26.6c3.1-3,8.2-3,11.3,0l29.9,26.7c1.9,1.8,2.9,4.4,2.9,7v33.22C77,73.37,73.7,76.67,69.5,76.67z"/></g></svg>');
+  background-size: 90%;
 }
 
 .single-person .entry-content {
