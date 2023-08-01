@@ -14,7 +14,7 @@
 		@include px2rem($font-size-meta);
 	}
 
-	@media (min-width: $screen-sm) {
+	@media (min-width: $screen-md) {
 		z-index: 110; // Änderung notwendig, damit das Such-Flyout nicht unter dem #header liegt
 		height: auto;
 		padding: inherit;
@@ -26,7 +26,7 @@
         min-height: 50px;
         padding: 4px 0;
 
-        @media (min-width: $screen-sm) {
+        @media (min-width: $screen-md) {
             padding: 5px 0;
         }
 
@@ -68,7 +68,7 @@
     }
     body.nav-toggled & {
         top: unset;
-        @media (min-width: $screen-sm) {
+        @media (min-width: $screen-md) {
             top: 0;
         }
     }
@@ -76,7 +76,7 @@
 
 
 .visible-title {
-    @media (max-width: $screen-sm) {
+    @media (max-width: $screen-md) {
         display: none;
     }
 }

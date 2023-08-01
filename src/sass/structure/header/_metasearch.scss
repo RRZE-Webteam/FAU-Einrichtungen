@@ -12,7 +12,7 @@
         margin-right: auto;
     }
  
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-md) {
         display: inline-block;
         margin-top: 0;
         max-width: 300px;
@@ -46,7 +46,7 @@
             background: var(--color-zentral-dunkelste);
         }
 
-        @media (max-width: $screen-sm) {
+        @media (max-width: $screen-md) {
             display: none;
         }
     }
@@ -62,7 +62,7 @@
 
     .searchform {
 	    display: flex;
-	    @media (min-width: $screen-sm) {
+	    @media (min-width: $screen-md) {
 	}
 
         border: none;
@@ -160,7 +160,7 @@
        
     }
 
-    @media (max-width: $screen-sm - 1) {
+    @media (max-width: $screen-md - 1) {
        
         .search-toggled & {
             .searchform {

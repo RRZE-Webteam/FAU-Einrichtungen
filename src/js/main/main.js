@@ -27,7 +27,7 @@ $html.removeClass('no-js').addClass('js');
         var hasLogo = !$body.hasClass('nologo');
         var swapLogo = !$body.hasClass('md-showsitelogo');
         var $openflyover = false;
-        var breakMD = 768;
+        var breakMD = 992;
           
         //  Slider
         var autostart = !!sliderAutostart;

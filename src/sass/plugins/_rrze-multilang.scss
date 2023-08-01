@@ -53,7 +53,7 @@
 		}
 	}
 
-    @media (max-width: $screen-sm) {
+    @media (max-width: $screen-md) {
 		top: 16px;
 		right: 60px;
 		left: unset;
@@ -88,7 +88,7 @@
 		display: none;
 	}
 
-	@media (max-width: $screen-sm) {
+	@media (max-width: $screen-md) {
 
 		.mobile-language-switcher & {
 			display: block;

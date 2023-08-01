@@ -201,7 +201,7 @@
 * Larger device
 */
 
-@media (min-width: $screen-sm) {
+@media (min-width: $screen-md) {
     .mainnav-plainview {
         .nav {
             ul {
@@ -354,7 +354,7 @@
 }
 
 /* Medium sized device */
-@media (max-width: $screen-sm - 1) {
+@media (max-width: $screen-md - 1) {
     /* If there's no JavaScript available */
     #mainnav-toggle-close {
         display: none;
@@ -466,7 +466,7 @@
 }
 
 /* Large device */
-@media (min-width: $screen-sm) {
+@media (min-width: $screen-md) {
     #nav {
         background-color: transparent;
     }
@@ -535,7 +535,7 @@
     #menu-backdrop {
         display: block;
 
-        @media (min-width: $screen-sm) {
+        @media (min-width: $screen-md) {
             display: none;
         }
     }
