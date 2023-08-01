@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.34-226
+Version: 2.3.34-231
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -8889,7 +8889,7 @@ body.embedded .news-item .news-meta {
   width: 100%;
   height: 100%;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .header-container {
     width: 100%;
   }
@@ -8918,7 +8918,7 @@ body.embedded .news-item .news-meta {
     align-items: flex-end;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   header .header-row {
     justify-content: space-between;
     padding: 1.2rem 0 1rem;
@@ -9363,7 +9363,7 @@ body.nav-toggled #headerwrapper {
   max-height: 100%;
   text-align: left;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .meta-logo {
     display: none;
   }
@@ -11587,7 +11587,7 @@ $slider-height-md: 512px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .banner {
     height: 182px;
   }
@@ -16091,7 +16091,7 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
     width: 100%;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .fau-theme .meta-widget.rrze-multilang-widget {
     position: relative;
     left: inherit;
