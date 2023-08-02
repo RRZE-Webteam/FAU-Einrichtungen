@@ -300,7 +300,8 @@
 	    }
 
 	    .news-more {
-		@include buttonstyle();
+			@include buttonstyle();
+			margin-right: var(--width-gutter-half);
 	    } 
     }
 }
