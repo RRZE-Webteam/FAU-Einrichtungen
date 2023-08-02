@@ -468,7 +468,7 @@ $html.removeClass('no-js').addClass('js');
         // If scrolling up and current scroll position is not at the very top
         else if (scrollTop < lastScrollTop) {
             header.style.top = "0";
-            header.style.position = "fixed";
+            header.style.position = "sticky";
         } 
         // If scrolled down more than 150px
         else if (scrollTop < 250) {
@@ -479,13 +479,12 @@ $html.removeClass('no-js').addClass('js');
         // If it's within the first 150px while scrolling down
         else {
             header.style.top = "-100%";
-            header.style.position = "fixed";
+            header.style.position = "sticky";
         }
         
         lastScrollTop = scrollTop;
     });
-
-
+    
     }
 );
 

@@ -8,7 +8,7 @@ Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-Version: 2.3.34-271
+Version: 2.3.34-274
 =======
 Version: 2.3.34-225
 >>>>>>> Stashed changes
