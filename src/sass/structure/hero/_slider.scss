@@ -63,7 +63,11 @@ $slider-height-md: 512px;
 			font-weight: 700;
 			z-index: 19;
 			width: 100%;
-			max-width: 100%;	
+			max-width: 100%;
+
+			[dir="rtl"] & {
+				text-align: right;
+			}
 			
 			@include px2rem($font-size-hero-slider-title-small);
 			
@@ -251,7 +255,7 @@ $slider-height-md: 512px;
 		
 		[dir="rtl"] & {
 			left: var(--width-gutter-half);
-			right: var(--width-gutter-half);
+			right: auto;
 			.slick-arrow { 
 				font-size: 11em;
 		color:#fff;
@@ -263,7 +267,7 @@ $slider-height-md: 512px;
 			right: calc(var(--width-gutter) + 5px);
 			[dir="rtl"] & {
 				left: var(--width-gutter-half);
-				right: var(--width-gutter-half);
+				right: auto;
 			}
 		}
 

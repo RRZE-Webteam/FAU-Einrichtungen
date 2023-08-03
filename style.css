@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.34-297
+Version: 2.3.34-310
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -1314,7 +1314,7 @@ a.bg-danger:focus {
   display: none;
 }
 [dir=rtl] .slick-slide {
-  float: right;
+  float: left;
 }
 .slick-slide img {
   display: block;
@@ -1339,6 +1339,11 @@ a.bg-danger:focus {
 
 .slick-arrow.slick-hidden {
   display: none;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  direction: ltr;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -11206,6 +11211,9 @@ $slider-height-md: 512px;
   font-size: 1.5rem;
   line-height: 2.25rem;
 }
+[dir=rtl] #hero-slides .item .slider-titel {
+  text-align: right;
+}
 @media (min-width: 768px) {
   #hero-slides .item .slider-titel {
     font-size: 1.75rem;
@@ -11381,7 +11389,7 @@ $slider-height-md: 512px;
 }
 [dir=rtl] #hero-slides .slick-next {
   left: var(--width-gutter-half);
-  right: var(--width-gutter-half);
+  right: auto;
 }
 [dir=rtl] #hero-slides .slick-next .slick-arrow {
   font-size: 11em;
@@ -11393,7 +11401,7 @@ $slider-height-md: 512px;
   }
   [dir=rtl] #hero-slides .slick-next {
     left: var(--width-gutter-half);
-    right: var(--width-gutter-half);
+    right: auto;
   }
 }
 #hero-slides .slick-startstop {
