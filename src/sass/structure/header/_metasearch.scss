@@ -29,6 +29,7 @@
         padding: 2px 5px 1px 6px;
         border-radius: var(--border-radius);
         cursor: pointer;
+        z-index: 999;
 
         &.active {
             display: none;
