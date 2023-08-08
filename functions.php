@@ -143,7 +143,6 @@ function fau_custom_init() {
     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 
 
-
 }
 add_action( 'init', 'fau_custom_init' );
 

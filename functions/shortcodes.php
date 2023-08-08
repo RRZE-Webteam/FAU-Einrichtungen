@@ -9,7 +9,6 @@ class FAUShortcodes
 {
 	function __construct()
 	{
-		remove_filter('the_content', 'wpautop');
 		add_action('init', array($this, 'add_shortcodes'));
 	}
 
