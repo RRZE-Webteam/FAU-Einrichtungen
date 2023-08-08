@@ -144,10 +144,6 @@ function fau_custom_init() {
 
 
 
-    remove_filter( 'the_content', 'wpautop' );
-	// no auto p
-
-
 }
 add_action( 'init', 'fau_custom_init' );
 
