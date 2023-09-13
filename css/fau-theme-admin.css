@@ -4839,15 +4839,15 @@ UI Elements, from jquery UI CSS
           hyphens: auto;
 }
 .edit-post-visual-editor .editor-block-list__block h1.mce-content-body {
-  font-size: 1.812rem;
+  font-size: 1.813rem;
   line-height: 2.357rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h1.mce-content-body {
-  font-size: 1.687rem;
-  line-height: 2.532rem;
+  font-size: 1.688rem;
+  line-height: 2.549rem;
 }
 .edit-post-visual-editor .editor-block-list__block h1.mce-content-body.small {
-  font-size: 1.687rem;
+  font-size: 1.688rem;
   line-height: 2.194rem;
 }
 .edit-post-visual-editor .editor-block-list__block h2.mce-content-body {
@@ -4864,61 +4864,61 @@ table .edit-post-visual-editor .editor-block-list__block h1.mce-content-body {
 }
 .edit-post-visual-editor .editor-block-list__block h2.mce-content-body.small, .edit-post-visual-editor .editor-block-list__block h2.mce-content-body.subtitle {
   font-size: 1.375rem;
-  line-height: 2.063rem;
+  line-height: 2.077rem;
 }
 .edit-post-visual-editor .editor-block-list__block h2.mce-content-body.subtitle {
   padding: 0 0 1rem 0;
 }
 table .edit-post-visual-editor .editor-block-list__block h2.mce-content-body {
   font-size: 1.375rem;
-  line-height: 2.063rem;
+  line-height: 2.077rem;
 }
 .edit-post-visual-editor .editor-block-list__block h3.mce-content-body {
   margin: 0;
   padding: 11px 0;
-  font-size: 1.312rem;
-  line-height: 1.969rem;
+  font-size: 1.313rem;
+  line-height: 1.982rem;
 }
 .edit-post-visual-editor .editor-block-list__block h3.mce-content-body.abstract {
   padding: 0 0 22px 0;
 }
 table .edit-post-visual-editor .editor-block-list__block h3.mce-content-body {
-  font-size: 1.187rem;
-  line-height: 1.782rem;
+  font-size: 1.188rem;
+  line-height: 1.794rem;
 }
 .edit-post-visual-editor .editor-block-list__block h4.mce-content-body {
   margin: 0;
   padding: 11px 0 11px 0;
-  font-size: 1.187rem;
-  line-height: 1.782rem;
+  font-size: 1.188rem;
+  line-height: 1.794rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h4.mce-content-body {
-  font-size: 1.062rem;
-  line-height: 1.594rem;
+  font-size: 1.063rem;
+  line-height: 1.605rem;
 }
 .edit-post-visual-editor .editor-block-list__block h5.mce-content-body {
   margin: 0;
   padding: 11px 0 11px 0;
   font-size: 1.125rem;
-  line-height: 1.688rem;
+  line-height: 1.699rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h5.mce-content-body {
   font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 1.51rem;
 }
 .edit-post-visual-editor .editor-block-list__block h6 {
-  font-size: 1.062rem;
-  line-height: 1.594rem;
+  font-size: 1.063rem;
+  line-height: 1.605rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h6 {
-  font-size: 0.937rem;
-  line-height: 1.407rem;
+  font-size: 0.938rem;
+  line-height: 1.416rem;
 }
 .edit-post-visual-editor .editor-block-list__block p, .edit-post-visual-editor .editor-block-list__block address {
   margin: 0;
   padding: 0 0 11px 0;
   font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 1.51rem;
   color: var(--color-Text);
   font-family: "Roboto", "FAU Chimera", sans-serif;
 }
@@ -4933,11 +4933,11 @@ table .edit-post-visual-editor .editor-block-list__block h6 {
   font-weight: 300;
   font-style: italic;
   font-size: 1.125rem;
-  line-height: 1.688rem;
+  line-height: 1.699rem;
 }
 .edit-post-visual-editor .editor-block-list__block p.presentationtitle {
   font-weight: bold;
-  font-size: 1.812rem;
+  font-size: 1.813rem;
   line-height: 2.357rem;
   margin: 20px 0 20px 0;
 }
@@ -4954,7 +4954,7 @@ table .edit-post-visual-editor .editor-block-list__block h6 {
 .edit-post-visual-editor .editor-block-list__block li {
   padding: 3px 0 4px 4px;
   font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 1.51rem;
   color: var(--color-Text);
 }
 .edit-post-visual-editor .editor-block-list__block ul {
@@ -5004,20 +5004,20 @@ table .edit-post-visual-editor .editor-block-list__block h6 {
 }
 .edit-post-visual-editor .editor-block-list__block .has-small-font-size {
   font-size: 0.875rem;
-  line-height: 1.313rem;
+  line-height: 1.322rem;
 }
 .edit-post-visual-editor .editor-block-list__block .has-regular-font-size {
   font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 1.51rem;
 }
 .edit-post-visual-editor .editor-block-list__block .has-large-font-size {
   font-size: 1.25rem;
-  line-height: 1.875rem;
+  line-height: 1.888rem;
 }
 .edit-post-visual-editor .editor-block-list__block .has-huge-font-size,
 .edit-post-visual-editor .editor-block-list__block .has-larger-font-size {
   font-size: 1.5rem;
-  line-height: 2.25rem;
+  line-height: 2.265rem;
 }
 .edit-post-visual-editor .editor-block-list__block p.has-drop-cap:not(:focus):first-letter {
   float: left;
