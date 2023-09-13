@@ -4840,19 +4840,19 @@ UI Elements, from jquery UI CSS
 }
 .edit-post-visual-editor .editor-block-list__block h1.mce-content-body {
   font-size: 1.812rem;
-  line-height: 2.357;
+  line-height: 2.357rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h1.mce-content-body {
   font-size: 1.687rem;
-  line-height: 2.532;
+  line-height: 2.532rem;
 }
 .edit-post-visual-editor .editor-block-list__block h1.mce-content-body.small {
   font-size: 1.687rem;
-  line-height: 2.194;
+  line-height: 2.194rem;
 }
 .edit-post-visual-editor .editor-block-list__block h2.mce-content-body {
   font-size: 1.5rem;
-  line-height: 1.951;
+  line-height: 1.951rem;
   margin: 0;
   padding: 22px 0;
 }
@@ -4864,61 +4864,61 @@ table .edit-post-visual-editor .editor-block-list__block h1.mce-content-body {
 }
 .edit-post-visual-editor .editor-block-list__block h2.mce-content-body.small, .edit-post-visual-editor .editor-block-list__block h2.mce-content-body.subtitle {
   font-size: 1.375rem;
-  line-height: 2.063;
+  line-height: 2.063rem;
 }
 .edit-post-visual-editor .editor-block-list__block h2.mce-content-body.subtitle {
   padding: 0 0 1rem 0;
 }
 table .edit-post-visual-editor .editor-block-list__block h2.mce-content-body {
   font-size: 1.375rem;
-  line-height: 2.063;
+  line-height: 2.063rem;
 }
 .edit-post-visual-editor .editor-block-list__block h3.mce-content-body {
   margin: 0;
   padding: 11px 0;
   font-size: 1.312rem;
-  line-height: 1.969;
+  line-height: 1.969rem;
 }
 .edit-post-visual-editor .editor-block-list__block h3.mce-content-body.abstract {
   padding: 0 0 22px 0;
 }
 table .edit-post-visual-editor .editor-block-list__block h3.mce-content-body {
   font-size: 1.187rem;
-  line-height: 1.782;
+  line-height: 1.782rem;
 }
 .edit-post-visual-editor .editor-block-list__block h4.mce-content-body {
   margin: 0;
   padding: 11px 0 11px 0;
   font-size: 1.187rem;
-  line-height: 1.782;
+  line-height: 1.782rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h4.mce-content-body {
   font-size: 1.062rem;
-  line-height: 1.594;
+  line-height: 1.594rem;
 }
 .edit-post-visual-editor .editor-block-list__block h5.mce-content-body {
   margin: 0;
   padding: 11px 0 11px 0;
   font-size: 1.125rem;
-  line-height: 1.688;
+  line-height: 1.688rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h5.mce-content-body {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
 }
 .edit-post-visual-editor .editor-block-list__block h6 {
   font-size: 1.062rem;
-  line-height: 1.594;
+  line-height: 1.594rem;
 }
 table .edit-post-visual-editor .editor-block-list__block h6 {
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
 }
 .edit-post-visual-editor .editor-block-list__block p, .edit-post-visual-editor .editor-block-list__block address {
   margin: 0;
   padding: 0 0 11px 0;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: var(--color-Text);
   font-family: "Roboto", "FAU Chimera", sans-serif;
 }
@@ -4933,12 +4933,12 @@ table .edit-post-visual-editor .editor-block-list__block h6 {
   font-weight: 300;
   font-style: italic;
   font-size: 1.125rem;
-  line-height: 1.688;
+  line-height: 1.688rem;
 }
 .edit-post-visual-editor .editor-block-list__block p.presentationtitle {
   font-weight: bold;
   font-size: 1.812rem;
-  line-height: 2.357;
+  line-height: 2.357rem;
   margin: 20px 0 20px 0;
 }
 .edit-post-visual-editor .editor-block-list__block ul,
@@ -4954,7 +4954,7 @@ table .edit-post-visual-editor .editor-block-list__block h6 {
 .edit-post-visual-editor .editor-block-list__block li {
   padding: 3px 0 4px 4px;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: var(--color-Text);
 }
 .edit-post-visual-editor .editor-block-list__block ul {
@@ -5004,25 +5004,25 @@ table .edit-post-visual-editor .editor-block-list__block h6 {
 }
 .edit-post-visual-editor .editor-block-list__block .has-small-font-size {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 .edit-post-visual-editor .editor-block-list__block .has-regular-font-size {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
 }
 .edit-post-visual-editor .editor-block-list__block .has-large-font-size {
   font-size: 1.25rem;
-  line-height: 1.875;
+  line-height: 1.875rem;
 }
 .edit-post-visual-editor .editor-block-list__block .has-huge-font-size,
 .edit-post-visual-editor .editor-block-list__block .has-larger-font-size {
   font-size: 1.5rem;
-  line-height: 2.25;
+  line-height: 2.25rem;
 }
 .edit-post-visual-editor .editor-block-list__block p.has-drop-cap:not(:focus):first-letter {
   float: left;
   font-size: 4.5rem;
-  line-height: 4.5;
+  line-height: 4.5rem;
   font-weight: 100;
   margin: 0 0.1em 0 0;
   text-transform: uppercase;

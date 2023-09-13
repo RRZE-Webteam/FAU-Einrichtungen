@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.34-318
+Version: 2.3.34-319
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -1592,7 +1592,8 @@ html {
   font-weight: normal;
   font-style: normal;
 }
-.fa, .accordion .accordion-group .accordion-heading .accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a:before, .wpcf7-not-valid-tip:before, .wpcf7-validation-errors:before, .wpcf7-mail-sent-ok:before, .imagelink .slick-next:before, .imagelink .slick-prev:before, .image-gallery .gallery-slick .slick-next:before, .image-gallery .gallery-slick .slick-prev:before, .search-result .search-meta .download:before, .search-result .search-meta .post-meta-attachment:before, .search-result .search-meta .post-meta-kontakt:before, .search-result .search-meta .post-meta-event:before, .news-item h2 .ext-link::after, .news-details .post-meta-videopost-author:before, .news-details .post-meta-tags:before, .news-details .post-meta-date:before, .news-details .post-meta-categories:before, .organigram .toggle-icon, .hero-navigation li:before, #hero-slides .slick-next:before, #hero-slides .slick-prev:before, .helpermenus li:before, .helpermenus h3 a.ext-link:after, #mainnav-toggle-close:before, #mainnav-toggle:before, .nav > li.has-sub > a:before,
+.fa, .accordion .accordion-group .accordion-heading .accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a:before, .wpcf7-not-valid-tip:before, .wpcf7-validation-errors:before, .wpcf7-mail-sent-ok:before, .imagelink .slick-next:before, .imagelink .slick-prev:before, .image-gallery .gallery-slick .slick-next:before, .image-gallery .gallery-slick .slick-prev:before, .search-result .search-meta .download:before, .search-result .search-meta .post-meta-attachment:before, .search-result .search-meta .post-meta-kontakt:before, .search-result .search-meta .post-meta-event:before, .news-item h2 .ext-link::after, .news-details .post-meta-videopost-author:before, .news-details .post-meta-tags:before, .news-details .post-meta-date:before, .news-details .post-meta-categories:before, .organigram .toggle-icon, .hero-navigation li:before, #hero-slides .slick-next:before, #hero-slides .slick-prev:before, .helpermenus li:before, .helpermenus h3 a.ext-link:after, #mainnav-toggle-close:before, #mainnav-toggle:before, .navsmall > li.has-sub > a:before,
+.navsmall > li.has-sub > [type=button]:before, .nav > li.has-sub > a:before,
 .nav > li.has-sub > [type=button]:before, ul.social li.social-iconbyurl a::before, ul.social li.social-wikipedia a:before, ul.social li.social-itunes a:before, ul.social li.social-youtube a:before, ul.social li.social-vimeo a:before, ul.social li.social-feed a:before, ul.social li.social-flickr a:before, ul.social li.social-delicious a:before, ul.social li.social-tumblr a:before, ul.social li.social-skype a:before, ul.social li.social-github a:before, ul.social li.social-xing a:before, ul.social li.social-twitter a:before, ul.social li.social-facebook a:before, ul.social li.social-instagram a:before, ul.social li.social-pinterest a:before, ul.social li.social-diaspora a:before {
   display: inline-block;
   font: normal normal normal 16px/1.5 FontAwesome;
@@ -1663,22 +1664,26 @@ html {
   float: right;
 }
 
-.fa.fa-pull-left, .accordion .accordion-group .accordion-heading .fa-pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-left:before, .fa-pull-left.wpcf7-not-valid-tip:before, .fa-pull-left.wpcf7-validation-errors:before, .fa-pull-left.wpcf7-mail-sent-ok:before, .imagelink .fa-pull-left.slick-next:before, .imagelink .fa-pull-left.slick-prev:before, .image-gallery .gallery-slick .fa-pull-left.slick-next:before, .image-gallery .gallery-slick .fa-pull-left.slick-prev:before, .search-result .search-meta .fa-pull-left.download:before, .search-result .search-meta .fa-pull-left.post-meta-attachment:before, .search-result .search-meta .fa-pull-left.post-meta-kontakt:before, .search-result .search-meta .fa-pull-left.post-meta-event:before, .news-item h2 .fa-pull-left.ext-link::after, .news-details .fa-pull-left.post-meta-videopost-author:before, .news-details .fa-pull-left.post-meta-tags:before, .news-details .fa-pull-left.post-meta-date:before, .news-details .fa-pull-left.post-meta-categories:before, .organigram .fa-pull-left.toggle-icon, .hero-navigation li.fa-pull-left:before, #hero-slides .fa-pull-left.slick-next:before, #hero-slides .fa-pull-left.slick-prev:before, .helpermenus li.fa-pull-left:before, .helpermenus h3 a.fa-pull-left.ext-link:after, .fa-pull-left#mainnav-toggle-close:before, .fa-pull-left#mainnav-toggle:before, .nav > li.has-sub > a.fa-pull-left:before,
+.fa.fa-pull-left, .accordion .accordion-group .accordion-heading .fa-pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-left:before, .fa-pull-left.wpcf7-not-valid-tip:before, .fa-pull-left.wpcf7-validation-errors:before, .fa-pull-left.wpcf7-mail-sent-ok:before, .imagelink .fa-pull-left.slick-next:before, .imagelink .fa-pull-left.slick-prev:before, .image-gallery .gallery-slick .fa-pull-left.slick-next:before, .image-gallery .gallery-slick .fa-pull-left.slick-prev:before, .search-result .search-meta .fa-pull-left.download:before, .search-result .search-meta .fa-pull-left.post-meta-attachment:before, .search-result .search-meta .fa-pull-left.post-meta-kontakt:before, .search-result .search-meta .fa-pull-left.post-meta-event:before, .news-item h2 .fa-pull-left.ext-link::after, .news-details .fa-pull-left.post-meta-videopost-author:before, .news-details .fa-pull-left.post-meta-tags:before, .news-details .fa-pull-left.post-meta-date:before, .news-details .fa-pull-left.post-meta-categories:before, .organigram .fa-pull-left.toggle-icon, .hero-navigation li.fa-pull-left:before, #hero-slides .fa-pull-left.slick-next:before, #hero-slides .fa-pull-left.slick-prev:before, .helpermenus li.fa-pull-left:before, .helpermenus h3 a.fa-pull-left.ext-link:after, .fa-pull-left#mainnav-toggle-close:before, .fa-pull-left#mainnav-toggle:before, .navsmall > li.has-sub > a.fa-pull-left:before,
+.navsmall > li.has-sub > .fa-pull-left[type=button]:before, .nav > li.has-sub > a.fa-pull-left:before,
 .nav > li.has-sub > .fa-pull-left[type=button]:before, ul.social li.social-iconbyurl a.fa-pull-left::before, ul.social li.social-wikipedia a.fa-pull-left:before, ul.social li.social-itunes a.fa-pull-left:before, ul.social li.social-youtube a.fa-pull-left:before, ul.social li.social-vimeo a.fa-pull-left:before, ul.social li.social-feed a.fa-pull-left:before, ul.social li.social-flickr a.fa-pull-left:before, ul.social li.social-delicious a.fa-pull-left:before, ul.social li.social-tumblr a.fa-pull-left:before, ul.social li.social-skype a.fa-pull-left:before, ul.social li.social-github a.fa-pull-left:before, ul.social li.social-xing a.fa-pull-left:before, ul.social li.social-twitter a.fa-pull-left:before, ul.social li.social-facebook a.fa-pull-left:before, ul.social li.social-instagram a.fa-pull-left:before, ul.social li.social-pinterest a.fa-pull-left:before, ul.social li.social-diaspora a.fa-pull-left:before {
   margin-right: 0.3em;
 }
 
-.fa.fa-pull-right, .accordion .accordion-group .accordion-heading .fa-pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-right:before, .fa-pull-right.wpcf7-not-valid-tip:before, .fa-pull-right.wpcf7-validation-errors:before, .fa-pull-right.wpcf7-mail-sent-ok:before, .imagelink .fa-pull-right.slick-next:before, .imagelink .fa-pull-right.slick-prev:before, .image-gallery .gallery-slick .fa-pull-right.slick-next:before, .image-gallery .gallery-slick .fa-pull-right.slick-prev:before, .search-result .search-meta .fa-pull-right.download:before, .search-result .search-meta .fa-pull-right.post-meta-attachment:before, .search-result .search-meta .fa-pull-right.post-meta-kontakt:before, .search-result .search-meta .fa-pull-right.post-meta-event:before, .news-item h2 .fa-pull-right.ext-link::after, .news-details .fa-pull-right.post-meta-videopost-author:before, .news-details .fa-pull-right.post-meta-tags:before, .news-details .fa-pull-right.post-meta-date:before, .news-details .fa-pull-right.post-meta-categories:before, .organigram .fa-pull-right.toggle-icon, .hero-navigation li.fa-pull-right:before, #hero-slides .fa-pull-right.slick-next:before, #hero-slides .fa-pull-right.slick-prev:before, .helpermenus li.fa-pull-right:before, .helpermenus h3 a.fa-pull-right.ext-link:after, .fa-pull-right#mainnav-toggle-close:before, .fa-pull-right#mainnav-toggle:before, .nav > li.has-sub > a.fa-pull-right:before,
+.fa.fa-pull-right, .accordion .accordion-group .accordion-heading .fa-pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.fa-pull-right:before, .fa-pull-right.wpcf7-not-valid-tip:before, .fa-pull-right.wpcf7-validation-errors:before, .fa-pull-right.wpcf7-mail-sent-ok:before, .imagelink .fa-pull-right.slick-next:before, .imagelink .fa-pull-right.slick-prev:before, .image-gallery .gallery-slick .fa-pull-right.slick-next:before, .image-gallery .gallery-slick .fa-pull-right.slick-prev:before, .search-result .search-meta .fa-pull-right.download:before, .search-result .search-meta .fa-pull-right.post-meta-attachment:before, .search-result .search-meta .fa-pull-right.post-meta-kontakt:before, .search-result .search-meta .fa-pull-right.post-meta-event:before, .news-item h2 .fa-pull-right.ext-link::after, .news-details .fa-pull-right.post-meta-videopost-author:before, .news-details .fa-pull-right.post-meta-tags:before, .news-details .fa-pull-right.post-meta-date:before, .news-details .fa-pull-right.post-meta-categories:before, .organigram .fa-pull-right.toggle-icon, .hero-navigation li.fa-pull-right:before, #hero-slides .fa-pull-right.slick-next:before, #hero-slides .fa-pull-right.slick-prev:before, .helpermenus li.fa-pull-right:before, .helpermenus h3 a.fa-pull-right.ext-link:after, .fa-pull-right#mainnav-toggle-close:before, .fa-pull-right#mainnav-toggle:before, .navsmall > li.has-sub > a.fa-pull-right:before,
+.navsmall > li.has-sub > .fa-pull-right[type=button]:before, .nav > li.has-sub > a.fa-pull-right:before,
 .nav > li.has-sub > .fa-pull-right[type=button]:before, ul.social li.social-iconbyurl a.fa-pull-right::before, ul.social li.social-wikipedia a.fa-pull-right:before, ul.social li.social-itunes a.fa-pull-right:before, ul.social li.social-youtube a.fa-pull-right:before, ul.social li.social-vimeo a.fa-pull-right:before, ul.social li.social-feed a.fa-pull-right:before, ul.social li.social-flickr a.fa-pull-right:before, ul.social li.social-delicious a.fa-pull-right:before, ul.social li.social-tumblr a.fa-pull-right:before, ul.social li.social-skype a.fa-pull-right:before, ul.social li.social-github a.fa-pull-right:before, ul.social li.social-xing a.fa-pull-right:before, ul.social li.social-twitter a.fa-pull-right:before, ul.social li.social-facebook a.fa-pull-right:before, ul.social li.social-instagram a.fa-pull-right:before, ul.social li.social-pinterest a.fa-pull-right:before, ul.social li.social-diaspora a.fa-pull-right:before {
   margin-left: 0.3em;
 }
 
-.fa.pull-left, .accordion .accordion-group .accordion-heading .pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-left:before, .pull-left.wpcf7-not-valid-tip:before, .pull-left.wpcf7-validation-errors:before, .pull-left.wpcf7-mail-sent-ok:before, .imagelink .pull-left.slick-next:before, .imagelink .pull-left.slick-prev:before, .image-gallery .gallery-slick .pull-left.slick-next:before, .image-gallery .gallery-slick .pull-left.slick-prev:before, .search-result .search-meta .pull-left.download:before, .search-result .search-meta .pull-left.post-meta-attachment:before, .search-result .search-meta .pull-left.post-meta-kontakt:before, .search-result .search-meta .pull-left.post-meta-event:before, .news-item h2 .pull-left.ext-link::after, .news-details .pull-left.post-meta-videopost-author:before, .news-details .pull-left.post-meta-tags:before, .news-details .pull-left.post-meta-date:before, .news-details .pull-left.post-meta-categories:before, .organigram .pull-left.toggle-icon, .hero-navigation li.pull-left:before, #hero-slides .pull-left.slick-next:before, #hero-slides .pull-left.slick-prev:before, .helpermenus li.pull-left:before, .helpermenus h3 a.pull-left.ext-link:after, .pull-left#mainnav-toggle-close:before, .pull-left#mainnav-toggle:before, .nav > li.has-sub > a.pull-left:before,
+.fa.pull-left, .accordion .accordion-group .accordion-heading .pull-left.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-left:before, .pull-left.wpcf7-not-valid-tip:before, .pull-left.wpcf7-validation-errors:before, .pull-left.wpcf7-mail-sent-ok:before, .imagelink .pull-left.slick-next:before, .imagelink .pull-left.slick-prev:before, .image-gallery .gallery-slick .pull-left.slick-next:before, .image-gallery .gallery-slick .pull-left.slick-prev:before, .search-result .search-meta .pull-left.download:before, .search-result .search-meta .pull-left.post-meta-attachment:before, .search-result .search-meta .pull-left.post-meta-kontakt:before, .search-result .search-meta .pull-left.post-meta-event:before, .news-item h2 .pull-left.ext-link::after, .news-details .pull-left.post-meta-videopost-author:before, .news-details .pull-left.post-meta-tags:before, .news-details .pull-left.post-meta-date:before, .news-details .pull-left.post-meta-categories:before, .organigram .pull-left.toggle-icon, .hero-navigation li.pull-left:before, #hero-slides .pull-left.slick-next:before, #hero-slides .pull-left.slick-prev:before, .helpermenus li.pull-left:before, .helpermenus h3 a.pull-left.ext-link:after, .pull-left#mainnav-toggle-close:before, .pull-left#mainnav-toggle:before, .navsmall > li.has-sub > a.pull-left:before,
+.navsmall > li.has-sub > .pull-left[type=button]:before, .nav > li.has-sub > a.pull-left:before,
 .nav > li.has-sub > .pull-left[type=button]:before, ul.social li.social-iconbyurl a.pull-left::before, ul.social li.social-wikipedia a.pull-left:before, ul.social li.social-itunes a.pull-left:before, ul.social li.social-youtube a.pull-left:before, ul.social li.social-vimeo a.pull-left:before, ul.social li.social-feed a.pull-left:before, ul.social li.social-flickr a.pull-left:before, ul.social li.social-delicious a.pull-left:before, ul.social li.social-tumblr a.pull-left:before, ul.social li.social-skype a.pull-left:before, ul.social li.social-github a.pull-left:before, ul.social li.social-xing a.pull-left:before, ul.social li.social-twitter a.pull-left:before, ul.social li.social-facebook a.pull-left:before, ul.social li.social-instagram a.pull-left:before, ul.social li.social-pinterest a.pull-left:before, ul.social li.social-diaspora a.pull-left:before {
   margin-right: 0.3em;
 }
 
-.fa.pull-right, .accordion .accordion-group .accordion-heading .pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-right:before, .pull-right.wpcf7-not-valid-tip:before, .pull-right.wpcf7-validation-errors:before, .pull-right.wpcf7-mail-sent-ok:before, .imagelink .pull-right.slick-next:before, .imagelink .pull-right.slick-prev:before, .image-gallery .gallery-slick .pull-right.slick-next:before, .image-gallery .gallery-slick .pull-right.slick-prev:before, .search-result .search-meta .pull-right.download:before, .search-result .search-meta .pull-right.post-meta-attachment:before, .search-result .search-meta .pull-right.post-meta-kontakt:before, .search-result .search-meta .pull-right.post-meta-event:before, .news-item h2 .pull-right.ext-link::after, .news-details .pull-right.post-meta-videopost-author:before, .news-details .pull-right.post-meta-tags:before, .news-details .pull-right.post-meta-date:before, .news-details .pull-right.post-meta-categories:before, .organigram .pull-right.toggle-icon, .hero-navigation li.pull-right:before, #hero-slides .pull-right.slick-next:before, #hero-slides .pull-right.slick-prev:before, .helpermenus li.pull-right:before, .helpermenus h3 a.pull-right.ext-link:after, .pull-right#mainnav-toggle-close:before, .pull-right#mainnav-toggle:before, .nav > li.has-sub > a.pull-right:before,
+.fa.pull-right, .accordion .accordion-group .accordion-heading .pull-right.accordion-toggle:before, .cms-workflow-widget .mlp_language_box ul li a.pull-right:before, .pull-right.wpcf7-not-valid-tip:before, .pull-right.wpcf7-validation-errors:before, .pull-right.wpcf7-mail-sent-ok:before, .imagelink .pull-right.slick-next:before, .imagelink .pull-right.slick-prev:before, .image-gallery .gallery-slick .pull-right.slick-next:before, .image-gallery .gallery-slick .pull-right.slick-prev:before, .search-result .search-meta .pull-right.download:before, .search-result .search-meta .pull-right.post-meta-attachment:before, .search-result .search-meta .pull-right.post-meta-kontakt:before, .search-result .search-meta .pull-right.post-meta-event:before, .news-item h2 .pull-right.ext-link::after, .news-details .pull-right.post-meta-videopost-author:before, .news-details .pull-right.post-meta-tags:before, .news-details .pull-right.post-meta-date:before, .news-details .pull-right.post-meta-categories:before, .organigram .pull-right.toggle-icon, .hero-navigation li.pull-right:before, #hero-slides .pull-right.slick-next:before, #hero-slides .pull-right.slick-prev:before, .helpermenus li.pull-right:before, .helpermenus h3 a.pull-right.ext-link:after, .pull-right#mainnav-toggle-close:before, .pull-right#mainnav-toggle:before, .navsmall > li.has-sub > a.pull-right:before,
+.navsmall > li.has-sub > .pull-right[type=button]:before, .nav > li.has-sub > a.pull-right:before,
 .nav > li.has-sub > .pull-right[type=button]:before, ul.social li.social-iconbyurl a.pull-right::before, ul.social li.social-wikipedia a.pull-right:before, ul.social li.social-itunes a.pull-right:before, ul.social li.social-youtube a.pull-right:before, ul.social li.social-vimeo a.pull-right:before, ul.social li.social-feed a.pull-right:before, ul.social li.social-flickr a.pull-right:before, ul.social li.social-delicious a.pull-right:before, ul.social li.social-tumblr a.pull-right:before, ul.social li.social-skype a.pull-right:before, ul.social li.social-github a.pull-right:before, ul.social li.social-xing a.pull-right:before, ul.social li.social-twitter a.pull-right:before, ul.social li.social-facebook a.pull-right:before, ul.social li.social-instagram a.pull-right:before, ul.social li.social-pinterest a.pull-right:before, ul.social li.social-diaspora a.pull-right:before {
   margin-left: 0.3em;
 }
@@ -2503,7 +2508,8 @@ html {
   content: "\f0d6";
 }
 
-.fa-caret-down:before, .accordion .accordion-group .accordion-heading .accordion-toggle:before, .nav > li.has-sub > a:before,
+.fa-caret-down:before, .accordion .accordion-group .accordion-heading .accordion-toggle:before, .navsmall > li.has-sub > a:before,
+.navsmall > li.has-sub > [type=button]:before, .nav > li.has-sub > a:before,
 .nav > li.has-sub > [type=button]:before {
   content: "\f0d7";
 }
@@ -4558,26 +4564,26 @@ h3, h4, h5, h6 {
 
 h1 {
   font-size: 1.812rem;
-  line-height: 2.357;
+  line-height: 2.357rem;
 }
 .sidebar-inline + h1 {
   margin-top: 0;
 }
 .banner-text h1 {
   font-size: 1.812rem;
-  line-height: 2.719;
+  line-height: 2.719rem;
 }
 .sidebar-inline h1, .search-sidebar h1, .sidebar-outline h1, .widget h1 {
   font-size: 1.5rem;
-  line-height: 2.25;
+  line-height: 2.25rem;
 }
 table h1 {
   font-size: 1.687rem;
-  line-height: 2.532;
+  line-height: 2.532rem;
 }
 h1.small {
   font-size: 1.687rem;
-  line-height: 2.194;
+  line-height: 2.194rem;
 }
 h1.mobiletitle {
   margin-top: 0;
@@ -4602,7 +4608,7 @@ h1.mobiletitle {
 
 h2 {
   font-size: 1.5rem;
-  line-height: 1.951;
+  line-height: 1.951rem;
 }
 .sidebar-outline h2, .widget h2 {
   margin-bottom: 11px;
@@ -4612,25 +4618,25 @@ h2 {
 }
 h2.small, h2.subtitle {
   font-size: 1.375rem;
-  line-height: 2.063;
+  line-height: 2.063rem;
 }
 .search h2 {
   margin-top: 4px;
 }
 h2.widget-title, .sidebar-inline h2, .search-sidebar h2, .sidebar-outline h2, .widget h2 {
   font-size: 1.312rem;
-  line-height: 1.969;
+  line-height: 1.969rem;
 }
 table h2 {
   font-size: 1.375rem;
-  line-height: 2.063;
+  line-height: 2.063rem;
 }
 
 h3 {
   margin: 0;
   padding: 11px 0;
   font-size: 1.312rem;
-  line-height: 1.969;
+  line-height: 1.969rem;
 }
 h3.abstract {
   padding: 0 0 22px 0;
@@ -4640,65 +4646,65 @@ h3.abstract {
 }
 #off-canvas h3 {
   font-size: 1.187rem;
-  line-height: 1.782;
+  line-height: 1.782rem;
   border-bottom: 1px solid var(--color-StandardHellgrau);
   margin: 20px 0 0 0;
   padding: 0 10px;
 }
 .sidebar-inline h3, .search-sidebar h3, .sidebar-outline h3, .widget h3 {
   font-size: 1.187rem;
-  line-height: 1.782;
+  line-height: 1.782rem;
 }
 table h3 {
   font-size: 1.187rem;
-  line-height: 1.782;
+  line-height: 1.782rem;
 }
 
 h4 {
   margin: 0;
   padding: 11px 0 11px 0;
   font-size: 1.187rem;
-  line-height: 1.782;
+  line-height: 1.782rem;
 }
 .person h4, .span3 h4 {
   font-size: 1.062rem;
-  line-height: 1.594;
+  line-height: 1.594rem;
 }
 .sidebar-inline h4, .search-sidebar h4, .sidebar-outline h4, .widget h4 {
   font-size: 1.062rem;
-  line-height: 1.594;
+  line-height: 1.594rem;
 }
 table h4 {
   font-size: 1.062rem;
-  line-height: 1.594;
+  line-height: 1.594rem;
 }
 
 h5 {
   margin: 0;
   padding: 11px 0 11px 0;
   font-size: 1.125rem;
-  line-height: 1.688;
+  line-height: 1.688rem;
 }
 .sidebar-inline h5, .search-sidebar h5, .sidebar-outline h5, .widget h5 {
   font-size: 1.062rem;
-  line-height: 1.594;
+  line-height: 1.594rem;
 }
 table h5 {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
 }
 
 h6 {
   font-size: 1.062rem;
-  line-height: 1.594;
+  line-height: 1.594rem;
 }
 .sidebar-inline h6, .search-sidebar h6, .sidebar-outline h6, .widget h6 {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
 }
 table h6 {
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
 }
 
 @media (max-width: 480px) {
@@ -4718,7 +4724,7 @@ kbd,
 samp {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 
 code,
@@ -4789,7 +4795,7 @@ p, address {
   margin: 0;
   padding: 0 0 11px 0;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: var(--color-Text);
   font-family: "Roboto", "FAU Chimera", sans-serif;
   font-style: normal;
@@ -4801,7 +4807,7 @@ p, address {
 }
 #content .textwidget p {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 p.searchnotice {
   font-size: 24px;
@@ -4814,22 +4820,22 @@ p.lead-in {
   font-weight: 300;
   font-style: italic;
   font-size: 1.125rem;
-  line-height: 1.688;
+  line-height: 1.688rem;
 }
 aside p, #content .widget p, #content .widget p {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 
 aside address, #content .widget address, #content .widget address {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 
 p.presentationtitle {
   font-weight: bold;
   font-size: 1.812rem;
-  line-height: 2.719;
+  line-height: 2.719rem;
   margin: 20px 0 20px 0;
 }
 
@@ -4877,7 +4883,7 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   right: 20px;
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   border: none;
@@ -4916,7 +4922,7 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   text-decoration-thickness: 0.15rem;
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   background: transparent;
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
@@ -5405,7 +5411,7 @@ main .nextlink-ghostbutton,
   text-decoration-thickness: 0.15rem;
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   background: transparent;
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
@@ -5481,7 +5487,7 @@ main .prevlink-ghostbutton,
   text-decoration-thickness: 0.15rem;
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   background: transparent;
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
@@ -5861,7 +5867,7 @@ ul.social li a {
   padding: 5px 0;
   background: none;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
 }
 ul.social li a:hover, ul.social li a:focus {
   text-decoration: underline;
@@ -5961,12 +5967,12 @@ ol ul {
 li {
   padding: 0.3rem 0 0.3rem 0.2rem;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
 }
 .widget.quicklinks li, .portalpage-sidebar li, .sidebar-inline li {
   padding: 0;
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 
 ul li {
@@ -6288,7 +6294,7 @@ dd > dl {
 }
 .pagination.pagebreaks .subpages {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
   margin: 10px;
   display: inline-block;
 }
@@ -6296,7 +6302,7 @@ dd > dl {
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
   text-decoration: none;
 }
 .pagination.pagebreaks .subpages a:hover, .pagination.pagebreaks .subpages a:focus {
@@ -6321,7 +6327,7 @@ dd > dl {
 .pagination.pagebreaks .subpages .current .number {
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   background: transparent;
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
@@ -6329,7 +6335,7 @@ dd > dl {
   padding: 10px 18px;
   text-decoration: none;
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 .pagination.pagebreaks .subpages .current .number:hover, .pagination.pagebreaks .subpages .current .number:focus {
   text-decoration: none;
@@ -6343,7 +6349,7 @@ dd > dl {
 input {
   margin: 0;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
 }
 input[type=reset], input[type=submit], input[type=button], input[type=radio], input[type=checkbox] {
   cursor: pointer;
@@ -6361,7 +6367,7 @@ input[type=text], input[type=password], input[type=datetime], input[type=datetim
   transition: border linear 0.2s, box-shadow linear 0.2s;
   padding: 5px 10px;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   height: auto;
 }
 input[type=radio], input[type=checkbox] {
@@ -6401,7 +6407,7 @@ input[type=radio][disabled], input[type=checkbox][disabled], input[type=radio][r
 input[type=file] {
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   background: transparent;
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
@@ -6418,7 +6424,7 @@ input[type=file]:hover, input[type=file]:focus {
 input[type=reset], input[type=submit] {
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   border: none;
@@ -6453,7 +6459,7 @@ input::placeholder {
 
 textarea {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   display: inline-block;
   color: var(--color-Text, #555555);
   border-radius: var(--border-radius, 4px);
@@ -6493,7 +6499,7 @@ select {
   cursor: pointer;
   border-radius: var(--border-radius, 4px);
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: var(--color-Text);
   background-color: var(--color-MainBackground);
   width: -moz-fit-content;
@@ -6548,14 +6554,14 @@ legend {
   margin-bottom: 0 0 1rem 0;
   font-weight: bold;
   font-size: 1.312rem;
-  line-height: 1.969;
+  line-height: 1.969rem;
 }
 
 label {
   padding-top: 5px;
   display: block;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
 }
 label textarea, label[type=password], label[type=text] {
   display: block;
@@ -6631,11 +6637,11 @@ table th, table td {
   padding-left: 15px;
   padding-right: 15px;
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 table th p, table td p {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 table th {
   color: var(--color-Text);
@@ -6661,7 +6667,7 @@ table tr:nth-child(odd) td {
 }
 table ul li {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
   background-position: left 5px;
 }
 table.nooddcolor tr:nth-child(odd) td {
@@ -6715,13 +6721,13 @@ blockquote {
   font-family: Georgia, serif;
   position: relative;
   font-size: 1.125rem;
-  line-height: 1.688;
+  line-height: 1.688rem;
 }
 blockquote p {
   margin-bottom: 0;
   font-family: Georgia, serif;
   font-size: 1.125rem;
-  line-height: 1.688;
+  line-height: 1.688rem;
   font-weight: 400;
   letter-spacing: 0.3px;
 }
@@ -6759,7 +6765,7 @@ blockquote cite {
   display: block;
   text-align: right;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: var(--color-Text);
 }
 blockquote small:before,
@@ -6789,11 +6795,11 @@ blockquote.pull-right {
 }
 #content .sidebar-inline blockquote {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 #content .sidebar-inline blockquote p {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 
 cite {
@@ -6806,11 +6812,11 @@ cite.text {
 }
 #content .sidebar-inline cite {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 #content .sidebar-inline cite p {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 
 acronym[title],
@@ -7057,7 +7063,7 @@ main figure.aligncenter, aside figure.aligncenter, .portalpage-sidebar figure.al
 
 figcaption {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
   padding: 0.3rem;
 }
 @media (min-width: 480px) {
@@ -7161,7 +7167,7 @@ figcaption {
   width: 100%;
   text-decoration: none;
   font-size: 1.25rem;
-  line-height: 1.875;
+  line-height: 1.875rem;
 }
 #skiplinks .jumplinks li a:active:hover, #skiplinks .jumplinks li a:active:focus, #skiplinks .jumplinks li a:hover:hover, #skiplinks .jumplinks li a:hover:focus, #skiplinks .jumplinks li a:focus:hover, #skiplinks .jumplinks li a:focus:focus {
   color: var(--color-button-hover-text);
@@ -8093,7 +8099,7 @@ button,
 input[type=button] {
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   border: none;
@@ -8135,7 +8141,7 @@ a[role=button] {
   text-decoration-thickness: 0.15rem;
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   border: none;
@@ -8260,12 +8266,12 @@ a img.aligncenter {
 .gallery-caption,
 .bypostauthor {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
 }
 
 .wp-caption-text {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
   padding: 5px 0 5px 0;
 }
 
@@ -8293,29 +8299,29 @@ a img.aligncenter {
 }
 .has-small-font-size {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 
 .has-regular-font-size {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
 }
 
 .has-large-font-size {
   font-size: 1.25rem;
-  line-height: 1.875;
+  line-height: 1.875rem;
 }
 
 .has-huge-font-size,
 .has-larger-font-size {
   font-size: 1.5rem;
-  line-height: 2.25;
+  line-height: 2.25rem;
 }
 
 p.has-drop-cap:not(:focus):first-letter {
   float: left;
   font-size: 4.5rem;
-  line-height: 4.5;
+  line-height: 4.5rem;
   font-weight: 100;
   margin: 0 0.1em 0 0;
   text-transform: uppercase;
@@ -9074,7 +9080,7 @@ body.embedded .news-item .news-meta {
 #meta input,
 #meta li {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 @media (min-width: 992px) {
   #meta {
@@ -9194,7 +9200,7 @@ body.nav-toggled #headerwrapper {
   margin-left: 5px;
   padding: 1px 6px;
   font-size: 1.5rem;
-  line-height: 2.25;
+  line-height: 2.25rem;
 }
 .meta-links-trigger .meta-links-trigger-text {
   position: absolute;
@@ -9742,7 +9748,7 @@ body.nav-toggled #headerwrapper {
   display: block;
   position: relative;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   font-weight: bold;
   padding: 10px 15px;
   /* Necessary for force-click toggle buttons */
@@ -9807,7 +9813,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 @media (max-width: 768px) {
   .nav .level3 a {
     font-size: 0.875rem;
-    line-height: 1.313;
+    line-height: 1.313rem;
   }
 }
 .nav .nav-flyout {
@@ -9819,7 +9825,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   font-weight: normal;
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   border: none;
@@ -9832,7 +9838,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   font-weight: normal;
   margin: 5px 0;
   font-size: 1.125rem;
-  line-height: 1.688;
+  line-height: 1.688rem;
   padding: 0.5rem 1rem;
   margin-left: 20px;
   background-color: var(--color-mainmenu-sublevel-bg);
@@ -9895,6 +9901,207 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   background-color: transparent;
 }
 
+.navsmall {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  /* All links & buttons */
+  /* First-level items */
+  /* Fly-Out / secondary navigation */
+  /* Portal buttons */
+}
+.navsmall:before {
+  display: none;
+}
+.navsmall a, .navsmall [type=button] {
+  margin: 5px 0 0 0;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--color-mainmenu-toplevel-text);
+  background: var(--color-mainmenu-toplevel-bg);
+}
+.navsmall a:hover, .navsmall a:focus, .navsmall a[aria-expanded=true], .navsmall [type=button]:hover, .navsmall [type=button]:focus, .navsmall [type=button][aria-expanded=true] {
+  color: var(--color-mainmenu-toplevel-hover-text);
+  background: var(--color-mainmenu-toplevel-hover-bg);
+  text-decoration: none;
+}
+.navsmall [type=button].current-menu-ancestor {
+  color: var(--color-mainmenu-toplevel-hover-text);
+  background: var(--color-mainmenu-toplevel-hover-bg);
+}
+.navsmall li.level1.has-sub:hover > a {
+  color: var(--color-mainmenu-toplevel-bg);
+  background: var(--color-mainmenu-toplevel-hover-bg);
+}
+.navsmall > li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  /* Primary navigation toggle links / buttons */
+}
+.navsmall > li:before {
+  display: none;
+}
+.navsmall > li > a,
+.navsmall > li > [type=button] {
+  display: block;
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  /* Necessary for force-click toggle buttons */
+  border: none;
+  background-color: transparent;
+  text-align: left;
+  width: 100%;
+}
+.navsmall > li.has-sub {
+  /* Must be an extra selector as IE / Edge doesn't support :focus-within and considers this invalid */
+}
+.navsmall > li.has-sub > a,
+.navsmall > li.has-sub > [type=button] {
+  padding-bottom: 10px;
+  padding-right: 28px;
+  margin-bottom: 0;
+}
+.navsmall > li.has-sub > a:before,
+.navsmall > li.has-sub > [type=button]:before {
+  position: absolute;
+  top: 11px;
+  right: 15px;
+  display: none;
+  transition: transform 0.2s ease-in-out;
+}
+.navsmall > li.has-sub:hover > a {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+body:not(.mainnav-forceclick):not(.ismobile) .navsmall > li.has-sub > a:focus ~ .nav-flyout,
+body:not(.mainnav-forceclick):not(.ismobile) .navsmall > li.has-sub > [type=button]:focus ~ .nav-flyout, body:not(.mainnav-forceclick):not(.ismobile) .navsmall > li.has-sub:hover .nav-flyout {
+  display: block;
+}
+body:not(.mainnav-forceclick):not(.ismobile) .navsmall > li.has-sub:focus-within .nav-flyout {
+  display: block;
+}
+.navsmall > li.has-sub > [type=button][aria-expanded=true] {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.navsmall > li.has-sub > [type=button][aria-expanded=true]:before {
+  transform: rotate(-180deg);
+}
+.navsmall > li.has-sub > [type=button][aria-expanded=true] ~ .nav-flyout {
+  display: block;
+}
+.navsmall .level2 a,
+.navsmall .level3 a {
+  color: var(--color-mainmenu-toplevel-text);
+}
+.navsmall .level2 a:hover,
+.navsmall .level2 a:focus,
+.navsmall .level3 a:hover,
+.navsmall .level3 a:focus {
+  color: var(--color-mainmenu-sublevel-hover-text);
+  background-color: var(--color-mainmenu-sublevel-bg);
+  border-radius: var(--border-radius);
+}
+.navsmall .level3 a {
+  font-weight: normal;
+}
+@media (max-width: 768px) {
+  .navsmall .level3 a {
+    font-size: 0.875rem;
+    line-height: 1.313rem;
+  }
+}
+.navsmall .nav-flyout {
+  background-color: transparent;
+  padding: 50px 0;
+}
+.navsmall .button-portal {
+  display: inline-block;
+  font-weight: normal;
+  display: inline-block;
+  font-size: 0.937rem;
+  line-height: 1.407rem;
+  color: var(--color-button-text);
+  background-color: var(--color-button-bg);
+  border: none;
+  padding: 10px 18px;
+  text-decoration: none;
+  border-radius: var(--border-radius-buttons, 3px);
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: normal;
+  margin: 5px 0;
+  font-size: 1.125rem;
+  line-height: 1.688rem;
+  padding: 0.5rem 1rem;
+  margin-left: 20px;
+  background-color: var(--color-mainmenu-sublevel-bg);
+}
+.navsmall .button-portal:hover, .navsmall .button-portal:focus {
+  color: var(--color-button-hover-text);
+  background-color: var(--color-button-hover-bg);
+}
+.navsmall .button-portal:hover, .navsmall .button-portal:focus {
+  text-decoration: none;
+}
+.navsmall ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  margin: 0 0 15px 0;
+}
+.navsmall ul:before {
+  display: none;
+}
+.navsmall ul.level4 {
+  margin: 0;
+}
+.navsmall ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  /* Necessary because there's a global style setting this to "disc" */
+  padding: 0;
+  /* Fix for Webkit only, because "column-width" doesn't work properly */
+}
+.navsmall ul li:before {
+  display: none;
+}
+@supports not (-moz-appearance: none) {
+  @media (min-width: 768px) {
+    .navsmall ul li {
+      width: 330px;
+    }
+  }
+}
+.navsmall ul li.current-menu-item > a {
+  color: var(--color-mainmenu-sublevel-hover-text);
+  background-color: var(--color-mainmenu-sublevel-bg);
+  border-radius: var(--border-radius);
+}
+.navsmall ul a {
+  display: inline-block;
+  padding: 7px 20px 7px 13px;
+  width: 100%;
+}
+.navsmall .level2 > li.has-sub {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  margin-bottom: 20px;
+}
+.navsmall .level2 > li > a {
+  background-color: transparent;
+}
+
 /*
 * Larger device
 */
@@ -9907,12 +10114,12 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   }
   .mainnav-plainview .nav ul.level2 > li > a {
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.5rem;
     padding-left: var(--width-gutter-half);
   }
   .mainnav-plainview .nav ul.level3 a {
     font-size: 0.875rem;
-    line-height: 1.313;
+    line-height: 1.313rem;
   }
   .mainnav-plainview .nav .flyout-entries-full {
     display: flex;
@@ -9981,6 +10188,93 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
     margin-top: 50px;
   }
 }
+@media (min-width: 992px) {
+  .mainnav-plainview .navsmall ul > li {
+    background-color: var(--color-white);
+  }
+  .mainnav-plainview .navsmall ul {
+    background-color: var(--color-white);
+    margin-bottom: 0;
+  }
+  .mainnav-plainview .navsmall ul.level2 > li:not(.has-sub) > a {
+    border-bottom: none;
+  }
+  .mainnav-plainview .navsmall ul.level2 > li > a {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding-left: var(--width-gutter-half);
+  }
+  .mainnav-plainview .navsmall ul.level3 a {
+    font-size: 0.875rem;
+    line-height: 1.313rem;
+  }
+  .mainnav-plainview .navsmall .flyout-entries-full {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 ul.level2, .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 ul.level3, .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 ul.level2, .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 ul.level3, .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 ul.level2, .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 ul.level3, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 ul.level2, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 ul.level3 {
+    column-width: 330px;
+  }
+  .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 .button-portal, .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 .button-portal, .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 .button-portal, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 .button-portal {
+    margin-right: auto;
+    margin-top: 10px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1400px) {
+  .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 .button-portal, .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 .button-portal, .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 .button-portal, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 .button-portal {
+    margin-left: unset !important;
+    margin-right: unset !important;
+  }
+}
+@media (min-width: 992px) {
+  .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 ul.level2, .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 ul.level3 {
+    column-count: 1;
+  }
+  .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 .button-portal {
+    margin-left: 535px;
+  }
+}
+@media (min-width: 992px) {
+  .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 ul.level2, .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 ul.level3 {
+    column-count: 2;
+  }
+  .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 .button-portal {
+    margin-left: 361px;
+  }
+}
+@media (min-width: 992px) {
+  .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 ul.level2, .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 ul.level3, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 ul.level2, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 ul.level3 {
+    column-count: 3;
+  }
+}
+@media (min-width: 992px) and (max-width: 1029px) {
+  .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 ul.level2, .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 ul.level3, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 ul.level2, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 ul.level3 {
+    column-count: 2;
+  }
+}
+@media (min-width: 992px) {
+  .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 .button-portal, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 .button-portal {
+    margin-left: 187px;
+  }
+}
+@media (min-width: 992px) {
+  .mainnav-plainview .navsmall .nav-flyout {
+    background-color: transparent;
+    border-top: 8px solid var(--color-mainmenu-sublevel-bg);
+  }
+}
+@media (min-width: 992px) and (min-width: 768px) {
+  .mainnav-plainview .navsmall .nav-flyout {
+    min-height: 199px;
+  }
+}
+@media (min-width: 992px) and (max-width: 992px) {
+  .mainnav-plainview .navsmall .nav-flyout {
+    margin-top: 50px;
+  }
+}
 #mainnav-toggle,
 #mainnav-toggle-close {
   min-width: 48px;
@@ -9989,7 +10283,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   right: 5px;
   top: 3px;
   font-size: 1.5rem;
-  line-height: 2.25;
+  line-height: 2.25rem;
   background-color: transparent;
   border: 1px dashed transparent;
   z-index: 100;
@@ -10091,6 +10385,58 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
     background-color: var(--color-primary-dunkelste);
     color: var(--color-primary-dunkelste-kontrast);
   }
+  .navsmall {
+    border-top: 1px solid var(--color-primary-ci-hell);
+  }
+  .navsmall .nav-flyout {
+    padding: 0;
+  }
+  .navsmall .flyout-entries-full {
+    display: flex;
+    flex-direction: column;
+  }
+  .navsmall .flyout-entries-full .button-portal {
+    order: 1;
+    margin-top: 10px;
+    padding: 7px 20px 7px var(--width-gutter-half);
+    margin-left: 0;
+    border-bottom: 1px solid var(--color-primary-dunkler);
+  }
+  .navsmall .flyout-entries-full .button-portal:hover, .navsmall .flyout-entries-full .button-portal:focus, .navsmall .flyout-entries-full .button-portal:active {
+    background: var(--color-mainmenu-sublevel-hover-bg);
+  }
+  .navsmall .flyout-entries-full ul {
+    order: 2;
+  }
+  .navsmall > li {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+  }
+  .navsmall > li:first-child {
+    border-top-color: transparent;
+  }
+  .navsmall > li.level1:hover, .navsmall > li.level1:focus {
+    border-top: 1px solid var(--color-primary-dunkelste);
+  }
+  .navsmall > li.level1:hover + li, .navsmall > li.level1:focus + li {
+    border-top: 1px solid var(--color-primary-dunkelste);
+  }
+  .navsmall > li.level1 > a,
+  .navsmall > li.level1 > [type=button] {
+    margin: 0;
+    cursor: pointer;
+  }
+  .navsmall > li.level1 > a[aria-expanded=true],
+  .navsmall > li.level1 > [type=button][aria-expanded=true] {
+    background-color: var(--color-primary-dunkler);
+    color: var(--color-primary-dunkler-kontrast);
+    border-radius: 0;
+  }
+  .navsmall > li.level1 > a:hover, .navsmall > li.level1 > a:focus,
+  .navsmall > li.level1 > [type=button]:hover,
+  .navsmall > li.level1 > [type=button]:focus {
+    background-color: var(--color-primary-dunkelste);
+    color: var(--color-primary-dunkelste-kontrast);
+  }
   .no-js #nav:target #mainnav-toggle {
     display: none;
   }
@@ -10109,6 +10455,10 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   }
   .js .nav > li.level1 > a:before,
   .js .nav > li.level1 > [type=button]:before {
+    display: block;
+  }
+  .js .navsmall > li.level1 > a:before,
+  .js .navsmall > li.level1 > [type=button]:before {
     display: block;
   }
   #mainnav-toggle {
@@ -10146,10 +10496,40 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
     overflow: hidden;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
   }
+  .navsmall {
+    /* All links & buttons */
+    /* Fly-Out / secondary navigation */
+  }
+  .navsmall > li {
+    float: left;
+  }
+  .navsmall > li > a,
+  .navsmall > li > [type=button] {
+    padding: 10px;
+    border-radius: var(--border-radius);
+  }
+  .navsmall > li.has-sub > a:before,
+  .navsmall > li.has-sub > [type=button]:before {
+    display: block;
+    right: 11px;
+  }
+  .navsmall .nav-flyout {
+    display: none;
+    position: absolute;
+    z-index: 30;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  }
 }
 /* Large device */
 @media (min-width: 992px) {
   .nav .nav-flyout {
+    max-height: calc(100vh - 162px);
+    overflow-y: auto;
+  }
+  .navsmall .nav-flyout {
     max-height: calc(100vh - 162px);
     overflow-y: auto;
   }
@@ -10176,13 +10556,23 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   }
 }
 
+ul.navsmall .level1.has-sub > a.menu-item {
+  display: none;
+}
+ul.navsmall .level1.has-sub button.menu-item {
+  display: inline-block;
+}
+ul.navsmall .level1.has-sub .sub-menu.level2 a.menu-item {
+  display: inline-block;
+}
+
 /*-----------------------------------------------------------------------------------*/
 /* Subnav in content
 /*-----------------------------------------------------------------------------------*/
 .sidebar-subnav header {
   margin-top: 0px;
   font-size: 1.5rem;
-  line-height: 2.25;
+  line-height: 2.25rem;
   font-weight: bold;
 }
 .sidebar-subnav header a {
@@ -10252,7 +10642,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   text-decoration: none;
   display: block;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   font-weight: bold;
   padding: 6px 0;
   color: var(--color-submenu-currentlevel-text);
@@ -10301,7 +10691,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   padding-left: 1.2rem;
   font-weight: unset;
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 #subnav li li li a {
   padding-left: 2.4rem;
@@ -10612,7 +11002,7 @@ main .subpages-menu a:focus svg .fallback,
 .subpages-menu li .portaltop {
   display: block;
   font-size: 1.125rem;
-  line-height: 1.688;
+  line-height: 1.688rem;
   border-left: 1px solid var(--color-ContentBorders);
   border-right: 1px solid var(--color-ContentBorders);
   border-bottom: 1px solid var(--color-ContentBorders);
@@ -10780,7 +11170,7 @@ main .subpages-menu a:focus svg .fallback,
   display: table-cell;
   padding: 0.4rem !important;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
 }
 .subpages-menu li ul a:hover, .subpages-menu li ul a:focus {
   text-decoration: none;
@@ -10862,7 +11252,7 @@ main .subpages-menu a:focus svg .fallback,
 }
 .contentmenu.listview a {
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   color: var(--color-Text, #222);
   background-color: var(--color-MetaBackgroundLight, #DFE6EC);
   padding: 0.5rem 1.8rem;
@@ -10950,7 +11340,7 @@ ol.breadcrumblist li {
   background: none;
   display: inline;
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 ul.breadcrumblist li:before,
 ol.breadcrumblist li:before {
@@ -10978,7 +11368,7 @@ ol.breadcrumblist li:last-child::after {
 .helpermenus h3 {
   display: block;
   font-size: 1.125rem;
-  line-height: 1.688;
+  line-height: 1.688rem;
   width: 302px;
 }
 .helpermenus h3 a.ext-link:after {
@@ -10986,7 +11376,7 @@ ol.breadcrumblist li:last-child::after {
   margin-left: 5px;
   margin-top: 0;
   font-size: 0.625rem;
-  line-height: 0.938;
+  line-height: 0.938rem;
   color: var(--color-Text);
   vertical-align: top;
 }
@@ -11210,7 +11600,7 @@ $slider-height-md: 512px;
   width: 100%;
   max-width: 100%;
   font-size: 1.5rem;
-  line-height: 2.25;
+  line-height: 2.25rem;
 }
 [dir=rtl] #hero-slides .item .slider-titel {
   text-align: right;
@@ -11218,7 +11608,7 @@ $slider-height-md: 512px;
 @media (min-width: 768px) {
   #hero-slides .item .slider-titel {
     font-size: 1.75rem;
-    line-height: 2.625;
+    line-height: 2.625rem;
   }
 }
 #hero-slides .item .slider-titel header {
@@ -11255,7 +11645,7 @@ $slider-height-md: 512px;
   background: rgba(0, 0, 0, 0.6);
   color: #fff;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   z-index: 6;
   margin: 0;
   padding: 1px 4px;
@@ -11474,7 +11864,7 @@ $slider-height-md: 512px;
   padding-left: 0;
   color: var(--color-hero-text);
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 .hero-navigation li:before {
   font-weight: bold;
@@ -11663,7 +12053,7 @@ $slider-height-md: 512px;
 .banner .banner-text p.sitetitle,
 .banner .banner-text h1 {
   font-size: 1.812rem;
-  line-height: 2.719;
+  line-height: 2.719rem;
   -webkit-hyphens: none;
           hyphens: none;
   color: var(--color-hero-text);
@@ -11693,7 +12083,7 @@ $slider-height-md: 512px;
   font-weight: normal;
   color: var(--color-hero-text);
   font-size: 1.25rem;
-  line-height: 1.875;
+  line-height: 1.875rem;
   display: none;
   background: var(--color-hero-bg);
   padding: 0 7px 1px 7px;
@@ -11755,7 +12145,7 @@ $slider-height-md: 512px;
   position: relative;
   z-index: 10;
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 #hero .breadcrumbs span {
   padding: 0 5px;
@@ -11768,7 +12158,7 @@ $slider-height-md: 512px;
 }
 #hero .breadcrumbs .breadcrumb_sitetitle {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 #hero .breadcrumbs span.active {
   display: none;
@@ -12113,7 +12503,7 @@ $slider-height-md: 512px;
 }
 #content main {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: var(--color-Text);
   font-family: "Roboto", "FAU Chimera", sans-serif;
   padding-top: 0;
@@ -12133,7 +12523,7 @@ $slider-height-md: 512px;
 }
 #content main .sidebar-inline {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 #content main .subtitle {
   margin: 1rem var(--width-gutter-half, 15px);
@@ -12240,19 +12630,19 @@ ul.assistant-tabs-nav li:last-child {
 .organigram li {
   background: none;
   font-size: 1.25rem;
-  line-height: 1.875;
+  line-height: 1.875rem;
   margin-bottom: var(--width-gutter-half);
   margin-top: 5px;
 }
 .organigram li li {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   padding-left: var(--width-gutter-half);
   margin-bottom: 0;
 }
 .organigram li li li {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 .organigram a {
   box-shadow: none;
@@ -12370,7 +12760,7 @@ ul.assistant-tabs-nav li:last-child {
   transition: initial;
   max-width: 40%;
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
   padding: 0.5rem 0.7rem;
   border: 1px solid var(--color-ContentBorders);
   border-radius: var(--border-radius);
@@ -12432,7 +12822,7 @@ ul.assistant-tabs-nav li:last-child {
 }
 .post-image .post-image-caption {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
   padding: 5px 0 10px 0;
   text-align: right;
   margin: 0 var(--width-gutter-half);
@@ -12454,7 +12844,7 @@ ul.assistant-tabs-nav li:last-child {
   margin: 0 0 var(--width-gutter-half) 0;
   font-family: "Roboto", "FAU Chimera", sans-serif;
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 .post-meta .post-meta-date:before {
   content: url('data:image/svg+xml,<svg version="1.1" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 84.7 75.9" style="enable-background:new 0 0 84.7 75.9;" xml:space="preserve"><path d="M70.3,6.3h-11V2.9C59.3,1.3,58,0,56.4,0c-1.6,0-2.9,1.3-2.9,2.9v3.4H31.3V2.9C31.3,1.3,30,0,28.4,0s-2.9,1.3-2.9,2.9v3.4h-11C6.5,6.3,0,12.8,0,20.8v40.9c0,7.9,6.4,14.3,14.3,14.3h56.2c7.9,0,14.3-6.4,14.3-14.3V20.8C84.7,12.8,78.3,6.3,70.3,6.3z M14.5,12.1h11v1.7c0,1.6,1.3,2.9,2.9,2.9s2.9-1.3,2.9-2.9v-1.7h22.2v1.7c0,1.6,1.3,2.9,2.9,2.9c1.6,0,2.9-1.3,2.9-2.9v-1.7h11c4.8,0,8.6,3.9,8.6,8.6v2.8H5.8v-2.8C5.8,16,9.7,12.1,14.5,12.1z M70.5,70.1H14.3c-4.6,0-8.4-3.8-8.4-8.4V29.4h73.1v32.3C78.9,66.3,75.1,70.1,70.5,70.1z"/><path d="M22.9,38h-4.4c-1.6,0-2.9,1.3-2.9,2.9c0,1.6,1.3,2.9,2.9,2.9h4.4c1.6,0,2.9-1.3,2.9-2.9C25.8,39.3,24.5,38,22.9,38z"/><path d="M44.6,38h-4.4c-1.6,0-2.9,1.3-2.9,2.9c0,1.6,1.3,2.9,2.9,2.9h4.4c1.6,0,2.9-1.3,2.9-2.9C47.5,39.3,46.2,38,44.6,38z"/><path d="M66.2,38h-4.4c-1.6,0-2.9,1.3-2.9,2.9c0,1.6,1.3,2.9,2.9,2.9h4.4c1.6,0,2.9-1.3,2.9-2.9C69.1,39.3,67.8,38,66.2,38z"/><path d="M22.9,53h-4.4c-1.6,0-2.9,1.3-2.9,2.9c0,1.6,1.3,2.9,2.9,2.9h4.4c1.6,0,2.9-1.3,2.9-2.9C25.8,54.3,24.5,53,22.9,53z"/><path d="M44.6,53h-4.4c-1.6,0-2.9,1.3-2.9,2.9c0,1.6,1.3,2.9,2.9,2.9h4.4c1.6,0,2.9-1.3,2.9-2.9C47.5,54.3,46.2,53,44.6,53z"/><path d="M66.2,53h-4.4c-1.6,0-2.9,1.3-2.9,2.9c0,1.6,1.3,2.9,2.9,2.9h4.4c1.6,0,2.9-1.3,2.9-2.9C69.1,54.3,67.8,53,66.2,53z"/></svg>');
@@ -12473,7 +12863,7 @@ ul.assistant-tabs-nav li:last-child {
   margin-top: var(--width-gutter-half);
   padding-bottom: 50px;
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 .meta-footer .post-meta-categories:before {
   content: url('data:image/svg+xml,<svg version="1.1" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 85.5 70.9" style="enable-background:new 0 0 85.5 70.9;" xml:space="preserve"><path d="M85.5,19.2c0-5.3-4.3-9.7-9.7-9.7H41.4c-0.7,0-1.5-0.3-2-0.7L31,2.1C29.3,0.8,27.2,0,25,0h-15C4.6,0,0.2,4.3,0.2,9.7v51.6c0,5.3,4.3,9.7,9.7,9.7h65.9c5.3,0,9.7-4.3,9.7-9.7V19.2z M79,61.3c0,1.8-1.4,3.2-3.2,3.2H9.9c-1.8,0-3.2-1.4-3.2-3.2V33.6H79V61.3z M79,27.2H6.7V9.7c0-1.8,1.4-3.2,3.2-3.2h15c0.7,0,1.5,0.3,2,0.7l8.4,6.7c1.7,1.4,3.9,2.1,6.1,2.1h34.4c1.8,0,3.2,1.4,3.2,3.2L79,27.2z"/></svg>');
@@ -12598,11 +12988,11 @@ ul.assistant-tabs-nav li:last-child {
 
 .topevent-description {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 .topevent-description p {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 
 @media (max-width: 768px) {
@@ -12744,7 +13134,7 @@ ul.assistant-tabs-nav li:last-child {
 }
 .news-item h2 .ext-link::after {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   content: "\f08e";
   margin-left: 5px;
   position: relative;
@@ -12877,7 +13267,7 @@ ul.assistant-tabs-nav li:last-child {
 .content-inline .news-more-links .news-rss, .entry-content .news-more-links .news-rss, .portalpage-content .news-more-links .news-rss, main .news-more-links .news-rss {
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   background: transparent;
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
@@ -12916,7 +13306,7 @@ main .news-more-links .news-rss:hover:before {
 .content-inline .news-more-links .news-more, .entry-content .news-more-links .news-more, .portalpage-content .news-more-links .news-more, main .news-more-links .news-more {
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   border: none;
@@ -12961,7 +13351,7 @@ main .news-more-links .news-rss:hover:before {
   text-decoration-thickness: 0.15rem;
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   border: none;
@@ -13220,7 +13610,7 @@ main .news-more-links .news-rss:hover:before {
 .searchform-content .search-text input[type=text] {
   border-radius: var(--border-radius);
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   max-width: min(25rem, 90%);
   padding: 0.5rem 2.5rem 0.5rem 1rem;
   height: inherit;
@@ -13256,7 +13646,7 @@ main .news-more-links .news-rss:hover:before {
 .searchform-content .search-text input[type=submit] {
   border-radius: var(--border-radius);
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   padding: 0.5rem 1rem;
@@ -13329,7 +13719,7 @@ main .news-more-links .news-rss:hover:before {
 .widget_search .search-text input[type=text],
 .widget_search .search-text input[type=submit] {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 .widget_search .search-text input[type=text] {
   width: 15rem;
@@ -13357,7 +13747,7 @@ main .news-more-links .news-rss:hover:before {
   text-decoration: none;
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   border: none;
@@ -13370,7 +13760,7 @@ main .news-more-links .news-rss:hover:before {
   font-weight: normal;
   margin: 5px 0;
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 .search-results .nav-links a:hover, .search-results .nav-links a:focus {
   box-shadow: none;
@@ -13389,7 +13779,7 @@ main .news-more-links .news-rss:hover:before {
 .search-results .nav-links .dots {
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   border: none;
@@ -13412,7 +13802,7 @@ main .news-more-links .news-rss:hover:before {
 .search-results .nav-links .current {
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   background: transparent;
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
@@ -13420,7 +13810,7 @@ main .news-more-links .news-rss:hover:before {
   padding: 10px 18px;
   text-decoration: none;
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 .search-results .nav-links .current:hover, .search-results .nav-links .current:focus {
   text-decoration: none;
@@ -13452,7 +13842,7 @@ main .news-more-links .news-rss:hover:before {
 }
 .image-gallery figure figcaption {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
   padding: 5px;
 }
 .image-gallery figure img {
@@ -13575,7 +13965,7 @@ main .news-more-links .news-rss:hover:before {
 .image-gallery .gallery-slick .gallery-image-caption {
   text-align: center;
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
   padding: 5px;
 }
 .image-gallery .gallery-slick .slick-slider img {
@@ -13684,7 +14074,7 @@ main .news-more-links .news-rss:hover:before {
   background: rgba(0, 0, 0, 0.6);
   color: #fff;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   margin: 0;
   padding: 1px 4px;
   border: none;
@@ -14211,7 +14601,7 @@ main .news-more-links .news-rss:hover:before {
   text-decoration-thickness: 0.15rem;
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   background: transparent;
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
@@ -14328,7 +14718,7 @@ main .news-more-links .news-rss:hover:before {
   margin-bottom: 0.7rem;
   overflow-wrap: break-word;
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 .widget ul {
   margin: 0;
@@ -14339,7 +14729,7 @@ main .news-more-links .news-rss:hover:before {
 }
 .widget li {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
   list-style-type: none;
 }
 .widget li a {
@@ -14370,7 +14760,7 @@ main .news-more-links .news-rss:hover:before {
 
 aside span, #content .widget span, #content .widget span {
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -14387,12 +14777,12 @@ aside span, #content .widget span, #content .widget span {
 }
 #footer li {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
 }
 @media (min-width: 768px) {
   #footer li {
     font-size: 0.875rem;
-    line-height: 1.313;
+    line-height: 1.313rem;
   }
 }
 #footer a {
@@ -14415,7 +14805,7 @@ aside span, #content .widget span, #content .widget span {
 @media (min-width: 768px) {
   #footer p, #footer address {
     font-size: 0.875rem;
-    line-height: 1.313;
+    line-height: 1.313rem;
   }
 }
 #footer .footer-logo .fau-logo-footer {
@@ -14527,7 +14917,7 @@ aside span, #content .widget span, #content .widget span {
 #social div h3:first-child,
 #social p.headline {
   font-size: 1.375rem;
-  line-height: 2.063;
+  line-height: 2.063rem;
   padding: 0;
   min-height: 50px;
   display: block;
@@ -14599,7 +14989,7 @@ aside span, #content .widget span, #content .widget span {
 .person .person-info-more a.standard-btn {
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   background: transparent;
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);
@@ -14633,7 +15023,7 @@ aside span, #content .widget span, #content .widget span {
 .person h3,
 .person h3 span {
   font-size: 1.187rem;
-  line-height: 1.782;
+  line-height: 1.782rem;
   padding-bottom: 0;
   padding-top: 5px;
 }
@@ -14645,7 +15035,7 @@ aside .person h3 span,
 #content .widget .person h3 span,
 #content .widget .person h3 span {
   font-size: 1.187rem;
-  line-height: 1.782;
+  line-height: 1.782rem;
 }
 .fau-person h4, .fau-person h4 span,
 .person h4,
@@ -15116,7 +15506,7 @@ aside .person h3 span,
 }
 .sidebar-inline .connection h3 {
   font-size: 1.187rem;
-  line-height: 1.782;
+  line-height: 1.782rem;
 }
 
 .sidebar-outline ul.person-info li {
@@ -15594,7 +15984,7 @@ div.wpcf7-response-output {
 }
 #content .fau-glossar .letters li span, #content .fau-glossar .letters li a {
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   width: 100%;
   line-height: 2.5rem;
   padding: 0.2rem;
@@ -15664,7 +16054,7 @@ main .rrze-calendar.kalender a.events-more,
 main .rrze-calendar.events-list a.events-more {
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   border: none;
@@ -15707,7 +16097,7 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
 .events-more-links a.events-more {
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   border: none;
@@ -15784,7 +16174,7 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
   padding: 10px 0 0 0;
   min-height: 42px;
   font-size: 0.875rem;
-  line-height: 1.313;
+  line-height: 1.313rem;
   background-image: none;
 }
 .widget_event_widget .events-list ul li:before {
@@ -15794,7 +16184,7 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
 .event-date {
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   border: none;
@@ -15825,13 +16215,13 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
 }
 .event-date .event-date-month {
   font-size: 0.625rem;
-  line-height: 0.938;
+  line-height: 0.938rem;
   text-transform: uppercase;
   font-weight: bold;
 }
 .event-date .event-date-day {
   font-size: 1.25rem;
-  line-height: 1.875;
+  line-height: 1.875rem;
   font-weight: bold;
 }
 
@@ -16153,7 +16543,7 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
   vertical-align: middle;
   margin-right: 0.25rem;
   font-size: 1.312rem;
-  line-height: 1.969;
+  line-height: 1.969rem;
 }
 .cms-workflow-widget .mlp_language_box ul li a:hover, .cms-workflow-widget .mlp_language_box ul li a:focus {
   background: var(--color-MetaBackgroundLight);
@@ -16306,7 +16696,7 @@ button.expand-all {
   background: var(--color-ContentBorders);
   color: var(--color-Text);
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   text-decoration: none;
   padding: 8px 35px 8px 10px;
   margin: 0;
@@ -16400,7 +16790,7 @@ button.expand-all {
   background-clip: padding-box;
   text-decoration: none;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
   padding: 8px 35px 8px 10px;
   position: relative;
 }
@@ -16457,7 +16847,7 @@ button.expand-all {
   text-decoration-thickness: 0.15rem;
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   border: none;
@@ -16513,7 +16903,7 @@ button.expand-all {
 /*-----------------------------------------------------------------------------------*/
 #content [id^=timeline] .issues li p:not(.wp-caption-text) {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.5rem;
 }
 #content [id^=timeline] .timeline-nav a,
 #content [id^=timeline] ul.dates a,
@@ -16571,7 +16961,7 @@ button.expand-all {
   text-decoration-thickness: 0.15rem;
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   color: var(--color-button-text);
   background-color: var(--color-button-bg);
   border: none;
@@ -16615,7 +17005,7 @@ button.expand-all {
   text-decoration-thickness: 0.15rem;
   display: inline-block;
   font-size: 0.937rem;
-  line-height: 1.407;
+  line-height: 1.407rem;
   background: transparent;
   color: var(--color-Text);
   border: 1px solid var(--color-ContentBorders);

@@ -260,28 +260,62 @@ jQuery(document).ready(function ($) {
     });
     $('.metalinks').after($backdrop);
 
-    // Create and inject alternative toggle buttons for submenus
-    var $topLevelFlyouts = $('.nav > .has-sub > a + .nav-flyout');
-    var toggleFlyout = function () {
-        var toggle = this || null;
-        var isExpanded = false;
-        $('.nav > .has-sub > [type=button]').each(function (i, btn) {
-            btn._isExpanded = (toggle === btn) ? !btn._isExpanded : false;
-            $(btn).attr('aria-expanded', btn._isExpanded ? 'true' : 'false');
-            isExpanded = isExpanded || btn._isExpanded;
-            btn.nextElementSibling.scrollTop = 0;
-        });
-        $html.toggleClass('flyout-scrolling', isExpanded);
-    };
-    $topLevelFlyouts.each(function (index, topLevelFlyout) {
-        var uniqueId = '_' + Math.random().toString(36).substr(2, 9);
-        topLevelFlyout.$_link = $(topLevelFlyout.previousSibling);
-        topLevelFlyout.$_button = $('<button type="button" aria-controls="' + uniqueId + '" aria-haspopup="true" aria-expanded="false" aria-hidden="true"/>')
-            .text(topLevelFlyout.$_link.text())
-            .click(toggleFlyout);
-        topLevelFlyout.$_button.addClass(topLevelFlyout.$_link.attr('class'));
-        $(topLevelFlyout).before(topLevelFlyout.$_button).attr('id', uniqueId);
-    });
+                // Create and inject alternative toggle buttons for submenus
+               var $topLevelFlyouts = $('.nav > .has-sub > a + .nav-flyout');
+                var toggleFlyout = function() {
+                    var toggle = this || null;
+                    var isExpanded = false;
+                    $('.nav > .has-sub > [type=button]').each(function(i, btn) {
+                        btn._isExpanded = (toggle === btn) ? !btn._isExpanded : false;
+                        $(btn).attr('aria-expanded', btn._isExpanded ? 'true' : 'false');
+                        isExpanded = isExpanded || btn._isExpanded;
+                        btn.nextElementSibling.scrollTop = 0;
+                    });
+                    $html.toggleClass('flyout-scrolling', isExpanded);
+                };
+                $topLevelFlyouts.each(function(index, topLevelFlyout) {
+                    console.log("Adding button for nav ", index);
+                    var uniqueId = '_' + Math.random().toString(36).substr(2, 9);
+                    topLevelFlyout.$_link = $(topLevelFlyout.previousSibling);
+                    topLevelFlyout.$_button = $('<button type="button" aria-controls="' + uniqueId + '" aria-haspopup="true" aria-expanded="false" aria-hidden="true"/>')
+                        .text(topLevelFlyout.$_link.text())
+                        .click(toggleFlyout);
+                    topLevelFlyout.$_button.addClass(topLevelFlyout.$_link.attr('class'));
+                    $(topLevelFlyout).before(topLevelFlyout.$_button).attr('id', uniqueId);
+                });
+
+                // Create and inject alternative toggle buttons for submenus nav-small
+                var $topLevelFlyoutSmall = $('.navsmall > .has-sub > a + .nav-flyout');
+                var toggleFlyoutSmall = function() {
+                    var toggleSmall = this || null;
+                    var isExpandedSmall = false;
+                    $('.navsmall > .has-sub > [type=button]').each(function(i, btn) {
+                        btn.isExpandedSmall = (toggleSmall === btn) ? !btn.isExpandedSmall : false;
+                        $(btn).attr('aria-expanded', btn.isExpandedSmall ? 'true' : 'false');
+                        isExpandedSmall = isExpandedSmall || btn.isExpandedSmall;
+                        btn.nextElementSibling.scrollTop = 0;
+                    });
+                    $html.toggleClass('flyout-scrolling', isExpandedSmall);
+                };
+                $topLevelFlyoutSmall.each(function(index, topLevelFlyoutSmall) {
+                    if ($(topLevelFlyoutSmall).prev().is("button")) {
+                        console.log("Button already exists for .navsmall element:", index);
+                        return; // Skip the current iteration as button already exists
+                    }
+            
+
+                    var uniqueId = '_' + Math.random().toString(36).substr(4, 19);
+                    topLevelFlyoutSmall.$_link = $(topLevelFlyoutSmall.previousSibling);
+                    topLevelFlyoutSmall.$_button = $('<button type="button" aria-controls="' + uniqueId + '" aria-haspopup="true" aria-expanded="false" aria-hidden="true"/>')
+                        .text(topLevelFlyoutSmall.$_link.text())  // corrected this line
+                        .click(toggleFlyoutSmall);
+                    topLevelFlyoutSmall.$_button.addClass(topLevelFlyoutSmall.$_link.attr('class'));
+                    $(topLevelFlyoutSmall).before(topLevelFlyoutSmall.$_button).attr('id', uniqueId);
+                });
+
+
+
+
 
     /**
      * Enable / disable the flyout toggle buttons
@@ -292,6 +326,12 @@ jQuery(document).ready(function ($) {
         $topLevelFlyouts.each(function (index, topLevelFlyout) {
             topLevelFlyout.$_link[openOnClick ? 'hide' : 'show']().attr('aria-hidden', openOnClick ? 'true' : 'false');
             topLevelFlyout.$_button[openOnClick ? 'show' : 'hide']().attr('aria-hidden', openOnClick ? 'false' : 'true');
+        });
+    };
+    var updateToggleStateSmall = function (openOnClick) {
+        $topLevelFlyoutSmall.each(function (index, topLevelFlyout) {
+            topLevelFlyoutSmall .$_link[openOnClick ? 'hide' : 'show']().attr('aria-hidden', openOnClick ? 'true' : 'false');
+            topLevelFlyoutSmall .$_button[openOnClick ? 'show' : 'hide']().attr('aria-hidden', openOnClick ? 'false' : 'true');
         });
     };
 
@@ -345,9 +385,11 @@ jQuery(document).ready(function ($) {
 
             // Enable / disable the toggle buttons
             updateToggleState(forceClick || mobileState);
+            updateToggleStateSmall(forceClick || mobileState);
 
             // Close all flyouts
             toggleFlyout();
+            toggleFlyoutSmall();
 
             // Move the sidebar & meta navigations
             moveSidebarNavigation(!mobileState);

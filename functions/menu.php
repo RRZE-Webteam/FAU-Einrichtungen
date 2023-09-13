@@ -387,6 +387,228 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
     }
 }
 
+
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Walker for main menu  SMALL
+/*-----------------------------------------------------------------------------------*/
+
+class Walker_Main_Menu_Plainview_Small extends Walker_Nav_Menu {private $currentID;
+    private $level = 1;
+    private $count = array();
+    private $element;
+
+    function start_lvl(&$output, $depth = 0, $args = array())  {
+        $this->level++;
+    
+        $this->count[$this->level] = 0;
+
+        $child_count = 0;
+        $children = get_posts(array(
+            'post_type' => 'nav_menu_item',
+            'nopaging' => true,
+            'numberposts' => -1,
+            'meta_key' => '_menu_item_menu_item_parent',
+            'meta_value' => $this->element->ID,
+            'order' => 'ASC',
+            'orderby' => 'menu_order',
+        ));
+        if (!empty($children)) {
+            foreach ($children as $child) {
+                $grand_children = get_posts(array(
+                    'post_type' => 'nav_menu_item',
+                    'nopaging' => true,
+                    'numberposts' => -1,
+                    'meta_key' => '_menu_item_menu_item_parent',
+                    'meta_value' => $child->ID,
+                    'order' => 'ASC',
+                    'orderby' => 'menu_order',
+                ));
+                $child_count += count($grand_children) + 1; // add 1 for the child itself
+            }
+        }
+        $child_count_html = '<span class="child-count">' . $child_count . '</span>';
+
+        if ($this->level == 2) {
+            $columnclass='';
+
+            if ($child_count<8){
+                $columnclass='1';
+            }else   if($child_count<16){
+                $columnclass='2';
+            }else if($child_count<=24){
+                $columnclass='3';
+            }
+            else if($child_count>24){
+                $columnclass='4';
+            }
+        
+            $output .= '<div class="nav-flyout"><div class="container"><div class="row">';
+            $output .= '<div class="flyout-entries-full column-count-'. $columnclass.'">';
+            
+           
+           
+        }
+
+
+        $output .= '<ul class="sub-menu level'.$this->level.'">';
+        
+        
+    }
+
+    function end_lvl(&$output, $depth = 0, $args = array()) {
+        if ($this->level == 2) {
+            $output       .= '</ul>';
+            $currenttitle = fau_get_the_title($this->currentID);
+            if (!empty($currenttitle)) {
+                $output   .= '<a href="'.get_permalink($this->currentID).'" class="button-portal">';
+                $pretitle = get_theme_mod('menu_pretitle_portal');
+                if (!fau_empty($pretitle)) {
+                    $output .= $pretitle.' ';
+                }
+                $output    .= $currenttitle;
+                $posttitle = get_theme_mod('menu_aftertitle_portal');
+                if (!fau_empty($posttitle)) {
+                    $output .= ' '.$posttitle;
+                }
+                $output .= '</a>';
+       
+            }
+            $output .= '</div>';
+            $output .= '</div></div></div>';
+
+        } else {
+            $output .= '</ul>';
+        }
+        $this->level--;
+    }
+
+    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+        $level       = $this->level;
+        $iscurrent   = 0;
+        $class_names = $value = '';
+
+        // Generate Classes. Dont use WordPress default, cause i dont want to
+        // get all those unused data filled up my html
+        
+        $classes = array();
+          if ($level < 2) {
+            
+            //	$classes[] = 'menu-item-' . $item->ID;
+            $classes[] = 'level'.$level;
+           
+        }
+        if (in_array("menu-item-has-children", $item->classes)) {
+            $classes[] = 'has-sub';
+        }
+        if (in_array("current-menu-item", $item->classes)) {
+            $classes[] = 'current-menu-item';
+        }
+        if (in_array("current-menu-parent", $item->classes)) {
+            $classes[] = 'current-menu-parent';
+        }
+        if (in_array("current-page-item", $item->classes)) {
+            $iscurrent = 1;
+            $classes[] = 'current-page-item';
+        }
+        $rellink = fau_make_link_relative($item->url);
+        if (substr($rellink, 0, 4) == 'http') {
+            // absoluter Link auf externe Seite
+            $classes[] = 'external';
+        }
+        $this->element = $item; // Store the current element to be used in start_lvl
+
+
+        $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
+        $class_names = $class_names ? ' class="'.esc_attr($class_names).'"' : '';
+        
+
+
+        $output .= '<li'.$value.$class_names.'>';
+
+        $atts           = array();
+        $atts['title']  = !empty($item->attr_title) ? $item->attr_title : '';
+        $atts['target'] = !empty($item->target) ? $item->target : '';
+        $atts['rel']    = !empty($item->xfn) ? $item->xfn : '';
+        $atts['href']   = !empty($item->url) ? $item->url : '';
+    
+        $item_classes  = empty($item->classes) ? array() : (array)$item->classes;
+        $item_classes  = fau_cleanup_menuclasses($item_classes);
+        $item_class    = implode(' ', $item_classes);
+        $atts['class'] = !empty($item_class) ? $item_class : '';
+    
+    
+        if ($iscurrent == 1) {
+            $atts['aria-current'] = "page";
+        }
+        $atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args);
+    
+        if ($this->level == 1) {
+            $this->currentID = $item->object_id;
+        }
+    
+        $attributes = '';
+        foreach ($atts as $attr => $value) {
+            if (!empty($value)) {
+                $value      = ('href' === $attr) ? esc_url($value) : esc_attr($value);
+                $attributes .= ' '.$attr.'="'.$value.'"';
+            }
+        }
+    
+        // Add child count for level one and two
+        if ($level <= 1 && isset($args->walker)) {
+            $child_count = 0;
+            $children = get_posts(array(
+                'post_type' => 'nav_menu_item',
+                'nopaging' => true,
+                'numberposts' => -1,
+                'meta_key' => '_menu_item_menu_item_parent',
+                'meta_value' => $item->ID,
+                'order' => 'ASC',
+                'orderby' => 'menu_order',
+            ));
+            if (!empty($children)) {
+                foreach ($children as $child) {
+                    $grand_children = get_posts(array(
+                        'post_type' => 'nav_menu_item',
+                        'nopaging' => true,
+                        'numberposts' => -1,
+                        'meta_key' => '_menu_item_menu_item_parent',
+                        'meta_value' => $child->ID,
+                        'order' => 'ASC',
+                        'orderby' => 'menu_order',
+                    ));
+                    $child_count += count($grand_children) + 1; // add 1 for the child itself
+                }
+            }
+            $child_count_html = '<span class="child-count">' . $child_count . '</span>';
+        } else {
+            $child_count_html = '';
+        }
+        
+    
+        $item_output = $args->before;
+        $item_output .= '<a'.$attributes.'>';
+        $item_output .= $args->link_before.apply_filters('the_title', $item->title, $item->ID).$args->link_after; // Append child count
+        $item_output .= '</a>';
+        $item_output .= $args->after;
+    
+        $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
+    }
+    
+    function end_el(&$output, $item, $depth = 0, $args = array())  {
+        $output .= "</li>";
+    }
+}
+
+
+
+
+
+
+
 /*-----------------------------------------------------------------------------------*/
 /* Create submenu icon/grid in content
 /*-----------------------------------------------------------------------------------*/

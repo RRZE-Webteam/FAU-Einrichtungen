@@ -308,6 +308,8 @@ $defaultoptions = [
 	// Hover-Effekt bei Portalmenüs
 	'portalmenus_hover_zoom'					=> false,
 	// Zoom-Effekt bei Portalmenüs
+
+	'main_menu_style'	                  => 'mega',
 ];
 
 
@@ -1137,6 +1139,25 @@ $setoptions = array(
 					'default' => $defaultoptions['portalmenus_hover_zoom'],
 					'parent'  => 'portalmenus'
 				),
+
+				'mainMenuStyle'  => array(
+					'type'    => 'section',
+					'title'   => __('Main Menu Style', 'fau'),
+				),
+
+				'main_menu_style' => array(
+					'type'    => 'select',
+					'title'   => __('main menu style', 'fau'),
+					'label'   => __('chose a style of the meain menu.', 'fau'),
+					'liste'   => array(
+						'mega' => __('Mega Menu', 'fau'),
+						'small' => __('Small Menu ', 'fau')
+					),
+					'default' => $defaultoptions['main_menu_style'],
+					'parent'  => 'mainMenuStyle',
+				),
+
+
 			)
 		),
 
