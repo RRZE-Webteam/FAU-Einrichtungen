@@ -232,7 +232,7 @@
     .meta-nav.menu {
         margin: 0.5rem 0 0;
         li a {
-            @media (max-width: $screen-sm - 1) {
+            @media (max-width: $screen-md - 1) {
                 display: block;
                 padding: .5rem 10px;
                 font-size: 1rem;
@@ -241,7 +241,7 @@
             }
         }
 
-        @media (min-width: $screen-sm) {
+        @media (min-width: $screen-md) {
             display: flex;
             flex-wrap: wrap;
             column-gap: 1rem;

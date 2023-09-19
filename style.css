@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.34-321
+Version: 2.3.34-343
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -8903,11 +8903,8 @@ body.embedded .news-item .news-meta {
 @media (min-width: 992px) {
   .header-container {
     width: 100%;
-  }
-}
-@media (min-width: 992px) {
-  .header-container {
-    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 @media (min-width: 1400px) {
@@ -9351,7 +9348,7 @@ body.nav-toggled #headerwrapper {
 .meta-links .meta-nav.menu {
   margin: 0.5rem 0 0;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .meta-links .meta-nav.menu li a {
     display: block;
     padding: 0.5rem 10px;
@@ -9360,7 +9357,7 @@ body.nav-toggled #headerwrapper {
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .meta-links .meta-nav.menu {
     display: flex;
     flex-wrap: wrap;
@@ -9441,7 +9438,6 @@ body.nav-toggled #headerwrapper {
   .meta-search {
     display: inline-block;
     margin-top: 0;
-    max-width: 300px;
     margin-left: auto;
   }
   [dir=rtl] .meta-search {
@@ -9505,7 +9501,7 @@ body.nav-toggled #headerwrapper {
   opacity: 0.5;
   color: var(--color-zentral-basis) !important;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .meta-search .searchform input[type=text] {
     visibility: visible;
     width: calc(100% - 45px);
@@ -9520,7 +9516,7 @@ body.nav-toggled #headerwrapper {
     width: 160px;
   }
   .active-meta-widget .meta-search .searchform input[type=text].active {
-    width: 150px;
+    width: 200px;
   }
 }
 @media (min-width: 1200px) {
@@ -9528,7 +9524,7 @@ body.nav-toggled #headerwrapper {
     width: 250px;
   }
   .active-meta-widget .meta-search .searchform input[type=text].active {
-    width: 200px;
+    width: 300px;
   }
 }
 .meta-search .searchform input[type=submit] {
@@ -9548,7 +9544,7 @@ body.nav-toggled #headerwrapper {
   opacity: 0;
   transition: 0.5s all;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .meta-search .searchform input[type=submit] {
     visibility: visible;
     opacity: 1;
@@ -9560,7 +9556,6 @@ body.nav-toggled #headerwrapper {
   visibility: visible;
   width: auto;
   padding: 0 15px;
-  margin-left: -31px;
   opacity: 1;
 }
 .meta-search .searchform input[type=submit]:hover, .meta-search .searchform input[type=submit]:focus {
@@ -9584,7 +9579,6 @@ body.nav-toggled #headerwrapper {
 @media (min-width: 768px) {
   .meta-search {
     margin-top: 0;
-    max-width: 300px;
     margin-left: auto;
   }
 }
@@ -10800,6 +10794,9 @@ ul.navsmall .level1.has-sub .sub-menu.level2 a.menu-item {
   text-decoration-color: currentcolor;
   text-decoration-thickness: 0.3rem;
 }
+.contentmenu a:hover, .contentmenu a:focus {
+  text-decoration: none;
+}
 
 main .subpages-menu a,
 .entry-content .contentmenu a,
@@ -11281,7 +11278,7 @@ main .subpages-menu a:focus svg .fallback,
 .contentmenu.meganav > ul > li > a:hover {
   color: var(--color-mainmenu-sublevel-hover-text);
   background-color: var(--color-mainmenu-sublevel-bg);
-  border-radius: 3px;
+  border-radius: var(--border-radius);
 }
 .contentmenu.meganav > ul > li > ul {
   border: none;

@@ -12,8 +12,12 @@
     a {
         @include defaultlinkstyle();
         text-decoration: none;
-
         color: var(--color-Text);
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
     }
 
 
@@ -440,7 +444,7 @@ main .subpages-menu,
                     &:hover {
                         color: var(--color-mainmenu-sublevel-hover-text);
                         background-color: var(--color-mainmenu-sublevel-bg);
-                        border-radius: 3px;
+                        border-radius: var(--border-radius);
                     }
                 }
                 > ul {

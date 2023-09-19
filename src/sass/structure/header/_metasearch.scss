@@ -15,7 +15,7 @@
     @media (min-width: $screen-md) {
         display: inline-block;
         margin-top: 0;
-        max-width: 300px;
+        //max-width: 300px;
         margin-left: auto;
         [dir="rtl"] & {
             margin-right: auto;
@@ -92,7 +92,7 @@
                 color: var(--color-zentral-basis) !important;
             }
 
-            @media (max-width: $screen-sm) {
+            @media (max-width: $screen-md) {
                 visibility: visible;
                 width: calc(100% - 45px);
             }
@@ -104,13 +104,13 @@
                 @media (min-width: $screen-sm) {
                     width: 160px;
                     .active-meta-widget & {
-                        width: 150px;
+                        width: 200px;
                     }
                 }
                 @media (min-width: $screen-lg) {
                     width: 250px;
                     .active-meta-widget & {
-                        width: 200px;
+                        width: 300px;
                     }
                 }
             }
@@ -133,7 +133,7 @@
             opacity: 0;
             @include transition(0.5s, all);
 
-            @media (max-width: $screen-sm) {
+            @media (max-width: $screen-md) {
                 visibility: visible;
                 opacity: 1;
                 width: auto;
@@ -144,7 +144,7 @@
                 visibility: visible;
                 width: auto;
                 padding: 0 15px;
-                margin-left: -31px;
+                //margin-left: -31px;
                 opacity: 1;
             }
 
@@ -183,7 +183,7 @@
     }
      @media (min-width: $screen-sm) {
             margin-top: 0;
-            max-width: 300px;
+            //max-width: 300px;
             margin-left: auto;
     }
    
