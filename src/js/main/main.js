@@ -329,7 +329,7 @@ jQuery(document).ready(function ($) {
         });
     };
     var updateToggleStateSmall = function (openOnClick) {
-        $topLevelFlyoutSmall.each(function (index, topLevelFlyout) {
+        $topLevelFlyoutSmall.each(function (index, topLevelFlyoutSmall) {
             topLevelFlyoutSmall .$_link[openOnClick ? 'hide' : 'show']().attr('aria-hidden', openOnClick ? 'true' : 'false');
             topLevelFlyoutSmall .$_button[openOnClick ? 'show' : 'hide']().attr('aria-hidden', openOnClick ? 'false' : 'true');
         });
