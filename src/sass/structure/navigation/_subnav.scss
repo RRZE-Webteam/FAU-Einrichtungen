@@ -43,12 +43,12 @@
 				top: -3px;
 			}
 
-			@media (max-width: $screen-sm) {
+			@media (max-width: $screen-md) {
 				padding: 0px 22px 0px 22px;
 			}
 		}
 
-		@media (max-width: $screen-sm) {
+		@media (max-width: $screen-md) {
 			background-color: var(--color-white);
 			padding: 5px 0 5px 20px;
 		}
@@ -80,7 +80,7 @@
 			text-decoration-thickness: 0.15rem;
 		}
 
-		@media (max-width: $screen-sm) {
+		@media (max-width: $screen-md) {
 			padding: 6px 15px;
 		}
 

@@ -217,8 +217,6 @@
             background: var(--color-mainmenu-toplevel-hover-bg);
             text-decoration: none;
         }
-
-
     }
 
     [type="button"].current-menu-ancestor {
@@ -235,6 +233,7 @@
     /* First-level items */
     > li {
         @include no-list;
+        position: relative;
 
         /* Primary navigation toggle links / buttons */
         > a,
@@ -316,6 +315,8 @@
     }
 
     .level3 {
+        margin-left: 15px;
+
         a {
             font-weight: normal;
 
@@ -328,8 +329,12 @@
 
     /* Fly-Out / secondary navigation */
     .nav-flyout {
-       background-color: transparent;
-        padding: 50px 0;
+        padding: 30px 15px;
+        background-color: #ffffff;
+
+        .container {
+            width: auto;
+        }
     }
 
     /* Portal buttons */
@@ -378,12 +383,10 @@
     }
 
     .level2 {
-
         > li {
             &.has-sub {
                 page-break-inside: avoid;
                 break-inside: avoid;
-                margin-bottom: 20px;
             }
 
             > a {
@@ -438,7 +441,7 @@
                     }
                     .button-portal {
                         margin-right: auto;
-                        margin-top: 10px;
+                        margin-top: 20px;
 
                         @media (max-width: $screen-xl) {
                             margin-left: unset !important;
@@ -497,11 +500,11 @@
 
     .mainnav-plainview {
         .navsmall {
-            ul >li{
+            ul >li {
                 background-color: var(--color-white);
             } 
             ul {
-                  background-color: var(--color-white);
+                background-color: var(--color-white);
                 margin-bottom: 0;
 
                 &.level2 > li {
@@ -525,8 +528,7 @@
 
             .flyout-entries-full {
                 display: flex;
-                align-items: center;
-                justify-content: flex-start;
+                align-items: flex-start;
                 flex-direction: column;
 
             &.column-count-1, 
@@ -534,11 +536,13 @@
             &.column-count-3, 
             &.column-count-4 {
                     ul.level2, ul.level3 {
+                        column-count: 1;
                         column-width: 330px;
                     }
                     .button-portal {
                         margin-right: auto;
-                        margin-top: 10px;
+                        margin-left: 15px;
+                        margin-top: 15px;
 
                         @media (max-width: $screen-xl) {
                             margin-left: unset !important;
@@ -546,39 +550,10 @@
                         }
                     }
                 }
-                &.column-count-1 {
-                    ul.level2, ul.level3 {
-                        column-count: 1;
-                    }
-                    .button-portal {
-                        margin-left: 535px;
-                    }
-                }
-                &.column-count-2 {
-                    ul.level2, ul.level3 {
-                        column-count: 2;
-                    }
-                    .button-portal {
-                        margin-left: 361px;
-                    }
-                }
-                &.column-count-3, &.column-count-4 {
-                    ul.level2, ul.level3 {
-                        column-count: 3;
-
-                        @media (max-width: 1029px) {
-                            column-count: 2;
-                        }
-                    }
-                    .button-portal {
-                        margin-left: 187px;
-                    }
-                }
             }
 
             .nav-flyout {
-                background-color: transparent;
-                border-top: 8px solid var(--color-mainmenu-sublevel-bg);
+                background-color: #ffffff;
 
                 @media (min-width: $screen-sm) {
                     min-height: 199px;    
@@ -874,7 +849,7 @@
             left: 0;
             right: 0;
             overflow: hidden;
-            @include box-shadow(0 4px 18px rgba(0, 0, 0, 0.05)); 
+            @include box-shadow(0 4px 18px rgba(0, 0, 0, 0.05));
         }
     }
     .navsmall {
@@ -901,15 +876,24 @@
             }
         }
 
+        li {
+            &:last-child,
+            &:nth-last-child(2),
+            &:nth-last-child(3) {
+                .nav-flyout {
+                    right: 0;
+                }
+            }
+        }
+
         /* Fly-Out / secondary navigation */
         .nav-flyout {
             display: none;
             position: absolute;
             z-index: 30;
-            left: 0;
-            right: 0;
             overflow: hidden;
-            @include box-shadow(0 4px 18px rgba(0, 0, 0, 0.05)); 
+            @include box-shadow(0 4px 58px rgba(0, 0, 0, 0.1));
+            min-width: 350px;
         }
     }
 }
@@ -930,6 +914,17 @@
     }
 
 }
+
+@media (max-width: $screen-xl) {
+    .navsmall {
+        li {
+            .nav-flyout {
+                min-width: 300px;
+            }
+        }
+    }
+}
+
 
 #menu-backdrop {
     display: none;
