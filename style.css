@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.34-426
+Version: 2.3.34-524
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -10545,34 +10545,49 @@ ul.navsmall .level1.has-sub .sub-menu.level2 a.menu-item {
 /*-----------------------------------------------------------------------------------*/
 /* Subnav in content
 /*-----------------------------------------------------------------------------------*/
+.sidebar-subnav {
+  height: 100%;
+  border-radius: var(--border-radius);
+}
 .sidebar-subnav header {
   margin-top: 0px;
-  font-size: 1.5rem;
-  line-height: 2.265rem;
-  font-weight: bold;
+  font-size: 1.313rem;
+  line-height: 1.982rem;
+  font-weight: 500;
+  background-color: var(--color-primary-ci-hell);
+  padding: 15px 20px;
+  line-height: 1.5;
 }
 .sidebar-subnav header a {
   display: block;
   position: relative;
-  padding: 0px 22px 10px 22px;
-  color: var(--color-branding-zentral);
+  padding: 0px 22px 0px 22px;
+}
+@media (min-width: 992px) {
+  .sidebar-subnav header a {
+    color: var(--color-hero-text);
+  }
 }
 .sidebar-subnav header a:hover, .sidebar-subnav header a:focus {
-  color: var(--color-branding-zentral);
   transition: -webkit-text-decoration 0.1s ease;
   transition: text-decoration 0.1s ease;
   transition: text-decoration 0.1s ease, -webkit-text-decoration 0.1s ease;
   text-decoration: underline;
-  text-decoration-color: var(--color-primary-ci-hell);
+  text-decoration-color: var(--color-hero-text);
   text-underline-offset: 0.4rem;
   text-decoration-thickness: 0.15rem;
 }
-.sidebar-subnav header a::before {
+@media (max-width: 992px) {
+  .sidebar-subnav header a:hover, .sidebar-subnav header a:focus {
+    text-decoration-color: var(--color-links);
+  }
+}
+.sidebar-subnav header a:before {
   display: inline-block;
   position: absolute;
   content: "";
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
   line-height: 1.4rem;
   font-size: 0.9333333333rem;
   background-image: inherit;
@@ -10580,9 +10595,14 @@ ul.navsmall .level1.has-sub .sub-menu.level2 a.menu-item {
   background-size: 100%;
   background-position: center center;
   transform: rotate(180deg);
-  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%2304316A" d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"/%3E%3C/svg%3E%0A');
-  left: -18px;
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23fff" d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"/%3E%3C/svg%3E%0A');
+  left: -13px;
   top: -3px;
+}
+@media (max-width: 992px) {
+  .sidebar-subnav header a:before {
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23222" d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"/%3E%3C/svg%3E%0A');
+  }
 }
 @media (max-width: 992px) {
   .sidebar-subnav header a {
@@ -10592,7 +10612,7 @@ ul.navsmall .level1.has-sub .sub-menu.level2 a.menu-item {
 @media (max-width: 992px) {
   .sidebar-subnav header {
     background-color: var(--color-white);
-    padding: 5px 0 5px 20px;
+    padding: 5px 0px 5px 20px;
   }
 }
 
@@ -10604,6 +10624,19 @@ ul.navsmall .level1.has-sub .sub-menu.level2 a.menu-item {
 }
 #subnav:before {
   display: none;
+}
+#subnav li.current_page_item {
+  background-color: #d3dde6;
+  position: relative;
+}
+#subnav li.current_page_item ul {
+  background-color: var(--color-StandardHellgrau);
+}
+#subnav li.current_page_item > a {
+  box-shadow: inset 5px 0px 0px 0px var(--color-primary-ci-hell);
+}
+#subnav > li > a {
+  padding: 8px 20px;
 }
 #subnav ul, #subnav li {
   list-style: none;
@@ -10619,19 +10652,12 @@ ul.navsmall .level1.has-sub .sub-menu.level2 a.menu-item {
   display: block;
   font-size: 1rem;
   line-height: 1.51rem;
-  font-weight: bold;
-  padding: 6px 0;
+  font-weight: 500;
+  padding: 6px 20px 6px 0;
   color: var(--color-submenu-currentlevel-text);
 }
 #subnav a:hover, #subnav a:focus {
-  color: var(--color-submenu-currentlevel-text);
-  transition: -webkit-text-decoration 0.1s ease;
-  transition: text-decoration 0.1s ease;
-  transition: text-decoration 0.1s ease, -webkit-text-decoration 0.1s ease;
-  text-decoration: underline;
-  text-decoration-color: var(--color-primary-ci-hell);
-  text-underline-offset: 0.3rem;
-  text-decoration-thickness: 0.15rem;
+  background-color: #d3dde6;
 }
 @media (max-width: 992px) {
   #subnav a {
@@ -10640,18 +10666,6 @@ ul.navsmall .level1.has-sub .sub-menu.level2 a.menu-item {
 }
 #subnav ul {
   display: none;
-}
-#subnav > li {
-  border-bottom: 1px solid #fff;
-}
-#subnav .current_page_item > a {
-  transition: -webkit-text-decoration 0.1s ease;
-  transition: text-decoration 0.1s ease;
-  transition: text-decoration 0.1s ease, -webkit-text-decoration 0.1s ease;
-  text-decoration: underline;
-  text-decoration-color: var(--color-primary-ci-hell);
-  text-underline-offset: 0.3rem;
-  text-decoration-thickness: 0.15rem;
 }
 #subnav .current_page_item > a,
 #subnav .current_page_ancestor > a {
@@ -10664,22 +10678,22 @@ ul.navsmall .level1.has-sub .sub-menu.level2 a.menu-item {
   display: block;
 }
 #subnav li li a {
-  padding-left: 1.2rem;
+  padding-left: 40px;
   font-weight: unset;
   font-size: 0.875rem;
   line-height: 1.322rem;
 }
 #subnav li li li a {
-  padding-left: 2.4rem;
+  padding-left: 60px;
 }
 #subnav li li li li a {
-  padding-left: 3.6rem;
+  padding-left: 80px;
 }
 #subnav li li li li li a {
-  padding-left: 4.8rem;
+  padding-left: 100px;
 }
 #subnav li li li li li li a {
-  padding-left: 6rem;
+  padding-left: 120px;
 }
 #subnav li .current_page_item > a,
 #subnav li .current_page_ancestor > a {
@@ -10737,6 +10751,11 @@ ul.navsmall .level1.has-sub .sub-menu.level2 a.menu-item {
 #subnav li.draft-page.current_page_item a:after,
 #subnav li.draft-page.current_page_ancestor a:after {
   background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"%3E%3Cpath fill="%23FFFFFF" d="M20 2c.552 0 1 .448 1 1v3.757l-2 2V4H5v16h14v-2.758l2-2V21c0 .552-.448 1-1 1H4c-.552 0-1-.448-1-1V3c0-.552.448-1 1-1h16zm1.778 6.808l1.414 1.414L15.414 18l-1.416-.002.002-1.412 7.778-7.778zM13 12v2H8v-2h5zm3-4v2H8V8h8z"/%3E%3C/svg%3E%0A');
+}
+
+ul#subnav {
+  background-color: var(--color-StandardHellgrau);
+  padding: 10px 0px;
 }
 
 @media (max-width: 767px) {
@@ -12227,7 +12246,7 @@ $slider-height-md: 512px;
 }
 @media (min-width: 768px) {
   .content-row .entry-content {
-    padding-left: 30px;
+    padding-left: 40px;
   }
 }
 @media (min-width: 1400px) {
