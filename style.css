@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.34-593
+Version: 2.3.34-596
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -10013,9 +10013,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .navsmall > li.has-sub:focus-within
   background-color: var(--color-mainmenu-sublevel-bg);
   border-radius: var(--border-radius);
 }
-.navsmall .level3 {
-  margin-left: 15px;
-}
 .navsmall .level3 a {
   font-weight: normal;
 }
@@ -10610,7 +10607,6 @@ ul.navsmall .level1.has-sub .sub-menu.level2 a.menu-item {
 @media (max-width: 992px) {
   .sidebar-subnav header {
     background-color: var(--color-white);
-    padding: 5px 0px 5px 20px;
   }
 }
 
@@ -16591,6 +16587,7 @@ main .rrze-calendar.kalender .inhalt .monatsansicht .kopfzeile .tag {
   position: absolute;
   left: 41px;
   color: var(--color-zentral-basis);
+  top: 0;
 }
 .fau-theme .meta-widget.rrze-multilang-widget ul li a:hover, .fau-theme .meta-widget.rrze-multilang-widget ul li a:focus {
   box-shadow: none;
