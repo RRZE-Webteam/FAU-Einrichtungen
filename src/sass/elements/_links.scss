@@ -95,7 +95,7 @@ main,
 .portalpage-content,
 .content-inline {
 
-    a{
+    a {
         @include styledcontentlink();
 	
 	&.news-image {

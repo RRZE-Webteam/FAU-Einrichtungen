@@ -25,8 +25,7 @@
     text-align: right;
 
     .search-initiate-button {
-        background-color: var(--color-zentral-basis);;
-        padding: 2px 5px 1px 6px;
+        padding: 2px 5px 2px 6px;
         border-radius: var(--border-radius);
         cursor: pointer;
         z-index: 999;
@@ -39,12 +38,16 @@
             display: block;
             width: 30px;
             height: 30px;
-            fill: var(--color-white);
+            fill: var(--color-zentral-basis);
         }
 
         &:hover,
         &:focus {
             background: var(--color-zentral-dunkelste);
+
+            svg {
+                fill: var(--color-white);
+            }
         }
 
         @media (max-width: $screen-md) {
@@ -68,7 +71,7 @@
 
         border: none;
         margin: 0;
-        padding: 5px 0;
+        padding: 10px 0;
 
         input[type="text"] {
             border-radius: var(--border-radius);
@@ -77,7 +80,7 @@
             outline: none;
             color: var(--color-zentral-basis);
             height: 1.875rem;
-            margin-bottom: 0px;
+            margin-bottom: 1px;
             background: var(--color-white);
             font-weight: bold;
             visibility: hidden;
@@ -95,6 +98,10 @@
             @media (max-width: $screen-md) {
                 visibility: visible;
                 width: calc(100% - 45px);
+            }
+
+            @media (max-width: $screen-xl) {
+                margin-bottom: 4px;
             }
 
             &.active {

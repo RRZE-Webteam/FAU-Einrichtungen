@@ -702,7 +702,7 @@
     }
 
     .navsmall {
-        border-top: 1px solid var(--color-primary-ci-hell);
+        //border-top: 1px solid var(--color-primary-ci-hell);
 
         .nav-flyout {
             padding: 0;
@@ -727,17 +727,17 @@
         }
 
         > li {
-            border-top: 1px solid $colorOverlayDark; // #ccc;
+            //border-top: 1px solid $colorOverlayDark; // #ccc;
             &:first-child {
                 border-top-color: transparent;
             }
 
             &.level1 {
                 &:hover, &:focus {
-                    border-top: 1px solid var(--color-primary-dunkelste);
+                    //border-top: 1px solid var(--color-primary-dunkelste);
 
                     + li {
-                        border-top: 1px solid var(--color-primary-dunkelste);
+                        //border-top: 1px solid var(--color-primary-dunkelste);
                     }
                 }
 
