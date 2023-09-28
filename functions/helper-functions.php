@@ -24,7 +24,7 @@ if ( ! function_exists( 'fau_form_textarea' ) ) :
 		echo "</p>\n";
 	    }
 	} else {
-	    echo _('Ungültiger Aufruf von fau_form_textarea() - Name oder Label fehlt.', 'fau');
+	    _e('Ungültiger Aufruf von fau_form_textarea() - Name oder Label fehlt.', 'fau');
 	}
     }
 endif;
@@ -48,7 +48,7 @@ if ( ! function_exists( 'fau_form_wpeditor' ) ) :
 		echo "</p>\n";
 	    }
 	} else {
-	    echo _('Ungültiger Aufruf von fau_form_wpeditor() - Name oder Label fehlt.', 'fau');
+	    _e('Ungültiger Aufruf von fau_form_wpeditor() - Name oder Label fehlt.', 'fau');
 	}
     }
 endif;
@@ -81,7 +81,7 @@ if ( ! function_exists( 'fau_form_text' ) ) :
 		echo "</p>\n";
 	    }
 	} else {
-	    echo _('Ungültiger Aufruf von fau_form_text() - Name oder Label fehlt.', 'fau');
+	    _e('Ungültiger Aufruf von fau_form_text() - Name oder Label fehlt.', 'fau');
 	}
     }
 endif;
@@ -114,7 +114,7 @@ if ( ! function_exists( 'fau_form_email' ) ) :
 		echo "</p>\n";
 	    }
 	} else {
-	    echo _('Ungültiger Aufruf von fau_form_email() - Name oder Label fehlt.', 'fau');
+	    _e('Ungültiger Aufruf von fau_form_email() - Name oder Label fehlt.', 'fau');
 	}
     }
 endif;
@@ -149,7 +149,7 @@ if ( ! function_exists( 'fau_form_number' ) ) :
 		echo "</p>\n";
 	    }
 	} else {
-	    echo _('Ungültiger Aufruf von fau_form_number() - Name oder Label fehlt.', 'fau');
+	    _e('Ungültiger Aufruf von fau_form_number() - Name oder Label fehlt.', 'fau');
 	}
     }
 endif;
@@ -178,7 +178,7 @@ if ( ! function_exists( 'fau_form_url' ) ) :
 		echo "</p>\n";
 	    }
 	} else {
-	    echo _('Ungültiger Aufruf von fau_form_url() - Name oder Label fehlt.', 'fau');
+	    _e('Ungültiger Aufruf von fau_form_url() - Name oder Label fehlt.', 'fau');
 	}
     }
 endif;    
@@ -204,7 +204,7 @@ if ( ! function_exists( 'fau_form_onoff' ) ) :
 		echo "</p>\n";
 	    }
 	} else {
-	    echo _('Ungültiger Aufruf von fau_form_onoff() - Name oder Label fehlt.', 'fau');
+	    _e('Ungültiger Aufruf von fau_form_onoff() - Name oder Label fehlt.', 'fau');
 	}
     }
 endif;    
@@ -230,7 +230,7 @@ if ( ! function_exists( 'fau_form_toggle' ) ) :
 	    <?php 
 
 	} else {
-	    echo _('Ungültiger Aufruf von fau_form_toggle() - Name oder Label fehlt.', 'fau');
+	    _e('Ungültiger Aufruf von fau_form_toggle() - Name oder Label fehlt.', 'fau');
 	}
     }
 endif;   
@@ -291,7 +291,7 @@ if ( ! function_exists( 'fau_form_select' ) ) :
 		 echo '</div>'; 
 	    }
 	} else {
-	    echo _('Ungültiger Aufruf von fau_form_select() - Array, Name oder Label fehlt.', 'fau');
+	    _e('Ungültiger Aufruf von fau_form_select() - Array, Name oder Label fehlt.', 'fau');
 	}
     }
 endif;    
@@ -342,7 +342,7 @@ if ( ! function_exists( 'fau_form_multiselect' ) ) :
 		echo "</p>\n";
 	    }
 	} else {
-	    echo _('Ungültiger Aufruf von fau_form_multiselect() - Array, Name oder Label fehlt.', 'fau');
+	    _e('Ungültiger Aufruf von fau_form_multiselect() - Array, Name oder Label fehlt.', 'fau');
 	}
     }
 endif;    
@@ -406,7 +406,7 @@ if ( ! function_exists( 'fau_form_image' ) ) :
 	   <?php 
 	
 	} else {
-	    echo _('Ungültiger Aufruf von fau_form_image() - Name oder Label fehlt.', 'fau');
+	    _e('Ungültiger Aufruf von fau_form_image() - Name oder Label fehlt.', 'fau');
 	}
     }
  endif;
@@ -510,7 +510,7 @@ if ( ! function_exists( 'fau_form_link' ) ) :
 
 	 
 	} else {
-	    echo _('Ungültiger Aufruf von fau_form_link() - Name oder Label fehlt.', 'fau');
+	    _e('Ungültiger Aufruf von fau_form_link() - Name oder Label fehlt.', 'fau');
 	}
     }
  endif;
