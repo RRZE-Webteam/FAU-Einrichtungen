@@ -15,8 +15,7 @@ get_header();
 $content_width =$defaultoptions['content-width-fullpage'];
 
 while ( have_posts() ) : 
-	the_post(); 
-	
+	the_post(); 	
 	?>
 	<div id="content">
 		<div class="content-container">
@@ -36,11 +35,9 @@ while ( have_posts() ) :
 					    } else {
                             echo '<div class="content-inline">';
 					    }
-					    the_content(); 
-					   
+                        the_content();  
 					    
-					    echo wp_link_pages($pagebreakargs);  
-					    
+					    echo wp_link_pages($pagebreakargs);  					    
 					    echo '</div>';
 					    ?>
 					</div>    
@@ -48,7 +45,6 @@ while ( have_posts() ) :
 					<?php  
                     $logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );		
                     if ($logoliste) { 
-                        /* New since 1.10.57 */
                         $logosize = get_post_meta( $post->ID, 'fauval_imagelink_size', true );
                         $size = $logosize != '' ? esc_attr($logosize) : "logo-thumb";
                         $logos = fau_imagelink_get(array('size' => $size, 'catid' => $logoliste));

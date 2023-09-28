@@ -120,7 +120,6 @@ Mixins File for Wordpress Theme FAU
         display: table-cell;
         padding: 5px 12px;
         font-size: 13px;
-        line-height: 16px;
     }
 
     a:hover, a:focus {
@@ -150,7 +149,9 @@ Mixins File for Wordpress Theme FAU
     // font-size: $font-size + px; // für den IE8
     // line-height: ($line) + px;
     font-size: math.div(ceil(math.div($font-size, $base-font-size) * 1000), 1000) + rem;
-    line-height: math.div(ceil(math.div($line, $base-font-size) * 1000), 1000) + rem;
+ //   line-height: math.div(ceil(math.div($line, $base-font-size) * 1000), 1000) + rem;
+ // proportionaler defaultwert aus body wird verwendet, statt immer neu zu 
+ // berechnen und somit viele Codezeilen zu erzeugen.
 }
 
 @mixin morelink() {
