@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 96,
+	'optiontable-version'           => 97,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -186,7 +186,7 @@ $defaultoptions = [
 	'contact_address_country'                   => '',
 	'google-site-verification'                  => '',
 	'default_mainmenu_number'                   => 4,
-
+    'main_menu_style'                           => 'mega',
 
 	'default_excerpt_morestring'                => '...',
 	'default_excerpt_length'                    => 50,
@@ -309,7 +309,7 @@ $defaultoptions = [
 	'portalmenus_hover_zoom'					=> false,
 	// Zoom-Effekt bei Portalmenüs
 
-	'main_menu_style'	                  => 'mega',
+
 ];
 
 
@@ -759,6 +759,8 @@ $setoptions = array(
 					'desc'    => __('Einstellungen für den Fußteil des Webauftritts.', 'fau'),
 				),
 
+              
+                
 				'advanced_footer_display_address'	  => array(
 					'type'    => 'toggle',
 					'title'   => __('Adresse', 'fau'),
@@ -807,6 +809,79 @@ $setoptions = array(
 					'label'   => __('Optionale Landesangabe', 'fau'),
 					'default' => $defaultoptions['contact_address_country'],
 					'parent'  => 'footer'
+				),
+                         
+                 'topmenulinks'  => array(
+					'type'    => 'section',
+					'title'   => __('Hauptmenü', 'fau'),
+				),
+
+				
+				'main_menu_style' => array(
+					'type'    => 'select',
+					'title'   => __('Darstellung', 'fau'),
+					'label'   => __('Auswahl der optischen Darstellung für das Hauptmenü', 'fau'),
+					'liste'   => array(
+						'mega' => __('Mega Menü', 'fau'),
+						'small' => __('Pull-Down-Menü ', 'fau')
+					),
+					'default' => $defaultoptions['main_menu_style'],
+					'parent'  => 'topmenulinks',
+				),
+                'menu_pretitle_portal' => array(
+					'type'    => 'text',
+					'title'   => __('Menü Portal-Button (Vortitel)', 'fau'),
+					'label'   => __('Begriff vor dem Titel des gewählten Menüs', 'fau'),
+					'default' => $defaultoptions['menu_pretitle_portal'],
+					'parent'  => 'topmenulinks'
+				),
+				'menu_aftertitle_portal' => array(
+					'type'    => 'text',
+					'title'   => __('Menü Portal-Button (Nachtitel)', 'fau'),
+					'label'   => __('Begriff nach dem Titel des gewählten Menüs', 'fau'),
+					'default' => $defaultoptions['menu_aftertitle_portal'],
+					'parent'  => 'topmenulinks'
+				),
+                
+                
+                'portalmenus'  => array(
+					'type'    => 'section',
+					'title'   => __('Portalmenüs', 'fau'),
+				),
+
+				'portalmenus_hover_blur' => array(
+					'type'    => 'toggle',
+					'title'   => __('Blur-Effekt verwenden', 'fau'),
+					'label'   => __('Ermöglicht das Hinzufügen eines Blur-Effekts auf Bilder des Portalmenüs.', 'fau'),
+					'default' => $defaultoptions['portalmenus_hover_blur'],
+					'parent'  => 'portalmenus'
+				),
+
+				'portalmenus_hover_zoom' => array(
+					'type'    => 'toggle',
+					'title'   => __('Zoom-Effekt verwenden', 'fau'),
+					'label'   => __('Ermöglicht das Hinzufügen eines Zoom-Effekts auf Bilder des Portalmenüs.', 'fau'),
+					'default' => $defaultoptions['portalmenus_hover_zoom'],
+					'parent'  => 'portalmenus'
+				),
+            	'default_submenu_entries' => array(
+					'type'    => 'range-value',
+					'title'   => __('Untermenüpunkte', 'fau'),
+					'label'   => __('Anzahl der anzuzeigenden Untermenüpunkte (Zweite Ebene).', 'fau'),
+					'default' => $defaultoptions['default_submenu_entries'],
+					'min'   => 0,
+					'max'   => 10,
+					'step'  => 1,
+					'parent'  => 'portalmenus'
+				),
+				'fallback_submenu_image' => array(
+					'type'    => 'image',
+					'maxwidth'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['width'], // $defaultoptions['default_rwdimage_2-1_width'],
+					'maxheight'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['height'], // $defaultoptions['default_rwdimage_2-1_height'],
+					'title'   => __('Thumbnail Ersatzbild', 'fau'),
+					'label'   => __('Ersatzbild für den Fall, daß eine verlinkte Seite kein eigenes Artikelbild definiert hat.', 'fau'),
+					'parent'  => 'portalmenus',
+					'default' => $defaultoptions['fallback_submenu_image'],
 				),
 
 				'newsbereich'  => array(
@@ -1119,43 +1194,8 @@ $setoptions = array(
 					'parent'  => 'imagelink'
 				),
 
-				'portalmenus'  => array(
-					'type'    => 'section',
-					'title'   => __('Portalmenüs', 'fau'),
-				),
-
-				'portalmenus_hover_blur' => array(
-					'type'    => 'toggle',
-					'title'   => __('Blur-Effekt verwenden', 'fau'),
-					'label'   => __('Ermöglicht das Hinzufügen eines Blur-Effekts auf Bilder des Portalmenüs.', 'fau'),
-					'default' => $defaultoptions['portalmenus_hover_blur'],
-					'parent'  => 'portalmenus'
-				),
-
-				'portalmenus_hover_zoom' => array(
-					'type'    => 'toggle',
-					'title'   => __('Zoom-Effekt verwenden', 'fau'),
-					'label'   => __('Ermöglicht das Hinzufügen eines Zoom-Effekts auf Bilder des Portalmenüs.', 'fau'),
-					'default' => $defaultoptions['portalmenus_hover_zoom'],
-					'parent'  => 'portalmenus'
-				),
-
-				'mainMenuStyle'  => array(
-					'type'    => 'section',
-					'title'   => __('Main Menu Style', 'fau'),
-				),
-
-				'main_menu_style' => array(
-					'type'    => 'select',
-					'title'   => __('main menu style', 'fau'),
-					'label'   => __('chose a style of the meain menu.', 'fau'),
-					'liste'   => array(
-						'mega' => __('Mega Menu', 'fau'),
-						'small' => __('Small Menu ', 'fau')
-					),
-					'default' => $defaultoptions['main_menu_style'],
-					'parent'  => 'mainMenuStyle',
-				),
+				
+			
 
 
 			)
@@ -1209,49 +1249,10 @@ $setoptions = array(
 					'parent'  => 'bedienung'
 				),
 
-				'topmenulinks'  => array(
-					'type'    => 'section',
-					'title'   => __('Hauptmenü', 'fau'),
-				),
+		
+                
 
-				'menu_pretitle_portal' => array(
-					'type'    => 'text',
-					'title'   => __('Menü Portal-Button (Vortitel)', 'fau'),
-					'label'   => __('Begriff vor dem Titel des gewählten Menüs', 'fau'),
-					'default' => $defaultoptions['menu_pretitle_portal'],
-					'parent'  => 'topmenulinks'
-				),
-				'menu_aftertitle_portal' => array(
-					'type'    => 'text',
-					'title'   => __('Menü Portal-Button (Nachtitel)', 'fau'),
-					'label'   => __('Begriff nach dem Titel des gewählten Menüs', 'fau'),
-					'default' => $defaultoptions['menu_aftertitle_portal'],
-					'parent'  => 'topmenulinks'
-				),
-
-				'contentmenus'  => array(
-					'type'    => 'section',
-					'title'   => __('Inhaltsmenüs', 'fau'),
-				),
-				'default_submenu_entries' => array(
-					'type'    => 'range-value',
-					'title'   => __('Untermenüpunkte', 'fau'),
-					'label'   => __('Anzahl der anzuzeigenden Untermenüpunkte (Zweite Ebene).', 'fau'),
-					'default' => $defaultoptions['default_submenu_entries'],
-					'min'   => 0,
-					'max'   => 10,
-					'step'  => 1,
-					'parent'  => 'contentmenus'
-				),
-				'fallback_submenu_image' => array(
-					'type'    => 'image',
-					'maxwidth'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['width'], // $defaultoptions['default_rwdimage_2-1_width'],
-					'maxheight'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['height'], // $defaultoptions['default_rwdimage_2-1_height'],
-					'title'   => __('Thumbnail Ersatzbild', 'fau'),
-					'label'   => __('Ersatzbild für den Fall, daß eine verlinkte Seite kein eigenes Artikelbild definiert hat.', 'fau'),
-					'parent'  => 'contentmenus',
-					'default' => $defaultoptions['fallback_submenu_image'],
-				),
+			
 
 				'sidebaropt'  => array(
 					'type'	=> 'section',
