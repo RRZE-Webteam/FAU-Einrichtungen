@@ -26,7 +26,7 @@ function fau_register_menus()
         __('Navigation unten: Kontakt, Impressum und weitere Hinweise zum Webauftritt', 'fau'));
     // Meta Navigation unten im Footer
 
-    register_nav_menu('main-menu', __('Haupt-Navigation', 'fau'));
+    register_nav_menu('main-menu', __('Hauptmenü', 'fau'));
     // Hauptnavigation
 
 
@@ -633,7 +633,7 @@ function fau_get_contentmenu($menu, $submenu = 1, $subentries = 0, $nothumbs = 0
         $subentries = get_theme_mod('default_submenu_entries');
     }
 
-    echo '<div class="contentmenu" role="navigation" aria-label="'.__('Inhaltsmenu', 'fau').'">';
+    echo '<div class="contentmenu" role="navigation" aria-label="'.__('Inhaltsmenü', 'fau').'">';
     echo '<ul class="subpages-menu">';
     wp_nav_menu(array(
         'menu'        => $slug,

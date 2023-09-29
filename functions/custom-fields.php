@@ -1303,10 +1303,10 @@ add_action('admin_enqueue_scripts', function () {
 
     // Lokalisierung des Skripts
     $localized = array(
-        'title' => __('Link einfügen/ändern', 'fau'),
-        'update' => __('Aktualisieren', 'fau'),
-        'save' => __('Link hinzufügen', 'fau'),
-        'noTitle' => __('(kein Titel)', 'fau'),
+        'title'     => __('Link einfügen/ändern', 'fau'),
+        'update'    => __('Aktualisieren', 'fau'),
+        'save'      => __('Link hinzufügen', 'fau'),
+        'noTitle'   => '('.__('kein Titel', 'fau').')',
         'noMatchesFound' => __('Keine Ergebnisse gefunden.', 'fau')
     );
 

@@ -1,10 +1,12 @@
+# Copyright (C) 2023 FAU-Einrichtungen
+# This file is distributed under the same license as the FAU-Einrichtungen package.
 msgid ""
 msgstr ""
-"Project-Id-Version: FAU v1.2.7\n"
+"Project-Id-Version: FAU-Einrichtungen\n"
 "Report-Msgid-Bugs-To: https://github.com/RRZE-Webteam/FAU-"
 "Einrichtungen/issues\n"
 "POT-Creation-Date: 2023-05-23 12:37+0000\n"
-"PO-Revision-Date: 2023-09-28 16:14+0000\n"
+"PO-Revision-Date: 2023-09-29 09:44+0000\n"
 "Last-Translator: Wolfgang Wiese <wolfgang.wiese@fau.de>\n"
 "Language-Team: English (UK)\n"
 "Language: en_GB\n"
@@ -13,16 +15,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Loco https://localise.biz/\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
 "__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
 "_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
 "esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
-"X-Loco-Target-Locale: en_US\n"
-"X-Loco-Version: 2.3.1; wp-5.3.2\n"
-"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.6; wp-6.3.1"
 
 #. translators: 1: date, 2: time
 #: functions/comments.php:42
@@ -36,14 +38,6 @@ msgstr "%s <span class=\"says\">wrote on</span>"
 #: functions/customizer.php:589
 msgid "&mdash; Auswählen &mdash;"
 msgstr "&mdash; Select &mdash;"
-
-#: functions/comments.php:52
-msgid "(Bearbeiten)"
-msgstr "(Edit)"
-
-#: functions/custom-fields.php:1309
-msgid "(kein Titel)"
-msgstr "(no title)"
 
 #: functions/defaults.php:135
 msgid "/barrierefreiheit/"
@@ -69,10 +63,6 @@ msgid ""
 msgstr ""
 "<br>Use format: \"Day-Month-Year\". Please use leading zeros for date "
 "numbers. "
-
-#: search.php:83
-msgid "<span class=\"meta-nav\">&larr;</span> Zurück"
-msgstr "<span class=\"meta-nav\">&larr;</span> Previous"
 
 #: functions/constants.php:1139
 msgid "A - Z"
@@ -184,10 +174,9 @@ msgid "Anmeldung fehlgeschlagen"
 msgstr "Login failed"
 
 #: functions/constants.php:1161
-#, fuzzy
 #| msgid "Alle Bildlinks"
 msgid "Anzahl Bildlinks"
-msgstr "All image links"
+msgstr "Number image links"
 
 #: functions/constants.php:870
 msgid "Anzahl der anzuzeigenden Untermenüpunkte (Zweite Ebene)."
@@ -231,7 +220,6 @@ msgid "ARIA Label"
 msgstr "ARIA Label"
 
 #: functions/constants.php:1184
-#, fuzzy
 #| msgid "ARIA Label"
 msgid "ARIA-Label"
 msgstr "ARIA Label"
@@ -253,16 +241,14 @@ msgid "Artikel mit gleichem Positionierungs-Tag"
 msgstr "Article with identical positioning tag"
 
 #: functions/constants.php:903
-#, fuzzy
 #| msgid "Artikelbild erzwingen"
 msgid "Artikel oben halten"
-msgstr "Force display of an entry image"
+msgstr "Keep post up"
 
 #: functions/constants.php:148
-#, fuzzy
 #| msgid "Artikel"
 msgid "Artikelbild"
-msgstr "Entries"
+msgstr "Post image"
 
 #: functions/constants.php:950
 msgid "Artikelbild erzwingen"
@@ -316,8 +302,7 @@ msgstr ""
 msgid "Auf welchen Seiten sollen Top Events in der Sidebar angezeigt werden."
 msgstr "On which pages top events will be displayed in sidebar"
 
-#: single.php:110, functions/gallery.php:142,
-#: functions/template-functions.php:2021,
+#: single.php:110, functions/template-functions.php:2021,
 #: page-templates/video-podcast-post.php:80
 msgid "aufrufen"
 msgstr "call"
@@ -339,7 +324,6 @@ msgid "Autoplay"
 msgstr "Autoplay"
 
 #: functions/constants.php:1170
-#, fuzzy
 #| msgid "Autoplay"
 msgid "Autoplay (Slider)"
 msgstr "Autoplay"
@@ -357,7 +341,6 @@ msgid "Banner Startseite"
 msgstr "Banner home page"
 
 #: functions/constants.php:113
-#, fuzzy
 #| msgid "Banner Startseite"
 msgid "Bannerbild Startseite"
 msgstr "Banner home page"
@@ -366,7 +349,7 @@ msgstr "Banner home page"
 msgid "Barrierefreiheit"
 msgstr "Accessibility"
 
-#: functions/comments.php:62
+#: functions/comments.php:52, functions/comments.php:62
 msgid "Bearbeiten"
 msgstr "Edit"
 
@@ -405,7 +388,6 @@ msgid "Bei der Bearbeitung von Beiträgen die erweiterten Optionen anzeigen."
 msgstr "Show extended options while editing articles."
 
 #: functions/constants.php:630
-#, fuzzy
 #| msgid ""
 #| "Bei der Darstellung des Artikelbildes wird das ALT-Attribut vom Inhalt "
 #| "der Bildbeschriebung gefüllt, wenn das ALT-Attribut leer ist."
@@ -413,8 +395,8 @@ msgid ""
 "Bei der Darstellung des Artikelbildes wird das ALT-Attribut vom Inhalt der "
 "Bildbeschreibung gefüllt, wenn das ALT-Attribut leer ist."
 msgstr ""
-"When displaying the article image, the ALT attribute is filled by the "
-"content of the image description if the ALT attribute is empty."
+"When displaying the post image, the ALT attribute is filled by the content "
+"of the image description if the ALT attribute is empty."
 
 #: functions/constants.php:711
 msgid ""
@@ -477,30 +459,21 @@ msgstr "Entries by"
 msgid "Bereichsnavigation:"
 msgstr "In page navigation:"
 
-#: functions/custom-fields.php:1202
+#: functions/custom-fields.php:1202, functions/gallery.php:144,
+#: functions/gallery.php:142
 msgid "Bild"
 msgstr "Image"
-
-#: functions/gallery.php:142
-msgid "Bild "
-msgstr "Image"
-
-#: functions/gallery.php:144
-msgid "Bild aufrufen"
-msgstr "Open the image"
 
 #: functions/custom-fields.php:356, functions/helper-functions.php:381
 msgid "Bild auswählen"
 msgstr "Select image"
 
 #: functions/constants.php:127
-#, fuzzy
 #| msgid "Bildformat"
 msgid "Bild in 2:1 Format"
-msgstr "Picture format"
+msgstr "Picture format in 2:1"
 
 #: functions/constants.php:134
-#, fuzzy
 #| msgid "Artikelbilder im 3:2 Format"
 msgid "Bild in 3:2 Format"
 msgstr "Article images in 3:2 format"
@@ -610,10 +583,9 @@ msgid "Darstellung"
 msgstr "Display"
 
 #: functions/constants.php:1150
-#, fuzzy
 #| msgid "Erstellungsdatum"
 msgid "Darstellungsform"
-msgstr "Creation date"
+msgstr "Display"
 
 #: functions/constants.php:1443
 msgid ""
@@ -779,17 +751,11 @@ msgstr ""
 msgid "Dokumente und Bilder"
 msgstr "Documents and Images"
 
-#: functions/constants.php:1177
-#, fuzzy
-#| msgid "Slider"
-msgid "Dots (Slider)"
-msgstr "Slider"
-
 #: attachment.php:84, functions/template-functions.php:461
 msgid "Download"
 msgstr "Download"
 
-#: functions/defaults.php:234
+#: functions/defaults.php:233
 msgid "Drei Ebenen"
 msgstr "Three layers"
 
@@ -812,7 +778,7 @@ msgid_plural "%1$s Kommentare zu <em>\"%2$s\"</em>"
 msgstr[0] "A comment on <em>\"%2$s\"</em>"
 msgstr[1] "%1$s Comments on <em>\"%2$s\"</em>"
 
-#: functions/defaults.php:232
+#: functions/defaults.php:231
 msgid "Eine Ebene"
 msgstr "One layer"
 
@@ -1023,7 +989,7 @@ msgstr "External"
 
 #: functions/custom-fields.php:186
 msgid "Externer Link"
-msgstr "External link:"
+msgstr "External link"
 
 #: functions/defaults.php:193
 msgid "Fachbereich Rechtswissenschaften"
@@ -1074,8 +1040,8 @@ msgstr ""
 #: functions/constants.php:1390, functions/constants.php:1391,
 #: functions/constants.php:1392, functions/constants.php:1393,
 #: functions/constants.php:1394
-msgid "Farbe der"
-msgstr "Color of"
+msgid "Farbe"
+msgstr "Color"
 
 #: functions/constants.php:1386
 msgid "Farbe Trennlinie"
@@ -1214,19 +1180,16 @@ msgstr "Google Site Verification"
 msgid "Grau"
 msgstr "Grey"
 
+#: functions/template-functions.php:464
+#| msgid "Größe:"
+msgid "Größe"
+msgstr "Size"
+
 #: functions/custom-fields.php:1241
 msgid "Größe der Bildlinks"
 msgstr "Size Imagelinks"
 
-#: functions/template-functions.php:464
-msgid "Größe:"
-msgstr "Size:"
-
-#: functions/menu.php:29
-msgid "Haupt-Navigation"
-msgstr "Main navigation"
-
-#: functions/constants.php:816
+#: functions/constants.php:816, functions/menu.php:29
 msgid "Hauptmenü"
 msgstr "Main menu"
 
@@ -1330,11 +1293,7 @@ msgstr "Index in the default page view"
 msgid "Informationen über den Eingabefeldern für neue Kommentare."
 msgstr "Information above input form for new comments"
 
-#: functions/menu.php:636
-msgid "Inhaltsmenu"
-msgstr "Page menu"
-
-#: functions/shortcodes.php:131
+#: functions/menu.php:636, functions/shortcodes.php:131
 msgid "Inhaltsmenü"
 msgstr "Content menu"
 
@@ -1366,7 +1325,7 @@ msgstr "Show Categories"
 
 #: functions/constants.php:1063
 msgid "Kategorien"
-msgstr "Categories."
+msgstr "Categories"
 
 #: functions/custom-fields.php:351, functions/custom-fields.php:378,
 #: functions/helper-functions.php:400
@@ -1392,6 +1351,11 @@ msgstr "No search term."
 #: functions/custom-fields.php:333
 msgid "Kein Symbolbild anzeigen."
 msgstr "Hide placeholder image"
+
+#: functions/custom-fields.php:1309
+#| msgid "(kein Titel)"
+msgid "kein Titel"
+msgstr "no title"
 
 #: functions/custom-fields.php:883
 msgid "Keine (Deaktivieren)"
@@ -1548,13 +1512,9 @@ msgstr "Length text excerpt"
 msgid "Med"
 msgstr "Med"
 
-#: functions/defaults.php:154
+#: functions/constants.php:1391, functions/defaults.php:154
 msgid "Medizinische Fakultät"
 msgstr "Faculty of Medicine"
-
-#: functions/constants.php:1391
-msgid "Medizinischen Fakultät"
-msgstr ""
 
 #: functions/constants.php:825
 msgid "Mega Menü"
@@ -1629,13 +1589,9 @@ msgstr "Name or Label missing."
 msgid "Nat"
 msgstr "Nat"
 
-#: functions/defaults.php:161
+#: functions/constants.php:1392, functions/defaults.php:161
 msgid "Naturwissenschaftliche Fakultät"
 msgstr "Faculty of Sciences"
-
-#: functions/constants.php:1392
-msgid "Naturwissenschaftlichen Fakultät"
-msgstr ""
 
 #: functions/menu.php:26
 msgid ""
@@ -1652,17 +1608,17 @@ msgstr "Skip navigation"
 msgid "Navigation: Weitere Angebote"
 msgstr "Navigation: More offers"
 
+#: functions/constants.php:1177
+msgid "Navigationspunkte (Slider)"
+msgstr "Dots (Slider)"
+
 #: index.php:92
 msgid "Neuere Beiträge"
 msgstr "Recent posts"
 
-#: comments.php:36
+#: comments.php:27, comments.php:36
 msgid "Neuere Kommentare"
 msgstr "Latest comments"
-
-#: comments.php:27
-msgid "Neuere Kommentare;"
-msgstr "Latest comments;"
 
 #: functions/widgets.php:19
 msgid "News Sidebar"
@@ -1736,19 +1692,19 @@ msgstr "Town/City"
 msgid "Partnerlogos"
 msgstr "Partners"
 
-#: functions/defaults.php:240, functions/defaults.php:245
+#: functions/defaults.php:239, functions/defaults.php:244
 msgid "Pfeil nach links"
 msgstr "Left arrow"
 
-#: functions/defaults.php:242, functions/defaults.php:246
+#: functions/defaults.php:241, functions/defaults.php:245
 msgid "Pfeil nach oben"
 msgstr "Up arrow"
 
-#: functions/defaults.php:241, functions/defaults.php:244
+#: functions/defaults.php:240, functions/defaults.php:243
 msgid "Pfeil nach rechts"
 msgstr "Arrow to the right"
 
-#: functions/defaults.php:239, functions/defaults.php:243
+#: functions/defaults.php:238, functions/defaults.php:242
 msgid "Pfeil nach unten"
 msgstr "Down arrow"
 
@@ -1756,17 +1712,14 @@ msgstr "Down arrow"
 msgid "Phil"
 msgstr "Phil"
 
-#: functions/defaults.php:167
+#: functions/constants.php:1390, functions/defaults.php:167
 msgid "Philosophische Fakultät"
 msgstr "Faculty of Philosophy"
 
-#: functions/constants.php:1390
-msgid "Philosophischen Fakultät"
-msgstr ""
-
 #: functions/comments.php:62
-msgid "Pingback:"
-msgstr "Pingback:"
+#| msgid "Pingback:"
+msgid "Pingback"
+msgstr "Pingback"
 
 #: functions/constants.php:1474
 msgid "Plugins und Content"
@@ -1793,7 +1746,6 @@ msgid "Portalmenü"
 msgstr "Portal menu"
 
 #: functions/constants.php:849
-#, fuzzy
 #| msgid "Portalmenü"
 msgid "Portalmenüs"
 msgstr "Portal menu"
@@ -1820,10 +1772,6 @@ msgstr "image link [post type singular name]"
 msgid "Postleitzahl"
 msgstr "Postal code"
 
-#: functions/constants.php:584
-msgid "Prev/Next-Link"
-msgstr ""
-
 #: functions/template-functions.php:803
 msgid "Produzent"
 msgstr "Producer"
@@ -1832,13 +1780,9 @@ msgstr "Producer"
 msgid "Pull-Down-Menü "
 msgstr "Pull-down menu"
 
-#: functions/defaults.php:173
+#: functions/constants.php:1394, functions/defaults.php:173
 msgid "Rechts- und Wirtschaftswissenschaftliche Fakultät"
 msgstr "Faculty of Business, Economics, and Law"
-
-#: functions/constants.php:1394
-msgid "Rechts- und Wirtschaftswissenschaftlichen Fakultät"
-msgstr ""
 
 #: functions/custom-fields.php:876
 msgid "Reihenfolge Kontakte und Linklisten"
@@ -1851,10 +1795,6 @@ msgstr "Reset"
 #: functions/template-functions.php:1132
 msgid "RSS"
 msgstr "RSS"
-
-#: functions/defaults.php:228
-msgid "Russisch"
-msgstr "Russian"
 
 #: functions/constants.php:1451, functions/defaults.php:174
 msgid "RW"
@@ -1940,10 +1880,6 @@ msgstr "Page types"
 msgid "Seitenüberblick"
 msgstr "Overview"
 
-#: functions/constants.php:585
-msgid "show prev,next buttons"
-msgstr ""
-
 #: 401.php:38, 403.php:39, 404.php:38, search.php:137,
 #: functions/constants.php:1259, functions/custom-fields.php:81,
 #: template-parts/sidebar-portal.php:73, template-parts/sidebar-start.php:73
@@ -1976,7 +1912,6 @@ msgid "Slider Ersatzbild"
 msgstr "Slider fallback image."
 
 #: functions/constants.php:106
-#, fuzzy
 #| msgid "Banner Startseite"
 msgid "Sliderbild auf Startseite"
 msgstr "Banner home page"
@@ -2112,13 +2047,9 @@ msgid ""
 msgstr ""
 "Symbolic picture for the article. The link opens the image in a large view."
 
-#: functions/defaults.php:179
+#: functions/constants.php:1393, functions/defaults.php:179
 msgid "Technische Fakultät"
 msgstr "Faculty of Engineering"
-
-#: functions/constants.php:1393
-msgid "Technischen Fakultät"
-msgstr ""
 
 #: functions/constants.php:1375
 msgid "Templates"
@@ -2153,16 +2084,14 @@ msgid "Themefarbe (Default)"
 msgstr "Theme color (default)"
 
 #: functions/constants.php:162
-#, fuzzy
 #| msgid "Thumbnails"
 msgid "Thumb"
-msgstr "Thumbnails"
+msgstr "Thumbnail"
 
 #: functions/constants.php:155
-#, fuzzy
 #| msgid "Thumbnails"
 msgid "Thumbnail"
-msgstr "Thumbnails"
+msgstr "Thumbnail"
 
 #: functions/constants.php:881, functions/constants.php:960,
 #: functions/constants.php:1043
@@ -2347,6 +2276,10 @@ msgstr "Video/Podcast"
 msgid "Vielleicht hilft Ihnen die Suche:"
 msgstr "You could try searching our website:"
 
+#: functions/constants.php:584
+msgid "Vor und Zurück"
+msgstr "Next und Back"
+
 #: functions/constants.php:1110
 msgid ""
 "Vorab aktivierte Suchbereiche des Filters. In diesen wird gesucht, wenn der "
@@ -2377,8 +2310,8 @@ msgid "Website-Titel"
 msgstr "Title of the website"
 
 #: search.php:84
-msgid "Weiter <span class=\"meta-nav\">&rarr;</span>"
-msgstr "Next <span class=\"meta-nav\">&rarr;</span>"
+msgid "Weiter"
+msgstr "Next"
 
 #: template-parts/footer-social.php:12
 msgid "Weitere Hinweise zum Webauftritt"
@@ -2587,6 +2520,12 @@ msgstr "Show content type of result."
 msgid "Zeige Kategorien"
 msgstr "Show categories"
 
+#: functions/constants.php:585
+msgid ""
+"Zeige Links zu dem jeweils zeitlich vorherigen und folgenden Beitrag, falls "
+"vorhanden"
+msgstr "Show links to the previous and following post, if available"
+
 #: functions/constants.php:592
 msgid "Zeige Schlagworte"
 msgstr "Show tags"
@@ -2673,10 +2612,9 @@ msgid "Zur Navigation"
 msgstr "Skip to navigation"
 
 #: functions/menu.php:806
-#, fuzzy
 #| msgid "Zur Seite \""
 msgid "Zur Seite: "
-msgstr "Towards page \""
+msgstr "To the page:"
 
 #: functions/constants.php:1368
 msgid ""
@@ -2701,7 +2639,11 @@ msgstr ""
 msgid "Zur zentralen FAU Website"
 msgstr "To the central FAU website"
 
-#: functions/defaults.php:233
+#: search.php:83
+msgid "Zurück"
+msgstr "Back"
+
+#: functions/defaults.php:232
 msgid "Zwei Ebenen"
 msgstr "Two layers"
 
@@ -2728,6 +2670,6 @@ msgid ""
 msgstr ""
 "Changes the default dividing line color from the default to another CI color."
 
-#: header.php:47
+#: header.php:47, functions/gallery.php:144, functions/gallery.php:142
 msgid "öffnen"
 msgstr "open"

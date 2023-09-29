@@ -77,11 +77,7 @@ msgstr[1] ""
 msgid "Ältere Kommentare"
 msgstr ""
 
-#: comments.php:27
-msgid "Neuere Kommentare;"
-msgstr ""
-
-#: comments.php:36
+#: comments.php:27, comments.php:36
 msgid "Neuere Kommentare"
 msgstr ""
 
@@ -105,7 +101,7 @@ msgstr ""
 msgid "Organisationsmenü"
 msgstr ""
 
-#: header.php:47
+#: header.php:47, functions/gallery.php:144, functions/gallery.php:142
 msgid "öffnen"
 msgstr ""
 
@@ -174,11 +170,11 @@ msgid "Treffer gefunden"
 msgstr ""
 
 #: search.php:83
-msgid "<span class=\"meta-nav\">&larr;</span> Zurück"
+msgid "Zurück"
 msgstr ""
 
 #: search.php:84
-msgid "Weiter <span class=\"meta-nav\">&rarr;</span>"
+msgid "Weiter"
 msgstr ""
 
 #: search.php:85
@@ -213,7 +209,7 @@ msgstr ""
 msgid "Beiträge aus der Kategorie"
 msgstr ""
 
-#: single.php:110, functions/gallery.php:142, functions/template-functions.php:2021, page-templates/video-podcast-post.php:80
+#: single.php:110, functions/template-functions.php:2021, page-templates/video-podcast-post.php:80
 msgid "aufrufen"
 msgstr ""
 
@@ -238,16 +234,12 @@ msgstr ""
 msgid "Kommentar wartet auf Freischaltung."
 msgstr ""
 
-#: functions/comments.php:52
-msgid "(Bearbeiten)"
-msgstr ""
-
-#: functions/comments.php:62
-msgid "Pingback:"
-msgstr ""
-
-#: functions/comments.php:62
+#: functions/comments.php:52, functions/comments.php:62
 msgid "Bearbeiten"
+msgstr ""
+
+#: functions/comments.php:62
+msgid "Pingback"
 msgstr ""
 
 #: functions/constants.php:44
@@ -470,11 +462,11 @@ msgid "Liste der Kategorien unter dem Beitrag anzeigen"
 msgstr ""
 
 #: functions/constants.php:584
-msgid "Prev/Next-Link"
+msgid "Vor und Zurück"
 msgstr ""
 
 #: functions/constants.php:585
-msgid "show prev,next buttons"
+msgid "Zeige Links zu dem jeweils zeitlich vorherigen und folgenden Beitrag, falls vorhanden"
 msgstr ""
 
 #: functions/constants.php:592
@@ -721,7 +713,7 @@ msgstr ""
 msgid "Optionale Landesangabe"
 msgstr ""
 
-#: functions/constants.php:816
+#: functions/constants.php:816, functions/menu.php:29
 msgid "Hauptmenü"
 msgstr ""
 
@@ -1058,7 +1050,7 @@ msgid "Wenn zur Anzeige der Slider gewählt wurde, kann hier eingestellt werden,
 msgstr ""
 
 #: functions/constants.php:1177
-msgid "Dots (Slider)"
+msgid "Navigationspunkte (Slider)"
 msgstr ""
 
 #: functions/constants.php:1178
@@ -1266,27 +1258,27 @@ msgid "Default (Blau)"
 msgstr ""
 
 #: functions/constants.php:1390, functions/constants.php:1391, functions/constants.php:1392, functions/constants.php:1393, functions/constants.php:1394
-msgid "Farbe der"
+msgid "Farbe"
 msgstr ""
 
-#: functions/constants.php:1390
-msgid "Philosophischen Fakultät"
+#: functions/constants.php:1390, functions/defaults.php:167
+msgid "Philosophische Fakultät"
 msgstr ""
 
-#: functions/constants.php:1391
-msgid "Medizinischen Fakultät"
+#: functions/constants.php:1391, functions/defaults.php:154
+msgid "Medizinische Fakultät"
 msgstr ""
 
-#: functions/constants.php:1392
-msgid "Naturwissenschaftlichen Fakultät"
+#: functions/constants.php:1392, functions/defaults.php:161
+msgid "Naturwissenschaftliche Fakultät"
 msgstr ""
 
-#: functions/constants.php:1393
-msgid "Technischen Fakultät"
+#: functions/constants.php:1393, functions/defaults.php:179
+msgid "Technische Fakultät"
 msgstr ""
 
-#: functions/constants.php:1394
-msgid "Rechts- und Wirtschaftswissenschaftlichen Fakultät"
+#: functions/constants.php:1394, functions/defaults.php:173
+msgid "Rechts- und Wirtschaftswissenschaftliche Fakultät"
 msgstr ""
 
 #: functions/constants.php:1395
@@ -1717,7 +1709,7 @@ msgstr ""
 msgid "Die Menüebene definiert bei Seiten bis zur welchen Ebene das Menu auf der linken Seite gezeigt wird."
 msgstr ""
 
-#: functions/custom-fields.php:1202
+#: functions/custom-fields.php:1202, functions/gallery.php:144, functions/gallery.php:142
 msgid "Bild"
 msgstr ""
 
@@ -1754,7 +1746,7 @@ msgid "Link hinzufügen"
 msgstr ""
 
 #: functions/custom-fields.php:1309
-msgid "(kein Titel)"
+msgid "kein Titel"
 msgstr ""
 
 #: functions/custom-fields.php:1310
@@ -1829,26 +1821,6 @@ msgstr ""
 msgid "FAU"
 msgstr ""
 
-#: functions/defaults.php:154
-msgid "Medizinische Fakultät"
-msgstr ""
-
-#: functions/defaults.php:161
-msgid "Naturwissenschaftliche Fakultät"
-msgstr ""
-
-#: functions/defaults.php:167
-msgid "Philosophische Fakultät"
-msgstr ""
-
-#: functions/defaults.php:173
-msgid "Rechts- und Wirtschaftswissenschaftliche Fakultät"
-msgstr ""
-
-#: functions/defaults.php:179
-msgid "Technische Fakultät"
-msgstr ""
-
 #: functions/defaults.php:187
 msgid "Fachbereich Wirtschaftswissenschaften"
 msgstr ""
@@ -1897,35 +1869,31 @@ msgstr ""
 msgid "Chinesisch"
 msgstr ""
 
-#: functions/defaults.php:228
-msgid "Russisch"
-msgstr ""
-
-#: functions/defaults.php:232
+#: functions/defaults.php:231
 msgid "Eine Ebene"
 msgstr ""
 
-#: functions/defaults.php:233
+#: functions/defaults.php:232
 msgid "Zwei Ebenen"
 msgstr ""
 
-#: functions/defaults.php:234
+#: functions/defaults.php:233
 msgid "Drei Ebenen"
 msgstr ""
 
-#: functions/defaults.php:239, functions/defaults.php:243
+#: functions/defaults.php:238, functions/defaults.php:242
 msgid "Pfeil nach unten"
 msgstr ""
 
-#: functions/defaults.php:240, functions/defaults.php:245
+#: functions/defaults.php:239, functions/defaults.php:244
 msgid "Pfeil nach links"
 msgstr ""
 
-#: functions/defaults.php:241, functions/defaults.php:244
+#: functions/defaults.php:240, functions/defaults.php:243
 msgid "Pfeil nach rechts"
 msgstr ""
 
-#: functions/defaults.php:242, functions/defaults.php:246
+#: functions/defaults.php:241, functions/defaults.php:245
 msgid "Pfeil nach oben"
 msgstr ""
 
@@ -1935,14 +1903,6 @@ msgstr ""
 
 #: functions/gallery.php:230
 msgid "Vergrößern"
-msgstr ""
-
-#: functions/gallery.php:144
-msgid "Bild aufrufen"
-msgstr ""
-
-#: functions/gallery.php:142
-msgid "Bild "
 msgstr ""
 
 #: functions/helper-functions.php:27, functions/helper-functions.php:51, functions/helper-functions.php:84, functions/helper-functions.php:117, functions/helper-functions.php:152, functions/helper-functions.php:181, functions/helper-functions.php:207, functions/helper-functions.php:233, functions/helper-functions.php:294, functions/helper-functions.php:345, functions/helper-functions.php:409, functions/helper-functions.php:512
@@ -1985,16 +1945,12 @@ msgstr ""
 msgid "Navigation unten: Kontakt, Impressum und weitere Hinweise zum Webauftritt"
 msgstr ""
 
-#: functions/menu.php:29
-msgid "Haupt-Navigation"
-msgstr ""
-
 #: functions/menu.php:36
 msgid "Fehler- und Suchseite: Vorschlagmenu"
 msgstr ""
 
-#: functions/menu.php:636
-msgid "Inhaltsmenu"
+#: functions/menu.php:636, functions/shortcodes.php:131
+msgid "Inhaltsmenü"
 msgstr ""
 
 #: functions/menu.php:694
@@ -2067,10 +2023,6 @@ msgstr ""
 msgid "Es konnte kein Menu unter der angegebenen Bezeichnung gefunden werden"
 msgstr ""
 
-#: functions/shortcodes.php:131
-msgid "Inhaltsmenü"
-msgstr ""
-
 #: functions/shortcodes.php:221, functions/shortcodes.php:252
 msgid "Der Shortcode darf nur auf Seiten verwendet werden."
 msgstr ""
@@ -2104,7 +2056,7 @@ msgid "Erstellungsdatum"
 msgstr ""
 
 #: functions/template-functions.php:464
-msgid "Größe:"
+msgid "Größe"
 msgstr ""
 
 #: functions/template-functions.php:424, functions/template-functions.php:406

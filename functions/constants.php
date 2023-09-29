@@ -581,8 +581,8 @@ $setoptions = array(
 
 				'post_prev_next' => array(
 					'type'    => 'toggle',
-					'title'   => __('Prev/Next-Link', 'fau'),
-					'label'   => __('show prev,next buttons', 'fau'),
+					'title'   => __('Vor und Zurück', 'fau'),
+					'label'   => __('Zeige Links zu dem jeweils zeitlich vorherigen und folgenden Beitrag, falls vorhanden', 'fau'),
 					'default' => $defaultoptions['post_prev_next'],
 					'parent'  => 'postoptions'
 				),
@@ -1174,7 +1174,7 @@ $setoptions = array(
 				),
 				'advanced_imagelink_default_dots' => array(
 					'type'    => 'toggle',
-					'title'   => __('Dots (Slider)', 'fau'),
+					'title'   => __('Navigationspunkte (Slider)', 'fau'),
 					'label'   => __('Zeigt bei der Sliderdarstellung unterhalb der Bildlinks Navigationsbuttons als Punkte an.', 'fau'),
 					'default' => $defaultoptions['advanced_imagelink_default_dots'],
 					'parent'  => 'imagelink'
@@ -1387,12 +1387,12 @@ $setoptions = array(
 					'label'   => __('Ändert die vorgegebene Standard-Trennlinienfarbe vom Standard auf eine andere CI-Farbe um.', 'fau'),
 					'liste'   => array(
                         '' => __('Default (Blau)', 'fau'),
-						'phil' =>  __('Farbe der', 'fau').' '.__('Philosophischen Fakultät', 'fau'),
-						'med' => __('Farbe der', 'fau').' '.__('Medizinischen Fakultät', 'fau'),
-                        'nat' => __('Farbe der', 'fau').' '.__('Naturwissenschaftlichen Fakultät', 'fau'),
-						'tf' => __('Farbe der', 'fau').' '.__('Technischen Fakultät', 'fau'),
-						'rw' => __('Farbe der', 'fau').' '.__('Rechts- und Wirtschaftswissenschaftlichen Fakultät', 'fau'),
-						'grau' => __('Grau', 'fau'),
+						'phil'  =>  __('Farbe', 'fau').' '.__('Philosophische Fakultät', 'fau'),
+						'med'   => __('Farbe', 'fau').' '.__('Medizinische Fakultät', 'fau'),
+                        'nat'   => __('Farbe', 'fau').' '.__('Naturwissenschaftliche Fakultät', 'fau'),
+						'tf'    => __('Farbe', 'fau').' '.__('Technische Fakultät', 'fau'),
+						'rw'    => __('Farbe', 'fau').' '.__('Rechts- und Wirtschaftswissenschaftliche Fakultät', 'fau'),
+						'grau'  => __('Grau', 'fau'),
                         'invis' => __('Unsichtbar', 'fau'),
 					),
 					'default' => $defaultoptions['advanced_template_hr_linecolor'],

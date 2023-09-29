@@ -24,7 +24,7 @@ if ( have_comments() ) : ?>
     <?php 
     if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :  
            previous_comments_link( '&larr; '. __( 'Ältere Kommentare', 'fau' ) ); 
-           next_comments_link( __( 'Neuere Kommentare;', 'fau' ).' &rarr' ); 
+           next_comments_link( __( 'Neuere Kommentare', 'fau' ).' &rarr' ); 
     endif; ?>
     <ul>
             <?php wp_list_comments( array(  'style' => 'ul', 'callback' => 'fau_comment' ) ); ?>
