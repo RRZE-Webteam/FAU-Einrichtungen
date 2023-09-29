@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.35-2
+Version: 2.3.35-8
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -151,7 +151,7 @@ Text Domain: fau
   --color-mainmenu-sublevel-hover-text: #fff;
   --color-mainmenu-sublevel-hover-bg: #004A9F;
   --color-mainmenu-sublevel-button-text: #fff;
-  --color-mainmenu-sublevel-button-bg: #004A9F;
+  --color-mainmenu-sublevel-button-bg: #04316A;
   --color-mainmenu-sublevel-button-hover-text: #fff;
   --color-mainmenu-sublevel-button-hover-bg: #041E42;
   --color-submenu-toplevel-bg: #fff;
@@ -9893,6 +9893,12 @@ body.nav-toggled #headerwrapper {
   /* First-level items */
   /* Fly-Out / secondary navigation */
   /* Portal buttons */
+  /*
+  --color-mainmenu-sublevel-button-text: #fff;
+  --color-mainmenu-sublevel-button-bg: #04316A;
+  --color-mainmenu-sublevel-button-hover-text: #fff;
+  --color-mainmenu-sublevel-button-hover-bg: #041E42;
+  */
 }
 .nav:before {
   display: none;
@@ -10004,7 +10010,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 }
 .nav .button-portal {
   display: inline-block;
-  font-weight: normal;
   display: inline-block;
   font-size: 0.938rem;
   color: var(--color-button-text);
@@ -10019,9 +10024,11 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   font-weight: normal;
   margin: 5px 0;
   font-size: 1.125rem;
+  font-weight: bold;
   padding: 0.5rem 1rem;
   margin-left: 20px;
-  background-color: var(--color-mainmenu-sublevel-bg);
+  background-color: var(--color-mainmenu-sublevel-button-bg);
+  color: var(--color-mainmenu-sublevel-button-text);
 }
 .nav .button-portal:hover, .nav .button-portal:focus {
   color: var(--color-button-hover-text);
@@ -10029,6 +10036,10 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
 }
 .nav .button-portal:hover, .nav .button-portal:focus {
   text-decoration: none;
+}
+.nav .button-portal:hover, .nav .button-portal:focus, .nav .button-portal:active {
+  background: var(--color-mainmenu-sublevel-button-hover-bg);
+  color: var(--color-mainmenu-sublevel-button-hover-text);
 }
 .nav ul {
   list-style: none;
@@ -10090,7 +10101,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .nav > li.has-sub:focus-within .nav
   /* All links & buttons */
   /* First-level items */
   /* Fly-Out / secondary navigation */
-  /* Portal buttons */
 }
 .navsmall:before {
   display: none;
@@ -10204,34 +10214,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .navsmall > li.has-sub:focus-within
 .navsmall .nav-flyout .container {
   width: auto;
 }
-.navsmall .button-portal {
-  display: inline-block;
-  font-weight: normal;
-  display: inline-block;
-  font-size: 0.938rem;
-  color: var(--color-button-text);
-  background-color: var(--color-button-bg);
-  border: none;
-  padding: 10px 18px;
-  text-decoration: none;
-  border-radius: var(--border-radius-buttons, 3px);
-  font-size: 1rem;
-  line-height: 1.5;
-  text-align: center;
-  font-weight: normal;
-  margin: 5px 0;
-  font-size: 1.125rem;
-  padding: 0.5rem 1rem;
-  margin-left: 20px;
-  background-color: var(--color-mainmenu-sublevel-bg);
-}
-.navsmall .button-portal:hover, .navsmall .button-portal:focus {
-  color: var(--color-button-hover-text);
-  background-color: var(--color-button-hover-bg);
-}
-.navsmall .button-portal:hover, .navsmall .button-portal:focus {
-  text-decoration: none;
-}
 .navsmall ul {
   list-style: none;
   margin: 0;
@@ -10327,7 +10309,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .navsmall > li.has-sub:focus-within
          column-count: 1;
   }
   .mainnav-plainview .nav .flyout-entries-full.column-count-1 .button-portal {
-    margin-left: 535px;
+    margin-left: 520px;
   }
 }
 @media (min-width: 992px) {
@@ -10336,7 +10318,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .navsmall > li.has-sub:focus-within
          column-count: 2;
   }
   .mainnav-plainview .nav .flyout-entries-full.column-count-2 .button-portal {
-    margin-left: 361px;
+    margin-left: 346px;
   }
 }
 @media (min-width: 992px) {
@@ -10353,7 +10335,7 @@ body:not(.mainnav-forceclick):not(.ismobile) .navsmall > li.has-sub:focus-within
 }
 @media (min-width: 992px) {
   .mainnav-plainview .nav .flyout-entries-full.column-count-3 .button-portal, .mainnav-plainview .nav .flyout-entries-full.column-count-4 .button-portal {
-    margin-left: 187px;
+    margin-left: 172px;
   }
 }
 @media (min-width: 992px) {
@@ -10504,9 +10486,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .navsmall > li.has-sub:focus-within
     margin-left: 0;
     border-bottom: 1px solid var(--color-primary-dunkler);
   }
-  .nav .flyout-entries-full .button-portal:hover, .nav .flyout-entries-full .button-portal:focus, .nav .flyout-entries-full .button-portal:active {
-    background: var(--color-mainmenu-sublevel-hover-bg);
-  }
   .nav .flyout-entries-full ul {
     order: 2;
   }
@@ -10553,9 +10532,6 @@ body:not(.mainnav-forceclick):not(.ismobile) .navsmall > li.has-sub:focus-within
     padding: 7px 20px 7px var(--width-gutter-half);
     margin-left: 0;
     border-bottom: 1px solid var(--color-primary-dunkler);
-  }
-  .navsmall .flyout-entries-full .button-portal:hover, .navsmall .flyout-entries-full .button-portal:focus, .navsmall .flyout-entries-full .button-portal:active {
-    background: var(--color-mainmenu-sublevel-hover-bg);
   }
   .navsmall .flyout-entries-full ul {
     order: 2;

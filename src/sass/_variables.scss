@@ -107,8 +107,8 @@ $color-mainmenu-sublevel-bg:	    map-get($colormap-primary, "ci-hell");
 $color-mainmenu-sublevel-text:	    map-get($colormap-primary, "ci-hell-kontrast");
 $color-mainmenu-sublevel-hover-text:	map-get($colormap-primary, "dunkler-kontrast");
 $color-mainmenu-sublevel-hover-bg:	map-get($colormap-primary, "dunkler");
-$color-mainmenu-sublevel-button-text:	map-get($colormap-primary, "dunkler-kontrast");
-$color-mainmenu-sublevel-button-bg:	map-get($colormap-primary, "dunkler");
+$color-mainmenu-sublevel-button-text:	map-get($colormap-primary, "ci-hell-kontrast");
+$color-mainmenu-sublevel-button-bg:	map-get($colormap-primary, "ci-hell");
 $color-mainmenu-sublevel-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
 $color-mainmenu-sublevel-button-hover-bg:	map-get($colormap-primary, "dunkelste");
 

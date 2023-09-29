@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 97,
+	'optiontable-version'           => 98,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -642,7 +642,7 @@ $setoptions = array(
 					'type'    => 'range-value',
 					'title'   => __('Zahl der Slides', 'fau'),
 					'label'   => __('Anzahl der Slides von verlinkten Top-Artikeln', 'fau'),
-					'min'	    => 2,
+					'min'	    => 1,
 					'max'	    => 10,
 					'default' => $defaultoptions['start_header_count'],
 					'parent'  => 'slider'
