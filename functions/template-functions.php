@@ -615,7 +615,7 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
     if ($id == 0) {
         return;
     }
-
+    $withcat = get_theme_mod('show_cat_on');
     $post   = get_post($id);
     $output = '';
     if ($post) {

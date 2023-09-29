@@ -973,7 +973,7 @@ $setoptions = array(
 					'type'    => 'toggle',
 					'title'   => __('Kategorie zeigen', 'fau'),
 					'label'   => __('Kategorie zeigen', 'fau'),
-					'default' => $defaultoptions['show_date_on'],
+					'default' => $defaultoptions['show_cat_on'],
 					'parent'  => 'newsbereich'
 				),
 
