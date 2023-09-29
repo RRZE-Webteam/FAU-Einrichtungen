@@ -9,25 +9,29 @@
         @media (min-width: $screen-xs) {
 	    	margin-top: 20px;
         }
-		.post-image {
-			margin-top: 0px;
+	.post-image {
+		margin-top: 0px;
 
-			@media (min-width: $screen-xs) {
-				width: 50%;
-			}
-			@media (min-width: $screen-sm) {
-				width: inherit;
-				max-width: 420px;
-			}
-			
-			img {
-				@media (min-width: $screen-sm) {
-					max-width: 420px;
-					max-height: 280px;
-					box-shadow: none;
-			}
-	    }
-	     
+		@media (min-width: $screen-xs) {
+			width: 50%;
+		}
+		@media (min-width: $screen-sm) {
+			width: inherit;
+			max-width: 420px;
+		}
+
+		img {
+		    object-fit: cover;
+		    @media (min-width: $screen-sm) {
+			    max-width: 420px;
+			    max-height: 280px;
+			    box-shadow: none;
+
+
+		    }
+
+		}     
+		
 	}
 	.subtitle {
 	    padding-top: 0;
