@@ -12,7 +12,7 @@
     overflow: hidden;
 
     @media (min-width: $screen-sm) {
-        margin: 20px auto;
+        margin: 0 auto 20px auto;
     }
     &.hero-banner {
 	@media (min-width: $screen-md) {
@@ -88,7 +88,7 @@
         p.presentationtitle,
         h1 {
             padding: 0;
-            margin: 20px 0;
+            margin: 0 0 10px 0;
         }
 
     }

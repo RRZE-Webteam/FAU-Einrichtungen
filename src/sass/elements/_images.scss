@@ -142,7 +142,6 @@ main, aside, .portalpage-sidebar, .widget {
 		width: 100vw;
 		max-width: 100vw;
 		@media (min-width: $screen-xs) {
-		    width: inherit;
 		    max-width: 100%;
 		}
 	    }

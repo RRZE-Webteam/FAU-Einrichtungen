@@ -96,6 +96,7 @@ ul, ol {
 		    a:hover, 
 		    a:focus {
 			    text-decoration: underline;
+				text-decoration-thickness: 0.3rem;
 		    }
 	    }
 	}
@@ -177,7 +178,6 @@ ol.kontrastmarker {
 	border-radius: 50%;
 	display: inline-grid;
 	place-items: center;
-	line-height: 1.5em;
 	margin-left: -2rem;
     }
 
@@ -235,7 +235,6 @@ ul {
 	    border-radius: 50%;
 	    display: inline-grid;
 	    place-items: center;
-	    line-height: 1.5em;
 	    font-weight: bold;
  
 	}

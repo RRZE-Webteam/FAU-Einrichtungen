@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 95,
+	'optiontable-version'           => 98,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -186,7 +186,7 @@ $defaultoptions = [
 	'contact_address_country'                   => '',
 	'google-site-verification'                  => '',
 	'default_mainmenu_number'                   => 4,
-
+    'main_menu_style'                           => 'mega',
 
 	'default_excerpt_morestring'                => '...',
 	'default_excerpt_length'                    => 50,
@@ -227,7 +227,8 @@ $defaultoptions = [
 	// Sidebar Id für die Fehlerseite
     'advanced_error_sidebar_hidedefaultnotice'  => false,    
     // Standard Fehlermeldung bei 401,403,404 Seiten verbergen
-    
+    'advanced_header_search_hide'               => false,
+    // Erlaubt die Deaktivierung der Sucheingabe im Kopfteil der Website
 	'advanced_page_sidebar_personen_title'      => __('Kontakt', 'fau'),
 	'advanced_page_sidebar_linkblock1_number'	=> 3,
 	'advanced_page_sidebar_linkblock2_number'	=> 3,
@@ -307,6 +308,8 @@ $defaultoptions = [
 	// Hover-Effekt bei Portalmenüs
 	'portalmenus_hover_zoom'					=> false,
 	// Zoom-Effekt bei Portalmenüs
+
+
 ];
 
 
@@ -578,8 +581,8 @@ $setoptions = array(
 
 				'post_prev_next' => array(
 					'type'    => 'toggle',
-					'title'   => __('Prev/Next-Link', 'fau'),
-					'label'   => __('show prev,next buttons', 'fau'),
+					'title'   => __('Vor und Zurück', 'fau'),
+					'label'   => __('Zeige Links zu dem jeweils zeitlich vorherigen und folgenden Beitrag, falls vorhanden', 'fau'),
 					'default' => $defaultoptions['post_prev_next'],
 					'parent'  => 'postoptions'
 				),
@@ -639,7 +642,7 @@ $setoptions = array(
 					'type'    => 'range-value',
 					'title'   => __('Zahl der Slides', 'fau'),
 					'label'   => __('Anzahl der Slides von verlinkten Top-Artikeln', 'fau'),
-					'min'	    => 2,
+					'min'	    => 1,
 					'max'	    => 10,
 					'default' => $defaultoptions['start_header_count'],
 					'parent'  => 'slider'
@@ -756,6 +759,8 @@ $setoptions = array(
 					'desc'    => __('Einstellungen für den Fußteil des Webauftritts.', 'fau'),
 				),
 
+              
+                
 				'advanced_footer_display_address'	  => array(
 					'type'    => 'toggle',
 					'title'   => __('Adresse', 'fau'),
@@ -804,6 +809,79 @@ $setoptions = array(
 					'label'   => __('Optionale Landesangabe', 'fau'),
 					'default' => $defaultoptions['contact_address_country'],
 					'parent'  => 'footer'
+				),
+                         
+                 'topmenulinks'  => array(
+					'type'    => 'section',
+					'title'   => __('Hauptmenü', 'fau'),
+				),
+
+				
+				'main_menu_style' => array(
+					'type'    => 'select',
+					'title'   => __('Darstellung', 'fau'),
+					'label'   => __('Auswahl der optischen Darstellung für das Hauptmenü', 'fau'),
+					'liste'   => array(
+						'mega' => __('Mega Menü', 'fau'),
+						'small' => __('Pull-Down-Menü ', 'fau')
+					),
+					'default' => $defaultoptions['main_menu_style'],
+					'parent'  => 'topmenulinks',
+				),
+                'menu_pretitle_portal' => array(
+					'type'    => 'text',
+					'title'   => __('Menü Portal-Button (Vortitel)', 'fau'),
+					'label'   => __('Begriff vor dem Titel des gewählten Menüs', 'fau'),
+					'default' => $defaultoptions['menu_pretitle_portal'],
+					'parent'  => 'topmenulinks'
+				),
+				'menu_aftertitle_portal' => array(
+					'type'    => 'text',
+					'title'   => __('Menü Portal-Button (Nachtitel)', 'fau'),
+					'label'   => __('Begriff nach dem Titel des gewählten Menüs', 'fau'),
+					'default' => $defaultoptions['menu_aftertitle_portal'],
+					'parent'  => 'topmenulinks'
+				),
+                
+                
+                'portalmenus'  => array(
+					'type'    => 'section',
+					'title'   => __('Portalmenüs', 'fau'),
+				),
+
+				'portalmenus_hover_blur' => array(
+					'type'    => 'toggle',
+					'title'   => __('Blur-Effekt verwenden', 'fau'),
+					'label'   => __('Ermöglicht das Hinzufügen eines Blur-Effekts auf Bilder des Portalmenüs.', 'fau'),
+					'default' => $defaultoptions['portalmenus_hover_blur'],
+					'parent'  => 'portalmenus'
+				),
+
+				'portalmenus_hover_zoom' => array(
+					'type'    => 'toggle',
+					'title'   => __('Zoom-Effekt verwenden', 'fau'),
+					'label'   => __('Ermöglicht das Hinzufügen eines Zoom-Effekts auf Bilder des Portalmenüs.', 'fau'),
+					'default' => $defaultoptions['portalmenus_hover_zoom'],
+					'parent'  => 'portalmenus'
+				),
+            	'default_submenu_entries' => array(
+					'type'    => 'range-value',
+					'title'   => __('Untermenüpunkte', 'fau'),
+					'label'   => __('Anzahl der anzuzeigenden Untermenüpunkte (Zweite Ebene).', 'fau'),
+					'default' => $defaultoptions['default_submenu_entries'],
+					'min'   => 0,
+					'max'   => 10,
+					'step'  => 1,
+					'parent'  => 'portalmenus'
+				),
+				'fallback_submenu_image' => array(
+					'type'    => 'image',
+					'maxwidth'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['width'], // $defaultoptions['default_rwdimage_2-1_width'],
+					'maxheight'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['height'], // $defaultoptions['default_rwdimage_2-1_height'],
+					'title'   => __('Thumbnail Ersatzbild', 'fau'),
+					'label'   => __('Ersatzbild für den Fall, daß eine verlinkte Seite kein eigenes Artikelbild definiert hat.', 'fau'),
+					'parent'  => 'portalmenus',
+					'default' => $defaultoptions['fallback_submenu_image'],
 				),
 
 				'newsbereich'  => array(
@@ -895,7 +973,7 @@ $setoptions = array(
 					'type'    => 'toggle',
 					'title'   => __('Kategorie zeigen', 'fau'),
 					'label'   => __('Kategorie zeigen', 'fau'),
-					'default' => $defaultoptions['show_date_on'],
+					'default' => $defaultoptions['show_cat_on'],
 					'parent'  => 'newsbereich'
 				),
 
@@ -1096,7 +1174,7 @@ $setoptions = array(
 				),
 				'advanced_imagelink_default_dots' => array(
 					'type'    => 'toggle',
-					'title'   => __('Dots (Slider)', 'fau'),
+					'title'   => __('Navigationspunkte (Slider)', 'fau'),
 					'label'   => __('Zeigt bei der Sliderdarstellung unterhalb der Bildlinks Navigationsbuttons als Punkte an.', 'fau'),
 					'default' => $defaultoptions['advanced_imagelink_default_dots'],
 					'parent'  => 'imagelink'
@@ -1116,26 +1194,10 @@ $setoptions = array(
 					'parent'  => 'imagelink'
 				),
 
-				'portalmenus'  => array(
-					'type'    => 'section',
-					'title'   => __('Portalmenüs', 'fau'),
-				),
+				
+			
 
-				'portalmenus_hover_blur' => array(
-					'type'    => 'toggle',
-					'title'   => __('Blur-Effekt verwenden', 'fau'),
-					'label'   => __('Ermöglicht das Hinzufügen eines Blur-Effekts auf Bilder des Portalmenüs.', 'fau'),
-					'default' => $defaultoptions['portalmenus_hover_blur'],
-					'parent'  => 'portalmenus'
-				),
 
-				'portalmenus_hover_zoom' => array(
-					'type'    => 'toggle',
-					'title'   => __('Zoom-Effekt verwenden', 'fau'),
-					'label'   => __('Ermöglicht das Hinzufügen eines Zoom-Effekts auf Bilder des Portalmenüs.', 'fau'),
-					'default' => $defaultoptions['portalmenus_hover_zoom'],
-					'parent'  => 'portalmenus'
-				),
 			)
 		),
 
@@ -1187,49 +1249,10 @@ $setoptions = array(
 					'parent'  => 'bedienung'
 				),
 
-				'topmenulinks'  => array(
-					'type'    => 'section',
-					'title'   => __('Hauptmenü', 'fau'),
-				),
+		
+                
 
-				'menu_pretitle_portal' => array(
-					'type'    => 'text',
-					'title'   => __('Menü Portal-Button (Vortitel)', 'fau'),
-					'label'   => __('Begriff vor dem Titel des gewählten Menüs', 'fau'),
-					'default' => $defaultoptions['menu_pretitle_portal'],
-					'parent'  => 'topmenulinks'
-				),
-				'menu_aftertitle_portal' => array(
-					'type'    => 'text',
-					'title'   => __('Menü Portal-Button (Nachtitel)', 'fau'),
-					'label'   => __('Begriff nach dem Titel des gewählten Menüs', 'fau'),
-					'default' => $defaultoptions['menu_aftertitle_portal'],
-					'parent'  => 'topmenulinks'
-				),
-
-				'contentmenus'  => array(
-					'type'    => 'section',
-					'title'   => __('Inhaltsmenüs', 'fau'),
-				),
-				'default_submenu_entries' => array(
-					'type'    => 'range-value',
-					'title'   => __('Untermenüpunkte', 'fau'),
-					'label'   => __('Anzahl der anzuzeigenden Untermenüpunkte (Zweite Ebene).', 'fau'),
-					'default' => $defaultoptions['default_submenu_entries'],
-					'min'   => 0,
-					'max'   => 10,
-					'step'  => 1,
-					'parent'  => 'contentmenus'
-				),
-				'fallback_submenu_image' => array(
-					'type'    => 'image',
-					'maxwidth'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['width'], // $defaultoptions['default_rwdimage_2-1_width'],
-					'maxheight'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['height'], // $defaultoptions['default_rwdimage_2-1_height'],
-					'title'   => __('Thumbnail Ersatzbild', 'fau'),
-					'label'   => __('Ersatzbild für den Fall, daß eine verlinkte Seite kein eigenes Artikelbild definiert hat.', 'fau'),
-					'parent'  => 'contentmenus',
-					'default' => $defaultoptions['fallback_submenu_image'],
-				),
+			
 
 				'sidebaropt'  => array(
 					'type'	=> 'section',
@@ -1364,12 +1387,12 @@ $setoptions = array(
 					'label'   => __('Ändert die vorgegebene Standard-Trennlinienfarbe vom Standard auf eine andere CI-Farbe um.', 'fau'),
 					'liste'   => array(
                         '' => __('Default (Blau)', 'fau'),
-						'phil' =>  __('Farbe der', 'fau').' '.__('Philosophischen Fakultät', 'fau'),
-						'med' => __('Farbe der', 'fau').' '.__('Medizinischen Fakultät', 'fau'),
-                        'nat' => __('Farbe der', 'fau').' '.__('Naturwissenschaftlichen Fakultät', 'fau'),
-						'tf' => __('Farbe der', 'fau').' '.__('Technischen Fakultät', 'fau'),
-						'rw' => __('Farbe der', 'fau').' '.__('Rechts- und Wirtschaftswissenschaftlichen Fakultät', 'fau'),
-						'grau' => __('Grau', 'fau'),
+						'phil'  =>  __('Farbe', 'fau').' '.__('Philosophische Fakultät', 'fau'),
+						'med'   => __('Farbe', 'fau').' '.__('Medizinische Fakultät', 'fau'),
+                        'nat'   => __('Farbe', 'fau').' '.__('Naturwissenschaftliche Fakultät', 'fau'),
+						'tf'    => __('Farbe', 'fau').' '.__('Technische Fakultät', 'fau'),
+						'rw'    => __('Farbe', 'fau').' '.__('Rechts- und Wirtschaftswissenschaftliche Fakultät', 'fau'),
+						'grau'  => __('Grau', 'fau'),
                         'invis' => __('Unsichtbar', 'fau'),
 					),
 					'default' => $defaultoptions['advanced_template_hr_linecolor'],
@@ -1388,6 +1411,14 @@ $setoptions = array(
 					'title'   => __('Standard Fehlermeldung verstecken', 'fau'),
 					'label'   => __('Wenn eine Fehlerseite erscheint, kann mit diesem Schalter die Standard-Fehlermeldung unterdrückt werden.', 'fau'),
 					'default' => $defaultoptions['advanced_error_sidebar_hidedefaultnotice'],
+					'parent'  => 'templates'
+				),
+                
+                'advanced_header_search_hide'     => array(
+					'type'    => 'toggle',
+					'title'   => __('Standard Sucheingabe abschalten', 'fau'),
+					'label'   => __('Die Suchmaske im Kopfteil der Seite kann durch diese Option abgeschaltet werrden.', 'fau'),
+					'default' => $defaultoptions['advanced_header_search_hide'],
 					'parent'  => 'templates'
 				),
                 

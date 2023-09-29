@@ -9,13 +9,10 @@
     width: 100%;
     height: 100%;
 
-    @media (min-width: $screen-sm) {
-        padding-left: floor(math.div($grid-gutter-width, 2));
-        padding-right: ceil(math.div($grid-gutter-width, 2));
-        width: $container-sm;
-    }
     @media (min-width: $screen-md) {
         width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
     }
     @media (min-width: $screen-xl-min) {
         width: $container-xl;
@@ -35,7 +32,7 @@
 	@media (min-width: $screen-md) {
 	     align-items: flex-end;
 	}
-        @media (min-width: $screen-sm) {
+        @media (min-width: $screen-md) {
             justify-content: space-between;
             padding: 1.2rem 0 1rem;
 

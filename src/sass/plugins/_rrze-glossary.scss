@@ -20,7 +20,8 @@
 	    border: 1px solid var(--color-StandardHellgrau);
 	  
 	    span {
-		 color: var(--color-TextLight);
+		 	//color: var(--color-TextLight);
+			color: var(--color-Text);
 	    }
 	    span, a {
 		@include px2rem($font-size-textbuttons);
@@ -40,6 +41,7 @@
 		a:hover,
 		a:focus {
 		    text-decoration: underline;
+			text-decoration-thickness: 0.3rem;
 		}
 
 

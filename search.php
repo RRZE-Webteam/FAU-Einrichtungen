@@ -80,8 +80,8 @@ $notfound = false;
 						    'total'    => $wp_query->max_num_pages,
 						    'current'  => $paged,
 						    'mid_size' => 1,
-						    'prev_text' => __( '<span class="meta-nav">&larr;</span> Zurück', 'fau' ),
-						    'next_text' => __( 'Weiter <span class="meta-nav">&rarr;</span>', 'fau' ),
+						    'prev_text' => '<span class="meta-nav">&larr;</span> '.__( 'Zurück', 'fau' ),
+						    'next_text' => __( 'Weiter', 'fau' ).' <span class="meta-nav">&rarr;</span>',
 						    'before_page_number' => '<span class="screen-reader-text">'.__( 'Seite', 'fau' ).' </span>'
 						) );
 						?>

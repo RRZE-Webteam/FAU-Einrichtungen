@@ -12,8 +12,12 @@
     a {
         @include defaultlinkstyle();
         text-decoration: none;
-
         color: var(--color-Text);
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
     }
 
 
@@ -400,9 +404,9 @@ main .subpages-menu,
         display: flex;
         gap: var(--width-gutter-half, 15px);
         flex-wrap: wrap;
-	padding-left: var(--width-gutter-half, 15px);
-	padding-right: var(--width-gutter-half, 15px);
-	@media (min-width: $screen-sm) {
+        padding-left: var(--width-gutter-half, 15px);
+        padding-right: var(--width-gutter-half, 15px);
+        @media (min-width: $screen-sm) {
 	    padding-left: 0;
 	    padding-right: 0;
 	}
@@ -440,7 +444,7 @@ main .subpages-menu,
                     &:hover {
                         color: var(--color-mainmenu-sublevel-hover-text);
                         background-color: var(--color-mainmenu-sublevel-bg);
-                        border-radius: 3px;
+                        border-radius: var(--border-radius);
                     }
                 }
                 > ul {
@@ -458,7 +462,7 @@ main .subpages-menu,
                             &:hover {
                                 color: var(--color-mainmenu-sublevel-hover-text);
                                 background-color: var(--color-mainmenu-sublevel-bg);
-                                border-radius: 3px;
+                                border-radius: var(--border-radius);
                             }
                         }
                         &::before {

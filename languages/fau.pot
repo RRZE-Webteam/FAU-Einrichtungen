@@ -7,7 +7,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: [object Object]\n"
-"POT-Creation-Date: 2023-05-25 16:23+0000\n"
 "Report-Msgid-Bugs-To: https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -16,35 +15,35 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: 401.php:18, functions/template-functions.php:314, template-parts/hero-error.php:27
+#: 401.php:20, functions/template-functions.php:312, template-parts/hero-error.php:27
 msgid "Anmeldung fehlgeschlagen"
 msgstr ""
 
-#: 401.php:21, 403.php:21, 404.php:22
+#: 401.php:24, 403.php:25, 404.php:24
 msgid "Es tut uns leid."
 msgstr ""
 
-#: 401.php:24
+#: 401.php:27
 msgid "Leider ist Ihre Anmeldung fehlgeschlagen."
 msgstr ""
 
-#: 401.php:33, 403.php:34, 404.php:35, search.php:137, functions/constants.php:1271, functions/custom-fields.php:81, template-parts/sidebar-portal.php:73, template-parts/sidebar-start.php:73
+#: 401.php:38, 403.php:39, 404.php:38, search.php:137, functions/constants.php:1259, functions/custom-fields.php:81, template-parts/sidebar-portal.php:73, template-parts/sidebar-start.php:73
 msgid "Sidebar"
 msgstr ""
 
-#: 403.php:18, functions/template-functions.php:310, template-parts/hero-error.php:30
+#: 403.php:21, functions/template-functions.php:308, template-parts/hero-error.php:30
 msgid "Zugriff nicht gestattet"
 msgstr ""
 
-#: 403.php:24
+#: 403.php:28
 msgid "Leider dürfen Sie auf diese Seite nicht zugreifen."
 msgstr ""
 
-#: 404.php:19, functions/menu.php:850, functions/menu.php:903, template-parts/hero-error.php:33
+#: 404.php:20, functions/menu.php:1072, functions/menu.php:1127, template-parts/hero-error.php:33
 msgid "Seite nicht gefunden"
 msgstr ""
 
-#: 404.php:25
+#: 404.php:27
 msgid "Die von Ihnen aufgerufene Seite existiert nicht oder ihre Adresse hat sich durch Änderungen an der Seitenstruktur geändert."
 msgstr ""
 
@@ -56,7 +55,7 @@ msgstr ""
 msgid "Die folgenden Informationen werden öffentlich angezeigt:"
 msgstr ""
 
-#: attachment.php:84, functions/template-functions.php:463
+#: attachment.php:84, functions/template-functions.php:461
 msgid "Download"
 msgstr ""
 
@@ -78,11 +77,7 @@ msgstr[1] ""
 msgid "Ältere Kommentare"
 msgstr ""
 
-#: comments.php:27
-msgid "Neuere Kommentare;"
-msgstr ""
-
-#: comments.php:36
+#: comments.php:27, comments.php:36
 msgid "Neuere Kommentare"
 msgstr ""
 
@@ -94,11 +89,11 @@ msgstr ""
 msgid "Kontakt, Impressum und Zusatzinformationen"
 msgstr ""
 
-#: footer.php:70, functions/constants.php:175, functions/constants.php:757, template-parts/footer-social.php:82
+#: footer.php:68
 msgid "Social Media"
 msgstr ""
 
-#: footer.php:83
+#: footer.php:80
 msgid "Nach oben"
 msgstr ""
 
@@ -106,11 +101,11 @@ msgstr ""
 msgid "Organisationsmenü"
 msgstr ""
 
-#: header.php:47
+#: header.php:47, functions/gallery.php:144, functions/gallery.php:142
 msgid "öffnen"
 msgstr ""
 
-#: header.php:64, header.php:143
+#: header.php:64, header.php:155
 msgid "schließen"
 msgstr ""
 
@@ -118,11 +113,11 @@ msgstr ""
 msgid "Navigation: Weitere Angebote"
 msgstr ""
 
-#: header.php:141
+#: header.php:143
 msgid "Hauptnavigation"
 msgstr ""
 
-#: header.php:142, header.php:143
+#: header.php:154, header.php:155
 msgid "Menu"
 msgstr ""
 
@@ -130,15 +125,15 @@ msgstr ""
 msgid "Index"
 msgstr ""
 
-#: index.php:83
+#: index.php:91
 msgid "Ältere Beiträge"
 msgstr ""
 
-#: index.php:84
+#: index.php:92
 msgid "Neuere Beiträge"
 msgstr ""
 
-#: search.php:21, functions/constants.php:203
+#: search.php:21, functions/constants.php:199
 msgid "Webauftritt durchsuchen"
 msgstr ""
 
@@ -158,7 +153,7 @@ msgstr ""
 msgid "Leider konnte für Ihren Suchbegriff kein passendes Ergebnis gefunden werden."
 msgstr ""
 
-#: search.php:29, functions/constants.php:1008
+#: search.php:29, functions/constants.php:1051
 msgid "Suchergebnisse"
 msgstr ""
 
@@ -175,11 +170,11 @@ msgid "Treffer gefunden"
 msgstr ""
 
 #: search.php:83
-msgid "<span class=\"meta-nav\">&larr;</span> Zurück"
+msgid "Zurück"
 msgstr ""
 
 #: search.php:84
-msgid "Weiter <span class=\"meta-nav\">&rarr;</span>"
+msgid "Weiter"
 msgstr ""
 
 #: search.php:85
@@ -190,35 +185,35 @@ msgstr ""
 msgid "Weitere Suchergebnisse"
 msgstr ""
 
-#: searchform.php:19, template-parts/header-search.php:24, template-parts/search-form.php:14
+#: searchform.php:19, template-parts/header-search.php:30, template-parts/search-form.php:14
 msgid "Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:"
 msgstr ""
 
-#: searchform.php:21, template-parts/header-search.php:28, template-parts/search-form.php:16
+#: searchform.php:21, template-parts/search-form.php:16
 msgid "Suchen nach..."
 msgstr ""
 
-#: searchform.php:22, template-parts/header-search.php:42, template-parts/search-form.php:17
+#: searchform.php:22, template-parts/header-search.php:56, template-parts/search-form.php:17
 msgid "Finden"
 msgstr ""
 
-#: single.php:43
+#: single.php:58
 msgid "Symbolbild zum Artikel. Der Link öffnet das Bild in einer großen Anzeige."
 msgstr ""
 
-#: single.php:91, functions/constants.php:646, functions/template-functions.php:390, functions/template-functions.php:682, functions/template-functions.php:711, page-templates/video-podcast-post.php:61
+#: single.php:106, functions/constants.php:653, functions/template-functions.php:388, functions/template-functions.php:792, page-templates/video-podcast-post.php:76
 msgid "Kategorie"
 msgstr ""
 
-#: single.php:95, page-templates/video-podcast-post.php:65
+#: single.php:110, page-templates/video-podcast-post.php:80
 msgid "Beiträge aus der Kategorie"
 msgstr ""
 
-#: single.php:95, functions/gallery.php:142, functions/template-functions.php:2034, page-templates/video-podcast-post.php:65
+#: single.php:110, functions/template-functions.php:2021, page-templates/video-podcast-post.php:80
 msgid "aufrufen"
 msgstr ""
 
-#: single.php:104, page-templates/video-podcast-post.php:74
+#: single.php:119, page-templates/video-podcast-post.php:89
 msgid "Schlagworte"
 msgstr ""
 
@@ -239,16 +234,12 @@ msgstr ""
 msgid "Kommentar wartet auf Freischaltung."
 msgstr ""
 
-#: functions/comments.php:52
-msgid "(Bearbeiten)"
-msgstr ""
-
-#: functions/comments.php:62
-msgid "Pingback:"
-msgstr ""
-
-#: functions/comments.php:62
+#: functions/comments.php:52, functions/comments.php:62
 msgid "Bearbeiten"
+msgstr ""
+
+#: functions/comments.php:62
+msgid "Pingback"
 msgstr ""
 
 #: functions/constants.php:44
@@ -258,15 +249,15 @@ msgid ""
 "	    https://jobs.fau.de"
 msgstr ""
 
-#: functions/constants.php:61
+#: functions/constants.php:60
 msgid "Animation stoppen"
 msgstr ""
 
-#: functions/constants.php:62
+#: functions/constants.php:61
 msgid "Animation starten"
 msgstr ""
 
-#: functions/constants.php:72
+#: functions/constants.php:70
 msgid "Mehr Meldungen"
 msgstr ""
 
@@ -306,1043 +297,1087 @@ msgstr ""
 msgid "Thumb"
 msgstr ""
 
-#: functions/constants.php:167, functions/constants.php:767, functions/constants.php:979, functions/customizer.php:35
+#: functions/constants.php:167, functions/constants.php:1022, functions/customizer.php:35
 msgid "Startseite"
 msgstr ""
 
-#: functions/constants.php:177
+#: functions/constants.php:173
 msgid "Social Media Menu"
 msgstr ""
 
-#: functions/constants.php:179
+#: functions/constants.php:175
 msgid "Social Media Bereich im Footer"
 msgstr ""
 
-#: functions/constants.php:181
+#: functions/constants.php:177
 msgid "Portal"
 msgstr ""
 
-#: functions/constants.php:184
+#: functions/constants.php:180
 msgid "Friedrich-Alexander-Universität"
 msgstr ""
 
-#: functions/constants.php:185
+#: functions/constants.php:181
 msgid "Erlangen-Nürnberg"
 msgstr ""
 
-#: functions/constants.php:186
+#: functions/constants.php:182
 msgid "Schlossplatz 4"
 msgstr ""
 
-#: functions/constants.php:187
+#: functions/constants.php:183
 msgid "91054"
 msgstr ""
 
-#: functions/constants.php:188
+#: functions/constants.php:184
 msgid "Erlangen"
 msgstr ""
 
-#: functions/constants.php:229
+#: functions/constants.php:232
 msgid "Kontakt"
 msgstr ""
 
-#: functions/constants.php:232
+#: functions/constants.php:235
 msgid "Weitere Informationen"
 msgstr ""
 
-#: functions/constants.php:233, functions/customizer.php:113
+#: functions/constants.php:236, functions/customizer.php:113
 msgid "Sonstiges"
 msgstr ""
 
-#: functions/constants.php:238
+#: functions/constants.php:241
 msgid "Ihre E-Mail-Adresse wird nicht angezeigt. Verpflichtende Felder werden mit dem folgenden Zeichen markiert: <span class=\"required\">*</span>"
 msgstr ""
 
-#: functions/constants.php:239
+#: functions/constants.php:242
 msgid "Hinweis: Die Kommentare wurden von Lesern geschrieben und spiegeln deren persönliche Meinung wieder. Sie müssen nicht die Meinung der Universität oder der Fakultät repräsentieren."
 msgstr ""
 
-#: functions/constants.php:255
+#: functions/constants.php:258
 msgid "Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie bitte die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine."
 msgstr ""
 
-#: functions/constants.php:266, functions/constants.php:272
+#: functions/constants.php:269, functions/constants.php:275
 msgid "Zum Artikel \""
 msgstr ""
 
-#: functions/constants.php:297
+#: functions/constants.php:300
 msgid "Partnerlogos"
 msgstr ""
 
-#: functions/constants.php:445, functions/constants.php:1069
+#: functions/constants.php:452, functions/constants.php:1112
 msgid "Seiten"
 msgstr ""
 
-#: functions/constants.php:446, functions/constants.php:1070
+#: functions/constants.php:453, functions/constants.php:1113
 msgid "Artikel"
 msgstr ""
 
-#: functions/constants.php:447, functions/constants.php:1071
+#: functions/constants.php:454, functions/constants.php:1114
 msgid "Dokumente und Bilder"
 msgstr ""
 
-#: functions/constants.php:452
+#: functions/constants.php:459
 msgid "Studienangebot"
 msgstr ""
 
-#: functions/constants.php:457
+#: functions/constants.php:464
 msgid "Kontakte"
 msgstr ""
 
-#: functions/constants.php:462
+#: functions/constants.php:469
 msgid "Fragen und Antworten"
 msgstr ""
 
-#: functions/constants.php:483
+#: functions/constants.php:490
 msgid "Einträge"
 msgstr ""
 
-#: functions/constants.php:498
+#: functions/constants.php:505
 msgid "Abkürzung"
 msgstr ""
 
-#: functions/constants.php:499
+#: functions/constants.php:506
 msgid "Abkürzung für den offiziellen Titel der Website"
 msgstr ""
 
-#: functions/constants.php:510
+#: functions/constants.php:517
 msgid "Titel im Logo"
 msgstr ""
 
-#: functions/constants.php:511
+#: functions/constants.php:518
 msgid "Bei Einrichtungen der FAU wird der Titel neben dem FAU-Logo gezeigt. Ist der Titel zu lang um ihn optisch korrekt darzustellen, kann hiermmit ein kürzerer Titel angegeben werden. Wird dieser EIntrag leer gelassen, wird der Titel der Website verwendet."
 msgstr ""
 
-#: functions/constants.php:523
+#: functions/constants.php:530
 msgid "Typ"
 msgstr ""
 
-#: functions/constants.php:524
+#: functions/constants.php:531
 msgid "Bitte wählen Sie hier aus, um welcherart Webauftritt es sich handelt."
 msgstr ""
 
-#: functions/constants.php:527
+#: functions/constants.php:534
 msgid "Fakultätsportal"
 msgstr ""
 
-#: functions/constants.php:528
+#: functions/constants.php:535
 msgid "Department, Lehrstuhl, Einrichtung"
 msgstr ""
 
-#: functions/constants.php:529
+#: functions/constants.php:536
 msgid "Zentrale Einrichtung"
 msgstr ""
 
-#: functions/constants.php:530
+#: functions/constants.php:537
 msgid "Website für uniübergreifende Kooperationen mit Externen"
 msgstr ""
 
-#: functions/constants.php:531
+#: functions/constants.php:538
 msgid "Zentrales FAU-Portal www.fau.de"
 msgstr ""
 
-#: functions/constants.php:544
+#: functions/constants.php:551
 msgid "Banner Startseite"
 msgstr ""
 
-#: functions/constants.php:545
+#: functions/constants.php:552
 msgid "Festes Banner für die Startseite (Template für Lehrstühle und Einrichtungen)"
 msgstr ""
 
-#: functions/constants.php:558
+#: functions/constants.php:565
 msgid "Anzeigeoptionen"
 msgstr ""
 
-#: functions/constants.php:564, functions/constants.php:772
+#: functions/constants.php:571
 msgid "Beiträge"
 msgstr ""
 
-#: functions/constants.php:569
+#: functions/constants.php:576
 msgid "Zeige Kategorien"
 msgstr ""
 
-#: functions/constants.php:570
+#: functions/constants.php:577
 msgid "Liste der Kategorien unter dem Beitrag anzeigen"
 msgstr ""
 
-#: functions/constants.php:577
-msgid "Prev/Next-Link"
-msgstr ""
-
-#: functions/constants.php:578
-msgid "show prev,next buttons"
+#: functions/constants.php:584
+msgid "Vor und Zurück"
 msgstr ""
 
 #: functions/constants.php:585
+msgid "Zeige Links zu dem jeweils zeitlich vorherigen und folgenden Beitrag, falls vorhanden"
+msgstr ""
+
+#: functions/constants.php:592
 msgid "Zeige Schlagworte"
 msgstr ""
 
-#: functions/constants.php:586
+#: functions/constants.php:593
 msgid "Zeige die Schlagworte eines Beitrags unterhalb des Artikels"
 msgstr ""
 
-#: functions/constants.php:592, functions/constants.php:1370
+#: functions/constants.php:599, functions/constants.php:1359
 msgid "Copyright-Hinweis"
 msgstr ""
 
-#: functions/constants.php:593
+#: functions/constants.php:600
 msgid "In Beiträgen wird das Artikelbild mit einem Copyright-Hinweis des Bildes versehen, wenn ein solcher Hinweis vorhanden ist."
 msgstr ""
 
-#: functions/constants.php:600
+#: functions/constants.php:607
 msgid "Kommentarfunktion"
 msgstr ""
 
-#: functions/constants.php:601
+#: functions/constants.php:608
 msgid "Schaltet die Kommentarfunktion für Beiträge ein. Die Kommentare erscheinen unterhalb des Artikels. Bitte beachten Sie, daß diese Darstellung von Kommentarfunktionen ebenfalls von den Diskussions-Einstellungen abhängig sind."
 msgstr ""
 
-#: functions/constants.php:608
+#: functions/constants.php:615
 msgid "Hinweistext Eingabeformular"
 msgstr ""
 
-#: functions/constants.php:609
+#: functions/constants.php:616
 msgid "Informationen über den Eingabefeldern für neue Kommentare."
 msgstr ""
 
-#: functions/constants.php:615
+#: functions/constants.php:622
 msgid "Kommentar-Disclaimer"
 msgstr ""
 
-#: functions/constants.php:616
+#: functions/constants.php:623
 msgid "Hinweistext zur Abgrenzung zum Inhalt der Kommentare."
 msgstr ""
 
-#: functions/constants.php:622
+#: functions/constants.php:629
 msgid "Alternativtext Artikelbild"
 msgstr ""
 
-#: functions/constants.php:623
+#: functions/constants.php:630
 msgid "Bei der Darstellung des Artikelbildes wird das ALT-Attribut vom Inhalt der Bildbeschreibung gefüllt, wenn das ALT-Attribut leer ist."
 msgstr ""
 
-#: functions/constants.php:630, functions/constants.php:721, functions/constants.php:1110
+#: functions/constants.php:637, functions/constants.php:728, functions/constants.php:1153
 msgid "Slider"
 msgstr ""
 
-#: functions/constants.php:631
+#: functions/constants.php:638
 msgid "Einstellungen für die wechselnden Bilder auf Startseiten."
 msgstr ""
 
-#: functions/constants.php:636
+#: functions/constants.php:643
 msgid "Zahl der Slides"
 msgstr ""
 
-#: functions/constants.php:637
+#: functions/constants.php:644
 msgid "Anzahl der Slides von verlinkten Top-Artikeln"
 msgstr ""
 
-#: functions/constants.php:647
+#: functions/constants.php:654
 msgid "Bitte wählen Sie die Kategorie der Artikel aus, die im Slider erscheinen sollen."
 msgstr ""
 
-#: functions/constants.php:656
+#: functions/constants.php:663
 msgid "Slider Ersatzbild"
 msgstr ""
 
-#: functions/constants.php:657
+#: functions/constants.php:664
 msgid "Ersatzbild für den Slider, für den Fall, daß ein Artikel kein eigenes Artikel- oder Bühnenbild definiert hat."
 msgstr ""
 
-#: functions/constants.php:662
+#: functions/constants.php:669
 msgid "Copyright/Titel Ersatzbild"
 msgstr ""
 
-#: functions/constants.php:663
+#: functions/constants.php:670
 msgid "Optionaler Titel bzw. Copyright-Info für das Ersatzbild für den Fall, daß es sich um ein geschnittenes Originalbild handelt."
 msgstr ""
 
-#: functions/constants.php:670
+#: functions/constants.php:677
 msgid "Autoplay"
 msgstr ""
 
-#: functions/constants.php:671
+#: functions/constants.php:678
 msgid "Slider automatisch starten"
 msgstr ""
 
-#: functions/constants.php:678
+#: functions/constants.php:685
 msgid "Slider Animation"
 msgstr ""
 
-#: functions/constants.php:679
+#: functions/constants.php:686
 msgid "Art der Animation einzelner Slides"
 msgstr ""
 
-#: functions/constants.php:681
+#: functions/constants.php:688
 msgid "Verschieben"
 msgstr ""
 
-#: functions/constants.php:682
+#: functions/constants.php:689
 msgid "Erscheinen"
 msgstr ""
 
-#: functions/constants.php:690
+#: functions/constants.php:697
 msgid "Galerien"
 msgstr ""
 
-#: functions/constants.php:691
+#: functions/constants.php:698
 msgid "Einstellungen für Bildergalerien"
 msgstr ""
 
-#: functions/constants.php:696
+#: functions/constants.php:703
 msgid "Verlinke Galeriebilder"
 msgstr ""
 
-#: functions/constants.php:697
+#: functions/constants.php:704
 msgid "Bei der Anzeige einer Defaultgalerie unter der Bildunterschrift eine Verlinkung auf das Originalbild einschalten"
 msgstr ""
 
-#: functions/constants.php:703
+#: functions/constants.php:710
 msgid "Bildbeschriftung bei Galerien erzwingen"
 msgstr ""
 
-#: functions/constants.php:704
+#: functions/constants.php:711
 msgid "Bei der Darstellung von Bildergalerien mit dem Slider werden die Bildbeschriftungen immer unterhalb des aktiven Bildes angezeigt."
 msgstr ""
 
-#: functions/constants.php:711
+#: functions/constants.php:718
 msgid "Header"
 msgstr ""
 
-#: functions/constants.php:712
+#: functions/constants.php:719
 msgid "Einstellungen für den Kopfteil des Webauftritts."
 msgstr ""
 
-#: functions/constants.php:716
+#: functions/constants.php:723
 msgid "Kopfteil auf Index- und Kategorieseiten"
 msgstr ""
 
-#: functions/constants.php:717
+#: functions/constants.php:724
 msgid "Auf Index- und Kategorieseite wird üblicherweise ein Kopfteil wie bei normalen Seiten mit einer Breadcrumb gezeigt. Stattdessen kann man jedoch auch die Darstellung des Banners von Startseiten auswählen."
 msgstr ""
 
-#: functions/constants.php:719
+#: functions/constants.php:726
 msgid "Index in der Standard-Seitenanzeige"
 msgstr ""
 
-#: functions/constants.php:720
+#: functions/constants.php:727
 msgid "Banner"
 msgstr ""
 
-#: functions/constants.php:729
+#: functions/constants.php:736
 msgid "Seitentitel im Banner"
 msgstr ""
 
-#: functions/constants.php:730
+#: functions/constants.php:737
 msgid "Zeigt den Seitentitel im Banner an"
 msgstr ""
 
-#: functions/constants.php:736
+#: functions/constants.php:743
 msgid "Slogan im Banner"
 msgstr ""
 
-#: functions/constants.php:737
+#: functions/constants.php:744
 msgid "Zeigt den Slogan im Banner an"
 msgstr ""
 
-#: functions/constants.php:743
+#: functions/constants.php:750
 msgid "Website-Titel"
 msgstr ""
 
-#: functions/constants.php:744
+#: functions/constants.php:751
 msgid "Zeige den Website-Titel oberhalb der Breadcrumb"
 msgstr ""
 
-#: functions/constants.php:751
+#: functions/constants.php:758
 msgid "Footer"
 msgstr ""
 
-#: functions/constants.php:752
+#: functions/constants.php:759
 msgid "Einstellungen für den Fußteil des Webauftritts."
 msgstr ""
 
-#: functions/constants.php:758
-msgid "Zeigt die Social Media Icons im Footerbereich unterhalb des technischen Menüs an"
-msgstr ""
-
-#: functions/constants.php:764
-msgid "Widget aktivieren"
-msgstr ""
-
-#: functions/constants.php:765
-msgid "Auf welchen Seiten soll das Widget angezeigt werden."
-msgstr ""
-
-#: functions/constants.php:768, functions/constants.php:980
-msgid "Portalseiten"
-msgstr ""
-
-#: functions/constants.php:769, functions/constants.php:981
-msgid "Suche und Fehlerseiten"
-msgstr ""
-
-#: functions/constants.php:770
-msgid "Inhaltsseite mit Navi"
-msgstr ""
-
-#: functions/constants.php:771
-msgid "Standard Seiten"
-msgstr ""
-
-#: functions/constants.php:773
-msgid "Auf allen Seiten"
-msgstr ""
-
-#: functions/constants.php:780
-msgid "Social Media Buttons in der ersten Widgetspalte anzeigen"
-msgstr ""
-
-#: functions/constants.php:781
-msgid "Schaltet die Social Media Buttons in der Widgetspalte an oder aus. Bitte beachten Sie, daß die anzuzeigenden Icons selbst als Menü verwaltet werden. Rufen Sie hierzu die Menüeinstellungen auf und bearbeiten dort das Social Media Menü."
-msgstr ""
-
-#: functions/constants.php:788, functions/custom-fields.php:283, functions/helper-functions.php:434
-msgid "Titel"
-msgstr ""
-
-#: functions/constants.php:789
-msgid "Titel über den Social Media Icons in der ersten Spalte."
-msgstr ""
-
-#: functions/constants.php:796
+#: functions/constants.php:766
 msgid "Adresse"
 msgstr ""
 
-#: functions/constants.php:797
+#: functions/constants.php:767
 msgid "Zeigt die Postadresse an, wie sie bei den Inhaltsdaten des Webauftritts angegeben wurde."
 msgstr ""
 
-#: functions/constants.php:803
+#: functions/constants.php:773
 msgid "Adressat"
 msgstr ""
 
-#: functions/constants.php:804
+#: functions/constants.php:774
 msgid "Erste Zeile der Adresse"
 msgstr ""
 
-#: functions/constants.php:810
+#: functions/constants.php:780
 msgid "Adressat (Zusatz)"
 msgstr ""
 
-#: functions/constants.php:811
+#: functions/constants.php:781
 msgid "Zweite Zeile der Adresse"
 msgstr ""
 
-#: functions/constants.php:817
+#: functions/constants.php:787
 msgid "Strasse"
 msgstr ""
 
-#: functions/constants.php:818
+#: functions/constants.php:788
 msgid "Strasse inkl. Hausnummer"
 msgstr ""
 
-#: functions/constants.php:824
+#: functions/constants.php:794
 msgid "PLZ"
 msgstr ""
 
-#: functions/constants.php:825
+#: functions/constants.php:795
 msgid "Postleitzahl"
 msgstr ""
 
-#: functions/constants.php:831
+#: functions/constants.php:801
 msgid "Ort"
 msgstr ""
 
-#: functions/constants.php:832
+#: functions/constants.php:802
 msgid "Ortsname"
 msgstr ""
 
-#: functions/constants.php:838
+#: functions/constants.php:808
 msgid "Land"
 msgstr ""
 
-#: functions/constants.php:839
+#: functions/constants.php:809
 msgid "Optionale Landesangabe"
 msgstr ""
 
-#: functions/constants.php:846
-msgid "Artikelliste (Blogroll)"
-msgstr ""
-
-#: functions/constants.php:851
-msgid "Zahl der Artikel (Gesamt)"
-msgstr ""
-
-#: functions/constants.php:852
-msgid "Anzahl der News auf der Startseite unterhalb des Sliders"
-msgstr ""
-
-#: functions/constants.php:860
-msgid "Artikel oben halten"
-msgstr ""
-
-#: functions/constants.php:861
-msgid "Wenn ein Artikel mit dem Sticky-Tag (\"Oben halten\") veröffentlicht wurde, wird dieser vor der aktuellen Liste gezeigt. Solange ein Artikel existiert der hochgehalten wird, wird dieser, unabhängig von seinem Alter existiert, vor der aktuellen Liste gezeigt."
-msgstr ""
-
-#: functions/constants.php:868
-msgid "Positionierungs-Tag"
-msgstr ""
-
-#: functions/constants.php:869
-msgid "Angabe des Tag-Prefixes, mit der die Position von definierten Artikel auf der Startseite gesteuert werden kann. Im Artikel wird dann dieser Tag plus eine Nummer von 1 bis 3 vergeben um die Position festzusetzen. <br>Beispiel bei einem gewählten Tag-Prefix \"Startseite\": Erster Artikel mit Tag \"Startseite1\", Zweiter Artikel mit Tag \"Startseite2\". Wenn mehrere Artikel den Tag \"Startseite1\" haben und nur eines davon gezeigt werden soll, wird der jüngste Artikel mit dem Tag angezeigt."
-msgstr ""
-
-#: functions/constants.php:876
-msgid "Artikel mit gleichem Positionierungs-Tag"
-msgstr ""
-
-#: functions/constants.php:877
-msgid "Anzahl der Artikel mit dem gleichen Prefix-Tag (Positionierung), die angezeigt werden sollen. Normalerweise sollte hier nur 1 Artikel auf der ersten Position sein."
-msgstr ""
-
-#: functions/constants.php:885
-msgid "Kategorie verlinken"
-msgstr ""
-
-#: functions/constants.php:886
-msgid "Weitere Meldungen verlinken."
-msgstr ""
-
-#: functions/constants.php:892
-msgid "Kategorie auswählen"
-msgstr ""
-
-#: functions/constants.php:893
-msgid "Unter den News erscheint ein Link auf eine Übersicht der Artikel. Hier wird die Kategorie dafür ausgewählt. Für den Fall, dass keine Artikel mit einem Prefix-Tag ausgestattet sind, wird diese Kategorie auch bei der Anzeige der ersten News verwendet."
-msgstr ""
-
-#: functions/constants.php:899
-msgid "Linktitel"
-msgstr ""
-
-#: functions/constants.php:900
-msgid "Verlinkungstitel für weitere Meldungen."
-msgstr ""
-
-#: functions/constants.php:907
-msgid "Artikelbild erzwingen"
-msgstr ""
-
-#: functions/constants.php:908
-msgid "Immer ein Artikelbild zu einer Nachricht zeigen. Wenn kein Artikelbild definiert wurde, nehme stattdessen ein Ersatzbild."
-msgstr ""
-
-#: functions/constants.php:917, functions/constants.php:1000, functions/constants.php:1263
-msgid "Thumbnail Ersatzbild"
-msgstr ""
-
-#: functions/constants.php:918
-msgid "Ersatzbild für den Fall, daß ein Artikel kein eigenes Artikelbild definiert hat."
-msgstr ""
-
-#: functions/constants.php:924, functions/custom-fields.php:298
-msgid "Datum"
-msgstr ""
-
-#: functions/constants.php:925
-msgid "Erstellungsdatum zeigen"
-msgstr ""
-
-#: functions/constants.php:931, functions/constants.php:932
-msgid "Kategorie zeigen"
-msgstr ""
-
-#: functions/constants.php:939
-msgid "Artikelbilder im 3:2 Format"
-msgstr ""
-
-#: functions/constants.php:940
-msgid "Artikelbilder der Artikelliste werden in ein festes 3:2 Format angezeigt. Sollten die Bilder höher oder Breiter sein, werden sie entsprechend proportional verkleinert."
-msgstr ""
-
-#: functions/constants.php:947, functions/constants.php:1027
-msgid "Weiterlesen Button"
-msgstr ""
-
-#: functions/constants.php:948, functions/constants.php:1028
-msgid "Zeige den Weiterlesen-Button hinter jeder Nachricht."
-msgstr ""
-
-#: functions/constants.php:955
-msgid "Zickzack-Modus"
-msgstr ""
-
-#: functions/constants.php:956
-msgid "Zeige die Artikel im Zickzack-Format an."
-msgstr ""
-
-#: functions/constants.php:963
-msgid "Top Events"
-msgstr ""
-
-#: functions/constants.php:968
-msgid "Aktivieren"
-msgstr ""
-
-#: functions/constants.php:969
-msgid "Anzeige der Top-Events aktivieren"
-msgstr ""
-
-#: functions/constants.php:976
-msgid "Seitentypen"
-msgstr ""
-
-#: functions/constants.php:977
-msgid "Auf welchen Seiten sollen Top Events in der Sidebar angezeigt werden."
-msgstr ""
-
-#: functions/constants.php:988
-msgid "Anzahl Top-Events"
-msgstr ""
-
-#: functions/constants.php:989
-msgid "Wieviele Top-Events sollen maximal angezeigt werden."
-msgstr ""
-
-#: functions/constants.php:1002
-msgid "Ersatzbild für den Fall, daß für den Eventeintrag kein eigenes Bild definiert wurde."
-msgstr ""
-
-#: functions/constants.php:1013
-msgid "Thumbnails"
-msgstr ""
-
-#: functions/constants.php:1014
-msgid "Bei den Suchergebnisse Thumbnails anzeigen, wenn diese vorhanden sind"
-msgstr ""
-
-#: functions/constants.php:1020
-msgid "Kategorien"
-msgstr ""
-
-#: functions/constants.php:1021
-msgid "Bei den Suchergebnisse Kategorien der Beiträge anzeigen"
-msgstr ""
-
-#: functions/constants.php:1034
-msgid "Länge Textauszug"
-msgstr ""
-
-#: functions/constants.php:1035
-msgid "Anzahl der maximalen Zeichen für den Textauszug bei der Ergebnisliste."
-msgstr ""
-
-#: functions/constants.php:1044
-msgid "Textabbruch"
-msgstr ""
-
-#: functions/constants.php:1045
-msgid "Falls der Textauszug nach der vorgegebenen Länge abgeschnitten werden muss, können hier Trennzeichen angegeben werden."
-msgstr ""
-
-#: functions/constants.php:1051
-msgid "Typ anzeigen"
-msgstr ""
-
-#: functions/constants.php:1052
-msgid "Zeige Inhaltstyp des Treffers an."
-msgstr ""
-
-#: functions/constants.php:1059
-msgid "Suche filterbar"
-msgstr ""
-
-#: functions/constants.php:1060
-msgid "Erlaubt es, Suchergebnisse nach der Art des Dokumenttypes (Seiten, Beiträge, etc.) zu filtern."
-msgstr ""
-
-#: functions/constants.php:1066
-msgid "Filter"
-msgstr ""
-
-#: functions/constants.php:1067
-msgid "Vorab aktivierte Suchbereiche des Filters. In diesen wird gesucht, wenn der Nutzer der Seite keine Auswahl trifft oder diese nicht zur Verfügung gestellt wird."
-msgstr ""
-
-#: functions/constants.php:1079
-msgid "Hinweis zum Suchbereich"
-msgstr ""
-
-#: functions/constants.php:1080
-msgid "Für Besucher der Website ist oft nicht klar, daß die Suchmaschine nur den einzelnen Webauftritt durchsucht und nicht beispielsweise alle Seiten der FAU. Dieser Texthinweis macht darauf aufmerksam."
-msgstr ""
-
-#: functions/constants.php:1087, functions/posttype_imagelink.php:44
-msgid "Bildlinks"
-msgstr ""
-
-#: functions/constants.php:1093
-msgid "Sortierung"
-msgstr ""
-
-#: functions/constants.php:1094
-msgid "Standardsortierung der Bildlinks."
-msgstr ""
-
-#: functions/constants.php:1096
-msgid "A - Z"
-msgstr ""
-
-#: functions/constants.php:1097
-msgid "Z - A"
-msgstr ""
-
-#: functions/constants.php:1098
-msgid "Zufall"
-msgstr ""
-
-#: functions/constants.php:1107
-msgid "Darstellungsform"
-msgstr ""
-
-#: functions/constants.php:1108
-msgid "Die Darstellung kann als Slider oder als statische Liste erfolgen."
-msgstr ""
-
-#: functions/constants.php:1111
-msgid "Liste"
-msgstr ""
-
-#: functions/constants.php:1118
-msgid "Anzahl Bildlinks"
-msgstr ""
-
-#: functions/constants.php:1119
-msgid "Wieviele sollen üblicherweise bei der Slide-Anzeige dargestellt werden."
-msgstr ""
-
-#: functions/constants.php:1127
-msgid "Autoplay (Slider)"
-msgstr ""
-
-#: functions/constants.php:1128
-msgid "Wenn zur Anzeige der Slider gewählt wurde, kann hier eingestellt werden, ob dieser von selbst starten soll oder nicht. Bitte beachten Sie, dass ein automatisches Abspielen die Barrierefreiheit der Seite beeinträchtigen kann. Sollte die Option eingeschaltet werden, sollte in der Barrierefreiheitserklärung angegeben werden, dass die Website bei den automatisch rotierenden Bildlinks nicht barrierefrei ist."
-msgstr ""
-
-#: functions/constants.php:1134
-msgid "Dots (Slider)"
-msgstr ""
-
-#: functions/constants.php:1135
-msgid "Zeigt bei der Sliderdarstellung unterhalb der Bildlinks Navigationsbuttons als Punkte an."
-msgstr ""
-
-#: functions/constants.php:1141
-msgid "ARIA-Label"
-msgstr ""
-
-#: functions/constants.php:1142
-msgid "Unsichtbarer Titel für die Linklisten (wird für Screenreader und Suchmaschinen verwendet)."
-msgstr ""
-
-#: functions/constants.php:1148
-msgid "CSS-Klassen"
-msgstr ""
-
-#: functions/constants.php:1149
-msgid "Optionale CSS Klassen zur Modifikation der optischen Darstellung."
-msgstr ""
-
-#: functions/constants.php:1156
-msgid "Portalmenüs"
-msgstr ""
-
-#: functions/constants.php:1161, functions/custom-fields.php:568, functions/custom-fields.php:737
-msgid "Blur-Effekt verwenden"
-msgstr ""
-
-#: functions/constants.php:1162
-msgid "Ermöglicht das Hinzufügen eines Blur-Effekts auf Bilder des Portalmenüs."
-msgstr ""
-
-#: functions/constants.php:1169, functions/custom-fields.php:565, functions/custom-fields.php:734
-msgid "Zoom-Effekt verwenden"
-msgstr ""
-
-#: functions/constants.php:1170
-msgid "Ermöglicht das Hinzufügen eines Zoom-Effekts auf Bilder des Portalmenüs."
-msgstr ""
-
-#: functions/constants.php:1178
-msgid "Erweitert"
-msgstr ""
-
-#: functions/constants.php:1184
-msgid "Backend"
-msgstr ""
-
-#: functions/constants.php:1188
-msgid "Erweiterte Beitragsoptionen"
-msgstr ""
-
-#: functions/constants.php:1189
-msgid "Bei der Bearbeitung von Beiträgen die erweiterten Optionen anzeigen."
-msgstr ""
-
-#: functions/constants.php:1195
-msgid "Top-Events"
-msgstr ""
-
-#: functions/constants.php:1196
-msgid "Ermöglicht es Beiträge als Top-Event zu deklarieren und entsprechende Optionen freizuschalten."
-msgstr ""
-
-#: functions/constants.php:1203
-msgid "Untertitel (Beiträge)"
-msgstr ""
-
-#: functions/constants.php:1204
-msgid "Erlaube die Eingabe von Untertitel bei Beiträgen."
-msgstr ""
-
-#: functions/constants.php:1211
-msgid "Zeige Seiten-Ids"
-msgstr ""
-
-#: functions/constants.php:1212
-msgid "In der Übersicht der Seiten werden die Ids angezeigt."
-msgstr ""
-
-#: functions/constants.php:1219
-msgid "Seitensprache"
-msgstr ""
-
-#: functions/constants.php:1220
-msgid "Aktiviert die Möglichkeit, pro Seite eine eigene Inhaltssprache zu deklarieren, die von dem Rest des Webauftritts abweicht. Deklariert wird dabei die Überschrift der Seite und dessen Inhaltsbereich. Die restlichen Bestandteile, inkl. der Sidebar bleiben in der Sprache, mit der die gesamte Website gekennzeichnet wurde. Achtung: Diese Option arbeitet nicht mit dem Workflow-Plugin für mehrsprachigen Webauftritten zusammen. Diese Option sollte nur dann verwendet werden, wenn anderssprachige Seiten eine Ausnahme auf dem Webauftritt darstellen. Für umfangreiche Webauftritte in verschiedenen Sprachen sind eigene sprachspezifische Webauftritte vorzuziehen. Webauftritte, die unterhalb einer Domain mehrmals die Sprachen wechseln und eine Mischung im Navigationsmenu haben, haben zudem ein schlechteres Suchmaschinen-Ranking."
-msgstr ""
-
-#: functions/constants.php:1227
+#: functions/constants.php:816, functions/menu.php:29
 msgid "Hauptmenü"
 msgstr ""
 
-#: functions/constants.php:1232
+#: functions/constants.php:822
+msgid "Darstellung"
+msgstr ""
+
+#: functions/constants.php:823
+msgid "Auswahl der optischen Darstellung für das Hauptmenü"
+msgstr ""
+
+#: functions/constants.php:825
+msgid "Mega Menü"
+msgstr ""
+
+#: functions/constants.php:826
+msgid "Pull-Down-Menü "
+msgstr ""
+
+#: functions/constants.php:833
 msgid "Menü Portal-Button (Vortitel)"
 msgstr ""
 
-#: functions/constants.php:1233
+#: functions/constants.php:834
 msgid "Begriff vor dem Titel des gewählten Menüs"
 msgstr ""
 
-#: functions/constants.php:1239
+#: functions/constants.php:840
 msgid "Menü Portal-Button (Nachtitel)"
 msgstr ""
 
-#: functions/constants.php:1240
+#: functions/constants.php:841
 msgid "Begriff nach dem Titel des gewählten Menüs"
 msgstr ""
 
-#: functions/constants.php:1247
-msgid "Inhaltsmenüs"
+#: functions/constants.php:849
+msgid "Portalmenüs"
 msgstr ""
 
-#: functions/constants.php:1251
+#: functions/constants.php:854, functions/custom-fields.php:568, functions/custom-fields.php:737
+msgid "Blur-Effekt verwenden"
+msgstr ""
+
+#: functions/constants.php:855
+msgid "Ermöglicht das Hinzufügen eines Blur-Effekts auf Bilder des Portalmenüs."
+msgstr ""
+
+#: functions/constants.php:862, functions/custom-fields.php:565, functions/custom-fields.php:734
+msgid "Zoom-Effekt verwenden"
+msgstr ""
+
+#: functions/constants.php:863
+msgid "Ermöglicht das Hinzufügen eines Zoom-Effekts auf Bilder des Portalmenüs."
+msgstr ""
+
+#: functions/constants.php:869
 msgid "Untermenüpunkte"
 msgstr ""
 
-#: functions/constants.php:1252
+#: functions/constants.php:870
 msgid "Anzahl der anzuzeigenden Untermenüpunkte (Zweite Ebene)."
 msgstr ""
 
-#: functions/constants.php:1264
+#: functions/constants.php:881, functions/constants.php:960, functions/constants.php:1043
+msgid "Thumbnail Ersatzbild"
+msgstr ""
+
+#: functions/constants.php:882
 msgid "Ersatzbild für den Fall, daß eine verlinkte Seite kein eigenes Artikelbild definiert hat."
 msgstr ""
 
-#: functions/constants.php:1272
+#: functions/constants.php:889
+msgid "Artikelliste (Blogroll)"
+msgstr ""
+
+#: functions/constants.php:894
+msgid "Zahl der Artikel (Gesamt)"
+msgstr ""
+
+#: functions/constants.php:895
+msgid "Anzahl der News auf der Startseite unterhalb des Sliders"
+msgstr ""
+
+#: functions/constants.php:903
+msgid "Artikel oben halten"
+msgstr ""
+
+#: functions/constants.php:904
+msgid "Wenn ein Artikel mit dem Sticky-Tag (\"Oben halten\") veröffentlicht wurde, wird dieser vor der aktuellen Liste gezeigt. Solange ein Artikel existiert der hochgehalten wird, wird dieser, unabhängig von seinem Alter existiert, vor der aktuellen Liste gezeigt."
+msgstr ""
+
+#: functions/constants.php:911
+msgid "Positionierungs-Tag"
+msgstr ""
+
+#: functions/constants.php:912
+msgid "Angabe des Tag-Prefixes, mit der die Position von definierten Artikel auf der Startseite gesteuert werden kann. Im Artikel wird dann dieser Tag plus eine Nummer von 1 bis 3 vergeben um die Position festzusetzen. <br>Beispiel bei einem gewählten Tag-Prefix \"Startseite\": Erster Artikel mit Tag \"Startseite1\", Zweiter Artikel mit Tag \"Startseite2\". Wenn mehrere Artikel den Tag \"Startseite1\" haben und nur eines davon gezeigt werden soll, wird der jüngste Artikel mit dem Tag angezeigt."
+msgstr ""
+
+#: functions/constants.php:919
+msgid "Artikel mit gleichem Positionierungs-Tag"
+msgstr ""
+
+#: functions/constants.php:920
+msgid "Anzahl der Artikel mit dem gleichen Prefix-Tag (Positionierung), die angezeigt werden sollen. Normalerweise sollte hier nur 1 Artikel auf der ersten Position sein."
+msgstr ""
+
+#: functions/constants.php:928
+msgid "Kategorie verlinken"
+msgstr ""
+
+#: functions/constants.php:929
+msgid "Weitere Meldungen verlinken."
+msgstr ""
+
+#: functions/constants.php:935
+msgid "Kategorie auswählen"
+msgstr ""
+
+#: functions/constants.php:936
+msgid "Unter den News erscheint ein Link auf eine Übersicht der Artikel. Hier wird die Kategorie dafür ausgewählt. Für den Fall, dass keine Artikel mit einem Prefix-Tag ausgestattet sind, wird diese Kategorie auch bei der Anzeige der ersten News verwendet."
+msgstr ""
+
+#: functions/constants.php:942
+msgid "Linktitel"
+msgstr ""
+
+#: functions/constants.php:943
+msgid "Verlinkungstitel für weitere Meldungen."
+msgstr ""
+
+#: functions/constants.php:950
+msgid "Artikelbild erzwingen"
+msgstr ""
+
+#: functions/constants.php:951
+msgid "Immer ein Artikelbild zu einer Nachricht zeigen. Wenn kein Artikelbild definiert wurde, nehme stattdessen ein Ersatzbild."
+msgstr ""
+
+#: functions/constants.php:961
+msgid "Ersatzbild für den Fall, daß ein Artikel kein eigenes Artikelbild definiert hat."
+msgstr ""
+
+#: functions/constants.php:967, functions/custom-fields.php:298
+msgid "Datum"
+msgstr ""
+
+#: functions/constants.php:968
+msgid "Erstellungsdatum zeigen"
+msgstr ""
+
+#: functions/constants.php:974, functions/constants.php:975
+msgid "Kategorie zeigen"
+msgstr ""
+
+#: functions/constants.php:982
+msgid "Artikelbilder im 3:2 Format"
+msgstr ""
+
+#: functions/constants.php:983
+msgid "Artikelbilder der Artikelliste werden in ein festes 3:2 Format angezeigt. Sollten die Bilder höher oder Breiter sein, werden sie entsprechend proportional verkleinert."
+msgstr ""
+
+#: functions/constants.php:990, functions/constants.php:1070
+msgid "Weiterlesen Button"
+msgstr ""
+
+#: functions/constants.php:991, functions/constants.php:1071
+msgid "Zeige den Weiterlesen-Button hinter jeder Nachricht."
+msgstr ""
+
+#: functions/constants.php:998
+msgid "Zickzack-Modus"
+msgstr ""
+
+#: functions/constants.php:999
+msgid "Zeige die Artikel im Zickzack-Format an."
+msgstr ""
+
+#: functions/constants.php:1006
+msgid "Top Events"
+msgstr ""
+
+#: functions/constants.php:1011
+msgid "Aktivieren"
+msgstr ""
+
+#: functions/constants.php:1012
+msgid "Anzeige der Top-Events aktivieren"
+msgstr ""
+
+#: functions/constants.php:1019
+msgid "Seitentypen"
+msgstr ""
+
+#: functions/constants.php:1020
+msgid "Auf welchen Seiten sollen Top Events in der Sidebar angezeigt werden."
+msgstr ""
+
+#: functions/constants.php:1023
+msgid "Portalseiten"
+msgstr ""
+
+#: functions/constants.php:1024
+msgid "Suche und Fehlerseiten"
+msgstr ""
+
+#: functions/constants.php:1031
+msgid "Anzahl Top-Events"
+msgstr ""
+
+#: functions/constants.php:1032
+msgid "Wieviele Top-Events sollen maximal angezeigt werden."
+msgstr ""
+
+#: functions/constants.php:1045
+msgid "Ersatzbild für den Fall, daß für den Eventeintrag kein eigenes Bild definiert wurde."
+msgstr ""
+
+#: functions/constants.php:1056
+msgid "Thumbnails"
+msgstr ""
+
+#: functions/constants.php:1057
+msgid "Bei den Suchergebnisse Thumbnails anzeigen, wenn diese vorhanden sind"
+msgstr ""
+
+#: functions/constants.php:1063
+msgid "Kategorien"
+msgstr ""
+
+#: functions/constants.php:1064
+msgid "Bei den Suchergebnisse Kategorien der Beiträge anzeigen"
+msgstr ""
+
+#: functions/constants.php:1077
+msgid "Länge Textauszug"
+msgstr ""
+
+#: functions/constants.php:1078
+msgid "Anzahl der maximalen Zeichen für den Textauszug bei der Ergebnisliste."
+msgstr ""
+
+#: functions/constants.php:1087
+msgid "Textabbruch"
+msgstr ""
+
+#: functions/constants.php:1088
+msgid "Falls der Textauszug nach der vorgegebenen Länge abgeschnitten werden muss, können hier Trennzeichen angegeben werden."
+msgstr ""
+
+#: functions/constants.php:1094
+msgid "Typ anzeigen"
+msgstr ""
+
+#: functions/constants.php:1095
+msgid "Zeige Inhaltstyp des Treffers an."
+msgstr ""
+
+#: functions/constants.php:1102
+msgid "Suche filterbar"
+msgstr ""
+
+#: functions/constants.php:1103
+msgid "Erlaubt es, Suchergebnisse nach der Art des Dokumenttypes (Seiten, Beiträge, etc.) zu filtern."
+msgstr ""
+
+#: functions/constants.php:1109
+msgid "Filter"
+msgstr ""
+
+#: functions/constants.php:1110
+msgid "Vorab aktivierte Suchbereiche des Filters. In diesen wird gesucht, wenn der Nutzer der Seite keine Auswahl trifft oder diese nicht zur Verfügung gestellt wird."
+msgstr ""
+
+#: functions/constants.php:1122
+msgid "Hinweis zum Suchbereich"
+msgstr ""
+
+#: functions/constants.php:1123
+msgid "Für Besucher der Website ist oft nicht klar, daß die Suchmaschine nur den einzelnen Webauftritt durchsucht und nicht beispielsweise alle Seiten der FAU. Dieser Texthinweis macht darauf aufmerksam."
+msgstr ""
+
+#: functions/constants.php:1130, functions/posttype_imagelink.php:44
+msgid "Bildlinks"
+msgstr ""
+
+#: functions/constants.php:1136
+msgid "Sortierung"
+msgstr ""
+
+#: functions/constants.php:1137
+msgid "Standardsortierung der Bildlinks."
+msgstr ""
+
+#: functions/constants.php:1139
+msgid "A - Z"
+msgstr ""
+
+#: functions/constants.php:1140
+msgid "Z - A"
+msgstr ""
+
+#: functions/constants.php:1141
+msgid "Zufall"
+msgstr ""
+
+#: functions/constants.php:1150
+msgid "Darstellungsform"
+msgstr ""
+
+#: functions/constants.php:1151
+msgid "Die Darstellung kann als Slider oder als statische Liste erfolgen."
+msgstr ""
+
+#: functions/constants.php:1154
+msgid "Liste"
+msgstr ""
+
+#: functions/constants.php:1161
+msgid "Anzahl Bildlinks"
+msgstr ""
+
+#: functions/constants.php:1162
+msgid "Wieviele sollen üblicherweise bei der Slide-Anzeige dargestellt werden."
+msgstr ""
+
+#: functions/constants.php:1170
+msgid "Autoplay (Slider)"
+msgstr ""
+
+#: functions/constants.php:1171
+msgid "Wenn zur Anzeige der Slider gewählt wurde, kann hier eingestellt werden, ob dieser von selbst starten soll oder nicht. Bitte beachten Sie, dass ein automatisches Abspielen die Barrierefreiheit der Seite beeinträchtigen kann. Sollte die Option eingeschaltet werden, sollte in der Barrierefreiheitserklärung angegeben werden, dass die Website bei den automatisch rotierenden Bildlinks nicht barrierefrei ist."
+msgstr ""
+
+#: functions/constants.php:1177
+msgid "Navigationspunkte (Slider)"
+msgstr ""
+
+#: functions/constants.php:1178
+msgid "Zeigt bei der Sliderdarstellung unterhalb der Bildlinks Navigationsbuttons als Punkte an."
+msgstr ""
+
+#: functions/constants.php:1184
+msgid "ARIA-Label"
+msgstr ""
+
+#: functions/constants.php:1185
+msgid "Unsichtbarer Titel für die Linklisten (wird für Screenreader und Suchmaschinen verwendet)."
+msgstr ""
+
+#: functions/constants.php:1191
+msgid "CSS-Klassen"
+msgstr ""
+
+#: functions/constants.php:1192
+msgid "Optionale CSS Klassen zur Modifikation der optischen Darstellung."
+msgstr ""
+
+#: functions/constants.php:1205
+msgid "Erweitert"
+msgstr ""
+
+#: functions/constants.php:1211
+msgid "Backend"
+msgstr ""
+
+#: functions/constants.php:1215
+msgid "Erweiterte Beitragsoptionen"
+msgstr ""
+
+#: functions/constants.php:1216
+msgid "Bei der Bearbeitung von Beiträgen die erweiterten Optionen anzeigen."
+msgstr ""
+
+#: functions/constants.php:1222
+msgid "Top-Events"
+msgstr ""
+
+#: functions/constants.php:1223
+msgid "Ermöglicht es Beiträge als Top-Event zu deklarieren und entsprechende Optionen freizuschalten."
+msgstr ""
+
+#: functions/constants.php:1230
+msgid "Untertitel (Beiträge)"
+msgstr ""
+
+#: functions/constants.php:1231
+msgid "Erlaube die Eingabe von Untertitel bei Beiträgen."
+msgstr ""
+
+#: functions/constants.php:1238
+msgid "Zeige Seiten-Ids"
+msgstr ""
+
+#: functions/constants.php:1239
+msgid "In der Übersicht der Seiten werden die Ids angezeigt."
+msgstr ""
+
+#: functions/constants.php:1246
+msgid "Seitensprache"
+msgstr ""
+
+#: functions/constants.php:1247
+msgid "Aktiviert die Möglichkeit, pro Seite eine eigene Inhaltssprache zu deklarieren, die von dem Rest des Webauftritts abweicht. Deklariert wird dabei die Überschrift der Seite und dessen Inhaltsbereich. Die restlichen Bestandteile, inkl. der Sidebar bleiben in der Sprache, mit der die gesamte Website gekennzeichnet wurde. Achtung: Diese Option arbeitet nicht mit dem Workflow-Plugin für mehrsprachigen Webauftritten zusammen. Diese Option sollte nur dann verwendet werden, wenn anderssprachige Seiten eine Ausnahme auf dem Webauftritt darstellen. Für umfangreiche Webauftritte in verschiedenen Sprachen sind eigene sprachspezifische Webauftritte vorzuziehen. Webauftritte, die unterhalb einer Domain mehrmals die Sprachen wechseln und eine Mischung im Navigationsmenu haben, haben zudem ein schlechteres Suchmaschinen-Ranking."
+msgstr ""
+
+#: functions/constants.php:1260
 msgid "Konfigurationen der Sidebar auf Seiten"
 msgstr ""
 
-#: functions/constants.php:1277
+#: functions/constants.php:1265
 msgid "Feld Titel oben"
 msgstr ""
 
-#: functions/constants.php:1278
+#: functions/constants.php:1266
 msgid "Fragt ein eigenes Titelfeld über den Texteditor zum Text oben ab (Titel können allerdings auch im Editorfeld eingegeben werden)"
 msgstr ""
 
-#: functions/constants.php:1284
+#: functions/constants.php:1272
 msgid "Feld Titel unten"
 msgstr ""
 
-#: functions/constants.php:1285
+#: functions/constants.php:1273
 msgid "Fragt ein eigenes Titelfeld über den Texteditor zum Text unten ab (Titel können allerdings auch im Editorfeld eingegeben werden)"
 msgstr ""
 
-#: functions/constants.php:1292
+#: functions/constants.php:1280
 msgid "WYSIWYG-Editor Text oben"
 msgstr ""
 
-#: functions/constants.php:1293, functions/constants.php:1300
+#: functions/constants.php:1281, functions/constants.php:1288
 msgid "Erlaubt die Nutzung des WYSWYG-Editors für die Eingabe von Text in der Sidebar. Dies schließt auch HTML-Tags mit Bildern und Links ein. Andernfalls ist nur ein Text mit Absätzen möglich."
 msgstr ""
 
-#: functions/constants.php:1299
+#: functions/constants.php:1287
 msgid "WYSIWYG-Editor Text unten"
 msgstr ""
 
-#: functions/constants.php:1307
+#: functions/constants.php:1295
 msgid "Default Titel über Kontakte"
 msgstr ""
 
-#: functions/constants.php:1308
+#: functions/constants.php:1296
 msgid "Optionaler Titel über einem ausgewählten Kontakt."
 msgstr ""
 
-#: functions/constants.php:1314
+#: functions/constants.php:1302
 msgid "Default Titel erster Linkblock"
 msgstr ""
 
-#: functions/constants.php:1315
+#: functions/constants.php:1303
 msgid "Optionaler Titel über den ersten Linkblock, wenn dieser belegt ist."
 msgstr ""
 
-#: functions/constants.php:1322
+#: functions/constants.php:1310
 msgid "Default Titel zweiter Linkblock"
 msgstr ""
 
-#: functions/constants.php:1323
+#: functions/constants.php:1311
 msgid "Optionaler Titel über den zweiten Linkblock, wenn dieser belegt ist."
 msgstr ""
 
-#: functions/constants.php:1329
+#: functions/constants.php:1317
 msgid "Links im ersten Linkblock"
 msgstr ""
 
-#: functions/constants.php:1330
+#: functions/constants.php:1318
 msgid "Wieviele Links können maximal im ersten Linkblock angegeben werden."
 msgstr ""
 
-#: functions/constants.php:1338
+#: functions/constants.php:1326
 msgid "Links im zweiten Linkblock"
 msgstr ""
 
-#: functions/constants.php:1339
+#: functions/constants.php:1327
 msgid "Wieviele Links können maximal im zweiten Linkblock angegeben werden."
 msgstr ""
 
-#: functions/constants.php:1347
-msgid "Aktiviere Widget-Funktion"
+#: functions/constants.php:1335
+msgid "Widget-Funktion für Seiten"
 msgstr ""
 
-#: functions/constants.php:1348, functions/widgets.php:95
+#: functions/constants.php:1336, functions/widgets.php:95
 msgid "Widgets die auf allen Seiten angezeigt werden sollen. Sollten Seitenspezifische Inhalte in der Sidebar angegeben worden sein, wird diese Sidebar darunter folgen. Diese Sidebar-Inhalte werden nicht auf Beiträgen gezeigt."
 msgstr ""
 
-#: functions/constants.php:1355
+#: functions/constants.php:1344
 msgid "Metadaten und Inhalte"
 msgstr ""
 
-#: functions/constants.php:1359
+#: functions/constants.php:1348
 msgid "Copyright-Info ermitteln"
 msgstr ""
 
-#: functions/constants.php:1360
+#: functions/constants.php:1349
 msgid "Definiert, ob die Copyright-Info eines Bildes sich aus dessen IPTC-Infos ermittelt oder durch die Texteingabe Beschreibung überschrieben werden kann.<br>Reihenfolge via IPTC: 1. IPTC-Copyright, 2. IPTC-Credit, 3. IPTC-Author, 4. Beschreibung, 5. IPTC-Caption, 6. Bildunterschrift. <br>Durch diese Auswahl kann die Beschreibung priorisiert werden."
 msgstr ""
 
-#: functions/constants.php:1362
+#: functions/constants.php:1351
 msgid "IPTC-Feld Copyright hat Priorität"
 msgstr ""
 
-#: functions/constants.php:1363
+#: functions/constants.php:1352
 msgid "Eingabefeld Beschreibung überschreibt IPTC und andere vorangige Felder."
 msgstr ""
 
-#: functions/constants.php:1371
+#: functions/constants.php:1360
 msgid "Auf der Startseite wird im Slider bzw. im Banner der Copyright-Hinweis des Bildes angezeigt, wenn vorhanden"
 msgstr ""
 
-#: functions/constants.php:1378
+#: functions/constants.php:1367
 msgid "Google Site Verification"
 msgstr ""
 
-#: functions/constants.php:1379
+#: functions/constants.php:1368
 msgid "Zur Verifikation der Website als Property in den <a target=\"_blank\" href=\"https://www.google.com/webmasters/tools/home\">Google Webmaster Tools</a> wird die Methode über den HTML-Tag ausgewählt. Google erstellt dann auf der Einrichtungsseite eine HTML-Anweisung. Von dieser Anweisung kopiert man den Bestandteil, der im Attribut \"content\" angegeben ist. <br>Beispiel: <br>Google gibt den HTML-Code: &nbsp; &nbsp;<code>&lt;meta name=\"google-site-verification\" content=\"BBssyCpddd8\" /&gt;</code><br>  Dann geben Sie dies ein: <code>BBssyCpddd8</code> ."
 msgstr ""
 
-#: functions/constants.php:1386
+#: functions/constants.php:1375
 msgid "Templates"
 msgstr ""
 
-#: functions/constants.php:1390
+#: functions/constants.php:1379
 msgid "Startseite: Inhalt zeigen"
 msgstr ""
 
-#: functions/constants.php:1391
+#: functions/constants.php:1380
 msgid "Auf der Startseite wird per Default nur die Artikelliste gezeigt. Mit diesen Schalter kann oberhalb der Artikelliste auch eigenen Inhalt eingeblendet werden."
 msgstr ""
 
-#: functions/constants.php:1399
-msgid "Einstellungen im Debugmode"
+#: functions/constants.php:1386
+msgid "Farbe Trennlinie"
 msgstr ""
 
-#: functions/constants.php:1406
-msgid "Organisatorisches"
+#: functions/constants.php:1387
+msgid "Ändert die vorgegebene Standard-Trennlinienfarbe vom Standard auf eine andere CI-Farbe um."
+msgstr ""
+
+#: functions/constants.php:1389
+msgid "Default (Blau)"
+msgstr ""
+
+#: functions/constants.php:1390, functions/constants.php:1391, functions/constants.php:1392, functions/constants.php:1393, functions/constants.php:1394
+msgid "Farbe"
+msgstr ""
+
+#: functions/constants.php:1390, functions/defaults.php:167
+msgid "Philosophische Fakultät"
+msgstr ""
+
+#: functions/constants.php:1391, functions/defaults.php:154
+msgid "Medizinische Fakultät"
+msgstr ""
+
+#: functions/constants.php:1392, functions/defaults.php:161
+msgid "Naturwissenschaftliche Fakultät"
+msgstr ""
+
+#: functions/constants.php:1393, functions/defaults.php:179
+msgid "Technische Fakultät"
+msgstr ""
+
+#: functions/constants.php:1394, functions/defaults.php:173
+msgid "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+msgstr ""
+
+#: functions/constants.php:1395
+msgid "Grau"
+msgstr ""
+
+#: functions/constants.php:1396
+msgid "Unsichtbar"
+msgstr ""
+
+#: functions/constants.php:1403
+msgid "Widget-Funktion für Fehlerseiten"
+msgstr ""
+
+#: functions/constants.php:1404, functions/widgets.php:107
+msgid "Durch Nutzung dieser Sidebar kann die Standard-Suchmaske auf Fehlerseiten (\"Seite nicht gefunden\", \"Seite nicht zugänglich\") durch eigene Widgets ersetzt werden."
+msgstr ""
+
+#: functions/constants.php:1404
+msgid "Nach Aktivierung muss unter Design->Widgets der entsprechende Bereich ergänzt werden."
 msgstr ""
 
 #: functions/constants.php:1411
-msgid "Fakultät setzen"
+msgid "Standard Fehlermeldung verstecken"
 msgstr ""
 
 #: functions/constants.php:1412
-msgid "Das Logo kann im Titel eine Farbe bekommen. Diese wird üblicherweise aus dem Theme-Child bestimmt, kann aber mit dieser Variante zu Testzwecken auch überschrieben werden. Diese Funktion wird im produktiven Betrieb nicht zur Verfügung stehen."
+msgid "Wenn eine Fehlerseite erscheint, kann mit diesem Schalter die Standard-Fehlermeldung unterdrückt werden."
 msgstr ""
 
-#: functions/constants.php:1415
-msgid "Themefarbe (Default)"
+#: functions/constants.php:1419
+msgid "Standard Sucheingabe abschalten"
 msgstr ""
 
-#: functions/constants.php:1416
-msgid "Zentral"
+#: functions/constants.php:1420
+msgid "Die Suchmaske im Kopfteil der Seite kann durch diese Option abgeschaltet werrden."
 msgstr ""
 
-#: functions/constants.php:1417, functions/defaults.php:168
-msgid "Phil"
+#: functions/constants.php:1430
+msgid "Einstellungen im Debugmode"
 msgstr ""
 
-#: functions/constants.php:1418, functions/defaults.php:155
-msgid "Med"
+#: functions/constants.php:1437
+msgid "Organisatorisches"
 msgstr ""
 
-#: functions/constants.php:1419, functions/defaults.php:162
-msgid "Nat"
-msgstr ""
-
-#: functions/constants.php:1420, functions/defaults.php:174
-msgid "RW"
-msgstr ""
-
-#: functions/constants.php:1421, functions/defaults.php:180
-msgid "TF"
-msgstr ""
-
-#: functions/constants.php:1432
-msgid "Orga Breadcrumb simulieren"
-msgstr ""
-
-#: functions/constants.php:1433
-msgid "Es wird eine organisatorische Breadcrumb simuliert und ausgegeben. Diese wird im produktiven Betrieb durch ein Plugin bereit gestellt werden.  Mit dieser Option kann man ohne Installation und Konfiguration des Plugins die Ausgabe mit Pseudodaten simulieren."
+#: functions/constants.php:1442
+msgid "Fakultät setzen"
 msgstr ""
 
 #: functions/constants.php:1443
+msgid "Das Logo kann im Titel eine Farbe bekommen. Diese wird üblicherweise aus dem Theme-Child bestimmt, kann aber mit dieser Variante zu Testzwecken auch überschrieben werden. Diese Funktion wird im produktiven Betrieb nicht zur Verfügung stehen."
+msgstr ""
+
+#: functions/constants.php:1446
+msgid "Themefarbe (Default)"
+msgstr ""
+
+#: functions/constants.php:1447
+msgid "Zentral"
+msgstr ""
+
+#: functions/constants.php:1448, functions/defaults.php:168
+msgid "Phil"
+msgstr ""
+
+#: functions/constants.php:1449, functions/defaults.php:155
+msgid "Med"
+msgstr ""
+
+#: functions/constants.php:1450, functions/defaults.php:162
+msgid "Nat"
+msgstr ""
+
+#: functions/constants.php:1451, functions/defaults.php:174
+msgid "RW"
+msgstr ""
+
+#: functions/constants.php:1452, functions/defaults.php:180
+msgid "TF"
+msgstr ""
+
+#: functions/constants.php:1463
+msgid "Orga Breadcrumb simulieren"
+msgstr ""
+
+#: functions/constants.php:1464
+msgid "Es wird eine organisatorische Breadcrumb simuliert und ausgegeben. Diese wird im produktiven Betrieb durch ein Plugin bereit gestellt werden.  Mit dieser Option kann man ohne Installation und Konfiguration des Plugins die Ausgabe mit Pseudodaten simulieren."
+msgstr ""
+
+#: functions/constants.php:1474
 msgid "Plugins und Content"
 msgstr ""
 
-#: functions/constants.php:1448
+#: functions/constants.php:1479
 msgid "Sprachschalter simulieren"
 msgstr ""
 
-#: functions/constants.php:1449
+#: functions/constants.php:1480
 msgid "Der Sprachschalter wird im produktiven Betrieb durch eines der Plugins CMS Workflow oder Language Switcher aktiviert. Mit dieser Option kann man ohne Installation und Konfiguration der Plugins den Sprachschalter simulieren - sprich den HTML-Code im Header erzeugen lassen. Falls einer der Plugins vorhanden und aktiv ist, wird diese Debug-Einstellung vorrang haben. "
 msgstr ""
 
@@ -1430,6 +1465,10 @@ msgstr ""
 msgid "Bitte beachten: Damit ein Artikel als Top-Event angezeigt wird, muss entweder obige Option gesetzt sein oder der Artikel muss ein gültiges Datum für einen Top-Event angegeben haben, welches noch nicht abgelaufen ist."
 msgstr ""
 
+#: functions/custom-fields.php:283, functions/helper-functions.php:434
+msgid "Titel"
+msgstr ""
+
 #: functions/custom-fields.php:283
 msgid "Titel wie er in der Sidebar erscheinen soll. Wenn leer, wird der normale Titel des Beitrags verwendet."
 msgstr ""
@@ -1438,7 +1477,7 @@ msgstr ""
 msgid "Kurztext für die Sidebar. Wenn leer, wird der Anleser verwendet."
 msgstr ""
 
-#: functions/custom-fields.php:289, functions/posttype_imagelink.php:112
+#: functions/custom-fields.php:289, functions/posttype_imagelink.php:103
 msgid "Kurzbeschreibung"
 msgstr ""
 
@@ -1598,119 +1637,119 @@ msgstr ""
 msgid "Titel über die erste Liste von Links, sogenannte Quicklinks"
 msgstr ""
 
-#: functions/custom-fields.php:911, functions/custom-fields.php:933
+#: functions/custom-fields.php:911, functions/custom-fields.php:930
 msgid "Link Nr. "
 msgstr ""
 
-#: functions/custom-fields.php:929
+#: functions/custom-fields.php:926
 msgid "Titel zweiter Linkblock"
 msgstr ""
 
-#: functions/custom-fields.php:929
+#: functions/custom-fields.php:926
 msgid "Titel über die zweite Liste von Links. Weitere Links oder bspw. externe Links."
 msgstr ""
 
-#: functions/custom-fields.php:947
+#: functions/custom-fields.php:944
 msgid "Titel unten"
 msgstr ""
 
-#: functions/custom-fields.php:947
+#: functions/custom-fields.php:944
 msgid "Titel am Ende der Sidebar"
 msgstr ""
 
-#: functions/custom-fields.php:954, functions/custom-fields.php:952
+#: functions/custom-fields.php:951, functions/custom-fields.php:949
 msgid "Textbereich unten"
 msgstr ""
 
-#: functions/custom-fields.php:954, functions/custom-fields.php:952
+#: functions/custom-fields.php:951, functions/custom-fields.php:949
 msgid "Text am Ende der Sidebar"
 msgstr ""
 
-#: functions/custom-fields.php:1132, functions/custom-fields.php:1160
+#: functions/custom-fields.php:1129, functions/custom-fields.php:1157
 msgid "Sprache im Inhaltsbereich deklarieren"
 msgstr ""
 
-#: functions/custom-fields.php:1133, functions/custom-fields.php:1161
+#: functions/custom-fields.php:1130, functions/custom-fields.php:1158
 msgid "Falls die Sprache dieser Seite von anderen Webseiten des Webauftritts abweicht, geben Sie hier bitte die Sprache an, welche verwendet wird. Wenn die Sprache nicht geändert wird, ändern Sie nichts.</p><p class=\"hinweis\">Achtung: Diese Funktion wird vom Workflow-Plugin nicht berücksichtigt."
 msgstr ""
 
-#: functions/custom-fields.php:1149
+#: functions/custom-fields.php:1146
 msgid "Dies gilt nur für Seiten vom Template \"Inhaltsseite mit Navi\"."
 msgstr ""
 
-#: functions/custom-fields.php:1165
+#: functions/custom-fields.php:1162
 msgid "Sprache des Seitentitels umdefinieren"
 msgstr ""
 
-#: functions/custom-fields.php:1166
+#: functions/custom-fields.php:1163
 msgid "Falls die Sprache der Seitentitels von der allgemeinen Sprache des Webauftritts abweicht, geben Sie hier bitte die Sprache an, welche verwendet wird. Wenn die Sprache nicht geändert wird, ändern Sie nichts."
 msgstr ""
 
-#: functions/custom-fields.php:1174
+#: functions/custom-fields.php:1171
 msgid "Seite verbergen"
 msgstr ""
 
-#: functions/custom-fields.php:1175
+#: functions/custom-fields.php:1172
 msgid "Diese Seite wird nicht im Navigationsmenü im Inhaltsbereich gezeigt."
 msgstr ""
 
-#: functions/custom-fields.php:1181
+#: functions/custom-fields.php:1178
 msgid "ARIA Label"
 msgstr ""
 
-#: functions/custom-fields.php:1182
+#: functions/custom-fields.php:1179
 msgid "Wird der Seitentitel auch von einer oder mehreren anderen Seiten verwendet, ist es notwendig, diesen über ein ARIA-Label von den anderen Seiten zu unterscheiden. In diesem Label kann der Titel ergänzt werden um ein Kontext, der die Seite von anderen Seiten mit gleichen Namen unterscheidet."
 msgstr ""
 
-#: functions/custom-fields.php:1190
+#: functions/custom-fields.php:1187
 msgid "Menüebene"
 msgstr ""
 
-#: functions/custom-fields.php:1191
+#: functions/custom-fields.php:1188
 msgid "Die Menüebene definiert bei Seiten bis zur welchen Ebene das Menu auf der linken Seite gezeigt wird."
 msgstr ""
 
-#: functions/custom-fields.php:1205
+#: functions/custom-fields.php:1202, functions/gallery.php:144, functions/gallery.php:142
 msgid "Bild"
 msgstr ""
 
-#: functions/custom-fields.php:1203
+#: functions/custom-fields.php:1200
 msgid "Bilder"
 msgstr ""
 
-#: functions/custom-fields.php:1220
+#: functions/custom-fields.php:1217
 msgid "Bildlinks einblenden"
 msgstr ""
 
-#: functions/custom-fields.php:1221
+#: functions/custom-fields.php:1218
 msgid "Wählen Sie hier die Kategorie aus aus der Bildlinks (verlinkte Logos) verwendet werden sollen. Die Bilder aus der gewählten Kategorie werden dann am Ende der Seite angezeigt."
 msgstr ""
 
-#: functions/custom-fields.php:1223
+#: functions/custom-fields.php:1220
 msgid "Keine Logos zeigen"
 msgstr ""
 
-#: functions/custom-fields.php:1244
+#: functions/custom-fields.php:1241
 msgid "Größe der Bildlinks"
 msgstr ""
 
-#: functions/custom-fields.php:1307
+#: functions/custom-fields.php:1306
 msgid "Link einfügen/ändern"
 msgstr ""
 
-#: functions/custom-fields.php:1308
+#: functions/custom-fields.php:1307
 msgid "Aktualisieren"
 msgstr ""
 
-#: functions/custom-fields.php:1309
+#: functions/custom-fields.php:1308
 msgid "Link hinzufügen"
 msgstr ""
 
-#: functions/custom-fields.php:1310
-msgid "(kein Titel)"
+#: functions/custom-fields.php:1309
+msgid "kein Titel"
 msgstr ""
 
-#: functions/custom-fields.php:1311
+#: functions/custom-fields.php:1310
 msgid "Keine Ergebnisse gefunden."
 msgstr ""
 
@@ -1782,26 +1821,6 @@ msgstr ""
 msgid "FAU"
 msgstr ""
 
-#: functions/defaults.php:154
-msgid "Medizinische Fakultät"
-msgstr ""
-
-#: functions/defaults.php:161
-msgid "Naturwissenschaftliche Fakultät"
-msgstr ""
-
-#: functions/defaults.php:167
-msgid "Philosophische Fakultät"
-msgstr ""
-
-#: functions/defaults.php:173
-msgid "Rechts- und Wirtschaftswissenschaftliche Fakultät"
-msgstr ""
-
-#: functions/defaults.php:179
-msgid "Technische Fakultät"
-msgstr ""
-
 #: functions/defaults.php:187
 msgid "Fachbereich Wirtschaftswissenschaften"
 msgstr ""
@@ -1850,35 +1869,31 @@ msgstr ""
 msgid "Chinesisch"
 msgstr ""
 
-#: functions/defaults.php:228
-msgid "Russisch"
-msgstr ""
-
-#: functions/defaults.php:232
+#: functions/defaults.php:231
 msgid "Eine Ebene"
 msgstr ""
 
-#: functions/defaults.php:233
+#: functions/defaults.php:232
 msgid "Zwei Ebenen"
 msgstr ""
 
-#: functions/defaults.php:234
+#: functions/defaults.php:233
 msgid "Drei Ebenen"
 msgstr ""
 
-#: functions/defaults.php:239, functions/defaults.php:243
+#: functions/defaults.php:238, functions/defaults.php:242
 msgid "Pfeil nach unten"
 msgstr ""
 
-#: functions/defaults.php:240, functions/defaults.php:245
+#: functions/defaults.php:239, functions/defaults.php:244
 msgid "Pfeil nach links"
 msgstr ""
 
-#: functions/defaults.php:241, functions/defaults.php:244
+#: functions/defaults.php:240, functions/defaults.php:243
 msgid "Pfeil nach rechts"
 msgstr ""
 
-#: functions/defaults.php:242, functions/defaults.php:246
+#: functions/defaults.php:241, functions/defaults.php:245
 msgid "Pfeil nach oben"
 msgstr ""
 
@@ -1890,12 +1905,24 @@ msgstr ""
 msgid "Vergrößern"
 msgstr ""
 
-#: functions/gallery.php:144
-msgid "Bild aufrufen"
+#: functions/helper-functions.php:27, functions/helper-functions.php:51, functions/helper-functions.php:84, functions/helper-functions.php:117, functions/helper-functions.php:152, functions/helper-functions.php:181, functions/helper-functions.php:207, functions/helper-functions.php:233, functions/helper-functions.php:294, functions/helper-functions.php:345, functions/helper-functions.php:409, functions/helper-functions.php:512
+msgid "Ungültiger Aufruf von"
 msgstr ""
 
-#: functions/gallery.php:142
-msgid "Bild "
+#: functions/helper-functions.php:27, functions/helper-functions.php:51, functions/helper-functions.php:84, functions/helper-functions.php:117, functions/helper-functions.php:152, functions/helper-functions.php:181, functions/helper-functions.php:207, functions/helper-functions.php:233, functions/helper-functions.php:294, functions/helper-functions.php:345, functions/helper-functions.php:409, functions/helper-functions.php:512
+msgid "Name oder Label fehlt."
+msgstr ""
+
+#: functions/helper-functions.php:193
+msgid "Aus"
+msgstr ""
+
+#: functions/helper-functions.php:194
+msgid "An"
+msgstr ""
+
+#: functions/helper-functions.php:294, functions/helper-functions.php:345
+msgid "Array, "
 msgstr ""
 
 #: functions/helper-functions.php:258, functions/helper-functions.php:317
@@ -1918,47 +1945,43 @@ msgstr ""
 msgid "Navigation unten: Kontakt, Impressum und weitere Hinweise zum Webauftritt"
 msgstr ""
 
-#: functions/menu.php:29
-msgid "Haupt-Navigation"
-msgstr ""
-
 #: functions/menu.php:36
 msgid "Fehler- und Suchseite: Vorschlagmenu"
 msgstr ""
 
-#: functions/menu.php:414
-msgid "Inhaltsmenu"
+#: functions/menu.php:636, functions/shortcodes.php:131
+msgid "Inhaltsmenü"
 msgstr ""
 
-#: functions/menu.php:472
+#: functions/menu.php:694
 msgid "Mehr"
 msgstr ""
 
-#: functions/menu.php:584
+#: functions/menu.php:806
 msgid "Zur Seite: "
 msgstr ""
 
-#: functions/menu.php:709
+#: functions/menu.php:931
 msgid "Breadcrumb"
 msgstr ""
 
-#: functions/menu.php:846, functions/menu.php:901
+#: functions/menu.php:1068, functions/menu.php:1125
 msgid "Beiträge von"
 msgstr ""
 
-#: functions/menu.php:838, functions/menu.php:882
+#: functions/menu.php:1060, functions/menu.php:1106
 msgid "Schlagwort"
 msgstr ""
 
-#: functions/menu.php:827, functions/menu.php:891, functions/widgets.php:32
+#: functions/menu.php:1049, functions/menu.php:1115, functions/widgets.php:32
 msgid "Suche"
 msgstr ""
 
-#: functions/menu.php:830, functions/menu.php:894
+#: functions/menu.php:1052, functions/menu.php:1118
 msgid "Suche nach"
 msgstr ""
 
-#: functions/menu.php:995
+#: functions/menu.php:1219
 msgid "Bereichsnavigation:"
 msgstr ""
 
@@ -1976,147 +1999,107 @@ msgctxt "Post Type Singular Name"
 msgid "Bildlink"
 msgstr ""
 
-#: functions/posttype_imagelink.php:45
-msgid "Übergeordneter Bildlink"
-msgstr ""
-
-#: functions/posttype_imagelink.php:46
-msgid "Alle Bildlinks"
-msgstr ""
-
-#: functions/posttype_imagelink.php:47
-msgid "Bildlink anzeigen"
-msgstr ""
-
 #: functions/posttype_imagelink.php:48
-msgid "Neuen Bildlink einfügen"
-msgstr ""
-
-#: functions/posttype_imagelink.php:49
-msgid "Neuer Bildlink"
-msgstr ""
-
-#: functions/posttype_imagelink.php:50
-msgid "Bildlink bearbeiten"
-msgstr ""
-
-#: functions/posttype_imagelink.php:51
-msgid "Bildlink aktualisieren"
-msgstr ""
-
-#: functions/posttype_imagelink.php:52
-msgid "Bildlink suchen"
-msgstr ""
-
-#: functions/posttype_imagelink.php:53
-msgid "Keine Bildlinks gefunden"
-msgstr ""
-
-#: functions/posttype_imagelink.php:54
-msgid "Keine Bildlinks im Papierkorb gefunden"
-msgstr ""
-
-#: functions/posttype_imagelink.php:57
 msgid "imagelink"
 msgstr ""
 
-#: functions/posttype_imagelink.php:58
+#: functions/posttype_imagelink.php:49
 msgid "Bildlink-Eigenschaften"
 msgstr ""
 
-#: functions/posttype_imagelink.php:90
+#: functions/posttype_imagelink.php:81
 msgid "Eigenschaften"
 msgstr ""
 
-#: functions/posttype_imagelink.php:111
+#: functions/posttype_imagelink.php:102
 msgid "Webadresse"
 msgstr ""
 
-#: functions/posttype_imagelink.php:258
+#: functions/posttype_imagelink.php:249
 msgid "Zum Webauftritt: "
 msgstr ""
 
-#: functions/shortcodes.php:54
+#: functions/shortcodes.php:53
 msgid "Es konnte kein Menu unter der angegebenen Bezeichnung gefunden werden"
 msgstr ""
 
-#: functions/shortcodes.php:132
-msgid "Inhaltsmenü"
-msgstr ""
-
-#: functions/shortcodes.php:223, functions/shortcodes.php:254
+#: functions/shortcodes.php:221, functions/shortcodes.php:252
 msgid "Der Shortcode darf nur auf Seiten verwendet werden."
 msgstr ""
 
-#: functions/shortcodes.php:230, functions/shortcodes.php:261
+#: functions/shortcodes.php:228, functions/shortcodes.php:259
 msgid "Es konnten keine Artikel gefunden werden"
 msgstr ""
 
-#: functions/shortcodes.php:290, functions/shortcodes.php:326
+#: functions/shortcodes.php:288, functions/shortcodes.php:324
 msgid "Keine relevanten Beiträge gefunden"
 msgstr ""
 
-#: functions/shortcodes.php:408
+#: functions/shortcodes.php:407
 msgid "Es wurden keine anstehenden Veranstaltungen gefunden"
 msgstr ""
 
-#: functions/shortcodes.php:403
+#: functions/shortcodes.php:402
 msgid "Kalender ansehen"
 msgstr ""
 
-#: functions/template-functions.php:479, functions/template-functions.php:457
+#: functions/template-functions.php:477, functions/template-functions.php:455
 msgid "Letzte Änderung"
 msgstr ""
 
-#: functions/template-functions.php:446
+#: functions/template-functions.php:444
 msgid "Datei"
 msgstr ""
 
-#: functions/template-functions.php:453
+#: functions/template-functions.php:451
 msgid "Erstellungsdatum"
 msgstr ""
 
-#: functions/template-functions.php:466
-msgid "Größe:"
+#: functions/template-functions.php:464
+msgid "Größe"
 msgstr ""
 
-#: functions/template-functions.php:426, functions/template-functions.php:408
+#: functions/template-functions.php:424, functions/template-functions.php:406
 msgid "Veranstaltungshinweis"
 msgstr ""
 
-#: functions/template-functions.php:377
+#: functions/template-functions.php:375
 msgid "Externer "
 msgstr ""
 
-#: functions/template-functions.php:382
+#: functions/template-functions.php:380
 msgid "Beitrag"
 msgstr ""
 
-#: functions/template-functions.php:599
+#: functions/template-functions.php:597
 msgid "Seite aufrufen"
 msgstr ""
 
-#: functions/template-functions.php:815
+#: functions/template-functions.php:756
 msgid "Dieser Inhalt ist passwortgeschützt."
 msgstr ""
 
-#: functions/template-functions.php:878
+#: functions/template-functions.php:803
+msgid "Produzent"
+msgstr ""
+
+#: functions/template-functions.php:864
 msgid "Kein Inhalt"
 msgstr ""
 
-#: functions/template-functions.php:949
+#: functions/template-functions.php:935
 msgid "Weiterlesen"
 msgstr ""
 
-#: functions/template-functions.php:1146
+#: functions/template-functions.php:1132
 msgid "RSS"
 msgstr ""
 
-#: functions/template-functions.php:1313
+#: functions/template-functions.php:1299
 msgid "Zur zentralen FAU Website"
 msgstr ""
 
-#: functions/template-functions.php:2034
+#: functions/template-functions.php:2021
 msgid "Beiträge mit dem Schlagwort"
 msgstr ""
 
@@ -2172,16 +2155,20 @@ msgstr ""
 msgid "Seiten Sidebar"
 msgstr ""
 
-#: page-templates/page-start.php:129
-msgid "Es konnten keine öffentlichen Beiträge gefunden werden."
+#: functions/widgets.php:105
+msgid "Widgets für Fehlerseiten"
 msgstr ""
 
-#: template-parts/error-trysearch.php:14
+#: template-parts/error-trysearch.php:25
 msgid "Vielleicht hilft Ihnen die Suche:"
 msgstr ""
 
-#: template-parts/footer-social.php:72
+#: template-parts/footer-social.php:12
 msgid "Weitere Hinweise zum Webauftritt"
+msgstr ""
+
+#: template-parts/header-search.php:34
+msgid "Suchbegriff"
 msgstr ""
 
 #: template-parts/header-skiplinks.php:11

@@ -14,19 +14,19 @@
 		@include px2rem($font-size-meta);
 	}
 
-	@media (min-width: $screen-sm) {
+	@media (min-width: $screen-md) {
 		z-index: 110; // Änderung notwendig, damit das Such-Flyout nicht unter dem #header liegt
 		height: auto;
 		padding: inherit;
 	}
 
     .header-row {
-        justify-content: space-between;
+        justify-content: start;
         align-items: center;
         min-height: 50px;
-	
         padding: 4px 0;
-        @media (min-width: $screen-sm) {
+
+        @media (min-width: $screen-md) {
             padding: 5px 0;
         }
 
@@ -48,7 +48,8 @@
 }
 
 #headerwrapper {
-    position: sticky;
+    position: static;
+    width: 100%;
     top: 0;
     z-index: 150;
     transition: box-shadow 0.2s;
@@ -63,12 +64,19 @@
 
     body:not([data-scroll='0']) & {
         background-color: var(--color-white);
-        @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+        @include box-shadow(0 0 21px rgba(0, 0, 0, 0.11));
     }
     body.nav-toggled & {
         top: unset;
-        @media (min-width: $screen-sm) {
+        @media (min-width: $screen-md) {
             top: 0;
         }
+    }
+}
+
+
+.visible-title {
+    @media (max-width: $screen-md) {
+        display: none;
     }
 }

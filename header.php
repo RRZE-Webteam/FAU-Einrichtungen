@@ -137,12 +137,26 @@ if ($custom_logo_id) {
                                 ?>
 
                             </div>
-			    <?php if (has_nav_menu('main-menu')) { ?>
+                            <?php 
+                            $menu_style = get_theme_mod('menu_style', 'mega_menu');
+                            if (has_nav_menu('main-menu')) {  ?>
                             <nav class="header-menu" id="nav" aria-label="<?php _e("Hauptnavigation", "fau"); ?>">
+                                <div class="mobile-language-switcher">
+                                    <?php
+                                        // Language switcher
+                                        if ($defaultoptions['debugmode'] && get_theme_mod('debug_sprachschalter')) {
+                                            get_template_part('template-parts/debugoutput', 'sprachschalter');
+                                        } elseif (is_active_sidebar('language-switcher')) {
+                                            dynamic_sidebar('language-switcher');
+                                        } 
+                                    ?>
+                                </div>
                                 <a href="#nav" id="mainnav-toggle"><span><?php _e("Menu", "fau"); ?></span></a>
                                 <a href="#top" id="mainnav-toggle-close"><span><?php _e("Menu", "fau"); ?> <?php _e("schließen", "fau"); ?></span></a>
                                 <div id="nav-wrapper">
-                                    <?php
+                                <?php
+                               $menustyle= get_theme_mod('main_menu_style', $defaultoptions['main_menu_style']);
+                                    if ($menustyle == 'mega') {
                                         wp_nav_menu(array(
                                             'theme_location' => 'main-menu',
                                             'container'      => false,
@@ -150,11 +164,20 @@ if ($custom_logo_id) {
                                             'depth'          => 4,
                                             'walker'         => new Walker_Main_Menu_Plainview
                                         ));
-                                        
-                                   ?>
+                                    } elseif ($menustyle == 'small') {
+                                        // This renders a basic dropdown without the mega menu walker
+                                        wp_nav_menu(array(
+                                            'theme_location' => 'main-menu',
+                                            'container'      => false,
+                                            'items_wrap'     => '<ul class="navsmall">%3$s</ul>',
+                                            'depth'          => 4,
+                                            'walker'         => new Walker_Main_Menu_Plainview_Small
+                                        ));
+                                    }
+                                ?>
                                 </div>
                             </nav>
-			<?php  } ?>
+                        <?php } ?>
                         </div>
                     </div>
                 </header>

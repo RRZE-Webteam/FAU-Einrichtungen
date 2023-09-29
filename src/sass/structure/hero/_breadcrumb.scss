@@ -5,7 +5,7 @@
 #hero {
     .breadcrumbs {
 	    color: var(--color-hero-text);
-	    padding: 10px 0;
+	    padding: 15px 0;
 	    position: relative;
 	    z-index: 10;
 
@@ -13,18 +13,22 @@
 
 	    span {
 		    padding: 0 5px;
-	    }	
+	    }
+		
+		li:first-child span {
+			padding-left: 0;
+		}
 
 	    .single & .active {
-		display: none;	  
+			display: none;	  
 	    }
 
 	    .breadcrumb_sitetitle {
-		@include px2rem($font-size-breadcrumb);
+			@include px2rem($font-size-breadcrumb);
 	    }
 	    
 	    span.active {
-		display: none;
+			display: none;
 	    }
     }
 }

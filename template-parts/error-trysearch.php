@@ -9,10 +9,12 @@ $uri = str_replace('/', ' ', $uri);
 
 global $defaultoptions;
 
- $error_sidebar_replacesearch = get_theme_mod('advanced_error_sidebar_replacesearch');
-    if ( $error_sidebar_replacesearch && is_active_sidebar( $defaultoptions['advanced_error_sidebar_replacesearch_id'] ) ) { 
-        $sidebarfilled = true;
-    }
+$sidebarfilled = false;
+ 
+$error_sidebar_replacesearch = get_theme_mod('advanced_error_sidebar_replacesearch');
+if ( $error_sidebar_replacesearch && is_active_sidebar( $defaultoptions['advanced_error_sidebar_replacesearch_id'] ) ) { 
+    $sidebarfilled = true;
+}
 ?>
 
  <div class="error-search">
