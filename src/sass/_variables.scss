@@ -3,7 +3,7 @@
 //-----------------------------------------------------------------------------------*/
 @use "sass:math";
 
-$farbfamilie: 'zuv';
+$farbfamilie: 'nat';
 // med, phil, nat, rw, tf, zuv
 
 
@@ -230,7 +230,7 @@ $font-size-herosearch: $font-size-base;
 $font-size-header-branding: ($font-size-base + 4);
 
 $font-size-hero-slider-title: 28;
-$font-size-hero-slider-title-small: 24;
+$font-size-hero-slider-title-small: 20;
 $font-size-hero-slider-copyright: ($font-size-base - 1);
 $font-size-hero-meta-portal: 40;
 
