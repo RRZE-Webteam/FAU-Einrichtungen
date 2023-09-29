@@ -6,7 +6,7 @@
  * @subpackage FAU
  * @since FAU 1.0
  */
-
+global $defaultoptions;
 get_header();
 
 ?>
@@ -21,7 +21,10 @@ get_header();
                         <?php the_title(); ?>
                     </h1>
                     <?php
-                    the_content();
+                    $show_content = get_theme_mod('advanced_template_page_start_display_content', $defaultoptions['advanced_template_page_start_display_content']);
+                    if ($show_content) {
+                        the_content();
+                    }
 
                     wp_reset_postdata();
                     wp_reset_query();
