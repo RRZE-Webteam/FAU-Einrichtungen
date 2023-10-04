@@ -542,8 +542,8 @@
                     }
                     .button-portal {
                         margin-right: auto;
-                        margin-left: 15px;
-                        margin-top: 15px;
+                        padding: 7px 15px;
+                
 
                         @media (max-width: $screen-xl) {
                             margin-left: unset !important;
