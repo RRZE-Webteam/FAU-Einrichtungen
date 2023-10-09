@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.38
+Version: 2.3.39-10
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -10119,17 +10119,38 @@ body:not(.mainnav-forceclick):not(.ismobile) .navsmall > li.has-sub:focus-within
     column-width: 330px;
   }
   .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 .button-portal, .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 .button-portal, .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 .button-portal, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 .button-portal {
-    margin-right: auto;
-    padding: 7px 15px;
+    display: inline-block;
+    display: inline-block;
+    font-size: 0.938rem;
+    color: var(--color-button-text);
+    background-color: var(--color-button-bg);
+    border: none;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: var(--border-radius-buttons, 3px);
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: normal;
+    margin: 5px 0;
+    font-size: 1.125rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    margin-top: 20px;
+    background-color: var(--color-mainmenu-sublevel-button-bg);
+    color: var(--color-mainmenu-sublevel-button-text);
   }
-}
-@media (min-width: 992px) and (max-width: 1400px) {
-  .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 .button-portal, .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 .button-portal, .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 .button-portal, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 .button-portal {
-    margin-left: unset !important;
-    margin-right: unset !important;
+  .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 .button-portal:hover, .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 .button-portal:focus, .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 .button-portal:hover, .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 .button-portal:focus, .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 .button-portal:hover, .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 .button-portal:focus, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 .button-portal:hover, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 .button-portal:focus {
+    color: var(--color-button-hover-text);
+    background-color: var(--color-button-hover-bg);
   }
-}
-@media (min-width: 992px) {
+  .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 .button-portal:hover, .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 .button-portal:focus, .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 .button-portal:hover, .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 .button-portal:focus, .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 .button-portal:hover, .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 .button-portal:focus, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 .button-portal:hover, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 .button-portal:focus {
+    text-decoration: none;
+  }
+  .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 .button-portal:hover, .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 .button-portal:focus, .mainnav-plainview .navsmall .flyout-entries-full.column-count-1 .button-portal:active, .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 .button-portal:hover, .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 .button-portal:focus, .mainnav-plainview .navsmall .flyout-entries-full.column-count-2 .button-portal:active, .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 .button-portal:hover, .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 .button-portal:focus, .mainnav-plainview .navsmall .flyout-entries-full.column-count-3 .button-portal:active, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 .button-portal:hover, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 .button-portal:focus, .mainnav-plainview .navsmall .flyout-entries-full.column-count-4 .button-portal:active {
+    background: var(--color-mainmenu-sublevel-button-hover-bg);
+    color: var(--color-mainmenu-sublevel-button-hover-text);
+  }
   .mainnav-plainview .navsmall .nav-flyout {
     background-color: #ffffff;
   }
@@ -10250,6 +10271,9 @@ body:not(.mainnav-forceclick):not(.ismobile) .navsmall > li.has-sub:focus-within
     background-color: var(--color-primary-dunkelste);
     color: var(--color-primary-dunkelste-kontrast);
   }
+  .navsmall {
+    border-top: 1px solid var(--color-primary-ci-hell);
+  }
   .navsmall .nav-flyout {
     padding: 0;
   }
@@ -10258,17 +10282,56 @@ body:not(.mainnav-forceclick):not(.ismobile) .navsmall > li.has-sub:focus-within
     flex-direction: column;
   }
   .navsmall .flyout-entries-full .button-portal {
+    display: inline-block;
+    display: inline-block;
+    font-size: 0.938rem;
+    color: var(--color-button-text);
+    background-color: var(--color-button-bg);
+    border: none;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: var(--border-radius-buttons, 3px);
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: normal;
+    margin: 5px 0;
+    font-size: 1.125rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-mainmenu-sublevel-button-bg);
+    color: var(--color-mainmenu-sublevel-button-text);
     order: 1;
     margin-top: 10px;
     padding: 7px 20px 7px var(--width-gutter-half);
     margin-left: 0;
     border-bottom: 1px solid var(--color-primary-dunkler);
   }
+  .navsmall .flyout-entries-full .button-portal:hover, .navsmall .flyout-entries-full .button-portal:focus {
+    color: var(--color-button-hover-text);
+    background-color: var(--color-button-hover-bg);
+  }
+  .navsmall .flyout-entries-full .button-portal:hover, .navsmall .flyout-entries-full .button-portal:focus {
+    text-decoration: none;
+  }
+  .navsmall .flyout-entries-full .button-portal:hover, .navsmall .flyout-entries-full .button-portal:focus, .navsmall .flyout-entries-full .button-portal:active {
+    background: var(--color-mainmenu-sublevel-button-hover-bg);
+    color: var(--color-mainmenu-sublevel-button-hover-text);
+  }
   .navsmall .flyout-entries-full ul {
     order: 2;
   }
+  .navsmall > li {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+  }
   .navsmall > li:first-child {
     border-top-color: transparent;
+  }
+  .navsmall > li.level1:hover, .navsmall > li.level1:focus {
+    border-top: 1px solid var(--color-primary-dunkelste);
+  }
+  .navsmall > li.level1:hover + li, .navsmall > li.level1:focus + li {
+    border-top: 1px solid var(--color-primary-dunkelste);
   }
   .navsmall > li.level1 > a,
   .navsmall > li.level1 > [type=button] {
