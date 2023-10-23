@@ -690,6 +690,8 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
             $post_thumbnail_id = get_post_thumbnail_id($post->ID);
             $pretitle          = get_theme_mod('advanced_blogroll_thumblink_alt_pretitle');
             $posttitle         = get_theme_mod('advanced_blogroll_thumblink_alt_posttitle');
+            $fallback_svgfaulogo = get_theme_mod('fallback_svgfaulogo');
+            
             $alttext           = $pretitle . get_the_title($post->ID) . $posttitle;
             $alttext           = esc_html($alttext);
 
@@ -707,14 +709,12 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
             $output .= '<div class="thumbnailregion';
 
             if (metadata_exists('post', $post->ID, 'vidpod_url') && shortcode_exists('fauvideo')) {
+                 // check if the post is using Video/Podcast
                 $output .= ' vidpod-thumb">';
                 $vidpod_url = get_post_meta($post->ID, 'vidpod_url', true);
                 $output .= do_shortcode('[fauvideo url="' . $vidpod_url . '"]');
             } else {
-
-                // check if the post is using Video/Podcast
-
-                if ($usefallbackthumb) {
+                if (($usefallbackthumb) && ($fallback_svgfaulogo)) {
                     $output .= ' fallback';
                 }
                 $output .= '">';
@@ -1872,8 +1872,7 @@ function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $
 /*-----------------------------------------------------------------------------------*/
 /* get info of defined sizes
 /*-----------------------------------------------------------------------------------*/
-function fau_get_image_sizes($size = 'rwd-480-3-2')
-{
+function fau_get_image_sizes($size = 'rwd-480-3-2') {
     global $defaultoptions;
 
     // Find (old) aliases and map them
@@ -1899,8 +1898,7 @@ function fau_get_image_sizes($size = 'rwd-480-3-2')
 /*-----------------------------------------------------------------------------------*/
 /* get fallback image by size
 /*-----------------------------------------------------------------------------------*/
-function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array())
-{
+function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array()) {
     $imgsrc  = $imgsrcset = $imgsrcsizes = '';
     $alttext = esc_html($alttext);
 
@@ -1908,6 +1906,8 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
     $width = $sizedata['width'];
     $height = $sizedata['height'];
 
+    $fallback_svgfaulogo = get_theme_mod('fallback_svgfaulogo');
+    
     switch ($size) {
         case 'topevent_thumb':
             $fallback = get_theme_mod('fallback_topevent_image');
@@ -1975,11 +1975,25 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
         $item_output .= ' loading="lazy">';
 
         return $item_output;
-    } else {
+    } elseif ($fallback_svgfaulogo) {
         $item_output = fau_use_svg("fau-logo-2021", $width, $height, $classes, false);
 
         return $item_output;
+    } else {
+        global $defaultoptions;
+        $item_output = '';
+        $item_output .= '<img src="' . fau_esc_url($defaultoptions['src-fallback-post-image']) . '" width="' . $width . '" height="' . $height . '" alt="' . $alttext . '"';
+      
+        $classes .= ' fallback';
+        $item_output .= ' class="' . $classes . '"';
+        if ($attributes) {
+            $item_output .= $attributes;
+        }
+        $item_output .= ' loading="lazy">';
+        
+        return $item_output;
     }
+    
 
     return;
 }
