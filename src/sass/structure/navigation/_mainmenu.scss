@@ -149,16 +149,16 @@
         @include inline-block;
         @include buttonstyle();
         @include px2rem($font-size-nav-buttons);
-	font-weight: bold;
+	    font-weight: bold;
         padding: 0.5rem 1rem;
         margin-left: 20px;
         background-color: var(--color-mainmenu-sublevel-button-bg);
-	color: var(--color-mainmenu-sublevel-button-text);
+	    color: var(--color-mainmenu-sublevel-button-text);
 	
-	&:hover, &:focus, &:active {
-	    background: var(--color-mainmenu-sublevel-button-hover-bg);
-	    color: var(--color-mainmenu-sublevel-button-hover-text);    
-	}
+        &:hover, &:focus, &:active {
+            background: var(--color-mainmenu-sublevel-button-hover-bg);
+            color: var(--color-mainmenu-sublevel-button-hover-text);    
+        }
     }
 
     ul {
@@ -541,14 +541,28 @@
                         column-width: 330px;
                     }
                     .button-portal {
-                        margin-right: auto;
-                        margin-left: 15px;
-                        margin-top: 15px;
+                        //margin-right: auto;
+                        //padding: 7px 15px;
 
-                        @media (max-width: $screen-xl) {
-                            margin-left: unset !important;
-                            margin-right: unset !important;
+                        @include inline-block;
+                        @include buttonstyle();
+                        @include px2rem($font-size-nav-buttons);
+                        font-weight: bold;
+                        padding: 0.5rem 1rem;
+                        margin-top: 20px;
+                        background-color: var(--color-mainmenu-sublevel-button-bg);
+                        color: var(--color-mainmenu-sublevel-button-text);
+                    
+                        &:hover, &:focus, &:active {
+                            background: var(--color-mainmenu-sublevel-button-hover-bg);
+                            color: var(--color-mainmenu-sublevel-button-hover-text);    
                         }
+                
+
+                        //@media (max-width: $screen-xl) {
+                        //    margin-left: unset !important;
+                        //    margin-right: unset !important;
+                        //}
                     }
                 }
             }
@@ -700,7 +714,7 @@
     }
 
     .navsmall {
-        //border-top: 1px solid var(--color-primary-ci-hell);
+        border-top: 1px solid var(--color-primary-ci-hell);
 
         .nav-flyout {
             padding: 0;
@@ -710,11 +724,24 @@
             flex-direction: column;
 	    
             .button-portal {
+                @include inline-block;
+                @include buttonstyle();
+                @include px2rem($font-size-nav-buttons);
+                font-weight: bold;
+                padding: 0.5rem 1rem;
+                background-color: var(--color-mainmenu-sublevel-button-bg);
+                color: var(--color-mainmenu-sublevel-button-text);
+
                 order: 1;
                 margin-top: 10px;
                 padding: 7px 20px 7px var(--width-gutter-half);
                 margin-left: 0;
                 border-bottom: 1px solid var(--color-primary-dunkler);
+            
+                &:hover, &:focus, &:active {
+                    background: var(--color-mainmenu-sublevel-button-hover-bg);
+                    color: var(--color-mainmenu-sublevel-button-hover-text);    
+                }
             }
             ul {
                 order: 2;
@@ -723,17 +750,17 @@
         }
 
         > li {
-            //border-top: 1px solid $colorOverlayDark; // #ccc;
+            border-top: 1px solid $colorOverlayDark; // #ccc;
             &:first-child {
                 border-top-color: transparent;
             }
 
             &.level1 {
                 &:hover, &:focus {
-                    //border-top: 1px solid var(--color-primary-dunkelste);
+                    border-top: 1px solid var(--color-primary-dunkelste);
 
                     + li {
-                        //border-top: 1px solid var(--color-primary-dunkelste);
+                        border-top: 1px solid var(--color-primary-dunkelste);
                     }
                 }
 
