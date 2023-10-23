@@ -1986,6 +1986,14 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
       
         $classes .= ' fallback';
         $item_output .= ' class="' . $classes . '"';
+        $attributes = '';
+        if (!empty($atts)) {
+            foreach ($atts as $attr => $value) {
+                if (!empty($value)) {
+                    $attributes .= ' ' . $attr . '="' . $value . '"';
+                }
+            }
+        }
         if ($attributes) {
             $item_output .= $attributes;
         }

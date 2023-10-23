@@ -83,7 +83,7 @@ $defaultoptions = [
 	'default_postthumb_image'		=> 0,
 	'default_submenu_entries'		=> 5,
 	'fallback_submenu_image'		=> 0,
-
+    'fallback_topevent_image'       => 0,
 	'start_topevents_max'			=> 1,
 	'start_topevents_active'		=> true,
 	'topevent_hideimage'			=> false,
