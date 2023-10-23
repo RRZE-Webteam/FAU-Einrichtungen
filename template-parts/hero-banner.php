@@ -8,6 +8,7 @@
  * @since FAU 1.7
  */
 
+global $defaultoptions;
 $banner = get_theme_mod("startseite_banner_image");
 $copyright = '';
 
@@ -30,8 +31,6 @@ if (isset($banner) && ($banner > 0)) {
     $url = get_theme_mod("default_startseite-bannerbild-image_src");
     $width = $defaultoptions['default_image_sizes']['herobanner']['width']; 
     $height = $defaultoptions['default_image_sizes']['herobanner']['height'];
-    $crop = $defaultoptions['default_image_sizes']['herobanner']['crop'];
-
     $image = '<img src="'.fau_esc_url($url).'" width="'.$width.'" height="'.$height.'" alt="" loading="lazy">';	
 } else {
     $image = '';

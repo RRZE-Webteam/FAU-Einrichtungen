@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 98,
+	'optiontable-version'           => 102,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -24,7 +24,6 @@ $defaultoptions = [
 	// Oder hier von Hand :)
 	'js-version'                    => '2.12',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
-
 	'website_type'                  => 1,
 	// website_type: 
 	//  0 = Fakultaetsportal; 
@@ -32,7 +31,6 @@ $defaultoptions = [
 	//  2 = Zentrale Einrichtungen, 
 	//  3 = Kooperationen 
 	// -1 = fau.de Portal (4 Spalter in Bühne, kein Link zur FAU. 
-
 	'website_usefaculty'            => '',
 	// phil, med, nat, rw, tf
 	// Setzt fest die Fakultät bei Wahl des Website-Types    
@@ -40,12 +38,17 @@ $defaultoptions = [
 	'default_home_orga'             => 'fau',
 	// Muss in $default_fau_orga_data auf erster Ebene vorhanden sein.	
 	'default-social-media-color'	=> '#04316a',
-	'default-sourcecode-notice'		=> true,
+	'default-sourcecode-notice'		=> false,
 	'default-sourcecode-notice-text'	=> __("Wenn Sie dies lesen, sind wir vielleicht was für Sie! \n	    Die FAU sucht immer vielversprechende Talente in allen universitären Bereichen, die bereit sind, sich mit Leidenschaft, Kreativität und Engagement für die FAU einzusetzen: \n	    https://jobs.fau.de", 'fau'),
 	'optionpage-tab-default'		=> 'website',
 	'content-width'                 => 620,
 	'content-width-fullpage'		=> 940,
-	'src-fallback-slider-image'		=> get_fau_template_uri() . '/img/slider-fallback.jpg',
+	'src-fallback-slider-image'		=> get_fau_template_uri() . '/img/FallbackSlider.png',
+    'default_startseite-bannerbild-image_src'	=> get_fau_template_uri() . '/img/FallbackBanner.png',
+    'startseite_banner_usedefault'	=> false,
+    'src-fallback-post-image'		=> get_fau_template_uri() . '/img/FallbackPost.png',
+    'fallback_svgfaulogo'           => false,
+        // falls ken Artikelbild gesetzt wird, wird anstelle des definierten Fallback, das FAU Logo SVG verwendet
 	'slider-catid'                  => 0,
 	'src-scriptjs'                  => get_fau_template_uri() . '/js/fau-theme.min.js',
 	'src-sliderjs'                  => get_fau_template_uri() . '/js/fau-theme-slick.min.js',
@@ -85,11 +88,10 @@ $defaultoptions = [
 	'start_topevents_active'		=> true,
 	'topevent_hideimage'			=> false,
 	'topevents_templates'			=> array(1),
-	'fallback_topevent_image'		=> 0,
 	'default_topevent_excerpt_length'		=> 100,
 
-	'default_startseite-bannerbild-image_src'	=> get_fau_template_uri() . '/img/bannerbild-tafel-1260x182.jpg',
-	'startseite_banner_usedefault'		=> false,
+	
+
 
 
 	/* Image Sizes */
