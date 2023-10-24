@@ -6,25 +6,54 @@
     
     width: auto;
     display: block;
-    
     position: relative;
     margin: 1rem 0 0;
     [dir="rtl"] & {
         margin-right: auto;
     }
  
-    @media (min-width: $screen-sm) {
-	// width: 100%;
-	display: inline-block;
-	margin-top: 0;
-	max-width: 300px;
-	margin-left: auto;
-    [dir="rtl"] & {
-        margin-right: auto;
-    }
+    @media (min-width: $screen-md) {
+        display: inline-block;
+        margin-top: 0;
+        //max-width: 300px;
+        margin-left: auto;
+        [dir="rtl"] & {
+            margin-right: auto;
+        }
     }
     
     text-align: right;
+
+    .search-initiate-button {
+        padding: 2px 5px 2px 6px;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        z-index: 999;
+
+        &.active {
+            display: none;
+        }
+       
+        svg {
+            display: block;
+            width: 30px;
+            height: 30px;
+            fill: var(--color-zentral-basis);
+        }
+
+        &:hover,
+        &:focus {
+            background: var(--color-zentral-dunkelste);
+
+            svg {
+                fill: var(--color-white);
+            }
+        }
+
+        @media (max-width: $screen-md) {
+            display: none;
+        }
+    }
 
     .active-meta-widget & {
         display: inline;
@@ -36,72 +65,99 @@
 
 
     .searchform {
-	display: flex;
-	@media (min-width: $screen-sm) {
-        //    display: inline-block;
+	    display: flex;
+	    @media (min-width: $screen-md) {
 	}
-	
-	
-        @include transition(0.5s, all);
+
         border: none;
         margin: 0;
-        padding: 5px 0;
+        padding: 10px 0;
 
         input[type="text"] {
-            @include border-radius(20px);
-            padding: 0.3rem 35px 0.3rem 2rem;
-            width: calc(100% - 55px);
+            border-radius: var(--border-radius);
+            width: 0;
             border: none;
             outline: none;
-            color: var(--color-MainBackground);
+            color: var(--color-zentral-basis);
             height: 1.875rem;
-            display: inline-block;
-            margin-right: -25px;
-            margin-bottom: 0px;
-	    background: var(--color-Default) svg-icon-search(#fff, 16, 16) no-repeat 0.5rem;
+            margin-bottom: 1px;
+            background: var(--color-white);
+            font-weight: bold;
+            visibility: hidden;
+            @include transition(0.5s, all);
 
             &:focus {
-                background-color: var(--color-MetaHover);
                 box-shadow: none;
             }
 
-            @media (min-width: $screen-sm) {
-                width: 160px;
-                padding-left: 35px;
-
-                .active-meta-widget & {
-                    width: 150px;
-                }
-
-            }
-            @media (min-width: $screen-lg) {
-                width: 250px;
-                .active-meta-widget & {
-                    width: 180px;
-                }
+            &::placeholder {
+                opacity: 0.5;
+                color: var(--color-zentral-basis) !important;
             }
 
+            @media (max-width: $screen-md) {
+                visibility: visible;
+                width: calc(100% - 45px);
+            }
+
+            @media (max-width: $screen-xl) {
+                margin-bottom: 4px;
+            }
+
+            &.active {
+                visibility: visible;
+                padding: 0.3rem 0.8rem;
+
+                @media (min-width: $screen-sm) {
+                    width: 160px;
+                    .active-meta-widget & {
+                        width: 200px;
+                    }
+                }
+                @media (min-width: $screen-lg) {
+                    width: 250px;
+                    .active-meta-widget & {
+                        width: 300px;
+                    }
+                }
+            }
         }
 
         input[type="submit"] {
-            @include border-radius(20px);
+            border-radius: var(--border-radius);
             position: relative;
             z-index: 100;
             height: 1.875rem;
-            padding: 0 12px;
+            width: 0;
+            padding: 0;
             font-weight: bold;
             border: none;
             outline: none;
-            color: var(--color-Default);
-            background: var(--color-MainBackground);
-            display: inline-block;
+            color: var(--color-white);
+            background: var(--color-zentral-basis);
             margin: 0;
+            visibility: hidden;
+            opacity: 0;
+            @include transition(0.5s, all);
+
+            @media (max-width: $screen-md) {
+                visibility: visible;
+                opacity: 1;
+                width: auto;
+                padding: 0 15px;
+            }
+            
+            &.active {
+                visibility: visible;
+                width: auto;
+                padding: 0 15px;
+                //margin-left: -31px;
+                opacity: 1;
+            }
 
             &:hover,
             &:focus {
-                background: var(--color-MetaBackgroundLight);
-                @include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
-
+                background: var(--color-zentral-dunkelste);
             }
         }
 
@@ -112,7 +168,7 @@
        
     }
 
-    @media (max-width: $screen-sm - 1) {
+    @media (max-width: $screen-md - 1) {
        
         .search-toggled & {
             .searchform {
@@ -134,7 +190,7 @@
     }
      @media (min-width: $screen-sm) {
             margin-top: 0;
-            max-width: 300px;
+            //max-width: 300px;
             margin-left: auto;
     }
    

@@ -304,6 +304,7 @@
 	
 	.slick-dots {
 	    display: block;
+		justify-content: center;
 	    width: 100%;
 	    padding: 0;
 	    margin: 15px auto 20px auto;
@@ -322,10 +323,10 @@
 		button {
 		    
 		    display: block;
-		    width: 1.5rem;
-		    height: 1.5rem;
+			width: 2rem;
+			height: 1.8rem;
 		    cursor: pointer;
-		    border-radius: 50%;
+			border-radius: var(--border-radius, 0px);
 		    
 		    color: var(--color-primary-ci-hell-kontrast);
 		    background-color: var(--color-primary-ci-hell);
@@ -351,7 +352,6 @@
 	
     &.list {
 	width: 100%;
-	display: flex;
 	text-align: center;
 	
 	.imagelink-container {

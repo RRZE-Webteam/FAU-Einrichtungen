@@ -63,7 +63,11 @@ $slider-height-md: 512px;
 			font-weight: 700;
 			z-index: 19;
 			width: 100%;
-			max-width: 100%;	
+			max-width: 100%;
+
+			[dir="rtl"] & {
+				text-align: right;
+			}
 			
 			@include px2rem($font-size-hero-slider-title-small);
 			
@@ -94,7 +98,7 @@ $slider-height-md: 512px;
 				max-width: 100%;      
 				opacity: 1;
 				font-weight: 700;
-				display: inline-block;
+				display: block;
 				background-color: var(--color-primary-ci-hell);
 				border-radius: var(--border-radius, 0px);  
 				margin: 0 auto;
@@ -103,6 +107,7 @@ $slider-height-md: 512px;
 				
 				@media (min-width: $screen-sm)  {
 				    padding: var(--width-gutter-half, 15px) var(--width-gutter, 35px);
+				    display: inline-block;
 				}
 
 			    }
@@ -157,11 +162,17 @@ $slider-height-md: 512px;
 	
 		padding: 0;
 		width: 100%;
-	//	height: 70px;
-		bottom: var(--width-gutter-half);
+		bottom: 0;
 		top: auto;
 		transform: none;
-		
+		.hero-container  {
+		    padding-left: 0;
+		    padding-right: 0;
+		    @media (min-width: $screen-sm){
+			padding-left: var(--width-gutter-half);
+			padding-right: var(--width-gutter-half);
+		    }
+		}
 		@media (max-width: $screen-sm){			
 			margin: 0;
 			@include transform-translate(0, 0%);
@@ -251,7 +262,7 @@ $slider-height-md: 512px;
 		
 		[dir="rtl"] & {
 			left: var(--width-gutter-half);
-			right: var(--width-gutter-half);
+			right: auto;
 			.slick-arrow { 
 				font-size: 11em;
 		color:#fff;
@@ -263,7 +274,7 @@ $slider-height-md: 512px;
 			right: calc(var(--width-gutter) + 5px);
 			[dir="rtl"] & {
 				left: var(--width-gutter-half);
-				right: var(--width-gutter-half);
+				right: auto;
 			}
 		}
 
@@ -314,19 +325,15 @@ $slider-height-md: 512px;
 	}
 }
 
-
-
 .slick-dots {
 	display: flex !important;
 	width: 60px;
 	margin: 0 auto;
-
 }
-.slick-dots li{
+.slick-dots li {
 	margin:0px auto;
 	width: 60px;
 }
-
 .slick-dots li button {
 	margin-right: 10px;
 	height: 5px;

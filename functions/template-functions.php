@@ -461,7 +461,7 @@ function fau_display_search_resultitem() {
             $typestr .= ' <a href="' . fau_esc_url($attachment['url']) . '">' . __('Download', 'fau') . '</a>';
 
             $typestr .= ' <span class="filesize">(<span class="screen-reader-text">';
-            $typestr .= __('Größe:', 'fau') . ' </span>' . $filesize;
+            $typestr .= __('Größe', 'fau') . ': </span>' . $filesize;
             $typestr .= ')</span>';
             $typestr .= '</span>';
 
@@ -615,7 +615,7 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
     if ($id == 0) {
         return;
     }
-
+    $withcat = get_theme_mod('show_cat_on');
     $post   = get_post($id);
     $output = '';
     if ($post) {
@@ -681,48 +681,6 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
         $output .= 'href="' . $link . '">' . get_the_title($post->ID) . '</a>';
         $output .= "</h" . $hstart . ">";
 
-        
-        $schemaauthor = get_theme_mod('contact_address_name') . " " . get_theme_mod('contact_address_name2');
-        if (!fau_empty($schemaauthor)) {
-            $output .= '<meta itemprop="author" content="' . esc_attr($schemaauthor) . '">';
-        }
-        if ($vidpod_auth !=null) {
-            $output .= '<meta itemprop="producer" content="' . esc_attr($vidpod_auth) . '">';
-        }
-        if ($hidemeta) {
-             // display meta informations that we need for structured data as <meta> tags       
-            $output .= '<meta itemprop="datePublished" content="' . esc_attr(get_post_time('c')) . '">';
-            $output .= '<meta itemprop="dateModified" content="' . esc_attr(get_the_modified_time('c')) . '">';
-        } else {
-            // displays meta informations like date, category, tags, autornames with visible tags
-            $output .= '<div class="news-meta">';
-            
-            if ($withdate) {
-                $output .= '<span class="news-meta-date" itemprop="datePublished" content="'.esc_attr(get_post_time('c')).'"> '.get_the_date('',
-                    $post->ID)." </span>";
-            }
-            if ($withcat) {                
-                $separator  = ', ';
-                $thiscatstr = '';
-                $typestr = '<span class="news-meta-categories"> ';
-                $typestr .= __('Kategorie', 'fau').': ';
-                foreach ($categories as $category) {
-                    $thiscatstr .= '<a href="' . get_category_link($category->term_id) . '">' . $category->cat_name . '</a>' . $separator;
-                }
-                $typestr .= trim($thiscatstr, $separator);
-                $typestr .= '</span> ';
-                
-                $output .= $typestr;
-            }
-            if ($withvideopost_autor){
-                $output .= '<span class="news-meta-videopost-author"> ';      
-                $output .= __('Produzent', 'fau').': ';
-                $output .= esc_attr($vidpod_auth);      
-                $output .= '</span>';      
-            }
-            $output .= '</div>';
-        }
-
         $output      .= '<div class="teaser-row">';
         $show_thumbs = get_theme_mod('default_postthumb_always');
 
@@ -732,6 +690,8 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
             $post_thumbnail_id = get_post_thumbnail_id($post->ID);
             $pretitle          = get_theme_mod('advanced_blogroll_thumblink_alt_pretitle');
             $posttitle         = get_theme_mod('advanced_blogroll_thumblink_alt_posttitle');
+            $fallback_svgfaulogo = get_theme_mod('fallback_svgfaulogo');
+            
             $alttext           = $pretitle . get_the_title($post->ID) . $posttitle;
             $alttext           = esc_html($alttext);
 
@@ -749,14 +709,12 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
             $output .= '<div class="thumbnailregion';
 
             if (metadata_exists('post', $post->ID, 'vidpod_url') && shortcode_exists('fauvideo')) {
+                 // check if the post is using Video/Podcast
                 $output .= ' vidpod-thumb">';
                 $vidpod_url = get_post_meta($post->ID, 'vidpod_url', true);
                 $output .= do_shortcode('[fauvideo url="' . $vidpod_url . '"]');
             } else {
-
-                // check if the post is using Video/Podcast
-
-                if ($usefallbackthumb) {
+                if (($usefallbackthumb) && ($fallback_svgfaulogo)) {
                     $output .= ' fallback';
                 }
                 $output .= '">';
@@ -804,14 +762,59 @@ function fau_display_news_teaser($id = 0, $withdate = false, $hstart = 2, $hidem
         }
         $output .= $abstract;
         $output .= '</p>';
-        $display_continue_link = get_theme_mod('default_display_continue_link');
-        if ($display_continue_link) {
-            $output .= '<div class="continue">';
-            $output .= fau_create_readmore($link, get_the_title($post->ID), $external, true);
-            $output .= '</div>';
-        }
         $output .= '</div>';
         $output .= "</div>";
+
+        // news-meta
+        $schemaauthor = get_theme_mod('contact_address_name') . " " . get_theme_mod('contact_address_name2');
+        if (!fau_empty($schemaauthor)) {
+            $output .= '<meta itemprop="author" content="' . esc_attr($schemaauthor) . '">';
+        }
+        if ($vidpod_auth !=null) {
+            $output .= '<meta itemprop="producer" content="' . esc_attr($vidpod_auth) . '">';
+        }
+        if ($hidemeta) {
+             // display meta informations that we need for structured data as <meta> tags       
+            $output .= '<meta itemprop="datePublished" content="' . esc_attr(get_post_time('c')) . '">';
+            $output .= '<meta itemprop="dateModified" content="' . esc_attr(get_the_modified_time('c')) . '">';
+        } else {
+            // displays meta informations like date, category, tags, autornames with visible tags
+            $output .= '<div class="news-meta">';
+            
+            if ($withdate) {
+                $output .= '<span class="news-meta-date" itemprop="datePublished" content="'.esc_attr(get_post_time('c')).'"> '.get_the_date('',
+                    $post->ID)." </span>";
+            }
+            if ($withcat) {                
+                $separator  = ', ';
+                $thiscatstr = '';
+                $typestr = '<span class="news-meta-categories"> ';
+                $typestr .= __('Kategorie', 'fau').': ';
+                foreach ($categories as $category) {
+                    $thiscatstr .= '<a href="' . get_category_link($category->term_id) . '">' . $category->cat_name . '</a>' . $separator;
+                }
+                $typestr .= trim($thiscatstr, $separator);
+                $typestr .= '</span> ';
+                
+                $output .= $typestr;
+            }
+            if ($withvideopost_autor){
+                $output .= '<span class="news-meta-videopost-author"> ';      
+                $output .= __('Produzent', 'fau').': ';
+                $output .= esc_attr($vidpod_auth);      
+                $output .= '</span>';      
+            }
+
+            $display_continue_link = get_theme_mod('default_display_continue_link');
+            if ($display_continue_link) {
+                $output .= '<div class="continue">';
+                $output .= fau_create_readmore($link, get_the_title($post->ID), $external, true);
+                $output .= '</div>';
+            }
+
+            $output .= '</div>';
+        }
+
         if (!$external) {
             $output .= fau_create_schema_publisher();
         }
@@ -1869,8 +1872,7 @@ function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $
 /*-----------------------------------------------------------------------------------*/
 /* get info of defined sizes
 /*-----------------------------------------------------------------------------------*/
-function fau_get_image_sizes($size = 'rwd-480-3-2')
-{
+function fau_get_image_sizes($size = 'rwd-480-3-2') {
     global $defaultoptions;
 
     // Find (old) aliases and map them
@@ -1896,8 +1898,7 @@ function fau_get_image_sizes($size = 'rwd-480-3-2')
 /*-----------------------------------------------------------------------------------*/
 /* get fallback image by size
 /*-----------------------------------------------------------------------------------*/
-function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array())
-{
+function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array()) {
     $imgsrc  = $imgsrcset = $imgsrcsizes = '';
     $alttext = esc_html($alttext);
 
@@ -1905,6 +1906,8 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
     $width = $sizedata['width'];
     $height = $sizedata['height'];
 
+    $fallback_svgfaulogo = get_theme_mod('fallback_svgfaulogo');
+    
     switch ($size) {
         case 'topevent_thumb':
             $fallback = get_theme_mod('fallback_topevent_image');
@@ -1972,11 +1975,33 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
         $item_output .= ' loading="lazy">';
 
         return $item_output;
-    } else {
+    } elseif ($fallback_svgfaulogo) {
         $item_output = fau_use_svg("fau-logo-2021", $width, $height, $classes, false);
 
         return $item_output;
+    } else {
+        global $defaultoptions;
+        $item_output = '';
+        $item_output .= '<img src="' . fau_esc_url($defaultoptions['src-fallback-post-image']) . '" width="' . $width . '" height="' . $height . '" alt="' . $alttext . '"';
+      
+        $classes .= ' fallback';
+        $item_output .= ' class="' . $classes . '"';
+        $attributes = '';
+        if (!empty($atts)) {
+            foreach ($atts as $attr => $value) {
+                if (!empty($value)) {
+                    $attributes .= ' ' . $attr . '="' . $value . '"';
+                }
+            }
+        }
+        if ($attributes) {
+            $item_output .= $attributes;
+        }
+        $item_output .= ' loading="lazy">';
+        
+        return $item_output;
     }
+    
 
     return;
 }

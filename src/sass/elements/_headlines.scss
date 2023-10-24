@@ -23,9 +23,9 @@ h6 {
 
 main {
     h1, h2, h3, h4, h5 {
-	a {
-	    color: var(--color-content-headlines);
-	}
+		a {
+			color: var(--color-content-headlines);
+		}
     }
 }
 
@@ -83,15 +83,10 @@ h2 {
 	    margin-top: 8px;
 	}
 	
-	
 	&.small,
 	&.subtitle  {
 	    @include px2rem($font-size-h2-small);
 	}
-
-	
-
-	
 		
 	.search & {
 		margin-top: 4px;
@@ -107,6 +102,12 @@ h2 {
 	}
 	table & {
 	    @include px2rem($font-size-h2-table);
+	}
+
+	.content-inline & {
+		&:first-child {
+			margin-top: 0;
+		}
 	}
 }
 

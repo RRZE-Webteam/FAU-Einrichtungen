@@ -49,7 +49,7 @@ function fau_comment( $comment, $args, $depth ) {
                         <br />
                 <?php endif; ?>
                 <div class="comment-body" itemprop="commentText"><?php comment_text(); ?></div>
-		 <?php edit_comment_link( __( '(Bearbeiten)', 'fau' ), ' ' ); ?>
+		 <?php edit_comment_link( '('.__( 'Bearbeiten', 'fau' ).')', ' ' ); ?>
             </article>
           </div><!-- #comment-##  -->
 
@@ -59,7 +59,7 @@ function fau_comment( $comment, $args, $depth ) {
                 case 'trackback' :
         ?>
         <li class="post pingback">
-                <p><?php _e( 'Pingback:', 'fau' ); ?> <?php comment_author_link(); edit_comment_link( __('Bearbeiten', 'fau'), ' ' ); ?></p>
+                <p><?php _e( 'Pingback', 'fau' ); ?>: <?php comment_author_link(); edit_comment_link( __('Bearbeiten', 'fau'), ' ' ); ?></p>
         <?php
                         break;
         endswitch;

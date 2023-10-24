@@ -225,7 +225,6 @@ $default_fau_page_langcodes = array(
 	"es" => __('Spanisch','fau'),
 	"fr" => __('Französisch','fau'),
 	"zh" => __('Chinesisch','fau'),
-	"ru" => __('Russisch','fau'),
     );
 
 $default_fau_page_menuuebenen = array(

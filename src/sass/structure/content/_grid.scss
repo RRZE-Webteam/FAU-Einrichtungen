@@ -16,7 +16,7 @@
     
     &.start, 
     &.herotype-slider {
-	padding-top: 0;
+	    padding-top: 0;
     }
 }
 
@@ -79,7 +79,8 @@
         flex-grow: 1;
         @media (min-width: $screen-sm) {
             //max-width: $container-sm - $subnav-width-sm - $grid-gutter-width;
-            padding-left: $grid-gutter-width;
+            //padding-left: $grid-gutter-width;
+            padding-left: 40px;
         }
 
         @media (min-width: $screen-xl) {

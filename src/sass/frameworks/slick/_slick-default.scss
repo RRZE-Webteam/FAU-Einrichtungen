@@ -59,8 +59,9 @@
     height: 100%;
     min-height: 1px;
 
+    //fix for rtl issues
     [dir="rtl"] & {
-        float: right;
+        float: left;
     }
 
     img {
@@ -95,4 +96,10 @@
 
 .slick-arrow.slick-hidden {
     display: none;
+}
+
+// fix for rtl issues
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    direction: ltr;
 }

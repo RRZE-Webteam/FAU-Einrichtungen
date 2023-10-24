@@ -879,26 +879,26 @@ function fau_do_metabox_page_sidebar($object, $box) {
     
     if ( is_plugin_active( 'fau-person/fau-person.php' ) ) {
 	
-	$listpersonen = FAU_Person\Data::get_contact_list();
-	$auswahl = array('-1' => __('Keine (Deaktivieren)', 'fau'));
+        $listpersonen = FAU_Person\Data::get_contact_list();
+        $auswahl = array('-1' => __('Keine (Deaktivieren)', 'fau'));
 	    $found = 0;
 	    foreach ($listpersonen as $id => $val) {
-		$title = $val;
-		if ((empty($title))) {
-		    $title = get_the_title($id);
-		}
-		$auswahl[$id] = $title;
-		$found = 1;
+            $title = $val;
+            if ((empty($title))) {
+                $title = get_the_title($id);
+            }
+            $auswahl[$id] = $title;
+            $found = 1;
 	    }
 	    wp_reset_postdata();
 	    if ($found == 1) {
-		$sidebar_personen = get_post_meta($object->ID, 'sidebar_personen', true);
-		$sidebar_title_personen = get_post_meta($object->ID, 'sidebar_title_personen', true);
-		fau_form_text('sidebar_title_personen', $sidebar_title_personen, get_theme_mod('advanced_page_sidebar_personen_title'), __('Titel über Ansprechpartner', 'fau'));
-		fau_form_multiselect('sidebar_personen', $auswahl, $sidebar_personen, __('Auswahl Ansprechpartner', 'fau'), __('Wählen Sie die Personen oder Ansprechpartner, die in der Sidebar erscheinen sollen. Es kann mehr als ein Eintrag gewählt werden.', 'fau'), 0);
+            $sidebar_personen = get_post_meta($object->ID, 'sidebar_personen', true);
+            $sidebar_title_personen = get_post_meta($object->ID, 'sidebar_title_personen', true);
+            fau_form_text('sidebar_title_personen', $sidebar_title_personen, get_theme_mod('advanced_page_sidebar_personen_title'), __('Titel über Ansprechpartner', 'fau'));
+            fau_form_multiselect('sidebar_personen', $auswahl, $sidebar_personen, __('Auswahl Ansprechpartner', 'fau'), __('Wählen Sie die Personen oder Ansprechpartner, die in der Sidebar erscheinen sollen. Es kann mehr als ein Eintrag gewählt werden.', 'fau'), 0);
 
 	    } else {
-		echo __('Derzeit sind noch Personen oder Kontakte eingetragen, die man verlinken könnte.', 'fau');
+            echo __('Derzeit sind noch Personen oder Kontakte eingetragen, die man verlinken könnte.', 'fau');
 	    }
     }
    
@@ -922,10 +922,7 @@ function fau_do_metabox_page_sidebar($object, $box) {
     if (get_theme_mod('advanced_page_sidebar_linkblock2_number') > 0) {
 
         $block_title = get_post_meta($object->ID, 'fauval_sidebar_title_linkblock2', true);
-        // Default erstmal auskommentiert wenn man es leer haben will; irritiert sonst
-        // if (isset($block_title) && strlen(trim($block_title))<1) {
-        //$block_title = $options['advanced_page_sidebar_linkblock2_title'];	
-        //}
+
         fau_form_text('fauval_sidebar_title_linkblock2', $block_title, __('Titel zweiter Linkblock', 'fau'), __('Titel über die zweite Liste von Links. Weitere Links oder bspw. externe Links.', 'fau'));
 
         for ($i = 1; $i <= get_theme_mod('advanced_page_sidebar_linkblock2_number'); $i++) {
@@ -1306,10 +1303,10 @@ add_action('admin_enqueue_scripts', function () {
 
     // Lokalisierung des Skripts
     $localized = array(
-        'title' => __('Link einfügen/ändern', 'fau'),
-        'update' => __('Aktualisieren', 'fau'),
-        'save' => __('Link hinzufügen', 'fau'),
-        'noTitle' => __('(kein Titel)', 'fau'),
+        'title'     => __('Link einfügen/ändern', 'fau'),
+        'update'    => __('Aktualisieren', 'fau'),
+        'save'      => __('Link hinzufügen', 'fau'),
+        'noTitle'   => '('.__('kein Titel', 'fau').')',
         'noMatchesFound' => __('Keine Ergebnisse gefunden.', 'fau')
     );
 

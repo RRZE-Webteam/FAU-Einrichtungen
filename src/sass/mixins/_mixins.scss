@@ -120,7 +120,6 @@ Mixins File for Wordpress Theme FAU
         display: table-cell;
         padding: 5px 12px;
         font-size: 13px;
-        line-height: 16px;
     }
 
     a:hover, a:focus {
@@ -146,11 +145,13 @@ Mixins File for Wordpress Theme FAU
     @return math.div($font-size, $base-font-size) + rem;
 }
 
-@mixin px2rem($font-size, $base-font-size: $font-size-gridbase, $line: $font-size * 1.5) {
+@mixin px2rem($font-size, $base-font-size: $font-size-gridbase, $line: $font-size * 1.51) {
     // font-size: $font-size + px; // für den IE8
     // line-height: ($line) + px;
-    font-size: math.div(floor(math.div($font-size, $base-font-size) * 1000), 1000) + rem;
-    line-height: math.div(ceil(math.div($line, $base-font-size) * 1000), 1000) + rem;
+    font-size: math.div(ceil(math.div($font-size, $base-font-size) * 1000), 1000) + rem;
+ //   line-height: math.div(ceil(math.div($line, $base-font-size) * 1000), 1000) + rem;
+ // proportionaler defaultwert aus body wird verwendet, statt immer neu zu 
+ // berechnen und somit viele Codezeilen zu erzeugen.
 }
 
 @mixin morelink() {
@@ -173,11 +174,13 @@ Mixins File for Wordpress Theme FAU
 
 @mixin defaultlinkstyle() {
     box-shadow: none;
-    transition: initial;
+    transition: text-decoration .1s ease;
     padding: 0;
     text-decoration: underline;
     color: currentcolor;
     text-decoration-color:  currentcolor;
+    text-underline-offset: 0.3rem;
+    text-decoration-thickness: 0.15rem;
    
     &:hover,
     &:focus {
@@ -185,6 +188,7 @@ Mixins File for Wordpress Theme FAU
         text-decoration: underline;
         color: currentcolor;
         text-decoration-color: currentcolor;
+        text-decoration-thickness: 0.3rem;
     }
 }
 
@@ -203,22 +207,23 @@ Mixins File for Wordpress Theme FAU
 
 @mixin styledcontentlink() {
     cursor: pointer;
-
     word-wrap: break-word;
     color: var(--color-content-links);
-    box-shadow: inset 0 -0.1rem 0 0 var(--color-primary-ci-hell);
-    transition: all .3s ease-out; //box-shadow 0.3s ease-in-out;
+    /*box-shadow: inset 0 -0.1rem 0 0 var(--color-primary-ci-hell);*/
+    transition: text-decoration .1s ease;
     text-decoration: underline;
     text-decoration-color:  var(--color-primary-ci-hell);
-    text-underline-offset: 3px;
+    text-underline-offset: 0.3rem;
+    text-decoration-thickness: 0.15rem;
 
     &:active,
     &:focus,
     &:hover {
         text-decoration: underline;
         text-decoration-color:  var(--color-primary-ci-hell);
-        color: var(--color-primary-ci-hell-kontrast);
-        box-shadow: inset 0 -1.5rem 0 var(--color-primary-ci-hell);
+        /*color: var(--color-primary-ci-hell-kontrast);*/
+        /*box-shadow: inset 0 -1.5rem 0 var(--color-primary-ci-hell);*/
+        text-decoration-thickness: 0.3rem;
     }
 }
 

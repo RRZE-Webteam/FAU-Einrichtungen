@@ -20,33 +20,28 @@ get_header(); ?>
 			    <?php 
 			    $headline = get_post_meta( $post->ID, 'headline', true );									
 			    if (!fau_empty($headline)) {
-				echo '<h2 class="subtitle">'.$headline.'</h2>'; 					    
-			    }
-
-			    ?>
-			    <div class="inline-box">					   	
-				<?php get_template_part('template-parts/sidebar', 'inline');
+                    echo '<h2 class="subtitle">'.$headline.'</h2>'; 					    
+			    } ?>
+<div class="inline-box">					   	
+				<?php 
+                get_template_part('template-parts/sidebar', 'inline');
 				
 				if ($is_sidebar_active) {
 				    echo '<div class="content-inline with-sidebar">';
 				} else {
 				    echo '<div class="content-inline">';
 				}
-				the_content(); 
-				
-				
-				echo wp_link_pages($pagebreakargs);
-				
-				echo '</div>';
-				?>
-	
+                ?>
+    
+<?php the_content(); 
+
+				echo wp_link_pages($pagebreakargs);	?>
+                    </div>
 			    </div>
-			  
 			</main>    
 		      <?php  
 			$logoliste = get_post_meta( $post->ID, 'fauval_imagelink_catid', true );			
 			if ($logoliste) { 
-			    /* New since 1.10.57 */
 			    $logosize = get_post_meta( $post->ID, 'fauval_imagelink_size', true );
 			    $size = $logosize != '' ? esc_attr($logosize) : "logo-thumb";
 			    $logos = fau_imagelink_get(array('size' => $size, 'catid' => $logoliste));

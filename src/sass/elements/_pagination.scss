@@ -8,44 +8,40 @@
     padding: 20px 0 10px 0;
     
     &.pagebreaks {
-	text-align: left;
-	margin: 0;
+		text-align: left;
+		margin: 0;
 
-	p {
-	    @include inline-block();
-	}
-
-	.subpages {
-	    @include px2rem($font-size-pagination-links);
-	    margin: 10px;
-	    @include inline-block();
-
-	    a {
-		@include defaultlinkstyle();	
-		text-decoration: none;
-		@include buttoncolor();
-		@include px2rem($font-size-pagination-links);
-		
-		:hover, 
-		:focus {
-			text-decoration: underline;
+		p {
+			@include inline-block();
 		}
-		.number {
-		    border: 1px solid var(--color-button-bg);
+
+		.subpages {
+			@include px2rem($font-size-pagination-links);
+			margin: 10px;
+			@include inline-block();
+
+			a {
+				//@include defaultlinkstyle();
+				@include buttoncolor();
+				@include px2rem($font-size-pagination-links);
+				text-decoration: none;
+			
+				.number {
+					border: 1px solid var(--color-button-bg);
+				}
+			}
+			.number {
+				@include buttoncolor();
+				padding: 0.5rem 0.7rem;
+				text-decoration: none;
+				@include border-radius(3px);
+			}
+			.current .number {
+				@include ghostbutton();
+				@include px2rem($font-size-pagination-links);
+			}
+			
 		}
-	    }
-	    .number {
-		@include buttoncolor();
-		padding: 0.5rem 0.7rem;
-		text-decoration: none;
-		@include border-radius(3px);
-	    }
-	    .current .number {
-		@include ghostbutton();
-		@include px2rem($font-size-pagination-links);
-	    }
-	    
-	}
 
     }
 }

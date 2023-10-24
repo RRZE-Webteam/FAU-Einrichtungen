@@ -5,12 +5,14 @@
 a {
 	color: var(--color-links);
 	text-decoration: none;
+	text-underline-offset: 0.3rem;
         
       
 	&:active,
 	&:hover, 
 	&:focus {
 		text-decoration: underline;
+		text-decoration-thickness: 0.15rem;
 	}
 
 	p &, 
@@ -18,6 +20,7 @@ a {
 	table &, 
 	.accordion-inner & {
 		text-decoration: underline;
+		text-decoration-thickness: 0.15rem;
 	}
 	
 	li.search-result & {
@@ -25,7 +28,8 @@ a {
 
 	    &:hover, 
 	    &:focus {
-		text-decoration: underline;
+			text-decoration: underline;
+			text-decoration-thickness: 0.15rem;
 	    }
 	    
 	}
@@ -43,6 +47,7 @@ a {
 	#hero &:hover, 
 	#hero &:focus {
 		text-decoration: underline;
+		text-decoration-thickness: 0.15rem;
 	}
 	
 	
@@ -59,7 +64,6 @@ a {
 
 
 //Special Links
-
 .top-link {
 	position: fixed;
 	bottom: 20px; 
@@ -72,12 +76,17 @@ a {
 	    
 // Continue/Weiterlesen Link
 .continue {
-    margin-top: 0.5rem;
-    text-align: right;
+	margin-left: auto;
+	white-space: nowrap;
 
     .read-more-link {	
-	@include nextlink-ghostbutton();
+		@include nextlink-ghostbutton();
     }
+
+	@media (max-width: $screen-sm) {
+		margin-left: unset;
+		margin-top: 0.8rem;
+	}
 }
 	    
 // Additional link effects for Content
@@ -86,7 +95,7 @@ main,
 .portalpage-content,
 .content-inline {
 
-    a{
+    a {
         @include styledcontentlink();
 	
 	&.news-image {
@@ -116,9 +125,21 @@ main,
             &:hover, 
             &:focus {
                     text-decoration: underline;
+					text-decoration-thickness: 0.3rem;
+					text-underline-offset: 0.3rem;
             }
         }
     }
+	h1, h2, h3 {
+		a {
+		   &:active,
+		   &:hover, 
+		   &:focus {
+				   text-underline-offset: 0.4rem;
+				   text-decoration-thickness: 0.3rem !important;
+		   }
+	   }
+	}
     .widget {
 	    a {
 	       @include defaultlinkstyle();

@@ -107,8 +107,8 @@ $color-mainmenu-sublevel-bg:	    map-get($colormap-primary, "ci-hell");
 $color-mainmenu-sublevel-text:	    map-get($colormap-primary, "ci-hell-kontrast");
 $color-mainmenu-sublevel-hover-text:	map-get($colormap-primary, "dunkler-kontrast");
 $color-mainmenu-sublevel-hover-bg:	map-get($colormap-primary, "dunkler");
-$color-mainmenu-sublevel-button-text:	map-get($colormap-primary, "dunkler-kontrast");
-$color-mainmenu-sublevel-button-bg:	map-get($colormap-primary, "dunkler");
+$color-mainmenu-sublevel-button-text:	map-get($colormap-primary, "ci-hell-kontrast");
+$color-mainmenu-sublevel-button-bg:	map-get($colormap-primary, "ci-hell");
 $color-mainmenu-sublevel-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
 $color-mainmenu-sublevel-button-hover-bg:	map-get($colormap-primary, "dunkelste");
 
@@ -215,6 +215,7 @@ $screen-minrembase:	    360px;
 
 $font-size-gridbase: 16;
 $font-size-base: 16;
+$base-line-height: 1.5;
 
 
 $font-size-meta: ($font-size-base - 2);
@@ -229,7 +230,7 @@ $font-size-herosearch: $font-size-base;
 $font-size-header-branding: ($font-size-base + 4);
 
 $font-size-hero-slider-title: 28;
-$font-size-hero-slider-title-small: 24;
+$font-size-hero-slider-title-small: 20;
 $font-size-hero-slider-copyright: ($font-size-base - 1);
 $font-size-hero-meta-portal: 40;
 
@@ -384,6 +385,7 @@ $break-2200: 2200px;
 $screen-xs:                  480px;
 $screen-xs-min:              $screen-xs;
 
+//$screen-sm:                  768px;
 $screen-sm:                  768px;
 $screen-sm-min:              $screen-sm;
 

@@ -142,23 +142,22 @@
 		wp_reset_query();
 		?>
 	    </div>
+        <?php if (count($hero_posts) > 1) { ?>
 	    <div class="slider-controls" aria-controls="mainslider" >
             <?php 
            if (('' != get_theme_mod( 'slider-autoplay' )) && (true== get_theme_mod( 'slider-autoplay' )) ) {
-			$startstopclass= '';
-			$buttontext = $defaultoptions['slider-stoptext'];
-			$buttonicon = 'fa-pause'; // use the pause icon if the slider is autoplaying
-		} else {
-			$startstopclass= ' stopped';
-			$buttontext = $defaultoptions['slider-starttext'];
-			$buttonicon = 'fa-play'; // use the play icon if the slider is not autoplaying
-		}
-		
-		
+                $startstopclass= '';
+                $buttontext = $defaultoptions['slider-stoptext'];
+                $buttonicon = 'fa-pause'; // use the pause icon if the slider is autoplaying
+            } else {
+                $startstopclass= ' stopped';
+                $buttontext = $defaultoptions['slider-starttext'];
+                $buttonicon = 'fa-play'; // use the play icon if the slider is not autoplaying
+            }
 		?>
           <button type="button" aria-label="<?php echo $buttontext ?> " class="slick-startstop<?php echo $startstopclass;?>"><i class="fa <?php echo $buttonicon; ?>" aria-hidden="true"></i></button>
 	    </div>
-	    
+        <?php } ?>
 	</section> 
 	</div>
     <?php 

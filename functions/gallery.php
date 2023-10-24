@@ -139,9 +139,9 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    if (isset($attr['link']) && ('none' !== $attr['link'])) {
 			    // Bei Bildern, die als Link fungieren beschreibt der alt das Linkziel, nicht das Bild.
 			    if (!fau_empty($imgmeta['title'])) {
-				$linkalt = __('Bild ','fau').$imgmeta['title'].' '.__('aufrufen','fau');
+                    $linkalt = __('Bild','fau').' '.$imgmeta['title'].' '.__('öffnen','fau');
 			    } else {
-			       $linkalt = __('Bild aufrufen','fau');
+                    $linkalt = __('Bild','fau').' '.__('öffnen','fau');
 			    }
 			
 		    } elseif (fau_empty( $imgmeta['alt'])) {
