@@ -70,6 +70,7 @@ a img.aligncenter {
 
 
 #wpadminbar  {
+    overflow: hidden;
     @media (max-width:  $screen-sm) {
 	position: fixed;
     }

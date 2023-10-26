@@ -25,7 +25,7 @@
     text-align: right;
 
     .search-initiate-button {
-        padding: 2px 5px 2px 6px;
+        padding: 1px 5px 1px 6px;
         border-radius: var(--border-radius);
         cursor: pointer;
         z-index: 999;
@@ -72,14 +72,17 @@
         border: none;
         margin: 0;
         padding: 10px 0;
-
+	@media (min-width: $screen-md) {
+                padding: 0;
+        }
+	
         input[type="text"] {
             border-radius: var(--border-radius);
             width: 0;
             border: none;
             outline: none;
             color: var(--color-zentral-basis);
-            height: 1.875rem;
+        //    height: 1.875rem;
             margin-bottom: 1px;
             background: var(--color-white);
             font-weight: bold;
