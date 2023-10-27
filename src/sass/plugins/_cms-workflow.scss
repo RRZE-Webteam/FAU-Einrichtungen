@@ -23,13 +23,9 @@
         background: var(--color-StandardHellgrau);
 
         ul {
-            display: block;
+            display: flex;
             padding: 0;
             margin: 0;
-
-            @media (min-width: $screen-sm) {
-                display: flex;
-            }
 
             li {
                 padding: 0;
@@ -37,64 +33,19 @@
                 border: none;
 
                 @include no-list();
-/*
-                a {
-                    text-align: center;
-                    text-decoration: none;
-                    text-transform: uppercase;
-                    font-weight: bold;
-                    color: var(--color-Default);
-                    display: inline-block;
-                    height: 1.875rem;
-                    line-height: 30px;
-                    overflow: hidden;
-                    min-width: 40px;
-                    width: auto;
-                    background: #fff;
-                    padding: 0 5px;
-                    margin-right: 5px;
-		    border-radius: var(--border-radius-buttons, 3px);
-                    
 
-                    &:before {
-                        z-index: 10;
-                        color: var(--color-MetaTextDefault);
-                        vertical-align: middle;
-                        margin-right: 0.25rem;
-
-                        @extend .fa;
-                        @extend .fa-language;
-                        @include px2rem(21);
-                    }
-
-                    &:hover,
-                    &:focus {
-                        background: var(--color-MetaBackgroundLight);
-			color: var(--color-MetaBackgroundLight);
-                    }
-                }
-*/
 
 		a {
 		    &.lang-current.current {
 			display: none;
 		    }
 		}	   
-	 
-
-		
-		
-		
 		
 	    }
             
 	   li {
 		box-shadow: none;
 		transition: initial;
-	//	@include px2rem($font-size-content-meta);
-
-	//	padding: 0.3rem 0.7rem;
-	//	border: 1px solid var(--color-ContentBorders);
 		
 		background: transparent;
 		font-weight: normal;

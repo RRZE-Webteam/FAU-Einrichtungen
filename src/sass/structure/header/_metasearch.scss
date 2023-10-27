@@ -2,8 +2,7 @@
 /* Search in Header
 /*-----------------------------------------------------------------------------------*/
 
-.meta-search {
-    
+.meta-search {  
     width: auto;
     display: block;
     position: relative;
@@ -11,21 +10,26 @@
     [dir="rtl"] & {
         margin-right: auto;
     }
- 
+    
     @media (min-width: $screen-md) {
         display: inline-block;
         margin-top: 0;
+	height: 1.875rem;
         //max-width: 300px;
         margin-left: auto;
         [dir="rtl"] & {
             margin-right: auto;
         }
-    }
-    
+    }   
     text-align: right;
 
     .search-initiate-button {
-        padding: 1px 5px 1px 6px;
+	display: none;
+	@media (min-width: $screen-md) {
+             display: inline-block;
+        }
+	
+	height: 1.875rem;
         border-radius: var(--border-radius);
         cursor: pointer;
         z-index: 999;
@@ -50,9 +54,7 @@
             }
         }
 
-        @media (max-width: $screen-md) {
-            display: none;
-        }
+       
     }
 
     .active-meta-widget & {
@@ -65,12 +67,10 @@
 
 
     .searchform {
-	    display: flex;
-	    @media (min-width: $screen-md) {
-	}
-
+	display: flex;
         border: none;
         margin: 0;
+	
         padding: 10px 0;
 	@media (min-width: $screen-md) {
                 padding: 0;
@@ -82,8 +82,7 @@
             border: none;
             outline: none;
             color: var(--color-zentral-basis);
-        //    height: 1.875rem;
-            margin-bottom: 1px;
+            height: 1.875rem;
             background: var(--color-white);
             font-weight: bold;
             visibility: hidden;
@@ -103,14 +102,12 @@
                 width: calc(100% - 45px);
             }
 
-            @media (max-width: $screen-xl) {
-                margin-bottom: 4px;
-            }
+
 
             &.active {
                 visibility: visible;
                 padding: 0.3rem 0.8rem;
-
+		
                 @media (min-width: $screen-sm) {
                     width: 160px;
                     .active-meta-widget & {
@@ -154,7 +151,6 @@
                 visibility: visible;
                 width: auto;
                 padding: 0 15px;
-                //margin-left: -31px;
                 opacity: 1;
             }
 
@@ -171,8 +167,7 @@
        
     }
 
-    @media (max-width: $screen-md - 1) {
-       
+    @media (max-width: $screen-md - 1) {      
         .search-toggled & {
             .searchform {
                 background: var(--color-StandardHellgrau);
@@ -193,7 +188,6 @@
     }
      @media (min-width: $screen-sm) {
             margin-top: 0;
-            //max-width: 300px;
             margin-left: auto;
     }
    
@@ -207,11 +201,6 @@
     display: none;
     z-index: 100;
     color: var(--color-Default);
-
-    .search-toggled &:before {
-   //     background-image: svg-icon-search-toggled($colorDefault, 16, 16);
-    }
-
 
     @media (max-width: $screen-sm - 1) {
         .js & {

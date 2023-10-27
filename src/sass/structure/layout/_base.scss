@@ -7,6 +7,7 @@ body {
 	background-color: var(--color-MainBackground);
 	font-size: 1rem;
 	line-height: var(--base-line-height);
+	padding: 0;
 }
 
 html, body, button {
@@ -25,7 +26,6 @@ html {
 /* Main surrounding grid */
 /* Wrap content in white */
 #pagewrapper {
-	min-height: 100%;
 	margin: 0 auto;
 	background-color: var(--color-MainBackground);
 	position: relative;
@@ -34,6 +34,7 @@ html {
 	flex-wrap: wrap;
 	flex-direction: column;
 	min-height: 100vh;
+	min-width: 240px;
 	
 	footer {
 	    // normal
@@ -56,23 +57,3 @@ html {
 
 
 
-
-.flyout-entries-full {
-     @extend .col-xs-12;
-}
-
-
-
-
-@media (max-width: $screen-sm) {
-	body {
-	//    overflow: hidden;
-	    padding: 0;
-	}
-}
-@media (max-width: $breakLG) {
-	body {
-		padding-top: 0;
-	}
-
-}
