@@ -13,12 +13,12 @@
     
     @media (min-width: $screen-md) {
         display: inline-block;
-        margin-top: 0;
+        margin: 0 0 0 auto;
 	height: 1.875rem;
-        //max-width: 300px;
-        margin-left: auto;
+
         [dir="rtl"] & {
             margin-right: auto;
+	    margin-left: 0;
         }
     }   
     text-align: right;
@@ -71,7 +71,7 @@
         border: none;
         margin: 0;
 	
-        padding: 10px 0;
+        padding: var(--width-gutter-half) 0;
 	@media (min-width: $screen-md) {
                 padding: 0;
         }
@@ -92,14 +92,13 @@
                 box-shadow: none;
             }
 
-            &::placeholder {
-                opacity: 0.5;
-                color: var(--color-zentral-basis) !important;
-            }
+            
 
             @media (max-width: $screen-md) {
                 visibility: visible;
                 width: calc(100% - 45px);
+		max-width: 30ch;
+		border: 1px solid  var(--color-StandardHellgrau);
             }
 
 
@@ -122,6 +121,11 @@
                 }
             }
         }
+	input[type="text"]::placeholder {
+               opacity: 1;
+	       font-weight: normal;
+               color: var(--color-zentral-basis);
+            }
 
         input[type="submit"] {
             border-radius: var(--border-radius);
@@ -181,6 +185,7 @@
 
                 input[type="text"] {
                     width: calc(100% - 50px);
+		    
                 }
             }
         }

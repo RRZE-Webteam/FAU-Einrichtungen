@@ -2,8 +2,7 @@
 /* Meta region in top   fauorg-home
 /*-----------------------------------------------------------------------------------*/
 
-#meta {
-	@include placeholder(#fff);
+#meta {	
 	background: var(--color-StandardHellgrau);
 	color: var(--color-MetaTextDefault);
 	z-index: 100;
@@ -24,7 +23,7 @@
         justify-content: start;
         align-items: center;
         min-height: 50px;
-        padding: 4px 0;
+       // padding: 4px 0;
 
         @media (min-width: $screen-md) {
             padding: 5px 0;
@@ -42,8 +41,8 @@
 }
 
 .meta-widget {
-	display: inline-block;
-	margin: 5px 30px 5px 20px;
+    display: inline-block;
+    margin: 5px 30px 5px 20px;
     height: 1.875rem;
 }
 

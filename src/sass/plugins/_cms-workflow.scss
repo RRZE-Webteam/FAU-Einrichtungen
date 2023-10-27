@@ -88,4 +88,14 @@
     }
 }
 
+.meta-links .cms-workflow-widget {
+        margin: 1rem 0 0;
 
+        @media (min-width: $screen-sm) {
+            margin-top: 0;
+        }
+
+        .mlp_language_box {
+            background-color: transparent;
+        }
+    }

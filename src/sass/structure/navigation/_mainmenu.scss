@@ -146,18 +146,11 @@
 
     
     /* Portal buttons */
-    
-    /*
-    --color-mainmenu-sublevel-button-text: #{$color-mainmenu-sublevel-button-text};
-    --color-mainmenu-sublevel-button-bg: #{$color-mainmenu-sublevel-button-bg};
-    --color-mainmenu-sublevel-button-hover-text: #{$color-mainmenu-sublevel-button-hover-text};
-    --color-mainmenu-sublevel-button-hover-bg: #{$color-mainmenu-sublevel-button-hover-bg};
-    */
     .button-portal {
         @include inline-block;
         @include buttonstyle();
         @include px2rem($font-size-nav-buttons);
-	    font-weight: bold;
+	font-weight: bold;
         padding: 0.5rem 1rem;
         margin-left: 20px;
         background-color: var(--color-mainmenu-sublevel-button-bg);
@@ -594,27 +587,35 @@
 
 #mainnav-toggle,
 #mainnav-toggle-close {
-    min-width: 48px;
-    min-height: 48px;
+    min-width: 2rem;
+    min-height: 2rem;
     position: absolute;
-    right: 5px;
-    top: 3px;
+    right: 0px;
+    top: 0px;
     @include px2rem($font-size-mobile-meta);
-    background-color: transparent;
-    border: 1px dashed transparent;
+    background-color: transparent;    
     z-index: 100;
     color: var(--color-Default);
-    padding: 1px 8px;
+    padding: 4px 10px;
+    margin: 0;
     display: none;
+    
     &:hover,
     &:focus,
     &:active {
         border-color: var(--color-FAU);
-        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.22);
+ //       box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.22);
     }
-    .nav-toggled &{
-        padding: 1px 9px;
+    
+    &[aria-expanded="true"] {
+	background-color: var(--color-MobileFlyoutMenuBackground);
     }
+     &[aria-expanded="true"]:hover, &[aria-expanded="true"]:focus,  {
+	background-color: var(--color-MobileFlyoutMenuBackground);
+    }
+    
+    
+    
     span {
         @include hideout();
     }
@@ -633,6 +634,7 @@
 
 #mainnav-toggle[aria-expanded=true]:before {
     @extend .fa-close;
+    background-color: var(--color-MobileFlyoutMenuBackground);
 }
 
 
@@ -659,8 +661,8 @@
     }
 
     .nav {
-        border-top: 1px solid var(--color-primary-ci-hell);
-
+    //    border-top: 1px solid var(--color-primary-ci-hell);
+	background-color: var(--color-MobileFlyoutMenuBackground);
         .nav-flyout {
             padding: 0;
         }
