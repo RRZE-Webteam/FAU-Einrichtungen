@@ -3,6 +3,7 @@
 /*-----------------------------------------------------------------------------------*/
 @use "sass:math";
 
+
 .header-container {
     margin-right: auto;
     margin-left: auto;
@@ -11,8 +12,8 @@
 
     @media (min-width: $screen-md) {
         width: 100%;
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: var(--width-gutter-half);
+        padding-right: var(--width-gutter-half);
     }
     @media (min-width: $screen-xl-min) {
         width: $container-xl;

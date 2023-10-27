@@ -6,7 +6,7 @@
     .branding {
         max-width: 100%;
         display: none;
-	    margin: $fau-gutter-halfwidth 0;
+	margin: var(--width-gutter-half) 0;
 	
         @media (min-width: $screen-md) {
             display: block;
@@ -20,7 +20,7 @@
             padding: 0;
             font-family: $fontStackFAU;
             font-weight: bold;
-            column-gap: $fau-gutter-halfwidth;
+            column-gap: var(--width-gutter-half);
             row-gap: 0.5rem;
 
             .custom-logo-link {
@@ -53,11 +53,12 @@
             flex-direction: row;
             justify-content: flex-start;
             flex-wrap: nowrap;
-            column-gap: 15px;
+            column-gap: var(--width-gutter-half);
             row-gap: 0;
 
-            @media (max-width: $screen-xs),
-            (min-width: $screen-md) and (max-width: $screen-lg) {
+           @media (max-width: $screen-xs),
+           (min-width: $screen-sm) and (max-width: $screen-lg) {
+	 // @media (min-width: $screen-xs) and (max-width: $screen-sm) {
                 flex-wrap: wrap;
                 width: 240px;
             }
@@ -137,6 +138,11 @@
                 margin-right: -23px;
             }
         }
+	
+	
+	.visible-title {
+	    min-width: 150px;
+	}
     }
 
     @media (max-width: $screen-md) {

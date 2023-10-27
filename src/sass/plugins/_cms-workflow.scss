@@ -23,13 +23,9 @@
         background: var(--color-StandardHellgrau);
 
         ul {
-            display: block;
+            display: flex;
             padding: 0;
             margin: 0;
-
-            @media (min-width: $screen-sm) {
-                display: flex;
-            }
 
             li {
                 padding: 0;
@@ -38,48 +34,68 @@
 
                 @include no-list();
 
-                a {
-                    text-align: center;
-                    text-decoration: none;
-                    text-transform: uppercase;
-                    font-weight: bold;
-                    color: var(--color-Default);
-                    display: inline-block;
-                    height: 1.875rem;
-                    line-height: 30px;
-                    overflow: hidden;
-                    min-width: 40px;
-                    width: auto;
-                    background: #fff;
-                    padding: 0 5px;
-                    margin-right: 5px;
 
-                    @include border-radius(20px);
+		a {
+		    &.lang-current.current {
+			display: none;
+		    }
+		}	   
+		
+	    }
+            
+	   li {
+		box-shadow: none;
+		transition: initial;
+		
+		background: transparent;
+		font-weight: normal;
+		text-decoration: none;
 
-                    &:before {
-                        z-index: 10;
-                        color: var(--color-MetaTextDefault);
-                        vertical-align: middle;
-                        margin-right: 0.25rem;
+		a {
+		    box-shadow: none;
+		    text-decoration: none;
+		    transition: none;
+		    text-decoration-color: none;
+		    padding: 0.3rem 0.7rem;
+		    border-radius: var(--border-radius);
+		    
+		   
+		}
+		a:hover, a:focus {
+		    background-color: var(--color-primary-ci-hell);
+		    color: var(--color-primary-ci-hell-kontrast);
+		}
+	
+	    }
+	    li:first-child {
+		a::before {
+		    @include svg-icon-place(1rem);
+		    background-image: svg-icon-language($colorDefault);
+		    margin-right: 0.3rem;
+		}
+		a:hover::before, 
+		a:focus::before {
+		    background-image: svg-icon-language(#fff);
+		}
+	    }
 
-                        @extend .fa;
-                        @extend .fa-language;
-                        @include px2rem(21);
-                    }
 
-                    &:hover,
-                    &:focus {
-                        background: var(--color-MetaBackgroundLight);
-                        @include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
-                    }
-                }
 
-                &.lang-current.current {
-                    display: none;
-                }
-            }
+	    
+	    
+	    
         }
     }
 }
 
+.meta-links .cms-workflow-widget {
+        margin: 1rem 0 0;
 
+        @media (min-width: $screen-sm) {
+            margin-top: 0;
+        }
+
+        .mlp_language_box {
+            background-color: transparent;
+        }
+    }
