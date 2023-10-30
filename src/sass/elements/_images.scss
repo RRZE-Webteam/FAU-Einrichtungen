@@ -169,8 +169,17 @@ main, aside, .portalpage-sidebar, .widget {
 		margin: 1rem auto;
 	    }
 	}
+	&:first-of-type {
+	    margin-top: 0;
+	}
     }
+    
 }
+
+
+
+
+
 figcaption {
 	@include px2rem($font-size-image-caption);
 	padding: 0.3rem;

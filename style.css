@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.45-0
+Version: 2.3.45-6
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -7172,6 +7172,9 @@ main figure.aligncenter, aside figure.aligncenter, .portalpage-sidebar figure.al
     margin: 1rem auto;
   }
 }
+main figure:first-of-type, aside figure:first-of-type, .portalpage-sidebar figure:first-of-type, .widget figure:first-of-type {
+  margin-top: 0;
+}
 
 figcaption {
   font-size: 0.875rem;
@@ -13832,6 +13835,7 @@ main .news-more-links .news-rss:hover:before {
 .searchform-content .search-text input[type=text] {
   border-radius: var(--border-radius);
   font-size: 1rem;
+  line-height: var(--base-line-height, 1.5);
   max-width: min(25rem, 90%);
   padding: 0.5rem 2.5rem 0.5rem 1rem;
   height: inherit;
