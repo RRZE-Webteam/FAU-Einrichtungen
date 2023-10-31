@@ -182,6 +182,31 @@
 	&[href*="reddit.com"]:hover:before {
 	    background-image: svg-reddit($socialmedia_icon_color_hover);
 	}
+	// Discord
+	&[href*="discord.com"]:before {
+	    background-image: svg-discord($socialmedia_icon_color);
+	}
+	&[href*="discord.com"]:focus:before,
+	&[href*="discord.com"]:hover:before {
+	    background-image: svg-discord($socialmedia_icon_color_hover);
+	}
+	// Indeed
+	&[href*="indeed.com"]:before {
+	    background-image: svg-indeed($socialmedia_icon_color);
+	}
+	&[href*="indeed.com"]:focus:before,
+	&[href*="indeed.com"]:hover:before {
+	    background-image: svg-indeed($socialmedia_icon_color_hover);
+	}
+	
+	// whatsapp
+	&[href*="whatsapp.com"]:before {
+	    background-image: svg-whatsapp($socialmedia_icon_color);
+	}
+	&[href*="whatsapp.com"]:focus:before,
+	&[href*="whatsapp.com"]:hover:before {
+	    background-image: svg-whatsapp($socialmedia_icon_color_hover);
+	}
 	
 	&[href*="bsky.app"]:before {
 	    background-image: svg-bluesky($socialmedia_icon_color);
