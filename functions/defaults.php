@@ -54,7 +54,7 @@ $default_socialmedia_liste = array(
     ),
     'xing' => array(
         'name' => 'Xing',
-        'content'  => 'https://www.xing.com/net/alumnifau',
+        'content'  => 'https://www.xing.com/pages/friedrich-alexander-universitaterlangen-nurnberg',
         'active' => 1,
     ),
     'tumblr' => array(
