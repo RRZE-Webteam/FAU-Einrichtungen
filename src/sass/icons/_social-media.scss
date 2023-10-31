@@ -165,7 +165,44 @@
 	&[href*="pinterest."]:hover:before {
 	    background-image: svg-pinterest($socialmedia_icon_color_hover);
 	}
+	
+	&[href*="mastodon.social"]:before {
+	    background-image: svg-mastodon($socialmedia_icon_color);
+	}
+	&[href*="mastodon.social"]:focus:before,
+	&[href*="mastodon.social"]:hover:before {
+	    background-image: svg-mastodon($socialmedia_icon_color_hover);
+	}
+	
+	// Reddit
+	&[href*="reddit.com"]:before {
+	    background-image: svg-reddit($socialmedia_icon_color);
+	}
+	&[href*="reddit.com"]:focus:before,
+	&[href*="reddit.com"]:hover:before {
+	    background-image: svg-reddit($socialmedia_icon_color_hover);
+	}
+	
+	&[href*="bsky.app"]:before {
+	    background-image: svg-bluesky($socialmedia_icon_color);
+	}
+	&[href*="bsky.app"]:focus:before,
+	&[href*="bsky.app"]:hover:before {
+	    background-image: svg-bluesky($socialmedia_icon_color_hover);
+	}
 
+	// community.fau.de
+	// group of people
+	// https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues/1271
+	&[href*="community.fau.de"]:before {
+	    background-image: svg-group($socialmedia_icon_color);
+	}
+	&[href*="community.fau.de"]:focus:before,
+	&[href*="community.fau.de"]:hover:before {
+	    background-image: svg-group($socialmedia_icon_color_hover);
+	}
+
+	
 	&[href*="mailto:"]:before {
 	    background-image: svg-icon-mail($socialmedia_icon_color);
 	}
