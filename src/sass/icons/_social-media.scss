@@ -2,277 +2,199 @@
 /* Social Media and Portal Icons 
 /*-----------------------------------------------------------------------------------*/
 
-
-
-
+.socialmedia,
 .svg-socialmedia {
+    --_icon-size: var(--icon-size, 1.8rem);
+    --_icon-color: var(--icon-color, var(--color-primary-ci-hell-kontrast));
+    --_icon-color-hover: var(--icon-color-hover, var(--color-primary-ci-hell));
+    --_icon-color-border: var(--icon-color-border, var(--color-primary-ci-hell-kontrast));
+    --_icon-border-radius: var(--icon-border-radius, 50%);
+    --_icon-size-mask: var(--icon-size-mask, 55%);
+    
     margin: 0;
     li {
 	display: inline-block;
 	list-style: none;
 	overflow: hidden;
-	margin: 5px;
+	margin: 0.25rem;
 	padding: 0px;
-	width: $socialmedia_icon_size;
-	height: $socialmedia_icon_size;
+	width: var(--_icon-size); 
+	height: var(--_icon-size); 
 
 	&::before {
 	    content: inherit;
 	    display: none;
 	}
-
     }
 
     span {
 	a::before {
-	     margin-top: 5px;
+	     margin-top: 0.3rem;
 	}
     }
     a {
-	width: $socialmedia_icon_size;
-	height: $socialmedia_icon_size;
+	width: var(--_icon-size); 
+	height: var(--_icon-size); 
 	overflow: hidden;
 	display: inline-block;
 
 
-	&::before {
-	    width: $socialmedia_icon_size;
-	    height: $socialmedia_icon_size;
-	    line-height: $socialmedia_icon_size;
-	    font-size: calc(#{$socialmedia_icon_size} / 1.5);
-	    background-image: svg-bookmark($socialmedia_icon_color);
-	    background-repeat: no-repeat;
+	&::before {   
+	    width: var(--_icon-size); 
+	    height: var(--_icon-size); 
 	    display: inline-block;
 	    content: ' ';
-	    background-size: 60%;
-	    background-position: center center;
-
+	    -webkit-mask-size: var(--_icon-size-mask); 
+	    mask-size: var(--_icon-size-mask); 
+	    -webkit-mask-repeat: no-repeat;
+	    mask-repeat: no-repeat;
+	    -webkit-mask-position: center;
+	    mask-position: center;
+	    background-color: var(--_icon-color);
 	}
 	&:focus::before,
 	&:hover::before {
-	    background-image: svg-bookmark($socialmedia_icon_color_hover);
+	     background-color: var(--_icon-color-hover);
 	}
 
 
 	&[href*="twitter.com"]:before {
-	    background-image: svg-twitter($socialmedia_icon_color);
+	    mask-image: svg-twitter();
 	}
-	&[href*="twitter.com"]:focus:before,
-	&[href*="twitter.com"]:hover:before {
-	    background-image: svg-twitter($socialmedia_icon_color_hover);
-	}
+	
 	&[href*="facebook.com"]:before {
-	    background-image: svg-facebook($socialmedia_icon_color);
+	   mask-image: svg-facebook();
 	}
-	&[href*="facebook.com"]:focus:before,
-	&[href*="facebook.com"]:hover:before {
-	    background-image: svg-facebook($socialmedia_icon_color_hover);
-	}
+	
 
 	&[href*="github.com"]:before {
-	    background-image: svg-github($socialmedia_icon_color);
+	    mask-image: svg-github();
 	}
-	&[href*="github.com"]:focus:before,
-	&[href*="github.com"]:hover:before {
-	    background-image: svg-github($socialmedia_icon_color_hover);
-	}
+	
 
 	&[href*="instagram.com"]:before {
-	    background-image: svg-instagram($socialmedia_icon_color);
+	    mask-image: svg-instagram();
 	}
-	&[href*="instagram.com"]:focus:before,
-	&[href*="instagram.com"]:hover:before {
-	    background-image: svg-instagram($socialmedia_icon_color_hover);
-	}
+	
 
 	&[href*="publons.com"]:before {
-	    background-image: svg-publons($socialmedia_icon_color);
+	    mask-image: svg-publons();
 	}
-	&[href*="publons.com"]:focus:before,
-	&[href*="publons.com"]:hover:before {
-	    background-image: svg-publons($socialmedia_icon_color_hover);
-	}
+	
 
 	&[href*="linkedin.com"]:before {
-	    background-image: svg-linkedin($socialmedia_icon_color);
+	    mask-image: svg-linkedin();
 	}
-	&[href*="linkedin.com"]:focus:before,
-	&[href*="linkedin.com"]:hover:before {
-	    background-image: svg-linkedin($socialmedia_icon_color_hover);
-	}
+	
 
 	&[href*="xing.com"]:before {
-	    background-image: svg-xing($socialmedia_icon_color);
+	    mask-image: svg-xing();
 	}
-	&[href*="xing.com"]:focus:before,
-	&[href*="xing.com"]:hover:before {
-	    background-image: svg-xing($socialmedia_icon_color_hover);
-	}
-
+	
 
 	&[href*="tiktok.com"]:before {
-	    background-image: svg-tiktok($socialmedia_icon_color);
+	    mask-image: svg-tiktok();
 	}
-	&[href*="tiktok.com"]:focus:before,
-	&[href*="tiktok.com"]:hover:before {
-	    background-image: svg-tiktok($socialmedia_icon_color_hover);
-	}
-
+	
 	&[href*="youtube.com"]:before {
-	    background-image: svg-youtube($socialmedia_icon_color);
+	    mask-image: svg-youtube();
 	}
-	&[href*="youtube.com"]:focus:before,
-	&[href*="youtube.com"]:hover:before {
-	    background-image: svg-youtube($socialmedia_icon_color_hover);
-	}
+	
 
 	&[href*="scopus.com"]:before {
-	    background-image: svg-scopus($socialmedia_icon_color);
+	    mask-image: svg-scopus();
 	}
-	&[href*="scopus.com"]:focus:before,
-	&[href*="scopus.com"]:hover:before {
-	    background-image: svg-scopus($socialmedia_icon_color_hover);
-	}
+	
 
 	&[href*="scholar.google.de"]:before {
-	    background-image: svg-googlescholar($socialmedia_icon_color);
+	    mask-image: svg-googlescholar();
 	}
-	&[href*="scholar.google.de"]:focus:before,
-	&[href*="scholar.google.de"]:hover:before {
-	    background-image: svg-googlescholar($socialmedia_icon_color_hover);
-	}
-
+	
 	&[href*="orcid.org"]:before {
-	    background-image: svg-orcid($socialmedia_icon_color);
+	    mask-image: svg-orcid();
 	}
-	&[href*="orcid.org"]:focus:before,
-	&[href*="orcid.org"]:hover:before {
-	    background-image: svg-orcid($socialmedia_icon_color_hover);
-	}
+	
 
 	&[href*="researchgate.net"]:before {
-	    background-image: svg-researchgate($socialmedia_icon_color);
-	}
-	&[href*="researchgate.net"]:focus:before,
-	&[href*="researchgate.net"]:hover:before {
-	    background-image: svg-researchgate($socialmedia_icon_color_hover);
+	    mask-image: svg-researchgate();
 	}
 	
 	&[href*="pinterest."]:before {
-	    background-image: svg-pinterest($socialmedia_icon_color);
-	}
-	&[href*="pinterest."]:focus:before,
-	&[href*="pinterest."]:hover:before {
-	    background-image: svg-pinterest($socialmedia_icon_color_hover);
+	    mask-image: svg-pinterest();
 	}
 	
+	
 	&[href*="mastodon.social"]:before {
-	    background-image: svg-mastodon($socialmedia_icon_color);
+	    mask-image: svg-mastodon();
 	}
-	&[href*="mastodon.social"]:focus:before,
-	&[href*="mastodon.social"]:hover:before {
-	    background-image: svg-mastodon($socialmedia_icon_color_hover);
-	}
+	
 	
 	// Reddit
 	&[href*="reddit.com"]:before {
-	    background-image: svg-reddit($socialmedia_icon_color);
+	    mask-image: svg-reddit();
 	}
-	&[href*="reddit.com"]:focus:before,
-	&[href*="reddit.com"]:hover:before {
-	    background-image: svg-reddit($socialmedia_icon_color_hover);
-	}
+	
 	// Discord
 	&[href*="discord.com"]:before {
-	    background-image: svg-discord($socialmedia_icon_color);
+	    mask-image: svg-discord();
 	}
-	&[href*="discord.com"]:focus:before,
-	&[href*="discord.com"]:hover:before {
-	    background-image: svg-discord($socialmedia_icon_color_hover);
-	}
+	
 	// Indeed
 	&[href*="indeed.com"]:before {
-	    background-image: svg-indeed($socialmedia_icon_color);
+	    mask-image: svg-indeed();
 	}
-	&[href*="indeed.com"]:focus:before,
-	&[href*="indeed.com"]:hover:before {
-	    background-image: svg-indeed($socialmedia_icon_color_hover);
-	}
+	
 	
 	// whatsapp
 	&[href*="whatsapp.com"]:before {
-	    background-image: svg-whatsapp($socialmedia_icon_color);
-	}
-	&[href*="whatsapp.com"]:focus:before,
-	&[href*="whatsapp.com"]:hover:before {
-	    background-image: svg-whatsapp($socialmedia_icon_color_hover);
+	    mask-image: svg-whatsapp();
 	}
 	
+	
 	&[href*="bsky.app"]:before {
-	    background-image: svg-bluesky($socialmedia_icon_color);
+	    mask-image: svg-bluesky();
 	}
-	&[href*="bsky.app"]:focus:before,
-	&[href*="bsky.app"]:hover:before {
-	    background-image: svg-bluesky($socialmedia_icon_color_hover);
-	}
+	
 
 	// community.fau.de
 	// group of people
 	// https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues/1271
 	&[href*="community.fau.de"]:before {
-	    background-image: svg-group($socialmedia_icon_color);
+	    mask-image: svg-group();
 	}
-	&[href*="community.fau.de"]:focus:before,
-	&[href*="community.fau.de"]:hover:before {
-	    background-image: svg-group($socialmedia_icon_color_hover);
-	}
-
 	
 	&[href*="mailto:"]:before {
-	    background-image: svg-icon-mail($socialmedia_icon_color);
+	    mask-image: svg-icon-mail();
 	}
-	&[href*="mailto:"]:focus:before,
-	&[href*="mailto:"]:hover:before {
-	    background-image: svg-icon-mail($socialmedia_icon_color_hover);
-	}
+	
 	
 	&[href*="rss"]:before,
 	&[href*="feed"]:before {
-	    background-image: svg-icon-rss($socialmedia_icon_color);
+	    mask-image: svg-icon-rss();
 	}
-	&[href*="rss"]:focus:before,
-	&[href*="rss"]:hover:before,
-	&[href*="feed"]:focus:before,
-	&[href*="feed"]:hover:before {
-	    background-image: svg-icon-rss($socialmedia_icon_color_hover);
-	}
+	
 	
 	&[href*=".ics"]:before,
 	&[href*="ical"]:before {
-	    background-image: svg-icon-calendar($socialmedia_icon_color);
+	    mask-image: svg-icon-calendar();
 	}
-	&[href*=".ics"]:focus:before,
-	&[href*=".ics"]:hover:before,
-	&[href*="ical"]:focus:before,
-	&[href*="ical"]:hover:before {
-	    background-image: svg-icon-calendar($socialmedia_icon_color_hover);
-	}		
-			
-	
-
     }
     
     &.round {
-	a::before {
-		border-radius: 50%;
-		border: 1px solid $socialmedia_icon_bgcolor_hover;
-	//	box-shadow: 0px 0px 1px $socialmedia_icon_bgcolor_hover;
+	a {
+	    border: 1px solid var(--_icon-color-border);
+	    border-radius: var(--_icon-border-radius);
 	}
     }
     &.hoverbg {
+	a:focus,
+	a:hover {
+	    background-color: var(--_icon-color);
+	}
 	a:focus::before,
 	a:hover::before {
-	    background-color: $socialmedia_icon_bgcolor_hover;
+	    color: var(--_icon-color-hover);
+	    background-color: var(--_icon-color-hover);
 	}
     }
 }

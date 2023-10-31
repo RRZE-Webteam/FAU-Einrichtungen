@@ -85,7 +85,28 @@
 			white-space: normal;
 	}
 	
-	// new social media link buttons
+	
+	.socialmedia {
+	    --icon-color: var(--color-Text);
+	    --icon-size: 1.8rem;
+	    --icon-color-border: var(--color-Text);
+	    --icon-color-hover: #fff;
+	    --icon-background-hover: var(--color-Text);
+	    --icon-border-radius: 0;
+	    
+	    
+	    li, li a::before {
+		width: var(--icon-size);
+		height: var(--icon-size);
+	    }
+	    li a::before,
+	    li a:hover::before,
+	    li a:focus::before {
+		background-image: none !important;
+	    }
+	}
+
+/*
 	div .socialmedia,
 	tr .socialmedia {
 
@@ -140,7 +161,7 @@
 		}
 	}
 
-	// new colored social media icons
+
 	&.color-some {
 		div .socialmedia,
 		tr .socialmedia {
@@ -153,6 +174,7 @@
 			}
 		}
 	}
+*/
 }
 
 .content-person {
