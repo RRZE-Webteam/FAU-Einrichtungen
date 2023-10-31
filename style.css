@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.45-12
+Version: 2.3.47-0
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -1773,7 +1773,7 @@ html {
 }
 .fa, .accordion .accordion-group .accordion-heading .accordion-toggle:before, .wpcf7-not-valid-tip:before, .wpcf7-validation-errors:before, .wpcf7-mail-sent-ok:before, .imagelink .slick-next:before, .imagelink .slick-prev:before, .image-gallery .gallery-slick .slick-next:before, .image-gallery .gallery-slick .slick-prev:before, .search-result .search-meta .download:before, .search-result .search-meta .post-meta-attachment:before, .search-result .search-meta .post-meta-kontakt:before, .search-result .search-meta .post-meta-event:before, .news-item h2 .ext-link::after, .news-details .post-meta-videopost-author:before, .news-details .post-meta-tags:before, .news-details .post-meta-date:before, .news-details .post-meta-categories:before, .organigram .toggle-icon, .hero-navigation li:before, #hero-slides .slick-next:before, #hero-slides .slick-prev:before, .helpermenus li:before, .helpermenus h3 a.ext-link:after, #mainnav-toggle-close:before, #mainnav-toggle:before, .navsmall > li.has-sub > a:before,
 .navsmall > li.has-sub > [type=button]:before, .nav > li.has-sub > a:before,
-.nav > li.has-sub > [type=button]:before, ul.social li.social-iconbyurl a::before, ul.social li.social-wikipedia a:before, ul.social li.social-itunes a:before, ul.social li.social-youtube a:before, ul.social li.social-vimeo a:before, ul.social li.social-feed a:before, ul.social li.social-flickr a:before, ul.social li.social-delicious a:before, ul.social li.social-tumblr a:before, ul.social li.social-skype a:before, ul.social li.social-github a:before, ul.social li.social-xing a:before, ul.social li.social-twitter a:before, ul.social li.social-facebook a:before, ul.social li.social-instagram a:before, ul.social li.social-pinterest a:before, ul.social li.social-diaspora a:before {
+.nav > li.has-sub > [type=button]:before {
   display: inline-block;
   font: normal normal normal 16px/1.5 FontAwesome;
   font-size: inherit;
@@ -1845,25 +1845,25 @@ html {
 
 .fa.fa-pull-left, .accordion .accordion-group .accordion-heading .fa-pull-left.accordion-toggle:before, .fa-pull-left.wpcf7-not-valid-tip:before, .fa-pull-left.wpcf7-validation-errors:before, .fa-pull-left.wpcf7-mail-sent-ok:before, .imagelink .fa-pull-left.slick-next:before, .imagelink .fa-pull-left.slick-prev:before, .image-gallery .gallery-slick .fa-pull-left.slick-next:before, .image-gallery .gallery-slick .fa-pull-left.slick-prev:before, .search-result .search-meta .fa-pull-left.download:before, .search-result .search-meta .fa-pull-left.post-meta-attachment:before, .search-result .search-meta .fa-pull-left.post-meta-kontakt:before, .search-result .search-meta .fa-pull-left.post-meta-event:before, .news-item h2 .fa-pull-left.ext-link::after, .news-details .fa-pull-left.post-meta-videopost-author:before, .news-details .fa-pull-left.post-meta-tags:before, .news-details .fa-pull-left.post-meta-date:before, .news-details .fa-pull-left.post-meta-categories:before, .organigram .fa-pull-left.toggle-icon, .hero-navigation li.fa-pull-left:before, #hero-slides .fa-pull-left.slick-next:before, #hero-slides .fa-pull-left.slick-prev:before, .helpermenus li.fa-pull-left:before, .helpermenus h3 a.fa-pull-left.ext-link:after, .fa-pull-left#mainnav-toggle-close:before, .fa-pull-left#mainnav-toggle:before, .navsmall > li.has-sub > a.fa-pull-left:before,
 .navsmall > li.has-sub > .fa-pull-left[type=button]:before, .nav > li.has-sub > a.fa-pull-left:before,
-.nav > li.has-sub > .fa-pull-left[type=button]:before, ul.social li.social-iconbyurl a.fa-pull-left::before, ul.social li.social-wikipedia a.fa-pull-left:before, ul.social li.social-itunes a.fa-pull-left:before, ul.social li.social-youtube a.fa-pull-left:before, ul.social li.social-vimeo a.fa-pull-left:before, ul.social li.social-feed a.fa-pull-left:before, ul.social li.social-flickr a.fa-pull-left:before, ul.social li.social-delicious a.fa-pull-left:before, ul.social li.social-tumblr a.fa-pull-left:before, ul.social li.social-skype a.fa-pull-left:before, ul.social li.social-github a.fa-pull-left:before, ul.social li.social-xing a.fa-pull-left:before, ul.social li.social-twitter a.fa-pull-left:before, ul.social li.social-facebook a.fa-pull-left:before, ul.social li.social-instagram a.fa-pull-left:before, ul.social li.social-pinterest a.fa-pull-left:before, ul.social li.social-diaspora a.fa-pull-left:before {
+.nav > li.has-sub > .fa-pull-left[type=button]:before {
   margin-right: 0.3em;
 }
 
 .fa.fa-pull-right, .accordion .accordion-group .accordion-heading .fa-pull-right.accordion-toggle:before, .fa-pull-right.wpcf7-not-valid-tip:before, .fa-pull-right.wpcf7-validation-errors:before, .fa-pull-right.wpcf7-mail-sent-ok:before, .imagelink .fa-pull-right.slick-next:before, .imagelink .fa-pull-right.slick-prev:before, .image-gallery .gallery-slick .fa-pull-right.slick-next:before, .image-gallery .gallery-slick .fa-pull-right.slick-prev:before, .search-result .search-meta .fa-pull-right.download:before, .search-result .search-meta .fa-pull-right.post-meta-attachment:before, .search-result .search-meta .fa-pull-right.post-meta-kontakt:before, .search-result .search-meta .fa-pull-right.post-meta-event:before, .news-item h2 .fa-pull-right.ext-link::after, .news-details .fa-pull-right.post-meta-videopost-author:before, .news-details .fa-pull-right.post-meta-tags:before, .news-details .fa-pull-right.post-meta-date:before, .news-details .fa-pull-right.post-meta-categories:before, .organigram .fa-pull-right.toggle-icon, .hero-navigation li.fa-pull-right:before, #hero-slides .fa-pull-right.slick-next:before, #hero-slides .fa-pull-right.slick-prev:before, .helpermenus li.fa-pull-right:before, .helpermenus h3 a.fa-pull-right.ext-link:after, .fa-pull-right#mainnav-toggle-close:before, .fa-pull-right#mainnav-toggle:before, .navsmall > li.has-sub > a.fa-pull-right:before,
 .navsmall > li.has-sub > .fa-pull-right[type=button]:before, .nav > li.has-sub > a.fa-pull-right:before,
-.nav > li.has-sub > .fa-pull-right[type=button]:before, ul.social li.social-iconbyurl a.fa-pull-right::before, ul.social li.social-wikipedia a.fa-pull-right:before, ul.social li.social-itunes a.fa-pull-right:before, ul.social li.social-youtube a.fa-pull-right:before, ul.social li.social-vimeo a.fa-pull-right:before, ul.social li.social-feed a.fa-pull-right:before, ul.social li.social-flickr a.fa-pull-right:before, ul.social li.social-delicious a.fa-pull-right:before, ul.social li.social-tumblr a.fa-pull-right:before, ul.social li.social-skype a.fa-pull-right:before, ul.social li.social-github a.fa-pull-right:before, ul.social li.social-xing a.fa-pull-right:before, ul.social li.social-twitter a.fa-pull-right:before, ul.social li.social-facebook a.fa-pull-right:before, ul.social li.social-instagram a.fa-pull-right:before, ul.social li.social-pinterest a.fa-pull-right:before, ul.social li.social-diaspora a.fa-pull-right:before {
+.nav > li.has-sub > .fa-pull-right[type=button]:before {
   margin-left: 0.3em;
 }
 
 .fa.pull-left, .accordion .accordion-group .accordion-heading .pull-left.accordion-toggle:before, .pull-left.wpcf7-not-valid-tip:before, .pull-left.wpcf7-validation-errors:before, .pull-left.wpcf7-mail-sent-ok:before, .imagelink .pull-left.slick-next:before, .imagelink .pull-left.slick-prev:before, .image-gallery .gallery-slick .pull-left.slick-next:before, .image-gallery .gallery-slick .pull-left.slick-prev:before, .search-result .search-meta .pull-left.download:before, .search-result .search-meta .pull-left.post-meta-attachment:before, .search-result .search-meta .pull-left.post-meta-kontakt:before, .search-result .search-meta .pull-left.post-meta-event:before, .news-item h2 .pull-left.ext-link::after, .news-details .pull-left.post-meta-videopost-author:before, .news-details .pull-left.post-meta-tags:before, .news-details .pull-left.post-meta-date:before, .news-details .pull-left.post-meta-categories:before, .organigram .pull-left.toggle-icon, .hero-navigation li.pull-left:before, #hero-slides .pull-left.slick-next:before, #hero-slides .pull-left.slick-prev:before, .helpermenus li.pull-left:before, .helpermenus h3 a.pull-left.ext-link:after, .pull-left#mainnav-toggle-close:before, .pull-left#mainnav-toggle:before, .navsmall > li.has-sub > a.pull-left:before,
 .navsmall > li.has-sub > .pull-left[type=button]:before, .nav > li.has-sub > a.pull-left:before,
-.nav > li.has-sub > .pull-left[type=button]:before, ul.social li.social-iconbyurl a.pull-left::before, ul.social li.social-wikipedia a.pull-left:before, ul.social li.social-itunes a.pull-left:before, ul.social li.social-youtube a.pull-left:before, ul.social li.social-vimeo a.pull-left:before, ul.social li.social-feed a.pull-left:before, ul.social li.social-flickr a.pull-left:before, ul.social li.social-delicious a.pull-left:before, ul.social li.social-tumblr a.pull-left:before, ul.social li.social-skype a.pull-left:before, ul.social li.social-github a.pull-left:before, ul.social li.social-xing a.pull-left:before, ul.social li.social-twitter a.pull-left:before, ul.social li.social-facebook a.pull-left:before, ul.social li.social-instagram a.pull-left:before, ul.social li.social-pinterest a.pull-left:before, ul.social li.social-diaspora a.pull-left:before {
+.nav > li.has-sub > .pull-left[type=button]:before {
   margin-right: 0.3em;
 }
 
 .fa.pull-right, .accordion .accordion-group .accordion-heading .pull-right.accordion-toggle:before, .pull-right.wpcf7-not-valid-tip:before, .pull-right.wpcf7-validation-errors:before, .pull-right.wpcf7-mail-sent-ok:before, .imagelink .pull-right.slick-next:before, .imagelink .pull-right.slick-prev:before, .image-gallery .gallery-slick .pull-right.slick-next:before, .image-gallery .gallery-slick .pull-right.slick-prev:before, .search-result .search-meta .pull-right.download:before, .search-result .search-meta .pull-right.post-meta-attachment:before, .search-result .search-meta .pull-right.post-meta-kontakt:before, .search-result .search-meta .pull-right.post-meta-event:before, .news-item h2 .pull-right.ext-link::after, .news-details .pull-right.post-meta-videopost-author:before, .news-details .pull-right.post-meta-tags:before, .news-details .pull-right.post-meta-date:before, .news-details .pull-right.post-meta-categories:before, .organigram .pull-right.toggle-icon, .hero-navigation li.pull-right:before, #hero-slides .pull-right.slick-next:before, #hero-slides .pull-right.slick-prev:before, .helpermenus li.pull-right:before, .helpermenus h3 a.pull-right.ext-link:after, .pull-right#mainnav-toggle-close:before, .pull-right#mainnav-toggle:before, .navsmall > li.has-sub > a.pull-right:before,
 .navsmall > li.has-sub > .pull-right[type=button]:before, .nav > li.has-sub > a.pull-right:before,
-.nav > li.has-sub > .pull-right[type=button]:before, ul.social li.social-iconbyurl a.pull-right::before, ul.social li.social-wikipedia a.pull-right:before, ul.social li.social-itunes a.pull-right:before, ul.social li.social-youtube a.pull-right:before, ul.social li.social-vimeo a.pull-right:before, ul.social li.social-feed a.pull-right:before, ul.social li.social-flickr a.pull-right:before, ul.social li.social-delicious a.pull-right:before, ul.social li.social-tumblr a.pull-right:before, ul.social li.social-skype a.pull-right:before, ul.social li.social-github a.pull-right:before, ul.social li.social-xing a.pull-right:before, ul.social li.social-twitter a.pull-right:before, ul.social li.social-facebook a.pull-right:before, ul.social li.social-instagram a.pull-right:before, ul.social li.social-pinterest a.pull-right:before, ul.social li.social-diaspora a.pull-right:before {
+.nav > li.has-sub > .pull-right[type=button]:before {
   margin-left: 0.3em;
 }
 
@@ -1947,7 +1947,7 @@ html {
   content: "\f002";
 }
 
-.fa-envelope-o:before, ul.social li.social-iconbyurl a[href^=mailto]:before {
+.fa-envelope-o:before {
   content: "\f003";
 }
 
@@ -1955,7 +1955,7 @@ html {
   content: "\f004";
 }
 
-.fa-star:before, ul.social li.social-iconbyurl a:before {
+.fa-star:before {
   content: "\f005";
 }
 
@@ -2367,7 +2367,7 @@ html {
   content: "\f072";
 }
 
-.fa-calendar:before, .news-details .post-meta-date:before, ul.social li.social-iconbyurl a[href$=".ics"]:before {
+.fa-calendar:before, .news-details .post-meta-date:before {
   content: "\f073";
 }
 
@@ -2511,15 +2511,15 @@ html {
   content: "\f098";
 }
 
-.fa-twitter:before, ul.social li.social-iconbyurl a[href*="twitter.com"]:before, ul.social li.social-twitter a:before {
+.fa-twitter:before {
   content: "\f099";
 }
 
-.fa-facebook-f:before, .fa-facebook:before, ul.social li.social-iconbyurl a[href*="facebook.com"]:before, ul.social li.social-facebook a:before {
+.fa-facebook-f:before, .fa-facebook:before {
   content: "\f09a";
 }
 
-.fa-github:before, ul.social li.social-iconbyurl a[href*="github.com"]:before, ul.social li.social-github a:before {
+.fa-github:before {
   content: "\f09b";
 }
 
@@ -2531,7 +2531,7 @@ html {
   content: "\f09d";
 }
 
-.fa-feed:before, .fa-rss:before, ul.social li.social-iconbyurl a[href*=feed]:before {
+.fa-feed:before, .fa-rss:before {
   content: "\f09e";
 }
 
@@ -2675,7 +2675,7 @@ html {
   content: "\f0d1";
 }
 
-.fa-pinterest:before, ul.social li.social-iconbyurl a[href*="pinterest.com"]:before {
+.fa-pinterest:before {
   content: "\f0d2";
 }
 
@@ -2721,11 +2721,11 @@ html {
   content: "\f0de";
 }
 
-.fa-envelope:before, ul.social li.social-iconbyurl a[href$="@lists.fau.de"]:before {
+.fa-envelope:before {
   content: "\f0e0";
 }
 
-.fa-linkedin:before, ul.social li.social-iconbyurl a[href*="linkedin.com"]:before {
+.fa-linkedin:before {
   content: "\f0e1";
 }
 
@@ -3085,7 +3085,7 @@ html {
   content: "\f142";
 }
 
-.fa-rss-square:before, ul.social li.social-feed a:before {
+.fa-rss-square:before {
   content: "\f143";
 }
 
@@ -3217,15 +3217,15 @@ html {
   content: "\f165";
 }
 
-.fa-youtube-square:before, ul.social li.social-youtube a:before {
+.fa-youtube-square:before {
   content: "\f166";
 }
 
-.fa-youtube:before, ul.social li.social-iconbyurl a[href*="youtube.com"]:before {
+.fa-youtube:before {
   content: "\f167";
 }
 
-.fa-xing:before, ul.social li.social-iconbyurl a[href*="xing.com"]:before, ul.social li.social-xing a:before {
+.fa-xing:before {
   content: "\f168";
 }
 
@@ -3245,11 +3245,11 @@ html {
   content: "\f16c";
 }
 
-.fa-instagram:before, ul.social li.social-iconbyurl a[href*="instagram.com"]:before, ul.social li.social-instagram a:before {
+.fa-instagram:before {
   content: "\f16d";
 }
 
-.fa-flickr:before, ul.social li.social-iconbyurl a[href*="flickr.com"]:before, ul.social li.social-flickr a:before {
+.fa-flickr:before {
   content: "\f16e";
 }
 
@@ -3265,7 +3265,7 @@ html {
   content: "\f172";
 }
 
-.fa-tumblr:before, ul.social li.social-iconbyurl a[href*="tumblr.com"]:before, ul.social li.social-tumblr a:before {
+.fa-tumblr:before {
   content: "\f173";
 }
 
@@ -3289,7 +3289,7 @@ html {
   content: "\f178";
 }
 
-.fa-apple:before, ul.social li.social-itunes a:before {
+.fa-apple:before {
   content: "\f179";
 }
 
@@ -3309,7 +3309,7 @@ html {
   content: "\f17d";
 }
 
-.fa-skype:before, ul.social li.social-iconbyurl a[href*="skype.com"]:before, ul.social li.social-iconbyurl a[href*="skype:"]:before, ul.social li.social-skype a:before {
+.fa-skype:before {
   content: "\f17e";
 }
 
@@ -3389,7 +3389,7 @@ html {
   content: "\f193";
 }
 
-.fa-vimeo-square:before, ul.social li.social-vimeo a:before {
+.fa-vimeo-square:before {
   content: "\f194";
 }
 
@@ -3405,7 +3405,7 @@ html {
   content: "\f197";
 }
 
-.fa-slack:before, ul.social li.social-iconbyurl a[href*="slack.com"]:before {
+.fa-slack:before {
   content: "\f198";
 }
 
@@ -3413,7 +3413,7 @@ html {
   content: "\f199";
 }
 
-.fa-wordpress:before, ul.social li.social-iconbyurl a[href*="wordpress.org"]:before, ul.social li.social-iconbyurl a[href*="wordpress.com"]:before {
+.fa-wordpress:before {
   content: "\f19a";
 }
 
@@ -3433,11 +3433,11 @@ html {
   content: "\f19e";
 }
 
-.fa-google:before, ul.social li.social-iconbyurl a[href*="google.com"]:before {
+.fa-google:before {
   content: "\f1a0";
 }
 
-.fa-reddit:before, ul.social li.social-iconbyurl a[href*="reddit.com"]:before {
+.fa-reddit:before {
   content: "\f1a1";
 }
 
@@ -3449,11 +3449,11 @@ html {
   content: "\f1a3";
 }
 
-.fa-stumbleupon:before, ul.social li.social-iconbyurl a[href*="stumbleupon.com"]:before {
+.fa-stumbleupon:before {
   content: "\f1a4";
 }
 
-.fa-delicious:before, ul.social li.social-iconbyurl a[href*="delicious.com"]:before, ul.social li.social-delicious a:before {
+.fa-delicious:before {
   content: "\f1a5";
 }
 
@@ -3541,7 +3541,7 @@ html {
   content: "\f1bb";
 }
 
-.fa-spotify:before, ul.social li.social-iconbyurl a[href*="spotify.com"]:before {
+.fa-spotify:before {
   content: "\f1bc";
 }
 
@@ -3701,7 +3701,7 @@ html {
   content: "\f1e6";
 }
 
-.fa-slideshare:before, ul.social li.social-iconbyurl a[href*="slideshare.com"]:before {
+.fa-slideshare:before {
   content: "\f1e7";
 }
 
@@ -3969,11 +3969,11 @@ html {
   content: "\f230";
 }
 
-.fa-pinterest-p:before, ul.social li.social-pinterest a:before {
+.fa-pinterest-p:before {
   content: "\f231";
 }
 
-.fa-whatsapp:before, ul.social li.social-iconbyurl a[href*="whatsapp.com"]:before {
+.fa-whatsapp:before {
   content: "\f232";
 }
 
@@ -4169,7 +4169,7 @@ html {
   content: "\f265";
 }
 
-.fa-wikipedia-w:before, ul.social li.social-wikipedia a:before {
+.fa-wikipedia-w:before {
   content: "\f266";
 }
 
@@ -4257,7 +4257,7 @@ html {
   content: "\f27c";
 }
 
-.fa-vimeo:before, ul.social li.social-iconbyurl a[href*="vimeo.com"]:before {
+.fa-vimeo:before {
   content: "\f27d";
 }
 
@@ -4429,7 +4429,7 @@ html {
   content: "\f2aa";
 }
 
-.fa-snapchat:before, ul.social li.social-iconbyurl a[href*="snapchat.com"]:before {
+.fa-snapchat:before {
   content: "\f2ab";
 }
 
@@ -4864,6 +4864,22 @@ h6 {
 }
 table h6 {
   font-size: 0.938rem;
+}
+
+.subtitle {
+  margin: 1.5rem 0 1rem 0;
+  font-family: inherit;
+  color: var(--color-content-headlines);
+  font-weight: bold;
+  -webkit-hyphens: none;
+          hyphens: none;
+  font-size: 1.375rem;
+}
+.subtitle em {
+  font-style: normal;
+}
+.content-inline .subtitle:first-child {
+  margin-top: 0;
 }
 
 @media (max-width: 480px) {
@@ -5999,111 +6015,6 @@ main a.media-img.aligncenter img,
   margin: 0;
 }
 
-/*-----------------------------------------------------------------------------------*/
-/* Social Media Links
-/*-----------------------------------------------------------------------------------*/
-ul.social {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background: none;
-  margin: 0 0 10px 0;
-}
-ul.social:before {
-  display: none;
-}
-ul.social li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background: none;
-  display: inline-block;
-  max-width: 220px;
-  width: 100%;
-  background: none;
-}
-ul.social li:before {
-  display: none;
-}
-ul.social li a {
-  display: inline-block;
-  text-decoration: none;
-  padding: 5px 0;
-  background: none;
-  font-size: 1rem;
-}
-ul.social li a:hover, ul.social li a:focus {
-  text-decoration: underline;
-}
-ul.social li a:hover:before, ul.social li a:focus:before {
-  background: var(--color-button-hover-bg);
-  color: var(--color-button-hover-text);
-}
-ul.social li a:before {
-  background: var(--color-primary-ci-hell);
-  color: var(--color-primary-ci-hell-kontrast);
-  height: 1.7rem;
-  width: 1.7rem;
-  text-align: center;
-  margin-right: 1rem;
-  border-radius: 50%;
-  background-clip: padding-box;
-}
-ul.social li.social-diaspora a:before {
-  content: "*";
-  font-size: 20px;
-  font-weight: bold;
-}
-ul.social li.social-pinterest a:before {
-  font-size: 1rem;
-}
-ul.social li.social-instagram a:before {
-  font-size: 1rem;
-}
-ul.social li.social-facebook a:before {
-  font-size: 1rem;
-}
-ul.social li.social-twitter a:before {
-  font-size: 1rem;
-}
-ul.social li.social-xing a:before {
-  font-size: 1rem;
-}
-ul.social li.social-github a:before {
-  font-size: 1rem;
-}
-ul.social li.social-skype a:before {
-  font-size: 1rem;
-}
-ul.social li.social-tumblr a:before {
-  font-size: 1rem;
-}
-ul.social li.social-delicious a:before {
-  font-size: 1rem;
-}
-ul.social li.social-flickr a:before {
-  font-size: 1rem;
-}
-ul.social li.social-feed a:before {
-  font-size: 1rem;
-}
-ul.social li.social-vimeo a:before {
-  font-size: 1rem;
-}
-ul.social li.social-youtube a:before {
-  font-size: 1rem;
-}
-ul.social li.social-itunes a:before {
-  font-size: 1rem;
-}
-ul.social li.social-wikipedia a:before {
-  font-size: 1rem;
-}
-ul.social li.social-iconbyurl a[href*="diaspora.com"]:before {
-  content: "*";
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-}
 /*-----------------------------------------------------------------------------------*/
 /* Lists
 /*-----------------------------------------------------------------------------------*/
