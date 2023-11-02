@@ -4,14 +4,27 @@
 
 .socialmedia,
 .svg-socialmedia {
-    --_icon-size: var(--icon-size, 1.8rem);
-    --_icon-color: var(--icon-color, var(--color-primary-ci-hell-kontrast));
-    --_icon-color-hover: var(--icon-color-hover, var(--color-primary-ci-hell));
-    --_icon-color-border: var(--icon-color-border, var(--color-primary-ci-hell-kontrast));
-    --_icon-border-radius: var(--icon-border-radius, 50%);
-    --_icon-size-mask: var(--icon-size-mask, 55%);
-    
     margin: 0;
+    &.round {
+	--icon-border-radius: 50%;
+	--icon-border-width: 1px;
+    } 
+    --_icon-size: var(--icon-size, 1.8rem);
+    --_icon-color: var(--icon-color, var(--color-Text));
+    --_icon-color-hover: var(--icon-color-hover, var(--color-MainBackground));
+    
+    --_icon-border-radius: var(--icon-border-radius, 50%);
+    --_icon-border-width: var(--icon-border-width, 1px);
+    --_icon-border-color: var(--icon-border-color, var(--color-Text));
+    --_icon-border-color-hover: var(--icon-border-color-hover, var(--color-Text));
+
+    --_icon-size-mask: var(--icon-size-mask, 55%);
+
+    --_icon-background-color-hover: var(--icon-background-color-hover, var(--color-Text));
+    --_icon_background-color: var(--icon_background-color, var(--color-MainBackground));
+
+    
+    span,
     li {
 	display: inline-block;
 	list-style: none;
@@ -32,31 +45,43 @@
 	     margin-top: 0.3rem;
 	}
     }
+    
+    
     a {
 	width: var(--_icon-size); 
 	height: var(--_icon-size); 
 	overflow: hidden;
 	display: inline-block;
-
-
+	background-color: var(--_icon_background-color);
+	border: var(--_icon-border-width) solid var(--_icon-border-color);
+	border-radius: var(--_icon-border-radius);
+	    
 	&::before {   
 	    width: var(--_icon-size); 
 	    height: var(--_icon-size); 
 	    display: inline-block;
 	    content: ' ';
-	    -webkit-mask-size: var(--_icon-size-mask); 
+	 //   -webkit-mask-size: var(--_icon-size-mask); 
 	    mask-size: var(--_icon-size-mask); 
-	    -webkit-mask-repeat: no-repeat;
+	 //   -webkit-mask-repeat: no-repeat;
 	    mask-repeat: no-repeat;
-	    -webkit-mask-position: center;
+	//    -webkit-mask-position: center;
 	    mask-position: center;
 	    background-color: var(--_icon-color);
+	}
+	&:focus,
+	&:hover {
+	    background-color: var(--_icon-background-color-hover);
+	    border-color: var(--_icon-border-color-hover);
 	}
 	&:focus::before,
 	&:hover::before {
 	     background-color: var(--_icon-color-hover);
 	}
 
+	
+	
+	
 
 	&[href*="twitter.com"]:before {
 	    mask-image: svg-twitter();
@@ -179,24 +204,7 @@
 	    mask-image: svg-icon-calendar();
 	}
     }
-    
-    &.round {
-	a {
-	    border: 1px solid var(--_icon-color-border);
-	    border-radius: var(--_icon-border-radius);
-	}
-    }
-    &.hoverbg {
-	a:focus,
-	a:hover {
-	    background-color: var(--_icon-color);
-	}
-	a:focus::before,
-	a:hover::before {
-	    color: var(--_icon-color-hover);
-	    background-color: var(--_icon-color-hover);
-	}
-    }
+
 }
 
 

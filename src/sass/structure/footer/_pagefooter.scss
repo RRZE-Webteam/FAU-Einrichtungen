@@ -60,18 +60,33 @@
 	   text-align: left;
 	   margin-top: 0.7rem;
 	   @media (min-width: $screen-sm) {
-	       text-align: right;
-		   margin-top: 0;
+		text-align: right;
+		margin-top: 0;
 	   }
 	   
 	   .svg-socialmedia {
-	       margin: 1rem 60px 0 0;
-	       @media (min-width: $screen-sm) {
-			   margin: 1rem;
-	       }
-	       ul {
-			   margin: 0;
-	       }
+		--icon-border-radius: 50%;
+		--icon-border-width: 1px;
+		--icon-border-color: var(--color-primary-ci-hell-kontrast);
+		--icon-border-color-hover: var(--color-primary-ci-hell-kontrast);
+		--icon-size: 1.8rem;
+		--icon-color: var(--color-primary-ci-hell-kontrast);
+		--icon-color-hover: var(--color-primary-ci-hell);
+		--icon-size-mask: 55%;
+		--icon-background-color-hover: var(--color-primary-ci-hell-kontrast);
+		--icon_background-color: var(--color-primary-ci-hell);
+		
+		margin: 1rem 60px 0 0;
+		@media (min-width: $screen-sm) {
+		    margin: 1rem;
+		}
+		ul {
+		    margin: 0;
+		}
+	       
+	       
+		
+	       
 	   }
 	   
        }
