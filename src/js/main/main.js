@@ -540,22 +540,30 @@ $(document).on('keydown', function(e) {
         if (scrollTop === 0) {
             header.style.position = "static";
             header.style.top = "auto";  // Reset the top property
+            header.style.paddingTop = "0";
+          
         }
         // If scrolling up and current scroll position is not at the very top
         else if (scrollTop < lastScrollTop) {
             header.style.top = "0";
             header.style.position = "sticky";
+            header.style.paddingTop = "";  // Revert to the default CSS by removing the inline style
+        
         }
         // If scrolled down more than 150px
         else if (scrollTop < 250) {
             header.style.top = "0";
+          
             header.style.position = "static";
+            header.style.paddingTop = ""; 
 
         }
         // If it's within the first 150px while scrolling down
         else {
             header.style.top = "-100%";
             header.style.position = "sticky";
+            header.style.paddingTop = ""; 
+           
         }
 
         lastScrollTop = scrollTop;
