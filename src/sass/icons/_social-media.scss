@@ -5,13 +5,18 @@
 .socialmedia,
 .svg-socialmedia {
     margin: 0;
-    &.round {
-	--icon-border-radius: 50%;
-	--icon-border-width: 1px;
-    } 
+
+     /*
+    We use pseudo-private properties here, to allow the change of the properties
+    later. Documentation and background you can read here: 
+    https://lea.verou.me/blog/2021/10/custom-properties-with-defaults/
+    */
+    
     --_icon-size: var(--icon-size, 1.8rem);
     --_icon-color: var(--icon-color, var(--color-Text));
     --_icon-color-hover: var(--icon-color-hover, var(--color-MainBackground));
+    --_icon-background-color-hover: var(--icon-background-color-hover, var(--color-Text));
+    --_icon_background-color: var(--icon_background-color, var(--color-MainBackground));
     
     --_icon-border-radius: var(--icon-border-radius, 50%);
     --_icon-border-width: var(--icon-border-width, 1px);
@@ -20,8 +25,8 @@
 
     --_icon-size-mask: var(--icon-size-mask, 55%);
 
-    --_icon-background-color-hover: var(--icon-background-color-hover, var(--color-Text));
-    --_icon_background-color: var(--icon_background-color, var(--color-MainBackground));
+   
+
 
     
     span,
@@ -61,13 +66,17 @@
 	    height: var(--_icon-size); 
 	    display: inline-block;
 	    content: ' ';
-	 //   -webkit-mask-size: var(--_icon-size-mask); 
+	    -webkit-mask-size: var(--_icon-size-mask); 
 	    mask-size: var(--_icon-size-mask); 
-	 //   -webkit-mask-repeat: no-repeat;
+	    -webkit-mask-repeat: no-repeat;
 	    mask-repeat: no-repeat;
-	//    -webkit-mask-position: center;
+	    -webkit-mask-position: center;
 	    mask-position: center;
 	    background-color: var(--_icon-color);
+	    
+	    -webkit-mask-image: svg-bookmark();
+	    mask-image: svg-bookmark();
+	    
 	}
 	&:focus,
 	&:hover {
@@ -79,9 +88,7 @@
 	     background-color: var(--_icon-color-hover);
 	}
 
-	
-	
-	
+		
 
 	&[href*="twitter.com"]:before {
 	    mask-image: svg-twitter();
