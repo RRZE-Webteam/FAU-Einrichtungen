@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.3.48-17
+Version: 2.3.48-32
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 8.0
@@ -8233,10 +8233,6 @@ p.has-drop-cap:not(:focus):first-letter {
   width: 50%;
 }
 
-body.admin-bar #headerwrapper {
-  padding-top: 15px;
-}
-
 @media screen {
   .tw-linklist, .tw-linkref, .tw-iframe-footnote, .tw-iframe-image {
     display: none;
@@ -9001,10 +8997,6 @@ body.embedded .news-item .news-meta {
 }
 
 #headerwrapper {
-  position: static;
-  width: 100%;
-  top: 0;
-  z-index: 150;
   transition: box-shadow 0.2s;
 }
 .admin-bar #headerwrapper {
@@ -9026,6 +9018,28 @@ body.nav-toggled #headerwrapper {
   body.nav-toggled #headerwrapper {
     top: 0;
   }
+}
+
+/* Default header state */
+.header-static {
+  position: static;
+  top: auto;
+  padding-top: 0;
+  z-index: 150;
+}
+
+/* Sticky header state */
+.header-sticky {
+  position: sticky;
+  top: 0;
+  padding-top: 0;
+  z-index: 150; /* Initial state, will be adjusted if admin bar is present */
+}
+
+/* Hidden header state */
+.header-hidden {
+  position: sticky;
+  top: -400px !important; /* Adjust as needed to fully hide the header */
 }
 
 /*-----------------------------------------------------------------------------------*/

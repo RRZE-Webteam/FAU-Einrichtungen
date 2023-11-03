@@ -531,43 +531,35 @@ $(document).on('keydown', function(e) {
 
 
     let lastScrollTop = 0;
-
+    const header = document.getElementById('headerwrapper'); // Cache the element for performance
+    
     window.addEventListener("scroll", function () {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        let header = document.getElementById('headerwrapper'); // Cache the element for performance
-
-        // If the user is at the very top of the page
+        let bodyHasAdminBar = document.body.classList.contains('admin-bar');
+    
+        // Reset all classes first
+        header.classList.remove('header-static', 'header-sticky', 'header-hidden');
+    
         if (scrollTop === 0) {
-            header.style.position = "static";
-            header.style.top = "auto";  // Reset the top property
-            header.style.paddingTop = "0";
-          
+            header.classList.add('header-static');
+        } else if (scrollTop < lastScrollTop) {
+            header.classList.add('header-sticky');
+        } else if (scrollTop < 250) {
+            header.classList.add('header-static');
+        } else {
+            header.classList.add('header-hidden');
         }
-        // If scrolling up and current scroll position is not at the very top
-        else if (scrollTop < lastScrollTop) {
-            header.style.top = "0";
-            header.style.position = "sticky";
-            header.style.paddingTop = "";  // Revert to the default CSS by removing the inline style
-        
+    
+        // Add or remove the admin bar class based on the condition
+        if (bodyHasAdminBar) {
+            header.classList.add('admin-bar-padding');
+        } else {
+            header.classList.remove('admin-bar-padding');
         }
-        // If scrolled down more than 150px
-        else if (scrollTop < 250) {
-            header.style.top = "0";
-          
-            header.style.position = "static";
-            header.style.paddingTop = ""; 
-
-        }
-        // If it's within the first 150px while scrolling down
-        else {
-            header.style.top = "-100%";
-            header.style.position = "sticky";
-            header.style.paddingTop = ""; 
-           
-        }
-
+    
         lastScrollTop = scrollTop;
     });
+    
 
 }
 );
