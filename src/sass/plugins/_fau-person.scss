@@ -10,6 +10,7 @@
     .person-info a {
 	@include defaultlinkstyle();
 	text-decoration: none;
+	
 	&:active,
 	&:hover,
 	&:focus {
@@ -26,6 +27,8 @@
 	    &:hover, 
 	    &:focus {
 		text-decoration: underline;
+		text-underline-offset: auto !important;
+		text-decoration-thickness: inherit !important;
 	    }
 	}
 	
@@ -390,9 +393,9 @@
 		padding: 0;
     }
     .connection {
-		h3 {
-			@include px2rem($font-size-h4);
-		}
+	h3 {
+		@include px2rem($font-size-h4);
+	}
     }
 }
 
@@ -423,8 +426,6 @@
 // Personen-Page - 
 //  Entweder via Shortcode format="page" oder bei AUfruf des Endpoints aus single-person.php
 .fau-person {
-        
-	
     .person-meta {
 	display: flex;	
 
@@ -443,6 +444,9 @@
 		margin-right: 10px;
 	}
     }
+    
+    tr.person-info, 
+    &.liste-person,
     .contactlist {
 	li {
 	    line-height: 1.7rem;
@@ -499,6 +503,49 @@
 	}
 	a[itemprop="url"]::before {
 	    mask-image: svg-icon-website();
+	}
+    }
+    &.liste-person {
+	li {
+	    line-height: 1.5;
+	}
+	span.fullname {
+	    white-space: nowrap;
+	}
+	span[itemprop="name"] {
+	    font-weight: bold;
+	}
+
+	a::before {
+	    margin-left: 0.2rem;
+	    margin-right: 0.2rem;
+	    position: relative;
+	    top: 0.2rem;
+	}
+    }
+    tr.person-info {
+	span.fullname {
+	    white-space: nowrap;
+	}
+	span[itemprop="name"] {
+	    font-weight: bold;
+	}
+	a[itemprop="telephone"],
+	a[itemprop="email"] {
+	    overflow-wrap: normal;
+	    word-wrap: normal;
+	    white-space: nowrap;
+	}
+	ul.socialmedia {
+	    --icon-size: 1.4rem;
+	    --icon-size-mask: 60%;
+	    @extend .socialmedia;
+	    
+	}
+    }
+    &.person-card {
+	.socialmedia li:first-child {
+	    margin-left: 0.6rem !important;
 	}
     }
 }
