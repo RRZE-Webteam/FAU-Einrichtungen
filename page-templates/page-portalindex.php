@@ -20,7 +20,7 @@
                 <?php 
                 $headline = get_post_meta( $post->ID, 'headline', true );				
                 if (!fau_empty($headline)) {
-                      echo '<h2 class="subtitle">'.$headline."</h2>\n";  
+                      echo '<p class="subtitle">'.$headline."</p>\n";  
                 } ?>
                 <div class="inline-box">			    
                     <?php get_template_part('template-parts/sidebar', 'inline');  

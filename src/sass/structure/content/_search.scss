@@ -189,7 +189,7 @@
 	    input[type="text"] {
 			border-radius: var(--border-radius);
 			@include px2rem($font-size-herosearch);
-			//border: 1px solid  var(--color-primary-ci-hell);
+			line-height: var(--base-line-height,1.5);
 			max-width: min(25rem, 90%);
 			padding: 0.5rem 2.5rem 0.5rem 1rem;
 			height: inherit;

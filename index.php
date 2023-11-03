@@ -47,7 +47,7 @@ if (empty($herotype)) {
 			<?php } else { ?>
 			<main>
 			<?php } 
-			    
+
 			    if ($titleforscreenreader) {   ?>
 				<h1 id="maintop"  class="mobiletitle"><?php echo $screenreadertitle; ?></h1>
 			     <?php } else { ?>

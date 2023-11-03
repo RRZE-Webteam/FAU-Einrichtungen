@@ -20,7 +20,7 @@ get_header(); ?>
 			    <?php 
 			    $headline = get_post_meta( $post->ID, 'headline', true );									
 			    if (!fau_empty($headline)) {
-                    echo '<h2 class="subtitle">'.$headline.'</h2>'; 					    
+                    echo '<p class="subtitle">'.$headline.'</p>'; 					    
 			    } ?>
 <div class="inline-box">					   	
 				<?php 
