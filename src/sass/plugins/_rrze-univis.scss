@@ -5,33 +5,83 @@
 
 
 .rrze-univis {
-        
-    .person,
-    .liste-person {
-	a {
-	     @include defaultlinkstyle();
-	}
+
+   
 	
-    }
-    .lecture-info-ics, 
-    [itemprop="telephone"] {
-	a {
-	    @include defaultlinkstyle();
-	    text-decoration: none;
-	}
-    }
-    
+
 
     iframe {
 	max-width: 100%;
     }
     
-    ul.person-info {
-	
-	li.person-info-phone, 
-	li.person-info-officehours {
-	    margin-top: 1rem;
+    .person-info {
+
+	 a {
+	//     @include defaultlinkstyle();
 	}
 	
+	li {
+	    line-height: 1.7rem;
+	}
+	
+	span[itemprop="honorificPrefix"],
+	span[itemprop="honorificSuffix"],
+	.url {
+	    font-weight: bold;
+	}
+	
+	span {
+	    --_icon-size: var(--icon-size, 1rem);
+	    --_icon-color: var(--icon-color, var(--color-Text));
+	    --_icon-color-hover: var(--icon-color-hover, var(--color-content-links-hover));
+	    --_icon-size-mask: var(--icon-size-mask, 100%);
+	    --_icon-mask-image: var(--icon-mask-image,'none');
+
+	    color: var(--color-content-links);	    
+    
+	
+	    &::before {
+		@include unset-svg-background-image("important");
+
+		-webkit-mask-image: svg-bookmark();
+		mask-image: svg-bookmark();
+
+		-webkit-mask-size: var(--_icon-size-mask); 
+		mask-size: var(--_icon-size-mask); 
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center; 	    
+
+		background-color: var(--_icon-color);
+		width: var(--_icon-size);
+		height: var(--_icon-size);
+	    }
+	    &:focus::before, 
+	    &:hover::before {
+		background-color: var(--_icon-color-hover);
+	    }
+	}
+
+	span[itemprop="telephone"]::before {
+	    mask-image: svg-icon-phone();
+	}
+	span[itemprop="email"]::before {
+	    mask-image: svg-icon-mail();
+	}
+	span[itemprop="faxNumber"]::before {
+	     mask-image: svg-icon-fax();
+	}
+	span[itemprop="telephone"].mobile::before {
+	     mask-image: svg-icon-mobile();
+	}
+	span[itemprop="url"]::before {
+	    mask-image: svg-icon-website();
+	}
+	
+    }
+    
+    &.navigation {
+	margin-top: 3rem;
     }
 }

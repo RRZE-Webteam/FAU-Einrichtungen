@@ -183,10 +183,22 @@
 	    mask-image: svg-whatsapp();
 	}
 	
-	
+	// Bluesky
 	&[href*="bsky.app"]:before {
 	    mask-image: svg-bluesky();
 	}
+	
+	// Twitch
+	&[href*="twitch.tv"]:before {
+	    mask-image: svg-twitch();
+	}
+	
+	// arxiv
+	&[href*="arxiv.org"]:before {
+	    mask-image: svg-arxiv();
+	}
+	
+	
 	
 
 	// community.fau.de

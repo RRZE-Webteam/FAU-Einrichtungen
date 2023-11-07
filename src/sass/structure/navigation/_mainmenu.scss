@@ -491,6 +491,8 @@
 
                 @media (max-width: $screen-md) {
                     margin-top: 50px;
+                    max-height: calc(100vh - 162px);
+                    overflow-y: auto;
 
                 }
             }
