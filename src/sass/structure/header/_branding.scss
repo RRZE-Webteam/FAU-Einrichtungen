@@ -6,7 +6,7 @@
     .branding {
         max-width: 100%;
         display: none;
-	    margin: $fau-gutter-halfwidth 0;
+	margin: var(--width-gutter-half) 0;
 	
         @media (min-width: $screen-md) {
             display: block;
@@ -20,7 +20,7 @@
             padding: 0;
             font-family: $fontStackFAU;
             font-weight: bold;
-            column-gap: $fau-gutter-halfwidth;
+            column-gap: var(--width-gutter-half);
             row-gap: 0.5rem;
 
             .custom-logo-link {
@@ -37,11 +37,6 @@
             }
 
             @media (min-width: $screen-md) {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            @media (min-width: $screen-md) {
                 flex-direction: row;
                 align-items: center;
             }
@@ -53,15 +48,24 @@
             flex-direction: row;
             justify-content: flex-start;
             flex-wrap: nowrap;
-            column-gap: 15px;
+            column-gap: var(--width-gutter-half);
             row-gap: 0;
 
-            @media (max-width: $screen-xs),
-            (min-width: $screen-md) and (max-width: $screen-lg) {
+
+	     @media (min-width: $screen-md) and (max-width: $screen-textlogo-lg - 1) {
+		 // Logo ist sichtbar, kein Umbruch auf Hamburger hier. Daher nun
+		 // aber das Logo bei dem text wrappen, wenn die Windows kleiner 
+		 // ist als $screen-textlogo-lg.
                 flex-wrap: wrap;
                 width: 240px;
             }
-
+	     @media (min-width: $screen-textlogo-lg) {
+		 // wieder zurück: Logo wird auf eine Zeile ausgegeben und 
+		 // nicht gewrappt.
+		width: 400px; 
+		flex-wrap: nowrap;
+	     }
+		 
             .baselogo {
                 flex: 0 0 148px;
 
@@ -137,6 +141,11 @@
                 margin-right: -23px;
             }
         }
+	
+	
+	.visible-title {
+	    min-width: 150px;
+	}
     }
 
     @media (max-width: $screen-md) {
@@ -147,3 +156,4 @@
     }
 
 }
+

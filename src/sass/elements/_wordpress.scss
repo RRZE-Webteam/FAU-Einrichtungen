@@ -2,53 +2,9 @@
 /* WordPress required classes
 /*-----------------------------------------------------------------------------------*/
 
-/*
-.alignnone {
-    margin: 5px 20px 20px 0;
-}
-
-.aligncenter,
-div.aligncenter {
-    display: block;
-    margin: 5px auto 5px auto;
-}
-
-.alignright {
-    float:right;
-    margin: 5px 0 20px 20px;
-}
-
-.alignleft {
-    float: left;
-    margin: 5px 20px 20px 0;
-}
-
-a img.alignright {
-    float: right;
-    margin: 5px 0 20px 20px;
-}
-
-a img.alignnone {
-    margin: 5px 20px 20px 0;
-}
-
-a img.alignleft {
-    float: left;
-    margin: 5px 20px 20px 0;
-}
-
-a img.aligncenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-*/
-
 .wp-caption {
     max-width: 100%;
 }
-
-
 
 .sticky, 
 .gallery-caption, 
@@ -73,6 +29,49 @@ a img.aligncenter {
     @media (max-width:  $screen-sm) {
 	position: fixed;
     }
+    /* Our wpadminbar shows in prod too much from plugins and other settings, 
+       that is only used in dev use cases.
+       Therfor I take some less important things out of the view, igf the screen
+       is too small
+       */
+    #wp-admin-bar-rrze-multilang-user-locale,
+    #wp-admin-bar-tm-suspend,
+    #wp-admin-bar-my-account,
+    #wp-admin-bar-search,
+    #wp-admin-bar-query-monitor,
+    #wp-admin-bar-fau-degree-program-invalidate-cache,
+    #wp-admin-bar-comments {
+	display: none;
+    }
+    @media (min-width: $screen-sm) {
+	#wp-admin-bar-rrze-multilang-user-locale,
+	#wp-admin-bar-query-monitor {
+	    display: inline-block;
+	}
+    }
+    @media (min-width: $screen-lg) {
+	#wp-admin-bar-tm-suspend {
+	    display: inline-block;
+	}
+    }
+    
+    @media (min-width: $screen-xl) {
+	#wp-admin-bar-search{
+	    display: inline-block;
+	}
+    }
+    @media (min-width: $screen-xxl) {
+	#wp-admin-bar-my-account,
+	#wp-admin-bar-fau-degree-program-invalidate-cache,
+	#wp-admin-bar-comments {
+	    display: inline-block;
+	}
+    }
+    #wp-admin-bar-top-secondary > li {
+	background-color: #1d2327;
+    }
+    
+    
 }
 
 @media (max-width: $screen-xs - 1) {

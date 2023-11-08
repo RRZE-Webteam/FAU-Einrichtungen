@@ -9,23 +9,23 @@ h4,
 h5,
 h6 {
     margin: 1.5rem 0 1rem 0;
-	font-family: inherit;
-	color: var(--color-content-headlines);
-	font-weight: bold;
-	
-	em {
-	    font-style: normal;
-	}
-	&.widget-title {
-	    margin-top: 0;			
-	}
+    font-family: inherit;
+    color: var(--color-content-headlines);
+    font-weight: bold;
+
+    em {
+	font-style: normal;
+    }
+    &.widget-title {
+	margin-top: 0;			
+    }
 }
 
 main {
     h1, h2, h3, h4, h5 {
-		a {
-			color: var(--color-content-headlines);
-		}
+	a {
+	    color: var(--color-content-headlines);
+	}
     }
 }
 
@@ -197,7 +197,25 @@ h6 {
     }
 }
 
+.subtitle {
+    margin: 1.5rem 0 1rem 0;
+    font-family: inherit;
+    color: var(--color-content-headlines);
+    font-weight: bold;
 
+    em {
+	font-style: normal;
+    }
+
+    @include hyphens(none);
+    @include px2rem($font-size-h2-small);
+    
+    .content-inline & {
+	&:first-child {
+	    margin-top: 0;
+	}
+    }
+}
 	
 @media (max-width: $breakSM) {
     .page-template-page-subnav {

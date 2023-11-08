@@ -2,8 +2,7 @@
 /* Meta region in top   fauorg-home
 /*-----------------------------------------------------------------------------------*/
 
-#meta {
-	@include placeholder(#fff);
+#meta {	
 	background: var(--color-StandardHellgrau);
 	color: var(--color-MetaTextDefault);
 	z-index: 100;
@@ -24,7 +23,7 @@
         justify-content: start;
         align-items: center;
         min-height: 50px;
-        padding: 4px 0;
+       // padding: 4px 0;
 
         @media (min-width: $screen-md) {
             padding: 5px 0;
@@ -42,17 +41,18 @@
 }
 
 .meta-widget {
-	display: inline-block;
-	margin: 5px 30px 5px 20px;
+    display: inline-block;
+    margin: 5px 30px 5px 20px;
     height: 1.875rem;
 }
 
 #headerwrapper {
-    position: static;
-    width: 100%;
-    top: 0;
-    z-index: 150;
+ 
     transition: box-shadow 0.2s;
+
+
+    
+
 
     .admin-bar & {
         top: $wordpress-adminbar-bigheight;
@@ -74,9 +74,27 @@
     }
 }
 
+/* Default header state */
 
-.visible-title {
-    @media (max-width: $screen-md) {
-        display: none;
-    }
+.header-static {
+    position: static;
+    top: auto;
+    padding-top: 0;
+    z-index: 150;
 }
+
+/* Sticky header state */
+.header-sticky {
+    position: sticky;
+    top: 0;
+    padding-top: 0;
+    z-index: 150; /* Initial state, will be adjusted if admin bar is present */
+}
+
+/* Hidden header state */
+.header-hidden {
+    position: sticky;
+    top: -400px !important; /* Adjust as needed to fully hide the header */
+ 
+}
+

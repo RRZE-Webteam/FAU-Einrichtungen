@@ -86,7 +86,7 @@ while (have_posts()) : the_post();  ?>
 
 							$headline = get_post_meta($post->ID, 'fauval_untertitel', true);
 							if ($headline) {
-								echo '<h2 class="subtitle">' . $headline . "</h2>\n";
+								echo '<p class="subtitle">' . $headline . "</p>\n";
 							}
 							echo $output;
 							the_content();

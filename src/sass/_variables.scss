@@ -84,7 +84,7 @@ $color-content-headlines:   map-get($colormap-misc, "Text");
 $color-links:		    map-get($colormap-misc, "Text");
 $color-content-links:	    map-get($colormap-misc, "Text");
 $color-content-links-underline:	    map-get($colormap-primary, "ci-hell");
-$color-content-links-hover: map-get($colormap-primary, "ci-hell-kontrast");
+$color-content-links-hover: map-get($colormap-primary, "ci-hell");
 
 
 // Footer
@@ -391,6 +391,9 @@ $screen-sm-min:              $screen-sm;
 
 $screen-md:                  992px;
 $screen-md-min:              $screen-md;
+
+$screen-textlogo-lg:	    1100px;
+// higher breakpoint for fau textlogo
 
 $screen-lg:                  1200px;
 $screen-lg-min:              $screen-lg;

@@ -1098,18 +1098,17 @@ function fau_get_hero_title($overwrite = '') {
 
     if ($title = fau_is_endpoint()) {
         return ucfirst($title);
+     } elseif (is_archive()) {
+        return get_the_archive_title();     
     } elseif ((is_front_page()) || (is_home())) {
-        return get_the_title(get_option('page_for_posts'));
+        return get_option('blogname'); // get_the_title(get_option('page_for_posts'));
     } elseif (is_category()) {
         return single_cat_title('', false);
     } elseif (is_tag()) {
         return __('Schlagwort', 'fau').' "'.single_tag_title('', false).'"';    
     } elseif (is_date()) {
         return get_the_time();
-    } elseif (!is_single() && !is_page() && !is_search() && get_post_type() != 'post' && !is_404()) {
-        $post_type = get_post_type_object(get_post_type());
-        return $post_type->labels->name;
-    } elseif (is_page()) {
+    } elseif (is_page()) {        
         return fau_get_the_title();
     } elseif (is_search()) {
         $thistitle    = '<span>'.__('Suche', 'fau').'</span>';
@@ -1125,8 +1124,10 @@ function fau_get_hero_title($overwrite = '') {
         return __('Beiträge von','fau').' '.$userdata->display_name;
     } elseif (is_404()) {
         return __('Seite nicht gefunden','fau');
-    } elseif (is_archive()) {
-        return get_the_archive_title(); 
+
+    } elseif (!is_single() && !is_page() && !is_search() && get_post_type() != 'post' && !is_404()) {
+        $post_type = get_post_type_object(get_post_type());
+        return $post_type->labels->name;
     }
 
 
