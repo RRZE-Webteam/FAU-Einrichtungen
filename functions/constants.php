@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 104,
+	'optiontable-version'           => 105,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -282,9 +282,9 @@ $defaultoptions = [
 	// Hier kann davor noch ein teil dahinter stehen.     
 	'advanced_header_template'                  => '',
 	// Anzeigeform des Heros    bei Index- und Kategorieseiten
-	'advanced_template_page_start_display_content'  => false,
+	'advanced_template_page_start_display_content'  => true,
 	// Auf dem Template "Page Start" (Startseite) wird der Content
-	//  per Default nicht gezeigt (false). Über die Customizer-Option
+	//  per Default gezeigt. Über die Customizer-Option
 	// kann dieser Eintrag geändert werden.
 
 	'advanced_imagelink_default_order'		=> 'asc',
