@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 105,
+	'optiontable-version'           => 106,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -282,10 +282,7 @@ $defaultoptions = [
 	// Hier kann davor noch ein teil dahinter stehen.     
 	'advanced_header_template'                  => '',
 	// Anzeigeform des Heros    bei Index- und Kategorieseiten
-	'advanced_template_page_start_display_content'  => true,
-	// Auf dem Template "Page Start" (Startseite) wird der Content
-	//  per Default gezeigt. Über die Customizer-Option
-	// kann dieser Eintrag geändert werden.
+
 
 	'advanced_imagelink_default_order'		=> 'asc',
 	// Default für die Order von Imagelinks
@@ -1376,13 +1373,7 @@ $setoptions = array(
 					'type'    => 'section',
 					'title'   => __('Templates', 'fau'),
 				),
-				'advanced_template_page_start_display_content'	  => array(
-					'type'    => 'toggle',
-					'title'   => __('Startseite: Inhalt zeigen', 'fau'),
-					'label'   => __('Auf der Startseite wird per Default nur die Artikelliste gezeigt. Mit diesen Schalter kann oberhalb der Artikelliste auch eigenen Inhalt eingeblendet werden.', 'fau'),
-					'default' => $defaultoptions['advanced_template_page_start_display_content'],
-					'parent'  => 'templates'
-				),
+
                 'advanced_template_hr_linecolor' => array(
 					'type'    => 'select',
 					'title'   => __('Farbe Trennlinie', 'fau'),
