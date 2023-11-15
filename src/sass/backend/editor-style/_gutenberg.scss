@@ -8,4 +8,15 @@ Backend CSS Settings for Block Editor (Gutenberg)
 	margin: 0 30px;
     }
     
+
+
+    .edit-post-layout__metaboxes {
+	background-color: #f0f0f1;
+	padding-top: 20px;
+	padding-bottom: 20px;
+    }
+    .edit-post-meta-boxes-area .postbox {
+	max-width: 1040px;
+	margin: 0 auto 10px;
+    }
 }
