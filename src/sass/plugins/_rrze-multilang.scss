@@ -3,142 +3,103 @@
 /* https://github.com/RRZE-Webteam/rrze-multilang
 /*-----------------------------------------------------------------------------------*/
 .fau-theme .meta-widget.rrze-multilang-widget {
-    margin: 0;
-    position: absolute;
-    top: 10px;
-    left: 50px;
-    right: inherit;
-    margin: 0;
+    
+        @include inline-block();
+        background: transparent;
+	margin: 0;
+	position:relative;
+	right:inherit;
+	top:inherit;
+	    
+        ul {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+	    
+	    width: 100%;
+	    @media (min-width: $screen-sm) {
+		width: auto;
+		display: flex;
+	    }
+            
+	   li {
+	        padding: 0;
+                margin: 0;
+                border: none;
+
+                @include no-list();
+		box-shadow: none;
+		transition: initial;
+		
+		background: transparent;
+		font-weight: normal;
+		text-decoration: none;
 	
-	ul {
-		margin: unset;
+		a {
+		    &.lang-current.current {
+			display: none;
+		    }
+		    
+		    color: var(--color-MetaTextDefault);
+		    background: transparent;
+		    height: inherit;
+		    line-height: inherit;
+		    margin: inherit;
+		    min-width: inherit;
+		    width: 100%;
+		    @media (min-width: $screen-sm) {
+			 width: auto;
+		     }
+	    
+		    box-shadow: none;
+		    text-decoration: none;
+		    transition: none;
+		    text-decoration-color: none;
+		    padding: 0.3rem 0.7rem;
+		    border-radius: var(--border-radius);
+		    font-weight: normal;
+		    text-transform: capitalize;
+		   
+		}
+		a::after,
+		a::before {
+		    content: '';
+		}
 		
-		li {
-			a {
-				text-decoration: none;
-				border-radius: var(--border-radius);
-				height: 33px;
-				background-color: var(--color-StandardHellgrau);
-				color: transparent;
-				line-height: 33px;
-				padding: 0 7px;
-				min-width: 69px;
-				position: relative;
-		
-				&:before {
-					content: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="UTF-8"%3F><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82.5 70.47"><path fill="%2304316A" d="m73.12,21.56h-20.62v-12.19c0-5.18-4.2-9.37-9.38-9.38H9.38C4.2,0,0,4.2,0,9.38v22.5c0,5.18,4.2,9.37,9.38,9.38v3.92c0,1.51.91,2.88,2.31,3.45,1.41.59,3.03.27,4.1-.82.07-.07.13-.14.18-.21l4.67-6.34h9.37v12.19c0,5.18,4.2,9.37,9.38,9.38h20.79l6.56,6.56c1.47,1.46,3.84,1.46,5.3,0,.7-.7,1.1-1.65,1.1-2.65v-3.91c5.18,0,9.37-4.2,9.38-9.38v-22.5c0-5.17-4.2-9.37-9.37-9.38ZM27.96,10.47c-.43-.94-1.54-1.36-2.48-.93-.41.19-.74.52-.93.93l-9.38,20.62c-.43.94-.01,2.05.93,2.48.24.11.51.17.77.17.74,0,1.4-.43,1.71-1.1l2.91-6.4h9.52l.13.29c-.74,1.35-1.14,2.86-1.15,4.4v6.56h-10.31c-.6,0-1.16.28-1.51.76l-5.05,6.86v-5.75c0-1.04-.84-1.88-1.88-1.88h-1.88c-3.11,0-5.62-2.52-5.62-5.62V9.38c0-3.11,2.52-5.62,5.62-5.62h33.75c3.11,0,5.62,2.52,5.62,5.62v12.19h-9.38c-2,0-3.94.65-5.53,1.85l-5.88-12.94Zm1.35,12.03h-6.11l3.05-6.72,3.06,6.72Zm49.44,30.94c0,3.1-2.52,5.62-5.62,5.62h-1.88c-1.04,0-1.87.84-1.88,1.87h0v5.79l-7.11-7.11c-.35-.35-.83-.55-1.33-.55h-21.56c-3.11,0-5.62-2.52-5.62-5.62v-22.5c0-3.11,2.52-5.62,5.62-5.62h33.75c3.11,0,5.62,2.52,5.62,5.62v22.5Z" stroke-width="0"/><path fill="%2304316A" d="m65.62,35.63h0s-7.5,0-7.5,0v-3.75c0-1.04-.84-1.88-1.88-1.88s-1.88.84-1.88,1.88v3.75h-7.5c-1.04,0-1.88.84-1.88,1.88s.84,1.88,1.88,1.88h13.91c-.46,3.19-2.08,6.09-4.55,8.15-1.44-1.21-2.61-2.71-3.42-4.41-.44-.94-1.56-1.33-2.5-.89-.94.44-1.33,1.56-.89,2.5.87,1.81,2.06,3.44,3.52,4.83-1.67.71-3.46,1.08-5.27,1.08-1,0-1.81.82-1.81,1.83,0,.02,0,.03,0,.05.03,1.05.89,1.88,1.94,1.88,2.98,0,5.9-.8,8.47-2.31,2.59,1.5,5.54,2.3,8.53,2.31,1,0,1.81-.82,1.81-1.83,0-.02,0-.03,0-.05-.03-1.05-.89-1.88-1.94-1.88-1.75,0-3.49-.37-5.1-1.06,2.79-2.72,4.56-6.32,4.99-10.19h1.05c1.04,0,1.88-.84,1.88-1.88s-.84-1.88-1.88-1.88Z" stroke-width="0"/></svg>');
-					display: inline-block;
-					width: 26px;
-					height: 26px;
-					position: absolute;
-					text-align: center;
-					vertical-align: top;
-					top: 6px;
-					left: 10px;
-				}
-
-				&:after {
-					content: attr(hreflang);
-					position: absolute;
-					left: 41px;
-					color: var(--color-zentral-basis);
-					top: 0;
-				}
-
-				&:hover,
-				&:focus {
-					box-shadow: none;
-					background: none;
-					background-color: var(--color-zentral-dunkelste);
-
-					&:before {
-						content: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="UTF-8"%3F><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82.5 70.47"><path fill="%23ffffff" d="m73.12,21.56h-20.62v-12.19c0-5.18-4.2-9.37-9.38-9.38H9.38C4.2,0,0,4.2,0,9.38v22.5c0,5.18,4.2,9.37,9.38,9.38v3.92c0,1.51.91,2.88,2.31,3.45,1.41.59,3.03.27,4.1-.82.07-.07.13-.14.18-.21l4.67-6.34h9.37v12.19c0,5.18,4.2,9.37,9.38,9.38h20.79l6.56,6.56c1.47,1.46,3.84,1.46,5.3,0,.7-.7,1.1-1.65,1.1-2.65v-3.91c5.18,0,9.37-4.2,9.38-9.38v-22.5c0-5.17-4.2-9.37-9.37-9.38ZM27.96,10.47c-.43-.94-1.54-1.36-2.48-.93-.41.19-.74.52-.93.93l-9.38,20.62c-.43.94-.01,2.05.93,2.48.24.11.51.17.77.17.74,0,1.4-.43,1.71-1.1l2.91-6.4h9.52l.13.29c-.74,1.35-1.14,2.86-1.15,4.4v6.56h-10.31c-.6,0-1.16.28-1.51.76l-5.05,6.86v-5.75c0-1.04-.84-1.88-1.88-1.88h-1.88c-3.11,0-5.62-2.52-5.62-5.62V9.38c0-3.11,2.52-5.62,5.62-5.62h33.75c3.11,0,5.62,2.52,5.62,5.62v12.19h-9.38c-2,0-3.94.65-5.53,1.85l-5.88-12.94Zm1.35,12.03h-6.11l3.05-6.72,3.06,6.72Zm49.44,30.94c0,3.1-2.52,5.62-5.62,5.62h-1.88c-1.04,0-1.87.84-1.88,1.87h0v5.79l-7.11-7.11c-.35-.35-.83-.55-1.33-.55h-21.56c-3.11,0-5.62-2.52-5.62-5.62v-22.5c0-3.11,2.52-5.62,5.62-5.62h33.75c3.11,0,5.62,2.52,5.62,5.62v22.5Z" stroke-width="0"/><path fill="%23ffffff" d="m65.62,35.63h0s-7.5,0-7.5,0v-3.75c0-1.04-.84-1.88-1.88-1.88s-1.88.84-1.88,1.88v3.75h-7.5c-1.04,0-1.88.84-1.88,1.88s.84,1.88,1.88,1.88h13.91c-.46,3.19-2.08,6.09-4.55,8.15-1.44-1.21-2.61-2.71-3.42-4.41-.44-.94-1.56-1.33-2.5-.89-.94.44-1.33,1.56-.89,2.5.87,1.81,2.06,3.44,3.52,4.83-1.67.71-3.46,1.08-5.27,1.08-1,0-1.81.82-1.81,1.83,0,.02,0,.03,0,.05.03,1.05.89,1.88,1.94,1.88,2.98,0,5.9-.8,8.47-2.31,2.59,1.5,5.54,2.3,8.53,2.31,1,0,1.81-.82,1.81-1.83,0-.02,0-.03,0-.05-.03-1.05-.89-1.88-1.94-1.88-1.75,0-3.49-.37-5.1-1.06,2.79-2.72,4.56-6.32,4.99-10.19h1.05c1.04,0,1.88-.84,1.88-1.88s-.84-1.88-1.88-1.88Z" stroke-width="0"/></svg>');
-					}
-
-					&:after {
-						color: var(--color-white);
-					}
-				}
-
-				@media (max-width: $screen-xl) {
-					margin-top: -1px;
-				}
-			}
-			
-			&:first-child::before {
-				display: none;
-			}
+		a:hover, a:focus {
+		    background-color: var(--color-primary-ci-hell);
+		    color: var(--color-primary-ci-hell-kontrast);
 		}
-	}
-
-    @media (max-width: $screen-md) {
-		top: 16px;
-		right: 60px;
-		left: unset;
-		display: none;
-
-		ul {
-			width: auto;
+	
+	    }
+	    li:first-child {
+		a::before {
+		    @include svg-icon-place(1rem);
+		    mask-image: svg-icon-language();
+		    background-color: var(--color-MetaTextDefault);
+		    background-image: none;
+		    margin-right: 0.3rem;
 		}
-		li a {
-			width: 100%;
+		a:hover::before, 
+		a:focus::before {
+		    background-color: var(--color-primary-ci-hell-kontrast);
 		}
-    }
+	    }
+	     li:first-child::before {
+		content: ' ';
+		height: inherit;
+		margin: inherit;
+		width: inherit;
+	    }
 
-	@media (min-width: $screen-md ) {
-		position: relative;
-		left: inherit;
-		top: inherit;
-		margin-left: -10px;
-		
-		ul {
-			width: max-content;
-			
-			li {
-				white-space: nowrap;
-			}
-		}
-	}
-}
 
-.meta-widget.rrze-multilang-widget {
-	.mobile-language-switcher & {
-		display: none;
-	}
-
-	@media (max-width: $screen-md) {
-
-		.mobile-language-switcher & {
-			display: block;
-			z-index: 999;
-		}
-	}
-}
-
-@media (min-width: 1200px) {
-	.fau-theme .rrze-multilang-widget li a,
-	.fau-theme .rrze-multilang-widget li span {
-		min-width: unset !important;
-		width: 69px !important;
-		position: relative;
-	}
-}
-
-@media (min-width: 992px) {
-	.fau-theme .meta-widget.rrze-multilang-widget ul {
-		width: unset !important;
-	}
-}
-
-@media (max-width: 992px) {
-	.fau-theme .meta-widget.rrze-multilang-widget li a {
-		width: 42px !important;
-	}
-}
-
-@media (min-width: 768px) {
-	.fau-theme .rrze-multilang-widget ul {
-		width: unset !important;
-	}
+	    
+	    
+	    
+        }
+    
+    
+    
+   
 }
 

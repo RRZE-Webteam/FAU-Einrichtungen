@@ -178,6 +178,24 @@
     
     
     .gallery-slick {
+	
+	--_icon-size: var(--icon-size, 5rem);
+	--size-navbutton: var(--_icon-size, 40px);
+	--size-sliderregion: var(--_icon-size) * 2.5;
+	--_icon-color: var(--icon-color, var(--color-Text));
+	--_icon-color-hover: var(--icon-color-hover, var(--color-MainBackground));
+	--_icon-background-color-hover: var(--icon-background-color-hover, var(--color-Text));
+	--_icon_background-color: var(--icon_background-color, var(--color-MainBackground));
+
+	--_icon-border-radius: var(--icon-border-radius, 50%);
+	--_icon-border-width: var(--icon-border-width, 1px);
+	--_icon-border-color: var(--icon-border-color, var(--color-Text));
+	--_icon-border-color-hover: var(--icon-border-color-hover, var(--color-Text));
+
+	--_icon-size-mask: var(--icon-size-mask, 55%);
+
+	
+	
 	figure,
 	.gallery-image-caption {
 	    text-align: center;
@@ -190,13 +208,12 @@
 	    }
 	}
 	.slider-nav-width {
-	   width: 90%;
-	   width: calc(100% - 100px);
-	   margin: 20px auto 10px;
+	   width: calc(100% - var(--size-sliderregion));
+	   margin: var(--width-gutter-half) auto var(--width-gutter-half);
 	
 	    .slick-slide {
 		cursor: pointer;
-		max-height: 150px;
+		max-height: 175px;
 		overflow: hidden;
 		margin-left: 5px;
 		margin-right: 5px;
@@ -215,16 +232,13 @@
 	    
 	    
 	}
-	.slider-nav-width.slick-dotted {
-	    margin-bottom: 45px;
-	}
-	
+
 	.slick-prev,
 	.slick-next {
 		position: absolute;
 		display: block;
-		height: 40px;
-		width: 40px;
+		height: var(--_icon-size);
+		width: var(--_icon-size);
 		line-height: 0px;
 		font-size: 0px;
 		cursor: pointer;
@@ -243,84 +257,50 @@
 		padding: 0;
 		border: none;
 		outline: none;
-
-		
-		&:hover,
-		&:focus {
-			outline: none;
-			background: transparent;
-			color: var(--color-button-bg);
-
-			&:before {
-				 color: var(--color-button-hover-bg);
-			}
-		}
-
 		
 		&:before {
-			font-size: 40px;
-			line-height: 1;
-			color: var(--color-button-bg);
-			text-shadow: 0 0 1px var(--color-button-text);
+			width: var(--_icon-size); 
+			height: var(--_icon-size); 
+			display: inline-block;
+			content: ' ';
+			-webkit-mask-size: var(--_icon-size-mask); 
+			mask-size: var(--_icon-size-mask); 
+			-webkit-mask-repeat: no-repeat;
+			mask-repeat: no-repeat;
+			-webkit-mask-position: center;
+			mask-position: center;
+			background-color: var(--_icon-color);
 
+			-webkit-mask-image: svg-angle-right();
+			mask-image: svg-angle-right();
+			
 		}
-		
-
-
 	}
 
 	.slick-prev {
-		left: -40px;
+		left: calc(var(--_icon-size) * -1);
 
 		[dir="rtl"] & {
 			left: auto;
-			right: -40px;
+			right: calc(var(--_icon-size) * -1);
 		}
-
-		@media (min-width: $break-1360) {
-			left: -50px;
-			[dir="rtl"] & {
-				left: auto;
-				right: -50px;
-			}
-		}
-
 
 		&:before {
-			@extend .fa;
-			@extend .fa-chevron-left;
-
+			transform: rotate(180deg);
 			[dir="rtl"] & {
-				@extend .fa-chevron-right;
+			    transform: rotate(0deg);
 			}
 		}
 
 	}
 
 	.slick-next {
-		right: -40px;
+		right: calc(var(--_icon-size) * -1);
 
 		[dir="rtl"] & {
-			left: -40px;
+			left: calc(var(--_icon-size) * -1);
 			right: auto;
-		}
-
-		@media (min-width: $break-1360) {
-			right: -50px;
-			[dir="rtl"] & {
-				left: -50px;
-				right: auto;
-			}
-		}
-
-
-		&:before {
-			@extend .fa;
-			@extend .fa-chevron-right;
-
-			[dir="rtl"] & {
-				@extend .fa-chevron-left;
-			}
+			transform: rotate(180deg);
 		}
 
 	}
@@ -366,7 +346,6 @@
 	
 	
 	.slick-dots {
-	    position: absolute;
 	    //display: block;
 	    display: flex;
 	    justify-content: center;
@@ -379,20 +358,20 @@
 
 		position: relative;
 		display: inline-block;
-		width: 1.5rem;
-		height: 1.5rem;
-		margin: 0.2rem 0.5rem;
 		padding: 0;
 		cursor: pointer;
+		margin: 0;
+		width: auto;
 		
 		button {
 		    
 		    display: block;
 		    width: 2rem;
-		    height: 1.8rem;
+		    height: 2rem;
 		    cursor: pointer;
-			border-radius: var(--border-radius, 0px);
+		    border-radius: var(--border-radius, 0px);
 		    padding: 0;
+		    margin: 0 0.3rem;
 		    color: var(--color-primary-ci-hell-kontrast);
 		    background-color: var(--color-primary-ci-hell);
 		    

@@ -198,6 +198,10 @@
 	    mask-image: svg-arxiv();
 	}
 	
+	// clarivate / webofscience
+	&[href*="webofscience.com"]:before {
+	    mask-image: svg-clarivate();
+	}
 	
 	
 
