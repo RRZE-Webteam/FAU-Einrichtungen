@@ -19,6 +19,7 @@ $colormap-misc: ("Text": #222,
 		 "Default": #04316A,
 		 "MainBackground":  #fff, 
 		 "StandardHellgrau": #e9edf2,	
+		 "StandardHellgrau-Hover": #d3dde6,
 		 "ContentBorders": #dfe6ec,
 		 "ContentRegions": #f5f7f9,  
 		 "white":   #fff,
@@ -99,12 +100,12 @@ $color-hero-text:	map-get($colormap-primary, "ci-hell-kontrast");
 
 
 // Main Menu
-$color-mainmenu-toplevel-bg:	    map-get($colormap-misc, "MainBackground");
-$color-mainmenu-toplevel-text:	    map-get($colormap-misc, "Text");
+$color-mainmenu-toplevel-bg:		map-get($colormap-misc, "MainBackground");
+$color-mainmenu-toplevel-text:		map-get($colormap-misc, "Text");
 $color-mainmenu-toplevel-hover-text:	map-get($colormap-primary, "ci-hell-kontrast");
 $color-mainmenu-toplevel-hover-bg:	map-get($colormap-primary, "ci-hell");
-$color-mainmenu-sublevel-bg:	    map-get($colormap-primary, "ci-hell");
-$color-mainmenu-sublevel-text:	    map-get($colormap-primary, "ci-hell-kontrast");
+$color-mainmenu-sublevel-bg:		map-get($colormap-primary, "ci-hell");
+$color-mainmenu-sublevel-text:		map-get($colormap-primary, "ci-hell-kontrast");
 $color-mainmenu-sublevel-hover-text:	map-get($colormap-primary, "dunkler-kontrast");
 $color-mainmenu-sublevel-hover-bg:	map-get($colormap-primary, "dunkler");
 $color-mainmenu-sublevel-button-text:	map-get($colormap-primary, "ci-hell-kontrast");
@@ -113,24 +114,25 @@ $color-mainmenu-sublevel-button-hover-text:	map-get($colormap-primary, "dunkelst
 $color-mainmenu-sublevel-button-hover-bg:	map-get($colormap-primary, "dunkelste");
 
 // Submenu (= Subnav links)
-$color-submenu-toplevel-bg:	    map-get($colormap-misc, "MainBackground");
-$color-submenu-toplevel-text:	    map-get($colormap-misc, "Text");
+$color-submenu-toplevel-bg:		map-get($colormap-misc, "MainBackground");
+$color-submenu-toplevel-text:		map-get($colormap-misc, "Text");
 $color-submenu-toplevel-hover-text:	map-get($colormap-primary, "ci-hell-kontrast");
 $color-submenu-toplevel-hover-bg:	map-get($colormap-primary, "ci-hell");
-$color-submenu-active-bg:	    map-get($colormap-primary, "ci-hell");
-$color-submenu-active-text:	    map-get($colormap-primary, "ci-hell-kontrast");
-$color-submenu-hover-text:	map-get($colormap-primary, "dunkler-kontrast");
-$color-submenu-hover-bg:	map-get($colormap-primary, "dunkler");
+$color-submenu-active-bg:		map-get($colormap-primary, "ci-hell");
+$color-submenu-active-text:		map-get($colormap-primary, "ci-hell-kontrast");
+$color-submenu-hover-text:		map-get($colormap-primary, "dunkler-kontrast");
+$color-submenu-hover-bg:		map-get($colormap-primary, "dunkler");
 $color-submenu-currentlevel-text:	map-get($colormap-primary, "ci-hell2-kontrast");
-$color-submenu-currentlevel-bg:	    map-get($colormap-primary, "ci-hell2");
-$color-submenu-sublevel-text:	map-get($colormap-primary, "ci-hell-kontrast");
-$color-submenu-sublevel-bg:	    map-get($colormap-primary, "ci-hell");
+$color-submenu-currentlevel-bg:		map-get($colormap-primary, "ci-hell2");
+$color-submenu-currentpage-text-hover:	map-get($colormap-misc, "StandardHellgrau-Hover");
+$color-submenu-sublevel-text:		map-get($colormap-primary, "ci-hell-kontrast");
+$color-submenu-sublevel-bg:		map-get($colormap-primary, "ci-hell");
 
-$color-submenu-currentpage-bg:	map-get($colormap-primary, "dunkelste");
-$color-submenu-currentpage-text:map-get($colormap-primary, "dunkelste-kontrast");
+$color-submenu-currentpage-bg:		map-get($colormap-primary, "dunkelste");
+$color-submenu-currentpage-text:	map-get($colormap-primary, "dunkelste-kontrast");
 
-$color-menulink-hover-text:	map-get($colormap-primary, "dunkler-kontrast");
-$color-menulink-hover-bg:	map-get($colormap-primary, "dunkler");
+$color-menulink-hover-text:		map-get($colormap-primary, "dunkler-kontrast");
+$color-menulink-hover-bg:		map-get($colormap-primary, "dunkler");
 
 
 
