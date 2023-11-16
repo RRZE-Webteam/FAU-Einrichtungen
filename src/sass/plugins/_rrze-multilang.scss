@@ -65,9 +65,7 @@
 		a::before {
 		    content: '';
 		}
-	//	a::after {
-	//	    content: attr(hreflang);
-	//	}
+		
 		a:hover, a:focus {
 		    background-color: var(--color-primary-ci-hell);
 		    color: var(--color-primary-ci-hell-kontrast);
@@ -76,14 +74,15 @@
 	    }
 	    li:first-child {
 		a::before {
-		   
 		    @include svg-icon-place(1rem);
-		    background-image: svg-icon-language($colorDefault);
+		    mask-image: svg-icon-language();
+		    background-color: var(--color-MetaTextDefault);
+		    background-image: none;
 		    margin-right: 0.3rem;
 		}
 		a:hover::before, 
 		a:focus::before {
-		    background-image: svg-icon-language(#fff);
+		    background-color: var(--color-primary-ci-hell-kontrast);
 		}
 	    }
 	     li:first-child::before {
