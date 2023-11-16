@@ -2,27 +2,34 @@
 /* Subnav in content
 /*-----------------------------------------------------------------------------------*/
 
-// Convert color variable to value for SVG fill
-@function color-to-svg-fill($colour) {
-    @return '%23' + str-slice('#{$colour}', 2, -1)
-}
-
 .sidebar-subnav {
-	height: 100%;
-	border-radius: var(--border-radius);
+    --_icon-size: var(--icon-size, 2rem);
+    --_icon-color: var(--color-hero-text);
+    --_icon-color-hover: var(--color-hero-text);
+    --_icon-size-mask: var(--icon-size-mask, 100%);
+
+    height: 100%;
+    border-radius: var(--border-radius);
 
     header {
 		margin-top: 0px;
 		@include px2rem($font-size-h3);
 		font-weight: 500;
-		background-color: var(--color-primary-ci-hell);
-		padding: 15px 20px;
-		line-height: 1.5;
-	
+		
+		padding: var(--width-gutter-half);
+		background-color: var(--color-white);
+		@media (min-width: $screen-md) {
+			background-color: var(--color-primary-ci-hell);
+		}
+		
+		
 		a {
 			display: block;
 			position: relative;
-			padding: 0px 22px 0px 22px;
+			padding: 0;
+			margin-left: 2rem;
+			overflow-wrap: break-word;
+			
 			
 			@media (min-width: $screen-md) {
 				color: var(--color-hero-text);
@@ -46,39 +53,35 @@
 			}
 
 			&:before {
-				display: inline-block;
-				position: absolute;
-				content: '';
-				width: 2.2rem;
-				height: 2.2rem;
-				line-height: 1.4rem;
-				font-size: 0.9333333333rem;
-				background-image: inherit;
-				background-repeat: no-repeat;
-				background-size: 100%;
-				background-position: center center;
-				transform: rotate(180deg);
-				background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="#{color-to-svg-fill($color-hero-text)}" d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"/%3E%3C/svg%3E%0A');
-				left: -13px;
-				top: -3px;
-			}
+			    width: var(--_icon-size); 
+			    height: var(--_icon-size); 
+			    margin: 0;
+			    display: inline-block;
+			    content: ' ';
+			    -webkit-mask-size: var(--_icon-size-mask); 
+			    mask-size: var(--_icon-size-mask); 
+			    -webkit-mask-repeat: no-repeat;
+			    mask-repeat: no-repeat;
+			    -webkit-mask-position: center;
+			    mask-position: center;
+			    
+			    background-color: var(--color-submenu-currentlevel-text);
+			    @media (min-width: $screen-md) {
+				background-color: var(--_icon-color);
+			    }
 
-			@media (max-width: $screen-md) {
-				&:before {
-					background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="#{color-to-svg-fill($color-links)}" d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"/%3E%3C/svg%3E%0A');
-				}
-			}
-			
+			    -webkit-mask-image: svg-angle-right();
+			    mask-image: svg-angle-right();
+			    transform: rotate(180deg);
+			    position: absolute;
+			    top: 0; // calc(50% - 1rem);
+			    left: -2.2rem;
 
-			@media (max-width: $screen-md) {
-				padding: 0px 22px 0px 22px;
 			}
+	
 		}
 
-		@media (max-width: $screen-md) {
-			background-color: var(--color-white);
-			//padding: 5px 0px 5px 20px;
-		}
+
     }
 }
 #subnav {
@@ -95,27 +98,18 @@
 		> a {
 			box-shadow: inset 5px 0px 0px 0px var(--color-primary-ci-hell);
 		}
-		//&:before {
-		//	content: '';
-		//	display: block;
-		//	position: absolute;
-		//	left: 0;
-		//	width: 5px;
-		//	height: 35px;
-		//	background-color: #04316a;
-		//}
+		
 	}
 
 	> li {
 		> a {
-			padding: 8px 20px;
+		    padding: 0.4rem var(--width-gutter-half);
+		    @media (min-width: $screen-md) {
+			padding: 0.5rem var(--width-gutter-half);	
+		    }		
 		}
 
-		//&.current_page_item {
-		//	&:before {
-		//		height: 43px;
-		//	}
-		//}
+		
 	}
 
 	ul, li {
@@ -124,27 +118,19 @@
 
 	a {
 		text-decoration: none;
+		overflow-wrap: break-word;
 		display: block;
 		@include px2rem($font-size-nav-level2);
 		font-weight: 500;
-
-		padding: 6px 20px 6px 0;
 		color: var(--color-submenu-currentlevel-text);
-
+		padding: 0.35rem var(--width-gutter-half);
+		   
 		&:hover,
 		&:focus {
-			//color: var(--color-submenu-currentlevel-text);
-			//transition: text-decoration 0.1s ease;
-			//text-decoration: underline;
-			//text-decoration-color: var(--color-primary-ci-hell);
-			//text-underline-offset: 0.3rem;
-			//text-decoration-thickness: 0.15rem;
-			background-color: #d3dde6;
+			background-color: var(--color-submenu-currentlevel-text-hover,#d3dde6);
 		}
 
-		@media (max-width: $screen-md) {
-			padding: 6px 15px;
-		}
+		
 
 	}
 
@@ -153,15 +139,7 @@
 	}
 
 
-	.current_page_item {
-		> a {
-			//transition: text-decoration 0.1s ease;
-			//text-decoration: underline;
-			//text-decoration-color: var(--color-primary-ci-hell);
-			//text-underline-offset: 0.3rem;
-			//text-decoration-thickness: 0.15rem;
-		}
-	}
+	
 	.current_page_item,
 	.current_page_ancestor {
 		> a {
@@ -277,14 +255,14 @@ ul#subnav {
 
 
 @media (max-width: $screen-sm - 1) {
-  	ul.menu {
-		margin-bottom: 10px;
-	}
+    ul.menu {
+	    margin-bottom: 10px;
+    }
 
     #subnav {
 		ul {
-				margin-left: 0;
-				margin-right: 0;
+			margin-left: 0;
+			margin-right: 0;
 		}
     }
 }
