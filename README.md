@@ -1,8 +1,8 @@
 # FAU-Einrichtungen
 
-![Aktuelle Version](https://img.shields.io/github/package-json/v/rrze-webteam/fau-einrichtungen/master?label=Version) [![Release Version](https://img.shields.io/github/v/release/rrze-webteam/FAU-Einrichtungen?label=Release+Version)](https://github.com/rrze-webteam/fau-einrichtungen/releases/) ![GitHub License](https://img.shields.io/github/license/rrze-webteam/fau-einrichtungen?label=Lizenz) ![GitHub issues](https://img.shields.io/github/issues/rrze-webteam/fau-einrichtungen)
+[![Aktuelle Version](https://img.shields.io/github/package-json/v/rrze-webteam/fau-einrichtungen/master?label=Version)](https://github.com/RRZE-Webteam/FAU-Einrichtungen) [![Release Version](https://img.shields.io/github/v/release/rrze-webteam/FAU-Einrichtungen?label=Release+Version)](https://github.com/rrze-webteam/fau-einrichtungen/releases/) [![GitHub License](https://img.shields.io/github/license/rrze-webteam/fau-einrichtungen?label=Lizenz)](https://github.com/RRZE-Webteam/FAU-Einrichtungen/blob/master/LICENSE) [![GitHub issues](https://img.shields.io/github/issues/rrze-webteam/fau-einrichtungen)](https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues)
 
-Wordpress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU), https://www.fau.de
+WordPress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU), https://www.fau.de
 
 ## Version
 
