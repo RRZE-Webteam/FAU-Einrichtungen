@@ -9,8 +9,8 @@
         "RRZE"
     ],
     "compatibility": {
-        "wprequires": "6.2",
-        "wptestedup": "6.3",
+        "wprequires": "6.3",
+        "wptestedup": "6.4",
         "phprequires": "8.0"
     },
     "author": {
