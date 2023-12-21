@@ -7,10 +7,9 @@
  * @since FAU 1.0
  */
 
+get_header();
 $error_hidedefaultnotice = get_theme_mod('advanced_error_sidebar_hidedefaultnotice');
 
-?>
-get_header();
 ?>
  <div id="content">
     <div class="content-container">	   
