@@ -23,13 +23,13 @@ $advanced_header_search_hide = get_theme_mod('advanced_header_search_hide', fals
         if (empty($advanced_header_search_hide)) {
         ?>
         <div itemscope itemtype="https://schema.org/WebSite">
-        <meta itemprop="url" content="<?php echo home_url('/'); ?>">
+        <meta itemprop="url" content="<?php echo fau_esc_url(home_url('/')); ?>">
         <form itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction" id="search-header"
-              role="search" aria-label="<?php echo get_theme_mod('title_hero_search'); ?>" method="get" class="searchform" action="<?php echo fau_esc_url(home_url('/')); ?>">
+              role="search" aria-label="<?php echo esc_html(get_theme_mod('title_hero_search')); ?>" method="get" class="searchform" action="<?php echo fau_esc_url(home_url('/')); ?>">
             <label for="headsearchinput">
                 <?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:', 'fau'); ?>
             </label>
-            <meta itemprop="target" content="<?php echo home_url('/') ?>?s={s}">
+            <meta itemprop="target" content="<?php echo fau_esc_url(home_url('/')); ?>?s={s}">
             <input itemprop="query-input" id="headsearchinput" type="text" value="<?php the_search_query(); ?>" name="s"
                    placeholder="<?php _e('Suchbegriff', 'fau'); ?>" required>
             <?php
