@@ -46,5 +46,4 @@ $error_hidedefaultnotice = get_theme_mod('advanced_error_sidebar_hidedefaultnoti
     </div>
  </div>
 <?php
-get_template_part('template-parts/footer', 'social'); 
 get_footer();
