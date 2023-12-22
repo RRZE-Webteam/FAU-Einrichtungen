@@ -13,7 +13,7 @@
 		    <?php fau_breadcrumb(); ?>
 	    </div>
 	    <div class="hero-row" aria-hidden="true" role="presentation">
-		 <p class="presentationtitle"><?php echo get_theme_mod('title_hero_search'); ?></p>
+            <p class="presentationtitle"><?php echo esc_html(get_theme_mod('title_hero_search')); ?></p>
 	    </div>
 	</div>
 </section>

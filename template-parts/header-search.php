@@ -10,28 +10,22 @@
 
 $advanced_header_search_hide = get_theme_mod('advanced_header_search_hide', false);
 
-
 ?>
 <div class="meta-search">
-    <?php
+<?php
     /** Condition statement if plugin is currently active */
     if (is_plugin_active('rrze-search/rrze-search.php')) {
         /** WP function for loading widget's sidebar */
         dynamic_sidebar('rrze-search-sidebar');
     } else {
         /** Original Snippet from WP Theme */
-        if (empty($advanced_header_search_hide)) {
-        ?>
-        <div itemscope itemtype="https://schema.org/WebSite">
-        <meta itemprop="url" content="<?php echo home_url('/'); ?>">
-        <form itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction" id="search-header"
-              role="search" aria-label="<?php echo get_theme_mod('title_hero_search'); ?>" method="get" class="searchform" action="<?php echo fau_esc_url(home_url('/')); ?>">
-            <label for="headsearchinput">
-                <?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:', 'fau'); ?>
-            </label>
-            <meta itemprop="target" content="<?php echo home_url('/') ?>?s={s}">
-            <input itemprop="query-input" id="headsearchinput" type="text" value="<?php the_search_query(); ?>" name="s"
-                   placeholder="<?php _e('Suchbegriff', 'fau'); ?>" required>
+        if (empty($advanced_header_search_hide)) { ?>
+    <div itemscope itemtype="https://schema.org/WebSite">
+        <meta itemprop="url" content="<?php echo fau_esc_url(home_url('/')); ?>">
+        <form itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction" id="search-header" role="search" aria-label="<?php echo esc_html(get_theme_mod('title_hero_search')); ?>" method="get" class="searchform" action="<?php echo fau_esc_url(home_url('/')); ?>">
+            <label for="headsearchinput"><?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:', 'fau'); ?></label>
+            <meta itemprop="target" content="<?php echo fau_esc_url(home_url('/')); ?>?s={s}">
+            <input itemprop="query-input" id="headsearchinput" type="text" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchbegriff', 'fau'); ?>" required>
             <?php
             if (get_theme_mod('search_allowfilter')) {
                 $autosearch_types = get_theme_mod('search_post_types_checked');
@@ -39,12 +33,12 @@ $advanced_header_search_hide = get_theme_mod('advanced_header_search_hide', fals
                 if (is_array($listtypes)) {
                     foreach ($listtypes as $type) {
                         if (in_array($type, $autosearch_types)) {
-                            echo '<input type="hidden" name="post_type[]" value="'.$type.'">'."\n";
+                            echo '<input type="hidden" name="post_type[]" value="'.$type.'">';
                         }
                     }
                 }
             }
-            ?>
+?>
             <div class="search-initiate-button">
                 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 125;" xml:space="preserve">
                     <path d="M41.52,90.52c7.25,0.01,14.34-2.15,20.35-6.21l21.12,21.12c2.75,2.75,7.2,2.75,9.96,0.01c2.75-2.75,2.75-7.2,0.01-9.96
@@ -56,7 +50,7 @@ $advanced_header_search_hide = get_theme_mod('advanced_header_search_hide', fals
             <input type="submit" enterkeyhint="search" value="<?php _e('Finden', 'fau'); ?>">
         </form>
     </div>
-    <?php } ?>
-        <?php } ?>
+<?php } 
+} ?>
 </div>
 

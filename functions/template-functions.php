@@ -1505,8 +1505,7 @@ endif;
 /* Display blog entries as list
 /*-----------------------------------------------------------------------------------*/
 if (!function_exists('fau_articlelist')) :
-    function fau_articlelist($posttag = '', $postcat = '', $num = 5, $divclass = '', $title = '')
-    {
+    function fau_articlelist($posttag = '', $postcat = '', $num = 5, $divclass = '', $title = '')  {
         $posttag = $posttag ? esc_attr($posttag) : '';
 
         if ((!isset($posttag)) && (!isset($postcat))) {
@@ -1580,8 +1579,7 @@ endif;
 /*-----------------------------------------------------------------------------------*/
 /* Add another esc_url, but also makes URL relative
 /*-----------------------------------------------------------------------------------*/
-function fau_esc_url($url)
-{
+function fau_esc_url($url) {
     if (!isset($url)) {
         $url = home_url("/");
     }
@@ -1589,16 +1587,14 @@ function fau_esc_url($url)
     return fau_make_link_relative(esc_url($url));
 }
 
-function get_fau_template_uri()
-{
+function get_fau_template_uri() {
     return get_template_directory_uri();
 }
 
 /*-----------------------------------------------------------------------------------*/
 /* Makes absolute URL from relative URL
 /*-----------------------------------------------------------------------------------*/
-function fau_make_absolute_url($url)
-{
+function fau_make_absolute_url($url) {
     if (!isset($url)) {
         $url = home_url("/");
     } else {
@@ -1614,8 +1610,7 @@ function fau_make_absolute_url($url)
 /*-----------------------------------------------------------------------------------*/
 /* make urls relative to base url
 /*-----------------------------------------------------------------------------------*/
-function fau_make_link_relative($url)
-{
+function fau_make_link_relative($url) {
     $orig             = $url;
     $current_site_url = get_site_url();
     if (!empty($GLOBALS['_wp_switched_stack'])) {
@@ -1637,8 +1632,7 @@ function fau_make_link_relative($url)
 /*-----------------------------------------------------------------------------------*/
 /*is url external
 /*-----------------------------------------------------------------------------------*/
-function fau_is_url_external($url)
-{
+function fau_is_url_external($url) {
     $rellink = fau_make_link_relative($url);
     if (substr($rellink, 0, 4) == 'http') {
         return true;
@@ -1649,8 +1643,7 @@ function fau_is_url_external($url)
 /*-----------------------------------------------------------------------------------*/
 /* Custom template tags: Functions for templates and output
 /*-----------------------------------------------------------------------------------*/
-function fau_load_template_part($template_name, $part_name = null)
-{
+function fau_load_template_part($template_name, $part_name = null) {
     ob_start();
     get_template_part($template_name, $part_name);
     $var = ob_get_contents();
@@ -1662,8 +1655,7 @@ function fau_load_template_part($template_name, $part_name = null)
 /*-----------------------------------------------------------------------------------*/
 /* Check for langcode and return it
 /*-----------------------------------------------------------------------------------*/
-function fau_get_page_langcode($id = 0)
-{
+function fau_get_page_langcode($id = 0) {
     if ($id == 0) {
         return;
     }
@@ -1681,59 +1673,9 @@ function fau_get_page_langcode($id = 0)
 }
 
 /*-----------------------------------------------------------------------------------*/
-/* getAccordionbyTheme if RRZE ELement Accordions are not active
-/*-----------------------------------------------------------------------------------*/
-function getAccordionbyTheme($id = 0, $title = '', $color = '', $load = '', $name = '', $content = '')
-{
-    $addclass = '';
-    $title    = esc_attr($title);
-    $color    = $color ? ' ' . esc_attr($color) : '';
-    $load     = $load ? ' ' . esc_attr($load) : '';
-    $name     = $name ? ' name="' . esc_attr($name) . '"' : '';
-
-
-    /* TODO:
-     * 1. Add detection of rrze-elements plugin and if its there and active, use it.
-     * 2. Later: Add a warning prompt to activate rrze-elements instead of
-     *    returning the content
-     *
-     */
-
-
-    if (empty($title) && (empty($content))) {
-        return;
-    }
-    if (!empty($load)) {
-        $addclass .= " " . $load;
-    }
-
-    $id = intval($id) ? intval($id) : 0;
-    if ($id < 1) {
-        if (!isset($GLOBALS['current_collapse'])) {
-            $GLOBALS['current_collapse'] = 0;
-        } else {
-            $GLOBALS['current_collapse']++;
-        }
-        $id = $GLOBALS['current_collapse'];
-    }
-    $output = '<div class="accordion-group' . $color . '">';
-    $output .= '<h3 class="accordion-heading"><button class="accordion-toggle" data-toggle="collapse" href="#collapse_' . $id . '">' . $title . '</button></h3>';
-    $output .= '<div id="collapse_' . $id . '" class="accordion-body' . $addclass . '"' . $name . '>';
-    $output .= '<div class="accordion-inner clearfix">';
-
-    $output .= do_shortcode(trim($content));
-
-    $output .= '</div></div>';  // .accordion-inner & .accordion-body
-    $output .= '</div>';        // . accordion-group
-
-    return $output;
-}
-
-/*-----------------------------------------------------------------------------------*/
 /* Add langcode to title if need
 /*-----------------------------------------------------------------------------------*/
-function fau_get_the_title($id = 0)
-{
+function fau_get_the_title($id = 0) {
     global $post;
     if ($id == 0) {
         $id = $post->ID;
@@ -1761,8 +1703,7 @@ function fau_get_the_title($id = 0)
 /*-----------------------------------------------------------------------------------*/
 /* create HTML for image figcaption
 /*-----------------------------------------------------------------------------------*/
-function fau_get_image_figcaption($atts = array(), $type = 'post-image', $class = 'post-image-caption')
-{
+function fau_get_image_figcaption($atts = array(), $type = 'post-image', $class = 'post-image-caption') {
     // $type:
     //    'post-image': Standard Post Image
 
@@ -1807,8 +1748,7 @@ function fau_get_image_figcaption($atts = array(), $type = 'post-image', $class 
 /*-----------------------------------------------------------------------------------*/
 /* create HTML for image with srcset-codes
 /*-----------------------------------------------------------------------------------*/
-function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array())
-{
+function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $classes = '', $atts = array()) {
     if ($id == 0) {
         return;
     }
@@ -2011,13 +1951,9 @@ function fau_get_image_fallback_htmlcode($size = 'rwd-480-3-2', $alttext = '', $
  * https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues/949
  */
 /*-----------------------------------------------------------------------------------*/
-function fau_get_the_taglist($before = '', $sep = '', $after = '')
-{
+function fau_get_the_taglist($before = '', $sep = '', $after = '') {
     $terms = get_the_tags();
-
     $res = '';
-
-
 
     if (!is_wp_error($terms) && !empty($terms)) { // Check if $terms is OK.
 
@@ -2067,8 +2003,7 @@ function fau_get_the_taglist($before = '', $sep = '', $after = '')
  */
 /*-----------------------------------------------------------------------------------*/
 if (!function_exists("print_indented")) {
-    function print_indented($fn, $num_tabs = 1, $params = null)
-    {
+    function print_indented($fn, $num_tabs = 1, $params = null)  {
         ob_start();
         call_user_func($fn, $params);
         $html = ob_get_contents();
@@ -2082,8 +2017,7 @@ if (!function_exists("print_indented")) {
 /*-----------------------------------------------------------------------------------*/
 /*  Returns language code, without subcode
 /*-----------------------------------------------------------------------------------*/
-function fau_get_language_main()
-{
+function fau_get_language_main() {
     $charset = explode('-', get_bloginfo('language'))[0];
     return $charset;
 }
@@ -2093,8 +2027,7 @@ function fau_get_language_main()
 /* Change WordPress default language attributes function to
  * strip of region code parts. Not used yet /anymore
 /*-----------------------------------------------------------------------------------*/
-function fau_get_language_attributes($doctype = 'html')
-{
+function fau_get_language_attributes($doctype = 'html') {
     $attributes = array();
 
     if (function_exists('is_rtl') && is_rtl())

@@ -485,7 +485,7 @@ function unset_debugmode() {
  */
 function upversionpatch() {
     var newVer = semver.inc(info.version, 'patch');
-    return src(['./package.json', './README.md','./' + info.maincss])
+    return src(['./package.json', './README.md', './readme.txt','./' + info.maincss])
         .pipe(bump({
             version: newVer
         }))
@@ -503,7 +503,7 @@ function upversionpatch() {
  */
 function devversion() {
     var newVer = semver.inc(info.version, 'prerelease');
-    return src(['./package.json', './README.md', './' + info.maincss])
+    return src(['./package.json', './README.md', './readme.txt', './' + info.maincss])
         .pipe(bump({
             version: newVer
         }))
