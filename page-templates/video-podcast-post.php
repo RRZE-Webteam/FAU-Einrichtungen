@@ -107,10 +107,10 @@ while (have_posts()) : the_post();  ?>
 
 							if (('' != get_theme_mod('post_prev_next')) && (true == get_theme_mod('post_prev_next'))) {
 								the_post_navigation(array(
-									'prev_text'  => __('%title'),
-									'next_text'  => __('%title'),
+									'prev_text'  => __('%title', 'fau'),
+									'next_text'  => __('%title', 'fau'),
 									'in_same_term' => true,
-									'taxonomy' => __('category'),
+									'taxonomy' => __('category', 'fau'),
 								));
 							}
 							?>

@@ -70,20 +70,19 @@ if ((filter_var($copyright, FILTER_VALIDATE_URL)) && (preg_match('/\/cropped\-/'
                            }
                        ?>
                        <div class="<?php echo $infobarclass;?>">				    
-                           <?php 
-                           if (!fau_empty($title)) {	
-                            echo '<p class="sitetitle">'. $title. '</p>';
-                           }
-                           $desc = strip_tags(get_bloginfo( 'description' ));
-                           if (!fau_empty($desc)) {
-
-                           echo '<div class="slogan"><p class="description';
-                                               if ($length > 80) {
-                                                   echo " screen-reader-text";
-                                               }
-                                               echo '">'.$desc."</p></div>";
-                           }
-                           ?>
+                            <?php 
+                            if (!fau_empty($title)) {	
+                                echo '<p class="sitetitle">'. $title. '</p>';
+                            }
+                            $desc = strip_tags(get_bloginfo( 'description' ));
+                            if (!fau_empty($desc)) {
+                               echo '<div class="slogan"><p class="description';
+                               if ($length > 80) {
+                                   echo " screen-reader-text";
+                               }
+                               echo '">'.$desc."</p></div>";
+                            }
+                            ?>
                        </div>
                    </div>		   
                    </div>

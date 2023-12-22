@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 106,
+	'optiontable-version'           => 107,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -255,7 +255,7 @@ $defaultoptions = [
 	'search_display_typenote'                   => true,
 	'advanced_display_postthumb_alt-from-desc'	=> false,
 	'search_post_types'                         => array("page", "post", "attachment"),
-	'search_post_types_checked'                 => array("page", "post"),
+	'search_post_types_checked'                 => array("page", "post", "faq"),
 	'search_allowfilter'                        => true,
 	'search_notice_searchregion'                => __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie bitte die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.', 'fau'),
 
@@ -323,8 +323,7 @@ $content_width = $defaultoptions['content-width'];
 /* Initialisiere Options und Theme Mods 
 /*  (unter besonderer Berücksichtung der Abwärtskompatibilität alter Options)
 /*--------------------------------------------------------------------*/
-function fau_initoptions()
-{
+function fau_initoptions() {
 	global $defaultoptions;
 	global $setoptions;
 	global $OPTIONS_NAME;
@@ -417,8 +416,7 @@ function fau_initoptions()
 /* Für Installationen, bei der das Logo jedoch mit Header Image hochgeladen wurden,
 /* soll das Logo dennoch weiterhin angezeigt werden. 
 /*--------------------------------------------------------------------*/
-function fau_compatible_header_logo()
-{
+function fau_compatible_header_logo() {
 	$data = get_theme_mod('header_image_data');
 	if ($data) {
 		// Es existiert ein Custom Header 
@@ -444,8 +442,7 @@ function fau_compatible_header_logo()
 /*--------------------------------------------------------------------*/
 /* Suchfelder
 /*--------------------------------------------------------------------*/
-function fau_get_searchable_fields($format = 'array')
-{
+function fau_get_searchable_fields($format = 'array') {
 	//  $search_post_types = array("page", "post", "attachment");
 	$search_post_typelist  = array(
 		"page"		=> __('Seiten', 'fau'),

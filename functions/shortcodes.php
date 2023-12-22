@@ -5,15 +5,12 @@
  * @since FAU 1.0
  */
 
-class FAUShortcodes
-{
-	function __construct()
-	{
+class FAUShortcodes {
+	function __construct()	{
 		add_action('init', array($this, 'add_shortcodes'));
 	}
 
-	function add_shortcodes()
-	{
+	function add_shortcodes()	{
 		add_shortcode('organigram', array($this, 'fau_organigram'));
 
 		// Paragraphes and content regions
@@ -232,8 +229,7 @@ class FAUShortcodes
 	/*-----------------------------------------------------------------------------------*/
 	/* Shortcodes to display articlelist
 	/*-----------------------------------------------------------------------------------*/
-	function fau_shortcode_articlelist($atts, $content = null)
-	{
+	function fau_shortcode_articlelist($atts, $content = null)	{
 		extract(shortcode_atts(
 			array(
 				'cat' => '',
@@ -267,8 +263,7 @@ new FAUShortcodes();
 /*-----------------------------------------------------------------------------------*/
 /* Shortcodes to display relevant articlelist
 /*-----------------------------------------------------------------------------------*/
-function relevant_posts_shortcode($atts)
-{
+function relevant_posts_shortcode($atts){
 	// Parse shortcode attributes
 	$atts = shortcode_atts(
 		array(

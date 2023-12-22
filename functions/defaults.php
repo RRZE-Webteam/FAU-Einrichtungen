@@ -100,39 +100,39 @@ $default_link_liste = array(
 
 	'meta' => array(
 	    'link1'  => array(
-		'name'	    => __('Campo', 'fau' ),
-		'content'  => 'https://campo.fau.de/',
+            'name'	    => __('Campo', 'fau' ),
+            'content'  => 'https://campo.fau.de/',
 	    ),
 	    'link2'  => array(
-		'name'	    => __('UnivIS', 'fau' ),
-		'content'  => 'https://univis.fau.de/',
+            'name'	    => __('StudOn', 'fau' ),
+            'content'  => 'https://studon.fau.de/',
 	    ),
 	    'link3'  => array(
-		'name'	    => __('Stellenangebote', 'fau' ),
-		'content'  => 'https://www.jobs.fau.de/',
+            'name'	    => __('Stellenangebote', 'fau' ),
+            'content'  => 'https://www.jobs.fau.de/',
 	    ),
 	    'link4'  => array(
-		'name'	    => __('Lageplan', 'fau' ),
-		'content'  => 'https://karte.fau.de/',
+            'name'	    => __('Lageplan', 'fau' ),
+            'content'  => 'https://karte.fau.de/',
 	    ),
 	    'link5'  => array(
-		'name'	    => __('Hilfe im Notfall', 'fau' ),
-		'content'  => 'https://www.fau.de/notfall/',
+            'name'	    => __('Hilfe im Notfall', 'fau' ),
+            'content'  => 'https://www.fau.de/notfall/',
 	    ),
 	   
 	),
 	'techmenu' => array(    
 	    'link1'  => array(
-		'name'	    => __('Impressum', 'fau' ),
-		'content'  => __('/impressum/', 'fau' ),
+            'name'	    => __('Impressum', 'fau' ),
+            'content'  => __('/impressum/', 'fau' ),
 	    ),
 	    'link2'  => array(
-		'name'	    => __('Datenschutz', 'fau' ),
-		'content'  => __('/datenschutz/', 'fau' ),
+            'name'	    => __('Datenschutz', 'fau' ),
+            'content'  => __('/datenschutz/', 'fau' ),
 	    ),
 	    'link3'  => array(
-		'name'	    => __('Barrierefreiheit', 'fau' ),
-		'content'  => __('/barrierefreiheit/', 'fau' ),
+            'name'	    => __('Barrierefreiheit', 'fau' ),
+            'content'  => __('/barrierefreiheit/', 'fau' ),
 	    ),	
 	  
 	),
@@ -205,8 +205,7 @@ $default_fau_orga_faculty = array(
 );
 
 
-$pagebreakargs = array(
-    
+$pagebreakargs = array(   
     'before'   => '<nav class="pagination pagebreaks" aria-label="'.__( 'Seitenüberblick', 'fau' ).'"><p>' . __( 'Seite:', 'fau' ).' <span class="subpages">',
 		'after'            => '</span></p></nav>',
 		'link_before'      => '<span class="number">',
