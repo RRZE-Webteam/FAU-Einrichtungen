@@ -35,7 +35,7 @@ if ($custom_logo_id) {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<?php print_indented("wp_head",2); ?>
 	</head>
-	<body id="top" <?php body_class(); ?>><?php wp_body_open(); ?>		
+	<body id="top" <?php body_class(); ?>><?php wp_body_open(); ?>
 		<div id="pagewrapper">
 			<div id="headerwrapper">
 				<?php print_indented('get_template_part', 4, 'template-parts/header-skiplinks'); ?>
