@@ -75,9 +75,7 @@
 		    </div>
 		</div>
 	    </div>
-	    <a href="#pagewrapper" class="top-link">
-		<?php fau_use_svg("chevron-up-solid",38,38); ?>		
-		<span class="screen-reader-text"><?php echo __('Nach oben','fau'); ?></span></a>
+	    <a href="#pagewrapper" class="top-link"><span class="arrow-up"></span><span class="screen-reader-text"><?php echo __('Nach oben','fau'); ?></span></a>
 	</footer>
     </div> 
 		<?php print_indented("wp_footer",2); ?>

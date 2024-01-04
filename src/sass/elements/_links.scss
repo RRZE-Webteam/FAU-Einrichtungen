@@ -65,28 +65,64 @@ a {
 
 //Special Links
 .top-link {
+	--icon-color: var(--color-button-text, #fff);
+	--_icon-size: 2rem;
+	--_icon-size-mask: 3.5rem;
+	
 	position: fixed;
-	bottom: 20px; 
-	right: 20px;
-	@include buttonstyle();
+	bottom: var(--width-gutter, 30px);
+	right: var(--width-gutter, 30px);
+	background-color: var(--color-button-bg);
+	color: var(--icon-color);
+	border: none;
+	padding: 0.5rem; 
+	margin: 0;
+	width: 3.4rem;
 	display: none;
+	text-align: center;
 
+	
+	.arrow-up {
+	    width: var(--_icon-size); 
+	    height: var(--_icon-size); 
+	    display: inline-block;
+	    content: ' ';
+	    -webkit-mask-size: var(--_icon-size-mask); 
+	    mask-size: var(--_icon-size-mask); 
+	    -webkit-mask-repeat: no-repeat;
+	    mask-repeat: no-repeat;
+	    -webkit-mask-position: center;
+	    mask-position: center;
+	    background-color: var(--icon-color);
+	    
+	    -webkit-mask-image: svg-angle-right();
+	    mask-image: svg-angle-right();
+	   transform: rotate(270deg);
+	}
+	
+	&:focus,  
+	&:hover {
+	    background-color: var(--color-button-hover-bg);
+	    .arrow-up {
+		--icon-color: var(--color-button-hover-text);
+	    }
+	} 
 }
 
 	    
 // Continue/Weiterlesen Link
 .continue {
-	margin-left: auto;
-	white-space: nowrap;
+    margin-left: auto;
+    white-space: nowrap;
 
     .read-more-link {	
-		@include nextlink-ghostbutton();
+	@include nextlink-ghostbutton();
     }
 
-	@media (max-width: $screen-sm) {
-		margin-left: unset;
-		margin-top: 0.8rem;
-	}
+    @media (max-width: $screen-sm) {
+	    margin-left: unset;
+	    margin-top: 0.8rem;
+    }
 }
 	    
 // Additional link effects for Content
