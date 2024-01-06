@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.4.13-2
+Version: 2.4.14-0
 Requires at least: 6.3
 Tested up to: 6.4
 Requires PHP: 8.0
@@ -193,6 +193,7 @@ Mixins File for Wordpress Theme FAU
   box-sizing: border-box;
 }
 
+/* Resets to special elements */
 article,
 aside,
 details,
@@ -5028,7 +5029,7 @@ p, address {
 #content p {
   -webkit-hyphens: auto;
           hyphens: auto;
-  max-width: 75ch;
+  max-width: 125ch;
   text-wrap: pretty;
 }
 #content .textwidget p {
