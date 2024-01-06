@@ -18,7 +18,7 @@ p, address {
 p {
 	#content & {
 	    @include hyphens(auto);
-	    max-width: 75ch;
+	    max-width: 125ch;
 	    text-wrap: pretty;
 	}
 	
