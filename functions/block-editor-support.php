@@ -9,11 +9,7 @@
 /* We use our own color set in this theme and dont want autors to change text colors
 /*-----------------------------------------------------------------------------------*/
 function fau_gutenberg_settings() {
-    global $is_gutenberg_enabled;
-
-	$is_gutenberg_enabled = fau_blockeditor_is_active();
-
-	if ($is_gutenberg_enabled) {
+    if (fau_blockeditor_is_active) {
 		return;
 	}
 	
@@ -49,6 +45,7 @@ function fau_add_gutenberg_assets() {
 	}
 }
 // add_action( 'enqueue_block_editor_assets', 'fau_add_gutenberg_assets' );
+// derzeit noch keine eigene CSS File mit Anpassungen...
 
 /*-----------------------------------------------------------------------------------*/
 /* Remove Block Style from frontend as long wie dont use it
@@ -62,15 +59,6 @@ function fau_deregister_blocklibrary_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'fau_deregister_blocklibrary_styles', 100 );
 
-
-/*
- * Note: Maybe test if gutenberg is enabled first.
- *   $is_gutenberg_enabled = false;
- *   if(has_filter('is_gutenberg_enabled') {
- *       $is_gutenberg_enabled = apply_filters('is_gutenberg_enabled', false);
- *    }
- * with plugin https://gitlab.rrze.fau.de/rrze-webteam/rrze-writing/blob/master/RRZE/Writing/Editor/Editor.php
- */
 
 /*-----------------------------------------------------------------------------------*/
 /* Check if Block Editor is active.
