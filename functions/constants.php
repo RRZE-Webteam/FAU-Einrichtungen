@@ -22,7 +22,7 @@ $defaultoptions = [
 	// Ansonsten kann er manuell über 'gulp nodebug' auf false und
 	//  mit 'gulp debugmode' auf true gesetzt werden
 	// Oder hier von Hand :)
-	'js-version'                    => '2.4',
+	'js-version'                    => '2.5',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
 	'website_type'                  => 1,
 	// website_type: 

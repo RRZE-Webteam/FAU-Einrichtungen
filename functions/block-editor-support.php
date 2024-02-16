@@ -24,7 +24,7 @@ function fau_gutenberg_settings() {
     global $is_gutenberg_enabled;
 
 	$is_gutenberg_enabled = fau_blockeditor_is_active();
-	
+
 	if ($is_gutenberg_enabled) {
 		return;
 	}
@@ -56,7 +56,7 @@ function fau_add_gutenberg_assets() {
 	// Load the theme styles within Gutenberg.
 	global $is_gutenberg_enabled;
 
-	if ($is_gutenberg_enabled) {
+	if (fau_blockeditor_is_active()) {
 		wp_enqueue_style( 'fau-gutenberg', get_theme_file_uri( '/css/fau-theme-gutenberg.css' ), false );
 	}
 }
@@ -66,9 +66,7 @@ function fau_add_gutenberg_assets() {
 /* Remove Block Style from frontend as long wie dont use it
 /*-----------------------------------------------------------------------------------*/
 function fau_deregister_blocklibrary_styles() {
-	global $is_gutenberg_enabled;
-
-	if (!$is_gutenberg_enabled) {
+	if (!fau_blockeditor_is_active()) {
 		wp_dequeue_style( 'wp-block-library');
 		wp_dequeue_style( 'wp-block-library-theme' );
 		wp_dequeue_style( 'wp-blocks-style' ); 
@@ -86,39 +84,38 @@ add_action( 'wp_enqueue_scripts', 'fau_deregister_blocklibrary_styles', 100 );
  * with plugin https://gitlab.rrze.fau.de/rrze-webteam/rrze-writing/blob/master/RRZE/Writing/Editor/Editor.php
  */
 
-/**
- * Check if Block Editor is active.
- * Must only be used after plugins_loaded action is fired.
- *
- * @return bool
- */
-function fau_blockeditor_is_active() {
-    // Gutenberg plugin is installed and activated.
-	$gutenberg = ! ( false === has_filter( 'replace_editor', 'gutenberg_init' ) );
-
-    // Block editor since 5.0.
-    $block_editor = version_compare( $GLOBALS['wp_version'], '5.0.0', '>' );
-
-    if ( ! $gutenberg && ! $block_editor ) {
-        return false;
-    }
-
-    if ( fau_is_classic_editor_plugin_active() ) {
+/*-----------------------------------------------------------------------------------*/
+/* Check if Block Editor is active.
+/* Must only be used after plugins_loaded action is fired.
+/*
+/* @return bool
+/*-----------------------------------------------------------------------------------*/
+function fau_blockeditor_is_active() {    
+    global $is_gutenberg_enabled;
+    $is_gutenberg_enabled = true;
+    
+    
+    if (has_filter('is_gutenberg_enabled')) {
+        $is_gutenberg_enabled = apply_filters('is_gutenberg_enabled', false);
+    } elseif ( fau_is_classic_editor_plugin_active() ) {
         $editor_option       = get_option( 'classic-editor-replace' );
         $block_editor_active = array( 'no-replace', 'block' );
-	    return in_array( $editor_option, $block_editor_active, true );
+        $is_gutenberg_enabled = in_array( $editor_option, $block_editor_active, true );
     }
     if (fau_is_newsletter_plugin_active()) {
-	return true;
+        $is_gutenberg_enabled = true;
     }
-    return false;
+    \RRZE\THEME\EINRICHTUNGEN\Debug::log("Info",  "Block editor status: $is_gutenberg_enabled","FAU-Einrichtungen->fau_blockeditor_is_active()");
+    
+    return $is_gutenberg_enabled;
 }
 
-/**
- * Check if Classic Editor plugin is active.
- *
- * @return bool
- */
+
+/*-----------------------------------------------------------------------------------*/
+/* Check if Classic Editor plugin is active.
+/*
+/* @return bool
+/*-----------------------------------------------------------------------------------*/
 function fau_is_classic_editor_plugin_active() {
 	
     if ( ! function_exists( 'is_plugin_active' ) ) {
@@ -132,9 +129,9 @@ function fau_is_classic_editor_plugin_active() {
     return false;
 }
 
-/*
- * Check if our Block Editor based Newsletter Plugin is active
- */
+/*-----------------------------------------------------------------------------------*/
+/* Check if our Block Editor based Newsletter Plugin is active
+/*-----------------------------------------------------------------------------------*/
 function fau_is_newsletter_plugin_active() {
     if ( ! function_exists( 'is_plugin_active' ) ) {
         include_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -169,43 +166,3 @@ add_action( 'init', 'fau_custom_image_blocks' );
 /*-----------------------------------------------------------------------------------*/
 /* This is the end of the code as we know it
 /*-----------------------------------------------------------------------------------*/
-
-
-
-/*-----------------------------------------------------------------------------------*/
-/* Defined allowed core block types if theme is used in Gutenberg Block Editor
-/*-----------------------------------------------------------------------------------*/
-/* 
- * TODO: 
- * Wir mussen das andersrum machen, da wir die Liste der erlaubten Typen nicht alle kennen: 
- * Es können durch Plugins andere hinzukommen, die wir bearbeitbar lassen wollen.
- * Daher andersUm
- * Array eingeben der Typen, die wir verbieten wollen.
- * Diese gegen eine Liste matchen, die alle Typen enthält.
- * Und von der Gesamatliste eben die verbotenenen Typen abziehen
-
-function fau_allowed_block_types( $allowed_block_types, $post ) {
-	global $is_gutenberg_enabled;
-
-	if ($is_gutenberg_enabled) {
-		if ( ($post->post_type === 'post' ) || ( $post->post_type === 'page' )) {
-			return array(
-			'core/paragraph',
-			'core/image',
-			'core/list',
-			'core/file',
-			'core/gallery',
-			'core/heading',
-			'core/html',
-			'core/quote',
-			'core/shortcode',
-			'core/table'
-			);
-		}
-		return $allowed_block_types;
-	}
-}
-
-// add_filter( 'allowed_block_types', 'fau_allowed_block_types', 10, 2 );
- 
- */

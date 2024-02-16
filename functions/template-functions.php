@@ -7,8 +7,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Extends the default WordPress body classes
 /*-----------------------------------------------------------------------------------*/
-function fau_body_class($classes)
-{
+function fau_body_class($classes) {
     global $defaultoptions;
     global $default_fau_orga_data;
     global $default_fau_orga_faculty;
@@ -228,6 +227,14 @@ function fau_body_class($classes)
         $classes[] = $val;
     }
     
+
+    if (fau_blockeditor_is_active()) {
+        $classes[] = 'blockeditor-enabled';
+    } else {
+        $classes[] = 'blockeditor-disabled';
+    }
+    
+    
     
     return $classes;
 }
@@ -237,8 +244,7 @@ add_filter('body_class', 'fau_body_class');
 /*-----------------------------------------------------------------------------------*/
 /* Mark sidebar as used. This will add the class with-sidebar in the body class
 /*-----------------------------------------------------------------------------------*/
-function fau_use_sidebar($activate)
-{
+function fau_use_sidebar($activate) {
     global $is_sidebar_active;
     if ($activate) {
         $is_sidebar_active = 1;

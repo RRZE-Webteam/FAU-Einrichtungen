@@ -33,7 +33,32 @@
 			    "slug": "heller",
 			    "color": "#CED9E7",
 			    "name": "Heller"
-		    }
+		    },
+		     {
+		    "slug": "fau",
+		    "color": "#04316a",
+		    "name": "Central institution"
+		  },
+		  {
+		    "slug": "phil",
+		    "color": "#fdb735",
+		    "name": "Faculty of Humanities, Social Sciences, and Theology"
+		  },
+		  {
+		    "slug": "rw",
+		    "color": "#c50f3c",
+		    "name": "Faculty of Business, Economics, and Law"
+		  },
+		  {
+		    "slug": "med",
+		    "color": "#18b4f1",
+		    "name": "Faculty of Medicine"
+		  },
+		  {
+		    "slug": "nat",
+		    "color": "#7bb725",
+		    "name": "Faculty of Sciences"
+		  }
 
 	    ]
         },
