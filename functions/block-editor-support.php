@@ -5,18 +5,6 @@
 * @since FAU 1.10
 */
 
-/* 
- * Settings for Gutenberg Editor
- *  See also: 
- *   https://wordpress.org/gutenberg/handbook/reference/theme-support/
- *   https://themecoder.de/2018/09/20/gutenberg-farbpalette/
- *   https://www.elmastudio.de/wordpress-themes-fuer-gutenberg-vorbereiten/
- *   https://www.billerickson.net/getting-your-theme-ready-for-gutenberg/
- *   https://wordpress.stackexchange.com/questions/320653/how-to-detect-the-usage-of-gutenberg
- */
-
-
-
 /*-----------------------------------------------------------------------------------*/
 /* We use our own color set in this theme and dont want autors to change text colors
 /*-----------------------------------------------------------------------------------*/
@@ -92,15 +80,21 @@ add_action( 'wp_enqueue_scripts', 'fau_deregister_blocklibrary_styles', 100 );
 /*-----------------------------------------------------------------------------------*/
 function fau_blockeditor_is_active() {    
     global $is_gutenberg_enabled;
-    $is_gutenberg_enabled = true;
+    $is_gutenberg_enabled = false;
     
     
     if (has_filter('is_gutenberg_enabled')) {
         $is_gutenberg_enabled = apply_filters('is_gutenberg_enabled', false);
+        \RRZE\THEME\EINRICHTUNGEN\Debug::log("Info",  "Filter avaible: Block editor status: $is_gutenberg_enabled","FAU-Einrichtungen->fau_blockeditor_is_active()");
     } elseif ( fau_is_classic_editor_plugin_active() ) {
         $editor_option       = get_option( 'classic-editor-replace' );
         $block_editor_active = array( 'no-replace', 'block' );
         $is_gutenberg_enabled = in_array( $editor_option, $block_editor_active, true );
+        
+        if ($is_gutenberg_enabled) {
+            \RRZE\THEME\EINRICHTUNGEN\Debug::log("Info",  "Add Filter","FAU-Einrichtungen->fau_blockeditor_is_active()");
+            add_filter( 'is_gutenberg_enabled', 'fau_set_filter_gutenberg_state' );
+        }
     }
     if (fau_is_newsletter_plugin_active()) {
         $is_gutenberg_enabled = true;
@@ -110,7 +104,15 @@ function fau_blockeditor_is_active() {
     return $is_gutenberg_enabled;
 }
 
-
+/*-----------------------------------------------------------------------------------*/
+/* Set is_gutenberg_enabled filter if not avaible
+/*-----------------------------------------------------------------------------------*/
+function fau_set_filter_gutenberg_state( $value ) {
+    global $is_gutenberg_enabled;
+    $is_gutenberg_enabled = true;
+    
+    return $is_gutenberg_enabled;
+}
 /*-----------------------------------------------------------------------------------*/
 /* Check if Classic Editor plugin is active.
 /*

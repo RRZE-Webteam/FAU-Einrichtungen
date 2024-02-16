@@ -314,7 +314,10 @@ class Debug {
     * Log to standard error/debug log
     *----------------------------------------------------------------------*/ 
     public static function log(string $level,  string $msg = '', string $location = '') {
-
+        global $defaultoptions;
+        if (!$defaultoptions['debugmode']) {
+             return;
+        }
         if (is_array($msg) || is_object($msg)) {
             $msg = print_r($msg, true);
         }
