@@ -10,7 +10,7 @@ namespace RRZE\THEME\EINRICHTUNGEN;
 
 defined('ABSPATH') || exit;
 
-class Debug {
+class Debugging {
    
     /*-----------------------------------------------------------------------
      * Gets an Variable, that can be an string, array or object and modifies

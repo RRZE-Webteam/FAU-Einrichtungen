@@ -9,7 +9,7 @@
 /* We use our own color set in this theme and dont want autors to change text colors
 /*-----------------------------------------------------------------------------------*/
 function fau_gutenberg_settings() {
-    if (fau_blockeditor_is_active) {
+    if (fau_blockeditor_is_active()) {
 		return;
 	}
 	
@@ -73,21 +73,21 @@ function fau_blockeditor_is_active() {
     
     if (has_filter('is_gutenberg_enabled')) {
         $is_gutenberg_enabled = apply_filters('is_gutenberg_enabled', false);
-        \RRZE\THEME\EINRICHTUNGEN\Debug::log("Info",  "Filter avaible: Block editor status: $is_gutenberg_enabled","FAU-Einrichtungen->fau_blockeditor_is_active()");
+        \RRZE\THEME\EINRICHTUNGEN\Debugging::log("Info",  "Filter avaible: Block editor status: $is_gutenberg_enabled","FAU-Einrichtungen->fau_blockeditor_is_active()");
     } elseif ( fau_is_classic_editor_plugin_active() ) {
         $editor_option       = get_option( 'classic-editor-replace' );
         $block_editor_active = array( 'no-replace', 'block' );
         $is_gutenberg_enabled = in_array( $editor_option, $block_editor_active, true );
         
         if ($is_gutenberg_enabled) {
-            \RRZE\THEME\EINRICHTUNGEN\Debug::log("Info",  "Add Filter","FAU-Einrichtungen->fau_blockeditor_is_active()");
+            \RRZE\THEME\EINRICHTUNGEN\Debugging::log("Info",  "Add Filter","FAU-Einrichtungen->fau_blockeditor_is_active()");
             add_filter( 'is_gutenberg_enabled', 'fau_set_filter_gutenberg_state' );
         }
     }
     if (fau_is_newsletter_plugin_active()) {
         $is_gutenberg_enabled = true;
     }
-    \RRZE\THEME\EINRICHTUNGEN\Debug::log("Info",  "Block editor status: $is_gutenberg_enabled","FAU-Einrichtungen->fau_blockeditor_is_active()");
+    \RRZE\THEME\EINRICHTUNGEN\Debugging::log("Info",  "Block editor status: $is_gutenberg_enabled","FAU-Einrichtungen->fau_blockeditor_is_active()");
     
     return $is_gutenberg_enabled;
 }

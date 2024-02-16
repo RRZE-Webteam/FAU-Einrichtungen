@@ -15,7 +15,7 @@ require_once( get_template_directory() . '/functions/template-functions.php' );
 
 require_once( get_template_directory() . '/functions/defaults.php' );
 require_once( get_template_directory() . '/functions/constants.php' );
-require_once( get_template_directory() . '/functions/debug.php' );
+require_once( get_template_directory() . '/functions/Debugging.php' );
 require_once( get_template_directory() . '/functions/sanitizer.php' );
 require_once( get_template_directory() . '/functions/customizer.php');
 
