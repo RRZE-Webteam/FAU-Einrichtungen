@@ -2,130 +2,560 @@
   "version": 2,
   "$schema": "https://schemas.wp.org/trunk/theme.json",
   "settings": {
+    "color": {
+      "custom": false,
+      "customDuotone": false,
+      "defaultDuotone": false,
+      "customGradient": false,
+      "defaultGradients": false,
+      "defaultPalette": false,
+      "gradients": [],
+      "background": false,
+      "palette": [
+        {
+          "slug": "base",
+          "color": "#222",
+          "name": "Textfarbe"
+        },
+        {
+          "slug": "contrast",
+          "color": "#fff",
+          "name": "Kontrast"
+        },
+        {
+          "slug": "primary",
+          "color": "#04316A",
+          "name": "Basis"
+        },
+        {
+          "slug": "dunkler",
+          "color": "#004A9F",
+          "name": "Dunkler"
+        },
+        {
+          "slug": "heller",
+          "color": "#CED9E7",
+          "name": "Heller"
+        },
+        {
+          "slug": "fau",
+          "color": "#04316a",
+          "name": "Central institution"
+        },
+        {
+          "slug": "phil",
+          "color": "#fdb735",
+          "name": "Faculty of Humanities, Social Sciences, and Theology"
+        },
+        {
+          "slug": "rw",
+          "color": "#c50f3c",
+          "name": "Faculty of Business, Economics, and Law"
+        },
+        {
+          "slug": "med",
+          "color": "#18b4f1",
+          "name": "Faculty of Medicine"
+        },
+        {
+          "slug": "nat",
+          "color": "#7bb725",
+          "name": "Faculty of Sciences"
+        }
+      ]
+    },
+    "typography": {
+      "customFontSize": false,
+      "lineHeight": false,
+      "fontStyle": false,
+      "letterSpacing": false,
+      "textDecoration": false,
+      "textTransform": false,
+      "dropCap": false,
+      "fluid": true,
+      "fontFamilies": [],
+      "fontSizes": [],
+      "fontWeight": false
+    },
+
+    "layout": {
+      "contentSize": "1040px",
+      "allowCustomContentAndWideSize": false,
+      "allowEditing": false
+    },
+    "spacing": {
+      "margin": false,
+      "padding": false,
+      "blockGap": null,
+      "units": ["%", "em", "rem", "vh", "vw"]
+    },
+    "border": {
+      "color": false,
+      "radius": false,
+      "style": false,
+      "width": false
+    },
+    "blocks": {
+      "rrze-elements/collapse": {
+        "color": {
+          "palette": [
+            {
+              "slug": "fau",
+              "color": "#04316a",
+              "name": "Central institution"
+            },
+            {
+              "slug": "phil",
+              "color": "#fdb735",
+              "name": "Faculty of Humanities, Social Sciences, and Theology"
+            },
+            {
+              "slug": "rw",
+              "color": "#c50f3c",
+              "name": "Faculty of Business, Economics, and Law"
+            },
+            {
+              "slug": "med",
+              "color": "#18b4f1",
+              "name": "Faculty of Medicine"
+            },
+            {
+              "slug": "nat",
+              "color": "#7bb725",
+              "name": "Faculty of Sciences"
+            }
+          ]
+        }
+      },
+      "rrze-elements/accordion": {
+        "color": {
+          "palette": [
+            {
+              "slug": "fau",
+              "color": "#04316a",
+              "name": "Central institution"
+            },
+            {
+              "slug": "phil",
+              "color": "#fdb735",
+              "name": "Faculty of Humanities, Social Sciences, and Theology"
+            },
+            {
+              "slug": "rw",
+              "color": "#c50f3c",
+              "name": "Faculty of Business, Economics, and Law"
+            },
+            {
+              "slug": "med",
+              "color": "#18b4f1",
+              "name": "Faculty of Medicine"
+            },
+            {
+              "slug": "nat",
+              "color": "#7bb725",
+              "name": "Faculty of Sciences"
+            }
+          ]
+        }
+      },
+      "rrze-elements/tabs": {
+        "color": {
+          "palette": [
+            {
+              "slug": "fau",
+              "color": "#04316a",
+              "name": "Central institution"
+            },
+            {
+              "slug": "phil",
+              "color": "#fdb735",
+              "name": "Faculty of Humanities, Social Sciences, and Theology"
+            },
+            {
+              "slug": "rw",
+              "color": "#c50f3c",
+              "name": "Faculty of Business, Economics, and Law"
+            },
+            {
+              "slug": "med",
+              "color": "#18b4f1",
+              "name": "Faculty of Medicine"
+            },
+            {
+              "slug": "nat",
+              "color": "#7bb725",
+              "name": "Faculty of Sciences"
+            }
+          ]
+        }
+      },
+      "rrze-elements/alert": {
+        "color": {
+          "palette": [
+            {
+              "slug": "default",
+              "color": "#e9edf2",
+              "name": "Default"
+            },
+            {
+              "slug": "success",
+              "color": "#dff0d8",
+              "name": "Success"
+            },
+            {
+              "slug": "info",
+              "color": "#d9edf7",
+              "name": "Info"
+            },
+            {
+              "slug": "warning",
+              "color": "#fcf8e3",
+              "name": "Warning"
+            },
+            {
+              "slug": "danger",
+              "color": "#f2dede",
+              "name": "Danger"
+            }
+          ]
+        }
+      },
+      "rrze-elements/columns": {
+        "color": {
+          "palette": [
+            {
+              "slug": "default",
+              "color": "#e9edf2",
+              "name": "Default"
+            },
+            {
+              "slug": "success",
+              "color": "#dff0d8",
+              "name": "Success"
+            },
+            {
+              "slug": "info",
+              "color": "#d9edf7",
+              "name": "Info"
+            },
+            {
+              "slug": "warning",
+              "color": "#fcf8e3",
+              "name": "Warning"
+            },
+            {
+              "slug": "danger",
+              "color": "#f2dede",
+              "name": "Danger"
+            }
+          ]
+        }
+      },
+      "core/heading": {
+        "typography": {
+          "fontSizes": [],
+          "writingMode": false
+        },
+        "appearanceTools": false,
+
         "color": {
           "custom": false,
-          "customDuotone": false,
-          "defaultDuotone": false,
-          "customGradient": false,
-          "defaultGradients": false,
-	    "palette": [
-		    {
-			    "slug": "base",
-			    "color": "#222",
-			    "name": "Textfarbe"
-		    },
-		    {
-			    "slug": "contrast",
-			    "color": "#fff",
-			    "name": "Kontrast"
-		    },
-		    {
-			    "slug": "primary",
-			    "color": "#04316A",
-			    "name": "Basis"
-		    },
-		    {
-			    "slug": "dunkler",
-			    "color": "#004A9F",
-			    "name": "Dunkler"
-		    },
-		    {
-			    "slug": "heller",
-			    "color": "#CED9E7",
-			    "name": "Heller"
-		    },
-		     {
-		    "slug": "fau",
-		    "color": "#04316a",
-		    "name": "Central institution"
-		  },
-		  {
-		    "slug": "phil",
-		    "color": "#fdb735",
-		    "name": "Faculty of Humanities, Social Sciences, and Theology"
-		  },
-		  {
-		    "slug": "rw",
-		    "color": "#c50f3c",
-		    "name": "Faculty of Business, Economics, and Law"
-		  },
-		  {
-		    "slug": "med",
-		    "color": "#18b4f1",
-		    "name": "Faculty of Medicine"
-		  },
-		  {
-		    "slug": "nat",
-		    "color": "#7bb725",
-		    "name": "Faculty of Sciences"
-		  }
-
-	    ]
+          "text": true,
+          "background": false,
+          "palette": [
+            {
+              "slug": "base",
+              "color": "#222",
+              "name": "Textfarbe"
+            },
+            {
+              "slug": "contrast",
+              "color": "#fff",
+              "name": "Kontrast"
+            }
+          ]
+        }
+      },
+      "core/paragraph": {
+        "layout": {},
+        "typography": {
+          "fontSizes": []
+        },
+        "color": {
+          "palette": [
+            {
+              "slug": "base",
+              "color": "#222",
+              "name": "Textfarbe"
+            },
+            {
+              "slug": "contrast",
+              "color": "#fff",
+              "name": "Kontrast"
+            }
+          ]
+        }
+      },
+      "core/list": {
+        "color": {
+          "custom": false,
+          "text": true,
+          "background": false,
+          "palette": [
+            {
+              "slug": "base",
+              "color": "#222",
+              "name": "Textfarbe"
+            },
+            {
+              "slug": "contrast",
+              "color": "#fff",
+              "name": "Kontrast"
+            }
+          ]
         },
         "typography": {
-		"dropCap": false,
-		"fluid": true,
-		"fontFamilies": [
-			{
-				"name": "System",
-				"slug": "system",
-				"fontFamily": "Roboto, \"FAU Chimera\", sans-serif"
-			},
-			{
-				"name": "Serif",
-				"slug": "serif",
-				"fontFamily": "Georgia, \"Times New Roman\",\"New York\",Times,\"Noto Serif\",serif"
-			},
-			{
-				"name": "Monospace",
-				"slug": "monospace",
-				"fontFamily": "Consolas,Menlo,Monaco,\"SF Mono\",\"DejaVu Sans Mono\",\"Roboto Mono\",\"Courier New\",Courier,monospace"
-			}
-		],
-		"fontSizes": [
-			{
-				"slug": "small",
-				"size": "0.8rem",
-				"name": "Small",
-				"fluid": false
-			},
-			{
-				"slug": "normal",
-				"size": "1rem",
-				"name": "Normal",
-				"fluid": false
-			},
-			{
-				"slug": "medium",
-				"size": "1.25rem",
-				"name": "Medium",
-				"fluid": false
-			}
-		]
-	},
-		
-		
-       	"layout": {
-			"contentSize": "1040px",
-			"wideSize": "1400px"
-		},
-        "spacing": {
-            "margin": false,
-            "padding": false,
-            "blockGap": null,
-            "units": [
-                "%",
-                "em",
-                "rem",
-                "vh",
-                "vw"
-            ]
+          "fontSizes": []
+        }
+      },
+      "core/list-item": {
+        "color": {
+          "custom": false,
+          "text": true,
+          "background": false,
+          "palette": [
+            {
+              "slug": "base",
+              "color": "#222",
+              "name": "Textfarbe"
+            },
+            {
+              "slug": "contrast",
+              "color": "#fff",
+              "name": "Kontrast"
+            }
+          ]
         },
-	"border": {
-	    "color": false,
-	    "radius": false,
-	    "style": false,
-	    "width": false
-	  }
+        "typography": {
+          "fontSizes": []
+        }
+      },
+      "core/pullquote": {
+        "border": {
+          "radius": false,
+          "style": false,
+          "width": false,
+          "color": false
+        },
+        "color": {
+          "custom": false,
+          "palette": [],
+          "background": false
+        },
+        "typography": {
+          "fontSizes": [],
+          "textTransform": false
+        }
+      },
+      "core/columns": {
+        "color": {
+          "background": true,
+          "heading": false,
+          "button": false,
+          "text": true,
+          "defaultPalette": false,
+          "palette": [
+            {
+              "slug": "base",
+              "color": "#222",
+              "name": "Textfarbe"
+            },
+            {
+              "slug": "contrast",
+              "color": "#fff",
+              "name": "Kontrast"
+            },
+            {
+              "slug": "default",
+              "color": "#e9edf2",
+              "name": "Default"
+            },
+            {
+              "slug": "success",
+              "color": "#dff0d8",
+              "name": "Success"
+            },
+            {
+              "slug": "info",
+              "color": "#d9edf7",
+              "name": "Info"
+            },
+            {
+              "slug": "warning",
+              "color": "#fcf8e3",
+              "name": "Warning"
+            },
+            {
+              "slug": "danger",
+              "color": "#f2dede",
+              "name": "Danger"
+            }
+          ]
+        },
+        "typography": {
+          "fontSizes": []
+        },
+        "shadow": {
+          "defaultPresets": false,
+          "presets": []
+        }
+      },
+      "core/column": {
+        "typography": {
+          "fontSizes": []
+        },
+        "shadow": {
+          "defaultPresets": false,
+          "presets": []
+        },
+        "color": {
+          "background": false,
+          "heading": false,
+          "button": false,
+          "text": true,
+          "defaultPalette": false,
+          "palette": [
+            {
+              "slug": "base",
+              "color": "#222",
+              "name": "Textfarbe"
+            },
+            {
+              "slug": "contrast",
+              "color": "#fff",
+              "name": "Kontrast"
+            }
+          ]
+        }
+      },
+      "core/quote":{
+        "typography": {
+          "fontSizes": []
+        },
+        "color": {
+          "palette": []
+        }
+      },
+      "core/preformatted": {
+        "color": {
+          "palette": [
+            {
+              "slug": "base",
+              "color": "#222",
+              "name": "Textfarbe"
+            },
+            {
+              "slug": "contrast",
+              "color": "#fff",
+              "name": "Kontrast"
+            }
+          ],
+          "background": false
+        },
+        "typography": {
+          "fontSizes": []
+        }
+      },
+      "core/table": {
+        "typography": {
+          "fontSizes": []
+        },
+        "color": {
+          "palette": [
+            {
+              "slug": "base",
+              "color": "#222",
+              "name": "Textfarbe"
+            },
+            {
+              "slug": "contrast",
+              "color": "#fff",
+              "name": "Kontrast"
+            }
+          ]
+        }
+      },
+      "core/group": {
+        "color": {
+          "background": false,
+          "heading": false,
+          "button": false,
+          "text": false,
+          "defaultPalette": false,
+          "palette": []
+        },
+        "typography": {
+          "fontSizes": []
+        },
+        "shadow": {
+          "defaultPresets": false,
+          "presets": []
+        }
+      },
+      "core/verse": {
+        "typography": {
+          "fontSizes": []
+        }
+      },
+      "core/latest-comments": {
+        "typography": {
+          "fontSizes": []
+        }
+      },
+      "core/latest-posts": {
+        "typography": {
+          "fontSizes": []
+        }
+      },
+      "core/cover": {
+        "color": {
+          "defaultPalette": false
+        },
+        "typography": {
+          "fontSizes": []
+        }
+      },
+      "core/media-text": {
+        "typography": {
+          "fontSizes": []
+        }
+      },
+      "core/button": {
+        "typography": {
+          "fontSizes": []
+        },
+        "border": {
+          "radius": false
+        }
+      },
+      "core/buttons": {
+        "typography": {
+          "fontSizes": []
+        },
+        "border": {
+          "radius": false
+        }
+      },
+      "core/code": {
+        "typography": {
+          "fontSizes": []
+        }
+      },
+      "core/categories": {
+        "typography": {
+          "fontSizes": []
+        }
+      }
     }
+  }
 }
