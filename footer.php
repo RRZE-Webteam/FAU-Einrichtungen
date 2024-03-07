@@ -10,6 +10,7 @@
  * @since FAU 1.0
  */
 
+use \RRZE\THEME\EINRICHTUNGEN\Debugging;
 
     get_template_part('template-parts/footer', 'social');
 	
@@ -32,6 +33,8 @@
 
 	<footer id="footer">
 		<div class="container">
+            
+
 			<div class="footer-row">
 				<div class="footer-logo <?php echo $logoclass; ?>">
 					<?php if (($website_type == 3 ) &&  ( is_active_sidebar( 'footer-block1' ) )) {  
