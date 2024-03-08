@@ -14,53 +14,58 @@
       "palette": [
         {
           "slug": "base",
-          "color": "#222",
+          "color": "var(--color-Text, #222)",
           "name": "Textfarbe"
         },
         {
           "slug": "contrast",
-          "color": "#fff",
+          "color": "var(--color-MainBackground, #fff)",
           "name": "Kontrast"
         },
         {
           "slug": "primary",
-          "color": "#04316A",
+          "color": "var(--color-primary-basis, #04316A)",
           "name": "Basis"
         },
         {
           "slug": "dunkler",
-          "color": "#004A9F",
+          "color": "var(--color-primary-dunkler, #004A9F)",
           "name": "Dunkler"
         },
         {
           "slug": "heller",
-          "color": "#CED9E7",
+          "color": "var(--color-primary-hell2, #CED9E7)",
           "name": "Heller"
         },
         {
           "slug": "fau",
-          "color": "#04316a",
-          "name": "Central institution"
+          "color": "var(--color-branding-zentral, #04316a)",
+          "name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
         },
         {
           "slug": "phil",
-          "color": "#fdb735",
-          "name": "Faculty of Humanities, Social Sciences, and Theology"
+          "color": "var(--color-branding-phil, #fdb735)",
+          "name": "Philosophische Fakultät"
         },
         {
           "slug": "rw",
-          "color": "#c50f3c",
-          "name": "Faculty of Business, Economics, and Law"
+          "color": "var(--color-branding-rw, #c50f3c)",
+          "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
         },
         {
           "slug": "med",
-          "color": "#18b4f1",
-          "name": "Faculty of Medicine"
+          "color": "var(--color-branding-med, #18b4f1)",
+          "name": "Medizinische Fakultät"
         },
         {
           "slug": "nat",
-          "color": "#7bb725",
-          "name": "Faculty of Sciences"
+          "color": "var(--color-branding-nat, #7bb725)",
+          "name": "Naturwissenschaftliche Fakultät"
+        },
+        {
+          "slug": "tf",
+          "color": "var(--color-branding-tf, #8C9FB1)",
+          "name": "Technische Fakultät"
         }
       ]
     },
@@ -99,62 +104,72 @@
       "rrze-elements/collapse": {
         "color": {
           "palette": [
-            {
-              "slug": "fau",
-              "color": "#04316a",
-              "name": "Central institution"
-            },
-            {
-              "slug": "phil",
-              "color": "#fdb735",
-              "name": "Faculty of Humanities, Social Sciences, and Theology"
-            },
-            {
-              "slug": "rw",
-              "color": "#c50f3c",
-              "name": "Faculty of Business, Economics, and Law"
-            },
-            {
-              "slug": "med",
-              "color": "#18b4f1",
-              "name": "Faculty of Medicine"
-            },
-            {
-              "slug": "nat",
-              "color": "#7bb725",
-              "name": "Faculty of Sciences"
-            }
+	    {
+		"slug": "fau",
+		"color": "var(--color-branding-zentral, #04316a)",
+		"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+	      },
+	      {
+		"slug": "phil",
+		"color": "var(--color-branding-phil, #fdb735)",
+		"name": "Philosophische Fakultät"
+	      },
+	      {
+		"slug": "rw",
+		"color": "var(--color-branding-rw, #c50f3c)",
+		"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+	      },
+	      {
+		"slug": "med",
+		"color": "var(--color-branding-med, #18b4f1)",
+		"name": "Medizinische Fakultät"
+	      },
+	      {
+		"slug": "nat",
+		"color": "var(--color-branding-nat, #7bb725)",
+		"name": "Naturwissenschaftliche Fakultät"
+	      },
+	      {
+		"slug": "tf",
+		"color": "var(--color-branding-tf, #8C9FB1)",
+		"name": "Technische Fakultät"
+	      }
           ]
         }
       },
       "rrze-elements/accordion": {
         "color": {
           "palette": [
-            {
-              "slug": "fau",
-              "color": "#04316a",
-              "name": "Central institution"
-            },
-            {
-              "slug": "phil",
-              "color": "#fdb735",
-              "name": "Faculty of Humanities, Social Sciences, and Theology"
-            },
-            {
-              "slug": "rw",
-              "color": "#c50f3c",
-              "name": "Faculty of Business, Economics, and Law"
-            },
-            {
-              "slug": "med",
-              "color": "#18b4f1",
-              "name": "Faculty of Medicine"
-            },
-            {
-              "slug": "nat",
-              "color": "#7bb725",
-              "name": "Faculty of Sciences"
-            }
+		{
+		"slug": "fau",
+		"color": "var(--color-branding-zentral, #04316a)",
+		"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+	      },
+	      {
+		"slug": "phil",
+		"color": "var(--color-branding-phil, #fdb735)",
+		"name": "Philosophische Fakultät"
+	      },
+	      {
+		"slug": "rw",
+		"color": "var(--color-branding-rw, #c50f3c)",
+		"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+	      },
+	      {
+		"slug": "med",
+		"color": "var(--color-branding-med, #18b4f1)",
+		"name": "Medizinische Fakultät"
+	      },
+	      {
+		"slug": "nat",
+		"color": "var(--color-branding-nat, #7bb725)",
+		"name": "Naturwissenschaftliche Fakultät"
+	      },
+	      {
+		"slug": "tf",
+		"color": "var(--color-branding-tf, #8C9FB1)",
+		"name": "Technische Fakultät"
+	      }
           ]
         }
       },
@@ -162,30 +177,35 @@
         "color": {
           "palette": [
             {
-              "slug": "fau",
-              "color": "#04316a",
-              "name": "Central institution"
-            },
-            {
-              "slug": "phil",
-              "color": "#fdb735",
-              "name": "Faculty of Humanities, Social Sciences, and Theology"
-            },
-            {
-              "slug": "rw",
-              "color": "#c50f3c",
-              "name": "Faculty of Business, Economics, and Law"
-            },
-            {
-              "slug": "med",
-              "color": "#18b4f1",
-              "name": "Faculty of Medicine"
-            },
-            {
-              "slug": "nat",
-              "color": "#7bb725",
-              "name": "Faculty of Sciences"
-            }
+		"slug": "fau",
+		"color": "var(--color-branding-zentral, #04316a)",
+		"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+	      },
+	      {
+		"slug": "phil",
+		"color": "var(--color-branding-phil, #fdb735)",
+		"name": "Philosophische Fakultät"
+	      },
+	      {
+		"slug": "rw",
+		"color": "var(--color-branding-rw, #c50f3c)",
+		"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+	      },
+	      {
+		"slug": "med",
+		"color": "var(--color-branding-med, #18b4f1)",
+		"name": "Medizinische Fakultät"
+	      },
+	      {
+		"slug": "nat",
+		"color": "var(--color-branding-nat, #7bb725)",
+		"name": "Naturwissenschaftliche Fakultät"
+	      },
+	      {
+		"slug": "tf",
+		"color": "var(--color-branding-tf, #8C9FB1)",
+		"name": "Technische Fakultät"
+	      }
           ]
         }
       },
@@ -265,12 +285,12 @@
           "palette": [
             {
               "slug": "base",
-              "color": "#222",
+              "color": "var(--color-Text,#222)",
               "name": "Textfarbe"
             },
             {
               "slug": "contrast",
-              "color": "#fff",
+              "color": "var(--color-MainBackground,#fff)",
               "name": "Kontrast"
             }
           ]
@@ -285,12 +305,12 @@
           "palette": [
             {
               "slug": "base",
-              "color": "#222",
+              "color": "var(--color-Text,#222)",
               "name": "Textfarbe"
             },
             {
               "slug": "contrast",
-              "color": "#fff",
+              "color":"var(--color-MainBackground,#fff)",
               "name": "Kontrast"
             }
           ]
@@ -304,12 +324,12 @@
           "palette": [
             {
               "slug": "base",
-              "color": "#222",
+              "color": "var(--color-Text,#222)",
               "name": "Textfarbe"
             },
             {
               "slug": "contrast",
-              "color": "#fff",
+              "color": "var(--color-MainBackground,#fff)",
               "name": "Kontrast"
             }
           ]
@@ -326,12 +346,12 @@
           "palette": [
             {
               "slug": "base",
-              "color": "#222",
+              "color": "var(--color-Text,#222)",
               "name": "Textfarbe"
             },
             {
               "slug": "contrast",
-              "color": "#fff",
+              "color": "var(--color-MainBackground,#fff)",
               "name": "Kontrast"
             }
           ]
@@ -367,12 +387,12 @@
           "palette": [
             {
               "slug": "base",
-              "color": "#222",
+              "color": "var(--color-Text,#222)",
               "name": "Textfarbe"
             },
             {
               "slug": "contrast",
-              "color": "#fff",
+              "color": "var(--color-MainBackground,#fff)",
               "name": "Kontrast"
             },
             {
@@ -427,12 +447,12 @@
           "palette": [
             {
               "slug": "base",
-              "color": "#222",
+              "color": "var(--color-Text,#222)",
               "name": "Textfarbe"
             },
             {
               "slug": "contrast",
-              "color": "#fff",
+              "color": "var(--color-MainBackground,#fff)",
               "name": "Kontrast"
             }
           ]
@@ -451,12 +471,12 @@
           "palette": [
             {
               "slug": "base",
-              "color": "#222",
+              "color": "var(--color-Text,#222)",
               "name": "Textfarbe"
             },
             {
               "slug": "contrast",
-              "color": "#fff",
+              "color": "var(--color-MainBackground,#fff)",
               "name": "Kontrast"
             }
           ],
@@ -474,12 +494,12 @@
           "palette": [
             {
               "slug": "base",
-              "color": "#222",
+              "color": "var(--color-Text,#222)",
               "name": "Textfarbe"
             },
             {
               "slug": "contrast",
-              "color": "#fff",
+              "color": "var(--color-MainBackground,#fff)",
               "name": "Kontrast"
             }
           ]
