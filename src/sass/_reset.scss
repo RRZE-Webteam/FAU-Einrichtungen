@@ -1,7 +1,15 @@
 /*-----------------------------------------------------------------------------------*/
 /* Resets styles to base
 /*-----------------------------------------------------------------------------------*/
+// Reset the box-sizing
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
 
+
+/* Resets to special elements */
 
 article,
 aside,
@@ -31,25 +39,18 @@ template {
 }
 
 
-
-
 sub,
 sup {
 	position: relative;
 	font-size: 0.75rem;
 	vertical-align: baseline;
 }
-
 sup {
 	top: -0.5em;
 }
-
 sub {
 	bottom: -0.25em;
 }
-
-
-
 
 
 small {
@@ -64,42 +65,15 @@ em {
 	font-style: italic;
 }
 
-
-
-
-blockquote.pull-right {
-	float: right;
-	padding-right: 15px;
-	padding-left: 0;
-	border-right: 5px solid #eeeeee;
-	border-left: 0;
-}
-
-blockquote.pull-right p,
-blockquote.pull-right small {
-	text-align: right;
-}
-
-blockquote.pull-right small:before {
-	content: '';
-}
-
-blockquote.pull-right small:after {
-	content: '\00A0 \2014';
-}
-
 q:before,
 q:after {
 	content: "";
 }
 
-// Reset the box-sizing
-* {
-	@include box-sizing(border-box);
+/* Scroll behavior */
+@media (prefers-reduced-motion: no-preference) {
+    :has(:target) {
+	scroll-behavior: smooth;
+	scroll-padding-top: 3rem;
+    }
 }
-
-*:before,
-*:after {
-	@include box-sizing(border-box);
-}
-

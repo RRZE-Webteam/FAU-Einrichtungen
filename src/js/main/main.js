@@ -274,7 +274,7 @@ jQuery(document).ready(function ($) {
                     $html.toggleClass('flyout-scrolling', isExpanded);
                 };
                 $topLevelFlyouts.each(function(index, topLevelFlyout) {
-                    console.log("Adding button for nav ", index);
+      //              console.log("Adding button for nav ", index);
                     var uniqueId = '_' + Math.random().toString(36).substr(2, 9);
                     topLevelFlyout.$_link = $(topLevelFlyout.previousSibling);
                     topLevelFlyout.$_button = $('<button type="button" aria-controls="' + uniqueId + '" aria-haspopup="true" aria-expanded="false" aria-hidden="true"/>')
@@ -299,7 +299,7 @@ jQuery(document).ready(function ($) {
                 };
                 $topLevelFlyoutSmall.each(function(index, topLevelFlyoutSmall) {
                     if ($(topLevelFlyoutSmall).prev().is("button")) {
-                        console.log("Button already exists for .navsmall element:", index);
+        //                console.log("Button already exists for .navsmall element:", index);
                         return; // Skip the current iteration as button already exists
                     }
             

@@ -15,14 +15,14 @@ $defaultoptions = [
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-	'debugmode'                     => false,
+	'debugmode'                     => true,
 	// Der Debugmode erlaubt die Einschaltung von Debug- und Demowerten über den Customizer.
 	// Bei der Compilierung des Themes mit Gulp wird der Debugmode bei
 	//  'gulp build'   auf false gesetzt
 	// Ansonsten kann er manuell über 'gulp nodebug' auf false und
 	//  mit 'gulp debugmode' auf true gesetzt werden
 	// Oder hier von Hand :)
-	'js-version'                    => '2.4',
+	'js-version'                    => '2.5',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
 	'website_type'                  => 1,
 	// website_type: 

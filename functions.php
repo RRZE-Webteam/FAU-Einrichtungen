@@ -9,10 +9,13 @@ global $defaultoptions, $default_fau_orga_data, $fau_used_svgs;
 global $is_gutenberg_enabled;
 
 load_theme_textdomain( 'fau', get_template_directory() . '/languages' );
+// Block Editor handling
+require_once( get_template_directory() . '/functions/block-editor-support.php');
 require_once( get_template_directory() . '/functions/template-functions.php' );
 
 require_once( get_template_directory() . '/functions/defaults.php' );
 require_once( get_template_directory() . '/functions/constants.php' );
+require_once( get_template_directory() . '/functions/Debugging.php' );
 require_once( get_template_directory() . '/functions/sanitizer.php' );
 require_once( get_template_directory() . '/functions/customizer.php');
 
@@ -39,6 +42,13 @@ require_once( get_template_directory() . '/functions/svglib.php');
 
 // Filter-Hooks
 require_once( get_template_directory() . '/functions/filters.php');
+
+// Comment handling
+require get_template_directory() . '/functions/comments.php';
+
+
+
+
 
 /*-----------------------------------------------------------------------------------*/
 /* Setup theme
@@ -381,15 +391,5 @@ function fau_embedded_posts( $query ) {
         $query->set( 'posts_per_page', 3 );
     }
 }
-
-/*-----------------------------------------------------------------------------------*/
-/* Load Comment Functions
-/*-----------------------------------------------------------------------------------*/
-
-// Comment handling
-require get_template_directory() . '/functions/comments.php';
-
-// Block Editor handling
-require_once( get_template_directory() . '/functions/gutenberg.php');
 
 

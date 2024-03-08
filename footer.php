@@ -10,6 +10,7 @@
  * @since FAU 1.0
  */
 
+use \RRZE\THEME\EINRICHTUNGEN\Debugging;
 
     get_template_part('template-parts/footer', 'social');
 	
@@ -32,6 +33,8 @@
 
 	<footer id="footer">
 		<div class="container">
+            
+
 			<div class="footer-row">
 				<div class="footer-logo <?php echo $logoclass; ?>">
 					<?php if (($website_type == 3 ) &&  ( is_active_sidebar( 'footer-block1' ) )) {  
@@ -75,9 +78,7 @@
 		    </div>
 		</div>
 	    </div>
-	    <a href="#pagewrapper" class="top-link">
-		<?php fau_use_svg("chevron-up-solid",38,38); ?>		
-		<span class="screen-reader-text"><?php echo __('Nach oben','fau'); ?></span></a>
+	    <a href="#pagewrapper" class="top-link"><span class="arrow-up"></span><span class="screen-reader-text"><?php echo __('Nach oben','fau'); ?></span></a>
 	</footer>
     </div> 
 		<?php print_indented("wp_footer",2); ?>
