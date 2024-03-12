@@ -34,7 +34,7 @@
         },
         {
           "slug": "heller",
-          "color": "var(--color-primary-hell2, #CED9E7)",
+          "color": "var(--color-primary-ci-hell2, #CED9E7)",
           "name": "Heller"
         },
         {
@@ -66,7 +66,32 @@
           "slug": "tf",
           "color": "var(--color-branding-tf, #8C9FB1)",
           "name": "Technische Fakultät"
-        }
+        },
+	 {
+              "slug": "default",
+              "color": "#e9edf2",
+              "name": "Default"
+            },
+            {
+              "slug": "success",
+              "color": "#dff0d8",
+              "name": "Success"
+            },
+            {
+              "slug": "info",
+              "color": "#d9edf7",
+              "name": "Info"
+            },
+            {
+              "slug": "warning",
+              "color": "#fcf8e3",
+              "name": "Warning"
+            },
+            {
+              "slug": "danger",
+              "color": "#f2dede",
+              "name": "Danger"
+            }
       ]
     },
     "typography": {
@@ -102,9 +127,9 @@
     },
     "blocks": {
       "rrze-elements/collapse": {
-        "color": {
-          "palette": [
-	    {
+	 "color": {
+	    "palette": [
+            {
 		"slug": "fau",
 		"color": "var(--color-branding-zentral, #04316a)",
 		"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
@@ -134,45 +159,10 @@
 		"color": "var(--color-branding-tf, #8C9FB1)",
 		"name": "Technische Fakultät"
 	      }
-          ]
+          ]       
         }
       },
-      "rrze-elements/accordion": {
-        "color": {
-          "palette": [
-		{
-		"slug": "fau",
-		"color": "var(--color-branding-zentral, #04316a)",
-		"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
-	      },
-	      {
-		"slug": "phil",
-		"color": "var(--color-branding-phil, #fdb735)",
-		"name": "Philosophische Fakultät"
-	      },
-	      {
-		"slug": "rw",
-		"color": "var(--color-branding-rw, #c50f3c)",
-		"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
-	      },
-	      {
-		"slug": "med",
-		"color": "var(--color-branding-med, #18b4f1)",
-		"name": "Medizinische Fakultät"
-	      },
-	      {
-		"slug": "nat",
-		"color": "var(--color-branding-nat, #7bb725)",
-		"name": "Naturwissenschaftliche Fakultät"
-	      },
-	      {
-		"slug": "tf",
-		"color": "var(--color-branding-tf, #8C9FB1)",
-		"name": "Technische Fakultät"
-	      }
-          ]
-        }
-      },
+   
       "rrze-elements/tabs": {
         "color": {
           "palette": [
@@ -239,6 +229,7 @@
             }
           ]
         }
+	
       },
       "rrze-elements/columns": {
         "color": {
@@ -287,11 +278,6 @@
               "slug": "base",
               "color": "var(--color-Text,#222)",
               "name": "Textfarbe"
-            },
-            {
-              "slug": "contrast",
-              "color": "var(--color-MainBackground,#fff)",
-              "name": "Kontrast"
             }
           ]
         }
@@ -299,40 +285,43 @@
       "core/paragraph": {
         "layout": {},
         "typography": {
-          "fontSizes": []
+          "fontSizes": [
+		{
+		    "name": "Normal",
+		    "slug": "base",
+		    "size": "1rem"
+		},
+	       {
+		    "name": "Medium",
+		    "slug": "medium",
+		    "size": "1.125rem"
+		},
+		{
+		    "name": "Large",
+		    "slug": "large",
+		    "size": "1.75rem"
+		},
+		{
+		    "name": "Extra Large",
+		    "slug": "x-large",
+		    "size": "2.25rem"
+		}
+	    ],
+	     "dropCap": true,
+	    "fontWeight": true,
+	    "fontStyle": true
         },
         "color": {
-          "palette": [
-            {
-              "slug": "base",
-              "color": "var(--color-Text,#222)",
-              "name": "Textfarbe"
-            },
-            {
-              "slug": "contrast",
-              "color":"var(--color-MainBackground,#fff)",
-              "name": "Kontrast"
-            }
-          ]
+	    "palette": false     
         }
+	
       },
       "core/list": {
         "color": {
           "custom": false,
           "text": true,
           "background": false,
-          "palette": [
-            {
-              "slug": "base",
-              "color": "var(--color-Text,#222)",
-              "name": "Textfarbe"
-            },
-            {
-              "slug": "contrast",
-              "color": "var(--color-MainBackground,#fff)",
-              "name": "Kontrast"
-            }
-          ]
+          "palette": false     
         },
         "typography": {
           "fontSizes": []
@@ -343,18 +332,7 @@
           "custom": false,
           "text": true,
           "background": false,
-          "palette": [
-            {
-              "slug": "base",
-              "color": "var(--color-Text,#222)",
-              "name": "Textfarbe"
-            },
-            {
-              "slug": "contrast",
-              "color": "var(--color-MainBackground,#fff)",
-              "name": "Kontrast"
-            }
-          ]
+          "palette": false     
         },
         "typography": {
           "fontSizes": []
@@ -373,7 +351,26 @@
           "background": false
         },
         "typography": {
-          "fontSizes": [],
+          "fontSizes": [{
+		    "name": "Normal",
+		    "slug": "base",
+		    "size": "1rem"
+		},
+	       {
+		    "name": "Medium",
+		    "slug": "medium",
+		    "size": "1.125rem"
+		},
+		{
+		    "name": "Large",
+		    "slug": "large",
+		    "size": "1.75rem"
+		},
+		{
+		    "name": "Extra Large",
+		    "slug": "x-large",
+		    "size": "2.25rem"
+		}],
           "textTransform": false
         }
       },
