@@ -34,12 +34,23 @@
     transform: rotate(180deg);
 }
 
+.fau-angle-icon-up,
 .fau-angle-icon {
     @extend .fau-arrow-icon;
     mask-image: svg-angle-right();
     transform: rotate(270deg);
 }
 
+.fau-angle-icon-right {
+    @extend .fau-arrow-icon;
+    mask-image: svg-angle-right();
+}
+
+.fau-angle-icon-left {
+    @extend .fau-arrow-icon;
+    mask-image: svg-angle-right();
+    transform: rotate(180deg);
+}
 .fau-angle-icon-down {
     @extend .fau-arrow-icon;
     mask-image: svg-angle-right();

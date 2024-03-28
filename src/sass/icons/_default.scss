@@ -112,3 +112,12 @@
     @extend .fau-icon;
     mask-image: svg-icon-close();
 }
+
+.fau-icon-play {
+    @extend .fau-icon;
+    mask-image: svg-icon-play();
+}
+.fau-icon-pause {
+    @extend .fau-icon;
+    mask-image: svg-icon-pause();
+}

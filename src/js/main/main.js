@@ -38,14 +38,12 @@ jQuery(document).ready(function ($) {
     var autoplaySpeedval = 7000;
     var sliderNextHTML = '<button type="button" class="slick-next">Next</button>';
     var sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
-    var stopSliderHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
-    var startSliderHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
+    var stopSliderHTML = 'Pause';
+    var startSliderHTML = 'Start';
 
     if ($('html').attr('lang') == 'de-DE') {
         sliderNextHTML = '<button type="button" class="slick-next">Weiter</button>';
         sliderPrevHTML = '<button type="button" class="slick-prev">Vor</button>';
-        stopSliderHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
-        startSliderHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
     }
 
     if ($.fn.slick) {
@@ -71,11 +69,11 @@ jQuery(document).ready(function ($) {
             if ($('.slick-startstop').hasClass("stopped")) {
                 $('.featured-slider').slick('slickPlay');
                 $('.slick-startstop').removeClass('stopped');
-                $('.slick-startstop').html('<i class="fa fa-pause" aria-hidden="true"></i>'); // show pause icon when slider is playing
+                $('.slick-startstop').html(stopSliderHTML); // show pause icon when slider is playing
             } else {
                 $('.featured-slider').slick('slickPause');
                 $('.slick-startstop').addClass('stopped');
-                $('.slick-startstop').html('<i class="fa fa-play" aria-hidden="true"></i>'); // show play icon when slider is stopped
+                $('.slick-startstop').html(startSliderHTML); // show play icon when slider is stopped
             }
         })
 
