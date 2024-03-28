@@ -33,11 +33,8 @@
 
 @mixin mask-icon($iconurl: '',$color: #000, $iconsize: 1.2rem) {
     @include unset-svg-background-image();
-    -webkit-mask-size: var(--icon-size-mask, 70%); 
     mask-size: var(--icon-size-mask, 70%); 
-    -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
-    -webkit-mask-position: center;
     mask-position: center; 
     
     @if ($iconurl != '') {
@@ -82,3 +79,36 @@
     display: none;
 }
 
+.fau-icon {
+    --_icon-size: var(--fau-icon-size, 1rem);
+    --_icon-color: var(--fau-icon-color, var(--color-Text));
+    --_icon-color-hover: var(--fau-icon-color-hover, var(--color-MainBackground));
+    --_icon-size-mask: var(--fau-icon-size-mask, var(--fau-icon-size, 1.6rem));
+    
+
+    width: var(--_icon-size); 
+    height: var(--_icon-size); 
+    display: inline-block;
+    content: ' ';
+    mask-size: var(--_icon-size-mask); 
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background-color: var(--_icon-color);
+	
+
+    &:focus,
+    &:hover {
+	background-color: var(--_icon-color-hover);
+    }
+
+}
+
+.fau-icon-bars {
+    @extend .fau-icon;
+    mask-image: svg-icon-bars();
+    transition: transform .2s linear;
+}
+.fau-icon-close {
+    @extend .fau-icon;
+    mask-image: svg-icon-close();
+}

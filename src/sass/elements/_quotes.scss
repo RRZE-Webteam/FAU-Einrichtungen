@@ -117,6 +117,14 @@ blockquote {
         }
     }
 
+    #content .wp-block-pullquote &,
+    .wp-block-pullquote & {
+	border-left: none;
+	
+	cite::before {
+	    content : "";
+	}
+    }
 }
 
 
