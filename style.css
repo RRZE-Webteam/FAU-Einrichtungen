@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.4.15-49
+Version: 2.4.15-53
 Requires at least: 6.3
 Tested up to: 6.4
 Requires PHP: 8.0
@@ -11929,7 +11929,8 @@ $slider-height-md: 512px;
 }
 
 #hero-slides {
-  --fau-arrow-icon-size: 10rem;
+  --fau-arrow-icon-size: 2rem;
+  --fau-arrow-icon-size-mask: 3rem;
   --fau-arrow-icon-color: rgba(255, 255, 255, 0.8);
   --fau-arrow-icon-color-hover: rgba(255, 255, 255, 1);
   --fau-icon-size: 2rem;
@@ -11940,6 +11941,18 @@ $slider-height-md: 512px;
   height: auto;
   width: 100%;
   overflow: hidden;
+}
+@media (min-width: 480px) {
+  #hero-slides {
+    --fau-arrow-icon-size: 4rem;
+    --fau-arrow-icon-size-mask: 8rem;
+  }
+}
+@media (min-width: 1400px) {
+  #hero-slides {
+    --fau-arrow-icon-size: 5rem;
+    --fau-arrow-icon-size-mask: 10rem;
+  }
 }
 @media (min-width: 320px) {
   #hero-slides {
@@ -12117,13 +12130,20 @@ $slider-height-md: 512px;
   background: transparent;
   color: transparent;
   bottom: auto;
-  top: calc(50% - 5rem);
+  top: 3rem;
   height: auto;
   padding: 0;
   border: none;
   outline: none;
   filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.75));
   transition: all 0.2s linear;
+}
+@media (min-width: 480px) {
+  #hero-slides .slick-startstop,
+#hero-slides .slick-prev,
+#hero-slides .slick-next {
+    top: calc(50% - 5rem);
+  }
 }
 #hero-slides .slick-prev {
   left: var(--width-gutter-half);
@@ -12132,15 +12152,6 @@ $slider-height-md: 512px;
   left: auto;
   right: var(--width-gutter-half);
 }
-@media (min-width: 1400px) {
-  #hero-slides .slick-prev {
-    left: var(--width-gutter-half);
-  }
-  [dir=rtl] #hero-slides .slick-prev {
-    left: auto;
-    right: var(--width-gutter-half);
-  }
-}
 #hero-slides .slick-next {
   right: var(--width-gutter-half);
 }
@@ -12148,26 +12159,18 @@ $slider-height-md: 512px;
   left: var(--width-gutter-half);
   right: auto;
 }
-@media (min-width: 1400px) {
-  #hero-slides .slick-next {
-    right: var(--width-gutter);
-  }
-  [dir=rtl] #hero-slides .slick-next {
-    left: var(--width-gutter);
-    right: auto;
-  }
-}
 #hero-slides .slick-startstop {
-  top: var(--width-gutter-half);
-  right: var(--width-gutter-half);
+  right: calc(50% - 1rem);
   bottom: auto;
 }
 @media (min-width: 480px) {
   #hero-slides .slick-startstop {
+    top: var(--width-gutter-half);
+    right: var(--width-gutter-half);
     bottom: inherit;
   }
 }
-@media (max-width: 1400px) {
+@media (min-width: 1400px) {
   #hero-slides .slick-startstop {
     right: var(--width-gutter);
     top: var(--width-gutter);
