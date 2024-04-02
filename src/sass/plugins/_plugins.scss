@@ -31,9 +31,6 @@
 // RRZE Multilang
 @import "rrze-multilang";
 
-// RRZE Elements
-// @import "rrze-elements";
-// Entfernt: https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues/1442
 
 // RRZE UnivIS
 @import "rrze-univis";
@@ -44,8 +41,6 @@
 // FAU Oembed
 @import "fau-oembed";
 
-// Social Share 
-// (not used yet)  @import "social-share";
 
 // Mimetype Link Icons
 @import "mimetype-link-icons";
@@ -56,4 +51,6 @@
 
 
 // The Events Calendar
-@import "the-events-calandar";
+// Auskommentiert am 2.4.2024, WW.  Sollte nicht mehr gebraucht werden, da wir 
+// TEC nicht mehr anbieten
+// @import "the-events-calandar";

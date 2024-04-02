@@ -231,36 +231,17 @@ $slider-height-md: 512px;
 
 	.slick-prev {
 		left: var(--width-gutter-half);
-
-		[dir="rtl"] & {
-			left: auto;
-			right: var(--width-gutter-half);
-		}
-
-		
+	
 		&:before {
 		    @extend  .fau-angle-icon-left;
-		    [dir="rtl"] & {
-			  @extend  .fau-angle-icon-right;
-		    }
 		}
 	}
 
 	.slick-next {
 		right: var(--width-gutter-half);
-		
-		[dir="rtl"] & {
-			left: var(--width-gutter-half);
-			right: auto;
-		}
-
-		
 
 		&:before {
-		    @extend  .fau-angle-icon-right;
-		    [dir="rtl"] & {
-			@extend  .fau-angle-icon-left;
-		    }
+		    @extend  .fau-angle-icon-right;   
 		}
 	}
 
