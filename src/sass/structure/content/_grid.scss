@@ -110,11 +110,12 @@
         flex: 1 0;
         @media (min-width: $screen-sm) {
             padding-left: 0;
+	    padding-right: 0;
         }
-        @media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
-            padding-left: 0;
-            padding-right: 0;
-        }
+  //      @media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
+  //          padding-left: 0;
+  //          padding-right: 0;
+  //      }
 
         &.with-sidebar {
             @media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
