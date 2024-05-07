@@ -6,3 +6,9 @@
 :where(.wp-block-button__link) {
     border-radius: var(--border-radius, 9999px);
 }
+
+.wp-element-button, 
+.wp-block-button__link {
+    @include defaultlinkstyle();
+    @include buttonstyle();
+}

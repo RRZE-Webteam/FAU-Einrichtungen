@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.4.16-2
+Version: 2.4.16-5
 Requires at least: 6.3
 Tested up to: 6.4
 Requires PHP: 8.0
@@ -5312,10 +5312,7 @@ a.tag-cloud-link:hover, a.tag-cloud-link:focus, #hero a:hover, #hero a:focus {
   }
 }
 
-main a,
-.entry-content a,
-.portalpage-content a,
-.content-inline a {
+a {
   cursor: pointer;
   word-wrap: break-word;
   color: var(--color-content-links);
@@ -5329,16 +5326,7 @@ main a,
   text-underline-offset: 0.3rem;
   text-decoration-thickness: 0.15rem;
 }
-main a:active, main a:focus, main a:hover,
-.entry-content a:active,
-.entry-content a:focus,
-.entry-content a:hover,
-.portalpage-content a:active,
-.portalpage-content a:focus,
-.portalpage-content a:hover,
-.content-inline a:active,
-.content-inline a:focus,
-.content-inline a:hover {
+a:active, a:focus, a:hover {
   text-decoration: underline;
   -webkit-text-decoration-color: var(--color-primary-ci-hell);
           text-decoration-color: var(--color-primary-ci-hell);
@@ -5346,10 +5334,7 @@ main a:active, main a:focus, main a:hover,
   /*box-shadow: inset 0 -1.5rem 0 var(--color-primary-ci-hell);*/
   text-decoration-thickness: 0.3rem;
 }
-main a.news-image,
-.entry-content a.news-image,
-.portalpage-content a.news-image,
-.content-inline a.news-image {
+a.news-image {
   box-shadow: none;
   transition: -webkit-text-decoration 0.1s ease;
   transition: text-decoration 0.1s ease;
@@ -5362,13 +5347,7 @@ main a.news-image,
   text-underline-offset: 0.3rem;
   text-decoration-thickness: 0.15rem;
 }
-main a.news-image:hover, main a.news-image:focus,
-.entry-content a.news-image:hover,
-.entry-content a.news-image:focus,
-.portalpage-content a.news-image:hover,
-.portalpage-content a.news-image:focus,
-.content-inline a.news-image:hover,
-.content-inline a.news-image:focus {
+a.news-image:hover, a.news-image:focus {
   box-shadow: none;
   text-decoration: underline;
   color: currentcolor;
@@ -5376,85 +5355,22 @@ main a.news-image:hover, main a.news-image:focus,
           text-decoration-color: currentcolor;
   text-decoration-thickness: 0.3rem;
 }
-main a.news-image svg, main a.news-image img,
-.entry-content a.news-image svg,
-.entry-content a.news-image img,
-.portalpage-content a.news-image svg,
-.portalpage-content a.news-image img,
-.content-inline a.news-image svg,
-.content-inline a.news-image img {
+a.news-image svg, a.news-image img {
   box-shadow: none;
   padding: 0;
 }
-main a svg,
-main a img,
-.entry-content a svg,
-.entry-content a img,
-.portalpage-content a svg,
-.portalpage-content a img,
-.content-inline a svg,
-.content-inline a img {
+a svg,
+a img {
   box-shadow: none;
   border: 0;
 }
-@media (min-width: 480px) {
-  main a svg,
-main a img,
-.entry-content a svg,
-.entry-content a img,
-.portalpage-content a svg,
-.portalpage-content a img,
-.content-inline a svg,
-.content-inline a img {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    padding: 2px;
-  }
-}
-main .socialmedia li a, main .fau-person tr.person-info ul.socialmedia li a, .fau-person tr.person-info main ul.socialmedia li a,
-main .imagelink a,
-main .person-info a,
-main .contactlist a,
-main address a,
-main h1 a, main h2 a, main h3 a, main h4 a, main h5 a, main h6 a,
-.entry-content .socialmedia li a,
-.entry-content .fau-person tr.person-info ul.socialmedia li a,
-.fau-person tr.person-info .entry-content ul.socialmedia li a,
-.entry-content .imagelink a,
-.entry-content .person-info a,
-.entry-content .contactlist a,
-.entry-content address a,
-.entry-content h1 a,
-.entry-content h2 a,
-.entry-content h3 a,
-.entry-content h4 a,
-.entry-content h5 a,
-.entry-content h6 a,
-.portalpage-content .socialmedia li a,
-.portalpage-content .fau-person tr.person-info ul.socialmedia li a,
-.fau-person tr.person-info .portalpage-content ul.socialmedia li a,
-.portalpage-content .imagelink a,
-.portalpage-content .person-info a,
-.portalpage-content .contactlist a,
-.portalpage-content address a,
-.portalpage-content h1 a,
-.portalpage-content h2 a,
-.portalpage-content h3 a,
-.portalpage-content h4 a,
-.portalpage-content h5 a,
-.portalpage-content h6 a,
-.content-inline .socialmedia li a,
-.content-inline .fau-person tr.person-info ul.socialmedia li a,
-.fau-person tr.person-info .content-inline ul.socialmedia li a,
-.content-inline .imagelink a,
-.content-inline .person-info a,
-.content-inline .contactlist a,
-.content-inline address a,
-.content-inline h1 a,
-.content-inline h2 a,
-.content-inline h3 a,
-.content-inline h4 a,
-.content-inline h5 a,
-.content-inline h6 a {
+
+.socialmedia li a, .fau-person tr.person-info ul.socialmedia li a,
+.imagelink a,
+.person-info a,
+.contactlist a,
+address a,
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   box-shadow: none;
   transition: -webkit-text-decoration 0.1s ease;
   transition: text-decoration 0.1s ease;
@@ -5468,95 +5384,17 @@ main h1 a, main h2 a, main h3 a, main h4 a, main h5 a, main h6 a,
   text-decoration-thickness: 0.15rem;
   text-decoration: none;
 }
-main .socialmedia li a:hover, main .fau-person tr.person-info ul.socialmedia li a:hover, .fau-person tr.person-info main ul.socialmedia li a:hover, main .socialmedia li a:focus, main .fau-person tr.person-info ul.socialmedia li a:focus, .fau-person tr.person-info main ul.socialmedia li a:focus,
-main .imagelink a:hover,
-main .imagelink a:focus,
-main .person-info a:hover,
-main .person-info a:focus,
-main .contactlist a:hover,
-main .contactlist a:focus,
-main address a:hover,
-main address a:focus,
-main h1 a:hover,
-main h1 a:focus, main h2 a:hover, main h2 a:focus, main h3 a:hover, main h3 a:focus, main h4 a:hover, main h4 a:focus, main h5 a:hover, main h5 a:focus, main h6 a:hover, main h6 a:focus,
-.entry-content .socialmedia li a:hover,
-.entry-content .fau-person tr.person-info ul.socialmedia li a:hover,
-.fau-person tr.person-info .entry-content ul.socialmedia li a:hover,
-.entry-content .socialmedia li a:focus,
-.entry-content .fau-person tr.person-info ul.socialmedia li a:focus,
-.fau-person tr.person-info .entry-content ul.socialmedia li a:focus,
-.entry-content .imagelink a:hover,
-.entry-content .imagelink a:focus,
-.entry-content .person-info a:hover,
-.entry-content .person-info a:focus,
-.entry-content .contactlist a:hover,
-.entry-content .contactlist a:focus,
-.entry-content address a:hover,
-.entry-content address a:focus,
-.entry-content h1 a:hover,
-.entry-content h1 a:focus,
-.entry-content h2 a:hover,
-.entry-content h2 a:focus,
-.entry-content h3 a:hover,
-.entry-content h3 a:focus,
-.entry-content h4 a:hover,
-.entry-content h4 a:focus,
-.entry-content h5 a:hover,
-.entry-content h5 a:focus,
-.entry-content h6 a:hover,
-.entry-content h6 a:focus,
-.portalpage-content .socialmedia li a:hover,
-.portalpage-content .fau-person tr.person-info ul.socialmedia li a:hover,
-.fau-person tr.person-info .portalpage-content ul.socialmedia li a:hover,
-.portalpage-content .socialmedia li a:focus,
-.portalpage-content .fau-person tr.person-info ul.socialmedia li a:focus,
-.fau-person tr.person-info .portalpage-content ul.socialmedia li a:focus,
-.portalpage-content .imagelink a:hover,
-.portalpage-content .imagelink a:focus,
-.portalpage-content .person-info a:hover,
-.portalpage-content .person-info a:focus,
-.portalpage-content .contactlist a:hover,
-.portalpage-content .contactlist a:focus,
-.portalpage-content address a:hover,
-.portalpage-content address a:focus,
-.portalpage-content h1 a:hover,
-.portalpage-content h1 a:focus,
-.portalpage-content h2 a:hover,
-.portalpage-content h2 a:focus,
-.portalpage-content h3 a:hover,
-.portalpage-content h3 a:focus,
-.portalpage-content h4 a:hover,
-.portalpage-content h4 a:focus,
-.portalpage-content h5 a:hover,
-.portalpage-content h5 a:focus,
-.portalpage-content h6 a:hover,
-.portalpage-content h6 a:focus,
-.content-inline .socialmedia li a:hover,
-.content-inline .fau-person tr.person-info ul.socialmedia li a:hover,
-.fau-person tr.person-info .content-inline ul.socialmedia li a:hover,
-.content-inline .socialmedia li a:focus,
-.content-inline .fau-person tr.person-info ul.socialmedia li a:focus,
-.fau-person tr.person-info .content-inline ul.socialmedia li a:focus,
-.content-inline .imagelink a:hover,
-.content-inline .imagelink a:focus,
-.content-inline .person-info a:hover,
-.content-inline .person-info a:focus,
-.content-inline .contactlist a:hover,
-.content-inline .contactlist a:focus,
-.content-inline address a:hover,
-.content-inline address a:focus,
-.content-inline h1 a:hover,
-.content-inline h1 a:focus,
-.content-inline h2 a:hover,
-.content-inline h2 a:focus,
-.content-inline h3 a:hover,
-.content-inline h3 a:focus,
-.content-inline h4 a:hover,
-.content-inline h4 a:focus,
-.content-inline h5 a:hover,
-.content-inline h5 a:focus,
-.content-inline h6 a:hover,
-.content-inline h6 a:focus {
+.socialmedia li a:hover, .fau-person tr.person-info ul.socialmedia li a:hover, .socialmedia li a:focus, .fau-person tr.person-info ul.socialmedia li a:focus,
+.imagelink a:hover,
+.imagelink a:focus,
+.person-info a:hover,
+.person-info a:focus,
+.contactlist a:hover,
+.contactlist a:focus,
+address a:hover,
+address a:focus,
+h1 a:hover,
+h1 a:focus, h2 a:hover, h2 a:focus, h3 a:hover, h3 a:focus, h4 a:hover, h4 a:focus, h5 a:hover, h5 a:focus, h6 a:hover, h6 a:focus {
   box-shadow: none;
   text-decoration: underline;
   color: currentcolor;
@@ -5564,178 +5402,33 @@ main h1 a:focus, main h2 a:hover, main h2 a:focus, main h3 a:hover, main h3 a:fo
           text-decoration-color: currentcolor;
   text-decoration-thickness: 0.3rem;
 }
-main .socialmedia li a:active, main .fau-person tr.person-info ul.socialmedia li a:active, .fau-person tr.person-info main ul.socialmedia li a:active, main .socialmedia li a:hover, main .fau-person tr.person-info ul.socialmedia li a:hover, .fau-person tr.person-info main ul.socialmedia li a:hover, main .socialmedia li a:focus, main .fau-person tr.person-info ul.socialmedia li a:focus, .fau-person tr.person-info main ul.socialmedia li a:focus,
-main .imagelink a:active,
-main .imagelink a:hover,
-main .imagelink a:focus,
-main .person-info a:active,
-main .person-info a:hover,
-main .person-info a:focus,
-main .contactlist a:active,
-main .contactlist a:hover,
-main .contactlist a:focus,
-main address a:active,
-main address a:hover,
-main address a:focus,
-main h1 a:active,
-main h1 a:hover,
-main h1 a:focus, main h2 a:active, main h2 a:hover, main h2 a:focus, main h3 a:active, main h3 a:hover, main h3 a:focus, main h4 a:active, main h4 a:hover, main h4 a:focus, main h5 a:active, main h5 a:hover, main h5 a:focus, main h6 a:active, main h6 a:hover, main h6 a:focus,
-.entry-content .socialmedia li a:active,
-.entry-content .fau-person tr.person-info ul.socialmedia li a:active,
-.fau-person tr.person-info .entry-content ul.socialmedia li a:active,
-.entry-content .socialmedia li a:hover,
-.entry-content .fau-person tr.person-info ul.socialmedia li a:hover,
-.fau-person tr.person-info .entry-content ul.socialmedia li a:hover,
-.entry-content .socialmedia li a:focus,
-.entry-content .fau-person tr.person-info ul.socialmedia li a:focus,
-.fau-person tr.person-info .entry-content ul.socialmedia li a:focus,
-.entry-content .imagelink a:active,
-.entry-content .imagelink a:hover,
-.entry-content .imagelink a:focus,
-.entry-content .person-info a:active,
-.entry-content .person-info a:hover,
-.entry-content .person-info a:focus,
-.entry-content .contactlist a:active,
-.entry-content .contactlist a:hover,
-.entry-content .contactlist a:focus,
-.entry-content address a:active,
-.entry-content address a:hover,
-.entry-content address a:focus,
-.entry-content h1 a:active,
-.entry-content h1 a:hover,
-.entry-content h1 a:focus,
-.entry-content h2 a:active,
-.entry-content h2 a:hover,
-.entry-content h2 a:focus,
-.entry-content h3 a:active,
-.entry-content h3 a:hover,
-.entry-content h3 a:focus,
-.entry-content h4 a:active,
-.entry-content h4 a:hover,
-.entry-content h4 a:focus,
-.entry-content h5 a:active,
-.entry-content h5 a:hover,
-.entry-content h5 a:focus,
-.entry-content h6 a:active,
-.entry-content h6 a:hover,
-.entry-content h6 a:focus,
-.portalpage-content .socialmedia li a:active,
-.portalpage-content .fau-person tr.person-info ul.socialmedia li a:active,
-.fau-person tr.person-info .portalpage-content ul.socialmedia li a:active,
-.portalpage-content .socialmedia li a:hover,
-.portalpage-content .fau-person tr.person-info ul.socialmedia li a:hover,
-.fau-person tr.person-info .portalpage-content ul.socialmedia li a:hover,
-.portalpage-content .socialmedia li a:focus,
-.portalpage-content .fau-person tr.person-info ul.socialmedia li a:focus,
-.fau-person tr.person-info .portalpage-content ul.socialmedia li a:focus,
-.portalpage-content .imagelink a:active,
-.portalpage-content .imagelink a:hover,
-.portalpage-content .imagelink a:focus,
-.portalpage-content .person-info a:active,
-.portalpage-content .person-info a:hover,
-.portalpage-content .person-info a:focus,
-.portalpage-content .contactlist a:active,
-.portalpage-content .contactlist a:hover,
-.portalpage-content .contactlist a:focus,
-.portalpage-content address a:active,
-.portalpage-content address a:hover,
-.portalpage-content address a:focus,
-.portalpage-content h1 a:active,
-.portalpage-content h1 a:hover,
-.portalpage-content h1 a:focus,
-.portalpage-content h2 a:active,
-.portalpage-content h2 a:hover,
-.portalpage-content h2 a:focus,
-.portalpage-content h3 a:active,
-.portalpage-content h3 a:hover,
-.portalpage-content h3 a:focus,
-.portalpage-content h4 a:active,
-.portalpage-content h4 a:hover,
-.portalpage-content h4 a:focus,
-.portalpage-content h5 a:active,
-.portalpage-content h5 a:hover,
-.portalpage-content h5 a:focus,
-.portalpage-content h6 a:active,
-.portalpage-content h6 a:hover,
-.portalpage-content h6 a:focus,
-.content-inline .socialmedia li a:active,
-.content-inline .fau-person tr.person-info ul.socialmedia li a:active,
-.fau-person tr.person-info .content-inline ul.socialmedia li a:active,
-.content-inline .socialmedia li a:hover,
-.content-inline .fau-person tr.person-info ul.socialmedia li a:hover,
-.fau-person tr.person-info .content-inline ul.socialmedia li a:hover,
-.content-inline .socialmedia li a:focus,
-.content-inline .fau-person tr.person-info ul.socialmedia li a:focus,
-.fau-person tr.person-info .content-inline ul.socialmedia li a:focus,
-.content-inline .imagelink a:active,
-.content-inline .imagelink a:hover,
-.content-inline .imagelink a:focus,
-.content-inline .person-info a:active,
-.content-inline .person-info a:hover,
-.content-inline .person-info a:focus,
-.content-inline .contactlist a:active,
-.content-inline .contactlist a:hover,
-.content-inline .contactlist a:focus,
-.content-inline address a:active,
-.content-inline address a:hover,
-.content-inline address a:focus,
-.content-inline h1 a:active,
-.content-inline h1 a:hover,
-.content-inline h1 a:focus,
-.content-inline h2 a:active,
-.content-inline h2 a:hover,
-.content-inline h2 a:focus,
-.content-inline h3 a:active,
-.content-inline h3 a:hover,
-.content-inline h3 a:focus,
-.content-inline h4 a:active,
-.content-inline h4 a:hover,
-.content-inline h4 a:focus,
-.content-inline h5 a:active,
-.content-inline h5 a:hover,
-.content-inline h5 a:focus,
-.content-inline h6 a:active,
-.content-inline h6 a:hover,
-.content-inline h6 a:focus {
+.socialmedia li a:active, .fau-person tr.person-info ul.socialmedia li a:active, .socialmedia li a:hover, .fau-person tr.person-info ul.socialmedia li a:hover, .socialmedia li a:focus, .fau-person tr.person-info ul.socialmedia li a:focus,
+.imagelink a:active,
+.imagelink a:hover,
+.imagelink a:focus,
+.person-info a:active,
+.person-info a:hover,
+.person-info a:focus,
+.contactlist a:active,
+.contactlist a:hover,
+.contactlist a:focus,
+address a:active,
+address a:hover,
+address a:focus,
+h1 a:active,
+h1 a:hover,
+h1 a:focus, h2 a:active, h2 a:hover, h2 a:focus, h3 a:active, h3 a:hover, h3 a:focus, h4 a:active, h4 a:hover, h4 a:focus, h5 a:active, h5 a:hover, h5 a:focus, h6 a:active, h6 a:hover, h6 a:focus {
   text-decoration: underline;
   text-decoration-thickness: 0.3rem;
   text-underline-offset: 0.3rem;
 }
-main h1 a:active, main h1 a:hover, main h1 a:focus, main h2 a:active, main h2 a:hover, main h2 a:focus, main h3 a:active, main h3 a:hover, main h3 a:focus,
-.entry-content h1 a:active,
-.entry-content h1 a:hover,
-.entry-content h1 a:focus,
-.entry-content h2 a:active,
-.entry-content h2 a:hover,
-.entry-content h2 a:focus,
-.entry-content h3 a:active,
-.entry-content h3 a:hover,
-.entry-content h3 a:focus,
-.portalpage-content h1 a:active,
-.portalpage-content h1 a:hover,
-.portalpage-content h1 a:focus,
-.portalpage-content h2 a:active,
-.portalpage-content h2 a:hover,
-.portalpage-content h2 a:focus,
-.portalpage-content h3 a:active,
-.portalpage-content h3 a:hover,
-.portalpage-content h3 a:focus,
-.content-inline h1 a:active,
-.content-inline h1 a:hover,
-.content-inline h1 a:focus,
-.content-inline h2 a:active,
-.content-inline h2 a:hover,
-.content-inline h2 a:focus,
-.content-inline h3 a:active,
-.content-inline h3 a:hover,
-.content-inline h3 a:focus {
+
+h1 a:active, h1 a:hover, h1 a:focus, h2 a:active, h2 a:hover, h2 a:focus, h3 a:active, h3 a:hover, h3 a:focus {
   text-underline-offset: 0.4rem;
   text-decoration-thickness: 0.3rem !important;
 }
-main .widget a,
-.entry-content .widget a,
-.portalpage-content .widget a,
-.content-inline .widget a {
+
+.widget a {
   box-shadow: none;
   transition: -webkit-text-decoration 0.1s ease;
   transition: text-decoration 0.1s ease;
@@ -5748,13 +5441,7 @@ main .widget a,
   text-underline-offset: 0.3rem;
   text-decoration-thickness: 0.15rem;
 }
-main .widget a:hover, main .widget a:focus,
-.entry-content .widget a:hover,
-.entry-content .widget a:focus,
-.portalpage-content .widget a:hover,
-.portalpage-content .widget a:focus,
-.content-inline .widget a:hover,
-.content-inline .widget a:focus {
+.widget a:hover, .widget a:focus {
   box-shadow: none;
   text-decoration: underline;
   color: currentcolor;
@@ -5762,31 +5449,11 @@ main .widget a:hover, main .widget a:focus,
           text-decoration-color: currentcolor;
   text-decoration-thickness: 0.3rem;
 }
-main .widget h1 a, main .widget h2 a, main .widget h3 a, main .widget h4 a, main .widget h5 a, main .widget h6 a,
-.entry-content .widget h1 a,
-.entry-content .widget h2 a,
-.entry-content .widget h3 a,
-.entry-content .widget h4 a,
-.entry-content .widget h5 a,
-.entry-content .widget h6 a,
-.portalpage-content .widget h1 a,
-.portalpage-content .widget h2 a,
-.portalpage-content .widget h3 a,
-.portalpage-content .widget h4 a,
-.portalpage-content .widget h5 a,
-.portalpage-content .widget h6 a,
-.content-inline .widget h1 a,
-.content-inline .widget h2 a,
-.content-inline .widget h3 a,
-.content-inline .widget h4 a,
-.content-inline .widget h5 a,
-.content-inline .widget h6 a {
+.widget h1 a, .widget h2 a, .widget h3 a, .widget h4 a, .widget h5 a, .widget h6 a {
   text-decoration: none;
 }
-main .nextlink-ghostbutton,
-.entry-content .nextlink-ghostbutton,
-.portalpage-content .nextlink-ghostbutton,
-.content-inline .nextlink-ghostbutton {
+
+.nextlink-ghostbutton {
   box-shadow: none;
   transition: -webkit-text-decoration 0.1s ease;
   transition: text-decoration 0.1s ease;
@@ -5808,13 +5475,7 @@ main .nextlink-ghostbutton,
   text-decoration: none;
   font-weight: normal;
 }
-main .nextlink-ghostbutton:hover, main .nextlink-ghostbutton:focus,
-.entry-content .nextlink-ghostbutton:hover,
-.entry-content .nextlink-ghostbutton:focus,
-.portalpage-content .nextlink-ghostbutton:hover,
-.portalpage-content .nextlink-ghostbutton:focus,
-.content-inline .nextlink-ghostbutton:hover,
-.content-inline .nextlink-ghostbutton:focus {
+.nextlink-ghostbutton:hover, .nextlink-ghostbutton:focus {
   box-shadow: none;
   text-decoration: underline;
   color: currentcolor;
@@ -5822,21 +5483,12 @@ main .nextlink-ghostbutton:hover, main .nextlink-ghostbutton:focus,
           text-decoration-color: currentcolor;
   text-decoration-thickness: 0.3rem;
 }
-main .nextlink-ghostbutton:hover, main .nextlink-ghostbutton:focus,
-.entry-content .nextlink-ghostbutton:hover,
-.entry-content .nextlink-ghostbutton:focus,
-.portalpage-content .nextlink-ghostbutton:hover,
-.portalpage-content .nextlink-ghostbutton:focus,
-.content-inline .nextlink-ghostbutton:hover,
-.content-inline .nextlink-ghostbutton:focus {
+.nextlink-ghostbutton:hover, .nextlink-ghostbutton:focus {
   text-decoration: none;
   color: var(--color-ghostbutton-hover-text);
   background: var(--color-ghostbutton-hover-bg);
 }
-main .nextlink-ghostbutton:after,
-.entry-content .nextlink-ghostbutton:after,
-.portalpage-content .nextlink-ghostbutton:after,
-.content-inline .nextlink-ghostbutton:after {
+.nextlink-ghostbutton:after {
   display: inline-block;
   position: relative;
   vertical-align: middle;
@@ -5851,19 +5503,11 @@ main .nextlink-ghostbutton:after,
   background-position: center center;
   background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23222222" d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"/%3E%3C/svg%3E%0A');
 }
-main .nextlink-ghostbutton:focus:after, main .nextlink-ghostbutton:hover:after,
-.entry-content .nextlink-ghostbutton:focus:after,
-.entry-content .nextlink-ghostbutton:hover:after,
-.portalpage-content .nextlink-ghostbutton:focus:after,
-.portalpage-content .nextlink-ghostbutton:hover:after,
-.content-inline .nextlink-ghostbutton:focus:after,
-.content-inline .nextlink-ghostbutton:hover:after {
+.nextlink-ghostbutton:focus:after, .nextlink-ghostbutton:hover:after {
   background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFFFFF" d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"/%3E%3C/svg%3E%0A');
 }
-main .prevlink-ghostbutton,
-.entry-content .prevlink-ghostbutton,
-.portalpage-content .prevlink-ghostbutton,
-.content-inline .prevlink-ghostbutton {
+
+.prevlink-ghostbutton {
   box-shadow: none;
   transition: -webkit-text-decoration 0.1s ease;
   transition: text-decoration 0.1s ease;
@@ -5885,13 +5529,7 @@ main .prevlink-ghostbutton,
   text-decoration: none;
   font-weight: normal;
 }
-main .prevlink-ghostbutton:hover, main .prevlink-ghostbutton:focus,
-.entry-content .prevlink-ghostbutton:hover,
-.entry-content .prevlink-ghostbutton:focus,
-.portalpage-content .prevlink-ghostbutton:hover,
-.portalpage-content .prevlink-ghostbutton:focus,
-.content-inline .prevlink-ghostbutton:hover,
-.content-inline .prevlink-ghostbutton:focus {
+.prevlink-ghostbutton:hover, .prevlink-ghostbutton:focus {
   box-shadow: none;
   text-decoration: underline;
   color: currentcolor;
@@ -5899,21 +5537,12 @@ main .prevlink-ghostbutton:hover, main .prevlink-ghostbutton:focus,
           text-decoration-color: currentcolor;
   text-decoration-thickness: 0.3rem;
 }
-main .prevlink-ghostbutton:hover, main .prevlink-ghostbutton:focus,
-.entry-content .prevlink-ghostbutton:hover,
-.entry-content .prevlink-ghostbutton:focus,
-.portalpage-content .prevlink-ghostbutton:hover,
-.portalpage-content .prevlink-ghostbutton:focus,
-.content-inline .prevlink-ghostbutton:hover,
-.content-inline .prevlink-ghostbutton:focus {
+.prevlink-ghostbutton:hover, .prevlink-ghostbutton:focus {
   text-decoration: none;
   color: var(--color-ghostbutton-hover-text);
   background: var(--color-ghostbutton-hover-bg);
 }
-main .prevlink-ghostbutton:before,
-.entry-content .prevlink-ghostbutton:before,
-.portalpage-content .prevlink-ghostbutton:before,
-.content-inline .prevlink-ghostbutton:before {
+.prevlink-ghostbutton:before {
   display: inline-block;
   position: relative;
   vertical-align: middle;
@@ -5930,23 +5559,12 @@ main .prevlink-ghostbutton:before,
   transform: rotate(180deg);
   transform-origin: 50% 50%;
 }
-main .prevlink-ghostbutton:focus:before, main .prevlink-ghostbutton:hover:before,
-.entry-content .prevlink-ghostbutton:focus:before,
-.entry-content .prevlink-ghostbutton:hover:before,
-.portalpage-content .prevlink-ghostbutton:focus:before,
-.portalpage-content .prevlink-ghostbutton:hover:before,
-.content-inline .prevlink-ghostbutton:focus:before,
-.content-inline .prevlink-ghostbutton:hover:before {
+.prevlink-ghostbutton:focus:before, .prevlink-ghostbutton:hover:before {
   background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFFFFF" d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"/%3E%3C/svg%3E%0A');
 }
-main figure > a,
-main a.media-img,
-.entry-content figure > a,
-.entry-content a.media-img,
-.portalpage-content figure > a,
-.portalpage-content a.media-img,
-.content-inline figure > a,
-.content-inline a.media-img {
+
+figure > a,
+a.media-img {
   box-shadow: none;
   transition: -webkit-text-decoration 0.1s ease;
   transition: text-decoration 0.1s ease;
@@ -5960,21 +5578,9 @@ main a.media-img,
   text-decoration-thickness: 0.15rem;
   display: inline-block;
 }
-main figure > a:hover, main figure > a:focus,
-main a.media-img:hover,
-main a.media-img:focus,
-.entry-content figure > a:hover,
-.entry-content figure > a:focus,
-.entry-content a.media-img:hover,
-.entry-content a.media-img:focus,
-.portalpage-content figure > a:hover,
-.portalpage-content figure > a:focus,
-.portalpage-content a.media-img:hover,
-.portalpage-content a.media-img:focus,
-.content-inline figure > a:hover,
-.content-inline figure > a:focus,
-.content-inline a.media-img:hover,
-.content-inline a.media-img:focus {
+figure > a:hover, figure > a:focus,
+a.media-img:hover,
+a.media-img:focus {
   box-shadow: none;
   text-decoration: underline;
   color: currentcolor;
@@ -5982,247 +5588,117 @@ main a.media-img:focus,
           text-decoration-color: currentcolor;
   text-decoration-thickness: 0.3rem;
 }
-main figure > a img,
-main a.media-img img,
-.entry-content figure > a img,
-.entry-content a.media-img img,
-.portalpage-content figure > a img,
-.portalpage-content a.media-img img,
-.content-inline figure > a img,
-.content-inline a.media-img img {
+figure > a img,
+a.media-img img {
   box-shadow: none;
   border: 0;
 }
 @media (min-width: 480px) {
-  main figure > a img,
-main a.media-img img,
-.entry-content figure > a img,
-.entry-content a.media-img img,
-.portalpage-content figure > a img,
-.portalpage-content a.media-img img,
-.content-inline figure > a img,
-.content-inline a.media-img img {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    padding: 2px;
-  }
-}
-@media (min-width: 480px) {
-  main figure > a img.polaroid,
-main a.media-img img.polaroid,
-.entry-content figure > a img.polaroid,
-.entry-content a.media-img img.polaroid,
-.portalpage-content figure > a img.polaroid,
-.portalpage-content a.media-img img.polaroid,
-.content-inline figure > a img.polaroid,
-.content-inline a.media-img img.polaroid {
+  figure > a img.polaroid,
+a.media-img img.polaroid {
     padding: 5px;
   }
 }
-main figure > a img.thickborder,
-main a.media-img img.thickborder,
-.entry-content figure > a img.thickborder,
-.entry-content a.media-img img.thickborder,
-.portalpage-content figure > a img.thickborder,
-.portalpage-content a.media-img img.thickborder,
-.content-inline figure > a img.thickborder,
-.content-inline a.media-img img.thickborder {
+figure > a img.thickborder,
+a.media-img img.thickborder {
   border: 2px solid var(--color-ContentBorders);
   border-radius: 2px;
   background-clip: padding-box;
 }
-main figure > a img.noshadow,
-main a.media-img img.noshadow,
-.entry-content figure > a img.noshadow,
-.entry-content a.media-img img.noshadow,
-.portalpage-content figure > a img.noshadow,
-.portalpage-content a.media-img img.noshadow,
-.content-inline figure > a img.noshadow,
-.content-inline a.media-img img.noshadow {
+figure > a img.noshadow,
+a.media-img img.noshadow {
   box-shadow: none;
 }
-main figure > a:hover img,
-main figure > a:focus img,
-main a.media-img:hover img,
-main a.media-img:focus img,
-.entry-content figure > a:hover img,
-.entry-content figure > a:focus img,
-.entry-content a.media-img:hover img,
-.entry-content a.media-img:focus img,
-.portalpage-content figure > a:hover img,
-.portalpage-content figure > a:focus img,
-.portalpage-content a.media-img:hover img,
-.portalpage-content a.media-img:focus img,
-.content-inline figure > a:hover img,
-.content-inline figure > a:focus img,
-.content-inline a.media-img:hover img,
-.content-inline a.media-img:focus img {
+
+figure > a:hover img,
+figure > a:focus img,
+a.media-img:hover img,
+a.media-img:focus img {
   border: 2px solid var(--color-content-links-underline);
   padding: 0;
 }
 @media (min-width: 480px) {
-  main figure > a:hover img.polaroid,
-main figure > a:focus img.polaroid,
-main a.media-img:hover img.polaroid,
-main a.media-img:focus img.polaroid,
-.entry-content figure > a:hover img.polaroid,
-.entry-content figure > a:focus img.polaroid,
-.entry-content a.media-img:hover img.polaroid,
-.entry-content a.media-img:focus img.polaroid,
-.portalpage-content figure > a:hover img.polaroid,
-.portalpage-content figure > a:focus img.polaroid,
-.portalpage-content a.media-img:hover img.polaroid,
-.portalpage-content a.media-img:focus img.polaroid,
-.content-inline figure > a:hover img.polaroid,
-.content-inline figure > a:focus img.polaroid,
-.content-inline a.media-img:hover img.polaroid,
-.content-inline a.media-img:focus img.polaroid {
+  figure > a:hover img.polaroid,
+figure > a:focus img.polaroid,
+a.media-img:hover img.polaroid,
+a.media-img:focus img.polaroid {
     padding: 3px;
   }
 }
-main figure > a:hover img.thickborder,
-main figure > a:focus img.thickborder,
-main a.media-img:hover img.thickborder,
-main a.media-img:focus img.thickborder,
-.entry-content figure > a:hover img.thickborder,
-.entry-content figure > a:focus img.thickborder,
-.entry-content a.media-img:hover img.thickborder,
-.entry-content a.media-img:focus img.thickborder,
-.portalpage-content figure > a:hover img.thickborder,
-.portalpage-content figure > a:focus img.thickborder,
-.portalpage-content a.media-img:hover img.thickborder,
-.portalpage-content a.media-img:focus img.thickborder,
-.content-inline figure > a:hover img.thickborder,
-.content-inline figure > a:focus img.thickborder,
-.content-inline a.media-img:hover img.thickborder,
-.content-inline a.media-img:focus img.thickborder {
+figure > a:hover img.thickborder,
+figure > a:focus img.thickborder,
+a.media-img:hover img.thickborder,
+a.media-img:focus img.thickborder {
   border: 2px solid var(--color-content-links-underline);
 }
 @media (min-width: 480px) {
-  main figure > a:hover img.thickborder,
-main figure > a:focus img.thickborder,
-main a.media-img:hover img.thickborder,
-main a.media-img:focus img.thickborder,
-.entry-content figure > a:hover img.thickborder,
-.entry-content figure > a:focus img.thickborder,
-.entry-content a.media-img:hover img.thickborder,
-.entry-content a.media-img:focus img.thickborder,
-.portalpage-content figure > a:hover img.thickborder,
-.portalpage-content figure > a:focus img.thickborder,
-.portalpage-content a.media-img:hover img.thickborder,
-.portalpage-content a.media-img:focus img.thickborder,
-.content-inline figure > a:hover img.thickborder,
-.content-inline figure > a:focus img.thickborder,
-.content-inline a.media-img:hover img.thickborder,
-.content-inline a.media-img:focus img.thickborder {
+  figure > a:hover img.thickborder,
+figure > a:focus img.thickborder,
+a.media-img:hover img.thickborder,
+a.media-img:focus img.thickborder {
     padding: 2px;
   }
 }
-main figure > a:hover img.circle.rotate,
-main figure > a:focus img.circle.rotate,
-main a.media-img:hover img.circle.rotate,
-main a.media-img:focus img.circle.rotate,
-.entry-content figure > a:hover img.circle.rotate,
-.entry-content figure > a:focus img.circle.rotate,
-.entry-content a.media-img:hover img.circle.rotate,
-.entry-content a.media-img:focus img.circle.rotate,
-.portalpage-content figure > a:hover img.circle.rotate,
-.portalpage-content figure > a:focus img.circle.rotate,
-.portalpage-content a.media-img:hover img.circle.rotate,
-.portalpage-content a.media-img:focus img.circle.rotate,
-.content-inline figure > a:hover img.circle.rotate,
-.content-inline figure > a:focus img.circle.rotate,
-.content-inline a.media-img:hover img.circle.rotate,
-.content-inline a.media-img:focus img.circle.rotate {
+figure > a:hover img.circle.rotate,
+figure > a:focus img.circle.rotate,
+a.media-img:hover img.circle.rotate,
+a.media-img:focus img.circle.rotate {
   transform: rotateZ(20deg);
   transition: transform 0.5s ease-in-out;
 }
-main a.media-img.sizinglink,
-.entry-content a.media-img.sizinglink,
-.portalpage-content a.media-img.sizinglink,
-.content-inline a.media-img.sizinglink {
+
+a.media-img.sizinglink {
   overflow: hidden;
 }
-main a.media-img.sizinglink img,
-.entry-content a.media-img.sizinglink img,
-.portalpage-content a.media-img.sizinglink img,
-.content-inline a.media-img.sizinglink img {
+a.media-img.sizinglink img {
   object-fit: cover;
 }
 @media (prefers-reduced-motion: no-preference) and (min-width: 480px) {
-  main a.media-img.sizinglink img,
-.entry-content a.media-img.sizinglink img,
-.portalpage-content a.media-img.sizinglink img,
-.content-inline a.media-img.sizinglink img {
+  a.media-img.sizinglink img {
     transition: transform 1s;
   }
 }
-main a.media-img.sizinglink:hover img,
-main a.media-img.sizinglink:focus img,
-.entry-content a.media-img.sizinglink:hover img,
-.entry-content a.media-img.sizinglink:focus img,
-.portalpage-content a.media-img.sizinglink:hover img,
-.portalpage-content a.media-img.sizinglink:focus img,
-.content-inline a.media-img.sizinglink:hover img,
-.content-inline a.media-img.sizinglink:focus img {
+
+a.media-img.sizinglink:hover img,
+a.media-img.sizinglink:focus img {
   transform: scale(1.1);
   box-shadow: none;
   border: none;
 }
 @media (min-width: 480px) {
-  main a.media-img.sizinglink:hover img,
-main a.media-img.sizinglink:focus img,
-.entry-content a.media-img.sizinglink:hover img,
-.entry-content a.media-img.sizinglink:focus img,
-.portalpage-content a.media-img.sizinglink:hover img,
-.portalpage-content a.media-img.sizinglink:focus img,
-.content-inline a.media-img.sizinglink:hover img,
-.content-inline a.media-img.sizinglink:focus img {
+  a.media-img.sizinglink:hover img,
+a.media-img.sizinglink:focus img {
     padding: 2px;
   }
 }
-main a.media-img.alignleft,
-.entry-content a.media-img.alignleft,
-.portalpage-content a.media-img.alignleft,
-.content-inline a.media-img.alignleft {
+
+a.media-img.alignleft {
   float: left;
   clear: both;
   margin-right: 20px;
   margin-bottom: 20px;
 }
-main a.media-img.alignleft img,
-.entry-content a.media-img.alignleft img,
-.portalpage-content a.media-img.alignleft img,
-.content-inline a.media-img.alignleft img {
+a.media-img.alignleft img {
   float: none;
   margin: 0;
 }
-main a.media-img.alignright,
-.entry-content a.media-img.alignright,
-.portalpage-content a.media-img.alignright,
-.content-inline a.media-img.alignright {
+
+a.media-img.alignright {
   float: right;
   clear: both;
   margin-left: 20px;
   margin-bottom: 20px;
 }
-main a.media-img.alignright img,
-.entry-content a.media-img.alignright img,
-.portalpage-content a.media-img.alignright img,
-.content-inline a.media-img.alignright img {
+a.media-img.alignright img {
   float: none;
   margin: 0;
 }
-main a.media-img.aligncenter,
-.entry-content a.media-img.aligncenter,
-.portalpage-content a.media-img.aligncenter,
-.content-inline a.media-img.aligncenter {
+
+a.media-img.aligncenter {
   display: block;
   margin: 0 auto 10px auto;
 }
-main a.media-img.aligncenter img,
-.entry-content a.media-img.aligncenter img,
-.portalpage-content a.media-img.aligncenter img,
-.content-inline a.media-img.aligncenter img {
+a.media-img.aligncenter img {
   display: inline-block;
   margin: 0;
 }
@@ -17188,4 +16664,53 @@ Anpassungen der Gestaltung an verschiedene Plugins
 /*----------------------------------------------------------------------------*/
 :where(.wp-block-button__link) {
   border-radius: var(--border-radius, 9999px);
+}
+
+.wp-element-button,
+.wp-block-button__link {
+  box-shadow: none;
+  transition: -webkit-text-decoration 0.1s ease;
+  transition: text-decoration 0.1s ease;
+  transition: text-decoration 0.1s ease, -webkit-text-decoration 0.1s ease;
+  padding: 0;
+  text-decoration: underline;
+  color: currentcolor;
+  -webkit-text-decoration-color: currentcolor;
+          text-decoration-color: currentcolor;
+  text-underline-offset: 0.3rem;
+  text-decoration-thickness: 0.15rem;
+  display: inline-block;
+  font-size: 0.938rem;
+  color: var(--color-button-text);
+  background-color: var(--color-button-bg);
+  border: none;
+  padding: 10px 18px;
+  text-decoration: none;
+  border-radius: var(--border-radius-buttons, 3px);
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: normal;
+  margin: 5px 0;
+}
+.wp-element-button:hover, .wp-element-button:focus,
+.wp-block-button__link:hover,
+.wp-block-button__link:focus {
+  box-shadow: none;
+  text-decoration: underline;
+  color: currentcolor;
+  -webkit-text-decoration-color: currentcolor;
+          text-decoration-color: currentcolor;
+  text-decoration-thickness: 0.3rem;
+}
+.wp-element-button:hover, .wp-element-button:focus,
+.wp-block-button__link:hover,
+.wp-block-button__link:focus {
+  color: var(--color-button-hover-text);
+  background-color: var(--color-button-hover-bg);
+}
+.wp-element-button:hover, .wp-element-button:focus,
+.wp-block-button__link:hover,
+.wp-block-button__link:focus {
+  text-decoration: none;
 }

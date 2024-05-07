@@ -10,7 +10,7 @@
       "defaultGradients": false,
       "defaultPalette": false,
       "gradients": false,
-      "background": false,
+      "background": "var(--color-MainBackground, #fff)",
       "palette": [
         {
           "slug": "base",
@@ -224,7 +224,8 @@
         "typography": {
 	    "dropCap": true,
 	    "fontWeight": true,
-	    "fontStyle": true
+	    "fontStyle": true,
+		    "textAlign": true
         }
        
 	
@@ -251,7 +252,8 @@
 		    "slug": "x-large",
 		    "size": "2.25rem"
 		}],
-          "textTransform": false
+          "textTransform": false,
+		    "textAlign": true
         }
       },
      
@@ -306,7 +308,8 @@
 	       "textDecoration": true,
 	       "textTransform": true,
 	       "dropCap": true,
-	       "fluid": true
+	       "fluid": true,
+	       "textAlign": true
 	   },
 		
 	    "color": {
@@ -372,7 +375,21 @@
 		"text": true,
 		"gradients": true
 		    
-	    }
+	    },
+	    "typography": {
+	       "customFontSize": true,
+	       "letterSpacing": true,
+	       "dropCap": false,
+	       "fluid": true,
+	       "textAlign": true
+	   },
+	   "border": {
+		    "radius": false
+	   },
+	    "spacing": {
+		    "padding": true,
+		    "margin": true
+	      }
       }
      
      

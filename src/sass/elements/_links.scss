@@ -126,10 +126,10 @@ a {
 }
 	    
 // Additional link effects for Content
-main,
-.entry-content,
-.portalpage-content,
-.content-inline {
+// main,
+// .entry-content,
+// .portalpage-content,
+// .content-inline {
 
     a {
         @include styledcontentlink();
@@ -161,21 +161,21 @@ main,
             &:hover, 
             &:focus {
                     text-decoration: underline;
-					text-decoration-thickness: 0.3rem;
-					text-underline-offset: 0.3rem;
+		    text-decoration-thickness: 0.3rem;
+		    text-underline-offset: 0.3rem;
             }
         }
     }
-	h1, h2, h3 {
-		a {
-		   &:active,
-		   &:hover, 
-		   &:focus {
-				   text-underline-offset: 0.4rem;
-				   text-decoration-thickness: 0.3rem !important;
-		   }
-	   }
-	}
+    h1, h2, h3 {
+	    a {
+	       &:active,
+	       &:hover, 
+	       &:focus {
+		   text-underline-offset: 0.4rem;
+		   text-decoration-thickness: 0.3rem !important;
+	       }
+       }
+    }
     .widget {
 	    a {
 	       @include defaultlinkstyle();
@@ -297,6 +297,6 @@ main,
 	    margin: 0;
 	}
     }
-}
+// }
 
 
