@@ -277,12 +277,15 @@
         }
     }
     a {
+	@include defaultlinkstyle();
+	text-decoration: none;
         border: 1px dashed transparent;
-        padding: 0 5px;
+        padding: 0 0.5rem;
         &:hover,
         &:focus {
             border-color: var(--color-primary-ci-hell);
             box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.22);
+	    text-decoration: underline;
         }
     }
 
