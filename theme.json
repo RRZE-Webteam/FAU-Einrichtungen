@@ -9,7 +9,6 @@
       "customGradient": false,
       "defaultGradients": false,
       "defaultPalette": false,
-      "gradients": false,
       "background": "var(--color-MainBackground, #fff)",
       "palette": [
         {
@@ -372,8 +371,7 @@
       "core/button": {
 	    "color": {
 		"background": true,
-		"text": true,
-		"gradients": true
+		"text": true
 		    
 	    },
 	    "typography": {
@@ -383,9 +381,7 @@
 	       "fluid": true,
 	       "textAlign": true
 	   },
-	   "border": {
-		    "radius": false
-	   },
+	
 	    "spacing": {
 		    "padding": true,
 		    "margin": true
