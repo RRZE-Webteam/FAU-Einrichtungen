@@ -7,10 +7,14 @@
 //	 display: none;
     }
     h3 {
+	margin-top: 1em;
 	font-weight: bold;
+	text-transform: none;
+	font-size: 1em;
+	border-bottom: 1px solid;
     }
     select {
-	width: 100%;
+	// width: 100%;
     }
     p.howto {
 	margin: 0.5em 0.3em;
@@ -50,3 +54,11 @@
 
     
 }
+
+.edit-post-meta-boxes-area {
+    #poststuff h2.hndle {
+	padding: 16px 0 16px 16px;
+	word-wrap: anywhere;
+    }
+} 
+
