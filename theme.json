@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "$schema": "https://schemas.wp.org/trunk/theme.json",
   "settings": {
     "color": {
@@ -9,18 +9,22 @@
       "customGradient": false,
       "defaultGradients": false,
       "defaultPalette": false,
-      "gradients": [],
-      "background": false,
+      "background": "var(--color-MainBackground, #fff)",
       "palette": [
         {
           "slug": "base",
           "color": "var(--color-Text, #222)",
           "name": "Textfarbe"
         },
+	{
+          "slug": "black",
+          "color": "var(--color-black, #000)",
+          "name": "Schwarz"
+        },
         {
           "slug": "contrast",
-          "color": "var(--color-MainBackground, #fff)",
-          "name": "Kontrast"
+          "color": "var(--color-white, #fff)",
+          "name": "Weiß"
         },
         {
           "slug": "primary",
@@ -34,7 +38,7 @@
         },
         {
           "slug": "heller",
-          "color": "var(--color-primary-hell2, #CED9E7)",
+          "color": "var(--color-primary-ci-hell2, #CED9E7)",
           "name": "Heller"
         },
         {
@@ -70,373 +74,241 @@
       ]
     },
     "typography": {
-      "customFontSize": false,
-      "lineHeight": false,
-      "fontStyle": false,
-      "letterSpacing": false,
-      "textDecoration": false,
-      "textTransform": false,
-      "dropCap": false,
-      "fluid": true,
-      "fontFamilies": [],
-      "fontSizes": [],
-      "fontWeight": false
+	"customFontSize": false,
+	"lineHeight": false,
+	"fontStyle": false,
+	"letterSpacing": false,
+	"textDecoration": false,
+	"textTransform": false,
+	"dropCap": false,
+	"fluid": true,
+	"fontWeight": false
     },
-
     "layout": {
-      "contentSize": "1400px",
-      "allowCustomContentAndWideSize": false,
-      "allowEditing": false
+	"contentSize": "1400px",
+	"allowCustomContentAndWideSize": false,
+	"allowEditing": false
     },
-    "spacing": {
-      "margin": false,
-      "padding": false,
-      "blockGap": null,
-      "units": ["%", "em", "rem", "vh", "vw"]
-    },
+ 
     "border": {
-      "color": false,
-      "radius": false,
-      "style": false,
-      "width": false
+	"color": false,
+	"radius": false,
+	"style": false,
+	"width": false
     },
     "blocks": {
-      "rrze-elements/collapse": {
-        "color": {
-          "palette": [
-	    {
-		"slug": "fau",
-		"color": "var(--color-branding-zentral, #04316a)",
-		"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
-	      },
-	      {
-		"slug": "phil",
-		"color": "var(--color-branding-phil, #fdb735)",
-		"name": "Philosophische Fakultät"
-	      },
-	      {
-		"slug": "rw",
-		"color": "var(--color-branding-rw, #c50f3c)",
-		"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
-	      },
-	      {
-		"slug": "med",
-		"color": "var(--color-branding-med, #18b4f1)",
-		"name": "Medizinische Fakultät"
-	      },
-	      {
-		"slug": "nat",
-		"color": "var(--color-branding-nat, #7bb725)",
-		"name": "Naturwissenschaftliche Fakultät"
-	      },
-	      {
-		"slug": "tf",
-		"color": "var(--color-branding-tf, #8C9FB1)",
-		"name": "Technische Fakultät"
-	      }
-          ]
-        }
-      },
-      "rrze-elements/accordion": {
-        "color": {
-          "palette": [
-		{
-		"slug": "fau",
-		"color": "var(--color-branding-zentral, #04316a)",
-		"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
-	      },
-	      {
-		"slug": "phil",
-		"color": "var(--color-branding-phil, #fdb735)",
-		"name": "Philosophische Fakultät"
-	      },
-	      {
-		"slug": "rw",
-		"color": "var(--color-branding-rw, #c50f3c)",
-		"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
-	      },
-	      {
-		"slug": "med",
-		"color": "var(--color-branding-med, #18b4f1)",
-		"name": "Medizinische Fakultät"
-	      },
-	      {
-		"slug": "nat",
-		"color": "var(--color-branding-nat, #7bb725)",
-		"name": "Naturwissenschaftliche Fakultät"
-	      },
-	      {
-		"slug": "tf",
-		"color": "var(--color-branding-tf, #8C9FB1)",
-		"name": "Technische Fakultät"
-	      }
-          ]
-        }
-      },
-      "rrze-elements/tabs": {
-        "color": {
-          "palette": [
-            {
-		"slug": "fau",
-		"color": "var(--color-branding-zentral, #04316a)",
-		"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
-	      },
-	      {
-		"slug": "phil",
-		"color": "var(--color-branding-phil, #fdb735)",
-		"name": "Philosophische Fakultät"
-	      },
-	      {
-		"slug": "rw",
-		"color": "var(--color-branding-rw, #c50f3c)",
-		"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
-	      },
-	      {
-		"slug": "med",
-		"color": "var(--color-branding-med, #18b4f1)",
-		"name": "Medizinische Fakultät"
-	      },
-	      {
-		"slug": "nat",
-		"color": "var(--color-branding-nat, #7bb725)",
-		"name": "Naturwissenschaftliche Fakultät"
-	      },
-	      {
-		"slug": "tf",
-		"color": "var(--color-branding-tf, #8C9FB1)",
-		"name": "Technische Fakultät"
-	      }
-          ]
-        }
-      },
-      "rrze-elements/alert": {
-        "color": {
-          "palette": [
-            {
-              "slug": "default",
-              "color": "#e9edf2",
-              "name": "Default"
-            },
-            {
-              "slug": "success",
-              "color": "#dff0d8",
-              "name": "Success"
-            },
-            {
-              "slug": "info",
-              "color": "#d9edf7",
-              "name": "Info"
-            },
-            {
-              "slug": "warning",
-              "color": "#fcf8e3",
-              "name": "Warning"
-            },
-            {
-              "slug": "danger",
-              "color": "#f2dede",
-              "name": "Danger"
-            }
-          ]
-        }
-      },
-      "rrze-elements/columns": {
-        "color": {
-          "palette": [
-            {
-              "slug": "default",
-              "color": "#e9edf2",
-              "name": "Default"
-            },
-            {
-              "slug": "success",
-              "color": "#dff0d8",
-              "name": "Success"
-            },
-            {
-              "slug": "info",
-              "color": "#d9edf7",
-              "name": "Info"
-            },
-            {
-              "slug": "warning",
-              "color": "#fcf8e3",
-              "name": "Warning"
-            },
-            {
-              "slug": "danger",
-              "color": "#f2dede",
-              "name": "Danger"
-            }
-          ]
-        }
-      },
-      "core/heading": {
-        "typography": {
-          "fontSizes": [],
-          "writingMode": false
-        },
-        "appearanceTools": false,
-
-        "color": {
-          "custom": false,
-          "text": true,
-          "background": false,
-          "palette": [
-            {
-              "slug": "base",
-              "color": "var(--color-Text,#222)",
-              "name": "Textfarbe"
-            },
-            {
-              "slug": "contrast",
-              "color": "var(--color-MainBackground,#fff)",
-              "name": "Kontrast"
-            }
-          ]
-        }
-      },
+	"rrze-elements/collapse": {
+	    "color": {
+		"palette": [
+		    {
+			"slug": "fau",
+			"color": "var(--color-branding-zentral, #04316a)",
+			"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+		    },
+		    {
+			"slug": "phil",
+			"color": "var(--color-branding-phil, #fdb735)",
+			"name": "Philosophische Fakultät"
+		    },
+		    {
+			"slug": "rw",
+			"color": "var(--color-branding-rw, #c50f3c)",
+			"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+		    },
+		    {
+			"slug": "med",
+			"color": "var(--color-branding-med, #18b4f1)",
+			"name": "Medizinische Fakultät"
+		    },
+		    {
+			"slug": "nat",
+			"color": "var(--color-branding-nat, #7bb725)",
+			"name": "Naturwissenschaftliche Fakultät"
+		    },
+		    {
+			"slug": "tf",
+			"color": "var(--color-branding-tf, #8C9FB1)",
+			"name": "Technische Fakultät"
+		    }
+		]       
+	    }
+	},
+	"rrze-elements/accordion": {
+	    "color": {
+		"palette": [
+		    {
+			"slug": "fau",
+			"color": "var(--color-branding-zentral, #04316a)",
+			"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+		    },
+		    {
+			"slug": "phil",
+			"color": "var(--color-branding-phil, #fdb735)",
+			"name": "Philosophische Fakultät"
+		    },
+		    {
+			"slug": "rw",
+			"color": "var(--color-branding-rw, #c50f3c)",
+			"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+		    },
+		    {
+			"slug": "med",
+			"color": "var(--color-branding-med, #18b4f1)",
+			"name": "Medizinische Fakultät"
+		    },
+		    {
+			"slug": "nat",
+			"color": "var(--color-branding-nat, #7bb725)",
+			"name": "Naturwissenschaftliche Fakultät"
+		    },
+		    {
+			"slug": "tf",
+			"color": "var(--color-branding-tf, #8C9FB1)",
+			"name": "Technische Fakultät"
+		    }
+		]       
+	    }
+	},
+	"rrze-elements/tabs": {
+	    "color": {
+		"palette": [
+		    {
+			"slug": "fau",
+			"color": "var(--color-branding-zentral, #04316a)",
+			"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+		    },
+		    {
+			"slug": "phil",
+			"color": "var(--color-branding-phil, #fdb735)",
+			"name": "Philosophische Fakultät"
+		    },
+		    {
+			"slug": "rw",
+			"color": "var(--color-branding-rw, #c50f3c)",
+			"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+		    },
+		    {
+			"slug": "med",
+			"color": "var(--color-branding-med, #18b4f1)",
+			"name": "Medizinische Fakultät"
+		    },
+		    {
+			"slug": "nat",
+			"color": "var(--color-branding-nat, #7bb725)",
+			"name": "Naturwissenschaftliche Fakultät"
+		    },
+		    {
+			"slug": "tf",
+			"color": "var(--color-branding-tf, #8C9FB1)",
+			"name": "Technische Fakultät"
+		    }
+		]
+	    }
+	},
+	"rrze-elements/alert": {
+	    "color": {
+		"palette": [
+		    {
+		      "slug": "default",
+		      "color": "#e9edf2",
+		      "name": "Default"
+		    },
+		    {
+		      "slug": "success",
+		      "color": "#dff0d8",
+		      "name": "Success"
+		    },
+		    {
+		      "slug": "info",
+		      "color": "#d9edf7",
+		      "name": "Info"
+		    },
+		    {
+		      "slug": "warning",
+		      "color": "#fcf8e3",
+		      "name": "Warning"
+		    },
+		    {
+		      "slug": "danger",
+		      "color": "#f2dede",
+		      "name": "Danger"
+		    }
+		]
+	    }
+	},
+	"rrze-elements/columns": {
+	    "color": {
+		"palette": [
+		    {
+		      "slug": "default",
+		      "color": "#e9edf2",
+		      "name": "Default"
+		    },
+		    {
+		      "slug": "success",
+		      "color": "#dff0d8",
+		      "name": "Success"
+		    },
+		    {
+		      "slug": "info",
+		      "color": "#d9edf7",
+		      "name": "Info"
+		    },
+		    {
+		      "slug": "warning",
+		      "color": "#fcf8e3",
+		      "name": "Warning"
+		    },
+		    {
+		      "slug": "danger",
+		      "color": "#f2dede",
+		      "name": "Danger"
+		    }
+		]
+	    }
+	},
+     
+     
       "core/paragraph": {
-        "layout": {},
         "typography": {
-          "fontSizes": []
-        },
-        "color": {
-          "palette": [
-            {
-              "slug": "base",
-              "color": "var(--color-Text,#222)",
-              "name": "Textfarbe"
-            },
-            {
-              "slug": "contrast",
-              "color":"var(--color-MainBackground,#fff)",
-              "name": "Kontrast"
-            }
-          ]
+	    "dropCap": true,
+	    "fontWeight": true,
+	    "fontStyle": true,
+		    "textAlign": true
         }
-      },
-      "core/list": {
-        "color": {
-          "custom": false,
-          "text": true,
-          "background": false,
-          "palette": [
-            {
-              "slug": "base",
-              "color": "var(--color-Text,#222)",
-              "name": "Textfarbe"
-            },
-            {
-              "slug": "contrast",
-              "color": "var(--color-MainBackground,#fff)",
-              "name": "Kontrast"
-            }
-          ]
-        },
-        "typography": {
-          "fontSizes": []
-        }
-      },
-      "core/list-item": {
-        "color": {
-          "custom": false,
-          "text": true,
-          "background": false,
-          "palette": [
-            {
-              "slug": "base",
-              "color": "var(--color-Text,#222)",
-              "name": "Textfarbe"
-            },
-            {
-              "slug": "contrast",
-              "color": "var(--color-MainBackground,#fff)",
-              "name": "Kontrast"
-            }
-          ]
-        },
-        "typography": {
-          "fontSizes": []
-        }
+       
+	
       },
       "core/pullquote": {
-        "border": {
-          "radius": false,
-          "style": false,
-          "width": false,
-          "color": false
-        },
-        "color": {
-          "custom": false,
-          "palette": [],
-          "background": false
-        },
         "typography": {
-          "fontSizes": [],
-          "textTransform": false
+          "fontSizes": [{
+		    "name": "Normal",
+		    "slug": "base",
+		    "size": "1rem"
+		},
+	       {
+		    "name": "Medium",
+		    "slug": "medium",
+		    "size": "1.125rem"
+		},
+		{
+		    "name": "Large",
+		    "slug": "large",
+		    "size": "1.75rem"
+		},
+		{
+		    "name": "Extra Large",
+		    "slug": "x-large",
+		    "size": "2.25rem"
+		}],
+          "textTransform": false,
+		    "textAlign": true
         }
       },
-      "core/columns": {
-        "color": {
-          "background": true,
-          "heading": false,
-          "button": false,
-          "text": true,
-          "defaultPalette": false,
-          "palette": [
-            {
-              "slug": "base",
-              "color": "var(--color-Text,#222)",
-              "name": "Textfarbe"
-            },
-            {
-              "slug": "contrast",
-              "color": "var(--color-MainBackground,#fff)",
-              "name": "Kontrast"
-            },
-            {
-              "slug": "default",
-              "color": "#e9edf2",
-              "name": "Default"
-            },
-            {
-              "slug": "success",
-              "color": "#dff0d8",
-              "name": "Success"
-            },
-            {
-              "slug": "info",
-              "color": "#d9edf7",
-              "name": "Info"
-            },
-            {
-              "slug": "warning",
-              "color": "#fcf8e3",
-              "name": "Warning"
-            },
-            {
-              "slug": "danger",
-              "color": "#f2dede",
-              "name": "Danger"
-            }
-          ]
-        },
-        "typography": {
-          "fontSizes": []
-        },
-        "shadow": {
-          "defaultPresets": false,
-          "presets": []
-        }
-      },
+     
       "core/column": {
-        "typography": {
-          "fontSizes": []
-        },
         "shadow": {
-          "defaultPresets": false,
-          "presets": []
+          "defaultPresets": false
         },
         "color": {
           "background": false,
@@ -456,40 +328,10 @@
               "name": "Kontrast"
             }
           ]
-        }
-      },
-      "core/quote":{
-        "typography": {
-          "fontSizes": []
-        },
-        "color": {
-          "palette": []
-        }
-      },
-      "core/preformatted": {
-        "color": {
-          "palette": [
-            {
-              "slug": "base",
-              "color": "var(--color-Text,#222)",
-              "name": "Textfarbe"
-            },
-            {
-              "slug": "contrast",
-              "color": "var(--color-MainBackground,#fff)",
-              "name": "Kontrast"
-            }
-          ],
-          "background": false
-        },
-        "typography": {
-          "fontSizes": []
         }
       },
       "core/table": {
-        "typography": {
-          "fontSizes": []
-        },
+      
         "color": {
           "palette": [
             {
@@ -505,77 +347,99 @@
           ]
         }
       },
-      "core/group": {
-        "color": {
-          "background": false,
-          "heading": false,
-          "button": false,
-          "text": false,
-          "defaultPalette": false,
-          "palette": []
-        },
-        "typography": {
-          "fontSizes": []
-        },
-        "shadow": {
-          "defaultPresets": false,
-          "presets": []
-        }
+    
+	"core/cover": {
+	    "typography": {
+	       "customFontSize": true,
+	       "lineHeight": true,
+	       "fontStyle": true,
+	       "letterSpacing": true,
+	       "textDecoration": true,
+	       "textTransform": true,
+	       "dropCap": true,
+	       "fluid": true,
+	       "textAlign": true
+	   },
+		
+	    "color": {
+		"background": true,
+		"text": true,
+		"custom": true,
+		"palette": [
+		    {
+			"slug": "black",
+			"color": "var(--color-black, #000)",
+			"name": "Schwarz"
+		    },
+		    {
+			"slug": "contrast",
+			"color": "var(--color-white, #fff)",
+			"name": "Weiß"
+		    },
+		    {
+			"slug": "transparent",
+			"color": "transparent",
+			"name" : "Transparent"
+		    },
+		    {
+			"slug": "fau",
+			"color": "var(--color-branding-zentral, #04316a)",
+			"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+		    },
+		    {
+			"slug": "phil",
+			"color": "var(--color-branding-phil, #fdb735)",
+			"name": "Philosophische Fakultät"
+		    },
+		    {
+			"slug": "rw",
+			"color": "var(--color-branding-rw, #c50f3c)",
+			"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+		    },
+		    {
+			"slug": "med",
+			"color": "var(--color-branding-med, #18b4f1)",
+			"name": "Medizinische Fakultät"
+		    },
+		    {
+			"slug": "nat",
+			"color": "var(--color-branding-nat, #7bb725)",
+			"name": "Naturwissenschaftliche Fakultät"
+		    },
+		    {
+			"slug": "tf",
+			"color": "var(--color-branding-tf, #8C9FB1)",
+			"name": "Technische Fakultät"
+		    }
+		  ]
+	    },
+	    "spacing": {
+		    "padding": true
+	      }
       },
-      "core/verse": {
-        "typography": {
-          "fontSizes": []
-        }
-      },
-      "core/latest-comments": {
-        "typography": {
-          "fontSizes": []
-        }
-      },
-      "core/latest-posts": {
-        "typography": {
-          "fontSizes": []
-        }
-      },
-      "core/cover": {
-        "color": {
-          "defaultPalette": false
-        },
-        "typography": {
-          "fontSizes": []
-        }
-      },
-      "core/media-text": {
-        "typography": {
-          "fontSizes": []
-        }
-      },
-      "core/button": {
-        "typography": {
-          "fontSizes": []
-        },
-        "border": {
-          "radius": false
-        }
-      },
-      "core/buttons": {
-        "typography": {
-          "fontSizes": []
-        },
-        "border": {
-          "radius": false
-        }
-      },
-      "core/code": {
-        "typography": {
-          "fontSizes": []
-        }
-      },
-      "core/categories": {
-        "typography": {
-          "fontSizes": []
-        }
-      }
+    
+	"core/button": {
+	      "color": {
+		  "background": true,
+		  "text": true
+
+	      },
+	      "typography": {
+		 "customFontSize": true,
+		 "letterSpacing": true,
+		 "dropCap": false,
+		 "fluid": true,
+		 "textAlign": true
+	     },
+
+	      "spacing": {
+		      "padding": true,
+		      "margin": true
+		}
+	}
+     
+     
+     
     }
   }
 }

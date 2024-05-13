@@ -6,14 +6,7 @@
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 
-/*-----------------------------------------------------------------------------------*/
-/* Plugin ILI FAU Templates
- *    https://github.com/RRZE-Webteam/ili-fau-templates
-/*-----------------------------------------------------------------------------------*/
-if ( is_plugin_active( 'ili-fau-templates/ili-fau-templates-master.php' ) ) {
-   $setoptions['fau_theme_options']['templates']['fields']['topevents_templates']['liste'][7] = __('Landing Pages', 'fau');
-   // Ergänzung der für Top Events verfügbaren Seitenoptionen um das Template aus dem Plugin
-}
+
 /*-----------------------------------------------------------------------------------*/
 /* Plugin CMS-Workflow 
 /*-----------------------------------------------------------------------------------*/
@@ -33,27 +26,7 @@ function fau_get_rel_alternate() {
     }
 }
 
-/*-----------------------------------------------------------------------------------*/
-/* Plugin wpSEO: Metaboxen nur für Pages und Posts
-/*-----------------------------------------------------------------------------------*/
-add_filter( 'wpseo_add_meta_boxes', 'prefix_wpseo_add_meta_boxes' );
- 
-function prefix_wpseo_add_meta_boxes() {
-    global $post;
-    $post_types_without_seo = array( 'event', 'person', 'ad', 'glossary', 'synonym' );
-    return !in_array( get_post_type($post), $post_types_without_seo);
-} 
 
-/*-----------------------------------------------------------------------------------*/
-/*Plugin Statify: für Redakteuere erlauben
-/*-----------------------------------------------------------------------------------*/
-function statify_init() {
-    $role = get_role('editor');
-    $role->add_cap('edit_dashboard');
-    // statify zulassen für Redakteure
-  //  Das ist Konfiguration des Dashboards, nicht Statify...
-}
-add_action('admin_init', 'statify_init'); 
 
 /*-----------------------------------------------------------------------------------*/
 /* Plugin TinyMCE: Button für Seitenumbruch ergänzen

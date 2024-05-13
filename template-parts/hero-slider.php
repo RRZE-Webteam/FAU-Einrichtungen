@@ -155,7 +155,7 @@
                 $buttonicon = 'fa-play'; // use the play icon if the slider is not autoplaying
             }
 		?>
-          <button type="button" aria-label="<?php echo $buttontext ?> " class="slick-startstop<?php echo $startstopclass;?>"><i class="fa <?php echo $buttonicon; ?>" aria-hidden="true"></i></button>
+          <button type="button" class="slick-startstop<?php echo $startstopclass;?>"><?php echo $buttontext ?></button>
 	    </div>
         <?php } ?>
 	</section> 

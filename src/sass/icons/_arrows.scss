@@ -1,0 +1,69 @@
+/*----------------------------------------------------------------------------*/
+/* _arrows 
+/* Arrowicons, Carets and Angles
+/* Created on : 28.03.2024, 08:52:42
+/*----------------------------------------------------------------------------*/
+.fau-arrow-icon {
+    --_icon-size: var(--fau-arrow-icon-size, 1rem);
+    --_icon-color: var(--fau-arrow-icon-color, var(--color-Text));
+    --_icon-color-hover: var(--fau-arrow-icon-color-hover, var(--color-MainBackground));
+    --_icon-size-mask: var(--fau-arrow-icon-size-mask, var(--fau-arrow-icon-size, 1.6rem));
+    
+
+    width: var(--_icon-size); 
+    height: var(--_icon-size); 
+    display: inline-block;
+    content: ' ';
+    mask-size: var(--_icon-size-mask); 
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background-color: var(--_icon-color);
+    mask-image: svg-arrow-up();
+    transition: transform .2s linear;
+	
+
+    &:focus,
+    &:hover {
+	background-color: var(--_icon-color-hover);
+    }
+
+}
+
+.fau-arrow-icon-down {
+    @extend .fau-arrow-icon;
+    transform: rotate(180deg);
+}
+
+.fau-angle-icon-up,
+.fau-angle-icon {
+    @extend .fau-arrow-icon;
+    mask-image: svg-angle-right();
+    transform: rotate(270deg);
+}
+
+.fau-angle-icon-right {
+    @extend .fau-arrow-icon;
+    mask-image: svg-angle-right();
+}
+
+.fau-angle-icon-left {
+    @extend .fau-arrow-icon;
+    mask-image: svg-angle-right();
+    transform: rotate(180deg);
+}
+.fau-angle-icon-down {
+    @extend .fau-arrow-icon;
+    mask-image: svg-angle-right();
+    transform: rotate(90deg);
+}
+
+.fau-triangle-icon-down {
+    @extend .fau-arrow-icon;
+    mask-image: svg-triangle-down();
+}
+
+.fau-triangle-icon {
+    @extend .fau-arrow-icon;
+    mask-image: svg-triangle-down();
+    transform: rotate(180deg);
+}
