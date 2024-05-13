@@ -82,7 +82,6 @@
 	"textTransform": false,
 	"dropCap": false,
 	"fluid": true,
-	"fontFamilies": false,
 	"fontWeight": false
     },
     "layout": {
@@ -419,25 +418,25 @@
 	      }
       },
     
-      "core/button": {
-	    "color": {
-		"background": true,
-		"text": true
-		    
-	    },
-	    "typography": {
-	       "customFontSize": true,
-	       "letterSpacing": true,
-	       "dropCap": false,
-	       "fluid": true,
-	       "textAlign": true
-	   },
-	
-	    "spacing": {
-		    "padding": true,
-		    "margin": true
-	      }
-      }
+	"core/button": {
+	      "color": {
+		  "background": true,
+		  "text": true
+
+	      },
+	      "typography": {
+		 "customFontSize": true,
+		 "letterSpacing": true,
+		 "dropCap": false,
+		 "fluid": true,
+		 "textAlign": true
+	     },
+
+	      "spacing": {
+		      "padding": true,
+		      "margin": true
+		}
+	}
      
      
      
