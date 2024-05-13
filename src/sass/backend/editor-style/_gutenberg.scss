@@ -6,6 +6,7 @@ Backend CSS Settings for Block Editor (Gutenberg)
 .block-editor {
     .editor-styles-wrapper {
 	margin: 0 30px;
+	padding: var(--width-gutter-half, 15px);
     }
     
     .edit-post-layout__metaboxes {
