@@ -36,13 +36,25 @@
        */
     #wp-admin-bar-rrze-multilang-user-locale,
     #wp-admin-bar-tm-suspend,
-    #wp-admin-bar-my-account,
     #wp-admin-bar-search,
     #wp-admin-bar-query-monitor,
     #wp-admin-bar-fau-degree-program-invalidate-cache,
     #wp-admin-bar-comments {
-	display: none;
+	display: none !important;
     }
+    
+    #wp-admin-bar-my-account {
+	 @media (max-width:  $screen-sm) {
+	     height: 46px;
+	 }
+    }
+    
+    @media screen and (max-width: 600px) {
+	.ab-top-menu > .menupop > .ab-sub-wrapper {
+	    top: 46px;
+	}
+    }
+    
     @media (min-width: $screen-sm) {
 	#wp-admin-bar-rrze-multilang-user-locale,
 	#wp-admin-bar-query-monitor {
