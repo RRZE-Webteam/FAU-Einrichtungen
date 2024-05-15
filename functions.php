@@ -33,8 +33,6 @@ require_once( get_template_directory() . '/functions/menu.php');
 require_once( get_template_directory() . '/functions/custom-fields.php' );
 require_once( get_template_directory() . '/functions/posttype_imagelink.php' );
 require_once( get_template_directory() . '/functions/widgets.php' );
-require_once( get_template_directory() . '/functions/gallery.php' );
-
 
 
 require_once( get_template_directory() . '/functions/svglib.php');

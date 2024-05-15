@@ -76,14 +76,14 @@ add_action( 'init', 'imagelink_post_type', 0 );
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_imagelink_metabox' ) ) {
     function fau_imagelink_metabox() {
-	add_meta_box(
-	    'fau_imagelink_metabox',
-	    __( 'Eigenschaften', 'fau' ),
-	    'fau_imagelink_metabox_content',
-	    'imagelink',
-	    'normal',
-	    'high'
-	);
+        add_meta_box(
+            'fau_imagelink_metabox',
+            __( 'Eigenschaften', 'fau' ),
+            'fau_imagelink_metabox_content',
+            'imagelink',
+            'normal',
+            'high'
+        );
     }
 }
 if ( ! function_exists( 'fau_imagelink_metabox_content' ) ) {
