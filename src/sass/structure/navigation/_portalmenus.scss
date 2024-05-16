@@ -382,28 +382,12 @@ main .subpages-menu,
 }
 
 .contentmenu {
-    .menu-item {
-        > div {
-
-
-            /*a.image {
-                width: 100%;
-                height: 100%;
-                display: block;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }*/
-        }
-    }
-
+    
     &.listview {
         display: flex;
         gap: var(--width-gutter-half, 15px);
         flex-wrap: wrap;
+	min-width: fit-content;
         padding-left: var(--width-gutter-half, 15px);
         padding-right: var(--width-gutter-half, 15px);
         @media (min-width: $screen-sm) {
@@ -411,15 +395,16 @@ main .subpages-menu,
 	    padding-right: 0;
 	}
         a {
-           // border-radius: var(--border-radius-buttons, 3px);
-         //   font-size: 0.937rem;
-         //   line-height: 1.407rem;
+	    display: flex;
+	    align-items: center;
+	    min-height: 44px;
 	    @include px2rem($font-size-contentmenu-listview);
             color: var(--color-Text, #222);
             background-color: var(--color-MetaBackgroundLight, #DFE6EC);
-            padding: 0.5rem 1.8rem;     
-        &:focus,
-            &:hover {
+            padding: 0.5rem 1.8rem; 
+	    
+	    
+	    &:focus,  &:hover {
                 text-decoration: none;
                 background-color: var(--color-menulink-hover-bg);
                 color: var(--color-menulink-hover-text);

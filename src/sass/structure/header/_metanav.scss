@@ -424,3 +424,10 @@
     }
 }
 
+.header-menu {
+    @media (max-width: $screen-md) {
+        width: 100%;
+    }
+}
+
+
