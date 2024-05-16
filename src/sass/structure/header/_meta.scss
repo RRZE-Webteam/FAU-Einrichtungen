@@ -38,12 +38,17 @@
 	    height: 50px;
 	}
     }
+    .meta-logo .branding .textlogo {
+	font-weight: bold;
+	@media (min-width: $screen-md) {
+	  font-weight: normal;
+	}
+    }
+    
 }
 
 .meta-widget {
-    display: inline-block;
-    margin: 5px 30px 5px 20px;
-    height: 1.875rem;
+    display: inherit;
 }
 
 #headerwrapper {

@@ -274,7 +274,7 @@
 	    "dropCap": true,
 	    "fontWeight": true,
 	    "fontStyle": true,
-		    "textAlign": true
+	    "textAlign": true
         }
        
 	
@@ -331,21 +331,31 @@
         }
       },
       "core/table": {
-      
-        "color": {
-          "palette": [
-            {
-              "slug": "base",
-              "color": "var(--color-Text,#222)",
-              "name": "Textfarbe"
-            },
-            {
-              "slug": "contrast",
-              "color": "var(--color-MainBackground,#fff)",
-              "name": "Kontrast"
-            }
-          ]
-        }
+              "typography": {
+		"fontSizes": [
+			{
+			  "name": "Normal",
+			  "slug": "base",
+			  "size": "1rem"
+		      },
+		     {
+			  "name": "Medium",
+			  "slug": "medium",
+			  "size": "1.125rem"
+		      },
+		      {
+			  "name": "Large",
+			  "slug": "large",
+			  "size": "1.75rem"
+		      },
+		      {
+			  "name": "Extra Large",
+			  "slug": "x-large",
+			  "size": "2.25rem"
+		      }],
+		    "textTransform": false,
+		    "textAlign": true
+	      }
       },
     
 	"core/cover": {

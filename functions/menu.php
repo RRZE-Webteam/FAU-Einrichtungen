@@ -1240,6 +1240,128 @@ function fau_get_page_subnav($id) {
 
     return $thismenu;
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* Erstellt Links in der Metanav oben
+/*
+ * @param $args array
+ * @param $mode int         1 = orgalist only, 2 = meta-nav menu only
+ * @param $no_logo bool     Render home link without logo
+ *
+ * @return string
+ */
+/*-----------------------------------------------------------------------------------*/
+function fau_get_toplinks($args = array(), $mode = 0) {
+    global $default_link_liste;
+
+
+    $uselist = $default_link_liste['meta'];
+    $result  = '';
+
+    $orgalist = fau_get_orgahomelink();
+    $thislist = "";
+
+
+    if (has_nav_menu('meta')) {
+        $menu_name = 'meta';
+
+        if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
+            $menu       = wp_get_nav_menu_object($locations[$menu_name]);
+            $menu_items = wp_get_nav_menu_items($menu->term_id);
+            foreach ((array)$menu_items as $key => $menu_item) {
+                $title       = $menu_item->title;
+                $url         = $menu_item->url;            
+                $type       = $menu_item->type;
+                $class_attr = '';
+                if (!empty( $menu_item->classes )) {
+                    $class_names = join( ' ',  $menu_item->classes  );            
+                    if (!empty($class_names)) {
+                        $class_attr = ' class="' . esc_attr( $class_names ) . '"';
+                    }
+                }
+                if ($type == 'post_type') {
+               //     $thislist .= RRZE\THEME\EINRICHTUNGEN\Debugging::get_html_var_dump($menu_item);
+                    $item_output = '';
+                    if (isset($menu_item->object_id) && isset($menu_item->object) && ($menu_item->object == 'imagelink')) {
+                        	$url  = get_post_meta( $menu_item->object_id, 'fauval_imagelink_url', true );
+                            $imageid = get_post_thumbnail_id( $menu_item->object_id ); 
+                            
+                            if (empty($title)) {
+                                $title = get_the_title($menu_item->object_id);
+                                $title = esc_html($title);
+                                if (empty($title)) {
+                                    $title = __("Zum Webauftritt", 'fau').': '.$url;
+                                }
+                            }
+
+                            $item_output = fau_get_image_htmlcode($imageid, 'logo-thumb', $title);
+   
+                    }
+                    if (!empty($item_output)) {
+                           $thislist .= '<li' . $class_attr . '><a href="' . $url . '">' .$item_output.'</a></li>';
+                    }
+                     
+                } else {
+                    $thislist .= '<li' . $class_attr . '><a data-wpel-link="internal" href="' . $url . '">' . $title .'</a></li>';
+                }
+                
+                
+               
+                
+                
+                
+                
+               
+            }
+        }
+    } else {
+        foreach ($uselist as $key => $entry) {
+            if (substr($key, 0, 4) != 'link') {
+                continue;
+            }
+            $thislist .= '<li';
+            if (isset($entry['class'])) {
+                $thislist .= ' class="' . $entry['class'] . '"';
+            }
+            $thislist .= '>';
+            if (isset($entry['content'])) {
+                $thislist .= '<a data-wpel-link="internal" href="' . $entry['content'] . '">';
+            }
+            $thislist .= $entry['name'];
+            if (isset($entry['content'])) {
+                $thislist .= '</a>';
+            }
+            $thislist .= "</li>\n";
+        }
+    }
+
+
+    if (isset($orgalist)) {
+        $result .= $orgalist;
+
+        if ($mode === 1) {
+            return $result;
+        }
+    }
+    if (isset($thislist)) {
+
+        if ($mode === 2) {
+            $result = '<ul class="meta-nav menu"';
+        } else {
+            $result .= '<ul class="meta-nav menu"';
+        }
+
+        if (is_array($args) && isset($args['title'])) {
+            $result .= ' aria-label="' . esc_attr($args['title']) . '"';
+        }
+        $result .= '>';
+        $result .= $thislist;
+        $result .= '</ul>';
+        $result .= "\n";
+    }
+
+    return $result;
+}
 /*-----------------------------------------------------------------------------------*/
 /* EOF menu.php
 /*-----------------------------------------------------------------------------------*/

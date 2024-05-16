@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------------*/
-/* WordPress required classes
+/* WordPress default required classes
 /*-----------------------------------------------------------------------------------*/
 
 .wp-caption {
@@ -14,8 +14,11 @@
 
 
 .wp-caption-text {
-	@include px2rem($font-size-image-caption);
-	padding: 5px 0 5px 0;
+	@include px2rem($font-size-image-caption);	
+	padding: 0;
+	@media (min-width:  $screen-sm) {
+	    padding: 5px 0 5px 0;
+	}
 }
 
 
@@ -25,113 +28,3 @@
 }
 
 
-#wpadminbar  {
-    @media (max-width:  $screen-sm) {
-	position: fixed;
-    }
-    /* Our wpadminbar shows in prod too much from plugins and other settings, 
-       that is only used in dev use cases.
-       Therfor I take some less important things out of the view, igf the screen
-       is too small
-       */
-    #wp-admin-bar-rrze-multilang-user-locale,
-    #wp-admin-bar-tm-suspend,
-    #wp-admin-bar-my-account,
-    #wp-admin-bar-search,
-    #wp-admin-bar-query-monitor,
-    #wp-admin-bar-fau-degree-program-invalidate-cache,
-    #wp-admin-bar-comments {
-	display: none;
-    }
-    @media (min-width: $screen-sm) {
-	#wp-admin-bar-rrze-multilang-user-locale,
-	#wp-admin-bar-query-monitor {
-	    display: inline-block;
-	}
-    }
-    @media (min-width: $screen-lg) {
-	#wp-admin-bar-tm-suspend {
-	    display: inline-block;
-	}
-    }
-    
-    @media (min-width: $screen-xl) {
-	#wp-admin-bar-search{
-	    display: inline-block;
-	}
-    }
-    @media (min-width: $screen-xxl) {
-	#wp-admin-bar-my-account,
-	#wp-admin-bar-fau-degree-program-invalidate-cache,
-	#wp-admin-bar-comments {
-	    display: inline-block;
-	}
-    }
-    #wp-admin-bar-top-secondary > li {
-	background-color: #1d2327;
-    }
-    
-    
-}
-
-@media (max-width: $screen-xs - 1) {
-    
-    .js-enabled {
-	body.admin-bar #wpadminbar {
-	    position: fixed;
-	    top: 0;
-	}
-
-    }
-}
-
-
-
-
-@media (max-width:  $screen-sm) {
-  .wp-caption-text {
-	padding: 0;
-    }
-}
-
-
-// Settings for Gutenberg / WordPress 5.
-
-// Small Font size
-.has-small-font-size {
-     @include px2rem($font-size-small);
-}
-// Regular Font size
-.has-regular-font-size {
-     @include px2rem($font-size-base);
-}
-
-// Large Font size
-.has-large-font-size {
-     @include px2rem($font-size-large);
-}
-
-// Larger Font size
-.has-huge-font-size,
-.has-larger-font-size {
-     @include px2rem($font-size-larger);
-}
-
-p.has-drop-cap {
-    &:not(:focus):first-letter {
-	float:left;
-	@include px2rem($font-size-larger * 3, $font-size-gridbase, $font-size-larger * 3);
-	font-weight: 100;
-	margin: 0 .1em 0 0;
-	text-transform:uppercase;
-	font-style:normal;
-    }
-}
-
-.wp-block-columns.wp-container-6, .wp-block-columns.wp-container-8, .wp-block-columns.wp-container-10 {
-    display: flex;
-}
-
-.wp-container-6  .wp-block-column {
-    width: 50%;
-}

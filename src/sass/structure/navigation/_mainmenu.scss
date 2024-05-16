@@ -670,7 +670,7 @@
         }
 
         > li {
-            border-top: 1px solid $colorOverlayDark; // #ccc;
+            border-top: 1px solid var(--color-overlay-dark,#ccc);
             &:first-child {
                 border-top-color: transparent;
             }
@@ -744,7 +744,7 @@
         }
 
         > li {
-            border-top: 1px solid $colorOverlayDark; // #ccc;
+            border-top: 1px solid var(--color-overlay-dark,#ccc);
             &:first-child {
                 border-top-color: transparent;
             }
