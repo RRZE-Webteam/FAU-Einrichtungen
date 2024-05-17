@@ -24,7 +24,7 @@
 
 		    a:hover, a:focus {
 			    text-decoration: underline;
-				text-decoration-thickness: 0.3rem;
+			    text-decoration-thickness: 0.3rem;
 		    }
 	    }
 	}
@@ -41,17 +41,30 @@
 	}
 	
 	
-	.rss-author {
+	.rss-author {    
 	    padding: 5px 0;
 	    margin-left: 5px;
-	    color: var(--color-TextLight);
+
 	}
 	.rss-date {
+	    --fau-icon-size: var(--font-size-small);
+	    --fau-icon-color: var(--color-Text);
+	    --fau-icon-color-hover: var(--color-Text);
 	    display: block;
-	    padding: 5px 0;
-	    margin: 0;
-	    color: var(--color-TextLight);
+	    margin: 0.5rem 0;
+	    font-size: var(--font-size-small);
+	    
+	     &:before {
+		@extend .fau-icon;
+		mask-image: svg-icon-date();
+		margin-right: 0.5rem;
+            }
+	    
 	}
+	
+
+	   
+	
 	
 	.rssSummary,
 	.rss-description {
@@ -59,13 +72,10 @@
 		color: var(--color-Text);
 	}
 	
-	h4 {
-		margin: 0;
-		padding: 20px 0 20px 0;
-	}
+
 	
 	cite {
-		color: #888;
+		color: var(--color-TextLight);
 	}
 }
 
