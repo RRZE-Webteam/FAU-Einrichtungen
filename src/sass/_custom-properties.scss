@@ -107,7 +107,12 @@
     --color-overlay-dark: #{$colorOverlayDark};
     --color-overlay-light: #{$colorOverlayLight};
     
-     
+    --font-size-small: 0.875rem;
+    --font-size-normal: 1rem;
+    --font-size-large: 1.75rem;
+    --font-size-x-large: 2.25rem;
+
+    
     --border-radius: #{$default-border-radius};
     --border-radius-buttons: #{$border-radius-buttons};
     --devider-height: #{$default-devider-height};

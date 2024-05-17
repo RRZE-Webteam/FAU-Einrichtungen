@@ -15,15 +15,30 @@ function fau_customizer_settings( $wp_customize ) {
 	// List of all options, including defaults and fixed theme definitions
     global $setoptions;
 	// list of options, that may be changed
-    global $options;
     global $OPTIONS_NAME;
 
    $thememods = get_theme_mods();
    
-   if (!current_user_can('manage_sites')) {
-       $wp_customize->remove_section( 'custom_css' );
-        // Eigenes CSS ist aus Corporate Design Gründen nur Supoeradmins erlaubt
-    }
+   // CustomCSS Setting for Customizer
+   $website_type = get_theme_mod('website_type');
+   	// website_type: 
+	//  0 = Fakultaetsportal; 
+	//  1 = Lehrstuehle, Departments 
+	//  2 = Zentrale Einrichtungen, 
+	//  3 = Kooperationen 
+	// -1 = fau.de Portal (4 Spalter in Bühne, kein Link zur FAU. 
+   
+   if (isset($website_type) && ($website_type != 3)) {
+      // Wenn es keine Kooperationsseite ist, dann wird CustomCSS
+      // verboten. Ausnahme: Der Admin ist Superadmin.    
+        if (!current_user_can('manage_sites')) {
+            $wp_customize->remove_section( 'custom_css' );  
+        }
+   }
+  
+    
+
+    
     
     add_theme_support('static_front_page' );
     // Changing Defaults

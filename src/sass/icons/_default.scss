@@ -121,3 +121,9 @@
     @extend .fau-icon;
     mask-image: svg-icon-pause();
 }
+
+.fau-icon-calendar {
+    @extend .fau-icon;
+    mask-image: svg-icon-calendar();
+}
+

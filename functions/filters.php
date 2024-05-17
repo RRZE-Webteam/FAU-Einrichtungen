@@ -695,3 +695,14 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
     }
 }
 add_filter('post_gallery', 'fau_post_gallery', 10, 2);
+/*-----------------------------------------------------------------------------------*/
+/* Remove comments feed link in header
+/*-----------------------------------------------------------------------------------*/
+add_filter( 'feed_links_show_comments_feed', '__return_false' );
+function fau_remove_comments_rss( $for_comments ) {
+    return;
+}
+add_filter('post_comments_feed_link','fau_remove_comments_rss');
+/*-----------------------------------------------------------------------------------*/
+/* EOF
+/*-----------------------------------------------------------------------------------*/
