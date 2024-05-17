@@ -191,55 +191,68 @@
 }
 
 .post-meta {
+    --fau-icon-color: var(--color-Text);
+    --fau-icon-color-hover: var(--color-Text);
+    --fau-icon-size-mask: 1rem;
+    
     display: block;
     padding: 5px 0;
     margin: 0 0 var(--width-gutter-half) 0;
-    font-family: $fontStack;
     @include px2rem($font-size-content-meta);
 
     
     .post-meta-date {
-	    --fau-icon-color: var(--color-Text);
-	    --fau-icon-color-hover: var(--color-Text);
-	    --fau-icon-size-mask: 1rem;
+	 
+	    margin-right: var(--width-gutter-half);
+	    display: flex;
+	    align-items: center;
+	    
 	     &:before {
 		@extend .fau-icon;
 		mask-image: svg-icon-date();
-		margin-right: 0.2rem;
+		margin-right: 0.3rem;
             }
     }
 }
 
 .meta-footer {
+    --fau-icon-color: var(--color-Text);
+    --fau-icon-color-hover: var(--color-Text);
+    --fau-icon-size-mask: 1rem;
     margin-top: var(--width-gutter-half);
     padding-bottom: 50px;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: $screen-sm) {
+	flex-wrap: wrap;
+    }
     @include px2rem($font-size-content-meta);
 
-    .post-meta-categories:before {
-        content: url('data:image/svg+xml,<svg version="1.1" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 85.5 70.9" style="enable-background:new 0 0 85.5 70.9;" xml:space="preserve"><path d="M85.5,19.2c0-5.3-4.3-9.7-9.7-9.7H41.4c-0.7,0-1.5-0.3-2-0.7L31,2.1C29.3,0.8,27.2,0,25,0h-15C4.6,0,0.2,4.3,0.2,9.7v51.6c0,5.3,4.3,9.7,9.7,9.7h65.9c5.3,0,9.7-4.3,9.7-9.7V19.2z M79,61.3c0,1.8-1.4,3.2-3.2,3.2H9.9c-1.8,0-3.2-1.4-3.2-3.2V33.6H79V61.3z M79,27.2H6.7V9.7c0-1.8,1.4-3.2,3.2-3.2h15c0.7,0,1.5,0.3,2,0.7l8.4,6.7c1.7,1.4,3.9,2.1,6.1,2.1h34.4c1.8,0,3.2,1.4,3.2,3.2L79,27.2z"/></svg>');
+    .post-meta-categories,
+    .post-meta-tags {
+	margin-right: var(--width-gutter-half);
+	display: flex;
+	align-items: center;
+	gap: 0.3rem;
     }
-    .post-meta-tags:before {
-        content: url('data:image/svg+xml,<svg version="1.1" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 81.41 81.31" style="enable-background:new 0 0 81.41 81.31;" xml:space="preserve"><g><path d="M79.76,15.97L65.35,1.56c-1.08-1.11-2.6-1.67-4.14-1.54L40.07,1.56c-1.25,0.1-2.43,0.64-3.32,1.51L1.56,38.18C0.55,39.16-0.01,40.51,0,41.92c0,1.4,0.55,2.75,1.54,3.75l34.14,34.11c2.07,2.03,5.38,2.03,7.44,0l35.13-35.11c0.91-0.92,1.45-2.14,1.51-3.42l1.64-21.24C81.48,18.49,80.88,17.01,79.76,15.97z M73.51,40.53L39.4,74.75L6.57,41.92L40.79,7.71l20.47-1.59L75.2,20.07L73.51,40.53z M58.92,22.4c2.07,2.02,5.37,2.02,7.44,0c2.09-2.06,2.12-5.42,0.07-7.51s-5.42-2.12-7.51-0.07s-2.12,5.42-0.07,7.51C58.88,22.35,58.9,22.38,58.92,22.4z"/></g></svg>');
+    .post-meta-categories {		  
+	&:before {
+	   @extend .fau-icon;
+	   mask-image: svg-icon-category();
+       }
+    }
+    .post-meta-tags {		  
+	&:before {
+	   @extend .fau-icon;
+	   mask-image: svg-icon-tag();
+       }
     }
 
-    .post-meta-categories:before,
-    .post-meta-tags:before {
-        width: 1rem;
-        height: 1rem;
-        line-height: 1rem;
-        font-size: 0.6rem;
-        background-repeat: no-repeat;
-        display: inline-block;
-        background-size: 100%;
-        background-position: center center;
-        margin-right: 0.2rem;
-    }
 
 }
 
 .post-meta-tags {
-    @include inline-block;
-
     ul {
         @include no-list;
         @include inline-block;
@@ -270,11 +283,7 @@
 	margin-top: var(--width-gutter, 30px);
     }
     
-    .herotype-default {
-	h1.screen-reader-text {
-	    
-	}
-    }
+   
     .wp-caption {
         max-width: 100vw;
         padding: 0;
