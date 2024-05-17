@@ -33,6 +33,25 @@
     text-align: right;
 }
 
+.has-text-align-left {
+    text-align: left;
+}
+.has-text-align-center {
+    text-align: center;
+}
+.has-text-align-justify {
+    text-align: justify;
+}
+
+// Colors
+.has-text-color {
+    color: var(--color-Text);
+}
+.has-link-color {
+    color: var(--color-links);
+}
+
+
 p.has-drop-cap {
     &:not(:focus):first-letter {
 	float:left;
