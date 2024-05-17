@@ -13,11 +13,7 @@ class FAUShortcodes {
 	function add_shortcodes()	{
 		add_shortcode('organigram', array($this, 'fau_organigram'));
 
-		// Paragraphes and content regions
-		add_shortcode('hr', array($this, 'fau_hr'));
-
-
-		// Blogroll und Artikellisten
+        // Blogroll und Artikellisten
 		add_shortcode('blogroll', array($this, 'fau_shortcode_blogroll'));
 		add_shortcode('articlelist', array($this, 'fau_shortcode_articlelist'));
 
@@ -163,33 +159,6 @@ class FAUShortcodes {
 			), $atts));
 
 		return wp_nav_menu(array('menu' => $menu, 'container' => false, 'menu_id' => 'organigram', 'menu_class' => 'organigram', 'echo' => 0));
-	}
-
-	/*-----------------------------------------------------------------------------------*/
-	/* Special HRs for FAU
-	/*-----------------------------------------------------------------------------------*/
-	function fau_hr($atts, $content = null)	{
-		extract(shortcode_atts(
-			array(
-				"class" => ''
-			), $atts));
-
-
-		$class = fau_sanitize_hr_shortcode($class);
-		$classes = "";
-
-		if (!fau_empty($class)) {
-			if (!fau_empty($classes)) {
-				$classes .= " ";
-			}
-			$classes .= $class;
-		}
-
-		$return = '<hr';
-		$return .= ($classes) ? ' class="' . $classes . '"' : '';
-		$return .= '>';
-
-		return $return;
 	}
 
 	/*-----------------------------------------------------------------------------------*/
