@@ -140,26 +140,35 @@ if (get_theme_mod('advanced_reveal_pages_id')) {
 /*-----------------------------------------------------------------------------------*/
 /* Filter bad paragraphs - fallback
 /*-----------------------------------------------------------------------------------*/
-add_filter('the_content', 'remove_empty_p', 20, 1);
-function remove_empty_p($content){
+add_filter('the_content', 'fau_remove_empty_p', 20, 1);
+function fau_remove_empty_p($content){
     $content = force_balance_tags($content);
     return preg_replace('#<p>\s*+(<br\s*/*>)?\s*</p>#i', '', $content);
 }
 
-add_filter('the_content', 'remove_accordion_bad_br', 20, 1);
-function remove_accordion_bad_br($content){
+add_filter('the_content', 'fau_remove_accordion_bad_br', 20, 1);
+function fau_remove_accordion_bad_br($content){
    // $content = force_balance_tags($content);
     return preg_replace('#<br\s*/*>\s*<div class="accordion#i', '<div class="accordion', $content);
 }
 
-add_filter('the_content', 'remove_bad_p', 20, 1);
-function remove_bad_p($content){
+add_filter('the_content', 'fau_remove_bad_p', 20, 1);
+function fau_remove_bad_p($content){
    // $content = force_balance_tags($content);
     $content = preg_replace('#<p><div #i', '<div ', $content);
     return preg_replace('#</div></p>#i', '</div>', $content);
 }
 
-
+/*-----------------------------------------------------------------------------------*/
+/* Filter empty lists 
+ * Reason: https://www.w3.org/TR/wai-aria-1.1/#mustContain
+ */
+/*-----------------------------------------------------------------------------------*/
+add_filter('the_content', 'fau_remove_empty_list', 20, 1);
+function fau_remove_empty_list($content){
+    $content = force_balance_tags($content);
+    return preg_replace('#<ul>\s*+(<br\s*/*>)?\s*</ul>#i', '<ul><li>&nbsp;</li></ul>', $content);
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Filter for postcount
