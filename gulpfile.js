@@ -385,57 +385,6 @@ function makecustomblockjs() {
 }
 
 
-function makecounterjs() {
-    return src([info.source.js + 'main/fau-counter.js'])
-    .pipe(uglify())
-    .pipe(rename("fau-counter.min.js"))
-    .pipe(dest(info.jsdir))
-    .pipe(touch());
-}
-
-
-
-function maked3() {
-    return src([info.source.js + 'cloudflare-scrollmagic/d3.v5.min.js'])
-    .pipe(uglify())
-    .pipe(rename("fau-d3.v5.min.js"))
-    .pipe(dest(info.jsdir))
-    .pipe(touch());
-}
-function scrollmagic() {
-    return src([info.source.js + 'cloudflare-scrollmagic/ScrollMagic.min.js'])
-    .pipe(uglify())
-    .pipe(rename("fau-ScrollMagic.min.js"))
-    .pipe(dest(info.jsdir))
-    .pipe(touch());
-}
-function animationgsap() {
-    return src([info.source.js + 'cloudflare-scrollmagic/animation.gsap.min.js'])
-    .pipe(uglify())
-    .pipe(rename("fau-animation.gsap.min.js"))
-    .pipe(dest(info.jsdir))
-    .pipe(touch());
-}
-
-function debugscroll() {
-    return src([info.source.js + 'cloudflare-scrollmagic/debug.addIndicators.min.js'])
-    .pipe(uglify())
-    .pipe(rename("fau-debug.addIndicators.min.js"))
-    .pipe(dest(info.jsdir))
-    .pipe(touch());
-}
-
-
-
-
-function makesrollstoriesjs() {
-    return src([info.source.js + 'main/fau-scroll-stories.js'])
-    .pipe(uglify())
-    .pipe(rename("fau-scroll-stories.min.js"))
-    .pipe(dest(info.jsdir))
-    .pipe(touch());
-}
-
 
 
 function updatepot()  {
@@ -554,7 +503,7 @@ exports.debugmode = set_debugmode;
 exports.nodebug = unset_debugmode;
 
 
-var js = series(bundlemainjs, makeslickjs, makecustomblockjs, makecounterjs,makesrollstoriesjs, bundleadminjs, makecustomizerjs, makewplinkjs, makesrollstoriesjs , debugscroll , scrollmagic, maked3, animationgsap);
+var js = series(bundlemainjs, makeslickjs, makecustomblockjs, bundleadminjs, makecustomizerjs, makewplinkjs);
 var dev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle,  js, devversion);
 
 exports.cssdev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle);
