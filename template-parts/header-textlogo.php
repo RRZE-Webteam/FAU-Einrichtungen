@@ -51,7 +51,7 @@ $visible_shortcut = get_theme_mod('website_shorttitle');
 
 $visible_title = get_theme_mod('website_logotitle');
 if (empty($visible_title)) {
-    $visible_title = get_bloginfo( 'title' );
+    $visible_title = get_bloginfo( 'title','display' );
 }
 
 if ($defaultoptions['debugmode']) {

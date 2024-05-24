@@ -936,7 +936,7 @@ function fau_breadcrumb($lasttitle = '', $echo = true, $noNav = false) {
         $res .= '<nav aria-label="'.__('Breadcrumb', 'fau').'" class="breadcrumbs">';
     }
     if (get_theme_mod('breadcrumb_withtitle')) {
-        $res .= '<p class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo('title').'</p>'."\n";
+        $res .= '<p class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo('title', 'display' ).'</p>'."\n";
     }
 
     $res .= '<ol class="breadcrumblist" itemscope itemtype="https://schema.org/BreadcrumbList">';

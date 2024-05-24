@@ -57,7 +57,7 @@ if ((filter_var($copyright, FILTER_VALIDATE_URL)) && (preg_match('/\/cropped\-/'
                    <div class="hero-row">
 
                        <?php  
-                           $title = get_bloginfo( 'title' );
+                           $title = get_bloginfo( 'title','display' );
                            $header_image = get_header_image();
                            $infobarclass= "infobar";
                            $length = 0;
@@ -74,7 +74,7 @@ if ((filter_var($copyright, FILTER_VALIDATE_URL)) && (preg_match('/\/cropped\-/'
                             if (!fau_empty($title)) {	
                                 echo '<p class="sitetitle">'. $title. '</p>';
                             }
-                            $desc = strip_tags(get_bloginfo( 'description' ));
+                            $desc = strip_tags(get_bloginfo( 'description' ,'display'));
                             if (!fau_empty($desc)) {
                                echo '<div class="slogan"><p class="description';
                                if ($length > 80) {
