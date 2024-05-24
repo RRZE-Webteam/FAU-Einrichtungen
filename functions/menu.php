@@ -681,6 +681,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
     function start_lvl(&$output, $depth = 0, $args = array()) {
         $this->level++;
+        
         $this->count[$this->level] = 0;
         if ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub) {
             $output .= '<ul class="sub-menu">';
@@ -688,21 +689,27 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
     }
 
     function end_lvl(&$output, $depth = 0, $args = array()) {
-        if ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub) {
-            $output .= '</ul>';
-        } elseif (($this->level == 2) && ($this->count[$this->level] == ($this->maxsecondlevel + 1)) && ($this->showsub)) {
-            $output .= '<li class="more"><a href="'.$this->element->url.'">'.__('Mehr', 'fau').' ...</a></li>';
-            $output .= '</ul>';
-
-        } elseif (($this->level == 2) && ($this->showsub)) {
-            $output .= '</ul>';
+        
+        if ($this->showsub) {
+            
+            if ($this->level == 2 ) {
+                 if ($this->count[$this->level] <= $this->maxsecondlevel ) {
+                    $output .= '</ul>';
+                } elseif ( ($this->count[$this->level] >= ($this->maxsecondlevel + 1)) ) {
+                    $output .= '<li class="more">';
+                    $output .= '<a href="'.$this->element->url.'">'.__('Mehr', 'fau').' ...</a></li>';
+                    $output .= '</ul>';
+                } else {
+                    $output .= '</ul>';
+                }
+            }
         }
+       
 
         $this->level--;
     }
 
     function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
-        global $options;
         $indent = ($depth) ? str_repeat("\t", $depth) : '';
 
         if (isset($this->count[$this->level])) {
@@ -843,8 +850,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                 $item_output .= $this->listview || $this->meganav ? '' : '</span>'.$args->link_after;
             } else {
                 $item_output .= $link;
-                $item_output .= $args->link_before.apply_filters('the_title', $item->title,
-                        $item->ID).$args->link_after;
+                $item_output .= $args->link_before.apply_filters('the_title', $item->title, $item->ID).$args->link_after;
                 $item_output .= '</a>';
             }
 
