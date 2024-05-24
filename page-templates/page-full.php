@@ -1,9 +1,10 @@
 <?php
 /**
- * The template for displaying all pages.
+ * Template Name: Seite ohne Navigation
+ *
  * @package WordPress
  * @subpackage FAU
- * @since FAU 1.0
+ * @since FAU 2.5
  */
 
 global $pagebreakargs;
@@ -42,9 +43,7 @@ while ( have_posts() ) :
 					    ?>
 					</div>    
 					
-					<?php  
-                    get_template_part('template-parts/content', 'imagelink');  
-			    ?>	
+                    <?php get_template_part('template-parts/content', 'imagelink');  ?>	
 			    </main>
 		    </div>
 		</div>

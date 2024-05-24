@@ -712,6 +712,9 @@ function fau_remove_comments_rss( $for_comments ) {
     return;
 }
 add_filter('post_comments_feed_link','fau_remove_comments_rss');
+
+
+
 /*-----------------------------------------------------------------------------------*/
 /* EOF
 /*-----------------------------------------------------------------------------------*/
