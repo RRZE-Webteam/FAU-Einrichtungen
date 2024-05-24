@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.4.29-6
+Version: 2.4.29-7
 Requires at least: 6.3
 Tested up to: 6.4
 Requires PHP: 8.0
@@ -11381,7 +11381,7 @@ ol.breadcrumblist li:last-child::after {
 #hero.hero-small p.presentationtitle,
 #hero.hero-small h1 {
   padding: 0;
-  margin: 0 0 10px 0;
+  margin: 0 0 var(--width-gutter-half) 0;
 }
 #hero .hero-content {
   z-index: 10;
