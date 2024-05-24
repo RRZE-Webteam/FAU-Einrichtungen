@@ -7,14 +7,29 @@
  */
 
 global $is_sidebar_active;
-get_header(); ?>
+get_header(); 
 
-<?php while ( have_posts() ) : the_post(); ?>
-	<div id="content" class="subnav">
+
+$ancestors = get_post_ancestors( $post->ID );
+$children = get_pages( array(
+    'child_of' => $post->ID,
+    'post_status' => 'publish' // Optional: Nur veröffentlichte Seiten anzeigen
+) );
+
+$subnav = true;
+if (empty($ancestors) && empty($children) ) {
+    // Keine Subnav anzeigen
+    $subnav = false;
+}
+    
+while ( have_posts() ) : the_post(); ?>
+	<div id="content"<?php if($subnav) {echo ' class="subnav"';}?>>
 	    <div class="content-container">			
             <div class="content-row">	
-                <?php echo fau_get_page_subnav($post->ID); ?>		
-                <div class="entry-content">
+                <?php if($subnav) { 
+                    echo fau_get_page_subnav($post->ID); 		
+                    echo '<div class="entry-content">';
+                } ?>
                 <main<?php echo fau_get_page_langcode($post->ID);?>>
                     <h1 id="maintop" class="screen-reader-text"><?php the_title(); ?></h1>
                     <?php 
@@ -39,7 +54,10 @@ get_header(); ?>
                     </div>
                 </main>    
                   <?php   get_template_part('template-parts/content', 'imagelink');  	?>					    
-                </div>				
+             
+              <?php if($subnav) { 
+                  echo '</div>';
+              }	?>	
             </div>
 	    </div>
 	</div>
