@@ -10,8 +10,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Register FAU Menus in Theme
 /*-----------------------------------------------------------------------------------*/
-function fau_register_menus()
-{
+function fau_register_menus() {
     global $defaultoptions;
     $website_type = get_theme_mod('website_type');
     if (!isset($website_type)) {
@@ -43,8 +42,7 @@ function fau_register_menus()
 /*-----------------------------------------------------------------------------------*/
 /* Erstelle ein Social Media Menu, wenn es noch nicht vorhanden ist
 /*-----------------------------------------------------------------------------------*/
-function fau_create_socialmedia_menu()
-{
+function fau_create_socialmedia_menu() {
     global $defaultoptions;
 
     // Zuerst schauen wir, ob das Menu bereits existiert
@@ -395,7 +393,8 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 /* Walker for main menu  SMALL
 /*-----------------------------------------------------------------------------------*/
 
-class Walker_Main_Menu_Plainview_Small extends Walker_Nav_Menu {private $currentID;
+class Walker_Main_Menu_Plainview_Small extends Walker_Nav_Menu {
+    private $currentID;
     private $level = 1;
     private $count = array();
     private $element;
@@ -544,7 +543,8 @@ class Walker_Main_Menu_Plainview_Small extends Walker_Nav_Menu {private $current
             $atts['aria-current'] = "page";
         }
         $atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args);
-    
+   
+        
         if ($this->level == 1) {
             $this->currentID = $item->object_id;
         }
@@ -650,7 +650,7 @@ function fau_get_contentmenu($menu, $submenu = 1, $subentries = 0, $nothumbs = 0
 }
 
 /*-----------------------------------------------------------------------------------*/
-/* Walker for subnav
+/* Walker for Contentmenus (Portalmenus)
 /*-----------------------------------------------------------------------------------*/
 class Walker_Content_Menu extends Walker_Nav_Menu {
     private $level = 1;
@@ -883,8 +883,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 /*-----------------------------------------------------------------------------------*/
 /* Cleanup Menu Classes from unwanted garbage :)
 /*-----------------------------------------------------------------------------------*/
-function fau_cleanup_menuclasses($currentarray = array())
-{
+function fau_cleanup_menuclasses($currentarray = array()) {
     $menugarbage = array(
         "menu-item-type-post_type",
         "menu-item-object-page",
@@ -1232,19 +1231,97 @@ function fau_get_page_subnav($id) {
     if (is_user_logged_in()) {
         $showstatus = array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private');
     }
-
     $thismenu .= wp_list_pages(array(
         'child_of'    => $parent_page,
         'title_li'    => '',
         'echo'        => false,
         'post_status' => $showstatus,
-        'exclude'     => $exclude
+        'exclude'     => $exclude,
+        'walker'      => new Walker_SubNav()
     ));
 
     $thismenu .= '</ul>';
     $thismenu .= '</nav>';
 
     return $thismenu;
+}
+
+
+
+
+class Walker_SubNav extends Walker_Page {
+    function start_el(&$output, $page, $depth = 0, $args = array(), $current_page = 0) {
+        if ($depth) {
+            $indent = str_repeat("\t", $depth);
+        } else {
+            $indent = '';
+        }
+
+        // Standard CSS-Klassen für die Listenelemente
+        $css_class = array();
+
+        // Prüfen, ob die Seite Kinder hat
+        if (isset($args['pages_with_children'][$page->ID])) {
+            $css_class[] = 'page_item_has_children';
+        }
+
+        // Markieren der aktuellen Seite
+        if (!empty($current_page)) {
+            $_current_page = get_post($current_page);
+            if ($_current_page && in_array($page->ID, $_current_page->ancestors)) {
+                $css_class[] = 'current_page_ancestor';
+            }
+            if ($page->ID == $current_page) {
+                $css_class[] = 'current_page_item';
+            } elseif ($_current_page && $page->ID == $_current_page->post_parent) {
+                $css_class[] = 'current_page_parent';
+            }
+        } elseif ($page->ID == get_option('page_for_posts')) {
+            $css_class[] = 'current_page_parent';
+        }
+
+      
+        
+        // Kombinieren der CSS-Klassen in eine Zeichenkette
+        $class_names = implode(' ', $css_class);
+        $class_attr = '';
+        if (!empty($class_names)) {
+            $class_attr = ' class="'.$class_names.'"';
+        }
+        
+        // Abrufen und Hinzufügen des Meta-Werts 'fauval_aria-label' zur Ausgabe
+        $aria_label = get_post_meta($page->ID, 'fauval_aria-label', true);
+        $aria_label_attr = '';
+        if (!empty($aria_label)) {
+            $aria_label_attr = ' aria-label="'.esc_html($aria_label).'"';
+        }
+        
+             
+        // Hinzufügen des Listenelements zur Ausgabe
+        $output .= $indent . sprintf(
+            '<li%s><a%s href="%s">%s</a>',
+            $class_attr,
+            $aria_label_attr,
+            get_permalink($page->ID),
+            $page->post_title
+        );
+
+      
+    }
+
+    function end_el(&$output, $page, $depth = 0, $args = array()) {
+        $output .= "</li>\n";
+    }
+
+    function start_lvl(&$output, $depth = 0, $args = array()) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "\n".$indent.'<ul class="children">';
+    }
+
+    function end_lvl(&$output, $depth = 0, $args = array()) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "$indent</ul>\n";
+    }
 }
 
 /*-----------------------------------------------------------------------------------*/
