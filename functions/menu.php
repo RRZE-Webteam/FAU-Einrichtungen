@@ -1231,12 +1231,21 @@ function fau_get_page_subnav($id) {
     if (is_user_logged_in()) {
         $showstatus = array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private');
     }
+    
+    // Verwendung: Holen der Liste der auszuschließenden Seiten für die Seite mit der ID $id
+    $exclude_sibilings = get_pages_to_exclude($id,$showstatus);
+    $exclude_list = implode(',', $exclude_sibilings);    
+    if (!empty($exclude)) {
+        $exclude_list .= ','.$exclude;
+    }
+
+
     $thismenu .= wp_list_pages(array(
         'child_of'    => $parent_page,
         'title_li'    => '',
         'echo'        => false,
         'post_status' => $showstatus,
-        'exclude'     => $exclude,
+        'exclude'     => $exclude_list, // $exclude,
         'walker'      => new Walker_SubNav()
     ));
 
@@ -1247,6 +1256,33 @@ function fau_get_page_subnav($id) {
 }
 
 
+function get_pages_to_exclude($id, $showstatus = 'publish') {
+    // Liste der auszuschließenden Seiten initialisieren
+    $exclude_list = array();
+
+    // Seiten-ID von $id holen
+    $page_id = get_post($id);
+
+    // Wenn $id eine gültige Seite ist
+    if ($page_id) {
+        // Alle Seiten holen
+        $all_pages = get_pages($showstatus);
+
+        // Liste der Elternseiten von $id erstellen
+        $parent_pages = array_merge(array($page_id->ID), get_post_ancestors($page_id->ID));
+
+        // Seiten filtern, die weder Kinder von $id noch Kinder der Elternseiten von $id sind
+        foreach ($all_pages as $page) {
+            // Wenn die Seite weder eine Kinderseite von $id noch eine Kinderseite von den Elternseiten von $id ist
+            if ($page->ID !== $id && $page->post_parent !== $id && !in_array($page->post_parent, $parent_pages)) {
+                $exclude_list[] = $page->ID;
+            }
+        }
+    }
+
+    return $exclude_list;
+}
+
 
 
 class Walker_SubNav extends Walker_Page {
@@ -1256,71 +1292,84 @@ class Walker_SubNav extends Walker_Page {
         } else {
             $indent = '';
         }
-
-        // Standard CSS-Klassen für die Listenelemente
-        $css_class = array();
-
-        // Prüfen, ob die Seite Kinder hat
-        if (isset($args['pages_with_children'][$page->ID])) {
-            $css_class[] = 'page_item_has_children';
+        
+        $showstatus =  array('publish');
+        if (is_user_logged_in()) {
+            $showstatus = array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private');
         }
-
-        // Markieren der aktuellen Seite
-        if (!empty($current_page)) {
-            $_current_page = get_post($current_page);
-            if ($_current_page && in_array($page->ID, $_current_page->ancestors)) {
-                $css_class[] = 'current_page_ancestor';
+        
+        if (in_array($page->post_status, $showstatus)) {
+    
+            // Standard CSS-Klassen für die Listenelemente
+            $css_class = array();
+            if ($page->post_status != 'publish') {
+                $css_class[] = $page->post_status.'-page';
             }
-            if ($page->ID == $current_page) {
-                $css_class[] = 'current_page_item';
-            } elseif ($_current_page && $page->ID == $_current_page->post_parent) {
+            $is_password_protected = post_password_required($page->ID);
+             if ($is_password_protected) {
+                $css_class[] = 'private-page';
+            }
+
+            // Prüfen, ob die Seite Kinder hat
+            if (isset($args['pages_with_children'][$page->ID])) {
+                $css_class[] = 'page_item_has_children';
+            }
+
+            // Markieren der aktuellen Seite
+            if (!empty($current_page)) {
+                $_current_page = get_post($current_page);
+                if ($_current_page && in_array($page->ID, $_current_page->ancestors)) {
+                    $css_class[] = 'current_page_ancestor';
+                }
+                if ($page->ID == $current_page) {
+                    $css_class[] = 'current_page_item';
+                } elseif ($_current_page && $page->ID == $_current_page->post_parent) {
+                    $css_class[] = 'current_page_parent';
+                }
+            } elseif ($page->ID == get_option('page_for_posts')) {
                 $css_class[] = 'current_page_parent';
             }
-        } elseif ($page->ID == get_option('page_for_posts')) {
-            $css_class[] = 'current_page_parent';
-        }
 
-      
-        
-        // Kombinieren der CSS-Klassen in eine Zeichenkette
-        $class_names = implode(' ', $css_class);
-        $class_attr = '';
-        if (!empty($class_names)) {
-            $class_attr = ' class="'.$class_names.'"';
-        }
-        
-        // Abrufen und Hinzufügen des Meta-Werts 'fauval_aria-label' zur Ausgabe
-        $aria_label = get_post_meta($page->ID, 'fauval_aria-label', true);
-        $aria_label_attr = '';
-        if (!empty($aria_label)) {
-            $aria_label_attr = ' aria-label="'.esc_html($aria_label).'"';
-        }
-        
-             
-        // Hinzufügen des Listenelements zur Ausgabe
-        $output .= $indent . sprintf(
-            '<li%s><a%s href="%s">%s</a>',
-            $class_attr,
-            $aria_label_attr,
-            get_permalink($page->ID),
-            $page->post_title
-        );
 
+
+            // Kombinieren der CSS-Klassen in eine Zeichenkette
+            $class_names = implode(' ', $css_class);
+            $class_attr = '';
+            if (!empty($class_names)) {
+                $class_attr = ' class="'.$class_names.'"';
+            }
+
+            // Abrufen und Hinzufügen des Meta-Werts 'fauval_aria-label' zur Ausgabe
+            $aria_label = get_post_meta($page->ID, 'fauval_aria-label', true);
+            $aria_label_attr = '';
+            if (!empty($aria_label)) {
+                $aria_label_attr = ' aria-label="'.esc_html($aria_label).'"';
+            }
+
+            $url = fau_make_link_relative(get_permalink($page->ID));
+
+            // Hinzufügen des Listenelements zur Ausgabe
+            $output .= $indent . sprintf(
+                '<li%s><a%s href="%s">%s</a>',
+                $class_attr,
+                $aria_label_attr,
+                $url,
+                $page->post_title
+            );
+        }
       
     }
 
     function end_el(&$output, $page, $depth = 0, $args = array()) {
-        $output .= "</li>\n";
+        $output .= "</li>";
     }
 
     function start_lvl(&$output, $depth = 0, $args = array()) {
-        $indent = str_repeat("\t", $depth);
-        $output .= "\n".$indent.'<ul class="children">';
+        $output .= '<ul class="children">';
     }
 
     function end_lvl(&$output, $depth = 0, $args = array()) {
-        $indent = str_repeat("\t", $depth);
-        $output .= "$indent</ul>\n";
+        $output .= "</ul>";
     }
 }
 
