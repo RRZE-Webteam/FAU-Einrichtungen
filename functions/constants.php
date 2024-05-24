@@ -93,7 +93,6 @@ $defaultoptions = [
 	
 
 
-
 	/* Image Sizes */
 	'default_image_sizes' => [
 		'hero'	=> [

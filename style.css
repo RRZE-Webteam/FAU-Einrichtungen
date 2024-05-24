@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.4.29-3
+Version: 2.4.29-6
 Requires at least: 6.3
 Tested up to: 6.4
 Requires PHP: 8.0
@@ -14047,65 +14047,37 @@ main .news-more-links .news-rss:hover:before {
   max-height: 150px;
   width: 150px;
 }
-.imagelink .x120 .slick-item,
-.imagelink .x120 .slick-slide {
-  width: 120px;
+.imagelink .rwd-480-2-1 .slick-item,
+.imagelink .rwd-480-2-1 .slick-slide {
+  width: 480px;
 }
-.imagelink .x120 .slick-item a, .imagelink .x120 .slick-item .image,
-.imagelink .x120 .slick-slide a,
-.imagelink .x120 .slick-slide .image {
-  height: 120px;
-}
-.imagelink .x120 .slick-item a img, .imagelink .x120 .slick-item .image img,
-.imagelink .x120 .slick-slide a img,
-.imagelink .x120 .slick-slide .image img {
-  max-height: 120px;
-  width: 120px;
-}
-.imagelink .x240 .slick-item,
-.imagelink .x240 .slick-slide {
-  width: 240px;
-}
-.imagelink .x240 .slick-item a, .imagelink .x240 .slick-item .image,
-.imagelink .x240 .slick-slide a,
-.imagelink .x240 .slick-slide .image {
+.imagelink .rwd-480-2-1 .slick-item a, .imagelink .rwd-480-2-1 .slick-item .image,
+.imagelink .rwd-480-2-1 .slick-slide a,
+.imagelink .rwd-480-2-1 .slick-slide .image {
   height: 240px;
 }
-.imagelink .x240 .slick-item a img, .imagelink .x240 .slick-item .image img,
-.imagelink .x240 .slick-slide a img,
-.imagelink .x240 .slick-slide .image img {
+.imagelink .rwd-480-2-1 .slick-item a img, .imagelink .rwd-480-2-1 .slick-item .image img,
+.imagelink .rwd-480-2-1 .slick-slide a img,
+.imagelink .rwd-480-2-1 .slick-slide .image img {
   max-height: 240px;
-  width: 240px;
+  width: 480px;
+  aspect-ratio: 2/1;
 }
-.imagelink .x360 .slick-item,
-.imagelink .x360 .slick-slide {
-  width: 360px;
-}
-.imagelink .x360 .slick-item a, .imagelink .x360 .slick-item .image,
-.imagelink .x360 .slick-slide a,
-.imagelink .x360 .slick-slide .image {
-  height: 360px;
-}
-.imagelink .x360 .slick-item a img, .imagelink .x360 .slick-item .image img,
-.imagelink .x360 .slick-slide a img,
-.imagelink .x360 .slick-slide .image img {
-  max-height: 360px;
-  width: 360px;
-}
-.imagelink .x480 .slick-item,
-.imagelink .x480 .slick-slide {
+.imagelink .rwd-480-3-2 .slick-item,
+.imagelink .rwd-480-3-2 .slick-slide {
   width: 480px;
 }
-.imagelink .x480 .slick-item a, .imagelink .x480 .slick-item .image,
-.imagelink .x480 .slick-slide a,
-.imagelink .x480 .slick-slide .image {
-  height: 480px;
+.imagelink .rwd-480-3-2 .slick-item a, .imagelink .rwd-480-3-2 .slick-item .image,
+.imagelink .rwd-480-3-2 .slick-slide a,
+.imagelink .rwd-480-3-2 .slick-slide .image {
+  height: 320px;
 }
-.imagelink .x480 .slick-item a img, .imagelink .x480 .slick-item .image img,
-.imagelink .x480 .slick-slide a img,
-.imagelink .x480 .slick-slide .image img {
-  max-height: 480px;
+.imagelink .rwd-480-3-2 .slick-item a img, .imagelink .rwd-480-3-2 .slick-item .image img,
+.imagelink .rwd-480-3-2 .slick-slide a img,
+.imagelink .rwd-480-3-2 .slick-slide .image img {
+  max-height: 320px;
   width: 480px;
+  aspect-ratio: 3/2;
 }
 .imagelink .logo-thumb .slick-item,
 .imagelink .logo-thumb .slick-slide {
