@@ -54,6 +54,76 @@
     }
 }
 
+.fauorg-kooperation, .fauorg-home {
+    .meta-links-trigger-icon,
+    .meta-links-trigger-button {
+	--fau-icon-size: 1.5rem;
+	    --fau-icon-color: var(--color-Default);
+	    --fau-icon-color-hover: var(--color-Default);
+	    --fau-icon-size-mask: 1.3rem;
+	&::before {
+	    @extend .fau-icon;
+	    mask-image: svg-icon-home();
+	}
+    }
+}
+
+.meta-links-toggled {
+    .meta-links-trigger {
+	--fau-icon-size: 1.5rem;
+	--fau-icon-color: var(--color-Default);
+	--fau-icon-color-hover: var(--color-Default);
+	--fau-icon-size-mask: 1.3rem;
+	
+	.meta-links-trigger-icon-close {
+	    @extend .fau-icon-close;  
+	}
+    }
+    .meta-links-trigger-icon::before,
+    .meta-links-trigger-button::before {
+	display: none;
+    }
+}
+
+
+/*
+#mainnav-toggle,
+#mainnav-toggle-close {
+    --fau-icon-size: 1.5rem;
+    --fau-icon-color: var(--color-Default);
+    --fau-icon-color-hover: var(--color-Default);
+    --fau-icon-size-mask: 1.3rem;
+    
+
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    @include px2rem($font-size-mobile-meta);
+    background-color: transparent;    
+    z-index: 100;
+    color: var(--color-Default);
+    margin: 0;
+    padding: 10px 10px 4px 10px;
+    display: none;
+    cursor: pointer;
+
+    span {
+        @include hideout();
+    }
+}
+
+#mainnav-toggle:before {
+    @extend .fau-icon-bars;
+}
+
+#mainnav-toggle-close:before,
+#mainnav-toggle[aria-expanded=true]:before {
+     @extend .fau-icon-close;  
+}
+*/
+
+
+
 .meta-links-trigger {
     display: block;
     padding: 0 10px;

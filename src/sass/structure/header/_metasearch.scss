@@ -6,7 +6,8 @@
     width: auto;
     display: block;
     position: relative;
-    margin: 1rem 0 0;
+    margin: 0;
+   // margin: 1rem 0 0;
     [dir="rtl"] & {
         margin-right: auto;
     }

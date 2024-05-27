@@ -6,7 +6,7 @@
  * @subpackage FAU
  * @since FAU 1.0
  */
-
+global $is_sidebar_active;
     get_header();
 
     while ( have_posts() ) : the_post();  ?>
@@ -23,15 +23,10 @@
                       echo '<p class="subtitle">'.$headline."</p>\n";  
                 } ?>
                 <div class="inline-box">			    
-                    <?php get_template_part('template-parts/sidebar', 'inline');  
-                    if ($is_sidebar_active) {
-                        echo '<div class="content-inline with-sidebar">';
-                    } else {
-                        echo '<div class="content-inline">';
-                    }
-                    the_content(); 
-                    echo '</div>';
-                    ?>
+                    <?php get_template_part('template-parts/sidebar', 'inline');   ?>
+                    <div class="content-inline<?php if ($is_sidebar_active) { echo " with-sidebar"; }?>">               
+                        <?php the_content(); ?>
+                    </div>
                 </div>    
                 <?php 
                     get_template_part('template-parts/content', 'portalmenu-unten');

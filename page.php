@@ -40,7 +40,7 @@ while ( have_posts() ) : the_post(); ?>
                     <div class="inline-box">					   	
                         <?php get_template_part('template-parts/sidebar', 'inline'); ?>
                         
-                        <div class="content-inline <?php if ($is_sidebar_active) { echo "with-sidebar"; }?>"> 
+                        <div class="content-inline<?php if ($is_sidebar_active) { echo " with-sidebar"; }?>"> 
                         <?php 
                         the_content(); 
                         echo wp_link_pages($pagebreakargs);	
