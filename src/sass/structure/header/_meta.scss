@@ -56,13 +56,7 @@
     transition: box-shadow 0.2s;
 
 
-    .admin-bar & {
-        top: $wordpress-adminbar-bigheight;
-
-        @media (min-width: $wordpress-adminbar-break) {
-            top: $wordpress-adminbar-smallheight;
-        }
-    }
+   
 
     body:not([data-scroll='0']) & {
         background-color: var(--color-white);

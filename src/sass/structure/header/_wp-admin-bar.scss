@@ -2,8 +2,17 @@
 /* _wp-admin-bar 
 /* Created on : 16.05.2024, 11:23:28
 /*----------------------------------------------------------------------------*/
+#headerwrapper {
+    .admin-bar & {
+        top: $wordpress-adminbar-bigheight;
 
-#wpadminbar  {
+        @media (min-width: $wordpress-adminbar-break) {
+            top: $wordpress-adminbar-smallheight;
+        }
+    }
+}
+#wpadminbar   {
+
     @media (max-width:  $screen-sm) {
 	position: fixed;
     }
@@ -33,19 +42,19 @@
 	}
     }
     
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-lg) {
 	#wp-admin-bar-rrze-multilang-user-locale,
 	#wp-admin-bar-query-monitor {
 	    display: inline-block;
 	}
     }
-    @media (min-width: $screen-lg) {
+    @media (min-width: $screen-xxl) {
 	#wp-admin-bar-tm-suspend {
 	    display: inline-block;
 	}
     }
     
-    @media (min-width: $screen-xl) {
+    @media (min-width: $screen-lg) {
 	#wp-admin-bar-search{
 	    display: inline-block;
 	}

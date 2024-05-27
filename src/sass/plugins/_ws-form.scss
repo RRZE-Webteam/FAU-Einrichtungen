@@ -67,7 +67,7 @@
     
 }
 #wpadminbar #wp-admin-bar-root-default li#wp-admin-bar-ws-form-node {
-    @media screen and (max-width: $screen-sm) {
+    @media screen and (max-width: $screen-xl) {
 	display: none;
     }
 }
