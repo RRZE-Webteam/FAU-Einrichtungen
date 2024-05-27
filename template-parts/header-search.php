@@ -15,10 +15,8 @@ $advanced_header_search_hide = get_theme_mod('advanced_header_search_hide', fals
 <?php
     /** Condition statement if plugin is currently active */
     if (is_plugin_active('rrze-search/rrze-search.php')) {
-        /** WP function for loading widget's sidebar */
         dynamic_sidebar('rrze-search-sidebar');
     } else {
-        /** Original Snippet from WP Theme */
         if (empty($advanced_header_search_hide)) { ?>
     <div itemscope itemtype="https://schema.org/WebSite">
         <meta itemprop="url" content="<?php echo fau_esc_url(home_url('/')); ?>">
