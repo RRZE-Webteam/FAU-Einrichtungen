@@ -9,10 +9,10 @@
  * Social Media 
  */
 $default_socialmedia_liste = array(
-    'delicious' => array(
-        'name' => 'Delicious',
-        'content'  => '',
-        'active' => 0,
+    'bluesky' => array(
+        'name' => 'BlueSky',
+        'content'  => 'https://bsky.app/profile/unifau.bsky.social',
+        'active' => 1,
     ),
     'diaspora' => array(
         'name' => 'Diaspora',
@@ -41,12 +41,7 @@ $default_socialmedia_liste = array(
         'content'  => '',
         'active' => 0,
     ),
-    'skype' => array(
-        'name' => 'Skype',
-        'content'  => '',
-        'active' => 0,
-    ),
-    
+
     'youtube' => array(
         'name' => 'YouTube',
         'content'  => 'https://www.youtube.com/@Unifau',

@@ -45,26 +45,19 @@ if ($custom_logo_id) {
                             <div class="meta-links-container">
                                 <a href="#meta-menu" class="meta-links-trigger meta-links-trigger-open">
                                     <span class="meta-links-trigger-text"><?php _e("Organisationsmenü", "fau"); ?> <?php _e("öffnen", "fau"); ?></span>
-                                    <span
-                                        class="meta-links-trigger-icon<?php echo ($website_type != '3' && $website_type !== '-1') ? ' meta-links-trigger-icon-fau' : '' ?>">
-                                        <?php
-                                        if ($website_type === '3' || $website_type === '-1') {
-                                            echo file_get_contents(get_template_directory().'/svg/icon-organization.svg');
-                                        } else {
+                                    <span class="meta-links-trigger-icon<?php echo ($website_type != '3' && $website_type !== '-1') ? ' meta-links-trigger-icon-fau' : '' ?>">
+                                        <?php if ($website_type != '3' && $website_type !== '-1') {
                                             echo fau_use_svg("fau-logo-2021", 153, 58, 'faubaselogo', false, [
                                                 'hidden'     => true,
                                                 'labelledby' => 'website-title',
                                                 'role'       => 'img'
                                             ]);
-                                        }
-                                        ?>
+                                        } ?>
                                     </span>
                                 </a>
                                 <a href="#top" class="meta-links-trigger meta-links-trigger-close">
                                     <span class="meta-links-trigger-text"><?php _e("Organisationsmenü", "fau"); ?> <?php _e("schließen", "fau"); ?></span>
-                                    <span class="meta-links-trigger-icon">
-                                        <?php echo file_get_contents(get_template_directory().'/svg/icon-close.svg') ?>
-                                    </span>
+                                    <span class="meta-links-trigger-icon"></span>
                                 </a>
                             </div>
                             <div class="meta-logo">

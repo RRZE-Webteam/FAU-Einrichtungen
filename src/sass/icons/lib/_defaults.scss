@@ -71,6 +71,16 @@
     $viewbox: '0 0 124.524 124.524';
     @return svg-buildbackground($path,$viewbox,$farbe,$width,$height);
 }
+// search small
+
+@function svg-icon-search2($farbe: false, $width: 0, $height: 0) {
+    $path: 'd="M41.52,90.52c7.25,0.01,14.34-2.15,20.35-6.21l21.12,21.12c2.75,2.75,7.2,2.75,9.96,0.01c2.75-2.75,2.75-7.2,0.01-9.96 c0,0,0,0-0.01-0.01L71.82,74.35c11.23-16.74,6.77-39.42-9.98-50.65s-39.42-6.77-50.65,9.98S4.42,73.1,21.17,84.33 C27.18,88.37,34.27,90.52,41.52,90.52z M41.52,25.94c15.5,0,28.07,12.57,28.07,28.07c0,15.5-12.57,28.07-28.07,28.07 c-15.5,0-28.07-12.57-28.07-28.07c0,0,0,0,0,0C13.47,38.51,26.02,25.96,41.52,25.94z"';
+    $viewbox: '0 0 100 125';
+    @return svg-buildbackground($path,$viewbox,$farbe,$width,$height);
+}
+
+
+
 
   // search toggled
 @function svg-icon-search-toggled($farbe: false, $width: 0, $height: 0) {

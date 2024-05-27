@@ -308,8 +308,6 @@ add_action('wp_head', 'fau_dns_prefetch', 10);
 /*-----------------------------------------------------------------------------------*/
 function fau_addmetatags() {
     $output = '';
-   // $output .= '<meta http-equiv="Content-Type" content="text/html; charset='.get_bloginfo('charset').'">'."\n";
-   // $output .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">'."\n";
 
     $output .= fau_get_rel_alternate();
 	// get alternate urls for the website if avaible
@@ -320,7 +318,7 @@ function fau_addmetatags() {
         // if we set the Google Site Verification in the customizer, we add the html meta tag here 
     }
 
-    $title = sanitize_text_field(get_bloginfo( 'name' ));
+    $title = sanitize_text_field(get_bloginfo( 'name','display' ));
     $output .= '<link rel="alternate" type="application/rss+xml" title="'.$title.' - RSS 2.0 Feed" href="'.get_bloginfo( 'rss2_url').'">'."\n";
        	// Adds RSS feed links to <head> for posts and comments.
         // add_theme_support( 'automatic-feed-links' );

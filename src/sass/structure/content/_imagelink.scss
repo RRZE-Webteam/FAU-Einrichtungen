@@ -98,50 +98,28 @@
 
 	}
 	
-	.x120 .slick-item,
-	.x120 .slick-slide {
-	    width: 120px;
-	   a, .image {
-		height: 120px;
-	         img {
-		   max-height: 120px;
-		    width: 120px;
-	       }
-	   }
-	}
-	
-	.x240 .slick-item,
-	.x240 .slick-slide {
-	    width: 240px;
-	    a, .image {
-		height: 240px;
-	        img {
-		   max-height: 240px;
-		    width: 240px;
-	       }
-	   }
-	}
-	
-	.x360 .slick-item,
-	.x360 .slick-slide {
-	    width: 360px;
-	     a, .image {
-		 height: 360px;
-	        img {
-    		   max-height: 360px;
-		    width: 360px;
-	       }
-	   }
-	}
 
-	.x480 .slick-item,
-	.x480 .slick-slide {
+	.rwd-480-2-1 .slick-item,
+	.rwd-480-2-1 .slick-slide {
 	    width: 480px;
 	    a, .image {
-	        height: 480px;
+	        height: 240px;
 	        img {
-		   max-height: 480px;
-		    width: 480px;
+		   max-height: 240px;
+		   width: 480px;
+		     aspect-ratio: 2 / 1;
+	       }
+	   }
+	}
+	.rwd-480-3-2 .slick-item,
+	.rwd-480-3-2 .slick-slide {
+	    width: 480px;
+	    a, .image {
+	        height: 320px;
+	        img {
+		   max-height: 320px;
+		   width: 480px;
+		   aspect-ratio: 3 / 2;
 	       }
 	   }
 	}

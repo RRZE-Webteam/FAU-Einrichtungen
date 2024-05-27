@@ -1141,7 +1141,6 @@ function fau_do_metabox_page_additional_attributes($object, $box) {
         $currentsize = get_post_meta($object->ID, 'fauval_imagelink_size', true);
 	
 	global $defaultoptions;
-	
 	$imagesizes = array();
 	foreach ($defaultoptions['default_image_sizes'] as $size => $value) {
 	    

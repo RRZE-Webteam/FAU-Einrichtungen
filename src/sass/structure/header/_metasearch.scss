@@ -3,10 +3,16 @@
 /*-----------------------------------------------------------------------------------*/
 
 .meta-search {  
+    --fau-arrow-icon-size: 1rem;
+    --fau-arrow-icon-color: var(--color-zentral-basis);
+    --fau-arrow-icon-color-hover: var(--color-zentral-basis);
+    --fau-arrow-icon-size-mask: 1.2rem;
+    
     width: auto;
     display: block;
     position: relative;
-    margin: 1rem 0 0;
+    margin: 0;
+   // margin: 1rem 0 0;
     [dir="rtl"] & {
         margin-right: auto;
     }
@@ -26,33 +32,24 @@
 	@media (min-width: $screen-md) {
              display: inherit;
         }
-	
-        border-radius: var(--border-radius);
+	@extend .fau-icon;
+	mask-image: svg-icon-search2();
+	width: 30px;
+	height: 30px;
+	min-height: 44px;
+	min-width: 44px;
+	padding: 7px;	
         cursor: pointer;
-        z-index: 999;
 
         &.active {
             display: none;
         }
        
-        svg {
-            display: inline-block;;
-            width: 30px;
-            height: 30px;
-	    min-height: 44px;
-	    min-width: 44px;
-	    padding: 7px;
-            fill: var(--color-zentral-basis);
-	    
-        }
-
+   	
         &:hover,
         &:focus {
 	    background-color: var(--color-primary-ci-hell);
 	    color: var(--color-primary-ci-hell-kontrast);
-            svg {
-                fill: var(--color-white);
-            }
         }
 
        

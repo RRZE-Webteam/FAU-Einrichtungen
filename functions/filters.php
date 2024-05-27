@@ -15,7 +15,7 @@ function fau_wp_title( $title, $sep ) {
 		return $title;
 
 	// Add the site name.
-	$title .= get_bloginfo( 'name' );
+	$title .= get_bloginfo( 'name', 'display' );
 
 	// Add the site description for the home/front page.
 	$site_description = get_bloginfo( 'description', 'display' );
@@ -712,6 +712,9 @@ function fau_remove_comments_rss( $for_comments ) {
     return;
 }
 add_filter('post_comments_feed_link','fau_remove_comments_rss');
+
+
+
 /*-----------------------------------------------------------------------------------*/
 /* EOF
 /*-----------------------------------------------------------------------------------*/

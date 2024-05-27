@@ -146,7 +146,7 @@ function fau_body_class($classes) {
 
     $classes[] = 'fau-theme';
     if ($website_type == -1) {
-        $classes[] = 'fauorg-home';
+        $classes[] = 'fauorg-kooperation';
     } elseif ($website_type == 0) {
         $classes[] = 'fauorg-fakultaet';
         $classes[] = 'fauorg-unterorg';
@@ -182,7 +182,7 @@ function fau_body_class($classes) {
     }
 
 
-    $sitetitle = get_bloginfo('title');
+    $sitetitle = get_bloginfo('title','display');
     if (strlen($sitetitle) > 50) {
         $classes[] = 'longtitle';
     }
@@ -920,7 +920,7 @@ function fau_create_schema_publisher($withrahmen = true)
         $out .= '<meta itemprop="height" content="' . get_custom_header()->height . '">';
         $out .= '</div>';
     }
-    $out .= '<meta itemprop="name" content="' . get_bloginfo('title') . '">';
+    $out .= '<meta itemprop="name" content="' . get_bloginfo('title','display') . '">';
     $out .= '<meta itemprop="url" content="' . home_url('/') . '">';
     if ($withrahmen) {
         $out .= '</div>';
@@ -1938,7 +1938,7 @@ if (!function_exists("print_indented")) {
 /*  Returns language code, without subcode
 /*-----------------------------------------------------------------------------------*/
 function fau_get_language_main() {
-    $charset = explode('-', get_bloginfo('language'))[0];
+    $charset = explode('-', get_bloginfo('language','display'))[0];
     return $charset;
 }
 

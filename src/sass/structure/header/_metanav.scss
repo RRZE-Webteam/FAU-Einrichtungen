@@ -54,6 +54,40 @@
     }
 }
 
+.fauorg-kooperation, .fauorg-home {
+    .meta-links-trigger-icon,
+    .meta-links-trigger-button {
+	--fau-icon-size: 1.5rem;
+	    --fau-icon-color: var(--color-Default);
+	    --fau-icon-color-hover: var(--color-Default);
+	    --fau-icon-size-mask: 1.3rem;
+	&::before {
+	    @extend .fau-icon;
+	    mask-image: svg-icon-home();
+	}
+    }
+}
+
+.meta-links-toggled {
+    .meta-links-trigger {
+	--fau-icon-size: 1.5rem;
+	--fau-icon-color: var(--color-Default);
+	--fau-icon-color-hover: var(--color-Default);
+	--fau-icon-size-mask: 1.3rem;
+	
+	.meta-links-trigger-icon-close {
+	    @extend .fau-icon-close;  
+	}
+    }
+    .meta-links-trigger-icon::before,
+    .meta-links-trigger-button::before {
+	display: none;
+    }
+}
+
+
+
+
 .meta-links-trigger {
     display: block;
     padding: 0 10px;

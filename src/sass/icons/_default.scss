@@ -127,3 +127,8 @@
     mask-image: svg-icon-calendar();
 }
 
+
+.fau-icon-building {
+    @extend .fau-icon;
+    mask-image: svg-icon-building();
+}

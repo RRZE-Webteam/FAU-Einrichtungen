@@ -188,7 +188,10 @@ function fau_custom_image_blocks() {
         'editor_script' => 'my-custom-blocks',
     ) );
 }
-add_action( 'init', 'fau_custom_image_blocks' );
+// add_action( 'init', 'fau_custom_image_blocks' );
+
+
+
 
 
 /*-----------------------------------------------------------------------------------*/

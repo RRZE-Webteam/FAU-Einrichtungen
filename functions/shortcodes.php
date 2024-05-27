@@ -378,37 +378,5 @@ if ( is_plugin_active( "the-events-calendar/the-events-calendar.php") ){
 }
 
   
-/*-----------------------------------------------------------------------------------*/
-/* Shortcodes to display number and a word
-/*-----------------------------------------------------------------------------------*/
-function counter($atts) {
-    static $instance = 0;
-    $instance++;
-
-    $atts = shortcode_atts(
-        array(
-            'number' => '0',
-            'word' => 'default',
-            'image_url' => '',
-        ), 
-        $atts, 
-        'counterword'
-    );
-
-    wp_enqueue_script('my-script', get_template_directory_uri() . '/js/fau-counter.min.js', array(), '1.0', true);
-
-    ob_start();
-    ?>
-    <div class='counter_wrapper'>
-        <?php if (!empty($atts['image_url'])): ?>
-            <img src="<?php echo esc_url($atts['image_url']); ?>" alt="User image" >
-        <?php endif; ?>
-        <div class="number" id="value-<?php echo $instance; ?>-<?php echo $atts['number']; ?>">0</div>
-		<div class="word"> <?php echo $atts['word']; ?> </div>
-    </div>
-    <?php
-    return ob_get_clean();
-}
-add_shortcode('counterword', 'counter');
 
 ?>
