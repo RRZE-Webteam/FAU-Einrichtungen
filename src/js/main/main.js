@@ -219,6 +219,8 @@ jQuery(document).ready(function ($) {
         $(this).replaceWith($toggleButton);
     });
 
+
+
     // Swap out the meta navigation link against a button and create a JavaScript enabled backdrop
     $('.meta-links-trigger-open').each(function () {
         var $toggleButton = $('<button class="meta-links-trigger meta-links-trigger-button" type="button" aria-controls="meta-menu" aria-haspopup="true" aria-expanded="false"/>')
@@ -258,58 +260,58 @@ jQuery(document).ready(function ($) {
     });
     $('.metalinks').after($backdrop);
 
-                // Create and inject alternative toggle buttons for submenus
-               var $topLevelFlyouts = $('.nav > .has-sub > a + .nav-flyout');
-                var toggleFlyout = function() {
-                    var toggle = this || null;
-                    var isExpanded = false;
-                    $('.nav > .has-sub > [type=button]').each(function(i, btn) {
-                        btn._isExpanded = (toggle === btn) ? !btn._isExpanded : false;
-                        $(btn).attr('aria-expanded', btn._isExpanded ? 'true' : 'false');
-                        isExpanded = isExpanded || btn._isExpanded;
-                        btn.nextElementSibling.scrollTop = 0;
-                    });
-                    $html.toggleClass('flyout-scrolling', isExpanded);
-                };
-                $topLevelFlyouts.each(function(index, topLevelFlyout) {
-      //              console.log("Adding button for nav ", index);
-                    var uniqueId = '_' + Math.random().toString(36).substr(2, 9);
-                    topLevelFlyout.$_link = $(topLevelFlyout.previousSibling);
-                    topLevelFlyout.$_button = $('<button type="button" aria-controls="' + uniqueId + '" aria-haspopup="true" aria-expanded="false" aria-hidden="true"/>')
-                        .text(topLevelFlyout.$_link.text())
-                        .click(toggleFlyout);
-                    topLevelFlyout.$_button.addClass(topLevelFlyout.$_link.attr('class'));
-                    $(topLevelFlyout).before(topLevelFlyout.$_button).attr('id', uniqueId);
-                });
+	// Create and inject alternative toggle buttons for submenus
+       var $topLevelFlyouts = $('.nav > .has-sub > a + .nav-flyout');
+	var toggleFlyout = function() {
+	    var toggle = this || null;
+	    var isExpanded = false;
+	    $('.nav > .has-sub > [type=button]').each(function(i, btn) {
+		btn._isExpanded = (toggle === btn) ? !btn._isExpanded : false;
+		$(btn).attr('aria-expanded', btn._isExpanded ? 'true' : 'false');
+		isExpanded = isExpanded || btn._isExpanded;
+		btn.nextElementSibling.scrollTop = 0;
+	    });
+	    $html.toggleClass('flyout-scrolling', isExpanded);
+	};
+	$topLevelFlyouts.each(function(index, topLevelFlyout) {
+//              console.log("Adding button for nav ", index);
+	    var uniqueId = '_' + Math.random().toString(36).substr(2, 9);
+	    topLevelFlyout.$_link = $(topLevelFlyout.previousSibling);
+	    topLevelFlyout.$_button = $('<button type="button" aria-controls="' + uniqueId + '" aria-haspopup="true" aria-expanded="false" aria-hidden="true"/>')
+		.text(topLevelFlyout.$_link.text())
+		.click(toggleFlyout);
+	    topLevelFlyout.$_button.addClass(topLevelFlyout.$_link.attr('class'));
+	    $(topLevelFlyout).before(topLevelFlyout.$_button).attr('id', uniqueId);
+	});
 
-                // Create and inject alternative toggle buttons for submenus nav-small
-                var $topLevelFlyoutSmall = $('.navsmall > .has-sub > a + .nav-flyout');
-                var toggleFlyoutSmall = function() {
-                    var toggleSmall = this || null;
-                    var isExpandedSmall = false;
-                    $('.navsmall > .has-sub > [type=button]').each(function(i, btn) {
-                        btn.isExpandedSmall = (toggleSmall === btn) ? !btn.isExpandedSmall : false;
-                        $(btn).attr('aria-expanded', btn.isExpandedSmall ? 'true' : 'false');
-                        isExpandedSmall = isExpandedSmall || btn.isExpandedSmall;
-                        btn.nextElementSibling.scrollTop = 0;
-                    });
-                    $html.toggleClass('flyout-scrolling', isExpandedSmall);
-                };
-                $topLevelFlyoutSmall.each(function(index, topLevelFlyoutSmall) {
-                    if ($(topLevelFlyoutSmall).prev().is("button")) {
-        //                console.log("Button already exists for .navsmall element:", index);
-                        return; // Skip the current iteration as button already exists
-                    }
-            
+	// Create and inject alternative toggle buttons for submenus nav-small
+	var $topLevelFlyoutSmall = $('.navsmall > .has-sub > a + .nav-flyout');
+	var toggleFlyoutSmall = function() {
+	    var toggleSmall = this || null;
+	    var isExpandedSmall = false;
+	    $('.navsmall > .has-sub > [type=button]').each(function(i, btn) {
+		btn.isExpandedSmall = (toggleSmall === btn) ? !btn.isExpandedSmall : false;
+		$(btn).attr('aria-expanded', btn.isExpandedSmall ? 'true' : 'false');
+		isExpandedSmall = isExpandedSmall || btn.isExpandedSmall;
+		btn.nextElementSibling.scrollTop = 0;
+	    });
+	    $html.toggleClass('flyout-scrolling', isExpandedSmall);
+	};
+	$topLevelFlyoutSmall.each(function(index, topLevelFlyoutSmall) {
+	    if ($(topLevelFlyoutSmall).prev().is("button")) {
+//                console.log("Button already exists for .navsmall element:", index);
+		return; // Skip the current iteration as button already exists
+	    }
 
-                    var uniqueId = '_' + Math.random().toString(36).substr(4, 19);
-                    topLevelFlyoutSmall.$_link = $(topLevelFlyoutSmall.previousSibling);
-                    topLevelFlyoutSmall.$_button = $('<button type="button" aria-controls="' + uniqueId + '" aria-haspopup="true" aria-expanded="false" aria-hidden="true"/>')
-                        .text(topLevelFlyoutSmall.$_link.text())  // corrected this line
-                        .click(toggleFlyoutSmall);
-                    topLevelFlyoutSmall.$_button.addClass(topLevelFlyoutSmall.$_link.attr('class'));
-                    $(topLevelFlyoutSmall).before(topLevelFlyoutSmall.$_button).attr('id', uniqueId);
-                });
+
+	    var uniqueId = '_' + Math.random().toString(36).substr(4, 19);
+	    topLevelFlyoutSmall.$_link = $(topLevelFlyoutSmall.previousSibling);
+	    topLevelFlyoutSmall.$_button = $('<button type="button" aria-controls="' + uniqueId + '" aria-haspopup="true" aria-expanded="false" aria-hidden="true"/>')
+		.text(topLevelFlyoutSmall.$_link.text())  // corrected this line
+		.click(toggleFlyoutSmall);
+	    topLevelFlyoutSmall.$_button.addClass(topLevelFlyoutSmall.$_link.attr('class'));
+	    $(topLevelFlyoutSmall).before(topLevelFlyoutSmall.$_button).attr('id', uniqueId);
+	});
 
 
 
@@ -332,6 +334,62 @@ jQuery(document).ready(function ($) {
             topLevelFlyoutSmall .$_button[openOnClick ? 'show' : 'hide']().attr('aria-hidden', openOnClick ? 'false' : 'true');
         });
     };
+
+
+    //close the menu when clicked outside the menu
+       $(document).click(function (event) {
+	   // Get the element with the click event listener
+	   var element = $('button.has-sub');
+
+	   // Get the target element of the click event
+	   var target = $(event.target);
+
+	   // Check if the target element is outside of the element with the click event listener
+	   if (!target.is(element) && !element.has(target).length) {
+	       // Set the aria-expanded attribute to false
+	       element.attr('aria-expanded', 'false');
+	   }
+       });
+
+
+    // Search button switch for metasearch
+    $('.search-initiate-button').on('click', function(e) {
+       e.stopPropagation(); // Prevents the event from bubbling up to document
+
+       var isActive = $('.search-initiate-button').hasClass('active');
+
+       $('.search-initiate-button').toggleClass('active');
+       $('.meta-search .searchform input[type="submit"]').toggleClass('active');
+       $('.meta-search .searchform input[type="text"]').toggleClass('active').focus();
+
+       // Add ARIA-expanded state
+       $('.search-initiate-button').attr('aria-expanded', !isActive);
+   });
+
+   // Event listener on the document
+   $(document).on('click', function(e) {
+       // Check if clicked element is NOT one of your target elements
+       if (!$(e.target).closest('.search-initiate-button, .meta-search .searchform input').length) {
+	   // Remove .active class from all target elements
+	   $('.search-initiate-button, .meta-search .searchform input[type="submit"], .meta-search .searchform input[type="text"]').removeClass('active');
+
+	   // Update ARIA-expanded state
+	   $('.search-initiate-button').attr('aria-expanded', 'false');
+       }
+   });
+
+   // Keyboard accessibility
+   $(document).on('keydown', function(e) {
+       if (e.key === "Escape" && $('.search-initiate-button').hasClass('active')) { 
+	   // If Esc key is pressed and search is active, deactivate it
+	   $('.search-initiate-button, .meta-search .searchform input[type="submit"], .meta-search .searchform input[type="text"]').removeClass('active');
+
+	   // Update ARIA-expanded state
+	   $('.search-initiate-button').attr('aria-expanded', 'false').focus();
+       }
+   });
+
+
 
 
 
@@ -467,62 +525,7 @@ jQuery(document).ready(function ($) {
     iframeFootnotes();
 
 
-    //close the menu when clicked outside the menu
-    $(document).click(function (event) {
-        // Get the element with the click event listener
-        var element = $('.has-sub');
-
-        // Get the target element of the click event
-        var target = $(event.target);
-
-        // Check if the target element is outside of the element with the click event listener
-        if (!target.is(element) && !element.has(target).length) {
-            // Set the aria-expanded attribute to false
-            element.attr('aria-expanded', 'false');
-        }
-    });
-
-
- // Search button switch for metasearch
- $('.search-initiate-button').on('click', function(e) {
-    e.stopPropagation(); // Prevents the event from bubbling up to document
-    
-    var isActive = $('.search-initiate-button').hasClass('active');
-    
-    $('.search-initiate-button').toggleClass('active');
-    $('.meta-search .searchform input[type="submit"]').toggleClass('active');
-    $('.meta-search .searchform input[type="text"]').toggleClass('active').focus();
-    
-    // Add ARIA-expanded state
-    $('.search-initiate-button').attr('aria-expanded', !isActive);
-});
-
-// Event listener on the document
-$(document).on('click', function(e) {
-    // Check if clicked element is NOT one of your target elements
-    if (!$(e.target).closest('.search-initiate-button, .meta-search .searchform input').length) {
-        // Remove .active class from all target elements
-        $('.search-initiate-button, .meta-search .searchform input[type="submit"], .meta-search .searchform input[type="text"]').removeClass('active');
-        
-        // Update ARIA-expanded state
-        $('.search-initiate-button').attr('aria-expanded', 'false');
-    }
-});
-
-// Keyboard accessibility
-$(document).on('keydown', function(e) {
-    if (e.key === "Escape" && $('.search-initiate-button').hasClass('active')) { 
-        // If Esc key is pressed and search is active, deactivate it
-        $('.search-initiate-button, .meta-search .searchform input[type="submit"], .meta-search .searchform input[type="text"]').removeClass('active');
-        
-        // Update ARIA-expanded state
-        $('.search-initiate-button').attr('aria-expanded', 'false').focus();
-    }
-});
-
-
-
-
+   
 
 
     //scroll up hide show headder
