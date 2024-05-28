@@ -72,6 +72,11 @@ a {
 	position: fixed;
 	bottom: var(--width-gutter, 30px);
 	right: var(--width-gutter, 30px);
+	
+	@media (min-width: $screen-sm) and (max-width: $screen-xl) {
+	    bottom: 200px;
+	}
+	
 	background-color: var(--color-button-bg);
 	color: var(--icon-color);
 	border: none;

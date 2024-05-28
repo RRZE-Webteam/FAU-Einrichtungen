@@ -40,6 +40,8 @@
     [type="button"].current-menu-ancestor {
         color: var(--color-mainmenu-toplevel-hover-text);
         background: var(--color-mainmenu-toplevel-hover-bg);
+	--fau-arrow-icon-color: var(--color-mainmenu-toplevel-hover-text);
+	
     }
 
 
