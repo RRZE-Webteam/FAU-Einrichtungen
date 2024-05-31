@@ -30,6 +30,7 @@
                 @include no-list();
 		box-shadow: none;
 		transition: initial;
+		display: flex;
 		
 		background: transparent;
 		font-weight: normal;
@@ -46,6 +47,7 @@
 		    line-height: inherit;
 		    margin: inherit;
 		    min-width: inherit;
+		    min-height: inherit;
 		    width: 100%;
 		    @media (min-width: $screen-sm) {
 			 width: auto;
