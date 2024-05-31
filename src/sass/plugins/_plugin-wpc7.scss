@@ -1,4 +1,7 @@
-/* Contact Form Plugin wpcf7 */
+/* 
+*  Plugin Contact Form 7
+*/
+
 .wpcf7 {
 	margin: 0;
 	padding: 0;
@@ -20,28 +23,19 @@ div.wpcf7-response-output {
     margin: 0;
     padding: 22px 0;
     font-weight: bold;
-    &:before {
-        @extend .fa;
-        @extend .fa-2x;
-        @extend .fa-exclamation-circle;
-        padding-right: 8px;
-        font-weight: normal;
-        vertical-align: -4px;
-        min-width: 24px;
-    }
     color: var(--color-Text);
 }
 
-.wpcf7-mail-sent-ng {
+.wpcf7-mail-sent-ng, .wpcf7-spam-blocked {
     @extend .wpcf7-undostyle;
     @extend .alert;
+}
+.wpcf7-mail-sent-ng {
     @extend .alert-success;
     color: $alert-success-text  !important;
 }
 
 .wpcf7-spam-blocked {
-    @extend .wpcf7-undostyle;
-    @extend .alert;
     @extend .alert-warning;
     color: $colorNotice  !important;;
 
@@ -53,15 +47,7 @@ div.wpcf7-response-output {
     padding: 10px 0;
     margin: 20px 0;
     font-weight: bold;
-    &:before {
-        @extend .fa;
-        @extend .fa-2x;
-        @extend .fa-exclamation-circle;
-        padding-right: 8px;
-        font-weight: normal;
-        vertical-align: -4px;
-        min-width: 24px;
-    }
+
     color: $colorNotice;
 }
 
@@ -78,15 +64,7 @@ div.wpcf7-response-output {
     padding: 10px 0;
     margin: 20px 0;
     font-weight: bold;
-    &:before {
-        @extend .fa;
-        @extend .fa-2x;
-        @extend .fa-exclamation-circle;
-        padding-right: 8px;
-        font-weight: normal;
-        vertical-align: -4px;
-        min-width: 24px;
-    }
+
     color: $colorNotice  !important;
     margin-top: 0px;	
 }

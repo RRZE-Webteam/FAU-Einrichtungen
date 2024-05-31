@@ -85,6 +85,7 @@
     --_icon-color-hover: var(--fau-icon-color-hover, var(--color-MainBackground));
     --_icon-size-mask: var(--fau-icon-size-mask, var(--fau-icon-size, 1.6rem));
     --_icon-margin-right: var(--fau-icon-margin-right, 0);
+    --_icon-margin-left: var(--fau-icon-margin-left, 0);
     
 
     width: var(--_icon-size); 
@@ -96,6 +97,7 @@
     mask-position: center;
     background-color: var(--_icon-color);
     margin-right: var(--_icon-margin-right);
+    margin-left: var(--_icon-margin-left);
 
     &:focus,
     &:hover {
