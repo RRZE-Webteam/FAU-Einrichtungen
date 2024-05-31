@@ -3,6 +3,12 @@
 /*-----------------------------------------------------------------------------------*/
 
 .organigram {
+    	--fau-icon-size: 1.2rem;
+	--fau-icon-color: var(--color-Default);
+	--fau-icon-color-hover: var(--color-Default);
+	--fau-icon-size-mask: 2rem;
+	--fau-icon-margin-right: 0.4rem;
+	
 	@include no-list;
 	margin: var(--width-gutter-half) 0;
 	
@@ -13,7 +19,17 @@
 	ul {
 		margin-bottom: var(--width-gutter-half);
 		border-left: 2px solid var(--color-primary-ci-hell);
-		margin-left: var(--width-gutter-half);
+		margin-left: 0.5rem;
+		
+		
+		> li:last-of-type {
+		    border-bottom: 2px solid var(--color-primary-ci-hell);
+		    padding-bottom: 0.7rem;
+		}
+		
+		> li:first-of-type {
+		    padding-top: 0.5rem;
+		}
 	}
 	
 	li {
@@ -41,15 +57,16 @@
 
 	
 	.toggle-icon {
-		@extend .fa;
-		@extend .fa-plus-square;
+		@extend .fau-icon;
+		mask-image: svg-triangle-down();
+
 		color: var(--color-Text);
-		margin-right: 5px;
 		cursor: pointer;
+		transition: all 0.3s ease-in-out;
 	}
 	
 	.active > .toggle-icon {
-		@extend .fa-minus-square;
+		transform: rotate(270deg);
 	}
 	
 }

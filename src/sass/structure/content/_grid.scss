@@ -304,12 +304,9 @@
     padding: 0 var(--width-gutter-half);
     flex: 1 1 $screen-xs;
 
-    main {
-	padding-top: var(--width-gutter-half);
-    }
 
     @media (min-width: $screen-sm) {
-	padding-right: var(--width-gutter-half);
+	padding: 0;
     }
 }
 
@@ -320,11 +317,7 @@
     padding: 0 var(--width-gutter-half);
     flex: 1 1 $screen-xs;
 
-    main {
-	padding-top: var(--width-gutter-half);
-    }
-
     @media (min-width: $screen-sm) {
-	padding-right: var(--width-gutter-half);
+	padding: 0;
     }
 }

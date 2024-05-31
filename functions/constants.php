@@ -10,12 +10,12 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 108,
+	'optiontable-version'           => 109,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
-	'debugmode'                     => true,
+	'debugmode'                     => false,
 	// Der Debugmode erlaubt die Einschaltung von Debug- und Demowerten über den Customizer.
 	// Bei der Compilierung des Themes mit Gulp wird der Debugmode bei
 	//  'gulp build'   auf false gesetzt

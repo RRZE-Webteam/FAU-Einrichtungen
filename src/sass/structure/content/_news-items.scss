@@ -125,14 +125,14 @@
 		align-items: center;
 
 		@media (max-width: $screen-sm) {
-			flex-wrap: wrap;
+		    flex-wrap: wrap;
 		}
 
 		.news-meta-videopost-author {
-			&:before {
-			    @extend .fau-icon;
-			    mask-image: svg-icon-pencil();
-			}
+		    &:before {
+			@extend .fau-icon;
+			mask-image: svg-icon-pencil();
+		    }
 		}
 		.news-meta-categories {		  
 		    &:before {
@@ -164,6 +164,12 @@
 		gap: 0.3rem;
 	}
 	h2 .ext-link {
+	        --fau-icon-size: 1.5rem;
+		--fau-icon-color: var(--color-zentral-basis);
+		--fau-icon-color-hover: var(--color-zentral-basis);
+		--fau-icon-size-mask: 1.5rem;
+		--fau-icon-margin-left: 0.1rem;
+
 		@include inline-block;
 		padding-right: var(--width-gutter-half);
 		
@@ -171,14 +177,10 @@
 		&:focus {
 			text-decoration: underline;
 		}
-		&::after {
-		    @include px2rem(16);
-		    @extend .fa;
-		    content: "\f08e";
-		    margin-left: 5px;
-		    position: relative;
-		    top: -5px;
-		    
+		&::after {  
+		    @extend .fau-icon;
+		    mask-image: svg-icon-external-link();
+	    
 		    .wp-external-links & {
 			display: none;
 		    }
@@ -198,8 +200,8 @@
 	    width: 100vw;
 	    text-align: center;
 	    padding: 0;
-	    margin-left: calc(var(--width-gutter-half) * -1); // calc(-#{$fau-gutter-width} / 2);
-	    margin-right: calc(var(--width-gutter-half) * -1); // calc(-#{$fau-gutter-width} / 2);
+	    margin-left: calc(var(--width-gutter-half) * -1); 
+	    margin-right: calc(var(--width-gutter-half) * -1); 
 	    // Auf kleinem Display setze die Bilder nahtlos an den Rand
 	    
 	    @media (min-width: $screen-sm) {
