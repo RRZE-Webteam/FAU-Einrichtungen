@@ -26,25 +26,13 @@
             display: flex;
             padding: 0;
             margin: 0;
-
-            li {
-                padding: 0;
+            
+	   li {
+	       padding: 0;
                 margin: 0;
                 border: none;
 
                 @include no-list();
-
-
-		a {
-		    &.lang-current.current {
-			display: none;
-		    }
-		}	   
-		
-	    }
-            
-	   li {
-		box-shadow: none;
 		transition: initial;
 		
 		background: transparent;
@@ -52,12 +40,17 @@
 		text-decoration: none;
 
 		a {
+		    display: inline-block;
+		   
+		    &.lang-current.current {
+			display: none;
+		    }
+		    padding: 0 0.5rem;
 		    box-shadow: none;
 		    text-decoration: none;
 		    transition: none;
-		    text-decoration-color: none;
-		    padding: 0.3rem 0.7rem;
-		    border-radius: var(--border-radius);
+		    min-height: 44px;
+		    line-height: 44px;
 		    
 		   
 		}
@@ -89,10 +82,10 @@
 }
 
 .meta-links .cms-workflow-widget {
-        margin: 1rem 0 0;
+    //    margin: 1rem 0 0;
 
         @media (min-width: $screen-sm) {
-            margin-top: 0;
+   //         margin-top: 0;
         }
 
         .mlp_language_box {

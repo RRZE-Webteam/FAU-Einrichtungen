@@ -20,12 +20,7 @@
 // Meta Orga Breadcrumb
 @import "orga-breadcrumb";
 
-.header-menu {
 
-    @media (max-width: $screen-md) {
-        width: 100%;
-    }
-}
-
-
+// WP Admin Bar
+@import "wp-admin-bar";
 

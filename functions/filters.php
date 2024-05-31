@@ -15,7 +15,7 @@ function fau_wp_title( $title, $sep ) {
 		return $title;
 
 	// Add the site name.
-	$title .= get_bloginfo( 'name' );
+	$title .= get_bloginfo( 'name', 'display' );
 
 	// Add the site description for the home/front page.
 	$site_description = get_bloginfo( 'description', 'display' );
@@ -70,20 +70,20 @@ add_filter( 'show_recent_comments_widget_style', '__return_false' );
 /*-----------------------------------------------------------------------------------*/
 function fau_searchfilter($query) {
     if ($query->is_search && !is_admin() ) {
-	if(isset($_GET['post_type'])) {
-	    $types = (array) $_GET['post_type'];
-	} else {
-	    $types = get_theme_mod('search_post_types');
-	  //  $types = array("person", "post", "page", "attachment");
-	  //  $types = array("attachment","person");
-	}
-	$allowed_types = get_post_types(array('public' => true, 'exclude_from_search' => false));
-	foreach($types as $type) {
-	    if( in_array( $type, $allowed_types ) ) { $filter_type[] = $type; }
-	}
-	if(count($filter_type)) {
-	    $query->set('post_type',$filter_type);
-	}	
+        if(isset($_GET['post_type'])) {
+            $types = (array) $_GET['post_type'];
+        } else {
+            $types = get_theme_mod('search_post_types');
+          //  $types = array("person", "post", "page", "attachment");
+          //  $types = array("attachment","person");
+        }
+        $allowed_types = get_post_types(array('public' => true, 'exclude_from_search' => false));
+        foreach($types as $type) {
+            if( in_array( $type, $allowed_types ) ) { $filter_type[] = $type; }
+        }
+        if(count($filter_type)) {
+            $query->set('post_type',$filter_type);
+        }	
         $query->set('post_status', array('publish','inherit'));
 
     }
@@ -140,36 +140,45 @@ if (get_theme_mod('advanced_reveal_pages_id')) {
 /*-----------------------------------------------------------------------------------*/
 /* Filter bad paragraphs - fallback
 /*-----------------------------------------------------------------------------------*/
-add_filter('the_content', 'remove_empty_p', 20, 1);
-function remove_empty_p($content){
+add_filter('the_content', 'fau_remove_empty_p', 20, 1);
+function fau_remove_empty_p($content){
     $content = force_balance_tags($content);
     return preg_replace('#<p>\s*+(<br\s*/*>)?\s*</p>#i', '', $content);
 }
 
-add_filter('the_content', 'remove_accordion_bad_br', 20, 1);
-function remove_accordion_bad_br($content){
+add_filter('the_content', 'fau_remove_accordion_bad_br', 20, 1);
+function fau_remove_accordion_bad_br($content){
    // $content = force_balance_tags($content);
     return preg_replace('#<br\s*/*>\s*<div class="accordion#i', '<div class="accordion', $content);
 }
 
-add_filter('the_content', 'remove_bad_p', 20, 1);
-function remove_bad_p($content){
+add_filter('the_content', 'fau_remove_bad_p', 20, 1);
+function fau_remove_bad_p($content){
    // $content = force_balance_tags($content);
     $content = preg_replace('#<p><div #i', '<div ', $content);
     return preg_replace('#</div></p>#i', '</div>', $content);
 }
 
-
+/*-----------------------------------------------------------------------------------*/
+/* Filter empty lists 
+ * Reason: https://www.w3.org/TR/wai-aria-1.1/#mustContain
+ */
+/*-----------------------------------------------------------------------------------*/
+add_filter('the_content', 'fau_remove_empty_list', 20, 1);
+function fau_remove_empty_list($content){
+    $content = force_balance_tags($content);
+    return preg_replace('#<ul>\s*+(<br\s*/*>)?\s*</ul>#i', '<ul><li>&nbsp;</li></ul>', $content);
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* Filter for postcount
 /*-----------------------------------------------------------------------------------*/
-add_filter('wp_list_categories','categories_postcount_filter');
 function categories_postcount_filter ($variable) {
    $variable = str_replace('(', '<span class="post_count">(', $variable);
    $variable = str_replace(')', ')</span>', $variable);
    return $variable;
 }
+add_filter('wp_list_categories','categories_postcount_filter');
 
 /*-----------------------------------------------------------------------------------*/
 /* Add css class to linked images and lightbox to content images
@@ -178,10 +187,10 @@ function fau_add_classes_to_linked_images($content) {
     $classes = 'media-img'; // can do multiple classes, separate with space
 
     if (preg_match('/<a href=\"([^\"]+)\.(bmp|gif|jpeg|jpg|png)(?![\w.\-_])\"><img/i', $content) ) {
-	// link geht auf die Bilddatei direkt, ergänze daher die class lightbox, bisher keine class gesetzt
-	$pattern = '/<a href=\"([^\"]+)\.(bmp|gif|jpeg|jpg|png)(?![\w.\-_])\"><img/i';
-	$replacement = '<a class="lightbox" href="$1.$2"><img';
-	$content = preg_replace($pattern, $replacement, $content);
+        // link geht auf die Bilddatei direkt, ergänze daher die class lightbox, bisher keine class gesetzt
+        $pattern = '/<a href=\"([^\"]+)\.(bmp|gif|jpeg|jpg|png)(?![\w.\-_])\"><img/i';
+        $replacement = '<a class="lightbox" href="$1.$2"><img';
+        $content = preg_replace($pattern, $replacement, $content);
     }
 
     $patterns = array();
@@ -274,31 +283,31 @@ add_filter('widget_tag_cloud_args', 'fau_widget_tag_cloud_args', 10, 1 );
 /*-----------------------------------------------------------------------------------*/
 function fau_add_subnav_css_class($css_class, $page){
     if (is_array($css_class)) {
-	$new_class = array();
-	foreach ($css_class as $i => $c) {
-	    if ($c == 'page_item') {
-	//	nope
-	    } elseif (preg_match("/page\-item\-[0-9]+/", $c, $matches)) {
-	//	dont need
-	    } else {
-		$new_class[] = $c;
-	    }
-	}
+        $new_class = array();
+        foreach ($css_class as $i => $c) {
+            if ($c == 'page_item') {
+                //	nope
+            } elseif (preg_match("/page\-item\-[0-9]+/", $c, $matches)) {
+                 //	dont need
+            } else {
+                $new_class[] = $c;
+            }
+        }
     } else {
-	$css_class = preg_replace("/page\-item\-[0-9]+/", "", $css_class);
-	$new_class = $css_class;
+        $css_class = preg_replace("/page\-item\-[0-9]+/", "", $css_class);
+        $new_class = $css_class;
     }
     if ($page->post_password != '') {
-	$new_class[] = 'protected-page';
+        $new_class[] = 'protected-page';
     }
     if (in_array($page->post_status, ['draft', 'pending', 'auto-draft'])) {
-	$new_class[] = "draft-page";
+        $new_class[] = "draft-page";
     }
     if ($page->post_status == 'future') {
-	$new_class[] = "captain-future";
+        $new_class[] = "captain-future";
     }
     if ($page->post_status == 'private') {
-	$new_class[] = "private-page";
+        $new_class[] = "private-page";
     }  
 
     return $new_class;
@@ -409,3 +418,303 @@ add_filter( 'nav_menu_link_attributes', 'fau_add_aria_label_pages', 10, 3 );
 }
 add_filter('the_content', 'fau_change_link_targets');
 
+
+/*-----------------------------------------------------------------------------------*/
+/* Change output for gallery
+/*-----------------------------------------------------------------------------------*/
+if ( ! function_exists( 'fau_post_gallery' ) ) {
+    function fau_post_gallery($output, $attr) {
+	global $post;
+	global $usejslibs;
+	global $defaultoptions;
+
+
+	if (isset($attr['orderby'])) {
+	    $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
+	    if (!$attr['orderby'])
+		unset($attr['orderby']);
+	}
+
+	extract(shortcode_atts(array(
+	    'order'	=> 'ASC',
+	    'orderby'	=> 'menu_order ID',
+	    'id'	=> $post->ID,
+	    'columns'	=> 0,
+	    'include'	=> '',
+	    'exclude'	=> '',
+	    'type'	=> 'default',
+	    'captions'	=> 0,
+	    'link'	=> 'post',
+		// aus Wizard:
+		// file = direkt zur mediendatei
+		// post = null = Anhang Seite   (Im WordPress Wizzard ist dies der Default!)
+		// none = nirgendwohin
+
+	    'class'	=> '', 
+	    'nodots'	> 0,
+
+	), $attr));
+
+	$id = intval($id);
+	if ('RAND' == $order) $orderby = 'none';
+	$class = sanitize_text_field( $class );
+	if (!empty($include)) {
+	    $include = preg_replace('/[^0-9,]+/', '', $include);
+	    $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
+
+	    $attachments = array();
+	    foreach ($_attachments as $key => $val) {
+		$attachments[$val->ID] = $_attachments[$key];
+	    }
+	}
+
+	if (empty($attachments)) return '';
+
+	$gridtype = 'default';
+
+	$output = '<div class="image-gallery';
+	if (!empty($class)) {
+	    $output .= ' '.$class;
+	}
+	$output .= '">';
+	
+	if (isset( $attr['captions'])) {
+	    $attr['captions'] = filter_var( $attr['captions'], FILTER_VALIDATE_BOOLEAN );
+	} else {
+	    $attr['captions'] = '';
+	}
+	
+	if (!isset($attr['type'])) {
+	    $attr['type'] = 'default';
+	}
+
+	if ($attr['type'] != 'default') {
+
+	    $gridclass = 'flexgrid';
+	    $gridtype = 'grid';
+	    if (isset($attr['columns'])) {
+		if ($attr['columns']==2) {
+		    $gridclass = 'two';
+		} elseif ($attr['columns']==3) {
+		    $gridclass = 'three';
+		} elseif ($attr['columns']==4) {
+		    $gridclass = 'four';
+		} elseif ($attr['columns']==5) {
+		    $gridclass = 'five';
+		}
+	    }
+	    // Overwrite by type
+	    if ($attr['type'] == '2cols') {
+		$gridclass = 'two';
+	    }
+	    if ($attr['type'] == '4cols') {
+		$gridclass = 'four';
+	    }
+
+	}
+
+
+	if ($gridtype == 'grid') {
+	    // Images in grid view
+
+	    $rand = rand();
+	    $usesameheight = '';
+
+	    $output .= '<div class="grid" aria-hidden="true" role="presentation">'."\n";
+
+	    if ($gridclass=='flexgrid') {
+		$output .= '<div class="flexgrid">'."\n";
+	    } else {
+		$output .= '<div class="flexgrid '.$gridclass.'">'."\n";
+	    }
+
+
+	    $i = 0;
+
+
+	    foreach ($attachments as $id => $attachment) {
+
+		    $imgmeta = fau_get_image_attributs($id);
+		    $img_full = wp_get_attachment_image_src($id, 'full');
+		    $lightboxattr = '';
+		    
+		    $lightboxtitle = ( isset($imgmeta->post_excerpt) ? sanitize_text_field( $imgmeta->post_excerpt ) : '' );
+		    
+		    if (strlen(trim($lightboxtitle))>1) {
+			$lightboxattr = ' title="'.$lightboxtitle.'"';
+		    }
+
+		    $linkalt = $imgmeta['alt'];
+		    if (isset($attr['link']) && ('none' !== $attr['link'])) {
+			    // Bei Bildern, die als Link fungieren beschreibt der alt das Linkziel, nicht das Bild.
+			    if (!fau_empty($imgmeta['title'])) {
+                    $linkalt = __('Bild','fau').' '.$imgmeta['title'].' '.__('öffnen','fau');
+			    } else {
+                    $linkalt = __('Bild','fau').' '.__('öffnen','fau');
+			    }
+			
+		    } elseif (fau_empty( $imgmeta['alt'])) {
+			// Kein Link aber Bild-Alt trotzdem leer. Nehme einen der 
+			// optionalen anderen Felder der Bildmeta
+			if (!fau_empty($imgmeta['description'])) {
+			    $linkalt =  sanitize_text_field($imgmeta['description']);	
+			} elseif (!fau_empty($imgmeta['title'])) {
+			    $linkalt =  sanitize_text_field($imgmeta['title']);
+			} elseif (!fau_empty($imgmeta['excerpt'])) {
+			    $linkalt =  sanitize_text_field($imgmeta['excerpt']);
+					    
+			} else {
+			    $linkalt = '';
+			}
+			
+		    }
+		    
+		    if(isset( $attr['captions']) && ($attr['captions']==1) &&(!fau_empty($imgmeta['excerpt']))) {
+			$output .= '<figure class="with-caption">';
+		    } else {
+			$output .= '<figure>';
+		    }
+		    if (isset($attr['link']) && ('none' !== $attr['link'])) {
+			if ($attr['link']=='post') {
+			    // Anhang Seite
+			    $output .= '<a tabindex="-1" href="'.get_attachment_link( $id ).'">';		  
+			} else {
+			    // File
+			    $output .= '<a tabindex="-1" href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';		  
+			}
+		    }
+
+		    $output .= fau_get_image_htmlcode($id, 'gallery-full', $linkalt);
+		    
+		    if (isset($attr['link']) && ('none' !== $attr['link'])) {
+			$output .= '</a>';
+		    }
+
+		    if(isset( $attr['captions']) && ($attr['captions']==1) && (!fau_empty($imgmeta['excerpt']))) {
+			$output .= '<figcaption>'.$imgmeta['excerpt'].'</figcaption>';
+		    }
+		    $output .= '</figure>'."\n";
+		    $i++;
+
+		   
+	    }
+
+	    $output .= '</div>'."\n";
+	    $output .= '</div>'."\n";
+
+
+	} else {
+	    if ((!$attr['captions']) && (get_theme_mod('galery_force_caption_onslick'))) {
+		$attr['captions'] = 1;
+	    }
+	    wp_enqueue_script('fau-js-heroslider');
+
+	    $rand = rand();	    
+	    $output .= "<div id=\"slider-$rand\" class=\"gallery-slick\" aria-hidden=\"true\" role=\"presentation\">\n";	
+	    $output .= "<div class=\"slider-for-$rand\">\n";
+
+	    foreach ($attachments as $id => $attachment) {
+		$img_full = wp_get_attachment_image_src($id, 'full');
+		$imgmeta = fau_get_image_attributs($id);
+
+		$output .= '<div class="item">';	
+		$output .= fau_get_image_htmlcode($id, 'gallery-full', '','',array('role' => 'presentation'));
+
+		$link_origin = get_theme_mod('galery_link_original');
+		
+		if (($link_origin) || ($attr['captions'])) {
+		    $output .= '<figcaption class="gallery-image-caption">';
+			$lightboxattr = '';
+			if (($attr['captions']) && (!fau_empty($imgmeta['excerpt']))) {
+			    $output .= $imgmeta['excerpt']; 
+			    $lightboxtitle = sanitize_text_field($imgmeta['excerpt']);
+			    if (strlen(trim($lightboxtitle))>1) {
+				$lightboxattr = ' title="'.$lightboxtitle.'"';
+			    }
+			}
+			if (($link_origin) && isset($attr['link']) && ($attr['link'] != 'none')) {
+			    if (!fau_empty($imgmeta['excerpt'])) { 
+				$output .= '<br>'; 			
+			    }
+			    $output .= '<span class="linkorigin">(<a  tabindex="-1" href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
+			}
+		    $output .='</figcaption>';
+		}
+
+		$output .='</div>';
+
+	    }
+
+	    $output .= "</div>\n";
+	    $output .= "<div class=\"slider-nav-width slider-nav-$rand\">\n";
+
+
+	    foreach ($attachments as $id => $attachment) {
+		$output .= '<div>';
+		$imgmeta = fau_get_image_attributs($id);
+		$alttext = sanitize_text_field($imgmeta['excerpt']);
+		$output .= fau_get_image_htmlcode($id, 'rwd-480-3-2', $alttext);
+		$output .= '</div>';
+	    }
+
+	    $output .= "</div>\n";	
+	    $output .= "<script type=\"text/javascript\"> jQuery(document).ready(function($) {";	
+	    $output .= "$('.slider-for-$rand').slick({slidesToShow: 1,slidesToScroll: 1, arrows: false, fade: true,adaptiveHeight: true,asNavFor: '.slider-nav-$rand' });";
+
+	    $output .= "$('.slider-nav-$rand').slick({ slidesToShow: 4,  slidesToScroll: 1,   asNavFor: '.slider-for-$rand', centerMode: true,focusOnSelect: true, centerPadding: 5";
+	    if ((isset($attr['nodots']) && $attr['nodots']==true)) {
+		$output .= ", dots: false";
+	    } else {
+		$output .= ", dots: true";
+	    }
+
+	    $output .= ", responsive: [ 
+	    {
+		breakpoint: 920,
+		settings: {
+		  arrows: true,
+		  slidesToShow: 3
+		}
+	      },
+	    {
+		breakpoint: 768,
+		settings: {
+		  arrows: true,
+		  slidesToShow: 2
+		}
+	      },
+	      {
+		breakpoint: 480,
+		settings: {
+		  arrows: true,
+		  slidesToShow: 2,
+		  dots: false
+		}
+	      }
+	    ]";
+	    $output .= "});";
+	    $output .= "});</script>";
+	    $output .= "</div>";	
+
+	}
+
+
+	$output .= "</div>\n";
+	return $output;
+    }
+}
+add_filter('post_gallery', 'fau_post_gallery', 10, 2);
+/*-----------------------------------------------------------------------------------*/
+/* Remove comments feed link in header
+/*-----------------------------------------------------------------------------------*/
+add_filter( 'feed_links_show_comments_feed', '__return_false' );
+function fau_remove_comments_rss( $for_comments ) {
+    return;
+}
+add_filter('post_comments_feed_link','fau_remove_comments_rss');
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/* EOF
+/*-----------------------------------------------------------------------------------*/

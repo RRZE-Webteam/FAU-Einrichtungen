@@ -76,14 +76,14 @@ add_action( 'init', 'imagelink_post_type', 0 );
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_imagelink_metabox' ) ) {
     function fau_imagelink_metabox() {
-	add_meta_box(
-	    'fau_imagelink_metabox',
-	    __( 'Eigenschaften', 'fau' ),
-	    'fau_imagelink_metabox_content',
-	    'imagelink',
-	    'normal',
-	    'high'
-	);
+        add_meta_box(
+            'fau_imagelink_metabox',
+            __( 'Eigenschaften', 'fau' ),
+            'fau_imagelink_metabox_content',
+            'imagelink',
+            'normal',
+            'high'
+        );
     }
 }
 if ( ! function_exists( 'fau_imagelink_metabox_content' ) ) {
@@ -140,12 +140,11 @@ add_action( 'save_post', 'fau_imagelink_metabox_content_save' );
 /* Display imagelink slider
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_imagelink_get' ) ) {
-    function fau_imagelink_get( $atts = array()) {		
-		$imagelink_option = fau_get_imagelink_defaults();
-		global $imagelink_allowedsizes;
-	//	$imagelink_option = array_merge($imagelink_defaults, $atts);
-		
-		
+    function fau_imagelink_get( $atts = array()) {			 
+        global $defaultoptions;
+        
+        $imagelink_option = fau_get_imagelink_defaults();     
+        
 		if (isset($atts['slides']) && intval($atts['slides']) && $atts['slides']>0) {
 			$imagelink_option['slides']  = $atts['slides'];
 		} 
@@ -158,9 +157,12 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 		$imagelink_option['class'] = ( isset($atts['class'] ) ? sanitize_text_field( $atts['class'] ) : $imagelink_option['class']  );
 		$imagelink_option['order'] = ( isset($atts['order'] ) ? sanitize_text_field( $atts['order'] ) : $imagelink_option['order']  );
 		
-		if  (isset($atts['size'] ) && (in_array(sanitize_text_field( $atts['size'] ), $imagelink_allowedsizes))) {
-			$imagelink_option['size'] = sanitize_text_field( $atts['size'] ); 
-		}
+        $size = sanitize_text_field( $atts['size'] ); 
+        if ((isset($defaultoptions['default_image_sizes'][$size])) && ($defaultoptions['default_image_sizes'][$size]['imagelink']==true)) {
+            $imagelink_option['size'] = $size;
+        } else {
+            $imagelink_option['size'] = '';
+        }
 		
 		if  (isset($atts['type'] ) && (in_array(sanitize_text_field( $atts['type'] ), array('slide', 'list')))) {
 			$imagelink_option['type'] = sanitize_text_field( $atts['type'] ); 

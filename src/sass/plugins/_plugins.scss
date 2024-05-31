@@ -31,9 +31,6 @@
 // RRZE Multilang
 @import "rrze-multilang";
 
-// RRZE Elements
-// @import "rrze-elements";
-// Entfernt: https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues/1442
 
 // RRZE UnivIS
 @import "rrze-univis";
@@ -44,16 +41,17 @@
 // FAU Oembed
 @import "fau-oembed";
 
-// Social Share 
-// (not used yet)  @import "social-share";
 
 // Mimetype Link Icons
 @import "mimetype-link-icons";
 
+// Plugin WS Form
+@import "ws-form";
+
+// Plugin RRZE Legal
+@import "ws-form";
 
 // Everything else, coming from Plugins
 @import "plugin-misc";
 
 
-// The Events Calendar
-@import "the-events-calandar";

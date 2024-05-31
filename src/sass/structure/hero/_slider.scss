@@ -14,22 +14,37 @@ $slider-height-md: 512px;
 }
  
 #hero-slides {
+    
+    --fau-arrow-icon-size: 2rem;
+    --fau-arrow-icon-size-mask: 3rem;
+    --fau-arrow-icon-color: rgba(255, 255, 255, 0.8); // var(--color-mainmenu-toplevel-text);
+    --fau-arrow-icon-color-hover: rgba(255, 255, 255, 1); // var(--color-mainmenu-toplevel-hover-text);
+    --fau-icon-size: 2rem;
+    --fau-icon-color: var(--fau-arrow-icon-color);
+    --fau-icon-color-hover: var(--fau-arrow-icon-color-hover);
+    --fau-icon-size-mask: 1.8rem;
+    
+    @media (min-width: $screen-xs) {	
+	--fau-arrow-icon-size: 4rem;
+	--fau-arrow-icon-size-mask: 8rem;
+    }
+    @media (min-width: $screen-xl) {
+	--fau-arrow-icon-size: 5rem;
+	--fau-arrow-icon-size-mask: 10rem;
+    }
+    
 	position: relative;
 	height: auto;
 	width: 100%;
 	overflow: hidden;
 	
 	@media (min-width: $screen-xxs) {
-		display: block;
-		width: 100%;
+	    display: block;
+	    width: 100%;
 
-		.no-js & {
-			//display: none;
-			
-			// why is this outcommented?
-			// is the slider usable without js?
-			// todo: check 
-		}   
+	    .no-js & {
+		    display: none;
+	    }   
 	}
 
 	@media (min-width: $screen-xs) {
@@ -188,11 +203,11 @@ $slider-height-md: 512px;
 		padding: 0;
 
 	}
+	.slick-startstop,
 	.slick-prev,
 	.slick-next {
 		position: absolute;
 		display: block;
-		width: 60px;
 		line-height: 0px;
 		font-size: 0px;
 		cursor: pointer;
@@ -200,127 +215,64 @@ $slider-height-md: 512px;
 		color: transparent;
 
 		bottom: auto;
-		top: calc(50% - (45px + 70px + 225px)/2);
-		height: auto;
-
-		@media (max-width: $screen-sm) {
-			top: calc(50% - (20px + 70px + 105px)/2);
+		top: 3rem;
+		@media (min-width: $screen-xs) {
+		    top: calc(50% - 5rem);
 		}
+		height: auto;
 
 		padding: 0;
 		border: none;
 		outline: none;
+		filter: drop-shadow(1px 1px 4px rgba(0,0,0,0.75));
+		transition: all .2s linear;
 
-
-		&:hover,
-		&:focus {
-			outline: none;
-			background: transparent;
-			color: #fff;
-
-			&:before {
-				color: rgba(255, 255, 255, 0.8);
-			}
-		}
-
-		&:before {	
-			font-size: 150px;
-			color: rgba(255, 255, 255, 0.83);
-			text-shadow: 2px 2px rgba(0, 0, 0, 0.63);
-			@media (max-width: $screen-sm) {
-				font-size: 70px;
-			}
-		}
 	}
 
 	.slick-prev {
 		left: var(--width-gutter-half);
-
-		[dir="rtl"] & {
-			left: auto;
-			right: var(--width-gutter-half);
-		}
-		@media (min-width: $break-1360 + 20) {
-			left: var(--width-gutter-half);
-			[dir="rtl"] & {
-				left: auto;
-				right: var(--width-gutter-half);
-			}
-		}
+	
 		&:before {
-			@extend .fa;
-			@extend .fa-chevron-left;
-
-			[dir="rtl"] & {
-				@extend .fa-chevron-right;
-			}
+		    @extend  .fau-angle-icon-left;
 		}
 	}
 
 	.slick-next {
-		right: 25px;
-		
-		[dir="rtl"] & {
-			left: var(--width-gutter-half);
-			right: auto;
-			.slick-arrow { 
-				font-size: 11em;
-		color:#fff;
-
-			}
-		}
-
-		@media (min-width: $break-1360 + 20) {
-			right: calc(var(--width-gutter) + 5px);
-			[dir="rtl"] & {
-				left: var(--width-gutter-half);
-				right: auto;
-			}
-		}
+		right: var(--width-gutter-half);
 
 		&:before {
-			@extend .fa;
-			@extend .fa-chevron-right;
-
-			[dir="rtl"] & {
-				@extend .fa-chevron-left;
-			}
+		    @extend  .fau-angle-icon-right;   
 		}
 	}
 
 	.slick-startstop {
-		position: absolute;
-		display: block;
-		top: 20px;
-		right: 20px;
-		font-size: 28px ;
-		text-shadow: 2px 2px rgba(0, 0, 0, 0.63);
-		    
+		
+		right: calc(50% - 1rem);
+		bottom: auto;
 		@media (min-width: $screen-xs) {
-			bottom: inherit;
+		    top: var(--width-gutter-half);
+		    right: var(--width-gutter-half);
+		    bottom: inherit;
 		}
-		@media (max-width: $screen-sm) {
-			right:calc(50% - 14px);
-			top: 50%;
+		    
+		
+		@media (min-width: $screen-xl) {
+			right: var(--width-gutter);
+			top:  var(--width-gutter);
 		}
 
-
-		background: transparent;
-		color: rgba(255, 255, 255, 0.83);
-		margin: 0;
-		padding: 1px 4px;
-		border: none;
-
-		&:hover,
-		&:focus {
-			color: #fff;
-			background: transparent;
-			transition-timing-function: ease;
-			text-decoration: underline;
+		&:before {
+		    @extend  .fau-icon-pause;
 		}
+
 
 		.no-js & {
 			display: none;
+		}
+	}
+	.slick-startstop.stopped {
+	    &:before {
+		    @extend  .fau-icon-play;
 		}
 	}
 }

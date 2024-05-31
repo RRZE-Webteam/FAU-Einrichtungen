@@ -1,7 +1,7 @@
 {
     "name": "FAU-Einrichtungen",
     "textdomain": "fau",
-    "version": "2.4.11",
+    "version": "2.5.0",
     "keywords": [
         "WordPress",
         "Theme",
@@ -9,9 +9,9 @@
         "RRZE"
     ],
     "compatibility": {
-        "wprequires": "6.3",
-        "wptestedup": "6.4",
-        "phprequires": "8.0"
+        "wprequires": "6.4",
+        "wptestedup": "6.5",
+        "phprequires": "8.2"
     },
     "author": {
         "name": "RRZE-Webteam <webmaster@fau.de> (https://www.rrze.fau.de)",

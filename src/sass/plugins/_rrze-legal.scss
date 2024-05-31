@@ -1,0 +1,28 @@
+/*----------------------------------------------------------------------------*/
+/* _rrze-legal 
+/* CSS Definitionen für das Plugin RRZE Legal
+/* https://github.com/RRZE-Webteam/rrze-legal
+/* 
+/* Created on : 21.05.2024, 16:12:49
+/*----------------------------------------------------------------------------*/
+#RRZELegalBanner 
+#RRZELegalBanner {
+    
+    ._rrzelegal-box-wrap {
+	max-width: 680px !important;
+    }
+    
+    ._rrzelegal-bar,
+    ._rrzelegal-box {
+	    border-radius: var(--border-radius-buttons,4px) !important;
+	    font-size: 1rem !important;
+	}
+	._rrzelegal-manage-btn a,
+	._rrzelegal-refuse-btn a,
+	._rrzelegal-btn {
+	     font-size: 1.1rem !important;
+	}	
+    ._rrzelegal-btn-accept-all {
+	 border-radius: var(--border-radius-buttons,4px) !important;
+    }
+}

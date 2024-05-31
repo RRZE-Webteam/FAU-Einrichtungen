@@ -35,6 +35,7 @@ if (isset($posttype) && (isset($known_types_without_hero)) && (in_array($posttyp
         case 'page-portal.php':
         case 'page-portalindex.php':   
         case 'page-subnav.php': 
+        case 'page-full.php': 
         case 'page.php':
 
                 if ($herotype=='banner') {

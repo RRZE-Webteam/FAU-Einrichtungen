@@ -5,8 +5,19 @@
 
 
 .imagelink {    
-    width: calc(100% - 100px);
-    margin: 20px auto 0;
+    --fau-arrow-icon-size: 1.5rem;
+    --fau-arrow-icon-size-mask: calc(var(--fau-arrow-icon-size) * 2);
+    --fau-arrow-icon-color: var(--color-links);
+    --fau-arrow-icon-color-hover: var(--color-content-links-hover); 
+    --fau-gutter-double: calc(var(--width-gutter) * 2);
+    
+
+    @media (min-width: $screen-xl) {
+	--fau-arrow-icon-size: 2rem;
+	--fau-arrow-icon-size-mask: calc(var(--fau-arrow-icon-size) * 2);
+    }    
+    margin: var(--width-gutter);
+    padding: 0 var(--width-gutter);
 
 	.slick-item { 
 	    border: 1px solid transparent;
@@ -87,50 +98,28 @@
 
 	}
 	
-	.x120 .slick-item,
-	.x120 .slick-slide {
-	    width: 120px;
-	   a, .image {
-		height: 120px;
-	         img {
-		   max-height: 120px;
-		    width: 120px;
-	       }
-	   }
-	}
-	
-	.x240 .slick-item,
-	.x240 .slick-slide {
-	    width: 240px;
-	    a, .image {
-		height: 240px;
-	        img {
-		   max-height: 240px;
-		    width: 240px;
-	       }
-	   }
-	}
-	
-	.x360 .slick-item,
-	.x360 .slick-slide {
-	    width: 360px;
-	     a, .image {
-		 height: 360px;
-	        img {
-    		   max-height: 360px;
-		    width: 360px;
-	       }
-	   }
-	}
 
-	.x480 .slick-item,
-	.x480 .slick-slide {
+	.rwd-480-2-1 .slick-item,
+	.rwd-480-2-1 .slick-slide {
 	    width: 480px;
 	    a, .image {
-	        height: 480px;
+	        height: 240px;
 	        img {
-		   max-height: 480px;
-		    width: 480px;
+		   max-height: 240px;
+		   width: 480px;
+		     aspect-ratio: 2 / 1;
+	       }
+	   }
+	}
+	.rwd-480-3-2 .slick-item,
+	.rwd-480-3-2 .slick-slide {
+	    width: 480px;
+	    a, .image {
+	        height: 320px;
+	        img {
+		   max-height: 320px;
+		   width: 480px;
+		   aspect-ratio: 3 / 2;
 	       }
 	   }
 	}
@@ -198,120 +187,57 @@
 	
 	.slick-prev,
 	.slick-next {
-		position: absolute;
 		display: block;
-		height: 40px;
-		width: 40px;
+		position: absolute;
+		bottom: auto;
+		top: calc(50% - (var(--fau-arrow-icon-size) / 2));
+		
+		padding: 0;
 		line-height: 0px;
 		font-size: 0px;
 		cursor: pointer;
 		background: transparent;
 		color: transparent;
 
-
-		top: 75%;
-		@include transform-translate(0, -75%);
-
-		@media (min-width: $screen-xs) {
-			top: 50%;
-			@include transform-translate(0, -50%);
-		}
-
-		padding: 0;
 		border: none;
 		outline: none;
-
-
-		&:hover,
-		&:focus {
-			outline: none;
-			background: transparent;
-			color: var(--color-button-bg);
-
-			&:before {
-				 color: var(--color-button-hover-bg);
-			}
-		}
-
+		transition: all .2s linear;
 		
-		&:before {
-			font-size: 40px;
-			line-height: 1;
-			color: var(--color-button-bg);
-			text-shadow: 0 0 1px var(--color-button-text);
-
-		}
 
 	}
 
 	.slick-prev {
-		left: -40px;
-
-		[dir="rtl"] & {
-			left: auto;
-			right: -40px;
+		left: calc(var(--width-gutter) * -1);
+		@media (min-width: $screen-xl) {
+		    left: calc(var(--fau-gutter-double) * -1);
 		}
-
-		@media (min-width: $break-1360) {
-			left: -50px;
-			[dir="rtl"] & {
-				left: auto;
-				right: -50px;
-			}
-		}
-
-
 		&:before {
-			@extend .fa;
-			@extend .fa-chevron-left;
-
-			[dir="rtl"] & {
-				@extend .fa-chevron-right;
-			}
+		    @extend  .fau-angle-icon-left;
 		}
-
 	}
 
 	.slick-next {
-		right: -40px;
-
-		[dir="rtl"] & {
-			left: -40px;
-			right: auto;
+		right: calc(var(--width-gutter) * -1);
+		@media (min-width:  $screen-xl) {
+		    right: calc(var(--fau-gutter-double) * -1);
 		}
-
-		@media (min-width: $break-1360) {
-			right: -50px;
-			[dir="rtl"] & {
-				left: -50px;
-				right: auto;
-			}
-		}
-
-
 		&:before {
-			@extend .fa;
-			@extend .fa-chevron-right;
-
-			[dir="rtl"] & {
-				@extend .fa-chevron-left;
-			}
+		    @extend  .fau-angle-icon-right;   
 		}
-
 	}
-
+	
 
 	
 	.slick-dots {
 	    display: block;
-		justify-content: center;
+	    justify-content: center;
 	    width: 100%;
 	    padding: 0;
-	    margin: 15px auto 20px auto;
+	    margin: var(--width-gutter) auto;
 	    list-style: none;
 	    text-align: center;
+	    
 	    li {
-
 		position: relative;
 		display: inline-block;
 		width: 1.5rem;
@@ -323,10 +249,10 @@
 		button {
 		    
 		    display: block;
-			width: 2rem;
-			height: 1.8rem;
+		    width: 2rem;
+		    height: 1.8rem;
 		    cursor: pointer;
-			border-radius: var(--border-radius, 0px);
+		    border-radius: var(--border-radius, 0px);
 		    
 		    color: var(--color-primary-ci-hell-kontrast);
 		    background-color: var(--color-primary-ci-hell);
@@ -415,9 +341,7 @@
 
     }
     
-    &.dots {
-	 margin: 20px auto 40px auto;
-    }
+
     &.dots.adaptiveHeight {
 	.slick-slide, .slick-item {
 	    height: auto;

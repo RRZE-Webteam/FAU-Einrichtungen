@@ -46,18 +46,19 @@
 .content-row {
     display: flex;
     flex-wrap: wrap;
-
+    grid-gap: $grid-gutter-width;
+    
     @media (min-width: $screen-sm) {
         flex-wrap: nowrap;
     }
 
     main {
         flex-grow: 1;
-
     }
 
     .sidebar-subnav {
         min-width: $subnav-width-sm;
+	
         @media (min-width: $screen-sm) {
             min-width: $subnav-width-sm;
             max-width: $subnav-width-sm;
@@ -80,7 +81,7 @@
         @media (min-width: $screen-sm) {
             //max-width: $container-sm - $subnav-width-sm - $grid-gutter-width;
             //padding-left: $grid-gutter-width;
-            padding-left: 40px;
+            // padding-left: 40px;
         }
 
         @media (min-width: $screen-xl) {
@@ -110,11 +111,12 @@
         flex: 1 0;
         @media (min-width: $screen-sm) {
             padding-left: 0;
+	    padding-right: 0;
         }
-        @media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
-            padding-left: 0;
-            padding-right: 0;
-        }
+  //      @media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
+  //          padding-left: 0;
+  //          padding-right: 0;
+  //      }
 
         &.with-sidebar {
             @media (min-width: $screen-sm) and (max-width: $screen-xl - 1) {
@@ -302,12 +304,9 @@
     padding: 0 var(--width-gutter-half);
     flex: 1 1 $screen-xs;
 
-    main {
-	padding-top: var(--width-gutter-half);
-    }
 
     @media (min-width: $screen-sm) {
-	padding-right: var(--width-gutter-half);
+	padding: 0;
     }
 }
 
@@ -318,11 +317,7 @@
     padding: 0 var(--width-gutter-half);
     flex: 1 1 $screen-xs;
 
-    main {
-	padding-top: var(--width-gutter-half);
-    }
-
     @media (min-width: $screen-sm) {
-	padding-right: var(--width-gutter-half);
+	padding: 0;
     }
 }

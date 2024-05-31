@@ -10,8 +10,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Register FAU Menus in Theme
 /*-----------------------------------------------------------------------------------*/
-function fau_register_menus()
-{
+function fau_register_menus() {
     global $defaultoptions;
     $website_type = get_theme_mod('website_type');
     if (!isset($website_type)) {
@@ -43,8 +42,7 @@ function fau_register_menus()
 /*-----------------------------------------------------------------------------------*/
 /* Erstelle ein Social Media Menu, wenn es noch nicht vorhanden ist
 /*-----------------------------------------------------------------------------------*/
-function fau_create_socialmedia_menu()
-{
+function fau_create_socialmedia_menu() {
     global $defaultoptions;
 
     // Zuerst schauen wir, ob das Menu bereits existiert
@@ -395,7 +393,8 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 /* Walker for main menu  SMALL
 /*-----------------------------------------------------------------------------------*/
 
-class Walker_Main_Menu_Plainview_Small extends Walker_Nav_Menu {private $currentID;
+class Walker_Main_Menu_Plainview_Small extends Walker_Nav_Menu {
+    private $currentID;
     private $level = 1;
     private $count = array();
     private $element;
@@ -544,7 +543,8 @@ class Walker_Main_Menu_Plainview_Small extends Walker_Nav_Menu {private $current
             $atts['aria-current'] = "page";
         }
         $atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args);
-    
+   
+        
         if ($this->level == 1) {
             $this->currentID = $item->object_id;
         }
@@ -650,7 +650,7 @@ function fau_get_contentmenu($menu, $submenu = 1, $subentries = 0, $nothumbs = 0
 }
 
 /*-----------------------------------------------------------------------------------*/
-/* Walker for subnav
+/* Walker for Contentmenus (Portalmenus)
 /*-----------------------------------------------------------------------------------*/
 class Walker_Content_Menu extends Walker_Nav_Menu {
     private $level = 1;
@@ -681,6 +681,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
     function start_lvl(&$output, $depth = 0, $args = array()) {
         $this->level++;
+        
         $this->count[$this->level] = 0;
         if ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub) {
             $output .= '<ul class="sub-menu">';
@@ -688,21 +689,27 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
     }
 
     function end_lvl(&$output, $depth = 0, $args = array()) {
-        if ($this->level == 2 && $this->count[$this->level] <= $this->maxsecondlevel && $this->showsub) {
-            $output .= '</ul>';
-        } elseif (($this->level == 2) && ($this->count[$this->level] == ($this->maxsecondlevel + 1)) && ($this->showsub)) {
-            $output .= '<li class="more"><a href="'.$this->element->url.'">'.__('Mehr', 'fau').' ...</a></li>';
-            $output .= '</ul>';
-
-        } elseif (($this->level == 2) && ($this->showsub)) {
-            $output .= '</ul>';
+        
+        if ($this->showsub) {
+            
+            if ($this->level == 2 ) {
+                 if ($this->count[$this->level] <= $this->maxsecondlevel ) {
+                    $output .= '</ul>';
+                } elseif ( ($this->count[$this->level] >= ($this->maxsecondlevel + 1)) ) {
+                    $output .= '<li class="more">';
+                    $output .= '<a href="'.$this->element->url.'">'.__('Mehr', 'fau').' ...</a></li>';
+                    $output .= '</ul>';
+                } else {
+                    $output .= '</ul>';
+                }
+            }
         }
+       
 
         $this->level--;
     }
 
     function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
-        global $options;
         $indent = ($depth) ? str_repeat("\t", $depth) : '';
 
         if (isset($this->count[$this->level])) {
@@ -843,8 +850,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                 $item_output .= $this->listview || $this->meganav ? '' : '</span>'.$args->link_after;
             } else {
                 $item_output .= $link;
-                $item_output .= $args->link_before.apply_filters('the_title', $item->title,
-                        $item->ID).$args->link_after;
+                $item_output .= $args->link_before.apply_filters('the_title', $item->title, $item->ID).$args->link_after;
                 $item_output .= '</a>';
             }
 
@@ -877,8 +883,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 /*-----------------------------------------------------------------------------------*/
 /* Cleanup Menu Classes from unwanted garbage :)
 /*-----------------------------------------------------------------------------------*/
-function fau_cleanup_menuclasses($currentarray = array())
-{
+function fau_cleanup_menuclasses($currentarray = array()) {
     $menugarbage = array(
         "menu-item-type-post_type",
         "menu-item-object-page",
@@ -931,7 +936,7 @@ function fau_breadcrumb($lasttitle = '', $echo = true, $noNav = false) {
         $res .= '<nav aria-label="'.__('Breadcrumb', 'fau').'" class="breadcrumbs">';
     }
     if (get_theme_mod('breadcrumb_withtitle')) {
-        $res .= '<p class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo('title').'</p>'."\n";
+        $res .= '<p class="breadcrumb_sitetitle" role="presentation">'.get_bloginfo('title', 'display' ).'</p>'."\n";
     }
 
     $res .= '<ol class="breadcrumblist" itemscope itemtype="https://schema.org/BreadcrumbList">';
@@ -1226,19 +1231,268 @@ function fau_get_page_subnav($id) {
     if (is_user_logged_in()) {
         $showstatus = array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private');
     }
+    
+    // Verwendung: Holen der Liste der auszuschließenden Seiten für die Seite mit der ID $id
+    $exclude_sibilings = get_pages_to_exclude($id,$showstatus);
+    $exclude_list = implode(',', $exclude_sibilings);    
+    if (!empty($exclude)) {
+        $exclude_list .= ','.$exclude;
+    }
+
 
     $thismenu .= wp_list_pages(array(
         'child_of'    => $parent_page,
         'title_li'    => '',
         'echo'        => false,
         'post_status' => $showstatus,
-        'exclude'     => $exclude
+        'exclude'     => $exclude_list, // $exclude,
+        'walker'      => new Walker_SubNav()
     ));
 
     $thismenu .= '</ul>';
     $thismenu .= '</nav>';
 
     return $thismenu;
+}
+
+
+function get_pages_to_exclude($id, $showstatus = 'publish') {
+    // Liste der auszuschließenden Seiten initialisieren
+    $exclude_list = array();
+
+    // Seiten-ID von $id holen
+    $page_id = get_post($id);
+
+    // Wenn $id eine gültige Seite ist
+    if ($page_id) {
+        // Alle Seiten holen
+        $all_pages = get_pages($showstatus);
+
+        // Liste der Elternseiten von $id erstellen
+        $parent_pages = array_merge(array($page_id->ID), get_post_ancestors($page_id->ID));
+
+        // Seiten filtern, die weder Kinder von $id noch Kinder der Elternseiten von $id sind
+        foreach ($all_pages as $page) {
+            // Wenn die Seite weder eine Kinderseite von $id noch eine Kinderseite von den Elternseiten von $id ist
+            if ($page->ID !== $id && $page->post_parent !== $id && !in_array($page->post_parent, $parent_pages)) {
+                $exclude_list[] = $page->ID;
+            }
+        }
+    }
+
+    return $exclude_list;
+}
+
+
+
+class Walker_SubNav extends Walker_Page {
+    function start_el(&$output, $page, $depth = 0, $args = array(), $current_page = 0) {
+        if ($depth) {
+            $indent = str_repeat("\t", $depth);
+        } else {
+            $indent = '';
+        }
+        
+        $showstatus =  array('publish');
+        if (is_user_logged_in()) {
+            $showstatus = array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private');
+        }
+        
+        if (in_array($page->post_status, $showstatus)) {
+    
+            // Standard CSS-Klassen für die Listenelemente
+            $css_class = array();
+            if ($page->post_status != 'publish') {
+                $css_class[] = $page->post_status.'-page';
+            }
+            $is_password_protected = post_password_required($page->ID);
+             if ($is_password_protected) {
+                $css_class[] = 'private-page';
+            }
+
+            // Prüfen, ob die Seite Kinder hat
+            if (isset($args['pages_with_children'][$page->ID])) {
+                $css_class[] = 'page_item_has_children';
+            }
+
+            // Markieren der aktuellen Seite
+            if (!empty($current_page)) {
+                $_current_page = get_post($current_page);
+                if ($_current_page && in_array($page->ID, $_current_page->ancestors)) {
+                    $css_class[] = 'current_page_ancestor';
+                }
+                if ($page->ID == $current_page) {
+                    $css_class[] = 'current_page_item';
+                } elseif ($_current_page && $page->ID == $_current_page->post_parent) {
+                    $css_class[] = 'current_page_parent';
+                }
+            } elseif ($page->ID == get_option('page_for_posts')) {
+                $css_class[] = 'current_page_parent';
+            }
+
+
+
+            // Kombinieren der CSS-Klassen in eine Zeichenkette
+            $class_names = implode(' ', $css_class);
+            $class_attr = '';
+            if (!empty($class_names)) {
+                $class_attr = ' class="'.$class_names.'"';
+            }
+
+            // Abrufen und Hinzufügen des Meta-Werts 'fauval_aria-label' zur Ausgabe
+            $aria_label = get_post_meta($page->ID, 'fauval_aria-label', true);
+            $aria_label_attr = '';
+            if (!empty($aria_label)) {
+                $aria_label_attr = ' aria-label="'.esc_html($aria_label).'"';
+            }
+
+            $url = fau_make_link_relative(get_permalink($page->ID));
+
+            // Hinzufügen des Listenelements zur Ausgabe
+            $output .= $indent . sprintf(
+                '<li%s><a%s href="%s">%s</a>',
+                $class_attr,
+                $aria_label_attr,
+                $url,
+                $page->post_title
+            );
+        }
+      
+    }
+
+    function end_el(&$output, $page, $depth = 0, $args = array()) {
+        $output .= "</li>";
+    }
+
+    function start_lvl(&$output, $depth = 0, $args = array()) {
+        $output .= '<ul class="children">';
+    }
+
+    function end_lvl(&$output, $depth = 0, $args = array()) {
+        $output .= "</ul>";
+    }
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Erstellt Links in der Metanav oben
+/*
+ * @param $args array
+ * @param $mode int         1 = orgalist only, 2 = meta-nav menu only
+ * @param $no_logo bool     Render home link without logo
+ *
+ * @return string
+ */
+/*-----------------------------------------------------------------------------------*/
+function fau_get_toplinks($args = array(), $mode = 0) {
+    global $default_link_liste;
+
+
+    $uselist = $default_link_liste['meta'];
+    $result  = '';
+
+    $orgalist = fau_get_orgahomelink();
+    $thislist = "";
+
+
+    if (has_nav_menu('meta')) {
+        $menu_name = 'meta';
+
+        if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
+            $menu       = wp_get_nav_menu_object($locations[$menu_name]);
+            $menu_items = wp_get_nav_menu_items($menu->term_id);
+            foreach ((array)$menu_items as $key => $menu_item) {
+                $title       = $menu_item->title;
+                $url         = $menu_item->url;            
+                $type       = $menu_item->type;
+                $class_attr = '';
+                if (!empty( $menu_item->classes )) {
+                    $class_names = join( ' ',  $menu_item->classes  );            
+                    if (!empty($class_names)) {
+                        $class_attr = ' class="' . esc_attr( $class_names ) . '"';
+                    }
+                }
+                if ($type == 'post_type') {
+               //     $thislist .= RRZE\THEME\EINRICHTUNGEN\Debugging::get_html_var_dump($menu_item);
+                    $item_output = '';
+                    if (isset($menu_item->object_id) && isset($menu_item->object) && ($menu_item->object == 'imagelink')) {
+                        	$url  = get_post_meta( $menu_item->object_id, 'fauval_imagelink_url', true );
+                            $imageid = get_post_thumbnail_id( $menu_item->object_id ); 
+                            
+                            if (empty($title)) {
+                                $title = get_the_title($menu_item->object_id);
+                                $title = esc_html($title);
+                                if (empty($title)) {
+                                    $title = __("Zum Webauftritt", 'fau').': '.$url;
+                                }
+                            }
+
+                            $item_output = fau_get_image_htmlcode($imageid, 'logo-thumb', $title);
+   
+                    }
+                    if (!empty($item_output)) {
+                           $thislist .= '<li' . $class_attr . '><a href="' . $url . '">' .$item_output.'</a></li>';
+                    }
+                     
+                } else {
+                    $thislist .= '<li' . $class_attr . '><a data-wpel-link="internal" href="' . $url . '">' . $title .'</a></li>';
+                }
+                
+                
+               
+                
+                
+                
+                
+               
+            }
+        }
+    } else {
+        foreach ($uselist as $key => $entry) {
+            if (substr($key, 0, 4) != 'link') {
+                continue;
+            }
+            $thislist .= '<li';
+            if (isset($entry['class'])) {
+                $thislist .= ' class="' . $entry['class'] . '"';
+            }
+            $thislist .= '>';
+            if (isset($entry['content'])) {
+                $thislist .= '<a data-wpel-link="internal" href="' . $entry['content'] . '">';
+            }
+            $thislist .= $entry['name'];
+            if (isset($entry['content'])) {
+                $thislist .= '</a>';
+            }
+            $thislist .= "</li>\n";
+        }
+    }
+
+
+    if (isset($orgalist)) {
+        $result .= $orgalist;
+
+        if ($mode === 1) {
+            return $result;
+        }
+    }
+    if (isset($thislist)) {
+
+        if ($mode === 2) {
+            $result = '<ul class="meta-nav menu"';
+        } else {
+            $result .= '<ul class="meta-nav menu"';
+        }
+
+        if (is_array($args) && isset($args['title'])) {
+            $result .= ' aria-label="' . esc_attr($args['title']) . '"';
+        }
+        $result .= '>';
+        $result .= $thislist;
+        $result .= '</ul>';
+        $result .= "\n";
+    }
+
+    return $result;
 }
 /*-----------------------------------------------------------------------------------*/
 /* EOF menu.php

@@ -1,0 +1,86 @@
+/*----------------------------------------------------------------------------*/
+/* _wp-admin-bar 
+/* Created on : 16.05.2024, 11:23:28
+/*----------------------------------------------------------------------------*/
+#headerwrapper {
+    .admin-bar & {
+        top: $wordpress-adminbar-bigheight;
+
+        @media (min-width: $wordpress-adminbar-break) {
+            top: $wordpress-adminbar-smallheight;
+        }
+    }
+}
+#wpadminbar   {
+
+    @media (max-width:  $screen-sm) {
+	position: fixed;
+    }
+    /* Our wpadminbar shows in prod too much from plugins and other settings, 
+       that is only used in dev use cases.
+       Therfor I take some less important things out of the view, igf the screen
+       is too small
+       */
+    #wp-admin-bar-rrze-multilang-user-locale,
+    #wp-admin-bar-tm-suspend,
+    #wp-admin-bar-search,
+    #wp-admin-bar-query-monitor,
+    #wp-admin-bar-fau-degree-program-invalidate-cache,
+    #wp-admin-bar-comments {
+	display: none !important;
+    }
+    
+    #wp-admin-bar-my-account {
+	 @media (max-width:  $screen-sm) {
+	     height: 46px;
+	 }
+    }
+    
+    @media screen and (max-width: 600px) {
+	.ab-top-menu > .menupop > .ab-sub-wrapper {
+	    top: 46px;
+	}
+    }
+    
+    @media (min-width: $screen-lg) {
+	#wp-admin-bar-rrze-multilang-user-locale,
+	#wp-admin-bar-query-monitor {
+	    display: inline-block;
+	}
+    }
+    @media (min-width: $screen-xxl) {
+	#wp-admin-bar-tm-suspend {
+	    display: inline-block;
+	}
+    }
+    
+    @media (min-width: $screen-lg) {
+	#wp-admin-bar-search{
+	    display: inline-block;
+	}
+    }
+    @media (min-width: $screen-xxl) {
+	#wp-admin-bar-my-account,
+	#wp-admin-bar-fau-degree-program-invalidate-cache,
+	#wp-admin-bar-comments {
+	    display: inline-block;
+	}
+    }
+    #wp-admin-bar-top-secondary > li {
+	background-color: #1d2327;
+    }
+    
+    
+}
+
+@media (max-width: $screen-xs - 1) {
+    
+    .js-enabled {
+	body.admin-bar #wpadminbar {
+	    position: fixed;
+	    top: 0;
+	}
+
+    }
+}
+

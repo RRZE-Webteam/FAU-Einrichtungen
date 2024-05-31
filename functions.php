@@ -9,10 +9,13 @@ global $defaultoptions, $default_fau_orga_data, $fau_used_svgs;
 global $is_gutenberg_enabled;
 
 load_theme_textdomain( 'fau', get_template_directory() . '/languages' );
+// Block Editor handling
+require_once( get_template_directory() . '/functions/block-editor-support.php');
 require_once( get_template_directory() . '/functions/template-functions.php' );
 
 require_once( get_template_directory() . '/functions/defaults.php' );
 require_once( get_template_directory() . '/functions/constants.php' );
+require_once( get_template_directory() . '/functions/Debugging.php' );
 require_once( get_template_directory() . '/functions/sanitizer.php' );
 require_once( get_template_directory() . '/functions/customizer.php');
 
@@ -30,8 +33,6 @@ require_once( get_template_directory() . '/functions/menu.php');
 require_once( get_template_directory() . '/functions/custom-fields.php' );
 require_once( get_template_directory() . '/functions/posttype_imagelink.php' );
 require_once( get_template_directory() . '/functions/widgets.php' );
-require_once( get_template_directory() . '/functions/gallery.php' );
-
 
 
 require_once( get_template_directory() . '/functions/svglib.php');
@@ -39,6 +40,13 @@ require_once( get_template_directory() . '/functions/svglib.php');
 
 // Filter-Hooks
 require_once( get_template_directory() . '/functions/filters.php');
+
+// Comment handling
+require get_template_directory() . '/functions/comments.php';
+
+
+
+
 
 /*-----------------------------------------------------------------------------------*/
 /* Setup theme
@@ -142,6 +150,29 @@ function fau_custom_init() {
     remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 
+    // Maybe the CustomCSS was set via Customizer
+    // but its only allowed for partner websites. 
+    // So lets remove the custom part, if its the wrong website type.
+    // Otherwiese people could first switch to partner website, then
+    // change the css, and then switch back to a university site.
+    // This would then not remove the custom css and display it.
+    
+   $website_type = get_theme_mod('website_type');
+   	// website_type: 
+	//  0 = Fakultaetsportal; 
+	//  1 = Lehrstuehle, Departments 
+	//  2 = Zentrale Einrichtungen, 
+	//  3 = Kooperationen 
+	// -1 = fau.de Portal (4 Spalter in Bühne, kein Link zur FAU. 
+   
+   if (isset($website_type) && ($website_type != 3)) {
+      // Wenn es keine Kooperationsseite ist, dann wird CustomCSS
+      // verboten. Ausnahme: Der Admin ist Superadmin.    
+        if (!current_user_can('manage_sites')) {
+            remove_action('wp_head', 'wp_custom_css_cb', 101);
+        }
+   }
+    
 
 }
 add_action( 'init', 'fau_custom_init' );
@@ -277,8 +308,6 @@ add_action('wp_head', 'fau_dns_prefetch', 10);
 /*-----------------------------------------------------------------------------------*/
 function fau_addmetatags() {
     $output = '';
-   // $output .= '<meta http-equiv="Content-Type" content="text/html; charset='.get_bloginfo('charset').'">'."\n";
-   // $output .= '<meta name="viewport" content="width=device-width, initial-scale=1.0">'."\n";
 
     $output .= fau_get_rel_alternate();
 	// get alternate urls for the website if avaible
@@ -289,7 +318,7 @@ function fau_addmetatags() {
         // if we set the Google Site Verification in the customizer, we add the html meta tag here 
     }
 
-    $title = sanitize_text_field(get_bloginfo( 'name' ));
+    $title = sanitize_text_field(get_bloginfo( 'name','display' ));
     $output .= '<link rel="alternate" type="application/rss+xml" title="'.$title.' - RSS 2.0 Feed" href="'.get_bloginfo( 'rss2_url').'">'."\n";
        	// Adds RSS feed links to <head> for posts and comments.
         // add_theme_support( 'automatic-feed-links' );
@@ -381,15 +410,5 @@ function fau_embedded_posts( $query ) {
         $query->set( 'posts_per_page', 3 );
     }
 }
-
-/*-----------------------------------------------------------------------------------*/
-/* Load Comment Functions
-/*-----------------------------------------------------------------------------------*/
-
-// Comment handling
-require get_template_directory() . '/functions/comments.php';
-
-// Block Editor handling
-require_once( get_template_directory() . '/functions/gutenberg.php');
 
 

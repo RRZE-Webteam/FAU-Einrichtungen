@@ -3,6 +3,7 @@
 /*-----------------------------------------------------------------------------------*/
 
 #headerwrapper header {
+
     .branding {
         max-width: 100%;
         display: none;
@@ -50,7 +51,8 @@
             flex-wrap: nowrap;
             column-gap: var(--width-gutter-half);
             row-gap: 0;
-
+	  
+     
 
 	     @media (min-width: $screen-md) and (max-width: $screen-textlogo-lg - 1) {
 		 // Logo ist sichtbar, kein Umbruch auf Hamburger hier. Daher nun

@@ -7,8 +7,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Extends the default WordPress body classes
 /*-----------------------------------------------------------------------------------*/
-function fau_body_class($classes)
-{
+function fau_body_class($classes) {
     global $defaultoptions;
     global $default_fau_orga_data;
     global $default_fau_orga_faculty;
@@ -147,7 +146,7 @@ function fau_body_class($classes)
 
     $classes[] = 'fau-theme';
     if ($website_type == -1) {
-        $classes[] = 'fauorg-home';
+        $classes[] = 'fauorg-kooperation';
     } elseif ($website_type == 0) {
         $classes[] = 'fauorg-fakultaet';
         $classes[] = 'fauorg-unterorg';
@@ -183,7 +182,7 @@ function fau_body_class($classes)
     }
 
 
-    $sitetitle = get_bloginfo('title');
+    $sitetitle = get_bloginfo('title','display');
     if (strlen($sitetitle) > 50) {
         $classes[] = 'longtitle';
     }
@@ -228,6 +227,14 @@ function fau_body_class($classes)
         $classes[] = $val;
     }
     
+
+    if (fau_blockeditor_is_active()) {
+        $classes[] = 'blockeditor-enabled';
+    } else {
+        $classes[] = 'blockeditor-disabled';
+    }
+    
+    
     
     return $classes;
 }
@@ -237,8 +244,7 @@ add_filter('body_class', 'fau_body_class');
 /*-----------------------------------------------------------------------------------*/
 /* Mark sidebar as used. This will add the class with-sidebar in the body class
 /*-----------------------------------------------------------------------------------*/
-function fau_use_sidebar($activate)
-{
+function fau_use_sidebar($activate) {
     global $is_sidebar_active;
     if ($activate) {
         $is_sidebar_active = 1;
@@ -914,7 +920,7 @@ function fau_create_schema_publisher($withrahmen = true)
         $out .= '<meta itemprop="height" content="' . get_custom_header()->height . '">';
         $out .= '</div>';
     }
-    $out .= '<meta itemprop="name" content="' . get_bloginfo('title') . '">';
+    $out .= '<meta itemprop="name" content="' . get_bloginfo('title','display') . '">';
     $out .= '<meta itemprop="url" content="' . home_url('/') . '">';
     if ($withrahmen) {
         $out .= '</div>';
@@ -1315,93 +1321,7 @@ function fau_get_orgahomelink()
     return $result;
 }
 
-/*-----------------------------------------------------------------------------------*/
-/* Erstellt Links in der Metanav oben
-/*
- * @param $args array
- * @param $mode int         1 = orgalist only, 2 = meta-nav menu only
- * @param $no_logo bool     Render home link without logo
- *
- * @return string
- */
-/*-----------------------------------------------------------------------------------*/
-function fau_get_toplinks($args = array(), $mode = 0)
-{
-    global $default_link_liste;
 
-
-    $uselist = $default_link_liste['meta'];
-    $result  = '';
-
-    $orgalist = fau_get_orgahomelink();
-    $thislist = "";
-
-
-    if (has_nav_menu('meta')) {
-        $menu_name = 'meta';
-
-        if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
-            $menu       = wp_get_nav_menu_object($locations[$menu_name]);
-            $menu_items = wp_get_nav_menu_items($menu->term_id);
-            foreach ((array)$menu_items as $key => $menu_item) {
-                $title       = $menu_item->title;
-                $url         = $menu_item->url;
-                $class_names = '';
-                //   $classes[] = 'menu-item';
-                //   $classes = empty( $menu_item->classes ) ? array() : (array) $menu_item->classes;
-                //   $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ) ) );
-                //    $class_names = ' class="' . esc_attr( $class_names ) . '"';
-                $thislist .= '<li' . $class_names . '><a data-wpel-link="internal" href="' . $url . '">' . $title . '</a></li>';
-            }
-        }
-    } else {
-        foreach ($uselist as $key => $entry) {
-            if (substr($key, 0, 4) != 'link') {
-                continue;
-            }
-            $thislist .= '<li';
-            if (isset($entry['class'])) {
-                $thislist .= ' class="' . $entry['class'] . '"';
-            }
-            $thislist .= '>';
-            if (isset($entry['content'])) {
-                $thislist .= '<a data-wpel-link="internal" href="' . $entry['content'] . '">';
-            }
-            $thislist .= $entry['name'];
-            if (isset($entry['content'])) {
-                $thislist .= '</a>';
-            }
-            $thislist .= "</li>\n";
-        }
-    }
-
-
-    if (isset($orgalist)) {
-        $result .= $orgalist;
-
-        if ($mode === 1) {
-            return $result;
-        }
-    }
-    if (isset($thislist)) {
-
-        if ($mode === 2) {
-            $result = '<ul class="meta-nav menu"';
-        } else {
-            $result .= '<ul class="meta-nav menu"';
-        }
-
-        if (is_array($args) && isset($args['title'])) {
-            $result .= ' aria-label="' . esc_attr($args['title']) . '"';
-        }
-        $result .= '>';
-        $result .= $thislist;
-        $result .= '</ul>';
-        $result .= "\n";
-    }
-
-    return $result;
-}
 
 /*-----------------------------------------------------------------------------------*/
 /* Get cat id by name or slug
@@ -2018,7 +1938,7 @@ if (!function_exists("print_indented")) {
 /*  Returns language code, without subcode
 /*-----------------------------------------------------------------------------------*/
 function fau_get_language_main() {
-    $charset = explode('-', get_bloginfo('language'))[0];
+    $charset = explode('-', get_bloginfo('language','display'))[0];
     return $charset;
 }
 

@@ -1,7 +1,8 @@
 <?php
 
 /* 
- * Social Media Footer
+ * Pre-Footer Widget Region
+ * (Former Social Media Footer)
  */
 
 if (is_active_sidebar('startpage-socialmediainfo')) {

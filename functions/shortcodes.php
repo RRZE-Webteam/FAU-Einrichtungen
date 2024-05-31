@@ -13,11 +13,7 @@ class FAUShortcodes {
 	function add_shortcodes()	{
 		add_shortcode('organigram', array($this, 'fau_organigram'));
 
-		// Paragraphes and content regions
-		add_shortcode('hr', array($this, 'fau_hr'));
-
-
-		// Blogroll und Artikellisten
+        // Blogroll und Artikellisten
 		add_shortcode('blogroll', array($this, 'fau_shortcode_blogroll'));
 		add_shortcode('articlelist', array($this, 'fau_shortcode_articlelist'));
 
@@ -163,33 +159,6 @@ class FAUShortcodes {
 			), $atts));
 
 		return wp_nav_menu(array('menu' => $menu, 'container' => false, 'menu_id' => 'organigram', 'menu_class' => 'organigram', 'echo' => 0));
-	}
-
-	/*-----------------------------------------------------------------------------------*/
-	/* Special HRs for FAU
-	/*-----------------------------------------------------------------------------------*/
-	function fau_hr($atts, $content = null)	{
-		extract(shortcode_atts(
-			array(
-				"class" => ''
-			), $atts));
-
-
-		$class = fau_sanitize_hr_shortcode($class);
-		$classes = "";
-
-		if (!fau_empty($class)) {
-			if (!fau_empty($classes)) {
-				$classes .= " ";
-			}
-			$classes .= $class;
-		}
-
-		$return = '<hr';
-		$return .= ($classes) ? ' class="' . $classes . '"' : '';
-		$return .= '>';
-
-		return $return;
 	}
 
 	/*-----------------------------------------------------------------------------------*/
@@ -409,37 +378,5 @@ if ( is_plugin_active( "the-events-calendar/the-events-calendar.php") ){
 }
 
   
-/*-----------------------------------------------------------------------------------*/
-/* Shortcodes to display number and a word
-/*-----------------------------------------------------------------------------------*/
-function counter($atts) {
-    static $instance = 0;
-    $instance++;
-
-    $atts = shortcode_atts(
-        array(
-            'number' => '0',
-            'word' => 'default',
-            'image_url' => '',
-        ), 
-        $atts, 
-        'counterword'
-    );
-
-    wp_enqueue_script('my-script', get_template_directory_uri() . '/js/fau-counter.min.js', array(), '1.0', true);
-
-    ob_start();
-    ?>
-    <div class='counter_wrapper'>
-        <?php if (!empty($atts['image_url'])): ?>
-            <img src="<?php echo esc_url($atts['image_url']); ?>" alt="User image" >
-        <?php endif; ?>
-        <div class="number" id="value-<?php echo $instance; ?>-<?php echo $atts['number']; ?>">0</div>
-		<div class="word"> <?php echo $atts['word']; ?> </div>
-    </div>
-    <?php
-    return ob_get_clean();
-}
-add_shortcode('counterword', 'counter');
 
 ?>

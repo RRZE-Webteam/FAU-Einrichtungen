@@ -1,0 +1,75 @@
+/*----------------------------------------------------------------------------*/
+/* _wp-general-classes 
+/* Created on : 16.05.2024, 11:27:58
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*/
+/* Typography Classes
+/*----------------------------------------------------------------------------*/
+
+// Small Font size
+.has-small-font-size {
+     @include px2rem($font-size-small);
+}
+// Regular Font size
+.has-regular-font-size {
+     @include px2rem($font-size-base);
+}
+
+// Large Font size
+.has-large-font-size {
+     @include px2rem($font-size-large);
+}
+
+// Larger Font size
+.has-huge-font-size,
+.has-larger-font-size {
+     @include px2rem($font-size-larger);
+}
+
+// Alignments
+.has-text-align-right {
+    text-align: right;
+}
+
+.has-text-align-left {
+    text-align: left;
+}
+.has-text-align-center {
+    text-align: center;
+}
+.has-text-align-justify {
+    text-align: justify;
+}
+
+// Colors
+.has-text-color {
+    color: var(--color-Text);
+}
+.has-link-color {
+    color: var(--color-links);
+}
+
+
+p.has-drop-cap {
+    &:not(:focus):first-letter {
+	float:left;
+	@include px2rem($font-size-larger * 3, $font-size-gridbase, $font-size-larger * 3);
+	font-weight: 100;
+	margin: 0 .1em 0 0;
+	text-transform:uppercase;
+	font-style:normal;
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+/* Grid Classes
+/*----------------------------------------------------------------------------*/
+.wp-block-columns.wp-container-6, .wp-block-columns.wp-container-8, .wp-block-columns.wp-container-10 {
+    display: flex;
+}
+
+.wp-container-6  .wp-block-column {
+    width: 50%;
+}

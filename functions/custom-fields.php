@@ -16,18 +16,10 @@ function fau_metabox_cf_setup() {
     add_action('add_meta_boxes_post', 'fau_add_metabox_post');
 
     /* Save sidecontent */
-    add_action('save_post', 'fau_save_metabox_page_untertitel', 10, 2);
-
     add_action('save_post', 'fau_save_metabox_page_portalmenu', 10, 2);
-    
-    add_action('save_post', 'fau_save_metabox_page_portalmenu_oben', 10, 2);
-
     add_action('save_post', 'fau_save_metabox_page_sidebar', 10, 2);
 
-    if (get_theme_mod('advanced_post_active_subtitle') == true) {
-        add_action('save_post', 'fau_save_metabox_post_untertitel', 10, 2);
-    }
-    
+  
     if (get_theme_mod('advanced_beitragsoptionen') == true) {
         add_action('save_post', 'fau_save_post_teaser', 10, 2);
     }
@@ -38,7 +30,6 @@ function fau_metabox_cf_setup() {
    
     // Speichere Seiten-Eigenschaften
     add_action('save_post', 'fau_save_metabox_page_additional_attributes', 10, 2);
-
     add_action('save_post', 'fau_save_metabox_post_vidpod', 10, 2);
 }
 /*-----------------------------------------------------------------------------------*/
@@ -49,50 +40,42 @@ function fau_add_metabox_page() {
     // Einige der Metaboxen sollten wir "bald" zu einem Block in Gutenberg wandeln
     // vgl. https://wordpress.org/gutenberg/handbook/extensibility/meta-box/
 	    
-    
-    add_meta_box(
-        'fau_metabox_page_untertitel',			
-        esc_html__( 'Untertitel', 'fau' ), 'fau_do_metabox_page_untertitel', 'page','normal','low',
-	array(
-	    '__block_editor_compatible_meta_box' => true,
-	)
+     add_meta_box(
+        'fau_metabox_page_additional_attributes',			
+        esc_html__( 'Zusätzliche Seiten-Einstellungen', 'fau' ),		
+        'fau_do_metabox_page_additional_attributes',		
+        'page','normal','low',
+        array(
+            '__block_editor_compatible_meta_box' => true,
+        )
     );
+   
     
 
     add_meta_box(
         'fau_metabox_page_portalmenu',			
-        esc_html__( 'Portalmenu unten auf Portalseiten', 'fau' ),		
+        esc_html__( 'Portalmenüs konfigurieren', 'fau' ),		
         'fau_do_metabox_page_portalmenu',		
-        'page','side','low'
-    );
-
-     add_meta_box(
-        'fau_metabox_page_portalmenu_oben',			
-        esc_html__( 'Portalmenu oben auf Portalseiten', 'fau' ),		
-        'fau_do_metabox_page_portalmenu_oben',		
-        'page','side','low'
+        'page','side','low',
+        array(
+            '__block_editor_compatible_meta_box' => true,
+        )
     );
 
 
-  
 
     add_meta_box(
         'fau_metabox_page_sidebar',			
         esc_html__( 'Sidebar', 'fau' ),		
         'fau_do_metabox_page_sidebar',		
-        'page','normal','low'
+        'page','normal','low',
+        array(
+            '__block_editor_compatible_meta_box' => true,
+        )
     );
 
     
-     add_meta_box(
-        'fau_metabox_page_additional_attributes',			
-        esc_html__( 'Seiten-Eigenschaften', 'fau' ),		
-        'fau_do_metabox_page_additional_attributes',		
-        'page','side','low',
-	array(
-	    '__block_editor_compatible_meta_box' => true,
-	)
-    );
+    
     
 }
 
@@ -108,14 +91,7 @@ function fau_add_metabox_post() {
         'post', 'normal', 'high'
     );
     
-    if (get_theme_mod('advanced_post_active_subtitle') == true) {
-        add_meta_box(
-            'fau_metabox_post_untertitel', 
-            esc_html__('Untertitel', 'fau'), 
-            'fau_do_metabox_post_untertitel', 
-            'post', 'normal', 'high'
-        );
-    }
+   
     
     if (get_theme_mod('advanced_topevent') == true) {
         add_meta_box(
@@ -171,7 +147,11 @@ function fau_do_metabox_post_teaser($object, $box) {
     }
 
     echo "</p>\n";
-
+    if (get_theme_mod('advanced_post_active_subtitle') == true) {
+        $untertitel = get_post_meta($object->ID, 'fauval_untertitel', true);
+        fau_form_text('fau_metabox_post_untertitel', $untertitel, __('Untertitel (Inhaltsüberschrift)', 'fau'), __('Dieser Untertitel erscheint im Inhaltsbereich, unterhalb des Balkens mit dem eigentlichen Titel.', 'fau'));
+    }
+    
     if (get_theme_mod('advanced_beitragsoptionen') == true) {
 
         $howto = __('Kurztext für die Bühne und den Newsindex (Startseite und Indexseiten). Wenn leer, wird der Kurztext automatisch aus dem Inhalt abzüglich der erlaubten Zeichen gebildet. ', 'fau');
@@ -209,7 +189,11 @@ function fau_save_post_teaser($post_id, $post) {
     if ('post' != $post_type || !current_user_can('edit_post', $post_id)) {
         return;
     }
-
+    
+    $newval = isset($_POST['fau_metabox_post_untertitel']) ? sanitize_text_field($_POST['fau_metabox_post_untertitel']) : '';
+    fau_save_standard('fauval_untertitel', $newval, $post_id, 'post', 'text');
+    
+    
     $newval = isset($_POST['fauval_anleser']) ? wp_filter_nohtml_kses(trim($_POST['fauval_anleser'])) : '';
     $oldval = get_post_meta( $post_id, 'abstract', true );
 
@@ -452,66 +436,8 @@ function fau_save_metabox_post_vidpod($post_id, $post) {
     fau_save_standard('vidpod_auth', $newauth, $post_id, 'post', 'text');
 }
 
-/* Display Options for menuquotes on posts */
-function fau_do_metabox_post_untertitel($object, $box) {
-    wp_nonce_field(basename(__FILE__), 'fau_metabox_post_untertitel_nonce');
 
-    if (!current_user_can('edit_post', $object->ID)) {
-        return;
-    }
 
-    $untertitel = get_post_meta($object->ID, 'fauval_untertitel', true);
-    fau_form_text('fau_metabox_post_untertitel', $untertitel, __('Untertitel (Inhaltsüberschrift)', 'fau'), __('Dieser Untertitel erscheint im Inhaltsbereich, unterhalb des Balkens mit dem eigentlichen Titel.', 'fau'));
-}
-
-/* Save the meta box's post metadata. */
-function fau_save_metabox_post_untertitel($post_id, $post) {
-    /* Verify the nonce before proceeding. */
-    if (!isset($_POST['fau_metabox_post_untertitel_nonce']) || !wp_verify_nonce($_POST['fau_metabox_post_untertitel_nonce'], basename(__FILE__))) {
-        return;
-    }
-
-    if (!current_user_can('edit_post', $post_id)) {
-        return;
-    }
-    
-    $newval = isset($_POST['fau_metabox_post_untertitel']) ? sanitize_text_field($_POST['fau_metabox_post_untertitel']) : '';
-    fau_save_standard('fauval_untertitel', $newval, $post_id, 'post', 'text');
-
-}
-
-/* Display Options for menuquotes on pages */
-function fau_do_metabox_page_untertitel($object, $box) {
-    wp_nonce_field(basename(__FILE__), 'fau_metabox_page_untertitel_nonce');
-
-    if (!current_user_can('edit_page', $object->ID)) {
-        // Oder sollten wir nach publish_pages  fragen? 
-        // oder nach der Rolle? vgl. http://docs.appthemes.com/tutorials/wordpress-check-user-role-function/ 
-        return;
-    }
-
-    $untertitel = get_post_meta($object->ID, 'headline', true);
-    fau_form_text('fau_metabox_page_untertitel', $untertitel, __('Untertitel (Inhaltsüberschrift)', 'fau'), __('Dieser Untertitel erscheint im Inhaltsbereich, unterhalb des Balkens mit dem eigentlichen Titel.', 'fau'));
-}
-
-/* Save the meta box's post/page metadata. */
-function fau_save_metabox_page_untertitel( $post_id, $post ) {
-	/* Verify the nonce before proceeding. */
-	if ( !isset( $_POST['fau_metabox_page_untertitel_nonce'] ) || !wp_verify_nonce( $_POST['fau_metabox_page_untertitel_nonce'], basename( __FILE__ ) ) ) {
-            return $post_id;
-        }
-
-	$post_type = get_post_type($post_id);
-        
-	if ('page' != $post_type || !current_user_can('edit_page', $post_id)) {
-            return;
-	}
-
-	$newval = isset($_POST['fau_metabox_page_untertitel']) ? sanitize_text_field($_POST['fau_metabox_page_untertitel']) : '';
-	fau_save_standard('headline', $newval, $post_id, 'post', 'text');
-	
-	
-}
 
 /* Display Options for portalmenu unten on portal pages */
 function fau_do_metabox_page_portalmenu($object, $box) {    
@@ -520,7 +446,60 @@ function fau_do_metabox_page_portalmenu($object, $box) {
     if (!current_user_can('edit_page', $object->ID)) {
         return;
     }
+    echo '<div class="setting-portalmenu-oben">';
+    echo '<h3>'.__('Portalmenu oben auf Portalseiten', 'fau').'</h3>';
+    
+    $currentmenu = get_post_meta($object->ID, 'portalmenu-slug_oben', true);
+    $currentmenuid = 0;
+    if ($currentmenu == sanitize_key($currentmenu)) {
+        $currentmenuid = $currentmenu;
+    } else {
+        $thisterm = get_term_by('name', $currentmenu, 'nav_menu');
+        if (!isset($thisterm)) {
+            $thisterm = get_term_by('slug', $currentmenu, 'nav_menu');
+        }
+        if ($thisterm !== false) {
+            $currentmenuid = $thisterm->term_id;
+        }
+    }
 
+    $thislist = array();
+    $menuliste = get_terms('nav_menu', array('orderby' => 'name', 'hide_empty' => true));
+    foreach ($menuliste as $term) {
+        $term_id = $term->term_id;
+        $term_name = $term->name;
+        $thislist[$term->term_id] = $term->name;
+    }
+    
+    fau_form_select('fau_metabox_page_portalmenu_id_oben', $thislist, $currentmenuid, __('Menü auswählen', 'fau'), __('Bei einer Portalseite wird unter dem Inhalt ein Menu ausgegeben. Bitte wählen Sie hier das Menü aus der Liste. Sollte das Menü noch nicht existieren, kann ein Administrator es anlegen.', 'fau'), 1, __('Kein Portalmenu zeigen', 'fau'));
+
+    $nothumbnails = get_post_meta($object->ID, 'fauval_portalmenu_thumbnailson_oben', true) ? 1 : 0;
+    fau_form_onoff('fau_metabox_page_portalmenu_nothumbnails_oben', $nothumbnails, __('Beitragsbilder', 'fau').' '.__('verbergen', 'fau'));
+
+    $nofallbackthumbs = get_post_meta($object->ID, 'fauval_portalmenu_nofallbackthumb_oben', true) ? 1 : 0;
+    fau_form_onoff('fau_metabox_page_portalmenu_nofallbackthumb_oben', $nofallbackthumbs, __('Keine Ersatzbild zeigen, wenn Beitragsbild nicht gesetzt ist.', 'fau'));
+
+    $nosub = get_post_meta($object->ID, 'fauval_portalmenu_nosub_oben', true) ? 1 : 0;
+    fau_form_onoff('fau_metabox_page_portalmenu_nosub_oben', $nosub, __('Unterpunkte verbergen.', 'fau'));
+    
+    $listview = get_post_meta($object->ID, 'fauval_portalmenu_listview_oben', true) ? 1 : 0;
+    fau_form_onoff('fau_metabox_page_portalmenu_listview_oben', $listview, __('Listenansicht verwenden', 'fau'));
+
+    $hoverzoom = get_post_meta($object->ID, 'fauval_portalmenu_hoverZoom_oben', true) ? 1 : 0;
+    fau_form_onoff('fau_metabox_page_portalmenu_hoverZoom_oben', $hoverzoom, __('Zoom-Effekt verwenden', 'fau'));
+
+    $hoverblur = get_post_meta($object->ID, 'fauval_portalmenu_hoverBlur_oben', true) ? 1 : 0;
+    fau_form_onoff('fau_metabox_page_portalmenu_hoverBlur_oben', $hoverblur, __('Blur-Effekt verwenden', 'fau'));
+
+    $portaltype = get_post_meta($object->ID, 'fauval_portalmenu_type_oben', true);
+    fau_form_select('fau_metabox_page_portalmenu_type_oben', array(
+        1 => __('Format', 'fau').' 2:1',
+        2 => __('Format', 'fau').' 3:2',
+        3 => __('Format', 'fau').' 3:4'), $portaltype, __('Bildformat', 'fau'), '', 1);
+    
+    echo '</div>';
+    echo '<div class="setting-portalmenu-unten">';
+    echo '<h3>'.__('Portalmenu unten auf Portalseiten', 'fau').'</h3>';
   
     $currentmenu = get_post_meta($object->ID, 'portalmenu-slug', true);
     $currentmenuid = 0;
@@ -544,7 +523,7 @@ function fau_do_metabox_page_portalmenu($object, $box) {
         $thislist[$term->term_id] = $term->name;
     }
     
-    fau_form_select('fau_metabox_page_portalmenu_id', $thislist, $currentmenuid, __('Portalmenü', 'fau').' '.__('unten', 'fau'), __('Bei einer Portalseite wird unter dem Inhalt ein Menu ausgegeben. Bitte wählen Sie hier das Menü aus der Liste. Sollte das Menü noch nicht existieren, kann ein Administrator es anlegen.', 'fau'), 1, __('Kein Portalmenu zeigen', 'fau'));
+    fau_form_select('fau_metabox_page_portalmenu_id', $thislist, $currentmenuid, __('Menü auswählen', 'fau'), __('Bei einer Portalseite wird unter dem Inhalt ein Menu ausgegeben. Bitte wählen Sie hier das Menü aus der Liste. Sollte das Menü noch nicht existieren, kann ein Administrator es anlegen.', 'fau'), 1, __('Kein Portalmenu zeigen', 'fau'));
 
     $meganav = get_post_meta($object->ID, 'fauval_portalmenu_meganav', true) ? 1 : 0;
     fau_form_onoff('fau_metabox_page_portalmenu_meganav', $meganav, __('Mega-Navigation', 'fau'));
@@ -572,6 +551,9 @@ function fau_do_metabox_page_portalmenu($object, $box) {
         1 => __('Format', 'fau').' 2:1',
         2 => __('Format', 'fau').' 3:2',
         3 => __('Format', 'fau').' 3:4'), $portaltype, __('Bildformat', 'fau'), '', 1);
+    
+    echo '</div>';
+   
 }
 
 /* Save the meta box's page metadata. */
@@ -683,77 +665,8 @@ function fau_save_metabox_page_portalmenu($post_id, $post) {
     } else {
         delete_post_meta($post_id, 'fauval_portalmenu_type');
     }
-}
-
-/* Display Options for portalmenu oben on portal pages */
-function fau_do_metabox_page_portalmenu_oben($object, $box) {    
-    wp_nonce_field(basename(__FILE__), 'fau_metabox_page_portalmenu_oben_nonce');
-
-    if (!current_user_can('edit_page', $object->ID)) {
-        return;
-    }
-
-  
-    $currentmenu = get_post_meta($object->ID, 'portalmenu-slug_oben', true);
-    $currentmenuid = 0;
-    if ($currentmenu == sanitize_key($currentmenu)) {
-        $currentmenuid = $currentmenu;
-    } else {
-        $thisterm = get_term_by('name', $currentmenu, 'nav_menu');
-        if (!isset($thisterm)) {
-            $thisterm = get_term_by('slug', $currentmenu, 'nav_menu');
-        }
-        if ($thisterm !== false) {
-            $currentmenuid = $thisterm->term_id;
-        }
-    }
-
-    $thislist = array();
-    $menuliste = get_terms('nav_menu', array('orderby' => 'name', 'hide_empty' => true));
-    foreach ($menuliste as $term) {
-        $term_id = $term->term_id;
-        $term_name = $term->name;
-        $thislist[$term->term_id] = $term->name;
-    }
     
-    fau_form_select('fau_metabox_page_portalmenu_id_oben', $thislist, $currentmenuid, __('Portalmenü', 'fau').' '.__('oben', 'fau'), '', 1, __('Kein Portalmenu zeigen', 'fau'));
-
-    $nothumbnails = get_post_meta($object->ID, 'fauval_portalmenu_thumbnailson_oben', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_nothumbnails_oben', $nothumbnails, __('Beitragsbilder', 'fau').' '.__('verbergen', 'fau'));
-
-    $nofallbackthumbs = get_post_meta($object->ID, 'fauval_portalmenu_nofallbackthumb_oben', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_nofallbackthumb_oben', $nofallbackthumbs, __('Keine Ersatzbild zeigen, wenn Beitragsbild nicht gesetzt ist.', 'fau'));
-
-    $nosub = get_post_meta($object->ID, 'fauval_portalmenu_nosub_oben', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_nosub_oben', $nosub, __('Unterpunkte verbergen.', 'fau'));
     
-    $listview = get_post_meta($object->ID, 'fauval_portalmenu_listview_oben', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_listview_oben', $listview, __('Listenansicht verwenden', 'fau'));
-
-    $hoverzoom = get_post_meta($object->ID, 'fauval_portalmenu_hoverZoom_oben', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_hoverZoom_oben', $hoverzoom, __('Zoom-Effekt verwenden', 'fau'));
-
-    $hoverblur = get_post_meta($object->ID, 'fauval_portalmenu_hoverBlur_oben', true) ? 1 : 0;
-    fau_form_onoff('fau_metabox_page_portalmenu_hoverBlur_oben', $hoverblur, __('Blur-Effekt verwenden', 'fau'));
-
-    $portaltype = get_post_meta($object->ID, 'fauval_portalmenu_type_oben', true);
-    fau_form_select('fau_metabox_page_portalmenu_type_oben', array(
-        1 => __('Format', 'fau').' 2:1',
-        2 => __('Format', 'fau').' 3:2',
-        3 => __('Format', 'fau').' 3:4'), $portaltype, __('Bildformat', 'fau'), '', 1);
-}
-
-/* Save the meta box's page metadata portalmenu oben. */
-function fau_save_metabox_page_portalmenu_oben($post_id, $post) {
-    /* Verify the nonce before proceeding. */
-    if (!isset($_POST['fau_metabox_page_portalmenu_oben_nonce']) || !wp_verify_nonce($_POST['fau_metabox_page_portalmenu_oben_nonce'], basename(__FILE__))) {
-        return;
-    }
-
-    if ('page' != $_POST['post_type'] || !current_user_can('edit_page', $post_id)) {
-        return;
-    }
-
     $newval = isset($_POST['fau_metabox_page_portalmenu_id_oben']) ? trim($_POST['fau_metabox_page_portalmenu_id_oben']) : '';
     $oldval = get_post_meta($post_id, 'portalmenu-slug_oben', true);
 
@@ -841,7 +754,10 @@ function fau_save_metabox_page_portalmenu_oben($post_id, $post) {
     } else {
         delete_post_meta($post_id, 'fauval_portalmenu_type_oben');
     }
+    
 }
+
+
 
 /* 
  * Sidebar der Seiten  
@@ -866,18 +782,19 @@ function fau_do_metabox_page_sidebar($object, $box) {
     } else {
         fau_form_textarea('sidebar_text_above', $sidebar_text_above, __('Textbereich oben', 'fau'), $cols = 50, $rows = 5, __('Text am Anfang der Sidebar', 'fau'));
     }
-    if ((get_theme_mod('advanced_page_sidebar_linkblock1_number') > 0) || (get_theme_mod('advanced_page_sidebar_linkblock2_number') > 0)) {
-        // Frage nach Reihenfolge Linklisten vs Personen
-
-        $fauval_sidebar_order_personlinks = get_post_meta($object->ID, 'fauval_sidebar_order_personlinks', true);
-        if (!isset($fauval_sidebar_order_personlinks)) {
-            $fauval_sidebar_order_personlinks = get_theme_mod('advanced_page_sidebar_order_personlinks');
-        }
-        fau_form_select('fauval_sidebar_order_personlinks', array(0 => __('Zuerst Kontake, dann Linklisten', 'fau'), 1 => __('Zuerst Linklisten, dann Kontakte', 'fau')), $fauval_sidebar_order_personlinks, __('Reihenfolge Kontakte und Linklisten', 'fau'), __('Hier kann die Reihenfolge von Kontakte und Linklisten geändert werden, wie sie auf der Seite präsentiert werden.', 'fau'), 0);
-    }
-
-    
     if ( is_plugin_active( 'fau-person/fau-person.php' ) ) {
+        
+        if ((get_theme_mod('advanced_page_sidebar_linkblock1_number') > 0) || (get_theme_mod('advanced_page_sidebar_linkblock2_number') > 0)) {
+            // Frage nach Reihenfolge Linklisten vs Personen
+
+            $fauval_sidebar_order_personlinks = get_post_meta($object->ID, 'fauval_sidebar_order_personlinks', true);
+            if (!isset($fauval_sidebar_order_personlinks)) {
+                $fauval_sidebar_order_personlinks = get_theme_mod('advanced_page_sidebar_order_personlinks');
+            }
+            fau_form_select('fauval_sidebar_order_personlinks', array(0 => __('Zuerst Kontake, dann Linklisten', 'fau'), 1 => __('Zuerst Linklisten, dann Kontakte', 'fau')), $fauval_sidebar_order_personlinks, __('Reihenfolge Kontakte und Linklisten', 'fau'), __('Hier kann die Reihenfolge von Kontakte und Linklisten geändert werden, wie sie auf der Seite präsentiert werden.', 'fau'), 0);
+        }
+
+
 	
         $listpersonen = FAU_Person\Data::get_contact_list();
         $auswahl = array('-1' => __('Keine (Deaktivieren)', 'fau'));
@@ -1142,26 +1059,29 @@ function fau_do_metabox_page_additional_attributes($object, $box) {
     if (!current_user_can('edit_page', $object->ID)) {
         return;
     }
-
+    $untertitel = get_post_meta($object->ID, 'headline', true);
+    fau_form_text('fau_metabox_page_untertitel', $untertitel, __('Untertitel (Inhaltsüberschrift)', 'fau'), __('Dieser Untertitel erscheint im Inhaltsbereich, unterhalb des Balkens mit dem eigentlichen Titel.', 'fau'));
+    
+    
     $only_subnavi = __('Dies gilt nur für Seiten vom Template "Inhaltsseite mit Navi".','fau');
     
     if (get_theme_mod('advanced_activate_page_langcode') == true) {
-	$prevalue = get_post_meta($object->ID, 'fauval_langcode', true);
-	global $default_fau_page_langcodes;
+        $prevalue = get_post_meta($object->ID, 'fauval_langcode', true);
+        global $default_fau_page_langcodes;
 
-	$liste = $default_fau_page_langcodes;
-	$sitelang = fau_get_language_main();
-	unset($liste[$sitelang]);
+        $liste = $default_fau_page_langcodes;
+        $sitelang = fau_get_language_main();
+        unset($liste[$sitelang]);
 
 
-	$labeltext = __('Sprache im Inhaltsbereich deklarieren','fau');
-	$howtotext = __('Falls die Sprache dieser Seite von anderen Webseiten des Webauftritts abweicht, geben Sie hier bitte die Sprache an, welche verwendet wird. Wenn die Sprache nicht geändert wird, ändern Sie nichts.</p><p class="hinweis">Achtung: Diese Funktion wird vom Workflow-Plugin nicht berücksichtigt.','fau');
-	fau_form_select('fau_metabox_page_langcode', $liste, $prevalue, $labeltext,  $howtotext);
-	
-	$prevalue = get_post_meta($object->ID, 'fauval_pagetitle_langcode', true);
-	$labeltext = __('Sprache des Seitentitels umdefinieren','fau');
-	$howtotext = __('Falls die Sprache der Seitentitels von der allgemeinen Sprache des Webauftritts abweicht, geben Sie hier bitte die Sprache an, welche verwendet wird. Wenn die Sprache nicht geändert wird, ändern Sie nichts.','fau');
-	fau_form_select('fau_metabox_page_title_langcode', $liste, $prevalue, $labeltext,  $howtotext);
+        $labeltext = __('Sprache im Inhaltsbereich deklarieren','fau');
+        $howtotext = __('Falls die Sprache dieser Seite von anderen Webseiten des Webauftritts abweicht, geben Sie hier bitte die Sprache an, welche verwendet wird. Wenn die Sprache nicht geändert wird, ändern Sie nichts.</p><p class="hinweis">Achtung: Diese Funktion wird vom Workflow-Plugin nicht berücksichtigt.','fau');
+        fau_form_select('fau_metabox_page_langcode', $liste, $prevalue, $labeltext,  $howtotext);
+
+        $prevalue = get_post_meta($object->ID, 'fauval_pagetitle_langcode', true);
+        $labeltext = __('Sprache des Seitentitels umdefinieren','fau');
+        $howtotext = __('Falls die Sprache der Seitentitels von der allgemeinen Sprache des Webauftritts abweicht, geben Sie hier bitte die Sprache an, welche verwendet wird. Wenn die Sprache nicht geändert wird, ändern Sie nichts.','fau');
+        fau_form_select('fau_metabox_page_title_langcode', $liste, $prevalue, $labeltext,  $howtotext);
     }
     
     echo '<div class="ontemplate_page-subnav">';
@@ -1180,15 +1100,15 @@ function fau_do_metabox_page_additional_attributes($object, $box) {
     fau_form_text('fau_metabox_page_aria-label', $arialabel_subnav, $labeltext, $howtotext);
     
     if (get_theme_mod('website_type')==-1) {
-	$menuebene = get_post_meta($object->ID, 'menu-level', true);
-	global $default_fau_page_menuuebenen;
-	
-	$liste = $default_fau_page_menuuebenen;
-	$labeltext = __('Menüebene','fau');
-	$howtotext = __('Die Menüebene definiert bei Seiten bis zur welchen Ebene das Menu auf der linken Seite gezeigt wird.','fau').' '.$only_subnavi;
-	echo '<div class="ontemplate_page-subnav">';
-	fau_form_select('fau_metabox_page_menuebene', $liste, $menuebene, $labeltext,  $howtotext);
-	echo '</div>';
+        $menuebene = get_post_meta($object->ID, 'menu-level', true);
+        global $default_fau_page_menuuebenen;
+
+        $liste = $default_fau_page_menuuebenen;
+        $labeltext = __('Menüebene','fau');
+        $howtotext = __('Die Menüebene definiert bei Seiten bis zur welchen Ebene das Menu auf der linken Seite gezeigt wird.','fau').' '.$only_subnavi;
+        echo '<div class="ontemplate_page-subnav">';
+        fau_form_select('fau_metabox_page_menuebene', $liste, $menuebene, $labeltext,  $howtotext);
+        echo '</div>';
     }
     
     
@@ -1221,16 +1141,15 @@ function fau_do_metabox_page_additional_attributes($object, $box) {
         $currentsize = get_post_meta($object->ID, 'fauval_imagelink_size', true);
 	
 	global $defaultoptions;
-	
 	$imagesizes = array();
 	foreach ($defaultoptions['default_image_sizes'] as $size => $value) {
 	    
 	    if (substr($size,0,1) == '_') {
-		$size = substr($size,1);
+            $size = substr($size,1);
 	    }
 	    
 	    if ($value['imagelink'] == true) {
-		$imagesizes[$size] = $value['desc']. ' ('.$value['width'].' x '.$value['height'].')';
+            $imagesizes[$size] = $value['desc']. ' ('.$value['width'].' x '.$value['height'].')';
 	    }
 	}
 	
@@ -1254,20 +1173,20 @@ function fau_do_metabox_page_additional_attributes($object, $box) {
 function fau_save_metabox_page_additional_attributes( $post_id, $post ) {
     /* Verify the nonce before proceeding. */
     if ( !isset( $_POST['fau_metabox_page_additional_attributes_nonce'] ) || !wp_verify_nonce( $_POST['fau_metabox_page_additional_attributes_nonce'], basename( __FILE__ ) ) ) {
-	return $post_id;
+    	return $post_id;
     }
 
     $post_type = get_post_type($post_id);
     if ('page' != $post_type || !current_user_can('edit_page', $post_id)) {
-	return;
+        return;
     }
     if (get_theme_mod('advanced_activate_page_langcode') == true) {
-	fau_save_standard('fauval_langcode', $_POST['fau_metabox_page_langcode'], $post_id, 'page', 'text');
-	fau_save_standard('fauval_pagetitle_langcode', $_POST['fau_metabox_page_title_langcode'], $post_id, 'page', 'text');
+        fau_save_standard('fauval_langcode', $_POST['fau_metabox_page_langcode'], $post_id, 'page', 'text');
+        fau_save_standard('fauval_pagetitle_langcode', $_POST['fau_metabox_page_title_langcode'], $post_id, 'page', 'text');
     }
 
     if (get_theme_mod('website_type')==-1) {
-	fau_save_standard('menu-level', $_POST['fau_metabox_page_menuebene'], $post_id, 'page', 'int');  
+        fau_save_standard('menu-level', $_POST['fau_metabox_page_menuebene'], $post_id, 'page', 'int');  
     }
 
     $newval = !empty($_POST['fau_metabox_page_hide-in-subnav']) ? 1 : 0;
@@ -1283,6 +1202,8 @@ function fau_save_metabox_page_additional_attributes( $post_id, $post ) {
     $newval = isset($_POST['fau_metabox_page_aria-label']) ? sanitize_text_field($_POST['fau_metabox_page_aria-label']) : '';
     fau_save_standard('fauval_aria-label', $newval, $post_id, 'post', 'text');
     
+    $newval = isset($_POST['fau_metabox_page_untertitel']) ? sanitize_text_field($_POST['fau_metabox_page_untertitel']) : '';
+	fau_save_standard('headline', $newval, $post_id, 'post', 'text');
 
 }
 

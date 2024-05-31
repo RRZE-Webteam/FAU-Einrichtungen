@@ -9,7 +9,6 @@ blockquote {
     border: none;
     font-family: $fontStackSerifs;
     position: relative;
-
     @include px2rem($font-size-quotes);
 
     p {
@@ -26,11 +25,10 @@ blockquote {
 
     #tinymce &,
     #content & {
-        max-width: calc(100% - 40px);
-        width: 100%;
-        margin: 10px;
-        padding: 31px 20px 20px 20px;
-        min-height: 50px;
+        max-width: calc(100% - 2.5rem);
+        margin: 1rem;
+        padding: 2rem 1.5rem;
+        min-height: 3rem;
         border-left: 10px solid var(--color-primary-ci-hell);
 	border-radius: var(--border-radius);
         background: var(--color-ContentRegions);
@@ -38,9 +36,9 @@ blockquote {
         overflow: hidden;
 
         @media (min-width: $screen-sm) {
-            margin: 10px 50px;
-            padding: 31px 40px 20px 40px;
-            max-width: calc(100% - 80px);
+            margin: 0.6rem 2rem;
+     //       padding: 31px 40px 20px 40px;
+            max-width: calc(100% - 4rem);
         }
 
         p, h1, h2, h3, h4, h5, h6 {
@@ -49,8 +47,8 @@ blockquote {
     }
 
     #content .sidebar-inline & {
-        margin: 10px;
-        padding: 10px;
+        margin: 0.6rem;
+        padding: 0.5rem;
     }
 
     small,
@@ -67,7 +65,7 @@ blockquote {
     }
 
     cite {
-        margin-top: 10px;
+        margin-top: var(--width-gutter-half);
     }
 
     #content & img {
@@ -77,9 +75,20 @@ blockquote {
 
     &.pull-right {
         border-right: none;
-        padding-right: 40px;
-        padding-left: 15px;
-
+        padding-right: var(--width-gutter);
+        padding-left: var(--width-gutter-half);
+	float: right;
+	
+	p,
+	small {
+		text-align: right;
+	}
+	small:before {
+	    content: '';
+	}
+	small:after {
+	    content: '\00A0 \2014';
+	}
     }
 
 
@@ -107,6 +116,14 @@ blockquote {
         }
     }
 
+    #content .wp-block-pullquote &,
+    .wp-block-pullquote & {
+	border-left: none;
+	
+	cite::before {
+	    content : "";
+	}
+    }
 }
 
 

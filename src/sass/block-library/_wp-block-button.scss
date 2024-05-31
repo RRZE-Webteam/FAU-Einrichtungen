@@ -1,0 +1,14 @@
+/*----------------------------------------------------------------------------*/
+/* _wp-block-button 
+/* Created on : 03.05.2024, 15:12:21
+/*----------------------------------------------------------------------------*/
+
+:where(.wp-block-button__link) {
+    border-radius: var(--border-radius, 9999px);
+}
+
+.wp-element-button, 
+.wp-block-button__link {
+    @include defaultlinkstyle();
+    @include buttonstyle();
+}

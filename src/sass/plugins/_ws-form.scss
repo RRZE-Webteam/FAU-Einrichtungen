@@ -1,0 +1,73 @@
+/*----------------------------------------------------------------------------*/
+/* _ws-form 
+/* Created on : 17.05.2024, 10:56:09
+/*
+/* Adjustments fpr the use of WS Form Plugin
+/*----------------------------------------------------------------------------*/
+
+
+// Undo bad line-height form 1.4. A11y needs at least 1.5
+// also set the size to 1rem
+
+.entry-content .wsf-form {
+    
+    button.wsf-button,
+    label.wsf-label,
+    .wsf-help,
+    input[type="date"].wsf-field, 
+    input[type="datetime-local"].wsf-field, 
+    input[type="file"].wsf-field, 
+    input[type="month"].wsf-field, 
+    input[type="password"].wsf-field, 
+    input[type="search"].wsf-field, 
+    input[type="time"].wsf-field, 
+    input[type="week"].wsf-field, 
+    input[type="email"].wsf-field, 
+    input[type="number"].wsf-field, 
+    input[type="tel"].wsf-field, 
+    input[type="text"].wsf-field, 
+    input[type="url"].wsf-field, 
+    select.wsf-field, 
+    textarea.wsf-field,
+    input[type="checkbox"].wsf-field + label.wsf-label {
+	line-height: 1.5;
+	font-size: 1rem;
+    }
+
+    small .wsf-help {
+	font-size: 0.85rem;
+    }
+    
+    .wsf-button {
+	border-radius: var(--border-radius-buttons);
+	color: var(--color-button-text);
+	background: var(--color-button-bg);
+
+    }
+    .wsf-button:hover, .wsf-button:focus {
+	color: var(--color-button-hover-text);
+	background: var(--color-button-hover-bg);
+    }
+    
+    input[type="checkbox"].wsf-field {
+	height: 1.5rem;
+	width: 1.5rem;
+    }
+    input[type="checkbox"].wsf-field + label.wsf-label {
+	padding-inline-start: 2rem;
+    }
+    input[type="checkbox"].wsf-field + label.wsf-label::after {
+	height: 2rem;
+	width: 1.5rem;
+    }
+    input[type="checkbox"].wsf-field + label.wsf-label::before {
+	height: 1.5rem;
+	width: 1.5rem;
+    }
+    
+}
+#wpadminbar #wp-admin-bar-root-default li#wp-admin-bar-ws-form-node {
+    @media screen and (max-width: $screen-xl) {
+	display: none;
+    }
+}

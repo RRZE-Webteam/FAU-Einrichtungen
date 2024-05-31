@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 107,
+	'optiontable-version'           => 109,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -22,7 +22,7 @@ $defaultoptions = [
 	// Ansonsten kann er manuell über 'gulp nodebug' auf false und
 	//  mit 'gulp debugmode' auf true gesetzt werden
 	// Oder hier von Hand :)
-	'js-version'                    => '2.4',
+	'js-version'                    => '2.5',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
 	'website_type'                  => 1,
 	// website_type: 
@@ -91,7 +91,6 @@ $defaultoptions = [
 	'default_topevent_excerpt_length'		=> 100,
 
 	
-
 
 
 	/* Image Sizes */
@@ -221,7 +220,8 @@ $defaultoptions = [
 	// wenn true, wird die Siderbar fuer Pages aktiviert
 	'advanced_page_sidebar_wpsidebar_id'        => 'page-sidebar',
 	// Sidebar Id
-
+    'advanced_page_sidebar_wpsidebar_position'  => 'top',
+        // Position der WP Sidebar auf Pages: Optionen sind top oder bottom. top ist default ab Version 2.5
     'advanced_error_sidebar_replacesearch'      => false,
 	// Wenn true, wird eine Sidebar für die Fehlerseite ermöglicht, 
     // mit der man die dortige Default-Suche ersetzen kann durch eigene Widgets
@@ -1256,6 +1256,24 @@ $setoptions = array(
 					'desc'	=> __('Konfigurationen der Sidebar auf Seiten', 'fau'),
 					'user_level'	=> 2,
 				),
+                'advanced_page_sidebar_wpsidebar'		  => array(
+					'type'    => 'toggle',
+					'title'   => __('Widget-Funktion für Seiten', 'fau'),
+					'label'   => __('Widgets die auf allen Seiten angezeigt werden sollen. Sollten Seitenspezifische Inhalte in der Sidebar angegeben worden sein, wird diese Sidebar darunter folgen. Diese Sidebar-Inhalte werden nicht auf Beiträgen gezeigt.', 'fau'),
+					'default' => $defaultoptions['advanced_page_sidebar_wpsidebar'],
+					'parent'  => 'sidebaropt'
+				),
+                'advanced_page_sidebar_wpsidebar_position'		  => array(
+					'type'    => 'select',
+					'title'   => __('Position des Widgets für Seiten', 'fau'),
+					'label'   => __('Positionierung der globalen Seiten Widget-Sidebar: Über oder unterhalber der klassischen, seitenspezifischen Seiten-Sitebar.', 'fau'),
+					'liste'   => array(
+						'top' => __('Oben', 'fau'),
+						'bottom' => __('Unten', 'fau')
+					),
+                    'default' => $defaultoptions['advanced_page_sidebar_wpsidebar_position'],
+					'parent'  => 'sidebaropt'
+				),
 				'advanced_page_sidebar_titleabove'	  => array(
 					'type'    => 'toggle',
 					'title'   => __('Feld Titel oben', 'fau'),
@@ -1326,13 +1344,7 @@ $setoptions = array(
 					'max'   => 10,
 					'parent'  => 'sidebaropt'
 				),
-				'advanced_page_sidebar_wpsidebar'		  => array(
-					'type'    => 'toggle',
-					'title'   => __('Widget-Funktion für Seiten', 'fau'),
-					'label'   => __('Widgets die auf allen Seiten angezeigt werden sollen. Sollten Seitenspezifische Inhalte in der Sidebar angegeben worden sein, wird diese Sidebar darunter folgen. Diese Sidebar-Inhalte werden nicht auf Beiträgen gezeigt.', 'fau'),
-					'default' => $defaultoptions['advanced_page_sidebar_wpsidebar'],
-					'parent'  => 'sidebaropt'
-				),
+				
                
 
 				'inhalte'  => array(
