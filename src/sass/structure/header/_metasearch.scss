@@ -4,8 +4,8 @@
 
 .meta-search {  
     --fau-arrow-icon-size: 1rem;
-    --fau-arrow-icon-color: var(--color-zentral-basis);
-    --fau-arrow-icon-color-hover: var(--color-zentral-basis);
+    --fau-arrow-icon-color: var(--color-MetaTextDefault);
+    --fau-arrow-icon-color-hover: var(--color-MetaTextDefault);
     --fau-arrow-icon-size-mask: 1.2rem;
     
     width: auto;
@@ -28,6 +28,10 @@
     text-align: right;
 
     .search-initiate-button {
+	--fau-icon-size: 1rem;
+	--fau-icon-size-mask: 1.2rem;
+	--fau-icon-color: var(--color-MetaTextDefault);
+	--fau-icon-color-hover: var(--color-MetaTextDefault);
 	display: none;
 	@media (min-width: $screen-md) {
              display: inherit;
@@ -38,7 +42,6 @@
 	height: 30px;
 	min-height: 44px;
 	min-width: 44px;
-	padding: 7px;	
         cursor: pointer;
 
         &.active {
