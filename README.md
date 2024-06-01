@@ -6,7 +6,7 @@ WordPress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität
 
 ## Version
 
-Version: 2.5.3
+Version: 2.5.4
 
 ## Screenshot
 
@@ -48,12 +48,15 @@ Testseiten und Hinweise zur Neuentwicklung finden sich auf dem Testportal https:
 ### Gulp Skript zur Compilierung
 
 Im Projekt befindet sich eine ```package.json``` und ein Gulpskript ```gulpfile.js```.
-Durch Ausführung mit NodeJS können 
-- die SASS-Dateien zu den notwendigen CSS compiliert werden. 
-- Vendor-Prefixes in den CSS-Dateien ergänzt werden,
-- CSS-Dateien minifiziert werden,
-- die zentrale Sprachdatei fau.pot aktualisiert werden,
-- die Versionsnummer des Projektes (automatisch) erhöht werden,
+Durch Ausführung der Gulpfile werdenn 
+
+- die SASS-Dateien zu den notwendigen CSS compiliert,
+- die JavaScript-Datein zusammengebaut,
+- Vendor-Prefixes in den CSS-Dateien ergänzt,
+- CSS-Dateien minifiziert,
+- die zentrale Sprachdatei fau.pot aktualisiert,
+- die Versionsnummer des Projektes (automatisch) erhöht
+
 sowie weitere Tasks ausgeführt weren.
 
 Übliche Startprozesse sind:
@@ -85,12 +88,11 @@ Einstellungen für eigene Watcher:
     Eingabequelle:   ```/src/sass/fau-theme-style.scss```   
     Ausgabeort:  ```/style.css```
 
-3. Printer Style
+2. Printer Style
     Eingabequelle:  ```/src/sass/fau-theme-print.scss```  
     Ausgabeort:     ```/print.css```
 
-
-2. Backend Style
+3. Backend Style
     Eingabequelle:  ```/src/sass/fau-theme-admin.scss```  
     Ausgabeort:     ```/css/fau-theme-admin.css```
 
@@ -119,7 +121,7 @@ Roboto:
 Hind:
 - Copyright: Copyright (c) 2014 Indian Type Foundry.
 - Trademark: Hind is a trademark of Indian Type Foundry.
-- Licensed under the SIL Open Font License, version 1.1. This license is available with an FAQ at: http://scripts.sil.org/OFL
+- Licensed under the SIL Open Font License, Version 1.1. This license is available with an FAQ at: http://scripts.sil.org/OFL
 - Designer: Manushi Parikh, Satya Rajpurohit - http://www.indiantypefoundry.com
 - Producer: Indian Type Foundry - http://www.indiantypefoundry.com
 
