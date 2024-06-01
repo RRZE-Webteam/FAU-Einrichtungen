@@ -10,7 +10,6 @@
 }
 
 #meta-menu {
-
     @media (min-width: $screen-md) {
         display: none;
     }
@@ -55,8 +54,7 @@
 }
 
 .fauorg-kooperation, .fauorg-home {
-    .meta-links-trigger-icon,
-    .meta-links-trigger-button {
+    .meta-links-trigger-icon {
 	--fau-icon-size: 1.5rem;
 	    --fau-icon-color: var(--color-Default);
 	    --fau-icon-color-hover: var(--color-Default);
@@ -274,7 +272,6 @@
 	@media (min-width: $screen-md) {
             display: flex;
             flex-wrap: wrap;
-        //    column-gap: 1rem;
             margin-top: 0;
         }
 	
@@ -412,14 +409,12 @@
     }
 
     .textlogo {
-
         .baselogo {
             display: none;
         }
 
         .fau-title {
             display: none;
-
         }
 
 	.fauorg-home &,
@@ -432,10 +427,7 @@
                 display: block;
             }
         }
-	
-	
-	
-	
+
 	.fauorg-home & {
 	    display: block;
 	    text-align: center;
@@ -449,12 +441,8 @@
 
             .text {
                 display: none;
-
             }
         }
-	
-	
-	
     }
 }
 

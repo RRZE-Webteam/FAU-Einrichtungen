@@ -50,10 +50,6 @@ table {
 	@media (min-width: $screen-sm) {
 	    margin: 5px 0 20px 0;
 	    
-	    th, td {
-		padding: 7px 10px;		
-	    }
-	    
 	}
 	
 	
@@ -62,8 +58,7 @@ table {
 	}
 	
 	th, td {
-		padding-left: 15px;
-		padding-right: 15px;
+		padding: 0.3rem 0.6rem;
 		@include px2rem($font-size-table);	
 		p {
 		   @include px2rem($font-size-table);	    	
@@ -77,9 +72,6 @@ table {
 		border-top: 1px solid var(--color-ContentBorders);
 		border-bottom: 1px solid var(--color-ContentBorders);
 		text-align: left;
-		
-		
-
 	}
 	&.sorttable th.header {
 	    cursor: pointer;
@@ -88,8 +80,6 @@ table {
 	td {
 		border-right: 1px solid var(--color-StandardHellgrau);
 		color: var(--color-Text);
-		
-		
 	}
 	
 	tr {
@@ -159,7 +149,14 @@ table {
 		text-align: right;
 	    }
 	}
-	
-	
-	
+
+}
+
+.sidebar-inline,
+.sidebar-single {
+    table {
+	th, td {
+		padding: 0.3rem;
+	}
+    }
 }
