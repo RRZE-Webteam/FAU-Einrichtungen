@@ -5,7 +5,7 @@
 a {
 	color: var(--color-links);
 	text-decoration: none;
-	text-underline-offset: 0.3rem;
+	text-underline-offset: 0.2rem;
         
       
 	&:active,
@@ -20,7 +20,7 @@ a {
 	table &, 
 	.accordion-inner & {
 		text-decoration: underline;
-		text-decoration-thickness: 0.15rem;
+		text-decoration-thickness: 0.1rem;
 	}
 	
 	li.search-result & {
@@ -29,7 +29,7 @@ a {
 	    &:hover, 
 	    &:focus {
 			text-decoration: underline;
-			text-decoration-thickness: 0.15rem;
+			text-decoration-thickness: 0.1rem;
 	    }
 	    
 	}
@@ -167,7 +167,7 @@ a {
             &:focus {
                     text-decoration: underline;
 		    text-decoration-thickness: 0.3rem;
-		    text-underline-offset: 0.3rem;
+		    text-underline-offset: 0.2rem;
             }
         }
     }
@@ -176,8 +176,8 @@ a {
 	       &:active,
 	       &:hover, 
 	       &:focus {
-		   text-underline-offset: 0.4rem;
-		   text-decoration-thickness: 0.3rem !important;
+		   text-underline-offset: 0.3rem;
+		   text-decoration-thickness: 0.3rem;
 	       }
        }
     }

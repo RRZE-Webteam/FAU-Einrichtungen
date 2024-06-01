@@ -18,20 +18,38 @@ $font-path-awesome:	'../fonts/fontawesome/';
 $font-path-roboto:	'../fonts/roboto/';
 // da admin.css unter /css muss der pfad angepasst werden
 
+
+// Reset Base styles
+@import "reset";
+
+// Framework
+@import "frameworks/frameworks";
+
 // SVG Icons and CI elements
 @import "icons/icons";
 
-@import "frameworks/frameworks";
-
-
+// Mixins
 @import "mixins/mixins";
 
 // Fonts
 @import "fonts/fonts";
 
+.edit-post-visual-editor .editor-block-list__block {
+    
+    // Element Styles
+    @import "elements/elements";
+    
+    // Plugin-Support
+    @import "plugins/plugins";
+}
+
 
 // Backend Specials
 @import "backend/backend";
 
+
 // Block Library Overwrites
 @import "block-library/block-library"
+
+
+

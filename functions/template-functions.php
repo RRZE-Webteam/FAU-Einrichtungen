@@ -146,7 +146,7 @@ function fau_body_class($classes) {
 
     $classes[] = 'fau-theme';
     if ($website_type == -1) {
-        $classes[] = 'fauorg-kooperation';
+        $classes[] = 'fauorg-home';
     } elseif ($website_type == 0) {
         $classes[] = 'fauorg-fakultaet';
         $classes[] = 'fauorg-unterorg';

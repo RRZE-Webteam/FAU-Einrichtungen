@@ -139,7 +139,6 @@ main, aside, .portalpage-sidebar, .widget {
 		margin-right: $fau-gutter-halfwidth;
 	     }
 	    img {
-		width: 100vw;
 		max-width: 100vw;
 		@media (min-width: $screen-xs) {
 		    max-width: 100%;
@@ -176,10 +175,6 @@ main, aside, .portalpage-sidebar, .widget {
     
 }
 
-
-
-
-
 figcaption {
 	@include px2rem($font-size-image-caption);
 	padding: 0.3rem;
@@ -188,9 +183,6 @@ figcaption {
 	     padding: 0.3rem 0;
 	}
 }
-
-
-
 
 @media (max-width: $screen-xs) {
     img.alignleft,
