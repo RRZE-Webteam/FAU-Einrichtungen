@@ -9,7 +9,7 @@
 .sticky, 
 .gallery-caption, 
 .bypostauthor {
-    @include px2rem($font-size-base);
+    font-size: var(--font-size-normal, 1rem);
 }
 
 
