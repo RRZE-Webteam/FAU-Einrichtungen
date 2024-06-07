@@ -1,0 +1,20 @@
+
+/*----------------------------------------------------------------------------*/
+/* <address> 
+/* Created on : 06.06.2024, 17:50:00
+/*----------------------------------------------------------------------------*/
+
+ address {
+    margin: 0;
+    padding: 0 0 var(--width-gutter-half) 0;
+
+    font-size: var(--font-size-normal, 1rem);
+    color: var(--color-Text);
+    font-family: $fontStack; 
+    font-style: normal;
+   
+    aside &,
+    .widget & {
+	@include px2rem($font-size-sidebar);
+    }
+}

@@ -25,7 +25,7 @@
 
 
 	
-	@include px2rem($font-size-base);
+	font-size: var(--font-size-normal, 1rem);
 	color: var(--color-Text);
 	font-family: $fontStack;
 	padding-top: 0;
