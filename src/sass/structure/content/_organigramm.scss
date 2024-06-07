@@ -39,7 +39,7 @@
 		margin-top: 5px;
 		
 		li {
-			@include px2rem($font-size-base);
+			font-size: var(--font-size-normal, 1rem);
 			padding-left: var(--width-gutter-half);
 			margin-bottom: 0;
 			

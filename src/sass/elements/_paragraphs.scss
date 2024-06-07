@@ -2,36 +2,19 @@
 /* Paragraphs
 /*-----------------------------------------------------------------------------------*/
 
-p, address {
+p {
     margin: 0;
     padding: 0 0 var(--width-gutter-half) 0;
-
-    @include px2rem($font-size-base);
+    font-size: var(--font-size-normal, 1rem);
     color: var(--color-Text);
     font-family: $fontStack; 
     font-style: normal;
-    
-    
-}
-
-
-p {
-	#content & {
-	    @include hyphens(auto);
-	    max-width: 125ch;
-	    text-wrap: pretty;
-	}
-	
-	#content .textwidget & {
-	    @include px2rem($font-size-contentwidgets);	
-	}
+   
 	
 	&.searchnotice {
 		font-size: 1.5rem;
 		padding: 4px 0 22px 0;
 	}
-
-	
 	&.lead-in {
 		margin: 0;
 		padding: 0;
@@ -39,27 +22,28 @@ p {
 		font-style: italic;
 		@include px2rem($font-size-quotes);
         }
+	&.presentationtitle {
+	    font-weight: bold;
+	    @include px2rem($font-size-h1,  $font-size-base);
+	    margin: 20px 0;
+	}
+	
+	.entry-content & {
+	    @include hyphens(auto);
+	    text-wrap: pretty;
+	}
+	
+	.textwidget & {
+	    @include px2rem($font-size-contentwidgets);	
+	}
+	
 	aside &,
-	#content .widget &,
-	#content .widget & {
+	.widget & {
 	    @include px2rem($font-size-sidebar);
 	}
 	
 	
+
 	
 }
-address {
-	aside &,
-	#content .widget &,
-	#content .widget & {
-	    @include px2rem($font-size-sidebar);
-	}
-}
-
-p.presentationtitle {
-    font-weight: bold;
-    @include px2rem($font-size-h1,  $font-size-base);
-    margin: 20px 0;
-}
-
 

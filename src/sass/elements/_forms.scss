@@ -5,7 +5,7 @@
 
 input {
 	margin: 0;
-	@include px2rem($font-size-base);
+	font-size: var(--font-size-normal, 1rem);
 	&[type="reset"],
 	&[type="submit"],
 	&[type="button"],
@@ -43,7 +43,7 @@ input {
 		transition: border linear 0.2s, box-shadow linear 0.2s;
 		
 		padding: 5px 10px;
-		@include px2rem($font-size-base);
+		font-size: var(--font-size-normal, 1rem);
 		height: auto;
 	}
 	
@@ -137,7 +137,7 @@ input {
 
 
 textarea {
-	@include px2rem($font-size-base);
+	font-size: var(--font-size-normal, 1rem);
 	display: inline-block;
 	color: var(--color-Text, #555555);
 	border-radius: var(--border-radius, 4px);
@@ -183,7 +183,7 @@ select {
     	display: inline-block;
 	cursor: pointer;
 	border-radius: var(--border-radius, 4px);
-	@include px2rem($font-size-base);
+	font-size: var(--font-size-normal, 1rem);
 	color: var(--color-Text);
 	background-color: var(--color-MainBackground);
 	width: fit-content;
@@ -262,7 +262,7 @@ legend {
 label {
 	padding-top: 5px;
 	display: block;
-	@include px2rem($font-size-base);
+	font-size: var(--font-size-normal, 1rem);
 	
 	textarea, 
 	&[type="password"],

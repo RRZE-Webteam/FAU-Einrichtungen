@@ -58,11 +58,8 @@
 	       @extend .fau-icon;
 	       mask-image: svg-icon-tag();
 	   }
-	}
-	
-	.post-meta-tags {
 	    @media (min-width: $screen-sm) {
-			margin-left: 10px;
+		margin-left: 10px;
 	    }
 	    
 	}
@@ -159,10 +156,14 @@
 	.news-meta-tags,
 	.news-meta-categories {
 		margin-right: var(--width-gutter-half);
-		display: flex;
-		align-items: center;
-		gap: 0.3rem;
 	}
+//	.news-meta-date,
+//	.news-meta-videopost-author {
+//		display: flex;
+//		align-items: center;
+//		gap: 0.3rem;
+//	}
+	
 	h2 .ext-link {
 	        --fau-icon-size: 1.5rem;
 		--fau-icon-color: var(--color-zentral-basis);
