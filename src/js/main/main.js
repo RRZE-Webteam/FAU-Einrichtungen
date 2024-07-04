@@ -606,18 +606,23 @@ jQuery(document).ready(function ($) {
   window.addEventListener("scroll", function () {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     let bodyHasAdminBar = document.body.classList.contains("admin-bar");
+    let navToggled = document.body.classList.contains("nav-toggled");
 
     // Reset all classes first
     header.classList.remove("header-static", "header-sticky", "header-hidden");
 
-    if (scrollTop === 0) {
-      header.classList.add("header-static");
-    } else if (scrollTop < lastScrollTop) {
-      header.classList.add("header-sticky");
-    } else if (scrollTop < 250) {
+    if (navToggled) {
       header.classList.add("header-static");
     } else {
-      header.classList.add("header-hidden");
+      if (scrollTop === 0) {
+        header.classList.add("header-static");
+      } else if (scrollTop < lastScrollTop) {
+        header.classList.add("header-sticky");
+      } else if (scrollTop < 250) {
+        header.classList.add("header-static");
+      } else {
+        header.classList.add("header-hidden");
+      }
     }
 
     // Add or remove the admin bar class based on the condition
