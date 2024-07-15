@@ -19,10 +19,12 @@
 	if (isset($catid) && $catid > 0) {
 	    $hero_posts = get_posts( array( 
             'cat' => $catid, 
+            'order' => 'ASC',
             'posts_per_page' => $numberposts) 
 	    );
 	} else {							    
 	    $query = array(
+            'order' => 'ASC',
             'numberposts' => $numberposts
 	    );                   
 	    $hero_posts = get_posts($query); 
@@ -37,6 +39,17 @@
 
 	       <?php
 		foreach($hero_posts as $hero): 
+            if (
+                method_exists('\RRZE\Multilang\Helper', 'isSingleMultilangMode')
+                && method_exists('\RRZE\Multilang\Helper', 'getPostTranslations')
+                && \RRZE\Multilang\Helper::isSingleMultilangMode()
+            ) {
+                $locale = get_locale();
+                $translations = \RRZE\Multilang\Helper::getPostTranslations($hero->ID);
+                if (isset($translations[$locale])) {
+                    continue;
+                }
+            }
 		    echo '<div class="item" aria-roledescription="slide" role="group" aria-labelledby="label-'.$hero->ID.'">';
 
 		    $sliderimage = $copyright = $slidersrc = $slidersrcset = $slidersrcsizes = '';
