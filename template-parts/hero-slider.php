@@ -38,13 +38,13 @@
 	   <div class="slick-slider featured-slider cf" id="mainslider">
 
 	       <?php
+        $locale = get_locale();
 		foreach($hero_posts as $hero): 
             if (
                 method_exists('\RRZE\Multilang\Helper', 'isSingleMultilangMode')
                 && method_exists('\RRZE\Multilang\Helper', 'getPostTranslations')
                 && \RRZE\Multilang\Helper::isSingleMultilangMode()
             ) {
-                $locale = get_locale();
                 $translations = \RRZE\Multilang\Helper::getPostTranslations($hero->ID);
                 if (isset($translations[$locale])) {
                     continue;
