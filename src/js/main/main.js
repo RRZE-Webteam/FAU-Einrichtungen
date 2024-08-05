@@ -604,14 +604,16 @@ jQuery(document).ready(function ($) {
   const header = document.getElementById("headerwrapper"); // Cache the element for performance
 
   window.addEventListener("scroll", function () {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    let scrollTop = window.scrollY || document.documentElement.scrollTop;
     let bodyHasAdminBar = document.body.classList.contains("admin-bar");
     let navToggled = document.body.classList.contains("nav-toggled");
+    let ariaExpanded = document.querySelector('.nav button[aria-expanded="true"]') !== null;
+
 
     // Reset all classes first
     header.classList.remove("header-static", "header-sticky", "header-hidden");
 
-    if (navToggled) {
+    if (navToggled || ariaExpanded) {
       header.classList.add("header-static");
     } else {
       if (scrollTop === 0) {
