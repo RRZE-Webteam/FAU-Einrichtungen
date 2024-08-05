@@ -41,12 +41,13 @@
         $locale = get_locale();
 		foreach($hero_posts as $hero): 
             if (
-                method_exists('\RRZE\Multilang\Helper', 'isSingleMultilangMode')
-                && method_exists('\RRZE\Multilang\Helper', 'getPostTranslations')
-                && \RRZE\Multilang\Helper::isSingleMultilangMode()
+                class_exists('RRZE\Multilang\Helper') &&
+                method_exists('\RRZE\Multilang\Helper', 'isSingleMultilangMode') &&
+                method_exists('\RRZE\Multilang\Helper', 'hasTranslation') &&
+                \RRZE\Multilang\Helper::isSingleMultilangMode()
             ) {
-                $translations = \RRZE\Multilang\Helper::getPostTranslations($hero->ID);
-                if (isset($translations[$locale])) {
+                $hasTranslation = \RRZE\Multilang\Helper::hasTranslation($hero->ID, $locale);
+                if (!$hasTranslation) {
                     continue;
                 }
             }
