@@ -11,22 +11,33 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 /* Plugin CMS-Workflow 
 /*-----------------------------------------------------------------------------------*/
 function is_workflow_translation_active() {
-    global $cms_workflow;
-    if ((class_exists('Workflow_Translation')) && (isset($cms_workflow->translation) && $cms_workflow->translation->module->options->activated)) {
-        return true;
-    }
-    return false;
+  // CMS-Workflow < 2.0.0
+  global $cms_workflow;
+  if ((class_exists('Workflow_Translation')) && (isset($cms_workflow->translation) && $cms_workflow->translation->module->options->activated)) {
+      return true;
+  // CMS-Workflow >= 2.0.0
+  } elseif (class_exists('RRZE\Workflow\Helper') &&
+      method_exists('RRZE\Workflow\Helper', 'isModuleActivated')
+  ) {
+      return \RRZE\Workflow\Helper::isModuleActivated('translation');
+  }
+  return false;
 }
 
 function fau_get_rel_alternate() {
-    if ((class_exists('Workflow_Translation')) && (function_exists('get_rel_alternate')) && (is_workflow_translation_active())) {
-        return Workflow_Translation::get_rel_alternate();
-    } else {
-        return '';
-    }
+  // CMS-Workflow < 2.0.0
+  if ((class_exists('Workflow_Translation')) && (function_exists('get_rel_alternate')) && (is_workflow_translation_active())) {
+    return Workflow_Translation::get_rel_alternate();
+  // CMS-Workflow >= 2.0.0
+  } elseif (
+      is_workflow_translation_active() &&
+      method_exists('\RRZE\Workflow\Modules\Translation\Translation', 'get_rel_alternate')
+  ) {
+      return \RRZE\Workflow\Modules\Translation\Translation::get_rel_alternate();
+  } else {
+      return '';
+  }
 }
-
-
 
 /*-----------------------------------------------------------------------------------*/
 /* Plugin TinyMCE: Button für Seitenumbruch ergänzen
