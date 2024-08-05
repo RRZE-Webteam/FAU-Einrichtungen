@@ -19,12 +19,10 @@
 	if (isset($catid) && $catid > 0) {
 	    $hero_posts = get_posts( array( 
             'cat' => $catid, 
-            'order' => 'ASC',
             'posts_per_page' => $numberposts) 
 	    );
 	} else {							    
 	    $query = array(
-            'order' => 'ASC',
             'numberposts' => $numberposts
 	    );                   
 	    $hero_posts = get_posts($query); 
