@@ -25,15 +25,10 @@
     figure {
 	img {  
 	    object-fit: cover;
-	    min-height: 100%;
-	    min-width: 100%;
 	    width: 100%;
-	    height: auto;
-	    max-width: none;
-	    max-height: none;
-
+	    height: 100%;
 	}
-
+	
     }
     
     
@@ -60,23 +55,20 @@
 		padding: $figpadding;
 		
 		a {
-		    @include defaultlinkstyle();
 		    text-decoration: none;
+		    height: 100%;
 		}
 	
 	    }
 	    figure {
 		overflow: hidden;
-		
+		display: flex;
+		flex-direction: column;
 		img {
 		    transition: transform 1s;
 		    object-fit: cover;		    
-		    min-height: 100%;
-		    min-width: 100%;
 		    width: 100%;
-		    height: auto;
-		    max-width: none;
-		    max-height: none;
+		    height: 100%;
 
 		}
 		:focus,
@@ -86,6 +78,7 @@
 			filter: grayscale(100%);
 		    }
 		}
+		
 	    }
 
 	    
