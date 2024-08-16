@@ -34,6 +34,7 @@
 
 .pull-right {
 	float: right;
+
 }
 
 .pull-left {
@@ -100,14 +101,16 @@ iframe {
 
 
 @media (max-width: $screen-xs - 1) {
+    .pull-left,
+    .pull-right,
     .alignleft,
     .alignright,
     div.alignleft,
     div.alignright {
 	float: none;
-	padding: 0;
+	padding: var(--width-gutter-half);
 	display: block;
-	margin: 5px auto;
+	margin: var(--width-gutter-half) auto;
     }
 }
 

@@ -81,8 +81,10 @@
 	"textDecoration": false,
 	"textTransform": false,
 	"dropCap": false,
-	"fluid": true,
-	"fontWeight": false
+	"fluid": false,
+	"fontWeight": false,
+	    "defaultFontSizes": false
+	    
     },
     "layout": {
 	"contentSize": "1400px",
@@ -270,40 +272,103 @@
      
      
       "core/paragraph": {
-        "typography": {
-	    "dropCap": true,
-	    "fontWeight": true,
-	    "fontStyle": true,
-	    "textAlign": true
-        }
-       
+		
+	"typography": {
+			     "dropCap": true,
+	     "textTransform": true
+	}
 	
       },
+      "core/quote": {
+		"border": {
+	    "radius": false,
+	    "style": false,
+	    "width": false,
+	    "color": true
+	}
+	    },
       "core/pullquote": {
         "typography": {
-          "fontSizes": [{
-		    "name": "Normal",
-		    "slug": "base",
-		    "size": "1rem"
-		},
-	       {
-		    "name": "Medium",
-		    "slug": "medium",
-		    "size": "1.125rem"
-		},
-		{
-		    "name": "Large",
-		    "slug": "large",
-		    "size": "1.75rem"
-		},
-		{
-		    "name": "Extra Large",
-		    "slug": "x-large",
-		    "size": "2.25rem"
-		}],
-          "textTransform": false,
-		    "textAlign": true
-        }
+	    "dropCap": true,
+	    "textTransform": true,	    
+		     "fontSizes": [
+		  
+			{
+			  "name": "Normal",
+			  "slug": "base",
+			  "size": "1rem"
+		      },
+		     {
+			  "name": "Medium",
+			  "slug": "medium",
+			  "size": "1.5rem"
+		      },
+		      {
+			  "name": "Large",
+			  "slug": "large",
+			  "size": "2rem"
+		      },
+		      {
+			  "name": "Extra Large",
+			  "slug": "x-large",
+			  "size": "3rem"
+		      }]
+        },
+	"color": {
+          "background": false,
+          "heading": false,
+          "button": false,
+          "text": false,
+          "defaultPalette": false,
+          "custom": false,
+		    "palette": [
+			{
+			"slug": "white",
+			"color": "var(--color-white, #fff)",
+			"name": "Weiß"
+		      },
+		    {
+			"slug": "fau",
+			"color": "var(--color-branding-zentral, #04316a)",
+			"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+		    },
+		    {
+			"slug": "phil",
+			"color": "var(--color-branding-phil, #fdb735)",
+			"name": "Philosophische Fakultät"
+		    },
+		    {
+			"slug": "rw",
+			"color": "var(--color-branding-rw, #c50f3c)",
+			"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+		    },
+		    {
+			"slug": "med",
+			"color": "var(--color-branding-med, #18b4f1)",
+			"name": "Medizinische Fakultät"
+		    },
+		    {
+			"slug": "nat",
+			"color": "var(--color-branding-nat, #7bb725)",
+			"name": "Naturwissenschaftliche Fakultät"
+		    },
+		    {
+			"slug": "tf",
+			"color": "var(--color-branding-tf, #8C9FB1)",
+			"name": "Technische Fakultät"
+		    }
+		]
+        },
+	"border": {
+	    "radius": false,
+	    "style": false,
+	    "width": false,
+	    "color": true
+	},
+	"spacing": {
+		    "margin": false,
+		    "padding": false
+	}
       },
      
       "core/column": {

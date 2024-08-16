@@ -1,0 +1,74 @@
+
+/*----------------------------------------------------------------------------*/
+/* _wp-block-pullquote 
+/* Created on : 16.08.2024, 11:51:53
+/*----------------------------------------------------------------------------*/
+    .wp-block-pullquote {
+	border: none;
+	padding: 2rem 1.5rem;
+	cite::before {
+	    content : "";
+	}
+	blockquote {
+	    display: block;
+	}
+    }
+    
+
+
+    .wp-block-pullquote.has-border-color {
+	&.has-white-border-color blockquote {
+	    border: none;
+	}
+	&.has-phil-border-color blockquote {
+	    border-color: var(--wp--preset--color--phil, var(--color-branding-phil));
+	}
+	&.has-nat-border-color blockquote {
+	    border-color: var(--wp--preset--color--nat, var(--color-branding-nat));
+	}
+	&.has-tf-border-color blockquote {
+	    border-color: var(--wp--preset--color--tf, var(--color-branding-tf));
+	}
+	&.has-rw-border-color blockquote {
+	    border-color: var(--wp--preset--color--rw, var(--color-branding-rw));
+	}
+	&.has-med-border-color blockquote {
+	    border-color: var(--wp--preset--color--med, var(--color-branding-med));
+	}
+	&.has-fau-border-color blockquote {
+	    border-color: var(--wp--preset--color--fau, var(--color-branding-zentral));
+	}
+    }
+
+    .wp-block-pullquote.has-x-large-font-size {
+	blockquote {	    
+	    p {
+		font-size: var(--wp--preset--font-size--x-large);
+	    }
+	    cite {
+		ont-size: var(--wp--preset--font-size--large);
+	    }
+	}
+	 
+    }
+    .wp-block-pullquote.has-large-font-size {
+	blockquote {	    
+	    p {
+		font-size: var(--wp--preset--font-size--large);
+	    }
+	    cite {
+		ont-size: var(--wp--preset--font-size--medium);
+	    }
+	}
+    }
+    .wp-block-pullquote.has-medium-font-size {
+	blockquote {	    
+	    p {
+		font-size: var(--wp--preset--font-size--medium);
+	    }
+	    cite {
+		ont-size: var(--wp--preset--font-size--base);
+	    }
+	}
+    }
+   
