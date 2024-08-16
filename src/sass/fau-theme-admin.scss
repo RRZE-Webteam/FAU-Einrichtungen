@@ -34,6 +34,7 @@ $font-path-roboto:	'../fonts/roboto/';
 // Fonts
 @import "fonts/fonts";
 
+.editor-styles-wrapper,
 .edit-post-visual-editor .editor-block-list__block {
     
     // Element Styles
@@ -41,7 +42,7 @@ $font-path-roboto:	'../fonts/roboto/';
     
     // Plugin-Support
     @import "plugins/plugins";
-}
+ }
 
 
 // Backend Specials

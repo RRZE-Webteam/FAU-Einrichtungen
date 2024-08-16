@@ -23,9 +23,9 @@ blockquote {
         }
     }
 
-    #tinymce &,
-    #content & {
-        max-width: calc(100% - 2.5rem);
+ //   #tinymce &,
+//    #content & {
+   //     max-width: calc(100% - 2.5rem);
         margin: 1rem;
         padding: 2rem 1.5rem;
         min-height: 3rem;
@@ -38,18 +38,15 @@ blockquote {
         @media (min-width: $screen-sm) {
             margin: 0.6rem 2rem;
      //       padding: 31px 40px 20px 40px;
-            max-width: calc(100% - 4rem);
+   //         max-width: calc(100% - 4rem);
         }
 
         p, h1, h2, h3, h4, h5, h6 {
             color: var(--color-Text);
         }
-    }
+ //   }
 
-    #content .sidebar-inline & {
-        margin: 0.6rem;
-        padding: 0.5rem;
-    }
+    
 
     small,
     cite {
@@ -90,9 +87,8 @@ blockquote {
 	    content: '\00A0 \2014';
 	}
     }
-
-
-    #content .sidebar-inline &,
+    
+    .sidebar-inline &,
     #tinymce &.noquote,
     #content &.noquote {
         background: inherit;
@@ -107,24 +103,18 @@ blockquote {
 
     }
 
-    #content .sidebar-inline & {
-
+    .sidebar-inline & {
+	margin: 0.6rem;
+        padding: 0.5rem;
         @include px2rem($font-size-sidebar);
-
         p {
             @include px2rem($font-size-sidebar);
         }
     }
 
-    #content .wp-block-pullquote &,
-    .wp-block-pullquote & {
-	border-left: none;
-	
-	cite::before {
-	    content : "";
-	}
-    }
+    
 }
+
 
 
 cite {
