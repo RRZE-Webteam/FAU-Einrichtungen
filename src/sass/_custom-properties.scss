@@ -8,10 +8,6 @@
 //	 --color-primary-#{$variante}: #{$colorcode};
 //     }
      @each $farbtyp, $map in $colormaps {		
-	$colorcode: map-get($map, "basis");
-	--color-#{$farbtyp}-basis: #{$colorcode};
-	$colorcode: map-get($map, "basis-kontrast");
-	--color-#{$farbtyp}-basis-kontrast: #{$colorcode};
 	$colorcode: map-get($map, "ci-hell");
 	--color-#{$farbtyp}-ci-hell: #{$colorcode};
 	$colorcode: map-get($map, "ci-hell-kontrast");
@@ -39,13 +35,15 @@
      
      /* Branding color */
     --color-branding-primary: #{$color-branding-primary};
+    --color-branding-primary-kontrast: #{$color-branding-primary-kontrast};
     --color-branding-zentral: #{$color-branding-zentral};
     --color-branding-phil: #{$color-branding-phil};
     --color-branding-med: #{$color-branding-med};
     --color-branding-nat: #{$color-branding-nat};
     --color-branding-rw: #{$color-branding-rw};
     --color-branding-tf: #{$color-branding-tf};
-	       
+    --color-primary-basis: var(--color-branding-primary);
+    --color-primary-basis-kontrast: var(--color-branding-primary-kontrast);
      
      
      /* Calculated Values */

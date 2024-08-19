@@ -72,6 +72,7 @@ $colormaps: ("primary": $colormap-primary, "zentral": $colormap-zentral, "phil":
 
 // Branding Color (Color for textlogo)
 $color-branding-primary:    map-get($colormap-primary, "ci-hell");
+$color-branding-primary-kontrast:    map-get($colormap-primary, "ci-hell-kontrast");
 $color-branding-zentral:    map-get($colormap-zentral, "ci-hell");
 $color-branding-phil:	    map-get($colormap-phil, "ci-hell");
 $color-branding-med:	    map-get($colormap-med, "ci-hell");
@@ -165,8 +166,13 @@ $colorCopyright: #fff;
 $colorCopyrightBackground: rgba(0, 0, 0, 0.6);
 
 // Buttons
-$color_button_text:		map-get($colormap-primary, "dunkler-kontrast");
-$color_button_bg:		map-get($colormap-primary, "dunkler");
+// $color_button_text:		map-get($colormap-primary, "dunkler-kontrast");
+// $color_button_bg:		map-get($colormap-primary, "dunkler");
+// $color-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
+// $color-button-hover-bg:		map-get($colormap-primary, "dunkelste");
+
+$color_button_text:		map-get($colormap-primary, "ci-hell-kontrast");
+$color_button_bg:		map-get($colormap-primary, "ci-hell");
 $color-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
 $color-button-hover-bg:		map-get($colormap-primary, "dunkelste");
 
