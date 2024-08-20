@@ -9,3 +9,39 @@
     }
     
 }
+.c-degree-programs-search {
+    .c-degree-programs-collection.-tiles .c-degree-program-preview__title {
+	    color: var(--color-branding-primary-kontrast);
+	    background-color:  var(--color-branding-primary);
+    }
+
+    .c-degree-program-preview__subtitle::before {
+	border-top-color: var(--color-branding-primary-kontrast);
+    }
+}
+
+.studiengang-template-default {
+    #content {
+	padding-bottom: 0;
+	.content-container {
+	    margin-bottom: 0;
+	}
+	.c-single-degree-program__links {
+	    background-color: var(--color-StandardHellgrau);
+	    margin-bottom: 0;
+	}
+    }
+    #social {
+	margin-top: 0;
+    }
+   
+}
+
+button[type="submit"].c-degree-programs-searchform__submit {
+    color: var(--color-button-text);
+    background-color:  var(--color-button-bg);
+}
+button[type="submit"].c-degree-programs-searchform__submit:hover {
+    color: var(--color-button-hover-text);
+    background-color:  var(--color-button-hover-bg);
+}
