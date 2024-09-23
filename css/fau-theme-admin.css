@@ -2253,72 +2253,6 @@ UI Elements, from jquery UI CSS
   display: none;
 }
 
-/*
-* CSS Settings for Editor (Gutenberg and Classic Editor)
-*/
-/*
-Backend CSS Settings for Block Editor (Gutenberg)
-*/
-.block-editor .editor-styles-wrapper {
-  margin: 0 30px;
-  padding: var(--width-gutter-half, 15px);
-}
-.block-editor .edit-post-layout__metaboxes {
-  background-color: #ddd;
-}
-.block-editor .edit-post-meta-boxes-area.is-advanced,
-.block-editor .edit-post-meta-boxes-area.is-normal {
-  background-color: #f0f0f1;
-  margin: 0 30px;
-}
-.block-editor .edit-post-meta-boxes-area.is-advanced .postbox,
-.block-editor .edit-post-meta-boxes-area.is-normal .postbox {
-  margin: 10px;
-}
-.edit-post-sidebar h3 {
-  margin-top: 1em;
-  font-weight: bold;
-  text-transform: none;
-  font-size: 1em;
-  border-bottom: 1px solid;
-}
-.edit-post-sidebar p.howto {
-  margin: 0.5em 0.3em;
-  font-style: inherit;
-}
-.edit-post-sidebar .subsetting {
-  margin-left: 20px;
-}
-.edit-post-sidebar .customize-control-title {
-  font-weight: bold;
-}
-.edit-post-sidebar .toggle-switch-control {
-  margin: 0 0 1.5em;
-}
-.edit-post-sidebar .toggle-switch {
-  float: left;
-  margin-right: 10px;
-}
-.edit-post-sidebar .toggle-switch .toggle-switch-label {
-  box-sizing: border-box;
-}
-.edit-post-sidebar .toggle-switch .toggle-switch-inner:before, .edit-post-sidebar .toggle-switch .toggle-switch-inner:after {
-  height: 14px;
-  line-height: 14px;
-  font-size: 12px;
-}
-.edit-post-sidebar .toggle-switch .toggle-switch-inner:after {
-  background-color: inherit;
-}
-.edit-post-sidebar .customize-control-title {
-  font-weight: bold;
-}
-
-.edit-post-meta-boxes-area #poststuff h2.hndle {
-  padding: 16px 0 16px 16px;
-  word-wrap: anywhere;
-}
-
 /*-----------------------------------------------------------------------------------*/
 /* Plugin Output in Backend
 /*-----------------------------------------------------------------------------------*/
@@ -2576,14 +2510,14 @@ figure.wp-block-table:has(.wp-element-caption) .wp-element-caption {
   font-size: var(--wp--preset--font-size--x-large);
 }
 .wp-block-pullquote.has-x-large-font-size blockquote cite {
-  ont-size: var(--wp--preset--font-size--large);
+  font-size: var(--wp--preset--font-size--large);
 }
 
 .wp-block-pullquote.has-large-font-size blockquote p {
   font-size: var(--wp--preset--font-size--large);
 }
 .wp-block-pullquote.has-large-font-size blockquote cite {
-  ont-size: var(--wp--preset--font-size--medium);
+  font-size: var(--wp--preset--font-size--medium);
 }
 
 .wp-block-pullquote.has-medium-font-size blockquote p {

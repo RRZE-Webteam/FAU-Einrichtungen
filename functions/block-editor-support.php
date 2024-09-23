@@ -15,15 +15,6 @@ use \RRZE\THEME\EINRICHTUNGEN\Debugging;
 function fau_gutenberg_settings()
 {
     if (fau_blockeditor_is_active()) {
-        // Add support for 
-        wp_register_style( 'editor-styles', get_fau_template_uri().'/css/editor.css' );
-
-        // Add support for editor styles.
-        add_theme_support('editor-styles');
-
-        // Enqueue the editor stylesheet.
-        add_editor_style('editor.css');
-
         return;
     }
 
@@ -55,10 +46,18 @@ function fau_add_gutenberg_assets()
     global $is_gutenberg_enabled;
 
     if (fau_blockeditor_is_active()) {
-        wp_enqueue_style('fau-gutenberg', get_theme_file_uri('/css/fau-theme-gutenberg.css'), false);
+        // wp_enqueue_style('fau-gutenberg', get_theme_file_uri('/css/fau-theme-gutenberg.css'), false);
+        //Add support for 
+        wp_register_style('editor-styles', get_fau_template_uri() . '/css/editor.css');
+
+        // Add support for editor styles.
+        add_theme_support('editor-styles');
+
+        // Enqueue the editor stylesheet.
+        add_editor_style('css/editor.css');
     }
 }
-// add_action( 'enqueue_block_editor_assets', 'fau_add_gutenberg_assets' );
+add_action( 'enqueue_block_editor_assets', 'fau_add_gutenberg_assets' );
 // derzeit noch keine eigene CSS File mit Anpassungen...
 
 /*-----------------------------------------------------------------------------------*/
