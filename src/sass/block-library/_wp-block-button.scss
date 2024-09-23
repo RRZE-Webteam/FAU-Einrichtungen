@@ -7,10 +7,24 @@
 //     border-radius: var(--border-radius, 9999px);
 // }
 
-.wp-block-buttons{
-    .wp-element-button, 
+.wp-block-buttons {
+
+    .wp-element-button,
     .wp-block-button__link {
         @include defaultlinkstyle();
         @include buttonstyle();
+    }
+    .is-style-fill {
+        .wp-block-button__link {
+            @include defaultlinkstyle();
+            @include buttonstyle();
+        }
+    }
+
+    .is-style-outline {
+        .wp-block-button__link {
+            @include defaultlinkstyle();
+            @include ghostbutton();
+        }
     }
 }

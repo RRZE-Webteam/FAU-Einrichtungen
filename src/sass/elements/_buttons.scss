@@ -16,4 +16,11 @@ a.btn,
 a[role="button"] {
     @include defaultlinkstyle();
     @include buttonstyle();
+
+    &.is-style-outline {
+        .wp-block-button__link {
+            @include defaultlinkstyle();
+            @include ghostbutton();
+        }
+    }
 }

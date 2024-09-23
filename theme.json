@@ -492,20 +492,28 @@
 
       "core/button": {
         "color": {
-          "background": true,
-          "text": true
+          "background": false,
+          "text": false
         },
         "typography": {
-          "customFontSize": true,
-          "letterSpacing": true,
+          "customFontSize": false,
+          "letterSpacing": false,
           "dropCap": false,
-          "fluid": true,
+          "fluid": false,
           "textAlign": true
         },
-
         "spacing": {
-          "padding": true,
-          "margin": true
+          "padding": false,
+          "margin": false
+        },
+        "shadow": {
+          "defaultPresets": false
+        },
+        "border": {
+          "radius": false,
+          "style": false,
+          "width": false,
+          "color": false
         }
       }
     }
