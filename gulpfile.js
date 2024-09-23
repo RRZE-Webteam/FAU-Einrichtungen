@@ -211,7 +211,6 @@ function cloneTheme(cb) {
 
     }
 
-
      // compile sass, use autoprefixer and minify results
     function buildproductivestyle() {
 
@@ -324,6 +323,33 @@ function buildprintstyle() {
         .pipe(dest('./'))
         .pipe(touch());
 }
+
+    // compile sass, use autoprefixer and minify results
+    function buildeditorstyles() {
+        var plugins = [
+            autoprefixer(),
+            cssnano()
+        ];
+    
+        return src([info.source.sass + 'editor.scss'])
+            .pipe(sass().on('error', sass.logError))
+            .pipe(postcss(plugins))
+            .pipe(dest('./'))
+            .pipe(touch());
+    }
+
+    function devbuildeditorstyles() {
+        var plugins = [
+            autoprefixer()
+        ];
+    
+        return src([info.source.sass + 'editor.scss'])
+            .pipe(sass().on('error', sass.logError))
+            .pipe(postcss(plugins))
+            .pipe(dest('./'))
+            .pipe(touch());
+    }
+    
 
 function bundleadminjs() {
     return src([info.source.js + 'admin/admin.js',
@@ -504,13 +530,13 @@ exports.nodebug = unset_debugmode;
 
 
 var js = series(bundlemainjs, makeslickjs, makecustomblockjs, bundleadminjs, makecustomizerjs, makewplinkjs);
-var dev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle,  js, devversion);
+var dev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle, devbuildeditorstyles, js, devversion);
 
 exports.cssdev = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle);
 exports.css = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle);
 exports.js = js;
 exports.dev = dev;
-exports.build = series(buildbackendstyles, buildmainstyle, buildprintstyle, js, upversionpatch);
+exports.build = series(buildbackendstyles, buildmainstyle, buildprintstyle, buildeditorstyles, js, upversionpatch);
 
 /* Temporary */
 exports.watch = function () {
@@ -518,4 +544,3 @@ exports.watch = function () {
 };
 
 exports.default = dev;
-

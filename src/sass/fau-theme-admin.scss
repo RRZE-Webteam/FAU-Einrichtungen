@@ -34,18 +34,18 @@ $font-path-roboto:	'../fonts/roboto/';
 // Fonts
 @import "fonts/fonts";
 
-.post-type-page,
-.post-type-post {
-    .editor-styles-wrapper,
-    .edit-post-visual-editor .editor-block-list__block {
+// .post-type-page,
+// .post-type-post {
+//     .editor-styles-wrapper,
+//     .edit-post-visual-editor .editor-block-list__block {
 
-	// Element Styles
-	@import "elements/elements";
+// 	// Element Styles
+// 	@import "elements/elements";
 
-	// Plugin-Support
-	@import "plugins/plugins";
-     }
-}
+// 	// Plugin-Support
+// 	@import "plugins/plugins";
+//      }
+// }
 
 // Backend Specials
 @import "backend/backend";
