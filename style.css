@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.5.17-49
+Version: 2.5.17-58
 Requires at least: 6.4
 Tested up to: 6.5
 Requires PHP: 8.2
@@ -1899,7 +1899,13 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+h1.wp-block-heading,
+h2.wp-block-heading,
+h3.wp-block-heading,
+h4.wp-block-heading,
+h5.wp-block-heading,
+h6.wp-block-heading {
   margin: 1.5rem 0 1rem 0;
   font-family: inherit;
   color: var(--color-content-headlines);
@@ -1910,7 +1916,13 @@ h2 em,
 h3 em,
 h4 em,
 h5 em,
-h6 em {
+h6 em,
+h1.wp-block-heading em,
+h2.wp-block-heading em,
+h3.wp-block-heading em,
+h4.wp-block-heading em,
+h5.wp-block-heading em,
+h6.wp-block-heading em {
   font-style: normal;
 }
 h1.widget-title,
@@ -1918,53 +1930,88 @@ h2.widget-title,
 h3.widget-title,
 h4.widget-title,
 h5.widget-title,
-h6.widget-title {
+h6.widget-title,
+h1.wp-block-heading.widget-title,
+h2.wp-block-heading.widget-title,
+h3.wp-block-heading.widget-title,
+h4.wp-block-heading.widget-title,
+h5.wp-block-heading.widget-title,
+h6.wp-block-heading.widget-title {
   margin-top: 0;
 }
 
-main h1, main h2, main h3, main h4, main h5 {
+main h1,
+main h2,
+main h3,
+main h4,
+main h5 {
   text-wrap: balance;
 }
-main h1 a, main h2 a, main h3 a, main h4 a, main h5 a {
+main h1 a,
+main h2 a,
+main h3 a,
+main h4 a,
+main h5 a {
   color: var(--color-content-headlines);
 }
 
-h1, h2 {
+h1,
+h2,
+h1.wp-block-heading,
+h2.wp-block-heading {
   -webkit-hyphens: none;
           hyphens: none;
 }
 
-h3, h4, h5, h6 {
+h3,
+h4,
+h5,
+h6,
+h3.wp-block-heading,
+h4.wp-block-heading,
+h5.wp-block-heading,
+h6.wp-block-heading {
   -webkit-hyphens: auto;
           hyphens: auto;
 }
 
-h1 {
+h1,
+h1.wp-block-heading {
   font-size: 1.813rem;
 }
-.sidebar-inline + h1 {
+.sidebar-inline + h1,
+.sidebar-inline + h1.wp-block-heading {
   margin-top: 0;
 }
-.banner-text h1 {
+.banner-text h1,
+.banner-text h1.wp-block-heading {
   font-size: 1.813rem;
 }
-.sidebar-inline h1, .search-sidebar h1, .sidebar-outline h1, .widget h1 {
+.sidebar-inline h1, .search-sidebar h1, .sidebar-outline h1, .widget h1,
+.sidebar-inline h1.wp-block-heading,
+.search-sidebar h1.wp-block-heading,
+.sidebar-outline h1.wp-block-heading,
+.widget h1.wp-block-heading {
   font-size: 1.5rem;
 }
-table h1 {
+table h1,
+table h1.wp-block-heading {
   font-size: 1.688rem;
 }
-h1.small {
+h1.small,
+h1.wp-block-heading.small {
   font-size: 1.688rem;
 }
-h1.mobiletitle {
+h1.mobiletitle,
+h1.wp-block-heading.mobiletitle {
   margin-top: 0;
   padding: var(--width-gutter-half) 0;
   -webkit-hyphens: auto;
           hyphens: auto;
 }
 @media (min-width: 768px) {
-  h1.mobiletitle {
+  h1.mobiletitle,
+  h1.wp-block-heading.mobiletitle {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -1978,89 +2025,132 @@ h1.mobiletitle {
   }
 }
 
-h2 {
+h2,
+h2.wp-block-heading {
   font-size: 1.5rem;
 }
-.sidebar-outline h2, .widget h2 {
+.sidebar-outline h2, .widget h2,
+.sidebar-outline h2.wp-block-heading,
+.widget h2.wp-block-heading {
   margin-bottom: 11px;
 }
-.search-sidebar h2 {
+.search-sidebar h2,
+.search-sidebar h2.wp-block-heading {
   margin-top: 8px;
 }
-h2.small, h2.subtitle {
+h2.small, h2.subtitle,
+h2.wp-block-heading.small,
+h2.wp-block-heading.subtitle {
   font-size: 1.375rem;
 }
-.search h2 {
+.search h2,
+.search h2.wp-block-heading {
   margin-top: 4px;
 }
-h2.widget-title, .sidebar-inline h2, .search-sidebar h2, .sidebar-outline h2, .widget h2 {
+h2.widget-title, .sidebar-inline h2, .search-sidebar h2, .sidebar-outline h2, .widget h2,
+h2.wp-block-heading.widget-title,
+.sidebar-inline h2.wp-block-heading,
+.search-sidebar h2.wp-block-heading,
+.sidebar-outline h2.wp-block-heading,
+.widget h2.wp-block-heading {
   font-size: 1.313rem;
 }
-table h2 {
+table h2,
+table h2.wp-block-heading {
   font-size: 1.375rem;
 }
-.content-inline h2:first-child {
+.content-inline h2:first-child,
+.content-inline h2.wp-block-heading:first-child {
   margin-top: 0;
 }
 
-h3 {
+h3,
+h3.wp-block-heading {
   margin: 0;
   padding: 11px 0;
   font-size: 1.313rem;
 }
-h3.abstract {
+h3.abstract,
+h3.wp-block-heading.abstract {
   padding: 0 0 22px 0;
 }
-.subpages-menu h3 {
+.subpages-menu h3,
+.subpages-menu h3.wp-block-heading {
   font-weight: normal;
 }
-#off-canvas h3 {
+#off-canvas h3,
+#off-canvas h3.wp-block-heading {
   font-size: 1.188rem;
   border-bottom: 1px solid var(--color-StandardHellgrau);
   margin: 20px 0 0 0;
   padding: 0 10px;
 }
-.sidebar-inline h3, .search-sidebar h3, .sidebar-outline h3, .widget h3 {
+.sidebar-inline h3, .search-sidebar h3, .sidebar-outline h3, .widget h3,
+.sidebar-inline h3.wp-block-heading,
+.search-sidebar h3.wp-block-heading,
+.sidebar-outline h3.wp-block-heading,
+.widget h3.wp-block-heading {
   font-size: 1.188rem;
 }
-table h3 {
+table h3,
+table h3.wp-block-heading {
   font-size: 1.188rem;
 }
 
-h4 {
+h4,
+h4.wp-block-heading {
   margin: 0;
   padding: 11px 0 11px 0;
   font-size: 1.188rem;
 }
-.person h4, .span3 h4 {
+.person h4, .span3 h4,
+.person h4.wp-block-heading,
+.span3 h4.wp-block-heading {
   font-size: 1.063rem;
 }
-.sidebar-inline h4, .search-sidebar h4, .sidebar-outline h4, .widget h4 {
+.sidebar-inline h4, .search-sidebar h4, .sidebar-outline h4, .widget h4,
+.sidebar-inline h4.wp-block-heading,
+.search-sidebar h4.wp-block-heading,
+.sidebar-outline h4.wp-block-heading,
+.widget h4.wp-block-heading {
   font-size: 1.063rem;
 }
-table h4 {
+table h4,
+table h4.wp-block-heading {
   font-size: 1.063rem;
 }
 
-h5 {
+h5,
+h5.wp-block-heading {
   margin: 0;
   padding: 11px 0 11px 0;
   font-size: 1.125rem;
 }
-.sidebar-inline h5, .search-sidebar h5, .sidebar-outline h5, .widget h5 {
+.sidebar-inline h5, .search-sidebar h5, .sidebar-outline h5, .widget h5,
+.sidebar-inline h5.wp-block-heading,
+.search-sidebar h5.wp-block-heading,
+.sidebar-outline h5.wp-block-heading,
+.widget h5.wp-block-heading {
   font-size: 1.063rem;
 }
-table h5 {
+table h5,
+table h5.wp-block-heading {
   font-size: 1rem;
 }
 
-h6 {
+h6,
+h6.wp-block-heading {
   font-size: 1.063rem;
 }
-.sidebar-inline h6, .search-sidebar h6, .sidebar-outline h6, .widget h6 {
+.sidebar-inline h6, .search-sidebar h6, .sidebar-outline h6, .widget h6,
+.sidebar-inline h6.wp-block-heading,
+.search-sidebar h6.wp-block-heading,
+.sidebar-outline h6.wp-block-heading,
+.widget h6.wp-block-heading {
   font-size: 1rem;
 }
-table h6 {
+table h6,
+table h6.wp-block-heading {
   font-size: 0.938rem;
 }
 
@@ -3860,7 +3950,8 @@ figcaption {
 .widget_search .search-text label,
 .searchform-content .search-text label,
 .meta-search .searchform label,
-#meta h3 {
+#meta h3,
+#meta h3.wp-block-heading {
   position: absolute;
   width: 1px;
   height: 1px;
