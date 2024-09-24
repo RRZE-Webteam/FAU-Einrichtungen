@@ -413,30 +413,12 @@
       },
       "core/table": {
         "typography": {
-          "fontSizes": [
-            {
-              "name": "Normal",
-              "slug": "base",
-              "size": "1rem"
-            },
-            {
-              "name": "Medium",
-              "slug": "medium",
-              "size": "1.125rem"
-            },
-            {
-              "name": "Large",
-              "slug": "large",
-              "size": "1.75rem"
-            },
-            {
-              "name": "Extra Large",
-              "slug": "x-large",
-              "size": "2.25rem"
-            }
-          ],
+          "fontSizes": [],
           "textTransform": false,
           "textAlign": true
+        },
+        "color": {
+          "text": false
         }
       },
 
@@ -549,6 +531,11 @@
               "name": "Weiß"
             }
           ]
+        }
+      },
+      "core/verse": {
+        "color": {
+          "text": false
         }
       }
     }
