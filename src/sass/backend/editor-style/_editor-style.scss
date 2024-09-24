@@ -1,7 +1,6 @@
 /*
 * CSS Settings for Editor (Gutenberg and Classic Editor)
 */
-
 // Block Editor region
 @import "gutenberg";
 
@@ -10,8 +9,9 @@
 
 // Paragraph
 @import "core-paragraph";
+@import "core-blockquote";
+@import "core-list";
 
 // Screenreader Classes
 @import "../../elements/accessibility";
 @import "../../elements/headlines";
-

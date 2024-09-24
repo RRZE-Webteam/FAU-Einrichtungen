@@ -2526,3 +2526,12 @@ figure.wp-block-table:has(.wp-element-caption) .wp-element-caption {
 .wp-block-pullquote.has-medium-font-size blockquote cite {
   font-size: var(--wp--preset--font-size--base);
 }
+
+.wp-block-pullquote cite {
+  display: inline;
+}
+
+figure.wp-block-pullquote > blockquote {
+  border-left: none;
+  border-top: 10px solid var(--color-primary-ci-hell);
+}

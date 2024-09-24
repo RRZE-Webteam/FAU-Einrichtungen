@@ -1,8 +1,9 @@
 /*----------------------------------------------------------------------------*/
-/* _wp-block-paragraph 
-/* Created on : 03.05.2024, 15:12:21
+/* _wp-block-list-item 
+/* Created on : 24.09.2024, 08:10:21
 /*----------------------------------------------------------------------------*/
-p.wp-block-paragraph {
+
+.wp-block-list-item {
     // imported from _paragraphs.scss
-    @include paragraphs();
+    @include paragraphs;
 }

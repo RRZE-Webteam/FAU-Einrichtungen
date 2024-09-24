@@ -38,22 +38,26 @@ Mixins File for Wordpress Theme FAU
 }
 
 @mixin linear-gradient($fromColor, $toColor) {
-    background-color: $fromColor; /* Fallback Color */
+    background-color: $fromColor;
+    /* Fallback Color */
     background-image: linear-gradient(to right, $fromColor, $toColor);
 }
 
 @mixin linear-top-gradient($fromColor, $toColor) {
-    background-color: $fromColor; /* Fallback Color */
+    background-color: $fromColor;
+    /* Fallback Color */
     background-image: linear-gradient(to bottom, $fromColor, $toColor);
 }
 
 @mixin linear-gradient-three($fromColor, $toColor, $nextColor) {
-    background-color: $fromColor; /* Fallback Color */
+    background-color: $fromColor;
+    /* Fallback Color */
     background-image: linear-gradient(to right, $fromColor, $toColor, $nextColor);
 }
 
 @mixin linear-top-gradient-three($fromColor, $toColor, $nextColor) {
-    background-color: $fromColor; /* Fallback Color */
+    background-color: $fromColor;
+    /* Fallback Color */
     background-image: linear-gradient(to bottom, $fromColor, $toColor, $nextColor);
 }
 
@@ -112,16 +116,16 @@ Mixins File for Wordpress Theme FAU
 }
 
 @function px2rem($font-size, $base-font-size: $font-size-gridbase) {
-    @return math.div($font-size, $base-font-size) + rem;
+    @return math.div($font-size, $base-font-size)+rem;
 }
 
 @mixin px2rem($font-size, $base-font-size: $font-size-gridbase, $line: $font-size * 1.51) {
     // font-size: $font-size + px; // für den IE8
     // line-height: ($line) + px;
     font-size: math.div(ceil(math.div($font-size, $base-font-size) * 1000), 1000) + rem;
- //   line-height: math.div(ceil(math.div($line, $base-font-size) * 1000), 1000) + rem;
- // proportionaler defaultwert aus body wird verwendet, statt immer neu zu 
- // berechnen und somit viele Codezeilen zu erzeugen.
+    //   line-height: math.div(ceil(math.div($line, $base-font-size) * 1000), 1000) + rem;
+    // proportionaler defaultwert aus body wird verwendet, statt immer neu zu 
+    // berechnen und somit viele Codezeilen zu erzeugen.
 }
 
 @mixin morelink() {
@@ -135,7 +139,7 @@ Mixins File for Wordpress Theme FAU
         @include inline-block;
         @include border-radius(var(--border-radius-buttons, 3px));
         @include px2rem($font-size-textbuttons);
-	    @include buttoncolor();
+        @include buttoncolor();
         padding: 6px 10px;
         text-decoration: none;
     }
@@ -148,10 +152,10 @@ Mixins File for Wordpress Theme FAU
     padding: 0;
     text-decoration: underline;
     color: currentcolor;
-    text-decoration-color:  currentcolor;
+    text-decoration-color: currentcolor;
     text-underline-offset: 0.2rem;
     text-decoration-thickness: 0.1rem;
-   
+
     &:hover,
     &:focus {
         box-shadow: none;
@@ -165,7 +169,7 @@ Mixins File for Wordpress Theme FAU
 @mixin default-img() {
     @include box-shadow(none);
     border: 0;
-  
+
 }
 
 
@@ -177,7 +181,7 @@ Mixins File for Wordpress Theme FAU
     /*box-shadow: inset 0 -0.1rem 0 0 var(--color-primary-ci-hell);*/
     transition: text-decoration .1s ease;
     text-decoration: underline;
-    text-decoration-color:  var(--color-primary-ci-hell);
+    text-decoration-color: var(--color-primary-ci-hell);
     text-underline-offset: 0.2rem;
     text-decoration-thickness: 0.1rem;
 
@@ -185,7 +189,7 @@ Mixins File for Wordpress Theme FAU
     &:focus,
     &:hover {
         text-decoration: underline;
-        text-decoration-color:  var(--color-primary-ci-hell);
+        text-decoration-color: var(--color-primary-ci-hell);
         /*color: var(--color-primary-ci-hell-kontrast);*/
         /*box-shadow: inset 0 -1.5rem 0 var(--color-primary-ci-hell);*/
         text-decoration-thickness: 0.3rem;
@@ -195,10 +199,10 @@ Mixins File for Wordpress Theme FAU
 @mixin buttoncolor() {
     color: var(--color-button-text);
     background-color: var(--color-button-bg);
-  
-    &:hover, 
+
+    &:hover,
     &:focus {
-	color: var(--color-button-hover-text);
+        color: var(--color-button-hover-text);
         background-color: var(--color-button-hover-bg);
     }
 }
@@ -207,10 +211,10 @@ Mixins File for Wordpress Theme FAU
     @include inline-block;
     @include px2rem($font-size-textbuttons);
     @include buttoncolor;
-    
+
     border: none;
-   // padding: 0.5rem 0.7rem;
-   padding: 10px 18px;
+    // padding: 0.5rem 0.7rem;
+    padding: 10px 18px;
     text-decoration: none;
     border-radius: var(--border-radius-buttons, 3px);
     font-size: 1rem;
@@ -218,10 +222,10 @@ Mixins File for Wordpress Theme FAU
     text-align: center;
     font-weight: normal;
     margin: 5px 0;
-    
 
-    
-    &:hover, 
+
+
+    &:hover,
     &:focus {
         text-decoration: none;
     }
@@ -230,19 +234,19 @@ Mixins File for Wordpress Theme FAU
 @mixin ghostbutton($border: 1px) {
     @include inline-block;
     @include px2rem($font-size-textbuttons);
-   
+
     background: transparent;
-    color: var(--color-Text);   
+    color: var(--color-Text);
     border: $border solid var(--color-ContentBorders);
     border-radius: var(--border-radius-buttons, 3px);
     padding: 10px 18px;
     text-decoration: none;
 
-     
-    &:hover, 
+
+    &:hover,
     &:focus {
-	text-decoration: none;
-	color: var(--color-ghostbutton-hover-text);
+        text-decoration: none;
+        color: var(--color-ghostbutton-hover-text);
         background: var(--color-ghostbutton-hover-bg);
     }
 }
@@ -251,54 +255,63 @@ Mixins File for Wordpress Theme FAU
     @include defaultlinkstyle();
     @include ghostbutton();
     font-weight: normal;
+
     &:after {
-	     @include svg-icon-place();
-	     background-image: svg-angle-right($color-content-links);
+        @include svg-icon-place();
+        background-image: svg-angle-right($color-content-links);
     }
 
     &:focus:after,
     &:hover:after {
-	    background-image: svg-angle-right($color-ghostbutton-hover-text);
+        background-image: svg-angle-right($color-ghostbutton-hover-text);
     }
 }
+
 @mixin prevlink-ghostbutton() {
     @include defaultlinkstyle();
     @include ghostbutton();
     font-weight: normal;
-	 &:before {
-	    @include svg-icon-place();
-	    background-image: svg-angle-right($color-content-links);
-	    transform: rotate(180deg);
-	    transform-origin: 50% 50%;
-	}
-	&:focus:before,
-	&:hover:before {
-	    background-image: svg-angle-right($color-ghostbutton-hover-text);
 
-	}
+    &:before {
+        @include svg-icon-place();
+        background-image: svg-angle-right($color-content-links);
+        transform: rotate(180deg);
+        transform-origin: 50% 50%;
+    }
+
+    &:focus:before,
+    &:hover:before {
+        background-image: svg-angle-right($color-ghostbutton-hover-text);
+
+    }
 }
 
 
 @mixin removebuttoncolor() {
     background-color: unset;
     color: unset;
-    &:hover, 
+
+    &:hover,
     &:focus {
-	color: unset;
+        color: unset;
         background-color: unset;
     }
 }
+
 // Set Font Style
 
-@mixin fontFace($family,$src,$weight: normal,$style: normal,$withlocal: true) {
+@mixin fontFace($family, $src, $weight: normal, $style: normal, $withlocal: true) {
     @font-face {
         font-family: $family;
+
         @if $withlocal {
             src: local($family),
             url('#{$src}.woff2') format('woff2'),
             url('#{$src}.woff') format('woff'),
             url('#{$src}.ttf') format('truetype');
-        } @else {
+        }
+
+        @else {
             src: url('#{$src}.woff2') format('woff2'),
             url('#{$src}.woff') format('woff'),
             url('#{$src}.ttf') format('truetype');
@@ -335,6 +348,7 @@ Mixins File for Wordpress Theme FAU
 // Credit: HTML5 Boilerplate
 
 @mixin sr-only-focusable {
+
     &:active,
     &:focus {
         position: static;
@@ -354,57 +368,167 @@ Mixins File for Wordpress Theme FAU
 // For selecting text on the page
 
 @mixin user-select($select) {
-          user-select: $select;
+    user-select: $select;
 }
 
 
 // Box sizing
 @mixin box-sizing($boxmodel) {
-          box-sizing: $boxmodel;
+    box-sizing: $boxmodel;
 }
 
 @mixin box-shadow($shadow...) {
-          box-shadow: $shadow;
+    box-shadow: $shadow;
 }
 
-// Paragraphs
 @mixin paragraphs {
-	margin: 0;
+    margin: 0;
     padding: 0 0 var(--width-gutter-half) 0;
     font-size: var(--font-size-normal, 1rem);
     color: var(--color-Text);
-    font-family: $fontStack; 
+    font-family: $fontStack;
     font-style: normal;
-   
-	
-	&.searchnotice {
-		font-size: 1.5rem;
-		padding: 4px 0 22px 0;
-	}
-	&.lead-in {
-		margin: 0;
-		padding: 0;
-		font-weight: 300;
-		font-style: italic;
-		@include px2rem($font-size-quotes);
+
+    &.searchnotice {
+        font-size: 1.5rem;
+        padding: 4px 0 22px 0;
+    }
+
+    &.lead-in {
+        margin: 0;
+        padding: 0;
+        font-weight: 300;
+        font-style: italic;
+        @include px2rem($font-size-quotes);
+    }
+
+    &.presentationtitle {
+        font-weight: bold;
+        @include px2rem($font-size-h1, $font-size-base);
+        margin: 20px 0;
+    }
+
+    .entry-content & {
+        @include hyphens(auto);
+        text-wrap: pretty;
+    }
+
+    .textwidget & {
+        @include px2rem($font-size-contentwidgets);
+    }
+
+    aside &,
+    .widget & {
+        @include px2rem($font-size-sidebar);
+    }
+}
+
+@mixin blockquote {
+    padding: 0;
+    margin: 0;
+    border: none;
+    font-family: $fontStackSerifs;
+    position: relative;
+    @include px2rem($font-size-quotes);
+
+    p {
+        margin-bottom: 0;
+        font-family: $fontStackSerifs;
+        @include px2rem($font-size-quotes);
+        font-weight: 400;
+        letter-spacing: .3px;
+
+        strong {
+            font-weight: bolder;
         }
-	&.presentationtitle {
-	    font-weight: bold;
-	    @include px2rem($font-size-h1,  $font-size-base);
-	    margin: 20px 0;
-	}
+    }
+
+ //   #tinymce &,
+//    #content & {
+   //     max-width: calc(100% - 2.5rem);
+        margin: 1rem;
+        padding: 2rem 1.5rem;
+        min-height: 3rem;
+        border-left: 10px solid var(--color-primary-ci-hell);
+	border-radius: var(--border-radius);
+        background: var(--color-ContentRegions);
+        display: inline-block;
+        overflow: hidden;
+
+        @media (min-width: $screen-sm) {
+            margin: 0.6rem 2rem;
+     //       padding: 31px 40px 20px 40px;
+   //         max-width: calc(100% - 4rem);
+        }
+
+        p, h1, h2, h3, h4, h5, h6 {
+            color: var(--color-Text);
+        }
+ //   }
+
+    
+
+    small,
+    cite {
+        display: block;
+        text-align: right;
+        @include px2rem($font-size-quotes-cites);
+        color: var(--color-Text);
+
+        &:before {
+            content: '\2014 \00A0';
+        }
+
+    }
+
+    cite {
+        margin-top: var(--width-gutter-half);
+    }
+
+    #content & img {
+        box-shadow: none;
+        border: none;
+    }
+
+    &.pull-right {
+        border-right: none;
+        padding-right: var(--width-gutter);
+        padding-left: var(--width-gutter-half);
+	float: right;
 	
-	.entry-content & {
-	    @include hyphens(auto);
-	    text-wrap: pretty;
+	p,
+	small {
+		text-align: right;
 	}
-	
-	.textwidget & {
-	    @include px2rem($font-size-contentwidgets);	
+	small:before {
+	    content: '';
 	}
-	
-	aside &,
-	.widget & {
-	    @include px2rem($font-size-sidebar);
+	small:after {
+	    content: '\00A0 \2014';
 	}
+    }
+    
+    .sidebar-inline &,
+    #tinymce &.noquote,
+    #content &.noquote {
+        background: inherit;
+        padding-left: 0;
+        padding-right: 0;
+        border: none;
+
+        &::after,
+        &::before {
+            content: "";
+        }
+
+    }
+
+    .sidebar-inline & {
+	margin: 0.6rem;
+        padding: 0.5rem;
+        @include px2rem($font-size-sidebar);
+        p {
+            @include px2rem($font-size-sidebar);
+        }
+    }
 }

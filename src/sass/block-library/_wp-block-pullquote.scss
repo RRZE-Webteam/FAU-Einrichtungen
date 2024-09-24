@@ -71,4 +71,14 @@
 	    }
 	}
     }
-   
+
+	.wp-block-pullquote {
+		cite {
+			display: inline;
+		}
+	}
+
+	figure.wp-block-pullquote > blockquote {
+		border-left: none;
+		border-top: 10px solid var(--color-primary-ci-hell);
+	}

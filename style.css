@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.5.17-58
+Version: 2.5.17-104
 Requires at least: 6.4
 Tested up to: 6.5
 Requires PHP: 8.2
@@ -14086,4 +14086,13 @@ figure.wp-block-table:has(.wp-element-caption) .wp-element-caption {
 }
 .wp-block-pullquote.has-medium-font-size blockquote cite {
   font-size: var(--wp--preset--font-size--base);
+}
+
+.wp-block-pullquote cite {
+  display: inline;
+}
+
+figure.wp-block-pullquote > blockquote {
+  border-left: none;
+  border-top: 10px solid var(--color-primary-ci-hell);
 }

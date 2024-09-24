@@ -268,11 +268,24 @@
           ]
         }
       },
-
       "core/paragraph": {
         "typography": {
           "dropCap": true,
           "textTransform": true
+        },
+        "color": {
+          "palette": [
+            {
+              "slug": "base",
+              "color": "var(--color-Text, #222)",
+              "name": "Textfarbe"
+            },
+            {
+              "slug": "contrast",
+              "color": "var(--color-white, #fff)",
+              "name": "Weiß"
+            }
+          ]
         }
       },
       "core/quote": {
@@ -281,12 +294,19 @@
           "style": false,
           "width": false,
           "color": true
+        },
+        "color": {
+          "background": false,
+          "heading": false,
+          "button": false,
+          "text": false,
+          "defaultPalette": false
         }
       },
       "core/pullquote": {
         "typography": {
-          "dropCap": true,
-          "textTransform": true,
+          "dropCap": false,
+          "textTransform": false,
           "fontSizes": [
             {
               "name": "Normal",
@@ -359,7 +379,7 @@
           "radius": false,
           "style": false,
           "width": false,
-          "color": true
+          "color": false
         },
         "spacing": {
           "margin": false,
@@ -489,7 +509,6 @@
           "padding": true
         }
       },
-
       "core/button": {
         "color": {
           "background": false,
@@ -514,6 +533,22 @@
           "style": false,
           "width": false,
           "color": false
+        }
+      },
+      "core/heading": {
+        "color": {
+          "palette": [
+            {
+              "slug": "base",
+              "color": "var(--color-Text, #222)",
+              "name": "Textfarbe"
+            },
+            {
+              "slug": "contrast",
+              "color": "var(--color-white, #fff)",
+              "name": "Weiß"
+            }
+          ]
         }
       }
     }
