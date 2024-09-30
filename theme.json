@@ -90,7 +90,6 @@
       "allowCustomContentAndWideSize": false,
       "allowEditing": false
     },
-
     "border": {
       "color": false,
       "radius": false,
@@ -386,10 +385,16 @@
           "padding": false
         }
       },
-
       "core/column": {
         "shadow": {
           "defaultPresets": false
+        },
+        "spacing": {
+          "padding": true,
+          "units": [
+            "rem",
+            "%"
+          ]
         },
         "color": {
           "background": true,
@@ -412,6 +417,56 @@
               "slug": "default",
               "color": "#e9edf2",
               "name": "Default"
+            },
+            {
+              "slug": "success",
+              "color": "#dff0d8",
+              "name": "Success"
+            },
+            {
+              "slug": "info",
+              "color": "#d9edf7",
+              "name": "Info"
+            },
+            {
+              "slug": "warning",
+              "color": "#fcf8e3",
+              "name": "Warning"
+            },
+            {
+              "slug": "danger",
+              "color": "#f2dede",
+              "name": "Danger"
+            },
+            {
+              "slug": "fau",
+              "color": "var(--color-branding-zentral, #04316a)",
+              "name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+            },
+            {
+              "slug": "phil",
+              "color": "var(--color-branding-phil, #fdb735)",
+              "name": "Philosophische Fakultät"
+            },
+            {
+              "slug": "rw",
+              "color": "var(--color-branding-rw, #c50f3c)",
+              "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+            },
+            {
+              "slug": "med",
+              "color": "var(--color-branding-med, #18b4f1)",
+              "name": "Medizinische Fakultät"
+            },
+            {
+              "slug": "nat",
+              "color": "var(--color-branding-nat, #7bb725)",
+              "name": "Naturwissenschaftliche Fakultät"
+            },
+            {
+              "slug": "tf",
+              "color": "var(--color-branding-tf, #8C9FB1)",
+              "name": "Technische Fakultät"
             }
           ]
         }
@@ -454,11 +509,6 @@
               "slug": "contrast",
               "color": "var(--color-white, #fff)",
               "name": "Weiß"
-            },
-            {
-              "slug": "transparent",
-              "color": "transparent",
-              "name": "Transparent"
             },
             {
               "slug": "fau",

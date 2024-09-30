@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.5.17-175
+Version: 2.5.17-181
 Requires at least: 6.4
 Tested up to: 6.5
 Requires PHP: 8.2
@@ -14115,9 +14115,4 @@ pre.wp-block-code,
 pre.wp-block-preformatted {
   padding-left: var(--wp--preset--spacing--40, 1rem);
   padding-right: var(--wp--preset--spacing--40, 1rem);
-}
-
-.block-core-columns.has-background,
-.wp-block-column.has-background {
-  padding: var(--wp--preset--spacing--10, 0.25rem) var(--wp--preset--spacing--40, 1rem);
 }
