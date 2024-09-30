@@ -6,7 +6,7 @@
 // :where(.wp-block-button__link) {
 //     border-radius: var(--border-radius, 9999px);
 // }
-.wp-block-buttons {
+.wp-block-buttons, .wp-block-file {
     .wp-element-button,
     .wp-block-button__link {
         @include defaultlinkstyle();
@@ -25,5 +25,12 @@
             @include defaultlinkstyle();
             @include ghostbutton();
         }
+    }
+}
+
+.wp-block-file{
+    :last-child{
+        margin-left: 1em;
+        font-size: 0.938rem;
     }
 }
