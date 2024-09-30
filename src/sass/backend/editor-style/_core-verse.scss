@@ -14,3 +14,10 @@ pre.wp-block-verse {
     font-family: $font-family-monospace;
     @include px2rem($font-size-codepre);
 }
+
+pre.wp-block-verse,
+pre.wp-block-code,
+pre.wp-block-preformatted {
+    padding-left: var(--wp--preset--spacing--40, 1rem);
+    padding-right: var(--wp--preset--spacing--40, 1rem);
+}

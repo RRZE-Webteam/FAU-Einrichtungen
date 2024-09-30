@@ -392,7 +392,7 @@
           "defaultPresets": false
         },
         "color": {
-          "background": false,
+          "background": true,
           "heading": false,
           "button": false,
           "text": true,
@@ -407,6 +407,11 @@
               "slug": "contrast",
               "color": "var(--color-MainBackground,#fff)",
               "name": "Kontrast"
+            },
+            {
+              "slug": "default",
+              "color": "#e9edf2",
+              "name": "Default"
             }
           ]
         }
@@ -489,6 +494,11 @@
         },
         "spacing": {
           "padding": true
+        }
+      },
+      "core/buttons":{
+        "layout": {
+          "allowEditing": true
         }
       },
       "core/button": {

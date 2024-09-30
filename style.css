@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.5.17-154
+Version: 2.5.17-175
 Requires at least: 6.4
 Tested up to: 6.5
 Requires PHP: 8.2
@@ -14061,6 +14061,10 @@ figure.wp-block-table td {
   font-size: var(--wp--preset--font-size--base);
 }
 
+.wp-block-pullquote {
+  padding-left: 0;
+  padding-right: 0;
+}
 .wp-block-pullquote cite {
   display: inline;
 }
@@ -14070,20 +14074,16 @@ figure.wp-block-pullquote > blockquote {
   border-top: 10px solid var(--color-primary-ci-hell);
 }
 
+blockquote.wp-block-quote {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 main figure.wp-block-image, main figure.wp-block-image img {
   max-width: 100%;
   width: 100%;
 }
 
-div.wp-block-cover.is-position-top-left p, div.wp-block-cover.is-position-middle-left p, div.wp-block-cover.is-position-bottom-left p {
-  text-align: left;
-}
-div.wp-block-cover.is-position-top-center p, div.wp-block-cover.is-position-middle-center p, div.wp-block-cover.is-position-bottom-center p {
-  text-align: center;
-}
-div.wp-block-cover.is-position-top-right p, div.wp-block-cover.is-position-middle-right p, div.wp-block-cover.is-position-bottom-right p {
-  text-align: right;
-}
 div.wp-block-cover h1, div.wp-block-cover h2, div.wp-block-cover h3, div.wp-block-cover h4, div.wp-block-cover h5, div.wp-block-cover h6 {
   margin-bottom: 0;
 }
@@ -14108,4 +14108,16 @@ div.wp-block-cover p.has-text-align-left, div.wp-block-cover h1.has-text-align-l
 div.wp-block-cover p.has-text-align-right, div.wp-block-cover h1.has-text-align-right, div.wp-block-cover h2.has-text-align-right, div.wp-block-cover h3.has-text-align-right, div.wp-block-cover h4.has-text-align-right, div.wp-block-cover h5.has-text-align-right, div.wp-block-cover h6.has-text-align-right {
   margin-right: 0 !important;
   margin-left: auto;
+}
+
+pre.wp-block-verse,
+pre.wp-block-code,
+pre.wp-block-preformatted {
+  padding-left: var(--wp--preset--spacing--40, 1rem);
+  padding-right: var(--wp--preset--spacing--40, 1rem);
+}
+
+.block-core-columns.has-background,
+.wp-block-column.has-background {
+  padding: var(--wp--preset--spacing--10, 0.25rem) var(--wp--preset--spacing--40, 1rem);
 }
