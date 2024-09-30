@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.5.17-132
+Version: 2.5.17-150
 Requires at least: 6.4
 Tested up to: 6.5
 Requires PHP: 8.2
@@ -14061,4 +14061,39 @@ figure.wp-block-pullquote > blockquote {
 main figure.wp-block-image, main figure.wp-block-image img {
   max-width: 100%;
   width: 100%;
+}
+
+div.wp-block-cover.is-position-top-left p, div.wp-block-cover.is-position-middle-left p, div.wp-block-cover.is-position-bottom-left p {
+  text-align: left;
+}
+div.wp-block-cover.is-position-top-center p, div.wp-block-cover.is-position-middle-center p, div.wp-block-cover.is-position-bottom-center p {
+  text-align: center;
+}
+div.wp-block-cover.is-position-top-right p, div.wp-block-cover.is-position-middle-right p, div.wp-block-cover.is-position-bottom-right p {
+  text-align: right;
+}
+div.wp-block-cover h1, div.wp-block-cover h2, div.wp-block-cover h3, div.wp-block-cover h4, div.wp-block-cover h5, div.wp-block-cover h6 {
+  margin-bottom: 0;
+}
+div.wp-block-cover p, div.wp-block-cover h1, div.wp-block-cover h2, div.wp-block-cover h3, div.wp-block-cover h4, div.wp-block-cover h5, div.wp-block-cover h6 {
+  background-color: var(--color-branding-primary-kontrast, #fff);
+  color: var(--color-branding-primary, #04316a);
+  padding: 0.5rem 1rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 65ch;
+}
+div.wp-block-cover p:first-child, div.wp-block-cover h1:first-child, div.wp-block-cover h2:first-child, div.wp-block-cover h3:first-child, div.wp-block-cover h4:first-child, div.wp-block-cover h5:first-child, div.wp-block-cover h6:first-child {
+  background-color: var(--color-branding-primary, #04316a);
+  color: var(--color-branding-primary-kontrast, #fff);
+}
+div.wp-block-cover p.has-text-align-center, div.wp-block-cover h1.has-text-align-center, div.wp-block-cover h2.has-text-align-center, div.wp-block-cover h3.has-text-align-center, div.wp-block-cover h4.has-text-align-center, div.wp-block-cover h5.has-text-align-center, div.wp-block-cover h6.has-text-align-center {
+  margin: 0 auto;
+}
+div.wp-block-cover p.has-text-align-left, div.wp-block-cover h1.has-text-align-left, div.wp-block-cover h2.has-text-align-left, div.wp-block-cover h3.has-text-align-left, div.wp-block-cover h4.has-text-align-left, div.wp-block-cover h5.has-text-align-left, div.wp-block-cover h6.has-text-align-left {
+  margin-left: 0 !important;
+}
+div.wp-block-cover p.has-text-align-right, div.wp-block-cover h1.has-text-align-right, div.wp-block-cover h2.has-text-align-right, div.wp-block-cover h3.has-text-align-right, div.wp-block-cover h4.has-text-align-right, div.wp-block-cover h5.has-text-align-right, div.wp-block-cover h6.has-text-align-right {
+  margin-right: 0 !important;
+  margin-left: auto;
 }
