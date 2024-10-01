@@ -2259,3 +2259,23 @@ UI Elements, from jquery UI CSS
 #tag-generator-list a[title~=reCAPTCHA] {
   display: none;
 }
+
+/*
+Backend CSS Settings for Block Editor (Gutenberg)
+*/
+.block-editor .editor-styles-wrapper {
+  margin: 0 30px;
+  padding: var(--width-gutter-half, 15px);
+}
+.block-editor .edit-post-layout__metaboxes {
+  background-color: #ddd;
+}
+.block-editor .edit-post-meta-boxes-area.is-advanced,
+.block-editor .edit-post-meta-boxes-area.is-normal {
+  background-color: #f0f0f1;
+  margin: 0 30px;
+}
+.block-editor .edit-post-meta-boxes-area.is-advanced .postbox,
+.block-editor .edit-post-meta-boxes-area.is-normal .postbox {
+  margin: 10px;
+}
