@@ -44,6 +44,7 @@ function fau_add_gutenberg_assets()
 {
     // Load the theme styles within Gutenberg.
     global $is_gutenberg_enabled;
+    global $defaultoptions;
 
     if (fau_blockeditor_is_active()) {
         // wp_enqueue_style('fau-gutenberg', get_theme_file_uri('/css/fau-theme-gutenberg.css'), false);
@@ -55,6 +56,18 @@ function fau_add_gutenberg_assets()
 
         // Enqueue the editor stylesheet.
         add_editor_style('css/editor.css');
+
+        $theme_data = wp_get_theme();
+        $theme_version = $theme_data->Version;
+
+        // Enqueue the JS needed for deregistering Block Variations
+        wp_enqueue_script(
+            'fau-blockeditor-styles-unregister',
+            $defaultoptions['src-blockstyleregisterjs'],
+            array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
+            $theme_version,
+            true
+        );
     }
 }
 add_action( 'enqueue_block_editor_assets', 'fau_add_gutenberg_assets' );

@@ -50,6 +50,7 @@ $defaultoptions = [
     'fallback_svgfaulogo'           => false,
         // falls ken Artikelbild gesetzt wird, wird anstelle des definierten Fallback, das FAU Logo SVG verwendet
 	'slider-catid'                  => 0,
+	'src-blockstyleregisterjs'      => get_fau_template_uri() . '/js/fau-theme-register-blockstyles.min.js',
 	'src-scriptjs'                  => get_fau_template_uri() . '/js/fau-theme.min.js',
 	'src-sliderjs'                  => get_fau_template_uri() . '/js/fau-theme-slick.min.js',
 	'src-printlinks'                => get_fau_template_uri() . '/js/printlinks.min.js',

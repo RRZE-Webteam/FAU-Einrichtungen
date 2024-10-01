@@ -316,23 +316,23 @@ function buildprintstyle() {
 
 // compile sass, use autoprefixer and minify results
 function buildeditorstyles() {
-    var plugins = [autoprefixer(), cssnano()];
+  var plugins = [autoprefixer(), cssnano()];
 
-    return src([info.source.sass + "editor.scss"])
-      .pipe(sass().on("error", sass.logError))
-      .pipe(postcss(plugins))
-      .pipe(dest("./css"))
-      .pipe(touch());
+  return src([info.source.sass + "editor.scss"])
+    .pipe(sass().on("error", sass.logError))
+    .pipe(postcss(plugins))
+    .pipe(dest("./css"))
+    .pipe(touch());
 }
 
 function devbuildeditorstyles() {
-    var plugins = [autoprefixer(), cssnano()];
+  var plugins = [autoprefixer(), cssnano()];
 
-    return src([info.source.sass + "editor.scss"])
-      .pipe(sass().on("error", sass.logError))
-      .pipe(postcss(plugins))
-      .pipe(dest("./css"))
-      .pipe(touch());
+  return src([info.source.sass + "editor.scss"])
+    .pipe(sass().on("error", sass.logError))
+    .pipe(postcss(plugins))
+    .pipe(dest("./css"))
+    .pipe(touch());
 }
 
 function bundleadminjs() {
@@ -394,6 +394,14 @@ function makecustomblockjs() {
   return src([info.source.js + "main/fau-costum-image-block.js"])
     .pipe(uglify())
     .pipe(rename("fau-costum-image-block.min.js"))
+    .pipe(dest(info.jsdir))
+    .pipe(touch());
+}
+
+function makeblockeditorjs() {
+  return src(["src/js/blockeditor/deregister-blockstyles.js"])
+    .pipe(uglify())
+    .pipe(rename("fau-theme-register-blockstyles.min.js"))
     .pipe(dest(info.jsdir))
     .pipe(touch());
 }
@@ -513,6 +521,7 @@ exports.bundlemainjs = bundlemainjs;
 exports.bundleadminjs = bundleadminjs;
 exports.makeslickjs = makeslickjs;
 exports.makecustomblockjs = makecustomblockjs;
+exports.makeblockeditorjs = makeblockeditorjs;
 exports.makecustomizerjs = makecustomizerjs;
 exports.makewplinkjs = makewplinkjs;
 exports.clone = cloneTheme;
@@ -526,6 +535,7 @@ var js = series(
   bundlemainjs,
   makeslickjs,
   makecustomblockjs,
+  makeblockeditorjs,
   bundleadminjs,
   makecustomizerjs,
   makewplinkjs
