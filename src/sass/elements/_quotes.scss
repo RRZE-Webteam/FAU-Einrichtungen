@@ -8,12 +8,10 @@ blockquote {
 }
 
 cite {
-   @include cite();
+    @include cite();
 }
 
-
 // Abbrevations, Acronyms
-
 acronym[title],
 acronym[data-original-title],
 abbr[title],
@@ -27,5 +25,3 @@ abbr.initialism {
     font-size: 90%;
     text-transform: uppercase;
 }
-
-

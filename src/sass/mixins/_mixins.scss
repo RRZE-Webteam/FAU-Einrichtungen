@@ -299,7 +299,6 @@ Mixins File for Wordpress Theme FAU
 }
 
 // Set Font Style
-
 @mixin fontFace($family, $src, $weight: normal, $style: normal, $withlocal: true) {
     @font-face {
         font-family: $family;
@@ -327,7 +326,6 @@ Mixins File for Wordpress Theme FAU
 //
 // See: https://a11yproject.com/posts/how-to-hide-content/
 // See: https://hugogiraudel.com/2016/10/13/css-hide-and-seek/
-
 @mixin sr-only {
     position: absolute;
     width: 1px;
@@ -360,17 +358,13 @@ Mixins File for Wordpress Theme FAU
     }
 }
 
-
-
 // from _vendor-prefixes.scss:
 
 // User select
 // For selecting text on the page
-
 @mixin user-select($select) {
     user-select: $select;
 }
-
 
 // Box sizing
 @mixin box-sizing($boxmodel) {

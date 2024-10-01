@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 Theme Name: FAU-Einrichtungen
-Version: 2.5.18-2
+Version: 2.5.18-3
 Requires at least: 6.4
 Tested up to: 6.5
 Requires PHP: 8.2
@@ -3427,14 +3427,19 @@ table {
     margin: 5px 0 20px 0;
   }
 }
-table tbody, table tr, table th, table td {
+table tbody,
+table tr,
+table th,
+table td {
   border: 0;
 }
-table th, table td {
+table th,
+table td {
   padding: 0.3rem 0.6rem;
   font-size: 0.875rem;
 }
-table th p, table td p {
+table th p,
+table td p {
   font-size: 0.875rem;
 }
 table th {
@@ -3493,18 +3498,21 @@ table td.center,
 table th.center {
   text-align: center;
 }
-table tr.center td, table tr.center th {
+table tr.center td,
+table tr.center th {
   text-align: center;
 }
 table td.right,
 table th.right {
   text-align: right;
 }
-table tr.right td, table tr.right th {
+table tr.right td,
+table tr.right th {
   text-align: right;
 }
 
-.sidebar-inline table th, .sidebar-inline table td,
+.sidebar-inline table th,
+.sidebar-inline table td,
 .sidebar-single table th,
 .sidebar-single table td {
   padding: 0.3rem;
@@ -3544,7 +3552,13 @@ blockquote p strong {
     margin: 0.6rem 2rem;
   }
 }
-blockquote p, blockquote h1, blockquote h2, blockquote h3, blockquote h4, blockquote h5, blockquote h6 {
+blockquote p,
+blockquote h1,
+blockquote h2,
+blockquote h3,
+blockquote h4,
+blockquote h5,
+blockquote h6 {
   color: var(--color-Text);
 }
 blockquote small,
