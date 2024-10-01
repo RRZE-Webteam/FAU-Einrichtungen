@@ -1,6 +1,8 @@
 /*-----------------------------------------------------------------------------------*/
 /* Tables
 /*-----------------------------------------------------------------------------------*/
+@import "../mixins/mixin-tables";
+
 table {
 	max-width: 100%;
 	background-color: transparent;
@@ -14,9 +16,6 @@ table th[class*="span"] {
 	float: none;
 	margin-left: 0;
 }
-
-
-
 	
 .table-wrapper {
 	position: relative;

@@ -1,3 +1,5 @@
+@import "../../mixins/mixin-tables";
+
 figure {
     // currently from mixins/mixins
     @include table();

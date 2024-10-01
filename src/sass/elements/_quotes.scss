@@ -1,23 +1,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* Blockquotes, Cites, Abbr
 /*-----------------------------------------------------------------------------------*/
-@mixin cite {
-    color: var(--color-Text);
-    font-weight: normal;
-    font-style: italic;
-
-    &.text {
-        color: inherit;
-    }
-
-    #content .sidebar-inline & {
-        @include px2rem($font-size-sidebar);
-
-        p {
-            @include px2rem($font-size-sidebar);
-        }
-    }
-}
+@import "../mixins/mixin-blockquotes";
 
 blockquote {
     @include blockquote();
