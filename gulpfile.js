@@ -318,7 +318,7 @@ function buildprintstyle() {
 function buildeditorstyles() {
   var plugins = [autoprefixer(), cssnano()];
 
-  return src([info.source.sass + "editor.scss"])
+  return src([info.source.sass + "fau-theme-blockeditor.scss"])
     .pipe(sass().on("error", sass.logError))
     .pipe(postcss(plugins))
     .pipe(dest("./css"))
@@ -328,7 +328,7 @@ function buildeditorstyles() {
 function devbuildeditorstyles() {
   var plugins = [autoprefixer(), cssnano()];
 
-  return src([info.source.sass + "editor.scss"])
+  return src([info.source.sass + "fau-theme-blockeditor.scss"])
     .pipe(sass().on("error", sass.logError))
     .pipe(postcss(plugins))
     .pipe(dest("./css"))

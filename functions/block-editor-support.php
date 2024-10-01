@@ -47,15 +47,12 @@ function fau_add_gutenberg_assets()
     global $defaultoptions;
 
     if (fau_blockeditor_is_active()) {
-        // wp_enqueue_style('fau-gutenberg', get_theme_file_uri('/css/fau-theme-gutenberg.css'), false);
-        //Add support for 
-        wp_register_style('editor-styles', get_fau_template_uri() . '/css/editor.css');
 
         // Add support for editor styles.
         add_theme_support('editor-styles');
 
         // Enqueue the editor stylesheet.
-        add_editor_style('css/editor.css');
+        add_editor_style('css/fau-theme-blockeditor.css');
 
         $theme_data = wp_get_theme();
         $theme_version = $theme_data->Version;
@@ -64,14 +61,13 @@ function fau_add_gutenberg_assets()
         wp_enqueue_script(
             'fau-blockeditor-styles-unregister',
             $defaultoptions['src-blockstyleregisterjs'],
-            array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
+            array('wp-blocks', 'wp-dom-ready', 'wp-edit-post'),
             $theme_version,
             true
         );
     }
 }
-add_action( 'enqueue_block_editor_assets', 'fau_add_gutenberg_assets' );
-// derzeit noch keine eigene CSS File mit Anpassungen...
+add_action('enqueue_block_editor_assets', 'fau_add_gutenberg_assets');
 
 /*-----------------------------------------------------------------------------------*/
 /* Remove Block Style from frontend as long wie dont use it
@@ -104,17 +100,6 @@ function fau_blockeditor_is_active()
         if ($is_gutenberg_enabled) {
             return true;
         }
-        // No public function yet.
-        //    } elseif (class_exists('RRZE\Settings\Main')) {
-        //        if (RRZE\Settings\Main::isClassicEditorEnabled()) {
-        //            Debugging::log("Info",  "RRZE\Settings\Writing says no");
-        //            $is_gutenberg_enabled = false;
-        //        } else {
-        //              Debugging::log("Info",  "RRZE\Settings\Writing says yes");
-        //            $is_gutenberg_enabled = true;
-        //        }
-
-
     } elseif (fau_is_classic_editor_plugin_active()) {
         $editor_option       = get_option('classic-editor-replace');
         $block_editor_active = array('no-replace', 'block');
@@ -137,7 +122,6 @@ function fau_blockeditor_is_active()
                 }
             }
         } else {
-
 
             $editor_option       = get_option('classic-editor-replace');
             $block_editor_active = array('no-replace', 'block');
@@ -198,8 +182,6 @@ function fau_is_newsletter_plugin_active()
     return false;
 }
 
-
-
 /*-----------------------------------------------------------------------------------*/
 /* Outside-box image post block
 /*-----------------------------------------------------------------------------------*/
@@ -216,10 +198,6 @@ function fau_custom_image_blocks()
     ));
 }
 // add_action( 'init', 'fau_custom_image_blocks' );
-
-
-
-
 
 /*-----------------------------------------------------------------------------------*/
 /* This is the end of the code as we know it
