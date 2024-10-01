@@ -96,6 +96,9 @@
       "style": false,
       "width": false
     },
+    "spacing": {
+      "customSpacingSize": false
+    },
     "blocks": {
       "rrze-elements/collapse": {
         "color": {
@@ -543,7 +546,8 @@
           ]
         },
         "spacing": {
-          "padding": true
+          "padding": true,
+          "customSpacingSize": false
         }
       },
       "core/buttons":{
