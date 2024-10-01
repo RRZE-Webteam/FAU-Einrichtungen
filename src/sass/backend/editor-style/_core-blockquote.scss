@@ -3,7 +3,8 @@
 /* Created on : 03.05.2024, 15:12:21
 /*----------------------------------------------------------------------------*/
 
-blockquote.wp-block-quote, figure.wp-block-pullquote blockquote {
+blockquote.wp-block-quote,
+figure.wp-block-pullquote blockquote {
     // included from mixins
     @include blockquote();
     border-left: none;
@@ -15,7 +16,7 @@ blockquote.wp-block-quote, figure.wp-block-pullquote blockquote {
     }
 }
 
-figure.wp-block-pullquote blockquote{
+figure.wp-block-pullquote blockquote {
     margin-left: 0;
     margin-right: 0;
 }

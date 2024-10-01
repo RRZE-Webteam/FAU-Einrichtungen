@@ -5,24 +5,26 @@ figure {
 
     &.is-style-regular {
         border-top: none;
-	    border-bottom: none;
-	    th {
-		background: transparent;
-		border-top: none;
-		border-bottom: none;
-	    }
-	    tr {
-		border-left: none;
-		border-right: none;
-	    }
-	    tr:nth-child(odd) td {
-		background: transparent;
-	    }
+        border-bottom: none;
+
+        th {
+            background: transparent;
+            border-top: none;
+            border-bottom: none;
+        }
+
+        tr {
+            border-left: none;
+            border-right: none;
+        }
+
+        tr:nth-child(odd) td {
+            background: transparent;
+        }
     }
 }
 
 .wp-block-table {
-
     tr,
     th,
     td {

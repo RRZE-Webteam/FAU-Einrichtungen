@@ -36,12 +36,13 @@ figure.wp-block-table {
 	&.is-style-stripes {
 		border-bottom: none;
 	}
-	
+
 	tr,
 	th,
 	td {
 		border-color: var(--color-StandardHellgrau, rgb(233, 237, 242));
 	}
+
 	border-bottom: none;
 }
 
