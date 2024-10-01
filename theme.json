@@ -97,7 +97,12 @@
       "width": false
     },
     "spacing": {
-      "customSpacingSize": false
+      "customSpacingSize": false,
+      "units": [
+        "em",
+        "rem",
+        "%"
+      ]
     },
     "blocks": {
       "rrze-elements/collapse": {
