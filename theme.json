@@ -99,6 +99,7 @@
     "spacing": {
       "customSpacingSize": false,
       "units": [
+        "px",
         "em",
         "rem",
         "%"
