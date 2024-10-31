@@ -1923,7 +1923,7 @@ function fau_get_the_taglist($before = '', $sep = '', $after = '') {
  */
 /*-----------------------------------------------------------------------------------*/
 if (!function_exists("print_indented")) {
-    function print_indented($fn, $num_tabs = 1, $params = null)  {
+    function print_indented($fn, $num_tabs = 0, $params = null)  {
         ob_start();
         call_user_func($fn, $params);
         $html = ob_get_contents();

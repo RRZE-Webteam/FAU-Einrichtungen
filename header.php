@@ -38,7 +38,7 @@ if ($custom_logo_id) {
 	<body id="top" <?php body_class(); ?>><?php wp_body_open(); ?>
 		<div id="pagewrapper">
 			<div id="headerwrapper">
-				<?php print_indented('get_template_part', 4, 'template-parts/header-skiplinks'); ?>
+				<?php  print_indented('get_template_part', 4, 'template-parts/header-skiplinks'); ?>
 				<div id="meta">
                     <div class="header-container">
                         <div class="header-row" id="meta-menu">
