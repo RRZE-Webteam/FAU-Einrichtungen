@@ -1,0 +1,21 @@
+/*----------------------------------------------------------------------------*/
+/* _wp-embed 
+/* Created on : 31.10.2024, 16:56:39
+/*----------------------------------------------------------------------------*/
+
+
+ .wp-embed {
+    margin: 0;
+    padding: 0 0 var(--width-gutter-half) 0;
+    font-size: var(--font-size-normal, 1rem) !important;
+    color: var(--color-Text) !important;;
+    font-family: $fontStack !important;
+    font-style: normal !important;
+    border: none !important;
+    
+    a {
+	color: var(--color-links);
+    }
+}
+   
+   

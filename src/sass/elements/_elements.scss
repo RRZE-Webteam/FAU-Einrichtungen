@@ -66,5 +66,8 @@
 // WordPress Required Classes
 @import "wordpress";
 
+// WordPress native embeds
+@import "wp-embed";
+
 // Hide print relevant elements
 @import "screen-only";
