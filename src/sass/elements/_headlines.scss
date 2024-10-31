@@ -97,7 +97,7 @@ h2 {
 
 	.sidebar-outline &,
 	.widget & {
-		margin-bottom: 11px;
+		margin-bottom: 0.8rem;
 	}
 
 	.search-sidebar & {
@@ -135,11 +135,11 @@ h2 {
 
 h3 {
 	margin: 0;
-	padding: 11px 0;
+	padding: 0.7rem 0;
 	@include px2rem($font-size-h3);
 
 	&.abstract {
-		padding: 0 0 22px 0;
+		padding: 0 0 var(--width-gutter) 0;
 	}
 
 
@@ -156,7 +156,7 @@ h3 {
 		@include px2rem($font-size-h3-small);
 		border-bottom: 1px solid var(--color-StandardHellgrau);
 		margin: 20px 0 0 0;
-		padding: 0 10px;
+		padding: 0 var(--width-gutter-half);
 	}
 
 	.sidebar-inline &,
@@ -174,7 +174,7 @@ h3 {
 
 h4 {
 	margin: 0;
-	padding: 11px 0 11px 0;
+	padding: 0.5rem 0;
 	@include px2rem($font-size-h4);
 
 	.person &,
@@ -197,7 +197,7 @@ h4 {
 
 h5 {
 	margin: 0;
-	padding: 11px 0 11px 0;
+	padding: 0.5rem 0;
 	@include px2rem($font-size-h5);
 
 	.sidebar-inline &,
