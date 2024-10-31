@@ -247,10 +247,10 @@ h6 {
 	}
 }
 
-@media (max-width: $breakSM) {
+@media (max-width: $screen-xs) {
 	.page-template-page-subnav {
 		#hero.hero-small h1 {
-			padding-left: 15px;
+			padding-left: var(--width-gutter-half);
 		}
 	}
 
