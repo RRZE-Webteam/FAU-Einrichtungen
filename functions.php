@@ -150,29 +150,7 @@ function fau_custom_init() {
     remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 
-    // Maybe the CustomCSS was set via Customizer
-    // but its only allowed for partner websites. 
-    // So lets remove the custom part, if its the wrong website type.
-    // Otherwiese people could first switch to partner website, then
-    // change the css, and then switch back to a university site.
-    // This would then not remove the custom css and display it.
-    
-   $website_type = get_theme_mod('website_type');
-   	// website_type: 
-	//  0 = Fakultaetsportal; 
-	//  1 = Lehrstuehle, Departments 
-	//  2 = Zentrale Einrichtungen, 
-	//  3 = Kooperationen 
-	// -1 = fau.de Portal (4 Spalter in Bühne, kein Link zur FAU. 
-   
-   if (isset($website_type) && ($website_type != 3)) {
-      // Wenn es keine Kooperationsseite ist, dann wird CustomCSS
-      // verboten. Ausnahme: Der Admin ist Superadmin.    
-        if (!current_user_can('manage_sites')) {
-            remove_action('wp_head', 'wp_custom_css_cb', 101);
-        }
-   }
-    
+     
 
 }
 add_action( 'init', 'fau_custom_init' );
