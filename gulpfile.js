@@ -19,7 +19,6 @@ const { src, dest, watch, series, parallel } = require("gulp"),
   replace = require("gulp-replace"),
   rename = require("gulp-rename"),
   yargs = require("yargs"),
-  cssvalidate = require("gulp-w3c-css"),
   map = require("map-stream");
 const clonetarget = yargs.argv.target;
 
@@ -287,10 +286,7 @@ function buildmainstyle() {
  * Compile main style for dev without minifying
  */
 function devbuildmainstyle() {
-  var plugins = [
-    autoprefixer(),
-    // cssnano()
-  ];
+  var plugins = [ autoprefixer() ];
   return src([info.source.sass + "fau-theme-style.scss"])
     .pipe(header(banner, { info: info }))
     .pipe(sass().on("error", sass.logError))
@@ -339,7 +335,7 @@ function bundleadminjs() {
   return src([
     info.source.js + "admin/admin.js",
     //	info.source.js + 'admin/banner-logo-link-widget.js',
-    info.source.js + "admin/classic-editor-templateswitch.js",
+    info.source.js + "admin/classic-editor-templateswitch.js"
   ])
     .pipe(concat(info.adminjs))
     .pipe(uglify())
@@ -490,33 +486,9 @@ function devversion() {
     .pipe(touch());
 }
 
-/*
- * CSS Validator
- */
-function validatecss() {
-  return src(["./" + info.maincss])
-    .pipe(cssvalidate({ profile: "css3svg" }))
-    .pipe(
-      map(function (file, done) {
-        if (file.contents.length == 0) {
-          console.log("Success: " + file.path);
-          console.log("No errors or warnings\n");
-        } else {
-          var results = JSON.parse(file.contents.toString());
-          results.errors.forEach(function (error) {
-            console.log("Error: " + error.errorType + ", line " + error.line);
-            console.log("  Kontext: " + error.context);
-            console.log("  " + error.message);
-          });
-        }
-        done(null, file);
-      })
-    );
-}
 
 exports.pot = updatepot;
 exports.devversion = devversion;
-exports.validatecss = validatecss;
 exports.bundlemainjs = bundlemainjs;
 exports.bundleadminjs = bundleadminjs;
 exports.makeslickjs = makeslickjs;

@@ -1,7 +1,7 @@
 {
     "name": "FAU-Einrichtungen",
     "textdomain": "fau",
-    "version": "2.5.19-3",
+    "version": "2.5.19-7",
     "keywords": [
         "WordPress",
         "Theme",
@@ -102,7 +102,6 @@
         "gulp-sass": "^5.0.0",
         "gulp-touch-cmd": "0.0.1",
         "gulp-uglify": "^3.0.2",
-        "gulp-w3c-css": "^2.0.0",
         "gulp-wp-pot": "^2.5.0",
         "map-stream": "0.0.7",
         "sass": "^1.42.1",
