@@ -4,17 +4,14 @@
  */
 const { src, dest, watch, series, parallel } = require("gulp"),
   sass = require("gulp-sass")(require("sass")),
-  postcss = require("gulp-postcss"),
-  autoprefixer = require("autoprefixer"),
+  sourcemaps = require("gulp-sourcemaps"),
   uglify = require("gulp-uglify"),
-  babel = require("gulp-babel"),
   bump = require("gulp-bump"),
   semver = require("semver"),
   info = require("./package.json"),
   wpPot = require("gulp-wp-pot"),
   touch = require("gulp-touch-cmd"),
   header = require("gulp-header"),
-  cssnano = require("cssnano"),
   concat = require("gulp-concat"),
   replace = require("gulp-replace"),
   rename = require("gulp-rename"),
@@ -200,19 +197,18 @@ function cloneTheme(cb) {
     return src([srcsocialmedia]).pipe(dest(targetsocialmedia));
   }
 
-  // compile sass, use autoprefixer and minify results
+  // Create Backend Styles for dev
   function buildbackendstyles() {
     return src([targetdir + info.source.sass + "fau-theme-admin.scss"])
       .pipe(header(helpercssbanner, { info: info }))
-      .pipe(sass().on("error", sass.logError))
-      .pipe(postcss([autoprefixer(), cssnano()]))
+      .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
       .pipe(dest(targetdir + "css/"))
       .pipe(touch());
 
     console.log(`  - Backend styles created in ${targetdir}css`);
   }
 
-  // compile sass, use autoprefixer and minify results
+ // Create Backend Styles for dev
   function buildproductivestyle() {
     var inputscss = targetdir + info.source.sass + "fau-theme-style.scss";
     console.log(
@@ -220,8 +216,7 @@ function cloneTheme(cb) {
     );
     return src([inputscss])
       .pipe(header(themebanner, { info: info }))
-      .pipe(sass().on("error", sass.logError))
-      .pipe(postcss([autoprefixer(), cssnano()]))
+      .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
       .pipe(rename(info.maincss))
       .pipe(dest(targetdir))
       .pipe(touch());
@@ -247,10 +242,8 @@ function cloneTheme(cb) {
  * SASS and Autoprefix CSS Files, without clean
  */
 function devbuildbackendstyles() {
-  var plugins = [autoprefixer()];
   return src([info.source.sass + "fau-theme-admin.scss"])
-    .pipe(sass().on("error", sass.logError))
-    .pipe(postcss(plugins))
+    .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
     .pipe(dest("./css"))
     .pipe(touch());
 }
@@ -259,78 +252,68 @@ function devbuildbackendstyles() {
  * Compile all styles with SASS and clean them up
  */
 function buildbackendstyles() {
-  var plugins = [autoprefixer(), cssnano()];
-
   return src([info.source.sass + "fau-theme-admin.scss"])
-    .pipe(sass().on("error", sass.logError))
-    .pipe(postcss(plugins))
+    .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
     .pipe(dest("./css"))
     .pipe(touch());
 }
 
 /*
- * Compile all styles with SASS and clean them up
+ *  Main Styles for prod
  */
 function buildmainstyle() {
-  var plugins = [autoprefixer(), cssnano()];
   return src([info.source.sass + "fau-theme-style.scss"])
     .pipe(header(banner, { info: info }))
-    .pipe(sass().on("error", sass.logError))
-    .pipe(postcss(plugins))
+    .pipe(sass({quietDeps: true, outputStyle: 'compressed' }).on("error", sass.logError))
     .pipe(rename(info.maincss))
     .pipe(dest("./"))
     .pipe(touch());
 }
 
 /*
- * Compile main style for dev without minifying
+ * Main Styles for Dev
  */
 function devbuildmainstyle() {
-  var plugins = [ autoprefixer() ];
   return src([info.source.sass + "fau-theme-style.scss"])
     .pipe(header(banner, { info: info }))
-    .pipe(sass().on("error", sass.logError))
-    .pipe(postcss(plugins))
+    .pipe(sourcemaps.init())
+    .pipe(sass({indentWidth: 4, quietDeps: true, precision: 3, sourceComments: true }).on("error", sass.logError))
+    .pipe(sourcemaps.write())
     .pipe(rename(info.maincss))
     .pipe(dest("./"))
     .pipe(touch());
 }
 
 /*
- * Compile all print styles with SASS and clean them up
+ * Print Styles 
  */
 function buildprintstyle() {
-  var plugins = [autoprefixer(), cssnano()];
   return src([info.source.sass + "fau-theme-print.scss"])
     .pipe(header(banner, { info: info }))
-    .pipe(sass().on("error", sass.logError))
-    .pipe(postcss(plugins))
+    .pipe(sass({outputStyle: 'compressed'}).on("error", sass.logError))
     .pipe(rename(info.printcss))
     .pipe(dest("./"))
     .pipe(touch());
 }
 
-// compile sass, use autoprefixer and minify results
+// Editor Styles for Prod
 function buildeditorstyles() {
-  var plugins = [autoprefixer(), cssnano()];
 
   return src([info.source.sass + "fau-theme-blockeditor.scss"])
-    .pipe(sass().on("error", sass.logError))
-    .pipe(postcss(plugins))
+    .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
     .pipe(dest("./css"))
     .pipe(touch());
 }
-
+// Editor Styles for Dev
 function devbuildeditorstyles() {
-  var plugins = [autoprefixer(), cssnano()];
 
   return src([info.source.sass + "fau-theme-blockeditor.scss"])
-    .pipe(sass().on("error", sass.logError))
-    .pipe(postcss(plugins))
+    .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
     .pipe(dest("./css"))
     .pipe(touch());
 }
 
+// Main JS
 function bundleadminjs() {
   return src([
     info.source.js + "admin/admin.js",

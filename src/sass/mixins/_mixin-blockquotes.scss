@@ -6,21 +6,7 @@
     position: relative;
     @include px2rem($font-size-quotes);
 
-    p {
-        margin-bottom: 0;
-        font-family: $fontStackSerifs;
-        @include px2rem($font-size-quotes);
-        font-weight: 400;
-        letter-spacing: .3px;
 
-        strong {
-            font-weight: bolder;
-        }
-    }
-
-    //   #tinymce &,
-    //    #content & {
-    //     max-width: calc(100% - 2.5rem);
     margin: 1rem;
     padding: 2rem 1.5rem;
     min-height: 3rem;
@@ -32,10 +18,9 @@
 
     @media (min-width: $screen-sm) {
         margin: 0.6rem 2rem;
-        //       padding: 31px 40px 20px 40px;
-        //         max-width: calc(100% - 4rem);
     }
 
+   
     p,
     h1,
     h2,
@@ -45,9 +30,18 @@
     h6 {
         color: var(--color-Text);
     }
+    
+    p {
+        margin-bottom: 0;
+        font-family: $fontStackSerifs;
+        @include px2rem($font-size-quotes);
+        font-weight: 400;
+        letter-spacing: .3px;
 
-    //   }
-
+        strong {
+            font-weight: bolder;
+        }
+    }
 
 
     small,

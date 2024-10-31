@@ -13,6 +13,9 @@ $colormap-misc: ("Text": #222,
 		 "TextLight": #797676, 
 		 "TextLightKontrast": #5B5858,
 		 "MetaTextDefault": #444,
+		 "MetaBackground": #d4d4d4,
+		 "MetaHover": #264c7b,
+		 "MetaBackgroundLight": #eff1f4,
 		 "Notice": #a71c18, 
 		 "Alert": #c5ac94,
 		 "ZUV": #04316A, 
@@ -155,22 +158,17 @@ $colorOverlayDark: rgba(0, 0, 0, 0.15);
 
 // Meta Menu
 // Define Background-Color for Meta Menu at top
-$colorMetaFAUHomeBackground:	desaturate(darken($colorStandardHellgrau, 10%), 90%); // #d0d3d8;
-$colorMetaHover:		desaturate(lighten($colorDefault, 10%), 40%);
-$colorMetaLightest:		desaturate(lighten($colorDefault, 73%), 75%);
+$colorMetaFAUHomeBackground:	map-get($colormap-misc, "MetaBackground"); 
+$colorMetaHover:		map-get($colormap-misc, "MetaHover"); 
+$colorMetaLightest:		map-get($colormap-misc, "MetaBackgroundLight"); 
 
 
-
+		 
 // CopyrightInfos auf Slider und Banner
 $colorCopyright: #fff;
 $colorCopyrightBackground: rgba(0, 0, 0, 0.6);
 
 // Buttons
-// $color_button_text:		map-get($colormap-primary, "dunkler-kontrast");
-// $color_button_bg:		map-get($colormap-primary, "dunkler");
-// $color-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
-// $color-button-hover-bg:		map-get($colormap-primary, "dunkelste");
-
 $color_button_text:		map-get($colormap-primary, "ci-hell-kontrast");
 $color_button_bg:		map-get($colormap-primary, "ci-hell");
 $color-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
