@@ -1,12 +1,17 @@
 /*
 * CSS Settings for Editor (Gutenberg and Classic Editor)
 */
-
-// Block Editor region
-@import "gutenberg";
-
-
 // Sidebar
 @import "editor-sidebar";
 
+// Paragraph
+@import "core-paragraph";
+@import "core-blockquote";
+@import "core-list";
+@import "core-table";
+@import "core-verse";
+@import "core-heading";
+@import "core-image";
 
+// Screenreader Classes
+@import "../../elements/accessibility";

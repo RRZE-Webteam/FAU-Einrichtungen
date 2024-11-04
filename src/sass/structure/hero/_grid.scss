@@ -7,16 +7,7 @@
     width: 100%;
     padding-left: var(--width-gutter-half);
     padding-right: var(--width-gutter-half);
-
-    @media (min-width: $screen-sm) {
-	    width: $container-sm;
-    }
-     @media (min-width: $screen-md) {
-	    //width: $container-md;
-        width: 100%;
-    }
-    @media (min-width: $screen-xl-min) {
-        width: $container-xl;
-    }
+    max-width:  $container-xl;
 
 } 
+

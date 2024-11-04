@@ -9,14 +9,14 @@
       "customGradient": false,
       "defaultGradients": false,
       "defaultPalette": false,
-      "background": "var(--color-MainBackground, #fff)",
+      "background": false,
       "palette": [
         {
           "slug": "base",
           "color": "var(--color-Text, #222)",
           "name": "Textfarbe"
         },
-	{
+        {
           "slug": "black",
           "color": "var(--color-black, #000)",
           "name": "Schwarz"
@@ -74,309 +74,339 @@
       ]
     },
     "typography": {
-	"customFontSize": false,
-	"lineHeight": false,
-	"fontStyle": false,
-	"letterSpacing": false,
-	"textDecoration": false,
-	"textTransform": false,
-	"dropCap": false,
-	"fluid": false,
-	"fontWeight": false,
-	    "defaultFontSizes": false
-	    
+      "customFontSize": false,
+      "lineHeight": false,
+      "fontStyle": false,
+      "letterSpacing": false,
+      "textDecoration": false,
+      "textTransform": false,
+      "dropCap": false,
+      "fluid": false,
+      "fontWeight": false,
+      "defaultFontSizes": false
     },
     "layout": {
-	"contentSize": "1400px",
-	"allowCustomContentAndWideSize": false,
-	"allowEditing": false
+      "contentSize": "1400px",
+      "allowCustomContentAndWideSize": false,
+      "allowEditing": false
     },
- 
     "border": {
-	"color": false,
-	"radius": false,
-	"style": false,
-	"width": false
+      "color": false,
+      "radius": false,
+      "style": false,
+      "width": false
+    },
+    "spacing": {
+      "customSpacingSize": false,
+      "units": [
+        "px",
+        "em",
+        "rem",
+        "%"
+      ]
     },
     "blocks": {
-	"rrze-elements/collapse": {
-	    "color": {
-		"palette": [
-		    {
-			"slug": "fau",
-			"color": "var(--color-branding-zentral, #04316a)",
-			"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
-		    },
-		    {
-			"slug": "phil",
-			"color": "var(--color-branding-phil, #fdb735)",
-			"name": "Philosophische Fakultät"
-		    },
-		    {
-			"slug": "rw",
-			"color": "var(--color-branding-rw, #c50f3c)",
-			"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
-		    },
-		    {
-			"slug": "med",
-			"color": "var(--color-branding-med, #18b4f1)",
-			"name": "Medizinische Fakultät"
-		    },
-		    {
-			"slug": "nat",
-			"color": "var(--color-branding-nat, #7bb725)",
-			"name": "Naturwissenschaftliche Fakultät"
-		    },
-		    {
-			"slug": "tf",
-			"color": "var(--color-branding-tf, #8C9FB1)",
-			"name": "Technische Fakultät"
-		    }
-		]       
-	    }
-	},
-	"rrze-elements/accordion": {
-	    "color": {
-		"palette": [
-		    {
-			"slug": "fau",
-			"color": "var(--color-branding-zentral, #04316a)",
-			"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
-		    },
-		    {
-			"slug": "phil",
-			"color": "var(--color-branding-phil, #fdb735)",
-			"name": "Philosophische Fakultät"
-		    },
-		    {
-			"slug": "rw",
-			"color": "var(--color-branding-rw, #c50f3c)",
-			"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
-		    },
-		    {
-			"slug": "med",
-			"color": "var(--color-branding-med, #18b4f1)",
-			"name": "Medizinische Fakultät"
-		    },
-		    {
-			"slug": "nat",
-			"color": "var(--color-branding-nat, #7bb725)",
-			"name": "Naturwissenschaftliche Fakultät"
-		    },
-		    {
-			"slug": "tf",
-			"color": "var(--color-branding-tf, #8C9FB1)",
-			"name": "Technische Fakultät"
-		    }
-		]       
-	    }
-	},
-	"rrze-elements/tabs": {
-	    "color": {
-		"palette": [
-		    {
-			"slug": "fau",
-			"color": "var(--color-branding-zentral, #04316a)",
-			"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
-		    },
-		    {
-			"slug": "phil",
-			"color": "var(--color-branding-phil, #fdb735)",
-			"name": "Philosophische Fakultät"
-		    },
-		    {
-			"slug": "rw",
-			"color": "var(--color-branding-rw, #c50f3c)",
-			"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
-		    },
-		    {
-			"slug": "med",
-			"color": "var(--color-branding-med, #18b4f1)",
-			"name": "Medizinische Fakultät"
-		    },
-		    {
-			"slug": "nat",
-			"color": "var(--color-branding-nat, #7bb725)",
-			"name": "Naturwissenschaftliche Fakultät"
-		    },
-		    {
-			"slug": "tf",
-			"color": "var(--color-branding-tf, #8C9FB1)",
-			"name": "Technische Fakultät"
-		    }
-		]
-	    }
-	},
-	"rrze-elements/alert": {
-	    "color": {
-		"palette": [
-		    {
-		      "slug": "default",
-		      "color": "#e9edf2",
-		      "name": "Default"
-		    },
-		    {
-		      "slug": "success",
-		      "color": "#dff0d8",
-		      "name": "Success"
-		    },
-		    {
-		      "slug": "info",
-		      "color": "#d9edf7",
-		      "name": "Info"
-		    },
-		    {
-		      "slug": "warning",
-		      "color": "#fcf8e3",
-		      "name": "Warning"
-		    },
-		    {
-		      "slug": "danger",
-		      "color": "#f2dede",
-		      "name": "Danger"
-		    }
-		]
-	    }
-	},
-	"rrze-elements/columns": {
-	    "color": {
-		"palette": [
-		    {
-		      "slug": "default",
-		      "color": "#e9edf2",
-		      "name": "Default"
-		    },
-		    {
-		      "slug": "success",
-		      "color": "#dff0d8",
-		      "name": "Success"
-		    },
-		    {
-		      "slug": "info",
-		      "color": "#d9edf7",
-		      "name": "Info"
-		    },
-		    {
-		      "slug": "warning",
-		      "color": "#fcf8e3",
-		      "name": "Warning"
-		    },
-		    {
-		      "slug": "danger",
-		      "color": "#f2dede",
-		      "name": "Danger"
-		    }
-		]
-	    }
-	},
-     
-     
+      "rrze-elements/collapse": {
+        "color": {
+          "palette": [
+            {
+              "slug": "fau",
+              "color": "var(--color-branding-zentral, #04316a)",
+              "name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+            },
+            {
+              "slug": "phil",
+              "color": "var(--color-branding-phil, #fdb735)",
+              "name": "Philosophische Fakultät"
+            },
+            {
+              "slug": "rw",
+              "color": "var(--color-branding-rw, #c50f3c)",
+              "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+            },
+            {
+              "slug": "med",
+              "color": "var(--color-branding-med, #18b4f1)",
+              "name": "Medizinische Fakultät"
+            },
+            {
+              "slug": "nat",
+              "color": "var(--color-branding-nat, #7bb725)",
+              "name": "Naturwissenschaftliche Fakultät"
+            },
+            {
+              "slug": "tf",
+              "color": "var(--color-branding-tf, #8C9FB1)",
+              "name": "Technische Fakultät"
+            }
+          ]
+        }
+      },
+      "rrze-elements/accordion": {
+        "color": {
+          "palette": [
+            {
+              "slug": "fau",
+              "color": "var(--color-branding-zentral, #04316a)",
+              "name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+            },
+            {
+              "slug": "phil",
+              "color": "var(--color-branding-phil, #fdb735)",
+              "name": "Philosophische Fakultät"
+            },
+            {
+              "slug": "rw",
+              "color": "var(--color-branding-rw, #c50f3c)",
+              "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+            },
+            {
+              "slug": "med",
+              "color": "var(--color-branding-med, #18b4f1)",
+              "name": "Medizinische Fakultät"
+            },
+            {
+              "slug": "nat",
+              "color": "var(--color-branding-nat, #7bb725)",
+              "name": "Naturwissenschaftliche Fakultät"
+            },
+            {
+              "slug": "tf",
+              "color": "var(--color-branding-tf, #8C9FB1)",
+              "name": "Technische Fakultät"
+            }
+          ]
+        }
+      },
+      "rrze-elements/tabs": {
+        "color": {
+          "palette": [
+            {
+              "slug": "fau",
+              "color": "var(--color-branding-zentral, #04316a)",
+              "name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+            },
+            {
+              "slug": "phil",
+              "color": "var(--color-branding-phil, #fdb735)",
+              "name": "Philosophische Fakultät"
+            },
+            {
+              "slug": "rw",
+              "color": "var(--color-branding-rw, #c50f3c)",
+              "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+            },
+            {
+              "slug": "med",
+              "color": "var(--color-branding-med, #18b4f1)",
+              "name": "Medizinische Fakultät"
+            },
+            {
+              "slug": "nat",
+              "color": "var(--color-branding-nat, #7bb725)",
+              "name": "Naturwissenschaftliche Fakultät"
+            },
+            {
+              "slug": "tf",
+              "color": "var(--color-branding-tf, #8C9FB1)",
+              "name": "Technische Fakultät"
+            }
+          ]
+        }
+      },
+      "rrze-elements/alert": {
+        "color": {
+          "palette": [
+            {
+              "slug": "default",
+              "color": "#e9edf2",
+              "name": "Default"
+            },
+            {
+              "slug": "success",
+              "color": "#dff0d8",
+              "name": "Success"
+            },
+            {
+              "slug": "info",
+              "color": "#d9edf7",
+              "name": "Info"
+            },
+            {
+              "slug": "warning",
+              "color": "#fcf8e3",
+              "name": "Warning"
+            },
+            {
+              "slug": "danger",
+              "color": "#f2dede",
+              "name": "Danger"
+            }
+          ]
+        }
+      },
+      "rrze-elements/columns": {
+        "color": {
+          "palette": [
+            {
+              "slug": "default",
+              "color": "#e9edf2",
+              "name": "Default"
+            },
+            {
+              "slug": "success",
+              "color": "#dff0d8",
+              "name": "Success"
+            },
+            {
+              "slug": "info",
+              "color": "#d9edf7",
+              "name": "Info"
+            },
+            {
+              "slug": "warning",
+              "color": "#fcf8e3",
+              "name": "Warning"
+            },
+            {
+              "slug": "danger",
+              "color": "#f2dede",
+              "name": "Danger"
+            }
+          ]
+        }
+      },
       "core/paragraph": {
-		
-	"typography": {
-			     "dropCap": true,
-	     "textTransform": true
-	}
-	
+        "typography": {
+          "dropCap": true,
+          "textTransform": true
+        },
+        "color": {
+          "palette": [
+            {
+              "slug": "base",
+              "color": "var(--color-Text, #222)",
+              "name": "Textfarbe"
+            },
+            {
+              "slug": "contrast",
+              "color": "var(--color-white, #fff)",
+              "name": "Weiß"
+            }
+          ]
+        }
       },
       "core/quote": {
-		"border": {
-	    "radius": false,
-	    "style": false,
-	    "width": false,
-	    "color": true
-	}
-	    },
+        "border": {
+          "radius": false,
+          "style": false,
+          "width": false,
+          "color": true
+        },
+        "color": {
+          "background": false,
+          "heading": false,
+          "button": false,
+          "text": false,
+          "defaultPalette": false
+        }
+      },
       "core/pullquote": {
         "typography": {
-	    "dropCap": true,
-	    "textTransform": true,	    
-		     "fontSizes": [
-		  
-			{
-			  "name": "Normal",
-			  "slug": "base",
-			  "size": "1rem"
-		      },
-		     {
-			  "name": "Medium",
-			  "slug": "medium",
-			  "size": "1.5rem"
-		      },
-		      {
-			  "name": "Large",
-			  "slug": "large",
-			  "size": "2rem"
-		      },
-		      {
-			  "name": "Extra Large",
-			  "slug": "x-large",
-			  "size": "3rem"
-		      }]
+          "dropCap": false,
+          "textTransform": false,
+          "fontSizes": [
+            {
+              "name": "Normal",
+              "slug": "base",
+              "size": "1rem"
+            },
+            {
+              "name": "Medium",
+              "slug": "medium",
+              "size": "1.5rem"
+            },
+            {
+              "name": "Large",
+              "slug": "large",
+              "size": "2rem"
+            },
+            {
+              "name": "Extra Large",
+              "slug": "x-large",
+              "size": "3rem"
+            }
+          ]
         },
-	"color": {
+        "color": {
           "background": false,
           "heading": false,
           "button": false,
           "text": false,
           "defaultPalette": false,
           "custom": false,
-		    "palette": [
-			{
-			"slug": "white",
-			"color": "var(--color-white, #fff)",
-			"name": "Weiß"
-		      },
-		    {
-			"slug": "fau",
-			"color": "var(--color-branding-zentral, #04316a)",
-			"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
-		    },
-		    {
-			"slug": "phil",
-			"color": "var(--color-branding-phil, #fdb735)",
-			"name": "Philosophische Fakultät"
-		    },
-		    {
-			"slug": "rw",
-			"color": "var(--color-branding-rw, #c50f3c)",
-			"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
-		    },
-		    {
-			"slug": "med",
-			"color": "var(--color-branding-med, #18b4f1)",
-			"name": "Medizinische Fakultät"
-		    },
-		    {
-			"slug": "nat",
-			"color": "var(--color-branding-nat, #7bb725)",
-			"name": "Naturwissenschaftliche Fakultät"
-		    },
-		    {
-			"slug": "tf",
-			"color": "var(--color-branding-tf, #8C9FB1)",
-			"name": "Technische Fakultät"
-		    }
-		]
+          "palette": [
+            {
+              "slug": "white",
+              "color": "var(--color-white, #fff)",
+              "name": "Weiß"
+            },
+            {
+              "slug": "fau",
+              "color": "var(--color-branding-zentral, #04316a)",
+              "name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+            },
+            {
+              "slug": "phil",
+              "color": "var(--color-branding-phil, #fdb735)",
+              "name": "Philosophische Fakultät"
+            },
+            {
+              "slug": "rw",
+              "color": "var(--color-branding-rw, #c50f3c)",
+              "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+            },
+            {
+              "slug": "med",
+              "color": "var(--color-branding-med, #18b4f1)",
+              "name": "Medizinische Fakultät"
+            },
+            {
+              "slug": "nat",
+              "color": "var(--color-branding-nat, #7bb725)",
+              "name": "Naturwissenschaftliche Fakultät"
+            },
+            {
+              "slug": "tf",
+              "color": "var(--color-branding-tf, #8C9FB1)",
+              "name": "Technische Fakultät"
+            }
+          ]
         },
-	"border": {
-	    "radius": false,
-	    "style": false,
-	    "width": false,
-	    "color": true
-	},
-	"spacing": {
-		    "margin": false,
-		    "padding": false
-	}
+        "border": {
+          "radius": false,
+          "style": false,
+          "width": false,
+          "color": false
+        },
+        "spacing": {
+          "margin": false,
+          "padding": false
+        }
       },
-     
       "core/column": {
         "shadow": {
           "defaultPresets": false
         },
+        "spacing": {
+          "padding": true,
+          "units": [
+            "rem",
+            "%"
+          ]
+        },
         "color": {
-          "background": false,
+          "background": true,
           "heading": false,
           "button": false,
           "text": true,
@@ -391,130 +421,193 @@
               "slug": "contrast",
               "color": "var(--color-MainBackground,#fff)",
               "name": "Kontrast"
+            },
+            {
+              "slug": "default",
+              "color": "#e9edf2",
+              "name": "Default"
+            },
+            {
+              "slug": "success",
+              "color": "#dff0d8",
+              "name": "Success"
+            },
+            {
+              "slug": "info",
+              "color": "#d9edf7",
+              "name": "Info"
+            },
+            {
+              "slug": "warning",
+              "color": "#fcf8e3",
+              "name": "Warning"
+            },
+            {
+              "slug": "danger",
+              "color": "#f2dede",
+              "name": "Danger"
+            },
+            {
+              "slug": "fau",
+              "color": "var(--color-branding-zentral, #04316a)",
+              "name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+            },
+            {
+              "slug": "phil",
+              "color": "var(--color-branding-phil, #fdb735)",
+              "name": "Philosophische Fakultät"
+            },
+            {
+              "slug": "rw",
+              "color": "var(--color-branding-rw, #c50f3c)",
+              "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+            },
+            {
+              "slug": "med",
+              "color": "var(--color-branding-med, #18b4f1)",
+              "name": "Medizinische Fakultät"
+            },
+            {
+              "slug": "nat",
+              "color": "var(--color-branding-nat, #7bb725)",
+              "name": "Naturwissenschaftliche Fakultät"
+            },
+            {
+              "slug": "tf",
+              "color": "var(--color-branding-tf, #8C9FB1)",
+              "name": "Technische Fakultät"
             }
           ]
         }
       },
       "core/table": {
-              "typography": {
-		"fontSizes": [
-			{
-			  "name": "Normal",
-			  "slug": "base",
-			  "size": "1rem"
-		      },
-		     {
-			  "name": "Medium",
-			  "slug": "medium",
-			  "size": "1.125rem"
-		      },
-		      {
-			  "name": "Large",
-			  "slug": "large",
-			  "size": "1.75rem"
-		      },
-		      {
-			  "name": "Extra Large",
-			  "slug": "x-large",
-			  "size": "2.25rem"
-		      }],
-		    "textTransform": false,
-		    "textAlign": true
-	      }
+        "typography": {
+          "fontSizes": [],
+          "textTransform": false,
+          "textAlign": true
+        },
+        "color": {
+          "text": false
+        }
       },
-    
-	"core/cover": {
-	    "typography": {
-	       "customFontSize": true,
-	       "lineHeight": true,
-	       "fontStyle": true,
-	       "letterSpacing": true,
-	       "textDecoration": true,
-	       "textTransform": true,
-	       "dropCap": true,
-	       "fluid": true,
-	       "textAlign": true
-	   },
-		
-	    "color": {
-		"background": true,
-		"text": true,
-		"custom": true,
-		"palette": [
-		    {
-			"slug": "black",
-			"color": "var(--color-black, #000)",
-			"name": "Schwarz"
-		    },
-		    {
-			"slug": "contrast",
-			"color": "var(--color-white, #fff)",
-			"name": "Weiß"
-		    },
-		    {
-			"slug": "transparent",
-			"color": "transparent",
-			"name" : "Transparent"
-		    },
-		    {
-			"slug": "fau",
-			"color": "var(--color-branding-zentral, #04316a)",
-			"name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
-		    },
-		    {
-			"slug": "phil",
-			"color": "var(--color-branding-phil, #fdb735)",
-			"name": "Philosophische Fakultät"
-		    },
-		    {
-			"slug": "rw",
-			"color": "var(--color-branding-rw, #c50f3c)",
-			"name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
-		    },
-		    {
-			"slug": "med",
-			"color": "var(--color-branding-med, #18b4f1)",
-			"name": "Medizinische Fakultät"
-		    },
-		    {
-			"slug": "nat",
-			"color": "var(--color-branding-nat, #7bb725)",
-			"name": "Naturwissenschaftliche Fakultät"
-		    },
-		    {
-			"slug": "tf",
-			"color": "var(--color-branding-tf, #8C9FB1)",
-			"name": "Technische Fakultät"
-		    }
-		  ]
-	    },
-	    "spacing": {
-		    "padding": true
-	      }
+
+      "core/cover": {
+        "typography": {
+          "customFontSize": true,
+          "lineHeight": true,
+          "fontStyle": true,
+          "letterSpacing": true,
+          "textDecoration": true,
+          "textTransform": true,
+          "dropCap": true,
+          "fluid": true,
+          "textAlign": true
+        },
+
+        "color": {
+          "background": true,
+          "text": true,
+          "custom": true,
+          "palette": [
+            {
+              "slug": "black",
+              "color": "var(--color-black, #000)",
+              "name": "Schwarz"
+            },
+            {
+              "slug": "contrast",
+              "color": "var(--color-white, #fff)",
+              "name": "Weiß"
+            },
+            {
+              "slug": "fau",
+              "color": "var(--color-branding-zentral, #04316a)",
+              "name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+            },
+            {
+              "slug": "phil",
+              "color": "var(--color-branding-phil, #fdb735)",
+              "name": "Philosophische Fakultät"
+            },
+            {
+              "slug": "rw",
+              "color": "var(--color-branding-rw, #c50f3c)",
+              "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+            },
+            {
+              "slug": "med",
+              "color": "var(--color-branding-med, #18b4f1)",
+              "name": "Medizinische Fakultät"
+            },
+            {
+              "slug": "nat",
+              "color": "var(--color-branding-nat, #7bb725)",
+              "name": "Naturwissenschaftliche Fakultät"
+            },
+            {
+              "slug": "tf",
+              "color": "var(--color-branding-tf, #8C9FB1)",
+              "name": "Technische Fakultät"
+            }
+          ]
+        },
+        "spacing": {
+          "padding": true,
+          "customSpacingSize": false
+        }
       },
-    
-	"core/button": {
-	      "color": {
-		  "background": true,
-		  "text": true
-
-	      },
-	      "typography": {
-		 "customFontSize": true,
-		 "letterSpacing": true,
-		 "dropCap": false,
-		 "fluid": true,
-		 "textAlign": true
-	     },
-
-	      "spacing": {
-		      "padding": true,
-		      "margin": true
-		}
-	}
-     
-     
-     
+      "core/buttons":{
+        "layout": {
+          "allowEditing": true
+        }
+      },
+      "core/button": {
+        "color": {
+          "background": false,
+          "text": false
+        },
+        "typography": {
+          "customFontSize": false,
+          "letterSpacing": false,
+          "dropCap": false,
+          "fluid": false,
+          "textAlign": true
+        },
+        "spacing": {
+          "padding": false,
+          "margin": false
+        },
+        "shadow": {
+          "defaultPresets": false
+        },
+        "border": {
+          "radius": false,
+          "style": false,
+          "width": false,
+          "color": false
+        }
+      },
+      "core/heading": {
+        "color": {
+          "palette": [
+            {
+              "slug": "base",
+              "color": "var(--color-Text, #222)",
+              "name": "Textfarbe"
+            },
+            {
+              "slug": "contrast",
+              "color": "var(--color-white, #fff)",
+              "name": "Weiß"
+            }
+          ]
+        }
+      },
+      "core/verse": {
+        "color": {
+          "text": false
+        }
+      }
     }
   }
 }

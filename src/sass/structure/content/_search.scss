@@ -95,17 +95,6 @@
 		    
 			&:before {
 			    @extend .fau-icon;
-			    /*
-				width: 1rem;
-				height: 1rem;
-				line-height: 1rem;
-				font-size: 0.6rem;
-				background-repeat: no-repeat;
-				display: inline-block;
-				background-size: 100%;
-				background-position: center center;
-				margin-right: 0.2rem;
-				*/
 			}
 		}
 
@@ -186,9 +175,6 @@
 			@media (min-width: $screen-xs) {
 				width: 25rem;
 			}
-		
-			background: var(--color-primary-ci-hell);
-			color: var(--color-primary-ci-hell-kontrast);
 
 			&:active,
 			&:target,
@@ -203,9 +189,6 @@
 			}
 	    }
 
-		input[type="text"]::placeholder {
-			color: var(--color-primary-ci-hell-kontrast);
-		}
             
 	    input[type="submit"] {
 		    border-radius: var(--border-radius);
@@ -277,6 +260,7 @@
 .widget_search {
 
     .search-text {
+
         input[type="text"], 
         input[type="submit"] {
 	    	@include px2rem($font-size-sidebar);

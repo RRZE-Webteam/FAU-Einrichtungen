@@ -78,14 +78,6 @@ abbr[title]:after {
     margin-right: 0 !important;
 }
 
-.table-wrapper {
-    overflow: unset;
-
-    & .scrollable {
-        overflow-x: unset;
-        overflow-y: unset;
-    }
-}
 
 thead, tfoot {
     display: table-row-group;

@@ -1,0 +1,23 @@
+// Import FAU variables
+@import "variables";
+
+// Custom Properties
+@import "custom-properties";
+
+// SVG Icons and CI elements
+@import "icons/icons";
+
+// Mixins
+@import "mixins/mixins";
+
+// Fonts
+@import "fonts/fonts";
+
+// Block Library Overwrites
+@import "block-library/block-library";
+
+@import "backend/editor-style/editor-style";
+
+.editor-styles-wrapper{
+    font-family: $fontStack;
+}

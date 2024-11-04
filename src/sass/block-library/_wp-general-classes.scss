@@ -10,22 +10,23 @@
 
 // Small Font size
 .has-small-font-size {
-     @include px2rem($font-size-small);
+    @include px2rem($font-size-small);
 }
+
 // Regular Font size
 .has-regular-font-size {
-     font-size: var(--font-size-normal, 1rem);
+    font-size: var(--font-size-normal, 1rem);
 }
 
 // Large Font size
 .has-large-font-size {
-     @include px2rem($font-size-large);
+    @include px2rem($font-size-large);
 }
 
 // Larger Font size
 .has-huge-font-size,
 .has-larger-font-size {
-     @include px2rem($font-size-larger);
+    @include px2rem($font-size-larger);
 }
 
 // Alignments
@@ -36,9 +37,11 @@
 .has-text-align-left {
     text-align: left;
 }
+
 .has-text-align-center {
     text-align: center;
 }
+
 .has-text-align-justify {
     text-align: justify;
 }
@@ -47,6 +50,7 @@
 .has-text-color {
     color: var(--color-Text);
 }
+
 .has-link-color {
     color: var(--color-links);
 }
@@ -54,22 +58,24 @@
 
 p.has-drop-cap {
     &:not(:focus):first-letter {
-	float:left;
-	@include px2rem($font-size-larger * 3, $font-size-gridbase, $font-size-larger * 3);
-	font-weight: 100;
-	margin: 0 .1em 0 0;
-	text-transform:uppercase;
-	font-style:normal;
+        float: left;
+        @include px2rem($font-size-larger * 3, $font-size-gridbase, $font-size-larger * 3);
+        font-weight: 100;
+        margin: 0 .1em 0 0;
+        text-transform: uppercase;
+        font-style: normal;
     }
 }
 
 /*----------------------------------------------------------------------------*/
 /* Grid Classes
 /*----------------------------------------------------------------------------*/
-.wp-block-columns.wp-container-6, .wp-block-columns.wp-container-8, .wp-block-columns.wp-container-10 {
+.wp-block-columns.wp-container-6,
+.wp-block-columns.wp-container-8,
+.wp-block-columns.wp-container-10 {
     display: flex;
 }
 
-.wp-container-6  .wp-block-column {
+.wp-container-6 .wp-block-column {
     width: 50%;
 }

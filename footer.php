@@ -81,6 +81,6 @@ use \RRZE\THEME\EINRICHTUNGEN\Debugging;
 	    <a href="#pagewrapper" class="top-link"><span class="arrow-up"></span><span class="screen-reader-text"><?php echo __('Nach oben','fau'); ?></span></a>
 	</footer>
     </div> 
-		<?php print_indented("wp_footer",2); ?>
+	<?php wp_footer(); ?>
 	</body>
 </html>
