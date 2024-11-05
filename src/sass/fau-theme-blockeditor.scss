@@ -4,9 +4,9 @@
 // Custom Properties
 @import "custom-properties";
 
-$font-path-awesome:	'../fonts/fontawesome/';
+$font-path-awesome:	'../fonts/fontawesome';
 // da admin.css unter /css muss der pfad angepasst werden
-$font-path-roboto:	'../fonts/roboto/';
+$font-path-roboto:	'../fonts/roboto';
 // da admin.css unter /css muss der pfad angepasst werden
 
 
@@ -22,7 +22,7 @@ $font-path-roboto:	'../fonts/roboto/';
 // Block Library Overwrites
 @import "block-library/block-library";
 
-@import "backend/editor-style/editor-style";
+@import "editor-style/editor-style";
 
 .editor-styles-wrapper{
     font-family: $fontStack;

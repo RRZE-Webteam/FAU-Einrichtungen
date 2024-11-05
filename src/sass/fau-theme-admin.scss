@@ -32,27 +32,12 @@ $font-path-roboto:	'../fonts/roboto/';
 @import "mixins/mixins";
 
 // Fonts
-@import "fonts/fonts";
+// @import "fonts/fonts";
 
-// .post-type-page,
-// .post-type-post {
-//     .editor-styles-wrapper,
-//     .edit-post-visual-editor .editor-block-list__block {
-
-// 	// Element Styles
-// 	@import "elements/elements";
-
-// 	// Plugin-Support
-// 	@import "plugins/plugins";
-//      }
-// }
 
 // Backend Specials
 @import "backend/backend";
 
-
-// // Block Library Overwrites
-// @import "block-library/block-library"
 
 
 

@@ -243,7 +243,7 @@ function cloneTheme(cb) {
  */
 function devbuildbackendstyles() {
   return src([info.source.sass + "fau-theme-admin.scss"])
-    .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
+    .pipe(sass({indentWidth: 4, quietDeps: true, precision: 3, sourceComments: true }).on("error", sass.logError))
     .pipe(dest("./css"))
     .pipe(touch());
 }
@@ -308,7 +308,7 @@ function buildeditorstyles() {
 function devbuildeditorstyles() {
 
   return src([info.source.sass + "fau-theme-blockeditor.scss"])
-    .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
+    .pipe(sass({indentWidth: 4, quietDeps: true, precision: 3, sourceComments: true }).on("error", sass.logError))
     .pipe(dest("./css"))
     .pipe(touch());
 }
@@ -506,10 +506,11 @@ var dev = series(
 
 exports.cssdev = series(
   devbuildbackendstyles,
+  devbuildeditorstyles,
   devbuildmainstyle,
   buildprintstyle
 );
-exports.css = series(devbuildbackendstyles, devbuildmainstyle, buildprintstyle);
+exports.css = series(devbuildbackendstyles, devbuildeditorstyles, devbuildmainstyle, buildprintstyle);
 exports.js = js;
 exports.dev = dev;
 exports.build = series(
