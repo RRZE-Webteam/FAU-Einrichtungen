@@ -75,11 +75,11 @@ add_action('enqueue_block_editor_assets', 'fau_add_gutenberg_assets');
 /* Activate scripts and style for backend use of Classic Editor
 /*-----------------------------------------------------------------------------------*/
 function fau_add_classic_editor_assets() {
-    if (fau_blockeditor_is_active()) {
+  //  if (fau_blockeditor_is_active()) {
         // we handle the Block Editor settings with the hook
         // enqueue_block_editor_assets
-        return;
-    }
+  //      return;
+  //  }
 
     // check if the classic editor is active
     if (fau_is_classic_editor_plugin_active()) {
