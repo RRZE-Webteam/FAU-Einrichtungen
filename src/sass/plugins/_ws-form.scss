@@ -64,8 +64,11 @@
 	height: 1.5rem;
 	width: 1.5rem;
     }
-    
+    ul li {
+	list-style: none;
+    }
 }
+
 #wpadminbar #wp-admin-bar-root-default li#wp-admin-bar-ws-form-node {
     @media screen and (max-width: $screen-xl) {
 	display: none;

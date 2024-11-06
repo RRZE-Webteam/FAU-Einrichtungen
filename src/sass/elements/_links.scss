@@ -112,21 +112,7 @@ a {
 	} 
 }
 
-	    
-// Continue/Weiterlesen Link
-.continue {
-    margin-left: auto;
-    white-space: nowrap;
-
-    .read-more-link {	
-	@include nextlink-ghostbutton();
-    }
-
-    @media (max-width: $screen-sm) {
-	    margin-left: unset;
-	    margin-top: 0.8rem;
-    }
-}
+	
 	    
 // Additional link effects for Content
 // main,

@@ -296,7 +296,7 @@ function buildprintstyle() {
     .pipe(touch());
 }
 
-// Editor Styles for Prod
+// Block Editor Styles for Prod
 function buildeditorstyles() {
 
   return src([info.source.sass + "fau-theme-blockeditor.scss"])
@@ -304,10 +304,26 @@ function buildeditorstyles() {
     .pipe(dest("./css"))
     .pipe(touch());
 }
-// Editor Styles for Dev
+// Block Editor Styles for Dev
 function devbuildeditorstyles() {
 
   return src([info.source.sass + "fau-theme-blockeditor.scss"])
+    .pipe(sass({indentWidth: 4, quietDeps: true, precision: 3, sourceComments: true }).on("error", sass.logError))
+    .pipe(dest("./css"))
+    .pipe(touch());
+}
+// Classic Editor Styles for Prod
+function buildclassiceditorstyles() {
+
+  return src([info.source.sass + "fau-theme-classiceditor.scss"])
+    .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
+    .pipe(dest("./css"))
+    .pipe(touch());
+}
+// Classic Editor Styles for Dev
+function devbuildclassiceditorstyles() {
+
+  return src([info.source.sass + "fau-theme-classiceditor.scss"])
     .pipe(sass({indentWidth: 4, quietDeps: true, precision: 3, sourceComments: true }).on("error", sass.logError))
     .pipe(dest("./css"))
     .pipe(touch());
@@ -500,6 +516,7 @@ var dev = series(
   devbuildmainstyle,
   buildprintstyle,
   devbuildeditorstyles,
+  devbuildclassiceditorstyles,
   js,
   devversion
 );
@@ -507,10 +524,16 @@ var dev = series(
 exports.cssdev = series(
   devbuildbackendstyles,
   devbuildeditorstyles,
+  devbuildclassiceditorstyles,
   devbuildmainstyle,
   buildprintstyle
 );
-exports.css = series(devbuildbackendstyles, devbuildeditorstyles, devbuildmainstyle, buildprintstyle);
+exports.css = series(
+    devbuildbackendstyles, 
+    devbuildeditorstyles, 
+    devbuildclassiceditorstyles,
+    devbuildmainstyle, 
+    buildprintstyle);
 exports.js = js;
 exports.dev = dev;
 exports.build = series(
@@ -518,6 +541,7 @@ exports.build = series(
   buildmainstyle,
   buildprintstyle,
   buildeditorstyles,
+  buildclassiceditorstyles,
   js,
   upversionpatch
 );
