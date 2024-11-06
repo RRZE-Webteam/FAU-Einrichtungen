@@ -1,9 +1,7 @@
 /*----------------------------------------------------------------------------*/
-/* _wp-block-list-item 
-/* Created on : 24.09.2024, 08:10:21
+/* _core-image
+/* Created on : 6.11.2024, 10:00
 /*----------------------------------------------------------------------------*/
-
-.wp-block-list-item {
-    // imported from _paragraphs.scss
-    @include paragraphs;
+.editor-styles-wrapper figure{
+    border-top: none;
 }

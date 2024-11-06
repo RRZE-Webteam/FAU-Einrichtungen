@@ -1,11 +1,8 @@
 /*----------------------------------------------------------------------------*/
-/* _wp-block-paragraph 
-/* Created on : 03.05.2024, 15:12:21
+/* _core-heading
+/* Created on : 6.11.2024, 10:00
 /*----------------------------------------------------------------------------*/
 
-/*-----------------------------------------------------------------------------------*/
-/* Headlines
-/*-----------------------------------------------------------------------------------*/
 
 h1.wp-block-heading,
 h2.wp-block-heading,
@@ -29,14 +26,14 @@ h6.wp-block-heading {
 
 h1.wp-block-heading,
 h2.wp-block-heading {
-    @include hyphens(none);
+    hyphens: none;
 }
 
 h3.wp-block-heading,
 h4.wp-block-heading,
 h5.wp-block-heading,
 h6.wp-block-heading {
-    @include hyphens(auto);
+     hyphens: auto;
 }
 
 h1.wp-block-heading {
@@ -216,13 +213,13 @@ h6.wp-block-heading {
     font-family: inherit;
     color: var(--color-content-headlines);
     font-weight: bold;
-
+    hyphens: none;
+  
+    @include px2rem($font-size-h2-small);
     em {
         font-style: normal;
     }
 
-    @include hyphens(none);
-    @include px2rem($font-size-h2-small);
 
     .content-inline & {
         &:first-child {

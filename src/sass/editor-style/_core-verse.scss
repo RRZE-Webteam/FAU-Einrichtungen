@@ -1,3 +1,7 @@
+/*----------------------------------------------------------------------------*/
+/* _core-verse.scss
+/* Created on : 6.11.2024, 10:00
+/*----------------------------------------------------------------------------*/
 pre.wp-block-verse {
     display: block;
     padding: 10px 0;
@@ -7,11 +11,11 @@ pre.wp-block-verse {
     white-space: pre;
     white-space: pre-wrap;
     border: 1px solid var(--color-ContentBorders);
-    @include border-radius(var(--border-radius, 4px));
+    border-radius: var(--border-radius, 4px);
     padding: 0 3px 2px;
     color: var(--color-Text);
     background-color: var(--color-StandardHellgrau);
-    font-family: $font-family-monospace;
+    font-family: var(--font-family-monospace);
     @include px2rem($font-size-codepre);
 }
 

@@ -12,9 +12,10 @@ use \RRZE\THEME\EINRICHTUNGEN\Debugging;
 /* We use our own color set in this theme and dont want autors to change text colors
 /*-----------------------------------------------------------------------------------*/
 
-function fau_gutenberg_settings()
-{
+function fau_editor_settings() {
     if (fau_blockeditor_is_active()) {
+        // we handle the Block Editor settings with the hook
+        // enqueue_block_editor_assets
         return;
     }
 
@@ -34,19 +35,20 @@ function fau_gutenberg_settings()
     // Remove Gutenbergs Userstyle and SVGs Duotone injections from 5.9.2
     remove_action('wp_enqueue_scripts', 'wp_enqueue_global_styles');
     remove_action('wp_body_open', 'wp_global_styles_render_svg_filters');
+ 
+    
 }
-add_action('after_setup_theme', 'fau_gutenberg_settings');
+add_action('after_setup_theme', 'fau_editor_settings');
 
 /*-----------------------------------------------------------------------------------*/
 /* Activate scripts and style for backend use of Gutenberg
 /*-----------------------------------------------------------------------------------*/
-function fau_add_gutenberg_assets()
-{
+function fau_add_gutenberg_assets() {
     // Load the theme styles within Gutenberg.
     global $is_gutenberg_enabled;
     global $defaultoptions;
 
-    if (fau_blockeditor_is_active()) {
+  //  if (fau_blockeditor_is_active()) {
 
         // Add support for editor styles.
         add_theme_support('editor-styles');
@@ -65,15 +67,34 @@ function fau_add_gutenberg_assets()
             $theme_version,
             true
         );
-    }
+ //   }
 }
 add_action('enqueue_block_editor_assets', 'fau_add_gutenberg_assets');
 
 /*-----------------------------------------------------------------------------------*/
+/* Activate scripts and style for backend use of Classic Editor
+/*-----------------------------------------------------------------------------------*/
+function fau_add_classic_editor_assets() {
+  //  if (fau_blockeditor_is_active()) {
+        // we handle the Block Editor settings with the hook
+        // enqueue_block_editor_assets
+  //      return;
+  //  }
+
+    // check if the classic editor is active
+    if (fau_is_classic_editor_plugin_active()) {
+         // Add support for editor styles.
+        add_theme_support('editor-styles');
+        // Enqueue the classic editor stylesheet.
+        add_editor_style('css/fau-theme-classiceditor.css');
+    }
+}
+add_action('admin_init', 'fau_add_classic_editor_assets');
+
+/*-----------------------------------------------------------------------------------*/
 /* Remove Block Style from frontend as long wie dont use it
 /*-----------------------------------------------------------------------------------*/
-function fau_deregister_blocklibrary_styles()
-{
+function fau_deregister_blocklibrary_styles() {
     if (!fau_blockeditor_is_active()) {
         wp_dequeue_style('wp-block-library');
         wp_dequeue_style('wp-block-library-theme');
@@ -89,8 +110,7 @@ add_action('wp_enqueue_scripts', 'fau_deregister_blocklibrary_styles', 100);
 /*
 /* @return bool
 /*-----------------------------------------------------------------------------------*/
-function fau_blockeditor_is_active()
-{
+function fau_blockeditor_is_active() {
     global $is_gutenberg_enabled;
     $is_gutenberg_enabled = false;
 
@@ -140,8 +160,7 @@ function fau_blockeditor_is_active()
 /*-----------------------------------------------------------------------------------*/
 /* Set is_gutenberg_enabled filter if not avaible
 /*-----------------------------------------------------------------------------------*/
-function fau_set_filter_gutenberg_state($value)
-{
+function fau_set_filter_gutenberg_state($value) {
     global $is_gutenberg_enabled;
     $is_gutenberg_enabled = true;
 
@@ -152,8 +171,7 @@ function fau_set_filter_gutenberg_state($value)
 /*
 /* @return bool
 /*-----------------------------------------------------------------------------------*/
-function fau_is_classic_editor_plugin_active()
-{
+function fau_is_classic_editor_plugin_active() {
 
     if (! function_exists('is_plugin_active')) {
         include_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -169,8 +187,7 @@ function fau_is_classic_editor_plugin_active()
 /*-----------------------------------------------------------------------------------*/
 /* Check if our Block Editor based Newsletter Plugin is active
 /*-----------------------------------------------------------------------------------*/
-function fau_is_newsletter_plugin_active()
-{
+function fau_is_newsletter_plugin_active() {
     if (! function_exists('is_plugin_active')) {
         include_once ABSPATH . 'wp-admin/includes/plugin.php';
     }
@@ -185,8 +202,7 @@ function fau_is_newsletter_plugin_active()
 /*-----------------------------------------------------------------------------------*/
 /* Outside-box image post block
 /*-----------------------------------------------------------------------------------*/
-function fau_custom_image_blocks()
-{
+function fau_custom_image_blocks() {
     wp_register_script(
         'my-custom-blocks',
         get_template_directory_uri() . '/js/fau-costum-image-block.min.js',

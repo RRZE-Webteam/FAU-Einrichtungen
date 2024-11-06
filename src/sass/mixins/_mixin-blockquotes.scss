@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     border: none;
-    font-family: $fontStackSerifs;
+    font-family: var(--font-family-serif);
     position: relative;
     @include px2rem($font-size-quotes);
 
@@ -33,7 +33,7 @@
     
     p {
         margin-bottom: 0;
-        font-family: $fontStackSerifs;
+        font-family: var(--font-family-serif);
         @include px2rem($font-size-quotes);
         font-weight: 400;
         letter-spacing: .3px;

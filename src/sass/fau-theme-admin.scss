@@ -13,12 +13,6 @@
 // Custom Properties
 @import "custom-properties";
 
-$font-path-awesome:	'../fonts/fontawesome/';
-// da admin.css unter /css muss der pfad angepasst werden
-$font-path-roboto:	'../fonts/roboto/';
-// da admin.css unter /css muss der pfad angepasst werden
-
-
 // Reset Base styles
 @import "reset";
 
@@ -29,30 +23,15 @@ $font-path-roboto:	'../fonts/roboto/';
 @import "icons/icons";
 
 // Mixins
-@import "mixins/mixins";
+// @import "mixins/mixins";
 
 // Fonts
-@import "fonts/fonts";
+// @import "fonts/fonts";
 
-// .post-type-page,
-// .post-type-post {
-//     .editor-styles-wrapper,
-//     .edit-post-visual-editor .editor-block-list__block {
-
-// 	// Element Styles
-// 	@import "elements/elements";
-
-// 	// Plugin-Support
-// 	@import "plugins/plugins";
-//      }
-// }
 
 // Backend Specials
 @import "backend/backend";
 
-
-// // Block Library Overwrites
-// @import "block-library/block-library"
 
 
 
