@@ -1,10 +1,12 @@
 /*----------------------------------------------------------------------------*/
-/* _wp-block-paragraph 
+/* _core-üaragraphs.scsss
 /* Created on : 03.05.2024, 15:12:21
 /*----------------------------------------------------------------------------*/
-@import "../../mixins/mixin-paragraphs";
 
 p.wp-block-paragraph {
     // imported from _paragraphs.scss
-    @include paragraphs();
+    @include paragraphs;
+    line-height: 1.5;
+    hyphens: auto;
+    text-wrap: pretty;
 }

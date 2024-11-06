@@ -11,20 +11,17 @@
 @import "mixins/size";
 @import "mixins/tab-focus";
 @import "mixins/reset-text";
-@import "mixins/text-emphasis";
 @import "mixins/text-overflow";
 // @import "mixins/vendor-prefixes";
 
-// @import "mixins/rrze-gathered";
 
 // Components
 @import "mixins/alerts";
-@import "mixins/buttons";
+// @import "mixins/buttons";
 @import "mixins/panels";
-@import "mixins/pagination";
+// @import "mixins/pagination";
 @import "mixins/list-group";
-@import "mixins/nav-divider";
-@import "mixins/forms";
+// @import "mixins/forms";
 @import "mixins/progress-bar";
 @import "mixins/table-row";
 
@@ -36,6 +33,5 @@
 // Layout
 @import "mixins/clearfix";
 @import "mixins/center-block";
-@import "mixins/nav-vertical-align";
 @import "mixins/grid-framework";
 @import "mixins/grid";

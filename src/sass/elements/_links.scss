@@ -72,11 +72,6 @@ a {
 	position: fixed;
 	bottom: var(--width-gutter, 30px);
 	right: var(--width-gutter, 30px);
-	
-	@media (min-width: $screen-sm) and (max-width: $screen-xl) {
-	    bottom: 200px;
-	}
-	
 	background-color: var(--color-button-bg);
 	color: var(--icon-color);
 	border: none;
@@ -85,7 +80,10 @@ a {
 	width: 3.4rem;
 	display: none;
 	text-align: center;
-
+	
+	@media (min-width: $screen-sm) and (max-width: $screen-xl) {
+	    bottom: 200px;
+	}
 	
 	.arrow-up {
 	    width: var(--_icon-size); 
@@ -255,10 +253,11 @@ a {
     a.media-img.sizinglink {
 	overflow: hidden;
 	img {
+	    object-fit: cover;		
 	    @media (prefers-reduced-motion: no-preference) and (min-width: $screen-xs) {
 		  transition: transform 1s;
 	    }
-	    object-fit: cover;		    
+	       
 	}
 	
     }

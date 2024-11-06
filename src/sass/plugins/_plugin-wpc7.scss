@@ -26,18 +26,12 @@ div.wpcf7-response-output {
     color: var(--color-Text);
 }
 
-.wpcf7-mail-sent-ng, .wpcf7-spam-blocked {
-    @extend .wpcf7-undostyle;
-    @extend .alert;
-}
 .wpcf7-mail-sent-ng {
-    @extend .alert-success;
-    color: $alert-success-text  !important;
+    color: var(--color-Text);
 }
 
 .wpcf7-spam-blocked {
-    @extend .alert-warning;
-    color: $colorNotice  !important;;
+    color: var(--color-Notice);
 
 }
 
@@ -47,8 +41,7 @@ div.wpcf7-response-output {
     padding: 10px 0;
     margin: 20px 0;
     font-weight: bold;
-
-    color: $colorNotice;
+    color: var(--color-Notice);
 }
 
 .wpcf7-form-control-wrap {
@@ -65,15 +58,13 @@ div.wpcf7-response-output {
     margin: 20px 0;
     font-weight: bold;
 
-    color: $colorNotice  !important;
+    color: var(--color-Notice);
     margin-top: 0px;	
 }
 
 .wpcf7-not-valid-tip-no-ajax {
         @extend .wpcf7-undostyle;
-	@extend .alert;
-	@extend .alert-warning;
-	color: $colorNotice  !important;;
+	color: var(--color-Notice);
 }
 
 .wpcf7-list-item {
@@ -108,5 +99,5 @@ div.wpcf7-response-output {
 }
 
 .wpcf7 .placeheld {
-	color: #888;
+	color: var(--color-StandardHellgrau);
 }

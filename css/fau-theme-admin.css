@@ -156,6 +156,10 @@
     --font-size-normal: 1rem;
     --font-size-large: 1.75rem;
     --font-size-x-large: 2.25rem;
+    --font-family-default: Roboto, FAU Chimera, sans-serif;
+    --font-family-serif: Georgia, Times New Roman, Times, serif;
+    --font-family-monospace: Menlo, Monaco, Consolas, Courier New, monospace;
+    --font-family-FAU-Logo: FAU Chimera, sans-serif;
     --border-radius: 0px;
     --border-radius-buttons: 0px;
     --devider-height: 4px;
@@ -248,20 +252,6 @@ q:after {
  * Modified Bootstrap v3.3.7 (http://getbootstrap.com)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-/*
-$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
-$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
-$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
-$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-h5:            $font-size-base !default;
-$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
-*/
-mark,
-.mark {
-    background-color: #fcf8e3;
-    padding: 0.2em;
-}
-
 .text-left {
     text-align: left;
 }
@@ -292,126 +282,6 @@ mark,
 
 .text-capitalize {
     text-transform: capitalize;
-}
-
-.text-muted {
-    color: rgb(119.085, 119.085, 119.085);
-}
-
-.text-primary {
-    color: rgb(51.4340909091, 122.2772727273, 183.4159090909);
-}
-
-a.text-primary:hover,
-a.text-primary:focus {
-    color: rgb(40.2646694215, 95.723553719, 143.5853305785);
-}
-
-.text-success {
-    color: #3c763d;
-}
-
-a.text-success:hover,
-a.text-success:focus {
-    color: rgb(42.808988764, 84.191011236, 43.5224719101);
-}
-
-.text-info {
-    color: #31708f;
-}
-
-a.text-info:hover,
-a.text-info:focus {
-    color: rgb(35.984375, 82.25, 105.015625);
-}
-
-.text-warning {
-    color: #8a6d3b;
-}
-
-a.text-warning:hover,
-a.text-warning:focus {
-    color: rgb(102.2741116751, 80.7817258883, 43.7258883249);
-}
-
-.text-danger {
-    color: #a94442;
-}
-
-a.text-danger:hover,
-a.text-danger:focus {
-    color: rgb(132.3234042553, 53.2425531915, 51.6765957447);
-}
-
-.bg-primary {
-    color: #fff;
-}
-
-.bg-primary {
-    background-color: rgb(51.4340909091, 122.2772727273, 183.4159090909);
-}
-
-a.bg-primary:hover,
-a.bg-primary:focus {
-    background-color: rgb(40.2646694215, 95.723553719, 143.5853305785);
-}
-
-.bg-success {
-    background-color: #dff0d8;
-}
-
-a.bg-success:hover,
-a.bg-success:focus {
-    background-color: rgb(192.7777777778, 225.8333333333, 179.1666666667);
-}
-
-.bg-info {
-    background-color: #d9edf7;
-}
-
-a.bg-info:hover,
-a.bg-info:focus {
-    background-color: rgb(174.8695652174, 217.0434782609, 238.1304347826);
-}
-
-.bg-warning {
-    background-color: #fcf8e3;
-}
-
-a.bg-warning:hover,
-a.bg-warning:focus {
-    background-color: rgb(247.064516129, 236.4838709677, 180.935483871);
-}
-
-.bg-danger {
-    background-color: #f2dede;
-}
-
-a.bg-danger:hover,
-a.bg-danger:focus {
-    background-color: rgb(227.5869565217, 185.4130434783, 185.4130434783);
-}
-
-.dl-horizontal dd:before, .dl-horizontal dd:after {
-    content: " ";
-    display: table;
-}
-.dl-horizontal dd:after {
-    clear: both;
-}
-@media (min-width: 768px) {
-    .dl-horizontal dt {
-        float: left;
-        width: 160px;
-        clear: left;
-        text-align: right;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-    .dl-horizontal dd {
-        margin-left: 180px;
-    }
 }
 
 .container {
@@ -1146,75 +1016,12 @@ a.bg-danger:focus {
     margin-top: 0;
     color: inherit;
 }
-.alert .alert-link {
-    font-weight: bold;
-}
 .alert > p,
 .alert > ul {
     margin-bottom: 0;
 }
 .alert > p + p {
     margin-top: 5px;
-}
-
-.alert-dismissable,
-.alert-dismissible {
-    padding-right: 35px;
-}
-.alert-dismissable .close,
-.alert-dismissible .close {
-    position: relative;
-    top: -2px;
-    right: -21px;
-    color: inherit;
-}
-
-.alert-success {
-    background-color: #dff0d8;
-    border-color: rgb(213.7777777778, 232.9166666667, 197.5833333333);
-    color: #3c763d;
-}
-.alert-success hr {
-    border-top-color: rgb(200.5555555556, 225.8333333333, 179.1666666667);
-}
-.alert-success .alert-link {
-    color: rgb(42.808988764, 84.191011236, 43.5224719101);
-}
-
-.alert-info {
-    background-color: #d9edf7;
-    border-color: rgb(187.5086956522, 231.9108695652, 240.7913043478);
-    color: #31708f;
-}
-.alert-info hr {
-    border-top-color: rgb(166.4434782609, 224.7043478261, 236.3565217391);
-}
-.alert-info .alert-link {
-    color: rgb(35.984375, 82.25, 105.015625);
-}
-
-.alert-warning {
-    background-color: #fcf8e3;
-    border-color: rgb(249.5322580645, 234.6478494624, 203.9677419355);
-    color: #8a6d3b;
-}
-.alert-warning hr {
-    border-top-color: rgb(247.064516129, 225.4623655914, 180.935483871);
-}
-.alert-warning .alert-link {
-    color: rgb(102.2741116751, 80.7817258883, 43.7258883249);
-}
-
-.alert-danger {
-    background-color: #f2dede;
-    border-color: rgb(234.7934782609, 203.7065217391, 208.8876811594);
-    color: #a94442;
-}
-.alert-danger hr {
-    border-top-color: rgb(227.5869565217, 185.4130434783, 192.4420289855);
-}
-.alert-danger .alert-link {
-    color: rgb(132.3234042553, 53.2425531915, 51.6765957447);
 }
 
 /*
@@ -1691,9 +1498,6 @@ Icons as functions
     transform: rotate(180deg);
 }
 
-/*
-Mixins File for Wordpress Theme FAU
-*/
 /*-----------------------------------------------------------------------------------*/
 /* Backend CSS
 /*-----------------------------------------------------------------------------------*/

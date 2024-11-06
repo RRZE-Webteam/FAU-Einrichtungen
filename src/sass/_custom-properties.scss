@@ -1,6 +1,7 @@
 /*-----------------------------------------------------------------------------------*/
 /* CSS Custom Properties
 /*-----------------------------------------------------------------------------------*/
+@use 'sass:map';
 
 :root {
    
@@ -8,24 +9,24 @@
 //	 --color-primary-#{$variante}: #{$colorcode};
 //     }
      @each $farbtyp, $map in $colormaps {		
-	$colorcode: map-get($map, "ci-hell");
+	$colorcode: map.get($map, "ci-hell");
 	--color-#{$farbtyp}-ci-hell: #{$colorcode};
-	$colorcode: map-get($map, "ci-hell-kontrast");
+	$colorcode: map.get($map, "ci-hell-kontrast");
 	--color-#{$farbtyp}-ci-hell-kontrast: #{$colorcode};
 	
-	$colorcode: map-get($map, "ci-hell2");
+	$colorcode: map.get($map, "ci-hell2");
 	--color-#{$farbtyp}-ci-hell2: #{$colorcode};
-	$colorcode: map-get($map, "ci-hell2-kontrast");
+	$colorcode: map.get($map, "ci-hell2-kontrast");
 	--color-#{$farbtyp}-ci-hell2-kontrast: #{$colorcode};	
 	
-	$colorcode: map-get($map, "dunkler");
+	$colorcode: map.get($map, "dunkler");
 	--color-#{$farbtyp}-dunkler: #{$colorcode};
-	$colorcode: map-get($map, "dunkler-kontrast");
+	$colorcode: map.get($map, "dunkler-kontrast");
 	--color-#{$farbtyp}-dunkler-kontrast: #{$colorcode};		
 	
-	$colorcode: map-get($map, "dunkelste");
+	$colorcode: map.get($map, "dunkelste");
 	--color-#{$farbtyp}-dunkelste: #{$colorcode};
-	$colorcode: map-get($map, "dunkelste-kontrast");
+	$colorcode: map.get($map, "dunkelste-kontrast");
 	--color-#{$farbtyp}-dunkelste-kontrast: #{$colorcode};			
     }
     
@@ -110,7 +111,12 @@
     --font-size-large: 1.75rem;
     --font-size-x-large: 2.25rem;
 
-    
+    --font-family-default: #{$fontStack};
+    --font-family-serif: #{$fontStackSerifs};
+    --font-family-monospace: #{$font-family-monospace};
+    --font-family-FAU-Logo: #{$fontStackFAU};
+
+
     --border-radius: #{$default-border-radius};
     --border-radius-buttons: #{$border-radius-buttons};
     --devider-height: #{$default-devider-height};

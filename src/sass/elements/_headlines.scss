@@ -43,7 +43,7 @@ h1,
 h2,
 h1.wp-block-heading,
 h2.wp-block-heading {
-	@include hyphens(none);
+	hyphens: none;
 }
 
 h3,
@@ -51,7 +51,7 @@ h4,
 h5,
 h6 
 {
-	@include hyphens(auto);
+	hyphens: auto;
 }
 
 h1,
@@ -237,7 +237,7 @@ h6 {
 		font-style: normal;
 	}
 
-	@include hyphens(none);
+	hyphens: none;
 	@include px2rem($font-size-h2-small);
 
 	.content-inline & {

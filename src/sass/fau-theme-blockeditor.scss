@@ -22,8 +22,9 @@ $font-path-roboto:	'../fonts/roboto';
 // Block Library Overwrites
 @import "block-library/block-library";
 
+// Styles im Editor  
 @import "editor-style/editor-style";
 
 .editor-styles-wrapper{
-    font-family: $fontStack;
+    font-family: var(--font-family-default);
 }

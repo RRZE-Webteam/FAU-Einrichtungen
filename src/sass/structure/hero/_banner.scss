@@ -96,7 +96,7 @@
 		p.sitetitle,
 		h1 {
 			@include px2rem($font-size-h1,  $font-size-base);		
-			@include hyphens(none);
+			hyphens: none;
 			color: var(--color-hero-text);
 			background: var(--color-hero-bg);
 			margin: 0;

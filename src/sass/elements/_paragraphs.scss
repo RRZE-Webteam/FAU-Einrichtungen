@@ -1,8 +1,40 @@
 /*-----------------------------------------------------------------------------------*/
 /* Paragraphs
 /*-----------------------------------------------------------------------------------*/
-@import "../mixins/mixin-paragraphs";
 
 p {
-	@include paragraphs();
+    @include paragraphs();
+    
+    &.searchnotice {
+        font-size: 1.5rem;
+        padding: 4px 0 22px 0;
+    }
+
+    &.lead-in {
+        margin: 0;
+        padding: 0;
+        font-weight: 300;
+        font-style: italic;
+        @include px2rem($font-size-quotes);
+    }
+
+    &.presentationtitle {
+        font-weight: bold;
+        @include px2rem($font-size-h1, $font-size-base);
+        margin: 20px 0;
+    }
+
+    .entry-content & {
+	hyphens: auto;
+        text-wrap: pretty;
+    }
+
+    .textwidget & {
+        @include px2rem($font-size-contentwidgets);
+    }
+
+    aside &,
+    .widget & {
+        @include px2rem($font-size-sidebar);
+    }
 }

@@ -154,6 +154,10 @@
     --font-size-normal: 1rem;
     --font-size-large: 1.75rem;
     --font-size-x-large: 2.25rem;
+    --font-family-default: Roboto, FAU Chimera, sans-serif;
+    --font-family-serif: Georgia, Times New Roman, Times, serif;
+    --font-family-monospace: Menlo, Monaco, Consolas, Courier New, monospace;
+    --font-family-FAU-Logo: FAU Chimera, sans-serif;
     --border-radius: 0px;
     --border-radius-buttons: 0px;
     --devider-height: 4px;
@@ -543,6 +547,10 @@ Icons as functions
 /*
 Mixins File for Wordpress Theme FAU
 */
+/*----------------------------------------------------------------------------*/
+/* _global 
+/* Created on : 06.11.2024, 12:45:02
+/*----------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------*/
 /* Fonts
 /*-----------------------------------------------------------------------------------*/
@@ -1052,6 +1060,11 @@ pre.wp-block-preformatted {
 /*
 * CSS Settings for Editor (Gutenberg and Classic Editor)
 */
+/*----------------------------------------------------------------------------*/
+/* _editor-sidebar.scss
+/*  CSS belong Editor: Sidebar and tools
+/* Created on : 6.11.2024, 10:00
+/*----------------------------------------------------------------------------*/
 .edit-post-sidebar h3 {
     margin-top: 1em;
     font-weight: bold;
@@ -1097,9 +1110,11 @@ pre.wp-block-preformatted {
     word-wrap: anywhere;
 }
 
-/*
-Backend CSS Settings for Block Editor (Gutenberg)
-*/
+/*----------------------------------------------------------------------------*/
+/* _gutenberg.scss
+/* Backend CSS Settings for Block Editor (Gutenberg)
+/* Created on : 6.11.2024, 10:00
+/*----------------------------------------------------------------------------*/
 .block-editor .editor-styles-wrapper {
     margin: 0 30px;
     padding: var(--width-gutter-half, 15px);
@@ -1118,7 +1133,7 @@ Backend CSS Settings for Block Editor (Gutenberg)
 }
 
 /*----------------------------------------------------------------------------*/
-/* _wp-block-paragraph 
+/* _core-üaragraphs.scsss
 /* Created on : 03.05.2024, 15:12:21
 /*----------------------------------------------------------------------------*/
 p.wp-block-paragraph {
@@ -1126,46 +1141,23 @@ p.wp-block-paragraph {
     padding: 0 0 var(--width-gutter-half) 0;
     font-size: var(--font-size-normal, 1rem);
     color: var(--color-Text);
-    font-family: "Roboto", "FAU Chimera", sans-serif;
+    font-family: var(--font-family-default);
     font-style: normal;
-}
-p.wp-block-paragraph.searchnotice {
-    font-size: 1.5rem;
-    padding: 4px 0 22px 0;
-}
-p.wp-block-paragraph.lead-in {
-    margin: 0;
-    padding: 0;
-    font-weight: 300;
-    font-style: italic;
-    font-size: 1.125rem;
-}
-p.wp-block-paragraph.presentationtitle {
-    font-weight: bold;
-    font-size: 1.813rem;
-    margin: 20px 0;
-}
-.entry-content p.wp-block-paragraph {
+    line-height: 1.5;
     hyphens: auto;
     text-wrap: pretty;
 }
-.textwidget p.wp-block-paragraph {
-    font-size: 0.875rem;
-}
-aside p.wp-block-paragraph, .widget p.wp-block-paragraph {
-    font-size: 0.875rem;
-}
 
 /*----------------------------------------------------------------------------*/
-/* _wp-block-blockquote 
-/* Created on : 03.05.2024, 15:12:21
+/* _core-blockquote.scss
+/* Created on : 6.11.2024, 10:00
 /*----------------------------------------------------------------------------*/
 blockquote.wp-block-quote,
 figure.wp-block-pullquote blockquote {
     padding: 0;
     margin: 0;
     border: none;
-    font-family: Georgia, serif;
+    font-family: var(--font-family-serif);
     position: relative;
     font-size: 1.125rem;
     margin: 1rem;
@@ -1205,7 +1197,7 @@ figure.wp-block-pullquote blockquote h6 {
 blockquote.wp-block-quote p,
 figure.wp-block-pullquote blockquote p {
     margin-bottom: 0;
-    font-family: Georgia, serif;
+    font-family: var(--font-family-serif);
     font-size: 1.125rem;
     font-weight: 400;
     letter-spacing: 0.3px;
@@ -1298,7 +1290,7 @@ figure.wp-block-pullquote blockquote {
 }
 
 /*----------------------------------------------------------------------------*/
-/* _wp-block-list-item 
+/* _core-lists-scss
 /* Created on : 24.09.2024, 08:10:21
 /*----------------------------------------------------------------------------*/
 .wp-block-list-item {
@@ -1306,36 +1298,14 @@ figure.wp-block-pullquote blockquote {
     padding: 0 0 var(--width-gutter-half) 0;
     font-size: var(--font-size-normal, 1rem);
     color: var(--color-Text);
-    font-family: "Roboto", "FAU Chimera", sans-serif;
+    font-family: var(--font-family-default);
     font-style: normal;
 }
-.wp-block-list-item.searchnotice {
-    font-size: 1.5rem;
-    padding: 4px 0 22px 0;
-}
-.wp-block-list-item.lead-in {
-    margin: 0;
-    padding: 0;
-    font-weight: 300;
-    font-style: italic;
-    font-size: 1.125rem;
-}
-.wp-block-list-item.presentationtitle {
-    font-weight: bold;
-    font-size: 1.813rem;
-    margin: 20px 0;
-}
-.entry-content .wp-block-list-item {
-    hyphens: auto;
-    text-wrap: pretty;
-}
-.textwidget .wp-block-list-item {
-    font-size: 0.875rem;
-}
-aside .wp-block-list-item, .widget .wp-block-list-item {
-    font-size: 0.875rem;
-}
 
+/*----------------------------------------------------------------------------*/
+/* _core_table.scss
+/* Created on : 6.11.2024, 10:00
+/*----------------------------------------------------------------------------*/
 figure {
     border: 0;
     background: transparent;
@@ -1456,6 +1426,10 @@ figure.is-style-regular tr:nth-child(odd) td {
     border-color: var(--color-StandardHellgrau, rgb(233, 237, 242));
 }
 
+/*----------------------------------------------------------------------------*/
+/* _core-verse.scss
+/* Created on : 6.11.2024, 10:00
+/*----------------------------------------------------------------------------*/
 pre.wp-block-verse {
     display: block;
     padding: 10px 0;
@@ -1466,11 +1440,10 @@ pre.wp-block-verse {
     white-space: pre-wrap;
     border: 1px solid var(--color-ContentBorders);
     border-radius: var(--border-radius, 4px);
-    background-clip: padding-box;
     padding: 0 3px 2px;
     color: var(--color-Text);
     background-color: var(--color-StandardHellgrau);
-    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-family: var(--font-family-monospace);
     font-size: 0.875rem;
 }
 
@@ -1482,12 +1455,9 @@ pre.wp-block-preformatted {
 }
 
 /*----------------------------------------------------------------------------*/
-/* _wp-block-paragraph 
-/* Created on : 03.05.2024, 15:12:21
+/* _core-heading
+/* Created on : 6.11.2024, 10:00
 /*----------------------------------------------------------------------------*/
-/*-----------------------------------------------------------------------------------*/
-/* Headlines
-/*-----------------------------------------------------------------------------------*/
 h1.wp-block-heading,
 h2.wp-block-heading,
 h3.wp-block-heading,
@@ -1667,6 +1637,10 @@ table h6.wp-block-heading {
     margin-top: 0;
 }
 
+/*----------------------------------------------------------------------------*/
+/* _core-image
+/* Created on : 6.11.2024, 10:00
+/*----------------------------------------------------------------------------*/
 .editor-styles-wrapper figure {
     border-top: none;
 }
@@ -1760,5 +1734,5 @@ table h6.wp-block-heading {
 }
 
 .editor-styles-wrapper {
-    font-family: "Roboto", "FAU Chimera", sans-serif;
+    font-family: var(--font-family-default);
 }
