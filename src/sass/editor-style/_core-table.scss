@@ -1,0 +1,38 @@
+/*----------------------------------------------------------------------------*/
+/* _core_table.scss
+/* Created on : 6.11.2024, 10:00
+/*----------------------------------------------------------------------------*/
+
+figure {
+    // currently from mixins/mixins
+    @include table();
+    border-bottom: none;
+
+    &.is-style-regular {
+        border-top: none;
+        border-bottom: none;
+
+        th {
+            background: transparent;
+            border-top: none;
+            border-bottom: none;
+        }
+
+        tr {
+            border-left: none;
+            border-right: none;
+        }
+
+        tr:nth-child(odd) td {
+            background: transparent;
+        }
+    }
+}
+
+.wp-block-table {
+    tr,
+    th,
+    td {
+        border-color: var(--color-StandardHellgrau, rgb(233, 237, 242));
+    }
+}

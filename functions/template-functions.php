@@ -182,7 +182,7 @@ function fau_body_class($classes) {
     }
 
 
-    $sitetitle = get_bloginfo('title','display');
+    $sitetitle = get_bloginfo('name','display');
     if (strlen($sitetitle) > 50) {
         $classes[] = 'longtitle';
     }
@@ -920,7 +920,7 @@ function fau_create_schema_publisher($withrahmen = true)
         $out .= '<meta itemprop="height" content="' . get_custom_header()->height . '">';
         $out .= '</div>';
     }
-    $out .= '<meta itemprop="name" content="' . get_bloginfo('title','display') . '">';
+    $out .= '<meta itemprop="name" content="' . get_bloginfo('name','display') . '">';
     $out .= '<meta itemprop="url" content="' . home_url('/') . '">';
     if ($withrahmen) {
         $out .= '</div>';
@@ -1923,7 +1923,7 @@ function fau_get_the_taglist($before = '', $sep = '', $after = '') {
  */
 /*-----------------------------------------------------------------------------------*/
 if (!function_exists("print_indented")) {
-    function print_indented($fn, $num_tabs = 1, $params = null)  {
+    function print_indented($fn, $num_tabs = 0, $params = null)  {
         ob_start();
         call_user_func($fn, $params);
         $html = ob_get_contents();

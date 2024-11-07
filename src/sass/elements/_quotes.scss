@@ -1,143 +1,17 @@
 /*-----------------------------------------------------------------------------------*/
 /* Blockquotes, Cites, Abbr
 /*-----------------------------------------------------------------------------------*/
-
+@import "../mixins/mixin-blockquotes";
 
 blockquote {
-    padding: 0;
-    margin: 0;
-    border: none;
-    font-family: $fontStackSerifs;
-    position: relative;
-    @include px2rem($font-size-quotes);
-
-    p {
-        margin-bottom: 0;
-        font-family: $fontStackSerifs;
-        @include px2rem($font-size-quotes);
-        font-weight: 400;
-        letter-spacing: .3px;
-
-        strong {
-            font-weight: bolder;
-        }
-    }
-
- //   #tinymce &,
-//    #content & {
-   //     max-width: calc(100% - 2.5rem);
-        margin: 1rem;
-        padding: 2rem 1.5rem;
-        min-height: 3rem;
-        border-left: 10px solid var(--color-primary-ci-hell);
-	border-radius: var(--border-radius);
-        background: var(--color-ContentRegions);
-        display: inline-block;
-        overflow: hidden;
-
-        @media (min-width: $screen-sm) {
-            margin: 0.6rem 2rem;
-     //       padding: 31px 40px 20px 40px;
-   //         max-width: calc(100% - 4rem);
-        }
-
-        p, h1, h2, h3, h4, h5, h6 {
-            color: var(--color-Text);
-        }
- //   }
-
-    
-
-    small,
-    cite {
-        display: block;
-        text-align: right;
-        @include px2rem($font-size-quotes-cites);
-        color: var(--color-Text);
-
-        &:before {
-            content: '\2014 \00A0';
-        }
-
-    }
-
-    cite {
-        margin-top: var(--width-gutter-half);
-    }
-
-    #content & img {
-        box-shadow: none;
-        border: none;
-    }
-
-    &.pull-right {
-        border-right: none;
-        padding-right: var(--width-gutter);
-        padding-left: var(--width-gutter-half);
-	float: right;
-	
-	p,
-	small {
-		text-align: right;
-	}
-	small:before {
-	    content: '';
-	}
-	small:after {
-	    content: '\00A0 \2014';
-	}
-    }
-    
-    .sidebar-inline &,
-    #tinymce &.noquote,
-    #content &.noquote {
-        background: inherit;
-        padding-left: 0;
-        padding-right: 0;
-        border: none;
-
-        &::after,
-        &::before {
-            content: "";
-        }
-
-    }
-
-    .sidebar-inline & {
-	margin: 0.6rem;
-        padding: 0.5rem;
-        @include px2rem($font-size-sidebar);
-        p {
-            @include px2rem($font-size-sidebar);
-        }
-    }
-
-    
+    @include blockquote();
 }
-
-
 
 cite {
-    color: var(--color-Text);
-    font-weight: normal;
-    font-style: italic;
-
-    &.text {
-        color: inherit;
-    }
-
-    #content .sidebar-inline & {
-        @include px2rem($font-size-sidebar);
-
-        p {
-            @include px2rem($font-size-sidebar);
-        }
-    }
+    @include cite();
 }
 
-
 // Abbrevations, Acronyms
-
 acronym[title],
 acronym[data-original-title],
 abbr[title],
@@ -151,5 +25,3 @@ abbr.initialism {
     font-size: 90%;
     text-transform: uppercase;
 }
-
-

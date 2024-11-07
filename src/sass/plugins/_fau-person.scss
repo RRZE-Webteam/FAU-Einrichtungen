@@ -264,6 +264,10 @@
 	margin-top: 0;
     }
     
+    .fau-person.sidebar {
+	margin-bottom: 1rem;
+    }
+
 }
 
 /* Strukturen Personenshortcode Content */
@@ -348,6 +352,8 @@
     
     
 }
+
+
 .fau-theme .fau-person.sidebar.thumb-size-large .row,
 .fau-theme .fau-person.sidebar .row  {
     justify-content: flex-start;

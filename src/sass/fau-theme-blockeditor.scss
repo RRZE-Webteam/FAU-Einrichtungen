@@ -1,0 +1,29 @@
+// Import FAU variables
+@import "variables";
+
+// Custom Properties
+@import "custom-properties";
+
+// Adjust font directory due to relative path
+$font-path-fau-chimera: '../fonts/fau-chimera/';	
+$font-path-awesome:	'../fonts/fontawesome';
+$font-path-roboto:	'../fonts/roboto';
+
+// SVG Icons and CI elements
+@import "icons/icons";
+
+// Mixins
+@import "mixins/mixins";
+
+// Fonts
+@import "fonts/fonts";
+
+// Block Library Overwrites
+@import "block-library/block-library";
+
+// Styles im Editor  
+@import "editor-style/editor-style";
+
+.editor-styles-wrapper{
+    font-family: var(--font-family-default);
+}

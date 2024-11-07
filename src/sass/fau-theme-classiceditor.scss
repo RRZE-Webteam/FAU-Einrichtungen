@@ -1,0 +1,26 @@
+// Import FAU variables
+@import "variables";
+
+// Custom Properties
+@import "custom-properties";
+
+// Adjust font directory due to relative path
+$font-path-fau-chimera: '../fonts/fau-chimera/';	
+$font-path-awesome:	'../fonts/fontawesome';
+$font-path-roboto:	'../fonts/roboto';
+
+
+// SVG Icons and CI elements
+@import "icons/icons";
+
+// Mixins
+@import "mixins/mixins";
+
+// Fonts
+@import "fonts/fonts";
+
+
+.wp-editor {
+    font-family: var(--font-family-default);
+    @import "elements/elements";
+}

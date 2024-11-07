@@ -63,11 +63,7 @@
           column-gap: $column-gap;
 }
 
-// Optional hyphenation
-@mixin hyphens($mode: auto) {
-  word-wrap: break-word;
-          hyphens: $mode;
-}
+
 
 
 // Transformations

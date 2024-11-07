@@ -1,0 +1,28 @@
+
+/*----------------------------------------------------------------------------*/
+/* _gutenberg.scss
+/* Backend CSS Settings for Block Editor (Gutenberg)
+/* Created on : 6.11.2024, 10:00
+/*----------------------------------------------------------------------------*/
+
+
+.block-editor {
+	.editor-styles-wrapper {
+		margin: 0 30px;
+		padding: var(--width-gutter-half, 15px);
+	}
+
+	.edit-post-layout__metaboxes {
+		background-color: #ddd;
+	}
+
+	.edit-post-meta-boxes-area.is-advanced,
+	.edit-post-meta-boxes-area.is-normal {
+		background-color: #f0f0f1;
+		margin: 0 30px;
+
+		.postbox {
+			margin: 10px;
+		}
+	}
+}

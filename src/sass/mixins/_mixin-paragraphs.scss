@@ -1,0 +1,9 @@
+@mixin paragraphs {
+    margin: 0;
+    padding: 0 0 var(--width-gutter-half) 0;
+    font-size: var(--font-size-normal, 1rem);  
+    color: var(--color-Text);
+    font-family: var(--font-family-default);
+    font-style: normal;
+   
+}

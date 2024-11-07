@@ -4,12 +4,6 @@
 
 
 
-mark,
-.mark {
-  background-color: $state-warning-bg;
-  padding: .2em;
-}
-
 // Alignment
 .text-left           { text-align: left; }
 .text-right          { text-align: right; }
@@ -22,62 +16,4 @@ mark,
 .text-uppercase      { text-transform: uppercase; }
 .text-capitalize     { text-transform: capitalize; }
 
-// Contextual colors
-.text-muted {
-  color: $text-muted;
-}
-
-@include text-emphasis-variant('.text-primary', $brand-primary);
-
-@include text-emphasis-variant('.text-success', $state-success-text);
-
-@include text-emphasis-variant('.text-info', $state-info-text);
-
-@include text-emphasis-variant('.text-warning', $state-warning-text);
-
-@include text-emphasis-variant('.text-danger', $state-danger-text);
-
-// Contextual backgrounds
-// For now we'll leave these alongside the text classes until v4 when we can
-// safely shift things around (per SemVer rules).
-.bg-primary {
-  // Given the contrast here, this is the only class to have its color inverted
-  // automatically.
-  color: #fff;
-}
-@include bg-variant('.bg-primary', $brand-primary);
-
-@include bg-variant('.bg-success', $state-success-bg);
-
-@include bg-variant('.bg-info', $state-info-bg);
-
-@include bg-variant('.bg-warning', $state-warning-bg);
-
-@include bg-variant('.bg-danger', $state-danger-bg);
-
-
-
-// Horizontal description lists
-//
-// Defaults to being stacked without any of the below styles applied, until the
-// grid breakpoint is reached (default of ~768px).
-
-.dl-horizontal {
-  dd {
-    @include clearfix; // Clear the floated `dt` if an empty `dd` is present
-  }
-
-  @media (min-width: $dl-horizontal-breakpoint) {
-    dt {
-      float: left;
-      width: ($dl-horizontal-offset - 20);
-      clear: left;
-      text-align: right;
-      @include text-overflow;
-    }
-    dd {
-      margin-left: $dl-horizontal-offset;
-    }
-  }
-}
 

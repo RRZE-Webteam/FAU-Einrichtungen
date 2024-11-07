@@ -1,0 +1,64 @@
+/*----------------------------------------------------------------------------*/
+/* _editor-sidebar.scss
+/*  CSS belong Editor: Sidebar and tools
+/* Created on : 6.11.2024, 10:00
+/*----------------------------------------------------------------------------*/
+
+
+.edit-post-sidebar {
+	h3 {
+		margin-top: 1em;
+		font-weight: bold;
+		text-transform: none;
+		font-size: 1em;
+		border-bottom: 1px solid;
+	}
+
+	p.howto {
+		margin: 0.5em 0.3em;
+		font-style: inherit;
+	}
+
+	.subsetting {
+		margin-left: 20px;
+	}
+
+	.customize-control-title {
+		font-weight: bold;
+	}
+
+	.toggle-switch-control {
+		margin: 0 0 1.5em;
+	}
+
+	.toggle-switch {
+		float: left;
+		margin-right: 10px;
+
+		.toggle-switch-label {
+			box-sizing: border-box;
+		}
+
+		.toggle-switch-inner:before,
+		.toggle-switch-inner:after {
+			height: 14px;
+			line-height: 14px;
+			font-size: 12px;
+		}
+
+		.toggle-switch-inner:after {
+			background-color: inherit;
+		}
+	}
+
+	.customize-control-title {
+		font-weight: bold;
+	}
+}
+
+.edit-post-meta-boxes-area {
+	#poststuff h2.hndle {
+		padding: 16px 0 16px 16px;
+		word-wrap: anywhere;
+	}
+}

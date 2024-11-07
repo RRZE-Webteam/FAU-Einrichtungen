@@ -3,16 +3,49 @@
 /* Created on : 16.05.2024, 09:23:37
 /*----------------------------------------------------------------------------*/
 figure.wp-block-table {
-    &:has(.wp-element-caption) {
-	table {
-	    margin-bottom: 0.2rem;
+	&:has(.wp-element-caption) {
+		table {
+			margin-bottom: 0.2rem;
+		}
+
+		.wp-element-caption {
+			margin-bottom: 1rem;
+		}
 	}
-	.wp-element-caption {
-	     margin-bottom: 1rem;
+
+	&.is-style-regular {
+		border-top: none;
+		border-bottom: none;
+
+		th {
+			background: transparent;
+			border-top: none;
+			border-bottom: none;
+		}
+
+		tr {
+			border-left: none;
+			border-right: none;
+		}
+
+		tr:nth-child(odd) td {
+			background: transparent;
+		}
 	}
-    }
+
+	&.is-style-stripes {
+		border-bottom: none;
+	}
+
+	tr,
+	th,
+	td {
+		border-color: var(--color-StandardHellgrau, rgb(233, 237, 242));
+	}
+
+	border-bottom: none;
 }
 
 .wp-block-table.is-style-stripes tbody tr:nth-child(2n+1) {
-    background-color: var(--color-StandardHellgrau);
+	background-color: var(--color-StandardHellgrau);
 }

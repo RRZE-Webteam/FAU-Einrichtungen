@@ -2,6 +2,7 @@
 // Konstanten fuer das Design
 //-----------------------------------------------------------------------------------*/
 @use "sass:math";
+@use 'sass:map';
 
 $farbfamilie: 'zuv';
 // med, phil, nat, rw, tf, zuv
@@ -13,6 +14,9 @@ $colormap-misc: ("Text": #222,
 		 "TextLight": #797676, 
 		 "TextLightKontrast": #5B5858,
 		 "MetaTextDefault": #444,
+		 "MetaBackground": #d4d4d4,
+		 "MetaHover": #264c7b,
+		 "MetaBackgroundLight": #eff1f4,
 		 "Notice": #a71c18, 
 		 "Alert": #c5ac94,
 		 "ZUV": #04316A, 
@@ -71,79 +75,79 @@ $colormap-primary: $colormap-zentral;
 $colormaps: ("primary": $colormap-primary, "zentral": $colormap-zentral, "phil": $colormap-phil, "med": $colormap-med, "nat": $colormap-nat, "rw": $colormap-rw, "tf": $colormap-tf);
 
 // Branding Color (Color for textlogo)
-$color-branding-primary:    map-get($colormap-primary, "ci-hell");
-$color-branding-primary-kontrast:    map-get($colormap-primary, "ci-hell-kontrast");
-$color-branding-zentral:    map-get($colormap-zentral, "ci-hell");
-$color-branding-phil:	    map-get($colormap-phil, "ci-hell");
-$color-branding-med:	    map-get($colormap-med, "ci-hell");
-$color-branding-tf:	    map-get($colormap-tf, "ci-hell");
-$color-branding-rw:	    map-get($colormap-rw, "ci-hell");
-$color-branding-nat:	    map-get($colormap-nat, "ci-hell");
+$color-branding-primary:    map.get($colormap-primary, "ci-hell");
+$color-branding-primary-kontrast:    map.get($colormap-primary, "ci-hell-kontrast");
+$color-branding-zentral:    map.get($colormap-zentral, "ci-hell");
+$color-branding-phil:	    map.get($colormap-phil, "ci-hell");
+$color-branding-med:	    map.get($colormap-med, "ci-hell");
+$color-branding-tf:	    map.get($colormap-tf, "ci-hell");
+$color-branding-rw:	    map.get($colormap-rw, "ci-hell");
+$color-branding-nat:	    map.get($colormap-nat, "ci-hell");
 
 
 // Content
-$color-content-headlines:   map-get($colormap-misc, "Text");
-$color-links:		    map-get($colormap-misc, "Text");
-$color-content-links:	    map-get($colormap-misc, "Text");
-$color-content-links-underline:	    map-get($colormap-primary, "ci-hell");
-$color-content-links-hover: map-get($colormap-primary, "ci-hell");
+$color-content-headlines:   map.get($colormap-misc, "Text");
+$color-links:		    map.get($colormap-misc, "Text");
+$color-content-links:	    map.get($colormap-misc, "Text");
+$color-content-links-underline:	    map.get($colormap-primary, "ci-hell");
+$color-content-links-hover: map.get($colormap-primary, "ci-hell");
 
 
 // Footer
-$color-footer-bg:	map-get($colormap-primary, "ci-hell");
-$color-footer-text:	map-get($colormap-primary, "ci-hell-kontrast");
+$color-footer-bg:	map.get($colormap-primary, "ci-hell");
+$color-footer-text:	map.get($colormap-primary, "ci-hell-kontrast");
 
 
 // Hero
-$color-hero-bg:		map-get($colormap-primary, "ci-hell");
-$color-hero-text:	map-get($colormap-primary, "ci-hell-kontrast");
+$color-hero-bg:		map.get($colormap-primary, "ci-hell");
+$color-hero-text:	map.get($colormap-primary, "ci-hell-kontrast");
 
 
 
 // Main Menu
-$color-mainmenu-toplevel-bg:		map-get($colormap-misc, "MainBackground");
-$color-mainmenu-toplevel-text:		map-get($colormap-misc, "Text");
-$color-mainmenu-toplevel-hover-text:	map-get($colormap-primary, "ci-hell-kontrast");
-$color-mainmenu-toplevel-hover-bg:	map-get($colormap-primary, "ci-hell");
-$color-mainmenu-sublevel-bg:		map-get($colormap-primary, "ci-hell");
-$color-mainmenu-sublevel-text:		map-get($colormap-primary, "ci-hell-kontrast");
-$color-mainmenu-sublevel-hover-text:	map-get($colormap-primary, "dunkler-kontrast");
-$color-mainmenu-sublevel-hover-bg:	map-get($colormap-primary, "dunkler");
-$color-mainmenu-sublevel-button-text:	map-get($colormap-primary, "ci-hell-kontrast");
-$color-mainmenu-sublevel-button-bg:	map-get($colormap-primary, "ci-hell");
-$color-mainmenu-sublevel-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
-$color-mainmenu-sublevel-button-hover-bg:	map-get($colormap-primary, "dunkelste");
+$color-mainmenu-toplevel-bg:		map.get($colormap-misc, "MainBackground");
+$color-mainmenu-toplevel-text:		map.get($colormap-misc, "Text");
+$color-mainmenu-toplevel-hover-text:	map.get($colormap-primary, "ci-hell-kontrast");
+$color-mainmenu-toplevel-hover-bg:	map.get($colormap-primary, "ci-hell");
+$color-mainmenu-sublevel-bg:		map.get($colormap-primary, "ci-hell");
+$color-mainmenu-sublevel-text:		map.get($colormap-primary, "ci-hell-kontrast");
+$color-mainmenu-sublevel-hover-text:	map.get($colormap-primary, "dunkler-kontrast");
+$color-mainmenu-sublevel-hover-bg:	map.get($colormap-primary, "dunkler");
+$color-mainmenu-sublevel-button-text:	map.get($colormap-primary, "ci-hell-kontrast");
+$color-mainmenu-sublevel-button-bg:	map.get($colormap-primary, "ci-hell");
+$color-mainmenu-sublevel-button-hover-text:	map.get($colormap-primary, "dunkelste-kontrast");
+$color-mainmenu-sublevel-button-hover-bg:	map.get($colormap-primary, "dunkelste");
 
 // Submenu (= Subnav links)
-$color-submenu-toplevel-bg:		map-get($colormap-misc, "MainBackground");
-$color-submenu-toplevel-text:		map-get($colormap-misc, "Text");
-$color-submenu-toplevel-hover-text:	map-get($colormap-primary, "ci-hell-kontrast");
-$color-submenu-toplevel-hover-bg:	map-get($colormap-primary, "ci-hell");
-$color-submenu-active-bg:		map-get($colormap-primary, "ci-hell");
-$color-submenu-active-text:		map-get($colormap-primary, "ci-hell-kontrast");
-$color-submenu-hover-text:		map-get($colormap-primary, "dunkler-kontrast");
-$color-submenu-hover-bg:		map-get($colormap-primary, "dunkler");
-$color-submenu-currentlevel-text:	map-get($colormap-primary, "ci-hell2-kontrast");
-$color-submenu-currentlevel-bg:		map-get($colormap-primary, "ci-hell2");
-$color-submenu-currentpage-text-hover:	map-get($colormap-misc, "StandardHellgrau-Hover");
-$color-submenu-sublevel-text:		map-get($colormap-primary, "ci-hell-kontrast");
-$color-submenu-sublevel-bg:		map-get($colormap-primary, "ci-hell");
+$color-submenu-toplevel-bg:		map.get($colormap-misc, "MainBackground");
+$color-submenu-toplevel-text:		map.get($colormap-misc, "Text");
+$color-submenu-toplevel-hover-text:	map.get($colormap-primary, "ci-hell-kontrast");
+$color-submenu-toplevel-hover-bg:	map.get($colormap-primary, "ci-hell");
+$color-submenu-active-bg:		map.get($colormap-primary, "ci-hell");
+$color-submenu-active-text:		map.get($colormap-primary, "ci-hell-kontrast");
+$color-submenu-hover-text:		map.get($colormap-primary, "dunkler-kontrast");
+$color-submenu-hover-bg:		map.get($colormap-primary, "dunkler");
+$color-submenu-currentlevel-text:	map.get($colormap-primary, "ci-hell2-kontrast");
+$color-submenu-currentlevel-bg:		map.get($colormap-primary, "ci-hell2");
+$color-submenu-currentpage-text-hover:	map.get($colormap-misc, "StandardHellgrau-Hover");
+$color-submenu-sublevel-text:		map.get($colormap-primary, "ci-hell-kontrast");
+$color-submenu-sublevel-bg:		map.get($colormap-primary, "ci-hell");
 
-$color-submenu-currentpage-bg:		map-get($colormap-primary, "dunkelste");
-$color-submenu-currentpage-text:	map-get($colormap-primary, "dunkelste-kontrast");
+$color-submenu-currentpage-bg:		map.get($colormap-primary, "dunkelste");
+$color-submenu-currentpage-text:	map.get($colormap-primary, "dunkelste-kontrast");
 
-$color-menulink-hover-text:		map-get($colormap-primary, "dunkler-kontrast");
-$color-menulink-hover-bg:		map-get($colormap-primary, "dunkler");
-
-
+$color-menulink-hover-text:		map.get($colormap-primary, "dunkler-kontrast");
+$color-menulink-hover-bg:		map.get($colormap-primary, "dunkler");
 
 
-$colorNotice:		map-get($colormap-misc, "Notice"); 	
-$colorZUV:		map-get($colormap-misc, "ZUV"); 
-$colorDefault:		map-get($colormap-misc, "Default"); 
-$colorStandardHellgrau: map-get($colormap-misc, "StandardHellgrau"); 
-$colorContentRegions:	map-get($colormap-misc, "ContentRegions"); 
-$colorMainBackground:	map-get($colormap-misc, "MainBackground"); 
+
+
+$colorNotice:		map.get($colormap-misc, "Notice"); 	
+$colorZUV:		map.get($colormap-misc, "ZUV"); 
+$colorDefault:		map.get($colormap-misc, "Default"); 
+$colorStandardHellgrau: map.get($colormap-misc, "StandardHellgrau"); 
+$colorContentRegions:	map.get($colormap-misc, "ContentRegions"); 
+$colorMainBackground:	map.get($colormap-misc, "MainBackground"); 
 
 $colorShadows:	rgba(135,132,135,1);
 // Color for shadows
@@ -155,30 +159,25 @@ $colorOverlayDark: rgba(0, 0, 0, 0.15);
 
 // Meta Menu
 // Define Background-Color for Meta Menu at top
-$colorMetaFAUHomeBackground:	desaturate(darken($colorStandardHellgrau, 10%), 90%); // #d0d3d8;
-$colorMetaHover:		desaturate(lighten($colorDefault, 10%), 40%);
-$colorMetaLightest:		desaturate(lighten($colorDefault, 73%), 75%);
+$colorMetaFAUHomeBackground:	map.get($colormap-misc, "MetaBackground"); 
+$colorMetaHover:		map.get($colormap-misc, "MetaHover"); 
+$colorMetaLightest:		map.get($colormap-misc, "MetaBackgroundLight"); 
 
 
-
+		 
 // CopyrightInfos auf Slider und Banner
 $colorCopyright: #fff;
 $colorCopyrightBackground: rgba(0, 0, 0, 0.6);
 
 // Buttons
-// $color_button_text:		map-get($colormap-primary, "dunkler-kontrast");
-// $color_button_bg:		map-get($colormap-primary, "dunkler");
-// $color-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
-// $color-button-hover-bg:		map-get($colormap-primary, "dunkelste");
-
-$color_button_text:		map-get($colormap-primary, "ci-hell-kontrast");
-$color_button_bg:		map-get($colormap-primary, "ci-hell");
-$color-button-hover-text:	map-get($colormap-primary, "dunkelste-kontrast");
-$color-button-hover-bg:		map-get($colormap-primary, "dunkelste");
+$color_button_text:		map.get($colormap-primary, "ci-hell-kontrast");
+$color_button_bg:		map.get($colormap-primary, "ci-hell");
+$color-button-hover-text:	map.get($colormap-primary, "dunkelste-kontrast");
+$color-button-hover-bg:		map.get($colormap-primary, "dunkelste");
 
 // Ghost-Button
-$color-ghostbutton-hover-text:	map-get($colormap-primary, "ci-hell-kontrast");
-$color-ghostbutton-hover-bg:	map-get($colormap-primary, "ci-hell");
+$color-ghostbutton-hover-text:	map.get($colormap-primary, "ci-hell-kontrast");
+$color-ghostbutton-hover-bg:	map.get($colormap-primary, "ci-hell");
 
 
 // Default Border Radius
@@ -190,9 +189,9 @@ $border-radius-buttons:	 0px;
 $default-devider-height: 4px;
 
 // Hinweis: Für SVG-Grafiken brauchen wir den HEX-Code direkt und können nicht Custom Properies nutzen!
-$socialmedia_icon_bgcolor_hover: map-get($colormap-primary, "ci-hell-kontrast");
-$socialmedia_icon_color:	map-get($colormap-primary, "ci-hell-kontrast");
-$socialmedia_icon_color_hover:	map-get($colormap-primary, "ci-hell");
+$socialmedia_icon_bgcolor_hover: map.get($colormap-primary, "ci-hell-kontrast");
+$socialmedia_icon_color:	map.get($colormap-primary, "ci-hell-kontrast");
+$socialmedia_icon_color_hover:	map.get($colormap-primary, "ci-hell");
 
 $svg-icon-size: 1.4rem;
 $svg-icon-color: $color_button_text;
@@ -204,7 +203,7 @@ $socialmedia_icon_size: 1.8rem;
 
 
 $fontStack: 'Roboto','FAU Chimera', sans-serif;
-$fontStackSerifs: Georgia, serif;
+$fontStackSerifs: Georgia, "Times New Roman", Times, serif;
 $fontStackFAU: 'FAU Chimera', sans-serif;
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 
@@ -333,15 +332,15 @@ $font-size-contentmenu-title: ($font-size-base + 2);
 $font-size-contentmenu-link: $font-size-base;
 $font-size-contentmenu-listview: ($font-size-base - 1);
 
-$contentmenu-xxs-width: 182px;
-$contentmenu-default-width: 302px;
-$contentmenu-default-height: floor(math.div(300px, 3) * 2);
-$contentmenu-xxs-maxheight: floor(math.div(180px, 3) * 2);
+$contentmenu-xxs-width:		182px;
+$contentmenu-default-width:	302px;
+$contentmenu-default-height:	200px;
+$contentmenu-xxs-maxheight:	120px;
 
-$contentmenu-typ2-width: 300px;
-$contentmenu-typ2-height: auto;
-$contentmenu-typ3-width: 480px;
-$contentmenu-typ3-height: auto;
+$contentmenu-typ2-width:	300px;
+$contentmenu-typ2-height:	auto;
+$contentmenu-typ3-width:	480px;
+$contentmenu-typ3-height:	auto;
 
 // Slider
 $slick-arrow-color: white !default;
@@ -368,27 +367,8 @@ $banner-startpage-minheight: $slider-minheight;
 
 // Define breakpoints
 
-// iPhone 3G
-$breakXS: 320px;
-// M8, Google, small others
-$breakSM: 480px;
-// iPad
-$breakMD: 767px;
-// iPad
-$breakLG: 992px; // 979px;
-// for small desktop up to 1200 pc or 1280 macbook air
-$break-1060: 1060px;
-// for larger desktop up to 1400 or macbook pro 1440
-$break-1360: 1360px;
-// for larger screen up to 1800px
-$break-1700: 1760px;
-// for 4k screens (2200px and more)
-$break-2200: 2200px;
-
-
-
 // Extra small screen / phone
-
+$screen-xxs:		    320px;
 $screen-xs:                  480px;
 $screen-xs-min:              $screen-xs;
 
@@ -405,9 +385,9 @@ $screen-textlogo-lg:	    1100px;
 $screen-lg:                  1200px;
 $screen-lg-min:              $screen-lg;
 
-$screen-xl: 1400px;
-$screen-xxl: 1760px;
-$screen-xxs: 320px;
+$screen-xl:		    1400px;
+$screen-xxl:		    1760px;
+
 
 
 
@@ -427,13 +407,10 @@ $container-lg: 1200px;
 $container-xl: 1400px;
 $container-xxl: 1760px;
 
-// max width of the homepage hero image, used by the plugin "ILI FAU Templates"
-$max-width-hero: 1920px;
-
 // Bootstrap Adjustments
-$fau-gutter-width: 30px;
-$fau-gutter-halfwidth: ceil(math.div($fau-gutter-width, 2));
-$fau-gutter-thirdwidth: ceil(math.div($fau-gutter-width, 3));
+$fau-gutter-width:	30px;
+$fau-gutter-halfwidth:	15px;
+$fau-gutter-thirdwidth: 10px;
 
 $grid-gutter-width: $fau-gutter-width;
 

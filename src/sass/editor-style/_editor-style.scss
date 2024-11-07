@@ -1,0 +1,24 @@
+/*
+* CSS Settings for Editor (Gutenberg and Classic Editor)
+*/
+// Sidebar
+@import "editor-sidebar";
+
+// general classes for editor
+@import "gutenberg";
+
+// Paragraph
+@import "core-paragraph";
+
+
+@import "core-blockquote";
+@import "core-list";
+@import "core-table";
+@import "core-verse";
+@import "core-heading";
+@import "core-image";
+
+
+
+// Screenreader Classes
+@import "../elements/accessibility";

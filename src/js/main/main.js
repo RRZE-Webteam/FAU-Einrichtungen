@@ -118,9 +118,13 @@ jQuery(document).ready(function ($) {
   var isTouch = "ontouchstart" in window || navigator.msMaxTouchPoints > 0;
 
   // Responsive tables
-  $("#content table")
-    .wrap('<div class="table-wrapper" />')
-    .wrap('<div class="scrollable" />');
+  // Removed since 2.5.18 due to better CSS and Block Editor methods. -WW, 31.10.2024
+  // 
+  // $("#content table")
+  //  .wrap('<div class="table-wrapper" />')
+  //  .wrap('<div class="scrollable" />');
+
+
 
   // Make #header fixed once scrolled down behind meta or on small screens
   var fixedHeader = function () {

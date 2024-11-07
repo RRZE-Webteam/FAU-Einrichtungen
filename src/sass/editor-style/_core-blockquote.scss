@@ -1,0 +1,22 @@
+/*----------------------------------------------------------------------------*/
+/* _core-blockquote.scss
+/* Created on : 6.11.2024, 10:00
+/*----------------------------------------------------------------------------*/
+
+blockquote.wp-block-quote,
+figure.wp-block-pullquote blockquote {
+    // included from mixins
+    @include blockquote();
+    border-left: none;
+    border-top: 10px solid var(--color-primary-ci-hell);
+    display: block;
+
+    cite {
+        text-align: inherit;
+    }
+}
+
+figure.wp-block-pullquote blockquote {
+    margin-left: 0;
+    margin-right: 0;
+}

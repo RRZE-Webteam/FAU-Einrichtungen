@@ -1,7 +1,7 @@
 {
     "name": "FAU-Einrichtungen",
     "textdomain": "fau",
-    "version": "2.5.16",
+    "version": "2.5.20",
     "keywords": [
         "WordPress",
         "Theme",
@@ -10,7 +10,7 @@
     ],
     "compatibility": {
         "wprequires": "6.4",
-        "wptestedup": "6.5",
+        "wptestedup": "6.6",
         "phprequires": "8.2"
     },
     "author": {
@@ -64,7 +64,7 @@
     },
     "contributors": [],
     "dependencies": {
-        "postcss": "^8.2.4"
+        "postcss": "^8.4.47"
     },
     "main": "index.php",
     "maincss": "style.css",
@@ -85,28 +85,24 @@
     "jsdir": "./js/",
     "cssdir": "./css/",
     "devDependencies": {
-        "@babel/core": "^7.12.10",
-        "@babel/preset-env": "^7.12.11",
-        "@babel/register": "^7.12.10",
-        "autoprefixer": "^10.2.3",
-        "cssnano": "^5.0.13",
-        "gulp": "^4.0.2",
-        "gulp-babel": "^8.0.0",
+        "@babel/core": "^7.26.0",
+        "@babel/preset-env": "^7.26.0",
+        "@babel/register": "^7.25.9",
+        "gulp": "^5.0.0",
         "gulp-bump": "^3.2.0",
         "gulp-concat": "^2.6.1",
-        "gulp-dart-sass": "^1.0.2",
+        "gulp-dart-sass": "^1.1.0",
         "gulp-header": "^2.0.9",
-        "gulp-postcss": "^9.0.0",
         "gulp-rename": "^2.0.0",
-        "gulp-replace": "^1.0.0",
-        "gulp-sass": "^5.0.0",
+        "gulp-replace": "^1.1.4",
+        "gulp-sass": "^5.1.0",
+        "gulp-sourcemaps": "^3.0.0",
         "gulp-touch-cmd": "0.0.1",
         "gulp-uglify": "^3.0.2",
-        "gulp-w3c-css": "^2.0.0",
         "gulp-wp-pot": "^2.5.0",
         "map-stream": "0.0.7",
-        "sass": "^1.42.1",
-        "semver": "^7.3.4",
-        "yargs": "^16.2.0"
+        "sass": "^1.80.5",
+        "semver": "^7.6.3",
+        "yargs": "^17.7.2"
     }
 }
