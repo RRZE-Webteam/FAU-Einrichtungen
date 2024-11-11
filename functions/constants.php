@@ -260,6 +260,8 @@ $defaultoptions = [
 	'search_notice_searchregion'                => __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie bitte die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.', 'fau'),
 
 
+    'advanced_sanitize_inlinestyles'            => true,
+    // wenn dies true ist werden style=""-ANgaben, die font-* und text-* ANgaben enthalten, aus dem Content entfernt.
 	'advanced_reveal_pages_id'                  => false,
 	// Zeigt Page-ID im Backend der Seitebearbeitung
 	'advanced_images_info_credits'              => 0,
@@ -1417,12 +1419,21 @@ $setoptions = array(
                 'advanced_header_search_hide'     => array(
 					'type'    => 'toggle',
 					'title'   => __('Standard Sucheingabe abschalten', 'fau'),
-					'label'   => __('Die Suchmaske im Kopfteil der Seite kann durch diese Option abgeschaltet werrden.', 'fau'),
+					'label'   => __('Die Suchmaske im Kopfteil der Seite kann durch diese Option abgeschaltet werden.', 'fau'),
 					'default' => $defaultoptions['advanced_header_search_hide'],
 					'parent'  => 'templates'
 				),
-                
-                
+                'sanitizer'  => array(
+					'type'    => 'section',
+					'title'   => __('Sanitizer', 'fau'),
+				),
+                'advanced_sanitize_inlinestyles'     => array(
+					'type'    => 'toggle',
+					'title'   => __('Font- und Text-Style-Angaben unterdrücken', 'fau'),
+					'label'   => __('Corporate Design Vorgaben erzwingen: Jegliche Benutzereingaben, die mit dem style-Attribut font- oder text-Angaben zu ändern versuchen, werden bei der Ausgabe entfernt.', 'fau'),
+					'default' => $defaultoptions['advanced_sanitize_inlinestyles'],
+					'parent'  => 'sanitizer'
+				),
 			),
 		),
 

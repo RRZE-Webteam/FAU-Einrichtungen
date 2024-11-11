@@ -158,6 +158,59 @@ function fau_remove_bad_p($content){
     $content = preg_replace('#<p><div #i', '<div ', $content);
     return preg_replace('#</div></p>#i', '</div>', $content);
 }
+/*-----------------------------------------------------------------------------------*/
+/* Remove font-Angaben aus Absätzen oder Spans.
+/*-----------------------------------------------------------------------------------*/
+function fau_remove_font_attributes_from_content($content) {
+    $fau_sanitize_inlinestyles = get_theme_mod('advanced_sanitize_inlinestyles');
+
+    if (!$fau_sanitize_inlinestyles) {
+       return $content;
+    }
+    
+    // Entfernt jegliche font-* Attribute aus den style-Attributen von <p> und <span>-Tags
+    $content = preg_replace_callback('/<(p|span)\b([^>]*?)\sstyle="([^"]*)"\s?([^>]*)>/i', function ($matches) {
+        // Entfernt alle style-Deklarationen, die mit "font-" beginnen
+        $newStyle = preg_replace('/font-[^:]+:\s?[^;]+;?\s*/i', '', $matches[3]);
+
+        // Falls nach dem Entfernen das style-Attribut leer ist, wird es komplett entfernt
+        if (trim($newStyle) === '') {
+            return "<{$matches[1]}{$matches[2]}{$matches[4]}>";
+        } else {
+            return "<{$matches[1]}{$matches[2]} style=\"$newStyle\"{$matches[4]}>";
+        }
+    }, $content);
+
+    $content = preg_replace('/\sstyle="\s*"/i', '', $content);
+    return $content;
+}
+add_filter('the_content', 'fau_remove_font_attributes_from_content');
+/*-----------------------------------------------------------------------------------*/
+/* Remove text-Angaben aus Absätzen oder Spans.
+/*-----------------------------------------------------------------------------------*/
+function fau_remove_text_attributes_from_content($content) {
+    $fau_sanitize_inlinestyles = get_theme_mod('advanced_sanitize_inlinestyles');
+
+    if (!$fau_sanitize_inlinestyles) {
+       return $content;
+    }
+    // Entfernt jegliche font-* Attribute aus den style-Attributen von <p> und <span>-Tags
+    $content = preg_replace_callback('/<(p|span)\b([^>]*?)\sstyle="([^"]*)"\s?([^>]*)>/i', function ($matches) {
+        // Entfernt alle style-Deklarationen, die mit "font-" beginnen
+        $newStyle = preg_replace('/text-[^:]+:\s?[^;]+;?\s*/i', '', $matches[3]);
+
+        // Falls nach dem Entfernen das style-Attribut leer ist, wird es komplett entfernt
+        if (trim($newStyle) === '') {
+            return "<{$matches[1]}{$matches[2]}{$matches[4]}>";
+        } else {
+            return "<{$matches[1]}{$matches[2]} style=\"$newStyle\"{$matches[4]}>";
+        }
+    }, $content);
+
+    $content = preg_replace('/\sstyle="\s*"/i', '', $content);
+    return $content;
+}
+add_filter('the_content', 'fau_remove_text_attributes_from_content');
 
 /*-----------------------------------------------------------------------------------*/
 /* Filter empty lists 
@@ -314,26 +367,6 @@ function fau_add_subnav_css_class($css_class, $page){
 }
 add_filter("page_css_class", "fau_add_subnav_css_class", 10, 2);
 
-
-/*-----------------------------------------------------------------------------------*/
-/* Force srcset urls to be relative
- * Note: We are using our own function for relative links here (fau_make_link_relative),
- * cause this function will only make relative links to these urls, that are on the
- * same host. Therfor external images wont be changed.
- 
-function fau_make_srcset_relative_on_sitehost($sources, $size_array, $image_src, $image_meta, $attachment_id ) {
-    foreach ( $sources as &$source ) {
-        $source['url'] = fau_make_link_relative( $source['url'] );
-    }
-    return $sources;
-}
- * Deactivated 14.06.2023, WW: Macht weiter Probleme mit externen Domains bei 
- * dem FAU Studium EMbed Plugin.
- * Die paar Bytes Performancegewinn lohnen nicht für die Ursachenfindung. 
- * Daher erstmal raus
- */
-// add_filter( 'wp_calculate_image_srcset', 'fau_make_srcset_relative_on_sitehost', 10, 5 );
-
 /*-----------------------------------------------------------------------------------*/
 /* Filter to replace the [caption] shortcode text with HTML5 compliant code
 /* @return text HTML content describing embedded figure
@@ -353,15 +386,15 @@ function fau_img_caption_shortcode_filter($val, $attr, $content = null) {
     $capid = '';
     if ( $id ) {
         $id = esc_attr($id);
-	$targetid =  $id . '-'.rand();
-	  // In case the same image is used more as one time in the website, we need to habe a uniq id, therfor add a rand() value here.
-        $capid = 'id="figcaption_'.$targetid.'" ';
-        $id = 'id="' . $targetid . '" aria-labelledby="figcaption_' . $targetid . '" ';
-	
-	
-	if ($width) {
-	    $addmaxw = ' style="max-width: '.intval($width).'px"';
-	}
+        $targetid =  $id . '-'.rand();
+          // In case the same image is used more as one time in the website, we need to habe a uniq id, therfor add a rand() value here.
+            $capid = 'id="figcaption_'.$targetid.'" ';
+            $id = 'id="' . $targetid . '" aria-labelledby="figcaption_' . $targetid . '" ';
+
+
+        if ($width) {
+            $addmaxw = ' style="max-width: '.intval($width).'px"';
+        }
     }
 
     return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" '.$addmaxw.'>'
@@ -409,7 +442,6 @@ add_filter( 'nav_menu_link_attributes', 'fau_add_aria_label_pages', 10, 3 );
 /*-----------------------------------------------------------------------------------*/
 /* Remove the target in all links in content
 /*-----------------------------------------------------------------------------------*/
-
  function fau_change_link_targets($content) {
     $pattern = '/<a(.*?)href=[\'"](.*?)[\'"](.*?)(target=[\'"](.*?)[\'"])?(.*?)>/i';
     $replacement = '<a$1href="$2"$3$6>';
@@ -523,9 +555,9 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    $output .= '<div class="grid" aria-hidden="true" role="presentation">'."\n";
 
 	    if ($gridclass=='flexgrid') {
-		$output .= '<div class="flexgrid">'."\n";
+            $output .= '<div class="flexgrid">'."\n";
 	    } else {
-		$output .= '<div class="flexgrid '.$gridclass.'">'."\n";
+            $output .= '<div class="flexgrid '.$gridclass.'">'."\n";
 	    }
 
 
@@ -570,28 +602,28 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    }
 		    
 		    if(isset( $attr['captions']) && ($attr['captions']==1) &&(!fau_empty($imgmeta['excerpt']))) {
-			$output .= '<figure class="with-caption">';
+                $output .= '<figure class="with-caption">';
 		    } else {
-			$output .= '<figure>';
+                $output .= '<figure>';
 		    }
 		    if (isset($attr['link']) && ('none' !== $attr['link'])) {
-			if ($attr['link']=='post') {
-			    // Anhang Seite
-			    $output .= '<a tabindex="-1" href="'.get_attachment_link( $id ).'">';		  
-			} else {
-			    // File
-			    $output .= '<a tabindex="-1" href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';		  
-			}
+                if ($attr['link']=='post') {
+                    // Anhang Seite
+                    $output .= '<a tabindex="-1" href="'.get_attachment_link( $id ).'">';		  
+                } else {
+                    // File
+                    $output .= '<a tabindex="-1" href="'.fau_esc_url($img_full[0]).'" class="lightbox" rel="lightbox-'.$rand.'"'.$lightboxattr.'>';		  
+                }
 		    }
 
 		    $output .= fau_get_image_htmlcode($id, 'gallery-full', $linkalt);
 		    
 		    if (isset($attr['link']) && ('none' !== $attr['link'])) {
-			$output .= '</a>';
+                $output .= '</a>';
 		    }
 
 		    if(isset( $attr['captions']) && ($attr['captions']==1) && (!fau_empty($imgmeta['excerpt']))) {
-			$output .= '<figcaption>'.$imgmeta['excerpt'].'</figcaption>';
+                $output .= '<figcaption>'.$imgmeta['excerpt'].'</figcaption>';
 		    }
 		    $output .= '</figure>'."\n";
 		    $i++;
@@ -663,9 +695,9 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 
 	    $output .= "$('.slider-nav-$rand').slick({ slidesToShow: 4,  slidesToScroll: 1,   asNavFor: '.slider-for-$rand', centerMode: true,focusOnSelect: true, centerPadding: 5";
 	    if ((isset($attr['nodots']) && $attr['nodots']==true)) {
-		$output .= ", dots: false";
+            $output .= ", dots: false";
 	    } else {
-		$output .= ", dots: true";
+            $output .= ", dots: true";
 	    }
 
 	    $output .= ", responsive: [ 
