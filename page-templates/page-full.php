@@ -13,7 +13,7 @@ global $is_sidebar_active;
 
 get_header(); 
 
-$content_width =$defaultoptions['content-width-fullpage'];
+$content_width =$defaultoptions['content-width'];
 
 while ( have_posts() ) : 
 	the_post(); 	

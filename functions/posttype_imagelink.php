@@ -14,6 +14,10 @@ $imagelink_allowedsizes = array("logo-thumb", "post-thumbnails", "thumbnail", "p
 /* Register Imagelink Taxonomy 
 /*-----------------------------------------------------------------------------------*/
 function imagelink_taxonomy() {
+    $fau_imagelink_function_active = get_theme_mod('advanced_imagelink_display');
+    if (!$fau_imagelink_function_active) {
+        return;
+    }
 	register_taxonomy(
 		'imagelinks_category',  
 		'imagelink',   		
@@ -37,7 +41,10 @@ add_action( 'init', 'imagelink_taxonomy');
 /* Register Imagelink Custom Post Type 
 /*-----------------------------------------------------------------------------------*/
 function imagelink_post_type() {
-
+    $fau_imagelink_function_active = get_theme_mod('advanced_imagelink_display');
+    if (!$fau_imagelink_function_active) {
+        return;
+    }
 	$labels = array(
 		'name'                => _x( 'Bildlinks', 'Post Type General Name', 'fau' ),
 		'singular_name'       => _x( 'Bildlink', 'Post Type Singular Name', 'fau' ),
@@ -76,6 +83,10 @@ add_action( 'init', 'imagelink_post_type', 0 );
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_imagelink_metabox' ) ) {
     function fau_imagelink_metabox() {
+        $fau_imagelink_function_active = get_theme_mod('advanced_imagelink_display');
+        if (!$fau_imagelink_function_active) {
+            return;
+        }
         add_meta_box(
             'fau_imagelink_metabox',
             __( 'Eigenschaften', 'fau' ),
@@ -88,6 +99,10 @@ if ( ! function_exists( 'fau_imagelink_metabox' ) ) {
 }
 if ( ! function_exists( 'fau_imagelink_metabox_content' ) ) {
     function fau_imagelink_metabox_content( $object, $box ) { 
+        $fau_imagelink_function_active = get_theme_mod('advanced_imagelink_display');
+        if (!$fau_imagelink_function_active) {
+            return;
+        }
 		global $post;
 
 
@@ -113,24 +128,28 @@ add_action( 'add_meta_boxes', 'fau_imagelink_metabox' );
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_imagelink_metabox_content_save' ) ) {
     function fau_imagelink_metabox_content_save( $post_id ) {
-	if (  'imagelink'!= get_post_type()  ) {
-	    return;
-	}
+        $fau_imagelink_function_active = get_theme_mod('advanced_imagelink_display');
+        if (!$fau_imagelink_function_active) {
+            return;
+        }
+        if (  'imagelink'!= get_post_type()  ) {
+            return;
+        }
 
-	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
-	    return;
+        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+            return;
 
-	if ( !isset( $_POST['fau_imagelink_metabox_content_nonce'] ) || !wp_verify_nonce( $_POST['fau_imagelink_metabox_content_nonce'], basename( __FILE__ ) ) )
-	    return $post_id;
-
-
-	if ( !current_user_can( 'edit_post', $post_id ) )
-	    return;
+        if ( !isset( $_POST['fau_imagelink_metabox_content_nonce'] ) || !wp_verify_nonce( $_POST['fau_imagelink_metabox_content_nonce'], basename( __FILE__ ) ) )
+            return $post_id;
 
 
+        if ( !current_user_can( 'edit_post', $post_id ) )
+            return;
 
-	fau_save_standard('fauval_imagelink_url', $_POST['fau_imagelink_url'], $post_id, 'imagelink', 'url');
-	fau_save_standard('portal_description', $_POST['fau_imagelink_desc'], $post_id, 'imagelink', 'text');
+
+
+        fau_save_standard('fauval_imagelink_url', $_POST['fau_imagelink_url'], $post_id, 'imagelink', 'url');
+        fau_save_standard('portal_description', $_POST['fau_imagelink_desc'], $post_id, 'imagelink', 'text');
 
     }
 }
@@ -141,6 +160,10 @@ add_action( 'save_post', 'fau_imagelink_metabox_content_save' );
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_imagelink_get' ) ) {
     function fau_imagelink_get( $atts = array()) {			 
+        $fau_imagelink_function_active = get_theme_mod('advanced_imagelink_display');
+        if (!$fau_imagelink_function_active) {
+            return;
+        }
         global $defaultoptions;
         
         $imagelink_option = fau_get_imagelink_defaults();     
@@ -328,6 +351,10 @@ if ( ! function_exists( 'fau_imagelink_get' ) ) {
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_imagelink_addfooter_scripts' ) ) {
 	function fau_imagelink_addfooter_scripts() {
+        $fau_imagelink_function_active = get_theme_mod('advanced_imagelink_display');
+        if (!$fau_imagelink_function_active) {
+            return;
+        }
 		global $slickfunc;
 		if (!empty($slickfunc)) {
 			echo  "<script type=\"text/javascript\">jQuery(document).ready(function($) {";		
@@ -344,6 +371,10 @@ add_action( 'wp_footer', 'fau_imagelink_addfooter_scripts');
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_imagelink_shortcode' ) ) {
     function fau_imagelink_shortcode( $atts ) {
+        $fau_imagelink_function_active = get_theme_mod('advanced_imagelink_display');
+        if (!$fau_imagelink_function_active) {
+            return;
+        }
 		$imagelink_defaults = fau_get_imagelink_defaults();
 		$args = shortcode_atts( $imagelink_defaults, $atts, 'imagelink' );
 
@@ -403,6 +434,10 @@ function fau_get_imagelink_defaults() {
 /*-----------------------------------------------------------------------------------*/
 if ( ! function_exists( 'fau_get_imagelinks' ) ) {
     function fau_get_imagelinks ( $catid, $echo = true ) {
+        $fau_imagelink_function_active = get_theme_mod('advanced_imagelink_display');
+        if (!$fau_imagelink_function_active) {
+            return;
+        }
 		return fau_imagelink_get(array('size' => "logo-thumb", 'catid' => $catid, "autoplay" => true, "dots" => true, 'echo' => $echo));
     }
 }

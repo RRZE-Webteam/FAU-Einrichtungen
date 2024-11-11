@@ -24,8 +24,8 @@
     --_icon-border-color: var(--icon-border-color, var(--color-Text));
     --_icon-border-color-hover: var(--icon-border-color-hover, var(--color-Text));
 
-    --_icon-size-mask: var(--icon-size-mask, 55%);
-
+    --_icon-size-mask: var(--icon-size-mask, 50%);
+    --_icon-size-maskposition: var(--icon-size-maskposition, 45% 45%);
    
 
 
@@ -67,15 +67,10 @@
 	    height: var(--_icon-size); 
 	    display: inline-block;
 	    content: ' ';
-	    -webkit-mask-size: var(--_icon-size-mask); 
 	    mask-size: var(--_icon-size-mask); 
-	    -webkit-mask-repeat: no-repeat;
 	    mask-repeat: no-repeat;
-	    -webkit-mask-position: center;
-	    mask-position: center;
+	    mask-position: var(--_icon-size-maskposition); 
 	    background-color: var(--_icon-color);
-	    
-	    -webkit-mask-image: svg-bookmark();
 	    mask-image: svg-bookmark();
 	    
 	}
@@ -201,6 +196,11 @@
 	// clarivate / webofscience
 	&[href*="webofscience.com"]:before {
 	    mask-image: svg-clarivate();
+	}
+	
+	// clarivate / webofscience
+	&[href*="academia.edu"]:before {
+	    mask-image: svg-academia();
 	}
 	
 	
