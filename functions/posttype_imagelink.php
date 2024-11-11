@@ -37,7 +37,7 @@ add_action( 'init', 'imagelink_taxonomy');
 /* Register Imagelink Custom Post Type 
 /*-----------------------------------------------------------------------------------*/
 function imagelink_post_type() {
-
+    
 	$labels = array(
 		'name'                => _x( 'Bildlinks', 'Post Type General Name', 'fau' ),
 		'singular_name'       => _x( 'Bildlink', 'Post Type Singular Name', 'fau' ),

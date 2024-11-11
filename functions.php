@@ -31,7 +31,6 @@ require_once( get_template_directory() . '/functions/shortcodes.php');
 
 require_once( get_template_directory() . '/functions/menu.php');
 require_once( get_template_directory() . '/functions/custom-fields.php' );
-require_once( get_template_directory() . '/functions/posttype_imagelink.php' );
 require_once( get_template_directory() . '/functions/widgets.php' );
 
 
@@ -44,7 +43,10 @@ require_once( get_template_directory() . '/functions/filters.php');
 // Comment handling
 require get_template_directory() . '/functions/comments.php';
 
-
+$fau_imagelink_function_active = get_theme_mod('advanced_imagelink_display');
+if ($fau_imagelink_function_active) {
+    require_once( get_template_directory() . '/functions/posttype_imagelink.php' );
+}
 
 
 
