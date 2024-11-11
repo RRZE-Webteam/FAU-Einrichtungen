@@ -12,85 +12,85 @@ if ( ! function_exists( 'fau_use_svg' ) ) {
      * zuvor eingefügt wurde
      */
     function fau_use_svg($name = '', $width = 0, $height = 0, $class = '', $echo = true, $aria = array()) {
-	if (empty($name)) {
-	    return;
-	}
-	global $fau_used_svgs;
-	$slug = sanitize_title($name);
-	fau_register_svg_symbol($name);
-	
-	if (fau_is_svg($slug)) {   
-	    $labelpointer = $role = $title = $desc = $arialabel = '';
-	    $ariahidden = false;
-	    if ((isset($aria)) && (is_array($aria))) {
-		$uniq = wp_unique_id();
-		$labelpointer = $role = '';
-		if (isset($aria['title'])) {
-		    $title = '<title id="'.$slug.'-title-'.$uniq.'">'.esc_attr($aria['title']).'</title>';
-		    $labelpointer .= $slug.'-title-'.$uniq;
-		}
-		if (isset($aria['desc'])) {
-		    $desc = '<desc id="'.$slug.'-desc-'.$uniq.'">'.esc_attr($aria['desc']).'</desc>';	
-		    if (!empty($labelpointer)) {
-			$labelpointer .= ' ';
-		    }
-		    $labelpointer .= $slug.'-desc-'.$uniq;
-		}
-		if (isset($aria['labelledby'])) {
-		    $labelpointer = esc_attr($aria['labelledby']);
-		}
-		if (isset($aria['hidden'])) {
-		    $ariahidden = true;
-		}
-		if ($labelpointer) {
-		    $arialabel = 'aria-labelledby="'.$labelpointer.'"';
-		}
-		if (isset($aria['role'])) {
-		    $role = esc_attr($aria['role']);
-		} elseif ($arialabel) {
-		    $role = 'img'; 
-		}
-	    }
-	    
-	    
-	    $res = '<svg';
-	    if (isset($height) && ($height > 0)) {
-		$res .= ' height="'.$height.'"';
-	    }
-	    if (isset($width) && ($width > 0)) {
-		$res .= ' width="'.$width.'"';
-	    }
-	    if ($arialabel) {
-		$res .= ' '.$arialabel;
-	    }
-	    if ($ariahidden) {
-		$res .= ' aria-hidden="true"';
-	    }
-	    if ($role) {
-		$res .= ' role="'.$role.'"';
-	    }
-	    $res .= '>';
-	    if ($title) {
-		 $res .= $title;
-	    }
-	    if ($desc) {
-		 $res .= $desc;
-	    }
-	     $res .= '<use xlink:href="#'.$slug.'"';
-	     if (isset($class) && (!empty($class))) {
-		$res .= ' class="'.$class.'"';		
-	    }
-	    $res .= '/>';
-	    $res .= '</svg>';
-            if ($echo) {
-                echo $res;
-                return true;
-            } else {
-                return $res;
+        if (empty($name)) {
+            return;
+        }
+        global $fau_used_svgs;
+        $slug = sanitize_title($name);
+        fau_register_svg_symbol($name);
+
+        if (fau_is_svg($slug)) {   
+            $labelpointer = $role = $title = $desc = $arialabel = '';
+            $ariahidden = false;
+            if ((isset($aria)) && (is_array($aria))) {
+            $uniq = wp_unique_id();
+            $labelpointer = $role = '';
+            if (isset($aria['title'])) {
+                $title = '<title id="'.$slug.'-title-'.$uniq.'">'.esc_attr($aria['title']).'</title>';
+                $labelpointer .= $slug.'-title-'.$uniq;
             }
-	   
-	}
-	return false;
+            if (isset($aria['desc'])) {
+                $desc = '<desc id="'.$slug.'-desc-'.$uniq.'">'.esc_attr($aria['desc']).'</desc>';	
+                if (!empty($labelpointer)) {
+                $labelpointer .= ' ';
+                }
+                $labelpointer .= $slug.'-desc-'.$uniq;
+            }
+            if (isset($aria['labelledby'])) {
+                $labelpointer = esc_attr($aria['labelledby']);
+            }
+            if (isset($aria['hidden'])) {
+                $ariahidden = true;
+            }
+            if ($labelpointer) {
+                $arialabel = 'aria-labelledby="'.$labelpointer.'"';
+            }
+            if (isset($aria['role'])) {
+                $role = esc_attr($aria['role']);
+            } elseif ($arialabel) {
+                $role = 'img'; 
+            }
+            }
+
+
+            $res = '<svg';
+            if (isset($height) && ($height > 0)) {
+            $res .= ' height="'.$height.'"';
+            }
+            if (isset($width) && ($width > 0)) {
+            $res .= ' width="'.$width.'"';
+            }
+            if ($arialabel) {
+            $res .= ' '.$arialabel;
+            }
+            if ($ariahidden) {
+            $res .= ' aria-hidden="true"';
+            }
+            if ($role) {
+            $res .= ' role="'.$role.'"';
+            }
+            $res .= '>';
+            if ($title) {
+             $res .= $title;
+            }
+            if ($desc) {
+             $res .= $desc;
+            }
+             $res .= '<use xlink:href="#'.$slug.'"';
+             if (isset($class) && (!empty($class))) {
+            $res .= ' class="'.$class.'"';		
+            }
+            $res .= '/>';
+            $res .= '</svg>';
+                if ($echo) {
+                    echo $res;
+                    return true;
+                } else {
+                    return $res;
+                }
+
+        }
+        return false;
     }
 }
 
@@ -101,7 +101,7 @@ function fau_is_svg($name = '') {
     global $fau_used_svgs;
     $slug = sanitize_title($name);
     if (isset($fau_used_svgs[$slug])) {   
-	return true;
+        return true;
     }
     return false;
 }

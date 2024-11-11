@@ -1,9 +1,0 @@
-/*-----------------------------------------------------------------------------------*/
-/* Specials to handle Inline-Styles, injected mostly from WORD into the Editor
-/*-----------------------------------------------------------------------------------*/
-
-span[style*="font-family"],
-p[style*="font-family"] {
-  font-family: inherit !important;
-}
-

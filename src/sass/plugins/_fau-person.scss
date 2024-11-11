@@ -475,14 +475,9 @@
 	    &::before {
 		@include unset-svg-background-image("important");
 
-		-webkit-mask-image: svg-bookmark();
 		mask-image: svg-bookmark();
-
-		-webkit-mask-size: var(--_icon-size-mask); 
 		mask-size: var(--_icon-size-mask); 
-		-webkit-mask-repeat: no-repeat;
 		mask-repeat: no-repeat;
-		-webkit-mask-position: center;
 		mask-position: center; 	    
 
 		background-color: var(--_icon-color);
@@ -556,6 +551,7 @@
     }
 }
 
+.single-person .fau-person.page, 
 .single-person .entry-content {
     width: 100%;
     padding-left:  var(--width-gutter-half);
@@ -570,4 +566,16 @@
     @media (min-width: $screen-lg-min) {
 	width: $container-lg;
     }
+    .person-meta .person-image {
+	img {
+	    @media (max-width: $screen-sm - 1) {
+		max-width: calc(100vw - var(--width-gutter));
+	    }
+	}
+	@media (max-width: $screen-sm - 1) {
+	     order: 1;
+	     padding: 0;
+	}
+    }
+    
 }

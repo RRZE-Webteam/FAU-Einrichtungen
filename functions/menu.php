@@ -312,7 +312,7 @@ class Walker_Main_Menu_Plainview extends Walker_Nav_Menu {
 
         $atts           = array();
         $atts['title']  = !empty($item->attr_title) ? $item->attr_title : '';
-        $atts['target'] = !empty($item->target) ? $item->target : '';
+   //     $atts['target'] = !empty($item->target) ? $item->target : '';
         $atts['rel']    = !empty($item->xfn) ? $item->xfn : '';
         $atts['href']   = !empty($item->url) ? $item->url : '';
     
@@ -529,7 +529,7 @@ class Walker_Main_Menu_Plainview_Small extends Walker_Nav_Menu {
 
         $atts           = array();
         $atts['title']  = !empty($item->attr_title) ? $item->attr_title : '';
-        $atts['target'] = !empty($item->target) ? $item->target : '';
+ //       $atts['target'] = !empty($item->target) ? $item->target : '';
         $atts['rel']    = !empty($item->xfn) ? $item->xfn : '';
         $atts['href']   = !empty($item->url) ? $item->url : '';
     
@@ -751,7 +751,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
             $atts           = array();
             $atts['title']  = !empty($item->attr_title) ? $item->attr_title : '';
-            $atts['target'] = !empty($item->target) ? $item->target : '';
+   //         $atts['target'] = !empty($item->target) ? $item->target : '';
             $atts['rel']    = !empty($item->xfn) ? $item->xfn : '';
             $atts['href']   = !empty($item->url) ? $item->url : '';
             $targeturl      = $atts['href'];

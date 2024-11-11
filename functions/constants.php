@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 109,
+	'optiontable-version'           => 110,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -42,7 +42,6 @@ $defaultoptions = [
 	'default-sourcecode-notice-text'	=> __("Wenn Sie dies lesen, sind wir vielleicht was für Sie! \n	    Die FAU sucht immer vielversprechende Talente in allen universitären Bereichen, die bereit sind, sich mit Leidenschaft, Kreativität und Engagement für die FAU einzusetzen: \n	    https://jobs.fau.de", 'fau'),
 	'optionpage-tab-default'		=> 'website',
 	'content-width'                 => 620,
-	'content-width-fullpage'		=> 940,
 	'src-fallback-slider-image'		=> get_fau_template_uri() . '/img/FallbackSlider.png',
     'default_startseite-bannerbild-image_src'	=> get_fau_template_uri() . '/img/FallbackBanner.png',
     'startseite_banner_usedefault'	=> false,
@@ -261,6 +260,8 @@ $defaultoptions = [
 	'search_notice_searchregion'                => __('Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus anderen Webauftritten zu finden, nutzen Sie bitte die jeweils dort zu findende Suchmaschine oder verwenden eine Internet-Suchmaschine.', 'fau'),
 
 
+    'advanced_sanitize_inlinestyles'            => true,
+    // wenn dies true ist werden style=""-ANgaben, die font-* und text-* ANgaben enthalten, aus dem Content entfernt.
 	'advanced_reveal_pages_id'                  => false,
 	// Zeigt Page-ID im Backend der Seitebearbeitung
 	'advanced_images_info_credits'              => 0,
@@ -284,7 +285,8 @@ $defaultoptions = [
 	'advanced_header_template'                  => '',
 	// Anzeigeform des Heros    bei Index- und Kategorieseiten
 
-
+    'advanced_imagelink_display'            => true,
+    // Imagelink funktion insgesamt de/aktivieren
 	'advanced_imagelink_default_order'		=> 'asc',
 	// Default für die Order von Imagelinks
 	'advanced_imagelink_default_slides'		=> 4,
@@ -398,17 +400,7 @@ function fau_initoptions() {
 		fau_compatible_header_logo();
 		// Prüfe: Header-Image zu Custom Logo
 	}
-	/*
-    // Update Imagelink-Options
-    global $imagelink_defaults;
-    $imagelink_defaults['order'] = $newoptions['advanced_imagelink_default_order'];
-    $imagelink_defaults['dots'] = $newoptions['advanced_imagelink_default_dots'];
-    $imagelink_defaults['autoplay'] = $newoptions['advanced_imagelink_default_autoplay'];
-    $imagelink_defaults['slides'] = $newoptions['advanced_imagelink_default_slides'];
-    $imagelink_defaults['type'] = $newoptions['advanced_imagelink_default_type'];
-    $imagelink_defaults['size'] = $newoptions['advanced_imagelink_default_size'];
-	    
-*/
+
 	return $newoptions;
 }
 
@@ -1127,6 +1119,13 @@ $setoptions = array(
 					'title'   => __('Bildlinks', 'fau'),
 				),
 
+                'advanced_imagelink_display' => array(
+					'type'    => 'toggle',
+					'title'   => __('Bildlink-Funktion', 'fau'),
+					'label'   => __('Aktiviert bzw. Deaktiviert die Bildlink-Funktion. Wenn diese Funktion nicht genutzt wird, sollte sie abgeschaltet werden, damit die Funktionsliste im Dashboard übersichtlicher bleibt.', 'fau'),
+					'default' => $defaultoptions['advanced_imagelink_display'],
+					'parent'  => 'imagelink'
+				),
 
 				'advanced_imagelink_default_order' => array(
 					'type'    => 'select',
@@ -1420,12 +1419,21 @@ $setoptions = array(
                 'advanced_header_search_hide'     => array(
 					'type'    => 'toggle',
 					'title'   => __('Standard Sucheingabe abschalten', 'fau'),
-					'label'   => __('Die Suchmaske im Kopfteil der Seite kann durch diese Option abgeschaltet werrden.', 'fau'),
+					'label'   => __('Die Suchmaske im Kopfteil der Seite kann durch diese Option abgeschaltet werden.', 'fau'),
 					'default' => $defaultoptions['advanced_header_search_hide'],
 					'parent'  => 'templates'
 				),
-                
-                
+                'sanitizer'  => array(
+					'type'    => 'section',
+					'title'   => __('Sanitizer', 'fau'),
+				),
+                'advanced_sanitize_inlinestyles'     => array(
+					'type'    => 'toggle',
+					'title'   => __('Font- und Text-Style-Angaben unterdrücken', 'fau'),
+					'label'   => __('Corporate Design Vorgaben erzwingen: Jegliche Benutzereingaben, die mit dem style-Attribut font- oder text-Angaben zu ändern versuchen, werden bei der Ausgabe entfernt.', 'fau'),
+					'default' => $defaultoptions['advanced_sanitize_inlinestyles'],
+					'parent'  => 'sanitizer'
+				),
 			),
 		),
 
