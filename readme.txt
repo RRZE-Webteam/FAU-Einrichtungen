@@ -1,5 +1,5 @@
 === Theme Name: FAU-Einrichtungen ===
-Version: 2.5.26
+Version: 2.6.1
 Theme URI: https://github.com/RRZE-Webteam/FAU-Einrichtungen
 GitHub Theme URI: https://github.com/RRZE-Webteam/FAU-Einrichtungen
 GitHub Issue URL: https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues
