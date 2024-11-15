@@ -43,6 +43,14 @@ var banner = [
   "*/",
 ].join("\n");
 
+var editorcssbanner = [
+    "/*!",
+    "* Editor CSS for Theme:",
+    "* Theme Name: <%= info.name %>",
+    "* Version: <%= info.version %>",
+    "* GitHub Issue URL: <%= info.repository.issues %>",
+    "*/",
+  ].join("\n");
 /**
  * Create Clone for a given theme
  */
@@ -100,6 +108,14 @@ function cloneTheme(cb) {
   var variablesfile = sassdir + "_variables.scss";
   var constfile = targetdir + "functions/constants.php";
 
+  var editorcssbanner = [
+    "/*!",
+    "* Editor CSS for Theme:",
+    "* Theme Name: <%= info.themeClones." + farbfamilie + ".name %>",
+    "* Version: <%= info.version %>",
+    "* GitHub Issue URL: <%= info.repository.issues %>",
+    "*/",
+  ].join("\n");
   var helpercssbanner = [
     "/*!",
     "* Backend-CSS for Theme:",
@@ -207,6 +223,29 @@ function cloneTheme(cb) {
 
     console.log(`  - Backend styles created in ${targetdir}css`);
   }
+   // Create  Block Editor Styles
+  function buildblockedorstyles() {    
+    return src([targetdir + info.source.sass + "fau-theme-blockeditor.scss"])
+    .pipe(header(editorcssbanner, { info: info }))
+    .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
+    .pipe(dest(targetdir + "css/"))
+    .pipe(touch());
+      
+    console.log(`  - Block editor styles created in ${targetdir}css`);
+  }
+
+    // Classic Editor Styles 
+    function buildclassiceditorstyles() {
+
+      return src([targetdir + info.source.sass + "fau-theme-classiceditor.scss"])
+	.pipe(header(editorcssbanner, { info: info }))
+	.pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
+	.pipe(dest(targetdir + "css/"))
+	.pipe(touch());
+
+	console.log(`  - Classic editor styles created in ${targetdir}css`);
+    }
+
 
  // Create Backend Styles for dev
   function buildproductivestyle() {
@@ -231,7 +270,9 @@ function cloneTheme(cb) {
       copysocialmedia
     ),
     buildbackendstyles,
-    buildproductivestyle
+    buildproductivestyle,
+    buildblockedorstyles,
+    buildclassiceditorstyles
   );
   dothis();
   cb();
@@ -243,6 +284,7 @@ function cloneTheme(cb) {
  */
 function devbuildbackendstyles() {
   return src([info.source.sass + "fau-theme-admin.scss"])
+    .pipe(header(editorcssbanner, { info: info }))
     .pipe(sass({indentWidth: 4, quietDeps: true, precision: 3, sourceComments: true }).on("error", sass.logError))
     .pipe(dest("./css"))
     .pipe(touch());
@@ -253,6 +295,7 @@ function devbuildbackendstyles() {
  */
 function buildbackendstyles() {
   return src([info.source.sass + "fau-theme-admin.scss"])
+    .pipe(header(editorcssbanner, { info: info }))
     .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
     .pipe(dest("./css"))
     .pipe(touch());
@@ -300,6 +343,7 @@ function buildprintstyle() {
 function buildeditorstyles() {
 
   return src([info.source.sass + "fau-theme-blockeditor.scss"])
+    .pipe(header(editorcssbanner, { info: info }))
     .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
     .pipe(dest("./css"))
     .pipe(touch());
@@ -308,6 +352,7 @@ function buildeditorstyles() {
 function devbuildeditorstyles() {
 
   return src([info.source.sass + "fau-theme-blockeditor.scss"])
+    .pipe(header(editorcssbanner, { info: info }))
     .pipe(sass({indentWidth: 4, quietDeps: true, precision: 3, sourceComments: true }).on("error", sass.logError))
     .pipe(dest("./css"))
     .pipe(touch());
@@ -316,6 +361,7 @@ function devbuildeditorstyles() {
 function buildclassiceditorstyles() {
 
   return src([info.source.sass + "fau-theme-classiceditor.scss"])
+    .pipe(header(editorcssbanner, { info: info }))
     .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
     .pipe(dest("./css"))
     .pipe(touch());
@@ -324,6 +370,7 @@ function buildclassiceditorstyles() {
 function devbuildclassiceditorstyles() {
 
   return src([info.source.sass + "fau-theme-classiceditor.scss"])
+    .pipe(header(editorcssbanner, { info: info }))
     .pipe(sass({indentWidth: 4, quietDeps: true, precision: 3, sourceComments: true }).on("error", sass.logError))
     .pipe(dest("./css"))
     .pipe(touch());
