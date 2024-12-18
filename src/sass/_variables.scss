@@ -224,14 +224,6 @@ $font-size-base: 16;
 $base-line-height: 1.5;
 
 
-$font-size-meta: ($font-size-base - 2);
-$font-size-sidebar: ($font-size-base - 2);
-$font-size-small: ($font-size-base - 2);
-$font-size-large: ($font-size-base + 4);
-$font-size-larger: ($font-size-base + 8);
-
-$font-size-footer: ($font-size-base - 2);
-$font-size-breadcrumb: ($font-size-base - 2);
 $font-size-herosearch: $font-size-base;
 $font-size-header-branding: ($font-size-base + 4);
 
@@ -240,25 +232,8 @@ $font-size-hero-slider-title-small: 20;
 $font-size-hero-slider-copyright: ($font-size-base - 1);
 $font-size-hero-meta-portal: 40;
 
-$font-size-textbuttons: ($font-size-base - 1);
-$font-size-linkicon: ($font-size-base - 2);
-$font-size-hero-links: ($font-size-base - 2);
-$font-size-hero-bannertext: $font-size-large;
 
-$font-size-content-linkicon: 10;
-$font-size-content-listitem: $font-size-base;
-$font-size-codepre: ($font-size-base - 2);
-$font-size-table: ($font-size-base - 2);
-$font-size-contentwidgets: ($font-size-base - 2);
-
-$font-size-sidebar-listitem: $font-size-sidebar;
-$font-size-sidebar-events: $font-size-sidebar;
-$font-size-sidebar-events-month: 10;
-$font-size-sidebar-events-day: 20;
-
-$font-size-socialmedia-morelink: $font-size-sidebar;
 $font-size-nav-mainlinks: $font-size-base;
-
 $font-size-nav-level2: $font-size-base;
 $font-size-nav-level3: ($font-size-base - 1);
 $font-size-nav-buttons:	($font-size-base + 2);
@@ -307,15 +282,8 @@ $font-size-h6-table: ($font-size-h6 - 2);
 
 
 $font-size-quotes: ($font-size-base + 2);
-$font-size-quotes-cites: ($font-size-quotes - 2);
-
-$font-size-content-meta: $font-size-small;
-$font-size-image-caption: $font-size-small;
 
 $font-size-content-toggle: $font-size-base;
-
-$font-size-pagination-h3: $font-size-content-meta;
-$font-size-pagination-links: $font-size-content-meta;
 
 
 $font-size-mobile-meta: 24;
@@ -323,8 +291,6 @@ $font-size-mobile-sitetitle: 20;
 $font-size-desktop-sitetitle: 22;
 
 $font-size-print-base: $font-size-base;
-$font-size-print-base-small: ($font-size-base - 2);
-
 
 // Contentmenus / Portalmenus im Contentbereich
 

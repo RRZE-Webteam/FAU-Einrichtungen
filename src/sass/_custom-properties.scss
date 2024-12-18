@@ -108,9 +108,13 @@
     
     --font-size-small: 0.875rem;
     --font-size-normal: 1rem;
-    --font-size-large: 1.75rem;
+    --font-size-large:	1.25rem;
+    --font-size-larger: 1.5rem;   
+   
+    
     --font-size-x-large: 2.25rem;
-
+    --font-size-buttons: 0.938rem;
+    
     --font-family-default: #{$fontStack};
     --font-family-serif: #{$fontStackSerifs};
     --font-family-monospace: #{$font-family-monospace};
@@ -122,6 +126,9 @@
     --devider-height: #{$default-devider-height};
     --width-gutter: #{$fau-gutter-width};
     --width-gutter-half: #{$fau-gutter-halfwidth};
+    --width-gutter-third: #{$fau-gutter-thirdwidth};
+    
+    
     --base-line-height: #{$base-line-height};
 
 }

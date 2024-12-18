@@ -16,14 +16,13 @@
 		}
 
 		.subpages {
-			@include px2rem($font-size-pagination-links);
+			font-size: var(--font-size-small, 0.875rem);
 			margin: 10px;
 			@include inline-block();
 
 			a {
-				//@include defaultlinkstyle();
 				@include buttoncolor();
-				@include px2rem($font-size-pagination-links);
+				font-size: var(--font-size-small, 0.875rem);
 				text-decoration: none;
 			
 				.number {
@@ -38,7 +37,7 @@
 			}
 			.current .number {
 				@include ghostbutton();
-				@include px2rem($font-size-pagination-links);
+				font-size: var(--font-size-small, 0.875rem);
 			}
 			
 		}

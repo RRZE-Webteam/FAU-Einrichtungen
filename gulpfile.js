@@ -4,7 +4,7 @@
  */
 import { src, dest, watch, series, parallel } from 'gulp';
 import gulpSass from 'gulp-sass';
-import sassCompiler from 'sass';
+import * as sassCompiler from 'sass';
 
 import sourcemaps from 'gulp-sourcemaps';
 import uglify from 'gulp-uglify';
@@ -36,6 +36,20 @@ import { readFile } from 'fs/promises';
 const data = await readFile(new URL('./package.json', import.meta.url), 'utf-8');
 const info = JSON.parse(data);
 
+// Options for compiling Dart SASS in Dev Versions
+const sassDevOptions = {
+    indentWidth: 4, 
+    quietDeps: true, 
+    precision: 3, 
+    sourceComments: true,  
+    silenceDeprecations: ['legacy-js-api'] 
+};
+
+const sassProdOptions = {
+    quietDeps: true, 
+    outputStyle: 'compressed',
+    silenceDeprecations: ['legacy-js-api'] 
+};
 
 var banner = [
   "/*!",
@@ -280,7 +294,7 @@ function cloneTheme(cb) {
 	function buildbackendstyles() {
 	  return src([targetdir + info.source.sass + "fau-theme-admin.scss"])
 	    .pipe(header(helpercssbanner, { info: info }))
-	    .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
+	    .pipe(sass(sassProdOptions).on("error", sass.logError))
 	    .pipe(dest(targetdir + info.target.css))
 	    .pipe(touch());
 
@@ -290,7 +304,7 @@ function cloneTheme(cb) {
 	function buildblockeditorstyles() {    
 	  return src([targetdir + info.source.sass + "fau-theme-blockeditor.scss"])
 	  .pipe(header(editorcssbanner, { info: info }))
-	  .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
+	  .pipe(sass(sassProdOptions).on("error", sass.logError))
 	  .pipe(dest(targetdir + info.target.css))
 	  .pipe(touch());
 
@@ -302,7 +316,7 @@ function cloneTheme(cb) {
 
 	  return src([targetdir + info.source.sass + "fau-theme-classiceditor.scss"])
 	    .pipe(header(editorcssbanner, { info: info }))
-	    .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
+	    .pipe(sass(sassProdOptions).on("error", sass.logError))
 	    .pipe(dest(targetdir + info.target.css))
 	    .pipe(touch());
 
@@ -318,7 +332,7 @@ function cloneTheme(cb) {
 	);
 	return src([inputscss])
 	  .pipe(header(themebanner, { info: info }))
-	  .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
+	  .pipe(sass(sassProdOptions).on("error", sass.logError))
 	  .pipe(rename(info.maincss))
 	  .pipe(dest(targetdir))
 	  .pipe(touch());
@@ -348,60 +362,60 @@ function cloneTheme(cb) {
  * SASS and Autoprefix CSS Files, without clean
  */
 function devbuildbackendstyles() {
-  return src([info.source.sass + "fau-theme-admin.scss"])
-    .pipe(header(editorcssbanner, { info: info }))
-    .pipe(sass({indentWidth: 4, quietDeps: true, precision: 3, sourceComments: true }).on("error", sass.logError))
-    .pipe(dest(info.target.css))
-    .pipe(touch());
+    return src([info.source.sass + "fau-theme-admin.scss"])
+      .pipe(header(editorcssbanner, { info: info }))
+      .pipe(sass(sassDevOptions).on("error", sass.logError))
+      .pipe(dest(info.target.css))
+      .pipe(touch());
 }
 
 /*
  * Compile all styles with SASS and clean them up
  */
 function buildbackendstyles() {
-  return src([info.source.sass + "fau-theme-admin.scss"])
-    .pipe(header(editorcssbanner, { info: info }))
-    .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
-    .pipe(dest(info.target.css))
-    .pipe(touch());
+    return src([info.source.sass + "fau-theme-admin.scss"])
+	.pipe(header(editorcssbanner, { info: info }))
+	.pipe(sass(sassProdOptions).on("error", sass.logError))
+	.pipe(dest(info.target.css))
+	.pipe(touch());
 }
 
 /*
  *  Main Styles for prod
  */
 function buildmainstyle() {
-  return src([info.source.sass + "fau-theme-style.scss"])
-    .pipe(header(banner, { info: info }))
-    .pipe(sass({quietDeps: true, outputStyle: 'compressed' }).on("error", sass.logError))
-    .pipe(rename(info.maincss))
-    .pipe(dest("./"))
-    .pipe(touch());
+    return src([info.source.sass + "fau-theme-style.scss"])
+	.pipe(header(banner, { info: info }))
+	.pipe(sass(sassProdOptions).on("error", sass.logError))
+	.pipe(rename(info.maincss))
+	.pipe(dest("./"))
+	.pipe(touch());
 }
 
 /*
  * Main Styles for Dev
  */
 function devbuildmainstyle() {
-  return src([info.source.sass + "fau-theme-style.scss"])
-    .pipe(header(banner, { info: info }))
-    .pipe(sourcemaps.init())
-    .pipe(sass({indentWidth: 4, quietDeps: true, precision: 3, sourceComments: true }).on("error", sass.logError))
-    .pipe(sourcemaps.write())
-    .pipe(rename(info.maincss))
-    .pipe(dest("./"))
-    .pipe(touch());
+    return src([info.source.sass + "fau-theme-style.scss"])
+	.pipe(header(banner, { info: info }))
+	.pipe(sourcemaps.init())
+	.pipe(sass(sassDevOptions).on("error", sass.logError))
+	.pipe(sourcemaps.write())
+	.pipe(rename(info.maincss))
+	.pipe(dest("./"))
+	.pipe(touch());
 }
 
 /*
  * Print Styles 
  */
 function buildprintstyle() {
-  return src([info.source.sass + "fau-theme-print.scss"])
-    .pipe(header(banner, { info: info }))
-    .pipe(sass({outputStyle: 'compressed'}).on("error", sass.logError))
-    .pipe(rename(info.printcss))
-    .pipe(dest("./"))
-    .pipe(touch());
+    return src([info.source.sass + "fau-theme-print.scss"])
+	.pipe(header(banner, { info: info }))
+	.pipe(sass(sassProdOptions).on("error", sass.logError))
+	.pipe(rename(info.printcss))
+	.pipe(dest("./"))
+	.pipe(touch());
 }
 
 // Block Editor Styles for Prod
@@ -409,45 +423,45 @@ function buildeditorstyles() {
 
   return src([info.source.sass + "fau-theme-blockeditor.scss"])
     .pipe(header(editorcssbanner, { info: info }))
-    .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
+    .pipe(sass(sassProdOptions).on("error", sass.logError))
     .pipe(dest(info.target.css))
     .pipe(touch());
 }
 // Block Editor Styles for Dev
 function devbuildeditorstyles() {
 
-  return src([info.source.sass + "fau-theme-blockeditor.scss"])
+    return src([info.source.sass + "fau-theme-blockeditor.scss"])
     .pipe(header(editorcssbanner, { info: info }))
-    .pipe(sass({indentWidth: 4, quietDeps: true, precision: 3, sourceComments: true }).on("error", sass.logError))
+    .pipe(sass(sassDevOptions).on("error", sass.logError))
     .pipe(dest(info.target.css))
     .pipe(touch());
 }
 // Classic Editor Styles for Prod
 function buildclassiceditorstyles() {
 
-  return src([info.source.sass + "fau-theme-classiceditor.scss"])
+    return src([info.source.sass + "fau-theme-classiceditor.scss"])
     .pipe(header(editorcssbanner, { info: info }))
-    .pipe(sass({quietDeps: true, outputStyle: 'compressed'}).on("error", sass.logError))
+    .pipe(sass(sassProdOptions).on("error", sass.logError))
     .pipe(dest(info.target.css))
     .pipe(touch());
 }
 // Classic Editor Styles for Dev
 function devbuildclassiceditorstyles() {
 
-  return src([info.source.sass + "fau-theme-classiceditor.scss"])
+    return src([info.source.sass + "fau-theme-classiceditor.scss"])
     .pipe(header(editorcssbanner, { info: info }))
-    .pipe(sass({indentWidth: 4, quietDeps: true, precision: 3, sourceComments: true }).on("error", sass.logError))
+    .pipe(sass(sassDevOptions).on("error", sass.logError))
     .pipe(dest(info.target.css))
     .pipe(touch());
 }
 
 // Main JS
 function bundleadminjs() {
-  return src([
-    info.source.js + "admin/admin.js",
-    //	info.source.js + 'admin/banner-logo-link-widget.js',
-    info.source.js + "admin/classic-editor-templateswitch.js"
-  ])
+    return src([
+      info.source.js + "admin/admin.js",
+      //	info.source.js + 'admin/banner-logo-link-widget.js',
+      info.source.js + "admin/classic-editor-templateswitch.js"
+    ])
     .pipe(concat(info.adminjs))
     .pipe(uglify())
     .pipe(dest(info.target.js))
@@ -456,11 +470,11 @@ function bundleadminjs() {
 
 // we depart customizerjs from admin js, due to js conflicts
 function makecustomizerjs() {
-  return src([info.source.js + "admin/customizer-range-value-control.js"])
-    .pipe(uglify())
-    .pipe(rename("fau-theme-customizer-range-value-control.min.js"))
-    .pipe(dest(info.target.js))
-    .pipe(touch());
+    return src([info.source.js + "admin/customizer-range-value-control.js"])
+      .pipe(uglify())
+      .pipe(rename("fau-theme-customizer-range-value-control.min.js"))
+      .pipe(dest(info.target.js))
+      .pipe(touch());
 }
 // we depart wplink from admin js, due to needed extra vals
 function makewplinkjs() {
@@ -636,6 +650,8 @@ const dev = series(
     js,
     devversion
 );
+
+
 
 // Export weiterer Tasks
 export const cssdev = series(

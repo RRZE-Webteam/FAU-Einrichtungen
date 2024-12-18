@@ -121,7 +121,7 @@
 		p.description {
 			font-weight: normal;
 			color: var(--color-hero-text);
-			@include px2rem($font-size-hero-bannertext);
+			font-size: var(--font-size-large, 1.25rem);
 			display: none;
 			background: var(--color-hero-bg);
 			padding: 0 7px 1px 7px;

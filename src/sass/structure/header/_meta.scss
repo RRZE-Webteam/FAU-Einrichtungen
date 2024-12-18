@@ -10,7 +10,7 @@
 
 	input,
 	li {
-		@include px2rem($font-size-meta);
+		font-size: var(--font-size-small, 0.875rem);
 	}
 
 	@media (min-width: $screen-md) {
@@ -23,7 +23,6 @@
         justify-content: start;
         align-items: center;
         min-height: 50px;
-       // padding: 4px 0;
 
         @media (min-width: $screen-md) {
             padding: 5px 0;

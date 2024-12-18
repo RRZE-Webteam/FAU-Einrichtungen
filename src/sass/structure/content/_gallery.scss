@@ -18,7 +18,7 @@
 	    box-shadow: none;
 	}
 	figcaption {
-	    @include px2rem($font-size-image-caption);
+	    font-size: var(--font-size-small, 0.875rem);
 	    padding: 5px;
 	}
     }
@@ -192,7 +192,7 @@
 	figure,
 	.gallery-image-caption {
 	    text-align: center;
-	    @include px2rem($font-size-image-caption);
+	    font-size: var(--font-size-small, 0.875rem);
 	    padding: 5px;
 	}
 	.slick-slider {

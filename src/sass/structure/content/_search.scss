@@ -263,16 +263,16 @@
 
         input[type="text"], 
         input[type="submit"] {
-	    	@include px2rem($font-size-sidebar);
-		}
+	    	font-size: var(--font-size-small, 0.875rem);
+	}
         
-		input[type="text"] {
-			width: 15rem;
-			padding-right: 5rem;
-		}
-		input[type="submit"] {
-			margin:0 0 0 -4rem;
-		}
+	input[type="text"] {
+		width: 15rem;
+		padding-right: 5rem;
+	}
+	input[type="submit"] {
+		margin:0 0 0 -4rem;
+	}
     }
 }
 
@@ -285,7 +285,7 @@
 			@include defaultlinkstyle();	
 			text-decoration: none;
 			@include buttonstyle();
-			@include px2rem($font-size-pagination-links);
+			font-size: var(--font-size-small, 0.875rem);
 	    }
 	    
 	    .dots {
@@ -293,7 +293,7 @@
 	    }
 	    .current {
 			@include ghostbutton();
-			@include px2rem($font-size-pagination-links);
+			font-size: var(--font-size-small, 0.875rem);
 	    }
 
 	    .prev, 
