@@ -133,13 +133,6 @@ h3.wp-block-heading {
     }
 
 
-    #off-canvas & {
-        @include px2rem($font-size-h3-small);
-        border-bottom: 1px solid var(--color-StandardHellgrau);
-        margin: 20px 0 0 0;
-        padding: 0 10px;
-    }
-
     .sidebar-inline &,
     .search-sidebar &,
     .sidebar-outline &,

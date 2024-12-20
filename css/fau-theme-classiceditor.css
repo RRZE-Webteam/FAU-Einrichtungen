@@ -2,7 +2,7 @@
 /*!
 * Editor CSS for Theme:
 * Theme Name: FAU-Einrichtungen
-* Version: 2.6.3-4
+* Version: 2.6.3-5
 * GitHub Issue URL: https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues
 */
 /*-----------------------------------------------------------------------------------*/
@@ -861,12 +861,6 @@ table .wp-editor h2 {
 }
 .subpages-menu .wp-editor h3 {
     font-weight: normal;
-}
-#off-canvas .wp-editor h3 {
-    font-size: 1.188rem;
-    border-bottom: 1px solid var(--color-StandardHellgrau);
-    margin: 20px 0 0 0;
-    padding: 0 var(--width-gutter-half);
 }
 .sidebar-inline .wp-editor h3, .search-sidebar .wp-editor h3, .sidebar-outline .wp-editor h3, .widget .wp-editor h3 {
     font-size: 1.188rem;

@@ -151,14 +151,6 @@ h3 {
 		@extend .screen-reader-text;
 	}
 
-
-	#off-canvas & {
-		@include px2rem($font-size-h3-small);
-		border-bottom: 1px solid var(--color-StandardHellgrau);
-		margin: 20px 0 0 0;
-		padding: 0 var(--width-gutter-half);
-	}
-
 	.sidebar-inline &,
 	.search-sidebar &,
 	.sidebar-outline &,
