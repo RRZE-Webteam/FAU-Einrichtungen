@@ -15,7 +15,7 @@ p {
         padding: 0;
         font-weight: 300;
         font-style: italic;
-        @include px2rem($font-size-quotes);
+	font-size: var(--font-size-lg, 1.125rem);
     }
 
     &.presentationtitle {
@@ -33,6 +33,6 @@ p {
     .textwidget &,
     aside &,
     .widget & {
-        font-size: var(--font-size-small, 0.875rem);
+        font-size: var(--font-size-sm, 0.875rem);
     }
 }

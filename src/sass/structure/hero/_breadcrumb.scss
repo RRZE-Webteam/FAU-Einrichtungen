@@ -8,7 +8,7 @@
 	    padding: 15px 0;
 	    position: relative;
 	    z-index: 10;
-	    font-size: var(--font-size-small, 0.875rem);
+	    font-size: var(--font-size-sm, 0.875rem);
 
 	    span {
 		padding: 0 5px;
@@ -23,7 +23,7 @@
 	    }
 
 	    .breadcrumb_sitetitle {
-		font-size: var(--font-size-small, 0.875rem);
+		font-size: var(--font-size-sm, 0.875rem);
 	    }
 	    
 	    span.active {

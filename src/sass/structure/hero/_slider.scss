@@ -75,6 +75,7 @@ $slider-height-md: 512px;
 
 		.slider-titel {
 			text-align: left;
+			font-size: var(--font-size-xl, 1.25rem);
 			font-weight: 700;
 			z-index: 19;
 			width: 100%;
@@ -83,9 +84,7 @@ $slider-height-md: 512px;
 			[dir="rtl"] & {
 				text-align: right;
 			}
-			
-			@include px2rem($font-size-hero-slider-title-small);
-			
+
 			@media (min-width: $screen-sm) {
 				@include px2rem($font-size-hero-slider-title);
 			}
@@ -133,7 +132,7 @@ $slider-height-md: 512px;
 		p.credits {
 			background: $colorCopyrightBackground;
 			color: $colorCopyright;
-			@include px2rem($font-size-hero-slider-copyright);
+			font-size: var(--font-size-sm, 0.875rem);
 			z-index: 6;
 			margin: 0;
 			padding: 1px 4px;

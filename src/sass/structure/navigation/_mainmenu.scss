@@ -59,7 +59,7 @@
         > [type=button] {
             display: block;
             position: relative;
-            @include px2rem($font-size-nav-mainlinks);
+	    font-size: var(--font-size-normal, 1rem);
             font-weight: bold;
             padding: 10px 15px;
 
@@ -139,7 +139,7 @@
             font-weight: normal;
 
             @media (max-width: $screen-sm) {
-                @include px2rem($font-size-nav-level3);	
+		font-size: var(--font-size-tiny, 0.938rem);
             }
         }
     }
@@ -163,7 +163,7 @@
     .button-portal {
         @include inline-block;
         @include buttonstyle();
-        @include px2rem($font-size-nav-buttons);
+	font-size: var(--font-size-lg, 1.125rem);
 	font-weight: bold;
         padding: 0.5rem 1rem;
         margin-left: 20px;
@@ -278,7 +278,7 @@
         > [type=button] {
             display: block;
             position: relative;
-            @include px2rem($font-size-nav-mainlinks);
+            font-size: var(--font-size-normal, 1rem);
             font-weight: bold;
             padding: 10px 15px;
 
@@ -356,7 +356,7 @@
             font-weight: normal;
 
             @media (max-width: $screen-sm) {
-                @include px2rem($font-size-nav-level3);	
+                font-size: var(--font-size-tiny, 0.938rem);
             }
         }
     }
@@ -437,13 +437,13 @@
                         }
                     }
                     > a {
-			@include px2rem($font-size-nav-level2);
+			font-size: var($font-size-normal, 1rem);
                         padding-left: var(--width-gutter-half);
                     }
                 }
 
                 &.level3 a {
-		    @include px2rem($font-size-nav-level3);
+		    font-size: var(--font-size-tiny, 0.938rem);
                 }
             }
 
@@ -538,13 +538,13 @@
                     }
 
                     > a {
-			@include px2rem($font-size-nav-level2);
+			font-size: var($font-size-normal, 1rem);
                         padding-left: var(--width-gutter-half);
                     }
                 }
 
                 &.level3 a {
-		    @include px2rem($font-size-nav-level3);
+		    font-size: var(--font-size-tiny, 0.938rem);
                 }
             }
 
@@ -564,7 +564,7 @@
                     .button-portal {
                         @include inline-block;
                         @include buttonstyle();
-                        @include px2rem($font-size-nav-buttons);
+                        font-size: var(--font-size-lg, 1.125rem);
                         font-weight: bold;
                         padding: 0.5rem 1rem;
                         margin-top: 20px;
@@ -613,7 +613,7 @@
     position: absolute;
     right: 0px;
     top: 0px;
-    @include px2rem($font-size-mobile-meta);
+    font-size: var(--font-size-xxl, 1.5rem);
     background-color: transparent;    
     z-index: 100;
     color: var(--color-Default);
@@ -729,7 +729,7 @@
             .button-portal {
                 @include inline-block;
                 @include buttonstyle();
-                @include px2rem($font-size-nav-buttons);
+                font-size: var(--font-size-lg, 1.125rem);
                 font-weight: bold;
                 padding: 0.5rem 1rem;
                 background-color: var(--color-mainmenu-sublevel-button-bg);

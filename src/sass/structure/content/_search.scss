@@ -163,7 +163,7 @@
 	    }
 	    input[type="text"] {
 			border-radius: var(--border-radius);
-			@include px2rem($font-size-herosearch);
+			font-size: var(--font-size-normal, 1rem);
 			line-height: var(--base-line-height,1.5);
 			max-width: min(25rem, 90%);
 			padding: 0.5rem 2.5rem 0.5rem 1rem;
@@ -192,7 +192,7 @@
             
 	    input[type="submit"] {
 		    border-radius: var(--border-radius);
-		    @include px2rem($font-size-herosearch);
+		    font-size: var(--font-size-normal, 1rem);
 		    @include buttoncolor();
 		    padding: 0.5rem 1rem;
 		    height: inherit;
@@ -263,7 +263,7 @@
 
         input[type="text"], 
         input[type="submit"] {
-	    	font-size: var(--font-size-small, 0.875rem);
+	    	font-size: var(--font-size-sm, 0.875rem);
 	}
         
 	input[type="text"] {
@@ -285,7 +285,7 @@
 			@include defaultlinkstyle();	
 			text-decoration: none;
 			@include buttonstyle();
-			font-size: var(--font-size-small, 0.875rem);
+			font-size: var(--font-size-sm, 0.875rem);
 	    }
 	    
 	    .dots {
@@ -293,7 +293,7 @@
 	    }
 	    .current {
 			@include ghostbutton();
-			font-size: var(--font-size-small, 0.875rem);
+			font-size: var(--font-size-sm, 0.875rem);
 	    }
 
 	    .prev, 

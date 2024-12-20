@@ -2,7 +2,7 @@
 /*!
 * Editor CSS for Theme:
 * Theme Name: FAU-Einrichtungen
-* Version: 2.6.3-2
+* Version: 2.6.3-4
 * GitHub Issue URL: https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues
 */
 /*-----------------------------------------------------------------------------------*/
@@ -156,10 +156,13 @@
     --color-menulink-hover-bg: #004A9F;
     --color-overlay-dark: rgba(0, 0, 0, 0.15);
     --color-overlay-light: rgba(255, 255, 255, 0.15);
-    --font-size-small: 0.875rem;
+    --font-size-xs:	0.76rem;
+    --font-size-sm:	0.875rem;
+    --font-size-tiny:	0.938rem;
     --font-size-normal: 1rem;
-    --font-size-large: 1.75rem;
-    --font-size-x-large: 2.25rem;
+    --font-size-lg:	1.125rem;
+    --font-size-xl:	1.25rem;
+    --font-size-xxl:	1.5rem;
     --font-family-default: Roboto, FAU Chimera, sans-serif;
     --font-family-serif: Georgia, Times New Roman, Times, serif;
     --font-family-monospace: Menlo, Monaco, Consolas, Courier New, monospace;
@@ -169,6 +172,7 @@
     --devider-height: 4px;
     --width-gutter: 30px;
     --width-gutter-half: 15px;
+    --width-gutter-third: 10px;
     --base-line-height: 1.5;
 }
 
@@ -664,7 +668,7 @@ Hind:
 /* Typography Classes
 /*----------------------------------------------------------------------------*/
 .has-small-font-size {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm, 0.875rem);
 }
 
 .has-regular-font-size {
@@ -672,12 +676,12 @@ Hind:
 }
 
 .has-large-font-size {
-    font-size: 1.25rem;
+    font-size: var(--font-size-xl, 1.25rem);
 }
 
 .has-huge-font-size,
 .has-larger-font-size {
-    font-size: 1.5rem;
+    font-size: var(--font-size-xxl, 1.5rem);
 }
 
 .has-text-align-right {
@@ -706,7 +710,7 @@ Hind:
 
 p.has-drop-cap:not(:focus):first-letter {
     float: left;
-    font-size: 4.5rem;
+    font-size: var(--font-size-xxl, 1.5rem);
     font-weight: 100;
     margin: 0 0.1em 0 0;
     text-transform: uppercase;
@@ -743,14 +747,13 @@ p.has-drop-cap:not(:focus):first-letter {
     text-underline-offset: 0.2rem;
     text-decoration-thickness: 0.1rem;
     display: inline-block;
-    font-size: 0.938rem;
     color: var(--color-button-text);
     background-color: var(--color-button-bg);
     border: none;
     padding: 10px 18px;
     text-decoration: none;
     border-radius: var(--border-radius-buttons, 3px);
-    font-size: 1rem;
+    font-size: var(--font-size-normal, 1rem);
     line-height: 1.5;
     text-align: center;
     font-weight: normal;
@@ -799,14 +802,13 @@ p.has-drop-cap:not(:focus):first-letter {
     text-underline-offset: 0.2rem;
     text-decoration-thickness: 0.1rem;
     display: inline-block;
-    font-size: 0.938rem;
     color: var(--color-button-text);
     background-color: var(--color-button-bg);
     border: none;
     padding: 10px 18px;
     text-decoration: none;
     border-radius: var(--border-radius-buttons, 3px);
-    font-size: 1rem;
+    font-size: var(--font-size-normal, 1rem);
     line-height: 1.5;
     text-align: center;
     font-weight: normal;
@@ -843,7 +845,7 @@ p.has-drop-cap:not(:focus):first-letter {
     text-underline-offset: 0.2rem;
     text-decoration-thickness: 0.1rem;
     display: inline-block;
-    font-size: 0.938rem;
+    font-size: var(--font-size-tiny, 0.938rem);
     background: transparent;
     color: var(--color-Text);
     border: 1px solid var(--color-ContentBorders);
@@ -1166,7 +1168,7 @@ figure.wp-block-pullquote blockquote {
     border: none;
     font-family: var(--font-family-serif);
     position: relative;
-    font-size: 1.125rem;
+    font-size: var(--font-size-lg, 1.125rem);
     margin: 1rem;
     padding: 2rem 1.5rem;
     min-height: 3rem;
@@ -1205,7 +1207,7 @@ blockquote.wp-block-quote p,
 figure.wp-block-pullquote blockquote p {
     margin-bottom: 0;
     font-family: var(--font-family-serif);
-    font-size: 1.125rem;
+    font-size: var(--font-size-lg, 1.125rem);
     font-weight: 400;
     letter-spacing: 0.3px;
 }
@@ -1219,7 +1221,7 @@ figure.wp-block-pullquote blockquote small,
 figure.wp-block-pullquote blockquote cite {
     display: block;
     text-align: right;
-    font-size: 1rem;
+    font-size: var(--font-size-sm, 0.875rem);
     color: var(--color-Text);
 }
 blockquote.wp-block-quote small:before,
@@ -1280,11 +1282,11 @@ figure.wp-block-pullquote blockquote.pull-right small:after {
 .sidebar-inline figure.wp-block-pullquote blockquote {
     margin: 0.6rem;
     padding: 0.5rem;
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm, 0.875rem);
 }
 .sidebar-inline blockquote.wp-block-quote p,
 .sidebar-inline figure.wp-block-pullquote blockquote p {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm, 0.875rem);
 }
 blockquote.wp-block-quote cite,
 figure.wp-block-pullquote blockquote cite {
@@ -1336,11 +1338,11 @@ figure td {
 figure th,
 figure td {
     padding: 0.3rem 0.6rem;
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm, 0.875rem);
 }
 figure th p,
 figure td p {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm, 0.875rem);
 }
 figure th {
     color: var(--color-Text);
@@ -1365,7 +1367,7 @@ figure tr:nth-child(odd) td {
     background: var(--color-StandardHellgrau);
 }
 figure ul li {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm, 0.875rem);
     background-position: left 5px;
 }
 figure.nooddcolor tr:nth-child(odd) td {
@@ -1451,7 +1453,7 @@ pre.wp-block-verse {
     color: var(--color-Text);
     background-color: var(--color-StandardHellgrau);
     font-family: var(--font-family-monospace);
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm, 0.875rem);
 }
 
 pre.wp-block-verse,
@@ -1733,7 +1735,7 @@ table h6.wp-block-heading {
     text-align: center;
     width: 100%;
     text-decoration: none;
-    font-size: 1.25rem;
+    font-size: var(--font-size-xl, 1.25rem);
 }
 #skiplinks .jumplinks li a:active:hover, #skiplinks .jumplinks li a:active:focus, #skiplinks .jumplinks li a:hover:hover, #skiplinks .jumplinks li a:hover:focus, #skiplinks .jumplinks li a:focus:hover, #skiplinks .jumplinks li a:focus:focus {
     color: var(--color-button-hover-text);

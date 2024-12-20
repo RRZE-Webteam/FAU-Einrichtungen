@@ -130,12 +130,12 @@
     padding: 8px 10px;
     text-decoration: none;
     @include border-radius(var(--border-radius-buttons, 3px));
-    font-size: var(--font-size-buttons, 0.938rem);
+    font-size: var(--font-size-tiny, 0.938rem);
 
     a {
         @include inline-block;
         @include border-radius(var(--border-radius-buttons, 3px));
-        font-size: var(--font-size-buttons, 0.938rem);
+        font-size: var(--font-size-tiny, 0.938rem);
         @include buttoncolor();
         padding: 6px 10px;
         text-decoration: none;
@@ -226,7 +226,7 @@
 @mixin ghostbutton($border: 1px) {
     @include inline-block;
     
-    font-size: var(--font-size-buttons, 0.938rem);
+    font-size: var(--font-size-tiny, 0.938rem);
     background: transparent;
     color: var(--color-Text);
     border: $border solid var(--color-ContentBorders);

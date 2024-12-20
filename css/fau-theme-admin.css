@@ -1,7 +1,7 @@
 /*!
 * Editor CSS for Theme:
 * Theme Name: FAU-Einrichtungen
-* Version: 2.6.3-2
+* Version: 2.6.3-4
 * GitHub Issue URL: https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues
 */ /*-----------------------------------------------------------------------------------*/
 /* Backend CSS
@@ -157,10 +157,13 @@
     --color-menulink-hover-bg: #004A9F;
     --color-overlay-dark: rgba(0, 0, 0, 0.15);
     --color-overlay-light: rgba(255, 255, 255, 0.15);
-    --font-size-small: 0.875rem;
+    --font-size-xs:	0.76rem;
+    --font-size-sm:	0.875rem;
+    --font-size-tiny:	0.938rem;
     --font-size-normal: 1rem;
-    --font-size-large: 1.75rem;
-    --font-size-x-large: 2.25rem;
+    --font-size-lg:	1.125rem;
+    --font-size-xl:	1.25rem;
+    --font-size-xxl:	1.5rem;
     --font-family-default: Roboto, FAU Chimera, sans-serif;
     --font-family-serif: Georgia, Times New Roman, Times, serif;
     --font-family-monospace: Menlo, Monaco, Consolas, Courier New, monospace;
@@ -170,6 +173,7 @@
     --devider-height: 4px;
     --width-gutter: 30px;
     --width-gutter-half: 15px;
+    --width-gutter-third: 10px;
     --base-line-height: 1.5;
 }
 

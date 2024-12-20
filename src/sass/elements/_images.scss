@@ -176,7 +176,7 @@ main, aside, .portalpage-sidebar, .widget {
 }
 
 figcaption {
-	font-size: var(--font-size-small, 0.875rem);
+	font-size: var(--font-size-sm, 0.875rem);
 	padding: 0.3rem;
 	
 	@media (min-width: $screen-xs) {

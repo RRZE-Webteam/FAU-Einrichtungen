@@ -223,23 +223,21 @@ $font-size-gridbase: 16;
 $font-size-base: 16;
 $base-line-height: 1.5;
 
+$font-size-xs:	    0.76rem;   // - 4 / 12
+$font-size-sm:	    0.875rem;  // - 2 / 14
+$font-size-tiny:    0.938rem; // - 1 
+$font-size-normal:  1rem;
+$font-size-lg:	    1.125rem;  // + 2 / 18
+$font-size-xl:	    1.25rem;   // + 4 / 20
+$font-size-xxl:	    1.5rem;    // + 8 / 24
 
-$font-size-herosearch: $font-size-base;
-$font-size-header-branding: ($font-size-base + 4);
+
+
+
+
 
 $font-size-hero-slider-title: 28;
-$font-size-hero-slider-title-small: 20;
-$font-size-hero-slider-copyright: ($font-size-base - 1);
 $font-size-hero-meta-portal: 40;
-
-
-$font-size-nav-mainlinks: $font-size-base;
-$font-size-nav-level2: $font-size-base;
-$font-size-nav-level3: ($font-size-base - 1);
-$font-size-nav-buttons:	($font-size-base + 2);
-
-$font-size-subnav-firstlevel: ($font-size-base - 1);
-$font-size-subnav-sublevel: ($font-size-base - 2);
 
 
 
@@ -281,23 +279,8 @@ $font-size-h6-sidebar: $font-size-base;
 $font-size-h6-table: ($font-size-h6 - 2);
 
 
-$font-size-quotes: ($font-size-base + 2);
-
-$font-size-content-toggle: $font-size-base;
-
-
-$font-size-mobile-meta: 24;
-$font-size-mobile-sitetitle: 20;
-$font-size-desktop-sitetitle: 22;
-
-$font-size-print-base: $font-size-base;
 
 // Contentmenus / Portalmenus im Contentbereich
-
-$font-size-contentmenu-title: ($font-size-base + 2);
-$font-size-contentmenu-link: $font-size-base;
-$font-size-contentmenu-listview: ($font-size-base - 1);
-
 $contentmenu-xxs-width:		182px;
 $contentmenu-default-width:	302px;
 $contentmenu-default-height:	200px;

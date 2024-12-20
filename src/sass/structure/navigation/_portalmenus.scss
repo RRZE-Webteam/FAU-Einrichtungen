@@ -180,7 +180,7 @@ main .subpages-menu,
         > p, // Quickfix für wpautop bei Verwendung des Shortcodes im Content-Bereich
         .portaltop {
             display: block;
-            @include px2rem($font-size-contentmenu-title);
+	    font-size: var(--font-size-lg, 1.125rem);
             border-left: 1px solid var(--color-ContentBorders);
             border-right: 1px solid var(--color-ContentBorders);
             border-bottom: 1px solid var(--color-ContentBorders);
@@ -311,7 +311,7 @@ main .subpages-menu,
                 text-decoration: none;
                 display: table-cell;
                 padding: 0.4rem !important;
-                @include px2rem($font-size-contentmenu-link);
+		font-size: var(--font-size-normal, 1rem);
 
                 &:hover,
                 &:focus {
@@ -398,7 +398,7 @@ main .subpages-menu,
 	    display: flex;
 	    align-items: center;
 	    min-height: 44px;
-	    @include px2rem($font-size-contentmenu-listview);
+	    font-size: var(--font-size-tiny, 0.938rem);
             color: var(--color-Text, #222);
             background-color: var(--color-MetaBackgroundLight, #DFE6EC);
             padding: 0.5rem 1.8rem; 
