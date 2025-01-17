@@ -15,12 +15,12 @@ p {
         padding: 0;
         font-weight: 300;
         font-style: italic;
-        @include px2rem($font-size-quotes);
+	font-size: var(--font-size-lg, 1.125rem);
     }
 
     &.presentationtitle {
         font-weight: bold;
-        @include px2rem($font-size-h1, $font-size-base);
+        font-size: var(--font-size-h1);
         margin: 20px 0;
     }
 
@@ -29,12 +29,10 @@ p {
         text-wrap: pretty;
     }
 
-    .textwidget & {
-        @include px2rem($font-size-contentwidgets);
-    }
-
+   
+    .textwidget &,
     aside &,
     .widget & {
-        @include px2rem($font-size-sidebar);
+        font-size: var(--font-size-sm, 0.875rem);
     }
 }

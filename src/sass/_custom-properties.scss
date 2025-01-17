@@ -106,11 +106,35 @@
     --color-overlay-dark: #{$colorOverlayDark};
     --color-overlay-light: #{$colorOverlayLight};
     
-    --font-size-small: 0.875rem;
-    --font-size-normal: 1rem;
-    --font-size-large: 1.75rem;
-    --font-size-x-large: 2.25rem;
+    --font-size-xs:	#{$font-size-xs};
+    --font-size-sm:	#{$font-size-sm};  
+    --font-size-tiny:	#{$font-size-tiny};
+    --font-size-normal: #{$font-size-normal};  
+    --font-size-lg:	#{$font-size-lg};  
+    --font-size-xl:	#{$font-size-xl};  
+    --font-size-xxl:	#{$font-size-xxl};  
 
+    --font-size-slider-title: #{$font-size-hero-slider-title};
+    
+    --font-size-h1:     #{$font-size-h1};
+    --font-size-h1-sm:	clamp(var(--font-size-normal), calc(var(--font-size-h1) - (2 / 16 * 1rem)), var(--font-size-h1));
+    --font-size-h1-sidebar:	clamp(var(--font-size-normal), calc(var(--font-size-h1) - (5 / 16 * 1rem)), var(--font-size-h1));
+    --font-size-h2:     #{$font-size-h2};
+    --font-size-h2-sm:	clamp(var(--font-size-normal), calc(var(--font-size-h2) - (2 / 16 * 1rem)), var(--font-size-h2));
+    --font-size-h2-sidebar:	clamp(var(--font-size-normal), calc(var(--font-size-h2) - (3 / 16 * 1rem)), var(--font-size-h2));
+    --font-size-h3:     #{$font-size-h3};
+    --font-size-h3-sm:	clamp(var(--font-size-normal), calc(var(--font-size-h3) - (2 / 16 * 1rem)), var(--font-size-h3));
+    --font-size-h3-sidebar: var(--font-size-h3-sm);
+    --font-size-h4:     #{$font-size-h4};
+    --font-size-h4-sm:	clamp(var(--font-size-normal), calc(var(--font-size-h4) - (2 / 16 * 1rem)), var(--font-size-h4));
+    --font-size-h4-sidebar: var(--font-size-h4-sm);
+    --font-size-h5:     #{$font-size-h5};
+    --font-size-h5-sm:	clamp(var(--font-size-normal), calc(var(--font-size-h5) - (2 / 16 * 1rem)), var(--font-size-h5));
+    --font-size-h5-sidebar: var(--font-size-h5-sm);
+    --font-size-h6:     #{$font-size-h6};
+    --font-size-h6-sm:	clamp(var(--font-size-normal), calc(var(--font-size-h6) - (2 / 16 * 1rem)), var(--font-size-h6));
+    --font-size-h6-sidebar: var(--font-size-h6-sm);
+    
     --font-family-default: #{$fontStack};
     --font-family-serif: #{$fontStackSerifs};
     --font-family-monospace: #{$font-family-monospace};
@@ -122,6 +146,9 @@
     --devider-height: #{$default-devider-height};
     --width-gutter: #{$fau-gutter-width};
     --width-gutter-half: #{$fau-gutter-halfwidth};
+    --width-gutter-third: #{$fau-gutter-thirdwidth};
+    
+    
     --base-line-height: #{$base-line-height};
 
 }

@@ -9,7 +9,7 @@ ol.breadcrumblist {
     li {
         @include no-list;
         display: inline;
-        @include px2rem($font-size-breadcrumb);
+        font-size: var(--font-size-sm, 0.875rem);
     }
     li:after {
 	    content: ' / ';

@@ -8,27 +8,26 @@
 	    padding: 15px 0;
 	    position: relative;
 	    z-index: 10;
-
-	    @include px2rem($font-size-breadcrumb);
+	    font-size: var(--font-size-sm, 0.875rem);
 
 	    span {
-		    padding: 0 5px;
+		padding: 0 5px;
 	    }
 		
-		li:first-child span {
-			padding-left: 0;
-		}
+	    li:first-child span {
+		padding-left: 0;
+	    }
 
 	    .single & .active {
-			display: none;	  
+		display: none;	  
 	    }
 
 	    .breadcrumb_sitetitle {
-			@include px2rem($font-size-breadcrumb);
+		font-size: var(--font-size-sm, 0.875rem);
 	    }
 	    
 	    span.active {
-			display: none;
+		display: none;
 	    }
     }
 }

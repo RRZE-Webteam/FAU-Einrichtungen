@@ -6,8 +6,8 @@ code,
 pre, 
 kbd,
 samp {
-  font-family: var(--font-family-monospace);
-  @include px2rem($font-size-codepre);
+    font-family: var(--font-family-monospace);
+    font-size: var(--font-size-sm, 0.875rem);
 }
 
 code,

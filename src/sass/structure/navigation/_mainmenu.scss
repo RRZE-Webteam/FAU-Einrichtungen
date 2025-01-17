@@ -59,7 +59,7 @@
         > [type=button] {
             display: block;
             position: relative;
-            @include px2rem($font-size-nav-mainlinks);
+	    font-size: var(--font-size-normal, 1rem);
             font-weight: bold;
             padding: 10px 15px;
 
@@ -84,11 +84,7 @@
 		 }
 
             }
-            &:hover {
-                > a {
-                    @include border-bottom-radius(0);
-                }
-            }
+
 
             body:not(.mainnav-forceclick):not(.ismobile) & {
                 > a:focus ~ .nav-flyout,
@@ -104,7 +100,6 @@
             }
 
             > [type=button][aria-expanded=true] {
-		@include border-bottom-radius(0);
 		
                 &:after {
 		    --fau-arrow-icon-color: var(--color-mainmenu-toplevel-hover-text);
@@ -139,7 +134,7 @@
             font-weight: normal;
 
             @media (max-width: $screen-sm) {
-                @include px2rem($font-size-nav-level3);	
+		font-size: var(--font-size-tiny, 0.938rem);
             }
         }
     }
@@ -161,9 +156,9 @@
     
     /* Portal buttons */
     .button-portal {
-        @include inline-block;
+        display: inline-block;
         @include buttonstyle();
-        @include px2rem($font-size-nav-buttons);
+	font-size: var(--font-size-lg, 1.125rem);
 	font-weight: bold;
         padding: 0.5rem 1rem;
         margin-left: 20px;
@@ -278,7 +273,7 @@
         > [type=button] {
             display: block;
             position: relative;
-            @include px2rem($font-size-nav-mainlinks);
+            font-size: var(--font-size-normal, 1rem);
             font-weight: bold;
             padding: 10px 15px;
 
@@ -302,11 +297,7 @@
 		    @extend .fau-triangle-icon-down;
 		 }		 
             }
-            &:hover {
-                > a {
-                    @include border-bottom-radius(0);
-                }
-            }
+
 
             body:not(.mainnav-forceclick):not(.ismobile) & {
                 > a:focus ~ .nav-flyout,
@@ -322,7 +313,6 @@
             }
 	    
             > [type=button][aria-expanded=true] {
-		@include border-bottom-radius(0);
               
 		&:after {
 		    --fau-arrow-icon-color: var(--color-mainmenu-toplevel-hover-text);
@@ -356,7 +346,7 @@
             font-weight: normal;
 
             @media (max-width: $screen-sm) {
-                @include px2rem($font-size-nav-level3);	
+                font-size: var(--font-size-tiny, 0.938rem);
             }
         }
     }
@@ -437,13 +427,13 @@
                         }
                     }
                     > a {
-			@include px2rem($font-size-nav-level2);
+			font-size: var($font-size-normal, 1rem);
                         padding-left: var(--width-gutter-half);
                     }
                 }
 
                 &.level3 a {
-		    @include px2rem($font-size-nav-level3);
+		    font-size: var(--font-size-tiny, 0.938rem);
                 }
             }
 
@@ -538,13 +528,13 @@
                     }
 
                     > a {
-			@include px2rem($font-size-nav-level2);
+			font-size: var($font-size-normal, 1rem);
                         padding-left: var(--width-gutter-half);
                     }
                 }
 
                 &.level3 a {
-		    @include px2rem($font-size-nav-level3);
+		    font-size: var(--font-size-tiny, 0.938rem);
                 }
             }
 
@@ -562,9 +552,9 @@
                         column-width: 330px;
                     }
                     .button-portal {
-                        @include inline-block;
+                        display: inline-block;
                         @include buttonstyle();
-                        @include px2rem($font-size-nav-buttons);
+                        font-size: var(--font-size-lg, 1.125rem);
                         font-weight: bold;
                         padding: 0.5rem 1rem;
                         margin-top: 20px;
@@ -613,7 +603,7 @@
     position: absolute;
     right: 0px;
     top: 0px;
-    @include px2rem($font-size-mobile-meta);
+    font-size: var(--font-size-xxl, 1.5rem);
     background-color: transparent;    
     z-index: 100;
     color: var(--color-Default);
@@ -727,9 +717,9 @@
             flex-direction: column;
 	    
             .button-portal {
-                @include inline-block;
+                display: inline-block;
                 @include buttonstyle();
-                @include px2rem($font-size-nav-buttons);
+                font-size: var(--font-size-lg, 1.125rem);
                 font-weight: bold;
                 padding: 0.5rem 1rem;
                 background-color: var(--color-mainmenu-sublevel-button-bg);
@@ -846,7 +836,7 @@
             left: 0;
             right: 0;
             overflow: hidden;
-            @include box-shadow(0 4px 18px rgba(0, 0, 0, 0.05));
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
         }
     }
     .navsmall {
@@ -879,7 +869,7 @@
             position: absolute;
             z-index: 30;
             overflow: hidden;
-            @include box-shadow(0 4px 58px rgba(0, 0, 0, 0.1));
+            box-shadow: 0 4px 58px rgba(0, 0, 0, 0.1);
             min-width: 350px;
         }
     }

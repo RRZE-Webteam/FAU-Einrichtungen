@@ -10,7 +10,7 @@
 
 // Small Font size
 .has-small-font-size {
-    @include px2rem($font-size-small);
+    font-size: var(--font-size-sm, 0.875rem);
 }
 
 // Regular Font size
@@ -20,13 +20,13 @@
 
 // Large Font size
 .has-large-font-size {
-    @include px2rem($font-size-large);
+    font-size: var(--font-size-xl, 1.25rem);
 }
 
 // Larger Font size
 .has-huge-font-size,
 .has-larger-font-size {
-    @include px2rem($font-size-larger);
+    font-size: var(--font-size-xxl, 1.5rem);
 }
 
 // Alignments
@@ -59,7 +59,7 @@
 p.has-drop-cap {
     &:not(:focus):first-letter {
         float: left;
-        @include px2rem($font-size-larger * 3, $font-size-gridbase, $font-size-larger * 3);
+        font-size: var(--font-size-xxl, 1.5rem);
         font-weight: 100;
         margin: 0 .1em 0 0;
         text-transform: uppercase;

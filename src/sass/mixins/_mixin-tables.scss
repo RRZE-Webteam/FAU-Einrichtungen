@@ -22,10 +22,10 @@
     th,
     td {
         padding: 0.3rem 0.6rem;
-        @include px2rem($font-size-table);
+        font-size: var(--font-size-sm, 0.875rem);
 
         p {
-            @include px2rem($font-size-table);
+            font-size: var(--font-size-sm, 0.875rem);
         }
     }
 
@@ -58,7 +58,7 @@
 
     ul {
         li {
-            @include px2rem($font-size-table);
+            font-size: var(--font-size-sm, 0.875rem);
             background-position: left 5px;
         }
     }
@@ -97,7 +97,7 @@
 
     th.small,
     td.small {
-        font-size: 0.8rem;
+        font-size: var(--font-size-xs);
     }
 
     td.center,

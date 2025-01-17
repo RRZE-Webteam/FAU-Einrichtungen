@@ -10,7 +10,7 @@
 
 	input,
 	li {
-		@include px2rem($font-size-meta);
+		font-size: var(--font-size-sm, 0.875rem);
 	}
 
 	@media (min-width: $screen-md) {
@@ -23,7 +23,6 @@
         justify-content: start;
         align-items: center;
         min-height: 50px;
-       // padding: 4px 0;
 
         @media (min-width: $screen-md) {
             padding: 5px 0;
@@ -55,12 +54,9 @@
  
     transition: box-shadow 0.2s;
 
-
-   
-
     body:not([data-scroll='0']) & {
         background-color: var(--color-white);
-        @include box-shadow(0 0 21px rgba(0, 0, 0, 0.11));
+        box-shadow: 0 0 21px rgba(0, 0, 0, 0.11);
     }
     body.nav-toggled & {
         top: unset;

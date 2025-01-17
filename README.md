@@ -6,7 +6,7 @@ WordPress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität
 
 ## Version
 
-Version: 2.6.0
+Version: 2.6.3
 
 ## Screenshot
 
@@ -79,22 +79,6 @@ Es ist jedoch abseits des Gulp-Skriptes möglich, SASS auch mit einer eigenen ID
 Im Verzeichnis  ```/src/sass/``` wurden alle notwendigen SASS und SCSS Dateien abgelegt.
 Die zentrale CSS-Datei style.css wird bei der SASS-Compilierung im  Hauptverzeichnis des Themes unter den Namen ```style.css``` abgelegt. Die CSS-Dateien für das Backend werden dagegen im Unterverzeichnis ```/css``` abfelegt.
 
-
-#### SASS-Watcher
-
-Einstellungen für eigene Watcher:
-
-1. Basis Stylesheet
-    Eingabequelle:   ```/src/sass/fau-theme-style.scss```   
-    Ausgabeort:  ```/style.css```
-
-2. Printer Style
-    Eingabequelle:  ```/src/sass/fau-theme-print.scss```  
-    Ausgabeort:     ```/print.css```
-
-3. Backend Style
-    Eingabequelle:  ```/src/sass/fau-theme-admin.scss```  
-    Ausgabeort:     ```/css/fau-theme-admin.css```
 
 
 ## Verwendete Drittquellen

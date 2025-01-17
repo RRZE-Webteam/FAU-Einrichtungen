@@ -96,9 +96,7 @@
     box-shadow: none;
     transition: initial;
     max-width: 40%;    
-    
-    @include px2rem($font-size-content-meta);
-    
+    font-size: var(--font-size-sm, 0.875rem);    
     padding: 0.5rem 0.7rem;
     border: 1px solid var(--color-ContentBorders);
     border-radius: var(--border-radius);
@@ -171,7 +169,7 @@
     }
 
     .post-image-caption {
-        @include px2rem($font-size-image-caption);
+        font-size: var(--font-size-sm, 0.875rem);
         padding: 5px 0 10px 0;
         text-align: right;
         margin: 0 var(--width-gutter-half);
@@ -198,7 +196,7 @@
     display: block;
     padding: 5px 0;
     margin: 0 0 var(--width-gutter-half) 0;
-    @include px2rem($font-size-content-meta);
+    font-size: var(--font-size-sm, 0.875rem);
 
     
     .post-meta-date {
@@ -223,18 +221,16 @@
     padding-bottom: 50px;
     display: flex;
     align-items: center;
-
+    font-size: var(--font-size-sm, 0.875rem);
+    
     @media (max-width: $screen-sm) {
 	flex-wrap: wrap;
     }
-    @include px2rem($font-size-content-meta);
+    
 
     .post-meta-categories,
     .post-meta-tags {
 	margin-right: var(--width-gutter-half);
-//	display: flex;
-//	align-items: center;
-//	gap: 0.3rem;
     }
     .post-meta-categories {		  
 	&:before {
@@ -255,16 +251,16 @@
 .post-meta-tags {
     ul {
         @include no-list;
-        @include inline-block;
+        display: inline-block;
 
         li {
             @include no-list;
-            @include inline-block;
+            display: inline-block;
             margin: 0;
 
 
             a {
-                @include inline-block;
+                display: inline-block;
                 text-decoration: none;
             }
         }

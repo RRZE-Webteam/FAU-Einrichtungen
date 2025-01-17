@@ -47,12 +47,12 @@
 
 	}
 	.rss-date {
-	    --fau-icon-size: var(--font-size-small);
+	    --fau-icon-size: var(--font-size-sm);
 	    --fau-icon-color: var(--color-Text);
 	    --fau-icon-color-hover: var(--color-Text);
 	    display: block;
 	    margin: 0.5rem 0;
-	    font-size: var(--font-size-small);
+	    font-size: var(--font-size-sm);
 	    
 	     &:before {
 		@extend .fau-icon;

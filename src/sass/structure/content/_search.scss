@@ -131,7 +131,7 @@
 	}
 	h3 .ext-link,  
 	h2 .ext-link {
-		@include inline-block;
+		display: inline-block;
 		padding-right: 15px;
 		
 		&:hover, &:focus {
@@ -163,7 +163,7 @@
 	    }
 	    input[type="text"] {
 			border-radius: var(--border-radius);
-			@include px2rem($font-size-herosearch);
+			font-size: var(--font-size-normal, 1rem);
 			line-height: var(--base-line-height,1.5);
 			max-width: min(25rem, 90%);
 			padding: 0.5rem 2.5rem 0.5rem 1rem;
@@ -192,7 +192,7 @@
             
 	    input[type="submit"] {
 		    border-radius: var(--border-radius);
-		    @include px2rem($font-size-herosearch);
+		    font-size: var(--font-size-normal, 1rem);
 		    @include buttoncolor();
 		    padding: 0.5rem 1rem;
 		    height: inherit;
@@ -220,11 +220,11 @@
 	    align-items : center;
 	    
 	    div {
-			@include inline-block();
+			display: inline-block;
 			text-align: left;		
 		
 			label {
-				@include inline-block();
+				display: inline-block;
 				margin: 0 1rem 0 0.5rem;
 				padding: 0;
 				min-width: inherit;
@@ -243,9 +243,8 @@
 .search-contenttry,
 .searchpage-content {
     form {
-	    border: none;
-	    
-	    @include border-radius(4px);
+	    border: none;	    
+	    border-radius: var(--border-radius,4px);
 	    margin: 1rem 0;
 	    padding: 1rem;
 	    .sidebar-single & {
@@ -263,29 +262,29 @@
 
         input[type="text"], 
         input[type="submit"] {
-	    	@include px2rem($font-size-sidebar);
-		}
+	    	font-size: var(--font-size-sm, 0.875rem);
+	}
         
-		input[type="text"] {
-			width: 15rem;
-			padding-right: 5rem;
-		}
-		input[type="submit"] {
-			margin:0 0 0 -4rem;
-		}
+	input[type="text"] {
+		width: 15rem;
+		padding-right: 5rem;
+	}
+	input[type="submit"] {
+		margin:0 0 0 -4rem;
+	}
     }
 }
 
 .search-results {
  .nav-links {
 	    margin: 20px 0;
-	    @include inline-block();
+	    display: inline-block;
 
 	    a {
 			@include defaultlinkstyle();	
 			text-decoration: none;
 			@include buttonstyle();
-			@include px2rem($font-size-pagination-links);
+			font-size: var(--font-size-sm, 0.875rem);
 	    }
 	    
 	    .dots {
@@ -293,7 +292,7 @@
 	    }
 	    .current {
 			@include ghostbutton();
-			@include px2rem($font-size-pagination-links);
+			font-size: var(--font-size-sm, 0.875rem);
 	    }
 
 	    .prev, 

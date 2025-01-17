@@ -36,7 +36,7 @@
 		    position: absolute;
 		    z-index: 110;
 		    @include buttoncolor();
-		    @include box-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+		    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 		    padding: 1.5em;
 		    top: 0px;
 		    left: 0;
@@ -46,7 +46,7 @@
 
 		    width: 100%;
 		    text-decoration: none;
-		    @include px2rem($font-size-large);
+		    font-size: var(--font-size-xl, 1.25rem);
 
 		}
 	    }

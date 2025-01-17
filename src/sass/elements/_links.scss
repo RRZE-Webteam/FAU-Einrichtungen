@@ -132,7 +132,8 @@ a {
 	}
         svg,
         img {
-            @include default-img();
+            box-shadow: none;
+	    border: 0;
         }
         
     }
@@ -192,10 +193,10 @@ a {
     a.media-img {
 	@include defaultlinkstyle();
 	display: inline-block;
-	// overflow: hidden;
 
 	img {
-	    @include default-img();
+	    box-shadow: none;
+	    border: 0;
 	}
 	img.polaroid {
 	    @media (min-width: $screen-xs) {
@@ -204,7 +205,8 @@ a {
 	}
 	img.thickborder {
 	    border: 2px solid var(--color-ContentBorders);
-            @include border-radius(2px);
+	    border-radius: 2px;
+	    background-clip: padding-box;
 	}
 	img.noshadow {
 	    box-shadow: none;

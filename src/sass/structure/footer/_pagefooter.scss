@@ -11,7 +11,7 @@
 	li {
 	    font-size: var(--font-size-normal, 1rem);
 	    @media (min-width: $screen-sm) {
-		@include px2rem($font-size-footer);
+		font-size: var(--font-size-sm, 0.875rem);
 	    }
 	}
 	
@@ -34,25 +34,25 @@
 	p, address {
 	    color: var(--color-footer-text);
 	    @media (min-width: $screen-sm) {
-		@include px2rem($font-size-footer);
+		font-size: var(--font-size-sm, 0.875rem);
 	    }
 
 	}
 	.footer-logo {
 	    .fau-logo-footer {
-		  fill: $color-footer-text;
-		  color: $color-footer-text;
-		  --fau-logo-display-name: none;
+		fill: $color-footer-text;
+		color: $color-footer-text;
+		--fau-logo-display-name: none;
 	    }
 	    &.fau {
-			overflow: hidden;
-			margin-top: 0.5rem;
+		overflow: hidden;
+		margin-top: 0.5rem;
 	    }
 	}
 	.footer-address {
 	    padding-top: 1rem;
 	    @media (min-width: $screen-xs) {
-			padding-top: 0;
+		padding-top: 0;
 	    }
 	}
 

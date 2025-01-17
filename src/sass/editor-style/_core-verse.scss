@@ -16,7 +16,7 @@ pre.wp-block-verse {
     color: var(--color-Text);
     background-color: var(--color-StandardHellgrau);
     font-family: var(--font-family-monospace);
-    @include px2rem($font-size-codepre);
+    font-size: var(--font-size-sm, 0.875rem);
 }
 
 pre.wp-block-verse,

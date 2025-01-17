@@ -5,7 +5,7 @@
 .widget {
 	margin-bottom: 0.7rem;
 	overflow-wrap: break-word;
-	@include px2rem($font-size-sidebar);
+	font-size: var(--font-size-sm, 0.875rem);
 	ul {
 	    margin: 0;
 	    padding: 0;
@@ -17,7 +17,7 @@
 
 	
 	li {
-		@include px2rem($font-size-sidebar-listitem);	
+		font-size: var(--font-size-sm, 0.875rem);
 		list-style-type: none;
 		
 		a {
@@ -46,6 +46,6 @@ span {
     aside &,
 	#content .widget &,
 	#content .widget & {
-	      @include px2rem($font-size-sidebar);
+	      font-size: var(--font-size-sm, 0.875rem);
 	}
 }
