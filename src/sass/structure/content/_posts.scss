@@ -251,16 +251,16 @@
 .post-meta-tags {
     ul {
         @include no-list;
-        @include inline-block;
+        display: inline-block;
 
         li {
             @include no-list;
-            @include inline-block;
+            display: inline-block;
             margin: 0;
 
 
             a {
-                @include inline-block;
+                display: inline-block;
                 text-decoration: none;
             }
         }

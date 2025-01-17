@@ -232,53 +232,14 @@ $font-size-xl:	    1.25rem;   // + 4 / 20
 $font-size-xxl:	    1.5rem;    // + 8 / 24
 
 
+$font-size-h1: 1.8125rem;
+$font-size-h2: 1.5rem;
+$font-size-h3: 1.3125rem;
+$font-size-h4: 1.1875rem;
+$font-size-h5: 1.125rem;
+$font-size-h6: 1.0625rem;
 
-
-
-
-$font-size-hero-slider-title: 28;
-$font-size-hero-meta-portal: 40;
-
-
-
-$font-size-h1: ($font-size-base + 13);
-$font-size-h1-mobilebranding: ($font-size-h1 - 2);
-$font-size-h1-banner: $font-size-h1;
-$font-size-h1-sidebar: ($font-size-base + 8);
-$font-size-h1-table: ($font-size-h1 - 2);
-$font-size-h1-small: ($font-size-h1 - 2);
-
-
-$font-size-h2: ($font-size-base + 8);
-$font-size-h2-small: ($font-size-h2 - 2);
-$font-size-h2-socialmedia: ($font-size-h2 - 2);
-$font-size-h2-sidebar: ($font-size-base + 5);
-$font-size-h2-table: ($font-size-h2 - 2);
-
-$font-size-h3: ($font-size-base + 5);
-$font-size-h3-small: ($font-size-h3 - 2);
-$font-size-h3-hero: ($font-size-h3 - 2);
-$font-size-h3-sidebar: ($font-size-base + 3);
-
-$font-size-h3-table: ($font-size-h3 - 2);
-
-
-$font-size-h4: ($font-size-base + 3);
-$font-size-h4-small: ($font-size-h4 - 2);
-$font-size-h4-sidebar: ($font-size-base + 1);
-$font-size-h4-table: ($font-size-h4 - 2);
-
-
-$font-size-h5: ($font-size-base + 2);
-$font-size-h5-sidebar: ($font-size-base + 1);
-$font-size-h5-table: ($font-size-h5 - 2);
-
-
-$font-size-h6: ($font-size-base + 1);
-$font-size-h6-sidebar: $font-size-base;
-$font-size-h6-table: ($font-size-h6 - 2);
-
-
+$font-size-hero-slider-title:	1.75rem;
 
 // Contentmenus / Portalmenus im Contentbereich
 $contentmenu-xxs-width:		182px;

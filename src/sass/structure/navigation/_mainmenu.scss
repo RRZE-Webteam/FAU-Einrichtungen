@@ -84,11 +84,7 @@
 		 }
 
             }
-            &:hover {
-                > a {
-                    @include border-bottom-radius(0);
-                }
-            }
+
 
             body:not(.mainnav-forceclick):not(.ismobile) & {
                 > a:focus ~ .nav-flyout,
@@ -104,7 +100,6 @@
             }
 
             > [type=button][aria-expanded=true] {
-		@include border-bottom-radius(0);
 		
                 &:after {
 		    --fau-arrow-icon-color: var(--color-mainmenu-toplevel-hover-text);
@@ -161,7 +156,7 @@
     
     /* Portal buttons */
     .button-portal {
-        @include inline-block;
+        display: inline-block;
         @include buttonstyle();
 	font-size: var(--font-size-lg, 1.125rem);
 	font-weight: bold;
@@ -302,11 +297,7 @@
 		    @extend .fau-triangle-icon-down;
 		 }		 
             }
-            &:hover {
-                > a {
-                    @include border-bottom-radius(0);
-                }
-            }
+
 
             body:not(.mainnav-forceclick):not(.ismobile) & {
                 > a:focus ~ .nav-flyout,
@@ -322,7 +313,6 @@
             }
 	    
             > [type=button][aria-expanded=true] {
-		@include border-bottom-radius(0);
               
 		&:after {
 		    --fau-arrow-icon-color: var(--color-mainmenu-toplevel-hover-text);
@@ -562,7 +552,7 @@
                         column-width: 330px;
                     }
                     .button-portal {
-                        @include inline-block;
+                        display: inline-block;
                         @include buttonstyle();
                         font-size: var(--font-size-lg, 1.125rem);
                         font-weight: bold;
@@ -727,7 +717,7 @@
             flex-direction: column;
 	    
             .button-portal {
-                @include inline-block;
+                display: inline-block;
                 @include buttonstyle();
                 font-size: var(--font-size-lg, 1.125rem);
                 font-weight: bold;
@@ -846,7 +836,7 @@
             left: 0;
             right: 0;
             overflow: hidden;
-            @include box-shadow(0 4px 18px rgba(0, 0, 0, 0.05));
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
         }
     }
     .navsmall {
@@ -879,7 +869,7 @@
             position: absolute;
             z-index: 30;
             overflow: hidden;
-            @include box-shadow(0 4px 58px rgba(0, 0, 0, 0.1));
+            box-shadow: 0 4px 58px rgba(0, 0, 0, 0.1);
             min-width: 350px;
         }
     }

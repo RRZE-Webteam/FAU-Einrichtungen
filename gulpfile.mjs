@@ -3,6 +3,7 @@
  * Gulp Builder for WordPress Theme FAU-Einrichtungen
  */
 import { src, dest, watch, series, parallel } from 'gulp';
+import { readFileSync } from 'fs';
 import gulpSass from 'gulp-sass';
 import * as sassCompiler from 'sass';
 
@@ -26,15 +27,22 @@ const clonetarget = yargs(hideBin(process.argv)).argv.target;
 
 const sass = gulpSass(sassCompiler);
 
-/**
- * Template for banner to add to file headers
- */
 
-import { readFile } from 'fs/promises';
 
-// Lade die package.json-Datei
-const data = await readFile(new URL('./package.json', import.meta.url), 'utf-8');
-const info = JSON.parse(data);
+
+// Lade die package.json-Datei und füge dessen Werte in die 
+// globale Variable info ein.
+let info;
+
+function initialize() {
+    const data = readFileSync('./package.json', 'utf-8');
+    info = JSON.parse(data);
+    console.log("Info erfolgreich geladen:", info); // Debug-Ausgabe
+}
+
+// Initialisierung direkt beim Laden des Skripts
+initialize();
+
 
 // Options for compiling Dart SASS in Dev Versions
 const sassDevOptions = {
@@ -50,6 +58,11 @@ const sassProdOptions = {
     outputStyle: 'compressed',
     silenceDeprecations: ['legacy-js-api'] 
 };
+
+
+/**
+ * Template for banner to add to file headers
+ */
 
 var banner = [
   "/*!",

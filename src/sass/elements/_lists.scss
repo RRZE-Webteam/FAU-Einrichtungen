@@ -84,19 +84,19 @@ ul, ol {
 
 	    li {
 		    @include no-list;
-		    @include inline-block;
+		    display: inline-block;
 		    background: none;
 		    margin: 0.3rem 0.2rem;
 
 		    a {
-			    @include inline-block;
+			    display: inline-block;
 			    text-decoration: none;
 		    }
 
 		    a:hover, 
 		    a:focus {
-			    text-decoration: underline;
-				text-decoration-thickness: 0.3rem;
+			text-decoration: underline;
+			text-decoration-thickness: 0.3rem;
 		    }
 	    }
 	}

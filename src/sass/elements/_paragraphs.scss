@@ -20,7 +20,7 @@ p {
 
     &.presentationtitle {
         font-weight: bold;
-        @include px2rem($font-size-h1, $font-size-base);
+        font-size: var(--font-size-h1);
         margin: 20px 0;
     }
 

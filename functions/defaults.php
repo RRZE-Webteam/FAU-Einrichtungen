@@ -11,7 +11,7 @@
 $default_socialmedia_liste = array(
     'bluesky' => array(
         'name' => 'BlueSky',
-        'content'  => 'https://bsky.app/profile/unifau.bsky.social',
+        'content'  => 'https://bsky.app/profile/fau.de',
         'active' => 1,
     ),
     'diaspora' => array(
@@ -26,8 +26,8 @@ $default_socialmedia_liste = array(
     ),
     'twitter' => array(
         'name' => 'Twitter',
-        'content'  => 'https://twitter.com/UniFAU',
-        'active' => 1,
+        'content'  => '',
+        'active' => 0,
     ),
     
     'flickr' => array(
@@ -102,15 +102,19 @@ $default_link_liste = array(
             'name'	    => __('StudOn', 'fau' ),
             'content'  => 'https://studon.fau.de/',
 	    ),
-	    'link3'  => array(
+        'link3'  => array(
+            'name'	    => __('FAUdir', 'fau' ),
+            'content'  => 'https://faudir.fau.de/',
+	    ),
+	    'link4'  => array(
             'name'	    => __('Stellenangebote', 'fau' ),
             'content'  => 'https://www.jobs.fau.de/',
 	    ),
-	    'link4'  => array(
+	    'link5'  => array(
             'name'	    => __('Lageplan', 'fau' ),
             'content'  => 'https://karte.fau.de/',
 	    ),
-	    'link5'  => array(
+	    'link6'  => array(
             'name'	    => __('Hilfe im Notfall', 'fau' ),
             'content'  => 'https://www.fau.de/notfall/',
 	    ),

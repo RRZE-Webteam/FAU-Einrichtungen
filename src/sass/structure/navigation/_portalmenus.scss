@@ -55,12 +55,13 @@ main .subpages-menu,
     margin: 20px 0;
     display: flex;
     justify-content: space-around;
-    column-gap: floor(math.div($grid-gutter-width, 3));
-    row-gap: floor(math.div($grid-gutter-width, 1.5));
+    column-gap: var(--width-gutter-third); 
+    row-gap: var(--width-gutter-half); 
     flex-wrap: wrap;
+    
     @media (min-width: $screen-sm) {
-        column-gap: floor(math.div($grid-gutter-width, 2));
-        row-gap: $grid-gutter-width;
+        column-gap: var(--width-gutter-half); 
+        row-gap: var(--width-gutter); 
     }
 
     li {
@@ -78,7 +79,7 @@ main .subpages-menu,
             width: $contentmenu-default-width;
             flex: 0 0 $contentmenu-default-width;
         }
-        @include box-shadow(1px 3px 10px transparent);
+        box-shadow: 1px 3px 10px transparent;
 
         svg .fallback {
             fill: var(--color-menulink-hover-text);
@@ -86,7 +87,7 @@ main .subpages-menu,
 
         &:hover,
         &:focus {
-            @include box-shadow(1px 3px 10px var(--color-ContentBorders));
+            box-shadow: 1px 3px 10px var(--color-ContentBorders);
             svg .fallback {
                 fill: var(--color-menulink-hover-text);
             }
@@ -100,7 +101,7 @@ main .subpages-menu,
 
             a {
                 text-decoration: none;
-                background-color: darken($colorStandardHellgrau, 3%);
+                background-color: var(--color-StandardHellgrau-Hover);
                 display: block;
                 position: relative;
                 width: 100%;

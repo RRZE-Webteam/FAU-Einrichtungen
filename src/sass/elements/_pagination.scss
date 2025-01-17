@@ -12,13 +12,13 @@
 		margin: 0;
 
 		p {
-			@include inline-block();
+			display: inline-block;
 		}
 
 		.subpages {
 			font-size: var(--font-size-sm, 0.875rem);
 			margin: 10px;
-			@include inline-block();
+			display: inline-block;
 
 			a {
 				@include buttoncolor();
@@ -33,10 +33,12 @@
 				@include buttoncolor();
 				padding: 0.5rem 0.7rem;
 				text-decoration: none;
-				@include border-radius(3px);
+				border-radius: var(--border-radius-buttons, 3px);
 			}
 			.current .number {
 				@include ghostbutton();
+				display: inline; 
+				padding: 0.5rem 0.7rem;
 				font-size: var(--font-size-sm, 0.875rem);
 			}
 			

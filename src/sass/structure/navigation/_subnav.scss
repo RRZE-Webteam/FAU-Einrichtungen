@@ -13,7 +13,7 @@
 
     header {
 		margin-top: 0px;
-		@include px2rem($font-size-h3);
+		font-size: var(--font-size-h3);
 		font-weight: 500;
 		
 		padding: var(--width-gutter-half);
@@ -64,19 +64,17 @@
 			    mask-repeat: no-repeat;
 			    -webkit-mask-position: center;
 			    mask-position: center;
-			    
-			    background-color: var(--color-submenu-currentlevel-text);
-			    @media (min-width: $screen-md) {
-				background-color: var(--_icon-color);
-			    }
-
 			    -webkit-mask-image: svg-angle-right();
 			    mask-image: svg-angle-right();
 			    transform: rotate(180deg);
 			    position: absolute;
-			    top: 0; // calc(50% - 1rem);
+			    top: 0; 
 			    left: -2.2rem;
-
+			    background-color: var(--color-submenu-currentlevel-text);
+			    
+			    @media (min-width: $screen-md) {
+				background-color: var(--_icon-color);
+			    }
 			}
 	
 		}

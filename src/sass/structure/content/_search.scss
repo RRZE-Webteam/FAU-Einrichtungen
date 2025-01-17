@@ -131,7 +131,7 @@
 	}
 	h3 .ext-link,  
 	h2 .ext-link {
-		@include inline-block;
+		display: inline-block;
 		padding-right: 15px;
 		
 		&:hover, &:focus {
@@ -220,11 +220,11 @@
 	    align-items : center;
 	    
 	    div {
-			@include inline-block();
+			display: inline-block;
 			text-align: left;		
 		
 			label {
-				@include inline-block();
+				display: inline-block;
 				margin: 0 1rem 0 0.5rem;
 				padding: 0;
 				min-width: inherit;
@@ -243,9 +243,8 @@
 .search-contenttry,
 .searchpage-content {
     form {
-	    border: none;
-	    
-	    @include border-radius(4px);
+	    border: none;	    
+	    border-radius: var(--border-radius,4px);
 	    margin: 1rem 0;
 	    padding: 1rem;
 	    .sidebar-single & {
@@ -279,7 +278,7 @@
 .search-results {
  .nav-links {
 	    margin: 20px 0;
-	    @include inline-block();
+	    display: inline-block;
 
 	    a {
 			@include defaultlinkstyle();	

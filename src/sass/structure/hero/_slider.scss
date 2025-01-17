@@ -86,7 +86,7 @@ $slider-height-md: 512px;
 			}
 
 			@media (min-width: $screen-sm) {
-				@include px2rem($font-size-hero-slider-title);
+				font-size: var(--font-size-slider-title);
 			}
 			
 			header {
@@ -189,7 +189,7 @@ $slider-height-md: 512px;
 		}
 		@media (max-width: $screen-sm){			
 			margin: 0;
-			@include transform-translate(0, 0%);
+			transform: translate(0, 0%);
 		}
 		@media (min-width: $screen-sm){
 		    bottom: calc(var(--width-gutter) + var(--width-gutter-half));

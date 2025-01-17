@@ -4,82 +4,6 @@
 /*----------------------------------------------------------------------------*/
 @use "sass:math";
 
-@mixin box-shadow($shadow) {
-    box-shadow: $shadow;
-}
-
-@mixin border-radius($radius) {
-    border-radius: $radius;
-    background-clip: padding-box;
-}
-
-@mixin border-top-radius($radius) {
-    border-top-right-radius: $radius;
-    border-top-left-radius: $radius;
-    background-clip: padding-box;
-}
-
-@mixin border-right-radius($radius) {
-    border-bottom-right-radius: $radius;
-    border-top-right-radius: $radius;
-    background-clip: padding-box;
-}
-
-@mixin border-bottom-radius($radius) {
-    border-bottom-right-radius: $radius;
-    border-bottom-left-radius: $radius;
-    background-clip: padding-box;
-}
-
-@mixin border-left-radius($radius) {
-    border-bottom-left-radius: $radius;
-    border-top-left-radius: $radius;
-    background-clip: padding-box;
-}
-
-@mixin linear-gradient($fromColor, $toColor) {
-    background-color: $fromColor;
-    /* Fallback Color */
-    background-image: linear-gradient(to right, $fromColor, $toColor);
-}
-
-@mixin linear-top-gradient($fromColor, $toColor) {
-    background-color: $fromColor;
-    /* Fallback Color */
-    background-image: linear-gradient(to bottom, $fromColor, $toColor);
-}
-
-@mixin linear-gradient-three($fromColor, $toColor, $nextColor) {
-    background-color: $fromColor;
-    /* Fallback Color */
-    background-image: linear-gradient(to right, $fromColor, $toColor, $nextColor);
-}
-
-@mixin linear-top-gradient-three($fromColor, $toColor, $nextColor) {
-    background-color: $fromColor;
-    /* Fallback Color */
-    background-image: linear-gradient(to bottom, $fromColor, $toColor, $nextColor);
-}
-
-@mixin radial-gradient($color2, $color1) {
-    background: $color2;
-    background: radial-gradient(ellipse at center, $color1 0%, $color2 100%);
-}
-
-@mixin radial-gradient-image($color2, $color1, $image) {
-    background-color: $color2;
-    background: $image, $color2;
-    background: $image, radial-gradient(ellipse at center, $color1 0%, $color2 100%);
-}
-
-@mixin transition($duration, $params) {
-    transition: $duration $params;
-}
-
-@mixin transform-translate($tx, $ty) {
-    transform: translate($tx, $ty);
-}
-
 
 @mixin placeholder($color) {
     ::placeholder {
@@ -99,10 +23,6 @@
 }
 
 
-@mixin inline-block() {
-    display: inline-block;
-}
-
 @mixin hideout() {
     position: absolute;
     left: -10000px;
@@ -112,29 +32,17 @@
     overflow: hidden;
 }
 
-@function px2rem($font-size, $base-font-size: $font-size-gridbase) {
-    @return math.div($font-size, $base-font-size)+rem;
-}
-
-@mixin px2rem($font-size, $base-font-size: $font-size-gridbase, $line: $font-size * 1.51) {
-    // font-size: $font-size + px; // für den IE8
-    // line-height: ($line) + px;
-    font-size: math.div(ceil(math.div($font-size, $base-font-size) * 1000), 1000) + rem;
-    //   line-height: math.div(ceil(math.div($line, $base-font-size) * 1000), 1000) + rem;
-    // proportionaler defaultwert aus body wird verwendet, statt immer neu zu 
-    // berechnen und somit viele Codezeilen zu erzeugen.
-}
 
 @mixin morelink() {
     margin: 10px 0 0 0;
     padding: 8px 10px;
     text-decoration: none;
-    @include border-radius(var(--border-radius-buttons, 3px));
+    border-radius: var(--border-radius-buttons, 3px);
     font-size: var(--font-size-tiny, 0.938rem);
 
     a {
-        @include inline-block;
-        @include border-radius(var(--border-radius-buttons, 3px));
+        display: inline-block;
+        border-radius: var(--border-radius-buttons, 3px);
         font-size: var(--font-size-tiny, 0.938rem);
         @include buttoncolor();
         padding: 6px 10px;
@@ -162,13 +70,6 @@
         text-decoration-thickness: 0.3rem;
     }
 }
-
-@mixin default-img() {
-    @include box-shadow(none);
-    border: 0;
-
-}
-
 
 
 @mixin styledcontentlink() {
@@ -202,9 +103,10 @@
 }
 
 @mixin buttonstyle() {
-    @include inline-block;
-    @include buttoncolor;
-
+    display: inline-block;
+    
+    color: var(--color-button-text);
+    background-color: var(--color-button-bg);
     border: none;
     padding: 10px 18px;
     text-decoration: none;
@@ -215,16 +117,16 @@
     font-weight: normal;
     margin: 5px 0;
 
-
-
     &:hover,
     &:focus {
+	color: var(--color-button-hover-text);
+        background-color: var(--color-button-hover-bg);
         text-decoration: none;
     }
 }
 
 @mixin ghostbutton($border: 1px) {
-    @include inline-block;
+    display: inline-block;
     
     font-size: var(--font-size-tiny, 0.938rem);
     background: transparent;
@@ -350,19 +252,3 @@
     }
 }
 
-// from _vendor-prefixes.scss:
-
-// User select
-// For selecting text on the page
-@mixin user-select($select) {
-    user-select: $select;
-}
-
-// Box sizing
-@mixin box-sizing($boxmodel) {
-    box-sizing: $boxmodel;
-}
-
-@mixin box-shadow($shadow...) {
-    box-shadow: $shadow;
-}

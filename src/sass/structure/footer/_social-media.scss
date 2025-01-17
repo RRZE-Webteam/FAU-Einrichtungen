@@ -18,7 +18,7 @@
 	h3#socialmediatitle,
 	div h3:first-child,
 	p.headline {
-	    @include px2rem($font-size-h2-socialmedia);
+	    font-size: var(--font-size-h2-sm);
 	    padding: 0;
 	    min-height: 50px;
 	    display: block;

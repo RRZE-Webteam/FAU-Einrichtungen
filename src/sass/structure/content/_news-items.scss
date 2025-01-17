@@ -79,7 +79,7 @@
 	margin: 10px auto;
 	
 	img, svg {
-	    @include box-shadow(none);
+	     box-shadow: none;
              width: 100%;
              height: auto;
 	}
@@ -88,7 +88,7 @@
 	}
 	
 	@media (min-width: $screen-xs) {
-	    @include box-shadow(0 1px 2px rgba(0,0,0,0.3));
+	    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 	    padding: 4px;
 	    margin: 5px auto;
 	}
@@ -171,7 +171,7 @@
 		--fau-icon-size-mask: 1.5rem;
 		--fau-icon-margin-left: 0.1rem;
 
-		@include inline-block;
+		display: inline-block;
 		padding-right: var(--width-gutter-half);
 		
 		&:hover, 
@@ -281,7 +281,7 @@
 	    text-align: left;
 
 	    a {
-		    @include inline-block;
+		    display: inline-block;
 		    @include defaultlinkstyle();
 		    margin-right: var(--width-gutter-half);
 	    }
@@ -317,7 +317,7 @@
         .prev,
         .next {
             a {
-                @include inline-block;
+                display: inline-block;
 		@include defaultlinkstyle();
                 @include buttonstyle();
             }	   
@@ -354,20 +354,20 @@
 .news-meta-categories {
 	ul {
 		@include no-list;
-		@include inline-block;
+		display: inline-block;
 		
 		li {
 			@include no-list;
-			@include inline-block;
+			display: inline-block;
 			margin: 0 0 2px 0;
 
 			a {
-				@include inline-block;
+				display: inline-block;
 				background: var(--color-primary-ci-hell2);
 				color: var(--color-primary-ci-hell2-kontrast);
 				text-decoration: none;
 				padding: 3px 5px 2px 5px;
-				@include border-radius(3px);
+				border-radius: var(--border-radius, 3px);
 			}
 			
 			a:hover, a:focus {
