@@ -75,6 +75,7 @@ $slider-height-md: 512px;
 
 		.slider-titel {
 			text-align: left;
+			font-size: var(--font-size-xl, 1.25rem);
 			font-weight: 700;
 			z-index: 19;
 			width: 100%;
@@ -83,11 +84,9 @@ $slider-height-md: 512px;
 			[dir="rtl"] & {
 				text-align: right;
 			}
-			
-			@include px2rem($font-size-hero-slider-title-small);
-			
+
 			@media (min-width: $screen-sm) {
-				@include px2rem($font-size-hero-slider-title);
+				font-size: var(--font-size-slider-title);
 			}
 			
 			header {
@@ -133,7 +132,7 @@ $slider-height-md: 512px;
 		p.credits {
 			background: $colorCopyrightBackground;
 			color: $colorCopyright;
-			@include px2rem($font-size-hero-slider-copyright);
+			font-size: var(--font-size-sm, 0.875rem);
 			z-index: 6;
 			margin: 0;
 			padding: 1px 4px;
@@ -190,7 +189,7 @@ $slider-height-md: 512px;
 		}
 		@media (max-width: $screen-sm){			
 			margin: 0;
-			@include transform-translate(0, 0%);
+			transform: translate(0, 0%);
 		}
 		@media (min-width: $screen-sm){
 		    bottom: calc(var(--width-gutter) + var(--width-gutter-half));

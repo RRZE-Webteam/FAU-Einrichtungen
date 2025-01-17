@@ -33,7 +33,7 @@
 	    background: var(--color-hero-bg);
 	    max-width: $banner-startpage-width;
 	    overflow: hidden;
-	    @include box-shadow(0 10px 20px rgba(0,0,0,0.5));
+	    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 	    
 	    
 	    @media (min-width: $screen-md) {
@@ -95,7 +95,7 @@
 	    
 		p.sitetitle,
 		h1 {
-			@include px2rem($font-size-h1,  $font-size-base);		
+			font-size: var(--font-size-h1);
 			hyphens: none;
 			color: var(--color-hero-text);
 			background: var(--color-hero-bg);
@@ -121,7 +121,7 @@
 		p.description {
 			font-weight: normal;
 			color: var(--color-hero-text);
-			@include px2rem($font-size-hero-bannertext);
+			font-size: var(--font-size-xl, 1.25rem);
 			display: none;
 			background: var(--color-hero-bg);
 			padding: 0 7px 1px 7px;
@@ -129,7 +129,7 @@
 			box-decoration-break: clone;
 			
 			@media (min-width: $screen-xs) { 
-			   @include inline-block;
+			   display: inline-block;
 			}
 			@media (min-width: $screen-sm) {
 			   display: inline;

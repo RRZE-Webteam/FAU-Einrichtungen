@@ -168,8 +168,8 @@ function fau_remove_font_attributes_from_content($content) {
        return $content;
     }
     
-    // Entfernt jegliche font-* Attribute aus den style-Attributen von <p> und <span>-Tags
-    $content = preg_replace_callback('/<(p|span)\b([^>]*?)\sstyle="([^"]*)"\s?([^>]*)>/i', function ($matches) {
+    // Entfernt jegliche font-* Attribute aus den style-Attributen von diversen Tags
+    $content = preg_replace_callback('/<(p|span|h1|h2|h3|h4|h5|h6)\b([^>]*?)\sstyle="([^"]*)"\s?([^>]*)>/i', function ($matches) {
         // Entfernt alle style-Deklarationen, die mit "font-" beginnen
         $newStyle = preg_replace('/font-[^:]+:\s?[^;]+;?\s*/i', '', $matches[3]);
 
@@ -194,8 +194,8 @@ function fau_remove_text_attributes_from_content($content) {
     if (!$fau_sanitize_inlinestyles) {
        return $content;
     }
-    // Entfernt jegliche font-* Attribute aus den style-Attributen von <p> und <span>-Tags
-    $content = preg_replace_callback('/<(p|span)\b([^>]*?)\sstyle="([^"]*)"\s?([^>]*)>/i', function ($matches) {
+    // Entfernt jegliche font-* Attribute aus den style-Attributen von diversen Tags
+    $content = preg_replace_callback('/<(p|span|h1|h2|h3|h4|h5|h6)\b([^>]*?)\sstyle="([^"]*)"\s?([^>]*)>/i', function ($matches) {
         // Entfernt alle style-Deklarationen, die mit "font-" beginnen
         $newStyle = preg_replace('/text-[^:]+:\s?[^;]+;?\s*/i', '', $matches[3]);
 

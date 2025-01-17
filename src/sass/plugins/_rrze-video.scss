@@ -24,8 +24,8 @@
 
 .rrze-video {
     #content & {
-	margin-top: $fau-gutter-thirdwidth;
-	margin-bottom: $fau-gutter-halfwidth;
+	margin-top: var(--width-gutter-third, 10px);
+	margin-bottom: var(--width-gutter-half, 15px);
     }
 }
 

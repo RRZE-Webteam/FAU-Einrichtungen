@@ -26,9 +26,9 @@
 }
 
 .topevent-description {
-	@include px2rem($font-size-sidebar);
+	font-size: var(--font-size-sm, 0.875rem);
 	p {
-	    @include px2rem($font-size-sidebar);
+	    font-size: var(--font-size-sm, 0.875rem);
 	}
 }
 

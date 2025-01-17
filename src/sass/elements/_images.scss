@@ -4,7 +4,8 @@
 
 
 .img-rounded {
-    @include border-radius(6px);
+    border-radius: 6px;
+    background-clip: padding-box;
 }
 
 .img-polaroid {
@@ -12,11 +13,12 @@
     background-color: var(--color-MainBackground);
     border: 1px solid #ccc;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.img-circle {
-    @include border-radius(500px);
+.img-circle {   
+    border-radius: 500px;
+    background-clip: padding-box;
 }
 
 
@@ -66,9 +68,9 @@ svg {
 
 main {
     img {
-	@include box-shadow(none);
+	box-shadow: none;
 	@media (min-width: $screen-xs) {
-	    @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+	    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 	}
 
         &.shadow {
@@ -78,7 +80,8 @@ main {
 
         &.thickborder {
             border: 2px solid var(--color-ContentBorders);
-            @include border-radius(2px);
+	    border-radius: 2px;
+	    background-clip: padding-box;
         }
 
         &.borderless,
@@ -88,16 +91,18 @@ main {
 
        
 	&.rounded {
-	    @include border-radius(6px);
+            border-radius: 6px;
+	    background-clip: padding-box;
 	}
 	&.polaroid {
 	    padding: 5px;
 	    background-color: var(--color-MainBackground);
 	    border: 1px solid rgba(0, 0, 0, 0.2);
-	    @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+	    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 	}
 	&.circle {
-	    @include border-radius(50%);
+	    border-radius: 50%;
+	    background-clip: padding-box;
 	    aspect-ratio: 1 / 1;
 	    object-fit: contain;
 	    margin: 2px;
@@ -135,8 +140,8 @@ main, aside, .portalpage-sidebar, .widget {
 		margin-bottom: 1rem;
 	    }
 	    @media (min-width: $screen-sm) {
-		margin-left: $fau-gutter-halfwidth;
-		margin-right: $fau-gutter-halfwidth;
+		margin-left: var(--width-gutter-half, 15px);
+		margin-right: var(--width-gutter-half, 15px);
 	     }
 	    img {
 		max-width: 100vw;
@@ -176,7 +181,7 @@ main, aside, .portalpage-sidebar, .widget {
 }
 
 figcaption {
-	@include px2rem($font-size-image-caption);
+	font-size: var(--font-size-sm, 0.875rem);
 	padding: 0.3rem;
 	
 	@media (min-width: $screen-xs) {

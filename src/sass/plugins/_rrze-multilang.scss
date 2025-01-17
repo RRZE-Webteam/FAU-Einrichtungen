@@ -4,7 +4,7 @@
 /*-----------------------------------------------------------------------------------*/
 .fau-theme .meta-widget.rrze-multilang-widget {
     
-        @include inline-block();
+        display: inline-block;
         background: transparent;
 	margin: 0;
 	position:relative;

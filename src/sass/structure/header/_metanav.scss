@@ -90,7 +90,7 @@
     display: block;
     padding: 0 10px;
     margin: 0;
-    @include px2rem($font-size-mobile-meta);
+    font-size: var(--font-size-xxl, 1.5rem);
 
     .meta-links-trigger-text {
         @include hideout();

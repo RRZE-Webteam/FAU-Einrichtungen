@@ -24,7 +24,7 @@
 	    height: auto;
 	    &.shadow {
 		img {
-		    @include box-shadow(2px 2px 5px $colorShadows);
+		    box-shadow: 2px 2px 5px $colorShadows;
 		}
 	    }
 	    &.border {
@@ -33,7 +33,7 @@
 	    
 	    &.rounded {
 		border: 1px solid var(--color-ContentBorders);
-		@include box-shadow(0 0 1px var(--color-ContentBorders));
+		box-shadow: 0 0 1px var(--color-ContentBorders);
 		overflow: hidden;
 		border-radius: 50%;
 		

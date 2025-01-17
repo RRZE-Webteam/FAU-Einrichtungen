@@ -4,7 +4,7 @@
     border: none;
     font-family: var(--font-family-serif);
     position: relative;
-    @include px2rem($font-size-quotes);
+    font-size: var(--font-size-lg, 1.125rem);
 
 
     margin: 1rem;
@@ -34,7 +34,7 @@
     p {
         margin-bottom: 0;
         font-family: var(--font-family-serif);
-        @include px2rem($font-size-quotes);
+        font-size: var(--font-size-lg, 1.125rem);
         font-weight: 400;
         letter-spacing: .3px;
 
@@ -48,7 +48,7 @@
     cite {
         display: block;
         text-align: right;
-        @include px2rem($font-size-quotes-cites);
+        font-size: var(--font-size-sm, 0.875rem);
         color: var(--color-Text);
 
         &:before {
@@ -104,10 +104,10 @@
     .sidebar-inline & {
         margin: 0.6rem;
         padding: 0.5rem;
-        @include px2rem($font-size-sidebar);
+        font-size: var(--font-size-sm, 0.875rem);
 
         p {
-            @include px2rem($font-size-sidebar);
+            font-size: var(--font-size-sm, 0.875rem);
         }
     }
 }
@@ -122,10 +122,10 @@
     }
 
     #content .sidebar-inline & {
-        @include px2rem($font-size-sidebar);
+        font-size: var(--font-size-sm, 0.875rem);
 
         p {
-            @include px2rem($font-size-sidebar);
+            font-size: var(--font-size-sm, 0.875rem);
         }
     }
 }

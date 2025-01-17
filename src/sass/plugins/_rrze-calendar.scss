@@ -91,7 +91,7 @@
 			@include no-list;
 			padding: 10px 0 0 0;
 			min-height: 42px;
-			@include px2rem($font-size-sidebar-events);
+			font-size: var(--font-size-sm, 0.875rem);
 			background-image: none;
 		}
 	}
@@ -104,23 +104,13 @@
 	
 	&:hover,
 	&:focus {
-	   background: var(--color-primary-ci-hell); 
+	    background: var(--color-primary-ci-hell); 
 	    color:  var(--color-primary-ci-hell-kontrast); 
 	}
 	padding: 0.3rem;
 	width: 3rem;
 	text-align: center;
-	
-	.event-date-month {
-		@include px2rem($font-size-sidebar-events-month);
-		text-transform: uppercase;
-		font-weight: bold;
-	}
 
-	.event-date-day {
-		@include px2rem($font-size-sidebar-events-day);
-		font-weight: bold;
-	}
     }
 
     .event-info { 
@@ -144,8 +134,8 @@
 .events-list .event-item, 
 .event-detail-item {
     display: flex;
-    margin-bottom: $fau-gutter-halfwidth;
-    grid-gap: $fau-gutter-halfwidth;
+    margin-bottom: var(--width-gutter-half, 15px);
+    grid-gap: var(--width-gutter-half, 15px);
     align-items: flex-start;
     
 	.event-info {
@@ -181,7 +171,7 @@
 	
 	&:hover,
 	&:focus {
-	   background: var(--color-zentral-ci-hell); 
+	    background: var(--color-zentral-ci-hell); 
 	    color:  var(--color-zentral-ci-hell-kontrast); 
 	}
 }
@@ -193,7 +183,7 @@
 	&:hover,
 	&:focus {
 	    background: var(--color-tf-ci-hell); 
-	color:  var(--color-tf-ci-hell-kontrast); 
+	    color:  var(--color-tf-ci-hell-kontrast); 
   }
 }
 
@@ -205,7 +195,7 @@
 	&:hover,
 	&:focus {
 	   background: var(--color-rw-ci-hell); 
-	color:  var(--color-rw-ci-hell-kontrast); 
+	    color:  var(--color-rw-ci-hell-kontrast); 
 	}
 }
 
@@ -216,8 +206,8 @@
 	
 	&:hover,
 	&:focus {
-	   background: var(--color-phil-ci-hell); 
-	color:  var(--color-phil-ci-hell-kontrast); 
+	    background: var(--color-phil-ci-hell); 
+	    color:  var(--color-phil-ci-hell-kontrast); 
 	}
 }
 

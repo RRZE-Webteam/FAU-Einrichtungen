@@ -13,7 +13,7 @@
 
     header {
 		margin-top: 0px;
-		@include px2rem($font-size-h3);
+		font-size: var(--font-size-h3);
 		font-weight: 500;
 		
 		padding: var(--width-gutter-half);
@@ -64,19 +64,17 @@
 			    mask-repeat: no-repeat;
 			    -webkit-mask-position: center;
 			    mask-position: center;
-			    
-			    background-color: var(--color-submenu-currentlevel-text);
-			    @media (min-width: $screen-md) {
-				background-color: var(--_icon-color);
-			    }
-
 			    -webkit-mask-image: svg-angle-right();
 			    mask-image: svg-angle-right();
 			    transform: rotate(180deg);
 			    position: absolute;
-			    top: 0; // calc(50% - 1rem);
+			    top: 0; 
 			    left: -2.2rem;
-
+			    background-color: var(--color-submenu-currentlevel-text);
+			    
+			    @media (min-width: $screen-md) {
+				background-color: var(--_icon-color);
+			    }
 			}
 	
 		}
@@ -120,7 +118,7 @@
 		text-decoration: none;
 		overflow-wrap: break-word;
 		display: block;
-		@include px2rem($font-size-nav-level2);
+		font-size: var($font-size-normal, 1rem);
 		font-weight: 500;
 		color: var(--color-submenu-currentlevel-text);
 		padding: 0.35rem var(--width-gutter-half);
@@ -157,7 +155,7 @@
 	    a {
 			padding-left: 40px;
 			font-weight: unset;
-			@include px2rem($font-size-nav-level3);
+			font-size: var(--font-size-tiny, 0.938rem);
 	    }
 	    li {
 			a {

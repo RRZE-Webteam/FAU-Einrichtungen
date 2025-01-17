@@ -97,7 +97,7 @@
             background: var(--color-white);
             font-weight: bold;
             visibility: hidden;
-            @include transition(0.5s, all);
+            transition: 0.5s all;
 
             &:focus {
                 box-shadow: none;
@@ -151,7 +151,7 @@
             margin: 0;
             visibility: hidden;
             opacity: 0;
-            @include transition(0.5s, all);
+            transition: 0.5s all;
 
             @media (max-width: $screen-md) {
                 visibility: visible;

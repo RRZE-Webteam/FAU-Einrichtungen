@@ -34,7 +34,7 @@
 	
 	li {
 		background: none;
-		@include px2rem($font-size-large);
+		font-size: var(--font-size-xl, 1.25rem);
 		margin-bottom: var(--width-gutter-half);
 		margin-top: 5px;
 		
@@ -44,7 +44,7 @@
 			margin-bottom: 0;
 			
 			li {
-				@include px2rem($font-size-small);
+				font-size: var(--font-size-sm, 0.875rem);
 			}
 		}
 	}

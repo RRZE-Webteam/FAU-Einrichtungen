@@ -223,115 +223,25 @@ $font-size-gridbase: 16;
 $font-size-base: 16;
 $base-line-height: 1.5;
 
-
-$font-size-meta: ($font-size-base - 2);
-$font-size-sidebar: ($font-size-base - 2);
-$font-size-small: ($font-size-base - 2);
-$font-size-large: ($font-size-base + 4);
-$font-size-larger: ($font-size-base + 8);
-
-$font-size-footer: ($font-size-base - 2);
-$font-size-breadcrumb: ($font-size-base - 2);
-$font-size-herosearch: $font-size-base;
-$font-size-header-branding: ($font-size-base + 4);
-
-$font-size-hero-slider-title: 28;
-$font-size-hero-slider-title-small: 20;
-$font-size-hero-slider-copyright: ($font-size-base - 1);
-$font-size-hero-meta-portal: 40;
-
-$font-size-textbuttons: ($font-size-base - 1);
-$font-size-linkicon: ($font-size-base - 2);
-$font-size-hero-links: ($font-size-base - 2);
-$font-size-hero-bannertext: $font-size-large;
-
-$font-size-content-linkicon: 10;
-$font-size-content-listitem: $font-size-base;
-$font-size-codepre: ($font-size-base - 2);
-$font-size-table: ($font-size-base - 2);
-$font-size-contentwidgets: ($font-size-base - 2);
-
-$font-size-sidebar-listitem: $font-size-sidebar;
-$font-size-sidebar-events: $font-size-sidebar;
-$font-size-sidebar-events-month: 10;
-$font-size-sidebar-events-day: 20;
-
-$font-size-socialmedia-morelink: $font-size-sidebar;
-$font-size-nav-mainlinks: $font-size-base;
-
-$font-size-nav-level2: $font-size-base;
-$font-size-nav-level3: ($font-size-base - 1);
-$font-size-nav-buttons:	($font-size-base + 2);
-
-$font-size-subnav-firstlevel: ($font-size-base - 1);
-$font-size-subnav-sublevel: ($font-size-base - 2);
+$font-size-xs:	    0.76rem;   // - 4 / 12
+$font-size-sm:	    0.875rem;  // - 2 / 14
+$font-size-tiny:    0.938rem; // - 1 
+$font-size-normal:  1rem;
+$font-size-lg:	    1.125rem;  // + 2 / 18
+$font-size-xl:	    1.25rem;   // + 4 / 20
+$font-size-xxl:	    1.5rem;    // + 8 / 24
 
 
+$font-size-h1: 1.8125rem;
+$font-size-h2: 1.5rem;
+$font-size-h3: 1.3125rem;
+$font-size-h4: 1.1875rem;
+$font-size-h5: 1.125rem;
+$font-size-h6: 1.0625rem;
 
-$font-size-h1: ($font-size-base + 13);
-$font-size-h1-mobilebranding: ($font-size-h1 - 2);
-$font-size-h1-banner: $font-size-h1;
-$font-size-h1-sidebar: ($font-size-base + 8);
-$font-size-h1-table: ($font-size-h1 - 2);
-$font-size-h1-small: ($font-size-h1 - 2);
-
-
-$font-size-h2: ($font-size-base + 8);
-$font-size-h2-small: ($font-size-h2 - 2);
-$font-size-h2-socialmedia: ($font-size-h2 - 2);
-$font-size-h2-sidebar: ($font-size-base + 5);
-$font-size-h2-table: ($font-size-h2 - 2);
-
-$font-size-h3: ($font-size-base + 5);
-$font-size-h3-small: ($font-size-h3 - 2);
-$font-size-h3-hero: ($font-size-h3 - 2);
-$font-size-h3-sidebar: ($font-size-base + 3);
-
-$font-size-h3-table: ($font-size-h3 - 2);
-
-
-$font-size-h4: ($font-size-base + 3);
-$font-size-h4-small: ($font-size-h4 - 2);
-$font-size-h4-sidebar: ($font-size-base + 1);
-$font-size-h4-table: ($font-size-h4 - 2);
-
-
-$font-size-h5: ($font-size-base + 2);
-$font-size-h5-sidebar: ($font-size-base + 1);
-$font-size-h5-table: ($font-size-h5 - 2);
-
-
-$font-size-h6: ($font-size-base + 1);
-$font-size-h6-sidebar: $font-size-base;
-$font-size-h6-table: ($font-size-h6 - 2);
-
-
-$font-size-quotes: ($font-size-base + 2);
-$font-size-quotes-cites: ($font-size-quotes - 2);
-
-$font-size-content-meta: $font-size-small;
-$font-size-image-caption: $font-size-small;
-
-$font-size-content-toggle: $font-size-base;
-
-$font-size-pagination-h3: $font-size-content-meta;
-$font-size-pagination-links: $font-size-content-meta;
-
-
-$font-size-mobile-meta: 24;
-$font-size-mobile-sitetitle: 20;
-$font-size-desktop-sitetitle: 22;
-
-$font-size-print-base: $font-size-base;
-$font-size-print-base-small: ($font-size-base - 2);
-
+$font-size-hero-slider-title:	1.75rem;
 
 // Contentmenus / Portalmenus im Contentbereich
-
-$font-size-contentmenu-title: ($font-size-base + 2);
-$font-size-contentmenu-link: $font-size-base;
-$font-size-contentmenu-listview: ($font-size-base - 1);
-
 $contentmenu-xxs-width:		182px;
 $contentmenu-default-width:	302px;
 $contentmenu-default-height:	200px;

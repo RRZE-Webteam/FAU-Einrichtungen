@@ -19,7 +19,7 @@
     }
 
     .mlp_language_box {
-        @include inline-block();
+        display: inline-block;
         background: var(--color-StandardHellgrau);
 
         ul {
