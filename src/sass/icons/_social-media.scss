@@ -94,6 +94,10 @@
 	   mask-image: svg-facebook();
 	}
 	
+	&[href*="threads.net"]:before {
+	   mask-image: svg-threads();
+	}
+	
 
 	&[href*="github.com"]:before {
 	    mask-image: svg-github();
