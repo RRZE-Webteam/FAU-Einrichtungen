@@ -1426,7 +1426,7 @@ function fau_get_toplinks($args = array(), $mode = 0) {
                                 }
                             }
 
-                            $item_output = fau_get_image_htmlcode($imageid, 'logo-thumb', $title);
+                            $item_output = fau_get_image_htmlcode($imageid, 'thumb', $title);
    
                     }
                     if (!empty($item_output)) {

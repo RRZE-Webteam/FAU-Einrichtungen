@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 111,
+	'optiontable-version'           => 112,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -113,13 +113,7 @@ $defaultoptions = [
 			'imagelink'	=> false,
 			'desc'	=> __('Bannerbild Startseite', 'fau')
 		],
-		'logo-thumb'	=> [
-			'width'	=> 140,
-			'height'	=> 110,
-			'crop'	=> false,
-			'imagelink'	=> true,
-			'desc'	=> __('Kleines rechteckiges Logo', 'fau')
-		],
+		
 		'rwd-480-2-1'	=> [
 			'width'	=> 480,
 			'height'	=> 240,
@@ -297,7 +291,7 @@ $defaultoptions = [
 	// Default Anzeigetype von Imagelinks: slide oder list
 	'advanced_imagelink_default_dots'		=> true,
 	// Default Anzeige der Dots unter dem Imagelinkslider
-	'advanced_imagelink_default_size'		=> 'logo-thumb',
+	'advanced_imagelink_default_size'		=> 'thumb',
 	// Default Size der Imagelinks
 	'advanced_imagelink_default_navtitle'	=> __('Partnerlogos', 'fau'),
 	// Default ARIA TItel
