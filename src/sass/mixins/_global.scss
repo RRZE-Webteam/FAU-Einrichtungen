@@ -5,12 +5,6 @@
 @use "sass:math";
 
 
-@mixin placeholder($color) {
-    ::placeholder {
-        color: $color;
-    }
-}
-
 @mixin no-list() {
     list-style: none;
     margin: 0;
@@ -126,8 +120,7 @@
 }
 
 @mixin ghostbutton($border: 1px) {
-    display: inline-block;
-    
+    display: inline-block;    
     font-size: var(--font-size-tiny, 0.938rem);
     background: transparent;
     color: var(--color-Text);
@@ -146,9 +139,29 @@
 }
 
 @mixin nextlink-ghostbutton() {
-    @include defaultlinkstyle();
-    @include ghostbutton();
+    display: inline-block;
+    box-shadow: none;
+    transition: text-decoration .1s ease;
+    
+    background: transparent;
+    color: var(--color-Text);
+    font-size: var(--font-size-tiny, 0.938rem);
     font-weight: normal;
+    text-decoration: none;
+    border: 1px solid var(--color-ContentBorders);
+    border-radius: var(--border-radius-buttons, 3px);
+    padding: 10px 18px;
+
+
+    &:hover,
+    &:focus {
+	box-shadow: none;
+        text-decoration: none;
+        color: var(--color-ghostbutton-hover-text);
+        background: var(--color-ghostbutton-hover-bg);
+    }
+    
+
 
     &:after {
         @include svg-icon-place();
@@ -162,9 +175,18 @@
 }
 
 @mixin prevlink-ghostbutton() {
-    @include defaultlinkstyle();
-    @include ghostbutton();
+    display: inline-block;
+    box-shadow: none;
+    transition: text-decoration .1s ease;
+    
+    background: transparent;
+    color: var(--color-Text);
+    font-size: var(--font-size-tiny, 0.938rem);
     font-weight: normal;
+    text-decoration: none;
+    border: 1px solid var(--color-ContentBorders);
+    border-radius: var(--border-radius-buttons, 3px);
+    padding: 10px 18px;
 
     &:before {
         @include svg-icon-place();
