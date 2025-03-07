@@ -530,10 +530,18 @@ class Walker_Main_Menu_Plainview_Small extends Walker_Nav_Menu {
         $atts           = array();
         $atts['title']  = !empty($item->attr_title) ? $item->attr_title : '';
  //       $atts['target'] = !empty($item->target) ? $item->target : '';
+        // we dont want a11y breaking targets!!! keep this old shit away
         $atts['rel']    = !empty($item->xfn) ? $item->xfn : '';
         $atts['href']   = !empty($item->url) ? $item->url : '';
     
-        $item_classes  = empty($item->classes) ? array() : (array)$item->classes;
+        // in case that $item->classes was setuo wrong by another plugin, we
+        // add a check here
+        if (empty($item->classes) || (!is_array($item->classes))) {
+            $item_classes = [];
+        } else {
+             $item_classes  = (array)$item->classes;
+        }
+
         $item_classes  = fau_cleanup_menuclasses($item_classes);
         $item_class    = implode(' ', $item_classes);
         $atts['class'] = !empty($item_class) ? $item_class : '';
