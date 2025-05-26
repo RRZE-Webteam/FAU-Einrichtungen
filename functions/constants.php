@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 112,
+	'optiontable-version'           => 113,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -174,8 +174,8 @@ $defaultoptions = [
 
 	'contact_address_name'                       => __('Friedrich-Alexander-Universität', 'fau'),
 	'contact_address_name2'                      => __('Erlangen-Nürnberg', 'fau'),
-	'contact_address_street'                     => __('Schlossplatz 4', 'fau'),
-	'contact_address_plz'                        => __('91054', 'fau'),
+	'contact_address_street'                     => __('Freyeslebenstraße 1', 'fau'),
+	'contact_address_plz'                        => __('91058', 'fau'),
 	'contact_address_ort'                        => __('Erlangen', 'fau'),
 
 	'contact_address_country'                   => '',
