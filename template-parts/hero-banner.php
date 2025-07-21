@@ -57,7 +57,7 @@ if ((filter_var($copyright, FILTER_VALIDATE_URL)) && (preg_match('/\/cropped\-/'
                    <div class="hero-row">
 
                        <?php  
-                           $title = get_bloginfo( 'title','display' );
+                           $title = get_bloginfo( 'name','display' );
                            $header_image = get_header_image();
                            $infobarclass= "infobar";
                            $length = 0;
