@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 111,
+	'optiontable-version'           => 113,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -113,13 +113,7 @@ $defaultoptions = [
 			'imagelink'	=> false,
 			'desc'	=> __('Bannerbild Startseite', 'fau')
 		],
-		'logo-thumb'	=> [
-			'width'	=> 140,
-			'height'	=> 110,
-			'crop'	=> false,
-			'imagelink'	=> true,
-			'desc'	=> __('Kleines rechteckiges Logo', 'fau')
-		],
+		
 		'rwd-480-2-1'	=> [
 			'width'	=> 480,
 			'height'	=> 240,
@@ -180,8 +174,8 @@ $defaultoptions = [
 
 	'contact_address_name'                       => __('Friedrich-Alexander-Universität', 'fau'),
 	'contact_address_name2'                      => __('Erlangen-Nürnberg', 'fau'),
-	'contact_address_street'                     => __('Schlossplatz 4', 'fau'),
-	'contact_address_plz'                        => __('91054', 'fau'),
+	'contact_address_street'                     => __('Freyeslebenstraße 1', 'fau'),
+	'contact_address_plz'                        => __('91058', 'fau'),
 	'contact_address_ort'                        => __('Erlangen', 'fau'),
 
 	'contact_address_country'                   => '',
@@ -297,7 +291,7 @@ $defaultoptions = [
 	// Default Anzeigetype von Imagelinks: slide oder list
 	'advanced_imagelink_default_dots'		=> true,
 	// Default Anzeige der Dots unter dem Imagelinkslider
-	'advanced_imagelink_default_size'		=> 'logo-thumb',
+	'advanced_imagelink_default_size'		=> 'thumb',
 	// Default Size der Imagelinks
 	'advanced_imagelink_default_navtitle'	=> __('Partnerlogos', 'fau'),
 	// Default ARIA TItel

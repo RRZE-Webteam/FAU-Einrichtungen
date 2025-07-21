@@ -2,7 +2,7 @@
     "type": "module",
     "name": "FAU-Einrichtungen",
     "textdomain": "fau",
-    "version": "2.6.4",
+    "version": "2.6.7",
     "keywords": [
         "WordPress",
         "Theme",
@@ -11,12 +11,12 @@
     ],
     "compatibility": {
         "wprequires": "6.4",
-        "wptestedup": "6.7",
+        "wptestedup": "6.8",
         "phprequires": "8.2"
     },
     "author": {
         "name": "RRZE-Webteam <webmaster@fau.de> (https://www.rrze.fau.de)",
-        "url": "https://www.wordpress.rrze.fau.de"
+        "url": "https://www.wp.rrze.fau.de"
     },
     "description": "WordPress-Theme der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
     "license": "GNU General Public License v3 or later",

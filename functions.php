@@ -8,7 +8,8 @@
 global $defaultoptions, $default_fau_orga_data, $fau_used_svgs;
 global $is_gutenberg_enabled;
 
-load_theme_textdomain( 'fau', get_template_directory() . '/languages' );
+
+
 // Block Editor handling
 require_once( get_template_directory() . '/functions/block-editor-support.php');
 require_once( get_template_directory() . '/functions/template-functions.php' );
@@ -55,6 +56,8 @@ require_once( get_template_directory() . '/functions/posttype_imagelink.php' );
 function fau_setup() {
 	global $defaultoptions;
 
+    load_theme_textdomain( 'fau', get_template_directory() . '/languages' );
+    
 	if (!isset( $content_width ) ) {
             $content_width = $defaultoptions['content-width'];
         }

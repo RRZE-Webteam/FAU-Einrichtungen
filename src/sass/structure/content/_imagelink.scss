@@ -293,7 +293,8 @@
 	    border: 1px solid transparent;
 	    overflow: hidden;
 	    padding: 2px;
-	    
+	    max-width: 150px;
+	
 	    &:active,
 	    &:focus-within,
 	    &:hover, 

@@ -70,16 +70,23 @@ add_filter( 'show_recent_comments_widget_style', '__return_false' );
 /*-----------------------------------------------------------------------------------*/
 function fau_searchfilter($query) {
     if ($query->is_search && !is_admin() ) {
+        $allowed_types = get_post_types(array('public' => true, 'exclude_from_search' => false));
         if(isset($_GET['post_type'])) {
             $types = (array) $_GET['post_type'];
         } else {
             $types = get_theme_mod('search_post_types');
           //  $types = array("person", "post", "page", "attachment");
           //  $types = array("attachment","person");
+             if (empty($types)) {
+                $filter_type = $allowed_types;
+            }
         }
-        $allowed_types = get_post_types(array('public' => true, 'exclude_from_search' => false));
+       
+        
         foreach($types as $type) {
-            if( in_array( $type, $allowed_types ) ) { $filter_type[] = $type; }
+            if (in_array( $type, $allowed_types ) ) { 
+                $filter_type[] = $type; 
+            }
         }
         if(count($filter_type)) {
             $query->set('post_type',$filter_type);
