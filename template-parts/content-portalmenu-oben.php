@@ -15,7 +15,7 @@ if ($menuslug) {
    
     $nosub  = get_post_meta( $post->ID, 'fauval_portalmenu_nosub_oben', true );  
     if ($nosub==1) {
-	$shortcodeopt .= ' showsubs="false"';
+        $shortcodeopt .= ' showsubs="false"';
     } else {
         $shortcodeopt .= ' showsubs="true"';
     }
@@ -23,19 +23,19 @@ if ($menuslug) {
     
     $nofallbackthumbs  = get_post_meta( $post->ID, 'fauval_portalmenu_nofallbackthumb_oben', true );
     if ($nofallbackthumbs) {
-	 $shortcodeopt .= ' nofallback="true"';
+        $shortcodeopt .= ' nofallback="true"';
     }
     
     
     $nothumbnails  = get_post_meta( $post->ID, 'fauval_portalmenu_thumbnailson_oben', true ); 
     if ($nothumbnails) {
-	 $shortcodeopt .= ' nothumbs="true"';
+        $shortcodeopt .= ' nothumbs="true"';
     }
     
     
     $type = get_post_meta($post->ID, 'fauval_portalmenu_type_oben', true);
     if ($type) {
-	$shortcodeopt .= ' type="'.$type.'"';
+        $shortcodeopt .= ' type="'.$type.'"';
     }
     
 

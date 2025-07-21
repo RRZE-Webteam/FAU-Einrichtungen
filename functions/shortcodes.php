@@ -43,8 +43,8 @@ class FAUShortcodes {
 		$out = '';
 
 		$menu = $menu ? esc_attr($menu) : '';
-		$error = '<p>' . __("Es konnte kein Menu unter der angegebenen Bezeichnung gefunden werden", 'fau') . '</p>';
-		$error .= "name=$menu";
+		$error = '<p>' . __("Es konnte kein Menü unter der angegebenen Bezeichnung gefunden werden, oder das Menü enthielt keine Inhalte.", 'fau') . '</p>';
+	//	$error .= "name=$menu";
 		if (!fau_empty($menu)) {
 
 			$global_hoverzoom = get_theme_mod('portalmenus_hover_zoom', $defaultoptions['portalmenus_hover_zoom']);
@@ -68,7 +68,11 @@ class FAUShortcodes {
 			} else {
 				$term = get_term_by('name', $menu, 'nav_menu');
 			}
-			if ($term === false) {
+            
+            $menu_items = wp_get_nav_menu_items($term->term_id);
+            
+            
+			if  ((empty($menu_items)) || ($term === false)) {
 				$out = $error;
 			} else {
 				$slug = $term->slug;
