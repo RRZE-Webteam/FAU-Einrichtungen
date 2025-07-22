@@ -35,8 +35,11 @@
             color: var(--color-TextLightKontrast);
 
             a {
+		display: inline-block;
                 color: var(--color-TextLightKontrast);
                 text-decoration: none;
+		line-height: max(24px, 1.5em);
+		
             }
 
             a:hover, a:focus {
@@ -54,8 +57,10 @@
   ol li, ul li {
       a {
 	font-size: 1rem;
+	line-height: max(24px, 1.5em);
 	display: inline-block;
 	min-height: inherit;
+	
     }
   }
     @media (min-width: $screen-md) {
