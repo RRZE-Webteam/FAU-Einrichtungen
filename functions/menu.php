@@ -1223,6 +1223,11 @@ function fau_get_page_subnav($id) {
 
 
     $pagelist = get_pages(array('child_of' => $parent_page));
+    if (empty($pagelist)) {
+        // No subpages avaible
+        return '';
+    }
+    
     $exclude  = '';
 
     foreach ($pagelist as $page) {
@@ -1251,8 +1256,7 @@ function fau_get_page_subnav($id) {
         $exclude_list .= ','.$exclude;
     }
 
-
-    $thismenu .= wp_list_pages(array(
+    $submenucontent = wp_list_pages(array(
         'child_of'    => $parent_page,
         'title_li'    => '',
         'echo'        => false,
@@ -1260,7 +1264,11 @@ function fau_get_page_subnav($id) {
         'exclude'     => $exclude_list, // $exclude,
         'walker'      => new Walker_SubNav()
     ));
-
+    if (empty($submenucontent)) {
+        // No pages to show
+        return '';
+    }
+    $thismenu .= $submenucontent;
     $thismenu .= '</ul>';
     $thismenu .= '</nav>';
 
