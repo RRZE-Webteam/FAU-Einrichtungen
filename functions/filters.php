@@ -649,7 +649,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    wp_enqueue_script('fau-js-heroslider');
 
 	    $rand = rand();	    
-	    $output .= "<div id=\"slider-$rand\" class=\"gallery-slick\" aria-hidden=\"true\" role=\"presentation\">\n";	
+	    $output .= "<div id=\"slider-$rand\" class=\"gallery-slick\" role=\"presentation\">\n";	
 	    $output .= "<div class=\"slider-for-$rand\">\n";
 
 	    foreach ($attachments as $id => $attachment) {
@@ -675,7 +675,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 			    if (!fau_empty($imgmeta['excerpt'])) { 
 				$output .= '<br>'; 			
 			    }
-			    $output .= '<span class="linkorigin">(<a  tabindex="-1" href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
+			    $output .= '<span class="linkorigin">(<a  tabindex="-1" aria-hidden="true" href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
 			}
 		    $output .='</figcaption>';
 		}

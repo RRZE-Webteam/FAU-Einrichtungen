@@ -118,8 +118,9 @@
 		text-decoration: none;
 		overflow-wrap: break-word;
 		display: block;
-		font-size: var($font-size-normal, 1rem);
+		font-size: var(--font-size-normal, 1rem);
 		font-weight: 500;
+		line-height: max(1.5em, 24px);
 		color: var(--color-submenu-currentlevel-text);
 		padding: 0.35rem var(--width-gutter-half);
 		   
@@ -156,6 +157,7 @@
 			padding-left: 40px;
 			font-weight: unset;
 			font-size: var(--font-size-tiny, 0.938rem);
+			line-height: max(1.5em, 24px);
 	    }
 	    li {
 			a {
@@ -183,7 +185,7 @@
 	li .current_page_ancestor {
 		> a {
 		    color: var(--color-submenu-currentlevel-text);
-			font-weight: unset;
+		    font-weight: unset;
 		}
 	}
 

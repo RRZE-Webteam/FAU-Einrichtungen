@@ -500,15 +500,8 @@ function makewplinkjs() {
 function bundlemainjs() {
     return src([
       info.source.js + "main/jquery.fancybox.js",
-      //    info.source.js + 'main/jquery.hoverIntent.min.js',
-      // we remove hoverIntent, cause its already provider from wordpress
-      //  info.source.js + 'main/jquery.tablesorter.min.js',
-      //  tablesorter moved in elements plugin (March 2023)
-      //  info.source.js + 'main/slick.js',
-      // we remove slick from the main js to reduce the data transfered
-      // in default situations. slick we only use on special pages, where we
-      // can call it additional
       info.source.js + "main/console-errors.js",
+      info.source.js + "main/shortcode-organigram.js",
       info.source.js + "main/main.js",
     ])
     .pipe(concat(info.mainjs))
