@@ -1,0 +1,78 @@
+name: 🐞 Fehlerbericht
+description: Melde einen Fehler im Projekt.
+title: "[FEHLER] "
+labels:
+  - Bug
+  - Prüfen
+assignees: []
+
+body:
+  - type: dropdown
+    id: fehler_typ
+    attributes:
+      label: Fehlertyp
+      description: Wähle den Typ des Fehlers aus.
+      options:
+        - Allgemein
+        - Barrierefreiheit
+        - Optik
+        - Code
+    validations:
+      required: true
+
+  - type: input
+    id: urls
+    attributes:
+      label: Betroffene Seite(n)
+      description: Gib eine oder mehrere URLs an, auf denen das Problem auftritt (durch Komma oder Zeilenumbruch trennen).
+      placeholder: https://example.com/seite, https://example.com/andere-seite
+    validations:
+      required: true
+
+  - type: textarea
+    id: beschreibung
+    attributes:
+      label: Fehlerbeschreibung
+      description: Beschreibe, was passiert ist und warum es ein Problem ist. Ergänze hierbei gerne Screenshots.
+      placeholder: Beschreibe den Fehler möglichst genau.
+    validations:
+      required: true
+
+  - type: textarea
+    id: schritte
+    attributes:
+      label: Schritte zur Reproduktion
+      description: Wie kann man den Fehler nachstellen?
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: bildschirmaufloesung
+    attributes:
+      label: Verwendete Bildschirmauflösung
+      description: Welche Darstellung wurde verwendet, als der Fehler auftrat?
+      options:
+        - Standard Desktop-Bildschirm
+        - Desktop-Bildschirm mit mehr als 1900 Pixel
+        - iPad-Auflösung
+        - Handy-Darstellung
+    validations:
+      required: false
+      
+  - type: input
+    id: umgebung
+    attributes:
+      label: Umgebung
+      description: Betriebssystem, Browser, App-Version etc.
+      placeholder: z. B. Windows 11, Chrome 124
+
+  - type: markdown
+    attributes:
+      value: |
+        ✳️ Der ausgewählte **Fehlertyp** und die Bildschirmauflösung erscheinen im Issue-Text.  
+        Das Label `Bug` wird automatisch gesetzt.
+

@@ -6,10 +6,17 @@
 * @subpackage FAU
 * @since FAU 1.0
 */
+
+$arialabel = '';
+$label = esc_html(get_theme_mod('title_hero_search'));
+if (!empty($label)) {
+    $arialabel = 'aria-label="'.$label.'" ';
+   
+}
+
 ?>
 
-<form method="get" class="searchform" action="<?php echo fau_esc_url(home_url( '/' ))?>">
-    <h2 class="screen-reader-text"><?php echo esc_html(get_theme_mod('title_hero_search')); ?></h2>
+<form method="get" class="searchform" action="<?php echo fau_esc_url(home_url( '/' ))?>" <?php echo $arialabel; ?>>
 	<div class="search-text">
     <?php 
 	    $randid= wp_rand(1,100);
