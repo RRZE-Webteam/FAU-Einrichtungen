@@ -11,37 +11,37 @@
 
 	<form method="get" class="searchform-content" action="<?php echo esc_url(home_url( '/' ))?>">
 	    <div class="search-text">
-		<label for="suchmaske-content"><?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:','fau'); ?></label>
-		<span class="searchicon"> </span>
-		<input id="suchmaske-content" type="text" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>">
-		<input type="submit" enterkeyhint="search" value="<?php _e('Finden','fau'); ?>">
+            <label for="suchmaske-content"><?php _e('Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:','fau'); ?></label>
+            <span class="searchicon"> </span>
+            <input id="suchmaske-content" type="text" value="<?php the_search_query(); ?>" name="s" placeholder="<?php _e('Suchen nach...','fau'); ?>">
+            <input type="submit" enterkeyhint="search" value="<?php _e('Finden','fau'); ?>">
 	    </div>
 	    <?php
 	    if (get_theme_mod('search_allowfilter')) {
-		echo '<div class="filter">';
+            echo '<div class="filter">';
 
 
-		$listtypesfield = fau_get_searchable_fields('list');
-		$listtypes = array_keys($listtypesfield);
-		
-		$query_types = get_query_var('post_type',$listtypes);
-		$allowed_types =   get_post_types(array('public' => true, 'exclude_from_search' => false));
-		
-		
-		if ((is_array($listtypes)) && (!empty($listtypes))) {
-		    foreach ($listtypes as $type) {       
-			if( in_array( $type, $allowed_types ) ) {
-			    
-			   $typestr = $listtypesfield[$type];
+            $listtypesfield = fau_get_searchable_fields('list');
+            $listtypes = array_keys($listtypesfield);
 
-			    echo '<div class="'.$type.'"><input type="checkbox" name="post_type[]" id="label-'.$type.'" value="'.$type.'"';
-			    if (is_array($query_types) && in_array($type, $query_types)) { echo ' checked="checked"'; }
-			    echo ">";			
-			    echo '<label for="label-'.$type.'">'.$typestr.'</label></div>';
-			}
-		    }
-		}
-		echo "</div>\n";
+            $query_types = get_query_var('post_type',$listtypes);
+            $allowed_types =   get_post_types(array('public' => true, 'exclude_from_search' => false));
+
+
+            if ((is_array($listtypes)) && (!empty($listtypes))) {
+                foreach ($listtypes as $type) {       
+                if( in_array( $type, $allowed_types ) ) {
+
+                   $typestr = $listtypesfield[$type];
+
+                    echo '<div class="'.$type.'"><input type="checkbox" name="post_type[]" id="label-'.$type.'" value="'.$type.'"';
+                    if (is_array($query_types) && in_array($type, $query_types)) { echo ' checked="checked"'; }
+                    echo ">";			
+                    echo '<label for="label-'.$type.'">'.$typestr.'</label></div>';
+                }
+                }
+            }
+            echo "</div>\n";
 	    }
 	    ?>
 	</form>
