@@ -593,18 +593,18 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 			    }
 			
 		    } elseif (fau_empty( $imgmeta['alt'])) {
-			// Kein Link aber Bild-Alt trotzdem leer. Nehme einen der 
-			// optionalen anderen Felder der Bildmeta
-			if (!fau_empty($imgmeta['description'])) {
-			    $linkalt =  sanitize_text_field($imgmeta['description']);	
-			} elseif (!fau_empty($imgmeta['title'])) {
-			    $linkalt =  sanitize_text_field($imgmeta['title']);
-			} elseif (!fau_empty($imgmeta['excerpt'])) {
-			    $linkalt =  sanitize_text_field($imgmeta['excerpt']);
-					    
-			} else {
-			    $linkalt = '';
-			}
+                // Kein Link aber Bild-Alt trotzdem leer. Nehme einen der 
+                // optionalen anderen Felder der Bildmeta
+                if (!fau_empty($imgmeta['description'])) {
+                    $linkalt =  sanitize_text_field($imgmeta['description']);	
+                } elseif (!fau_empty($imgmeta['title'])) {
+                    $linkalt =  sanitize_text_field($imgmeta['title']);
+                } elseif (!fau_empty($imgmeta['excerpt'])) {
+                    $linkalt =  sanitize_text_field($imgmeta['excerpt']);
+
+                } else {
+                    $linkalt = '';
+                }
 			
 		    }
 		    
@@ -644,7 +644,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 
 	} else {
 	    if ((!$attr['captions']) && (get_theme_mod('galery_force_caption_onslick'))) {
-		$attr['captions'] = 1;
+            $attr['captions'] = 1;
 	    }
 	    wp_enqueue_script('fau-js-heroslider');
 
@@ -653,34 +653,34 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 	    $output .= "<div class=\"slider-for-$rand\">\n";
 
 	    foreach ($attachments as $id => $attachment) {
-		$img_full = wp_get_attachment_image_src($id, 'full');
-		$imgmeta = fau_get_image_attributs($id);
+            $img_full = wp_get_attachment_image_src($id, 'full');
+            $imgmeta = fau_get_image_attributs($id);
 
-		$output .= '<div class="item">';	
-		$output .= fau_get_image_htmlcode($id, 'gallery-full', '','',array('role' => 'presentation'));
+            $output .= '<div class="item">';	
+            $output .= fau_get_image_htmlcode($id, 'gallery-full', '','',array('role' => 'presentation'));
 
-		$link_origin = get_theme_mod('galery_link_original');
-		
-		if (($link_origin) || ($attr['captions'])) {
-		    $output .= '<figcaption class="gallery-image-caption">';
-			$lightboxattr = '';
-			if (($attr['captions']) && (!fau_empty($imgmeta['excerpt']))) {
-			    $output .= $imgmeta['excerpt']; 
-			    $lightboxtitle = sanitize_text_field($imgmeta['excerpt']);
-			    if (strlen(trim($lightboxtitle))>1) {
-				$lightboxattr = ' title="'.$lightboxtitle.'"';
-			    }
-			}
-			if (($link_origin) && isset($attr['link']) && ($attr['link'] != 'none')) {
-			    if (!fau_empty($imgmeta['excerpt'])) { 
-				$output .= '<br>'; 			
-			    }
-			    $output .= '<span class="linkorigin">(<a  tabindex="-1" aria-hidden="true" href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
-			}
-		    $output .='</figcaption>';
-		}
+            $link_origin = get_theme_mod('galery_link_original');
 
-		$output .='</div>';
+            if (($link_origin) || ($attr['captions'])) {
+                $output .= '<figcaption class="gallery-image-caption">';
+                $lightboxattr = '';
+                if (($attr['captions']) && (!fau_empty($imgmeta['excerpt']))) {
+                    $output .= $imgmeta['excerpt']; 
+                    $lightboxtitle = sanitize_text_field($imgmeta['excerpt']);
+                    if (strlen(trim($lightboxtitle))>1) {
+                        $lightboxattr = ' title="'.$lightboxtitle.'"';
+                    }
+                }
+                if (($link_origin) && isset($attr['link']) && ($attr['link'] != 'none')) {
+                    if (!fau_empty($imgmeta['excerpt'])) { 
+                        $output .= '<br>'; 			
+                    }
+                    $output .= '<span class="linkorigin">(<a href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
+                }
+                $output .='</figcaption>';
+            }
+
+            $output .='</div>';
 
 	    }
 
