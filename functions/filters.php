@@ -751,9 +751,22 @@ function fau_remove_comments_rss( $for_comments ) {
     return;
 }
 add_filter('post_comments_feed_link','fau_remove_comments_rss');
+/*-----------------------------------------------------------------------------------*/
+/* Blockeditor: Remove h1 from core/heading
+/*-----------------------------------------------------------------------------------*/
+function fau_coreblocks_remove_h1_heading( $args, $block_type ) {
+	
+	if ( 'core/heading' !== $block_type ) {
+		return $args;
+	}
 
+	// Remove H1.
+	$args['attributes']['levelOptions']['default'] = [ 2, 3, 4, 5, 6 ];
+	
+	return $args;
+}
 
-
+add_filter( 'register_block_type_args', 'fau_coreblocks_remove_h1_heading', 10, 2 );
 
 /*-----------------------------------------------------------------------------------*/
 /* EOF

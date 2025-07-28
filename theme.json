@@ -394,14 +394,27 @@
           "padding": false
         }
       },
+      "core/columns": {
+	 "spacing": {
+          "padding": true,
+          "margin": true,
+          "units": [
+            "rem",
+	    "px",
+            "%"
+          ]
+        }	
+      },
       "core/column": {
         "shadow": {
           "defaultPresets": false
         },
         "spacing": {
           "padding": true,
+          "margin": true,
           "units": [
             "rem",
+	    "px",
             "%"
           ]
         },
@@ -490,7 +503,13 @@
           "text": false
         }
       },
-
+      "core/media-text": {
+	 "spacing": {
+          "padding": true,
+          "margin": true,
+          "customSpacingSize": false
+        }	
+      },
       "core/cover": {
         "typography": {
           "customFontSize": true,
