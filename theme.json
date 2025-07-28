@@ -490,7 +490,13 @@
           "text": false
         }
       },
-
+      "core/media-text": {
+	 "spacing": {
+          "padding": true,
+          "margin": true,
+          "customSpacingSize": false
+        }	
+      },
       "core/cover": {
         "typography": {
           "customFontSize": true,
