@@ -76,32 +76,8 @@ jQuery(document).ready(function ($) {
   // Fancybox for lightboxes
   $("a.lightbox").fancybox({ helpers: { title: { type: "outside" } } });
 
-  // Assistant tabs
-  $(".assistant-tabs-nav a").bind("click", function (event) {
-    event.preventDefault();
-    var pane = $(this).attr("href");
-    $(this).parents("ul").find("a").removeClass("active");
-    $(this).addClass("active");
-    $(this)
-      .parents(".assistant-tabs")
-      .find(".assistant-tab-pane")
-      .removeClass("assistant-tab-pane-active");
-    $(pane).addClass("assistant-tab-pane-active");
-  });
-
-  // Keyboard navigation for assistant tabs
-  $(".assistant-tabs-nav a").keydown("click", function (event) {
-    if (event.keyCode == 32) {
-      var pane = $(this).attr("href");
-      $(this).parents("ul").find("a").removeClass("active");
-      $(this).addClass("active");
-      $(this)
-        .parents(".assistant-tabs")
-        .find(".assistant-tab-pane")
-        .removeClass("assistant-tab-pane-active");
-      $(pane).addClass("assistant-tab-pane-active");
-    }
-  });
+  
+  
 
   // Set environmental parameters
   var windowWidth =
@@ -177,18 +153,6 @@ jQuery(document).ready(function ($) {
 
   setHeaderHeight();
 
-  // Add toggle icons to organigram
-  $(".organigram .has-sub").each(function () {
-    $(this).prepend('<span class="toggle-icon"></span>');
-    $(this).children("ul").hide();
-  });
-
-  $(".organigram .has-sub .toggle-icon").bind("click", function (event) {
-    event.preventDefault();
-
-    $(this).closest(".has-sub").toggleClass("active");
-    $(this).closest(".has-sub").children("ul").slideToggle();
-  });
 
   // Handling touch devices and laptops with touch window:
   $("#nav > .nav > li > a").on("touchstart ontouchstart", function (e) {

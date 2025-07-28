@@ -58,9 +58,9 @@ use \RRZE\THEME\EINRICHTUNGEN\Debugging;
 			<nav aria-label="<?php echo __('Kontakt, Impressum und Zusatzinformationen','fau'); ?>">
 			    <?php 
 			    if ( has_nav_menu( 'meta-footer' ) ) {
-				wp_nav_menu( array( 'theme_location' => 'meta-footer', 'container' => false, 'items_wrap' => '<ul id="footer-nav" class="%2$s">%3$s</ul>' ) ); 
+                    wp_nav_menu( array( 'theme_location' => 'meta-footer', 'container' => false, 'items_wrap' => '<ul id="footer-nav" class="%2$s">%3$s</ul>' ) ); 
 			    } else {
-				echo fau_get_defaultlinks('techmenu', 'menu', 'footer-nav');
+                    echo fau_get_defaultlinks('techmenu', 'menu', 'footer-nav');
 			    }
 			    ?>
 			</nav>

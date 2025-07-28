@@ -140,7 +140,7 @@ while (have_posts()) : the_post();  ?>
 									'prev_text'  => __('%title', 'fau'),
 									'next_text'  => __('%title', 'fau'),
 									'in_same_term' => true,
-									'taxonomy' => __('category', 'fau'),
+									'taxonomy' => __('Kategorie', 'fau'),
 								));
 							}
 							?>

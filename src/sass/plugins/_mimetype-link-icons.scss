@@ -3,15 +3,31 @@
 /* https://wordpress.org/plugins/mimetypes-link-icons
 /*-----------------------------------------------------------------------------------*/
 
-.widget {
-    li a.mtli_attachment {
-	background-position: right !important;
-	padding-left: 0 !important;
-	padding-right: 20px !important;
-    }
+.mejs-container {
+	width: auto !important;
+	background: transparent !important;
 }
 
-a.mtli_attachment {
-    background: none !important; 
-    padding-left: 0 !important;
+main {
+	
+	.wp-block-buttons .wp-element-button.mtli_attachment, 
+	.wp-block-buttons .wp-block-button__link.mtli_attachment, 
+	.wp-block-file .wp-element-button.mtli_attachment, 
+	.wp-block-file .wp-block-button__link.mtli_attachment {
+	    background-position: 1ch center;
+	    padding-left: 3ch !important;
+	}
+    
+	li, p, td, th {
+	    a.mtli_attachment {
+		background-position: center left;
+	    }
+	}
+	aside {
+	    a.mtli_attachment {
+		    background-position: right center;
+		    padding-left: 0 !important;
+		    padding-right: 22px;
+	    }
+	}
 }

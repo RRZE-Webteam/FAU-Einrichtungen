@@ -221,14 +221,14 @@
 	}
 	
 	
-	&[href*="rss"]:before,
-	&[href*="feed"]:before {
+	&[href$="rss"]:before,
+	&[href$="feed"]:before {
 	    mask-image: svg-icon-rss();
 	}
 	
 	
-	&[href*=".ics"]:before,
-	&[href*="ical"]:before {
+	&[href$=".ics"]:before,
+	&[href$="ical"]:before {
 	    mask-image: svg-icon-calendar();
 	}
     }

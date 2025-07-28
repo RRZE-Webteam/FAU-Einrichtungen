@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 111,
+	'optiontable-version'           => 114,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -22,7 +22,7 @@ $defaultoptions = [
 	// Ansonsten kann er manuell über 'gulp nodebug' auf false und
 	//  mit 'gulp debugmode' auf true gesetzt werden
 	// Oder hier von Hand :)
-	'js-version'                    => '2.6',
+	'js-version'                    => '2.7',
 	// Theme-Versionslinie, wird überschrieben durch Style.css Version
 	'website_type'                  => 1,
 	// website_type: 
@@ -85,7 +85,7 @@ $defaultoptions = [
 	'fallback_submenu_image'		=> 0,
     'fallback_topevent_image'       => 0,
 	'start_topevents_max'			=> 1,
-	'start_topevents_active'		=> true,
+	'start_topevents_active'		=> false,
 	'topevent_hideimage'			=> false,
 	'topevents_templates'			=> array(1),
 	'default_topevent_excerpt_length'		=> 100,
@@ -113,13 +113,7 @@ $defaultoptions = [
 			'imagelink'	=> false,
 			'desc'	=> __('Bannerbild Startseite', 'fau')
 		],
-		'logo-thumb'	=> [
-			'width'	=> 140,
-			'height'	=> 110,
-			'crop'	=> false,
-			'imagelink'	=> true,
-			'desc'	=> __('Kleines rechteckiges Logo', 'fau')
-		],
+		
 		'rwd-480-2-1'	=> [
 			'width'	=> 480,
 			'height'	=> 240,
@@ -178,11 +172,11 @@ $defaultoptions = [
 	'menu_pretitle_portal'                      => __('Portal', 'fau'),
 	'menu_aftertitle_portal'                    => '',
 
-	'contact_address_name'                       => __('Friedrich-Alexander-Universität', 'fau'),
-	'contact_address_name2'                      => __('Erlangen-Nürnberg', 'fau'),
-	'contact_address_street'                     => __('Schlossplatz 4', 'fau'),
-	'contact_address_plz'                        => __('91054', 'fau'),
-	'contact_address_ort'                        => __('Erlangen', 'fau'),
+	'contact_address_name'                       => 'Friedrich-Alexander-Universität', 
+	'contact_address_name2'                      => 'Erlangen-Nürnberg', 
+	'contact_address_street'                     => 'Freyeslebenstraße 1', 
+	'contact_address_plz'                        => '91058',
+	'contact_address_ort'                        => 'Erlangen',
 
 	'contact_address_country'                   => '',
 	'google-site-verification'                  => '',
@@ -208,7 +202,7 @@ $defaultoptions = [
 
 	'advanced_post_active_subtitle'             => true,
 	'advanced_page_sidebar_titleabove'          => true,
-	'advanced_page_sidebar_titlebelow'          => true,
+	'advanced_page_sidebar_titlebelow'          => false,
 	'advanced_page_sidebar_useeditor_textabove'	=> false,
 	'advanced_page_sidebar_useeditor_textbelow'	=> false,
 
@@ -233,7 +227,7 @@ $defaultoptions = [
     // Erlaubt die Deaktivierung der Sucheingabe im Kopfteil der Website
 	'advanced_page_sidebar_personen_title'      => __('Kontakt', 'fau'),
 	'advanced_page_sidebar_linkblock1_number'	=> 3,
-	'advanced_page_sidebar_linkblock2_number'	=> 3,
+	'advanced_page_sidebar_linkblock2_number'	=> 0,
 	'advanced_page_sidebar_linkblock1_title'	=> __('Weitere Informationen', 'fau'),
 	'advanced_page_sidebar_linkblock2_title'	=> __('Sonstiges', 'fau'),
 	'advanced_page_sidebar_order_personlinks'	=> 0,
@@ -285,7 +279,7 @@ $defaultoptions = [
 	'advanced_header_template'                  => '',
 	// Anzeigeform des Heros    bei Index- und Kategorieseiten
 
-    'advanced_imagelink_display'            => true,
+    'advanced_imagelink_display'            => false,
     // Imagelink funktion insgesamt de/aktivieren
 	'advanced_imagelink_default_order'		=> 'asc',
 	// Default für die Order von Imagelinks
@@ -297,7 +291,7 @@ $defaultoptions = [
 	// Default Anzeigetype von Imagelinks: slide oder list
 	'advanced_imagelink_default_dots'		=> true,
 	// Default Anzeige der Dots unter dem Imagelinkslider
-	'advanced_imagelink_default_size'		=> 'logo-thumb',
+	'advanced_imagelink_default_size'		=> 'thumb',
 	// Default Size der Imagelinks
 	'advanced_imagelink_default_navtitle'	=> __('Partnerlogos', 'fau'),
 	// Default ARIA TItel

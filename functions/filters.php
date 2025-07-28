@@ -70,16 +70,23 @@ add_filter( 'show_recent_comments_widget_style', '__return_false' );
 /*-----------------------------------------------------------------------------------*/
 function fau_searchfilter($query) {
     if ($query->is_search && !is_admin() ) {
+        $allowed_types = get_post_types(array('public' => true, 'exclude_from_search' => false));
         if(isset($_GET['post_type'])) {
             $types = (array) $_GET['post_type'];
         } else {
             $types = get_theme_mod('search_post_types');
           //  $types = array("person", "post", "page", "attachment");
           //  $types = array("attachment","person");
+             if (empty($types)) {
+                $filter_type = $allowed_types;
+            }
         }
-        $allowed_types = get_post_types(array('public' => true, 'exclude_from_search' => false));
+       
+        
         foreach($types as $type) {
-            if( in_array( $type, $allowed_types ) ) { $filter_type[] = $type; }
+            if (in_array( $type, $allowed_types ) ) { 
+                $filter_type[] = $type; 
+            }
         }
         if(count($filter_type)) {
             $query->set('post_type',$filter_type);
@@ -586,18 +593,18 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 			    }
 			
 		    } elseif (fau_empty( $imgmeta['alt'])) {
-			// Kein Link aber Bild-Alt trotzdem leer. Nehme einen der 
-			// optionalen anderen Felder der Bildmeta
-			if (!fau_empty($imgmeta['description'])) {
-			    $linkalt =  sanitize_text_field($imgmeta['description']);	
-			} elseif (!fau_empty($imgmeta['title'])) {
-			    $linkalt =  sanitize_text_field($imgmeta['title']);
-			} elseif (!fau_empty($imgmeta['excerpt'])) {
-			    $linkalt =  sanitize_text_field($imgmeta['excerpt']);
-					    
-			} else {
-			    $linkalt = '';
-			}
+                // Kein Link aber Bild-Alt trotzdem leer. Nehme einen der 
+                // optionalen anderen Felder der Bildmeta
+                if (!fau_empty($imgmeta['description'])) {
+                    $linkalt =  sanitize_text_field($imgmeta['description']);	
+                } elseif (!fau_empty($imgmeta['title'])) {
+                    $linkalt =  sanitize_text_field($imgmeta['title']);
+                } elseif (!fau_empty($imgmeta['excerpt'])) {
+                    $linkalt =  sanitize_text_field($imgmeta['excerpt']);
+
+                } else {
+                    $linkalt = '';
+                }
 			
 		    }
 		    
@@ -637,43 +644,43 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 
 	} else {
 	    if ((!$attr['captions']) && (get_theme_mod('galery_force_caption_onslick'))) {
-		$attr['captions'] = 1;
+            $attr['captions'] = 1;
 	    }
 	    wp_enqueue_script('fau-js-heroslider');
 
 	    $rand = rand();	    
-	    $output .= "<div id=\"slider-$rand\" class=\"gallery-slick\" aria-hidden=\"true\" role=\"presentation\">\n";	
+	    $output .= "<div id=\"slider-$rand\" class=\"gallery-slick\" role=\"presentation\">\n";	
 	    $output .= "<div class=\"slider-for-$rand\">\n";
 
 	    foreach ($attachments as $id => $attachment) {
-		$img_full = wp_get_attachment_image_src($id, 'full');
-		$imgmeta = fau_get_image_attributs($id);
+            $img_full = wp_get_attachment_image_src($id, 'full');
+            $imgmeta = fau_get_image_attributs($id);
 
-		$output .= '<div class="item">';	
-		$output .= fau_get_image_htmlcode($id, 'gallery-full', '','',array('role' => 'presentation'));
+            $output .= '<div class="item">';	
+            $output .= fau_get_image_htmlcode($id, 'gallery-full', '','',array('role' => 'presentation'));
 
-		$link_origin = get_theme_mod('galery_link_original');
-		
-		if (($link_origin) || ($attr['captions'])) {
-		    $output .= '<figcaption class="gallery-image-caption">';
-			$lightboxattr = '';
-			if (($attr['captions']) && (!fau_empty($imgmeta['excerpt']))) {
-			    $output .= $imgmeta['excerpt']; 
-			    $lightboxtitle = sanitize_text_field($imgmeta['excerpt']);
-			    if (strlen(trim($lightboxtitle))>1) {
-				$lightboxattr = ' title="'.$lightboxtitle.'"';
-			    }
-			}
-			if (($link_origin) && isset($attr['link']) && ($attr['link'] != 'none')) {
-			    if (!fau_empty($imgmeta['excerpt'])) { 
-				$output .= '<br>'; 			
-			    }
-			    $output .= '<span class="linkorigin">(<a  tabindex="-1" href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
-			}
-		    $output .='</figcaption>';
-		}
+            $link_origin = get_theme_mod('galery_link_original');
 
-		$output .='</div>';
+            if (($link_origin) || ($attr['captions'])) {
+                $output .= '<figcaption class="gallery-image-caption">';
+                $lightboxattr = '';
+                if (($attr['captions']) && (!fau_empty($imgmeta['excerpt']))) {
+                    $output .= $imgmeta['excerpt']; 
+                    $lightboxtitle = sanitize_text_field($imgmeta['excerpt']);
+                    if (strlen(trim($lightboxtitle))>1) {
+                        $lightboxattr = ' title="'.$lightboxtitle.'"';
+                    }
+                }
+                if (($link_origin) && isset($attr['link']) && ($attr['link'] != 'none')) {
+                    if (!fau_empty($imgmeta['excerpt'])) { 
+                        $output .= '<br>'; 			
+                    }
+                    $output .= '<span class="linkorigin">(<a href="'.fau_esc_url($img_full[0]).'" '.$lightboxattr.' class="lightbox" rel="lightbox-'.$rand.'">'.__('Vergrößern','fau').'</a>)</span>';
+                }
+                $output .='</figcaption>';
+            }
+
+            $output .='</div>';
 
 	    }
 
@@ -744,9 +751,22 @@ function fau_remove_comments_rss( $for_comments ) {
     return;
 }
 add_filter('post_comments_feed_link','fau_remove_comments_rss');
+/*-----------------------------------------------------------------------------------*/
+/* Blockeditor: Remove h1 from core/heading
+/*-----------------------------------------------------------------------------------*/
+function fau_coreblocks_remove_h1_heading( $args, $block_type ) {
+	
+	if ( 'core/heading' !== $block_type ) {
+		return $args;
+	}
 
+	// Remove H1.
+	$args['attributes']['levelOptions']['default'] = [ 2, 3, 4, 5, 6 ];
+	
+	return $args;
+}
 
-
+add_filter( 'register_block_type_args', 'fau_coreblocks_remove_h1_heading', 10, 2 );
 
 /*-----------------------------------------------------------------------------------*/
 /* EOF

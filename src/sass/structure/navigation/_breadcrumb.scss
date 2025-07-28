@@ -8,8 +8,9 @@ ol.breadcrumblist {
     
     li {
         @include no-list;
-        display: inline;
+        display: inline-block;
         font-size: var(--font-size-sm, 0.875rem);
+	line-height: max(24px, 1.5em);
     }
     li:after {
 	    content: ' / ';

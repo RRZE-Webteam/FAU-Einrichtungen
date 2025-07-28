@@ -164,13 +164,13 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 		    $imgsrcsizes = wp_get_attachment_image_sizes($fallback, 'rwd-480-3-2');
 
 		}
-		if ($imageurl) {
+		if (isset($imageurl)) {
 		    $imagehtml = '<img itemprop="thumbnailUrl" src="'.$imageurl.'" width="'.$imgwidth.'" height="'.$imgheight.'" alt="'.$alttext.'"';
 		    if ($imgsrcset) {
-			$imagehtml .= ' srcset="'.$imgsrcset.'"';
-			if ($imgsrcsizes) {
-			     $imagehtml .= ' sizes="'.$imgsrcsizes.'"';
-			}
+                $imagehtml .= ' srcset="'.$imgsrcset.'"';
+                if ($imgsrcsizes) {
+                     $imagehtml .= ' sizes="'.$imgsrcsizes.'"';
+                }
 		    }
 		    $imagehtml .= ">";
 		} else {
@@ -179,28 +179,28 @@ $start_topevents_active = get_theme_mod("start_topevents_active");
 
 	    }
 	    if (($hideimage == false) && (!empty($imagehtml))) {  
-		echo '<div class="event-thumb" aria-hidden="true" role="presentation" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';
-		echo '<a href="'.$link.'"  tabindex="-1">'.$imagehtml.'</a>'; 
-		if (isset($imageid) && ($imageid>0)) {
-		    $schema = "";
-		    $bigimage = wp_get_attachment_image_src($imageid, 'full'); 
-		    $schema .= '<meta itemprop="url" content="'.fau_make_absolute_url($bigimage[0]).'">';
-		    $schema .= '<meta itemprop="width" content="'.$bigimage[1].'">';
-		    $schema .= '<meta itemprop="height" content="'.$bigimage[2].'">';	   
-		    echo $schema;
-		}
-		echo '</div>';
+            echo '<div class="event-thumb" aria-hidden="true" role="presentation" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';
+            echo '<a href="'.$link.'"  tabindex="-1">'.$imagehtml.'</a>'; 
+            if (isset($imageid) && ($imageid>0)) {
+                $schema = "";
+                $bigimage = wp_get_attachment_image_src($imageid, 'full'); 
+                $schema .= '<meta itemprop="url" content="'.fau_make_absolute_url($bigimage[0]).'">';
+                $schema .= '<meta itemprop="width" content="'.$bigimage[1].'">';
+                $schema .= '<meta itemprop="height" content="'.$bigimage[2].'">';	   
+                echo $schema;
+            }
+            echo '</div>';
 	    }
 	    echo '<div class="event-data">';
 	    if (!empty($topevent_date)) {
-		echo '<div class="topevent-date" itemprop="startDate" content="'.$topevent_date.'">';
-		echo date_i18n( get_option( 'date_format' ), strtotime( $topevent_date ) );
-		echo "</div>";
-		echo '<meta property="endDate" content="'.$topevent_date.'">';
+            echo '<div class="topevent-date" itemprop="startDate" content="'.$topevent_date.'">';
+            echo date_i18n( get_option( 'date_format' ), strtotime( $topevent_date ) );
+            echo "</div>";
+            echo '<meta property="endDate" content="'.$topevent_date.'">';
 	    }
 	    $desc = get_post_meta( $topevent->ID, 'topevent_description', true );
 	    if (strlen(trim($desc))<3) {
-		$desc =  fau_custom_excerpt($topevent->ID,get_theme_mod('default_topevent_excerpt_length'));
+            $desc =  fau_custom_excerpt($topevent->ID,get_theme_mod('default_topevent_excerpt_length'));
 	    } 
 	    echo '<div class="topevent-description" itemprop="description">';
 	    echo $desc;

@@ -17,11 +17,12 @@
 
 	
 	li {
-		font-size: var(--font-size-sm, 0.875rem);
 		list-style-type: none;
-		
 		a {
+			display: inline-block;
 			padding: 0;
+			font-size: var(--font-size-sm, 0.875rem);
+			line-height: max(24px, 1.5em);
 			text-decoration: none;
 		}
 		
@@ -31,7 +32,6 @@
 			text-decoration-thickness: 0.15rem;
 		}
 		a:before {
-           
 		   @include svg-icon-place();
 		   background-image: svg-angle-right($color-content-links);
 		   color: var(--color-Default);
