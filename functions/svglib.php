@@ -266,21 +266,21 @@ function fau_insert_svg_symbols() {
      
 
     if (empty($fau_used_svgs)) {
-	return;
+        return;
     }
     $outputready = false;
     
     $out = "\n".'<svg class="fau-svg-definitions" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">';
     foreach ($fau_used_svgs as $name => $value) {
 	    if ($fau_used_svgs[$name]['usesymbol']) {
-		$symbol = $fau_used_svgs[$name]['symbol'];
-		$out .= "\n\t".$symbol; 
-		$outputready = true;
+            $symbol = $fau_used_svgs[$name]['symbol'];
+            $out .= "\n\t".$symbol; 
+            $outputready = true;
 	    }
     }
     $out .= "\n".'</svg>'."\n";
     if ($outputready) {
-	echo $out;    
+        echo $out;    
     }
     return;
 }
@@ -293,7 +293,7 @@ function fau_register_svg_inline($name = '', $classdef = '', $addbgproperty = ''
     global $fau_used_svgs;
 
     if (empty($name)) 
-	return false;
+    	return false;
     
     $slug = sanitize_title($name);
     
@@ -308,14 +308,14 @@ function fau_register_svg_inline($name = '', $classdef = '', $addbgproperty = ''
     $fau_used_svgs[$slug]['classdef'] = $classdef;
     
      if (!empty($addbgproperty))
-	$fau_used_svgs[$slug]['bgproperty'] = $addbgproperty;
+        $fau_used_svgs[$slug]['bgproperty'] = $addbgproperty;
      
      
     if (!empty($color))
-	$fau_used_svgs[$slug]['color'] = $color;
+        $fau_used_svgs[$slug]['color'] = $color;
     
     if (!empty($svgparams))
-	$fau_used_svgs[$slug]['svgparams'] = $svgparams;
+        $fau_used_svgs[$slug]['svgparams'] = $svgparams;
     
     return true;
 }
