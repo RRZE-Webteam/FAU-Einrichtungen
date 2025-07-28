@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Language: \n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"POT-Creation-Date: 2025-07-28 08:32+0000\n"
+"POT-Creation-Date: 2025-07-28 13:04+0000\n"
 "X-Generator: Loco https://localise.biz/"
 
 #: functions/rrze-calendar-events-shortcode.php:30
@@ -64,10 +64,6 @@ msgstr ""
 
 #: functions/defaults.php:126
 msgid "/impressum/"
-msgstr ""
-
-#: functions/constants.php:178
-msgid "91058"
 msgstr ""
 
 #: functions/custom-fields.php:289
@@ -416,11 +412,11 @@ msgstr ""
 msgid "Beiträge mit dem Schlagwort"
 msgstr ""
 
-#: functions/menu.php:1085 functions/menu.php:1141
+#: functions/menu.php:1086 functions/menu.php:1142
 msgid "Beiträge von"
 msgstr ""
 
-#: functions/menu.php:1242
+#: functions/menu.php:1243
 msgid "Bereichsnavigation:"
 msgstr ""
 
@@ -501,7 +497,7 @@ msgstr ""
 msgid "Blur-Effekt verwenden"
 msgstr ""
 
-#: functions/menu.php:948
+#: functions/menu.php:949
 msgid "Breadcrumb"
 msgstr ""
 
@@ -511,10 +507,6 @@ msgstr ""
 
 #: functions/defaults.php:98
 msgid "Campo"
-msgstr ""
-
-#: single.php:143 page-templates/video-podcast-post.php:113
-msgid "category"
 msgstr ""
 
 #: functions/defaults.php:225
@@ -858,14 +850,6 @@ msgstr ""
 msgid "Entfernen"
 msgstr ""
 
-#: functions/constants.php:179
-msgid "Erlangen"
-msgstr ""
-
-#: functions/constants.php:176
-msgid "Erlangen-Nürnberg"
-msgstr ""
-
 #: functions/constants.php:1221
 msgid "Erlaube die Eingabe von Untertitel bei Beiträgen."
 msgstr ""
@@ -1171,14 +1155,6 @@ msgstr ""
 msgid "Französisch"
 msgstr ""
 
-#: functions/constants.php:177
-msgid "Freyeslebenstraße 1"
-msgstr ""
-
-#: functions/constants.php:175
-msgid "Friedrich-Alexander-Universität"
-msgstr ""
-
 #: functions/defaults.php:143
 msgid "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
 msgstr ""
@@ -1332,7 +1308,8 @@ msgstr ""
 msgid "IPTC-Feld Copyright hat Priorität"
 msgstr ""
 
-#: single.php:106 page-templates/video-podcast-post.php:76
+#: single.php:106 single.php:143 page-templates/video-podcast-post.php:76
+#: page-templates/video-podcast-post.php:113
 #: functions/template-functions.php:394 functions/template-functions.php:798
 #: functions/constants.php:636
 msgid "Kategorie"
@@ -1543,7 +1520,7 @@ msgstr ""
 msgid "Mega-Navigation"
 msgstr ""
 
-#: functions/menu.php:712
+#: functions/menu.php:713
 msgid "Mehr"
 msgstr ""
 
@@ -1553,6 +1530,11 @@ msgstr ""
 
 #: functions/rrze-calendar-events-shortcode.php:54
 msgid "Mehr Veranstaltungen"
+msgstr ""
+
+#: functions/menu.php:712
+#, php-format
+msgid "Mehr über %s"
 msgstr ""
 
 #: header.php:137 header.php:138
@@ -1858,7 +1840,7 @@ msgid ""
 "sind."
 msgstr ""
 
-#: functions/menu.php:1077 functions/menu.php:1125
+#: functions/menu.php:1078 functions/menu.php:1126
 msgid "Schlagwort"
 msgstr ""
 
@@ -1888,7 +1870,7 @@ msgstr ""
 msgid "Seite mit Navigation"
 msgstr ""
 
-#: 404.php:20 functions/menu.php:1089 functions/menu.php:1143
+#: 404.php:20 functions/menu.php:1090 functions/menu.php:1144
 #: template-parts/hero-error.php:33
 msgid "Seite nicht gefunden"
 msgstr ""
@@ -2064,7 +2046,7 @@ msgstr ""
 msgid "Suchbegriff"
 msgstr ""
 
-#: functions/menu.php:1066 functions/menu.php:1131 functions/widgets.php:32
+#: functions/menu.php:1067 functions/menu.php:1132 functions/widgets.php:32
 msgid "Suche"
 msgstr ""
 
@@ -2072,7 +2054,7 @@ msgstr ""
 msgid "Suche filterbar"
 msgstr ""
 
-#: functions/menu.php:1069 functions/menu.php:1134
+#: functions/menu.php:1070 functions/menu.php:1135
 msgid "Suche nach"
 msgstr ""
 
@@ -2616,7 +2598,7 @@ msgstr ""
 msgid "Zum Seitenende"
 msgstr ""
 
-#: functions/menu.php:1445
+#: functions/menu.php:1446
 msgid "Zum Webauftritt"
 msgstr ""
 
@@ -2628,7 +2610,7 @@ msgstr ""
 msgid "Zur Navigation"
 msgstr ""
 
-#: functions/menu.php:825
+#: functions/menu.php:826
 msgid "Zur Seite: "
 msgstr ""
 
