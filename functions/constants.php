@@ -175,7 +175,7 @@ $defaultoptions = [
 	'contact_address_name'                       => 'Friedrich-Alexander-Universität', 
 	'contact_address_name2'                      => 'Erlangen-Nürnberg', 
 	'contact_address_street'                     => 'Freyeslebenstraße 1', 
-	'contact_address_plz'                        => '91058',,
+	'contact_address_plz'                        => '91058',
 	'contact_address_ort'                        => 'Erlangen',
 
 	'contact_address_country'                   => '',
