@@ -361,24 +361,49 @@
               "color": "var(--color-branding-phil, #fdb735)",
               "name": "Philosophische Fakultät"
             },
+	    {
+              "slug": "phil-dunkler",
+              "color": "var(--color-phil-dunkler, #e87722)",
+              "name": "Philosophische Fakultät Dunkler"
+            },
             {
               "slug": "rw",
               "color": "var(--color-branding-rw, #c50f3c)",
               "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+            },
+	    {
+              "slug": "rw-dunkler",
+              "color": "var(--color-rw-dunkler, #971B2F)",
+              "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät Dunkler"
             },
             {
               "slug": "med",
               "color": "var(--color-branding-med, #18b4f1)",
               "name": "Medizinische Fakultät"
             },
+	    {
+              "slug": "med-dunkler",
+              "color": "var(--color-med-dunkler, #005287)",
+              "name": "Medizinische Fakultät Dunkler"
+            },
             {
               "slug": "nat",
               "color": "var(--color-branding-nat, #7bb725)",
               "name": "Naturwissenschaftliche Fakultät"
             },
+	    {
+              "slug": "nat-dunkler",
+              "color": "var(--color-nat-dunkler, #266141)",
+              "name": "Naturwissenschaftliche Fakultät Dunkler"
+            },
             {
               "slug": "tf",
               "color": "var(--color-branding-tf, #8C9FB1)",
+              "name": "Technische Fakultät"
+            },
+	    {
+              "slug": "tf-dunkler",
+              "color": "var(--color-tf-dunkler, #2F586E)",
               "name": "Technische Fakultät"
             }
           ]
@@ -404,6 +429,122 @@
             "%"
           ]
         }	
+      },
+      "core/group": {
+	 "spacing": {
+          "padding": true,
+          "margin": true,
+          "units": [
+            "rem",
+	    "px",
+            "%"
+          ]
+        },
+	 "border": {
+          "radius": false,
+          "style": false,
+          "width": true,
+          "color": true
+        },
+	"color": {
+          "background": true,
+          "heading": false,
+          "button": false,
+          "text": true,
+          "defaultPalette": false,
+          "palette": [
+            {
+              "slug": "base",
+              "color": "var(--color-Text,#222)",
+              "name": "Textfarbe"
+            },
+            {
+              "slug": "contrast",
+              "color": "var(--color-MainBackground,#fff)",
+              "name": "Kontrast"
+            },
+            {
+              "slug": "default",
+              "color": "#e9edf2",
+              "name": "Default"
+            },
+            {
+              "slug": "success",
+              "color": "#dff0d8",
+              "name": "Success"
+            },
+            {
+              "slug": "info",
+              "color": "#d9edf7",
+              "name": "Info"
+            },
+            {
+              "slug": "warning",
+              "color": "#fcf8e3",
+              "name": "Warning"
+            },
+            {
+              "slug": "danger",
+              "color": "#f2dede",
+              "name": "Danger"
+            },
+            {
+              "slug": "fau",
+              "color": "var(--color-branding-zentral, #04316a)",
+              "name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
+            },
+                        {
+              "slug": "phil",
+              "color": "var(--color-branding-phil, #fdb735)",
+              "name": "Philosophische Fakultät"
+            },
+	    {
+              "slug": "phil-dunkler",
+              "color": "var(--color-phil-dunkler, #e87722)",
+              "name": "Philosophische Fakultät Dunkler"
+            },
+            {
+              "slug": "rw",
+              "color": "var(--color-branding-rw, #c50f3c)",
+              "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+            },
+	    {
+              "slug": "rw-dunkler",
+              "color": "var(--color-rw-dunkler, #971B2F)",
+              "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät Dunkler"
+            },
+            {
+              "slug": "med",
+              "color": "var(--color-branding-med, #18b4f1)",
+              "name": "Medizinische Fakultät"
+            },
+	    {
+              "slug": "med-dunkler",
+              "color": "var(--color-med-dunkler, #005287)",
+              "name": "Medizinische Fakultät Dunkler"
+            },
+            {
+              "slug": "nat",
+              "color": "var(--color-branding-nat, #7bb725)",
+              "name": "Naturwissenschaftliche Fakultät"
+            },
+	    {
+              "slug": "nat-dunkler",
+              "color": "var(--color-nat-dunkler, #266141)",
+              "name": "Naturwissenschaftliche Fakultät Dunkler"
+            },
+            {
+              "slug": "tf",
+              "color": "var(--color-branding-tf, #8C9FB1)",
+              "name": "Technische Fakultät"
+            },
+	    {
+              "slug": "tf-dunkler",
+              "color": "var(--color-tf-dunkler, #2F586E)",
+              "name": "Technische Fakultät"
+            }
+          ]
+        }
       },
       "core/column": {
         "shadow": {
@@ -465,29 +606,54 @@
               "color": "var(--color-branding-zentral, #04316a)",
               "name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
             },
-            {
+                        {
               "slug": "phil",
               "color": "var(--color-branding-phil, #fdb735)",
               "name": "Philosophische Fakultät"
+            },
+	    {
+              "slug": "phil-dunkler",
+              "color": "var(--color-phil-dunkler, #e87722)",
+              "name": "Philosophische Fakultät Dunkler"
             },
             {
               "slug": "rw",
               "color": "var(--color-branding-rw, #c50f3c)",
               "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
             },
+	    {
+              "slug": "rw-dunkler",
+              "color": "var(--color-rw-dunkler, #971B2F)",
+              "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät Dunkler"
+            },
             {
               "slug": "med",
               "color": "var(--color-branding-med, #18b4f1)",
               "name": "Medizinische Fakultät"
+            },
+	    {
+              "slug": "med-dunkler",
+              "color": "var(--color-med-dunkler, #005287)",
+              "name": "Medizinische Fakultät Dunkler"
             },
             {
               "slug": "nat",
               "color": "var(--color-branding-nat, #7bb725)",
               "name": "Naturwissenschaftliche Fakultät"
             },
+	    {
+              "slug": "nat-dunkler",
+              "color": "var(--color-nat-dunkler, #266141)",
+              "name": "Naturwissenschaftliche Fakultät Dunkler"
+            },
             {
               "slug": "tf",
               "color": "var(--color-branding-tf, #8C9FB1)",
+              "name": "Technische Fakultät"
+            },
+	    {
+              "slug": "tf-dunkler",
+              "color": "var(--color-tf-dunkler, #2F586E)",
               "name": "Technische Fakultät"
             }
           ]
@@ -543,29 +709,54 @@
               "color": "var(--color-branding-zentral, #04316a)",
               "name": "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
             },
-            {
+                       {
               "slug": "phil",
               "color": "var(--color-branding-phil, #fdb735)",
               "name": "Philosophische Fakultät"
+            },
+	    {
+              "slug": "phil-dunkler",
+              "color": "var(--color-phil-dunkler, #e87722)",
+              "name": "Philosophische Fakultät Dunkler"
             },
             {
               "slug": "rw",
               "color": "var(--color-branding-rw, #c50f3c)",
               "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät"
             },
+	    {
+              "slug": "rw-dunkler",
+              "color": "var(--color-rw-dunkler, #971B2F)",
+              "name": "Rechts- und Wirtschaftswissenschaftliche Fakultät Dunkler"
+            },
             {
               "slug": "med",
               "color": "var(--color-branding-med, #18b4f1)",
               "name": "Medizinische Fakultät"
+            },
+	    {
+              "slug": "med-dunkler",
+              "color": "var(--color-med-dunkler, #005287)",
+              "name": "Medizinische Fakultät Dunkler"
             },
             {
               "slug": "nat",
               "color": "var(--color-branding-nat, #7bb725)",
               "name": "Naturwissenschaftliche Fakultät"
             },
+	    {
+              "slug": "nat-dunkler",
+              "color": "var(--color-nat-dunkler, #266141)",
+              "name": "Naturwissenschaftliche Fakultät Dunkler"
+            },
             {
               "slug": "tf",
               "color": "var(--color-branding-tf, #8C9FB1)",
+              "name": "Technische Fakultät"
+            },
+	    {
+              "slug": "tf-dunkler",
+              "color": "var(--color-tf-dunkler, #2F586E)",
               "name": "Technische Fakultät"
             }
           ]
