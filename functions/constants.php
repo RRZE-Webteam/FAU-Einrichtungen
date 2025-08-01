@@ -96,10 +96,6 @@ $defaultoptions = [
 	/* Image Sizes */
 	'default_image_sizes' => [
 		'hero'	=> [
-            //	'width'	=> 1260,
-            //	'height'	=> 350,
-            // Update auf höhere Auflösung um bei größeren Darstellungen ein schärferes Bild zu haben
-            // https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues/1319
            	'width'	=> 2048,
 			'height'	=> 512,
 			'crop'	=> true,
