@@ -159,19 +159,3 @@ $container-large-desktop:      (1140px + $grid-gutter-width) !default;
 $container-lg:                 $container-large-desktop !default;
 
 
-
-//== Type
-//
-//##
-
-
-//** Abbreviations and acronyms border color
-$abbr-border-color:           $gray-light !default;
-//** Headings small color
-$headings-small-color:        $gray-light !default;
-
-//** Page header border color
-$page-header-border-color:    $gray-lighter !default;
-
-//** Horizontal line color.
-$hr-border:                   $gray-lighter !default;
