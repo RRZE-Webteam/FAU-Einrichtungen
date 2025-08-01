@@ -1,0 +1,42 @@
+/*----------------------------------------------------------------------------*/
+/* _wp-block-gallery for core/gallery
+/* Created on : 01.08.2025, 14:49:14
+/*----------------------------------------------------------------------------*/
+.wp-block-gallery.has-nested-images.is-cropped,
+.wp-block-gallery.has-nested-images {
+    figure.wp-block-image:not(#individual-image),
+    figure.wp-block-image:has(figcaption) {
+	
+	
+	&::before {
+	    backdrop-filter: inherit;
+	    height: inherit;
+	    mask-image: inherit;
+	    max-height: inherit;
+	    position: inherit;
+	    bottom: inherit;
+	    top: inherit;
+	    left: inherit;
+	    right: inherit;
+	    
+	}
+	img {
+	    flex: inherit;
+	}
+	figcaption {
+	    flex-basis: inherit;
+	    flex-grow: inherit;
+	    background: inherit;
+	    color: inherit;
+	    font-size: var(--font-size-sm, 0.875rem);
+	    text-shadow: inherit;
+	    position: relative;
+	    bottom: inherit;
+	    top: inherit;
+	    left: inherit;
+	    right: inherit;
+	    overflow: inherit;
+	}
+    }
+
+}
