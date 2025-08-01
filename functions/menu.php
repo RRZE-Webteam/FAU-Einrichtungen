@@ -671,6 +671,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
     private $showsub = true;
     private $listview = false;
     private $meganav = false;
+    private $level1_title = '';
 
     function __construct( $menu, $showsub = true, $maxsecondlevel = 0, $noshowthumb = false,$nothumbnailfallback = false, $thumbnail = 'rwd-480-2-1', $listview = false, $meganav = false ) {
         $this->showsub             = $showsub && !$listview;
@@ -688,8 +689,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
     }
 
     function __destruct() {
-        
-    }
+        }
 
     function start_lvl(&$output, $depth = 0, $args = array()) {
         $this->level++;
@@ -709,7 +709,8 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
                     $output .= '</ul>';
                 } elseif ( ($this->count[$this->level] >= ($this->maxsecondlevel + 1)) ) {
                     $output .= '<li class="more">';
-                    $output .= '<a href="'.$this->element->url.'">'.__('Mehr', 'fau').' ...</a></li>';
+                    $output .= '<a href="' . esc_url($this->element->url) . '" aria-label="' . esc_attr(sprintf(__('Mehr über %s', 'fau'), $this->level1_title)) . '">';
+                    $output .= __('Mehr', 'fau') . ' ...</a></li>';
                     $output .= '</ul>';
                 } else {
                     $output .= '</ul>';
@@ -732,6 +733,7 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
         if ($this->level == 1) {
             $this->element = $item;
+            $this->level1_title = strip_tags(apply_filters('the_title', $item->title, $item->ID));
         }
         $item_output = '';
         // Only show elements on the first level and only five on the second level, but only if showdescription == FALSE
@@ -763,7 +765,6 @@ class Walker_Content_Menu extends Walker_Nav_Menu {
 
             $atts           = array();
             $atts['title']  = !empty($item->attr_title) ? $item->attr_title : '';
-   //         $atts['target'] = !empty($item->target) ? $item->target : '';
             $atts['rel']    = !empty($item->xfn) ? $item->xfn : '';
             $atts['href']   = !empty($item->url) ? $item->url : '';
             $targeturl      = $atts['href'];

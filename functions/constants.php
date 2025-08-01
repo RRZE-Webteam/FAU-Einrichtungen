@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 114,
+	'optiontable-version'           => 120,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -56,7 +56,7 @@ $defaultoptions = [
 	'src-adminjs'                   => get_fau_template_uri() . '/js/fau-theme-admin.min.js',
 	'src-admin-customizer-js'		=> get_fau_template_uri() . '/js/fau-theme-customizer-range-value-control.min.js',
 	'src-admin-wplinkjs'            => get_fau_template_uri() . '/js/fau-theme-wplink.min.js',
-	'src-svglib_dir'                => get_template_directory() .  '/src/svglib/',
+	'src-svglib_dir'                => get_template_directory() .  '/img/svglib/',
 
 	'slider-autoplay'               => true,
 	'slider-animation'              => 'fade',
@@ -96,10 +96,6 @@ $defaultoptions = [
 	/* Image Sizes */
 	'default_image_sizes' => [
 		'hero'	=> [
-            //	'width'	=> 1260,
-            //	'height'	=> 350,
-            // Update auf höhere Auflösung um bei größeren Darstellungen ein schärferes Bild zu haben
-            // https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues/1319
            	'width'	=> 2048,
 			'height'	=> 512,
 			'crop'	=> true,

@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/RRZE-Webteam/FAU-"
 "Einrichtungen/issues\n"
 "POT-Creation-Date: 2023-05-23 12:37+0000\n"
-"PO-Revision-Date: 2025-07-28 08:46+0000\n"
+"PO-Revision-Date: 2025-07-28 13:08+0000\n"
 "Last-Translator: Wolfgang Wiese <wolfgang.wiese@fau.de>\n"
 "Language-Team: English (UK)\n"
 "Language: en_GB\n"
@@ -68,11 +68,6 @@ msgstr "/privacy/"
 #: functions/defaults.php:126
 msgid "/impressum/"
 msgstr "/imprint/"
-
-#: functions/constants.php:178
-#| msgid "91054"
-msgid "91058"
-msgstr "91058"
 
 #: functions/custom-fields.php:289
 msgid ""
@@ -474,11 +469,11 @@ msgstr "Posts from the category"
 msgid "Beiträge mit dem Schlagwort"
 msgstr "Posts tagged"
 
-#: functions/menu.php:1085 functions/menu.php:1141
+#: functions/menu.php:1086 functions/menu.php:1142
 msgid "Beiträge von"
 msgstr "Entries by"
 
-#: functions/menu.php:1242
+#: functions/menu.php:1243
 msgid "Bereichsnavigation:"
 msgstr "In page navigation:"
 
@@ -565,7 +560,7 @@ msgstr "Please select the kind of web presence here."
 msgid "Blur-Effekt verwenden"
 msgstr "Blur Effect"
 
-#: functions/menu.php:948
+#: functions/menu.php:949
 msgid "Breadcrumb"
 msgstr "Breadcrumb"
 
@@ -576,10 +571,6 @@ msgstr "Stage image"
 #: functions/defaults.php:98
 msgid "Campo"
 msgstr "Campo"
-
-#: single.php:143 page-templates/video-podcast-post.php:113
-msgid "category"
-msgstr ""
 
 #: functions/defaults.php:225
 msgid "Chinesisch"
@@ -958,14 +949,6 @@ msgstr "English"
 msgid "Entfernen"
 msgstr "Remove"
 
-#: functions/constants.php:179
-msgid "Erlangen"
-msgstr "Erlangen"
-
-#: functions/constants.php:176
-msgid "Erlangen-Nürnberg"
-msgstr "Erlangen-Nürnberg"
-
 #: functions/constants.php:1221
 msgid "Erlaube die Eingabe von Untertitel bei Beiträgen."
 msgstr "Enable the entry of subtitles in articles."
@@ -1307,14 +1290,6 @@ msgstr ""
 msgid "Französisch"
 msgstr "France"
 
-#: functions/constants.php:177
-msgid "Freyeslebenstraße 1"
-msgstr ""
-
-#: functions/constants.php:175
-msgid "Friedrich-Alexander-Universität"
-msgstr "Friedrich-Alexander-Universität"
-
 #: functions/defaults.php:143
 msgid "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
 msgstr "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
@@ -1485,7 +1460,8 @@ msgstr "Content menu"
 msgid "IPTC-Feld Copyright hat Priorität"
 msgstr "IPTC field copyright has priority"
 
-#: single.php:106 page-templates/video-podcast-post.php:76
+#: single.php:106 single.php:143 page-templates/video-podcast-post.php:76
+#: page-templates/video-podcast-post.php:113
 #: functions/template-functions.php:394 functions/template-functions.php:798
 #: functions/constants.php:636
 msgid "Kategorie"
@@ -1700,7 +1676,7 @@ msgstr "Mega menu"
 msgid "Mega-Navigation"
 msgstr "Mega navigation"
 
-#: functions/menu.php:712
+#: functions/menu.php:713
 msgid "Mehr"
 msgstr "More"
 
@@ -1711,6 +1687,11 @@ msgstr "More news"
 #: functions/rrze-calendar-events-shortcode.php:54
 msgid "Mehr Veranstaltungen"
 msgstr "More events"
+
+#: functions/menu.php:712
+#, php-format
+msgid "Mehr über %s"
+msgstr "More about %s"
 
 #: header.php:137 header.php:138
 msgid "Menu"
@@ -2031,7 +2012,7 @@ msgstr ""
 "article. Please note that this display of commenting features also depends "
 "on the discussion settings."
 
-#: functions/menu.php:1077 functions/menu.php:1125
+#: functions/menu.php:1078 functions/menu.php:1126
 msgid "Schlagwort"
 msgstr "Tag"
 
@@ -2061,7 +2042,7 @@ msgstr "Go to page"
 msgid "Seite mit Navigation"
 msgstr "Page with navigation"
 
-#: 404.php:20 functions/menu.php:1089 functions/menu.php:1143
+#: 404.php:20 functions/menu.php:1090 functions/menu.php:1144
 #: template-parts/hero-error.php:33
 msgid "Seite nicht gefunden"
 msgstr "Page not found"
@@ -2238,7 +2219,7 @@ msgstr ""
 msgid "Suchbegriff"
 msgstr "Search term"
 
-#: functions/menu.php:1066 functions/menu.php:1131 functions/widgets.php:32
+#: functions/menu.php:1067 functions/menu.php:1132 functions/widgets.php:32
 msgid "Suche"
 msgstr "Search"
 
@@ -2246,7 +2227,7 @@ msgstr "Search"
 msgid "Suche filterbar"
 msgstr "Search filterable"
 
-#: functions/menu.php:1069 functions/menu.php:1134
+#: functions/menu.php:1070 functions/menu.php:1135
 msgid "Suche nach"
 msgstr "Search for"
 
@@ -2836,7 +2817,7 @@ msgstr "Towards entry \""
 msgid "Zum Seitenende"
 msgstr "Skip to the bottom"
 
-#: functions/menu.php:1445
+#: functions/menu.php:1446
 msgid "Zum Webauftritt"
 msgstr "To the website"
 
@@ -2848,7 +2829,7 @@ msgstr "To the website:"
 msgid "Zur Navigation"
 msgstr "Skip to navigation"
 
-#: functions/menu.php:825
+#: functions/menu.php:826
 #| msgid "Zur Seite \""
 msgid "Zur Seite: "
 msgstr "To the page:"
