@@ -1,7 +1,6 @@
 <?php
 
 if (is_plugin_active('fau-person/fau-person.php')) {
-    // if (class_exists( 'FAUPersonWidget' ) )  {
     $sidebar_personen = get_post_meta($post->ID, 'sidebar_personen', true);
     $sidebar_title_personen = get_post_meta($post->ID, 'sidebar_title_personen', true);
 

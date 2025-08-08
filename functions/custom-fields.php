@@ -16,20 +16,30 @@ function fau_metabox_cf_setup() {
     add_action('add_meta_boxes_post', 'fau_add_metabox_post');
 
     /* Save sidecontent */
-    add_action('save_post', 'fau_save_metabox_page_portalmenu', 10, 2);
-    add_action('save_post', 'fau_save_metabox_page_sidebar', 10, 2);
-
+   
+    
+    
+     if (get_theme_mod('advanced_page_sidebar_display_in_pagesetting') == true) {
+        add_action('save_post', 'fau_save_metabox_page_sidebar', 10, 2);
+     }
   
     if (get_theme_mod('advanced_beitragsoptionen') == true) {
         add_action('save_post', 'fau_save_post_teaser', 10, 2);
     }
     
-    if (get_theme_mod('advanced_topevent') == true) {
+    if (get_theme_mod('start_topevents_active') == true) {
         add_action('save_post', 'fau_save_post_topevent', 10, 2);
+    }
+    
+    if (get_theme_mod('portalmenus_display_in_pagesetting') == true) {
+        add_action('save_post', 'fau_save_metabox_page_portalmenu', 10, 2);
     }
    
     // Speichere Seiten-Eigenschaften
-    add_action('save_post', 'fau_save_metabox_page_additional_attributes', 10, 2);
+    if ((get_theme_mod('advanced_post_active_subtitle') == true) || (get_theme_mod('advanced_beitragsoptionen') == true)) {
+        add_action('save_post', 'fau_save_metabox_page_additional_attributes', 10, 2);
+    }
+     
     add_action('save_post', 'fau_save_metabox_post_vidpod', 10, 2);
 }
 /*-----------------------------------------------------------------------------------*/
@@ -51,29 +61,30 @@ function fau_add_metabox_page() {
     );
    
     
+    if (get_theme_mod('portalmenus_display_in_pagesetting') == true) {
 
-    add_meta_box(
-        'fau_metabox_page_portalmenu',			
-        esc_html__( 'Portalmenüs konfigurieren', 'fau' ),		
-        'fau_do_metabox_page_portalmenu',		
-        'page','side','low',
-        array(
-            '__block_editor_compatible_meta_box' => true,
-        )
-    );
+        add_meta_box(
+            'fau_metabox_page_portalmenu',			
+            esc_html__( 'Portalmenüs konfigurieren', 'fau' ),		
+            'fau_do_metabox_page_portalmenu',		
+            'page','side','low',
+            array(
+                '__block_editor_compatible_meta_box' => true,
+            )
+        );
 
-
-
-    add_meta_box(
-        'fau_metabox_page_sidebar',			
-        esc_html__( 'Sidebar', 'fau' ),		
-        'fau_do_metabox_page_sidebar',		
-        'page','normal','low',
-        array(
-            '__block_editor_compatible_meta_box' => true,
-        )
-    );
-
+    }
+     if (get_theme_mod('advanced_page_sidebar_display_in_pagesetting') == true) {
+        add_meta_box(
+            'fau_metabox_page_sidebar',			
+            esc_html__( 'Sidebar', 'fau' ),		
+            'fau_do_metabox_page_sidebar',		
+            'page','normal','low',
+            array(
+                '__block_editor_compatible_meta_box' => true,
+            )
+        );
+     }
     
     
     
@@ -93,12 +104,12 @@ function fau_add_metabox_post() {
     
    
     
-    if (get_theme_mod('advanced_topevent') == true) {
+    if (get_theme_mod('start_topevents_active') == true) {
         add_meta_box(
             'fau_metabox_post_topevent', 
             esc_html__('Top-Event', 'fau'), 
             'fau_do_metabox_post_topevent', 
-            'post', 'normal', 'high'
+            'post', 'side', 'low'
         );
     }
 
@@ -109,13 +120,15 @@ function fau_add_metabox_post() {
         'post', 'side', 'low'
     );
 
-    // Hide Featured Image meta box
-    add_meta_box(
-        'fau_metabox_post_teaser', 
-        esc_html__('Beitragsoptionen', 'fau'), 
-        'fau_do_metabox_post_teaser', 
-        'post', 'normal', 'high'
-    );
+     if ((get_theme_mod('advanced_post_active_subtitle') == true) || (get_theme_mod('advanced_beitragsoptionen') == true)) {
+        // Hide Featured Image meta box
+        add_meta_box(
+            'fau_metabox_post_teaser', 
+            esc_html__('Beitragsoptionen', 'fau'), 
+            'fau_do_metabox_post_teaser', 
+            'post', 'side', 'low'
+        );
+     }
 }
 
 
@@ -133,20 +146,7 @@ function fau_do_metabox_post_teaser($object, $box) {
         return;
     }
 
-    echo "<p>\n";
-    echo __('Bitte beachten: Damit ein Artikel auf der Startseite angezeigt werden soll, muss er das folgende Schlagwort erhalten: ', 'fau');
-    echo '<b>' . get_theme_mod('start_prefix_tag_newscontent') . '</b> - ' . __('Dies gefolgt von einer Nummer (1-3) für die Reihenfolge.', 'fau');
-    
-    $slider_catid = get_theme_mod('slider-catid'); 
-    if (isset($slider_catid) && $slider_catid > 0) {
-        $category = get_category($slider_catid);
-        if (isset($category->name)) {
-            echo ' ' . __('Damit ein Artikel in der Bühne erscheint, muss er folgender Kategorie angehören: ', 'fau');
-            echo '<b>' . $category->name . '</b>';
-        }
-    }
-
-    echo "</p>\n";
+  
     if (get_theme_mod('advanced_post_active_subtitle') == true) {
         $untertitel = get_post_meta($object->ID, 'fauval_untertitel', true);
         fau_form_text('fau_metabox_post_untertitel', $untertitel, __('Untertitel (Inhaltsüberschrift)', 'fau'), __('Dieser Untertitel erscheint im Inhaltsbereich, unterhalb des Balkens mit dem eigentlichen Titel.', 'fau'));
@@ -154,6 +154,22 @@ function fau_do_metabox_post_teaser($object, $box) {
     
     if (get_theme_mod('advanced_beitragsoptionen') == true) {
 
+          echo "<p>\n";
+        echo __('Bitte beachten: Damit ein Artikel auf der Startseite angezeigt werden soll, muss er das folgende Schlagwort erhalten: ', 'fau');
+        echo '<b>' . get_theme_mod('start_prefix_tag_newscontent') . '</b> - ' . __('Dies gefolgt von einer Nummer (1-3) für die Reihenfolge.', 'fau');
+
+        $slider_catid = get_theme_mod('slider-catid'); 
+        if (isset($slider_catid) && $slider_catid > 0) {
+            $category = get_category($slider_catid);
+            if (isset($category->name)) {
+                echo ' ' . __('Damit ein Artikel in der Bühne erscheint, muss er folgender Kategorie angehören: ', 'fau');
+                echo '<b>' . $category->name . '</b>';
+            }
+        }
+
+        echo "</p>\n";
+        
+        
         $howto = __('Kurztext für die Bühne und den Newsindex (Startseite und Indexseiten). Wenn leer, wird der Kurztext automatisch aus dem Inhalt abzüglich der erlaubten Zeichen gebildet. ', 'fau');
         $howto .= '<br>' . __('Erlaubte Anzahl an Zeichen:', 'fau');
         $howto .= ' <span class="fauval_anleser_signs">' . get_theme_mod('default_anleser_excerpt_length') . '</span>';
@@ -170,10 +186,11 @@ function fau_do_metabox_post_teaser($object, $box) {
 
         $sliderimage = get_post_meta($object->ID, 'fauval_slider_image', true);
         fau_form_image('fauval_slider_image', $sliderimage, __('Bühnenbild', 'fau'), __('An dieser Stelle kann optional ein alternatives Bild für die Bühne der Startseite ausgewählt werden, falls das normale Beitragsbild hierzu nicht verwendet werden soll.', 'fau'), 540, 150);
+    
+        $value = get_post_meta($object->ID, '_hide_featured_image', true);
+        echo '<label for="hide-featured-image"><input type="checkbox" id="hide-featured-image" name="hide_featured_image" value="1"' . checked($value, 1, false) . '> Hide featured image from this post</label>';
+    
     }
-    $value = get_post_meta($object->ID, '_hide_featured_image', true);
-
-    echo '<label for="hide-featured-image"><input type="checkbox" id="hide-featured-image" name="hide_featured_image" value="1"' . checked($value, 1, false) . '> Hide featured image from this post</label>';
 }
 /*-----------------------------------------------------------------------------------*/
 /* Save the meta box's post metadata.

@@ -7,6 +7,9 @@
  * @since FAU 1.0
  */
 global $is_sidebar_active;
+ if (get_theme_mod('advanced_page_sidebar_display_in_pagesetting') == false) {
+     $is_sidebar_active = false;
+ }
 get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
