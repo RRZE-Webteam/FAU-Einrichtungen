@@ -309,6 +309,7 @@ $defaultoptions = [
 	'portalmenus_hover_zoom'					=> false,
 	// Zoom-Effekt bei Portalmenüs
 
+    
 
 ];
 

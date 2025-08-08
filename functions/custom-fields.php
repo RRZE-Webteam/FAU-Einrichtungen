@@ -106,7 +106,7 @@ function fau_add_metabox_post() {
             'fau_metabox_post_topevent', 
             esc_html__('Top-Event', 'fau'), 
             'fau_do_metabox_post_topevent', 
-            'post', 'normal', 'high'
+            'post', 'side', 'low'
         );
     }
 
@@ -122,7 +122,7 @@ function fau_add_metabox_post() {
         'fau_metabox_post_teaser', 
         esc_html__('Beitragsoptionen', 'fau'), 
         'fau_do_metabox_post_teaser', 
-        'post', 'normal', 'high'
+        'post', 'side', 'low'
     );
 }
 
