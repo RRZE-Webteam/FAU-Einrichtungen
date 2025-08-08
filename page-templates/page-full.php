@@ -11,6 +11,9 @@ global $pagebreakargs;
 global $defaultoptions;
 global $is_sidebar_active;
 
+ if (get_theme_mod('advanced_page_sidebar_display_in_pagesetting') == false) {
+     $is_sidebar_active = false;
+ }
 get_header(); 
 
 $content_width =$defaultoptions['content-width'];

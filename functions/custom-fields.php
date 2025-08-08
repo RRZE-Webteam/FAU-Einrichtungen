@@ -16,16 +16,23 @@ function fau_metabox_cf_setup() {
     add_action('add_meta_boxes_post', 'fau_add_metabox_post');
 
     /* Save sidecontent */
-    add_action('save_post', 'fau_save_metabox_page_portalmenu', 10, 2);
-    add_action('save_post', 'fau_save_metabox_page_sidebar', 10, 2);
-
+   
+    
+    
+     if (get_theme_mod('advanced_page_sidebar_display_in_pagesetting') == true) {
+        add_action('save_post', 'fau_save_metabox_page_sidebar', 10, 2);
+     }
   
     if (get_theme_mod('advanced_beitragsoptionen') == true) {
         add_action('save_post', 'fau_save_post_teaser', 10, 2);
     }
     
-    if (get_theme_mod('advanced_topevent') == true) {
+    if (get_theme_mod('start_topevents_active') == true) {
         add_action('save_post', 'fau_save_post_topevent', 10, 2);
+    }
+    
+    if (get_theme_mod('portalmenus_display_in_pagesetting') == true) {
+        add_action('save_post', 'fau_save_metabox_page_portalmenu', 10, 2);
     }
    
     // Speichere Seiten-Eigenschaften
@@ -51,29 +58,30 @@ function fau_add_metabox_page() {
     );
    
     
+    if (get_theme_mod('portalmenus_display_in_pagesetting') == true) {
 
-    add_meta_box(
-        'fau_metabox_page_portalmenu',			
-        esc_html__( 'Portalmenüs konfigurieren', 'fau' ),		
-        'fau_do_metabox_page_portalmenu',		
-        'page','side','low',
-        array(
-            '__block_editor_compatible_meta_box' => true,
-        )
-    );
+        add_meta_box(
+            'fau_metabox_page_portalmenu',			
+            esc_html__( 'Portalmenüs konfigurieren', 'fau' ),		
+            'fau_do_metabox_page_portalmenu',		
+            'page','side','low',
+            array(
+                '__block_editor_compatible_meta_box' => true,
+            )
+        );
 
-
-
-    add_meta_box(
-        'fau_metabox_page_sidebar',			
-        esc_html__( 'Sidebar', 'fau' ),		
-        'fau_do_metabox_page_sidebar',		
-        'page','normal','low',
-        array(
-            '__block_editor_compatible_meta_box' => true,
-        )
-    );
-
+    }
+     if (get_theme_mod('advanced_page_sidebar_display_in_pagesetting') == true) {
+        add_meta_box(
+            'fau_metabox_page_sidebar',			
+            esc_html__( 'Sidebar', 'fau' ),		
+            'fau_do_metabox_page_sidebar',		
+            'page','normal','low',
+            array(
+                '__block_editor_compatible_meta_box' => true,
+            )
+        );
+     }
     
     
     
@@ -93,7 +101,7 @@ function fau_add_metabox_post() {
     
    
     
-    if (get_theme_mod('advanced_topevent') == true) {
+    if (get_theme_mod('start_topevents_active') == true) {
         add_meta_box(
             'fau_metabox_post_topevent', 
             esc_html__('Top-Event', 'fau'), 

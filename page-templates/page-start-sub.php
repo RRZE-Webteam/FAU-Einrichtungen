@@ -10,6 +10,7 @@ global $defaultoptions;
 
 get_header();
 
+
 ?>
 <div id="content" class="start-sub">
     <div class="content-container">
