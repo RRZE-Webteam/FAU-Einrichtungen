@@ -210,13 +210,13 @@ main .subpages-menu,
             a {
                 display: block;
                 width: 100%;
-                padding: 10px 10px 8px 10px;
-		line-height: max(3rem, 50px);
+                padding: var(--width-gutter-third, 10px);
+		line-height: 1.7; 
                 text-align: left;
-
+		text-wrap-style: balance;
+		
                 .no-sub:not(.no-thumb) & {
                     display: block;
-                    padding: 8px 10px;
                     color: #fff;
                     text-shadow: 1px 1px 1px #000;
                     font-weight: normal;

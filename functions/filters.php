@@ -743,14 +743,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
     }
 }
 add_filter('post_gallery', 'fau_post_gallery', 10, 2);
-/*-----------------------------------------------------------------------------------*/
-/* Remove comments feed link in header
-/*-----------------------------------------------------------------------------------*/
-add_filter( 'feed_links_show_comments_feed', '__return_false' );
-function fau_remove_comments_rss( $for_comments ) {
-    return;
-}
-add_filter('post_comments_feed_link','fau_remove_comments_rss');
+
 /*-----------------------------------------------------------------------------------*/
 /* Blockeditor: Remove h1 from core/heading
 /*-----------------------------------------------------------------------------------*/
@@ -767,6 +760,57 @@ function fau_coreblocks_remove_h1_heading( $args, $block_type ) {
 }
 
 add_filter( 'register_block_type_args', 'fau_coreblocks_remove_h1_heading', 10, 2 );
+
+/*-----------------------------------------------------------------------------------*/
+/* Remove comments 
+/*-----------------------------------------------------------------------------------*/
+function fau_conditional_disable_comments() {
+    // Kommentare nur aktivieren, wenn Option aktiv ist
+    $enable_comments = get_theme_mod('advanced_activate_post_comments', false);
+
+    if ($enable_comments) {
+        return; 
+    }
+
+    // Kommentare und Trackbacks deaktivieren
+    foreach (['post', 'page'] as $post_type) {
+        remove_post_type_support($post_type, 'comments');
+        remove_post_type_support($post_type, 'trackbacks');
+    }
+
+    // Kommentare und Pings komplett schließen
+    add_filter('comments_open', '__return_false', 20, 2);
+    add_filter('pings_open', '__return_false', 20, 2);
+
+    // Existierende Kommentare ausblenden
+    add_filter('comments_array', '__return_empty_array', 10, 2);
+
+    // Kommentare im Admin-Menü entfernen
+    add_action('admin_menu', function () {
+        remove_menu_page('edit-comments.php');
+    });
+
+    add_action('init', function () {
+        if (is_admin_bar_showing()) {
+            remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
+        }
+    });
+
+    // Kommentar-Metaboxen im Editor entfernen
+    add_action('add_meta_boxes', function () {
+        remove_meta_box('commentsdiv', 'post', 'normal');
+        remove_meta_box('trackbacksdiv', 'post', 'normal');
+        remove_meta_box('commentstatusdiv', 'post', 'normal');
+        remove_meta_box('commentsdiv', 'page', 'normal');
+        remove_meta_box('trackbacksdiv', 'page', 'normal');
+        remove_meta_box('commentstatusdiv', 'page', 'normal');
+    }, 20);
+
+    // Kommentar-Feed-Links entfernen
+    add_filter('feed_links_show_comments_feed', '__return_false'); // deaktiviert Link im <head>
+    add_filter('post_comments_feed_link', '__return_false');       // deaktiviert individuelle Feed-Links
+}
+add_action('init', 'fau_conditional_disable_comments');
 
 /*-----------------------------------------------------------------------------------*/
 /* EOF

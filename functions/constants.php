@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 120,
+	'optiontable-version'           => 121,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -191,12 +191,15 @@ $defaultoptions = [
 
 	'advanced_footer_display_address'           => true,
 	'advanced_beitragsoptionen'                 => true,
-	'advanced_topevent'                         => true,
 	'default_display_thumbnail_3_2'             => true,
 	'galery_link_original'                      => true,
 	'galery_force_caption_onslick'              => true,
 
 	'advanced_post_active_subtitle'             => true,
+    
+    'advanced_page_sidebar_display_in_pagesetting'    => true,
+        // Zeigt die Sidebar-Settings in Seiten oder deaktiviert diese (false)  
+    
 	'advanced_page_sidebar_titleabove'          => true,
 	'advanced_page_sidebar_titlebelow'          => false,
 	'advanced_page_sidebar_useeditor_textabove'	=> false,
@@ -296,11 +299,17 @@ $defaultoptions = [
     'advanced_template_hr_linecolor'        => '',
         // Overwriter für Default HR Farbe. Default leer, 
         // damit der Default (Blau) verwendet wird.
+    
+    
+    'portalmenus_display_in_pagesetting'    => true,
+        // Zeigt die Portalmenu-Settings in Seiten oder deaktiviert diese (false)
+        
 	'portalmenus_hover_blur'					=> false,
 	// Hover-Effekt bei Portalmenüs
 	'portalmenus_hover_zoom'					=> false,
 	// Zoom-Effekt bei Portalmenüs
 
+    
 
 ];
 
@@ -823,45 +832,7 @@ $setoptions = array(
 				),
                 
                 
-                'portalmenus'  => array(
-					'type'    => 'section',
-					'title'   => __('Portalmenüs', 'fau'),
-				),
-
-				'portalmenus_hover_blur' => array(
-					'type'    => 'toggle',
-					'title'   => __('Blur-Effekt verwenden', 'fau'),
-					'label'   => __('Ermöglicht das Hinzufügen eines Blur-Effekts auf Bilder des Portalmenüs.', 'fau'),
-					'default' => $defaultoptions['portalmenus_hover_blur'],
-					'parent'  => 'portalmenus'
-				),
-
-				'portalmenus_hover_zoom' => array(
-					'type'    => 'toggle',
-					'title'   => __('Zoom-Effekt verwenden', 'fau'),
-					'label'   => __('Ermöglicht das Hinzufügen eines Zoom-Effekts auf Bilder des Portalmenüs.', 'fau'),
-					'default' => $defaultoptions['portalmenus_hover_zoom'],
-					'parent'  => 'portalmenus'
-				),
-            	'default_submenu_entries' => array(
-					'type'    => 'range-value',
-					'title'   => __('Untermenüpunkte', 'fau'),
-					'label'   => __('Anzahl der anzuzeigenden Untermenüpunkte (Zweite Ebene).', 'fau'),
-					'default' => $defaultoptions['default_submenu_entries'],
-					'min'   => 0,
-					'max'   => 10,
-					'step'  => 1,
-					'parent'  => 'portalmenus'
-				),
-				'fallback_submenu_image' => array(
-					'type'    => 'image',
-					'maxwidth'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['width'], // $defaultoptions['default_rwdimage_2-1_width'],
-					'maxheight'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['height'], // $defaultoptions['default_rwdimage_2-1_height'],
-					'title'   => __('Thumbnail Ersatzbild', 'fau'),
-					'label'   => __('Ersatzbild für den Fall, daß eine verlinkte Seite kein eigenes Artikelbild definiert hat.', 'fau'),
-					'parent'  => 'portalmenus',
-					'default' => $defaultoptions['fallback_submenu_image'],
-				),
+               
 
 				'newsbereich'  => array(
 					'type'    => 'section',
@@ -980,50 +951,7 @@ $setoptions = array(
 					'parent'  => 'newsbereich'
 				),
 
-				'topevents'  => array(
-					'type'    => 'section',
-					'title'   => __('Top Events', 'fau'),
-				),
-
-				'start_topevents_active' => array(
-					'type'    => 'toggle',
-					'title'   => __('Aktivieren', 'fau'),
-					'label'   => __('Anzeige der Top-Events aktivieren', 'fau'),
-					'default' => $defaultoptions['start_topevents_active'],
-					'parent'  => 'topevents'
-				),
-
-				'topevents_templates' => array(
-					'type'    => 'multiselectlist',
-					'title'   => __('Seitentypen', 'fau'),
-					'label'   => __('Auf welchen Seiten sollen Top Events in der Sidebar angezeigt werden.', 'fau'),
-					'liste'   => array(
-						1 => __('Startseite', 'fau'),
-						2 => __('Portalseiten', 'fau'),
-						3 => __('Suche und Fehlerseiten', 'fau'),
-					),
-					'default' => $defaultoptions['topevents_templates'],
-					'parent'  => 'topevents'
-				),
-				'start_topevents_max' => array(
-					'type'    => 'range-value',
-					'title'   => __('Anzahl Top-Events', 'fau'),
-					'label'   => __('Wieviele Top-Events sollen maximal angezeigt werden.', 'fau'),
-					'default' => $defaultoptions['start_topevents_max'],
-					'min'	    => 1,
-					'max'	    => 6,
-					'parent'  => 'topevents'
-				),
-
-				'fallback_topevent_image' => array(
-					'type'    => 'image',
-					'maxwidth'	=> $defaultoptions['default_image_sizes']['rwd-480-3-2']['width'],
-					'maxheight'	=> $defaultoptions['default_image_sizes']['rwd-480-3-2']['height'],
-					'title'   => __('Thumbnail Ersatzbild', 'fau'),
-					'default' => $defaultoptions['fallback_topevent_image'],
-					'label'   => __('Ersatzbild für den Fall, daß für den Eventeintrag kein eigenes Bild definiert wurde.', 'fau'),
-					'parent'  => 'topevents'
-				),
+				
 
 				'suchergebnisse'  => array(
 					'type'    => 'section',
@@ -1103,84 +1031,9 @@ $setoptions = array(
 					'default' => $defaultoptions['search_notice_searchregion'],
 					'parent'  => 'suchergebnisse'
 				),
+                
+              
 
-				'imagelink'  => array(
-					'type'    => 'section',
-					'title'   => __('Bildlinks', 'fau'),
-				),
-
-                'advanced_imagelink_display' => array(
-					'type'    => 'toggle',
-					'title'   => __('Bildlink-Funktion', 'fau'),
-					'label'   => __('Aktiviert bzw. Deaktiviert die Bildlink-Funktion. Wenn diese Funktion nicht genutzt wird, sollte sie abgeschaltet werden, damit die Funktionsliste im Dashboard übersichtlicher bleibt.', 'fau'),
-					'default' => $defaultoptions['advanced_imagelink_display'],
-					'parent'  => 'imagelink'
-				),
-
-				'advanced_imagelink_default_order' => array(
-					'type'    => 'select',
-					'title'   => __('Sortierung', 'fau'),
-					'label'   => __('Standardsortierung der Bildlinks.', 'fau'),
-					'liste'   => array(
-						'asc' => __('A - Z', 'fau'),
-						'desc' => __('Z - A', 'fau'),
-						'rand' => __('Zufall', 'fau'),
-					),
-					'default' => $defaultoptions['advanced_imagelink_default_order'],
-					'parent'  => 'imagelink'
-				),
-
-
-				'advanced_imagelink_default_type' => array(
-					'type'    => 'select',
-					'title'   => __('Darstellungsform', 'fau'),
-					'label'   => __('Die Darstellung kann als Slider oder als statische Liste erfolgen.', 'fau'),
-					'liste'   => array(
-						'slide' => __('Slider', 'fau'),
-						'list' => __('Liste', 'fau')
-					),
-					'default' => $defaultoptions['advanced_imagelink_default_type'],
-					'parent'  => 'imagelink'
-				),
-				'advanced_imagelink_default_slides' => array(
-					'type'    => 'range-value',
-					'title'   => __('Anzahl Bildlinks', 'fau'),
-					'label'   => __('Wieviele sollen üblicherweise bei der Slide-Anzeige dargestellt werden.', 'fau'),
-					'default' => $defaultoptions['advanced_imagelink_default_slides'],
-					'min'	    => 2,
-					'max'	    => 7,
-					'parent'  => 'imagelink'
-				),
-				'advanced_imagelink_default_autoplay' => array(
-					'type'    => 'toggle',
-					'title'   => __('Autoplay (Slider)', 'fau'),
-					'label'   => __('Wenn zur Anzeige der Slider gewählt wurde, kann hier eingestellt werden, ob dieser von selbst starten soll oder nicht. Bitte beachten Sie, dass ein automatisches Abspielen die Barrierefreiheit der Seite beeinträchtigen kann. Sollte die Option eingeschaltet werden, sollte in der Barrierefreiheitserklärung angegeben werden, dass die Website bei den automatisch rotierenden Bildlinks nicht barrierefrei ist.', 'fau'),
-					'default' => $defaultoptions['advanced_imagelink_default_autoplay'],
-					'parent'  => 'imagelink'
-				),
-				'advanced_imagelink_default_dots' => array(
-					'type'    => 'toggle',
-					'title'   => __('Navigationspunkte (Slider)', 'fau'),
-					'label'   => __('Zeigt bei der Sliderdarstellung unterhalb der Bildlinks Navigationsbuttons als Punkte an.', 'fau'),
-					'default' => $defaultoptions['advanced_imagelink_default_dots'],
-					'parent'  => 'imagelink'
-				),
-				'advanced_imagelink_default_navtitle' => array(
-					'type'    => 'text',
-					'title'   => __('ARIA-Label', 'fau'),
-					'label'   => __('Unsichtbarer Titel für die Linklisten (wird für Screenreader und Suchmaschinen verwendet).', 'fau'),
-					'default' => $defaultoptions['advanced_imagelink_default_navtitle'],
-					'parent'  => 'imagelink'
-				),
-				'advanced_imagelink_default_class' => array(
-					'type'    => 'text',
-					'title'   => __('CSS-Klassen', 'fau'),
-					'label'   => __('Optionale CSS Klassen zur Modifikation der optischen Darstellung.', 'fau'),
-					'default' => $defaultoptions['advanced_imagelink_default_class'],
-					'parent'  => 'imagelink'
-				),
-
-				
 			
 
 
@@ -1203,14 +1056,7 @@ $setoptions = array(
 					'default' => $defaultoptions['advanced_beitragsoptionen'],
 					'parent'  => 'bedienung'
 				),
-				'advanced_topevent'  => array(
-					'type'    => 'toggle',
-					'title'   => __('Top-Events', 'fau'),
-					'label'   => __('Ermöglicht es Beiträge als Top-Event zu deklarieren und entsprechende Optionen freizuschalten.', 'fau'),
-					'default' => $defaultoptions['advanced_topevent'],
-					'parent'  => 'bedienung'
-				),
-
+		
 				'advanced_post_active_subtitle'	=> array(
 					'type'    => 'toggle',
 					'title'   => __('Untertitel (Beiträge)', 'fau'),
@@ -1246,6 +1092,15 @@ $setoptions = array(
 					'desc'	=> __('Konfigurationen der Sidebar auf Seiten', 'fau'),
 					'user_level'	=> 2,
 				),
+                
+                'advanced_page_sidebar_display_in_pagesetting' => array(
+					'type'    => 'toggle',
+					'title'   => __('Sidebar', 'fau').'-'.__('Funktion', 'fau'),
+					'label'   => __('Aktiviert bzw. Deaktiviert die Funktion. Wenn diese Funktion nicht genutzt wird oder der Blockeditor in Verwendung ist, sollte sie abgeschaltet werden, damit die Funktionsliste im Dashboard übersichtlicher bleibt.', 'fau'),
+					'default' => $defaultoptions['advanced_page_sidebar_display_in_pagesetting'],
+					'parent'  => 'sidebaropt'
+				),
+                
                 'advanced_page_sidebar_wpsidebar'		  => array(
 					'type'    => 'toggle',
 					'title'   => __('Widget-Funktion für Seiten', 'fau'),
@@ -1334,7 +1189,60 @@ $setoptions = array(
 					'max'   => 10,
 					'parent'  => 'sidebaropt'
 				),
-				
+
+				'start_topevents_active' => array(
+					'type'    => 'toggle',
+					'title'   => __('Topevent', 'fau').'-'.__('Funktion', 'fau'),
+					'label'   => __('Anzeige der Top-Events aktivieren', 'fau'),
+					'default' => $defaultoptions['start_topevents_active'],
+					'parent'  => 'sidebaropt'
+				),
+
+          		'advanced_topevent'  => array(
+					'type'    => 'toggle',
+					'title'   => __('Top-Events', 'fau'),
+					'label'   => __('Ermöglicht es Beiträge als Top-Event zu deklarieren und entsprechende Optionen freizuschalten.', 'fau'),
+					'default' => $defaultoptions['advanced_topevent'],
+					'parent'  => 'bedienung'
+				),
+
+                
+				'topevents_templates' => array(
+					'type'    => 'multiselectlist',
+					'title'   => __('Seitentypen', 'fau'),
+					'label'   => __('Auf welchen Seiten sollen Top Events in der Sidebar angezeigt werden.', 'fau'),
+					'liste'   => array(
+						1 => __('Startseite', 'fau'),
+						2 => __('Portalseiten', 'fau'),
+						3 => __('Suche und Fehlerseiten', 'fau'),
+					),
+					'default' => $defaultoptions['topevents_templates'],
+					'parent'  => 'sidebaropt'
+				),
+				'start_topevents_max' => array(
+					'type'    => 'range-value',
+					'title'   => __('Anzahl Top-Events', 'fau'),
+					'label'   => __('Wieviele Top-Events sollen maximal angezeigt werden.', 'fau'),
+					'default' => $defaultoptions['start_topevents_max'],
+					'min'	    => 1,
+					'max'	    => 6,
+					'parent'  => 'sidebaropt'
+				),
+
+				'fallback_topevent_image' => array(
+					'type'    => 'image',
+					'maxwidth'	=> $defaultoptions['default_image_sizes']['rwd-480-3-2']['width'],
+					'maxheight'	=> $defaultoptions['default_image_sizes']['rwd-480-3-2']['height'],
+					'title'   => __('Thumbnail Ersatzbild', 'fau'),
+					'default' => $defaultoptions['fallback_topevent_image'],
+					'label'   => __('Ersatzbild für den Fall, daß für den Eventeintrag kein eigenes Bild definiert wurde.', 'fau'),
+					'parent'  => 'sidebaropt'
+				),
+			
+                
+                
+                
+                
                
 
 				'inhalte'  => array(
@@ -1424,7 +1332,131 @@ $setoptions = array(
 					'default' => $defaultoptions['advanced_sanitize_inlinestyles'],
 					'parent'  => 'sanitizer'
 				),
-			),
+			
+            
+               'portalmenus'  => array(
+					'type'    => 'section',
+					'title'   => __('Portalmenüs', 'fau'),
+				),
+
+                'portalmenus_display_in_pagesetting' => array(
+					'type'    => 'toggle',
+					'title'   => __('Portalmenü', 'fau').'-'.__('Funktion', 'fau'),
+					'label'   => __('Aktiviert bzw. Deaktiviert die Portalmenü-Funktion. Wenn diese Funktion nicht genutzt wird oder der Block-Editor zum Einsatz kommt, sollte sie abgeschaltet werden.', 'fau'),
+					'default' => $defaultoptions['portalmenus_display_in_pagesetting'],
+					'parent'  => 'portalmenus'
+				),
+                
+				'portalmenus_hover_blur' => array(
+					'type'    => 'toggle',
+					'title'   => __('Blur-Effekt verwenden', 'fau'),
+					'label'   => __('Ermöglicht das Hinzufügen eines Blur-Effekts auf Bilder des Portalmenüs.', 'fau'),
+					'default' => $defaultoptions['portalmenus_hover_blur'],
+					'parent'  => 'portalmenus'
+				),
+
+				'portalmenus_hover_zoom' => array(
+					'type'    => 'toggle',
+					'title'   => __('Zoom-Effekt verwenden', 'fau'),
+					'label'   => __('Ermöglicht das Hinzufügen eines Zoom-Effekts auf Bilder des Portalmenüs.', 'fau'),
+					'default' => $defaultoptions['portalmenus_hover_zoom'],
+					'parent'  => 'portalmenus'
+				),
+            	'default_submenu_entries' => array(
+					'type'    => 'range-value',
+					'title'   => __('Untermenüpunkte', 'fau'),
+					'label'   => __('Anzahl der anzuzeigenden Untermenüpunkte (Zweite Ebene).', 'fau'),
+					'default' => $defaultoptions['default_submenu_entries'],
+					'min'   => 0,
+					'max'   => 10,
+					'step'  => 1,
+					'parent'  => 'portalmenus'
+				),
+				'fallback_submenu_image' => array(
+					'type'    => 'image',
+					'maxwidth'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['width'], // $defaultoptions['default_rwdimage_2-1_width'],
+					'maxheight'	=> $defaultoptions['default_image_sizes']['rwd-480-2-1']['height'], // $defaultoptions['default_rwdimage_2-1_height'],
+					'title'   => __('Thumbnail Ersatzbild', 'fau'),
+					'label'   => __('Ersatzbild für den Fall, daß eine verlinkte Seite kein eigenes Artikelbild definiert hat.', 'fau'),
+					'parent'  => 'portalmenus',
+					'default' => $defaultoptions['fallback_submenu_image'],
+				),
+				'imagelink'  => array(
+					'type'    => 'section',
+					'title'   => __('Bildlinks', 'fau'),
+				),
+
+                'advanced_imagelink_display' => array(
+					'type'    => 'toggle',
+					'title'   => __('Bildlink', 'fau').'-'.__('Funktion', 'fau'),
+					'label'   => __('Aktiviert bzw. Deaktiviert die Bildlink-Funktion. Wenn diese Funktion nicht genutzt wird, sollte sie abgeschaltet werden, damit die Funktionsliste im Dashboard übersichtlicher bleibt.', 'fau'),
+					'default' => $defaultoptions['advanced_imagelink_display'],
+					'parent'  => 'imagelink'
+				),
+
+				'advanced_imagelink_default_order' => array(
+					'type'    => 'select',
+					'title'   => __('Sortierung', 'fau'),
+					'label'   => __('Standardsortierung der Bildlinks.', 'fau'),
+					'liste'   => array(
+						'asc' => __('A - Z', 'fau'),
+						'desc' => __('Z - A', 'fau'),
+						'rand' => __('Zufall', 'fau'),
+					),
+					'default' => $defaultoptions['advanced_imagelink_default_order'],
+					'parent'  => 'imagelink'
+				),
+
+
+				'advanced_imagelink_default_type' => array(
+					'type'    => 'select',
+					'title'   => __('Darstellungsform', 'fau'),
+					'label'   => __('Die Darstellung kann als Slider oder als statische Liste erfolgen.', 'fau'),
+					'liste'   => array(
+						'slide' => __('Slider', 'fau'),
+						'list' => __('Liste', 'fau')
+					),
+					'default' => $defaultoptions['advanced_imagelink_default_type'],
+					'parent'  => 'imagelink'
+				),
+				'advanced_imagelink_default_slides' => array(
+					'type'    => 'range-value',
+					'title'   => __('Anzahl Bildlinks', 'fau'),
+					'label'   => __('Wieviele sollen üblicherweise bei der Slide-Anzeige dargestellt werden.', 'fau'),
+					'default' => $defaultoptions['advanced_imagelink_default_slides'],
+					'min'	    => 2,
+					'max'	    => 7,
+					'parent'  => 'imagelink'
+				),
+				'advanced_imagelink_default_autoplay' => array(
+					'type'    => 'toggle',
+					'title'   => __('Autoplay (Slider)', 'fau'),
+					'label'   => __('Wenn zur Anzeige der Slider gewählt wurde, kann hier eingestellt werden, ob dieser von selbst starten soll oder nicht. Bitte beachten Sie, dass ein automatisches Abspielen die Barrierefreiheit der Seite beeinträchtigen kann. Sollte die Option eingeschaltet werden, sollte in der Barrierefreiheitserklärung angegeben werden, dass die Website bei den automatisch rotierenden Bildlinks nicht barrierefrei ist.', 'fau'),
+					'default' => $defaultoptions['advanced_imagelink_default_autoplay'],
+					'parent'  => 'imagelink'
+				),
+				'advanced_imagelink_default_dots' => array(
+					'type'    => 'toggle',
+					'title'   => __('Navigationspunkte (Slider)', 'fau'),
+					'label'   => __('Zeigt bei der Sliderdarstellung unterhalb der Bildlinks Navigationsbuttons als Punkte an.', 'fau'),
+					'default' => $defaultoptions['advanced_imagelink_default_dots'],
+					'parent'  => 'imagelink'
+				),
+				'advanced_imagelink_default_navtitle' => array(
+					'type'    => 'text',
+					'title'   => __('ARIA-Label', 'fau'),
+					'label'   => __('Unsichtbarer Titel für die Linklisten (wird für Screenreader und Suchmaschinen verwendet).', 'fau'),
+					'default' => $defaultoptions['advanced_imagelink_default_navtitle'],
+					'parent'  => 'imagelink'
+				),
+				'advanced_imagelink_default_class' => array(
+					'type'    => 'text',
+					'title'   => __('CSS-Klassen', 'fau'),
+					'label'   => __('Optionale CSS Klassen zur Modifikation der optischen Darstellung.', 'fau'),
+					'default' => $defaultoptions['advanced_imagelink_default_class'],
+					'parent'  => 'imagelink'
+				),
+            ),
 		),
 
 		'debugmode'   => array(
