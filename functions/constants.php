@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 121,
+	'optiontable-version'           => 122,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -269,6 +269,8 @@ $defaultoptions = [
 	'advanced_blogroll_thumblink_alt_posttitle'	=> '"',
 	// Alternativer Tag wird mit dem Tiotel des verlinkten Beitrags gefüllt. 
 	// Hier kann davor noch ein teil dahinter stehen. 
+    'advanced_topevent'                         => false,
+    // Default für Topevents
 	'advanced_topevent_thumblink_alt_pretitle'	=> __('Zum Artikel "', 'fau'),
 	// Alternativer Tag wird mit dem Tiotel des verlinkten Beitrags gefüllt. 
 	// Hier kann davor noch ein Vortitel stehen.
