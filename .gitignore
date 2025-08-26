@@ -12,3 +12,4 @@ tmp
 /npm-debug.log
 .DS_Store
 Browse.plb
+languages/*.l10n.php
