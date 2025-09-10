@@ -10,7 +10,7 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 122,
+	'optiontable-version'           => 123,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
@@ -89,9 +89,10 @@ $defaultoptions = [
 	'topevent_hideimage'			=> false,
 	'topevents_templates'			=> array(1),
 	'default_topevent_excerpt_length'		=> 100,
-
-	
-
+    'display_copyright_in_footer'       => false,
+        // Zeigt Copyright-Info von Bildern im Footer an, wenn diese
+        // in den Filter fau_copyright_info übermittelt wurden
+        // TODO: In Customizer einschaltbar machen
 
 	/* Image Sizes */
 	'default_image_sizes' => [

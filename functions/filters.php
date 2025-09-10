@@ -813,5 +813,41 @@ function fau_conditional_disable_comments() {
 add_action('init', 'fau_conditional_disable_comments');
 
 /*-----------------------------------------------------------------------------------*/
+ /* Sammelt Copyright-Einträge vom Plugin/Plugins.
+ /* Erwartet vom Filter Einträge als ['text' => string, 'image_id' => int].
+ /* Fällt zurück auf Strings (werden dann zu ['text'=>..., 'image_id'=>0] gewandelt).
+/*-----------------------------------------------------------------------------------*/
+function fau_collect_copyright_entries(array $args = []): array {
+    // Für FAU-Einrichtungen bleibt der Tag fau_copyright_info korrekt:
+    $entries = apply_filters('fau_copyright_info', [], $args);
+
+    // Optionales Logging
+    do_action('rrze.log.info', 'Theme: fau_collect_copyright_entries – raw entries', $entries);
+
+    if (!is_array($entries)) {
+        $entries = [$entries];
+    }
+
+    $normalized = [];
+    foreach ($entries as $e) {
+        if (is_array($e)) {
+            $text    = isset($e['text']) ? trim(wp_strip_all_tags((string) $e['text'])) : '';
+            $imageId = isset($e['image_id']) ? (int) $e['image_id'] : 0;
+            if ($text !== '') {
+                $normalized[] = ['text' => $text, 'image_id' => max(0, $imageId)];
+            }
+        } elseif (is_scalar($e)) {
+            $text = trim(wp_strip_all_tags((string) $e));
+            if ($text !== '') {
+                $normalized[] = ['text' => $text, 'image_id' => 0];
+            }
+        }
+    }
+    return $normalized;
+
+}
+
+
+/*-----------------------------------------------------------------------------------*/
 /* EOF
 /*-----------------------------------------------------------------------------------*/
