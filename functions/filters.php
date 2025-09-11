@@ -822,7 +822,7 @@ function fau_collect_copyright_entries(array $args = []): array {
     $entries = apply_filters('fau_copyright_info', [], $args);
 
     // Optionales Logging
-    do_action('rrze.log.info', 'Theme: fau_collect_copyright_entries – raw entries', $entries);
+    // do_action('rrze.log.info', 'FAU Theme: fau_collect_copyright_entries – raw entries', $entries);
 
     if (!is_array($entries)) {
         $entries = [$entries];

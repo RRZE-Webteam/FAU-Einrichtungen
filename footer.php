@@ -23,12 +23,14 @@ use \RRZE\THEME\EINRICHTUNGEN\Debugging;
                    $imageId = isset($e['image_id']) ? (int) $e['image_id'] : 0;
 
                   if (!empty($text)) {
-                      $res .= '<li>'.esc_html($text).'</li>';
+                      $res .= '<li><a href="'.get_permalink($imageId).'">'.__('Bild', 'fau').'</a>: '.esc_html($text).'</li>';
                   }
               }
 
             if (!empty($res)) {
-                echo '<div class="copyright-footer"><div class="container"><ul>'
+                echo '<div class="copyright-footer"><div class="container">';
+                echo '<h2>'.__('Copyright Informationen', 'fau').'</h2>';
+                echo '<ul>'
                    . $res
                    . '</ul></div></div>';
             }

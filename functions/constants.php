@@ -749,9 +749,7 @@ $setoptions = array(
 					'title'   => __('Footer', 'fau'),
 					'desc'    => __('Einstellungen für den Fußteil des Webauftritts.', 'fau'),
 				),
-
-              
-                
+  
 				'advanced_footer_display_address'	  => array(
 					'type'    => 'toggle',
 					'title'   => __('Adresse', 'fau'),
@@ -1251,6 +1249,13 @@ $setoptions = array(
 				'inhalte'  => array(
 					'type'    => 'section',
 					'title'   => __('Metadaten und Inhalte', 'fau'),
+				),
+                'display_copyright_in_footer'	  => array(
+					'type'    => 'toggle',
+					'title'   => __('Bild Copyright Liste', 'fau'),
+					'label'   => __('Wenn Bilder Copyright-Informationen aufweisen und in der Seite verwendet werden, können diese hiermit am Ende der Seite gesammelt angezeigt werden.', 'fau'),
+					'default' => $defaultoptions['display_copyright_in_footer'],
+					'parent'  => 'inhalte'
 				),
 				'advanced_images_info_credits' => array(
 					'type'    => 'select',
