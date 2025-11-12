@@ -580,7 +580,7 @@ if ( ! function_exists( 'fau_post_gallery' ) ) {
 		    $lightboxtitle = ( isset($imgmeta->post_excerpt) ? sanitize_text_field( $imgmeta->post_excerpt ) : '' );
 		    
 		    if (strlen(trim($lightboxtitle))>1) {
-			$lightboxattr = ' title="'.$lightboxtitle.'"';
+                $lightboxattr = ' title="'.$lightboxtitle.'"';
 		    }
 
 		    $linkalt = $imgmeta['alt'];

@@ -10,11 +10,14 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 123,
+	'optiontable-version'           => 124,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
+    'date-option-table'             => '',
+    // Wenn die Options in die Dstenbank geschrieben werden, wird hie rein Datum gesetzt.
+    // Dieses Datum entspricht also die letzte Änderung der Optionen.
 	'debugmode'                     => false,
 	// Der Debugmode erlaubt die Einschaltung von Debug- und Demowerten über den Customizer.
 	// Bei der Compilierung des Themes mit Gulp wird der Debugmode bei
@@ -344,19 +347,12 @@ function fau_initoptions() {
 
 
 	$update_thememods = false;
-	// Fuer Abwaertscompatibilitaet zu alten Images aus dem Option Settings:
+    
+	// Ergänze neue Optionen, wenn ndiese noch nicht vorher in der get_options Table waren:
+    
 	foreach ($setoptions[$OPTIONS_NAME] as $tab => $f) {
 		foreach ($setoptions[$OPTIONS_NAME][$tab]['fields'] as $i => $value) {
-			if ($value['type'] == "image") {
-				if (isset($newoptions[$i . "_id"])) {
-					if (!isset($themeopt[$i])) {
-						$themeopt[$i] = $newoptions[$i . "_id"];
-						$update_thememods = true;
-					}
-				}
-			} elseif ($value['type'] == 'section') {
-				// this not
-			} elseif ((!isset($themeopt[$i])) && (isset($newoptions[$i]))) {
+			if ((!isset($themeopt[$i])) && (isset($newoptions[$i]))) {
 				$themeopt[$i] = $newoptions[$i];
 				$update_thememods = true;
 			}
