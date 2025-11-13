@@ -9,7 +9,6 @@ global $defaultoptions, $default_fau_orga_data, $fau_used_svgs;
 global $is_gutenberg_enabled;
 
 
-
 // Block Editor handling
 require_once( get_template_directory() . '/functions/block-editor-support.php');
 require_once( get_template_directory() . '/functions/template-functions.php' );

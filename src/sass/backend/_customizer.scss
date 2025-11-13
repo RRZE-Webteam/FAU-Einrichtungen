@@ -23,12 +23,14 @@
     #accordion-panel-socialmedia,
     #accordion-panel-allgemeines,
     #accordion-panel-templates,
-    #accordion-panel-advanced {
+    #accordion-panel-advanced, 
+    #accordion-panel-debugmode {
 	.accordion-section-title {
 	     display: flex;
 	     border-left-color: var(--color-Default);
 	}
     }
+    #accordion-panel-debugmode,
     #accordion-panel-superadmin {
 	.accordion-section-title {	   
 	    border-left-color: red;	
