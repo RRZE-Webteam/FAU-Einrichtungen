@@ -10,13 +10,13 @@ $OPTIONS_NAME = 'fau_theme_options';
 // Name des Options-Array
 
 $defaultoptions = [
-	'optiontable-version'           => 124,
+	'optiontable-version'           => 127,
 	// zaehlt jedesmal hoch, wenn neue Optionen eingefuegt werden 
 	// oder Default Optionen geaendert werden. Vorhandene Defaultoptions 
 	// in der Options-Table werden nur dann geändert, wenn der Wert erhöht 
 	// wurde oder die Theme Options von Hand aufgerufen und gespeichert wurden.
     'date-option-table'             => '',
-    // Wenn die Options in die Dstenbank geschrieben werden, wird hie rein Datum gesetzt.
+    // Wenn die Options in die Datenbank geschrieben werden, wird hier ein Datum gesetzt.
     // Dieses Datum entspricht also die letzte Änderung der Optionen.
 	'debugmode'                     => false,
 	// Der Debugmode erlaubt die Einschaltung von Debug- und Demowerten über den Customizer.
@@ -348,7 +348,7 @@ function fau_initoptions() {
 
 	$update_thememods = false;
     
-	// Ergänze neue Optionen, wenn ndiese noch nicht vorher in der get_options Table waren:
+	// Ergänze neue Optionen, wenn diese noch nicht vorher in der get_options Table waren:
     
 	foreach ($setoptions[$OPTIONS_NAME] as $tab => $f) {
 		foreach ($setoptions[$OPTIONS_NAME][$tab]['fields'] as $i => $value) {
@@ -360,6 +360,7 @@ function fau_initoptions() {
 	}
 	if ($update_thememods == true) {
 		update_option("theme_mods_$theme", $themeopt);
+        fau_update_option_date();
 	}
 
 	$theme_opt_version = get_theme_mod('optiontable-version');
@@ -389,6 +390,7 @@ function fau_initoptions() {
 		}
 		if ($update_thememods == true) {
 			update_option("theme_mods_$theme", $themeopt);
+            fau_update_option_date();
 		} else {
 			// only version number
 			set_theme_mod('optiontable-version', $defaultoptions['optiontable-version']);
@@ -397,7 +399,13 @@ function fau_initoptions() {
 
 		fau_compatible_header_logo();
 		// Prüfe: Header-Image zu Custom Logo
-	}
+	} else {
+        // Falls das Datum noch nie gesetzt wurde (ältere Installationen)
+        $last_changed = get_theme_mod('date-option-table');
+        if (empty($last_changed)) {
+            fau_update_option_date();
+        }
+    }
 
 	return $newoptions;
 }
@@ -425,6 +433,7 @@ function fau_compatible_header_logo() {
 				set_theme_mod('custom_logo', $data->attachment_id);
 				remove_theme_mod('header_image_data');
 				remove_theme_mod('header_image');
+                fau_update_option_date();
 				// now remove the 'header_image_data' mod.
 			}
 		}
@@ -468,7 +477,6 @@ function fau_get_searchable_fields($format = 'array') {
 /*--------------------------------------------------------------------*/
 /* Erstelle globale Kategorieliste 
  * (für Version unter 1.9.4 benötigt)
- */
 /*--------------------------------------------------------------------*/
 $categories = get_categories(array('orderby' => 'name', 'order' => 'ASC'));
 $currentcatliste = array();
@@ -477,6 +485,22 @@ foreach ($categories as $category) {
 		$currentcatliste[$category->cat_ID] = $category->name . ' (' . $category->count . ' ' . __('Einträge', 'fau') . ')';
 	}
 }
+
+
+/*--------------------------------------------------------------------*/
+/* Setzen des Datum der letzten Änderung der Theme Options
+/*--------------------------------------------------------------------*/
+function fau_update_option_date() {
+    $datetime = current_time('timestamp'); 
+    set_theme_mod('date-option-table', $datetime);
+}
+
+function fau_customizer_update_theme_mods_last_changed($wp_customize) {
+    fau_update_option_date();
+}
+
+add_action('customize_save_after', 'fau_customizer_update_theme_mods_last_changed');
+
 /*--------------------------------------------------------------------*/
 /* Durch User änderbare Konfigurationen
 /*--------------------------------------------------------------------*/
@@ -1189,7 +1213,7 @@ $setoptions = array(
 
 				'start_topevents_active' => array(
 					'type'    => 'toggle',
-					'title'   => __('Topevent', 'fau').'-'.__('Funktion', 'fau'),
+					'title'   => __('Top-Event', 'fau').'-'.__('Funktion', 'fau'),
 					'label'   => __('Anzeige der Top-Events aktivieren', 'fau'),
 					'default' => $defaultoptions['start_topevents_active'],
 					'parent'  => 'sidebaropt'
@@ -1464,7 +1488,7 @@ $setoptions = array(
 		),
 
 		'debugmode'   => array(
-			'tabtitle'   => __('Einstellungen im Debugmode', 'fau'),
+			'tabtitle'   => __('Debugmode', 'fau'),
 			'user_level'	=> 1,
 			'capability'    => 'customize',
 			'fields' => array(
@@ -1520,6 +1544,15 @@ $setoptions = array(
 					'ifmodvalue'    => true,
 					'ifmodname'	=> 'debugmode',
 
+				),
+                'date-option-table'  => array(
+					'type'    => 'text',
+					'title'   => __('Timestamp Theme Mods', 'fau'),
+					'label'   => __('Letzte Änderung der Theme-Mods als Timestamp', 'fau'),
+					'default' => $defaultoptions['date-option-table'],
+					'parent'  => 'debugcontent',
+					'ifmodvalue'    => true,
+					'ifmodname'	=> 'debugmode',
 				),
 			),
 		),

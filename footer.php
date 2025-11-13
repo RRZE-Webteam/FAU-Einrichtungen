@@ -29,7 +29,7 @@ use \RRZE\THEME\EINRICHTUNGEN\Debugging;
 
             if (!empty($res)) {
                 echo '<div class="copyright-footer"><div class="container">';
-                echo '<h2>'.__('Copyright Informationen', 'fau').'</h2>';
+                echo '<h2>'.__('Bildnachweise', 'fau').'</h2>';
                 echo '<ul>'
                    . $res
                    . '</ul></div></div>';

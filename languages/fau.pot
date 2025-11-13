@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Language: \n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"POT-Creation-Date: 2025-07-28 13:04+0000\n"
+"POT-Creation-Date: 2025-11-13 15:08+0000\n"
 "X-Generator: Loco https://localise.biz/"
 
 #: functions/rrze-calendar-events-shortcode.php:30
@@ -66,22 +66,22 @@ msgstr ""
 msgid "/impressum/"
 msgstr ""
 
-#: functions/custom-fields.php:289
+#: functions/custom-fields.php:306
 msgid ""
 "<br>Nutzen Sie das Format: \"Tag-Monat-Jahr\", wobei Sie Tage und Monate mit "
 "führenden Nullen schreiben und das Jahr vierstellig. Beispiel: 01-12-2016 "
 "für den ersten Dezember 2016."
 msgstr ""
 
-#: functions/constants.php:1129
+#: functions/constants.php:1430
 msgid "A - Z"
 msgstr ""
 
-#: functions/constants.php:488
+#: functions/constants.php:516
 msgid "Abkürzung"
 msgstr ""
 
-#: functions/constants.php:489
+#: functions/constants.php:517
 msgid "Abkürzung für den offiziellen Titel der Website"
 msgstr ""
 
@@ -89,30 +89,40 @@ msgstr ""
 msgid "Abonnement"
 msgstr ""
 
-#: functions/constants.php:756
+#: functions/constants.php:782
 msgid "Adressat"
 msgstr ""
 
-#: functions/constants.php:763
+#: functions/constants.php:789
 msgid "Adressat (Zusatz)"
 msgstr ""
 
-#: functions/constants.php:749
+#: functions/constants.php:775
 msgid "Adresse"
 msgstr ""
 
-#: functions/constants.php:994
-msgid "Aktivieren"
-msgstr ""
-
-#: functions/constants.php:1119
+#: functions/constants.php:1420
 msgid ""
 "Aktiviert bzw. Deaktiviert die Bildlink-Funktion. Wenn diese Funktion nicht "
 "genutzt wird, sollte sie abgeschaltet werden, damit die Funktionsliste im "
 "Dashboard übersichtlicher bleibt."
 msgstr ""
 
-#: functions/constants.php:1237
+#: functions/constants.php:1120
+msgid ""
+"Aktiviert bzw. Deaktiviert die Funktion. Wenn diese Funktion nicht genutzt "
+"wird oder der Blockeditor in Verwendung ist, sollte sie abgeschaltet werden, "
+"damit die Funktionsliste im Dashboard übersichtlicher bleibt."
+msgstr ""
+
+#: functions/constants.php:1373
+msgid ""
+"Aktiviert bzw. Deaktiviert die Portalmenü-Funktion. Wenn diese Funktion "
+"nicht genutzt wird oder der Block-Editor zum Einsatz kommt, sollte sie "
+"abgeschaltet werden."
+msgstr ""
+
+#: functions/constants.php:1100
 msgid ""
 "Aktiviert die Möglichkeit, pro Seite eine eigene Inhaltssprache zu "
 "deklarieren, die von dem Rest des Webauftritts abweicht. Deklariert wird "
@@ -128,11 +138,11 @@ msgid ""
 "schlechteres Suchmaschinen-Ranking."
 msgstr ""
 
-#: functions/custom-fields.php:1228
+#: functions/custom-fields.php:1245
 msgid "Aktualisieren"
 msgstr ""
 
-#: functions/constants.php:612
+#: functions/constants.php:640
 msgid "Alternativtext Artikelbild"
 msgstr ""
 
@@ -140,14 +150,14 @@ msgstr ""
 msgid "An"
 msgstr ""
 
-#: functions/custom-fields.php:172
+#: functions/custom-fields.php:188
 msgid ""
 "An dieser Stelle kann optional ein alternatives Bild für die Bühne der "
 "Startseite ausgewählt werden, falls das normale Beitragsbild hierzu nicht "
 "verwendet werden soll."
 msgstr ""
 
-#: functions/constants.php:895
+#: functions/constants.php:883
 msgid ""
 "Angabe des Tag-Prefixes, mit der die Position von definierten Artikel auf "
 "der Startseite gesteuert werden kann. Im Artikel wird dann dieser Tag plus "
@@ -158,15 +168,15 @@ msgid ""
 "soll, wird der jüngste Artikel mit dem Tag angezeigt."
 msgstr ""
 
-#: functions/constants.php:64
+#: functions/constants.php:67
 msgid "Animation starten"
 msgstr ""
 
-#: functions/constants.php:63
+#: functions/constants.php:66
 msgid "Animation stoppen"
 msgstr ""
 
-#: functions/custom-fields.php:163
+#: functions/custom-fields.php:179
 msgid "Anleser"
 msgstr ""
 
@@ -175,50 +185,50 @@ msgstr ""
 msgid "Anmeldung fehlgeschlagen"
 msgstr ""
 
-#: functions/constants.php:1151
+#: functions/constants.php:1452
 msgid "Anzahl Bildlinks"
 msgstr ""
 
-#: functions/constants.php:853
+#: functions/constants.php:1396
 msgid "Anzahl der anzuzeigenden Untermenüpunkte (Zweite Ebene)."
 msgstr ""
 
-#: functions/constants.php:903
+#: functions/constants.php:891
 msgid ""
 "Anzahl der Artikel mit dem gleichen Prefix-Tag (Positionierung), die "
 "angezeigt werden sollen. Normalerweise sollte hier nur 1 Artikel auf der "
 "ersten Position sein."
 msgstr ""
 
-#: functions/constants.php:1061
+#: functions/constants.php:1006
 msgid "Anzahl der maximalen Zeichen für den Textauszug bei der Ergebnisliste."
 msgstr ""
 
-#: functions/constants.php:878
+#: functions/constants.php:866
 msgid "Anzahl der News auf der Startseite unterhalb des Sliders"
 msgstr ""
 
-#: functions/constants.php:627
+#: functions/constants.php:655
 msgid "Anzahl der Slides von verlinkten Top-Artikeln"
 msgstr ""
 
-#: functions/constants.php:1014
+#: functions/constants.php:1245
 msgid "Anzahl Top-Events"
 msgstr ""
 
-#: functions/constants.php:995
+#: functions/constants.php:1217
 msgid "Anzeige der Top-Events aktivieren"
 msgstr ""
 
-#: functions/constants.php:548
+#: functions/constants.php:576
 msgid "Anzeigeoptionen"
 msgstr ""
 
-#: functions/custom-fields.php:1098
+#: functions/custom-fields.php:1115
 msgid "ARIA Label"
 msgstr ""
 
-#: functions/constants.php:1174
+#: functions/constants.php:1475
 msgid "ARIA-Label"
 msgstr ""
 
@@ -226,19 +236,19 @@ msgstr ""
 msgid "Array, "
 msgstr ""
 
-#: functions/constants.php:669
+#: functions/constants.php:697
 msgid "Art der Animation einzelner Slides"
 msgstr ""
 
-#: functions/constants.php:436 functions/constants.php:1096
+#: functions/constants.php:449 functions/constants.php:1041
 msgid "Artikel"
 msgstr ""
 
-#: functions/constants.php:902
+#: functions/constants.php:890
 msgid "Artikel mit gleichem Positionierungs-Tag"
 msgstr ""
 
-#: functions/constants.php:886
+#: functions/constants.php:874
 msgid "Artikel oben halten"
 msgstr ""
 
@@ -246,44 +256,44 @@ msgstr ""
 msgid "Artikelbild"
 msgstr ""
 
-#: functions/constants.php:933
+#: functions/constants.php:921
 msgid "Artikelbild erzwingen"
 msgstr ""
 
-#: functions/constants.php:966
+#: functions/constants.php:954
 msgid ""
 "Artikelbilder der Artikelliste werden in ein festes 3:2 Format angezeigt. "
 "Sollten die Bilder höher oder Breiter sein, werden sie entsprechend "
 "proportional verkleinert."
 msgstr ""
 
-#: functions/constants.php:965
+#: functions/constants.php:953
 msgid "Artikelbilder im 3:2 Format"
 msgstr ""
 
-#: functions/constants.php:872
+#: functions/constants.php:860
 msgid "Artikelliste (Blogroll)"
 msgstr ""
 
-#: functions/constants.php:1362
+#: functions/constants.php:1294
 msgid ""
 "Auf der Startseite wird im Slider bzw. im Banner der Copyright-Hinweis des "
 "Bildes angezeigt, wenn vorhanden"
 msgstr ""
 
-#: functions/constants.php:707
+#: functions/constants.php:735
 msgid ""
 "Auf Index- und Kategorieseite wird üblicherweise ein Kopfteil wie bei "
 "normalen Seiten mit einer Breadcrumb gezeigt. Stattdessen kann man jedoch "
 "auch die Darstellung des Banners von Startseiten auswählen."
 msgstr ""
 
-#: functions/constants.php:1003
+#: functions/constants.php:1234
 msgid "Auf welchen Seiten sollen Top Events in der Sidebar angezeigt werden."
 msgstr ""
 
 #: single.php:110 page-templates/video-podcast-post.php:80
-#: functions/template-functions.php:1899
+#: functions/template-functions.php:1894
 msgid "aufrufen"
 msgstr ""
 
@@ -291,31 +301,31 @@ msgstr ""
 msgid "Aus"
 msgstr ""
 
-#: functions/custom-fields.php:815
+#: functions/custom-fields.php:832
 msgid "Auswahl Ansprechpartner"
 msgstr ""
 
-#: functions/constants.php:806
+#: functions/constants.php:832
 msgid "Auswahl der optischen Darstellung für das Hauptmenü"
 msgstr ""
 
-#: functions/constants.php:660
+#: functions/constants.php:688
 msgid "Autoplay"
 msgstr ""
 
-#: functions/constants.php:1160
+#: functions/constants.php:1461
 msgid "Autoplay (Slider)"
 msgstr ""
 
-#: functions/constants.php:1201
+#: functions/constants.php:1071
 msgid "Backend"
 msgstr ""
 
-#: functions/constants.php:710
+#: functions/constants.php:738
 msgid "Banner"
 msgstr ""
 
-#: functions/constants.php:534
+#: functions/constants.php:562
 msgid "Banner Startseite"
 msgstr ""
 
@@ -335,52 +345,52 @@ msgstr ""
 msgid "Bedeutende Artikel"
 msgstr ""
 
-#: functions/constants.php:824
+#: functions/constants.php:850
 msgid "Begriff nach dem Titel des gewählten Menüs"
 msgstr ""
 
-#: functions/constants.php:817
+#: functions/constants.php:843
 msgid "Begriff vor dem Titel des gewählten Menüs"
 msgstr ""
 
-#: functions/constants.php:1047
+#: functions/constants.php:992
 msgid "Bei den Suchergebnisse Kategorien der Beiträge anzeigen"
 msgstr ""
 
-#: functions/constants.php:1040
+#: functions/constants.php:985
 msgid "Bei den Suchergebnisse Thumbnails anzeigen, wenn diese vorhanden sind"
 msgstr ""
 
-#: functions/constants.php:687
+#: functions/constants.php:715
 msgid ""
 "Bei der Anzeige einer Defaultgalerie unter der Bildunterschrift eine "
 "Verlinkung auf das Originalbild einschalten"
 msgstr ""
 
-#: functions/constants.php:1206
+#: functions/constants.php:1076
 msgid "Bei der Bearbeitung von Beiträgen die erweiterten Optionen anzeigen."
 msgstr ""
 
-#: functions/constants.php:613
+#: functions/constants.php:641
 msgid ""
 "Bei der Darstellung des Artikelbildes wird das ALT-Attribut vom Inhalt der "
 "Bildbeschreibung gefüllt, wenn das ALT-Attribut leer ist."
 msgstr ""
 
-#: functions/constants.php:694
+#: functions/constants.php:722
 msgid ""
 "Bei der Darstellung von Bildergalerien mit dem Slider werden die "
 "Bildbeschriftungen immer unterhalb des aktiven Bildes angezeigt."
 msgstr ""
 
-#: functions/custom-fields.php:474 functions/custom-fields.php:526
+#: functions/custom-fields.php:491 functions/custom-fields.php:543
 msgid ""
 "Bei einer Portalseite wird unter dem Inhalt ein Menu ausgegeben. Bitte "
 "wählen Sie hier das Menü aus der Liste. Sollte das Menü noch nicht "
 "existieren, kann ein Administrator es anlegen."
 msgstr ""
 
-#: functions/constants.php:501
+#: functions/constants.php:529
 msgid ""
 "Bei Einrichtungen der FAU wird der Titel neben dem FAU-Logo gezeigt. Ist der "
 "Titel zu lang um ihn optisch korrekt darzustellen, kann hiermmit ein "
@@ -392,15 +402,15 @@ msgstr ""
 msgid "Beitrag"
 msgstr ""
 
-#: functions/custom-fields.php:477 functions/custom-fields.php:532
+#: functions/custom-fields.php:494 functions/custom-fields.php:549
 msgid "Beitragsbilder"
 msgstr ""
 
-#: functions/custom-fields.php:89 functions/custom-fields.php:115
+#: functions/custom-fields.php:100 functions/custom-fields.php:127
 msgid "Beitragsoptionen"
 msgstr ""
 
-#: functions/constants.php:554
+#: functions/constants.php:582
 msgid "Beiträge"
 msgstr ""
 
@@ -408,7 +418,7 @@ msgstr ""
 msgid "Beiträge aus der Kategorie"
 msgstr ""
 
-#: functions/template-functions.php:1899
+#: functions/template-functions.php:1894
 msgid "Beiträge mit dem Schlagwort"
 msgstr ""
 
@@ -420,13 +430,17 @@ msgstr ""
 msgid "Bereichsnavigation:"
 msgstr ""
 
-#: functions/custom-fields.php:1122 functions/filters.php:590
+#: footer.php:26 functions/custom-fields.php:1139 functions/filters.php:590
 #: functions/filters.php:592
 msgid "Bild"
 msgstr ""
 
-#: functions/helper-functions.php:381 functions/custom-fields.php:340
+#: functions/helper-functions.php:381 functions/custom-fields.php:357
 msgid "Bild auswählen"
+msgstr ""
+
+#: functions/constants.php:1275
+msgid "Bild Copyright Liste"
 msgstr ""
 
 #: functions/constants.php:122
@@ -437,42 +451,46 @@ msgstr ""
 msgid "Bild in 3:2 Format"
 msgstr ""
 
-#: functions/constants.php:693
+#: functions/constants.php:721
 msgid "Bildbeschriftung bei Galerien erzwingen"
 msgstr ""
 
-#: functions/custom-fields.php:1120
+#: functions/custom-fields.php:1137
 msgid "Bilder"
 msgstr ""
 
-#: functions/custom-fields.php:498 functions/custom-fields.php:553
+#: functions/custom-fields.php:515 functions/custom-fields.php:570
 msgid "Bildformat"
+msgstr ""
+
+#: functions/constants.php:1419
+msgid "Bildlink"
 msgstr ""
 
 #: functions/posttype_imagelink.php:56
 msgid "Bildlink-Eigenschaften"
 msgstr ""
 
-#: functions/constants.php:1118
-msgid "Bildlink-Funktion"
-msgstr ""
-
-#: functions/posttype_imagelink.php:51 functions/constants.php:1113
+#: functions/posttype_imagelink.php:51 functions/constants.php:1414
 msgid "Bildlinks"
 msgstr ""
 
-#: functions/custom-fields.php:1137
+#: functions/custom-fields.php:1154
 msgid "Bildlinks einblenden"
 msgstr ""
 
-#: functions/custom-fields.php:263
+#: footer.php:32
+msgid "Bildnachweise"
+msgstr ""
+
+#: functions/custom-fields.php:280
 msgid ""
 "Bitte beachten: Damit ein Artikel als Top-Event angezeigt wird, muss "
 "entweder obige Option gesetzt sein oder der Artikel muss ein gültiges Datum "
 "für einen Top-Event angegeben haben, welches noch nicht abgelaufen ist."
 msgstr ""
 
-#: functions/custom-fields.php:137
+#: functions/custom-fields.php:158
 msgid ""
 "Bitte beachten: Damit ein Artikel auf der Startseite angezeigt werden soll, "
 "muss er das folgende Schlagwort erhalten: "
@@ -482,18 +500,18 @@ msgstr ""
 msgid "Bitte geben Sie einen Suchbegriff in das Suchfeld ein."
 msgstr ""
 
-#: functions/constants.php:637
+#: functions/constants.php:665
 msgid ""
 "Bitte wählen Sie die Kategorie der Artikel aus, die im Slider erscheinen "
 "sollen."
 msgstr ""
 
-#: functions/constants.php:514
+#: functions/constants.php:542
 msgid "Bitte wählen Sie hier aus, um welcherart Webauftritt es sich handelt."
 msgstr ""
 
-#: functions/custom-fields.php:492 functions/custom-fields.php:547
-#: functions/constants.php:837
+#: functions/custom-fields.php:509 functions/custom-fields.php:564
+#: functions/constants.php:1380
 msgid "Blur-Effekt verwenden"
 msgstr ""
 
@@ -501,7 +519,7 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr ""
 
-#: functions/custom-fields.php:172
+#: functions/custom-fields.php:188
 msgid "Bühnenbild"
 msgstr ""
 
@@ -560,7 +578,17 @@ msgstr ""
 
 #: theme.json:1
 msgctxt "Color name"
+msgid "Medizinische Fakultät Dunkler"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
 msgid "Naturwissenschaftliche Fakultät"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Naturwissenschaftliche Fakultät Dunkler"
 msgstr ""
 
 #: theme.json:1
@@ -570,7 +598,17 @@ msgstr ""
 
 #: theme.json:1
 msgctxt "Color name"
+msgid "Philosophische Fakultät Dunkler"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
 msgid "Rechts- und Wirtschaftswissenschaftliche Fakultät"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Rechts- und Wirtschaftswissenschaftliche Fakultät Dunkler"
 msgstr ""
 
 #: theme.json:1
@@ -603,44 +641,48 @@ msgctxt "Color name"
 msgid "Weiß"
 msgstr ""
 
-#: functions/constants.php:582 functions/constants.php:1361
+#: functions/template-functions.php:2027
+msgid "Copyright"
+msgstr ""
+
+#: functions/constants.php:610 functions/constants.php:1293
 msgid "Copyright-Hinweis"
 msgstr ""
 
-#: functions/constants.php:1350
+#: functions/constants.php:1282
 msgid "Copyright-Info ermitteln"
 msgstr ""
 
-#: functions/constants.php:652
+#: functions/constants.php:680
 msgid "Copyright/Titel Ersatzbild"
 msgstr ""
 
-#: functions/constants.php:1427
+#: functions/constants.php:1359
 msgid ""
 "Corporate Design Vorgaben erzwingen: Jegliche Benutzereingaben, die mit dem "
 "style-Attribut font- oder text-Angaben zu ändern versuchen, werden bei der "
 "Ausgabe entfernt."
 msgstr ""
 
-#: functions/constants.php:1181
+#: functions/constants.php:1482
 msgid "CSS-Klassen"
 msgstr ""
 
-#: functions/custom-fields.php:144
+#: functions/custom-fields.php:165
 msgid ""
 "Damit ein Artikel in der Bühne erscheint, muss er folgender Kategorie "
 "angehören: "
 msgstr ""
 
-#: functions/constants.php:805
+#: functions/constants.php:831
 msgid "Darstellung"
 msgstr ""
 
-#: functions/constants.php:1140
+#: functions/constants.php:1441
 msgid "Darstellungsform"
 msgstr ""
 
-#: functions/constants.php:1448
+#: functions/constants.php:1504
 msgid ""
 "Das Logo kann im Titel eine Farbe bekommen. Diese wird üblicherweise aus dem "
 "Theme-Child bestimmt, kann aber mit dieser Variante zu Testzwecken auch "
@@ -656,27 +698,31 @@ msgstr ""
 msgid "Datenschutz"
 msgstr ""
 
-#: functions/custom-fields.php:282 functions/constants.php:950
+#: functions/custom-fields.php:299 functions/constants.php:938
 msgid "Datum"
 msgstr ""
 
-#: functions/constants.php:1385
+#: functions/constants.php:1491
+msgid "Debugmode"
+msgstr ""
+
+#: functions/constants.php:1317
 msgid "Default (Blau)"
 msgstr ""
 
-#: functions/constants.php:1310
+#: functions/constants.php:1182
 msgid "Default Titel erster Linkblock"
 msgstr ""
 
-#: functions/constants.php:1318
+#: functions/constants.php:1190
 msgid "Default Titel zweiter Linkblock"
 msgstr ""
 
-#: functions/constants.php:1303
+#: functions/constants.php:1175
 msgid "Default Titel über Kontakte"
 msgstr ""
 
-#: functions/constants.php:1351
+#: functions/constants.php:1283
 msgid ""
 "Definiert, ob die Copyright-Info eines Bildes sich aus dessen IPTC-Infos "
 "ermittelt oder durch die Texteingabe Beschreibung überschrieben werden kann."
@@ -685,7 +731,7 @@ msgid ""
 "Auswahl kann die Beschreibung priorisiert werden."
 msgstr ""
 
-#: functions/constants.php:518
+#: functions/constants.php:546
 msgid "Department, Lehrstuhl, Einrichtung"
 msgstr ""
 
@@ -693,7 +739,7 @@ msgstr ""
 msgid "Der Shortcode darf nur auf Seiten verwendet werden."
 msgstr ""
 
-#: functions/constants.php:1485
+#: functions/constants.php:1541
 msgid ""
 "Der Sprachschalter wird im produktiven Betrieb durch eines der Plugins CMS "
 "Workflow oder Language Switcher aktiviert. Mit dieser Option kann man ohne "
@@ -702,7 +748,7 @@ msgid ""
 "vorhanden und aktiv ist, wird diese Debug-Einstellung vorrang haben. "
 msgstr ""
 
-#: functions/custom-fields.php:818
+#: functions/custom-fields.php:835
 msgid ""
 "Derzeit sind noch Personen oder Kontakte eingetragen, die man verlinken "
 "könnte."
@@ -712,7 +758,7 @@ msgstr ""
 msgid "Deutsch"
 msgstr ""
 
-#: functions/constants.php:1141
+#: functions/constants.php:1442
 msgid "Die Darstellung kann als Slider oder als statische Liste erfolgen."
 msgstr ""
 
@@ -726,13 +772,13 @@ msgstr ""
 msgid "Die folgenden Informationen werden öffentlich angezeigt:"
 msgstr ""
 
-#: functions/custom-fields.php:1108
+#: functions/custom-fields.php:1125
 msgid ""
 "Die Menüebene definiert bei Seiten bis zur welchen Ebene das Menu auf der "
 "linken Seite gezeigt wird."
 msgstr ""
 
-#: functions/constants.php:1416
+#: functions/constants.php:1348
 msgid ""
 "Die Suchmaske im Kopfteil der Seite kann durch diese Option abgeschaltet "
 "werden."
@@ -744,19 +790,19 @@ msgid ""
 "durch Änderungen an der Seitenstruktur geändert."
 msgstr ""
 
-#: functions/custom-fields.php:138
+#: functions/custom-fields.php:159
 msgid "Dies gefolgt von einer Nummer (1-3) für die Reihenfolge."
 msgstr ""
 
-#: functions/custom-fields.php:1066
+#: functions/custom-fields.php:1083
 msgid "Dies gilt nur für Seiten vom Template \"Inhaltsseite mit Navi\"."
 msgstr ""
 
-#: functions/custom-fields.php:1092
+#: functions/custom-fields.php:1109
 msgid "Diese Seite wird nicht im Navigationsmenü im Inhaltsbereich gezeigt."
 msgstr ""
 
-#: functions/custom-fields.php:259
+#: functions/custom-fields.php:276
 msgid "Diesen Artikel als Top-Event anzeigen."
 msgstr ""
 
@@ -770,13 +816,13 @@ msgstr ""
 msgid "Dieser Inhalt ist passwortgeschützt."
 msgstr ""
 
-#: functions/custom-fields.php:152 functions/custom-fields.php:1063
+#: functions/custom-fields.php:152 functions/custom-fields.php:1080
 msgid ""
 "Dieser Untertitel erscheint im Inhaltsbereich, unterhalb des Balkens mit dem "
 "eigentlichen Titel."
 msgstr ""
 
-#: functions/constants.php:437 functions/constants.php:1097
+#: functions/constants.php:450 functions/constants.php:1042
 msgid "Dokumente und Bilder"
 msgstr ""
 
@@ -788,7 +834,7 @@ msgstr ""
 msgid "Drei Ebenen"
 msgstr ""
 
-#: functions/widgets.php:107 functions/constants.php:1400
+#: functions/widgets.php:107 functions/constants.php:1332
 msgid ""
 "Durch Nutzung dieser Sidebar kann die Standard-Suchmaske auf Fehlerseiten "
 "(\"Seite nicht gefunden\", \"Seite nicht zugänglich\") durch eigene Widgets "
@@ -814,31 +860,27 @@ msgstr ""
 msgid "Eine Kommentierung ist nicht mehr möglich."
 msgstr ""
 
-#: functions/constants.php:1354
+#: functions/constants.php:1286
 msgid "Eingabefeld Beschreibung überschreibt IPTC und andere vorangige Felder."
 msgstr ""
 
-#: functions/constants.php:681
+#: functions/constants.php:709
 msgid "Einstellungen für Bildergalerien"
 msgstr ""
 
-#: functions/constants.php:742
+#: functions/constants.php:770
 msgid "Einstellungen für den Fußteil des Webauftritts."
 msgstr ""
 
-#: functions/constants.php:702
+#: functions/constants.php:730
 msgid "Einstellungen für den Kopfteil des Webauftritts."
 msgstr ""
 
-#: functions/constants.php:621
+#: functions/constants.php:649
 msgid "Einstellungen für die wechselnden Bilder auf Startseiten."
 msgstr ""
 
-#: functions/constants.php:1435
-msgid "Einstellungen im Debugmode"
-msgstr ""
-
-#: functions/constants.php:473
+#: functions/constants.php:485
 msgid "Einträge"
 msgstr ""
 
@@ -846,80 +888,80 @@ msgstr ""
 msgid "Englisch"
 msgstr ""
 
-#: functions/helper-functions.php:382 functions/custom-fields.php:341
+#: functions/helper-functions.php:382 functions/custom-fields.php:358
 msgid "Entfernen"
 msgstr ""
 
-#: functions/constants.php:1221
+#: functions/constants.php:1084
 msgid "Erlaube die Eingabe von Untertitel bei Beiträgen."
 msgstr ""
 
-#: functions/constants.php:1289 functions/constants.php:1296
+#: functions/constants.php:1161 functions/constants.php:1168
 msgid ""
 "Erlaubt die Nutzung des WYSWYG-Editors für die Eingabe von Text in der "
 "Sidebar. Dies schließt auch HTML-Tags mit Bildern und Links ein. Andernfalls "
 "ist nur ein Text mit Absätzen möglich."
 msgstr ""
 
-#: functions/constants.php:1086
+#: functions/constants.php:1031
 msgid ""
 "Erlaubt es, Suchergebnisse nach der Art des Dokumenttypes (Seiten, Beiträge, "
 "etc.) zu filtern."
 msgstr ""
 
-#: functions/custom-fields.php:158 functions/custom-fields.php:271
+#: functions/custom-fields.php:174 functions/custom-fields.php:288
 msgid "Erlaubte Anzahl an Zeichen:"
 msgstr ""
 
-#: functions/constants.php:838
+#: functions/constants.php:1381
 msgid ""
 "Ermöglicht das Hinzufügen eines Blur-Effekts auf Bilder des Portalmenüs."
 msgstr ""
 
-#: functions/constants.php:846
+#: functions/constants.php:1389
 msgid ""
 "Ermöglicht das Hinzufügen eines Zoom-Effekts auf Bilder des Portalmenüs."
 msgstr ""
 
-#: functions/constants.php:1213
+#: functions/constants.php:1225
 msgid ""
 "Ermöglicht es Beiträge als Top-Event zu deklarieren und entsprechende "
 "Optionen freizuschalten."
 msgstr ""
 
-#: functions/constants.php:944
+#: functions/constants.php:932
 msgid ""
 "Ersatzbild für den Fall, daß ein Artikel kein eigenes Artikelbild definiert "
 "hat."
 msgstr ""
 
-#: functions/constants.php:865
+#: functions/constants.php:1408
 msgid ""
 "Ersatzbild für den Fall, daß eine verlinkte Seite kein eigenes Artikelbild "
 "definiert hat."
 msgstr ""
 
-#: functions/constants.php:1028
+#: functions/constants.php:1259
 msgid ""
 "Ersatzbild für den Fall, daß für den Eventeintrag kein eigenes Bild "
 "definiert wurde."
 msgstr ""
 
-#: functions/constants.php:647
+#: functions/constants.php:675
 msgid ""
 "Ersatzbild für den Slider, für den Fall, daß ein Artikel kein eigenes "
 "Artikel- oder Bühnenbild definiert hat."
 msgstr ""
 
-#: functions/constants.php:672
+#: functions/constants.php:700
 msgid "Erscheinen"
 msgstr ""
 
-#: functions/custom-fields.php:169
+#: functions/custom-fields.php:185
 msgid "Ersetze Bildbeschreibung"
 msgstr ""
 
-#: functions/constants.php:757
+#: functions/constants.php:783
 msgid "Erste Zeile der Adresse"
 msgstr ""
 
@@ -927,7 +969,7 @@ msgstr ""
 msgid "Erstellungsdatum"
 msgstr ""
 
-#: functions/constants.php:951
+#: functions/constants.php:939
 msgid "Erstellungsdatum zeigen"
 msgstr ""
 
@@ -935,11 +977,11 @@ msgstr ""
 msgid "Erster Widgetbereich im Footer, links unten."
 msgstr ""
 
-#: functions/constants.php:1195
+#: functions/constants.php:1065
 msgid "Erweitert"
 msgstr ""
 
-#: functions/constants.php:1205
+#: functions/constants.php:1075
 msgid "Erweiterte Beitragsoptionen"
 msgstr ""
 
@@ -957,7 +999,7 @@ msgstr ""
 msgid "Es tut uns leid."
 msgstr ""
 
-#: functions/constants.php:1469
+#: functions/constants.php:1525
 msgid ""
 "Es wird eine organisatorische Breadcrumb simuliert und ausgegeben. Diese "
 "wird im produktiven Betrieb durch ein Plugin bereit gestellt werden.  Mit "
@@ -965,7 +1007,7 @@ msgid ""
 "Ausgabe mit Pseudodaten simulieren."
 msgstr ""
 
-#: functions/constants.php:254
+#: functions/constants.php:257
 msgid ""
 "Es wird nur in diesem Webauftritt gesucht. Um Dokumente und Seiten aus "
 "anderen Webauftritten zu finden, nutzen Sie bitte die jeweils dort zu "
@@ -984,7 +1026,7 @@ msgstr ""
 msgid "Externer "
 msgstr ""
 
-#: functions/custom-fields.php:166
+#: functions/custom-fields.php:182
 msgid "Externer Link"
 msgstr ""
 
@@ -996,28 +1038,28 @@ msgstr ""
 msgid "Fachbereich Wirtschaftswissenschaften"
 msgstr ""
 
-#: functions/constants.php:1447
+#: functions/constants.php:1503
 msgid "Fakultät setzen"
 msgstr ""
 
-#: functions/constants.php:517
+#: functions/constants.php:545
 msgid "Fakultätsportal"
 msgstr ""
 
-#: functions/constants.php:1071
+#: functions/constants.php:1016
 msgid ""
 "Falls der Textauszug nach der vorgegebenen Länge abgeschnitten werden muss, "
 "können hier Trennzeichen angegeben werden."
 msgstr ""
 
-#: functions/custom-fields.php:1083
+#: functions/custom-fields.php:1100
 msgid ""
 "Falls die Sprache der Seitentitels von der allgemeinen Sprache des "
 "Webauftritts abweicht, geben Sie hier bitte die Sprache an, welche verwendet "
 "wird. Wenn die Sprache nicht geändert wird, ändern Sie nichts."
 msgstr ""
 
-#: functions/custom-fields.php:1047 functions/custom-fields.php:1078
+#: functions/custom-fields.php:1064 functions/custom-fields.php:1095
 msgid ""
 "Falls die Sprache dieser Seite von anderen Webseiten des Webauftritts "
 "abweicht, geben Sie hier bitte die Sprache an, welche verwendet wird. Wenn "
@@ -1025,13 +1067,13 @@ msgid ""
 "Achtung: Diese Funktion wird vom Workflow-Plugin nicht berücksichtigt."
 msgstr ""
 
-#: functions/constants.php:1386 functions/constants.php:1387
-#: functions/constants.php:1388 functions/constants.php:1389
-#: functions/constants.php:1390
+#: functions/constants.php:1318 functions/constants.php:1319
+#: functions/constants.php:1320 functions/constants.php:1321
+#: functions/constants.php:1322
 msgid "Farbe"
 msgstr ""
 
-#: functions/constants.php:1382
+#: functions/constants.php:1314
 msgid "Farbe Trennlinie"
 msgstr ""
 
@@ -1059,20 +1101,20 @@ msgstr ""
 msgid "Fehler- und Suchseite: Vorschlagmenu"
 msgstr ""
 
-#: functions/constants.php:1273
+#: functions/constants.php:1145
 msgid "Feld Titel oben"
 msgstr ""
 
-#: functions/constants.php:1280
+#: functions/constants.php:1152
 msgid "Feld Titel unten"
 msgstr ""
 
-#: functions/constants.php:535
+#: functions/constants.php:563
 msgid ""
 "Festes Banner für die Startseite (Template für Lehrstühle und Einrichtungen)"
 msgstr ""
 
-#: functions/constants.php:1092
+#: functions/constants.php:1037
 msgid "Filter"
 msgstr ""
 
@@ -1109,11 +1151,11 @@ msgctxt "Font size name"
 msgid "Normal"
 msgstr ""
 
-#: functions/constants.php:1426
+#: functions/constants.php:1358
 msgid "Font- und Text-Style-Angaben unterdrücken"
 msgstr ""
 
-#: functions/constants.php:741
+#: functions/constants.php:769
 msgid "Footer"
 msgstr ""
 
@@ -1129,23 +1171,23 @@ msgstr ""
 msgid "Footer Sidebar"
 msgstr ""
 
-#: functions/custom-fields.php:496 functions/custom-fields.php:497
-#: functions/custom-fields.php:498 functions/custom-fields.php:551
-#: functions/custom-fields.php:552 functions/custom-fields.php:553
+#: functions/custom-fields.php:513 functions/custom-fields.php:514
+#: functions/custom-fields.php:515 functions/custom-fields.php:568
+#: functions/custom-fields.php:569 functions/custom-fields.php:570
 msgid "Format"
 msgstr ""
 
-#: functions/constants.php:452
+#: functions/constants.php:465
 msgid "Fragen und Antworten"
 msgstr ""
 
-#: functions/constants.php:1274
+#: functions/constants.php:1146
 msgid ""
 "Fragt ein eigenes Titelfeld über den Texteditor zum Text oben ab (Titel "
 "können allerdings auch im Editorfeld eingegeben werden)"
 msgstr ""
 
-#: functions/constants.php:1281
+#: functions/constants.php:1153
 msgid ""
 "Fragt ein eigenes Titelfeld über den Texteditor zum Text unten ab (Titel "
 "können allerdings auch im Editorfeld eingegeben werden)"
@@ -1159,14 +1201,19 @@ msgstr ""
 msgid "Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
 msgstr ""
 
-#: functions/constants.php:1106
+#: functions/constants.php:1119 functions/constants.php:1216
+#: functions/constants.php:1372 functions/constants.php:1419
+msgid "Funktion"
+msgstr ""
+
+#: functions/constants.php:1051
 msgid ""
 "Für Besucher der Website ist oft nicht klar, daß die Suchmaschine nur den "
 "einzelnen Webauftritt durchsucht und nicht beispielsweise alle Seiten der "
 "FAU. Dieser Texthinweis macht darauf aufmerksam."
 msgstr ""
 
-#: functions/constants.php:680
+#: functions/constants.php:708
 msgid "Galerien"
 msgstr ""
 
@@ -1174,7 +1221,7 @@ msgstr ""
 msgid "Ganztägig"
 msgstr ""
 
-#: functions/custom-fields.php:288
+#: functions/custom-fields.php:305
 msgid "Geben Sie hier das Datum des Events ein."
 msgstr ""
 
@@ -1183,11 +1230,11 @@ msgstr ""
 msgid "Geben Sie hier den Suchbegriff ein, um in diesem Webauftritt zu suchen:"
 msgstr ""
 
-#: functions/constants.php:1369
+#: functions/constants.php:1301
 msgid "Google Site Verification"
 msgstr ""
 
-#: functions/constants.php:1391
+#: functions/constants.php:1323
 msgid "Grau"
 msgstr ""
 
@@ -1195,11 +1242,11 @@ msgstr ""
 msgid "Größe"
 msgstr ""
 
-#: functions/custom-fields.php:1160
+#: functions/custom-fields.php:1177
 msgid "Größe der Bildlinks"
 msgstr ""
 
-#: functions/menu.php:28 functions/constants.php:799
+#: functions/menu.php:28 functions/constants.php:825
 msgid "Hauptmenü"
 msgstr ""
 
@@ -1207,17 +1254,17 @@ msgstr ""
 msgid "Hauptnavigation"
 msgstr ""
 
-#: functions/constants.php:701
+#: functions/constants.php:729
 msgid "Header"
 msgstr ""
 
-#: functions/custom-fields.php:794
+#: functions/custom-fields.php:811
 msgid ""
 "Hier kann die Reihenfolge von Kontakte und Linklisten geändert werden, wie "
 "sie auf der Seite präsentiert werden."
 msgstr ""
 
-#: functions/custom-fields.php:344
+#: functions/custom-fields.php:361
 msgid ""
 "Hier können Sie ein Thumbnail auswählen für den Event. Wenn kein Bild "
 "gewählt wird, wird ein Ersatzbild angezeigt."
@@ -1227,22 +1274,22 @@ msgstr ""
 msgid "Hilfe im Notfall"
 msgstr ""
 
-#: functions/constants.php:1105
+#: functions/constants.php:1050
 msgid "Hinweis zum Suchbereich"
 msgstr ""
 
-#: functions/constants.php:238
+#: functions/constants.php:241
 msgid ""
 "Hinweis: Die Kommentare wurden von Lesern geschrieben und spiegeln deren "
 "persönliche Meinung wieder. Sie müssen nicht die Meinung der Universität "
 "oder der Fakultät repräsentieren."
 msgstr ""
 
-#: functions/constants.php:598
+#: functions/constants.php:626
 msgid "Hinweistext Eingabeformular"
 msgstr ""
 
-#: functions/constants.php:606
+#: functions/constants.php:634
 msgid "Hinweistext zur Abgrenzung zum Inhalt der Kommentare."
 msgstr ""
 
@@ -1258,7 +1305,7 @@ msgstr ""
 msgid "https://www.wp.rrze.fau.de"
 msgstr ""
 
-#: functions/constants.php:237
+#: functions/constants.php:240
 msgid ""
 "Ihre E-Mail-Adresse wird nicht angezeigt. Verpflichtende Felder werden mit "
 "dem folgenden Zeichen markiert: <span class=\"required\">*</span>"
@@ -1268,7 +1315,7 @@ msgstr ""
 msgid "imagelink"
 msgstr ""
 
-#: functions/constants.php:934
+#: functions/constants.php:922
 msgid ""
 "Immer ein Artikelbild zu einer Nachricht zeigen. Wenn kein Artikelbild "
 "definiert wurde, nehme stattdessen ein Ersatzbild."
@@ -1278,13 +1325,13 @@ msgstr ""
 msgid "Impressum"
 msgstr ""
 
-#: functions/constants.php:583
+#: functions/constants.php:611
 msgid ""
 "In Beiträgen wird das Artikelbild mit einem Copyright-Hinweis des Bildes "
 "versehen, wenn ein solcher Hinweis vorhanden ist."
 msgstr ""
 
-#: functions/constants.php:1229
+#: functions/constants.php:1092
 msgid "In der Übersicht der Seiten werden die Ids angezeigt."
 msgstr ""
 
@@ -1292,11 +1339,11 @@ msgstr ""
 msgid "Index"
 msgstr ""
 
-#: functions/constants.php:709
+#: functions/constants.php:737
 msgid "Index in der Standard-Seitenanzeige"
 msgstr ""
 
-#: functions/constants.php:599
+#: functions/constants.php:627
 msgid "Informationen über den Eingabefeldern für neue Kommentare."
 msgstr ""
 
@@ -1304,39 +1351,39 @@ msgstr ""
 msgid "Inhaltsmenü"
 msgstr ""
 
-#: functions/constants.php:1353
+#: functions/constants.php:1285
 msgid "IPTC-Feld Copyright hat Priorität"
 msgstr ""
 
 #: single.php:106 single.php:143 page-templates/video-podcast-post.php:76
 #: page-templates/video-podcast-post.php:113
 #: functions/template-functions.php:394 functions/template-functions.php:798
-#: functions/constants.php:636
+#: functions/constants.php:664
 msgid "Kategorie"
 msgstr ""
 
-#: functions/constants.php:918
+#: functions/constants.php:906
 msgid "Kategorie auswählen"
 msgstr ""
 
-#: functions/constants.php:911
+#: functions/constants.php:899
 msgid "Kategorie verlinken"
 msgstr ""
 
-#: functions/constants.php:957 functions/constants.php:958
+#: functions/constants.php:945 functions/constants.php:946
 msgid "Kategorie zeigen"
 msgstr ""
 
-#: functions/constants.php:1046
+#: functions/constants.php:991
 msgid "Kategorien"
 msgstr ""
 
-#: functions/helper-functions.php:400 functions/custom-fields.php:335
-#: functions/custom-fields.php:362
+#: functions/helper-functions.php:400 functions/custom-fields.php:352
+#: functions/custom-fields.php:379
 msgid "Kein Bild ausgewählt."
 msgstr ""
 
-#: functions/custom-fields.php:535
+#: functions/custom-fields.php:552
 msgid "Kein Ersatzbild zeigen, wenn Beitragsbild nicht gesetzt ist."
 msgstr ""
 
@@ -1344,7 +1391,7 @@ msgstr ""
 msgid "Kein Inhalt"
 msgstr ""
 
-#: functions/custom-fields.php:474 functions/custom-fields.php:526
+#: functions/custom-fields.php:491 functions/custom-fields.php:543
 msgid "Kein Portalmenu zeigen"
 msgstr ""
 
@@ -1352,15 +1399,15 @@ msgstr ""
 msgid "Kein Suchbegriff."
 msgstr ""
 
-#: functions/custom-fields.php:317
+#: functions/custom-fields.php:334
 msgid "Kein Symbolbild anzeigen."
 msgstr ""
 
-#: functions/custom-fields.php:1230
+#: functions/custom-fields.php:1247
 msgid "kein Titel"
 msgstr ""
 
-#: functions/custom-fields.php:800
+#: functions/custom-fields.php:817
 msgid "Keine (Deaktivieren)"
 msgstr ""
 
@@ -1372,15 +1419,15 @@ msgstr ""
 msgid "Keine bevorstehenden Termine"
 msgstr ""
 
-#: functions/custom-fields.php:1231
+#: functions/custom-fields.php:1248
 msgid "Keine Ergebnisse gefunden."
 msgstr ""
 
-#: functions/custom-fields.php:480
+#: functions/custom-fields.php:497
 msgid "Keine Ersatzbild zeigen, wenn Beitragsbild nicht gesetzt ist."
 msgstr ""
 
-#: functions/custom-fields.php:1140
+#: functions/custom-fields.php:1157
 msgid "Keine Logos zeigen"
 msgstr ""
 
@@ -1392,7 +1439,7 @@ msgstr ""
 msgid "Kommentar wartet auf Freischaltung."
 msgstr ""
 
-#: functions/constants.php:605
+#: functions/constants.php:633
 msgid "Kommentar-Disclaimer"
 msgstr ""
 
@@ -1400,42 +1447,42 @@ msgstr ""
 msgid "Kommentare"
 msgstr ""
 
-#: functions/constants.php:590
+#: functions/constants.php:618
 msgid "Kommentarfunktion"
 msgstr ""
 
-#: functions/constants.php:1250
+#: functions/constants.php:1113
 msgid "Konfigurationen der Sidebar auf Seiten"
 msgstr ""
 
-#: functions/constants.php:228
+#: functions/constants.php:231
 msgid "Kontakt"
 msgstr ""
 
-#: footer.php:58
+#: footer.php:82
 msgid "Kontakt, Impressum und Zusatzinformationen"
 msgstr ""
 
-#: functions/constants.php:447
+#: functions/constants.php:460
 msgid "Kontakte"
 msgstr ""
 
-#: functions/constants.php:706
+#: functions/constants.php:734
 msgid "Kopfteil auf Index- und Kategorieseiten"
 msgstr ""
 
-#: functions/custom-fields.php:273 functions/posttype_imagelink.php:118
+#: functions/custom-fields.php:290 functions/posttype_imagelink.php:118
 msgid "Kurzbeschreibung"
 msgstr ""
 
-#: functions/custom-fields.php:157
+#: functions/custom-fields.php:173
 msgid ""
 "Kurztext für die Bühne und den Newsindex (Startseite und Indexseiten). Wenn "
 "leer, wird der Kurztext automatisch aus dem Inhalt abzüglich der erlaubten "
 "Zeichen gebildet. "
 msgstr ""
 
-#: functions/custom-fields.php:270
+#: functions/custom-fields.php:287
 msgid "Kurztext für die Sidebar. Wenn leer, wird der Anleser verwendet."
 msgstr ""
 
@@ -1443,7 +1490,7 @@ msgstr ""
 msgid "Lageplan"
 msgstr ""
 
-#: functions/constants.php:791
+#: functions/constants.php:817
 msgid "Land"
 msgstr ""
 
@@ -1464,59 +1511,63 @@ msgstr ""
 msgid "Letzte Änderung"
 msgstr ""
 
-#: functions/custom-fields.php:1227
+#: functions/constants.php:1551
+msgid "Letzte Änderung der Theme-Mods als Timestamp"
+msgstr ""
+
+#: functions/custom-fields.php:1244
 msgid "Link einfügen/ändern"
 msgstr ""
 
-#: functions/custom-fields.php:1229
+#: functions/custom-fields.php:1246
 msgid "Link hinzufügen"
 msgstr ""
 
-#: functions/custom-fields.php:828 functions/custom-fields.php:847
+#: functions/custom-fields.php:845 functions/custom-fields.php:864
 msgid "Link Nr. "
 msgstr ""
 
-#: functions/constants.php:1325
+#: functions/constants.php:1197
 msgid "Links im ersten Linkblock"
 msgstr ""
 
-#: functions/constants.php:1334
+#: functions/constants.php:1206
 msgid "Links im zweiten Linkblock"
 msgstr ""
 
-#: functions/constants.php:925
+#: functions/constants.php:913
 msgid "Linktitel"
 msgstr ""
 
-#: functions/constants.php:1144
+#: functions/constants.php:1445
 msgid "Liste"
 msgstr ""
 
-#: functions/constants.php:560
+#: functions/constants.php:588
 msgid "Liste der Kategorien unter dem Beitrag anzeigen"
 msgstr ""
 
-#: functions/custom-fields.php:486 functions/custom-fields.php:541
+#: functions/custom-fields.php:503 functions/custom-fields.php:558
 msgid "Listenansicht verwenden"
 msgstr ""
 
-#: functions/constants.php:1060
+#: functions/constants.php:1005
 msgid "Länge Textauszug"
 msgstr ""
 
-#: functions/defaults.php:154 functions/constants.php:1454
+#: functions/defaults.php:154 functions/constants.php:1510
 msgid "Med"
 msgstr ""
 
-#: functions/defaults.php:153 functions/constants.php:1387
+#: functions/defaults.php:153 functions/constants.php:1319
 msgid "Medizinische Fakultät"
 msgstr ""
 
-#: functions/constants.php:808
+#: functions/constants.php:834
 msgid "Mega Menü"
 msgstr ""
 
-#: functions/custom-fields.php:529
+#: functions/custom-fields.php:546
 msgid "Mega-Navigation"
 msgstr ""
 
@@ -1524,7 +1575,7 @@ msgstr ""
 msgid "Mehr"
 msgstr ""
 
-#: functions/constants.php:73
+#: functions/constants.php:76
 msgid "Mehr Meldungen"
 msgstr ""
 
@@ -1541,19 +1592,19 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: functions/custom-fields.php:474 functions/custom-fields.php:526
+#: functions/custom-fields.php:491 functions/custom-fields.php:543
 msgid "Menü auswählen"
 msgstr ""
 
-#: functions/constants.php:823
+#: functions/constants.php:849
 msgid "Menü Portal-Button (Nachtitel)"
 msgstr ""
 
-#: functions/constants.php:816
+#: functions/constants.php:842
 msgid "Menü Portal-Button (Vortitel)"
 msgstr ""
 
-#: functions/custom-fields.php:1107
+#: functions/custom-fields.php:1124
 msgid "Menüebene"
 msgstr ""
 
@@ -1561,24 +1612,24 @@ msgstr ""
 msgid "Meta-Navigation oben: Links zu anderen Webauftritten und Portalen"
 msgstr ""
 
-#: functions/constants.php:1346
+#: functions/constants.php:1271
 msgid "Metadaten und Inhalte"
 msgstr ""
 
-#: functions/custom-fields.php:169
+#: functions/custom-fields.php:185
 msgid ""
 "Mit diesem optionalen Text kann die Bildunterschrift des verwendeten "
 "Beitragsbildes durch einen eigenen Text ersetzt werden, der nur für diesen "
 "Beitrag gilt."
 msgstr ""
 
-#: functions/constants.php:1400
+#: functions/constants.php:1332
 msgid ""
 "Nach Aktivierung muss unter Design->Widgets der entsprechende Bereich "
 "ergänzt werden."
 msgstr ""
 
-#: footer.php:81
+#: footer.php:105
 msgid "Nach oben"
 msgstr ""
 
@@ -1591,11 +1642,11 @@ msgstr ""
 msgid "Name oder Label fehlt."
 msgstr ""
 
-#: functions/defaults.php:161 functions/constants.php:1455
+#: functions/defaults.php:161 functions/constants.php:1511
 msgid "Nat"
 msgstr ""
 
-#: functions/defaults.php:160 functions/constants.php:1388
+#: functions/defaults.php:160 functions/constants.php:1320
 msgid "Naturwissenschaftliche Fakultät"
 msgstr ""
 
@@ -1612,7 +1663,7 @@ msgstr ""
 msgid "Navigation: Weitere Angebote"
 msgstr ""
 
-#: functions/constants.php:1167
+#: functions/constants.php:1468
 msgid "Navigationspunkte (Slider)"
 msgstr ""
 
@@ -1636,37 +1687,37 @@ msgstr ""
 msgid "Nächste Seite"
 msgstr ""
 
-#: functions/constants.php:1265
+#: functions/constants.php:1137
 msgid "Oben"
 msgstr ""
 
-#: functions/constants.php:1182
+#: functions/constants.php:1483
 msgid "Optionale CSS Klassen zur Modifikation der optischen Darstellung."
 msgstr ""
 
-#: functions/constants.php:792
+#: functions/constants.php:818
 msgid "Optionale Landesangabe"
 msgstr ""
 
-#: functions/constants.php:653
+#: functions/constants.php:681
 msgid ""
 "Optionaler Titel bzw. Copyright-Info für das Ersatzbild für den Fall, daß es "
 "sich um ein geschnittenes Originalbild handelt."
 msgstr ""
 
-#: functions/constants.php:1311
+#: functions/constants.php:1183
 msgid "Optionaler Titel über den ersten Linkblock, wenn dieser belegt ist."
 msgstr ""
 
-#: functions/constants.php:1319
+#: functions/constants.php:1191
 msgid "Optionaler Titel über den zweiten Linkblock, wenn dieser belegt ist."
 msgstr ""
 
-#: functions/constants.php:1304
+#: functions/constants.php:1176
 msgid "Optionaler Titel über einem ausgewählten Kontakt."
 msgstr ""
 
-#: functions/constants.php:1468
+#: functions/constants.php:1524
 msgid "Orga Breadcrumb simulieren"
 msgstr ""
 
@@ -1682,19 +1733,19 @@ msgstr ""
 msgid "Organisatorische Zuordnung"
 msgstr ""
 
-#: functions/constants.php:1442
+#: functions/constants.php:1498
 msgid "Organisatorisches"
 msgstr ""
 
-#: functions/constants.php:784
+#: functions/constants.php:810
 msgid "Ort"
 msgstr ""
 
-#: functions/constants.php:785
+#: functions/constants.php:811
 msgid "Ortsname"
 msgstr ""
 
-#: functions/constants.php:296
+#: functions/constants.php:301
 msgid "Partnerlogos"
 msgstr ""
 
@@ -1714,11 +1765,11 @@ msgstr ""
 msgid "Pfeil nach unten"
 msgstr ""
 
-#: functions/defaults.php:167 functions/constants.php:1453
+#: functions/defaults.php:167 functions/constants.php:1509
 msgid "Phil"
 msgstr ""
 
-#: functions/defaults.php:166 functions/constants.php:1386
+#: functions/defaults.php:166 functions/constants.php:1318
 msgid "Philosophische Fakultät"
 msgstr ""
 
@@ -1726,11 +1777,11 @@ msgstr ""
 msgid "Pingback"
 msgstr ""
 
-#: functions/constants.php:1479
+#: functions/constants.php:1535
 msgid "Plugins und Content"
 msgstr ""
 
-#: functions/constants.php:777
+#: functions/constants.php:803
 msgid "PLZ"
 msgstr ""
 
@@ -1743,19 +1794,23 @@ msgstr ""
 msgid "Portalindex"
 msgstr ""
 
-#: functions/custom-fields.php:450
+#: functions/custom-fields.php:467
 msgid "Portalmenu oben auf Portalseiten"
 msgstr ""
 
-#: functions/custom-fields.php:502
+#: functions/custom-fields.php:519
 msgid "Portalmenu unten auf Portalseiten"
 msgstr ""
 
-#: functions/constants.php:832
+#: functions/constants.php:1372
+msgid "Portalmenü"
+msgstr ""
+
+#: functions/constants.php:1367
 msgid "Portalmenüs"
 msgstr ""
 
-#: functions/custom-fields.php:57
+#: functions/custom-fields.php:68
 msgid "Portalmenüs konfigurieren"
 msgstr ""
 
@@ -1764,21 +1819,21 @@ msgstr ""
 msgid "Portalseite"
 msgstr ""
 
-#: functions/constants.php:1006
+#: functions/constants.php:1237
 msgid "Portalseiten"
 msgstr ""
 
-#: functions/constants.php:1262
+#: functions/constants.php:1134
 msgid "Position des Widgets für Seiten"
 msgstr ""
 
-#: functions/constants.php:1263
+#: functions/constants.php:1135
 msgid ""
 "Positionierung der globalen Seiten Widget-Sidebar: Über oder unterhalber der "
 "klassischen, seitenspezifischen Seiten-Sitebar."
 msgstr ""
 
-#: functions/constants.php:894
+#: functions/constants.php:882
 msgid "Positionierungs-Tag"
 msgstr ""
 
@@ -1792,7 +1847,7 @@ msgctxt "Post Type Singular Name"
 msgid "Bildlink"
 msgstr ""
 
-#: functions/constants.php:778
+#: functions/constants.php:804
 msgid "Postleitzahl"
 msgstr ""
 
@@ -1800,15 +1855,15 @@ msgstr ""
 msgid "Produzent"
 msgstr ""
 
-#: functions/constants.php:809
+#: functions/constants.php:835
 msgid "Pull-Down-Menü "
 msgstr ""
 
-#: functions/defaults.php:172 functions/constants.php:1390
+#: functions/defaults.php:172 functions/constants.php:1322
 msgid "Rechts- und Wirtschaftswissenschaftliche Fakultät"
 msgstr ""
 
-#: functions/custom-fields.php:794
+#: functions/custom-fields.php:811
 msgid "Reihenfolge Kontakte und Linklisten"
 msgstr ""
 
@@ -1824,15 +1879,15 @@ msgstr ""
 msgid "RSS"
 msgstr ""
 
-#: functions/defaults.php:173 functions/constants.php:1456
+#: functions/defaults.php:173 functions/constants.php:1512
 msgid "RW"
 msgstr ""
 
-#: functions/constants.php:1422
+#: functions/constants.php:1354
 msgid "Sanitizer"
 msgstr ""
 
-#: functions/constants.php:591
+#: functions/constants.php:619
 msgid ""
 "Schaltet die Kommentarfunktion für Beiträge ein. Die Kommentare erscheinen "
 "unterhalb des Artikels. Bitte beachten Sie, daß diese Darstellung von "
@@ -1880,7 +1935,7 @@ msgstr ""
 msgid "Seite ohne Navigation"
 msgstr ""
 
-#: functions/custom-fields.php:1091
+#: functions/custom-fields.php:1108
 msgid "Seite verbergen"
 msgstr ""
 
@@ -1888,7 +1943,7 @@ msgstr ""
 msgid "Seite:"
 msgstr ""
 
-#: functions/constants.php:435 functions/constants.php:1095
+#: functions/constants.php:448 functions/constants.php:1040
 msgid "Seiten"
 msgstr ""
 
@@ -1896,15 +1951,15 @@ msgstr ""
 msgid "Seiten Sidebar"
 msgstr ""
 
-#: functions/constants.php:1236
+#: functions/constants.php:1099
 msgid "Seitensprache"
 msgstr ""
 
-#: functions/constants.php:719
+#: functions/constants.php:747
 msgid "Seitentitel im Banner"
 msgstr ""
 
-#: functions/constants.php:1002
+#: functions/constants.php:1233
 msgid "Seitentypen"
 msgstr ""
 
@@ -1913,8 +1968,9 @@ msgid "Seitenüberblick"
 msgstr ""
 
 #: 403.php:38 404.php:38 401.php:38 search.php:137
-#: functions/custom-fields.php:69 functions/constants.php:1249
-#: template-parts/sidebar-portal.php:79 template-parts/sidebar-start.php:79
+#: functions/custom-fields.php:80 functions/constants.php:1112
+#: functions/constants.php:1119 template-parts/sidebar-portal.php:84
+#: template-parts/sidebar-start.php:84
 msgid "Sidebar"
 msgstr ""
 
@@ -1926,20 +1982,20 @@ msgstr ""
 msgid "Sidebar auf der Such-Ergebnisseite links"
 msgstr ""
 
-#: functions/constants.php:620 functions/constants.php:711
-#: functions/constants.php:1143
+#: functions/constants.php:648 functions/constants.php:739
+#: functions/constants.php:1444
 msgid "Slider"
 msgstr ""
 
-#: functions/constants.php:668
+#: functions/constants.php:696
 msgid "Slider Animation"
 msgstr ""
 
-#: functions/constants.php:661
+#: functions/constants.php:689
 msgid "Slider automatisch starten"
 msgstr ""
 
-#: functions/constants.php:646
+#: functions/constants.php:674
 msgid "Slider Ersatzbild"
 msgstr ""
 
@@ -1947,11 +2003,11 @@ msgstr ""
 msgid "Sliderbild auf Startseite"
 msgstr ""
 
-#: functions/constants.php:726
+#: functions/constants.php:754
 msgid "Slogan im Banner"
 msgstr ""
 
-#: footer.php:71
+#: footer.php:95
 msgid "Social Media"
 msgstr ""
 
@@ -1963,11 +2019,11 @@ msgstr ""
 msgid "Social Media Menu"
 msgstr ""
 
-#: functions/customizer.php:125 functions/constants.php:232
+#: functions/customizer.php:125 functions/constants.php:235
 msgid "Sonstiges"
 msgstr ""
 
-#: functions/constants.php:1126
+#: functions/constants.php:1427
 msgid "Sortierung"
 msgstr ""
 
@@ -1975,15 +2031,15 @@ msgstr ""
 msgid "Spanisch"
 msgstr ""
 
-#: functions/custom-fields.php:1082
+#: functions/custom-fields.php:1099
 msgid "Sprache des Seitentitels umdefinieren"
 msgstr ""
 
-#: functions/custom-fields.php:1046 functions/custom-fields.php:1077
+#: functions/custom-fields.php:1063 functions/custom-fields.php:1094
 msgid "Sprache im Inhaltsbereich deklarieren"
 msgstr ""
 
-#: functions/constants.php:1484
+#: functions/constants.php:1540
 msgid "Sprachschalter simulieren"
 msgstr ""
 
@@ -1999,21 +2055,21 @@ msgstr ""
 msgid "Sprunglinks"
 msgstr ""
 
-#: functions/constants.php:1407
+#: functions/constants.php:1339
 msgid "Standard Fehlermeldung verstecken"
 msgstr ""
 
-#: functions/constants.php:1415
+#: functions/constants.php:1347
 msgid "Standard Sucheingabe abschalten"
 msgstr ""
 
-#: functions/constants.php:1127
+#: functions/constants.php:1428
 msgid "Standardsortierung der Bildlinks."
 msgstr ""
 
 #. Name of the template
 #: page-templates/page-start-sub.php:2 functions/customizer.php:51
-#: functions/constants.php:162 functions/constants.php:1005
+#: functions/constants.php:162 functions/constants.php:1236
 msgid "Startseite"
 msgstr ""
 
@@ -2026,15 +2082,15 @@ msgstr ""
 msgid "Stellenangebote"
 msgstr ""
 
-#: functions/constants.php:770
+#: functions/constants.php:796
 msgid "Strasse"
 msgstr ""
 
-#: functions/constants.php:771
+#: functions/constants.php:797
 msgid "Strasse inkl. Hausnummer"
 msgstr ""
 
-#: functions/constants.php:442
+#: functions/constants.php:455
 msgid "Studienangebot"
 msgstr ""
 
@@ -2050,7 +2106,7 @@ msgstr ""
 msgid "Suche"
 msgstr ""
 
-#: functions/constants.php:1085
+#: functions/constants.php:1030
 msgid "Suche filterbar"
 msgstr ""
 
@@ -2062,7 +2118,7 @@ msgstr ""
 msgid "Suche Sidebar"
 msgstr ""
 
-#: functions/constants.php:1007
+#: functions/constants.php:1238
 msgid "Suche und Fehlerseiten"
 msgstr ""
 
@@ -2070,11 +2126,11 @@ msgstr ""
 msgid "Suchen nach..."
 msgstr ""
 
-#: search.php:29 functions/constants.php:1034
+#: search.php:29 functions/constants.php:979
 msgid "Suchergebnisse"
 msgstr ""
 
-#: functions/custom-fields.php:307
+#: functions/custom-fields.php:324
 msgid "Symbolbild"
 msgstr ""
 
@@ -2083,39 +2139,39 @@ msgid ""
 "Symbolbild zum Artikel. Der Link öffnet das Bild in einer großen Anzeige."
 msgstr ""
 
-#: functions/defaults.php:178 functions/constants.php:1389
+#: functions/defaults.php:178 functions/constants.php:1321
 msgid "Technische Fakultät"
 msgstr ""
 
-#: functions/constants.php:1377
+#: functions/constants.php:1309
 msgid "Templates"
 msgstr ""
 
-#: functions/custom-fields.php:781 functions/custom-fields.php:783
+#: functions/custom-fields.php:798 functions/custom-fields.php:800
 msgid "Text am Anfang der Sidebar"
 msgstr ""
 
-#: functions/custom-fields.php:866 functions/custom-fields.php:868
+#: functions/custom-fields.php:883 functions/custom-fields.php:885
 msgid "Text am Ende der Sidebar"
 msgstr ""
 
-#: functions/constants.php:1070
+#: functions/constants.php:1015
 msgid "Textabbruch"
 msgstr ""
 
-#: functions/custom-fields.php:781 functions/custom-fields.php:783
+#: functions/custom-fields.php:798 functions/custom-fields.php:800
 msgid "Textbereich oben"
 msgstr ""
 
-#: functions/custom-fields.php:866 functions/custom-fields.php:868
+#: functions/custom-fields.php:883 functions/custom-fields.php:885
 msgid "Textbereich unten"
 msgstr ""
 
-#: functions/defaults.php:179 functions/constants.php:1457
+#: functions/defaults.php:179 functions/constants.php:1513
 msgid "TF"
 msgstr ""
 
-#: functions/constants.php:1451
+#: functions/constants.php:1507
 msgid "Themefarbe (Default)"
 msgstr ""
 
@@ -2127,76 +2183,76 @@ msgstr ""
 msgid "Thumbnail"
 msgstr ""
 
-#: functions/constants.php:864 functions/constants.php:943
-#: functions/constants.php:1026
+#: functions/constants.php:931 functions/constants.php:1257
+#: functions/constants.php:1407
 msgid "Thumbnail Ersatzbild"
 msgstr ""
 
-#: functions/constants.php:1039
+#: functions/constants.php:984
 msgid "Thumbnails"
 msgstr ""
 
-#: functions/helper-functions.php:434 functions/custom-fields.php:267
+#: functions/constants.php:1550
+msgid "Timestamp Theme Mods"
+msgstr ""
+
+#: functions/helper-functions.php:434 functions/custom-fields.php:284
 msgid "Titel"
 msgstr ""
 
-#: functions/custom-fields.php:776
+#: functions/custom-fields.php:793
 msgid "Titel am Anfang der Sidebar"
 msgstr ""
 
-#: functions/custom-fields.php:861
+#: functions/custom-fields.php:878
 msgid "Titel am Ende der Sidebar"
 msgstr ""
 
-#: functions/custom-fields.php:825
+#: functions/custom-fields.php:842
 msgid "Titel erster Linkblock"
 msgstr ""
 
-#: functions/constants.php:500
+#: functions/constants.php:528
 msgid "Titel im Logo"
 msgstr ""
 
-#: functions/custom-fields.php:776
+#: functions/custom-fields.php:793
 msgid "Titel oben"
 msgstr ""
 
-#: functions/custom-fields.php:861
+#: functions/custom-fields.php:878
 msgid "Titel unten"
 msgstr ""
 
-#: functions/custom-fields.php:267
+#: functions/custom-fields.php:284
 msgid ""
 "Titel wie er in der Sidebar erscheinen soll. Wenn leer, wird der normale "
 "Titel des Beitrags verwendet."
 msgstr ""
 
-#: functions/custom-fields.php:843
+#: functions/custom-fields.php:860
 msgid "Titel zweiter Linkblock"
 msgstr ""
 
-#: functions/custom-fields.php:814
+#: functions/custom-fields.php:831
 msgid "Titel über Ansprechpartner"
 msgstr ""
 
-#: functions/custom-fields.php:825
+#: functions/custom-fields.php:842
 msgid "Titel über die erste Liste von Links, sogenannte Quicklinks"
 msgstr ""
 
-#: functions/custom-fields.php:843
+#: functions/custom-fields.php:860
 msgid ""
 "Titel über die zweite Liste von Links. Weitere Links oder bspw. externe "
 "Links."
 msgstr ""
 
-#: functions/constants.php:989
-msgid "Top Events"
-msgstr ""
-
-#: functions/custom-fields.php:99
+#: functions/custom-fields.php:110 functions/constants.php:1216
 msgid "Top-Event"
 msgstr ""
 
-#: functions/constants.php:1212
+#: functions/constants.php:1224
 msgid "Top-Events"
 msgstr ""
 
@@ -2204,11 +2260,11 @@ msgstr ""
 msgid "Treffer gefunden"
 msgstr ""
 
-#: functions/constants.php:513
+#: functions/constants.php:541
 msgid "Typ"
 msgstr ""
 
-#: functions/constants.php:1077
+#: functions/constants.php:1022
 msgid "Typ anzeigen"
 msgstr ""
 
@@ -2221,21 +2277,21 @@ msgstr ""
 msgid "Ungültiger Aufruf von"
 msgstr ""
 
-#: functions/constants.php:1392
+#: functions/constants.php:1324
 msgid "Unsichtbar"
 msgstr ""
 
-#: functions/constants.php:1175
+#: functions/constants.php:1476
 msgid ""
 "Unsichtbarer Titel für die Linklisten (wird für Screenreader und "
 "Suchmaschinen verwendet)."
 msgstr ""
 
-#: functions/constants.php:1266
+#: functions/constants.php:1138
 msgid "Unten"
 msgstr ""
 
-#: functions/constants.php:919
+#: functions/constants.php:907
 msgid ""
 "Unter den News erscheint ein Link auf eine Übersicht der Artikel. Hier wird "
 "die Kategorie dafür ausgewählt. Für den Fall, dass keine Artikel mit einem "
@@ -2243,19 +2299,19 @@ msgid ""
 "ersten News verwendet."
 msgstr ""
 
-#: functions/constants.php:852
+#: functions/constants.php:1395
 msgid "Untermenüpunkte"
 msgstr ""
 
-#: functions/custom-fields.php:483 functions/custom-fields.php:538
+#: functions/custom-fields.php:500 functions/custom-fields.php:555
 msgid "Unterpunkte verbergen."
 msgstr ""
 
-#: functions/constants.php:1220
+#: functions/constants.php:1083
 msgid "Untertitel (Beiträge)"
 msgstr ""
 
-#: functions/custom-fields.php:152 functions/custom-fields.php:1063
+#: functions/custom-fields.php:152 functions/custom-fields.php:1080
 msgid "Untertitel (Inhaltsüberschrift)"
 msgstr ""
 
@@ -2267,7 +2323,7 @@ msgstr ""
 msgid "Veranstaltungshinweis"
 msgstr ""
 
-#: functions/custom-fields.php:477 functions/custom-fields.php:532
+#: functions/custom-fields.php:494 functions/custom-fields.php:549
 msgid "verbergen"
 msgstr ""
 
@@ -2275,15 +2331,15 @@ msgstr ""
 msgid "Vergrößern"
 msgstr ""
 
-#: functions/constants.php:686
+#: functions/constants.php:714
 msgid "Verlinke Galeriebilder"
 msgstr ""
 
-#: functions/constants.php:926
+#: functions/constants.php:914
 msgid "Verlinkungstitel für weitere Meldungen."
 msgstr ""
 
-#: functions/constants.php:671
+#: functions/constants.php:699
 msgid "Verschieben"
 msgstr ""
 
@@ -2292,7 +2348,7 @@ msgstr ""
 msgid "Video Podcast"
 msgstr ""
 
-#: functions/custom-fields.php:107
+#: functions/custom-fields.php:118
 msgid "Video/Podcast"
 msgstr ""
 
@@ -2300,11 +2356,11 @@ msgstr ""
 msgid "Vielleicht hilft Ihnen die Suche:"
 msgstr ""
 
-#: functions/constants.php:567
+#: functions/constants.php:595
 msgid "Vor und Zurück"
 msgstr ""
 
-#: functions/constants.php:1093
+#: functions/constants.php:1038
 msgid ""
 "Vorab aktivierte Suchbereiche des Filters. In diesen wird gesucht, wenn der "
 "Nutzer der Seite keine Auswahl trifft oder diese nicht zur Verfügung "
@@ -2323,11 +2379,11 @@ msgstr ""
 msgid "Webauftritt durchsuchen"
 msgstr ""
 
-#: functions/constants.php:520
+#: functions/constants.php:548
 msgid "Website für uniübergreifende Kooperationen mit Externen"
 msgstr ""
 
-#: functions/constants.php:733
+#: functions/constants.php:761
 msgid "Website-Titel"
 msgstr ""
 
@@ -2339,11 +2395,11 @@ msgstr ""
 msgid "Weitere Hinweise zum Webauftritt"
 msgstr ""
 
-#: functions/constants.php:231
+#: functions/constants.php:234
 msgid "Weitere Informationen"
 msgstr ""
 
-#: functions/constants.php:912
+#: functions/constants.php:900
 msgid "Weitere Meldungen verlinken."
 msgstr ""
 
@@ -2355,17 +2411,23 @@ msgstr ""
 msgid "Weiterlesen"
 msgstr ""
 
-#: functions/constants.php:973 functions/constants.php:1053
+#: functions/constants.php:961 functions/constants.php:998
 msgid "Weiterlesen Button"
 msgstr ""
 
-#: functions/custom-fields.php:166
+#: functions/constants.php:1276
+msgid ""
+"Wenn Bilder Copyright-Informationen aufweisen und in der Seite verwendet "
+"werden, können diese hiermit am Ende der Seite gesammelt angezeigt werden."
+msgstr ""
+
+#: functions/custom-fields.php:182
 msgid ""
 "Wenn der Artikel nicht auf der Website liegt, sondern auf eine externe Seite "
 "verlinkt werden soll, ist hier eine URL anzugeben."
 msgstr ""
 
-#: functions/constants.php:887
+#: functions/constants.php:875
 msgid ""
 "Wenn ein Artikel mit dem Sticky-Tag (\"Oben halten\") veröffentlicht wurde, "
 "wird dieser vor der aktuellen Liste gezeigt. Solange ein Artikel existiert "
@@ -2373,13 +2435,13 @@ msgid ""
 "vor der aktuellen Liste gezeigt."
 msgstr ""
 
-#: functions/constants.php:1408
+#: functions/constants.php:1340
 msgid ""
 "Wenn eine Fehlerseite erscheint, kann mit diesem Schalter die Standard-"
 "Fehlermeldung unterdrückt werden."
 msgstr ""
 
-#: functions/constants.php:42
+#: functions/constants.php:45
 msgid ""
 "Wenn Sie dies lesen, sind wir vielleicht was für Sie! \n"
 "\t    Die FAU sucht immer vielversprechende Talente in allen universitären "
@@ -2388,7 +2450,7 @@ msgid ""
 "\t    https://jobs.fau.de"
 msgstr ""
 
-#: functions/constants.php:1161
+#: functions/constants.php:1462
 msgid ""
 "Wenn zur Anzeige der Slider gewählt wurde, kann hier eingestellt werden, ob "
 "dieser von selbst starten soll oder nicht. Bitte beachten Sie, dass ein "
@@ -2398,11 +2460,11 @@ msgid ""
 "automatisch rotierenden Bildlinks nicht barrierefrei ist."
 msgstr ""
 
-#: functions/constants.php:1399
+#: functions/constants.php:1331
 msgid "Widget-Funktion für Fehlerseiten"
 msgstr ""
 
-#: functions/constants.php:1255
+#: functions/constants.php:1127
 msgid "Widget-Funktion für Seiten"
 msgstr ""
 
@@ -2410,7 +2472,7 @@ msgstr ""
 msgid "Widgetbereich oberhalb des Seitenendes (Footer)."
 msgstr ""
 
-#: functions/widgets.php:95 functions/constants.php:1256
+#: functions/widgets.php:95 functions/constants.php:1128
 msgid ""
 "Widgets die auf allen Seiten angezeigt werden sollen. Sollten "
 "Seitenspezifische Inhalte in der Sidebar angegeben worden sein, wird diese "
@@ -2422,23 +2484,23 @@ msgstr ""
 msgid "Widgets für Fehlerseiten"
 msgstr ""
 
-#: functions/constants.php:1326
+#: functions/constants.php:1198
 msgid "Wieviele Links können maximal im ersten Linkblock angegeben werden."
 msgstr ""
 
-#: functions/constants.php:1335
+#: functions/constants.php:1207
 msgid "Wieviele Links können maximal im zweiten Linkblock angegeben werden."
 msgstr ""
 
-#: functions/constants.php:1152
+#: functions/constants.php:1453
 msgid "Wieviele sollen üblicherweise bei der Slide-Anzeige dargestellt werden."
 msgstr ""
 
-#: functions/constants.php:1015
+#: functions/constants.php:1246
 msgid "Wieviele Top-Events sollen maximal angezeigt werden."
 msgstr ""
 
-#: functions/custom-fields.php:1099
+#: functions/custom-fields.php:1116
 msgid ""
 "Wird der Seitentitel auch von einer oder mehreren anderen Seiten verwendet, "
 "ist es notwendig, diesen über ein ARIA-Label von den anderen Seiten zu "
@@ -2451,11 +2513,11 @@ msgid ""
 "WordPress-Theme der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)"
 msgstr ""
 
-#: functions/constants.php:1288
+#: functions/constants.php:1160
 msgid "WYSIWYG-Editor Text oben"
 msgstr ""
 
-#: functions/constants.php:1295
+#: functions/constants.php:1167
 msgid "WYSIWYG-Editor Text unten"
 msgstr ""
 
@@ -2463,13 +2525,13 @@ msgstr ""
 msgid "Wähle Link"
 msgstr ""
 
-#: functions/custom-fields.php:815
+#: functions/custom-fields.php:832
 msgid ""
 "Wählen Sie die Personen oder Ansprechpartner, die in der Sidebar erscheinen "
 "sollen. Es kann mehr als ein Eintrag gewählt werden."
 msgstr ""
 
-#: functions/custom-fields.php:1138
+#: functions/custom-fields.php:1155
 msgid ""
 "Wählen Sie hier die Kategorie aus aus der Bildlinks (verlinkte Logos) "
 "verwendet werden sollen. Die Bilder aus der gewählten Kategorie werden dann "
@@ -2482,106 +2544,106 @@ msgid ""
 "oder Ihr Webauftritt gehört."
 msgstr ""
 
-#: functions/constants.php:1130
+#: functions/constants.php:1431
 msgid "Z - A"
 msgstr ""
 
-#: functions/constants.php:877
+#: functions/constants.php:865
 msgid "Zahl der Artikel (Gesamt)"
 msgstr ""
 
-#: functions/constants.php:626
+#: functions/constants.php:654
 msgid "Zahl der Slides"
 msgstr ""
 
-#: functions/constants.php:734
+#: functions/constants.php:762
 msgid "Zeige den Website-Titel oberhalb der Breadcrumb"
 msgstr ""
 
-#: functions/constants.php:974 functions/constants.php:1054
+#: functions/constants.php:962 functions/constants.php:999
 msgid "Zeige den Weiterlesen-Button hinter jeder Nachricht."
 msgstr ""
 
-#: functions/constants.php:982
+#: functions/constants.php:970
 msgid "Zeige die Artikel im Zickzack-Format an."
 msgstr ""
 
-#: functions/constants.php:576
+#: functions/constants.php:604
 msgid "Zeige die Schlagworte eines Beitrags unterhalb des Artikels"
 msgstr ""
 
-#: functions/constants.php:1078
+#: functions/constants.php:1023
 msgid "Zeige Inhaltstyp des Treffers an."
 msgstr ""
 
-#: functions/constants.php:559
+#: functions/constants.php:587
 msgid "Zeige Kategorien"
 msgstr ""
 
-#: functions/constants.php:568
+#: functions/constants.php:596
 msgid ""
 "Zeige Links zu dem jeweils zeitlich vorherigen und folgenden Beitrag, falls "
 "vorhanden"
 msgstr ""
 
-#: functions/constants.php:575
+#: functions/constants.php:603
 msgid "Zeige Schlagworte"
 msgstr ""
 
-#: functions/constants.php:1228
+#: functions/constants.php:1091
 msgid "Zeige Seiten-Ids"
 msgstr ""
 
-#: functions/constants.php:1168
+#: functions/constants.php:1469
 msgid ""
 "Zeigt bei der Sliderdarstellung unterhalb der Bildlinks Navigationsbuttons "
 "als Punkte an."
 msgstr ""
 
-#: functions/constants.php:720
+#: functions/constants.php:748
 msgid "Zeigt den Seitentitel im Banner an"
 msgstr ""
 
-#: functions/constants.php:727
+#: functions/constants.php:755
 msgid "Zeigt den Slogan im Banner an"
 msgstr ""
 
-#: functions/constants.php:750
+#: functions/constants.php:776
 msgid ""
 "Zeigt die Postadresse an, wie sie bei den Inhaltsdaten des Webauftritts "
 "angegeben wurde."
 msgstr ""
 
-#: functions/constants.php:1452
+#: functions/constants.php:1508
 msgid "Zentral"
 msgstr ""
 
-#: functions/constants.php:519
+#: functions/constants.php:547
 msgid "Zentrale Einrichtung"
 msgstr ""
 
-#: functions/constants.php:521
+#: functions/constants.php:549
 msgid "Zentrales FAU-Portal www.fau.de"
 msgstr ""
 
-#: functions/constants.php:981
+#: functions/constants.php:969
 msgid "Zickzack-Modus"
 msgstr ""
 
-#: functions/custom-fields.php:489 functions/custom-fields.php:544
-#: functions/constants.php:845
+#: functions/custom-fields.php:506 functions/custom-fields.php:561
+#: functions/constants.php:1388
 msgid "Zoom-Effekt verwenden"
 msgstr ""
 
-#: functions/custom-fields.php:794
+#: functions/custom-fields.php:811
 msgid "Zuerst Kontake, dann Linklisten"
 msgstr ""
 
-#: functions/custom-fields.php:794
+#: functions/custom-fields.php:811
 msgid "Zuerst Linklisten, dann Kontakte"
 msgstr ""
 
-#: functions/constants.php:1131
+#: functions/constants.php:1432
 msgid "Zufall"
 msgstr ""
 
@@ -2590,7 +2652,7 @@ msgstr ""
 msgid "Zugriff nicht gestattet"
 msgstr ""
 
-#: functions/constants.php:267 functions/constants.php:273
+#: functions/constants.php:270 functions/constants.php:278
 msgid "Zum Artikel \""
 msgstr ""
 
@@ -2614,7 +2676,7 @@ msgstr ""
 msgid "Zur Seite: "
 msgstr ""
 
-#: functions/constants.php:1370
+#: functions/constants.php:1302
 msgid ""
 "Zur Verifikation der Website als Property in den <a target=\"_blank\" "
 "href=\"https://www.google.com/webmasters/tools/home\">Google Webmaster "
@@ -2626,7 +2688,7 @@ msgid ""
 "Dann geben Sie dies ein: <code>BBssyCpddd8</code> ."
 msgstr ""
 
-#: functions/template-functions.php:1305
+#: functions/template-functions.php:1300
 msgid "Zur zentralen FAU Website"
 msgstr ""
 
@@ -2634,7 +2696,7 @@ msgstr ""
 msgid "Zurück"
 msgstr ""
 
-#: functions/custom-fields.php:45
+#: functions/custom-fields.php:55
 msgid "Zusätzliche Seiten-Einstellungen"
 msgstr ""
 
@@ -2642,7 +2704,7 @@ msgstr ""
 msgid "Zwei Ebenen"
 msgstr ""
 
-#: functions/constants.php:764
+#: functions/constants.php:790
 msgid "Zweite Zeile der Adresse"
 msgstr ""
 
@@ -2658,7 +2720,7 @@ msgstr ""
 msgid "Ältere Kommentare"
 msgstr ""
 
-#: functions/constants.php:1383
+#: functions/constants.php:1315
 msgid ""
 "Ändert die vorgegebene Standard-Trennlinienfarbe vom Standard auf eine "
 "andere CI-Farbe um."
