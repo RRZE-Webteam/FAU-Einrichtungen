@@ -12,6 +12,30 @@
 
 use \RRZE\THEME\EINRICHTUNGEN\Debugging;
 
+
+    $display_copyrights = get_theme_mod('display_copyright_in_footer');			
+    if ($display_copyrights) {
+        $entries = fau_collect_copyright_entries();
+        if ($entries) {
+            $res = '';
+              foreach ($entries as $e) {
+                   $text    = isset($e['text']) ? trim(wp_strip_all_tags((string) $e['text'])) : '';
+                   $imageId = isset($e['image_id']) ? (int) $e['image_id'] : 0;
+
+                  if (!empty($text)) {
+                      $res .= '<li><a href="'.get_permalink($imageId).'">'.__('Bild', 'fau').'</a>: '.esc_html($text).'</li>';
+                  }
+              }
+
+            if (!empty($res)) {
+                echo '<div class="copyright-footer"><div class="container">';
+                echo '<h2>'.__('Bildnachweise', 'fau').'</h2>';
+                echo '<ul>'
+                   . $res
+                   . '</ul></div></div>';
+            }
+        }
+    }
     get_template_part('template-parts/footer', 'social');
 	
     $website_type = get_theme_mod('website_type');			

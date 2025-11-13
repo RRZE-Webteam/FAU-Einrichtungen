@@ -1718,7 +1718,7 @@ function fau_get_image_htmlcode($id = 0, $size = 'rwd-480-3-2', $alttext = '', $
             $item_output .= $attributes;
         }
         $item_output .= ' loading="lazy">';
-
+        fau_copyright_push($id, '', $alttext);
         return $item_output;
     }
 
@@ -1959,6 +1959,155 @@ function fau_get_language_attributes($doctype = 'html') {
     return $output;
 }
 
+
+/*-----------------------------------------------------------------------------------*/
+/* Theme-seitige Helfer zum Sammeln und Bereitstellen von Copyright-Einträgen.
+ * Jeder Eintrag ist ein Array: ['text' => string, 'image_id' => int]
+ *
+ * Nutzung zum Befüllen (irgendwo im Theme, z. B. in Templates oder Hooks):
+ *   fau_copyright_push('© Foto: Max Mustermann', 123);
+ *
+ * Registrierung (automatisch am Ende dieser Datei per after_setup_theme).
+/*-----------------------------------------------------------------------------------*/
+
+if (!function_exists('fau_copyright_push')) {
+
+    /**
+     * Füge einen Copyright-Eintrag hinzu.
+     * NEUE Signatur: image_id ist Pflicht, text optional.
+     *
+     * @param int    $image_id  Attachment-ID des Bildes
+     * @param string $text      Optionaler Copyright-Text. Wenn leer, wird aus den
+     *                          EXIF/Metadaten des Bildes gelesen: zuerst 'copyright',
+     *                          sonst 'credit'. Wird nichts gefunden, passiert nichts.
+     */
+    function fau_copyright_push(int $image_id, string $text = '', string $context = ''): void {
+        static $store = null;
+        if ($store === null) {
+            $store = [];
+            $GLOBALS['_fau_copyright_entries'] = &$store; // global verfügbar
+        } else {
+            $store = &$GLOBALS['_fau_copyright_entries'];
+        }
+
+        $image_id = (int) $image_id;
+        if ($image_id <= 0) {
+            return;
+        }
+
+        $text = trim(wp_strip_all_tags($text));
+
+        // Falls kein Text übergeben wurde: aus Metadaten (EXIF/XMP) holen
+        if ($text === '') {
+            $meta = wp_get_attachment_metadata($image_id);
+            if (is_array($meta) && !empty($meta['image_meta']) && is_array($meta['image_meta'])) {
+                $im = $meta['image_meta'];
+
+                $candidate = '';
+                if (!empty($im['copyright'])) {
+                    $candidate = (string) $im['copyright'];
+                } elseif (!empty($im['credit'])) {
+                    $candidate = (string) $im['credit'];
+                }
+
+                $candidate = trim(wp_strip_all_tags($candidate));
+                if ($candidate !== '') {
+                    $text = $candidate;
+                }
+            }
+           
+        }
+
+        // Nichts gefunden → keinen Eintrag erstellen
+        if ($text === '') {
+            return;
+        }
+        
+        if (!empty($context)) {
+            $text = '"'.$context.'", '.__('Copyright', 'fau').': "'.$text.'"';
+        }
+        // Eintrag speichern
+        $store[] = [
+            'text'     => $text,
+            'image_id' => $image_id,
+        ];
+    }
+
+}
+
+if (!function_exists('fau_copyright_reset')) {
+    /**
+     * Löscht alle bislang im Theme gesammelten Einträge (optional).
+     */
+    function fau_copyright_reset(): void {
+        $GLOBALS['_fau_copyright_entries'] = [];
+    }
+}
+
+if (!function_exists('fau_copyright_collect')) {
+    /**
+     * Filter-Callback: Merged die lokal gesammelten Einträge in $entries
+     * und normalisiert das Ergebnis.
+     *
+     * @param mixed $entries Array oder gemischt, wie vom Filter übergeben
+     * @param mixed $args    optionale Zusatzargumente
+     * @return array         Array von ['text' => string, 'image_id' => int]
+     */
+    function fau_copyright_collect($entries, $args = []) : array {
+        // Eingabe nach Array biegen
+        $entriesArr = is_array($entries) ? $entries : [$entries];
+
+        // Theme-intern gesammelte Einträge anhängen
+        $local = $GLOBALS['_fau_copyright_entries'] ?? [];
+        if (!empty($local)) {
+            $entriesArr = array_merge($entriesArr, $local);
+        }
+
+        // Normalisieren: alles auf ['text' => string, 'image_id' => int]
+        $normalized = [];
+        foreach ($entriesArr as $e) {
+            if (is_array($e)) {
+                $text   = isset($e['text']) ? trim(wp_strip_all_tags((string) $e['text'])) : '';
+                $imgId  = isset($e['image_id']) ? (int) $e['image_id'] : 0;
+                if ($text !== '') {
+                    $normalized[] = ['text' => $text, 'image_id' => max(0, $imgId)];
+                }
+            } elseif (is_scalar($e)) {
+                $text = trim(wp_strip_all_tags((string) $e));
+                if ($text !== '') {
+                    $normalized[] = ['text' => $text, 'image_id' => 0];
+                }
+            }
+        }
+
+        // Deduplizieren nach text+image_id (case-insensitive Text)
+        $seen = [];
+        $out  = [];
+        foreach ($normalized as $item) {
+            $key = strtolower($item['text']) . '|' . (string) $item['image_id'];
+            if (!isset($seen[$key])) {
+                $seen[$key] = true;
+                $out[] = $item;
+            }
+        }
+
+        return $out;
+    }
+}
+
+
+if (!function_exists('fau_register_copyright_filter')) {
+    /**
+     * Registriert den passenden Filter-Callback im Theme.
+     * Ruft intern fau_get_copyright_filter_tag() auf.
+     */
+    function fau_register_copyright_filter(): void {
+        add_filter('fau_copyright_info', 'fau_copyright_collect', 10, 2);        
+    }
+
+    // Automatisch bei Theme-Setup registrieren
+    add_action('after_setup_theme', 'fau_register_copyright_filter');
+}
 
 /*-----------------------------------------------------------------------------------*/
 /* This is the end :)
