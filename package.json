@@ -2,7 +2,7 @@
     "type": "module",
     "name": "FAU-Einrichtungen",
     "textdomain": "fau",
-    "version": "2.6.36",
+    "version": "2.6.37",
     "keywords": [
         "WordPress",
         "Theme",
@@ -18,7 +18,7 @@
         "name": "RRZE-Webteam <webmaster@fau.de> (https://www.rrze.fau.de)",
         "url": "https://www.wp.rrze.fau.de"
     },
-    "description": "WordPress-Theme der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU)",
+    "description": "WordPress-Theme der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) von 2015 bis 2025",
     "license": "GNU General Public License v3 or later",
     "licenseurl": "http://www.gnu.org/licenses/gpl-3.0.html",
     "tags": "three-columns, two-columns, one-column, right-sidebar, featured-images",

@@ -2,11 +2,23 @@
 
 [![Aktuelle Version](https://img.shields.io/github/package-json/v/rrze-webteam/fau-einrichtungen/master?label=Version)](https://github.com/RRZE-Webteam/FAU-Einrichtungen) [![Release Version](https://img.shields.io/github/v/release/rrze-webteam/FAU-Einrichtungen?label=Release+Version)](https://github.com/rrze-webteam/fau-einrichtungen/releases/) [![GitHub License](https://img.shields.io/github/license/rrze-webteam/fau-einrichtungen?label=Lizenz)](https://github.com/RRZE-Webteam/FAU-Einrichtungen/blob/master/LICENSE) [![GitHub issues](https://img.shields.io/github/issues/rrze-webteam/fau-einrichtungen)](https://github.com/RRZE-Webteam/FAU-Einrichtungen/issues)
 
-WordPress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU), https://www.fau.de
+WordPress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU), https://www.fau.de 
+
+**⚠️ Hinweis **
+> 
+> Das WordPress-Theme FAU-Einrichtungen war von Oktober 2015 bis November 2025 im Gebrauch als zentrales Theme der FAU.
+> Ab dem 20. November 2026 stellt die FAU auf ein neues Theme um, beginnend mit der zentralen Website und sukzessiv folgenden mit allen weiteren Webauftritten der FAU. 
+> Das neue Theme [FAU-Elemental](https://github.com/RRZE-Webteam/FAU-Elemental/)) wird in einem gesonderten Repository gepflegt.
+>  
+> Das Theme FAU-Einrichtungen wird bis auf Weiteres für Kooperationswebauftritte mit Externen und für ältere Webauftritte im Einsatz bleiben.
+> Hierzu wird es in Zukunft Änderungen geben, um das Theme entsprechend dieses Zweckes zu optimieren.
+> Die Child-Themes der Fakultäten werden hingegen nicht weiter entwickelt werden und nur noch für eine Übergangszeit gewartet.
+>  
+
 
 ## Version
 
-Version: 2.6.36
+Version: 2.6.37
 
 ## Screenshot
 
