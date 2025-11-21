@@ -4,7 +4,7 @@
 
 WordPress-Theme für zentrale Einrichtungen der Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU), https://www.fau.de 
 
-**⚠️ Hinweis **
+## ⚠️ Hinweis 
 > 
 > Das WordPress-Theme FAU-Einrichtungen war von Oktober 2015 bis November 2025 im Gebrauch als zentrales Theme der FAU.
 > Ab dem 20. November 2026 stellt die FAU auf ein neues Theme um, beginnend mit der zentralen Website und sukzessiv folgenden mit allen weiteren Webauftritten der FAU. 
