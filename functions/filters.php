@@ -226,7 +226,7 @@ add_filter('the_content', 'fau_remove_text_attributes_from_content');
 /*-----------------------------------------------------------------------------------*/
 add_filter('the_content', 'fau_remove_empty_list', 20, 1);
 function fau_remove_empty_list($content){
-    $content = force_balance_tags($content);
+   // $content = force_balance_tags($content);
     return preg_replace('#<ul>\s*+(<br\s*/*>)?\s*</ul>#i', '<ul><li>&nbsp;</li></ul>', $content);
 }
 
