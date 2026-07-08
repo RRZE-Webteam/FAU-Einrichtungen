@@ -147,9 +147,9 @@ if (get_theme_mod('advanced_reveal_pages_id')) {
 /*-----------------------------------------------------------------------------------*/
 /* Filter bad paragraphs - fallback
 /*-----------------------------------------------------------------------------------*/
-add_filter('the_content', 'fau_remove_empty_p', 20, 1);
+// add_filter('the_content', 'fau_remove_empty_p', 20, 1);
 function fau_remove_empty_p($content){
-    $content = force_balance_tags($content);
+    // $content = force_balance_tags($content);
     return preg_replace('#<p>\s*+(<br\s*/*>)?\s*</p>#i', '', $content);
 }
 
